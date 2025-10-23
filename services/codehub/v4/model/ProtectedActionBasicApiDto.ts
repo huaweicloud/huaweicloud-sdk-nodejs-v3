@@ -1,3 +1,4 @@
+import { ForceActionEnableDto } from './ForceActionEnableDto';
 
 
 export class ProtectedActionBasicApiDto {
@@ -6,6 +7,7 @@ export class ProtectedActionBasicApiDto {
     private 'user_ids'?: Array<number>;
     private 'user_team_ids'?: Array<number>;
     private 'related_role_ids'?: Array<string>;
+    private 'addition_switchers'?: Array<ForceActionEnableDto>;
     public constructor() { 
     }
     public withAction(action: ProtectedActionBasicApiDtoActionEnum | string): ProtectedActionBasicApiDto {
@@ -45,6 +47,16 @@ export class ProtectedActionBasicApiDto {
     }
     public get relatedRoleIds(): Array<string> | undefined {
         return this['related_role_ids'];
+    }
+    public withAdditionSwitchers(additionSwitchers: Array<ForceActionEnableDto>): ProtectedActionBasicApiDto {
+        this['addition_switchers'] = additionSwitchers;
+        return this;
+    }
+    public set additionSwitchers(additionSwitchers: Array<ForceActionEnableDto>  | undefined) {
+        this['addition_switchers'] = additionSwitchers;
+    }
+    public get additionSwitchers(): Array<ForceActionEnableDto> | undefined {
+        return this['addition_switchers'];
     }
 }
 

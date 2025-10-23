@@ -1446,11 +1446,11 @@ export class IdentityCenterClient {
     }
 
     /**
-     * 将系统策略附加到权限集。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+     * 在指定的权限集中添加系统策略。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 附加系统策略到权限集
+     * @summary 添加系统策略
      * @param {string} instanceId IAM Identity Center实例的全局唯一标识符（ID）
      * @param {string} permissionSetId 权限集的全局唯一标识符（ID）
      * @param {ResourceAttachManagedPolicyToPermissionSetReqBody} resourceAttachManagedPolicyToPermissionSetReqBody 系统策略附加到权限集请求体
@@ -1493,7 +1493,7 @@ export class IdentityCenterClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除指定权限集中的自定义身份策略
+     * @summary 删除自定义身份策略
      * @param {string} instanceId IAM Identity Center实例的全局唯一标识符（ID）
      * @param {string} permissionSetId 权限集的全局唯一标识符（ID）
      * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
@@ -1514,7 +1514,7 @@ export class IdentityCenterClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除指定权限集中的自定义策略
+     * @summary 删除自定义策略
      * @param {string} instanceId IAM Identity Center实例的全局唯一标识符（ID）
      * @param {string} permissionSetId 权限集的全局唯一标识符（ID）
      * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
@@ -1594,11 +1594,11 @@ export class IdentityCenterClient {
     }
 
     /**
-     * 将附加的系统身份策略从指定的权限集中分离。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+     * 删除指定权限集中的系统身份策略。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 从权限集分离系统身份策略
+     * @summary 删除系统身份策略
      * @param {string} instanceId IAM Identity Center实例的全局唯一标识符（ID）
      * @param {string} permissionSetId 权限集的全局唯一标识符（ID）
      * @param {DetachManagedPolicyFromPermissionSetReqBody} detachManagedPolicyFromPermissionSetReqBody 请求体
@@ -1616,11 +1616,11 @@ export class IdentityCenterClient {
     }
 
     /**
-     * 将附加的系统策略从指定的权限集中分离。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+     * 删除指定权限集中的系统策略。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 从权限集分离系统策略
+     * @summary 删除系统策略
      * @param {string} instanceId IAM Identity Center实例的全局唯一标识符（ID）
      * @param {string} permissionSetId 权限集的全局唯一标识符（ID）
      * @param {ResourceDetachManagedPolicyFromPermissionSetReqBody} resourceDetachManagedPolicyFromPermissionSetReqBody 请求体
@@ -1638,11 +1638,11 @@ export class IdentityCenterClient {
     }
 
     /**
-     * 获取分配给权限集的自定义身份策略。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+     * 查询指定权限集中的自定义身份策略详情。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取分配给权限集的自定义身份策略
+     * @summary 查询自定义身份策略详情
      * @param {string} instanceId IAM Identity Center实例的全局唯一标识符（ID）
      * @param {string} permissionSetId 权限集的全局唯一标识符（ID）
      * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
@@ -1659,11 +1659,11 @@ export class IdentityCenterClient {
     }
 
     /**
-     * 获取分配给权限集的自定义策略。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+     * 查询指定权限集中的自定义策略详情。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取分配给权限集的自定义策略
+     * @summary 查询自定义策略详情
      * @param {string} instanceId IAM Identity Center实例的全局唯一标识符（ID）
      * @param {string} permissionSetId 权限集的全局唯一标识符（ID）
      * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
@@ -1724,11 +1724,11 @@ export class IdentityCenterClient {
     }
 
     /**
-     * 获取附加到指定权限集的系统身份策略列表。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+     * 获取添加到指定权限集中的系统身份策略列表。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 列出权限集中附加的系统身份策略
+     * @summary 列出系统身份策略
      * @param {string} instanceId IAM Identity Center实例的全局唯一标识符（ID）
      * @param {string} permissionSetId 权限集的全局唯一标识符（ID）
      * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
@@ -1747,11 +1747,11 @@ export class IdentityCenterClient {
     }
 
     /**
-     * 获取附加到指定权限集的系统策略列表。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+     * 获取添加到指定权限集中的系统策略列表。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 列出权限集中附加的系统策略
+     * @summary 列出系统策略
      * @param {string} instanceId IAM Identity Center实例的全局唯一标识符（ID）
      * @param {string} permissionSetId 权限集的全局唯一标识符（ID）
      * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
@@ -1886,11 +1886,11 @@ export class IdentityCenterClient {
     }
 
     /**
-     * 将自定义策略附加到权限集。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+     * 在指定的权限集中添加自定义策略。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 将自定义策略附加到权限集
+     * @summary 添加自定义策略
      * @param {string} instanceId IAM Identity Center实例的全局唯一标识符（ID）
      * @param {string} permissionSetId 权限集的全局唯一标识符（ID）
      * @param {PutCustomRoleToPermissionSetReqBody} putCustomRoleToPermissionSetReqBody 
@@ -5027,7 +5027,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 将系统策略附加到权限集。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+         * 在指定的权限集中添加系统策略。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5395,7 +5395,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 将附加的系统身份策略从指定的权限集中分离。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+         * 删除指定权限集中的系统身份策略。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5455,7 +5455,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 将附加的系统策略从指定的权限集中分离。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+         * 删除指定权限集中的系统策略。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5515,7 +5515,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取分配给权限集的自定义身份策略。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+         * 查询指定权限集中的自定义身份策略详情。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5566,7 +5566,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取分配给权限集的自定义策略。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+         * 查询指定权限集中的自定义策略详情。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5734,7 +5734,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取附加到指定权限集的系统身份策略列表。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+         * 获取添加到指定权限集中的系统身份策略列表。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5800,7 +5800,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取附加到指定权限集的系统策略列表。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+         * 获取添加到指定权限集中的系统策略列表。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6208,7 +6208,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 将自定义策略附加到权限集。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+         * 在指定的权限集中添加自定义策略。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

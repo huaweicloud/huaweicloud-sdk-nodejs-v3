@@ -6,7 +6,8 @@ export class ResizeClusterRequestBody {
     private 'create_node_only'?: boolean;
     private 'waiting_for_killing'?: number;
     private 'auto_redistribute'?: boolean;
-    public constructor() { 
+    public constructor(scaleOut?: ScaleOut) { 
+        this['scale_out'] = scaleOut;
     }
     public withScaleOut(scaleOut: ScaleOut): ResizeClusterRequestBody {
         this['scale_out'] = scaleOut;

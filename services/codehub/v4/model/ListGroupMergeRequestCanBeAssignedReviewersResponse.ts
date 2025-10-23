@@ -6,7 +6,7 @@ export class ListGroupMergeRequestCanBeAssignedReviewersResponse extends SdkResp
     public id?: number;
     public name?: string;
     public username?: string;
-    public state?: string;
+    public state?: ListGroupMergeRequestCanBeAssignedReviewersResponseStateEnum | string;
     private 'service_license_status'?: number;
     private 'avatar_url'?: string;
     private 'avatar_path'?: string;
@@ -32,7 +32,7 @@ export class ListGroupMergeRequestCanBeAssignedReviewersResponse extends SdkResp
         this['username'] = username;
         return this;
     }
-    public withState(state: string): ListGroupMergeRequestCanBeAssignedReviewersResponse {
+    public withState(state: ListGroupMergeRequestCanBeAssignedReviewersResponseStateEnum | string): ListGroupMergeRequestCanBeAssignedReviewersResponse {
         this['state'] = state;
         return this;
     }
@@ -130,4 +130,14 @@ export class ListGroupMergeRequestCanBeAssignedReviewersResponse extends SdkResp
     public get isCommitter(): boolean | undefined {
         return this['is_committer'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListGroupMergeRequestCanBeAssignedReviewersResponseStateEnum {
+    ACTIVE = 'active',
+    BLOCKED = 'blocked',
+    ERROR = 'error'
 }

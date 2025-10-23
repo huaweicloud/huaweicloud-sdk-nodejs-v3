@@ -36,6 +36,7 @@ import { AssociateRepositoryUserGroupRequest } from './model/AssociateRepository
 import { AssociateRepositoryUserGroupResponse } from './model/AssociateRepositoryUserGroupResponse';
 import { BaseEventDto } from './model/BaseEventDto';
 import { BaseJobDto } from './model/BaseJobDto';
+import { BasicRepositoryDto } from './model/BasicRepositoryDto';
 import { BasicRoleDto } from './model/BasicRoleDto';
 import { BatchCreateProtectedBranchRequest } from './model/BatchCreateProtectedBranchRequest';
 import { BatchCreateProtectedBranchResponse } from './model/BatchCreateProtectedBranchResponse';
@@ -43,6 +44,9 @@ import { BatchCreateProtectedTagsRequest } from './model/BatchCreateProtectedTag
 import { BatchCreateProtectedTagsResponse } from './model/BatchCreateProtectedTagsResponse';
 import { BatchCreateRepositoryMemberBodyDto } from './model/BatchCreateRepositoryMemberBodyDto';
 import { BatchCreateRepositoryMemberDto } from './model/BatchCreateRepositoryMemberDto';
+import { BatchDeleteBranchDto } from './model/BatchDeleteBranchDto';
+import { BatchDeleteBranchRequest } from './model/BatchDeleteBranchRequest';
+import { BatchDeleteBranchResponse } from './model/BatchDeleteBranchResponse';
 import { BatchDeleteFilePushPermissionDto } from './model/BatchDeleteFilePushPermissionDto';
 import { BatchDeleteProtectedBranchesBodyDto } from './model/BatchDeleteProtectedBranchesBodyDto';
 import { BatchDeleteProtectedBranchesRequest } from './model/BatchDeleteProtectedBranchesRequest';
@@ -61,6 +65,10 @@ import { BatchUpdateProtectedTagsRequest } from './model/BatchUpdateProtectedTag
 import { BatchUpdateProtectedTagsResponse } from './model/BatchUpdateProtectedTagsResponse';
 import { BatchUpdateRepositoryFilePushPermissionsRequest } from './model/BatchUpdateRepositoryFilePushPermissionsRequest';
 import { BatchUpdateRepositoryFilePushPermissionsResponse } from './model/BatchUpdateRepositoryFilePushPermissionsResponse';
+import { BatchValidateRepoNamesRequest } from './model/BatchValidateRepoNamesRequest';
+import { BatchValidateRepoNamesResponse } from './model/BatchValidateRepoNamesResponse';
+import { BatchValidateUserGroupPermissionsRequest } from './model/BatchValidateUserGroupPermissionsRequest';
+import { BatchValidateUserGroupPermissionsResponse } from './model/BatchValidateUserGroupPermissionsResponse';
 import { BlameDto } from './model/BlameDto';
 import { BodyPutLabelDto } from './model/BodyPutLabelDto';
 import { BranchSimpleDto } from './model/BranchSimpleDto';
@@ -74,11 +82,16 @@ import { CheckDeployKeyResponse } from './model/CheckDeployKeyResponse';
 import { CheckGroupDeployKeyRequest } from './model/CheckGroupDeployKeyRequest';
 import { CheckGroupDeployKeyResponse } from './model/CheckGroupDeployKeyResponse';
 import { CommentPathDto } from './model/CommentPathDto';
+import { CommitDiscussionDto } from './model/CommitDiscussionDto';
 import { CommitDto } from './model/CommitDto';
 import { CommitMergeRequestDto } from './model/CommitMergeRequestDto';
+import { CommitNoteDto } from './model/CommitNoteDto';
 import { CommitParams } from './model/CommitParams';
 import { CommitRevetOrCherryPickDto } from './model/CommitRevetOrCherryPickDto';
+import { CommitRuleCreateBodyDto } from './model/CommitRuleCreateBodyDto';
 import { CommitRuleDto } from './model/CommitRuleDto';
+import { CommitRuleUpdateBodyDto } from './model/CommitRuleUpdateBodyDto';
+import { CommitSimpleResultDto } from './model/CommitSimpleResultDto';
 import { CommitStatisticsResultCommitDto } from './model/CommitStatisticsResultCommitDto';
 import { CommitStatsDto } from './model/CommitStatsDto';
 import { ConflictFileDto } from './model/ConflictFileDto';
@@ -89,6 +102,8 @@ import { ContributorDto } from './model/ContributorDto';
 import { CreateBranchDto } from './model/CreateBranchDto';
 import { CreateBranchRequest } from './model/CreateBranchRequest';
 import { CreateBranchResponse } from './model/CreateBranchResponse';
+import { CreateCherryPickMergeRequestRequest } from './model/CreateCherryPickMergeRequestRequest';
+import { CreateCherryPickMergeRequestResponse } from './model/CreateCherryPickMergeRequestResponse';
 import { CreateCommitRequest } from './model/CreateCommitRequest';
 import { CreateCommitResponse } from './model/CreateCommitResponse';
 import { CreateCommitRevertRequest } from './model/CreateCommitRevertRequest';
@@ -101,6 +116,8 @@ import { CreateFileRequest } from './model/CreateFileRequest';
 import { CreateFileResponse } from './model/CreateFileResponse';
 import { CreateGroupMergeRequestApproverSettingRequest } from './model/CreateGroupMergeRequestApproverSettingRequest';
 import { CreateGroupMergeRequestApproverSettingResponse } from './model/CreateGroupMergeRequestApproverSettingResponse';
+import { CreateGroupMergeRequestTemplateRequest } from './model/CreateGroupMergeRequestTemplateRequest';
+import { CreateGroupMergeRequestTemplateResponse } from './model/CreateGroupMergeRequestTemplateResponse';
 import { CreateGroupRequest } from './model/CreateGroupRequest';
 import { CreateGroupRequestBody } from './model/CreateGroupRequestBody';
 import { CreateGroupResponse } from './model/CreateGroupResponse';
@@ -119,8 +136,14 @@ import { CreateMergeRequestTemplateRequest } from './model/CreateMergeRequestTem
 import { CreateMergeRequestTemplateResponse } from './model/CreateMergeRequestTemplateResponse';
 import { CreateProjectMergeRequestApproverSettingRequest } from './model/CreateProjectMergeRequestApproverSettingRequest';
 import { CreateProjectMergeRequestApproverSettingResponse } from './model/CreateProjectMergeRequestApproverSettingResponse';
+import { CreateProjectMergeRequestTemplateRequest } from './model/CreateProjectMergeRequestTemplateRequest';
+import { CreateProjectMergeRequestTemplateResponse } from './model/CreateProjectMergeRequestTemplateResponse';
 import { CreateProjectProtectedBranchesRequest } from './model/CreateProjectProtectedBranchesRequest';
 import { CreateProjectProtectedBranchesResponse } from './model/CreateProjectProtectedBranchesResponse';
+import { CreateProjectProtectedTagsRequest } from './model/CreateProjectProtectedTagsRequest';
+import { CreateProjectProtectedTagsResponse } from './model/CreateProjectProtectedTagsResponse';
+import { CreateRepositoryCommitRuleRequest } from './model/CreateRepositoryCommitRuleRequest';
+import { CreateRepositoryCommitRuleResponse } from './model/CreateRepositoryCommitRuleResponse';
 import { CreateRepositoryFilePushPermissionDto } from './model/CreateRepositoryFilePushPermissionDto';
 import { CreateRepositoryLabelRequest } from './model/CreateRepositoryLabelRequest';
 import { CreateRepositoryLabelResponse } from './model/CreateRepositoryLabelResponse';
@@ -133,22 +156,30 @@ import { CreateReviewSettingResponse } from './model/CreateReviewSettingResponse
 import { CreateTagDto } from './model/CreateTagDto';
 import { CreateTagRequest } from './model/CreateTagRequest';
 import { CreateTagResponse } from './model/CreateTagResponse';
+import { CustomEvaluationDto } from './model/CustomEvaluationDto';
+import { DateTitleDto } from './model/DateTitleDto';
 import { DeleteBranchRequest } from './model/DeleteBranchRequest';
 import { DeleteBranchResponse } from './model/DeleteBranchResponse';
 import { DeleteFileRequest } from './model/DeleteFileRequest';
 import { DeleteFileResponse } from './model/DeleteFileResponse';
 import { DeleteGroupMergeRequestApproverSettingRequest } from './model/DeleteGroupMergeRequestApproverSettingRequest';
 import { DeleteGroupMergeRequestApproverSettingResponse } from './model/DeleteGroupMergeRequestApproverSettingResponse';
+import { DeleteGroupMergeRequestTemplateRequest } from './model/DeleteGroupMergeRequestTemplateRequest';
+import { DeleteGroupMergeRequestTemplateResponse } from './model/DeleteGroupMergeRequestTemplateResponse';
 import { DeleteGroupRequest } from './model/DeleteGroupRequest';
 import { DeleteGroupResponse } from './model/DeleteGroupResponse';
 import { DeleteMergeRequestApproverSettingRequest } from './model/DeleteMergeRequestApproverSettingRequest';
 import { DeleteMergeRequestApproverSettingResponse } from './model/DeleteMergeRequestApproverSettingResponse';
+import { DeleteMergeRequestDiscussionRequest } from './model/DeleteMergeRequestDiscussionRequest';
+import { DeleteMergeRequestDiscussionResponse } from './model/DeleteMergeRequestDiscussionResponse';
 import { DeleteMergeRequestTemplateRequest } from './model/DeleteMergeRequestTemplateRequest';
 import { DeleteMergeRequestTemplateResponse } from './model/DeleteMergeRequestTemplateResponse';
 import { DeleteMergeRequestVoteRequest } from './model/DeleteMergeRequestVoteRequest';
 import { DeleteMergeRequestVoteResponse } from './model/DeleteMergeRequestVoteResponse';
 import { DeleteProjectMergeRequestApproverSettingRequest } from './model/DeleteProjectMergeRequestApproverSettingRequest';
 import { DeleteProjectMergeRequestApproverSettingResponse } from './model/DeleteProjectMergeRequestApproverSettingResponse';
+import { DeleteProjectMergeRequestTemplateRequest } from './model/DeleteProjectMergeRequestTemplateRequest';
+import { DeleteProjectMergeRequestTemplateResponse } from './model/DeleteProjectMergeRequestTemplateResponse';
 import { DeleteProtectedBranchRequest } from './model/DeleteProtectedBranchRequest';
 import { DeleteProtectedBranchResponse } from './model/DeleteProtectedBranchResponse';
 import { DeleteProtectedTagRequest } from './model/DeleteProtectedTagRequest';
@@ -177,18 +208,26 @@ import { DownloadArchiveRequest } from './model/DownloadArchiveRequest';
 import { DownloadArchiveResponse } from './model/DownloadArchiveResponse';
 import { DownloadBlobsRawRequest } from './model/DownloadBlobsRawRequest';
 import { DownloadBlobsRawResponse } from './model/DownloadBlobsRawResponse';
+import { E2ePolicyDto } from './model/E2ePolicyDto';
 import { EvaluationTypeDto } from './model/EvaluationTypeDto';
+import { ExecuteRepositoryStatisticsRequest } from './model/ExecuteRepositoryStatisticsRequest';
+import { ExecuteRepositoryStatisticsResponse } from './model/ExecuteRepositoryStatisticsResponse';
+import { ExportTenantRepositoriesRequest } from './model/ExportTenantRepositoriesRequest';
+import { ExportTenantRepositoriesResponse } from './model/ExportTenantRepositoriesResponse';
+import { ExportTenantRepositoryBody } from './model/ExportTenantRepositoryBody';
 import { FailureForBatchCreateGroupMembersDto } from './model/FailureForBatchCreateGroupMembersDto';
 import { FileBodyDto } from './model/FileBodyDto';
 import { FileChangeDto } from './model/FileChangeDto';
 import { FileDiffDto } from './model/FileDiffDto';
 import { FilePushPermissionActionBodyDto } from './model/FilePushPermissionActionBodyDto';
 import { FilePushPermissionUpdateDto } from './model/FilePushPermissionUpdateDto';
+import { ForceActionEnableDto } from './model/ForceActionEnableDto';
 import { ForkRepositoryBaseDto } from './model/ForkRepositoryBaseDto';
 import { ForkRepositoryBasicDto } from './model/ForkRepositoryBasicDto';
 import { ForkRepositoryDto } from './model/ForkRepositoryDto';
 import { ForkRepositoryLeastDto } from './model/ForkRepositoryLeastDto';
 import { ForkedFromRepositorySimplestDto } from './model/ForkedFromRepositorySimplestDto';
+import { GeneralCommitRuleBodyDto } from './model/GeneralCommitRuleBodyDto';
 import { GeneralPolicyBodyDto } from './model/GeneralPolicyBodyDto';
 import { GpgKeyDto } from './model/GpgKeyDto';
 import { GpgSubKeyDto } from './model/GpgSubKeyDto';
@@ -196,14 +235,17 @@ import { GrantedUsersDto } from './model/GrantedUsersDto';
 import { GroupBaseDto } from './model/GroupBaseDto';
 import { GroupBatchAddMemberDto } from './model/GroupBatchAddMemberDto';
 import { GroupMemberDetailDto } from './model/GroupMemberDetailDto';
+import { GroupMergeRequestTemplateDto } from './model/GroupMergeRequestTemplateDto';
 import { GroupMyRoleDto } from './model/GroupMyRoleDto';
 import { GroupMyRoleDtoV4 } from './model/GroupMyRoleDtoV4';
+import { GroupPermissionsDto } from './model/GroupPermissionsDto';
 import { GroupSumDto } from './model/GroupSumDto';
 import { ImpersonationToken } from './model/ImpersonationToken';
 import { ImportMergeRequestRequest } from './model/ImportMergeRequestRequest';
 import { ImportMergeRequestResponse } from './model/ImportMergeRequestResponse';
 import { ImportMrParamsDto } from './model/ImportMrParamsDto';
 import { IssuableTimeStatsDto } from './model/IssuableTimeStatsDto';
+import { ItemCommitDto } from './model/ItemCommitDto';
 import { JobWithStageDto } from './model/JobWithStageDto';
 import { LabelBaseDto } from './model/LabelBaseDto';
 import { LabelBasicDto } from './model/LabelBasicDto';
@@ -213,6 +255,7 @@ import { LabelSimpleDto } from './model/LabelSimpleDto';
 import { LanguagesDto } from './model/LanguagesDto';
 import { LineContentDto } from './model/LineContentDto';
 import { LineDiscussionDto } from './model/LineDiscussionDto';
+import { LinkSettingDto } from './model/LinkSettingDto';
 import { ListBranchRelatedWorkItemsRequest } from './model/ListBranchRelatedWorkItemsRequest';
 import { ListBranchRelatedWorkItemsResponse } from './model/ListBranchRelatedWorkItemsResponse';
 import { ListBranchesRequest } from './model/ListBranchesRequest';
@@ -221,6 +264,10 @@ import { ListCommitAssociatedMergeRequestsRequest } from './model/ListCommitAsso
 import { ListCommitAssociatedMergeRequestsResponse } from './model/ListCommitAssociatedMergeRequestsResponse';
 import { ListCommitAssociatedRefsRequest } from './model/ListCommitAssociatedRefsRequest';
 import { ListCommitAssociatedRefsResponse } from './model/ListCommitAssociatedRefsResponse';
+import { ListCommitDiscussionsRequest } from './model/ListCommitDiscussionsRequest';
+import { ListCommitDiscussionsResponse } from './model/ListCommitDiscussionsResponse';
+import { ListCommitsRequest } from './model/ListCommitsRequest';
+import { ListCommitsResponse } from './model/ListCommitsResponse';
 import { ListCurrentUserRepositoriesRequest } from './model/ListCurrentUserRepositoriesRequest';
 import { ListCurrentUserRepositoriesResponse } from './model/ListCurrentUserRepositoriesResponse';
 import { ListDefaultReviewCategoriesRequest } from './model/ListDefaultReviewCategoriesRequest';
@@ -245,12 +292,20 @@ import { ListGroupMergeRequestApproverSettingsRequest } from './model/ListGroupM
 import { ListGroupMergeRequestApproverSettingsResponse } from './model/ListGroupMergeRequestApproverSettingsResponse';
 import { ListGroupMergeRequestCanBeAssignedReviewersRequest } from './model/ListGroupMergeRequestCanBeAssignedReviewersRequest';
 import { ListGroupMergeRequestCanBeAssignedReviewersResponse } from './model/ListGroupMergeRequestCanBeAssignedReviewersResponse';
+import { ListGroupMergeRequestTemplatesRequest } from './model/ListGroupMergeRequestTemplatesRequest';
+import { ListGroupMergeRequestTemplatesResponse } from './model/ListGroupMergeRequestTemplatesResponse';
 import { ListGroupMergeRequestValidAssignedCandidatesRequest } from './model/ListGroupMergeRequestValidAssignedCandidatesRequest';
 import { ListGroupMergeRequestValidAssignedCandidatesResponse } from './model/ListGroupMergeRequestValidAssignedCandidatesResponse';
 import { ListGroupPermissionResourcesRequest } from './model/ListGroupPermissionResourcesRequest';
 import { ListGroupPermissionResourcesResponse } from './model/ListGroupPermissionResourcesResponse';
+import { ListGroupProtectedRefsUserGroupsRequest } from './model/ListGroupProtectedRefsUserGroupsRequest';
+import { ListGroupProtectedRefsUserGroupsResponse } from './model/ListGroupProtectedRefsUserGroupsResponse';
+import { ListGroupRepositoriesRequest } from './model/ListGroupRepositoriesRequest';
+import { ListGroupRepositoriesResponse } from './model/ListGroupRepositoriesResponse';
 import { ListGroupSubgroupsAndRepositoriesRequest } from './model/ListGroupSubgroupsAndRepositoriesRequest';
 import { ListGroupSubgroupsAndRepositoriesResponse } from './model/ListGroupSubgroupsAndRepositoriesResponse';
+import { ListGroupUserGroupsRequest } from './model/ListGroupUserGroupsRequest';
+import { ListGroupUserGroupsResponse } from './model/ListGroupUserGroupsResponse';
 import { ListGroupWebhookLogsRequest } from './model/ListGroupWebhookLogsRequest';
 import { ListGroupWebhookLogsResponse } from './model/ListGroupWebhookLogsResponse';
 import { ListGroupWebhooksRequest } from './model/ListGroupWebhooksRequest';
@@ -259,8 +314,12 @@ import { ListGroupsRequest } from './model/ListGroupsRequest';
 import { ListGroupsResponse } from './model/ListGroupsResponse';
 import { ListImpersonationTokensRequest } from './model/ListImpersonationTokensRequest';
 import { ListImpersonationTokensResponse } from './model/ListImpersonationTokensResponse';
+import { ListItemCommitsRequest } from './model/ListItemCommitsRequest';
+import { ListItemCommitsResponse } from './model/ListItemCommitsResponse';
 import { ListLatestPipelineJobsRequest } from './model/ListLatestPipelineJobsRequest';
 import { ListLatestPipelineJobsResponse } from './model/ListLatestPipelineJobsResponse';
+import { ListLogsTreeRequest } from './model/ListLogsTreeRequest';
+import { ListLogsTreeResponse } from './model/ListLogsTreeResponse';
 import { ListManageableGroupsRequest } from './model/ListManageableGroupsRequest';
 import { ListManageableGroupsResponse } from './model/ListManageableGroupsResponse';
 import { ListMembersRequest } from './model/ListMembersRequest';
@@ -279,14 +338,24 @@ import { ListMergeRequestConflictFilesRequest } from './model/ListMergeRequestCo
 import { ListMergeRequestConflictFilesResponse } from './model/ListMergeRequestConflictFilesResponse';
 import { ListMergeRequestDiscussionsRequest } from './model/ListMergeRequestDiscussionsRequest';
 import { ListMergeRequestDiscussionsResponse } from './model/ListMergeRequestDiscussionsResponse';
+import { ListMergeRequestEvaluationsRequest } from './model/ListMergeRequestEvaluationsRequest';
+import { ListMergeRequestEvaluationsResponse } from './model/ListMergeRequestEvaluationsResponse';
 import { ListMergeRequestParticipantsRequest } from './model/ListMergeRequestParticipantsRequest';
 import { ListMergeRequestParticipantsResponse } from './model/ListMergeRequestParticipantsResponse';
 import { ListMergeRequestReviewersRequest } from './model/ListMergeRequestReviewersRequest';
 import { ListMergeRequestReviewersResponse } from './model/ListMergeRequestReviewersResponse';
+import { ListMergeRequestSystemNotesRequest } from './model/ListMergeRequestSystemNotesRequest';
+import { ListMergeRequestSystemNotesResponse } from './model/ListMergeRequestSystemNotesResponse';
 import { ListMergeRequestTemplatesRequest } from './model/ListMergeRequestTemplatesRequest';
 import { ListMergeRequestTemplatesResponse } from './model/ListMergeRequestTemplatesResponse';
 import { ListMergeRequestValidAssignedCandidatesRequest } from './model/ListMergeRequestValidAssignedCandidatesRequest';
 import { ListMergeRequestValidAssignedCandidatesResponse } from './model/ListMergeRequestValidAssignedCandidatesResponse';
+import { ListMergeRequestVersionsRequest } from './model/ListMergeRequestVersionsRequest';
+import { ListMergeRequestVersionsResponse } from './model/ListMergeRequestVersionsResponse';
+import { ListPersonalMergeRequestsRequest } from './model/ListPersonalMergeRequestsRequest';
+import { ListPersonalMergeRequestsResponse } from './model/ListPersonalMergeRequestsResponse';
+import { ListPersonalRecentPushEventsRequest } from './model/ListPersonalRecentPushEventsRequest';
+import { ListPersonalRecentPushEventsResponse } from './model/ListPersonalRecentPushEventsResponse';
 import { ListPersonalRepositoryImportRecordsRequest } from './model/ListPersonalRepositoryImportRecordsRequest';
 import { ListPersonalRepositoryImportRecordsResponse } from './model/ListPersonalRepositoryImportRecordsResponse';
 import { ListPipelineJobsRequest } from './model/ListPipelineJobsRequest';
@@ -301,10 +370,18 @@ import { ListProjectMergeRequestCanBeAssignedReviewersRequest } from './model/Li
 import { ListProjectMergeRequestCanBeAssignedReviewersResponse } from './model/ListProjectMergeRequestCanBeAssignedReviewersResponse';
 import { ListProjectMergeRequestCanBeAssignedUsersRequest } from './model/ListProjectMergeRequestCanBeAssignedUsersRequest';
 import { ListProjectMergeRequestCanBeAssignedUsersResponse } from './model/ListProjectMergeRequestCanBeAssignedUsersResponse';
+import { ListProjectMergeRequestTemplatesRequest } from './model/ListProjectMergeRequestTemplatesRequest';
+import { ListProjectMergeRequestTemplatesResponse } from './model/ListProjectMergeRequestTemplatesResponse';
 import { ListProjectNoteRequiredAttributesRequest } from './model/ListProjectNoteRequiredAttributesRequest';
 import { ListProjectNoteRequiredAttributesResponse } from './model/ListProjectNoteRequiredAttributesResponse';
 import { ListProjectProtectedBranchesRequest } from './model/ListProjectProtectedBranchesRequest';
 import { ListProjectProtectedBranchesResponse } from './model/ListProjectProtectedBranchesResponse';
+import { ListProjectProtectedRefsUserGroupsRequest } from './model/ListProjectProtectedRefsUserGroupsRequest';
+import { ListProjectProtectedRefsUserGroupsResponse } from './model/ListProjectProtectedRefsUserGroupsResponse';
+import { ListProjectProtectedTagsRequest } from './model/ListProjectProtectedTagsRequest';
+import { ListProjectProtectedTagsResponse } from './model/ListProjectProtectedTagsResponse';
+import { ListProjectRepositoriesRequest } from './model/ListProjectRepositoriesRequest';
+import { ListProjectRepositoriesResponse } from './model/ListProjectRepositoriesResponse';
 import { ListProjectSubgroupsAndRepositoriesRequest } from './model/ListProjectSubgroupsAndRepositoriesRequest';
 import { ListProjectSubgroupsAndRepositoriesResponse } from './model/ListProjectSubgroupsAndRepositoriesResponse';
 import { ListProjectWebhookLogsRequest } from './model/ListProjectWebhookLogsRequest';
@@ -315,6 +392,8 @@ import { ListProtectedBranchesRequest } from './model/ListProtectedBranchesReque
 import { ListProtectedBranchesResponse } from './model/ListProtectedBranchesResponse';
 import { ListProtectedTagsRequest } from './model/ListProtectedTagsRequest';
 import { ListProtectedTagsResponse } from './model/ListProtectedTagsResponse';
+import { ListRefsListRequest } from './model/ListRefsListRequest';
+import { ListRefsListResponse } from './model/ListRefsListResponse';
 import { ListRepositoryCommitRulesRequest } from './model/ListRepositoryCommitRulesRequest';
 import { ListRepositoryCommitRulesResponse } from './model/ListRepositoryCommitRulesResponse';
 import { ListRepositoryContributorsRequest } from './model/ListRepositoryContributorsRequest';
@@ -333,6 +412,10 @@ import { ListRepositoryLanguagesRequest } from './model/ListRepositoryLanguagesR
 import { ListRepositoryLanguagesResponse } from './model/ListRepositoryLanguagesResponse';
 import { ListRepositoryMergeRequestsRequest } from './model/ListRepositoryMergeRequestsRequest';
 import { ListRepositoryMergeRequestsResponse } from './model/ListRepositoryMergeRequestsResponse';
+import { ListRepositoryProtectedRefsUserGroupsRequest } from './model/ListRepositoryProtectedRefsUserGroupsRequest';
+import { ListRepositoryProtectedRefsUserGroupsResponse } from './model/ListRepositoryProtectedRefsUserGroupsResponse';
+import { ListRepositoryResourcePermissionsRequest } from './model/ListRepositoryResourcePermissionsRequest';
+import { ListRepositoryResourcePermissionsResponse } from './model/ListRepositoryResourcePermissionsResponse';
 import { ListRepositoryReviewAuthorsRequest } from './model/ListRepositoryReviewAuthorsRequest';
 import { ListRepositoryReviewAuthorsResponse } from './model/ListRepositoryReviewAuthorsResponse';
 import { ListRepositoryReviewsRequest } from './model/ListRepositoryReviewsRequest';
@@ -351,6 +434,8 @@ import { ListSubmodulesRequest } from './model/ListSubmodulesRequest';
 import { ListSubmodulesResponse } from './model/ListSubmodulesResponse';
 import { ListTagsRequest } from './model/ListTagsRequest';
 import { ListTagsResponse } from './model/ListTagsResponse';
+import { ListTenantRepositoriesRequest } from './model/ListTenantRepositoriesRequest';
+import { ListTenantRepositoriesResponse } from './model/ListTenantRepositoriesResponse';
 import { ListTenantTrustedIpAddressesRequest } from './model/ListTenantTrustedIpAddressesRequest';
 import { ListTenantTrustedIpAddressesResponse } from './model/ListTenantTrustedIpAddressesResponse';
 import { ListTreesRequest } from './model/ListTreesRequest';
@@ -364,6 +449,7 @@ import { ListUserKeysResponse } from './model/ListUserKeysResponse';
 import { LiteMergeRequestDto } from './model/LiteMergeRequestDto';
 import { LockRepositoryRequest } from './model/LockRepositoryRequest';
 import { LockRepositoryResponse } from './model/LockRepositoryResponse';
+import { LogTreeDto } from './model/LogTreeDto';
 import { MRConflictFileDto } from './model/MRConflictFileDto';
 import { MRVoteReviewerDto } from './model/MRVoteReviewerDto';
 import { ManageableGroupDto } from './model/ManageableGroupDto';
@@ -395,6 +481,7 @@ import { MergeRequestVoteReviewerDto } from './model/MergeRequestVoteReviewerDto
 import { MergeRequestVotesDto } from './model/MergeRequestVotesDto';
 import { MilestoneBasicDto } from './model/MilestoneBasicDto';
 import { ModifyEmailAddressDto } from './model/ModifyEmailAddressDto';
+import { MrCherryRevertDto } from './model/MrCherryRevertDto';
 import { NamespaceBasicDto } from './model/NamespaceBasicDto';
 import { NoteDto } from './model/NoteDto';
 import { NoteRequiredAttributeDto } from './model/NoteRequiredAttributeDto';
@@ -403,6 +490,8 @@ import { PermissionDto } from './model/PermissionDto';
 import { PermissionInheritEnabledDto } from './model/PermissionInheritEnabledDto';
 import { PermissionResourcesDto } from './model/PermissionResourcesDto';
 import { PermissionsDto } from './model/PermissionsDto';
+import { PersonalEventAuthorDto } from './model/PersonalEventAuthorDto';
+import { PersonalPushEventDto } from './model/PersonalPushEventDto';
 import { PipelineBasicDto } from './model/PipelineBasicDto';
 import { PipelineDetailDto } from './model/PipelineDetailDto';
 import { PipelineDto } from './model/PipelineDto';
@@ -412,13 +501,21 @@ import { PositionDto } from './model/PositionDto';
 import { PostMergeRequestParamsDtoForOpenApi } from './model/PostMergeRequestParamsDtoForOpenApi';
 import { PostNoteRequiredAttributeDto } from './model/PostNoteRequiredAttributeDto';
 import { ProjectCreatorDto } from './model/ProjectCreatorDto';
+import { ProjectMergeRequestTemplateDto } from './model/ProjectMergeRequestTemplateDto';
 import { ProjectProtectedActionResultApiDto } from './model/ProjectProtectedActionResultApiDto';
+import { ProjectProtectedActionResultDto } from './model/ProjectProtectedActionResultDto';
 import { ProjectProtectedBranchApiDto } from './model/ProjectProtectedBranchApiDto';
+import { ProjectProtectedTagActionDto } from './model/ProjectProtectedTagActionDto';
+import { ProjectProtectedTagDto } from './model/ProjectProtectedTagDto';
+import { ProjectProtectedTagPo } from './model/ProjectProtectedTagPo';
 import { ProjectSettingsInheritCfgDto } from './model/ProjectSettingsInheritCfgDto';
 import { ProjectSimpleDto } from './model/ProjectSimpleDto';
+import { ProjectUserGroupDto } from './model/ProjectUserGroupDto';
 import { ProtectedActionBasicApiDto } from './model/ProtectedActionBasicApiDto';
+import { ProtectedActionSwitcher } from './model/ProtectedActionSwitcher';
 import { ProtectedBranchBodyApiDto } from './model/ProtectedBranchBodyApiDto';
 import { ProtectedBranchProtectedActionBodyDto } from './model/ProtectedBranchProtectedActionBodyDto';
+import { ProtectedRefsUserGroupBasicDto } from './model/ProtectedRefsUserGroupBasicDto';
 import { PushEventPayloadDto } from './model/PushEventPayloadDto';
 import { PushRuleDevelopersDto } from './model/PushRuleDevelopersDto';
 import { PutMergeRequestParamsDto } from './model/PutMergeRequestParamsDto';
@@ -427,6 +524,9 @@ import { RebaseMergeRequestForOpenApiResponse } from './model/RebaseMergeRequest
 import { RelatedCommitSimpleDto } from './model/RelatedCommitSimpleDto';
 import { RemoteMirrorDto } from './model/RemoteMirrorDto';
 import { RemoteMirrorSyncInfoDto } from './model/RemoteMirrorSyncInfoDto';
+import { RemoteMirrorUpdateBody } from './model/RemoteMirrorUpdateBody';
+import { RemoveDeployKeyFromSubmodulesRequest } from './model/RemoveDeployKeyFromSubmodulesRequest';
+import { RemoveDeployKeyFromSubmodulesResponse } from './model/RemoveDeployKeyFromSubmodulesResponse';
 import { RemoveDeployKeyRequest } from './model/RemoveDeployKeyRequest';
 import { RemoveDeployKeyResponse } from './model/RemoveDeployKeyResponse';
 import { RemoveGroupWebhookRequest } from './model/RemoveGroupWebhookRequest';
@@ -435,6 +535,9 @@ import { RemoveProjectWebhookRequest } from './model/RemoveProjectWebhookRequest
 import { RemoveProjectWebhookResponse } from './model/RemoveProjectWebhookResponse';
 import { RemoveRepositoryWebhookRequest } from './model/RemoveRepositoryWebhookRequest';
 import { RemoveRepositoryWebhookResponse } from './model/RemoveRepositoryWebhookResponse';
+import { RenameFileBodyDto } from './model/RenameFileBodyDto';
+import { RenameFileRequest } from './model/RenameFileRequest';
+import { RenameFileResponse } from './model/RenameFileResponse';
 import { ReplyMergeRequestNoteDto } from './model/ReplyMergeRequestNoteDto';
 import { RepoNotificationSubscriptionStateDto } from './model/RepoNotificationSubscriptionStateDto';
 import { RepoSubscriptionEventDto } from './model/RepoSubscriptionEventDto';
@@ -451,6 +554,7 @@ import { RepositoryInheritSettingDto } from './model/RepositoryInheritSettingDto
 import { RepositoryInheritSettingUpdateBodyDto } from './model/RepositoryInheritSettingUpdateBodyDto';
 import { RepositoryInheritSettingsBodyDto } from './model/RepositoryInheritSettingsBodyDto';
 import { RepositoryMemberDto } from './model/RepositoryMemberDto';
+import { RepositoryMergeRequestTemplateDto } from './model/RepositoryMergeRequestTemplateDto';
 import { RepositoryProtectedActionBasicBodyDto } from './model/RepositoryProtectedActionBasicBodyDto';
 import { RepositoryProtectedActionDto } from './model/RepositoryProtectedActionDto';
 import { RepositoryProtectedBranchBodyDto } from './model/RepositoryProtectedBranchBodyDto';
@@ -466,6 +570,7 @@ import { RepositoryTemplateDto } from './model/RepositoryTemplateDto';
 import { RepositoryUserBasicDto } from './model/RepositoryUserBasicDto';
 import { RepositoryUserDto } from './model/RepositoryUserDto';
 import { RepositoryUserGroupDto } from './model/RepositoryUserGroupDto';
+import { ReqSettingDto } from './model/ReqSettingDto';
 import { ReqWorkItemBasicDto } from './model/ReqWorkItemBasicDto';
 import { ReqWorkItemDto } from './model/ReqWorkItemDto';
 import { RequiredAttributeDto } from './model/RequiredAttributeDto';
@@ -474,6 +579,7 @@ import { ResolveConflictFileDto } from './model/ResolveConflictFileDto';
 import { ResolveMergeRequestConflictsRequest } from './model/ResolveMergeRequestConflictsRequest';
 import { ResolveMergeRequestConflictsResponse } from './model/ResolveMergeRequestConflictsResponse';
 import { ResourcePermissionDto } from './model/ResourcePermissionDto';
+import { ResponsePermissionInfo } from './model/ResponsePermissionInfo';
 import { ReviewDto } from './model/ReviewDto';
 import { ReviewMergeRequestRequest } from './model/ReviewMergeRequestRequest';
 import { ReviewMergeRequestResponse } from './model/ReviewMergeRequestResponse';
@@ -494,6 +600,8 @@ import { ShowBranchConflictRequest } from './model/ShowBranchConflictRequest';
 import { ShowBranchConflictResponse } from './model/ShowBranchConflictResponse';
 import { ShowBranchRequest } from './model/ShowBranchRequest';
 import { ShowBranchResponse } from './model/ShowBranchResponse';
+import { ShowCommitCommentsByLineRequest } from './model/ShowCommitCommentsByLineRequest';
+import { ShowCommitCommentsByLineResponse } from './model/ShowCommitCommentsByLineResponse';
 import { ShowCommitDiffMetadataRequest } from './model/ShowCommitDiffMetadataRequest';
 import { ShowCommitDiffMetadataResponse } from './model/ShowCommitDiffMetadataResponse';
 import { ShowCommitFileDiffRequest } from './model/ShowCommitFileDiffRequest';
@@ -508,10 +616,16 @@ import { ShowDiffLinesRequest } from './model/ShowDiffLinesRequest';
 import { ShowDiffLinesResponse } from './model/ShowDiffLinesResponse';
 import { ShowFileContentRequest } from './model/ShowFileContentRequest';
 import { ShowFileContentResponse } from './model/ShowFileContentResponse';
+import { ShowFileRawRequest } from './model/ShowFileRawRequest';
+import { ShowFileRawResponse } from './model/ShowFileRawResponse';
 import { ShowFileRequest } from './model/ShowFileRequest';
 import { ShowFileResponse } from './model/ShowFileResponse';
+import { ShowGroupE2eSettingRequest } from './model/ShowGroupE2eSettingRequest';
+import { ShowGroupE2eSettingResponse } from './model/ShowGroupE2eSettingResponse';
 import { ShowGroupGeneralPolicyRequest } from './model/ShowGroupGeneralPolicyRequest';
 import { ShowGroupGeneralPolicyResponse } from './model/ShowGroupGeneralPolicyResponse';
+import { ShowGroupInheritSettingRequest } from './model/ShowGroupInheritSettingRequest';
+import { ShowGroupInheritSettingResponse } from './model/ShowGroupInheritSettingResponse';
 import { ShowGroupMergeRequestSettingRequest } from './model/ShowGroupMergeRequestSettingRequest';
 import { ShowGroupMergeRequestSettingResponse } from './model/ShowGroupMergeRequestSettingResponse';
 import { ShowGroupNoteRequiredAttributesRequest } from './model/ShowGroupNoteRequiredAttributesRequest';
@@ -530,6 +644,8 @@ import { ShowGroupWebhookLogRequest } from './model/ShowGroupWebhookLogRequest';
 import { ShowGroupWebhookLogResponse } from './model/ShowGroupWebhookLogResponse';
 import { ShowGroupWebhookRequest } from './model/ShowGroupWebhookRequest';
 import { ShowGroupWebhookResponse } from './model/ShowGroupWebhookResponse';
+import { ShowGroupsGeneralPolicyRequest } from './model/ShowGroupsGeneralPolicyRequest';
+import { ShowGroupsGeneralPolicyResponse } from './model/ShowGroupsGeneralPolicyResponse';
 import { ShowGroupsInheritRequest } from './model/ShowGroupsInheritRequest';
 import { ShowGroupsInheritResponse } from './model/ShowGroupsInheritResponse';
 import { ShowHttpsPasswordSettingRequest } from './model/ShowHttpsPasswordSettingRequest';
@@ -556,6 +672,8 @@ import { ShowNotificationSubscriptionRequest } from './model/ShowNotificationSub
 import { ShowNotificationSubscriptionResponse } from './model/ShowNotificationSubscriptionResponse';
 import { ShowNotificationSubscriptionsStatusRequest } from './model/ShowNotificationSubscriptionsStatusRequest';
 import { ShowNotificationSubscriptionsStatusResponse } from './model/ShowNotificationSubscriptionsStatusResponse';
+import { ShowProjectE2eSettingRequest } from './model/ShowProjectE2eSettingRequest';
+import { ShowProjectE2eSettingResponse } from './model/ShowProjectE2eSettingResponse';
 import { ShowProjectGeneralPolicyRequest } from './model/ShowProjectGeneralPolicyRequest';
 import { ShowProjectGeneralPolicyResponse } from './model/ShowProjectGeneralPolicyResponse';
 import { ShowProjectMemberSettingRequest } from './model/ShowProjectMemberSettingRequest';
@@ -572,6 +690,8 @@ import { ShowProjectWebhookLogRequest } from './model/ShowProjectWebhookLogReque
 import { ShowProjectWebhookLogResponse } from './model/ShowProjectWebhookLogResponse';
 import { ShowProjectWebhookRequest } from './model/ShowProjectWebhookRequest';
 import { ShowProjectWebhookResponse } from './model/ShowProjectWebhookResponse';
+import { ShowProjectsGeneralPolicyRequest } from './model/ShowProjectsGeneralPolicyRequest';
+import { ShowProjectsGeneralPolicyResponse } from './model/ShowProjectsGeneralPolicyResponse';
 import { ShowProtectedBranchRequest } from './model/ShowProtectedBranchRequest';
 import { ShowProtectedBranchResponse } from './model/ShowProtectedBranchResponse';
 import { ShowProtectedTagRequest } from './model/ShowProtectedTagRequest';
@@ -582,6 +702,8 @@ import { ShowRefCompareRequest } from './model/ShowRefCompareRequest';
 import { ShowRefCompareResponse } from './model/ShowRefCompareResponse';
 import { ShowRemoteMirrorRequest } from './model/ShowRemoteMirrorRequest';
 import { ShowRemoteMirrorResponse } from './model/ShowRemoteMirrorResponse';
+import { ShowRepositoryE2eSettingRequest } from './model/ShowRepositoryE2eSettingRequest';
+import { ShowRepositoryE2eSettingResponse } from './model/ShowRepositoryE2eSettingResponse';
 import { ShowRepositoryGeneralCommitRuleRequest } from './model/ShowRepositoryGeneralCommitRuleRequest';
 import { ShowRepositoryGeneralCommitRuleResponse } from './model/ShowRepositoryGeneralCommitRuleResponse';
 import { ShowRepositoryGeneralPolicyRequest } from './model/ShowRepositoryGeneralPolicyRequest';
@@ -620,13 +742,19 @@ import { SimpleDiffDto } from './model/SimpleDiffDto';
 import { SimpleMergeRequestChangesDto } from './model/SimpleMergeRequestChangesDto';
 import { SimpleMergeRequestDetailDto } from './model/SimpleMergeRequestDetailDto';
 import { SimpleTagDto } from './model/SimpleTagDto';
+import { StartHouseKeepingRequest } from './model/StartHouseKeepingRequest';
+import { StartHouseKeepingResponse } from './model/StartHouseKeepingResponse';
 import { StartRemoteMirrorSynchronizationRequest } from './model/StartRemoteMirrorSynchronizationRequest';
 import { StartRemoteMirrorSynchronizationResponse } from './model/StartRemoteMirrorSynchronizationResponse';
 import { StatisticDto } from './model/StatisticDto';
 import { StatisticEventsDto } from './model/StatisticEventsDto';
+import { StatisticsParamsDto } from './model/StatisticsParamsDto';
 import { SubgroupAndProjectBaseDto } from './model/SubgroupAndProjectBaseDto';
 import { SubmoduleDto } from './model/SubmoduleDto';
 import { SubmoduleReqDto } from './model/SubmoduleReqDto';
+import { SyncDeployKeyToSubmodulesRequest } from './model/SyncDeployKeyToSubmodulesRequest';
+import { SyncDeployKeyToSubmodulesResponse } from './model/SyncDeployKeyToSubmodulesResponse';
+import { TenantRepositoryDto } from './model/TenantRepositoryDto';
 import { TenantTrustedIpAddressDto } from './model/TenantTrustedIpAddressDto';
 import { TransferGroupRequest } from './model/TransferGroupRequest';
 import { TransferGroupResponse } from './model/TransferGroupResponse';
@@ -641,8 +769,13 @@ import { UpdateBranchNameResponse } from './model/UpdateBranchNameResponse';
 import { UpdateFileBodyDto } from './model/UpdateFileBodyDto';
 import { UpdateFileRequest } from './model/UpdateFileRequest';
 import { UpdateFileResponse } from './model/UpdateFileResponse';
+import { UpdateGeneralPolicyDto } from './model/UpdateGeneralPolicyDto';
+import { UpdateGroupGeneralPolicyRequest } from './model/UpdateGroupGeneralPolicyRequest';
+import { UpdateGroupGeneralPolicyResponse } from './model/UpdateGroupGeneralPolicyResponse';
 import { UpdateGroupMergeRequestApproverSettingRequest } from './model/UpdateGroupMergeRequestApproverSettingRequest';
 import { UpdateGroupMergeRequestApproverSettingResponse } from './model/UpdateGroupMergeRequestApproverSettingResponse';
+import { UpdateGroupMergeRequestTemplateRequest } from './model/UpdateGroupMergeRequestTemplateRequest';
+import { UpdateGroupMergeRequestTemplateResponse } from './model/UpdateGroupMergeRequestTemplateResponse';
 import { UpdateGroupNoteRequiredAttributesRequest } from './model/UpdateGroupNoteRequiredAttributesRequest';
 import { UpdateGroupNoteRequiredAttributesResponse } from './model/UpdateGroupNoteRequiredAttributesResponse';
 import { UpdateGroupReviewSettingsRequest } from './model/UpdateGroupReviewSettingsRequest';
@@ -658,6 +791,8 @@ import { UpdateMergeRequestApproverSettingRequest } from './model/UpdateMergeReq
 import { UpdateMergeRequestApproverSettingResponse } from './model/UpdateMergeRequestApproverSettingResponse';
 import { UpdateMergeRequestApproversRequest } from './model/UpdateMergeRequestApproversRequest';
 import { UpdateMergeRequestApproversResponse } from './model/UpdateMergeRequestApproversResponse';
+import { UpdateMergeRequestDiscussionInfoRequest } from './model/UpdateMergeRequestDiscussionInfoRequest';
+import { UpdateMergeRequestDiscussionInfoResponse } from './model/UpdateMergeRequestDiscussionInfoResponse';
 import { UpdateMergeRequestDiscussionRequest } from './model/UpdateMergeRequestDiscussionRequest';
 import { UpdateMergeRequestDiscussionResponse } from './model/UpdateMergeRequestDiscussionResponse';
 import { UpdateMergeRequestNoteDto } from './model/UpdateMergeRequestNoteDto';
@@ -676,8 +811,15 @@ import { UpdateNoteRequiredAttributesRequest } from './model/UpdateNoteRequiredA
 import { UpdateNoteRequiredAttributesResponse } from './model/UpdateNoteRequiredAttributesResponse';
 import { UpdateNotificationSubscriptionRequest } from './model/UpdateNotificationSubscriptionRequest';
 import { UpdateNotificationSubscriptionResponse } from './model/UpdateNotificationSubscriptionResponse';
+import { UpdatePermissionBodyDto } from './model/UpdatePermissionBodyDto';
+import { UpdatePermissionDetail } from './model/UpdatePermissionDetail';
+import { UpdatePermissionDto } from './model/UpdatePermissionDto';
+import { UpdateProjectGeneralPolicyRequest } from './model/UpdateProjectGeneralPolicyRequest';
+import { UpdateProjectGeneralPolicyResponse } from './model/UpdateProjectGeneralPolicyResponse';
 import { UpdateProjectMergeRequestApproverSettingRequest } from './model/UpdateProjectMergeRequestApproverSettingRequest';
 import { UpdateProjectMergeRequestApproverSettingResponse } from './model/UpdateProjectMergeRequestApproverSettingResponse';
+import { UpdateProjectMergeRequestTemplateRequest } from './model/UpdateProjectMergeRequestTemplateRequest';
+import { UpdateProjectMergeRequestTemplateResponse } from './model/UpdateProjectMergeRequestTemplateResponse';
 import { UpdateProjectNoteRequiredAttributesRequest } from './model/UpdateProjectNoteRequiredAttributesRequest';
 import { UpdateProjectNoteRequiredAttributesResponse } from './model/UpdateProjectNoteRequiredAttributesResponse';
 import { UpdateProjectReviewSettingsRequest } from './model/UpdateProjectReviewSettingsRequest';
@@ -694,6 +836,10 @@ import { UpdateProtectedTagRequest } from './model/UpdateProtectedTagRequest';
 import { UpdateProtectedTagResponse } from './model/UpdateProtectedTagResponse';
 import { UpdateRepoNotificationSubscriptionDto } from './model/UpdateRepoNotificationSubscriptionDto';
 import { UpdateRepoWebHookSubscriptionDto } from './model/UpdateRepoWebHookSubscriptionDto';
+import { UpdateRepositoryCommitRuleRequest } from './model/UpdateRepositoryCommitRuleRequest';
+import { UpdateRepositoryCommitRuleResponse } from './model/UpdateRepositoryCommitRuleResponse';
+import { UpdateRepositoryGeneralCommitRuleRequest } from './model/UpdateRepositoryGeneralCommitRuleRequest';
+import { UpdateRepositoryGeneralCommitRuleResponse } from './model/UpdateRepositoryGeneralCommitRuleResponse';
 import { UpdateRepositoryGeneralPolicyRequest } from './model/UpdateRepositoryGeneralPolicyRequest';
 import { UpdateRepositoryGeneralPolicyResponse } from './model/UpdateRepositoryGeneralPolicyResponse';
 import { UpdateRepositoryInheritSettingRequest } from './model/UpdateRepositoryInheritSettingRequest';
@@ -702,6 +848,10 @@ import { UpdateRepositoryLabelRequest } from './model/UpdateRepositoryLabelReque
 import { UpdateRepositoryLabelResponse } from './model/UpdateRepositoryLabelResponse';
 import { UpdateRepositoryPermissionInheritEnabledRequest } from './model/UpdateRepositoryPermissionInheritEnabledRequest';
 import { UpdateRepositoryPermissionInheritEnabledResponse } from './model/UpdateRepositoryPermissionInheritEnabledResponse';
+import { UpdateRepositoryRemoteMirrorRequest } from './model/UpdateRepositoryRemoteMirrorRequest';
+import { UpdateRepositoryRemoteMirrorResponse } from './model/UpdateRepositoryRemoteMirrorResponse';
+import { UpdateRepositoryResourcePermissionsRequest } from './model/UpdateRepositoryResourcePermissionsRequest';
+import { UpdateRepositoryResourcePermissionsResponse } from './model/UpdateRepositoryResourcePermissionsResponse';
 import { UpdateRepositoryWatermarkRequest } from './model/UpdateRepositoryWatermarkRequest';
 import { UpdateRepositoryWatermarkResponse } from './model/UpdateRepositoryWatermarkResponse';
 import { UpdateRepositoryWebhookRequest } from './model/UpdateRepositoryWebhookRequest';
@@ -716,9 +866,12 @@ import { UpdateWatermarkDto } from './model/UpdateWatermarkDto';
 import { UserBasicDto } from './model/UserBasicDto';
 import { UserBasicExternalDto } from './model/UserBasicExternalDto';
 import { UserGroupDto } from './model/UserGroupDto';
+import { UserGroupPermissionDto } from './model/UserGroupPermissionDto';
 import { UserRefPermissionBasicDto } from './model/UserRefPermissionBasicDto';
 import { UserSafeDto } from './model/UserSafeDto';
 import { UserTeamBasicDto } from './model/UserTeamBasicDto';
+import { ValidateRepoNameDto } from './model/ValidateRepoNameDto';
+import { ValidateRepoNameResultDto } from './model/ValidateRepoNameResultDto';
 import { WebhookDto } from './model/WebhookDto';
 import { WebhookLogDto } from './model/WebhookLogDto';
 import { WebhookLogExtendDto } from './model/WebhookLogExtendDto';
@@ -741,112 +894,6 @@ export class CodeHubClient {
         return __dirname;
     }
 
-
-    /**
-     * 创建分支
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建分支
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {CreateBranchDto} createBranchDto 分支详情
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createBranch(createBranchRequest?: CreateBranchRequest): Promise<CreateBranchResponse> {
-        const options = ParamCreater().createBranch(createBranchRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除分支
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除分支
-     * @param {string} branchName **参数解释：** 分支名称。 **取值范围：** 字符串长度不少于1，不超过2000。
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteBranch(deleteBranchRequest?: DeleteBranchRequest): Promise<DeleteBranchResponse> {
-        const options = ParamCreater().deleteBranch(deleteBranchRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取分支列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取分支列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {'not_protect'} [branchType] **参数解释：** 分支类型，默认返回全部分支，not_protect，返回非保护分支。 **约束限制：** 不涉及。 **取值范围：** 不涉及。
-     * @param {string} [creator] **参数解释：** 创建者，用户ID或者IamId。 **取值范围：** 字符串长度不少于1，不超过100000。
-     * @param {'name' | 'updated_desc' | 'updated_asc'} [sort] **参数解释：** 排序方式 **约束限制：** - name，分支名倒序。 - updated_desc，更新时间倒序。 - updated_asc，更新时间正序。
-     * @param {'my_branches' | 'active' | 'stale' | 'all_branches'} [queryView] **参数解释：** 分支类型 **约束限制：** - my_branches，个人分支。 - active，活跃分支。 - stale，过时分支。 - all_branches，所有分支。
-     * @param {'simple' | 'basic' | 'all'} [view] **参数解释：** 结果集属性，根据给定的参数返回不同的结果 **约束限制：** - all，返回分支的所有信息。 - basic，返回分支的基本信息。 - simple，返回分支的简单信息。
-     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
-     * @param {number} [limit] **参数解释：** 返回数量。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listBranches(listBranchesRequest?: ListBranchesRequest): Promise<ListBranchesResponse> {
-        const options = ParamCreater().listBranches(listBranchesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Total'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取分支详情
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取分支详情
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} branchName **参数解释：** 分支名称。 **取值范围：** 字符串长度不少于1，不超过2000。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showBranch(showBranchRequest?: ShowBranchRequest): Promise<ShowBranchResponse> {
-        const options = ParamCreater().showBranch(showBranchRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Total'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 分支重命名。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 分支重命名
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {UpdateBranchDto} updateBranchDto 更新分支名称参数
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateBranchName(updateBranchNameRequest?: UpdateBranchNameRequest): Promise<UpdateBranchNameResponse> {
-        const options = ParamCreater().updateBranchName(updateBranchNameRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
 
     /**
      * 创建提交信息
@@ -904,6 +951,35 @@ export class CodeHubClient {
      */
     public listCommitAssociatedRefs(listCommitAssociatedRefsRequest?: ListCommitAssociatedRefsRequest): Promise<ListCommitAssociatedRefsResponse> {
         const options = ParamCreater().listCommitAssociatedRefs(listCommitAssociatedRefsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看提交列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看提交列表
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {string} [refName] 分支/tag名
+     * @param {string} [since] 起始时间（不包含）
+     * @param {string} [until] 结束时间（不包含）
+     * @param {string} [path] The file path
+     * @param {string} [message] 提交信息或者commit id
+     * @param {string} [author] 代码作者名称
+     * @param {boolean} [orderByDate] 是否按照时间降序排序
+     * @param {boolean} [follow] 为true时可以追踪文件移动、改名前后的提交记录
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCommits(listCommitsRequest?: ListCommitsRequest): Promise<ListCommitsResponse> {
+        const options = ParamCreater().listCommits(listCommitsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1064,6 +1140,51 @@ export class CodeHubClient {
     }
 
     /**
+     * 删除合并请求检视意见
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除合并请求检视意见
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
+     * @param {string} discussionId **参数解释：** 检视意见id(主评和回复共用)。 **取值范围：** 字符串长度40。
+     * @param {number} noteId **参数解释：** 评论id(主评论和回复不共用)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteMergeRequestDiscussion(deleteMergeRequestDiscussionRequest?: DeleteMergeRequestDiscussionRequest): Promise<DeleteMergeRequestDiscussionResponse> {
+        const options = ParamCreater().deleteMergeRequestDiscussion(deleteMergeRequestDiscussionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取代码页单个提交下检视意见列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取代码页单个提交下检视意见列表
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} sha **参数解释：** 提交ID。
+     * @param {string} [sort] **参数解释：** 检视意见返回排序 - asc 按创建时间正序返回 - desc 按创建时间倒序返回
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCommitDiscussions(listCommitDiscussionsRequest?: ListCommitDiscussionsRequest): Promise<ListCommitDiscussionsResponse> {
+        const options = ParamCreater().listCommitDiscussions(listCommitDiscussionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取默认的检视意见分类
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1099,6 +1220,28 @@ export class CodeHubClient {
      */
     public listMergeRequestDiscussions(listMergeRequestDiscussionsRequest?: ListMergeRequestDiscussionsRequest): Promise<ListMergeRequestDiscussionsResponse> {
         const options = ParamCreater().listMergeRequestDiscussions(listMergeRequestDiscussionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取合并请求动态列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取合并请求动态列表
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listMergeRequestSystemNotes(listMergeRequestSystemNotesRequest?: ListMergeRequestSystemNotesRequest): Promise<ListMergeRequestSystemNotesResponse> {
+        const options = ParamCreater().listMergeRequestSystemNotes(listMergeRequestSystemNotesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1160,7 +1303,7 @@ export class CodeHubClient {
      * @param {string} [search] **参数解释：** 查询评论内容。
      * @param {Date} [startDate] **参数解释：** 开始日期。
      * @param {Date} [endDate] **参数解释：** 结束日期。
-     * @param {boolean} [onlyCount] **参数解释：** 是否仅返回todo。 **取值范围：** - true，仅返回带有提交计数和diffs计数的结果。 - false，按照compare_view参数返回结果信息。
+     * @param {boolean} [onlyCount] **参数解释：** 是否仅返回带有提交计数和diffs计数的结果。 **取值范围：** - true，仅返回带有提交计数和diffs计数的结果。 - false，按照compare_view参数返回结果信息。
      * @param {string} [reviewCategories] **参数解释：** 搜索的检视意见分类。 **取值范围：** 字符串长度不少于1，不超过200。
      * @param {string} [reviewModules] **参数解释：** 搜索的检视意见模块。 **取值范围：** 字符串长度不少于1，不超过200。
      * @param {'suggestion' | 'minor' | 'major' | 'fatal'} [severity] **参数解释：** 检视意见严重程度
@@ -1351,12 +1494,34 @@ export class CodeHubClient {
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {string} discussionId **参数解释：** 检视意见id(主评和回复共用)。 **取值范围：** 字符串长度40。
      * @param {number} noteId **参数解释：** 评论id(主评论和回复不共用)。
-     * @param {UpdateMergeRequestNoteDto} updateMergeRequestNoteDto 回复合并请求检视意见请求体
+     * @param {UpdateMergeRequestNoteDto} updateMergeRequestNoteDto 更新合并请求检视意见请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public updateMergeRequestDiscussion(updateMergeRequestDiscussionRequest?: UpdateMergeRequestDiscussionRequest): Promise<UpdateMergeRequestDiscussionResponse> {
         const options = ParamCreater().updateMergeRequestDiscussion(updateMergeRequestDiscussionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新合并请求检视意见中除评论内容以外的信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新合并请求检视意见中除评论内容以外的信息
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
+     * @param {string} discussionId **参数解释：** 检视意见id(主评和回复共用)。 **取值范围：** 字符串长度40。
+     * @param {UpdateMergeRequestNoteDto} updateMergeRequestNoteDto 更新合并请求检视意见请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateMergeRequestDiscussionInfo(updateMergeRequestDiscussionInfoRequest?: UpdateMergeRequestDiscussionInfoRequest): Promise<UpdateMergeRequestDiscussionInfoResponse> {
+        const options = ParamCreater().updateMergeRequestDiscussionInfo(updateMergeRequestDiscussionInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1475,7 +1640,7 @@ export class CodeHubClient {
      *
      * @summary 获取仓库单个文件内容(下载单个文件)
      * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} blobId **参数解释：** bolb文件ID。通过[[查询某个仓库的文件信息](https://support.huaweicloud.com/api-codeartsrepo/ListFilesByQuery.html)](tag:hws)[[查询某个仓库的文件信息](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListFilesByQuery.html)](tag:hws_hk)[查询某个仓库的文件信息](tag:hcs,hcs_sm)接口查询某个仓库的文件信息获取。 **取值范围：** 不涉及。
+     * @param {string} blobId **参数解释：** blob文件ID。通过[[查询某个仓库的文件信息](https://support.huaweicloud.com/api-codeartsrepo/ListFilesByQuery.html)](tag:hws)[[查询某个仓库的文件信息](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListFilesByQuery.html)](tag:hws_hk)[查询某个仓库的文件信息](tag:hcs,hcs_sm)接口查询某个仓库的文件信息获取。 **取值范围：** 不涉及。
      * @param {string} filePath **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过10000。
      * @param {string} [fileName] **参数解释：** 下载文件名。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
@@ -1555,6 +1720,72 @@ export class CodeHubClient {
     }
 
     /**
+     * 查看文件树
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看文件树
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} [ref] **参数解释：** 引用，可以是分支名称、标签名称或者commitid，如果不传则为默认分支。 **取值范围：** 字符串长度不少于1，不超过2000。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLogsTree(listLogsTreeRequest?: ListLogsTreeRequest): Promise<ListLogsTreeResponse> {
+        const options = ParamCreater().listLogsTree(listLogsTreeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看分支文件列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看分支文件列表
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} [ref] **参数解释：** 引用，可以是分支名称、标签名称或者commitid，如果不传则为默认分支。 **取值范围：** 字符串长度不少于1，不超过2000。
+     * @param {string} [path] **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过100000。
+     * @param {boolean} [recursive] **参数解释：** 是否递归查询
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTrees(listTreesRequest?: ListTreesRequest): Promise<ListTreesResponse> {
+        const options = ParamCreater().listTrees(listTreesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Total'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 文件重命名
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 文件重命名
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {RenameFileBodyDto} renameFileBodyDto 分支名列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public renameFile(renameFileRequest?: RenameFileRequest): Promise<RenameFileResponse> {
+        const options = ParamCreater().renameFile(renameFileRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查看文件属性与内容
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1597,6 +1828,27 @@ export class CodeHubClient {
     }
 
     /**
+     * 获取仓库单个文件内容
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取仓库单个文件内容
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} filePath **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过10000。
+     * @param {string} [ref] **参数解释：** 引用，可以是分支名称、标签名称或者commitid，如果不传则为默认分支。 **取值范围：** 字符串长度不少于1，不超过2000。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFileRaw(showFileRawRequest?: ShowFileRawRequest): Promise<ShowFileRawResponse> {
+        const options = ParamCreater().showFileRaw(showFileRawRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取仓库默认分支的Readme文件内容
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1629,88 +1881,6 @@ export class CodeHubClient {
      */
     public updateFile(updateFileRequest?: UpdateFileRequest): Promise<UpdateFileResponse> {
         const options = ParamCreater().updateFile(updateFileRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 批量删除仓库文件推送权限
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 批量删除仓库文件推送权限
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {BatchDeleteFilePushPermissionDto} batchDeleteFilePushPermissionDto 批量删除仓库文件推送权限
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public batchDeleteRepositoryFilePushPermissions(batchDeleteRepositoryFilePushPermissionsRequest?: BatchDeleteRepositoryFilePushPermissionsRequest): Promise<BatchDeleteRepositoryFilePushPermissionsResponse> {
-        const options = ParamCreater().batchDeleteRepositoryFilePushPermissions(batchDeleteRepositoryFilePushPermissionsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 批量更新仓库文件推送权限
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 批量更新仓库文件推送权限
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {BatchUpdateFilePushPermissionBodyDto} batchUpdateFilePushPermissionBodyDto 批量更新仓库文件推送权限
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public batchUpdateRepositoryFilePushPermissions(batchUpdateRepositoryFilePushPermissionsRequest?: BatchUpdateRepositoryFilePushPermissionsRequest): Promise<BatchUpdateRepositoryFilePushPermissionsResponse> {
-        const options = ParamCreater().batchUpdateRepositoryFilePushPermissions(batchUpdateRepositoryFilePushPermissionsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建仓库文件推送权限
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建仓库文件推送权限
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {CreateRepositoryFilePushPermissionDto} createRepositoryFilePushPermissionDto 创建仓库文件推送权限
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createFilePushPermission(createFilePushPermissionRequest?: CreateFilePushPermissionRequest): Promise<CreateFilePushPermissionResponse> {
-        const options = ParamCreater().createFilePushPermission(createFilePushPermissionRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取仓库文件推送权限列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取仓库文件推送权限列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配保护分支名。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
-     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
-     * @param {number} [limit] **参数解释：** 返回数量。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listRepositoryFilePushPermissions(listRepositoryFilePushPermissionsRequest?: ListRepositoryFilePushPermissionsRequest): Promise<ListRepositoryFilePushPermissionsResponse> {
-        const options = ParamCreater().listRepositoryFilePushPermissions(listRepositoryFilePushPermissionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1894,6 +2064,28 @@ export class CodeHubClient {
     }
 
     /**
+     * 组织下查询成员组列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 组织下查询成员组列表
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {string} [search] **参数解释：** 组织下用户组id。 **取值范围：** 字符串长度不少于1，不超过1000。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGroupUserGroups(listGroupUserGroupsRequest?: ListGroupUserGroupsRequest): Promise<ListGroupUserGroupsResponse> {
+        const options = ParamCreater().listGroupUserGroups(listGroupUserGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取代码组列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1901,7 +2093,7 @@ export class CodeHubClient {
      * @summary 获取代码组列表
      * @param {string} [search] **参数解释：** 检索内容
      * @param {boolean} [allAvailable] **参数解释：** 所有可用的代码组。
-     * @param {'name' | 'path' | 'id' | 'created_at' | 'updated_at'} [orderBy] **参数解释：** 排序字段，name 名称 path 路径 id 唯一标示 created_at 创建时间 updated_at 更新时间
+     * @param {'name' | 'path' | 'id' | 'created_at' | 'updated_at'} [orderBy] **参数解释：** 排序字段，name 名称 path 路径 id 唯一标识 created_at 创建时间 updated_at 更新时间
      * @param {'asc' | 'desc'} [sort] **参数解释：** 排序顺序 asc顺序 desc逆序
      * @param {boolean} [starred] **参数解释：** 是否关注。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
@@ -1920,68 +2112,20 @@ export class CodeHubClient {
     }
 
     /**
-     * 获取用户的个人访问令牌
+     * 获取项目下当前用户有管理权限的代码组列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取用户的个人访问令牌
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
-     * @param {'all' | 'active' | 'inactive'} [state] **参数解释：** 状态 all 所有 active 活跃 inactive 非活跃。
-     * @param {string} [search] **参数解释：** 检索内容
-     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
-     * @param {number} [limit] **参数解释：** 返回数量。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listImpersonationTokens(listImpersonationTokensRequest?: ListImpersonationTokensRequest): Promise<ListImpersonationTokensResponse> {
-        const options = ParamCreater().listImpersonationTokens(listImpersonationTokensRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取项目下成员列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取项目下成员列表
+     * @summary 获取项目下当前用户有管理权限的代码组列表
      * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
-     * @param {string} [query] **参数解释：** 成员搜索字符串
+     * @param {'group' | 'repository'} [scope] **参数解释：** 创建资源类型。 **约束限制：** - group 代码组。 - repository仓库。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listProductPermissionResourcesGrantedUsers(listProductPermissionResourcesGrantedUsersRequest?: ListProductPermissionResourcesGrantedUsersRequest): Promise<ListProductPermissionResourcesGrantedUsersResponse> {
-        const options = ParamCreater().listProductPermissionResourcesGrantedUsers(listProductPermissionResourcesGrantedUsersRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取项目下的代码组和仓库列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取项目下的代码组和仓库列表
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
-     * @param {number} [filter] **参数解释：** 检索条件，名称。
-     * @param {'id' | 'name' | 'created_at' | 'updated_at'} [orderBy] **参数解释：** 排序字段 id 唯一标识 name 名称 created_at 创建时间 updated_at 更新时间
-     * @param {'asc' | 'desc'} [sort] **参数解释：** 排序顺序 asc顺序 desc逆序
-     * @param {boolean} [archived] **参数解释：** 是否归档
-     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
-     * @param {number} [limit] **参数解释：** 返回数量。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listProjectSubgroupsAndRepositories(listProjectSubgroupsAndRepositoriesRequest?: ListProjectSubgroupsAndRepositoriesRequest): Promise<ListProjectSubgroupsAndRepositoriesResponse> {
-        const options = ParamCreater().listProjectSubgroupsAndRepositories(listProjectSubgroupsAndRepositoriesRequest);
+    public listManageableGroups(listManageableGroupsRequest?: ListManageableGroupsRequest): Promise<ListManageableGroupsResponse> {
+        const options = ParamCreater().listManageableGroups(listManageableGroupsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2021,6 +2165,25 @@ export class CodeHubClient {
      */
     public showGroupGeneralPolicy(showGroupGeneralPolicyRequest?: ShowGroupGeneralPolicyRequest): Promise<ShowGroupGeneralPolicyResponse> {
         const options = ParamCreater().showGroupGeneralPolicy(showGroupGeneralPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取代码组继承设置项
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取代码组继承设置项
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showGroupInheritSetting(showGroupInheritSettingRequest?: ShowGroupInheritSettingRequest): Promise<ShowGroupInheritSettingResponse> {
+        const options = ParamCreater().showGroupInheritSetting(showGroupInheritSettingRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2086,80 +2249,37 @@ export class CodeHubClient {
     }
 
     /**
+     * 获取指定代码组的基本设置信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取指定代码组的基本设置信息
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showGroupsGeneralPolicy(showGroupsGeneralPolicyRequest?: ShowGroupsGeneralPolicyRequest): Promise<ShowGroupsGeneralPolicyResponse> {
+        const options = ParamCreater().showGroupsGeneralPolicy(showGroupsGeneralPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取代码组的继承设置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组的继承设置
      * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
-     * @param {'protected_branches' | 'protected_tags' | 'push_rules' | 'merge_requests' | 'mr_branch_policies' | 'reviews' | 'e2e_settings' | 'webhook_settings' | 'deploy_keys' | 'watermark' | 'repository_settings'} [settingType] **参数解释：** 设置类型protected_branches保护分支 protected_tags保护tag push_rules推送规则 merge_requests合并请求 mr_branch_policies合并分支 reviews检视意见 e2e_settings e2e设置 webhook_settings hook设置 deploy_keys 部署key watermark水印 repository_settings仓库设置。
+     * @param {'protected_branches' | 'protected_tags' | 'push_rules' | 'merge_requests' | 'mr_branch_policies' | 'reviews' | 'e2e_settings' | 'webhook_settings' | 'deploy_keys' | 'watermark' | 'repository_settings'} settingType **参数解释：** 必填项，设置类型protected_branches保护分支 protected_tags保护tag push_rules推送规则 merge_requests合并请求 mr_branch_policies合并分支 reviews检视意见 e2e_settings e2e设置 webhook_settings hook设置 deploy_keys 部署key watermark水印 repository_settings仓库设置。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public showGroupsInherit(showGroupsInheritRequest?: ShowGroupsInheritRequest): Promise<ShowGroupsInheritResponse> {
         const options = ParamCreater().showGroupsInherit(showGroupsInheritRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取指定项目的基本设置信息
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取指定项目的基本设置信息
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showProjectGeneralPolicy(showProjectGeneralPolicyRequest?: ShowProjectGeneralPolicyRequest): Promise<ShowProjectGeneralPolicyResponse> {
-        const options = ParamCreater().showProjectGeneralPolicy(showProjectGeneralPolicyRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取项目成员设置
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取项目成员设置
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
-     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
-     * @param {number} [limit] **参数解释：** 返回数量。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showProjectMemberSetting(showProjectMemberSettingRequest?: ShowProjectMemberSettingRequest): Promise<ShowProjectMemberSettingResponse> {
-        const options = ParamCreater().showProjectMemberSetting(showProjectMemberSettingRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取资源点对应的角色和权限
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取资源点对应的角色和权限
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
-     * @param {number} resourceId **参数解释：** 资源Id，通过获取代码组权限资源点列表获取的数据中的Id
-     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
-     * @param {number} [limit] **参数解释：** 返回数量。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showResourcePermissions(showResourcePermissionsRequest?: ShowResourcePermissionsRequest): Promise<ShowResourcePermissionsResponse> {
-        const options = ParamCreater().showResourcePermissions(showResourcePermissionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2188,6 +2308,26 @@ export class CodeHubClient {
     }
 
     /**
+     * 更新代码组的基本设置信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新代码组的基本设置信息
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {UpdateGeneralPolicyDto} updateGeneralPolicyDto 更新代码组的基本设置信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateGroupGeneralPolicy(updateGroupGeneralPolicyRequest?: UpdateGroupGeneralPolicyRequest): Promise<UpdateGroupGeneralPolicyResponse> {
+        const options = ParamCreater().updateGroupGeneralPolicy(updateGroupGeneralPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新代码组水印设置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2200,110 +2340,6 @@ export class CodeHubClient {
      */
     public updateGroupWatermark(updateGroupWatermarkRequest?: UpdateGroupWatermarkRequest): Promise<UpdateGroupWatermarkResponse> {
         const options = ParamCreater().updateGroupWatermark(updateGroupWatermarkRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建仓库标签
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建仓库标签
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {LabelCreateDto} labelCreateDto list of label
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createRepositoryLabel(createRepositoryLabelRequest?: CreateRepositoryLabelRequest): Promise<CreateRepositoryLabelResponse> {
-        const options = ParamCreater().createRepositoryLabel(createRepositoryLabelRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建仓库系统标签
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建仓库系统标签
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createRepositorySystemLabels(createRepositorySystemLabelsRequest?: CreateRepositorySystemLabelsRequest): Promise<CreateRepositorySystemLabelsResponse> {
-        const options = ParamCreater().createRepositorySystemLabels(createRepositorySystemLabelsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除仓库标签
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除仓库标签
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} name **参数解释：** 标签名 **约束限制：** 必传。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteRepositoryLabel(deleteRepositoryLabelRequest?: DeleteRepositoryLabelRequest): Promise<DeleteRepositoryLabelResponse> {
-        const options = ParamCreater().deleteRepositoryLabel(deleteRepositoryLabelRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取仓库标签列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取仓库标签列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
-     * @param {number} [limit] **参数解释：** 返回数量。
-     * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配标签名。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
-     * @param {'name_asc' | 'name_desc' | 'created_asc' | 'created_desc' | 'updated_asc' | 'updated_desc'} [sort] **参数解释：**  排序。 **约束限制：** 不涉及。 **取值范围：** - name_asc，按标签名升序。 - name_desc，按标签名降序。 - created_asc，按标创建时间升序。 - created_desc，按标创建时间降序。 - updated_asc，按标更新时间升序。 - updated_desc，按标更新时间降序。 **默认取值：** name_asc
-     * @param {boolean} [includeExpired] **参数解释：** 是否包含失效的标签。 **约束限制：** 不涉及。 **取值范围：** - true，包含。 - false，不包含。 **默认取值：** true
-     * @param {'simple' | 'basic' | 'detail'} [view] **参数解释：** 结果集属性，根据给定的参数返回不同的结果。 **约束限制：** 不涉及。 **取值范围：** - simple，返回简略信息。 - basic，返回基本信息。 - detail，返回详细信息。 **默认取值：** basic
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listRepositoryLabels(listRepositoryLabelsRequest?: ListRepositoryLabelsRequest): Promise<ListRepositoryLabelsResponse> {
-        const options = ParamCreater().listRepositoryLabels(listRepositoryLabelsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 修改仓库标签
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 修改仓库标签
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {BodyPutLabelDto} bodyPutLabelDto 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateRepositoryLabel(updateRepositoryLabelRequest?: UpdateRepositoryLabelRequest): Promise<UpdateRepositoryLabelResponse> {
-        const options = ParamCreater().updateRepositoryLabel(updateRepositoryLabelRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2332,6 +2368,28 @@ export class CodeHubClient {
     }
 
     /**
+     * 获取代码组下成员组列表(保护分支保护Tags设置中使用)
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取代码组下成员组列表
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配用户名称、用户昵称、租户名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGroupProtectedRefsUserGroups(listGroupProtectedRefsUserGroupsRequest?: ListGroupProtectedRefsUserGroupsRequest): Promise<ListGroupProtectedRefsUserGroupsResponse> {
+        const options = ParamCreater().listGroupProtectedRefsUserGroups(listGroupProtectedRefsUserGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Total'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取仓库成员列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2348,6 +2406,72 @@ export class CodeHubClient {
      */
     public listMembers(listMembersRequest?: ListMembersRequest): Promise<ListMembersResponse> {
         const options = ParamCreater().listMembers(listMembersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Total'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取项目下成员列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取项目下成员列表
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} [query] **参数解释：** 成员搜索字符串
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProductPermissionResourcesGrantedUsers(listProductPermissionResourcesGrantedUsersRequest?: ListProductPermissionResourcesGrantedUsersRequest): Promise<ListProductPermissionResourcesGrantedUsersResponse> {
+        const options = ParamCreater().listProductPermissionResourcesGrantedUsers(listProductPermissionResourcesGrantedUsersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取项目下成员组列表(保护分支保护Tags设置中使用)
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取项目下成员组列表
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配用户名称、用户昵称、租户名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProjectProtectedRefsUserGroups(listProjectProtectedRefsUserGroupsRequest?: ListProjectProtectedRefsUserGroupsRequest): Promise<ListProjectProtectedRefsUserGroupsResponse> {
+        const options = ParamCreater().listProjectProtectedRefsUserGroups(listProjectProtectedRefsUserGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Total'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取仓库下成员组列表(保护分支保护Tags设置中使用)
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取仓库下成员组列表
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配用户名称、用户昵称、租户名称。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRepositoryProtectedRefsUserGroups(listRepositoryProtectedRefsUserGroupsRequest?: ListRepositoryProtectedRefsUserGroupsRequest): Promise<ListRepositoryProtectedRefsUserGroupsResponse> {
+        const options = ParamCreater().listRepositoryProtectedRefsUserGroups(listRepositoryProtectedRefsUserGroupsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Total'];
@@ -2399,6 +2523,27 @@ export class CodeHubClient {
     }
 
     /**
+     * Cherry pick合并请求
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary Cherry pick合并请求
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
+     * @param {MrCherryRevertDto} mrCherryRevertDto Cherry pick合并请求请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCherryPickMergeRequest(createCherryPickMergeRequestRequest?: CreateCherryPickMergeRequestRequest): Promise<CreateCherryPickMergeRequestResponse> {
+        const options = ParamCreater().createCherryPickMergeRequest(createCherryPickMergeRequestRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建代码组合并请求审核设置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2411,6 +2556,26 @@ export class CodeHubClient {
      */
     public createGroupMergeRequestApproverSetting(createGroupMergeRequestApproverSettingRequest?: CreateGroupMergeRequestApproverSettingRequest): Promise<CreateGroupMergeRequestApproverSettingResponse> {
         const options = ParamCreater().createGroupMergeRequestApproverSetting(createGroupMergeRequestApproverSettingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建代码组合并请求模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建代码组合并请求模板
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {CreateMergeRequestTemplateDto} createMergeRequestTemplateDto 创建合并请求模板请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createGroupMergeRequestTemplate(createGroupMergeRequestTemplateRequest?: CreateGroupMergeRequestTemplateRequest): Promise<CreateGroupMergeRequestTemplateResponse> {
+        const options = ParamCreater().createGroupMergeRequestTemplate(createGroupMergeRequestTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2499,6 +2664,26 @@ export class CodeHubClient {
     }
 
     /**
+     * 创建项目合并请求模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建项目合并请求模板
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {CreateMergeRequestTemplateDto} createMergeRequestTemplateDto 创建合并请求模板请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createProjectMergeRequestTemplate(createProjectMergeRequestTemplateRequest?: CreateProjectMergeRequestTemplateRequest): Promise<CreateProjectMergeRequestTemplateResponse> {
+        const options = ParamCreater().createProjectMergeRequestTemplate(createProjectMergeRequestTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除代码组合并请求审核配置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2511,6 +2696,26 @@ export class CodeHubClient {
      */
     public deleteGroupMergeRequestApproverSetting(deleteGroupMergeRequestApproverSettingRequest?: DeleteGroupMergeRequestApproverSettingRequest): Promise<DeleteGroupMergeRequestApproverSettingResponse> {
         const options = ParamCreater().deleteGroupMergeRequestApproverSetting(deleteGroupMergeRequestApproverSettingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除代码组合并请求模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除代码组合并请求模板
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} templateId **参数解释：** 合并请求模板id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteGroupMergeRequestTemplate(deleteGroupMergeRequestTemplateRequest?: DeleteGroupMergeRequestTemplateRequest): Promise<DeleteGroupMergeRequestTemplateResponse> {
+        const options = ParamCreater().deleteGroupMergeRequestTemplate(deleteGroupMergeRequestTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2599,6 +2804,26 @@ export class CodeHubClient {
     }
 
     /**
+     * 删除项目合并请求模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除项目合并请求模板
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} templateId **参数解释：** 合并请求模板id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteProjectMergeRequestTemplate(deleteProjectMergeRequestTemplateRequest?: DeleteProjectMergeRequestTemplateRequest): Promise<DeleteProjectMergeRequestTemplateResponse> {
+        const options = ParamCreater().deleteProjectMergeRequestTemplate(deleteProjectMergeRequestTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 导入合并请求
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2611,6 +2836,28 @@ export class CodeHubClient {
      */
     public importMergeRequest(importMergeRequestRequest?: ImportMergeRequestRequest): Promise<ImportMergeRequestResponse> {
         const options = ParamCreater().importMergeRequest(importMergeRequestRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取提交关联的合并请求
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取提交关联的合并请求
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} sha **参数解释：** 提交ID。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCommitAssociatedMergeRequests(listCommitAssociatedMergeRequestsRequest?: ListCommitAssociatedMergeRequestsRequest): Promise<ListCommitAssociatedMergeRequestsResponse> {
+        const options = ParamCreater().listCommitAssociatedMergeRequests(listCommitAssociatedMergeRequestsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2668,11 +2915,35 @@ export class CodeHubClient {
      *
      * @summary 获取代码组检视人
      * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listGroupMergeRequestCanBeAssignedReviewers(listGroupMergeRequestCanBeAssignedReviewersRequest?: ListGroupMergeRequestCanBeAssignedReviewersRequest): Promise<ListGroupMergeRequestCanBeAssignedReviewersResponse> {
         const options = ParamCreater().listGroupMergeRequestCanBeAssignedReviewers(listGroupMergeRequestCanBeAssignedReviewersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取代码组合并请求模板列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取代码组合并请求模板列表
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {string} [templateName] **参数解释：** 搜索的模板名称 **取值范围：** 字符串长度不少于1，不超过100000。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGroupMergeRequestTemplates(listGroupMergeRequestTemplatesRequest?: ListGroupMergeRequestTemplatesRequest): Promise<ListGroupMergeRequestTemplatesResponse> {
+        const options = ParamCreater().listGroupMergeRequestTemplates(listGroupMergeRequestTemplatesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2687,6 +2958,8 @@ export class CodeHubClient {
      *
      * @summary 获取代码组审核人或合并人
      * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2847,6 +3120,48 @@ export class CodeHubClient {
     }
 
     /**
+     * 获取合并请求评价列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取合并请求评价列表
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listMergeRequestEvaluations(listMergeRequestEvaluationsRequest?: ListMergeRequestEvaluationsRequest): Promise<ListMergeRequestEvaluationsResponse> {
+        const options = ParamCreater().listMergeRequestEvaluations(listMergeRequestEvaluationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取合并请求参与者
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取合并请求参与者
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listMergeRequestParticipants(listMergeRequestParticipantsRequest?: ListMergeRequestParticipantsRequest): Promise<ListMergeRequestParticipantsResponse> {
+        const options = ParamCreater().listMergeRequestParticipants(listMergeRequestParticipantsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取合并请求检视人列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2925,6 +3240,65 @@ export class CodeHubClient {
     }
 
     /**
+     * 获取文件变更历史版本列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取文件变更历史版本列表
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listMergeRequestVersions(listMergeRequestVersionsRequest?: ListMergeRequestVersionsRequest): Promise<ListMergeRequestVersionsResponse> {
+        const options = ParamCreater().listMergeRequestVersions(listMergeRequestVersionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取个人首页mr列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取个人首页mr列表
+     * @param {'opened' | 'closed' | 'locked' | 'merged' | 'all'} [state] **参数解释：** 合并请求状态 **约束限制：** - all，返回所有状态的合并请求。 - opened，返回开启中的合并请求。 - closed，返回关闭的合并请求。 - locked，返回锁定的合并请求。 - merged，返回已合并的合并请求。
+     * @param {'created_at' | 'updated_at' | 'merged_at'} [orderBy] **参数解释：** 排序方式 **约束限制：** - created_at，根据创建时间排序。 - updated_at，根据更新时间排序。 - merged_at，根据合并时间排序。
+     * @param {'asc' | 'desc'} [sort] **参数解释：** 排序顺序 **约束限制：**   - asc，正序排序。   - desc，倒序排序。
+     * @param {string} [labels] **参数解释：** 合并请求关联标签
+     * @param {Date} [createdBefore] **参数解释：** 指定时间前创建
+     * @param {Date} [createdAfter] **参数解释：** 指定时间后创建
+     * @param {Date} [updatedAfter] **参数解释：** 指定时间后更新
+     * @param {Date} [updatedBefore] **参数解释：** 指定时间前更新
+     * @param {'simple' | 'basic'} [view] **参数解释：** 结果集属性，根据给定的参数返回不同的结果， simple，返回简单数据，basic返回基本数据。
+     * @param {string} [authorId] **参数解释：** 合并请求创建人
+     * @param {'created_by_me' | 'assigned_to_me' | 'need_my_review' | 'need_my_approve' | 'all'} [scope] **参数解释：**   - created_by_me 我创建的合并请求   - assigned_to_me 待我合并的合并请求   - need_my_review 待我检视的合并请求   - need_my_approve 待我审核的合并请求   - all 所有有权限访问的合并请求
+     * @param {string} [sourceBranch] **参数解释：** 合并请求原分支
+     * @param {string} [targetBranch] **参数解释：** 合并请求目标分支
+     * @param {string} [search] **参数解释：** 根据合并请求标题、描述信息过滤关键字
+     * @param {'true' | 'false'} [wip] **参数解释：** 合并请求标题是否有WIP关键字
+     * @param {string} [mergedBy] **参数解释：** 合并请求合并人
+     * @param {Date} [mergedAfter] **参数解释：** 指定时间后合入
+     * @param {Date} [mergedBefore] **参数解释：** 指定时间前合入
+     * @param {number} [offset] **参数解释：** 分页参数偏移量
+     * @param {number} [limit] **参数解释：** 分页参数结果数量限制
+     * @param {boolean} [onlyCount] **参数解释：** 是否只返回合并请求总数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPersonalMergeRequests(listPersonalMergeRequestsRequest?: ListPersonalMergeRequestsRequest): Promise<ListPersonalMergeRequestsResponse> {
+        const options = ParamCreater().listPersonalMergeRequests(listPersonalMergeRequestsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取项目合并请求审核设置列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2952,6 +3326,8 @@ export class CodeHubClient {
      *
      * @summary 获取项目检视人
      * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2971,11 +3347,35 @@ export class CodeHubClient {
      *
      * @summary 获取项目审核人或合并人
      * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listProjectMergeRequestCanBeAssignedUsers(listProjectMergeRequestCanBeAssignedUsersRequest?: ListProjectMergeRequestCanBeAssignedUsersRequest): Promise<ListProjectMergeRequestCanBeAssignedUsersResponse> {
         const options = ParamCreater().listProjectMergeRequestCanBeAssignedUsers(listProjectMergeRequestCanBeAssignedUsersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取项目合并请求模板列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取项目合并请求模板列表
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} [templateName] **参数解释：** 搜索的模板名称 **取值范围：** 字符串长度不少于1，不超过100000。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProjectMergeRequestTemplates(listProjectMergeRequestTemplatesRequest?: ListProjectMergeRequestTemplatesRequest): Promise<ListProjectMergeRequestTemplatesResponse> {
+        const options = ParamCreater().listProjectMergeRequestTemplates(listProjectMergeRequestTemplatesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3161,6 +3561,26 @@ export class CodeHubClient {
     }
 
     /**
+     * 获取代码页单个提交下文件的检视意见
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取代码页单个提交下文件的检视意见
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} sha **参数解释：** 提交ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCommitCommentsByLine(showCommitCommentsByLineRequest?: ShowCommitCommentsByLineRequest): Promise<ShowCommitCommentsByLineResponse> {
+        const options = ParamCreater().showCommitCommentsByLine(showCommitCommentsByLineRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取代码组合并请求设置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3325,6 +3745,27 @@ export class CodeHubClient {
     }
 
     /**
+     * 获取仓库合并请求统计数据
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取仓库合并请求统计数据
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} iids **参数解释：** 合并请求iid。
+     * @param {'commits_count' | 'changed_files_count' | 'notes_count' | 'changed_lines_count'} [fields] **参数解释：** 统计字段。 **约束限制 ** - commits_count，统计提交数 - changed_files_count，文件变更数 - notes_count， 检视意见数 - changed_lines_count，代码变更行数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRepositoryMergeRequestsStatistic(showRepositoryMergeRequestsStatisticRequest?: ShowRepositoryMergeRequestsStatisticRequest): Promise<ShowRepositoryMergeRequestsStatisticResponse> {
+        const options = ParamCreater().showRepositoryMergeRequestsStatistic(showRepositoryMergeRequestsStatisticRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新代码组合并请求审核设置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3338,6 +3779,27 @@ export class CodeHubClient {
      */
     public updateGroupMergeRequestApproverSetting(updateGroupMergeRequestApproverSettingRequest?: UpdateGroupMergeRequestApproverSettingRequest): Promise<UpdateGroupMergeRequestApproverSettingResponse> {
         const options = ParamCreater().updateGroupMergeRequestApproverSetting(updateGroupMergeRequestApproverSettingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新代码组合并请求模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新代码组合并请求模板
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} templateId **参数解释：** 合并请求模板id。
+     * @param {CreateMergeRequestTemplateDto} createMergeRequestTemplateDto 创建合并请求模板请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateGroupMergeRequestTemplate(updateGroupMergeRequestTemplateRequest?: UpdateGroupMergeRequestTemplateRequest): Promise<UpdateGroupMergeRequestTemplateResponse> {
+        const options = ParamCreater().updateGroupMergeRequestTemplate(updateGroupMergeRequestTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3513,20 +3975,19 @@ export class CodeHubClient {
     }
 
     /**
-     * 获取提交关联的合并请求
+     * 更新项目合并请求模板
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取提交关联的合并请求
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} sha **参数解释：** 提交ID。
-     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
-     * @param {number} [limit] **参数解释：** 返回数量。
+     * @summary 更新项目合并请求模板
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} templateId **参数解释：** 合并请求模板id。
+     * @param {CreateMergeRequestTemplateDto} createMergeRequestTemplateDto 创建合并请求模板请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listCommitAssociatedMergeRequests(listCommitAssociatedMergeRequestsRequest?: ListCommitAssociatedMergeRequestsRequest): Promise<ListCommitAssociatedMergeRequestsResponse> {
-        const options = ParamCreater().listCommitAssociatedMergeRequests(listCommitAssociatedMergeRequestsRequest);
+    public updateProjectMergeRequestTemplate(updateProjectMergeRequestTemplateRequest?: UpdateProjectMergeRequestTemplateRequest): Promise<UpdateProjectMergeRequestTemplateResponse> {
+        const options = ParamCreater().updateProjectMergeRequestTemplate(updateProjectMergeRequestTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3535,19 +3996,18 @@ export class CodeHubClient {
     }
 
     /**
-     * 获取仓库合并请求统计数据
+     * 批量删除仓库文件推送权限
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取仓库合并请求统计数据
+     * @summary 批量删除仓库文件推送权限
      * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} iids **参数解释：** 合并请求iid。
-     * @param {'commits_count' | 'changed_files_count' | 'notes_count' | 'changed_lines_count'} [fields] **参数解释：** 统计字段。 **约束限制 ** - commits_count，统计提交数 - changed_files_count，文件变更数 - notes_count， 检视意见数 - changed_lines_count，代码变更行数
+     * @param {BatchDeleteFilePushPermissionDto} batchDeleteFilePushPermissionDto 批量删除仓库文件推送权限
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showRepositoryMergeRequestsStatistic(showRepositoryMergeRequestsStatisticRequest?: ShowRepositoryMergeRequestsStatisticRequest): Promise<ShowRepositoryMergeRequestsStatisticResponse> {
-        const options = ParamCreater().showRepositoryMergeRequestsStatistic(showRepositoryMergeRequestsStatisticRequest);
+    public batchDeleteRepositoryFilePushPermissions(batchDeleteRepositoryFilePushPermissionsRequest?: BatchDeleteRepositoryFilePushPermissionsRequest): Promise<BatchDeleteRepositoryFilePushPermissionsResponse> {
+        const options = ParamCreater().batchDeleteRepositoryFilePushPermissions(batchDeleteRepositoryFilePushPermissionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3556,20 +4016,82 @@ export class CodeHubClient {
     }
 
     /**
-     * 获取合并请求参与者
+     * 批量更新仓库文件推送权限
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取合并请求参与者
+     * @summary 批量更新仓库文件推送权限
      * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
+     * @param {BatchUpdateFilePushPermissionBodyDto} batchUpdateFilePushPermissionBodyDto 批量更新仓库文件推送权限
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateRepositoryFilePushPermissions(batchUpdateRepositoryFilePushPermissionsRequest?: BatchUpdateRepositoryFilePushPermissionsRequest): Promise<BatchUpdateRepositoryFilePushPermissionsResponse> {
+        const options = ParamCreater().batchUpdateRepositoryFilePushPermissions(batchUpdateRepositoryFilePushPermissionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建仓库文件推送权限
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建仓库文件推送权限
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {CreateRepositoryFilePushPermissionDto} createRepositoryFilePushPermissionDto 创建仓库文件推送权限
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createFilePushPermission(createFilePushPermissionRequest?: CreateFilePushPermissionRequest): Promise<CreateFilePushPermissionResponse> {
+        const options = ParamCreater().createFilePushPermission(createFilePushPermissionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取仓库文件推送权限列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取仓库文件推送权限列表
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配保护分支名。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listMergeRequestParticipants(listMergeRequestParticipantsRequest?: ListMergeRequestParticipantsRequest): Promise<ListMergeRequestParticipantsResponse> {
-        const options = ParamCreater().listMergeRequestParticipants(listMergeRequestParticipantsRequest);
+    public listRepositoryFilePushPermissions(listRepositoryFilePushPermissionsRequest?: ListRepositoryFilePushPermissionsRequest): Promise<ListRepositoryFilePushPermissionsResponse> {
+        const options = ParamCreater().listRepositoryFilePushPermissions(listRepositoryFilePushPermissionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询仓库权限矩阵配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询仓库权限矩阵配置
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} resourceName **参数解释：** 权限资源名称 **约束限制：** 不涉及。 **取值范围：** - repository， 仓库 - code，代码 - member，成员 - branch，分支 - tag，Tag - mr，MR - label, 合并请求标签
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRepositoryResourcePermissions(listRepositoryResourcePermissionsRequest?: ListRepositoryResourcePermissionsRequest): Promise<ListRepositoryResourcePermissionsResponse> {
+        const options = ParamCreater().listRepositoryResourcePermissions(listRepositoryResourcePermissionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3609,6 +4131,27 @@ export class CodeHubClient {
      */
     public updateRepositoryPermissionInheritEnabled(updateRepositoryPermissionInheritEnabledRequest?: UpdateRepositoryPermissionInheritEnabledRequest): Promise<UpdateRepositoryPermissionInheritEnabledResponse> {
         const options = ParamCreater().updateRepositoryPermissionInheritEnabled(updateRepositoryPermissionInheritEnabledRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新仓库权限矩阵配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新仓库权限矩阵配置
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} resourceName **参数解释：** 权限资源名称 **约束限制：** 不涉及。 **取值范围：** - repository， 仓库 - code，代码 - member，成员 - branch，分支 - tag，Tag - mr，MR - label, 合并请求标签
+     * @param {UpdatePermissionBodyDto} updatePermissionBodyDto 更新仓库权限矩阵配置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRepositoryResourcePermissions(updateRepositoryResourcePermissionsRequest?: UpdateRepositoryResourcePermissionsRequest): Promise<UpdateRepositoryResourcePermissionsResponse> {
+        const options = ParamCreater().updateRepositoryResourcePermissions(updateRepositoryResourcePermissionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3659,6 +4202,94 @@ export class CodeHubClient {
     }
 
     /**
+     * 工作项关联的提交信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 工作项关联的提交信息
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} itemId **参数解释：** 工作项Id。 **约束限制：** 不涉及  **取值范围：** 字符串长度不少于1，不超过128。
+     * @param {'commit' | 'branch' | 'mergerequest'} [type] **参数解释：** 工作项关联的提交类型。 **约束限制：** 不涉及  **取值范围：** - commit，提交。 - branch，分支。 - mergerequest，合并请求。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listItemCommits(listItemCommitsRequest?: ListItemCommitsRequest): Promise<ListItemCommitsResponse> {
+        const options = ParamCreater().listItemCommits(listItemCommitsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Total'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取项目下的代码组和仓库列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取项目下的代码组和仓库列表
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} [filter] **参数解释：** 检索条件，名称。
+     * @param {'id' | 'name' | 'created_at' | 'updated_at'} [orderBy] **参数解释：** 排序字段 id 唯一标识 name 名称 created_at 创建时间 updated_at 更新时间
+     * @param {'asc' | 'desc'} [sort] **参数解释：** 排序顺序 asc顺序 desc逆序
+     * @param {boolean} [archived] **参数解释：** 是否归档
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProjectSubgroupsAndRepositories(listProjectSubgroupsAndRepositoriesRequest?: ListProjectSubgroupsAndRepositoriesRequest): Promise<ListProjectSubgroupsAndRepositoriesResponse> {
+        const options = ParamCreater().listProjectSubgroupsAndRepositories(listProjectSubgroupsAndRepositoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取指定项目的基本设置信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取指定项目的基本设置信息
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProjectGeneralPolicy(showProjectGeneralPolicyRequest?: ShowProjectGeneralPolicyRequest): Promise<ShowProjectGeneralPolicyResponse> {
+        const options = ParamCreater().showProjectGeneralPolicy(showProjectGeneralPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取项目成员设置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取项目成员设置
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProjectMemberSetting(showProjectMemberSettingRequest?: ShowProjectMemberSettingRequest): Promise<ShowProjectMemberSettingResponse> {
+        const options = ParamCreater().showProjectMemberSetting(showProjectMemberSettingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取项目继承设置项
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3689,6 +4320,67 @@ export class CodeHubClient {
      */
     public showProjectWatermark(showProjectWatermarkRequest?: ShowProjectWatermarkRequest): Promise<ShowProjectWatermarkResponse> {
         const options = ParamCreater().showProjectWatermark(showProjectWatermarkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取指定项目的基本设置信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取指定项目的基本设置信息
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProjectsGeneralPolicy(showProjectsGeneralPolicyRequest?: ShowProjectsGeneralPolicyRequest): Promise<ShowProjectsGeneralPolicyResponse> {
+        const options = ParamCreater().showProjectsGeneralPolicy(showProjectsGeneralPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取资源点对应的角色和权限
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取资源点对应的角色和权限
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} resourceId **参数解释：** 资源Id，通过获取代码组权限资源点列表获取的数据中的Id
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showResourcePermissions(showResourcePermissionsRequest?: ShowResourcePermissionsRequest): Promise<ShowResourcePermissionsResponse> {
+        const options = ParamCreater().showResourcePermissions(showResourcePermissionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新项目的基本设置信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新项目的基本设置信息
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {UpdateGeneralPolicyDto} updateGeneralPolicyDto 更新项目的基本设置信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateProjectGeneralPolicy(updateProjectGeneralPolicyRequest?: UpdateProjectGeneralPolicyRequest): Promise<UpdateProjectGeneralPolicyResponse> {
+        const options = ParamCreater().updateProjectGeneralPolicy(updateProjectGeneralPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3757,173 +4449,6 @@ export class CodeHubClient {
     }
 
     /**
-     * 批量删除仓库保护分支
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 批量删除仓库保护分支
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {BatchDeleteProtectedBranchesBodyDto} batchDeleteProtectedBranchesBodyDto 批量删除仓库保护分支
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public batchDeleteProtectedBranches(batchDeleteProtectedBranchesRequest?: BatchDeleteProtectedBranchesRequest): Promise<BatchDeleteProtectedBranchesResponse> {
-        const options = ParamCreater().batchDeleteProtectedBranches(batchDeleteProtectedBranchesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 批量更新仓库保护分支
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 批量更新仓库保护分支
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {BatchUpdateProtectedBranchesBodyDto} batchUpdateProtectedBranchesBodyDto 批量更新仓库保护分支
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public batchUpdateProtectedBranches(batchUpdateProtectedBranchesRequest?: BatchUpdateProtectedBranchesRequest): Promise<BatchUpdateProtectedBranchesResponse> {
-        const options = ParamCreater().batchUpdateProtectedBranches(batchUpdateProtectedBranchesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建项目下保护分支
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建项目下保护分支
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
-     * @param {ProtectedBranchBodyApiDto} protectedBranchBodyApiDto 创建项目下保护分支
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createProjectProtectedBranches(createProjectProtectedBranchesRequest?: CreateProjectProtectedBranchesRequest): Promise<CreateProjectProtectedBranchesResponse> {
-        const options = ParamCreater().createProjectProtectedBranches(createProjectProtectedBranchesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除仓库保护分支
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除仓库保护分支
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} branchName **参数解释：** 保护分支名或通配符列表。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteProtectedBranch(deleteProtectedBranchRequest?: DeleteProtectedBranchRequest): Promise<DeleteProtectedBranchResponse> {
-        const options = ParamCreater().deleteProtectedBranch(deleteProtectedBranchRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取项目下保护分支列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取项目下保护分支列表
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
-     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
-     * @param {number} [limit] **参数解释：** 返回数量。
-     * @param {string} [search] **参数解释：** 保护分支名称。 **取值范围：** 字符串长度不少于1，不超过2000。
-     * @param {boolean} [userActions] **参数解释：** 是否使用actions权限点的返回内容。 **取值范围：** 字符串长度不少于1，不超过2000。
-     * @param {string} [view] **参数解释：** 参数值只有simple ，意为使用简单模式，只返回名称。 **取值范围：** 字符串长度不少于1，不超过2000。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listProjectProtectedBranches(listProjectProtectedBranchesRequest?: ListProjectProtectedBranchesRequest): Promise<ListProjectProtectedBranchesResponse> {
-        const options = ParamCreater().listProjectProtectedBranches(listProjectProtectedBranchesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Total'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取仓库保护分支列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取仓库保护分支列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
-     * @param {number} [limit] **参数解释：** 返回数量。
-     * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配保护分支名。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listProtectedBranches(listProtectedBranchesRequest?: ListProtectedBranchesRequest): Promise<ListProtectedBranchesResponse> {
-        const options = ParamCreater().listProtectedBranches(listProtectedBranchesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取仓库保护分支
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取仓库保护分支
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} branchName **参数解释：** 保护分支名或通配符表达式。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showProtectedBranch(showProtectedBranchRequest?: ShowProtectedBranchRequest): Promise<ShowProtectedBranchResponse> {
-        const options = ParamCreater().showProtectedBranch(showProtectedBranchRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 更新仓库保护分支
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 更新仓库保护分支
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} branchName **参数解释：** 保护分支名或通配符表达式。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
-     * @param {Array<ProtectedBranchProtectedActionBodyDto>} protectedBranchProtectedActionBodyDto 更新仓库保护分支
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateProtectedBranch(updateProtectedBranchRequest?: UpdateProtectedBranchRequest): Promise<UpdateProtectedBranchResponse> {
-        const options = ParamCreater().updateProtectedBranch(updateProtectedBranchRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 批量创建仓库保护Tag
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3936,6 +4461,26 @@ export class CodeHubClient {
      */
     public batchCreateProtectedTags(batchCreateProtectedTagsRequest?: BatchCreateProtectedTagsRequest): Promise<BatchCreateProtectedTagsResponse> {
         const options = ParamCreater().batchCreateProtectedTags(batchCreateProtectedTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除仓库保护分支
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除仓库保护分支
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {BatchDeleteProtectedBranchesBodyDto} batchDeleteProtectedBranchesBodyDto 批量删除仓库保护分支
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteProtectedBranches(batchDeleteProtectedBranchesRequest?: BatchDeleteProtectedBranchesRequest): Promise<BatchDeleteProtectedBranchesResponse> {
+        const options = ParamCreater().batchDeleteProtectedBranches(batchDeleteProtectedBranchesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3964,6 +4509,26 @@ export class CodeHubClient {
     }
 
     /**
+     * 批量更新仓库保护分支
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量更新仓库保护分支
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {BatchUpdateProtectedBranchesBodyDto} batchUpdateProtectedBranchesBodyDto 批量更新仓库保护分支
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateProtectedBranches(batchUpdateProtectedBranchesRequest?: BatchUpdateProtectedBranchesRequest): Promise<BatchUpdateProtectedBranchesResponse> {
+        const options = ParamCreater().batchUpdateProtectedBranches(batchUpdateProtectedBranchesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量更新仓库保护Tag
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3984,6 +4549,66 @@ export class CodeHubClient {
     }
 
     /**
+     * 创建项目下保护分支
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建项目下保护分支
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {ProtectedBranchBodyApiDto} protectedBranchBodyApiDto 创建项目下保护分支
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createProjectProtectedBranches(createProjectProtectedBranchesRequest?: CreateProjectProtectedBranchesRequest): Promise<CreateProjectProtectedBranchesResponse> {
+        const options = ParamCreater().createProjectProtectedBranches(createProjectProtectedBranchesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建项目下的保护tag
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建项目下的保护tag
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {ProjectProtectedTagDto} projectProtectedTagDto 创建项目下的保护tag
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createProjectProtectedTags(createProjectProtectedTagsRequest?: CreateProjectProtectedTagsRequest): Promise<CreateProjectProtectedTagsResponse> {
+        const options = ParamCreater().createProjectProtectedTags(createProjectProtectedTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除仓库保护分支
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除仓库保护分支
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} branchName **参数解释：** 保护分支名或通配符列表。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteProtectedBranch(deleteProtectedBranchRequest?: DeleteProtectedBranchRequest): Promise<DeleteProtectedBranchResponse> {
+        const options = ParamCreater().deleteProtectedBranch(deleteProtectedBranchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除仓库保护Tag
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3996,6 +4621,71 @@ export class CodeHubClient {
      */
     public deleteProtectedTag(deleteProtectedTagRequest?: DeleteProtectedTagRequest): Promise<DeleteProtectedTagResponse> {
         const options = ParamCreater().deleteProtectedTag(deleteProtectedTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取项目下保护分支列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取项目下保护分支列表
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {string} [search] **参数解释：** 保护分支名称。 **取值范围：** 字符串长度不少于1，不超过2000。
+     * @param {boolean} [userActions] **参数解释：** 是否使用actions权限点的返回内容。 **取值范围：** 字符串长度不少于1，不超过2000。
+     * @param {string} [view] **参数解释：** 参数值只有simple ，意为使用简单模式，只返回名称。 **取值范围：** 字符串长度不少于1，不超过2000。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProjectProtectedBranches(listProjectProtectedBranchesRequest?: ListProjectProtectedBranchesRequest): Promise<ListProjectProtectedBranchesResponse> {
+        const options = ParamCreater().listProjectProtectedBranches(listProjectProtectedBranchesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取指定项目的保护tag详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取指定项目的保护tag详情
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProjectProtectedTags(listProjectProtectedTagsRequest?: ListProjectProtectedTagsRequest): Promise<ListProjectProtectedTagsResponse> {
+        const options = ParamCreater().listProjectProtectedTags(listProjectProtectedTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取仓库保护分支列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取仓库保护分支列表
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配保护分支名。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProtectedBranches(listProtectedBranchesRequest?: ListProtectedBranchesRequest): Promise<ListProtectedBranchesResponse> {
+        const options = ParamCreater().listProtectedBranches(listProtectedBranchesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4026,6 +4716,26 @@ export class CodeHubClient {
     }
 
     /**
+     * 获取仓库保护分支
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取仓库保护分支
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} branchName **参数解释：** 保护分支名或通配符表达式。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProtectedBranch(showProtectedBranchRequest?: ShowProtectedBranchRequest): Promise<ShowProtectedBranchResponse> {
+        const options = ParamCreater().showProtectedBranch(showProtectedBranchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取仓库保护Tag
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4038,6 +4748,27 @@ export class CodeHubClient {
      */
     public showProtectedTag(showProtectedTagRequest?: ShowProtectedTagRequest): Promise<ShowProtectedTagResponse> {
         const options = ParamCreater().showProtectedTag(showProtectedTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新仓库保护分支
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新仓库保护分支
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} branchName **参数解释：** 保护分支名或通配符表达式。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {Array<ProtectedBranchProtectedActionBodyDto>} protectedBranchProtectedActionBodyDto 更新仓库保护分支
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateProtectedBranch(updateProtectedBranchRequest?: UpdateProtectedBranchRequest): Promise<UpdateProtectedBranchResponse> {
+        const options = ParamCreater().updateProtectedBranch(updateProtectedBranchRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4059,6 +4790,241 @@ export class CodeHubClient {
      */
     public updateProtectedTag(updateProtectedTagRequest?: UpdateProtectedTagRequest): Promise<UpdateProtectedTagResponse> {
         const options = ParamCreater().updateProtectedTag(updateProtectedTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除分支
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除分支
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {BatchDeleteBranchDto} batchDeleteBranchDto 分支名列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteBranch(batchDeleteBranchRequest?: BatchDeleteBranchRequest): Promise<BatchDeleteBranchResponse> {
+        const options = ParamCreater().batchDeleteBranch(batchDeleteBranchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建分支
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建分支
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {CreateBranchDto} createBranchDto 分支详情
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createBranch(createBranchRequest?: CreateBranchRequest): Promise<CreateBranchResponse> {
+        const options = ParamCreater().createBranch(createBranchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建标签
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {CreateTagDto} createTagDto 创建标签参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTag(createTagRequest?: CreateTagRequest): Promise<CreateTagResponse> {
+        const options = ParamCreater().createTag(createTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除分支
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除分支
+     * @param {string} branchName **参数解释：** 分支名称。 **取值范围：** 字符串长度不少于1，不超过2000。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteBranch(deleteBranchRequest?: DeleteBranchRequest): Promise<DeleteBranchResponse> {
+        const options = ParamCreater().deleteBranch(deleteBranchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除标签
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} tagName **参数解释：** 标签名称。 **取值范围：** 字符串长度不少于1，不超过2000。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTag(deleteTagRequest?: DeleteTagRequest): Promise<DeleteTagResponse> {
+        const options = ParamCreater().deleteTag(deleteTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取分支列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取分支列表
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {'not_protect'} [branchType] **参数解释：** 分支类型，默认返回全部分支，not_protect，返回非保护分支。 **约束限制：** 不涉及。 **取值范围：** 不涉及。
+     * @param {string} [creator] **参数解释：** 创建者，用户ID或者IamId。 **取值范围：** 字符串长度不少于1，不超过100000。
+     * @param {'name' | 'updated_desc' | 'updated_asc'} [sort] **参数解释：** 排序方式 **约束限制：** - name，分支名倒序。 - updated_desc，更新时间倒序。 - updated_asc，更新时间正序。
+     * @param {'my_branches' | 'active' | 'stale' | 'all_branches'} [queryView] **参数解释：** 分支类型 **约束限制：** - my_branches，个人分支。 - active，活跃分支。 - stale，过时分支。 - all_branches，所有分支。
+     * @param {'simple' | 'basic' | 'all'} [view] **参数解释：** 结果集属性，根据给定的参数返回不同的结果 **约束限制：** - all，返回分支的所有信息。 - basic，返回分支的基本信息。 - simple，返回分支的简单信息。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBranches(listBranchesRequest?: ListBranchesRequest): Promise<ListBranchesResponse> {
+        const options = ParamCreater().listBranches(listBranchesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Total'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看分支/tag列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看分支/tag列表
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {'branch' | 'tag'} [type] **参数解释：** 分支或者tag。 **取值范围：** 只能为branch或者tag。 **约束限制：** 只能为branch或者tag。
+     * @param {string} [search] **参数解释：** 搜索关键词。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRefsList(listRefsListRequest?: ListRefsListRequest): Promise<ListRefsListResponse> {
+        const options = ParamCreater().listRefsList(listRefsListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取标签列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取标签列表
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} [creator] **参数解释：** 创建者，用户ID或者IamId。 **取值范围：** 字符串长度不少于1，不超过100000。
+     * @param {'asc' | 'desc'} [sort] **参数解释：** 排序方式。 **约束限制：** - asc，升序。 - desc，降序。
+     * @param {string} [search] **参数解释：** 搜索条件，按标签名称搜索。 **取值范围：** 字符串长度不少于1，不超过2000。
+     * @param {'name' | 'updated' | 'created'} [orderBy] **参数解释：** 排序方式。 **取值范围：** - name，名字。 - created，创建时间。 - updated，更新时间。
+     * @param {'simple' | 'basic' | 'detail'} [view] **参数解释：** 结果集展示内容。 **取值范围：** - detail，返回标签的所有信息。 - basic，返回标签的基本信息。 - simple，返回标签的简单信息。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTags(listTagsRequest?: ListTagsRequest): Promise<ListTagsResponse> {
+        const options = ParamCreater().listTags(listTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Total'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取分支详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取分支详情
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} branchName **参数解释：** 分支名称。 **取值范围：** 字符串长度不少于1，不超过2000。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBranch(showBranchRequest?: ShowBranchRequest): Promise<ShowBranchResponse> {
+        const options = ParamCreater().showBranch(showBranchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Total'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看标签详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看标签详情
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} tagName **参数解释：** 标签名称。 **取值范围：** 字符串长度不少于1，不超过2000。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTag(showTagRequest?: ShowTagRequest): Promise<ShowTagResponse> {
+        const options = ParamCreater().showTag(showTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Total'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分支重命名。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 分支重命名
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {UpdateBranchDto} updateBranchDto 更新分支名称参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateBranchName(updateBranchNameRequest?: UpdateBranchNameRequest): Promise<UpdateBranchNameResponse> {
+        const options = ParamCreater().updateBranchName(updateBranchNameRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4148,6 +5114,25 @@ export class CodeHubClient {
     }
 
     /**
+     * 批量检查仓库名
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量检查仓库名
+     * @param {ValidateRepoNameDto} validateRepoNameDto 批量检查仓库名
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchValidateRepoNames(batchValidateRepoNamesRequest?: BatchValidateRepoNamesRequest): Promise<BatchValidateRepoNamesResponse> {
+        const options = ParamCreater().batchValidateRepoNames(batchValidateRepoNamesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建指定分支下的目录
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4160,6 +5145,85 @@ export class CodeHubClient {
      */
     public createDir(createDirRequest?: CreateDirRequest): Promise<CreateDirResponse> {
         const options = ParamCreater().createDir(createDirRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建仓库提交规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建仓库提交规则
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {CommitRuleCreateBodyDto} commitRuleCreateBodyDto 仓库通用提交规则
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRepositoryCommitRule(createRepositoryCommitRuleRequest?: CreateRepositoryCommitRuleRequest): Promise<CreateRepositoryCommitRuleResponse> {
+        const options = ParamCreater().createRepositoryCommitRule(createRepositoryCommitRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建仓库标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建仓库标签
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {LabelCreateDto} labelCreateDto list of label
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRepositoryLabel(createRepositoryLabelRequest?: CreateRepositoryLabelRequest): Promise<CreateRepositoryLabelResponse> {
+        const options = ParamCreater().createRepositoryLabel(createRepositoryLabelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建仓库系统标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建仓库系统标签
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRepositorySystemLabels(createRepositorySystemLabelsRequest?: CreateRepositorySystemLabelsRequest): Promise<CreateRepositorySystemLabelsResponse> {
+        const options = ParamCreater().createRepositorySystemLabels(createRepositorySystemLabelsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除仓库标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除仓库标签
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} name **参数解释：** 标签名 **约束限制：** 必传。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteRepositoryLabel(deleteRepositoryLabelRequest?: DeleteRepositoryLabelRequest): Promise<DeleteRepositoryLabelResponse> {
+        const options = ParamCreater().deleteRepositoryLabel(deleteRepositoryLabelRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4210,12 +5274,41 @@ export class CodeHubClient {
     }
 
     /**
+     * 触发仓库统计任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 触发仓库统计任务
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {StatisticsParamsDto} statisticsParamsDto 分支名列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeRepositoryStatistics(executeRepositoryStatisticsRequest?: ExecuteRepositoryStatisticsRequest): Promise<ExecuteRepositoryStatisticsResponse> {
+        const options = ParamCreater().executeRepositoryStatistics(executeRepositoryStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取当前登录用户仓库
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取当前登录用户仓库
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {'created_at' | 'updated_at'} [orderBy] **参数解释：** 排序字段。 **取值范围：** - created_at，创建时间。 - updated_at，更新时间。 **约束限制：** 不涉及。 **默认取值：** created_at。
+     * @param {'asc' | 'desc'} [sort] **参数解释：** 排序字段。 **取值范围：** - asc，升序。 - desc，逆序。 **约束限制：** 不涉及。 **默认取值：** desc。
+     * @param {boolean} [archived] **参数解释：** 是否归档。 **取值范围：** - true，归档。 - false，未归档。 **约束限制：** 不涉及。 **默认取值：** false。
+     * @param {string} [search] **参数解释：** 仓库搜索。 **取值范围：** 1-512。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {boolean} [starred] **参数解释：** 关注的仓库。 **取值范围：** - true，关注。 - false，未关注。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {boolean} [membership] **参数解释：** 参与的仓库（有仓库成员身份）。 **取值范围：** - true，筛选我参与的仓库。 - false，不筛选。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {boolean} [userCreated] **参数解释：** 创建的仓库。 **取值范围：** - true，筛选我创建的仓库。 - false，不筛选。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {boolean} [includeAbnormal] **参数解释：** 包含异常状态的仓库。 **取值范围：** - true，筛选包含异常状态的仓库。 - false，不筛选。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4229,20 +5322,42 @@ export class CodeHubClient {
     }
 
     /**
-     * 获取项目下当前用户有管理权限的代码组列表
+     * 获取代码组下仓库列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取项目下当前用户有管理权限的代码组列表
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
-     * @param {'group' | 'repository'} [scope] **参数解释：** 创建资源类型。 **约束限制：** - group 代码组。 - repository仓库。
+     * @summary 获取代码组下仓库列表
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {string} [search] **参数解释：** 仓库名称搜索关键字。 **取值范围：** 不涉及。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {'id' | 'name' | 'created_at' | 'updated_at'} [orderBy] **参数解释：** 排序字段。 **取值范围：** - id，仓库ID。 - name，仓库名称。 - created_at，创建时间。 - updated_at，更新时间。 **约束限制：** 不涉及。 **默认取值：** updated_at。
+     * @param {'asc' | 'desc'} [sort] **参数解释：** 排序字段。 **取值范围：** - asc，升序。 - desc，逆序。 **约束限制：** 不涉及。 **默认取值：** desc。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listManageableGroups(listManageableGroupsRequest?: ListManageableGroupsRequest): Promise<ListManageableGroupsResponse> {
-        const options = ParamCreater().listManageableGroups(listManageableGroupsRequest);
+    public listGroupRepositories(listGroupRepositoriesRequest?: ListGroupRepositoriesRequest): Promise<ListGroupRepositoriesResponse> {
+        const options = ParamCreater().listGroupRepositories(listGroupRepositoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询当前最近前N条提交动态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取当前用户最近提交动态列表
+     * @param {string} [projectId] **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} [size] **参数解释：** 获取数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPersonalRecentPushEvents(listPersonalRecentPushEventsRequest?: ListPersonalRecentPushEventsRequest): Promise<ListPersonalRecentPushEventsResponse> {
+        const options = ParamCreater().listPersonalRecentPushEvents(listPersonalRecentPushEventsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4275,6 +5390,30 @@ export class CodeHubClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Total'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取项目下仓库列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取项目下仓库列表
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} [search] **参数解释：** 仓库名称搜索关键字。 **取值范围：** 不涉及。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {'id' | 'name' | 'created_at' | 'updated_at'} [orderBy] **参数解释：** 排序字段。 **取值范围：** - id，仓库ID。 - name，仓库名称。 - created_at，创建时间。 - updated_at，更新时间。 **约束限制：** 不涉及。 **默认取值：** updated_at。
+     * @param {'asc' | 'desc'} [sort] **参数解释：** 排序字段。 **取值范围：** - asc，升序。 - desc，逆序。 **约束限制：** 不涉及。 **默认取值：** desc。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProjectRepositories(listProjectRepositoriesRequest?: ListProjectRepositoriesRequest): Promise<ListProjectRepositoriesResponse> {
+        const options = ParamCreater().listProjectRepositories(listProjectRepositoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -4358,6 +5497,8 @@ export class CodeHubClient {
      *
      * @summary 获取仓库Fork列表
      * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
      * @param {'created_at' | 'updated_at'} [orderBy] **参数解释：**  排序字段。 **约束限制：**  必须为枚举值中的选项。 **取值范围：**  - created_at，创建时间。 - updated_at，更新时间。 **默认取值：**  created_at。
      * @param {'asc' | 'desc'} [sort] **参数解释：** 排列顺序。 **约束限制：** 必须为枚举值中的选项。 **取值范围：**  - asc - desc **默认取值：** desc。
      * @param {'basic' | 'least'} [view] **参数解释：**  视图。 **约束限制：**  必须为枚举值中的选项。 **取值范围：**  - basic，基本信息。  - least，最简信息。 **默认取值：**  least。
@@ -4366,6 +5507,31 @@ export class CodeHubClient {
      */
     public listRepositoryForks(listRepositoryForksRequest?: ListRepositoryForksRequest): Promise<ListRepositoryForksResponse> {
         const options = ParamCreater().listRepositoryForks(listRepositoryForksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取仓库标签列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取仓库标签列表
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配标签名。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {'name_asc' | 'name_desc' | 'created_asc' | 'created_desc' | 'updated_asc' | 'updated_desc'} [sort] **参数解释：**  排序。 **约束限制：** 不涉及。 **取值范围：** - name_asc，按标签名升序。 - name_desc，按标签名降序。 - created_asc，按标签创建时间升序。 - created_desc，按标签创建时间降序。 - updated_asc，按标签更新时间升序。 - updated_desc，按标签更新时间降序。 **默认取值：** name_asc
+     * @param {boolean} [includeExpired] **参数解释：** 是否包含失效的标签。 **约束限制：** 不涉及。 **取值范围：** - true，包含。 - false，不包含。 **默认取值：** true
+     * @param {'simple' | 'basic' | 'detail'} [view] **参数解释：** 结果集属性，根据给定的参数返回不同的结果。 **约束限制：** 不涉及。 **取值范围：** - simple，返回简略信息。 - basic，返回基本信息。 - detail，返回详细信息。 **默认取值：** basic
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRepositoryLabels(listRepositoryLabelsRequest?: ListRepositoryLabelsRequest): Promise<ListRepositoryLabelsResponse> {
+        const options = ParamCreater().listRepositoryLabels(listRepositoryLabelsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4398,7 +5564,7 @@ export class CodeHubClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 模板仓列表
-     * @param {'SYSTEM,USER' | 'SYSTEM' | 'USER'} type **参数解释：** 自动创建流水线。 **约束限制：** 不涉及 **取值范围：** - SYSTEM,USER，个人和官方模版。 - SYSTEM，官方模版。 - USER，个人模版。 **默认取值：** 不涉及
+     * @param {'SYSTEM,USER' | 'SYSTEM' | 'USER'} type **参数解释：** 自动创建流水线。 **约束限制：** 不涉及 **取值范围：** - SYSTEM,USER，个人和官方模板。 - SYSTEM，官方模板。 - USER，个人模板。 **默认取值：** 不涉及
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {string} [platform] **参数解释：** 应用类型。 **约束限制：** 不涉及 **取值范围：** - Android。 - Console。 - HarmonyOS。 - OTHERS。 - REST API。 - ServiceStage。 - Web网站。 - 图形用户界面。 **默认取值：** 不涉及
@@ -4407,7 +5573,7 @@ export class CodeHubClient {
      * @param {string} [enterType] **参数解释：** 参赛类型。 **约束限制：** 不涉及 **取值范围：** - AI。 - 大数据。 - 小程序。 - 微服务。 **默认取值：** 不涉及
      * @param {'up' | 'down'} [dateOrder] **参数解释：** 按照模板仓的创建时间进行排序。 **约束限制：** 不涉及 **取值范围：** - up，升序。 - down，降序。 **默认取值：** 不涉及
      * @param {string} [language] **参数解释：** 编程语言。 **约束限制：** 不涉及 **取值范围：** - ArkTS。 - ASP.NET。 - C。 - C#。 - C++。 - Go。 - Groovy。 - HTML。 - Java。 - NodeJS。 - OTHERS。 - PHP。 - Python。 **默认取值：** 不涉及
-     * @param {string} [projectId] **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 当该参数不为空时，仅返回当前项目下符合搜索条件的模版仓 **取值范围：** 字符串长度32。 **取值范围：** 不涉及
+     * @param {string} [projectId] **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 当该参数不为空时，仅返回当前项目下符合搜索条件的模板仓 **取值范围：** 字符串长度32。 **取值范围：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4435,30 +5601,6 @@ export class CodeHubClient {
      */
     public listSubmodules(listSubmodulesRequest?: ListSubmodulesRequest): Promise<ListSubmodulesResponse> {
         const options = ParamCreater().listSubmodules(listSubmodulesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Total'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查看分支文件列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查看分支文件列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} [ref] **参数解释：** 引用，可以是分支名称、标签名称或者commitid，如果不传则为默认分支。 **取值范围：** 字符串长度不少于1，不超过2000。
-     * @param {string} [path] **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过100000。
-     * @param {boolean} [recursive] **参数解释：** 是否递归查询
-     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
-     * @param {number} [limit] **参数解释：** 返回数量。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listTrees(listTreesRequest?: ListTreesRequest): Promise<ListTreesResponse> {
-        const options = ParamCreater().listTrees(listTreesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Total'];
@@ -4508,18 +5650,38 @@ export class CodeHubClient {
     }
 
     /**
-     * 删除仓库部署秘钥
+     * 删除仓库部署密钥
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除仓库部署秘钥
+     * @summary 删除仓库部署密钥
      * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {number} keyId **参数解释：**  部署秘钥 ID。
+     * @param {number} keyId **参数解释：**  部署密钥 ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public removeDeployKey(removeDeployKeyRequest?: RemoveDeployKeyRequest): Promise<RemoveDeployKeyResponse> {
         const options = ParamCreater().removeDeployKey(removeDeployKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 将该该仓库的部署密钥从子模组中删除
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除子仓库部署密钥
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} keyId **参数解释：**  部署密钥 ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public removeDeployKeyFromSubmodules(removeDeployKeyFromSubmodulesRequest?: RemoveDeployKeyFromSubmodulesRequest): Promise<RemoveDeployKeyFromSubmodulesResponse> {
+        const options = ParamCreater().removeDeployKeyFromSubmodules(removeDeployKeyFromSubmodulesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4534,7 +5696,7 @@ export class CodeHubClient {
      *
      * @summary 获取文件内容
      * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} blobId **参数解释：** bolb文件ID。通过[[查询某个仓库的文件信息](https://support.huaweicloud.com/api-codeartsrepo/ListFilesByQuery.html)](tag:hws)[[查询某个仓库的文件信息](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListFilesByQuery.html)](tag:hws_hk)[查询某个仓库的文件信息](tag:hcs,hcs_sm)接口查询某个仓库的文件信息获取。 **取值范围：** 不涉及。
+     * @param {string} blobId **参数解释：** blob文件ID。通过[[查询某个仓库的文件信息](https://support.huaweicloud.com/api-codeartsrepo/ListFilesByQuery.html)](tag:hws)[[查询某个仓库的文件信息](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListFilesByQuery.html)](tag:hws_hk)[查询某个仓库的文件信息](tag:hcs,hcs_sm)接口查询某个仓库的文件信息获取。 **取值范围：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4874,6 +6036,25 @@ export class CodeHubClient {
     }
 
     /**
+     * 启动仓库加速
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启动仓库加速
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startHouseKeeping(startHouseKeepingRequest?: StartHouseKeepingRequest): Promise<StartHouseKeepingResponse> {
+        const options = ParamCreater().startHouseKeeping(startHouseKeepingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 启动仓库镜像同步
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4886,6 +6067,26 @@ export class CodeHubClient {
      */
     public startRemoteMirrorSynchronization(startRemoteMirrorSynchronizationRequest?: StartRemoteMirrorSynchronizationRequest): Promise<StartRemoteMirrorSynchronizationResponse> {
         const options = ParamCreater().startRemoteMirrorSynchronization(startRemoteMirrorSynchronizationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 将该仓库的部署密钥同步到所有的子模组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 仓库部署密钥同步到子仓
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} keyId **参数解释：**  部署密钥 ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public syncDeployKeyToSubmodules(syncDeployKeyToSubmodulesRequest?: SyncDeployKeyToSubmodulesRequest): Promise<SyncDeployKeyToSubmodulesResponse> {
+        const options = ParamCreater().syncDeployKeyToSubmodules(syncDeployKeyToSubmodulesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4935,6 +6136,47 @@ export class CodeHubClient {
     }
 
     /**
+     * 修改仓库提交规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改仓库提交规则
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} commitRuleId **参数解释：** 仓库提交规则ID。 **约束限制：** 不涉及。 **取值范围：** 1-2147483647 **默认取值：** 不涉及。
+     * @param {CommitRuleUpdateBodyDto} commitRuleUpdateBodyDto 仓库通用提交规则
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRepositoryCommitRule(updateRepositoryCommitRuleRequest?: UpdateRepositoryCommitRuleRequest): Promise<UpdateRepositoryCommitRuleResponse> {
+        const options = ParamCreater().updateRepositoryCommitRule(updateRepositoryCommitRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改仓库通用提交规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改仓库通用提交规则
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {GeneralCommitRuleBodyDto} generalCommitRuleBodyDto 仓库通用提交规则
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRepositoryGeneralCommitRule(updateRepositoryGeneralCommitRuleRequest?: UpdateRepositoryGeneralCommitRuleRequest): Promise<UpdateRepositoryGeneralCommitRuleResponse> {
+        const options = ParamCreater().updateRepositoryGeneralCommitRule(updateRepositoryGeneralCommitRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改仓库通用策略
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4967,6 +6209,46 @@ export class CodeHubClient {
      */
     public updateRepositoryInheritSetting(updateRepositoryInheritSettingRequest?: UpdateRepositoryInheritSettingRequest): Promise<UpdateRepositoryInheritSettingResponse> {
         const options = ParamCreater().updateRepositoryInheritSetting(updateRepositoryInheritSettingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改仓库标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改仓库标签
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {BodyPutLabelDto} bodyPutLabelDto 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRepositoryLabel(updateRepositoryLabelRequest?: UpdateRepositoryLabelRequest): Promise<UpdateRepositoryLabelResponse> {
+        const options = ParamCreater().updateRepositoryLabel(updateRepositoryLabelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新仓库镜像信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新仓库镜像信息
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {RemoteMirrorUpdateBody} [remoteMirrorUpdateBody] 镜像同步信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRepositoryRemoteMirror(updateRepositoryRemoteMirrorRequest?: UpdateRepositoryRemoteMirrorRequest): Promise<UpdateRepositoryRemoteMirrorResponse> {
+        const options = ParamCreater().updateRepositoryRemoteMirror(updateRepositoryRemoteMirrorRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5016,92 +6298,6 @@ export class CodeHubClient {
     }
 
     /**
-     * 创建标签
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建标签
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {CreateTagDto} createTagDto 创建标签参数
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createTag(createTagRequest?: CreateTagRequest): Promise<CreateTagResponse> {
-        const options = ParamCreater().createTag(createTagRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除标签
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除标签
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} tagName **参数解释：** 标签名称。 **取值范围：** 字符串长度不少于1，不超过2000。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteTag(deleteTagRequest?: DeleteTagRequest): Promise<DeleteTagResponse> {
-        const options = ParamCreater().deleteTag(deleteTagRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取标签列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取标签列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} [creator] **参数解释：** 创建者，用户ID或者IamId。 **取值范围：** 字符串长度不少于1，不超过100000。
-     * @param {'asc' | 'desc'} [sort] **参数解释：** 排序方式。 **约束限制：** - asc，升序。 - desc，降序。
-     * @param {string} [search] **参数解释：** 搜索条件，按标签名称搜索。 **取值范围：** 字符串长度不少于1，不超过2000。
-     * @param {'name' | 'updated' | 'created'} [orderBy] **参数解释：** 排序方式。 **取值范围：** - name，名字。 - created，创建时间。 - updated，更新时间。
-     * @param {'simple' | 'basic' | 'detail'} [view] **参数解释：** 结果集展示内容。 **取值范围：** - detail，返回标签的所有信息。 - basic，返回标签的基本信息。 - simple，返回标签的简单信息。
-     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
-     * @param {number} [limit] **参数解释：** 返回数量。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listTags(listTagsRequest?: ListTagsRequest): Promise<ListTagsResponse> {
-        const options = ParamCreater().listTags(listTagsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Total'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查看标签详情
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查看标签详情
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} tagName **参数解释：** 标签名称。 **取值范围：** 字符串长度不少于1，不超过2000。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showTag(showTagRequest?: ShowTagRequest): Promise<ShowTagResponse> {
-        const options = ParamCreater().showTag(showTagRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Total'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 添加租户ip白名单
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5135,6 +6331,53 @@ export class CodeHubClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 租户下所有占用资源的仓库列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 租户仓库列表
+     * @param {ExportTenantRepositoryBody} [exportTenantRepositoryBody] 需要导出的仓库Id列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportTenantRepositories(exportTenantRepositoriesRequest?: ExportTenantRepositoriesRequest): Promise<ExportTenantRepositoriesResponse> {
+        const options = ParamCreater().exportTenantRepositories(exportTenantRepositoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 租户下所有占用资源的仓库列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 租户仓库列表
+     * @param {string} [repositoryName] **参数解释：** 仓库名称。 **取值范围：** 字符串长度不少于1，不超过128。
+     * @param {number} [memberNumber] **参数解释：** 成员数量。
+     * @param {0 | 3 | 4 | 5 | 7} [status] **参数解释：** 仓库状态。 **取值范围：** - 0，正常。 - 3，冻结。 - 4，关闭。 - 5，清理中。 - 7，删除中。
+     * @param {string} [owner] **参数解释：** 仓库所有者。 **取值范围：** 字符串长度不少于1，不超过128。
+     * @param {Date} [createdAfter] **参数解释：** 筛选在该时间之后创建的仓库。
+     * @param {Date} [createdBefore] **参数解释：** 筛选在该时间之前创建的仓库。
+     * @param {'asc' | 'desc'} [sort] **参数解释：** 结果集排序方式。 **约束限制：** 与sort_field搭配使用。  **取值范围：** - asc，正序返回。 - desc，倒序返回。
+     * @param {'owner' | 'capacity' | 'status' | 'create_time' | 'member_number' | 'repository_name'} [sortField] **参数解释：** 用作排序的字段。 - owner，仓库所有者。 - capacity，使用空间。 - status，状态。 - create_time，创建时间。 - member_number，成员数量。 - repository_name，仓库名称。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTenantRepositories(listTenantRepositoriesRequest?: ListTenantRepositoriesRequest): Promise<ListTenantRepositoriesResponse> {
+        const options = ParamCreater().listTenantRepositories(listTenantRepositoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -5180,13 +6423,13 @@ export class CodeHubClient {
     }
 
     /**
-     * 校验部署秘钥在上层代码组或项目是否配置
+     * 校验部署密钥在上层代码组或项目是否配置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 校验部署秘钥在上层代码组或项目是否配置
+     * @summary 校验部署密钥在上层代码组或项目是否配置
      * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {DeployKeyValueDto} deployKeyValueDto 部署秘钥
+     * @param {DeployKeyValueDto} deployKeyValueDto 部署密钥
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5200,13 +6443,13 @@ export class CodeHubClient {
     }
 
     /**
-     * 校验代码组部署秘钥在上层代码组或项目是否配置
+     * 校验代码组部署密钥在上层代码组或项目是否配置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 校验代码组部署秘钥在上层代码组或项目是否配置
+     * @summary 校验代码组部署密钥在上层代码组或项目是否配置
      * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
-     * @param {DeployKeyValueDto} deployKeyValueDto 部署秘钥
+     * @param {DeployKeyValueDto} deployKeyValueDto 部署密钥
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5328,6 +6571,64 @@ export class CodeHubClient {
     }
 
     /**
+     * 获取代码组下E2E设置信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取代码组下E2E设置信息
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showGroupE2eSetting(showGroupE2eSettingRequest?: ShowGroupE2eSettingRequest): Promise<ShowGroupE2eSettingResponse> {
+        const options = ParamCreater().showGroupE2eSetting(showGroupE2eSettingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取项目下E2E设置信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取项目下E2E设置信息
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProjectE2eSetting(showProjectE2eSettingRequest?: ShowProjectE2eSettingRequest): Promise<ShowProjectE2eSettingResponse> {
+        const options = ParamCreater().showProjectE2eSetting(showProjectE2eSettingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取仓库下E2E设置信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取仓库下E2E设置信息
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {boolean} [takeEffect] **参数解释：** 是否查询生效的E2E配置。 **取值范围：** true：查询仓库实际生效的E2E配置，比如继承自代码组或者项目的E2E设置，false：查询仓库自身的E2E配置。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRepositoryE2eSetting(showRepositoryE2eSettingRequest?: ShowRepositoryE2eSettingRequest): Promise<ShowRepositoryE2eSettingResponse> {
+        const options = ParamCreater().showRepositoryE2eSetting(showRepositoryE2eSettingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 添加ssh公钥
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5339,6 +6640,25 @@ export class CodeHubClient {
      */
     public addSshKey(addSshKeyRequest?: AddSshKeyRequest): Promise<AddSshKeyResponse> {
         const options = ParamCreater().addSshKey(addSshKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取当前用户指定的代码组列表中的权限
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取当前用户指定的代码组列表中的权限
+     * @param {Array<GroupPermissionsDto>} groupPermissionsDto 邮箱与验证码
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchValidateUserGroupPermissions(batchValidateUserGroupPermissionsRequest?: BatchValidateUserGroupPermissionsRequest): Promise<BatchValidateUserGroupPermissionsResponse> {
+        const options = ParamCreater().batchValidateUserGroupPermissions(batchValidateUserGroupPermissionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5366,6 +6686,29 @@ export class CodeHubClient {
     }
 
     /**
+     * 获取用户的个人访问令牌
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取用户的个人访问令牌
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {'all' | 'active' | 'inactive'} [state] **参数解释：** 状态 all 所有状态 active 活跃，未过期 inactive 非活跃，失效的。
+     * @param {string} [search] **参数解释：** 检索内容
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listImpersonationTokens(listImpersonationTokensRequest?: ListImpersonationTokensRequest): Promise<ListImpersonationTokensResponse> {
+        const options = ParamCreater().listImpersonationTokens(listImpersonationTokensRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取当前用户的gpg_key列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5385,11 +6728,11 @@ export class CodeHubClient {
     }
 
     /**
-     * 获取当前用户的秘钥列表
+     * 获取当前用户的密钥列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取当前用户的秘钥列表
+     * @summary 获取当前用户的密钥列表
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {string} [query] **参数解释：** key的标题名称。 **取值范围：** 字符串长度不少于1，不超过2000。
@@ -5949,281 +7292,6 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 创建分支
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createBranch(createBranchRequest?: CreateBranchRequest) {
-            const options = {
-                method: "POST",
-                url: "/v4/repositories/{repository_id}/repository/branches",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let repositoryId;
-
-            if (createBranchRequest !== null && createBranchRequest !== undefined) {
-                if (createBranchRequest instanceof CreateBranchRequest) {
-                    repositoryId = createBranchRequest.repositoryId;
-                    body = createBranchRequest.body
-                } else {
-                    repositoryId = createBranchRequest['repository_id'];
-                    body = createBranchRequest['body'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling createBranch.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除分支
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteBranch(deleteBranchRequest?: DeleteBranchRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v4/repositories/{repository_id}/repository/branch",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let branchName;
-            
-            let repositoryId;
-
-            if (deleteBranchRequest !== null && deleteBranchRequest !== undefined) {
-                if (deleteBranchRequest instanceof DeleteBranchRequest) {
-                    branchName = deleteBranchRequest.branchName;
-                    repositoryId = deleteBranchRequest.repositoryId;
-                } else {
-                    branchName = deleteBranchRequest['branch_name'];
-                    repositoryId = deleteBranchRequest['repository_id'];
-                }
-            }
-
-        
-            if (branchName === null || branchName === undefined) {
-                throw new RequiredError('branchName','Required parameter branchName was null or undefined when calling deleteBranch.');
-            }
-            if (branchName !== null && branchName !== undefined) {
-                localVarQueryParameter['branch_name'] = branchName;
-            }
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling deleteBranch.');
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取分支列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listBranches(listBranchesRequest?: ListBranchesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v4/repositories/{repository_id}/repository/branches",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let repositoryId;
-            
-            let branchType;
-            
-            let creator;
-            
-            let sort;
-            
-            let queryView;
-            
-            let view;
-            
-            let offset;
-            
-            let limit;
-
-            if (listBranchesRequest !== null && listBranchesRequest !== undefined) {
-                if (listBranchesRequest instanceof ListBranchesRequest) {
-                    repositoryId = listBranchesRequest.repositoryId;
-                    branchType = listBranchesRequest.branchType;
-                    creator = listBranchesRequest.creator;
-                    sort = listBranchesRequest.sort;
-                    queryView = listBranchesRequest.queryView;
-                    view = listBranchesRequest.view;
-                    offset = listBranchesRequest.offset;
-                    limit = listBranchesRequest.limit;
-                } else {
-                    repositoryId = listBranchesRequest['repository_id'];
-                    branchType = listBranchesRequest['branch_type'];
-                    creator = listBranchesRequest['creator'];
-                    sort = listBranchesRequest['sort'];
-                    queryView = listBranchesRequest['query_view'];
-                    view = listBranchesRequest['view'];
-                    offset = listBranchesRequest['offset'];
-                    limit = listBranchesRequest['limit'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listBranches.');
-            }
-            if (branchType !== null && branchType !== undefined) {
-                localVarQueryParameter['branch_type'] = branchType;
-            }
-            if (creator !== null && creator !== undefined) {
-                localVarQueryParameter['creator'] = creator;
-            }
-            if (sort !== null && sort !== undefined) {
-                localVarQueryParameter['sort'] = sort;
-            }
-            if (queryView !== null && queryView !== undefined) {
-                localVarQueryParameter['query_view'] = queryView;
-            }
-            if (view !== null && view !== undefined) {
-                localVarQueryParameter['view'] = view;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取分支详情
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showBranch(showBranchRequest?: ShowBranchRequest) {
-            const options = {
-                method: "GET",
-                url: "/v4/repositories/{repository_id}/repository/branch",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let repositoryId;
-            
-            let branchName;
-
-            if (showBranchRequest !== null && showBranchRequest !== undefined) {
-                if (showBranchRequest instanceof ShowBranchRequest) {
-                    repositoryId = showBranchRequest.repositoryId;
-                    branchName = showBranchRequest.branchName;
-                } else {
-                    repositoryId = showBranchRequest['repository_id'];
-                    branchName = showBranchRequest['branch_name'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showBranch.');
-            }
-            if (branchName === null || branchName === undefined) {
-                throw new RequiredError('branchName','Required parameter branchName was null or undefined when calling showBranch.');
-            }
-            if (branchName !== null && branchName !== undefined) {
-                localVarQueryParameter['branch_name'] = branchName;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 分支重命名。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateBranchName(updateBranchNameRequest?: UpdateBranchNameRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v4/repositories/{repository_id}/repository/branch",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let repositoryId;
-
-            if (updateBranchNameRequest !== null && updateBranchNameRequest !== undefined) {
-                if (updateBranchNameRequest instanceof UpdateBranchNameRequest) {
-                    repositoryId = updateBranchNameRequest.repositoryId;
-                    body = updateBranchNameRequest.body
-                } else {
-                    repositoryId = updateBranchNameRequest['repository_id'];
-                    body = updateBranchNameRequest['body'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling updateBranchName.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 创建提交信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6377,6 +7445,114 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'repository_id': repositoryId,'sha': sha, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看提交列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCommits(listCommitsRequest?: ListCommitsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/repository/commit-list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let offset;
+            
+            let limit;
+            
+            let refName;
+            
+            let since;
+            
+            let until;
+            
+            let path;
+            
+            let message;
+            
+            let author;
+            
+            let orderByDate;
+            
+            let follow;
+
+            if (listCommitsRequest !== null && listCommitsRequest !== undefined) {
+                if (listCommitsRequest instanceof ListCommitsRequest) {
+                    repositoryId = listCommitsRequest.repositoryId;
+                    offset = listCommitsRequest.offset;
+                    limit = listCommitsRequest.limit;
+                    refName = listCommitsRequest.refName;
+                    since = listCommitsRequest.since;
+                    until = listCommitsRequest.until;
+                    path = listCommitsRequest.path;
+                    message = listCommitsRequest.message;
+                    author = listCommitsRequest.author;
+                    orderByDate = listCommitsRequest.orderByDate;
+                    follow = listCommitsRequest.follow;
+                } else {
+                    repositoryId = listCommitsRequest['repository_id'];
+                    offset = listCommitsRequest['offset'];
+                    limit = listCommitsRequest['limit'];
+                    refName = listCommitsRequest['ref_name'];
+                    since = listCommitsRequest['since'];
+                    until = listCommitsRequest['until'];
+                    path = listCommitsRequest['path'];
+                    message = listCommitsRequest['message'];
+                    author = listCommitsRequest['author'];
+                    orderByDate = listCommitsRequest['order_by_date'];
+                    follow = listCommitsRequest['follow'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listCommits.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (refName !== null && refName !== undefined) {
+                localVarQueryParameter['ref_name'] = refName;
+            }
+            if (since !== null && since !== undefined) {
+                localVarQueryParameter['since'] = since;
+            }
+            if (until !== null && until !== undefined) {
+                localVarQueryParameter['until'] = until;
+            }
+            if (path !== null && path !== undefined) {
+                localVarQueryParameter['path'] = path;
+            }
+            if (message !== null && message !== undefined) {
+                localVarQueryParameter['message'] = message;
+            }
+            if (author !== null && author !== undefined) {
+                localVarQueryParameter['author'] = author;
+            }
+            if (orderByDate !== null && orderByDate !== undefined) {
+                localVarQueryParameter['order_by_date'] = orderByDate;
+            }
+            if (follow !== null && follow !== undefined) {
+                localVarQueryParameter['follow'] = follow;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6796,6 +7972,130 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除合并请求检视意见
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteMergeRequestDiscussion(deleteMergeRequestDiscussionRequest?: DeleteMergeRequestDiscussionRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v4/repositories/{repository_id}/merge-requests/{merge_request_iid}/discussions/{discussion_id}/notes/{note_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let repositoryId;
+            
+            let mergeRequestIid;
+            
+            let discussionId;
+            
+            let noteId;
+
+            if (deleteMergeRequestDiscussionRequest !== null && deleteMergeRequestDiscussionRequest !== undefined) {
+                if (deleteMergeRequestDiscussionRequest instanceof DeleteMergeRequestDiscussionRequest) {
+                    repositoryId = deleteMergeRequestDiscussionRequest.repositoryId;
+                    mergeRequestIid = deleteMergeRequestDiscussionRequest.mergeRequestIid;
+                    discussionId = deleteMergeRequestDiscussionRequest.discussionId;
+                    noteId = deleteMergeRequestDiscussionRequest.noteId;
+                } else {
+                    repositoryId = deleteMergeRequestDiscussionRequest['repository_id'];
+                    mergeRequestIid = deleteMergeRequestDiscussionRequest['merge_request_iid'];
+                    discussionId = deleteMergeRequestDiscussionRequest['discussion_id'];
+                    noteId = deleteMergeRequestDiscussionRequest['note_id'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling deleteMergeRequestDiscussion.');
+            }
+            if (mergeRequestIid === null || mergeRequestIid === undefined) {
+            throw new RequiredError('mergeRequestIid','Required parameter mergeRequestIid was null or undefined when calling deleteMergeRequestDiscussion.');
+            }
+            if (discussionId === null || discussionId === undefined) {
+            throw new RequiredError('discussionId','Required parameter discussionId was null or undefined when calling deleteMergeRequestDiscussion.');
+            }
+            if (noteId === null || noteId === undefined) {
+            throw new RequiredError('noteId','Required parameter noteId was null or undefined when calling deleteMergeRequestDiscussion.');
+            }
+
+            options.pathParams = { 'repository_id': repositoryId,'merge_request_iid': mergeRequestIid,'discussion_id': discussionId,'note_id': noteId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取代码页单个提交下检视意见列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCommitDiscussions(listCommitDiscussionsRequest?: ListCommitDiscussionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/commits/{sha}/discussions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let sha;
+            
+            let sort;
+            
+            let offset;
+            
+            let limit;
+
+            if (listCommitDiscussionsRequest !== null && listCommitDiscussionsRequest !== undefined) {
+                if (listCommitDiscussionsRequest instanceof ListCommitDiscussionsRequest) {
+                    repositoryId = listCommitDiscussionsRequest.repositoryId;
+                    sha = listCommitDiscussionsRequest.sha;
+                    sort = listCommitDiscussionsRequest.sort;
+                    offset = listCommitDiscussionsRequest.offset;
+                    limit = listCommitDiscussionsRequest.limit;
+                } else {
+                    repositoryId = listCommitDiscussionsRequest['repository_id'];
+                    sha = listCommitDiscussionsRequest['sha'];
+                    sort = listCommitDiscussionsRequest['sort'];
+                    offset = listCommitDiscussionsRequest['offset'];
+                    limit = listCommitDiscussionsRequest['limit'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listCommitDiscussions.');
+            }
+            if (sha === null || sha === undefined) {
+            throw new RequiredError('sha','Required parameter sha was null or undefined when calling listCommitDiscussions.');
+            }
+            if (sort !== null && sort !== undefined) {
+                localVarQueryParameter['sort'] = sort;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId,'sha': sha, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取默认的检视意见分类
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6882,6 +8182,65 @@ export const ParamCreater = function () {
             }
             if (sort !== null && sort !== undefined) {
                 localVarQueryParameter['sort'] = sort;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId,'merge_request_iid': mergeRequestIid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取合并请求动态列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listMergeRequestSystemNotes(listMergeRequestSystemNotesRequest?: ListMergeRequestSystemNotesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/merge-requests/{merge_request_iid}/system-notes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let mergeRequestIid;
+            
+            let offset;
+            
+            let limit;
+
+            if (listMergeRequestSystemNotesRequest !== null && listMergeRequestSystemNotesRequest !== undefined) {
+                if (listMergeRequestSystemNotesRequest instanceof ListMergeRequestSystemNotesRequest) {
+                    repositoryId = listMergeRequestSystemNotesRequest.repositoryId;
+                    mergeRequestIid = listMergeRequestSystemNotesRequest.mergeRequestIid;
+                    offset = listMergeRequestSystemNotesRequest.offset;
+                    limit = listMergeRequestSystemNotesRequest.limit;
+                } else {
+                    repositoryId = listMergeRequestSystemNotesRequest['repository_id'];
+                    mergeRequestIid = listMergeRequestSystemNotesRequest['merge_request_iid'];
+                    offset = listMergeRequestSystemNotesRequest['offset'];
+                    limit = listMergeRequestSystemNotesRequest['limit'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listMergeRequestSystemNotes.');
+            }
+            if (mergeRequestIid === null || mergeRequestIid === undefined) {
+            throw new RequiredError('mergeRequestIid','Required parameter mergeRequestIid was null or undefined when calling listMergeRequestSystemNotes.');
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -7569,6 +8928,66 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 更新合并请求检视意见中除评论内容以外的信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateMergeRequestDiscussionInfo(updateMergeRequestDiscussionInfoRequest?: UpdateMergeRequestDiscussionInfoRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/repositories/{repository_id}/merge-requests/{merge_request_iid}/discussions/{discussion_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+            
+            let mergeRequestIid;
+            
+            let discussionId;
+
+            if (updateMergeRequestDiscussionInfoRequest !== null && updateMergeRequestDiscussionInfoRequest !== undefined) {
+                if (updateMergeRequestDiscussionInfoRequest instanceof UpdateMergeRequestDiscussionInfoRequest) {
+                    repositoryId = updateMergeRequestDiscussionInfoRequest.repositoryId;
+                    mergeRequestIid = updateMergeRequestDiscussionInfoRequest.mergeRequestIid;
+                    discussionId = updateMergeRequestDiscussionInfoRequest.discussionId;
+                    body = updateMergeRequestDiscussionInfoRequest.body
+                } else {
+                    repositoryId = updateMergeRequestDiscussionInfoRequest['repository_id'];
+                    mergeRequestIid = updateMergeRequestDiscussionInfoRequest['merge_request_iid'];
+                    discussionId = updateMergeRequestDiscussionInfoRequest['discussion_id'];
+                    body = updateMergeRequestDiscussionInfoRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling updateMergeRequestDiscussionInfo.');
+            }
+            if (mergeRequestIid === null || mergeRequestIid === undefined) {
+            throw new RequiredError('mergeRequestIid','Required parameter mergeRequestIid was null or undefined when calling updateMergeRequestDiscussionInfo.');
+            }
+            if (discussionId === null || discussionId === undefined) {
+            throw new RequiredError('discussionId','Required parameter discussionId was null or undefined when calling updateMergeRequestDiscussionInfo.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId,'merge_request_iid': mergeRequestIid,'discussion_id': discussionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建/更新仓库检视意见必填项
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8066,6 +9485,184 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查看文件树
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLogsTree(listLogsTreeRequest?: ListLogsTreeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/repository/logs-tree",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let ref;
+            
+            let offset;
+            
+            let limit;
+
+            if (listLogsTreeRequest !== null && listLogsTreeRequest !== undefined) {
+                if (listLogsTreeRequest instanceof ListLogsTreeRequest) {
+                    repositoryId = listLogsTreeRequest.repositoryId;
+                    ref = listLogsTreeRequest.ref;
+                    offset = listLogsTreeRequest.offset;
+                    limit = listLogsTreeRequest.limit;
+                } else {
+                    repositoryId = listLogsTreeRequest['repository_id'];
+                    ref = listLogsTreeRequest['ref'];
+                    offset = listLogsTreeRequest['offset'];
+                    limit = listLogsTreeRequest['limit'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listLogsTree.');
+            }
+            if (ref !== null && ref !== undefined) {
+                localVarQueryParameter['ref'] = ref;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看分支文件列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTrees(listTreesRequest?: ListTreesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/repository/trees",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let ref;
+            
+            let path;
+            
+            let recursive;
+            
+            let offset;
+            
+            let limit;
+
+            if (listTreesRequest !== null && listTreesRequest !== undefined) {
+                if (listTreesRequest instanceof ListTreesRequest) {
+                    repositoryId = listTreesRequest.repositoryId;
+                    ref = listTreesRequest.ref;
+                    path = listTreesRequest.path;
+                    recursive = listTreesRequest.recursive;
+                    offset = listTreesRequest.offset;
+                    limit = listTreesRequest.limit;
+                } else {
+                    repositoryId = listTreesRequest['repository_id'];
+                    ref = listTreesRequest['ref'];
+                    path = listTreesRequest['path'];
+                    recursive = listTreesRequest['recursive'];
+                    offset = listTreesRequest['offset'];
+                    limit = listTreesRequest['limit'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listTrees.');
+            }
+            if (ref !== null && ref !== undefined) {
+                localVarQueryParameter['ref'] = ref;
+            }
+            if (path !== null && path !== undefined) {
+                localVarQueryParameter['path'] = path;
+            }
+            if (recursive !== null && recursive !== undefined) {
+                localVarQueryParameter['recursive'] = recursive;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 文件重命名
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        renameFile(renameFileRequest?: RenameFileRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/repositories/{repository_id}/repository/rename-file",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+
+            if (renameFileRequest !== null && renameFileRequest !== undefined) {
+                if (renameFileRequest instanceof RenameFileRequest) {
+                    repositoryId = renameFileRequest.repositoryId;
+                    body = renameFileRequest.body
+                } else {
+                    repositoryId = renameFileRequest['repository_id'];
+                    body = renameFileRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling renameFile.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查看文件属性与内容
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8179,6 +9776,61 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取仓库单个文件内容
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFileRaw(showFileRawRequest?: ShowFileRawRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/repository/files/raw",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let filePath;
+            
+            let ref;
+
+            if (showFileRawRequest !== null && showFileRawRequest !== undefined) {
+                if (showFileRawRequest instanceof ShowFileRawRequest) {
+                    repositoryId = showFileRawRequest.repositoryId;
+                    filePath = showFileRawRequest.filePath;
+                    ref = showFileRawRequest.ref;
+                } else {
+                    repositoryId = showFileRawRequest['repository_id'];
+                    filePath = showFileRawRequest['file_path'];
+                    ref = showFileRawRequest['ref'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showFileRaw.');
+            }
+            if (filePath === null || filePath === undefined) {
+                throw new RequiredError('filePath','Required parameter filePath was null or undefined when calling showFileRaw.');
+            }
+            if (filePath !== null && filePath !== undefined) {
+                localVarQueryParameter['file_path'] = filePath;
+            }
+            if (ref !== null && ref !== undefined) {
+                localVarQueryParameter['ref'] = ref;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取仓库默认分支的Readme文件内容
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8263,203 +9915,6 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 批量删除仓库文件推送权限
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        batchDeleteRepositoryFilePushPermissions(batchDeleteRepositoryFilePushPermissionsRequest?: BatchDeleteRepositoryFilePushPermissionsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v4/repositories/{repository_id}/file-push-permissions/batch-delete",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let repositoryId;
-
-            if (batchDeleteRepositoryFilePushPermissionsRequest !== null && batchDeleteRepositoryFilePushPermissionsRequest !== undefined) {
-                if (batchDeleteRepositoryFilePushPermissionsRequest instanceof BatchDeleteRepositoryFilePushPermissionsRequest) {
-                    repositoryId = batchDeleteRepositoryFilePushPermissionsRequest.repositoryId;
-                    body = batchDeleteRepositoryFilePushPermissionsRequest.body
-                } else {
-                    repositoryId = batchDeleteRepositoryFilePushPermissionsRequest['repository_id'];
-                    body = batchDeleteRepositoryFilePushPermissionsRequest['body'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling batchDeleteRepositoryFilePushPermissions.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 批量更新仓库文件推送权限
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        batchUpdateRepositoryFilePushPermissions(batchUpdateRepositoryFilePushPermissionsRequest?: BatchUpdateRepositoryFilePushPermissionsRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v4/repositories/{repository_id}/file-push-permissions",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let repositoryId;
-
-            if (batchUpdateRepositoryFilePushPermissionsRequest !== null && batchUpdateRepositoryFilePushPermissionsRequest !== undefined) {
-                if (batchUpdateRepositoryFilePushPermissionsRequest instanceof BatchUpdateRepositoryFilePushPermissionsRequest) {
-                    repositoryId = batchUpdateRepositoryFilePushPermissionsRequest.repositoryId;
-                    body = batchUpdateRepositoryFilePushPermissionsRequest.body
-                } else {
-                    repositoryId = batchUpdateRepositoryFilePushPermissionsRequest['repository_id'];
-                    body = batchUpdateRepositoryFilePushPermissionsRequest['body'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling batchUpdateRepositoryFilePushPermissions.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建仓库文件推送权限
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createFilePushPermission(createFilePushPermissionRequest?: CreateFilePushPermissionRequest) {
-            const options = {
-                method: "POST",
-                url: "/v4/repositories/{repository_id}/file-push-permissions",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let repositoryId;
-
-            if (createFilePushPermissionRequest !== null && createFilePushPermissionRequest !== undefined) {
-                if (createFilePushPermissionRequest instanceof CreateFilePushPermissionRequest) {
-                    repositoryId = createFilePushPermissionRequest.repositoryId;
-                    body = createFilePushPermissionRequest.body
-                } else {
-                    repositoryId = createFilePushPermissionRequest['repository_id'];
-                    body = createFilePushPermissionRequest['body'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling createFilePushPermission.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取仓库文件推送权限列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listRepositoryFilePushPermissions(listRepositoryFilePushPermissionsRequest?: ListRepositoryFilePushPermissionsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v4/repositories/{repository_id}/file-push-permissions",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let repositoryId;
-            
-            let search;
-            
-            let offset;
-            
-            let limit;
-
-            if (listRepositoryFilePushPermissionsRequest !== null && listRepositoryFilePushPermissionsRequest !== undefined) {
-                if (listRepositoryFilePushPermissionsRequest instanceof ListRepositoryFilePushPermissionsRequest) {
-                    repositoryId = listRepositoryFilePushPermissionsRequest.repositoryId;
-                    search = listRepositoryFilePushPermissionsRequest.search;
-                    offset = listRepositoryFilePushPermissionsRequest.offset;
-                    limit = listRepositoryFilePushPermissionsRequest.limit;
-                } else {
-                    repositoryId = listRepositoryFilePushPermissionsRequest['repository_id'];
-                    search = listRepositoryFilePushPermissionsRequest['search'];
-                    offset = listRepositoryFilePushPermissionsRequest['offset'];
-                    limit = listRepositoryFilePushPermissionsRequest['limit'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listRepositoryFilePushPermissions.');
-            }
-            if (search !== null && search !== undefined) {
-                localVarQueryParameter['search'] = search;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'repository_id': repositoryId, };
             options.headers = localVarHeaderParameter;
@@ -8936,6 +10391,65 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 组织下查询成员组列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGroupUserGroups(listGroupUserGroupsRequest?: ListGroupUserGroupsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/groups/{group_id}/user-groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let groupId;
+            
+            let search;
+            
+            let offset;
+            
+            let limit;
+
+            if (listGroupUserGroupsRequest !== null && listGroupUserGroupsRequest !== undefined) {
+                if (listGroupUserGroupsRequest instanceof ListGroupUserGroupsRequest) {
+                    groupId = listGroupUserGroupsRequest.groupId;
+                    search = listGroupUserGroupsRequest.search;
+                    offset = listGroupUserGroupsRequest.offset;
+                    limit = listGroupUserGroupsRequest.limit;
+                } else {
+                    groupId = listGroupUserGroupsRequest['group_id'];
+                    search = listGroupUserGroupsRequest['search'];
+                    offset = listGroupUserGroupsRequest['offset'];
+                    limit = listGroupUserGroupsRequest['limit'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listGroupUserGroups.');
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取代码组列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9022,80 +10536,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取用户的个人访问令牌
+         * 获取项目下当前用户有管理权限的代码组列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listImpersonationTokens(listImpersonationTokensRequest?: ListImpersonationTokensRequest) {
+        listManageableGroups(listManageableGroupsRequest?: ListManageableGroupsRequest) {
             const options = {
                 method: "GET",
-                url: "/v4/users/impersonation-tokens",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let groupId;
-            
-            let state;
-            
-            let search;
-            
-            let offset;
-            
-            let limit;
-
-            if (listImpersonationTokensRequest !== null && listImpersonationTokensRequest !== undefined) {
-                if (listImpersonationTokensRequest instanceof ListImpersonationTokensRequest) {
-                    groupId = listImpersonationTokensRequest.groupId;
-                    state = listImpersonationTokensRequest.state;
-                    search = listImpersonationTokensRequest.search;
-                    offset = listImpersonationTokensRequest.offset;
-                    limit = listImpersonationTokensRequest.limit;
-                } else {
-                    groupId = listImpersonationTokensRequest['group_id'];
-                    state = listImpersonationTokensRequest['state'];
-                    search = listImpersonationTokensRequest['search'];
-                    offset = listImpersonationTokensRequest['offset'];
-                    limit = listImpersonationTokensRequest['limit'];
-                }
-            }
-
-        
-            if (groupId === null || groupId === undefined) {
-            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listImpersonationTokens.');
-            }
-            if (state !== null && state !== undefined) {
-                localVarQueryParameter['state'] = state;
-            }
-            if (search !== null && search !== undefined) {
-                localVarQueryParameter['search'] = search;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'group_id': groupId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取项目下成员列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listProductPermissionResourcesGrantedUsers(listProductPermissionResourcesGrantedUsersRequest?: ListProductPermissionResourcesGrantedUsersRequest) {
-            const options = {
-                method: "GET",
-                url: "/v4/projects/{project_id}/members",
+                url: "/v4/{project_id}/manageable-groups",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -9106,112 +10554,32 @@ export const ParamCreater = function () {
             
             let projectId;
             
-            let query;
+            let scope;
             
             let offset;
             
             let limit;
 
-            if (listProductPermissionResourcesGrantedUsersRequest !== null && listProductPermissionResourcesGrantedUsersRequest !== undefined) {
-                if (listProductPermissionResourcesGrantedUsersRequest instanceof ListProductPermissionResourcesGrantedUsersRequest) {
-                    projectId = listProductPermissionResourcesGrantedUsersRequest.projectId;
-                    query = listProductPermissionResourcesGrantedUsersRequest.query;
-                    offset = listProductPermissionResourcesGrantedUsersRequest.offset;
-                    limit = listProductPermissionResourcesGrantedUsersRequest.limit;
+            if (listManageableGroupsRequest !== null && listManageableGroupsRequest !== undefined) {
+                if (listManageableGroupsRequest instanceof ListManageableGroupsRequest) {
+                    projectId = listManageableGroupsRequest.projectId;
+                    scope = listManageableGroupsRequest.scope;
+                    offset = listManageableGroupsRequest.offset;
+                    limit = listManageableGroupsRequest.limit;
                 } else {
-                    projectId = listProductPermissionResourcesGrantedUsersRequest['project_id'];
-                    query = listProductPermissionResourcesGrantedUsersRequest['query'];
-                    offset = listProductPermissionResourcesGrantedUsersRequest['offset'];
-                    limit = listProductPermissionResourcesGrantedUsersRequest['limit'];
+                    projectId = listManageableGroupsRequest['project_id'];
+                    scope = listManageableGroupsRequest['scope'];
+                    offset = listManageableGroupsRequest['offset'];
+                    limit = listManageableGroupsRequest['limit'];
                 }
             }
 
         
             if (projectId === null || projectId === undefined) {
-            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listProductPermissionResourcesGrantedUsers.');
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listManageableGroups.');
             }
-            if (query !== null && query !== undefined) {
-                localVarQueryParameter['query'] = query;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'project_id': projectId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取项目下的代码组和仓库列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listProjectSubgroupsAndRepositories(listProjectSubgroupsAndRepositoriesRequest?: ListProjectSubgroupsAndRepositoriesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v4/projects/{project_id}/subgroups-and-repositories",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let projectId;
-            
-            let filter;
-            
-            let orderBy;
-            
-            let sort;
-            
-            let archived;
-            
-            let offset;
-            
-            let limit;
-
-            if (listProjectSubgroupsAndRepositoriesRequest !== null && listProjectSubgroupsAndRepositoriesRequest !== undefined) {
-                if (listProjectSubgroupsAndRepositoriesRequest instanceof ListProjectSubgroupsAndRepositoriesRequest) {
-                    projectId = listProjectSubgroupsAndRepositoriesRequest.projectId;
-                    filter = listProjectSubgroupsAndRepositoriesRequest.filter;
-                    orderBy = listProjectSubgroupsAndRepositoriesRequest.orderBy;
-                    sort = listProjectSubgroupsAndRepositoriesRequest.sort;
-                    archived = listProjectSubgroupsAndRepositoriesRequest.archived;
-                    offset = listProjectSubgroupsAndRepositoriesRequest.offset;
-                    limit = listProjectSubgroupsAndRepositoriesRequest.limit;
-                } else {
-                    projectId = listProjectSubgroupsAndRepositoriesRequest['project_id'];
-                    filter = listProjectSubgroupsAndRepositoriesRequest['filter'];
-                    orderBy = listProjectSubgroupsAndRepositoriesRequest['order_by'];
-                    sort = listProjectSubgroupsAndRepositoriesRequest['sort'];
-                    archived = listProjectSubgroupsAndRepositoriesRequest['archived'];
-                    offset = listProjectSubgroupsAndRepositoriesRequest['offset'];
-                    limit = listProjectSubgroupsAndRepositoriesRequest['limit'];
-                }
-            }
-
-        
-            if (projectId === null || projectId === undefined) {
-            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listProjectSubgroupsAndRepositories.');
-            }
-            if (filter !== null && filter !== undefined) {
-                localVarQueryParameter['filter'] = filter;
-            }
-            if (orderBy !== null && orderBy !== undefined) {
-                localVarQueryParameter['order_by'] = orderBy;
-            }
-            if (sort !== null && sort !== undefined) {
-                localVarQueryParameter['sort'] = sort;
-            }
-            if (archived !== null && archived !== undefined) {
-                localVarQueryParameter['archived'] = archived;
+            if (scope !== null && scope !== undefined) {
+                localVarQueryParameter['scope'] = scope;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -9300,6 +10668,43 @@ export const ParamCreater = function () {
         
             if (groupId === null || groupId === undefined) {
             throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling showGroupGeneralPolicy.');
+            }
+
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取代码组继承设置项
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showGroupInheritSetting(showGroupInheritSettingRequest?: ShowGroupInheritSettingRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/groups/{group_id}/inherit-setting",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let groupId;
+
+            if (showGroupInheritSettingRequest !== null && showGroupInheritSettingRequest !== undefined) {
+                if (showGroupInheritSettingRequest instanceof ShowGroupInheritSettingRequest) {
+                    groupId = showGroupInheritSettingRequest.groupId;
+                } else {
+                    groupId = showGroupInheritSettingRequest['group_id'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling showGroupInheritSetting.');
             }
 
             options.pathParams = { 'group_id': groupId, };
@@ -9419,6 +10824,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取指定代码组的基本设置信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showGroupsGeneralPolicy(showGroupsGeneralPolicyRequest?: ShowGroupsGeneralPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/groups/{group_id}/general-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let groupId;
+
+            if (showGroupsGeneralPolicyRequest !== null && showGroupsGeneralPolicyRequest !== undefined) {
+                if (showGroupsGeneralPolicyRequest instanceof ShowGroupsGeneralPolicyRequest) {
+                    groupId = showGroupsGeneralPolicyRequest.groupId;
+                } else {
+                    groupId = showGroupsGeneralPolicyRequest['group_id'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling showGroupsGeneralPolicy.');
+            }
+
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取代码组的继承设置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9453,160 +10895,15 @@ export const ParamCreater = function () {
             if (groupId === null || groupId === undefined) {
             throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling showGroupsInherit.');
             }
+            if (settingType === null || settingType === undefined) {
+                throw new RequiredError('settingType','Required parameter settingType was null or undefined when calling showGroupsInherit.');
+            }
             if (settingType !== null && settingType !== undefined) {
                 localVarQueryParameter['setting_type'] = settingType;
             }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'group_id': groupId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取指定项目的基本设置信息
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showProjectGeneralPolicy(showProjectGeneralPolicyRequest?: ShowProjectGeneralPolicyRequest) {
-            const options = {
-                method: "GET",
-                url: "/v4/projects/{project_id}/policies/general",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let projectId;
-
-            if (showProjectGeneralPolicyRequest !== null && showProjectGeneralPolicyRequest !== undefined) {
-                if (showProjectGeneralPolicyRequest instanceof ShowProjectGeneralPolicyRequest) {
-                    projectId = showProjectGeneralPolicyRequest.projectId;
-                } else {
-                    projectId = showProjectGeneralPolicyRequest['project_id'];
-                }
-            }
-
-        
-            if (projectId === null || projectId === undefined) {
-            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showProjectGeneralPolicy.');
-            }
-
-            options.pathParams = { 'project_id': projectId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取项目成员设置
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showProjectMemberSetting(showProjectMemberSettingRequest?: ShowProjectMemberSettingRequest) {
-            const options = {
-                method: "GET",
-                url: "/v4/projects/{project_id}/member-setting",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let projectId;
-            
-            let offset;
-            
-            let limit;
-
-            if (showProjectMemberSettingRequest !== null && showProjectMemberSettingRequest !== undefined) {
-                if (showProjectMemberSettingRequest instanceof ShowProjectMemberSettingRequest) {
-                    projectId = showProjectMemberSettingRequest.projectId;
-                    offset = showProjectMemberSettingRequest.offset;
-                    limit = showProjectMemberSettingRequest.limit;
-                } else {
-                    projectId = showProjectMemberSettingRequest['project_id'];
-                    offset = showProjectMemberSettingRequest['offset'];
-                    limit = showProjectMemberSettingRequest['limit'];
-                }
-            }
-
-        
-            if (projectId === null || projectId === undefined) {
-            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showProjectMemberSetting.');
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'project_id': projectId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取资源点对应的角色和权限
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showResourcePermissions(showResourcePermissionsRequest?: ShowResourcePermissionsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v4/groups/{group_id}/permissions-resources/{resource_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let groupId;
-            
-            let resourceId;
-            
-            let offset;
-            
-            let limit;
-
-            if (showResourcePermissionsRequest !== null && showResourcePermissionsRequest !== undefined) {
-                if (showResourcePermissionsRequest instanceof ShowResourcePermissionsRequest) {
-                    groupId = showResourcePermissionsRequest.groupId;
-                    resourceId = showResourcePermissionsRequest.resourceId;
-                    offset = showResourcePermissionsRequest.offset;
-                    limit = showResourcePermissionsRequest.limit;
-                } else {
-                    groupId = showResourcePermissionsRequest['group_id'];
-                    resourceId = showResourcePermissionsRequest['resource_id'];
-                    offset = showResourcePermissionsRequest['offset'];
-                    limit = showResourcePermissionsRequest['limit'];
-                }
-            }
-
-        
-            if (groupId === null || groupId === undefined) {
-            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling showResourcePermissions.');
-            }
-            if (resourceId === null || resourceId === undefined) {
-            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling showResourcePermissions.');
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'group_id': groupId,'resource_id': resourceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -9645,6 +10942,52 @@ export const ParamCreater = function () {
         
             if (groupId === null || groupId === undefined) {
             throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling transferGroup.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新代码组的基本设置信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateGroupGeneralPolicy(updateGroupGeneralPolicyRequest?: UpdateGroupGeneralPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/groups/{group_id}/general-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let groupId;
+
+            if (updateGroupGeneralPolicyRequest !== null && updateGroupGeneralPolicyRequest !== undefined) {
+                if (updateGroupGeneralPolicyRequest instanceof UpdateGroupGeneralPolicyRequest) {
+                    groupId = updateGroupGeneralPolicyRequest.groupId;
+                    body = updateGroupGeneralPolicyRequest.body
+                } else {
+                    groupId = updateGroupGeneralPolicyRequest['group_id'];
+                    body = updateGroupGeneralPolicyRequest['body'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateGroupGeneralPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -9701,263 +11044,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建仓库标签
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createRepositoryLabel(createRepositoryLabelRequest?: CreateRepositoryLabelRequest) {
-            const options = {
-                method: "POST",
-                url: "/v4/repositories/{repository_id}/labels",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let repositoryId;
-
-            if (createRepositoryLabelRequest !== null && createRepositoryLabelRequest !== undefined) {
-                if (createRepositoryLabelRequest instanceof CreateRepositoryLabelRequest) {
-                    repositoryId = createRepositoryLabelRequest.repositoryId;
-                    body = createRepositoryLabelRequest.body
-                } else {
-                    repositoryId = createRepositoryLabelRequest['repository_id'];
-                    body = createRepositoryLabelRequest['body'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling createRepositoryLabel.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建仓库系统标签
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createRepositorySystemLabels(createRepositorySystemLabelsRequest?: CreateRepositorySystemLabelsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v4/repositories/{repository_id}/system-labels",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let repositoryId;
-
-            if (createRepositorySystemLabelsRequest !== null && createRepositorySystemLabelsRequest !== undefined) {
-                if (createRepositorySystemLabelsRequest instanceof CreateRepositorySystemLabelsRequest) {
-                    repositoryId = createRepositorySystemLabelsRequest.repositoryId;
-                } else {
-                    repositoryId = createRepositorySystemLabelsRequest['repository_id'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling createRepositorySystemLabels.');
-            }
-
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除仓库标签
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteRepositoryLabel(deleteRepositoryLabelRequest?: DeleteRepositoryLabelRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v4/repositories/{repository_id}/label",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let repositoryId;
-            
-            let name;
-
-            if (deleteRepositoryLabelRequest !== null && deleteRepositoryLabelRequest !== undefined) {
-                if (deleteRepositoryLabelRequest instanceof DeleteRepositoryLabelRequest) {
-                    repositoryId = deleteRepositoryLabelRequest.repositoryId;
-                    name = deleteRepositoryLabelRequest.name;
-                } else {
-                    repositoryId = deleteRepositoryLabelRequest['repository_id'];
-                    name = deleteRepositoryLabelRequest['name'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling deleteRepositoryLabel.');
-            }
-            if (name === null || name === undefined) {
-                throw new RequiredError('name','Required parameter name was null or undefined when calling deleteRepositoryLabel.');
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取仓库标签列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listRepositoryLabels(listRepositoryLabelsRequest?: ListRepositoryLabelsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v4/repositories/{repository_id}/labels",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let repositoryId;
-            
-            let offset;
-            
-            let limit;
-            
-            let search;
-            
-            let sort;
-            
-            let includeExpired;
-            
-            let view;
-
-            if (listRepositoryLabelsRequest !== null && listRepositoryLabelsRequest !== undefined) {
-                if (listRepositoryLabelsRequest instanceof ListRepositoryLabelsRequest) {
-                    repositoryId = listRepositoryLabelsRequest.repositoryId;
-                    offset = listRepositoryLabelsRequest.offset;
-                    limit = listRepositoryLabelsRequest.limit;
-                    search = listRepositoryLabelsRequest.search;
-                    sort = listRepositoryLabelsRequest.sort;
-                    includeExpired = listRepositoryLabelsRequest.includeExpired;
-                    view = listRepositoryLabelsRequest.view;
-                } else {
-                    repositoryId = listRepositoryLabelsRequest['repository_id'];
-                    offset = listRepositoryLabelsRequest['offset'];
-                    limit = listRepositoryLabelsRequest['limit'];
-                    search = listRepositoryLabelsRequest['search'];
-                    sort = listRepositoryLabelsRequest['sort'];
-                    includeExpired = listRepositoryLabelsRequest['include_expired'];
-                    view = listRepositoryLabelsRequest['view'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listRepositoryLabels.');
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (search !== null && search !== undefined) {
-                localVarQueryParameter['search'] = search;
-            }
-            if (sort !== null && sort !== undefined) {
-                localVarQueryParameter['sort'] = sort;
-            }
-            if (includeExpired !== null && includeExpired !== undefined) {
-                localVarQueryParameter['include_expired'] = includeExpired;
-            }
-            if (view !== null && view !== undefined) {
-                localVarQueryParameter['view'] = view;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 修改仓库标签
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateRepositoryLabel(updateRepositoryLabelRequest?: UpdateRepositoryLabelRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v4/repositories/{repository_id}/label",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let repositoryId;
-
-            if (updateRepositoryLabelRequest !== null && updateRepositoryLabelRequest !== undefined) {
-                if (updateRepositoryLabelRequest instanceof UpdateRepositoryLabelRequest) {
-                    repositoryId = updateRepositoryLabelRequest.repositoryId;
-                    body = updateRepositoryLabelRequest.body
-                } else {
-                    repositoryId = updateRepositoryLabelRequest['repository_id'];
-                    body = updateRepositoryLabelRequest['body'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling updateRepositoryLabel.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 批量添加仓库成员
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9999,6 +11085,65 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取代码组下成员组列表(保护分支保护Tags设置中使用)
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGroupProtectedRefsUserGroups(listGroupProtectedRefsUserGroupsRequest?: ListGroupProtectedRefsUserGroupsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/groups/{group_id}/protected-refs/user-groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let groupId;
+            
+            let offset;
+            
+            let limit;
+            
+            let search;
+
+            if (listGroupProtectedRefsUserGroupsRequest !== null && listGroupProtectedRefsUserGroupsRequest !== undefined) {
+                if (listGroupProtectedRefsUserGroupsRequest instanceof ListGroupProtectedRefsUserGroupsRequest) {
+                    groupId = listGroupProtectedRefsUserGroupsRequest.groupId;
+                    offset = listGroupProtectedRefsUserGroupsRequest.offset;
+                    limit = listGroupProtectedRefsUserGroupsRequest.limit;
+                    search = listGroupProtectedRefsUserGroupsRequest.search;
+                } else {
+                    groupId = listGroupProtectedRefsUserGroupsRequest['group_id'];
+                    offset = listGroupProtectedRefsUserGroupsRequest['offset'];
+                    limit = listGroupProtectedRefsUserGroupsRequest['limit'];
+                    search = listGroupProtectedRefsUserGroupsRequest['search'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listGroupProtectedRefsUserGroups.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'group_id': groupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -10068,6 +11213,183 @@ export const ParamCreater = function () {
             }
             if (action !== null && action !== undefined) {
                 localVarQueryParameter['action'] = action;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取项目下成员列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProductPermissionResourcesGrantedUsers(listProductPermissionResourcesGrantedUsersRequest?: ListProductPermissionResourcesGrantedUsersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/projects/{project_id}/members",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let query;
+            
+            let offset;
+            
+            let limit;
+
+            if (listProductPermissionResourcesGrantedUsersRequest !== null && listProductPermissionResourcesGrantedUsersRequest !== undefined) {
+                if (listProductPermissionResourcesGrantedUsersRequest instanceof ListProductPermissionResourcesGrantedUsersRequest) {
+                    projectId = listProductPermissionResourcesGrantedUsersRequest.projectId;
+                    query = listProductPermissionResourcesGrantedUsersRequest.query;
+                    offset = listProductPermissionResourcesGrantedUsersRequest.offset;
+                    limit = listProductPermissionResourcesGrantedUsersRequest.limit;
+                } else {
+                    projectId = listProductPermissionResourcesGrantedUsersRequest['project_id'];
+                    query = listProductPermissionResourcesGrantedUsersRequest['query'];
+                    offset = listProductPermissionResourcesGrantedUsersRequest['offset'];
+                    limit = listProductPermissionResourcesGrantedUsersRequest['limit'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listProductPermissionResourcesGrantedUsers.');
+            }
+            if (query !== null && query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取项目下成员组列表(保护分支保护Tags设置中使用)
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProjectProtectedRefsUserGroups(listProjectProtectedRefsUserGroupsRequest?: ListProjectProtectedRefsUserGroupsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/projects/{project_id}/protected-refs/user-groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let offset;
+            
+            let limit;
+            
+            let search;
+
+            if (listProjectProtectedRefsUserGroupsRequest !== null && listProjectProtectedRefsUserGroupsRequest !== undefined) {
+                if (listProjectProtectedRefsUserGroupsRequest instanceof ListProjectProtectedRefsUserGroupsRequest) {
+                    projectId = listProjectProtectedRefsUserGroupsRequest.projectId;
+                    offset = listProjectProtectedRefsUserGroupsRequest.offset;
+                    limit = listProjectProtectedRefsUserGroupsRequest.limit;
+                    search = listProjectProtectedRefsUserGroupsRequest.search;
+                } else {
+                    projectId = listProjectProtectedRefsUserGroupsRequest['project_id'];
+                    offset = listProjectProtectedRefsUserGroupsRequest['offset'];
+                    limit = listProjectProtectedRefsUserGroupsRequest['limit'];
+                    search = listProjectProtectedRefsUserGroupsRequest['search'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listProjectProtectedRefsUserGroups.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取仓库下成员组列表(保护分支保护Tags设置中使用)
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRepositoryProtectedRefsUserGroups(listRepositoryProtectedRefsUserGroupsRequest?: ListRepositoryProtectedRefsUserGroupsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/protected-refs/user-groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let offset;
+            
+            let limit;
+            
+            let search;
+
+            if (listRepositoryProtectedRefsUserGroupsRequest !== null && listRepositoryProtectedRefsUserGroupsRequest !== undefined) {
+                if (listRepositoryProtectedRefsUserGroupsRequest instanceof ListRepositoryProtectedRefsUserGroupsRequest) {
+                    repositoryId = listRepositoryProtectedRefsUserGroupsRequest.repositoryId;
+                    offset = listRepositoryProtectedRefsUserGroupsRequest.offset;
+                    limit = listRepositoryProtectedRefsUserGroupsRequest.limit;
+                    search = listRepositoryProtectedRefsUserGroupsRequest.search;
+                } else {
+                    repositoryId = listRepositoryProtectedRefsUserGroupsRequest['repository_id'];
+                    offset = listRepositoryProtectedRefsUserGroupsRequest['offset'];
+                    limit = listRepositoryProtectedRefsUserGroupsRequest['limit'];
+                    search = listRepositoryProtectedRefsUserGroupsRequest['search'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listRepositoryProtectedRefsUserGroups.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -10186,6 +11508,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * Cherry pick合并请求
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createCherryPickMergeRequest(createCherryPickMergeRequestRequest?: CreateCherryPickMergeRequestRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/repositories/{repository_id}/merge-requests/{merge_request_iid}/cherry-pick",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+            
+            let mergeRequestIid;
+
+            if (createCherryPickMergeRequestRequest !== null && createCherryPickMergeRequestRequest !== undefined) {
+                if (createCherryPickMergeRequestRequest instanceof CreateCherryPickMergeRequestRequest) {
+                    repositoryId = createCherryPickMergeRequestRequest.repositoryId;
+                    mergeRequestIid = createCherryPickMergeRequestRequest.mergeRequestIid;
+                    body = createCherryPickMergeRequestRequest.body
+                } else {
+                    repositoryId = createCherryPickMergeRequestRequest['repository_id'];
+                    mergeRequestIid = createCherryPickMergeRequestRequest['merge_request_iid'];
+                    body = createCherryPickMergeRequestRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling createCherryPickMergeRequest.');
+            }
+            if (mergeRequestIid === null || mergeRequestIid === undefined) {
+            throw new RequiredError('mergeRequestIid','Required parameter mergeRequestIid was null or undefined when calling createCherryPickMergeRequest.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId,'merge_request_iid': mergeRequestIid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建代码组合并请求审核设置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10219,6 +11594,52 @@ export const ParamCreater = function () {
         
             if (groupId === null || groupId === undefined) {
             throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling createGroupMergeRequestApproverSetting.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建代码组合并请求模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createGroupMergeRequestTemplate(createGroupMergeRequestTemplateRequest?: CreateGroupMergeRequestTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/groups/{group_id}/merge-requests/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let groupId;
+
+            if (createGroupMergeRequestTemplateRequest !== null && createGroupMergeRequestTemplateRequest !== undefined) {
+                if (createGroupMergeRequestTemplateRequest instanceof CreateGroupMergeRequestTemplateRequest) {
+                    groupId = createGroupMergeRequestTemplateRequest.groupId;
+                    body = createGroupMergeRequestTemplateRequest.body
+                } else {
+                    groupId = createGroupMergeRequestTemplateRequest['group_id'];
+                    body = createGroupMergeRequestTemplateRequest['body'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling createGroupMergeRequestTemplate.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -10416,6 +11837,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建项目合并请求模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createProjectMergeRequestTemplate(createProjectMergeRequestTemplateRequest?: CreateProjectMergeRequestTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/projects/{project_id}/merge-requests/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (createProjectMergeRequestTemplateRequest !== null && createProjectMergeRequestTemplateRequest !== undefined) {
+                if (createProjectMergeRequestTemplateRequest instanceof CreateProjectMergeRequestTemplateRequest) {
+                    projectId = createProjectMergeRequestTemplateRequest.projectId;
+                    body = createProjectMergeRequestTemplateRequest.body
+                } else {
+                    projectId = createProjectMergeRequestTemplateRequest['project_id'];
+                    body = createProjectMergeRequestTemplateRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling createProjectMergeRequestTemplate.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除代码组合并请求审核配置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10455,6 +11922,50 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'group_id': groupId,'setting_id': settingId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除代码组合并请求模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteGroupMergeRequestTemplate(deleteGroupMergeRequestTemplateRequest?: DeleteGroupMergeRequestTemplateRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v4/groups/{group_id}/merge-requests/template/{template_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let groupId;
+            
+            let templateId;
+
+            if (deleteGroupMergeRequestTemplateRequest !== null && deleteGroupMergeRequestTemplateRequest !== undefined) {
+                if (deleteGroupMergeRequestTemplateRequest instanceof DeleteGroupMergeRequestTemplateRequest) {
+                    groupId = deleteGroupMergeRequestTemplateRequest.groupId;
+                    templateId = deleteGroupMergeRequestTemplateRequest.templateId;
+                } else {
+                    groupId = deleteGroupMergeRequestTemplateRequest['group_id'];
+                    templateId = deleteGroupMergeRequestTemplateRequest['template_id'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling deleteGroupMergeRequestTemplate.');
+            }
+            if (templateId === null || templateId === undefined) {
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling deleteGroupMergeRequestTemplate.');
+            }
+
+            options.pathParams = { 'group_id': groupId,'template_id': templateId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -10636,6 +12147,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除项目合并请求模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteProjectMergeRequestTemplate(deleteProjectMergeRequestTemplateRequest?: DeleteProjectMergeRequestTemplateRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v4/projects/{project_id}/merge-requests/template/{template_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectId;
+            
+            let templateId;
+
+            if (deleteProjectMergeRequestTemplateRequest !== null && deleteProjectMergeRequestTemplateRequest !== undefined) {
+                if (deleteProjectMergeRequestTemplateRequest instanceof DeleteProjectMergeRequestTemplateRequest) {
+                    projectId = deleteProjectMergeRequestTemplateRequest.projectId;
+                    templateId = deleteProjectMergeRequestTemplateRequest.templateId;
+                } else {
+                    projectId = deleteProjectMergeRequestTemplateRequest['project_id'];
+                    templateId = deleteProjectMergeRequestTemplateRequest['template_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling deleteProjectMergeRequestTemplate.');
+            }
+            if (templateId === null || templateId === undefined) {
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling deleteProjectMergeRequestTemplate.');
+            }
+
+            options.pathParams = { 'project_id': projectId,'template_id': templateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 导入合并请求
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10677,6 +12232,65 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取提交关联的合并请求
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCommitAssociatedMergeRequests(listCommitAssociatedMergeRequestsRequest?: ListCommitAssociatedMergeRequestsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/commits/{sha}/merge-requests",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let sha;
+            
+            let offset;
+            
+            let limit;
+
+            if (listCommitAssociatedMergeRequestsRequest !== null && listCommitAssociatedMergeRequestsRequest !== undefined) {
+                if (listCommitAssociatedMergeRequestsRequest instanceof ListCommitAssociatedMergeRequestsRequest) {
+                    repositoryId = listCommitAssociatedMergeRequestsRequest.repositoryId;
+                    sha = listCommitAssociatedMergeRequestsRequest.sha;
+                    offset = listCommitAssociatedMergeRequestsRequest.offset;
+                    limit = listCommitAssociatedMergeRequestsRequest.limit;
+                } else {
+                    repositoryId = listCommitAssociatedMergeRequestsRequest['repository_id'];
+                    sha = listCommitAssociatedMergeRequestsRequest['sha'];
+                    offset = listCommitAssociatedMergeRequestsRequest['offset'];
+                    limit = listCommitAssociatedMergeRequestsRequest['limit'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listCommitAssociatedMergeRequests.');
+            }
+            if (sha === null || sha === undefined) {
+            throw new RequiredError('sha','Required parameter sha was null or undefined when calling listCommitAssociatedMergeRequests.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId,'sha': sha, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -10807,15 +12421,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let groupId;
+            
+            let offset;
+            
+            let limit;
 
             if (listGroupMergeRequestCanBeAssignedReviewersRequest !== null && listGroupMergeRequestCanBeAssignedReviewersRequest !== undefined) {
                 if (listGroupMergeRequestCanBeAssignedReviewersRequest instanceof ListGroupMergeRequestCanBeAssignedReviewersRequest) {
                     groupId = listGroupMergeRequestCanBeAssignedReviewersRequest.groupId;
+                    offset = listGroupMergeRequestCanBeAssignedReviewersRequest.offset;
+                    limit = listGroupMergeRequestCanBeAssignedReviewersRequest.limit;
                 } else {
                     groupId = listGroupMergeRequestCanBeAssignedReviewersRequest['group_id'];
+                    offset = listGroupMergeRequestCanBeAssignedReviewersRequest['offset'];
+                    limit = listGroupMergeRequestCanBeAssignedReviewersRequest['limit'];
                 }
             }
 
@@ -10823,7 +12445,73 @@ export const ParamCreater = function () {
             if (groupId === null || groupId === undefined) {
             throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listGroupMergeRequestCanBeAssignedReviewers.');
             }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
 
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取代码组合并请求模板列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGroupMergeRequestTemplates(listGroupMergeRequestTemplatesRequest?: ListGroupMergeRequestTemplatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/groups/{group_id}/merge-requests/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let groupId;
+            
+            let templateName;
+            
+            let offset;
+            
+            let limit;
+
+            if (listGroupMergeRequestTemplatesRequest !== null && listGroupMergeRequestTemplatesRequest !== undefined) {
+                if (listGroupMergeRequestTemplatesRequest instanceof ListGroupMergeRequestTemplatesRequest) {
+                    groupId = listGroupMergeRequestTemplatesRequest.groupId;
+                    templateName = listGroupMergeRequestTemplatesRequest.templateName;
+                    offset = listGroupMergeRequestTemplatesRequest.offset;
+                    limit = listGroupMergeRequestTemplatesRequest.limit;
+                } else {
+                    groupId = listGroupMergeRequestTemplatesRequest['group_id'];
+                    templateName = listGroupMergeRequestTemplatesRequest['template_name'];
+                    offset = listGroupMergeRequestTemplatesRequest['offset'];
+                    limit = listGroupMergeRequestTemplatesRequest['limit'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listGroupMergeRequestTemplates.');
+            }
+            if (templateName !== null && templateName !== undefined) {
+                localVarQueryParameter['template_name'] = templateName;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'group_id': groupId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -10844,15 +12532,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let groupId;
+            
+            let offset;
+            
+            let limit;
 
             if (listGroupMergeRequestValidAssignedCandidatesRequest !== null && listGroupMergeRequestValidAssignedCandidatesRequest !== undefined) {
                 if (listGroupMergeRequestValidAssignedCandidatesRequest instanceof ListGroupMergeRequestValidAssignedCandidatesRequest) {
                     groupId = listGroupMergeRequestValidAssignedCandidatesRequest.groupId;
+                    offset = listGroupMergeRequestValidAssignedCandidatesRequest.offset;
+                    limit = listGroupMergeRequestValidAssignedCandidatesRequest.limit;
                 } else {
                     groupId = listGroupMergeRequestValidAssignedCandidatesRequest['group_id'];
+                    offset = listGroupMergeRequestValidAssignedCandidatesRequest['offset'];
+                    limit = listGroupMergeRequestValidAssignedCandidatesRequest['limit'];
                 }
             }
 
@@ -10860,7 +12556,14 @@ export const ParamCreater = function () {
             if (groupId === null || groupId === undefined) {
             throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listGroupMergeRequestValidAssignedCandidates.');
             }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'group_id': groupId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -11332,6 +13035,109 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取合并请求评价列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listMergeRequestEvaluations(listMergeRequestEvaluationsRequest?: ListMergeRequestEvaluationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/merge-requests/{merge_request_iid}/evaluations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let repositoryId;
+            
+            let mergeRequestIid;
+
+            if (listMergeRequestEvaluationsRequest !== null && listMergeRequestEvaluationsRequest !== undefined) {
+                if (listMergeRequestEvaluationsRequest instanceof ListMergeRequestEvaluationsRequest) {
+                    repositoryId = listMergeRequestEvaluationsRequest.repositoryId;
+                    mergeRequestIid = listMergeRequestEvaluationsRequest.mergeRequestIid;
+                } else {
+                    repositoryId = listMergeRequestEvaluationsRequest['repository_id'];
+                    mergeRequestIid = listMergeRequestEvaluationsRequest['merge_request_iid'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listMergeRequestEvaluations.');
+            }
+            if (mergeRequestIid === null || mergeRequestIid === undefined) {
+            throw new RequiredError('mergeRequestIid','Required parameter mergeRequestIid was null or undefined when calling listMergeRequestEvaluations.');
+            }
+
+            options.pathParams = { 'repository_id': repositoryId,'merge_request_iid': mergeRequestIid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取合并请求参与者
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listMergeRequestParticipants(listMergeRequestParticipantsRequest?: ListMergeRequestParticipantsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/merge-requests/{merge_request_iid}/participants",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let mergeRequestIid;
+            
+            let offset;
+            
+            let limit;
+
+            if (listMergeRequestParticipantsRequest !== null && listMergeRequestParticipantsRequest !== undefined) {
+                if (listMergeRequestParticipantsRequest instanceof ListMergeRequestParticipantsRequest) {
+                    repositoryId = listMergeRequestParticipantsRequest.repositoryId;
+                    mergeRequestIid = listMergeRequestParticipantsRequest.mergeRequestIid;
+                    offset = listMergeRequestParticipantsRequest.offset;
+                    limit = listMergeRequestParticipantsRequest.limit;
+                } else {
+                    repositoryId = listMergeRequestParticipantsRequest['repository_id'];
+                    mergeRequestIid = listMergeRequestParticipantsRequest['merge_request_iid'];
+                    offset = listMergeRequestParticipantsRequest['offset'];
+                    limit = listMergeRequestParticipantsRequest['limit'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listMergeRequestParticipants.');
+            }
+            if (mergeRequestIid === null || mergeRequestIid === undefined) {
+            throw new RequiredError('mergeRequestIid','Required parameter mergeRequestIid was null or undefined when calling listMergeRequestParticipants.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId,'merge_request_iid': mergeRequestIid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取合并请求检视人列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11596,6 +13402,227 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取文件变更历史版本列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listMergeRequestVersions(listMergeRequestVersionsRequest?: ListMergeRequestVersionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/merge-requests/{merge_request_iid}/versions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let repositoryId;
+            
+            let mergeRequestIid;
+
+            if (listMergeRequestVersionsRequest !== null && listMergeRequestVersionsRequest !== undefined) {
+                if (listMergeRequestVersionsRequest instanceof ListMergeRequestVersionsRequest) {
+                    repositoryId = listMergeRequestVersionsRequest.repositoryId;
+                    mergeRequestIid = listMergeRequestVersionsRequest.mergeRequestIid;
+                } else {
+                    repositoryId = listMergeRequestVersionsRequest['repository_id'];
+                    mergeRequestIid = listMergeRequestVersionsRequest['merge_request_iid'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listMergeRequestVersions.');
+            }
+            if (mergeRequestIid === null || mergeRequestIid === undefined) {
+            throw new RequiredError('mergeRequestIid','Required parameter mergeRequestIid was null or undefined when calling listMergeRequestVersions.');
+            }
+
+            options.pathParams = { 'repository_id': repositoryId,'merge_request_iid': mergeRequestIid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取个人首页mr列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPersonalMergeRequests(listPersonalMergeRequestsRequest?: ListPersonalMergeRequestsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/merge-requests",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let state;
+            
+            let orderBy;
+            
+            let sort;
+            
+            let labels;
+            
+            let createdBefore;
+            
+            let createdAfter;
+            
+            let updatedAfter;
+            
+            let updatedBefore;
+            
+            let view;
+            
+            let authorId;
+            
+            let scope;
+            
+            let sourceBranch;
+            
+            let targetBranch;
+            
+            let search;
+            
+            let wip;
+            
+            let mergedBy;
+            
+            let mergedAfter;
+            
+            let mergedBefore;
+            
+            let offset;
+            
+            let limit;
+            
+            let onlyCount;
+
+            if (listPersonalMergeRequestsRequest !== null && listPersonalMergeRequestsRequest !== undefined) {
+                if (listPersonalMergeRequestsRequest instanceof ListPersonalMergeRequestsRequest) {
+                    state = listPersonalMergeRequestsRequest.state;
+                    orderBy = listPersonalMergeRequestsRequest.orderBy;
+                    sort = listPersonalMergeRequestsRequest.sort;
+                    labels = listPersonalMergeRequestsRequest.labels;
+                    createdBefore = listPersonalMergeRequestsRequest.createdBefore;
+                    createdAfter = listPersonalMergeRequestsRequest.createdAfter;
+                    updatedAfter = listPersonalMergeRequestsRequest.updatedAfter;
+                    updatedBefore = listPersonalMergeRequestsRequest.updatedBefore;
+                    view = listPersonalMergeRequestsRequest.view;
+                    authorId = listPersonalMergeRequestsRequest.authorId;
+                    scope = listPersonalMergeRequestsRequest.scope;
+                    sourceBranch = listPersonalMergeRequestsRequest.sourceBranch;
+                    targetBranch = listPersonalMergeRequestsRequest.targetBranch;
+                    search = listPersonalMergeRequestsRequest.search;
+                    wip = listPersonalMergeRequestsRequest.wip;
+                    mergedBy = listPersonalMergeRequestsRequest.mergedBy;
+                    mergedAfter = listPersonalMergeRequestsRequest.mergedAfter;
+                    mergedBefore = listPersonalMergeRequestsRequest.mergedBefore;
+                    offset = listPersonalMergeRequestsRequest.offset;
+                    limit = listPersonalMergeRequestsRequest.limit;
+                    onlyCount = listPersonalMergeRequestsRequest.onlyCount;
+                } else {
+                    state = listPersonalMergeRequestsRequest['state'];
+                    orderBy = listPersonalMergeRequestsRequest['order_by'];
+                    sort = listPersonalMergeRequestsRequest['sort'];
+                    labels = listPersonalMergeRequestsRequest['labels'];
+                    createdBefore = listPersonalMergeRequestsRequest['created_before'];
+                    createdAfter = listPersonalMergeRequestsRequest['created_after'];
+                    updatedAfter = listPersonalMergeRequestsRequest['updated_after'];
+                    updatedBefore = listPersonalMergeRequestsRequest['updated_before'];
+                    view = listPersonalMergeRequestsRequest['view'];
+                    authorId = listPersonalMergeRequestsRequest['author_id'];
+                    scope = listPersonalMergeRequestsRequest['scope'];
+                    sourceBranch = listPersonalMergeRequestsRequest['source_branch'];
+                    targetBranch = listPersonalMergeRequestsRequest['target_branch'];
+                    search = listPersonalMergeRequestsRequest['search'];
+                    wip = listPersonalMergeRequestsRequest['wip'];
+                    mergedBy = listPersonalMergeRequestsRequest['merged_by'];
+                    mergedAfter = listPersonalMergeRequestsRequest['merged_after'];
+                    mergedBefore = listPersonalMergeRequestsRequest['merged_before'];
+                    offset = listPersonalMergeRequestsRequest['offset'];
+                    limit = listPersonalMergeRequestsRequest['limit'];
+                    onlyCount = listPersonalMergeRequestsRequest['only_count'];
+                }
+            }
+
+        
+            if (state !== null && state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (sort !== null && sort !== undefined) {
+                localVarQueryParameter['sort'] = sort;
+            }
+            if (labels !== null && labels !== undefined) {
+                localVarQueryParameter['labels'] = labels;
+            }
+            if (createdBefore !== null && createdBefore !== undefined) {
+                localVarQueryParameter['created_before'] = createdBefore;
+            }
+            if (createdAfter !== null && createdAfter !== undefined) {
+                localVarQueryParameter['created_after'] = createdAfter;
+            }
+            if (updatedAfter !== null && updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+            if (updatedBefore !== null && updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
+            }
+            if (view !== null && view !== undefined) {
+                localVarQueryParameter['view'] = view;
+            }
+            if (authorId !== null && authorId !== undefined) {
+                localVarQueryParameter['author_id'] = authorId;
+            }
+            if (scope !== null && scope !== undefined) {
+                localVarQueryParameter['scope'] = scope;
+            }
+            if (sourceBranch !== null && sourceBranch !== undefined) {
+                localVarQueryParameter['source_branch'] = sourceBranch;
+            }
+            if (targetBranch !== null && targetBranch !== undefined) {
+                localVarQueryParameter['target_branch'] = targetBranch;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+            if (wip !== null && wip !== undefined) {
+                localVarQueryParameter['wip'] = wip;
+            }
+            if (mergedBy !== null && mergedBy !== undefined) {
+                localVarQueryParameter['merged_by'] = mergedBy;
+            }
+            if (mergedAfter !== null && mergedAfter !== undefined) {
+                localVarQueryParameter['merged_after'] = mergedAfter;
+            }
+            if (mergedBefore !== null && mergedBefore !== undefined) {
+                localVarQueryParameter['merged_before'] = mergedBefore;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (onlyCount !== null && onlyCount !== undefined) {
+                localVarQueryParameter['only_count'] = onlyCount;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取项目合并请求审核设置列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11662,15 +13689,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let projectId;
+            
+            let offset;
+            
+            let limit;
 
             if (listProjectMergeRequestCanBeAssignedReviewersRequest !== null && listProjectMergeRequestCanBeAssignedReviewersRequest !== undefined) {
                 if (listProjectMergeRequestCanBeAssignedReviewersRequest instanceof ListProjectMergeRequestCanBeAssignedReviewersRequest) {
                     projectId = listProjectMergeRequestCanBeAssignedReviewersRequest.projectId;
+                    offset = listProjectMergeRequestCanBeAssignedReviewersRequest.offset;
+                    limit = listProjectMergeRequestCanBeAssignedReviewersRequest.limit;
                 } else {
                     projectId = listProjectMergeRequestCanBeAssignedReviewersRequest['project_id'];
+                    offset = listProjectMergeRequestCanBeAssignedReviewersRequest['offset'];
+                    limit = listProjectMergeRequestCanBeAssignedReviewersRequest['limit'];
                 }
             }
 
@@ -11678,7 +13713,14 @@ export const ParamCreater = function () {
             if (projectId === null || projectId === undefined) {
             throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listProjectMergeRequestCanBeAssignedReviewers.');
             }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -11699,15 +13741,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let projectId;
+            
+            let offset;
+            
+            let limit;
 
             if (listProjectMergeRequestCanBeAssignedUsersRequest !== null && listProjectMergeRequestCanBeAssignedUsersRequest !== undefined) {
                 if (listProjectMergeRequestCanBeAssignedUsersRequest instanceof ListProjectMergeRequestCanBeAssignedUsersRequest) {
                     projectId = listProjectMergeRequestCanBeAssignedUsersRequest.projectId;
+                    offset = listProjectMergeRequestCanBeAssignedUsersRequest.offset;
+                    limit = listProjectMergeRequestCanBeAssignedUsersRequest.limit;
                 } else {
                     projectId = listProjectMergeRequestCanBeAssignedUsersRequest['project_id'];
+                    offset = listProjectMergeRequestCanBeAssignedUsersRequest['offset'];
+                    limit = listProjectMergeRequestCanBeAssignedUsersRequest['limit'];
                 }
             }
 
@@ -11715,7 +13765,73 @@ export const ParamCreater = function () {
             if (projectId === null || projectId === undefined) {
             throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listProjectMergeRequestCanBeAssignedUsers.');
             }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
 
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取项目合并请求模板列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProjectMergeRequestTemplates(listProjectMergeRequestTemplatesRequest?: ListProjectMergeRequestTemplatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/projects/{project_id}/merge-requests/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let templateName;
+            
+            let offset;
+            
+            let limit;
+
+            if (listProjectMergeRequestTemplatesRequest !== null && listProjectMergeRequestTemplatesRequest !== undefined) {
+                if (listProjectMergeRequestTemplatesRequest instanceof ListProjectMergeRequestTemplatesRequest) {
+                    projectId = listProjectMergeRequestTemplatesRequest.projectId;
+                    templateName = listProjectMergeRequestTemplatesRequest.templateName;
+                    offset = listProjectMergeRequestTemplatesRequest.offset;
+                    limit = listProjectMergeRequestTemplatesRequest.limit;
+                } else {
+                    projectId = listProjectMergeRequestTemplatesRequest['project_id'];
+                    templateName = listProjectMergeRequestTemplatesRequest['template_name'];
+                    offset = listProjectMergeRequestTemplatesRequest['offset'];
+                    limit = listProjectMergeRequestTemplatesRequest['limit'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listProjectMergeRequestTemplates.');
+            }
+            if (templateName !== null && templateName !== undefined) {
+                localVarQueryParameter['template_name'] = templateName;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -12210,6 +14326,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取代码页单个提交下文件的检视意见
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCommitCommentsByLine(showCommitCommentsByLineRequest?: ShowCommitCommentsByLineRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/commits/{sha}/comments-by-line",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let repositoryId;
+            
+            let sha;
+
+            if (showCommitCommentsByLineRequest !== null && showCommitCommentsByLineRequest !== undefined) {
+                if (showCommitCommentsByLineRequest instanceof ShowCommitCommentsByLineRequest) {
+                    repositoryId = showCommitCommentsByLineRequest.repositoryId;
+                    sha = showCommitCommentsByLineRequest.sha;
+                } else {
+                    repositoryId = showCommitCommentsByLineRequest['repository_id'];
+                    sha = showCommitCommentsByLineRequest['sha'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showCommitCommentsByLine.');
+            }
+            if (sha === null || sha === undefined) {
+            throw new RequiredError('sha','Required parameter sha was null or undefined when calling showCommitCommentsByLine.');
+            }
+
+            options.pathParams = { 'repository_id': repositoryId,'sha': sha, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取代码组合并请求设置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12591,6 +14751,61 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取仓库合并请求统计数据
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRepositoryMergeRequestsStatistic(showRepositoryMergeRequestsStatisticRequest?: ShowRepositoryMergeRequestsStatisticRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/merge-requests/statistic",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let iids;
+            
+            let fields;
+
+            if (showRepositoryMergeRequestsStatisticRequest !== null && showRepositoryMergeRequestsStatisticRequest !== undefined) {
+                if (showRepositoryMergeRequestsStatisticRequest instanceof ShowRepositoryMergeRequestsStatisticRequest) {
+                    repositoryId = showRepositoryMergeRequestsStatisticRequest.repositoryId;
+                    iids = showRepositoryMergeRequestsStatisticRequest.iids;
+                    fields = showRepositoryMergeRequestsStatisticRequest.fields;
+                } else {
+                    repositoryId = showRepositoryMergeRequestsStatisticRequest['repository_id'];
+                    iids = showRepositoryMergeRequestsStatisticRequest['iids'];
+                    fields = showRepositoryMergeRequestsStatisticRequest['fields'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showRepositoryMergeRequestsStatistic.');
+            }
+            if (iids === null || iids === undefined) {
+                throw new RequiredError('iids','Required parameter iids was null or undefined when calling showRepositoryMergeRequestsStatistic.');
+            }
+            if (iids !== null && iids !== undefined) {
+                localVarQueryParameter['iids'] = iids;
+            }
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新代码组合并请求审核设置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12636,6 +14851,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'group_id': groupId,'setting_id': settingId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新代码组合并请求模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateGroupMergeRequestTemplate(updateGroupMergeRequestTemplateRequest?: UpdateGroupMergeRequestTemplateRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/groups/{group_id}/merge-requests/template/{template_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let groupId;
+            
+            let templateId;
+
+            if (updateGroupMergeRequestTemplateRequest !== null && updateGroupMergeRequestTemplateRequest !== undefined) {
+                if (updateGroupMergeRequestTemplateRequest instanceof UpdateGroupMergeRequestTemplateRequest) {
+                    groupId = updateGroupMergeRequestTemplateRequest.groupId;
+                    templateId = updateGroupMergeRequestTemplateRequest.templateId;
+                    body = updateGroupMergeRequestTemplateRequest.body
+                } else {
+                    groupId = updateGroupMergeRequestTemplateRequest['group_id'];
+                    templateId = updateGroupMergeRequestTemplateRequest['template_id'];
+                    body = updateGroupMergeRequestTemplateRequest['body'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateGroupMergeRequestTemplate.');
+            }
+            if (templateId === null || templateId === undefined) {
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling updateGroupMergeRequestTemplate.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'group_id': groupId,'template_id': templateId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -13046,14 +15314,205 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取提交关联的合并请求
+         * 更新项目合并请求模板
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listCommitAssociatedMergeRequests(listCommitAssociatedMergeRequestsRequest?: ListCommitAssociatedMergeRequestsRequest) {
+        updateProjectMergeRequestTemplate(updateProjectMergeRequestTemplateRequest?: UpdateProjectMergeRequestTemplateRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/projects/{project_id}/merge-requests/template/{template_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+            
+            let templateId;
+
+            if (updateProjectMergeRequestTemplateRequest !== null && updateProjectMergeRequestTemplateRequest !== undefined) {
+                if (updateProjectMergeRequestTemplateRequest instanceof UpdateProjectMergeRequestTemplateRequest) {
+                    projectId = updateProjectMergeRequestTemplateRequest.projectId;
+                    templateId = updateProjectMergeRequestTemplateRequest.templateId;
+                    body = updateProjectMergeRequestTemplateRequest.body
+                } else {
+                    projectId = updateProjectMergeRequestTemplateRequest['project_id'];
+                    templateId = updateProjectMergeRequestTemplateRequest['template_id'];
+                    body = updateProjectMergeRequestTemplateRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling updateProjectMergeRequestTemplate.');
+            }
+            if (templateId === null || templateId === undefined) {
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling updateProjectMergeRequestTemplate.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId,'template_id': templateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除仓库文件推送权限
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteRepositoryFilePushPermissions(batchDeleteRepositoryFilePushPermissionsRequest?: BatchDeleteRepositoryFilePushPermissionsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/repositories/{repository_id}/file-push-permissions/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+
+            if (batchDeleteRepositoryFilePushPermissionsRequest !== null && batchDeleteRepositoryFilePushPermissionsRequest !== undefined) {
+                if (batchDeleteRepositoryFilePushPermissionsRequest instanceof BatchDeleteRepositoryFilePushPermissionsRequest) {
+                    repositoryId = batchDeleteRepositoryFilePushPermissionsRequest.repositoryId;
+                    body = batchDeleteRepositoryFilePushPermissionsRequest.body
+                } else {
+                    repositoryId = batchDeleteRepositoryFilePushPermissionsRequest['repository_id'];
+                    body = batchDeleteRepositoryFilePushPermissionsRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling batchDeleteRepositoryFilePushPermissions.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量更新仓库文件推送权限
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdateRepositoryFilePushPermissions(batchUpdateRepositoryFilePushPermissionsRequest?: BatchUpdateRepositoryFilePushPermissionsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/repositories/{repository_id}/file-push-permissions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+
+            if (batchUpdateRepositoryFilePushPermissionsRequest !== null && batchUpdateRepositoryFilePushPermissionsRequest !== undefined) {
+                if (batchUpdateRepositoryFilePushPermissionsRequest instanceof BatchUpdateRepositoryFilePushPermissionsRequest) {
+                    repositoryId = batchUpdateRepositoryFilePushPermissionsRequest.repositoryId;
+                    body = batchUpdateRepositoryFilePushPermissionsRequest.body
+                } else {
+                    repositoryId = batchUpdateRepositoryFilePushPermissionsRequest['repository_id'];
+                    body = batchUpdateRepositoryFilePushPermissionsRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling batchUpdateRepositoryFilePushPermissions.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建仓库文件推送权限
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createFilePushPermission(createFilePushPermissionRequest?: CreateFilePushPermissionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/repositories/{repository_id}/file-push-permissions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+
+            if (createFilePushPermissionRequest !== null && createFilePushPermissionRequest !== undefined) {
+                if (createFilePushPermissionRequest instanceof CreateFilePushPermissionRequest) {
+                    repositoryId = createFilePushPermissionRequest.repositoryId;
+                    body = createFilePushPermissionRequest.body
+                } else {
+                    repositoryId = createFilePushPermissionRequest['repository_id'];
+                    body = createFilePushPermissionRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling createFilePushPermission.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取仓库文件推送权限列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRepositoryFilePushPermissions(listRepositoryFilePushPermissionsRequest?: ListRepositoryFilePushPermissionsRequest) {
             const options = {
                 method: "GET",
-                url: "/v4/repositories/{repository_id}/commits/{sha}/merge-requests",
+                url: "/v4/repositories/{repository_id}/file-push-permissions",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -13064,93 +15523,38 @@ export const ParamCreater = function () {
             
             let repositoryId;
             
-            let sha;
+            let search;
             
             let offset;
             
             let limit;
 
-            if (listCommitAssociatedMergeRequestsRequest !== null && listCommitAssociatedMergeRequestsRequest !== undefined) {
-                if (listCommitAssociatedMergeRequestsRequest instanceof ListCommitAssociatedMergeRequestsRequest) {
-                    repositoryId = listCommitAssociatedMergeRequestsRequest.repositoryId;
-                    sha = listCommitAssociatedMergeRequestsRequest.sha;
-                    offset = listCommitAssociatedMergeRequestsRequest.offset;
-                    limit = listCommitAssociatedMergeRequestsRequest.limit;
+            if (listRepositoryFilePushPermissionsRequest !== null && listRepositoryFilePushPermissionsRequest !== undefined) {
+                if (listRepositoryFilePushPermissionsRequest instanceof ListRepositoryFilePushPermissionsRequest) {
+                    repositoryId = listRepositoryFilePushPermissionsRequest.repositoryId;
+                    search = listRepositoryFilePushPermissionsRequest.search;
+                    offset = listRepositoryFilePushPermissionsRequest.offset;
+                    limit = listRepositoryFilePushPermissionsRequest.limit;
                 } else {
-                    repositoryId = listCommitAssociatedMergeRequestsRequest['repository_id'];
-                    sha = listCommitAssociatedMergeRequestsRequest['sha'];
-                    offset = listCommitAssociatedMergeRequestsRequest['offset'];
-                    limit = listCommitAssociatedMergeRequestsRequest['limit'];
+                    repositoryId = listRepositoryFilePushPermissionsRequest['repository_id'];
+                    search = listRepositoryFilePushPermissionsRequest['search'];
+                    offset = listRepositoryFilePushPermissionsRequest['offset'];
+                    limit = listRepositoryFilePushPermissionsRequest['limit'];
                 }
             }
 
         
             if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listCommitAssociatedMergeRequests.');
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listRepositoryFilePushPermissions.');
             }
-            if (sha === null || sha === undefined) {
-            throw new RequiredError('sha','Required parameter sha was null or undefined when calling listCommitAssociatedMergeRequests.');
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'repository_id': repositoryId,'sha': sha, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取仓库合并请求统计数据
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showRepositoryMergeRequestsStatistic(showRepositoryMergeRequestsStatisticRequest?: ShowRepositoryMergeRequestsStatisticRequest) {
-            const options = {
-                method: "GET",
-                url: "/v4/repositories/{repository_id}/merge-requests/statistic",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let repositoryId;
-            
-            let iids;
-            
-            let fields;
-
-            if (showRepositoryMergeRequestsStatisticRequest !== null && showRepositoryMergeRequestsStatisticRequest !== undefined) {
-                if (showRepositoryMergeRequestsStatisticRequest instanceof ShowRepositoryMergeRequestsStatisticRequest) {
-                    repositoryId = showRepositoryMergeRequestsStatisticRequest.repositoryId;
-                    iids = showRepositoryMergeRequestsStatisticRequest.iids;
-                    fields = showRepositoryMergeRequestsStatisticRequest.fields;
-                } else {
-                    repositoryId = showRepositoryMergeRequestsStatisticRequest['repository_id'];
-                    iids = showRepositoryMergeRequestsStatisticRequest['iids'];
-                    fields = showRepositoryMergeRequestsStatisticRequest['fields'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showRepositoryMergeRequestsStatistic.');
-            }
-            if (iids === null || iids === undefined) {
-                throw new RequiredError('iids','Required parameter iids was null or undefined when calling showRepositoryMergeRequestsStatistic.');
-            }
-            if (iids !== null && iids !== undefined) {
-                localVarQueryParameter['iids'] = iids;
-            }
-            if (fields !== null && fields !== undefined) {
-                localVarQueryParameter['fields'] = fields;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -13160,14 +15564,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取合并请求参与者
+         * 查询仓库权限矩阵配置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listMergeRequestParticipants(listMergeRequestParticipantsRequest?: ListMergeRequestParticipantsRequest) {
+        listRepositoryResourcePermissions(listRepositoryResourcePermissionsRequest?: ListRepositoryResourcePermissionsRequest) {
             const options = {
                 method: "GET",
-                url: "/v4/repositories/{repository_id}/merge-requests/{merge_request_iid}/participants",
+                url: "/v4/repository/{repository_id}/permissions/{resource_name}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -13178,32 +15582,32 @@ export const ParamCreater = function () {
             
             let repositoryId;
             
-            let mergeRequestIid;
+            let resourceName;
             
             let offset;
             
             let limit;
 
-            if (listMergeRequestParticipantsRequest !== null && listMergeRequestParticipantsRequest !== undefined) {
-                if (listMergeRequestParticipantsRequest instanceof ListMergeRequestParticipantsRequest) {
-                    repositoryId = listMergeRequestParticipantsRequest.repositoryId;
-                    mergeRequestIid = listMergeRequestParticipantsRequest.mergeRequestIid;
-                    offset = listMergeRequestParticipantsRequest.offset;
-                    limit = listMergeRequestParticipantsRequest.limit;
+            if (listRepositoryResourcePermissionsRequest !== null && listRepositoryResourcePermissionsRequest !== undefined) {
+                if (listRepositoryResourcePermissionsRequest instanceof ListRepositoryResourcePermissionsRequest) {
+                    repositoryId = listRepositoryResourcePermissionsRequest.repositoryId;
+                    resourceName = listRepositoryResourcePermissionsRequest.resourceName;
+                    offset = listRepositoryResourcePermissionsRequest.offset;
+                    limit = listRepositoryResourcePermissionsRequest.limit;
                 } else {
-                    repositoryId = listMergeRequestParticipantsRequest['repository_id'];
-                    mergeRequestIid = listMergeRequestParticipantsRequest['merge_request_iid'];
-                    offset = listMergeRequestParticipantsRequest['offset'];
-                    limit = listMergeRequestParticipantsRequest['limit'];
+                    repositoryId = listRepositoryResourcePermissionsRequest['repository_id'];
+                    resourceName = listRepositoryResourcePermissionsRequest['resource_name'];
+                    offset = listRepositoryResourcePermissionsRequest['offset'];
+                    limit = listRepositoryResourcePermissionsRequest['limit'];
                 }
             }
 
         
             if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listMergeRequestParticipants.');
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listRepositoryResourcePermissions.');
             }
-            if (mergeRequestIid === null || mergeRequestIid === undefined) {
-            throw new RequiredError('mergeRequestIid','Required parameter mergeRequestIid was null or undefined when calling listMergeRequestParticipants.');
+            if (resourceName === null || resourceName === undefined) {
+            throw new RequiredError('resourceName','Required parameter resourceName was null or undefined when calling listRepositoryResourcePermissions.');
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -13213,7 +15617,7 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'repository_id': repositoryId,'merge_request_iid': mergeRequestIid, };
+            options.pathParams = { 'repository_id': repositoryId,'resource_name': resourceName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -13297,6 +15701,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新仓库权限矩阵配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateRepositoryResourcePermissions(updateRepositoryResourcePermissionsRequest?: UpdateRepositoryResourcePermissionsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/repository/{repository_id}/permissions/{resource_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+            
+            let resourceName;
+
+            if (updateRepositoryResourcePermissionsRequest !== null && updateRepositoryResourcePermissionsRequest !== undefined) {
+                if (updateRepositoryResourcePermissionsRequest instanceof UpdateRepositoryResourcePermissionsRequest) {
+                    repositoryId = updateRepositoryResourcePermissionsRequest.repositoryId;
+                    resourceName = updateRepositoryResourcePermissionsRequest.resourceName;
+                    body = updateRepositoryResourcePermissionsRequest.body
+                } else {
+                    repositoryId = updateRepositoryResourcePermissionsRequest['repository_id'];
+                    resourceName = updateRepositoryResourcePermissionsRequest['resource_name'];
+                    body = updateRepositoryResourcePermissionsRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling updateRepositoryResourcePermissions.');
+            }
+            if (resourceName === null || resourceName === undefined) {
+            throw new RequiredError('resourceName','Required parameter resourceName was null or undefined when calling updateRepositoryResourcePermissions.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId,'resource_name': resourceName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -13405,6 +15862,241 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 工作项关联的提交信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listItemCommits(listItemCommitsRequest?: ListItemCommitsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/projects/{project_id}/items/{item_id}/commits",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let itemId;
+            
+            let type;
+            
+            let offset;
+            
+            let limit;
+
+            if (listItemCommitsRequest !== null && listItemCommitsRequest !== undefined) {
+                if (listItemCommitsRequest instanceof ListItemCommitsRequest) {
+                    projectId = listItemCommitsRequest.projectId;
+                    itemId = listItemCommitsRequest.itemId;
+                    type = listItemCommitsRequest.type;
+                    offset = listItemCommitsRequest.offset;
+                    limit = listItemCommitsRequest.limit;
+                } else {
+                    projectId = listItemCommitsRequest['project_id'];
+                    itemId = listItemCommitsRequest['item_id'];
+                    type = listItemCommitsRequest['type'];
+                    offset = listItemCommitsRequest['offset'];
+                    limit = listItemCommitsRequest['limit'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listItemCommits.');
+            }
+            if (itemId === null || itemId === undefined) {
+            throw new RequiredError('itemId','Required parameter itemId was null or undefined when calling listItemCommits.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId,'item_id': itemId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取项目下的代码组和仓库列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProjectSubgroupsAndRepositories(listProjectSubgroupsAndRepositoriesRequest?: ListProjectSubgroupsAndRepositoriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/projects/{project_id}/subgroups-and-repositories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let filter;
+            
+            let orderBy;
+            
+            let sort;
+            
+            let archived;
+            
+            let offset;
+            
+            let limit;
+
+            if (listProjectSubgroupsAndRepositoriesRequest !== null && listProjectSubgroupsAndRepositoriesRequest !== undefined) {
+                if (listProjectSubgroupsAndRepositoriesRequest instanceof ListProjectSubgroupsAndRepositoriesRequest) {
+                    projectId = listProjectSubgroupsAndRepositoriesRequest.projectId;
+                    filter = listProjectSubgroupsAndRepositoriesRequest.filter;
+                    orderBy = listProjectSubgroupsAndRepositoriesRequest.orderBy;
+                    sort = listProjectSubgroupsAndRepositoriesRequest.sort;
+                    archived = listProjectSubgroupsAndRepositoriesRequest.archived;
+                    offset = listProjectSubgroupsAndRepositoriesRequest.offset;
+                    limit = listProjectSubgroupsAndRepositoriesRequest.limit;
+                } else {
+                    projectId = listProjectSubgroupsAndRepositoriesRequest['project_id'];
+                    filter = listProjectSubgroupsAndRepositoriesRequest['filter'];
+                    orderBy = listProjectSubgroupsAndRepositoriesRequest['order_by'];
+                    sort = listProjectSubgroupsAndRepositoriesRequest['sort'];
+                    archived = listProjectSubgroupsAndRepositoriesRequest['archived'];
+                    offset = listProjectSubgroupsAndRepositoriesRequest['offset'];
+                    limit = listProjectSubgroupsAndRepositoriesRequest['limit'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listProjectSubgroupsAndRepositories.');
+            }
+            if (filter !== null && filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (sort !== null && sort !== undefined) {
+                localVarQueryParameter['sort'] = sort;
+            }
+            if (archived !== null && archived !== undefined) {
+                localVarQueryParameter['archived'] = archived;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取指定项目的基本设置信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProjectGeneralPolicy(showProjectGeneralPolicyRequest?: ShowProjectGeneralPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/projects/{project_id}/policies/general",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectId;
+
+            if (showProjectGeneralPolicyRequest !== null && showProjectGeneralPolicyRequest !== undefined) {
+                if (showProjectGeneralPolicyRequest instanceof ShowProjectGeneralPolicyRequest) {
+                    projectId = showProjectGeneralPolicyRequest.projectId;
+                } else {
+                    projectId = showProjectGeneralPolicyRequest['project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showProjectGeneralPolicy.');
+            }
+
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取项目成员设置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProjectMemberSetting(showProjectMemberSettingRequest?: ShowProjectMemberSettingRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/projects/{project_id}/member-setting",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let offset;
+            
+            let limit;
+
+            if (showProjectMemberSettingRequest !== null && showProjectMemberSettingRequest !== undefined) {
+                if (showProjectMemberSettingRequest instanceof ShowProjectMemberSettingRequest) {
+                    projectId = showProjectMemberSettingRequest.projectId;
+                    offset = showProjectMemberSettingRequest.offset;
+                    limit = showProjectMemberSettingRequest.limit;
+                } else {
+                    projectId = showProjectMemberSettingRequest['project_id'];
+                    offset = showProjectMemberSettingRequest['offset'];
+                    limit = showProjectMemberSettingRequest['limit'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showProjectMemberSetting.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取项目继承设置项
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -13473,6 +16165,148 @@ export const ParamCreater = function () {
             throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showProjectWatermark.');
             }
 
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取指定项目的基本设置信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProjectsGeneralPolicy(showProjectsGeneralPolicyRequest?: ShowProjectsGeneralPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/projects/{project_id}/general-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectId;
+
+            if (showProjectsGeneralPolicyRequest !== null && showProjectsGeneralPolicyRequest !== undefined) {
+                if (showProjectsGeneralPolicyRequest instanceof ShowProjectsGeneralPolicyRequest) {
+                    projectId = showProjectsGeneralPolicyRequest.projectId;
+                } else {
+                    projectId = showProjectsGeneralPolicyRequest['project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showProjectsGeneralPolicy.');
+            }
+
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取资源点对应的角色和权限
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showResourcePermissions(showResourcePermissionsRequest?: ShowResourcePermissionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/groups/{group_id}/permissions-resources/{resource_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let groupId;
+            
+            let resourceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (showResourcePermissionsRequest !== null && showResourcePermissionsRequest !== undefined) {
+                if (showResourcePermissionsRequest instanceof ShowResourcePermissionsRequest) {
+                    groupId = showResourcePermissionsRequest.groupId;
+                    resourceId = showResourcePermissionsRequest.resourceId;
+                    offset = showResourcePermissionsRequest.offset;
+                    limit = showResourcePermissionsRequest.limit;
+                } else {
+                    groupId = showResourcePermissionsRequest['group_id'];
+                    resourceId = showResourcePermissionsRequest['resource_id'];
+                    offset = showResourcePermissionsRequest['offset'];
+                    limit = showResourcePermissionsRequest['limit'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling showResourcePermissions.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling showResourcePermissions.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'group_id': groupId,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新项目的基本设置信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateProjectGeneralPolicy(updateProjectGeneralPolicyRequest?: UpdateProjectGeneralPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/projects/{project_id}/general-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (updateProjectGeneralPolicyRequest !== null && updateProjectGeneralPolicyRequest !== undefined) {
+                if (updateProjectGeneralPolicyRequest instanceof UpdateProjectGeneralPolicyRequest) {
+                    projectId = updateProjectGeneralPolicyRequest.projectId;
+                    body = updateProjectGeneralPolicyRequest.body
+                } else {
+                    projectId = updateProjectGeneralPolicyRequest['project_id'];
+                    body = updateProjectGeneralPolicyRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling updateProjectGeneralPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -13617,6 +16451,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量创建仓库保护Tag
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateProtectedTags(batchCreateProtectedTagsRequest?: BatchCreateProtectedTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/repositories/{repository_id}/protected-tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+
+            if (batchCreateProtectedTagsRequest !== null && batchCreateProtectedTagsRequest !== undefined) {
+                if (batchCreateProtectedTagsRequest instanceof BatchCreateProtectedTagsRequest) {
+                    repositoryId = batchCreateProtectedTagsRequest.repositoryId;
+                    body = batchCreateProtectedTagsRequest.body
+                } else {
+                    repositoryId = batchCreateProtectedTagsRequest['repository_id'];
+                    body = batchCreateProtectedTagsRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling batchCreateProtectedTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量删除仓库保护分支
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -13650,6 +16530,52 @@ export const ParamCreater = function () {
         
             if (repositoryId === null || repositoryId === undefined) {
             throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling batchDeleteProtectedBranches.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除仓库保护Tag
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteProtectedTags(batchDeleteProtectedTagsRequest?: BatchDeleteProtectedTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/repositories/{repository_id}/protected-tags/bulk-deletion",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+
+            if (batchDeleteProtectedTagsRequest !== null && batchDeleteProtectedTagsRequest !== undefined) {
+                if (batchDeleteProtectedTagsRequest instanceof BatchDeleteProtectedTagsRequest) {
+                    repositoryId = batchDeleteProtectedTagsRequest.repositoryId;
+                    body = batchDeleteProtectedTagsRequest.body
+                } else {
+                    repositoryId = batchDeleteProtectedTagsRequest['repository_id'];
+                    body = batchDeleteProtectedTagsRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling batchDeleteProtectedTags.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -13709,6 +16635,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量更新仓库保护Tag
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdateProtectedTags(batchUpdateProtectedTagsRequest?: BatchUpdateProtectedTagsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/repositories/{repository_id}/protected-tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+
+            if (batchUpdateProtectedTagsRequest !== null && batchUpdateProtectedTagsRequest !== undefined) {
+                if (batchUpdateProtectedTagsRequest instanceof BatchUpdateProtectedTagsRequest) {
+                    repositoryId = batchUpdateProtectedTagsRequest.repositoryId;
+                    body = batchUpdateProtectedTagsRequest.body
+                } else {
+                    repositoryId = batchUpdateProtectedTagsRequest['repository_id'];
+                    body = batchUpdateProtectedTagsRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling batchUpdateProtectedTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建项目下保护分支
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -13742,6 +16714,52 @@ export const ParamCreater = function () {
         
             if (projectId === null || projectId === undefined) {
             throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling createProjectProtectedBranches.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建项目下的保护tag
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createProjectProtectedTags(createProjectProtectedTagsRequest?: CreateProjectProtectedTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/projects/{project_id}/protected-tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (createProjectProtectedTagsRequest !== null && createProjectProtectedTagsRequest !== undefined) {
+                if (createProjectProtectedTagsRequest instanceof CreateProjectProtectedTagsRequest) {
+                    projectId = createProjectProtectedTagsRequest.projectId;
+                    body = createProjectProtectedTagsRequest.body
+                } else {
+                    projectId = createProjectProtectedTagsRequest['project_id'];
+                    body = createProjectProtectedTagsRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling createProjectProtectedTags.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -13794,6 +16812,54 @@ export const ParamCreater = function () {
             }
             if (branchName !== null && branchName !== undefined) {
                 localVarQueryParameter['branch_name'] = branchName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除仓库保护Tag
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteProtectedTag(deleteProtectedTagRequest?: DeleteProtectedTagRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v4/repositories/{repository_id}/protected-tag",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let tagName;
+
+            if (deleteProtectedTagRequest !== null && deleteProtectedTagRequest !== undefined) {
+                if (deleteProtectedTagRequest instanceof DeleteProtectedTagRequest) {
+                    repositoryId = deleteProtectedTagRequest.repositoryId;
+                    tagName = deleteProtectedTagRequest.tagName;
+                } else {
+                    repositoryId = deleteProtectedTagRequest['repository_id'];
+                    tagName = deleteProtectedTagRequest['tag_name'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling deleteProtectedTag.');
+            }
+            if (tagName === null || tagName === undefined) {
+                throw new RequiredError('tagName','Required parameter tagName was null or undefined when calling deleteProtectedTag.');
+            }
+            if (tagName !== null && tagName !== undefined) {
+                localVarQueryParameter['tag_name'] = tagName;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -13876,6 +16942,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取指定项目的保护tag详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProjectProtectedTags(listProjectProtectedTagsRequest?: ListProjectProtectedTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/projects/{project_id}/protected-tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectId;
+
+            if (listProjectProtectedTagsRequest !== null && listProjectProtectedTagsRequest !== undefined) {
+                if (listProjectProtectedTagsRequest instanceof ListProjectProtectedTagsRequest) {
+                    projectId = listProjectProtectedTagsRequest.projectId;
+                } else {
+                    projectId = listProjectProtectedTagsRequest['project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listProjectProtectedTags.');
+            }
+
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取仓库保护分支列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -13926,297 +17029,6 @@ export const ParamCreater = function () {
             }
             if (search !== null && search !== undefined) {
                 localVarQueryParameter['search'] = search;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取仓库保护分支
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showProtectedBranch(showProtectedBranchRequest?: ShowProtectedBranchRequest) {
-            const options = {
-                method: "GET",
-                url: "/v4/repositories/{repository_id}/protected-branch",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let repositoryId;
-            
-            let branchName;
-
-            if (showProtectedBranchRequest !== null && showProtectedBranchRequest !== undefined) {
-                if (showProtectedBranchRequest instanceof ShowProtectedBranchRequest) {
-                    repositoryId = showProtectedBranchRequest.repositoryId;
-                    branchName = showProtectedBranchRequest.branchName;
-                } else {
-                    repositoryId = showProtectedBranchRequest['repository_id'];
-                    branchName = showProtectedBranchRequest['branch_name'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showProtectedBranch.');
-            }
-            if (branchName === null || branchName === undefined) {
-                throw new RequiredError('branchName','Required parameter branchName was null or undefined when calling showProtectedBranch.');
-            }
-            if (branchName !== null && branchName !== undefined) {
-                localVarQueryParameter['branch_name'] = branchName;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 更新仓库保护分支
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateProtectedBranch(updateProtectedBranchRequest?: UpdateProtectedBranchRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v4/repositories/{repository_id}/protected-branch",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let body: any;
-            
-            let repositoryId;
-            
-            let branchName;
-
-            if (updateProtectedBranchRequest !== null && updateProtectedBranchRequest !== undefined) {
-                if (updateProtectedBranchRequest instanceof UpdateProtectedBranchRequest) {
-                    repositoryId = updateProtectedBranchRequest.repositoryId;
-                    branchName = updateProtectedBranchRequest.branchName;
-                    body = updateProtectedBranchRequest.body
-                } else {
-                    repositoryId = updateProtectedBranchRequest['repository_id'];
-                    branchName = updateProtectedBranchRequest['branch_name'];
-                    body = updateProtectedBranchRequest['body'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling updateProtectedBranch.');
-            }
-            if (branchName === null || branchName === undefined) {
-                throw new RequiredError('branchName','Required parameter branchName was null or undefined when calling updateProtectedBranch.');
-            }
-            if (branchName !== null && branchName !== undefined) {
-                localVarQueryParameter['branch_name'] = branchName;
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 批量创建仓库保护Tag
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        batchCreateProtectedTags(batchCreateProtectedTagsRequest?: BatchCreateProtectedTagsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v4/repositories/{repository_id}/protected-tags",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let repositoryId;
-
-            if (batchCreateProtectedTagsRequest !== null && batchCreateProtectedTagsRequest !== undefined) {
-                if (batchCreateProtectedTagsRequest instanceof BatchCreateProtectedTagsRequest) {
-                    repositoryId = batchCreateProtectedTagsRequest.repositoryId;
-                    body = batchCreateProtectedTagsRequest.body
-                } else {
-                    repositoryId = batchCreateProtectedTagsRequest['repository_id'];
-                    body = batchCreateProtectedTagsRequest['body'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling batchCreateProtectedTags.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 批量删除仓库保护Tag
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        batchDeleteProtectedTags(batchDeleteProtectedTagsRequest?: BatchDeleteProtectedTagsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v4/repositories/{repository_id}/protected-tags/bulk-deletion",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let repositoryId;
-
-            if (batchDeleteProtectedTagsRequest !== null && batchDeleteProtectedTagsRequest !== undefined) {
-                if (batchDeleteProtectedTagsRequest instanceof BatchDeleteProtectedTagsRequest) {
-                    repositoryId = batchDeleteProtectedTagsRequest.repositoryId;
-                    body = batchDeleteProtectedTagsRequest.body
-                } else {
-                    repositoryId = batchDeleteProtectedTagsRequest['repository_id'];
-                    body = batchDeleteProtectedTagsRequest['body'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling batchDeleteProtectedTags.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 批量更新仓库保护Tag
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        batchUpdateProtectedTags(batchUpdateProtectedTagsRequest?: BatchUpdateProtectedTagsRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v4/repositories/{repository_id}/protected-tags",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let repositoryId;
-
-            if (batchUpdateProtectedTagsRequest !== null && batchUpdateProtectedTagsRequest !== undefined) {
-                if (batchUpdateProtectedTagsRequest instanceof BatchUpdateProtectedTagsRequest) {
-                    repositoryId = batchUpdateProtectedTagsRequest.repositoryId;
-                    body = batchUpdateProtectedTagsRequest.body
-                } else {
-                    repositoryId = batchUpdateProtectedTagsRequest['repository_id'];
-                    body = batchUpdateProtectedTagsRequest['body'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling batchUpdateProtectedTags.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除仓库保护Tag
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteProtectedTag(deleteProtectedTagRequest?: DeleteProtectedTagRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v4/repositories/{repository_id}/protected-tag",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let repositoryId;
-            
-            let tagName;
-
-            if (deleteProtectedTagRequest !== null && deleteProtectedTagRequest !== undefined) {
-                if (deleteProtectedTagRequest instanceof DeleteProtectedTagRequest) {
-                    repositoryId = deleteProtectedTagRequest.repositoryId;
-                    tagName = deleteProtectedTagRequest.tagName;
-                } else {
-                    repositoryId = deleteProtectedTagRequest['repository_id'];
-                    tagName = deleteProtectedTagRequest['tag_name'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling deleteProtectedTag.');
-            }
-            if (tagName === null || tagName === undefined) {
-                throw new RequiredError('tagName','Required parameter tagName was null or undefined when calling deleteProtectedTag.');
-            }
-            if (tagName !== null && tagName !== undefined) {
-                localVarQueryParameter['tag_name'] = tagName;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -14285,6 +17097,54 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取仓库保护分支
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProtectedBranch(showProtectedBranchRequest?: ShowProtectedBranchRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/protected-branch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let branchName;
+
+            if (showProtectedBranchRequest !== null && showProtectedBranchRequest !== undefined) {
+                if (showProtectedBranchRequest instanceof ShowProtectedBranchRequest) {
+                    repositoryId = showProtectedBranchRequest.repositoryId;
+                    branchName = showProtectedBranchRequest.branchName;
+                } else {
+                    repositoryId = showProtectedBranchRequest['repository_id'];
+                    branchName = showProtectedBranchRequest['branch_name'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showProtectedBranch.');
+            }
+            if (branchName === null || branchName === undefined) {
+                throw new RequiredError('branchName','Required parameter branchName was null or undefined when calling showProtectedBranch.');
+            }
+            if (branchName !== null && branchName !== undefined) {
+                localVarQueryParameter['branch_name'] = branchName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取仓库保护Tag
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14326,6 +17186,63 @@ export const ParamCreater = function () {
                 localVarQueryParameter['tag_name'] = tagName;
             }
 
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新仓库保护分支
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateProtectedBranch(updateProtectedBranchRequest?: UpdateProtectedBranchRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/repositories/{repository_id}/protected-branch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let repositoryId;
+            
+            let branchName;
+
+            if (updateProtectedBranchRequest !== null && updateProtectedBranchRequest !== undefined) {
+                if (updateProtectedBranchRequest instanceof UpdateProtectedBranchRequest) {
+                    repositoryId = updateProtectedBranchRequest.repositoryId;
+                    branchName = updateProtectedBranchRequest.branchName;
+                    body = updateProtectedBranchRequest.body
+                } else {
+                    repositoryId = updateProtectedBranchRequest['repository_id'];
+                    branchName = updateProtectedBranchRequest['branch_name'];
+                    body = updateProtectedBranchRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling updateProtectedBranch.');
+            }
+            if (branchName === null || branchName === undefined) {
+                throw new RequiredError('branchName','Required parameter branchName was null or undefined when calling updateProtectedBranch.');
+            }
+            if (branchName !== null && branchName !== undefined) {
+                localVarQueryParameter['branch_name'] = branchName;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'repository_id': repositoryId, };
             options.headers = localVarHeaderParameter;
@@ -14384,6 +17301,622 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除分支
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteBranch(batchDeleteBranchRequest?: BatchDeleteBranchRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/repositories/{repository_id}/branches/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+
+            if (batchDeleteBranchRequest !== null && batchDeleteBranchRequest !== undefined) {
+                if (batchDeleteBranchRequest instanceof BatchDeleteBranchRequest) {
+                    repositoryId = batchDeleteBranchRequest.repositoryId;
+                    body = batchDeleteBranchRequest.body
+                } else {
+                    repositoryId = batchDeleteBranchRequest['repository_id'];
+                    body = batchDeleteBranchRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling batchDeleteBranch.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建分支
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createBranch(createBranchRequest?: CreateBranchRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/repositories/{repository_id}/repository/branches",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+
+            if (createBranchRequest !== null && createBranchRequest !== undefined) {
+                if (createBranchRequest instanceof CreateBranchRequest) {
+                    repositoryId = createBranchRequest.repositoryId;
+                    body = createBranchRequest.body
+                } else {
+                    repositoryId = createBranchRequest['repository_id'];
+                    body = createBranchRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling createBranch.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTag(createTagRequest?: CreateTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/repositories/{repository_id}/repository/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+
+            if (createTagRequest !== null && createTagRequest !== undefined) {
+                if (createTagRequest instanceof CreateTagRequest) {
+                    repositoryId = createTagRequest.repositoryId;
+                    body = createTagRequest.body
+                } else {
+                    repositoryId = createTagRequest['repository_id'];
+                    body = createTagRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling createTag.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除分支
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteBranch(deleteBranchRequest?: DeleteBranchRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v4/repositories/{repository_id}/repository/branch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let branchName;
+            
+            let repositoryId;
+
+            if (deleteBranchRequest !== null && deleteBranchRequest !== undefined) {
+                if (deleteBranchRequest instanceof DeleteBranchRequest) {
+                    branchName = deleteBranchRequest.branchName;
+                    repositoryId = deleteBranchRequest.repositoryId;
+                } else {
+                    branchName = deleteBranchRequest['branch_name'];
+                    repositoryId = deleteBranchRequest['repository_id'];
+                }
+            }
+
+        
+            if (branchName === null || branchName === undefined) {
+                throw new RequiredError('branchName','Required parameter branchName was null or undefined when calling deleteBranch.');
+            }
+            if (branchName !== null && branchName !== undefined) {
+                localVarQueryParameter['branch_name'] = branchName;
+            }
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling deleteBranch.');
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteTag(deleteTagRequest?: DeleteTagRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v4/repositories/{repository_id}/repository/tag",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let tagName;
+
+            if (deleteTagRequest !== null && deleteTagRequest !== undefined) {
+                if (deleteTagRequest instanceof DeleteTagRequest) {
+                    repositoryId = deleteTagRequest.repositoryId;
+                    tagName = deleteTagRequest.tagName;
+                } else {
+                    repositoryId = deleteTagRequest['repository_id'];
+                    tagName = deleteTagRequest['tag_name'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling deleteTag.');
+            }
+            if (tagName === null || tagName === undefined) {
+                throw new RequiredError('tagName','Required parameter tagName was null or undefined when calling deleteTag.');
+            }
+            if (tagName !== null && tagName !== undefined) {
+                localVarQueryParameter['tag_name'] = tagName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取分支列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBranches(listBranchesRequest?: ListBranchesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/repository/branches",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let branchType;
+            
+            let creator;
+            
+            let sort;
+            
+            let queryView;
+            
+            let view;
+            
+            let offset;
+            
+            let limit;
+
+            if (listBranchesRequest !== null && listBranchesRequest !== undefined) {
+                if (listBranchesRequest instanceof ListBranchesRequest) {
+                    repositoryId = listBranchesRequest.repositoryId;
+                    branchType = listBranchesRequest.branchType;
+                    creator = listBranchesRequest.creator;
+                    sort = listBranchesRequest.sort;
+                    queryView = listBranchesRequest.queryView;
+                    view = listBranchesRequest.view;
+                    offset = listBranchesRequest.offset;
+                    limit = listBranchesRequest.limit;
+                } else {
+                    repositoryId = listBranchesRequest['repository_id'];
+                    branchType = listBranchesRequest['branch_type'];
+                    creator = listBranchesRequest['creator'];
+                    sort = listBranchesRequest['sort'];
+                    queryView = listBranchesRequest['query_view'];
+                    view = listBranchesRequest['view'];
+                    offset = listBranchesRequest['offset'];
+                    limit = listBranchesRequest['limit'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listBranches.');
+            }
+            if (branchType !== null && branchType !== undefined) {
+                localVarQueryParameter['branch_type'] = branchType;
+            }
+            if (creator !== null && creator !== undefined) {
+                localVarQueryParameter['creator'] = creator;
+            }
+            if (sort !== null && sort !== undefined) {
+                localVarQueryParameter['sort'] = sort;
+            }
+            if (queryView !== null && queryView !== undefined) {
+                localVarQueryParameter['query_view'] = queryView;
+            }
+            if (view !== null && view !== undefined) {
+                localVarQueryParameter['view'] = view;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看分支/tag列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRefsList(listRefsListRequest?: ListRefsListRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/repository/refs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let type;
+            
+            let search;
+            
+            let offset;
+            
+            let limit;
+
+            if (listRefsListRequest !== null && listRefsListRequest !== undefined) {
+                if (listRefsListRequest instanceof ListRefsListRequest) {
+                    repositoryId = listRefsListRequest.repositoryId;
+                    type = listRefsListRequest.type;
+                    search = listRefsListRequest.search;
+                    offset = listRefsListRequest.offset;
+                    limit = listRefsListRequest.limit;
+                } else {
+                    repositoryId = listRefsListRequest['repository_id'];
+                    type = listRefsListRequest['type'];
+                    search = listRefsListRequest['search'];
+                    offset = listRefsListRequest['offset'];
+                    limit = listRefsListRequest['limit'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listRefsList.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取标签列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTags(listTagsRequest?: ListTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/repository/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let creator;
+            
+            let sort;
+            
+            let search;
+            
+            let orderBy;
+            
+            let view;
+            
+            let offset;
+            
+            let limit;
+
+            if (listTagsRequest !== null && listTagsRequest !== undefined) {
+                if (listTagsRequest instanceof ListTagsRequest) {
+                    repositoryId = listTagsRequest.repositoryId;
+                    creator = listTagsRequest.creator;
+                    sort = listTagsRequest.sort;
+                    search = listTagsRequest.search;
+                    orderBy = listTagsRequest.orderBy;
+                    view = listTagsRequest.view;
+                    offset = listTagsRequest.offset;
+                    limit = listTagsRequest.limit;
+                } else {
+                    repositoryId = listTagsRequest['repository_id'];
+                    creator = listTagsRequest['creator'];
+                    sort = listTagsRequest['sort'];
+                    search = listTagsRequest['search'];
+                    orderBy = listTagsRequest['order_by'];
+                    view = listTagsRequest['view'];
+                    offset = listTagsRequest['offset'];
+                    limit = listTagsRequest['limit'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listTags.');
+            }
+            if (creator !== null && creator !== undefined) {
+                localVarQueryParameter['creator'] = creator;
+            }
+            if (sort !== null && sort !== undefined) {
+                localVarQueryParameter['sort'] = sort;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (view !== null && view !== undefined) {
+                localVarQueryParameter['view'] = view;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取分支详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBranch(showBranchRequest?: ShowBranchRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/repository/branch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let branchName;
+
+            if (showBranchRequest !== null && showBranchRequest !== undefined) {
+                if (showBranchRequest instanceof ShowBranchRequest) {
+                    repositoryId = showBranchRequest.repositoryId;
+                    branchName = showBranchRequest.branchName;
+                } else {
+                    repositoryId = showBranchRequest['repository_id'];
+                    branchName = showBranchRequest['branch_name'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showBranch.');
+            }
+            if (branchName === null || branchName === undefined) {
+                throw new RequiredError('branchName','Required parameter branchName was null or undefined when calling showBranch.');
+            }
+            if (branchName !== null && branchName !== undefined) {
+                localVarQueryParameter['branch_name'] = branchName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看标签详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTag(showTagRequest?: ShowTagRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/repository/tag",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let tagName;
+
+            if (showTagRequest !== null && showTagRequest !== undefined) {
+                if (showTagRequest instanceof ShowTagRequest) {
+                    repositoryId = showTagRequest.repositoryId;
+                    tagName = showTagRequest.tagName;
+                } else {
+                    repositoryId = showTagRequest['repository_id'];
+                    tagName = showTagRequest['tag_name'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showTag.');
+            }
+            if (tagName === null || tagName === undefined) {
+                throw new RequiredError('tagName','Required parameter tagName was null or undefined when calling showTag.');
+            }
+            if (tagName !== null && tagName !== undefined) {
+                localVarQueryParameter['tag_name'] = tagName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分支重命名。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateBranchName(updateBranchNameRequest?: UpdateBranchNameRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/repositories/{repository_id}/repository/branch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+
+            if (updateBranchNameRequest !== null && updateBranchNameRequest !== undefined) {
+                if (updateBranchNameRequest instanceof UpdateBranchNameRequest) {
+                    repositoryId = updateBranchNameRequest.repositoryId;
+                    body = updateBranchNameRequest.body
+                } else {
+                    repositoryId = updateBranchNameRequest['repository_id'];
+                    body = updateBranchNameRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling updateBranchName.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'repository_id': repositoryId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -14573,6 +18106,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量检查仓库名
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchValidateRepoNames(batchValidateRepoNamesRequest?: BatchValidateRepoNamesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/repository-names/validations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchValidateRepoNamesRequest !== null && batchValidateRepoNamesRequest !== undefined) {
+                if (batchValidateRepoNamesRequest instanceof BatchValidateRepoNamesRequest) {
+                    body = batchValidateRepoNamesRequest.body
+                } else {
+                    body = batchValidateRepoNamesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建指定分支下的目录
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14613,6 +18184,183 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建仓库提交规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRepositoryCommitRule(createRepositoryCommitRuleRequest?: CreateRepositoryCommitRuleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/repositories/{repository_id}/commit-rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+
+            if (createRepositoryCommitRuleRequest !== null && createRepositoryCommitRuleRequest !== undefined) {
+                if (createRepositoryCommitRuleRequest instanceof CreateRepositoryCommitRuleRequest) {
+                    repositoryId = createRepositoryCommitRuleRequest.repositoryId;
+                    body = createRepositoryCommitRuleRequest.body
+                } else {
+                    repositoryId = createRepositoryCommitRuleRequest['repository_id'];
+                    body = createRepositoryCommitRuleRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling createRepositoryCommitRule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建仓库标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRepositoryLabel(createRepositoryLabelRequest?: CreateRepositoryLabelRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/repositories/{repository_id}/labels",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+
+            if (createRepositoryLabelRequest !== null && createRepositoryLabelRequest !== undefined) {
+                if (createRepositoryLabelRequest instanceof CreateRepositoryLabelRequest) {
+                    repositoryId = createRepositoryLabelRequest.repositoryId;
+                    body = createRepositoryLabelRequest.body
+                } else {
+                    repositoryId = createRepositoryLabelRequest['repository_id'];
+                    body = createRepositoryLabelRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling createRepositoryLabel.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建仓库系统标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRepositorySystemLabels(createRepositorySystemLabelsRequest?: CreateRepositorySystemLabelsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/repositories/{repository_id}/system-labels",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let repositoryId;
+
+            if (createRepositorySystemLabelsRequest !== null && createRepositorySystemLabelsRequest !== undefined) {
+                if (createRepositorySystemLabelsRequest instanceof CreateRepositorySystemLabelsRequest) {
+                    repositoryId = createRepositorySystemLabelsRequest.repositoryId;
+                } else {
+                    repositoryId = createRepositorySystemLabelsRequest['repository_id'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling createRepositorySystemLabels.');
+            }
+
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除仓库标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteRepositoryLabel(deleteRepositoryLabelRequest?: DeleteRepositoryLabelRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v4/repositories/{repository_id}/label",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let name;
+
+            if (deleteRepositoryLabelRequest !== null && deleteRepositoryLabelRequest !== undefined) {
+                if (deleteRepositoryLabelRequest instanceof DeleteRepositoryLabelRequest) {
+                    repositoryId = deleteRepositoryLabelRequest.repositoryId;
+                    name = deleteRepositoryLabelRequest.name;
+                } else {
+                    repositoryId = deleteRepositoryLabelRequest['repository_id'];
+                    name = deleteRepositoryLabelRequest['name'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling deleteRepositoryLabel.');
+            }
+            if (name === null || name === undefined) {
+                throw new RequiredError('name','Required parameter name was null or undefined when calling deleteRepositoryLabel.');
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'repository_id': repositoryId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -14722,6 +18470,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 触发仓库统计任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeRepositoryStatistics(executeRepositoryStatisticsRequest?: ExecuteRepositoryStatisticsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/repositories/{repository_id}/repository/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+
+            if (executeRepositoryStatisticsRequest !== null && executeRepositoryStatisticsRequest !== undefined) {
+                if (executeRepositoryStatisticsRequest instanceof ExecuteRepositoryStatisticsRequest) {
+                    repositoryId = executeRepositoryStatisticsRequest.repositoryId;
+                    body = executeRepositoryStatisticsRequest.body
+                } else {
+                    repositoryId = executeRepositoryStatisticsRequest['repository_id'];
+                    body = executeRepositoryStatisticsRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling executeRepositoryStatistics.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取当前登录用户仓库
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14736,37 +18530,173 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
-            let repositoryId;
+            let offset;
+            
+            let limit;
+            
+            let orderBy;
+            
+            let sort;
+            
+            let archived;
+            
+            let search;
+            
+            let starred;
+            
+            let membership;
+            
+            let userCreated;
+            
+            let includeAbnormal;
 
             if (listCurrentUserRepositoriesRequest !== null && listCurrentUserRepositoriesRequest !== undefined) {
                 if (listCurrentUserRepositoriesRequest instanceof ListCurrentUserRepositoriesRequest) {
-                    repositoryId = listCurrentUserRepositoriesRequest.repositoryId;
+                    offset = listCurrentUserRepositoriesRequest.offset;
+                    limit = listCurrentUserRepositoriesRequest.limit;
+                    orderBy = listCurrentUserRepositoriesRequest.orderBy;
+                    sort = listCurrentUserRepositoriesRequest.sort;
+                    archived = listCurrentUserRepositoriesRequest.archived;
+                    search = listCurrentUserRepositoriesRequest.search;
+                    starred = listCurrentUserRepositoriesRequest.starred;
+                    membership = listCurrentUserRepositoriesRequest.membership;
+                    userCreated = listCurrentUserRepositoriesRequest.userCreated;
+                    includeAbnormal = listCurrentUserRepositoriesRequest.includeAbnormal;
                 } else {
-                    repositoryId = listCurrentUserRepositoriesRequest['repository_id'];
+                    offset = listCurrentUserRepositoriesRequest['offset'];
+                    limit = listCurrentUserRepositoriesRequest['limit'];
+                    orderBy = listCurrentUserRepositoriesRequest['order_by'];
+                    sort = listCurrentUserRepositoriesRequest['sort'];
+                    archived = listCurrentUserRepositoriesRequest['archived'];
+                    search = listCurrentUserRepositoriesRequest['search'];
+                    starred = listCurrentUserRepositoriesRequest['starred'];
+                    membership = listCurrentUserRepositoriesRequest['membership'];
+                    userCreated = listCurrentUserRepositoriesRequest['user_created'];
+                    includeAbnormal = listCurrentUserRepositoriesRequest['include_abnormal'];
                 }
             }
 
         
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listCurrentUserRepositories.');
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (sort !== null && sort !== undefined) {
+                localVarQueryParameter['sort'] = sort;
+            }
+            if (archived !== null && archived !== undefined) {
+                localVarQueryParameter['archived'] = archived;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+            if (starred !== null && starred !== undefined) {
+                localVarQueryParameter['starred'] = starred;
+            }
+            if (membership !== null && membership !== undefined) {
+                localVarQueryParameter['membership'] = membership;
+            }
+            if (userCreated !== null && userCreated !== undefined) {
+                localVarQueryParameter['user_created'] = userCreated;
+            }
+            if (includeAbnormal !== null && includeAbnormal !== undefined) {
+                localVarQueryParameter['include_abnormal'] = includeAbnormal;
             }
 
-            options.pathParams = { 'repository_id': repositoryId, };
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 获取项目下当前用户有管理权限的代码组列表
+         * 获取代码组下仓库列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listManageableGroups(listManageableGroupsRequest?: ListManageableGroupsRequest) {
+        listGroupRepositories(listGroupRepositoriesRequest?: ListGroupRepositoriesRequest) {
             const options = {
                 method: "GET",
-                url: "/v4/{project_id}/manageable-groups",
+                url: "/v4/groups/{group_id}/repositories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let groupId;
+            
+            let search;
+            
+            let offset;
+            
+            let limit;
+            
+            let orderBy;
+            
+            let sort;
+
+            if (listGroupRepositoriesRequest !== null && listGroupRepositoriesRequest !== undefined) {
+                if (listGroupRepositoriesRequest instanceof ListGroupRepositoriesRequest) {
+                    groupId = listGroupRepositoriesRequest.groupId;
+                    search = listGroupRepositoriesRequest.search;
+                    offset = listGroupRepositoriesRequest.offset;
+                    limit = listGroupRepositoriesRequest.limit;
+                    orderBy = listGroupRepositoriesRequest.orderBy;
+                    sort = listGroupRepositoriesRequest.sort;
+                } else {
+                    groupId = listGroupRepositoriesRequest['group_id'];
+                    search = listGroupRepositoriesRequest['search'];
+                    offset = listGroupRepositoriesRequest['offset'];
+                    limit = listGroupRepositoriesRequest['limit'];
+                    orderBy = listGroupRepositoriesRequest['order_by'];
+                    sort = listGroupRepositoriesRequest['sort'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listGroupRepositories.');
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (sort !== null && sort !== undefined) {
+                localVarQueryParameter['sort'] = sort;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询当前最近前N条提交动态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPersonalRecentPushEvents(listPersonalRecentPushEventsRequest?: ListPersonalRecentPushEventsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/user/recent-push-events",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -14777,42 +18707,27 @@ export const ParamCreater = function () {
             
             let projectId;
             
-            let scope;
-            
-            let offset;
-            
-            let limit;
+            let size;
 
-            if (listManageableGroupsRequest !== null && listManageableGroupsRequest !== undefined) {
-                if (listManageableGroupsRequest instanceof ListManageableGroupsRequest) {
-                    projectId = listManageableGroupsRequest.projectId;
-                    scope = listManageableGroupsRequest.scope;
-                    offset = listManageableGroupsRequest.offset;
-                    limit = listManageableGroupsRequest.limit;
+            if (listPersonalRecentPushEventsRequest !== null && listPersonalRecentPushEventsRequest !== undefined) {
+                if (listPersonalRecentPushEventsRequest instanceof ListPersonalRecentPushEventsRequest) {
+                    projectId = listPersonalRecentPushEventsRequest.projectId;
+                    size = listPersonalRecentPushEventsRequest.size;
                 } else {
-                    projectId = listManageableGroupsRequest['project_id'];
-                    scope = listManageableGroupsRequest['scope'];
-                    offset = listManageableGroupsRequest['offset'];
-                    limit = listManageableGroupsRequest['limit'];
+                    projectId = listPersonalRecentPushEventsRequest['project_id'];
+                    size = listPersonalRecentPushEventsRequest['size'];
                 }
             }
 
         
-            if (projectId === null || projectId === undefined) {
-            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listManageableGroups.');
+            if (projectId !== null && projectId !== undefined) {
+                localVarQueryParameter['project_id'] = projectId;
             }
-            if (scope !== null && scope !== undefined) {
-                localVarQueryParameter['scope'] = scope;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
+            if (size !== null && size !== undefined) {
+                localVarQueryParameter['size'] = size;
             }
 
             options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -14920,6 +18835,79 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取项目下仓库列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProjectRepositories(listProjectRepositoriesRequest?: ListProjectRepositoriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/projects/{project_id}/repositories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let search;
+            
+            let offset;
+            
+            let limit;
+            
+            let orderBy;
+            
+            let sort;
+
+            if (listProjectRepositoriesRequest !== null && listProjectRepositoriesRequest !== undefined) {
+                if (listProjectRepositoriesRequest instanceof ListProjectRepositoriesRequest) {
+                    projectId = listProjectRepositoriesRequest.projectId;
+                    search = listProjectRepositoriesRequest.search;
+                    offset = listProjectRepositoriesRequest.offset;
+                    limit = listProjectRepositoriesRequest.limit;
+                    orderBy = listProjectRepositoriesRequest.orderBy;
+                    sort = listProjectRepositoriesRequest.sort;
+                } else {
+                    projectId = listProjectRepositoriesRequest['project_id'];
+                    search = listProjectRepositoriesRequest['search'];
+                    offset = listProjectRepositoriesRequest['offset'];
+                    limit = listProjectRepositoriesRequest['limit'];
+                    orderBy = listProjectRepositoriesRequest['order_by'];
+                    sort = listProjectRepositoriesRequest['sort'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listProjectRepositories.');
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (sort !== null && sort !== undefined) {
+                localVarQueryParameter['sort'] = sort;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -15162,6 +19150,10 @@ export const ParamCreater = function () {
             
             let repositoryId;
             
+            let offset;
+            
+            let limit;
+            
             let orderBy;
             
             let sort;
@@ -15171,11 +19163,15 @@ export const ParamCreater = function () {
             if (listRepositoryForksRequest !== null && listRepositoryForksRequest !== undefined) {
                 if (listRepositoryForksRequest instanceof ListRepositoryForksRequest) {
                     repositoryId = listRepositoryForksRequest.repositoryId;
+                    offset = listRepositoryForksRequest.offset;
+                    limit = listRepositoryForksRequest.limit;
                     orderBy = listRepositoryForksRequest.orderBy;
                     sort = listRepositoryForksRequest.sort;
                     view = listRepositoryForksRequest.view;
                 } else {
                     repositoryId = listRepositoryForksRequest['repository_id'];
+                    offset = listRepositoryForksRequest['offset'];
+                    limit = listRepositoryForksRequest['limit'];
                     orderBy = listRepositoryForksRequest['order_by'];
                     sort = listRepositoryForksRequest['sort'];
                     view = listRepositoryForksRequest['view'];
@@ -15186,11 +19182,97 @@ export const ParamCreater = function () {
             if (repositoryId === null || repositoryId === undefined) {
             throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listRepositoryForks.');
             }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
             if (orderBy !== null && orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
             if (sort !== null && sort !== undefined) {
                 localVarQueryParameter['sort'] = sort;
+            }
+            if (view !== null && view !== undefined) {
+                localVarQueryParameter['view'] = view;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取仓库标签列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRepositoryLabels(listRepositoryLabelsRequest?: ListRepositoryLabelsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/labels",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let offset;
+            
+            let limit;
+            
+            let search;
+            
+            let sort;
+            
+            let includeExpired;
+            
+            let view;
+
+            if (listRepositoryLabelsRequest !== null && listRepositoryLabelsRequest !== undefined) {
+                if (listRepositoryLabelsRequest instanceof ListRepositoryLabelsRequest) {
+                    repositoryId = listRepositoryLabelsRequest.repositoryId;
+                    offset = listRepositoryLabelsRequest.offset;
+                    limit = listRepositoryLabelsRequest.limit;
+                    search = listRepositoryLabelsRequest.search;
+                    sort = listRepositoryLabelsRequest.sort;
+                    includeExpired = listRepositoryLabelsRequest.includeExpired;
+                    view = listRepositoryLabelsRequest.view;
+                } else {
+                    repositoryId = listRepositoryLabelsRequest['repository_id'];
+                    offset = listRepositoryLabelsRequest['offset'];
+                    limit = listRepositoryLabelsRequest['limit'];
+                    search = listRepositoryLabelsRequest['search'];
+                    sort = listRepositoryLabelsRequest['sort'];
+                    includeExpired = listRepositoryLabelsRequest['include_expired'];
+                    view = listRepositoryLabelsRequest['view'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listRepositoryLabels.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+            if (sort !== null && sort !== undefined) {
+                localVarQueryParameter['sort'] = sort;
+            }
+            if (includeExpired !== null && includeExpired !== undefined) {
+                localVarQueryParameter['include_expired'] = includeExpired;
             }
             if (view !== null && view !== undefined) {
                 localVarQueryParameter['view'] = view;
@@ -15405,79 +19487,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看分支文件列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listTrees(listTreesRequest?: ListTreesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v4/repositories/{repository_id}/repository/trees",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let repositoryId;
-            
-            let ref;
-            
-            let path;
-            
-            let recursive;
-            
-            let offset;
-            
-            let limit;
-
-            if (listTreesRequest !== null && listTreesRequest !== undefined) {
-                if (listTreesRequest instanceof ListTreesRequest) {
-                    repositoryId = listTreesRequest.repositoryId;
-                    ref = listTreesRequest.ref;
-                    path = listTreesRequest.path;
-                    recursive = listTreesRequest.recursive;
-                    offset = listTreesRequest.offset;
-                    limit = listTreesRequest.limit;
-                } else {
-                    repositoryId = listTreesRequest['repository_id'];
-                    ref = listTreesRequest['ref'];
-                    path = listTreesRequest['path'];
-                    recursive = listTreesRequest['recursive'];
-                    offset = listTreesRequest['offset'];
-                    limit = listTreesRequest['limit'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listTrees.');
-            }
-            if (ref !== null && ref !== undefined) {
-                localVarQueryParameter['ref'] = ref;
-            }
-            if (path !== null && path !== undefined) {
-                localVarQueryParameter['path'] = path;
-            }
-            if (recursive !== null && recursive !== undefined) {
-                localVarQueryParameter['recursive'] = recursive;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 获取仓库ip白名单
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -15574,7 +19583,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除仓库部署秘钥
+         * 删除仓库部署密钥
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -15610,6 +19619,50 @@ export const ParamCreater = function () {
             }
             if (keyId === null || keyId === undefined) {
             throw new RequiredError('keyId','Required parameter keyId was null or undefined when calling removeDeployKey.');
+            }
+
+            options.pathParams = { 'repository_id': repositoryId,'key_id': keyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将该该仓库的部署密钥从子模组中删除
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        removeDeployKeyFromSubmodules(removeDeployKeyFromSubmodulesRequest?: RemoveDeployKeyFromSubmodulesRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v4/repositories/{repository_id}/deploy-keys/{key_id}/submodules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let repositoryId;
+            
+            let keyId;
+
+            if (removeDeployKeyFromSubmodulesRequest !== null && removeDeployKeyFromSubmodulesRequest !== undefined) {
+                if (removeDeployKeyFromSubmodulesRequest instanceof RemoveDeployKeyFromSubmodulesRequest) {
+                    repositoryId = removeDeployKeyFromSubmodulesRequest.repositoryId;
+                    keyId = removeDeployKeyFromSubmodulesRequest.keyId;
+                } else {
+                    repositoryId = removeDeployKeyFromSubmodulesRequest['repository_id'];
+                    keyId = removeDeployKeyFromSubmodulesRequest['key_id'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling removeDeployKeyFromSubmodules.');
+            }
+            if (keyId === null || keyId === undefined) {
+            throw new RequiredError('keyId','Required parameter keyId was null or undefined when calling removeDeployKeyFromSubmodules.');
             }
 
             options.pathParams = { 'repository_id': repositoryId,'key_id': keyId, };
@@ -16445,6 +20498,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 启动仓库加速
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        startHouseKeeping(startHouseKeepingRequest?: StartHouseKeepingRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/repositories/{repository_id}/housekeeping",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let repositoryId;
+
+            if (startHouseKeepingRequest !== null && startHouseKeepingRequest !== undefined) {
+                if (startHouseKeepingRequest instanceof StartHouseKeepingRequest) {
+                    repositoryId = startHouseKeepingRequest.repositoryId;
+                } else {
+                    repositoryId = startHouseKeepingRequest['repository_id'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling startHouseKeeping.');
+            }
+
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 启动仓库镜像同步
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -16483,6 +20573,50 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将该仓库的部署密钥同步到所有的子模组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        syncDeployKeyToSubmodules(syncDeployKeyToSubmodulesRequest?: SyncDeployKeyToSubmodulesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/repositories/{repository_id}/deploy-keys/{key_id}/submodules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let repositoryId;
+            
+            let keyId;
+
+            if (syncDeployKeyToSubmodulesRequest !== null && syncDeployKeyToSubmodulesRequest !== undefined) {
+                if (syncDeployKeyToSubmodulesRequest instanceof SyncDeployKeyToSubmodulesRequest) {
+                    repositoryId = syncDeployKeyToSubmodulesRequest.repositoryId;
+                    keyId = syncDeployKeyToSubmodulesRequest.keyId;
+                } else {
+                    repositoryId = syncDeployKeyToSubmodulesRequest['repository_id'];
+                    keyId = syncDeployKeyToSubmodulesRequest['key_id'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling syncDeployKeyToSubmodules.');
+            }
+            if (keyId === null || keyId === undefined) {
+            throw new RequiredError('keyId','Required parameter keyId was null or undefined when calling syncDeployKeyToSubmodules.');
+            }
+
+            options.pathParams = { 'repository_id': repositoryId,'key_id': keyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -16586,6 +20720,105 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改仓库提交规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateRepositoryCommitRule(updateRepositoryCommitRuleRequest?: UpdateRepositoryCommitRuleRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/repositories/{repository_id}/commit-rules/{commit_rule_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+            
+            let commitRuleId;
+
+            if (updateRepositoryCommitRuleRequest !== null && updateRepositoryCommitRuleRequest !== undefined) {
+                if (updateRepositoryCommitRuleRequest instanceof UpdateRepositoryCommitRuleRequest) {
+                    repositoryId = updateRepositoryCommitRuleRequest.repositoryId;
+                    commitRuleId = updateRepositoryCommitRuleRequest.commitRuleId;
+                    body = updateRepositoryCommitRuleRequest.body
+                } else {
+                    repositoryId = updateRepositoryCommitRuleRequest['repository_id'];
+                    commitRuleId = updateRepositoryCommitRuleRequest['commit_rule_id'];
+                    body = updateRepositoryCommitRuleRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling updateRepositoryCommitRule.');
+            }
+            if (commitRuleId === null || commitRuleId === undefined) {
+            throw new RequiredError('commitRuleId','Required parameter commitRuleId was null or undefined when calling updateRepositoryCommitRule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId,'commit_rule_id': commitRuleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改仓库通用提交规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateRepositoryGeneralCommitRule(updateRepositoryGeneralCommitRuleRequest?: UpdateRepositoryGeneralCommitRuleRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/repositories/{repository_id}/general-commit-rule",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+
+            if (updateRepositoryGeneralCommitRuleRequest !== null && updateRepositoryGeneralCommitRuleRequest !== undefined) {
+                if (updateRepositoryGeneralCommitRuleRequest instanceof UpdateRepositoryGeneralCommitRuleRequest) {
+                    repositoryId = updateRepositoryGeneralCommitRuleRequest.repositoryId;
+                    body = updateRepositoryGeneralCommitRuleRequest.body
+                } else {
+                    repositoryId = updateRepositoryGeneralCommitRuleRequest['repository_id'];
+                    body = updateRepositoryGeneralCommitRuleRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling updateRepositoryGeneralCommitRule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改仓库通用策略
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -16668,6 +20901,95 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改仓库标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateRepositoryLabel(updateRepositoryLabelRequest?: UpdateRepositoryLabelRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/repositories/{repository_id}/label",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+
+            if (updateRepositoryLabelRequest !== null && updateRepositoryLabelRequest !== undefined) {
+                if (updateRepositoryLabelRequest instanceof UpdateRepositoryLabelRequest) {
+                    repositoryId = updateRepositoryLabelRequest.repositoryId;
+                    body = updateRepositoryLabelRequest.body
+                } else {
+                    repositoryId = updateRepositoryLabelRequest['repository_id'];
+                    body = updateRepositoryLabelRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling updateRepositoryLabel.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新仓库镜像信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateRepositoryRemoteMirror(updateRepositoryRemoteMirrorRequest?: UpdateRepositoryRemoteMirrorRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/repositories/{repository_id}/remote-mirror",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+
+            if (updateRepositoryRemoteMirrorRequest !== null && updateRepositoryRemoteMirrorRequest !== undefined) {
+                if (updateRepositoryRemoteMirrorRequest instanceof UpdateRepositoryRemoteMirrorRequest) {
+                    repositoryId = updateRepositoryRemoteMirrorRequest.repositoryId;
+                    body = updateRepositoryRemoteMirrorRequest.body
+                } else {
+                    repositoryId = updateRepositoryRemoteMirrorRequest['repository_id'];
+                    body = updateRepositoryRemoteMirrorRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling updateRepositoryRemoteMirror.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -16774,235 +21096,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建标签
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createTag(createTagRequest?: CreateTagRequest) {
-            const options = {
-                method: "POST",
-                url: "/v4/repositories/{repository_id}/repository/tags",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let repositoryId;
-
-            if (createTagRequest !== null && createTagRequest !== undefined) {
-                if (createTagRequest instanceof CreateTagRequest) {
-                    repositoryId = createTagRequest.repositoryId;
-                    body = createTagRequest.body
-                } else {
-                    repositoryId = createTagRequest['repository_id'];
-                    body = createTagRequest['body'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling createTag.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除标签
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteTag(deleteTagRequest?: DeleteTagRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v4/repositories/{repository_id}/repository/tag",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let repositoryId;
-            
-            let tagName;
-
-            if (deleteTagRequest !== null && deleteTagRequest !== undefined) {
-                if (deleteTagRequest instanceof DeleteTagRequest) {
-                    repositoryId = deleteTagRequest.repositoryId;
-                    tagName = deleteTagRequest.tagName;
-                } else {
-                    repositoryId = deleteTagRequest['repository_id'];
-                    tagName = deleteTagRequest['tag_name'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling deleteTag.');
-            }
-            if (tagName === null || tagName === undefined) {
-                throw new RequiredError('tagName','Required parameter tagName was null or undefined when calling deleteTag.');
-            }
-            if (tagName !== null && tagName !== undefined) {
-                localVarQueryParameter['tag_name'] = tagName;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取标签列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listTags(listTagsRequest?: ListTagsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v4/repositories/{repository_id}/repository/tags",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let repositoryId;
-            
-            let creator;
-            
-            let sort;
-            
-            let search;
-            
-            let orderBy;
-            
-            let view;
-            
-            let offset;
-            
-            let limit;
-
-            if (listTagsRequest !== null && listTagsRequest !== undefined) {
-                if (listTagsRequest instanceof ListTagsRequest) {
-                    repositoryId = listTagsRequest.repositoryId;
-                    creator = listTagsRequest.creator;
-                    sort = listTagsRequest.sort;
-                    search = listTagsRequest.search;
-                    orderBy = listTagsRequest.orderBy;
-                    view = listTagsRequest.view;
-                    offset = listTagsRequest.offset;
-                    limit = listTagsRequest.limit;
-                } else {
-                    repositoryId = listTagsRequest['repository_id'];
-                    creator = listTagsRequest['creator'];
-                    sort = listTagsRequest['sort'];
-                    search = listTagsRequest['search'];
-                    orderBy = listTagsRequest['order_by'];
-                    view = listTagsRequest['view'];
-                    offset = listTagsRequest['offset'];
-                    limit = listTagsRequest['limit'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listTags.');
-            }
-            if (creator !== null && creator !== undefined) {
-                localVarQueryParameter['creator'] = creator;
-            }
-            if (sort !== null && sort !== undefined) {
-                localVarQueryParameter['sort'] = sort;
-            }
-            if (search !== null && search !== undefined) {
-                localVarQueryParameter['search'] = search;
-            }
-            if (orderBy !== null && orderBy !== undefined) {
-                localVarQueryParameter['order_by'] = orderBy;
-            }
-            if (view !== null && view !== undefined) {
-                localVarQueryParameter['view'] = view;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查看标签详情
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showTag(showTagRequest?: ShowTagRequest) {
-            const options = {
-                method: "GET",
-                url: "/v4/repositories/{repository_id}/repository/tag",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let repositoryId;
-            
-            let tagName;
-
-            if (showTagRequest !== null && showTagRequest !== undefined) {
-                if (showTagRequest instanceof ShowTagRequest) {
-                    repositoryId = showTagRequest.repositoryId;
-                    tagName = showTagRequest.tagName;
-                } else {
-                    repositoryId = showTagRequest['repository_id'];
-                    tagName = showTagRequest['tag_name'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showTag.');
-            }
-            if (tagName === null || tagName === undefined) {
-                throw new RequiredError('tagName','Required parameter tagName was null or undefined when calling showTag.');
-            }
-            if (tagName !== null && tagName !== undefined) {
-                localVarQueryParameter['tag_name'] = tagName;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 添加租户ip白名单
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -17070,6 +21163,141 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'ip_id': ipId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 租户下所有占用资源的仓库列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportTenantRepositories(exportTenantRepositoriesRequest?: ExportTenantRepositoriesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/tenant/repositories/export",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (exportTenantRepositoriesRequest !== null && exportTenantRepositoriesRequest !== undefined) {
+                if (exportTenantRepositoriesRequest instanceof ExportTenantRepositoriesRequest) {
+                    body = exportTenantRepositoriesRequest.body
+                } else {
+                    body = exportTenantRepositoriesRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 租户下所有占用资源的仓库列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTenantRepositories(listTenantRepositoriesRequest?: ListTenantRepositoriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/tenant/repositories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryName;
+            
+            let memberNumber;
+            
+            let status;
+            
+            let owner;
+            
+            let createdAfter;
+            
+            let createdBefore;
+            
+            let sort;
+            
+            let sortField;
+            
+            let offset;
+            
+            let limit;
+
+            if (listTenantRepositoriesRequest !== null && listTenantRepositoriesRequest !== undefined) {
+                if (listTenantRepositoriesRequest instanceof ListTenantRepositoriesRequest) {
+                    repositoryName = listTenantRepositoriesRequest.repositoryName;
+                    memberNumber = listTenantRepositoriesRequest.memberNumber;
+                    status = listTenantRepositoriesRequest.status;
+                    owner = listTenantRepositoriesRequest.owner;
+                    createdAfter = listTenantRepositoriesRequest.createdAfter;
+                    createdBefore = listTenantRepositoriesRequest.createdBefore;
+                    sort = listTenantRepositoriesRequest.sort;
+                    sortField = listTenantRepositoriesRequest.sortField;
+                    offset = listTenantRepositoriesRequest.offset;
+                    limit = listTenantRepositoriesRequest.limit;
+                } else {
+                    repositoryName = listTenantRepositoriesRequest['repository_name'];
+                    memberNumber = listTenantRepositoriesRequest['member_number'];
+                    status = listTenantRepositoriesRequest['status'];
+                    owner = listTenantRepositoriesRequest['owner'];
+                    createdAfter = listTenantRepositoriesRequest['created_after'];
+                    createdBefore = listTenantRepositoriesRequest['created_before'];
+                    sort = listTenantRepositoriesRequest['sort'];
+                    sortField = listTenantRepositoriesRequest['sort_field'];
+                    offset = listTenantRepositoriesRequest['offset'];
+                    limit = listTenantRepositoriesRequest['limit'];
+                }
+            }
+
+        
+            if (repositoryName !== null && repositoryName !== undefined) {
+                localVarQueryParameter['repository_name'] = repositoryName;
+            }
+            if (memberNumber !== null && memberNumber !== undefined) {
+                localVarQueryParameter['member_number'] = memberNumber;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (owner !== null && owner !== undefined) {
+                localVarQueryParameter['owner'] = owner;
+            }
+            if (createdAfter !== null && createdAfter !== undefined) {
+                localVarQueryParameter['created_after'] = createdAfter;
+            }
+            if (createdBefore !== null && createdBefore !== undefined) {
+                localVarQueryParameter['created_before'] = createdBefore;
+            }
+            if (sort !== null && sort !== undefined) {
+                localVarQueryParameter['sort'] = sort;
+            }
+            if (sortField !== null && sortField !== undefined) {
+                localVarQueryParameter['sort_field'] = sortField;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -17162,7 +21390,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 校验部署秘钥在上层代码组或项目是否配置
+         * 校验部署密钥在上层代码组或项目是否配置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17208,7 +21436,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 校验代码组部署秘钥在上层代码组或项目是否配置
+         * 校验代码组部署密钥在上层代码组或项目是否配置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17544,6 +21772,125 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取代码组下E2E设置信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showGroupE2eSetting(showGroupE2eSettingRequest?: ShowGroupE2eSettingRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/groups/{group_id}/e2e-setting",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let groupId;
+
+            if (showGroupE2eSettingRequest !== null && showGroupE2eSettingRequest !== undefined) {
+                if (showGroupE2eSettingRequest instanceof ShowGroupE2eSettingRequest) {
+                    groupId = showGroupE2eSettingRequest.groupId;
+                } else {
+                    groupId = showGroupE2eSettingRequest['group_id'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling showGroupE2eSetting.');
+            }
+
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取项目下E2E设置信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProjectE2eSetting(showProjectE2eSettingRequest?: ShowProjectE2eSettingRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/projects/{project_id}/e2e-setting",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectId;
+
+            if (showProjectE2eSettingRequest !== null && showProjectE2eSettingRequest !== undefined) {
+                if (showProjectE2eSettingRequest instanceof ShowProjectE2eSettingRequest) {
+                    projectId = showProjectE2eSettingRequest.projectId;
+                } else {
+                    projectId = showProjectE2eSettingRequest['project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showProjectE2eSetting.');
+            }
+
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取仓库下E2E设置信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRepositoryE2eSetting(showRepositoryE2eSettingRequest?: ShowRepositoryE2eSettingRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/e2e-setting",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let takeEffect;
+
+            if (showRepositoryE2eSettingRequest !== null && showRepositoryE2eSettingRequest !== undefined) {
+                if (showRepositoryE2eSettingRequest instanceof ShowRepositoryE2eSettingRequest) {
+                    repositoryId = showRepositoryE2eSettingRequest.repositoryId;
+                    takeEffect = showRepositoryE2eSettingRequest.takeEffect;
+                } else {
+                    repositoryId = showRepositoryE2eSettingRequest['repository_id'];
+                    takeEffect = showRepositoryE2eSettingRequest['take_effect'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showRepositoryE2eSetting.');
+            }
+            if (takeEffect !== null && takeEffect !== undefined) {
+                localVarQueryParameter['take_effect'] = takeEffect;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 添加ssh公钥
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -17567,6 +21914,44 @@ export const ParamCreater = function () {
                     body = addSshKeyRequest.body
                 } else {
                     body = addSshKeyRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取当前用户指定的代码组列表中的权限
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchValidateUserGroupPermissions(batchValidateUserGroupPermissionsRequest?: BatchValidateUserGroupPermissionsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/user/groups/group-permissions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchValidateUserGroupPermissionsRequest !== null && batchValidateUserGroupPermissionsRequest !== undefined) {
+                if (batchValidateUserGroupPermissionsRequest instanceof BatchValidateUserGroupPermissionsRequest) {
+                    body = batchValidateUserGroupPermissionsRequest.body
+                } else {
+                    body = batchValidateUserGroupPermissionsRequest['body'];
                 }
             }
 
@@ -17619,6 +22004,72 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取用户的个人访问令牌
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listImpersonationTokens(listImpersonationTokensRequest?: ListImpersonationTokensRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/users/impersonation-tokens",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let groupId;
+            
+            let state;
+            
+            let search;
+            
+            let offset;
+            
+            let limit;
+
+            if (listImpersonationTokensRequest !== null && listImpersonationTokensRequest !== undefined) {
+                if (listImpersonationTokensRequest instanceof ListImpersonationTokensRequest) {
+                    groupId = listImpersonationTokensRequest.groupId;
+                    state = listImpersonationTokensRequest.state;
+                    search = listImpersonationTokensRequest.search;
+                    offset = listImpersonationTokensRequest.offset;
+                    limit = listImpersonationTokensRequest.limit;
+                } else {
+                    groupId = listImpersonationTokensRequest['group_id'];
+                    state = listImpersonationTokensRequest['state'];
+                    search = listImpersonationTokensRequest['search'];
+                    offset = listImpersonationTokensRequest['offset'];
+                    limit = listImpersonationTokensRequest['limit'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listImpersonationTokens.');
+            }
+            if (state !== null && state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取当前用户的gpg_key列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -17656,7 +22107,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取当前用户的秘钥列表
+         * 获取当前用户的密钥列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

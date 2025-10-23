@@ -3,6 +3,7 @@
 export class StartTaskGroupReq {
     private 'src_ak'?: string;
     private 'src_sk'?: string;
+    private 'connection_string'?: string;
     private 'json_auth_file'?: string;
     private 'dst_ak'?: string;
     private 'dst_sk'?: string;
@@ -30,6 +31,16 @@ export class StartTaskGroupReq {
     }
     public get srcSk(): string | undefined {
         return this['src_sk'];
+    }
+    public withConnectionString(connectionString: string): StartTaskGroupReq {
+        this['connection_string'] = connectionString;
+        return this;
+    }
+    public set connectionString(connectionString: string  | undefined) {
+        this['connection_string'] = connectionString;
+    }
+    public get connectionString(): string | undefined {
+        return this['connection_string'];
     }
     public withJsonAuthFile(jsonAuthFile: string): StartTaskGroupReq {
         this['json_auth_file'] = jsonAuthFile;

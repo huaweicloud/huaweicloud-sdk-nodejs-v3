@@ -105,6 +105,7 @@ export enum CreateKeyRequestBodyKeySpecEnum {
     RSA_4096 = 'RSA_4096',
     EC_P256 = 'EC_P256',
     EC_P384 = 'EC_P384',
+    SECP256K1 = 'SECP256K1',
     SM2 = 'SM2'
 }
 /**

@@ -29,6 +29,12 @@ import { AppRules } from './model/AppRules';
 import { AppRulesBody } from './model/AppRulesBody';
 import { AppRulesSpec } from './model/AppRulesSpec';
 import { ApplicationNameRule } from './model/ApplicationNameRule';
+import { BatchAlarmRulesBody } from './model/BatchAlarmRulesBody';
+import { BatchUpdateActionRules } from './model/BatchUpdateActionRules';
+import { BatchUpdateAlarmRuleRequest } from './model/BatchUpdateAlarmRuleRequest';
+import { BatchUpdateAlarmRuleResponse } from './model/BatchUpdateAlarmRuleResponse';
+import { BatchUpdateItemResult } from './model/BatchUpdateItemResult';
+import { BatchUpdateRequest } from './model/BatchUpdateRequest';
 import { CmdbInfo } from './model/CmdbInfo';
 import { CountEventsRequest } from './model/CountEventsRequest';
 import { CountEventsResponse } from './model/CountEventsResponse';
@@ -327,6 +333,27 @@ export class AomClient {
      */
     public addOrUpdateServiceDiscoveryRules(addOrUpdateServiceDiscoveryRulesRequest?: AddOrUpdateServiceDiscoveryRulesRequest): Promise<AddOrUpdateServiceDiscoveryRulesResponse> {
         const options = ParamCreater().addOrUpdateServiceDiscoveryRules(addOrUpdateServiceDiscoveryRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于批量启停Prometheus监控告警规则、批量修改Prometheus监控告警规则的告警行动规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量更新Prometheus监控告警规则
+     * @param {string} action 批量操作action：  - enable：批量启动Prometheus监控告警规则 - disable：批量停止Prometheus监控告警规则 - BATCH_UPDATE_ACTION_RULE：批量修改Prometheus监控告警规则的告警行动规则
+     * @param {BatchUpdateRequest} batchUpdateAlarmRuleRequestBody 批量启停Prometheus监控告警规则请求体。
+     * @param {string} [enterpriseProjectId] 企业项目id。获取方式请参见：[获取企业项目ID](aom_04_0024.xml) 。 - 批量启停或批量修改单个企业项目下实例，填写企业项目id。  - 不填 则批量启停或批量修改默认企业项目下实例，默认企业项目id为0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateAlarmRule(batchUpdateAlarmRuleRequest?: BatchUpdateAlarmRuleRequest): Promise<BatchUpdateAlarmRuleResponse> {
+        const options = ParamCreater().batchUpdateAlarmRule(batchUpdateAlarmRuleRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1467,6 +1494,62 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于批量启停Prometheus监控告警规则、批量修改Prometheus监控告警规则的告警行动规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdateAlarmRule(batchUpdateAlarmRuleRequest?: BatchUpdateAlarmRuleRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/{project_id}/alarm-rules/batch-update",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let action;
+            
+            let enterpriseProjectId;
+
+            if (batchUpdateAlarmRuleRequest !== null && batchUpdateAlarmRuleRequest !== undefined) {
+                if (batchUpdateAlarmRuleRequest instanceof BatchUpdateAlarmRuleRequest) {
+                    action = batchUpdateAlarmRuleRequest.action;
+                    body = batchUpdateAlarmRuleRequest.body
+                    enterpriseProjectId = batchUpdateAlarmRuleRequest.enterpriseProjectId;
+                } else {
+                    action = batchUpdateAlarmRuleRequest['action'];
+                    body = batchUpdateAlarmRuleRequest['body'];
+                    enterpriseProjectId = batchUpdateAlarmRuleRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (action === null || action === undefined) {
+                throw new RequiredError('action','Required parameter action was null or undefined when calling batchUpdateAlarmRule.');
+            }
+            if (action !== null && action !== undefined) {
+                localVarQueryParameter['action'] = action;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

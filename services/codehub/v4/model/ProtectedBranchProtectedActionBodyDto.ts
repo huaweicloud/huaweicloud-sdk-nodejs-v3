@@ -1,3 +1,4 @@
+import { ProtectedActionSwitcher } from './ProtectedActionSwitcher';
 import { RepositoryProtectedActionBasicBodyDto } from './RepositoryProtectedActionBasicBodyDto';
 
 
@@ -7,6 +8,7 @@ export class ProtectedBranchProtectedActionBodyDto {
     private 'user_team_ids'?: Array<number>;
     private 'related_role_ids'?: Array<string>;
     public action?: ProtectedBranchProtectedActionBodyDtoActionEnum | string;
+    private 'addition_switchers'?: Array<ProtectedActionSwitcher>;
     public constructor() { 
     }
     public withEnable(enable: boolean): ProtectedBranchProtectedActionBodyDto {
@@ -46,6 +48,16 @@ export class ProtectedBranchProtectedActionBodyDto {
     public withAction(action: ProtectedBranchProtectedActionBodyDtoActionEnum | string): ProtectedBranchProtectedActionBodyDto {
         this['action'] = action;
         return this;
+    }
+    public withAdditionSwitchers(additionSwitchers: Array<ProtectedActionSwitcher>): ProtectedBranchProtectedActionBodyDto {
+        this['addition_switchers'] = additionSwitchers;
+        return this;
+    }
+    public set additionSwitchers(additionSwitchers: Array<ProtectedActionSwitcher>  | undefined) {
+        this['addition_switchers'] = additionSwitchers;
+    }
+    public get additionSwitchers(): Array<ProtectedActionSwitcher> | undefined {
+        return this['addition_switchers'];
     }
 }
 

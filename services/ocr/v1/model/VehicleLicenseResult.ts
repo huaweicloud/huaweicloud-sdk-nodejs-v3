@@ -1,5 +1,7 @@
+import { VehicleLicenseAlarmConfidence } from './VehicleLicenseAlarmConfidence';
+import { VehicleLicenseAlarmResult } from './VehicleLicenseAlarmResult';
+import { VehicleLicenseBack } from './VehicleLicenseBack';
 import { VehicleLicenseFront } from './VehicleLicenseFront';
-import { VehicleLicenseback } from './VehicleLicenseback';
 
 
 export class VehicleLicenseResult {
@@ -31,7 +33,9 @@ export class VehicleLicenseResult {
     private 'mandatory_scrapping_date'?: string;
     public status?: Array<string>;
     public front?: VehicleLicenseFront;
-    public back?: VehicleLicenseback;
+    public back?: VehicleLicenseBack;
+    private 'alarm_result'?: VehicleLicenseAlarmResult;
+    private 'alarm_confidence'?: VehicleLicenseAlarmConfidence;
     public constructor() { 
     }
     public withType(type: string): VehicleLicenseResult {
@@ -254,8 +258,28 @@ export class VehicleLicenseResult {
         this['front'] = front;
         return this;
     }
-    public withBack(back: VehicleLicenseback): VehicleLicenseResult {
+    public withBack(back: VehicleLicenseBack): VehicleLicenseResult {
         this['back'] = back;
         return this;
+    }
+    public withAlarmResult(alarmResult: VehicleLicenseAlarmResult): VehicleLicenseResult {
+        this['alarm_result'] = alarmResult;
+        return this;
+    }
+    public set alarmResult(alarmResult: VehicleLicenseAlarmResult  | undefined) {
+        this['alarm_result'] = alarmResult;
+    }
+    public get alarmResult(): VehicleLicenseAlarmResult | undefined {
+        return this['alarm_result'];
+    }
+    public withAlarmConfidence(alarmConfidence: VehicleLicenseAlarmConfidence): VehicleLicenseResult {
+        this['alarm_confidence'] = alarmConfidence;
+        return this;
+    }
+    public set alarmConfidence(alarmConfidence: VehicleLicenseAlarmConfidence  | undefined) {
+        this['alarm_confidence'] = alarmConfidence;
+    }
+    public get alarmConfidence(): VehicleLicenseAlarmConfidence | undefined {
+        return this['alarm_confidence'];
     }
 }

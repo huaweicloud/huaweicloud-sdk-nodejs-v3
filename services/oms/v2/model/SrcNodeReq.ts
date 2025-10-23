@@ -6,6 +6,7 @@ export class SrcNodeReq {
     public region?: string;
     public ak?: string;
     public sk?: string;
+    private 'connection_string'?: string;
     private 'json_auth_file'?: string;
     private 'security_token'?: string;
     private 'app_id'?: string;
@@ -35,6 +36,16 @@ export class SrcNodeReq {
     public withSk(sk: string): SrcNodeReq {
         this['sk'] = sk;
         return this;
+    }
+    public withConnectionString(connectionString: string): SrcNodeReq {
+        this['connection_string'] = connectionString;
+        return this;
+    }
+    public set connectionString(connectionString: string  | undefined) {
+        this['connection_string'] = connectionString;
+    }
+    public get connectionString(): string | undefined {
+        return this['connection_string'];
     }
     public withJsonAuthFile(jsonAuthFile: string): SrcNodeReq {
         this['json_auth_file'] = jsonAuthFile;

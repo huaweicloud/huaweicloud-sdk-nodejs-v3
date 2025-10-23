@@ -5,7 +5,7 @@ export class CreateExternalIncidentRequest {
     private 'enterprise_project'?: Array<string>;
     private 'current_cloud_service'?: Array<string>;
     private 'incident_level'?: string;
-    private 'is_service_interrupt'?: boolean;
+    private 'is_service_interrupt'?: string;
     private 'incident_type'?: string;
     private 'incident_title'?: string;
     private 'incident_description'?: string;
@@ -16,7 +16,7 @@ export class CreateExternalIncidentRequest {
     public creator?: string;
     private 'incident_ownership'?: string;
     private 'start_time'?: number;
-    public constructor(incidentLevel?: string, isServiceInterrupt?: boolean, incidentType?: string, incidentTitle?: string, incidentSource?: string, creator?: string) { 
+    public constructor(incidentLevel?: string, isServiceInterrupt?: string, incidentType?: string, incidentTitle?: string, incidentSource?: string, creator?: string) { 
         this['incident_level'] = incidentLevel;
         this['is_service_interrupt'] = isServiceInterrupt;
         this['incident_type'] = incidentType;
@@ -58,14 +58,14 @@ export class CreateExternalIncidentRequest {
     public get incidentLevel(): string | undefined {
         return this['incident_level'];
     }
-    public withIsServiceInterrupt(isServiceInterrupt: boolean): CreateExternalIncidentRequest {
+    public withIsServiceInterrupt(isServiceInterrupt: string): CreateExternalIncidentRequest {
         this['is_service_interrupt'] = isServiceInterrupt;
         return this;
     }
-    public set isServiceInterrupt(isServiceInterrupt: boolean  | undefined) {
+    public set isServiceInterrupt(isServiceInterrupt: string  | undefined) {
         this['is_service_interrupt'] = isServiceInterrupt;
     }
-    public get isServiceInterrupt(): boolean | undefined {
+    public get isServiceInterrupt(): string | undefined {
         return this['is_service_interrupt'];
     }
     public withIncidentType(incidentType: string): CreateExternalIncidentRequest {

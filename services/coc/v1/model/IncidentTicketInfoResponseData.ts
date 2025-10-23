@@ -8,6 +8,10 @@ export class IncidentTicketInfoResponseData {
     private 'current_cloud_service'?: Array<string>;
     private 'incident_level'?: string;
     private 'is_service_interrupt'?: boolean;
+    private 'start_time'?: number;
+    private 'fault_recovery_time'?: number;
+    private 'fault_delineation_time'?: number;
+    private 'incident_ownership'?: string;
     private 'incident_type'?: string;
     private 'incident_title'?: string;
     private 'incident_description'?: string;
@@ -76,6 +80,46 @@ export class IncidentTicketInfoResponseData {
     }
     public get isServiceInterrupt(): boolean | undefined {
         return this['is_service_interrupt'];
+    }
+    public withStartTime(startTime: number): IncidentTicketInfoResponseData {
+        this['start_time'] = startTime;
+        return this;
+    }
+    public set startTime(startTime: number  | undefined) {
+        this['start_time'] = startTime;
+    }
+    public get startTime(): number | undefined {
+        return this['start_time'];
+    }
+    public withFaultRecoveryTime(faultRecoveryTime: number): IncidentTicketInfoResponseData {
+        this['fault_recovery_time'] = faultRecoveryTime;
+        return this;
+    }
+    public set faultRecoveryTime(faultRecoveryTime: number  | undefined) {
+        this['fault_recovery_time'] = faultRecoveryTime;
+    }
+    public get faultRecoveryTime(): number | undefined {
+        return this['fault_recovery_time'];
+    }
+    public withFaultDelineationTime(faultDelineationTime: number): IncidentTicketInfoResponseData {
+        this['fault_delineation_time'] = faultDelineationTime;
+        return this;
+    }
+    public set faultDelineationTime(faultDelineationTime: number  | undefined) {
+        this['fault_delineation_time'] = faultDelineationTime;
+    }
+    public get faultDelineationTime(): number | undefined {
+        return this['fault_delineation_time'];
+    }
+    public withIncidentOwnership(incidentOwnership: string): IncidentTicketInfoResponseData {
+        this['incident_ownership'] = incidentOwnership;
+        return this;
+    }
+    public set incidentOwnership(incidentOwnership: string  | undefined) {
+        this['incident_ownership'] = incidentOwnership;
+    }
+    public get incidentOwnership(): string | undefined {
+        return this['incident_ownership'];
     }
     public withIncidentType(incidentType: string): IncidentTicketInfoResponseData {
         this['incident_type'] = incidentType;

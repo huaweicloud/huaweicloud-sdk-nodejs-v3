@@ -8,12 +8,10 @@ export class ShowIncidentTaskResponse extends SdkResponse {
     private 'error_code'?: string;
     private 'error_msg'?: string;
     public data?: Array<CocTaskDetailV2>;
-    public constructor(providerCode?: string, errorCode?: string, errorMsg?: string, data?: Array<CocTaskDetailV2>) { 
+    public constructor(providerCode?: string, errorCode?: string) { 
         super();
         this['provider_code'] = providerCode;
         this['error_code'] = errorCode;
-        this['error_msg'] = errorMsg;
-        this['data'] = data;
     }
     public withProviderCode(providerCode: string): ShowIncidentTaskResponse {
         this['provider_code'] = providerCode;

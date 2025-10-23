@@ -11,8 +11,7 @@ export class ListTicketParamsWithPage {
     private 'contain_total'?: boolean;
     private 'contain_sub_ticket'?: boolean;
     private 'ticket_types'?: Array<string>;
-    public constructor(stringFilters?: Array<ObjectFilter>) { 
-        this['string_filters'] = stringFilters;
+    public constructor() { 
     }
     public withStringFilters(stringFilters: Array<ObjectFilter>): ListTicketParamsWithPage {
         this['string_filters'] = stringFilters;

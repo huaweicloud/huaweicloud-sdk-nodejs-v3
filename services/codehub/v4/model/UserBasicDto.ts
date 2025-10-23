@@ -5,7 +5,7 @@ export class UserBasicDto {
     public id?: number;
     public name?: string;
     public username?: string;
-    public state?: string;
+    public state?: UserBasicDtoStateEnum | string;
     private 'service_license_status'?: number;
     private 'avatar_url'?: string;
     private 'avatar_path'?: string;
@@ -29,7 +29,7 @@ export class UserBasicDto {
         this['username'] = username;
         return this;
     }
-    public withState(state: string): UserBasicDto {
+    public withState(state: UserBasicDtoStateEnum | string): UserBasicDto {
         this['state'] = state;
         return this;
     }
@@ -117,4 +117,14 @@ export class UserBasicDto {
     public get errorMessage(): string | undefined {
         return this['error_message'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UserBasicDtoStateEnum {
+    ACTIVE = 'active',
+    BLOCKED = 'blocked',
+    ERROR = 'error'
 }

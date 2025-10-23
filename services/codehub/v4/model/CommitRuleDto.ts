@@ -17,11 +17,11 @@ export class CommitRuleDto {
     private 'allowed_binary_file_name_regex'?: string;
     private 'author_regex'?: object;
     private 'updated_at'?: string;
-    private 'skip_rule_check'?: boolean;
-    private 'skip_rule_end_date'?: string;
     public name?: string;
     private 'branch_name'?: string;
     private 'created_at'?: string;
+    private 'skip_rule_check'?: boolean;
+    private 'skip_rule_end_date'?: string;
     public constructor() { 
     }
     public withId(id: number): CommitRuleDto {
@@ -168,26 +168,6 @@ export class CommitRuleDto {
     public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
-    public withSkipRuleCheck(skipRuleCheck: boolean): CommitRuleDto {
-        this['skip_rule_check'] = skipRuleCheck;
-        return this;
-    }
-    public set skipRuleCheck(skipRuleCheck: boolean  | undefined) {
-        this['skip_rule_check'] = skipRuleCheck;
-    }
-    public get skipRuleCheck(): boolean | undefined {
-        return this['skip_rule_check'];
-    }
-    public withSkipRuleEndDate(skipRuleEndDate: string): CommitRuleDto {
-        this['skip_rule_end_date'] = skipRuleEndDate;
-        return this;
-    }
-    public set skipRuleEndDate(skipRuleEndDate: string  | undefined) {
-        this['skip_rule_end_date'] = skipRuleEndDate;
-    }
-    public get skipRuleEndDate(): string | undefined {
-        return this['skip_rule_end_date'];
-    }
     public withName(name: string): CommitRuleDto {
         this['name'] = name;
         return this;
@@ -211,5 +191,25 @@ export class CommitRuleDto {
     }
     public get createdAt(): string | undefined {
         return this['created_at'];
+    }
+    public withSkipRuleCheck(skipRuleCheck: boolean): CommitRuleDto {
+        this['skip_rule_check'] = skipRuleCheck;
+        return this;
+    }
+    public set skipRuleCheck(skipRuleCheck: boolean  | undefined) {
+        this['skip_rule_check'] = skipRuleCheck;
+    }
+    public get skipRuleCheck(): boolean | undefined {
+        return this['skip_rule_check'];
+    }
+    public withSkipRuleEndDate(skipRuleEndDate: string): CommitRuleDto {
+        this['skip_rule_end_date'] = skipRuleEndDate;
+        return this;
+    }
+    public set skipRuleEndDate(skipRuleEndDate: string  | undefined) {
+        this['skip_rule_end_date'] = skipRuleEndDate;
+    }
+    public get skipRuleEndDate(): string | undefined {
+        return this['skip_rule_end_date'];
     }
 }

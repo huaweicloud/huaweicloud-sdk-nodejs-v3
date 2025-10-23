@@ -5,7 +5,7 @@ export class MRVoteReviewerDto {
     public id?: number;
     public name?: string;
     public username?: string;
-    public state?: string;
+    public state?: MRVoteReviewerDtoStateEnum | string;
     private 'service_license_status'?: number;
     private 'avatar_url'?: string;
     private 'avatar_path'?: string;
@@ -32,7 +32,7 @@ export class MRVoteReviewerDto {
         this['username'] = username;
         return this;
     }
-    public withState(state: string): MRVoteReviewerDto {
+    public withState(state: MRVoteReviewerDtoStateEnum | string): MRVoteReviewerDto {
         this['state'] = state;
         return this;
     }
@@ -150,4 +150,14 @@ export class MRVoteReviewerDto {
     public get hasPermission(): boolean | undefined {
         return this['has_permission'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum MRVoteReviewerDtoStateEnum {
+    ACTIVE = 'active',
+    BLOCKED = 'blocked',
+    ERROR = 'error'
 }

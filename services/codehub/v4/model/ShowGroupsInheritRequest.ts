@@ -3,8 +3,9 @@
 export class ShowGroupsInheritRequest {
     private 'group_id'?: number;
     private 'setting_type'?: ShowGroupsInheritRequestSettingTypeEnum | string;
-    public constructor(groupId?: number) { 
+    public constructor(groupId?: number, settingType?: string) { 
         this['group_id'] = groupId;
+        this['setting_type'] = settingType;
     }
     public withGroupId(groupId: number): ShowGroupsInheritRequest {
         this['group_id'] = groupId;

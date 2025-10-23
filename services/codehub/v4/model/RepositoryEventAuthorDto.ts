@@ -5,7 +5,7 @@ export class RepositoryEventAuthorDto {
     public id?: number;
     public name?: string;
     public username?: string;
-    public state?: string;
+    public state?: RepositoryEventAuthorDtoStateEnum | string;
     private 'avatar_url'?: string;
     private 'name_cn'?: string;
     private 'nick_name'?: string;
@@ -24,7 +24,7 @@ export class RepositoryEventAuthorDto {
         this['username'] = username;
         return this;
     }
-    public withState(state: string): RepositoryEventAuthorDto {
+    public withState(state: RepositoryEventAuthorDtoStateEnum | string): RepositoryEventAuthorDto {
         this['state'] = state;
         return this;
     }
@@ -68,4 +68,13 @@ export class RepositoryEventAuthorDto {
     public get tenantName(): string | undefined {
         return this['tenant_name'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RepositoryEventAuthorDtoStateEnum {
+    ACTIVE = 'active',
+    BLOCKED = 'blocked'
 }

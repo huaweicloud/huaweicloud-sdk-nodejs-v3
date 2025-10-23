@@ -7,6 +7,7 @@ export class VehicleLicenseRequestBody {
     private 'return_issuing_authority'?: boolean;
     private 'return_text_location'?: boolean;
     private 'recognize_electronic_license'?: boolean;
+    public alarm?: boolean;
     public constructor() { 
     }
     public withImage(image: string): VehicleLicenseRequestBody {
@@ -50,5 +51,9 @@ export class VehicleLicenseRequestBody {
     }
     public get recognizeElectronicLicense(): boolean | undefined {
         return this['recognize_electronic_license'];
+    }
+    public withAlarm(alarm: boolean): VehicleLicenseRequestBody {
+        this['alarm'] = alarm;
+        return this;
     }
 }

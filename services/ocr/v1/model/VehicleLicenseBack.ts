@@ -1,6 +1,6 @@
 
 
-export class VehicleLicenseback {
+export class VehicleLicenseBack {
     private 'number'?: string;
     private 'file_no'?: string;
     private 'approved_passengers'?: string;
@@ -16,7 +16,7 @@ export class VehicleLicenseback {
     private 'text_location'?: object;
     public constructor() { 
     }
-    public withModelNumber(modelNumber: string): VehicleLicenseback {
+    public withModelNumber(modelNumber: string): VehicleLicenseBack {
         this['number'] = modelNumber;
         return this;
     }
@@ -26,7 +26,7 @@ export class VehicleLicenseback {
     public get modelNumber(): string | undefined {
         return this['number'];
     }
-    public withFileNo(fileNo: string): VehicleLicenseback {
+    public withFileNo(fileNo: string): VehicleLicenseBack {
         this['file_no'] = fileNo;
         return this;
     }
@@ -36,7 +36,7 @@ export class VehicleLicenseback {
     public get fileNo(): string | undefined {
         return this['file_no'];
     }
-    public withApprovedPassengers(approvedPassengers: string): VehicleLicenseback {
+    public withApprovedPassengers(approvedPassengers: string): VehicleLicenseBack {
         this['approved_passengers'] = approvedPassengers;
         return this;
     }
@@ -46,7 +46,7 @@ export class VehicleLicenseback {
     public get approvedPassengers(): string | undefined {
         return this['approved_passengers'];
     }
-    public withGrossMass(grossMass: string): VehicleLicenseback {
+    public withGrossMass(grossMass: string): VehicleLicenseBack {
         this['gross_mass'] = grossMass;
         return this;
     }
@@ -56,7 +56,7 @@ export class VehicleLicenseback {
     public get grossMass(): string | undefined {
         return this['gross_mass'];
     }
-    public withUnladenMass(unladenMass: string): VehicleLicenseback {
+    public withUnladenMass(unladenMass: string): VehicleLicenseBack {
         this['unladen_mass'] = unladenMass;
         return this;
     }
@@ -66,7 +66,7 @@ export class VehicleLicenseback {
     public get unladenMass(): string | undefined {
         return this['unladen_mass'];
     }
-    public withApprovedLoad(approvedLoad: string): VehicleLicenseback {
+    public withApprovedLoad(approvedLoad: string): VehicleLicenseBack {
         this['approved_load'] = approvedLoad;
         return this;
     }
@@ -76,11 +76,11 @@ export class VehicleLicenseback {
     public get approvedLoad(): string | undefined {
         return this['approved_load'];
     }
-    public withDimension(dimension: string): VehicleLicenseback {
+    public withDimension(dimension: string): VehicleLicenseBack {
         this['dimension'] = dimension;
         return this;
     }
-    public withTractionMass(tractionMass: string): VehicleLicenseback {
+    public withTractionMass(tractionMass: string): VehicleLicenseBack {
         this['traction_mass'] = tractionMass;
         return this;
     }
@@ -90,11 +90,11 @@ export class VehicleLicenseback {
     public get tractionMass(): string | undefined {
         return this['traction_mass'];
     }
-    public withRemarks(remarks: string): VehicleLicenseback {
+    public withRemarks(remarks: string): VehicleLicenseBack {
         this['remarks'] = remarks;
         return this;
     }
-    public withInspectionRecord(inspectionRecord: string): VehicleLicenseback {
+    public withInspectionRecord(inspectionRecord: string): VehicleLicenseBack {
         this['inspection_record'] = inspectionRecord;
         return this;
     }
@@ -104,7 +104,7 @@ export class VehicleLicenseback {
     public get inspectionRecord(): string | undefined {
         return this['inspection_record'];
     }
-    public withCodeNumber(codeNumber: string): VehicleLicenseback {
+    public withCodeNumber(codeNumber: string): VehicleLicenseBack {
         this['code_number'] = codeNumber;
         return this;
     }
@@ -114,7 +114,7 @@ export class VehicleLicenseback {
     public get codeNumber(): string | undefined {
         return this['code_number'];
     }
-    public withEnergyType(energyType: string): VehicleLicenseback {
+    public withEnergyType(energyType: string): VehicleLicenseBack {
         this['energy_type'] = energyType;
         return this;
     }
@@ -124,7 +124,7 @@ export class VehicleLicenseback {
     public get energyType(): string | undefined {
         return this['energy_type'];
     }
-    public withTextLocation(textLocation: object): VehicleLicenseback {
+    public withTextLocation(textLocation: object): VehicleLicenseBack {
         this['text_location'] = textLocation;
         return this;
     }

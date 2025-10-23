@@ -23,7 +23,7 @@ export class ShowGroupSettingsInheritCfgResponse extends SdkResponse {
     private 'stream_event_settings'?: number;
     private 'pipeline_settings'?: number;
     private 'issue_templates'?: number;
-    private 'cr_comment_emplates'?: number;
+    private 'cr_comment_templates'?: number;
     private 'merge_requests'?: number;
     private 'mr_branch_policies'?: number;
     private 'repository_settings'?: number;
@@ -214,15 +214,15 @@ export class ShowGroupSettingsInheritCfgResponse extends SdkResponse {
     public get issueTemplates(): number | undefined {
         return this['issue_templates'];
     }
-    public withCrCommentEmplates(crCommentEmplates: number): ShowGroupSettingsInheritCfgResponse {
-        this['cr_comment_emplates'] = crCommentEmplates;
+    public withCrCommentTemplates(crCommentTemplates: number): ShowGroupSettingsInheritCfgResponse {
+        this['cr_comment_templates'] = crCommentTemplates;
         return this;
     }
-    public set crCommentEmplates(crCommentEmplates: number  | undefined) {
-        this['cr_comment_emplates'] = crCommentEmplates;
+    public set crCommentTemplates(crCommentTemplates: number  | undefined) {
+        this['cr_comment_templates'] = crCommentTemplates;
     }
-    public get crCommentEmplates(): number | undefined {
-        return this['cr_comment_emplates'];
+    public get crCommentTemplates(): number | undefined {
+        return this['cr_comment_templates'];
     }
     public withMergeRequests(mergeRequests: number): ShowGroupSettingsInheritCfgResponse {
         this['merge_requests'] = mergeRequests;

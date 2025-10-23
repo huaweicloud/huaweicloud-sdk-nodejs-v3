@@ -4,7 +4,7 @@ import { UserBasicDto } from './UserBasicDto';
 
 export class NoteDto {
     public id?: number;
-    public type?: NoteDtoTypeEnum | string;
+    public type?: string;
     public body?: string;
     public attachment?: string;
     public author?: UserBasicDto;
@@ -46,7 +46,7 @@ export class NoteDto {
         this['id'] = id;
         return this;
     }
-    public withType(type: NoteDtoTypeEnum | string): NoteDto {
+    public withType(type: string): NoteDto {
         this['type'] = type;
         return this;
     }
@@ -318,14 +318,6 @@ export class NoteDto {
     }
 }
 
-/**
-    * @export
-    * @enum {string}
-    */
-export enum NoteDtoTypeEnum {
-    DISCUSSIONNOTE = 'DiscussionNote',
-    DIFFNOTE = 'DiffNote'
-}
 /**
     * @export
     * @enum {string}

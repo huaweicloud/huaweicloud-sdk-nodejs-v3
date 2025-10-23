@@ -32,7 +32,11 @@ export enum ProjectSettingsInheritCfgDtoNameEnum {
     PUSH_RULES = 'push_rules',
     MERGE_REQUESTS = 'merge_requests',
     E2E_SETTINGS = 'e2e_settings',
-    WATERMARK = 'watermark'
+    WATERMARK = 'watermark',
+    WEBHOOK_SETTINGS = 'webhook_settings',
+    MR_BRANCH_POLICIES = 'mr_branch_policies',
+    REVIEWS = 'reviews',
+    DEPLOY_KEYS = 'deploy_keys'
 }
 /**
     * @export

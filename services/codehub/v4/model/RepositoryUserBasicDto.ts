@@ -4,7 +4,7 @@ export class RepositoryUserBasicDto {
     public id?: number;
     public name?: string;
     public username?: string;
-    public state?: string;
+    public state?: RepositoryUserBasicDtoStateEnum | string;
     private 'service_license_status'?: number;
     private 'name_cn'?: string;
     private 'nick_name'?: string;
@@ -23,7 +23,7 @@ export class RepositoryUserBasicDto {
         this['username'] = username;
         return this;
     }
-    public withState(state: string): RepositoryUserBasicDto {
+    public withState(state: RepositoryUserBasicDtoStateEnum | string): RepositoryUserBasicDto {
         this['state'] = state;
         return this;
     }
@@ -67,4 +67,13 @@ export class RepositoryUserBasicDto {
     public get tenantName(): string | undefined {
         return this['tenant_name'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RepositoryUserBasicDtoStateEnum {
+    ACTIVE = 'active',
+    BLOCKED = 'blocked'
 }

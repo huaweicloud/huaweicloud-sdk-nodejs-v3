@@ -2,7 +2,8 @@
 
 export class UpdateMfaDeviceForUserReqBody {
     private 'display_name'?: string;
-    public constructor() { 
+    public constructor(displayName?: string) { 
+        this['display_name'] = displayName;
     }
     public withDisplayName(displayName: string): UpdateMfaDeviceForUserReqBody {
         this['display_name'] = displayName;

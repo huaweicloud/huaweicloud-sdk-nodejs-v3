@@ -8,12 +8,10 @@ export class HandleCocIncidentResponse extends SdkResponse {
     private 'error_code'?: string;
     private 'error_msg'?: string;
     public data?: HandleExternalIncidentResponseData;
-    public constructor(providerCode?: string, errorCode?: string, errorMsg?: string, data?: HandleExternalIncidentResponseData) { 
+    public constructor(providerCode?: string, errorCode?: string) { 
         super();
         this['provider_code'] = providerCode;
         this['error_code'] = errorCode;
-        this['error_msg'] = errorMsg;
-        this['data'] = data;
     }
     public withProviderCode(providerCode: string): HandleCocIncidentResponse {
         this['provider_code'] = providerCode;

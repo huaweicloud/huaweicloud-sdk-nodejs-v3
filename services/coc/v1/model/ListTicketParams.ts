@@ -4,8 +4,7 @@ import { ObjectFilter } from './ObjectFilter';
 export class ListTicketParams {
     private 'string_filters'?: Array<ObjectFilter>;
     private 'sort_filter'?: ObjectFilter;
-    public constructor(stringFilters?: Array<ObjectFilter>) { 
-        this['string_filters'] = stringFilters;
+    public constructor() { 
     }
     public withStringFilters(stringFilters: Array<ObjectFilter>): ListTicketParams {
         this['string_filters'] = stringFilters;

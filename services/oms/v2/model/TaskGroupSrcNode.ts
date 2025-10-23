@@ -4,6 +4,7 @@ import { ListFile } from './ListFile';
 export class TaskGroupSrcNode {
     public ak?: string;
     public sk?: string;
+    private 'connection_string'?: string;
     private 'json_auth_file'?: string;
     private 'app_id'?: string;
     public region?: string;
@@ -20,6 +21,16 @@ export class TaskGroupSrcNode {
     public withSk(sk: string): TaskGroupSrcNode {
         this['sk'] = sk;
         return this;
+    }
+    public withConnectionString(connectionString: string): TaskGroupSrcNode {
+        this['connection_string'] = connectionString;
+        return this;
+    }
+    public set connectionString(connectionString: string  | undefined) {
+        this['connection_string'] = connectionString;
+    }
+    public get connectionString(): string | undefined {
+        return this['connection_string'];
     }
     public withJsonAuthFile(jsonAuthFile: string): TaskGroupSrcNode {
         this['json_auth_file'] = jsonAuthFile;

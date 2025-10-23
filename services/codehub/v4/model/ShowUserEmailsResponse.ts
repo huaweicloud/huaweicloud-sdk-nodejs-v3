@@ -5,7 +5,7 @@ export class ShowUserEmailsResponse extends SdkResponse {
     public id?: number;
     public name?: string;
     public username?: string;
-    public state?: string;
+    public state?: ShowUserEmailsResponseStateEnum | string;
     private 'created_at'?: string;
     private 'updated_at'?: string;
     private 'last_activity_on'?: string;
@@ -25,7 +25,7 @@ export class ShowUserEmailsResponse extends SdkResponse {
         this['username'] = username;
         return this;
     }
-    public withState(state: string): ShowUserEmailsResponse {
+    public withState(state: ShowUserEmailsResponseStateEnum | string): ShowUserEmailsResponse {
         this['state'] = state;
         return this;
     }
@@ -69,4 +69,13 @@ export class ShowUserEmailsResponse extends SdkResponse {
     public get commitEmail(): string | undefined {
         return this['commit_email'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowUserEmailsResponseStateEnum {
+    ACTIVE = 'active',
+    BLOCKED = 'blocked'
 }

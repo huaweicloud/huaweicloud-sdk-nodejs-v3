@@ -5,6 +5,7 @@ export class ShowBucketReq {
     private 'file_path'?: string;
     public ak?: string;
     public sk?: string;
+    private 'connection_string'?: string;
     private 'json_auth_file'?: string;
     private 'data_center'?: string;
     private 'page_size'?: number;
@@ -46,6 +47,16 @@ export class ShowBucketReq {
     public withSk(sk: string): ShowBucketReq {
         this['sk'] = sk;
         return this;
+    }
+    public withConnectionString(connectionString: string): ShowBucketReq {
+        this['connection_string'] = connectionString;
+        return this;
+    }
+    public set connectionString(connectionString: string  | undefined) {
+        this['connection_string'] = connectionString;
+    }
+    public get connectionString(): string | undefined {
+        return this['connection_string'];
     }
     public withJsonAuthFile(jsonAuthFile: string): ShowBucketReq {
         this['json_auth_file'] = jsonAuthFile;

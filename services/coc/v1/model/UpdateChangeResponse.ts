@@ -6,13 +6,10 @@ export class UpdateChangeResponse extends SdkResponse {
     private 'provider_code'?: string;
     private 'error_code'?: string;
     private 'error_msg'?: string;
-    public data?: object;
-    public constructor(providerCode?: string, errorCode?: string, errorMsg?: string, data?: object) { 
+    public constructor(providerCode?: string, errorCode?: string) { 
         super();
         this['provider_code'] = providerCode;
         this['error_code'] = errorCode;
-        this['error_msg'] = errorMsg;
-        this['data'] = data;
     }
     public withProviderCode(providerCode: string): UpdateChangeResponse {
         this['provider_code'] = providerCode;
@@ -43,9 +40,5 @@ export class UpdateChangeResponse extends SdkResponse {
     }
     public get errorMsg(): string | undefined {
         return this['error_msg'];
-    }
-    public withData(data: object): UpdateChangeResponse {
-        this['data'] = data;
-        return this;
     }
 }

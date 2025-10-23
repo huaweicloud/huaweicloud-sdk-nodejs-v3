@@ -2,6 +2,8 @@
 
 export class ListRepositoryForksRequest {
     private 'repository_id'?: number;
+    public offset?: number;
+    public limit?: number;
     private 'order_by'?: ListRepositoryForksRequestOrderByEnum | string;
     public sort?: ListRepositoryForksRequestSortEnum | string;
     public view?: ListRepositoryForksRequestViewEnum | string;
@@ -17,6 +19,14 @@ export class ListRepositoryForksRequest {
     }
     public get repositoryId(): number | undefined {
         return this['repository_id'];
+    }
+    public withOffset(offset: number): ListRepositoryForksRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: number): ListRepositoryForksRequest {
+        this['limit'] = limit;
+        return this;
     }
     public withOrderBy(orderBy: ListRepositoryForksRequestOrderByEnum | string): ListRepositoryForksRequest {
         this['order_by'] = orderBy;

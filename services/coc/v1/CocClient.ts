@@ -155,7 +155,6 @@ import { ExecutionStep } from './model/ExecutionStep';
 import { ExecutionStepInputs } from './model/ExecutionStepInputs';
 import { ExecutionSummary } from './model/ExecutionSummary';
 import { ExternalAttachment } from './model/ExternalAttachment';
-import { ExtraFieldInfo } from './model/ExtraFieldInfo';
 import { GetDocumentAtomicInfoRequest } from './model/GetDocumentAtomicInfoRequest';
 import { GetDocumentAtomicInfoResponse } from './model/GetDocumentAtomicInfoResponse';
 import { GetDocumentRequest } from './model/GetDocumentRequest';

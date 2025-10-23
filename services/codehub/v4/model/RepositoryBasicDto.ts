@@ -15,8 +15,6 @@ export class RepositoryBasicDto {
     public archived?: boolean;
     private 'ssh_url_to_repo'?: string;
     private 'http_url_to_repo'?: string;
-    private 'web_url'?: string;
-    private 'readme_url'?: string;
     private 'project_id'?: string;
     private 'project_name'?: string;
     private 'develop_mode'?: RepositoryBasicDtoDevelopModeEnum | string;
@@ -120,26 +118,6 @@ export class RepositoryBasicDto {
     }
     public get httpUrlToRepo(): string | undefined {
         return this['http_url_to_repo'];
-    }
-    public withWebUrl(webUrl: string): RepositoryBasicDto {
-        this['web_url'] = webUrl;
-        return this;
-    }
-    public set webUrl(webUrl: string  | undefined) {
-        this['web_url'] = webUrl;
-    }
-    public get webUrl(): string | undefined {
-        return this['web_url'];
-    }
-    public withReadmeUrl(readmeUrl: string): RepositoryBasicDto {
-        this['readme_url'] = readmeUrl;
-        return this;
-    }
-    public set readmeUrl(readmeUrl: string  | undefined) {
-        this['readme_url'] = readmeUrl;
-    }
-    public get readmeUrl(): string | undefined {
-        return this['readme_url'];
     }
     public withProjectId(projectId: string): RepositoryBasicDto {
         this['project_id'] = projectId;

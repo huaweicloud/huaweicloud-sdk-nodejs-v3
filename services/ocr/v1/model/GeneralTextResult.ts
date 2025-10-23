@@ -5,6 +5,7 @@ export class GeneralTextResult {
     public direction?: number;
     private 'words_block_count'?: number;
     private 'words_block_list'?: Array<GeneralTextWordsBlockList>;
+    private 'markdown_result'?: string;
     public constructor(direction?: number, wordsBlockCount?: number, wordsBlockList?: Array<GeneralTextWordsBlockList>) { 
         this['direction'] = direction;
         this['words_block_count'] = wordsBlockCount;
@@ -33,5 +34,15 @@ export class GeneralTextResult {
     }
     public get wordsBlockList(): Array<GeneralTextWordsBlockList> | undefined {
         return this['words_block_list'];
+    }
+    public withMarkdownResult(markdownResult: string): GeneralTextResult {
+        this['markdown_result'] = markdownResult;
+        return this;
+    }
+    public set markdownResult(markdownResult: string  | undefined) {
+        this['markdown_result'] = markdownResult;
+    }
+    public get markdownResult(): string | undefined {
+        return this['markdown_result'];
     }
 }

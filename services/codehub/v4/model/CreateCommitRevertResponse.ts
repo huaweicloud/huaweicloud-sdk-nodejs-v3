@@ -27,6 +27,7 @@ export class CreateCommitRevertResponse extends SdkResponse {
     public state?: string;
     private 'cherry_pick_branch_name'?: string;
     private 'revert_branch_name'?: string;
+    public iid?: number;
     public constructor() { 
         super();
     }
@@ -239,5 +240,9 @@ export class CreateCommitRevertResponse extends SdkResponse {
     }
     public get revertBranchName(): string | undefined {
         return this['revert_branch_name'];
+    }
+    public withIid(iid: number): CreateCommitRevertResponse {
+        this['iid'] = iid;
+        return this;
     }
 }

@@ -6,6 +6,7 @@ export class ShowBucketRegionReq {
     public ak?: string;
     public sk?: string;
     private 'json_auth_file'?: string;
+    private 'connection_string'?: string;
     private 'app_id'?: string;
     private 'bucket_name'?: string;
     public constructor(cloudType?: string, bucketName?: string) { 
@@ -39,6 +40,16 @@ export class ShowBucketRegionReq {
     }
     public get jsonAuthFile(): string | undefined {
         return this['json_auth_file'];
+    }
+    public withConnectionString(connectionString: string): ShowBucketRegionReq {
+        this['connection_string'] = connectionString;
+        return this;
+    }
+    public set connectionString(connectionString: string  | undefined) {
+        this['connection_string'] = connectionString;
+    }
+    public get connectionString(): string | undefined {
+        return this['connection_string'];
     }
     public withAppId(appId: string): ShowBucketRegionReq {
         this['app_id'] = appId;

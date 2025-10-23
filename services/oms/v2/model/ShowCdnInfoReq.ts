@@ -5,6 +5,7 @@ import { SourceCdnReq } from './SourceCdnReq';
 export class ShowCdnInfoReq {
     public ak?: string;
     public sk?: string;
+    private 'connection_string'?: string;
     private 'cloud_type'?: string;
     public region?: string;
     private 'app_id'?: string;
@@ -26,6 +27,16 @@ export class ShowCdnInfoReq {
     public withSk(sk: string): ShowCdnInfoReq {
         this['sk'] = sk;
         return this;
+    }
+    public withConnectionString(connectionString: string): ShowCdnInfoReq {
+        this['connection_string'] = connectionString;
+        return this;
+    }
+    public set connectionString(connectionString: string  | undefined) {
+        this['connection_string'] = connectionString;
+    }
+    public get connectionString(): string | undefined {
+        return this['connection_string'];
     }
     public withCloudType(cloudType: string): ShowCdnInfoReq {
         this['cloud_type'] = cloudType;

@@ -2,6 +2,8 @@
 
 export class ListGroupMergeRequestValidAssignedCandidatesRequest {
     private 'group_id'?: number;
+    public offset?: number;
+    public limit?: number;
     public constructor(groupId?: number) { 
         this['group_id'] = groupId;
     }
@@ -14,5 +16,13 @@ export class ListGroupMergeRequestValidAssignedCandidatesRequest {
     }
     public get groupId(): number | undefined {
         return this['group_id'];
+    }
+    public withOffset(offset: number): ListGroupMergeRequestValidAssignedCandidatesRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: number): ListGroupMergeRequestValidAssignedCandidatesRequest {
+        this['limit'] = limit;
+        return this;
     }
 }

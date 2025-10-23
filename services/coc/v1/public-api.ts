@@ -153,7 +153,6 @@ export * from './model/ExecutionStep';
 export * from './model/ExecutionStepInputs';
 export * from './model/ExecutionSummary';
 export * from './model/ExternalAttachment';
-export * from './model/ExtraFieldInfo';
 export * from './model/GetDocumentAtomicInfoRequest';
 export * from './model/GetDocumentAtomicInfoResponse';
 export * from './model/GetDocumentRequest';

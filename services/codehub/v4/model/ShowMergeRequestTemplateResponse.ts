@@ -1,3 +1,4 @@
+import { MergeRequestTemplateDto } from './MergeRequestTemplateDto';
 import { UserBasicDto } from './UserBasicDto';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";

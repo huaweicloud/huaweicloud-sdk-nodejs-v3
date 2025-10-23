@@ -28,6 +28,6 @@ export class LineDiscussionDto {
 export enum LineDiscussionDtoTypeEnum {
     OLD = 'old',
     NEW = 'new',
-    UNCHANGD_L = 'unchangd-l',
+    UNCHANGED_L = 'unchanged-l',
     UNCHANGED_R = 'unchanged-r'
 }

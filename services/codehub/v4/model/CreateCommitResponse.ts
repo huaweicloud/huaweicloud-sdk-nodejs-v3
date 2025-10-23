@@ -34,7 +34,7 @@ export class CreateCommitResponse extends SdkResponse {
     private 'tenant_name'?: string;
     private 'user_name'?: string;
     public stats?: CommitStatsDto;
-    public status?: string;
+    public status?: CreateCommitResponseStatusEnum | string;
     private 'last_pipeline'?: PipelineBasicDto;
     private 'project_id'?: number;
     private 'merge_request'?: SimpleMergeRequestDetailDto;
@@ -272,7 +272,7 @@ export class CreateCommitResponse extends SdkResponse {
         this['stats'] = stats;
         return this;
     }
-    public withStatus(status: string): CreateCommitResponse {
+    public withStatus(status: CreateCommitResponseStatusEnum | string): CreateCommitResponse {
         this['status'] = status;
         return this;
     }
@@ -316,4 +316,18 @@ export class CreateCommitResponse extends SdkResponse {
     public get codeChanges(): Array<SimpleDiffDto> | undefined {
         return this['code_changes'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateCommitResponseStatusEnum {
+    PENDING = 'pending',
+    RUNNING = 'running',
+    SUCCESS = 'success',
+    FAILED = 'failed',
+    CANCELED = 'canceled',
+    SKIPPED = 'skipped',
+    TIMEDOUT = 'timedout'
 }

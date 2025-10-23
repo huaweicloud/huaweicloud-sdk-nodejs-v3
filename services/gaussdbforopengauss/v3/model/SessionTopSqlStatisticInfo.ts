@@ -4,6 +4,7 @@ export class SessionTopSqlStatisticInfo {
     private 'node_name'?: string;
     private 'unique_sql_id'?: string;
     public query?: string;
+    public count?: number;
     public constructor() { 
     }
     public withNodeName(nodeName: string): SessionTopSqlStatisticInfo {
@@ -28,6 +29,10 @@ export class SessionTopSqlStatisticInfo {
     }
     public withQuery(query: string): SessionTopSqlStatisticInfo {
         this['query'] = query;
+        return this;
+    }
+    public withCount(count: number): SessionTopSqlStatisticInfo {
+        this['count'] = count;
         return this;
     }
 }

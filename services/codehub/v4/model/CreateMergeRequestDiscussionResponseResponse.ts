@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateMergeRequestDiscussionResponseResponse extends SdkResponse {
     public id?: number;
-    public type?: CreateMergeRequestDiscussionResponseResponseTypeEnum | string;
+    public type?: string;
     public body?: string;
     public attachment?: string;
     public author?: UserBasicDto;
@@ -48,7 +48,7 @@ export class CreateMergeRequestDiscussionResponseResponse extends SdkResponse {
         this['id'] = id;
         return this;
     }
-    public withType(type: CreateMergeRequestDiscussionResponseResponseTypeEnum | string): CreateMergeRequestDiscussionResponseResponse {
+    public withType(type: string): CreateMergeRequestDiscussionResponseResponse {
         this['type'] = type;
         return this;
     }
@@ -320,14 +320,6 @@ export class CreateMergeRequestDiscussionResponseResponse extends SdkResponse {
     }
 }
 
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateMergeRequestDiscussionResponseResponseTypeEnum {
-    DISCUSSIONNOTE = 'DiscussionNote',
-    DIFFNOTE = 'DiffNote'
-}
 /**
     * @export
     * @enum {string}

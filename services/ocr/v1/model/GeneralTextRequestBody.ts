@@ -9,6 +9,7 @@ export class GeneralTextRequestBody {
     public language?: string;
     private 'single_orientation_mode'?: boolean;
     private 'pdf_page_number'?: number;
+    private 'return_markdown_result'?: boolean;
     public constructor() { 
     }
     public withImage(image: string): GeneralTextRequestBody {
@@ -72,5 +73,15 @@ export class GeneralTextRequestBody {
     }
     public get pdfPageNumber(): number | undefined {
         return this['pdf_page_number'];
+    }
+    public withReturnMarkdownResult(returnMarkdownResult: boolean): GeneralTextRequestBody {
+        this['return_markdown_result'] = returnMarkdownResult;
+        return this;
+    }
+    public set returnMarkdownResult(returnMarkdownResult: boolean  | undefined) {
+        this['return_markdown_result'] = returnMarkdownResult;
+    }
+    public get returnMarkdownResult(): boolean | undefined {
+        return this['return_markdown_result'];
     }
 }

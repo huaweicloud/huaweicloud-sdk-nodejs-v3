@@ -4,12 +4,9 @@ export class BaseResponse {
     private 'provider_code'?: string;
     private 'error_code'?: string;
     private 'error_msg'?: string;
-    public data?: object;
-    public constructor(providerCode?: string, errorCode?: string, errorMsg?: string, data?: object) { 
+    public constructor(providerCode?: string, errorCode?: string) { 
         this['provider_code'] = providerCode;
         this['error_code'] = errorCode;
-        this['error_msg'] = errorMsg;
-        this['data'] = data;
     }
     public withProviderCode(providerCode: string): BaseResponse {
         this['provider_code'] = providerCode;
@@ -40,9 +37,5 @@ export class BaseResponse {
     }
     public get errorMsg(): string | undefined {
         return this['error_msg'];
-    }
-    public withData(data: object): BaseResponse {
-        this['data'] = data;
-        return this;
     }
 }

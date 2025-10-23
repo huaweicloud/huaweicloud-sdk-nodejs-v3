@@ -5,7 +5,7 @@ export class MergeRequestVoteReviewerDto {
     public id?: number;
     public name?: string;
     public username?: string;
-    public state?: string;
+    public state?: MergeRequestVoteReviewerDtoStateEnum | string;
     private 'service_license_status'?: number;
     private 'avatar_url'?: string;
     private 'avatar_path'?: string;
@@ -30,7 +30,7 @@ export class MergeRequestVoteReviewerDto {
         this['username'] = username;
         return this;
     }
-    public withState(state: string): MergeRequestVoteReviewerDto {
+    public withState(state: MergeRequestVoteReviewerDtoStateEnum | string): MergeRequestVoteReviewerDto {
         this['state'] = state;
         return this;
     }
@@ -128,4 +128,14 @@ export class MergeRequestVoteReviewerDto {
     public get isCommitter(): boolean | undefined {
         return this['is_committer'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum MergeRequestVoteReviewerDtoStateEnum {
+    ACTIVE = 'active',
+    BLOCKED = 'blocked',
+    ERROR = 'error'
 }
