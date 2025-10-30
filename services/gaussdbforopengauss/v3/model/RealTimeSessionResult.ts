@@ -21,6 +21,22 @@ export class RealTimeSessionResult {
     private 'trans_num'?: string;
     private 'rollback_num'?: string;
     private 'sql_num'?: string;
+    private 'client_port'?: string;
+    private 'query_id'?: string;
+    private 'transaction_time_cost'?: string;
+    private 'trace_id'?: string;
+    private 'global_session_id'?: string;
+    private 'top_transaction_id'?: string;
+    private 'current_transaction_id'?: string;
+    private 'xlog_quantity_pretty'?: string;
+    private 'wait_status'?: string;
+    private 'lwt_id'?: string;
+    private 'thread_name'?: string;
+    private 'lock_mode'?: string;
+    private 'parent_session_id'?: string;
+    private 'smp_id'?: string;
+    private 'lock_tag'?: string;
+    private 'component_name'?: string;
     public constructor() { 
     }
     public withSessionId(sessionId: string): RealTimeSessionResult {
@@ -198,5 +214,165 @@ export class RealTimeSessionResult {
     }
     public get sqlNum(): string | undefined {
         return this['sql_num'];
+    }
+    public withClientPort(clientPort: string): RealTimeSessionResult {
+        this['client_port'] = clientPort;
+        return this;
+    }
+    public set clientPort(clientPort: string  | undefined) {
+        this['client_port'] = clientPort;
+    }
+    public get clientPort(): string | undefined {
+        return this['client_port'];
+    }
+    public withQueryId(queryId: string): RealTimeSessionResult {
+        this['query_id'] = queryId;
+        return this;
+    }
+    public set queryId(queryId: string  | undefined) {
+        this['query_id'] = queryId;
+    }
+    public get queryId(): string | undefined {
+        return this['query_id'];
+    }
+    public withTransactionTimeCost(transactionTimeCost: string): RealTimeSessionResult {
+        this['transaction_time_cost'] = transactionTimeCost;
+        return this;
+    }
+    public set transactionTimeCost(transactionTimeCost: string  | undefined) {
+        this['transaction_time_cost'] = transactionTimeCost;
+    }
+    public get transactionTimeCost(): string | undefined {
+        return this['transaction_time_cost'];
+    }
+    public withTraceId(traceId: string): RealTimeSessionResult {
+        this['trace_id'] = traceId;
+        return this;
+    }
+    public set traceId(traceId: string  | undefined) {
+        this['trace_id'] = traceId;
+    }
+    public get traceId(): string | undefined {
+        return this['trace_id'];
+    }
+    public withGlobalSessionId(globalSessionId: string): RealTimeSessionResult {
+        this['global_session_id'] = globalSessionId;
+        return this;
+    }
+    public set globalSessionId(globalSessionId: string  | undefined) {
+        this['global_session_id'] = globalSessionId;
+    }
+    public get globalSessionId(): string | undefined {
+        return this['global_session_id'];
+    }
+    public withTopTransactionId(topTransactionId: string): RealTimeSessionResult {
+        this['top_transaction_id'] = topTransactionId;
+        return this;
+    }
+    public set topTransactionId(topTransactionId: string  | undefined) {
+        this['top_transaction_id'] = topTransactionId;
+    }
+    public get topTransactionId(): string | undefined {
+        return this['top_transaction_id'];
+    }
+    public withCurrentTransactionId(currentTransactionId: string): RealTimeSessionResult {
+        this['current_transaction_id'] = currentTransactionId;
+        return this;
+    }
+    public set currentTransactionId(currentTransactionId: string  | undefined) {
+        this['current_transaction_id'] = currentTransactionId;
+    }
+    public get currentTransactionId(): string | undefined {
+        return this['current_transaction_id'];
+    }
+    public withXlogQuantityPretty(xlogQuantityPretty: string): RealTimeSessionResult {
+        this['xlog_quantity_pretty'] = xlogQuantityPretty;
+        return this;
+    }
+    public set xlogQuantityPretty(xlogQuantityPretty: string  | undefined) {
+        this['xlog_quantity_pretty'] = xlogQuantityPretty;
+    }
+    public get xlogQuantityPretty(): string | undefined {
+        return this['xlog_quantity_pretty'];
+    }
+    public withWaitStatus(waitStatus: string): RealTimeSessionResult {
+        this['wait_status'] = waitStatus;
+        return this;
+    }
+    public set waitStatus(waitStatus: string  | undefined) {
+        this['wait_status'] = waitStatus;
+    }
+    public get waitStatus(): string | undefined {
+        return this['wait_status'];
+    }
+    public withLwtId(lwtId: string): RealTimeSessionResult {
+        this['lwt_id'] = lwtId;
+        return this;
+    }
+    public set lwtId(lwtId: string  | undefined) {
+        this['lwt_id'] = lwtId;
+    }
+    public get lwtId(): string | undefined {
+        return this['lwt_id'];
+    }
+    public withThreadName(threadName: string): RealTimeSessionResult {
+        this['thread_name'] = threadName;
+        return this;
+    }
+    public set threadName(threadName: string  | undefined) {
+        this['thread_name'] = threadName;
+    }
+    public get threadName(): string | undefined {
+        return this['thread_name'];
+    }
+    public withLockMode(lockMode: string): RealTimeSessionResult {
+        this['lock_mode'] = lockMode;
+        return this;
+    }
+    public set lockMode(lockMode: string  | undefined) {
+        this['lock_mode'] = lockMode;
+    }
+    public get lockMode(): string | undefined {
+        return this['lock_mode'];
+    }
+    public withParentSessionId(parentSessionId: string): RealTimeSessionResult {
+        this['parent_session_id'] = parentSessionId;
+        return this;
+    }
+    public set parentSessionId(parentSessionId: string  | undefined) {
+        this['parent_session_id'] = parentSessionId;
+    }
+    public get parentSessionId(): string | undefined {
+        return this['parent_session_id'];
+    }
+    public withSmpId(smpId: string): RealTimeSessionResult {
+        this['smp_id'] = smpId;
+        return this;
+    }
+    public set smpId(smpId: string  | undefined) {
+        this['smp_id'] = smpId;
+    }
+    public get smpId(): string | undefined {
+        return this['smp_id'];
+    }
+    public withLockTag(lockTag: string): RealTimeSessionResult {
+        this['lock_tag'] = lockTag;
+        return this;
+    }
+    public set lockTag(lockTag: string  | undefined) {
+        this['lock_tag'] = lockTag;
+    }
+    public get lockTag(): string | undefined {
+        return this['lock_tag'];
+    }
+    public withComponentName(componentName: string): RealTimeSessionResult {
+        this['component_name'] = componentName;
+        return this;
+    }
+    public set componentName(componentName: string  | undefined) {
+        this['component_name'] = componentName;
+    }
+    public get componentName(): string | undefined {
+        return this['component_name'];
     }
 }

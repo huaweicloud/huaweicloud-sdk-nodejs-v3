@@ -8,23 +8,19 @@ export class WebFrameworkHostInfo {
     public name?: string;
     public version?: string;
     public path?: string;
-    private 'file_size'?: number;
     private 'record_time'?: number;
-    private 'bind_ip_list'?: string;
     public catalogue?: string;
-    private 'connected_ip_list'?: string;
-    private 'connected_number'?: string;
-    private 'embedder_dir'?: string;
     private 'file_name'?: string;
     private 'file_type'?: string;
     public gid?: number;
     public hash?: string;
     private 'is_embedded'?: number;
-    private 'listen_port_list'?: string;
     public mode?: string;
     public pid?: number;
     private 'proc_path'?: string;
-    public uid?: string;
+    public uid?: number;
+    private 'container_id'?: string;
+    private 'container_name'?: string;
     public constructor() { 
     }
     public withAgentId(agentId: string): WebFrameworkHostInfo {
@@ -79,16 +75,6 @@ export class WebFrameworkHostInfo {
         this['path'] = path;
         return this;
     }
-    public withFileSize(fileSize: number): WebFrameworkHostInfo {
-        this['file_size'] = fileSize;
-        return this;
-    }
-    public set fileSize(fileSize: number  | undefined) {
-        this['file_size'] = fileSize;
-    }
-    public get fileSize(): number | undefined {
-        return this['file_size'];
-    }
     public withRecordTime(recordTime: number): WebFrameworkHostInfo {
         this['record_time'] = recordTime;
         return this;
@@ -99,49 +85,9 @@ export class WebFrameworkHostInfo {
     public get recordTime(): number | undefined {
         return this['record_time'];
     }
-    public withBindIpList(bindIpList: string): WebFrameworkHostInfo {
-        this['bind_ip_list'] = bindIpList;
-        return this;
-    }
-    public set bindIpList(bindIpList: string  | undefined) {
-        this['bind_ip_list'] = bindIpList;
-    }
-    public get bindIpList(): string | undefined {
-        return this['bind_ip_list'];
-    }
     public withCatalogue(catalogue: string): WebFrameworkHostInfo {
         this['catalogue'] = catalogue;
         return this;
-    }
-    public withConnectedIpList(connectedIpList: string): WebFrameworkHostInfo {
-        this['connected_ip_list'] = connectedIpList;
-        return this;
-    }
-    public set connectedIpList(connectedIpList: string  | undefined) {
-        this['connected_ip_list'] = connectedIpList;
-    }
-    public get connectedIpList(): string | undefined {
-        return this['connected_ip_list'];
-    }
-    public withConnectedNumber(connectedNumber: string): WebFrameworkHostInfo {
-        this['connected_number'] = connectedNumber;
-        return this;
-    }
-    public set connectedNumber(connectedNumber: string  | undefined) {
-        this['connected_number'] = connectedNumber;
-    }
-    public get connectedNumber(): string | undefined {
-        return this['connected_number'];
-    }
-    public withEmbedderDir(embedderDir: string): WebFrameworkHostInfo {
-        this['embedder_dir'] = embedderDir;
-        return this;
-    }
-    public set embedderDir(embedderDir: string  | undefined) {
-        this['embedder_dir'] = embedderDir;
-    }
-    public get embedderDir(): string | undefined {
-        return this['embedder_dir'];
     }
     public withFileName(fileName: string): WebFrameworkHostInfo {
         this['file_name'] = fileName;
@@ -181,16 +127,6 @@ export class WebFrameworkHostInfo {
     public get isEmbedded(): number | undefined {
         return this['is_embedded'];
     }
-    public withListenPortList(listenPortList: string): WebFrameworkHostInfo {
-        this['listen_port_list'] = listenPortList;
-        return this;
-    }
-    public set listenPortList(listenPortList: string  | undefined) {
-        this['listen_port_list'] = listenPortList;
-    }
-    public get listenPortList(): string | undefined {
-        return this['listen_port_list'];
-    }
     public withMode(mode: string): WebFrameworkHostInfo {
         this['mode'] = mode;
         return this;
@@ -209,8 +145,28 @@ export class WebFrameworkHostInfo {
     public get procPath(): string | undefined {
         return this['proc_path'];
     }
-    public withUid(uid: string): WebFrameworkHostInfo {
+    public withUid(uid: number): WebFrameworkHostInfo {
         this['uid'] = uid;
         return this;
+    }
+    public withContainerId(containerId: string): WebFrameworkHostInfo {
+        this['container_id'] = containerId;
+        return this;
+    }
+    public set containerId(containerId: string  | undefined) {
+        this['container_id'] = containerId;
+    }
+    public get containerId(): string | undefined {
+        return this['container_id'];
+    }
+    public withContainerName(containerName: string): WebFrameworkHostInfo {
+        this['container_name'] = containerName;
+        return this;
+    }
+    public set containerName(containerName: string  | undefined) {
+        this['container_name'] = containerName;
+    }
+    public get containerName(): string | undefined {
+        return this['container_name'];
     }
 }

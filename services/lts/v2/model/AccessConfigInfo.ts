@@ -24,6 +24,9 @@ export class AccessConfigInfo {
     private 'demo_log'?: string;
     private 'demo_fields'?: Array<DemoFieldAccess>;
     public processors?: Array<Processor>;
+    private 'log_split_size'?: number;
+    private 'recursive_depth'?: number;
+    private 'access_config_type_source'?: string;
     private 'application_id'?: string;
     private 'environment_id'?: string;
     private 'component_id'?: Array<string>;
@@ -192,6 +195,36 @@ export class AccessConfigInfo {
     public withProcessors(processors: Array<Processor>): AccessConfigInfo {
         this['processors'] = processors;
         return this;
+    }
+    public withLogSplitSize(logSplitSize: number): AccessConfigInfo {
+        this['log_split_size'] = logSplitSize;
+        return this;
+    }
+    public set logSplitSize(logSplitSize: number  | undefined) {
+        this['log_split_size'] = logSplitSize;
+    }
+    public get logSplitSize(): number | undefined {
+        return this['log_split_size'];
+    }
+    public withRecursiveDepth(recursiveDepth: number): AccessConfigInfo {
+        this['recursive_depth'] = recursiveDepth;
+        return this;
+    }
+    public set recursiveDepth(recursiveDepth: number  | undefined) {
+        this['recursive_depth'] = recursiveDepth;
+    }
+    public get recursiveDepth(): number | undefined {
+        return this['recursive_depth'];
+    }
+    public withAccessConfigTypeSource(accessConfigTypeSource: string): AccessConfigInfo {
+        this['access_config_type_source'] = accessConfigTypeSource;
+        return this;
+    }
+    public set accessConfigTypeSource(accessConfigTypeSource: string  | undefined) {
+        this['access_config_type_source'] = accessConfigTypeSource;
+    }
+    public get accessConfigTypeSource(): string | undefined {
+        return this['access_config_type_source'];
     }
     public withApplicationId(applicationId: string): AccessConfigInfo {
         this['application_id'] = applicationId;

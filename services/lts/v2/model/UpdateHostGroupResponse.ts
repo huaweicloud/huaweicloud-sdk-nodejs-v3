@@ -10,6 +10,8 @@ export class UpdateHostGroupResponse extends SdkResponse {
     private 'host_group_tag'?: Array<HostGroupTag>;
     private 'create_time'?: number;
     private 'update_time'?: number;
+    private 'agent_access_type'?: string;
+    public labels?: Array<string>;
     public constructor() { 
         super();
     }
@@ -82,6 +84,20 @@ export class UpdateHostGroupResponse extends SdkResponse {
     }
     public get updateTime(): number | undefined {
         return this['update_time'];
+    }
+    public withAgentAccessType(agentAccessType: string): UpdateHostGroupResponse {
+        this['agent_access_type'] = agentAccessType;
+        return this;
+    }
+    public set agentAccessType(agentAccessType: string  | undefined) {
+        this['agent_access_type'] = agentAccessType;
+    }
+    public get agentAccessType(): string | undefined {
+        return this['agent_access_type'];
+    }
+    public withLabels(labels: Array<string>): UpdateHostGroupResponse {
+        this['labels'] = labels;
+        return this;
     }
 }
 

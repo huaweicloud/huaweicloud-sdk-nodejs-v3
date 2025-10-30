@@ -16,20 +16,7 @@ export class ChildrenJobInfo {
     public status?: ChildrenJobInfoStatusEnum | string;
     private 'task_type'?: ChildrenJobInfoTaskTypeEnum | string;
     private 'job_action'?: JobActionResp;
-    public constructor(billingTag?: boolean, createTime?: string, dbUseType?: string, description?: string, engineType?: string, errorMsg?: string, id?: string, jobDirection?: string, name?: string, netType?: string, nodeNewFramework?: boolean, status?: string, taskType?: string) { 
-        this['billing_tag'] = billingTag;
-        this['create_time'] = createTime;
-        this['db_use_type'] = dbUseType;
-        this['description'] = description;
-        this['engine_type'] = engineType;
-        this['error_msg'] = errorMsg;
-        this['id'] = id;
-        this['job_direction'] = jobDirection;
-        this['name'] = name;
-        this['net_type'] = netType;
-        this['node_newFramework'] = nodeNewFramework;
-        this['status'] = status;
-        this['task_type'] = taskType;
+    public constructor() { 
     }
     public withBillingTag(billingTag: boolean): ChildrenJobInfo {
         this['billing_tag'] = billingTag;

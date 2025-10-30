@@ -14,7 +14,7 @@ export class WebSiteInfo {
     private 'proc_path'?: string;
     private 'is_https'?: boolean;
     private 'cert_issuer'?: string;
-    private 'cert_user'?: number;
+    private 'cert_user'?: string;
     private 'cert_issue_time'?: string;
     private 'cert_expired_time'?: string;
     private 'record_time'?: number;
@@ -110,14 +110,14 @@ export class WebSiteInfo {
     public get certIssuer(): string | undefined {
         return this['cert_issuer'];
     }
-    public withCertUser(certUser: number): WebSiteInfo {
+    public withCertUser(certUser: string): WebSiteInfo {
         this['cert_user'] = certUser;
         return this;
     }
-    public set certUser(certUser: number  | undefined) {
+    public set certUser(certUser: string  | undefined) {
         this['cert_user'] = certUser;
     }
-    public get certUser(): number | undefined {
+    public get certUser(): string | undefined {
         return this['cert_user'];
     }
     public withCertIssueTime(certIssueTime: string): WebSiteInfo {

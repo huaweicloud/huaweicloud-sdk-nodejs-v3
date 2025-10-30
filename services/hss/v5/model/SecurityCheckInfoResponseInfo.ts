@@ -3,6 +3,8 @@
 export class SecurityCheckInfoResponseInfo {
     public severity?: string;
     private 'check_name'?: string;
+    private 'baseline_name'?: string;
+    public key?: string;
     private 'check_type'?: string;
     public standard?: string;
     private 'executable_file_path'?: string;
@@ -26,6 +28,20 @@ export class SecurityCheckInfoResponseInfo {
     }
     public get checkName(): string | undefined {
         return this['check_name'];
+    }
+    public withBaselineName(baselineName: string): SecurityCheckInfoResponseInfo {
+        this['baseline_name'] = baselineName;
+        return this;
+    }
+    public set baselineName(baselineName: string  | undefined) {
+        this['baseline_name'] = baselineName;
+    }
+    public get baselineName(): string | undefined {
+        return this['baseline_name'];
+    }
+    public withKey(key: string): SecurityCheckInfoResponseInfo {
+        this['key'] = key;
+        return this;
     }
     public withCheckType(checkType: string): SecurityCheckInfoResponseInfo {
         this['check_type'] = checkType;

@@ -12,6 +12,7 @@ export class PolicyoODCreate {
     private 'week_backups'?: number;
     private 'year_backups'?: number;
     private 'full_backup_interval'?: number;
+    private 'cross_account_urn'?: string;
     public constructor() { 
     }
     public withDayBackups(dayBackups: number): PolicyoODCreate {
@@ -117,5 +118,15 @@ export class PolicyoODCreate {
     }
     public get fullBackupInterval(): number | undefined {
         return this['full_backup_interval'];
+    }
+    public withCrossAccountUrn(crossAccountUrn: string): PolicyoODCreate {
+        this['cross_account_urn'] = crossAccountUrn;
+        return this;
+    }
+    public set crossAccountUrn(crossAccountUrn: string  | undefined) {
+        this['cross_account_urn'] = crossAccountUrn;
+    }
+    public get crossAccountUrn(): string | undefined {
+        return this['cross_account_urn'];
     }
 }

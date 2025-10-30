@@ -5297,11 +5297,11 @@ export class GaussDBforopenGaussClient {
     }
 
     /**
-     * 查询GaussDB数据库实例全量SQL开关记录列表。
+     * 查询全量SQL开关记录列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询GaussDB数据库实例全量SQL开关记录列表
+     * @summary 查询全量SQL开关记录
      * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为32个字符。 **默认取值**: 不涉及。
      * @param {number} limit **参数解释**: 查询记录数。 **约束限制**: 不涉及。 **取值范围**: 1~1000。 **默认取值**: 默认为100。
      * @param {number} offset **参数解释**: 索引位置，偏移量。 **约束限制**: 不涉及。 **取值范围**: 0 ~ 2,147,483,647。 **默认取值**: 默认为0（偏移0条数据，表示从第一条数据开始查询）。
@@ -5477,11 +5477,11 @@ export class GaussDBforopenGaussClient {
     }
 
     /**
-     * 查询GaussDB数据库实例SQL链路，包含实例上对应组件的链路列表，如dn_6001、dn_6002、cn_5001、cn_5002。
+     * 要用于查询SQL某次执行（对应归一化SQL ID和唯一SQL ID传值）过程中的全部链路信息，包含各个阶段的多维度耗时统计。对于分布式版实例，可查询对应SQL的完整执行链路，包含CN和DN上SQL语句的耗时分析。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询GaussDB数据库实例SQL链路
+     * @summary 查询SQL链路信息
      * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
      * @param {string} [sqlId] **参数解释**: 归一化SQL ID，对应内核字段：unique_sql_id。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 不涉及。
      * @param {string} [sqlExecId] **参数解释**: 唯一SQL ID，对应内核字段：debug_query_id。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 不涉及。
@@ -5591,7 +5591,7 @@ export class GaussDBforopenGaussClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 开启GaussDB数据库实例全量SQL功能
+     * @summary 开启全量SQL或修改默认配置
      * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为32个字符。 **默认取值**: 不涉及。
      * @param {FullSqlStartRequestBody} startFullSqlRequestBody **参数解释**: 开启全量SQL请求体。 **取值范围**: 不涉及。
      * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**: - zh-cn  - en-us  **默认取值**: en-us
@@ -17260,7 +17260,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询GaussDB数据库实例全量SQL开关记录列表。
+         * 查询全量SQL开关记录列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17774,7 +17774,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询GaussDB数据库实例SQL链路，包含实例上对应组件的链路列表，如dn_6001、dn_6002、cn_5001、cn_5002。
+         * 要用于查询SQL某次执行（对应归一化SQL ID和唯一SQL ID传值）过程中的全部链路信息，包含各个阶段的多维度耗时统计。对于分布式版实例，可查询对应SQL的完整执行链路，包含CN和DN上SQL语句的耗时分析。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -5,6 +5,8 @@ export class ListTemplateVersionsRequest {
     private 'project_id'?: string;
     private 'template_name'?: string;
     private 'template_id'?: string;
+    public marker?: string;
+    public limit?: number;
     public constructor(clientRequestId?: string, projectId?: string, templateName?: string) { 
         this['Client-Request-Id'] = clientRequestId;
         this['project_id'] = projectId;
@@ -49,5 +51,13 @@ export class ListTemplateVersionsRequest {
     }
     public get templateId(): string | undefined {
         return this['template_id'];
+    }
+    public withMarker(marker: string): ListTemplateVersionsRequest {
+        this['marker'] = marker;
+        return this;
+    }
+    public withLimit(limit: number): ListTemplateVersionsRequest {
+        this['limit'] = limit;
+        return this;
     }
 }

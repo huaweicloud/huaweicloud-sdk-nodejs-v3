@@ -6,7 +6,8 @@ export class ListUserStatisticsRequest {
     public limit?: number;
     public offset?: number;
     public category?: string;
-    public constructor() { 
+    public constructor(category?: string) { 
+        this['category'] = category;
     }
     public withUserName(userName: string): ListUserStatisticsRequest {
         this['user_name'] = userName;

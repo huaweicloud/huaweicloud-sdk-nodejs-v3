@@ -6,8 +6,8 @@ export class JobInfo {
     public id?: string;
     public name?: string;
     public status?: JobInfoStatusEnum | string;
-    public description?: string;
     private 'create_time'?: string;
+    public description?: string;
     private 'engine_type'?: JobInfoEngineTypeEnum | string;
     private 'net_type'?: JobInfoNetTypeEnum | string;
     private 'billing_tag'?: boolean;
@@ -17,12 +17,12 @@ export class JobInfo {
     public children?: Array<ChildrenJobInfo>;
     private 'node_newFramework'?: boolean;
     private 'job_action'?: JobActionResp;
-    public constructor(id?: string, name?: string, status?: string, description?: string, createTime?: string, engineType?: string, netType?: string, billingTag?: boolean, jobDirection?: string, dbUseType?: string, taskType?: string, nodeNewFramework?: boolean) { 
+    public constructor(id?: string, name?: string, status?: string, createTime?: string, description?: string, engineType?: string, netType?: string, billingTag?: boolean, jobDirection?: string, dbUseType?: string, taskType?: string, nodeNewFramework?: boolean) { 
         this['id'] = id;
         this['name'] = name;
         this['status'] = status;
-        this['description'] = description;
         this['create_time'] = createTime;
+        this['description'] = description;
         this['engine_type'] = engineType;
         this['net_type'] = netType;
         this['billing_tag'] = billingTag;
@@ -43,10 +43,6 @@ export class JobInfo {
         this['status'] = status;
         return this;
     }
-    public withDescription(description: string): JobInfo {
-        this['description'] = description;
-        return this;
-    }
     public withCreateTime(createTime: string): JobInfo {
         this['create_time'] = createTime;
         return this;
@@ -56,6 +52,10 @@ export class JobInfo {
     }
     public get createTime(): string | undefined {
         return this['create_time'];
+    }
+    public withDescription(description: string): JobInfo {
+        this['description'] = description;
+        return this;
     }
     public withEngineType(engineType: JobInfoEngineTypeEnum | string): JobInfo {
         this['engine_type'] = engineType;

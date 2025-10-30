@@ -1,24 +1,18 @@
 
 
 export class ListImageFilesRequest {
-    public region?: string;
     private 'enterprise_project_id'?: string;
+    public limit?: number;
+    public offset?: number;
     private 'image_type'?: string;
     private 'image_id'?: string;
     public namespace?: string;
     private 'image_name'?: string;
     private 'tag_name'?: string;
     private 'file_name'?: string;
-    public limit?: number;
-    public offset?: number;
-    public constructor(region?: string, imageType?: string, imageId?: string) { 
-        this['region'] = region;
+    public constructor(imageType?: string, imageId?: string) { 
         this['image_type'] = imageType;
         this['image_id'] = imageId;
-    }
-    public withRegion(region: string): ListImageFilesRequest {
-        this['region'] = region;
-        return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListImageFilesRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
@@ -29,6 +23,14 @@ export class ListImageFilesRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withLimit(limit: number): ListImageFilesRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListImageFilesRequest {
+        this['offset'] = offset;
+        return this;
     }
     public withImageType(imageType: string): ListImageFilesRequest {
         this['image_type'] = imageType;
@@ -83,13 +85,5 @@ export class ListImageFilesRequest {
     }
     public get fileName(): string | undefined {
         return this['file_name'];
-    }
-    public withLimit(limit: number): ListImageFilesRequest {
-        this['limit'] = limit;
-        return this;
-    }
-    public withOffset(offset: number): ListImageFilesRequest {
-        this['offset'] = offset;
-        return this;
     }
 }

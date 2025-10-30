@@ -11,6 +11,7 @@ export class Metadata {
     private 'lts_alarm_type'?: string;
     private 'log_group_name'?: string;
     private 'log_stream_name'?: string;
+    private 'event_subtype'?: string;
     public constructor(eventType?: string, eventId?: string, eventSeverity?: string, eventName?: string, resourceType?: string, resourceId?: string, resourceProvider?: string, ltsAlarmType?: string) { 
         this['event_type'] = eventType;
         this['event_id'] = eventId;
@@ -120,5 +121,15 @@ export class Metadata {
     }
     public get logStreamName(): string | undefined {
         return this['log_stream_name'];
+    }
+    public withEventSubtype(eventSubtype: string): Metadata {
+        this['event_subtype'] = eventSubtype;
+        return this;
+    }
+    public set eventSubtype(eventSubtype: string  | undefined) {
+        this['event_subtype'] = eventSubtype;
+    }
+    public get eventSubtype(): string | undefined {
+        return this['event_subtype'];
     }
 }

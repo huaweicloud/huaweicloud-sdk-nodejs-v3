@@ -129,6 +129,8 @@ import { ItemsResponse } from './model/ItemsResponse';
 import { KmsStructure } from './model/KmsStructure';
 import { ListExecutionPlansRequest } from './model/ListExecutionPlansRequest';
 import { ListExecutionPlansResponse } from './model/ListExecutionPlansResponse';
+import { ListPrivateHookVersionsRequest } from './model/ListPrivateHookVersionsRequest';
+import { ListPrivateHookVersionsResponse } from './model/ListPrivateHookVersionsResponse';
 import { ListPrivateHooksRequest } from './model/ListPrivateHooksRequest';
 import { ListPrivateHooksResponse } from './model/ListPrivateHooksResponse';
 import { ListPrivateModuleVersionsRequest } from './model/ListPrivateModuleVersionsRequest';
@@ -161,6 +163,7 @@ import { ManagedAgencyNamePrimitiveTypeHolder } from './model/ManagedAgencyNameP
 import { ManagedOperation } from './model/ManagedOperation';
 import { ManagedOperationTypeHolder } from './model/ManagedOperationTypeHolder';
 import { ModuleURIPrimitiveTypeHolder } from './model/ModuleURIPrimitiveTypeHolder';
+import { ModuleURIRequiredPrimitiveTypeHolder } from './model/ModuleURIRequiredPrimitiveTypeHolder';
 import { OperationIdPrimitiveTypeHolder } from './model/OperationIdPrimitiveTypeHolder';
 import { OperationPreferences } from './model/OperationPreferences';
 import { OperationPreferencesTypeHolder } from './model/OperationPreferencesTypeHolder';
@@ -193,6 +196,7 @@ import { PrivateModuleVersion } from './model/PrivateModuleVersion';
 import { PrivateModuleVersionCreateTimePrimitiveTypeHolder } from './model/PrivateModuleVersionCreateTimePrimitiveTypeHolder';
 import { PrivateModuleVersionDescriptionPrimitiveTypeHolder } from './model/PrivateModuleVersionDescriptionPrimitiveTypeHolder';
 import { PrivateModuleVersionPrimitiveTypeHolder } from './model/PrivateModuleVersionPrimitiveTypeHolder';
+import { PrivateModuleVersionRequiredPrimitiveTypeHolder } from './model/PrivateModuleVersionRequiredPrimitiveTypeHolder';
 import { PrivateModuleVersionSummary } from './model/PrivateModuleVersionSummary';
 import { PrivatePolicyBodyPrimitiveTypeHolder } from './model/PrivatePolicyBodyPrimitiveTypeHolder';
 import { PrivatePolicyURIPrimitiveTypeHolder } from './model/PrivatePolicyURIPrimitiveTypeHolder';
@@ -819,7 +823,7 @@ export class AosClient {
      *           * 支持的计费模式：包周期、按需
      *           * 询价必要参数：flavor_id（规格ID）、flavor_name（规格名称，flavor_id和flavor_name至少给出一个）、system_disk_size（系统磁盘大小）
      *       * huaweicloud_vpc_bandwidth:
-     *           * 支持的计费模式：按需
+     *           * 支持的计费模式：包周期、按需
      *           * 询价必要参数：charge_mode仅支持bandwidth
      *       * huaweicloud_vpc_eip: 
      *           * 支持的计费模式：包周期、按需
@@ -902,6 +906,36 @@ export class AosClient {
      *           * 支持的计费模式：按需
      *       * huaweicloud_kms_key: 
      *           * 支持的计费模式：按需
+     *       * huaweicloud_elb_listener:
+     *           * 支持的计费模式：免费
+     *       * huaweicloud_elb_monitor:
+     *           * 支持的计费模式：免费
+     *       * huaweicloud_elb_pool:
+     *           * 支持的计费模式：免费
+     *       * huaweicloud_elb_member:
+     *           * 支持的计费模式：免费
+     *       * huaweicloud_vpc_subnet:
+     *           * 支持的计费模式：免费
+     *       * huaweicloud_networking_secgroup:
+     *           * 支持的计费模式：免费
+     *       * huaweicloud_iec_security_group:
+     *           * 支持的计费模式：免费
+     *       * huaweicloud_dns_zone:
+     *           * 支持的计费模式：免费
+     *       * huaweicloud_enterprise_project:
+     *           * 支持的计费模式：免费
+     *       * huaweicloud_er_instance:
+     *           * 支持的计费模式：免费
+     *       * huaweicloud_lts_group:
+     *           * 支持的计费模式：免费
+     *       * huaweicloud_smn_topic:
+     *           * 支持的计费模式：免费
+     *       * huaweicloud_smn_subscription:
+     *           * 支持的计费模式：免费
+     *       * huaweicloud_cc_connection:
+     *           * 支持的计费模式：免费
+     *       * huaweicloud_cc_network_instance:
+     *           * 支持的计费模式：免费
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1030,6 +1064,7 @@ export class AosClient {
      *       DeleteStackEnhanced
      *   * 创建私有hook时指定的版本为初始默认版本。
      *   * 如果同名的私有hook在当前domain_id+region下已经存在，则会返回409。
+     *   * 对于私有hook的名字，推荐用户使用三段命名空间：{自定义hook名称}-{hook应用场景}-hook。
      *   * 私有hook版本号遵循语义化版本号（Semantic Version），为用户自定义。
      *   * 资源编排服务会对私有hook进行校验，如文件大小，策略文件语法校验等。若存在错误，则会创建失败。
      *   * 当前仅支持部署资源前的检测，不支持部署资源过程中的检测。如果通过了部署资源前的检测，资源栈则会继续部署资源。反之会停止部署资源，并记录资源栈事件（stack events）。
@@ -1089,7 +1124,7 @@ export class AosClient {
      *
      * @summary 创建私有hook版本
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
-     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。  推荐用户使用三段命名空间：{自定义hook名称}-{hook应用场景}-hook。
+     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {CreatePrivateHookVersionRequestBody} createPrivateHookVersionRequestBody CreatePrivateHookVersion API的请求Body体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1117,7 +1152,7 @@ export class AosClient {
      *
      * @summary 删除私有hook
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
-     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。  推荐用户使用三段命名空间：{自定义hook名称}-{hook应用场景}-hook。
+     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [hookId] 私有hook（private-hook）的唯一Id。  此Id由资源编排服务在生成私有hook的时候生成，为UUID。  由于私有hook名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的私有hook，删除，再重新创建一个同名私有hook。  对于团队并行开发，用户可能希望确保，当前我操作的私有hook就是我认为的那个，而不是其他队友删除后创建的同名私有hook。因此，使用Id就可以做到强匹配。  资源编排服务保证每次创建的私有hook所对应的Id都不相同，更新不会影响Id。如果给予的hook_id和当前hook的Id不一致，则返回400。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1145,7 +1180,7 @@ export class AosClient {
      *
      * @summary 删除私有hook版本
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
-     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。  推荐用户使用三段命名空间：{自定义hook名称}-{hook应用场景}-hook。
+     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} hookVersion 私有hook的版本号。版本号必须遵循语义化版本号（Semantic Version），为用户自定义。
      * @param {string} [hookId] 私有hook（private-hook）的唯一Id。  此Id由资源编排服务在生成私有hook的时候生成，为UUID。  由于私有hook名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的私有hook，删除，再重新创建一个同名私有hook。  对于团队并行开发，用户可能希望确保，当前我操作的私有hook就是我认为的那个，而不是其他队友删除后创建的同名私有hook。因此，使用Id就可以做到强匹配。  资源编排服务保证每次创建的私有hook所对应的Id都不相同，更新不会影响Id。如果给予的hook_id和当前hook的Id不一致，则返回400。
      * @param {*} [options] Override http request option.
@@ -1153,6 +1188,39 @@ export class AosClient {
      */
     public deletePrivateHookVersion(deletePrivateHookVersionRequest?: DeletePrivateHookVersionRequest): Promise<DeletePrivateHookVersionResponse> {
         const options = ParamCreater().deletePrivateHookVersion(deletePrivateHookVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列举私有hook版本（ListPrivateHookVersions）
+     * 
+     * 列举所选择的私有hook中所有的hook版本信息。
+     * 
+     *   * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
+     *   * 如果hook_name和hook_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+     *   * 如果hook下不存在hook版本，则返回空list。
+     *   * 如果hook不存在则返回404。
+     *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举私有hook版本
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
+     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {string} [hookId] 私有hook（private-hook）的唯一Id。  此Id由资源编排服务在生成私有hook的时候生成，为UUID。  由于私有hook名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的私有hook，删除，再重新创建一个同名私有hook。  对于团队并行开发，用户可能希望确保，当前我操作的私有hook就是我认为的那个，而不是其他队友删除后创建的同名私有hook。因此，使用Id就可以做到强匹配。  资源编排服务保证每次创建的私有hook所对应的Id都不相同，更新不会影响Id。如果给予的hook_id和当前hook的Id不一致，则返回400。
+     * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
+     * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
+     * @param {string} [marker] 分页标记。当一页无法返回所有结果，上一次的请求将返回next_marker以指引还有更多页数，用户可以将next_marker中的值放到此处以查询下一页的信息。此marker只能用于与上一请求指定的相同参数的请求。不指定时默认从第一页开始查询。
+     * @param {number} [limit] 每页返回的最多结果数量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPrivateHookVersions(listPrivateHookVersionsRequest?: ListPrivateHookVersionsRequest): Promise<ListPrivateHookVersionsResponse> {
+        const options = ParamCreater().listPrivateHookVersions(listPrivateHookVersionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1202,7 +1270,7 @@ export class AosClient {
      *
      * @summary 获取私有hook元数据
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
-     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。  推荐用户使用三段命名空间：{自定义hook名称}-{hook应用场景}-hook。
+     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [hookId] 私有hook（private-hook）的唯一Id。  此Id由资源编排服务在生成私有hook的时候生成，为UUID。  由于私有hook名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的私有hook，删除，再重新创建一个同名私有hook。  对于团队并行开发，用户可能希望确保，当前我操作的私有hook就是我认为的那个，而不是其他队友删除后创建的同名私有hook。因此，使用Id就可以做到强匹配。  资源编排服务保证每次创建的私有hook所对应的Id都不相同，更新不会影响Id。如果给予的hook_id和当前hook的Id不一致，则返回400。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1228,7 +1296,7 @@ export class AosClient {
      *
      * @summary 获取私有hook版本的元数据
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
-     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。  推荐用户使用三段命名空间：{自定义hook名称}-{hook应用场景}-hook。
+     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} hookVersion 私有hook的版本号。版本号必须遵循语义化版本号（Semantic Version），为用户自定义。
      * @param {string} [hookId] 私有hook（private-hook）的唯一Id。  此Id由资源编排服务在生成私有hook的时候生成，为UUID。  由于私有hook名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的私有hook，删除，再重新创建一个同名私有hook。  对于团队并行开发，用户可能希望确保，当前我操作的私有hook就是我认为的那个，而不是其他队友删除后创建的同名私有hook。因此，使用Id就可以做到强匹配。  资源编排服务保证每次创建的私有hook所对应的Id都不相同，更新不会影响Id。如果给予的hook_id和当前hook的Id不一致，则返回400。
      * @param {*} [options] Override http request option.
@@ -1255,7 +1323,7 @@ export class AosClient {
      *
      * @summary 获取私有hook版本策略
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
-     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。  推荐用户使用三段命名空间：{自定义hook名称}-{hook应用场景}-hook。
+     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} hookVersion 私有hook的版本号。版本号必须遵循语义化版本号（Semantic Version），为用户自定义。
      * @param {string} [hookId] 私有hook（private-hook）的唯一Id。  此Id由资源编排服务在生成私有hook的时候生成，为UUID。  由于私有hook名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的私有hook，删除，再重新创建一个同名私有hook。  对于团队并行开发，用户可能希望确保，当前我操作的私有hook就是我认为的那个，而不是其他队友删除后创建的同名私有hook。因此，使用Id就可以做到强匹配。  资源编排服务保证每次创建的私有hook所对应的Id都不相同，更新不会影响Id。如果给予的hook_id和当前hook的Id不一致，则返回400。
      * @param {*} [options] Override http request option.
@@ -1286,7 +1354,7 @@ export class AosClient {
      *
      * @summary 更新私有hook元数据
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一Id，用于定位某个请求，推荐使用UUID
-     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。  推荐用户使用三段命名空间：{自定义hook名称}-{hook应用场景}-hook。
+     * @param {string} hookName 私有hook的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {UpdatePrivateHookMetadataRequestBody} updatePrivateHookMetadataRequestBody UpdatePrivateHookMetadata API的请求Body体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1724,7 +1792,7 @@ export class AosClient {
      * 
      * 此API用于删除某个资源栈，可以选择是否保留资源。
      * **请谨慎操作，删除资源栈将默认删除与该资源栈相关的所有数据，如：执行计划、资源栈事件、资源栈输出、资源等。**
-     * **如果希望删除资源栈保留资源，可以在请求中设置&#x60;retain_all_resources&#x60;对资源进行保留。
+     * **如果希望删除资源栈保留资源，可以在请求中设置&#x60;retain_all_resources&#x60;对资源进行保留。**
      * 
      * * 此API会触发删除资源栈，并以最终一致性删除数据，用户可以调用GetStackMetadata或ListStacks跟踪资源栈删除情况。当删除完成后，被删除资源栈将不会在上述API中返回。
      * * 如果资源栈状态处于非终态（状态以&#x60;IN_PROGRESS&#x60;结尾）状态时，则不允许删除。包括但不限于以下状态：
@@ -2114,7 +2182,7 @@ export class AosClient {
      * 
      * 此API用于删除指定资源栈集下指定局点（region）或指定成员账号（domain_id）的资源栈实例，并返回资源栈集操作ID（stack_set_operation_id）
      * 
-     * **请谨慎操作，删除资源栈实例将会删除与该资源栈实例相关的堆栈以及堆栈所管理的一切资源。**
+     * **请谨慎操作，删除资源栈实例将会删除与该资源栈实例相关的资源栈以及资源栈所管理的一切资源。**
      * 
      * * 用户可以根据资源栈集操作ID（stack_set_operation_id），通过ShowStackSetOperationMetadata API获取资源栈集操作状态
      * 
@@ -2141,7 +2209,7 @@ export class AosClient {
      * 
      * 此API用于删除指定资源栈集下指定局点（region）或指定成员账号（domain_id）的资源栈实例，并返回资源栈集操作ID（stack_set_operation_id）
      * 
-     * **请谨慎操作，删除资源栈实例将会删除与该资源栈实例相关的堆栈以及堆栈所管理的一切资源。**
+     * **请谨慎操作，删除资源栈实例将会删除与该资源栈实例相关的资源栈以及资源栈所管理的一切资源。**
      * 
      * * 用户可以根据资源栈集操作ID（stack_set_operation_id），通过ShowStackSetOperationMetadata API获取资源栈集操作状态
      * 
@@ -2178,7 +2246,7 @@ export class AosClient {
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackSetId] 资源栈集（stack_set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给予的stack_set_id和当前资源栈集的ID不一致，则返回400
-     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员账号中的服务委托管理员身份调用资源栈集。默认为SELF。 * 无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。*   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
+     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员账号中的服务委托管理员身份调用资源栈集。默认为SELF。  无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2243,7 +2311,7 @@ export class AosClient {
      * @param {string} [filter] 过滤条件  * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持双等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，如果有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关
      * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
      * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
-     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员账号中的服务委托管理员身份调用资源栈集。默认为SELF。 * 无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。*   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
+     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员账号中的服务委托管理员身份调用资源栈集。默认为SELF。  无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
      * @param {string} [marker] 分页标记。当一页无法返回所有结果，上一次的请求将返回next_marker以指引还有更多页数，用户可以将next_marker中的值放到此处以查询下一页的信息。此marker只能用于与上一请求指定的相同参数的请求。不指定时默认从第一页开始查询。
      * @param {number} [limit] 每页返回的最多结果数量
      * @param {*} [options] Override http request option.
@@ -2277,7 +2345,7 @@ export class AosClient {
      * @param {string} [filter] 过滤条件  * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持双等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，如果有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关
      * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
      * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
-     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员账号中的服务委托管理员身份调用资源栈集。默认为SELF。 * 无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。*   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
+     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员账号中的服务委托管理员身份调用资源栈集。默认为SELF。  无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
      * @param {string} [marker] 分页标记。当一页无法返回所有结果，上一次的请求将返回next_marker以指引还有更多页数，用户可以将next_marker中的值放到此处以查询下一页的信息。此marker只能用于与上一请求指定的相同参数的请求。不指定时默认从第一页开始查询。
      * @param {number} [limit] 每页返回的最多结果数量
      * @param {*} [options] Override http request option.
@@ -2310,7 +2378,7 @@ export class AosClient {
      * @param {string} [filter] 过滤条件  * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持双等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，如果有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关
      * @param {Array<'create_time'>} [sortKey] 排序字段，仅支持给予create_time
      * @param {Array<'asc' | 'desc'>} [sortDir] 指定升序还是降序   * &#x60;asc&#x60; - 升序   * &#x60;desc&#x60; - 降序
-     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员账号中的服务委托管理员身份调用资源栈集。默认为SELF。 * 无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。*   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
+     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员账号中的服务委托管理员身份调用资源栈集。默认为SELF。  无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
      * @param {string} [marker] 分页标记。当一页无法返回所有结果，上一次的请求将返回next_marker以指引还有更多页数，用户可以将next_marker中的值放到此处以查询下一页的信息。此marker只能用于与上一请求指定的相同参数的请求。不指定时默认从第一页开始查询。
      * @param {number} [limit] 每页返回的最多结果数量
      * @param {*} [options] Override http request option.
@@ -2337,7 +2405,7 @@ export class AosClient {
      * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} stackInstanceAddr 资源栈实例的唯一地址。该地址由region和stack_domain_id通过\&quot;/\&quot;（转义后为%2f或%2F）拼接而成。该地址在domain_id+region+stack_set_name下唯一。
      * @param {string} [stackSetId] 资源栈集（stack_set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给予的stack_set_id和当前资源栈集的ID不一致，则返回400
-     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员账号中的服务委托管理员身份调用资源栈集。默认为SELF。 * 无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。*   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
+     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员账号中的服务委托管理员身份调用资源栈集。默认为SELF。  无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2361,7 +2429,7 @@ export class AosClient {
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackSetId] 资源栈集（stack_set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给予的stack_set_id和当前资源栈集的ID不一致，则返回400
-     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员账号中的服务委托管理员身份调用资源栈集。默认为SELF。 * 无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。*   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
+     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员账号中的服务委托管理员身份调用资源栈集。默认为SELF。  无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2388,7 +2456,7 @@ export class AosClient {
      * @param {string} stackSetName 资源栈集的名称。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} stackSetOperationId 资源栈集操作（stack_set_operation）的唯一Id。  此ID由资源编排服务在生成资源栈集操作的时候生成，为UUID。
      * @param {string} [stackSetId] 资源栈集（stack_set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给予的stack_set_id和当前资源栈集的ID不一致，则返回400
-     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员账号中的服务委托管理员身份调用资源栈集。默认为SELF。 * 无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。*   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
+     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员账号中的服务委托管理员身份调用资源栈集。默认为SELF。  无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2417,7 +2485,7 @@ export class AosClient {
      * @param {string} [stackSetId] 资源栈集（stack_set）的唯一ID。  此ID由资源编排服务在生成资源栈集的时候生成，为UUID。  由于资源栈集名称仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈集，删除，再重新创建一个同名资源栈集。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈集就是我认为的那个，而不是其他队友删除后创建的同名资源栈集。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈集所对应的ID都不相同，更新不会影响ID。如果给予的stack_set_id和当前资源栈集的ID不一致，则返回400
      * @param {Array<string>} [accessControlSourceIps] 允许访问资源栈集模板的source ip列表，source ip应是具有CIDR表示法且带有子网掩码的IPv4地址。
      * @param {Array<string>} [accessControlSourceVpcIds] 允许访问资源栈集模板的source vpc id列表， source vpc id应仅包含小写字母、数字或中划线。
-     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员账号中的服务委托管理员身份调用资源栈集。默认为SELF。 * 无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。*   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
+     * @param {'SELF' | 'DELEGATED_ADMIN'} [callIdentity] 仅支持资源栈集权限模式为SERVICE_MANAGED时指定该参数。用于指定用户是以组织管理账号还是成员账号中的服务委托管理员身份调用资源栈集。默认为SELF。  无论指定何种用户身份，创建或部署的资源栈集始终在组织管理账号名下。   * &#x60;SELF&#x60; - 以组织管理账号身份调用。   * &#x60;DELEGATED_ADMIN&#x60; - 以服务委托管理员身份调用。用户的华为云账号必须在组织中已经被注册为”资源编排资源栈集服务“的委托管理员。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2466,14 +2534,13 @@ export class AosClient {
     /**
      * 更新资源栈集（UpdateStackSet）
      * 
-     * 该API可以根据用户给予的信息对资源栈集的属性进行更新，可以更新资源栈集的“stack_set_description”、\&quot;initial_stack_description\&quot;、\&quot;permission_model\&quot;、“administration_agency_name”、\&quot;managed_agency_name\&quot;、“administration_agency_urn”六个属性中的一个或多个。
+     * 该API可以根据用户给予的信息对资源栈集的属性进行更新，可以更新资源栈集如下属性“stack_set_description”、\&quot;initial_stack_description\&quot;、“administration_agency_name”、\&quot;managed_agency_name\&quot;、“administration_agency_urn”中的一个或多个。
      * 
      * 该API只会更新用户给予的信息中所涉及的字段；如果某字段未给予，则不会对该资源栈集属性进行更新。
      * 
      * 注：
      *   * 所有属性的更新都是覆盖式更新。即，所给予的参数将被完全覆盖至资源栈已有的属性上。
      *   * 只有在permission_model&#x3D;SELF_MANAGED时，才可更新administration_agency_name、managed_agency_name和administration_agency_urn。
-     *   * permission_model目前只支持更新SELF_MANAGED
      *   * 如果资源栈集的状态是OPERATION_IN_PROGRESS，不允许更新资源栈集。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2557,7 +2624,7 @@ export class AosClient {
      *   * 请求中必须包括template_uri或template_body。前者为模板内容obs链接，后者为模板内容
      *   * 新创建的模板版本版本ID会自动在当前最大模板版本ID的基础上加1
      *   * 创建模板版本需要的具体信息详见：CreateTemplateVersionRequestBody
-     *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保，当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
+     *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2585,7 +2652,7 @@ export class AosClient {
      * 此API用于删除某个模板以及模板下的全部模板版本
      * **请谨慎操作，删除模板将会删除模板下的所有模板版本。**
      * 
-     *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保，当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
+     *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2611,7 +2678,7 @@ export class AosClient {
      * 
      * 此API用于删除某个模板版本
      * 
-     *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保，当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
+     *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
      *   * 如果模板下只存在唯一模板版本，此模板版本将无法被删除，如果需要删除此模板版本，请调用DeleteTemplate。模板服务不允许存在没有模板版本的模板
      * 
      * **请谨慎操作**
@@ -2642,10 +2709,10 @@ export class AosClient {
      * 此API用于列举模板下所有的模板版本信息
      * 
      *   * 默认按照生成时间降序排序，最新生成的模板排列在最前面
-     *   * 注意：目前返回全量模板版本信息，即不支持分页
      *   * 如果没有任何模板版本，则返回空list
-     *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保，当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
+     *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
      *   * 如果模板不存在则返回404
+     *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
      * 
      * ListTemplateVersions返回的信息只包含模板版本摘要信息（具体摘要信息见ListTemplateVersionsResponseBody），如果用户需要了解模板版本内容，请调用ShowTemplateVersionContent
      * 
@@ -2656,6 +2723,8 @@ export class AosClient {
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
      * @param {string} templateName 模板（Template）的名字。此名字在domain_id+region下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [templateId] 模板的ID。当template_id存在时，模板服务会检查template_id是否和template_name匹配，不匹配会返回400
+     * @param {string} [marker] 分页标记。当一页无法返回所有结果，上一次的请求将返回next_marker以指引还有更多页数，用户可以将next_marker中的值放到此处以查询下一页的信息。此marker只能用于与上一请求指定的相同参数的请求。不指定时默认从第一页开始查询。
+     * @param {number} [limit] 每页返回的最多结果数量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2674,9 +2743,9 @@ export class AosClient {
      * 此API用于列举当前局点下用户所有的模板
      * 
      *   * 默认按照生成时间降序排序，最新生成的模板排列在最前面
-     *   * 注意：目前返回全量模板信息，即不支持分页
      *   * 如果没有任何模板，则返回空list
      *   * 如果用户需要详细的模板版本信息，请调用ListTemplateVersions
+     *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
      * 
      * ListTemplates返回的信息只包含模板摘要信息（具体摘要信息见ListTemplatesResponseBody），如果用户需要详细的某个模板信息，请调用ShowTemplateMetadata
      * 
@@ -2685,6 +2754,8 @@ export class AosClient {
      * @summary 列举模板
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [[项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html)](tag:hws) [[项目ID获取方式](https://support.huaweicloud.com/intl/zh-cn/api-ticket/ticket_api_20002.html)](tag:hws_hk) [[项目ID获取方式](https://support.huaweicloud.com/eu/api-ticket/ticket_api_20002.html)](tag:hws_eu)
+     * @param {string} [marker] 分页标记。当一页无法返回所有结果，上一次的请求将返回next_marker以指引还有更多页数，用户可以将next_marker中的值放到此处以查询下一页的信息。此marker只能用于与上一请求指定的相同参数的请求。不指定时默认从第一页开始查询。
+     * @param {number} [limit] 每页返回的最多结果数量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2704,7 +2775,7 @@ export class AosClient {
      * 
      * 具体信息见ShowTemplateMetadataResponseBody，如果想查看模板下全部模板版本，请调用ListTemplateVersions。
      * 
-     *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保，当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
+     *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2730,7 +2801,7 @@ export class AosClient {
      * 
      * 此API用于获取用户的模板版本内容
      * 
-     *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保，当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
+     *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
      *   * 此api会以临时重定向形式返回模板内容的下载链接，用户通过下载获取模板版本内容（OBS Pre Signed地址，有效期为5分钟）
      *   * 如果手动访问重定向的obs下载链接，请求时不可以携带任何的Request-Header，否则会导致签名失败
      * 
@@ -2763,7 +2834,7 @@ export class AosClient {
      * 
      * 此API用于展示某一版本模板的元数据
      * 
-     *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保，当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
+     *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
      * 
      * ShowTemplateVersionMetadata返回的信息只包含模板版本元数据信息（具体摘要信息见ShowTemplateVersionMetadataResponseBody），如果用户需要了解模板版本内容，请调用ShowTemplateVersionContent
      * 
@@ -3760,7 +3831,7 @@ export const ParamCreater = function () {
          *           * 支持的计费模式：包周期、按需
          *           * 询价必要参数：flavor_id（规格ID）、flavor_name（规格名称，flavor_id和flavor_name至少给出一个）、system_disk_size（系统磁盘大小）
          *       * huaweicloud_vpc_bandwidth:
-         *           * 支持的计费模式：按需
+         *           * 支持的计费模式：包周期、按需
          *           * 询价必要参数：charge_mode仅支持bandwidth
          *       * huaweicloud_vpc_eip: 
          *           * 支持的计费模式：包周期、按需
@@ -3843,6 +3914,36 @@ export const ParamCreater = function () {
          *           * 支持的计费模式：按需
          *       * huaweicloud_kms_key: 
          *           * 支持的计费模式：按需
+         *       * huaweicloud_elb_listener:
+         *           * 支持的计费模式：免费
+         *       * huaweicloud_elb_monitor:
+         *           * 支持的计费模式：免费
+         *       * huaweicloud_elb_pool:
+         *           * 支持的计费模式：免费
+         *       * huaweicloud_elb_member:
+         *           * 支持的计费模式：免费
+         *       * huaweicloud_vpc_subnet:
+         *           * 支持的计费模式：免费
+         *       * huaweicloud_networking_secgroup:
+         *           * 支持的计费模式：免费
+         *       * huaweicloud_iec_security_group:
+         *           * 支持的计费模式：免费
+         *       * huaweicloud_dns_zone:
+         *           * 支持的计费模式：免费
+         *       * huaweicloud_enterprise_project:
+         *           * 支持的计费模式：免费
+         *       * huaweicloud_er_instance:
+         *           * 支持的计费模式：免费
+         *       * huaweicloud_lts_group:
+         *           * 支持的计费模式：免费
+         *       * huaweicloud_smn_topic:
+         *           * 支持的计费模式：免费
+         *       * huaweicloud_smn_subscription:
+         *           * 支持的计费模式：免费
+         *       * huaweicloud_cc_connection:
+         *           * 支持的计费模式：免费
+         *       * huaweicloud_cc_network_instance:
+         *           * 支持的计费模式：免费
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4167,6 +4268,7 @@ export const ParamCreater = function () {
          *       DeleteStackEnhanced
          *   * 创建私有hook时指定的版本为初始默认版本。
          *   * 如果同名的私有hook在当前domain_id+region下已经存在，则会返回409。
+         *   * 对于私有hook的名字，推荐用户使用三段命名空间：{自定义hook名称}-{hook应用场景}-hook。
          *   * 私有hook版本号遵循语义化版本号（Semantic Version），为用户自定义。
          *   * 资源编排服务会对私有hook进行校验，如文件大小，策略文件语法校验等。若存在错误，则会创建失败。
          *   * 当前仅支持部署资源前的检测，不支持部署资源过程中的检测。如果通过了部署资源前的检测，资源栈则会继续部署资源。反之会停止部署资源，并记录资源栈事件（stack events）。
@@ -4418,6 +4520,94 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'hook_name': hookName,'hook_version': hookVersion, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列举私有hook版本（ListPrivateHookVersions）
+         * 
+         * 列举所选择的私有hook中所有的hook版本信息。
+         * 
+         *   * 可以使用sort_key和sort_dir两个关键字对返回结果按创建时间（create_time）进行排序。给予的sort_key和sort_dir数量须一致，否则返回400。如果未给予sort_key和sort_dir，则默认按照创建时间降序排序。
+         *   * 如果hook_name和hook_id同时存在，则资源编排服务会检查是否两个匹配，如果不匹配则会返回400。
+         *   * 如果hook下不存在hook版本，则返回空list。
+         *   * 如果hook不存在则返回404。
+         *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPrivateHookVersions(listPrivateHookVersionsRequest?: ListPrivateHookVersionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/private-hooks/{hook_name}/versions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let hookName;
+            
+            let hookId;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let marker;
+            
+            let limit;
+
+            if (listPrivateHookVersionsRequest !== null && listPrivateHookVersionsRequest !== undefined) {
+                if (listPrivateHookVersionsRequest instanceof ListPrivateHookVersionsRequest) {
+                    clientRequestId = listPrivateHookVersionsRequest.clientRequestId;
+                    hookName = listPrivateHookVersionsRequest.hookName;
+                    hookId = listPrivateHookVersionsRequest.hookId;
+                    sortKey = listPrivateHookVersionsRequest.sortKey;
+                    sortDir = listPrivateHookVersionsRequest.sortDir;
+                    marker = listPrivateHookVersionsRequest.marker;
+                    limit = listPrivateHookVersionsRequest.limit;
+                } else {
+                    clientRequestId = listPrivateHookVersionsRequest['Client-Request-Id'];
+                    hookName = listPrivateHookVersionsRequest['hook_name'];
+                    hookId = listPrivateHookVersionsRequest['hook_id'];
+                    sortKey = listPrivateHookVersionsRequest['sort_key'];
+                    sortDir = listPrivateHookVersionsRequest['sort_dir'];
+                    marker = listPrivateHookVersionsRequest['marker'];
+                    limit = listPrivateHookVersionsRequest['limit'];
+                }
+            }
+
+        
+            if (hookName === null || hookName === undefined) {
+            throw new RequiredError('hookName','Required parameter hookName was null or undefined when calling listPrivateHookVersions.');
+            }
+            if (hookId !== null && hookId !== undefined) {
+                localVarQueryParameter['hook_id'] = hookId;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'hook_name': hookName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5663,7 +5853,7 @@ export const ParamCreater = function () {
          * 
          * 此API用于删除某个资源栈，可以选择是否保留资源。
          * **请谨慎操作，删除资源栈将默认删除与该资源栈相关的所有数据，如：执行计划、资源栈事件、资源栈输出、资源等。**
-         * **如果希望删除资源栈保留资源，可以在请求中设置&#x60;retain_all_resources&#x60;对资源进行保留。
+         * **如果希望删除资源栈保留资源，可以在请求中设置&#x60;retain_all_resources&#x60;对资源进行保留。**
          * 
          * * 此API会触发删除资源栈，并以最终一致性删除数据，用户可以调用GetStackMetadata或ListStacks跟踪资源栈删除情况。当删除完成后，被删除资源栈将不会在上述API中返回。
          * * 如果资源栈状态处于非终态（状态以&#x60;IN_PROGRESS&#x60;结尾）状态时，则不允许删除。包括但不限于以下状态：
@@ -6509,7 +6699,7 @@ export const ParamCreater = function () {
          * 
          * 此API用于删除指定资源栈集下指定局点（region）或指定成员账号（domain_id）的资源栈实例，并返回资源栈集操作ID（stack_set_operation_id）
          * 
-         * **请谨慎操作，删除资源栈实例将会删除与该资源栈实例相关的堆栈以及堆栈所管理的一切资源。**
+         * **请谨慎操作，删除资源栈实例将会删除与该资源栈实例相关的资源栈以及资源栈所管理的一切资源。**
          * 
          * * 用户可以根据资源栈集操作ID（stack_set_operation_id），通过ShowStackSetOperationMetadata API获取资源栈集操作状态
          * 
@@ -6568,7 +6758,7 @@ export const ParamCreater = function () {
          * 
          * 此API用于删除指定资源栈集下指定局点（region）或指定成员账号（domain_id）的资源栈实例，并返回资源栈集操作ID（stack_set_operation_id）
          * 
-         * **请谨慎操作，删除资源栈实例将会删除与该资源栈实例相关的堆栈以及堆栈所管理的一切资源。**
+         * **请谨慎操作，删除资源栈实例将会删除与该资源栈实例相关的资源栈以及资源栈所管理的一切资源。**
          * 
          * * 用户可以根据资源栈集操作ID（stack_set_operation_id），通过ShowStackSetOperationMetadata API获取资源栈集操作状态
          * 
@@ -7386,14 +7576,13 @@ export const ParamCreater = function () {
         /**
          * 更新资源栈集（UpdateStackSet）
          * 
-         * 该API可以根据用户给予的信息对资源栈集的属性进行更新，可以更新资源栈集的“stack_set_description”、\&quot;initial_stack_description\&quot;、\&quot;permission_model\&quot;、“administration_agency_name”、\&quot;managed_agency_name\&quot;、“administration_agency_urn”六个属性中的一个或多个。
+         * 该API可以根据用户给予的信息对资源栈集的属性进行更新，可以更新资源栈集如下属性“stack_set_description”、\&quot;initial_stack_description\&quot;、“administration_agency_name”、\&quot;managed_agency_name\&quot;、“administration_agency_urn”中的一个或多个。
          * 
          * 该API只会更新用户给予的信息中所涉及的字段；如果某字段未给予，则不会对该资源栈集属性进行更新。
          * 
          * 注：
          *   * 所有属性的更新都是覆盖式更新。即，所给予的参数将被完全覆盖至资源栈已有的属性上。
          *   * 只有在permission_model&#x3D;SELF_MANAGED时，才可更新administration_agency_name、managed_agency_name和administration_agency_urn。
-         *   * permission_model目前只支持更新SELF_MANAGED
          *   * 如果资源栈集的状态是OPERATION_IN_PROGRESS，不允许更新资源栈集。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7573,7 +7762,7 @@ export const ParamCreater = function () {
          *   * 请求中必须包括template_uri或template_body。前者为模板内容obs链接，后者为模板内容
          *   * 新创建的模板版本版本ID会自动在当前最大模板版本ID的基础上加1
          *   * 创建模板版本需要的具体信息详见：CreateTemplateVersionRequestBody
-         *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保，当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
+         *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7646,7 +7835,7 @@ export const ParamCreater = function () {
          * 此API用于删除某个模板以及模板下的全部模板版本
          * **请谨慎操作，删除模板将会删除模板下的所有模板版本。**
          * 
-         *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保，当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
+         *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7709,7 +7898,7 @@ export const ParamCreater = function () {
          * 
          * 此API用于删除某个模板版本
          * 
-         *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保，当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
+         *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
          *   * 如果模板下只存在唯一模板版本，此模板版本将无法被删除，如果需要删除此模板版本，请调用DeleteTemplate。模板服务不允许存在没有模板版本的模板
          * 
          * **请谨慎操作**
@@ -7783,10 +7972,10 @@ export const ParamCreater = function () {
          * 此API用于列举模板下所有的模板版本信息
          * 
          *   * 默认按照生成时间降序排序，最新生成的模板排列在最前面
-         *   * 注意：目前返回全量模板版本信息，即不支持分页
          *   * 如果没有任何模板版本，则返回空list
-         *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保，当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
+         *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
          *   * 如果模板不存在则返回404
+         *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
          * 
          * ListTemplateVersions返回的信息只包含模板版本摘要信息（具体摘要信息见ListTemplateVersionsResponseBody），如果用户需要了解模板版本内容，请调用ShowTemplateVersionContent
          * 
@@ -7811,6 +8000,10 @@ export const ParamCreater = function () {
             let templateName;
             
             let templateId;
+            
+            let marker;
+            
+            let limit;
 
             if (listTemplateVersionsRequest !== null && listTemplateVersionsRequest !== undefined) {
                 if (listTemplateVersionsRequest instanceof ListTemplateVersionsRequest) {
@@ -7818,11 +8011,15 @@ export const ParamCreater = function () {
                     projectId = listTemplateVersionsRequest.projectId;
                     templateName = listTemplateVersionsRequest.templateName;
                     templateId = listTemplateVersionsRequest.templateId;
+                    marker = listTemplateVersionsRequest.marker;
+                    limit = listTemplateVersionsRequest.limit;
                 } else {
                     clientRequestId = listTemplateVersionsRequest['Client-Request-Id'];
                     projectId = listTemplateVersionsRequest['project_id'];
                     templateName = listTemplateVersionsRequest['template_name'];
                     templateId = listTemplateVersionsRequest['template_id'];
+                    marker = listTemplateVersionsRequest['marker'];
+                    limit = listTemplateVersionsRequest['limit'];
                 }
             }
 
@@ -7835,6 +8032,12 @@ export const ParamCreater = function () {
             }
             if (templateId !== null && templateId !== undefined) {
                 localVarQueryParameter['template_id'] = templateId;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -7852,9 +8055,9 @@ export const ParamCreater = function () {
          * 此API用于列举当前局点下用户所有的模板
          * 
          *   * 默认按照生成时间降序排序，最新生成的模板排列在最前面
-         *   * 注意：目前返回全量模板信息，即不支持分页
          *   * 如果没有任何模板，则返回空list
          *   * 如果用户需要详细的模板版本信息，请调用ListTemplateVersions
+         *   * 支持分页返回。如果响应中存在next_marker，则表示实际总输出比当前响应中包含的输出多。在对请求的后续调用中，在请求参数中使用此值，以获取输出的下一部分。您应该重复此操作，直到next_marker响应元素返回为null
          * 
          * ListTemplates返回的信息只包含模板摘要信息（具体摘要信息见ListTemplatesResponseBody），如果用户需要详细的某个模板信息，请调用ShowTemplateMetadata
          * 
@@ -7870,19 +8073,27 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let clientRequestId;
             
             let projectId;
+            
+            let marker;
+            
+            let limit;
 
             if (listTemplatesRequest !== null && listTemplatesRequest !== undefined) {
                 if (listTemplatesRequest instanceof ListTemplatesRequest) {
                     clientRequestId = listTemplatesRequest.clientRequestId;
                     projectId = listTemplatesRequest.projectId;
+                    marker = listTemplatesRequest.marker;
+                    limit = listTemplatesRequest.limit;
                 } else {
                     clientRequestId = listTemplatesRequest['Client-Request-Id'];
                     projectId = listTemplatesRequest['project_id'];
+                    marker = listTemplatesRequest['marker'];
+                    limit = listTemplatesRequest['limit'];
                 }
             }
 
@@ -7890,10 +8101,17 @@ export const ParamCreater = function () {
             if (projectId === null || projectId === undefined) {
             throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listTemplates.');
             }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
             }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -7906,7 +8124,7 @@ export const ParamCreater = function () {
          * 
          * 具体信息见ShowTemplateMetadataResponseBody，如果想查看模板下全部模板版本，请调用ListTemplateVersions。
          * 
-         *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保，当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
+         *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7969,7 +8187,7 @@ export const ParamCreater = function () {
          * 
          * 此API用于获取用户的模板版本内容
          * 
-         *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保，当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
+         *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
          *   * 此api会以临时重定向形式返回模板内容的下载链接，用户通过下载获取模板版本内容（OBS Pre Signed地址，有效期为5分钟）
          *   * 如果手动访问重定向的obs下载链接，请求时不可以携带任何的Request-Header，否则会导致签名失败
          * 
@@ -8057,7 +8275,7 @@ export const ParamCreater = function () {
          * 
          * 此API用于展示某一版本模板的元数据
          * 
-         *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保，当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
+         *   * template_id是模板的唯一Id。此Id由资源编排服务在生成模板的时候生成，为UUID。由于模板名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的模板，删除，再重新创建一个同名模板。对于团队并行开发，用户可能希望确保当前我操作的模板就是我认为的那个，而不是其他队友删除后创建的同名模板。因此，使用ID就可以做到强匹配。资源编排服务保证每次创建的模板所对应的ID都不相同，更新不会影响ID。如果给予的template_id和当前模板管理的ID不一致，则返回400
          * 
          * ShowTemplateVersionMetadata返回的信息只包含模板版本元数据信息（具体摘要信息见ShowTemplateVersionMetadataResponseBody），如果用户需要了解模板版本内容，请调用ShowTemplateVersionContent
          * 

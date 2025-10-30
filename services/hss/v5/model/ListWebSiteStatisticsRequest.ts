@@ -4,8 +4,10 @@ export class ListWebSiteStatisticsRequest {
     private 'enterprise_project_id'?: string;
     public offset?: number;
     public limit?: number;
+    public category?: string;
     public domain?: string;
-    public constructor() { 
+    public constructor(category?: string) { 
+        this['category'] = category;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListWebSiteStatisticsRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
@@ -23,6 +25,10 @@ export class ListWebSiteStatisticsRequest {
     }
     public withLimit(limit: number): ListWebSiteStatisticsRequest {
         this['limit'] = limit;
+        return this;
+    }
+    public withCategory(category: string): ListWebSiteStatisticsRequest {
+        this['category'] = category;
         return this;
     }
     public withDomain(domain: string): ListWebSiteStatisticsRequest {

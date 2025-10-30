@@ -4,11 +4,10 @@ export class ListWebAppAndServiceStatisticsRequest {
     private 'enterprise_project_id'?: string;
     public offset?: number;
     public limit?: number;
-    public name?: string;
     public category?: string;
+    public name?: string;
     public catalogue?: string;
-    public constructor(name?: string, category?: string, catalogue?: string) { 
-        this['name'] = name;
+    public constructor(category?: string, catalogue?: string) { 
         this['category'] = category;
         this['catalogue'] = catalogue;
     }
@@ -30,12 +29,12 @@ export class ListWebAppAndServiceStatisticsRequest {
         this['limit'] = limit;
         return this;
     }
-    public withName(name: string): ListWebAppAndServiceStatisticsRequest {
-        this['name'] = name;
-        return this;
-    }
     public withCategory(category: string): ListWebAppAndServiceStatisticsRequest {
         this['category'] = category;
+        return this;
+    }
+    public withName(name: string): ListWebAppAndServiceStatisticsRequest {
+        this['name'] = name;
         return this;
     }
     public withCatalogue(catalogue: string): ListWebAppAndServiceStatisticsRequest {

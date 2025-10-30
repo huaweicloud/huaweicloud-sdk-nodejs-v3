@@ -1,5 +1,5 @@
-import { ClusterInfoResponseDsInfo } from './ClusterInfoResponseDsInfo';
 import { CreateDaemonsetRequestBodyScheduleInfo } from './CreateDaemonsetRequestBodyScheduleInfo';
+import { DaemonsetYamlResponseInfoDsInfo } from './DaemonsetYamlResponseInfoDsInfo';
 import { RuntimeRequestBody } from './RuntimeRequestBody';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -9,7 +9,7 @@ export class ShowAgentDaemonsetDetailInfoResponse extends SdkResponse {
     private 'node_num'?: number;
     private 'runtime_info'?: Array<RuntimeRequestBody>;
     private 'cluster_status'?: string;
-    private 'ds_info'?: ClusterInfoResponseDsInfo;
+    private 'ds_info'?: DaemonsetYamlResponseInfoDsInfo;
     private 'installed_status'?: string;
     private 'schedule_info'?: CreateDaemonsetRequestBodyScheduleInfo;
     public constructor() { 
@@ -55,14 +55,14 @@ export class ShowAgentDaemonsetDetailInfoResponse extends SdkResponse {
     public get clusterStatus(): string | undefined {
         return this['cluster_status'];
     }
-    public withDsInfo(dsInfo: ClusterInfoResponseDsInfo): ShowAgentDaemonsetDetailInfoResponse {
+    public withDsInfo(dsInfo: DaemonsetYamlResponseInfoDsInfo): ShowAgentDaemonsetDetailInfoResponse {
         this['ds_info'] = dsInfo;
         return this;
     }
-    public set dsInfo(dsInfo: ClusterInfoResponseDsInfo  | undefined) {
+    public set dsInfo(dsInfo: DaemonsetYamlResponseInfoDsInfo  | undefined) {
         this['ds_info'] = dsInfo;
     }
-    public get dsInfo(): ClusterInfoResponseDsInfo | undefined {
+    public get dsInfo(): DaemonsetYamlResponseInfoDsInfo | undefined {
         return this['ds_info'];
     }
     public withInstalledStatus(installedStatus: string): ShowAgentDaemonsetDetailInfoResponse {

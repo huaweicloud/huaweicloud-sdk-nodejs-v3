@@ -3,8 +3,8 @@
 export class ListWebFrameworkInfoRequest {
     private 'enterprise_project_id'?: string;
     private 'host_id'?: string;
-    private 'file_name'?: string;
     public category?: string;
+    private 'file_name'?: string;
     public constructor(hostId?: string, category?: string) { 
         this['host_id'] = hostId;
         this['category'] = category;
@@ -29,6 +29,10 @@ export class ListWebFrameworkInfoRequest {
     public get hostId(): string | undefined {
         return this['host_id'];
     }
+    public withCategory(category: string): ListWebFrameworkInfoRequest {
+        this['category'] = category;
+        return this;
+    }
     public withFileName(fileName: string): ListWebFrameworkInfoRequest {
         this['file_name'] = fileName;
         return this;
@@ -38,9 +42,5 @@ export class ListWebFrameworkInfoRequest {
     }
     public get fileName(): string | undefined {
         return this['file_name'];
-    }
-    public withCategory(category: string): ListWebFrameworkInfoRequest {
-        this['category'] = category;
-        return this;
     }
 }

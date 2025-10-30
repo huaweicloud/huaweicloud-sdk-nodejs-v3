@@ -6,8 +6,10 @@ export class ResultsTopnBody {
     private 'write_traffic'?: number;
     private 'log_group_id'?: string;
     private 'log_group_name'?: string;
+    private 'log_group_name_alias'?: string;
     private 'log_stream_id'?: string;
     private 'log_stream_name'?: string;
+    private 'log_stream_name_alias'?: string;
     private 'basic_transfer'?: number;
     private 'senior_transfer'?: number;
     private 'is_agency_transfer'?: boolean;
@@ -63,6 +65,16 @@ export class ResultsTopnBody {
     public get logGroupName(): string | undefined {
         return this['log_group_name'];
     }
+    public withLogGroupNameAlias(logGroupNameAlias: string): ResultsTopnBody {
+        this['log_group_name_alias'] = logGroupNameAlias;
+        return this;
+    }
+    public set logGroupNameAlias(logGroupNameAlias: string  | undefined) {
+        this['log_group_name_alias'] = logGroupNameAlias;
+    }
+    public get logGroupNameAlias(): string | undefined {
+        return this['log_group_name_alias'];
+    }
     public withLogStreamId(logStreamId: string): ResultsTopnBody {
         this['log_stream_id'] = logStreamId;
         return this;
@@ -82,6 +94,16 @@ export class ResultsTopnBody {
     }
     public get logStreamName(): string | undefined {
         return this['log_stream_name'];
+    }
+    public withLogStreamNameAlias(logStreamNameAlias: string): ResultsTopnBody {
+        this['log_stream_name_alias'] = logStreamNameAlias;
+        return this;
+    }
+    public set logStreamNameAlias(logStreamNameAlias: string  | undefined) {
+        this['log_stream_name_alias'] = logStreamNameAlias;
+    }
+    public get logStreamNameAlias(): string | undefined {
+        return this['log_stream_name_alias'];
     }
     public withBasicTransfer(basicTransfer: number): ResultsTopnBody {
         this['basic_transfer'] = basicTransfer;

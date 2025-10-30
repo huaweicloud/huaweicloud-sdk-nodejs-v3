@@ -9,6 +9,7 @@ import { AdviceResult } from './model/AdviceResult';
 import { ApiListConnectionsInfoRespDasConnInfoList } from './model/ApiListConnectionsInfoRespDasConnInfoList';
 import { ApiSetMetricCodeThresholdReq } from './model/ApiSetMetricCodeThresholdReq';
 import { ApiVersion } from './model/ApiVersion';
+import { AutoIncrementUsageRespAutoIncrementUsageList } from './model/AutoIncrementUsageRespAutoIncrementUsageList';
 import { CancelShareConnectionsRequest } from './model/CancelShareConnectionsRequest';
 import { CancelShareConnectionsRequestBody } from './model/CancelShareConnectionsRequestBody';
 import { CancelShareConnectionsResponse } from './model/CancelShareConnectionsResponse';
@@ -120,6 +121,9 @@ import { InstanceNodesInfoInstanceNodes } from './model/InstanceNodesInfoInstanc
 import { InstanceSpaceInfo } from './model/InstanceSpaceInfo';
 import { ListApiVersionsRequest } from './model/ListApiVersionsRequest';
 import { ListApiVersionsResponse } from './model/ListApiVersionsResponse';
+import { ListAutoIncrementUsageRequest } from './model/ListAutoIncrementUsageRequest';
+import { ListAutoIncrementUsageRequestBody } from './model/ListAutoIncrementUsageRequestBody';
+import { ListAutoIncrementUsageResponse } from './model/ListAutoIncrementUsageResponse';
 import { ListCloudDbaInstancesRequest } from './model/ListCloudDbaInstancesRequest';
 import { ListCloudDbaInstancesResponse } from './model/ListCloudDbaInstancesResponse';
 import { ListConnectionsRequest } from './model/ListConnectionsRequest';
@@ -173,6 +177,8 @@ import { QueryRiskItemsItems } from './model/QueryRiskItemsItems';
 import { QueryRiskTrendMetric } from './model/QueryRiskTrendMetric';
 import { QuerySnapshotsRespItems } from './model/QuerySnapshotsRespItems';
 import { QuerySqlPlanBody } from './model/QuerySqlPlanBody';
+import { RecommendSqlLimitRuleRespRawSql } from './model/RecommendSqlLimitRuleRespRawSql';
+import { RecommendSqlLimitRuleRespSqlLimitInfos } from './model/RecommendSqlLimitRuleRespSqlLimitInfos';
 import { RegisterDbUserRequest } from './model/RegisterDbUserRequest';
 import { RegisterDbUserRequestBody } from './model/RegisterDbUserRequestBody';
 import { RegisterDbUserResponse } from './model/RegisterDbUserResponse';
@@ -184,6 +190,8 @@ import { SetThresholdForMetricResponse } from './model/SetThresholdForMetricResp
 import { ShareConnUserInfo } from './model/ShareConnUserInfo';
 import { ShowApiVersionRequest } from './model/ShowApiVersionRequest';
 import { ShowApiVersionResponse } from './model/ShowApiVersionResponse';
+import { ShowDasRecommendSqlLimitRuleRequest } from './model/ShowDasRecommendSqlLimitRuleRequest';
+import { ShowDasRecommendSqlLimitRuleResponse } from './model/ShowDasRecommendSqlLimitRuleResponse';
 import { ShowDbUserRequest } from './model/ShowDbUserRequest';
 import { ShowDbUserResponse } from './model/ShowDbUserResponse';
 import { ShowFullDeadLockListRequest } from './model/ShowFullDeadLockListRequest';
@@ -200,6 +208,7 @@ import { ShowMetricNamesSupportRequest } from './model/ShowMetricNamesSupportReq
 import { ShowMetricNamesSupportResponse } from './model/ShowMetricNamesSupportResponse';
 import { ShowQuotasRequest } from './model/ShowQuotasRequest';
 import { ShowQuotasResponse } from './model/ShowQuotasResponse';
+import { ShowRecommendSqlLimitRuleRequestBody } from './model/ShowRecommendSqlLimitRuleRequestBody';
 import { ShowSqlExecutionPlanRequest } from './model/ShowSqlExecutionPlanRequest';
 import { ShowSqlExecutionPlanResponse } from './model/ShowSqlExecutionPlanResponse';
 import { ShowSqlExplainRequest } from './model/ShowSqlExplainRequest';
@@ -958,6 +967,27 @@ export class DasClient {
     }
 
     /**
+     * 查询自增配额
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询自增配额
+     * @param {string} instanceId 实例id
+     * @param {ListAutoIncrementUsageRequestBody} listAutoIncrementUsageRequestBody 请求参数
+     * @param {string} [xLanguage] 使用语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAutoIncrementUsage(listAutoIncrementUsageRequest?: ListAutoIncrementUsageRequest): Promise<ListAutoIncrementUsageResponse> {
+        const options = ParamCreater().listAutoIncrementUsage(listAutoIncrementUsageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取DAS云DBA实例列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1470,6 +1500,27 @@ export class DasClient {
      */
     public setThresholdForMetric(setThresholdForMetricRequest?: SetThresholdForMetricRequest): Promise<SetThresholdForMetricResponse> {
         const options = ParamCreater().setThresholdForMetric(setThresholdForMetricRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据条件（包括模板所代表的sql平均时长，条数，最大执行时长，前三者混合）自动推荐SQL限流规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 自动推荐SQL限流规则
+     * @param {string} instanceId 实例id
+     * @param {ShowRecommendSqlLimitRuleRequestBody} showDasRecommendSqlLimitRuleRequestBody 请求参数
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDasRecommendSqlLimitRule(showDasRecommendSqlLimitRuleRequest?: ShowDasRecommendSqlLimitRuleRequest): Promise<ShowDasRecommendSqlLimitRuleResponse> {
+        const options = ParamCreater().showDasRecommendSqlLimitRule(showDasRecommendSqlLimitRuleRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3905,6 +3956,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询自增配额
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAutoIncrementUsage(listAutoIncrementUsageRequest?: ListAutoIncrementUsageRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/list-auto-increment-usage",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (listAutoIncrementUsageRequest !== null && listAutoIncrementUsageRequest !== undefined) {
+                if (listAutoIncrementUsageRequest instanceof ListAutoIncrementUsageRequest) {
+                    instanceId = listAutoIncrementUsageRequest.instanceId;
+                    body = listAutoIncrementUsageRequest.body
+                    xLanguage = listAutoIncrementUsageRequest.xLanguage;
+                } else {
+                    instanceId = listAutoIncrementUsageRequest['instance_id'];
+                    body = listAutoIncrementUsageRequest['body'];
+                    xLanguage = listAutoIncrementUsageRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listAutoIncrementUsage.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取DAS云DBA实例列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5492,6 +5596,59 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据条件（包括模板所代表的sql平均时长，条数，最大执行时长，前三者混合）自动推荐SQL限流规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDasRecommendSqlLimitRule(showDasRecommendSqlLimitRuleRequest?: ShowDasRecommendSqlLimitRuleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/das-recommend-sql-limit-rule",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showDasRecommendSqlLimitRuleRequest !== null && showDasRecommendSqlLimitRuleRequest !== undefined) {
+                if (showDasRecommendSqlLimitRuleRequest instanceof ShowDasRecommendSqlLimitRuleRequest) {
+                    instanceId = showDasRecommendSqlLimitRuleRequest.instanceId;
+                    body = showDasRecommendSqlLimitRuleRequest.body
+                    xLanguage = showDasRecommendSqlLimitRuleRequest.xLanguage;
+                } else {
+                    instanceId = showDasRecommendSqlLimitRuleRequest['instance_id'];
+                    body = showDasRecommendSqlLimitRuleRequest['body'];
+                    xLanguage = showDasRecommendSqlLimitRuleRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showDasRecommendSqlLimitRule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

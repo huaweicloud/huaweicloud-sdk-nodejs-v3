@@ -13,6 +13,7 @@ export class ListLogStreamsResponseBody1LogStreams {
     private 'ttl_in_days'?: number;
     private 'hot_storage_days'?: number;
     private 'log_group_id'?: string;
+    private 'is_favorite'?: boolean;
     public constructor(creationTime?: number, logStreamId?: string, logStreamName?: string, tag?: { [key: string]: string; }, filterCount?: number) { 
         this['creation_time'] = creationTime;
         this['log_stream_id'] = logStreamId;
@@ -133,5 +134,15 @@ export class ListLogStreamsResponseBody1LogStreams {
     }
     public get logGroupId(): string | undefined {
         return this['log_group_id'];
+    }
+    public withIsFavorite(isFavorite: boolean): ListLogStreamsResponseBody1LogStreams {
+        this['is_favorite'] = isFavorite;
+        return this;
+    }
+    public set isFavorite(isFavorite: boolean  | undefined) {
+        this['is_favorite'] = isFavorite;
+    }
+    public get isFavorite(): boolean | undefined {
+        return this['is_favorite'];
     }
 }

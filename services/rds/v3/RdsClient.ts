@@ -150,6 +150,7 @@ import { DBUpgradePrecheck } from './model/DBUpgradePrecheck';
 import { DataIpRequest } from './model/DataIpRequest';
 import { DatabaseBackupInfo } from './model/DatabaseBackupInfo';
 import { DatabaseForCreation } from './model/DatabaseForCreation';
+import { DatabaseSmallVersion } from './model/DatabaseSmallVersion';
 import { DatabaseUserRoleRequest } from './model/DatabaseUserRoleRequest';
 import { DatabaseWithPrivilege } from './model/DatabaseWithPrivilege';
 import { DatabaseWithPrivilegeObject } from './model/DatabaseWithPrivilegeObject';
@@ -238,6 +239,8 @@ import { Flavor } from './model/Flavor';
 import { FollowerMigrateRequest } from './model/FollowerMigrateRequest';
 import { GenerateAuditlogDownloadLinkRequest } from './model/GenerateAuditlogDownloadLinkRequest';
 import { GetBackupDownloadLinkFiles } from './model/GetBackupDownloadLinkFiles';
+import { GetInstancesNoIndexTablesRequest } from './model/GetInstancesNoIndexTablesRequest';
+import { GetInstancesNoIndexTablesResponse } from './model/GetInstancesNoIndexTablesResponse';
 import { GetJobInfoResponseBodyJob } from './model/GetJobInfoResponseBodyJob';
 import { GetJobInfoResponseBodyJobEntities } from './model/GetJobInfoResponseBodyJobEntities';
 import { GetJobInfoResponseBodyJobEntitiesInstance } from './model/GetJobInfoResponseBodyJobEntitiesInstance';
@@ -335,8 +338,6 @@ import { ListInstancesConfigurationsRequest } from './model/ListInstancesConfigu
 import { ListInstancesConfigurationsResponse } from './model/ListInstancesConfigurationsResponse';
 import { ListInstancesInfoDiagnosisRequest } from './model/ListInstancesInfoDiagnosisRequest';
 import { ListInstancesInfoDiagnosisResponse } from './model/ListInstancesInfoDiagnosisResponse';
-import { ListInstancesNoIndexTablesRequest } from './model/ListInstancesNoIndexTablesRequest';
-import { ListInstancesNoIndexTablesResponse } from './model/ListInstancesNoIndexTablesResponse';
 import { ListInstancesRequest } from './model/ListInstancesRequest';
 import { ListInstancesResponse } from './model/ListInstancesResponse';
 import { ListInstancesSupportFastRestoreRequest } from './model/ListInstancesSupportFastRestoreRequest';
@@ -408,6 +409,8 @@ import { ListSlowlogForLtsRequest } from './model/ListSlowlogForLtsRequest';
 import { ListSlowlogForLtsResponse } from './model/ListSlowlogForLtsResponse';
 import { ListSlowlogStatisticsRequest } from './model/ListSlowlogStatisticsRequest';
 import { ListSlowlogStatisticsResponse } from './model/ListSlowlogStatisticsResponse';
+import { ListSmallVersionRequest } from './model/ListSmallVersionRequest';
+import { ListSmallVersionResponse } from './model/ListSmallVersionResponse';
 import { ListSqlLimitRequest } from './model/ListSqlLimitRequest';
 import { ListSqlLimitResponse } from './model/ListSqlLimitResponse';
 import { ListSqlStatisticsRequest } from './model/ListSqlStatisticsRequest';
@@ -2709,6 +2712,28 @@ export class RdsClient {
      */
     public listSlowlogStatistics(listSlowlogStatisticsRequest?: ListSlowlogStatisticsRequest): Promise<ListSlowlogStatisticsResponse> {
         const options = ParamCreater().listSlowlogStatistics(listSlowlogStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询小版本号
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询小版本号
+     * @param {string} databaseName 数据库引擎名。 取值范围： 支持的引擎如下，不区分大小写： PostgreSQL
+     * @param {string} version 数据库版本号。（可输入小版本号）
+     * @param {number} [offset] 参数解释： 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询。 约束限制：必须为数字，不能为负数。 取值范围：大于等于0的整数。 默认取值：0
+     * @param {number} [limit] 参数解释： 查询记录数。 约束限制：不涉及。 取值范围：默认为100，不能为负数，最小值为1，最大值为100。 默认取值：100
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSmallVersion(listSmallVersionRequest?: ListSmallVersionRequest): Promise<ListSmallVersionResponse> {
+        const options = ParamCreater().listSmallVersion(listSmallVersionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5711,8 +5736,8 @@ export class RdsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listInstancesNoIndexTables(listInstancesNoIndexTablesRequest?: ListInstancesNoIndexTablesRequest): Promise<ListInstancesNoIndexTablesResponse> {
-        const options = ParamCreater().listInstancesNoIndexTables(listInstancesNoIndexTablesRequest);
+    public getInstancesNoIndexTables(getInstancesNoIndexTablesRequest?: GetInstancesNoIndexTablesRequest): Promise<GetInstancesNoIndexTablesResponse> {
+        const options = ParamCreater().getInstancesNoIndexTables(getInstancesNoIndexTablesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -11169,6 +11194,68 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询小版本号
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSmallVersion(listSmallVersionRequest?: ListSmallVersionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/datastores/{database_name}/small-version",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let databaseName;
+            
+            let version;
+            
+            let offset;
+            
+            let limit;
+
+            if (listSmallVersionRequest !== null && listSmallVersionRequest !== undefined) {
+                if (listSmallVersionRequest instanceof ListSmallVersionRequest) {
+                    databaseName = listSmallVersionRequest.databaseName;
+                    version = listSmallVersionRequest.version;
+                    offset = listSmallVersionRequest.offset;
+                    limit = listSmallVersionRequest.limit;
+                } else {
+                    databaseName = listSmallVersionRequest['database_name'];
+                    version = listSmallVersionRequest['version'];
+                    offset = listSmallVersionRequest['offset'];
+                    limit = listSmallVersionRequest['limit'];
+                }
+            }
+
+        
+            if (databaseName === null || databaseName === undefined) {
+            throw new RequiredError('databaseName','Required parameter databaseName was null or undefined when calling listSmallVersion.');
+            }
+            if (version === null || version === undefined) {
+                throw new RequiredError('version','Required parameter version was null or undefined when calling listSmallVersion.');
+            }
+            if (version !== null && version !== undefined) {
+                localVarQueryParameter['version'] = version;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'database_name': databaseName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -18472,7 +18559,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listInstancesNoIndexTables(listInstancesNoIndexTablesRequest?: ListInstancesNoIndexTablesRequest) {
+        getInstancesNoIndexTables(getInstancesNoIndexTablesRequest?: GetInstancesNoIndexTablesRequest) {
             const options = {
                 method: "GET",
                 url: "/v3/{project_id}/instances/{instance_id}/no-index-tables",
@@ -18490,30 +18577,30 @@ export const ParamCreater = function () {
             
             let tableType;
 
-            if (listInstancesNoIndexTablesRequest !== null && listInstancesNoIndexTablesRequest !== undefined) {
-                if (listInstancesNoIndexTablesRequest instanceof ListInstancesNoIndexTablesRequest) {
-                    instanceId = listInstancesNoIndexTablesRequest.instanceId;
-                    newest = listInstancesNoIndexTablesRequest.newest;
-                    tableType = listInstancesNoIndexTablesRequest.tableType;
+            if (getInstancesNoIndexTablesRequest !== null && getInstancesNoIndexTablesRequest !== undefined) {
+                if (getInstancesNoIndexTablesRequest instanceof GetInstancesNoIndexTablesRequest) {
+                    instanceId = getInstancesNoIndexTablesRequest.instanceId;
+                    newest = getInstancesNoIndexTablesRequest.newest;
+                    tableType = getInstancesNoIndexTablesRequest.tableType;
                 } else {
-                    instanceId = listInstancesNoIndexTablesRequest['instance_id'];
-                    newest = listInstancesNoIndexTablesRequest['newest'];
-                    tableType = listInstancesNoIndexTablesRequest['table_type'];
+                    instanceId = getInstancesNoIndexTablesRequest['instance_id'];
+                    newest = getInstancesNoIndexTablesRequest['newest'];
+                    tableType = getInstancesNoIndexTablesRequest['table_type'];
                 }
             }
 
         
             if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstancesNoIndexTables.');
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling getInstancesNoIndexTables.');
             }
             if (newest === null || newest === undefined) {
-                throw new RequiredError('newest','Required parameter newest was null or undefined when calling listInstancesNoIndexTables.');
+                throw new RequiredError('newest','Required parameter newest was null or undefined when calling getInstancesNoIndexTables.');
             }
             if (newest !== null && newest !== undefined) {
                 localVarQueryParameter['newest'] = newest;
             }
             if (tableType === null || tableType === undefined) {
-                throw new RequiredError('tableType','Required parameter tableType was null or undefined when calling listInstancesNoIndexTables.');
+                throw new RequiredError('tableType','Required parameter tableType was null or undefined when calling getInstancesNoIndexTables.');
             }
             if (tableType !== null && tableType !== undefined) {
                 localVarQueryParameter['table_type'] = tableType;

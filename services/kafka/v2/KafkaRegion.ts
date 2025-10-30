@@ -39,6 +39,7 @@ export class KafkaRegion {
     public static CN_SOUTH_4 = new Region("cn-south-4", ["https://dms.cn-south-4.myhuaweicloud.com"]);
     public static CN_NORTH_12 = new Region("cn-north-12", ["https://dms.cn-north-12.myhuaweicloud.com"]);
     public static CN_NORTH_11 = new Region("cn-north-11", ["https://dms.cn-north-11.myhuaweicloud.com"]);
+    public static CN_SOUTHWEST_3 = new Region("cn-southwest-3", ["https://dms.cn-southwest-3.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -74,7 +75,8 @@ export class KafkaRegion {
         "ru-moscow-1":KafkaRegion.RU_MOSCOW_1,
         "cn-south-4":KafkaRegion.CN_SOUTH_4,
         "cn-north-12":KafkaRegion.CN_NORTH_12,
-        "cn-north-11":KafkaRegion.CN_NORTH_11
+        "cn-north-11":KafkaRegion.CN_NORTH_11,
+        "cn-southwest-3":KafkaRegion.CN_SOUTHWEST_3
     };
   
     public static valueOf(regionId: string) {

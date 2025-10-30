@@ -1,7 +1,7 @@
+import { AlarmRulePolicy } from './AlarmRulePolicy';
 import { AlarmType } from './AlarmType';
 import { Dimension } from './Dimension';
 import { Notification } from './Notification';
-import { Policy } from './Policy';
 import { ResourceTag } from './ResourceTag';
 
 
@@ -11,7 +11,7 @@ export class PostAlarmsReqV2 {
     public namespace?: string;
     private 'resource_group_id'?: string;
     public resources?: Array<Array<Dimension>>;
-    public policies?: Array<Policy>;
+    public policies?: Array<AlarmRulePolicy>;
     public type?: AlarmType;
     private 'alarm_notifications'?: Array<Notification>;
     private 'ok_notifications'?: Array<Notification>;
@@ -59,7 +59,7 @@ export class PostAlarmsReqV2 {
         this['resources'] = resources;
         return this;
     }
-    public withPolicies(policies: Array<Policy>): PostAlarmsReqV2 {
+    public withPolicies(policies: Array<AlarmRulePolicy>): PostAlarmsReqV2 {
         this['policies'] = policies;
         return this;
     }

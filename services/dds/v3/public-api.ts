@@ -365,6 +365,7 @@ export * from './model/SwitchSslRequest';
 export * from './model/SwitchSslRequestBody';
 export * from './model/SwitchSslResponse';
 export * from './model/SwitchoverReplicaSetRequest';
+export * from './model/SwitchoverReplicaSetRequestBody';
 export * from './model/SwitchoverReplicaSetResponse';
 export * from './model/TagItem';
 export * from './model/TagResponse';

@@ -51,6 +51,10 @@ import { CreateTranscodingsTemplateResponse } from './model/CreateTranscodingsTe
 import { CreateUrlAuthchainReq } from './model/CreateUrlAuthchainReq';
 import { CreateUrlAuthchainRequest } from './model/CreateUrlAuthchainRequest';
 import { CreateUrlAuthchainResponse } from './model/CreateUrlAuthchainResponse';
+import { CreateWatermarkRuleRequest } from './model/CreateWatermarkRuleRequest';
+import { CreateWatermarkRuleResponse } from './model/CreateWatermarkRuleResponse';
+import { CreateWatermarkTemplateRequest } from './model/CreateWatermarkTemplateRequest';
+import { CreateWatermarkTemplateResponse } from './model/CreateWatermarkTemplateResponse';
 import { DashPackageItem } from './model/DashPackageItem';
 import { DecoupledLiveDomainInfo } from './model/DecoupledLiveDomainInfo';
 import { DefaultRecordConfig } from './model/DefaultRecordConfig';
@@ -87,6 +91,10 @@ import { DeleteStreamForbiddenRequest } from './model/DeleteStreamForbiddenReque
 import { DeleteStreamForbiddenResponse } from './model/DeleteStreamForbiddenResponse';
 import { DeleteTranscodingsTemplateRequest } from './model/DeleteTranscodingsTemplateRequest';
 import { DeleteTranscodingsTemplateResponse } from './model/DeleteTranscodingsTemplateResponse';
+import { DeleteWatermarkRuleRequest } from './model/DeleteWatermarkRuleRequest';
+import { DeleteWatermarkRuleResponse } from './model/DeleteWatermarkRuleResponse';
+import { DeleteWatermarkTemplateRequest } from './model/DeleteWatermarkTemplateRequest';
+import { DeleteWatermarkTemplateResponse } from './model/DeleteWatermarkTemplateResponse';
 import { DomainHttpsCertInfo } from './model/DomainHttpsCertInfo';
 import { DomainIpv6SwitchReq } from './model/DomainIpv6SwitchReq';
 import { DomainMapping } from './model/DomainMapping';
@@ -154,6 +162,10 @@ import { ListSnapshotConfigsRequest } from './model/ListSnapshotConfigsRequest';
 import { ListSnapshotConfigsResponse } from './model/ListSnapshotConfigsResponse';
 import { ListStreamForbiddenRequest } from './model/ListStreamForbiddenRequest';
 import { ListStreamForbiddenResponse } from './model/ListStreamForbiddenResponse';
+import { ListWatermarkRuleRequest } from './model/ListWatermarkRuleRequest';
+import { ListWatermarkRuleResponse } from './model/ListWatermarkRuleResponse';
+import { ListWatermarkTemplateRequest } from './model/ListWatermarkTemplateRequest';
+import { ListWatermarkTemplateResponse } from './model/ListWatermarkTemplateResponse';
 import { LiveDomainCreateReq } from './model/LiveDomainCreateReq';
 import { LiveDomainModifyReq } from './model/LiveDomainModifyReq';
 import { LiveRequestArgs } from './model/LiveRequestArgs';
@@ -195,6 +207,7 @@ import { ModifyOttChannelRecordSettings } from './model/ModifyOttChannelRecordSe
 import { ModifyOttChannelRecordSettingsRecordSettings } from './model/ModifyOttChannelRecordSettingsRecordSettings';
 import { ModifyOttChannelState } from './model/ModifyOttChannelState';
 import { ModifyPullSourcesConfig } from './model/ModifyPullSourcesConfig';
+import { ModifyWatermarkRule } from './model/ModifyWatermarkRule';
 import { MssPackageItem } from './model/MssPackageItem';
 import { ObsAuthorityConfigV2 } from './model/ObsAuthorityConfigV2';
 import { ObsFileAddr } from './model/ObsFileAddr';
@@ -245,6 +258,10 @@ import { ShowRefererChainRequest } from './model/ShowRefererChainRequest';
 import { ShowRefererChainResponse } from './model/ShowRefererChainResponse';
 import { ShowTranscodingsTemplateRequest } from './model/ShowTranscodingsTemplateRequest';
 import { ShowTranscodingsTemplateResponse } from './model/ShowTranscodingsTemplateResponse';
+import { ShowWatermarkRuleRequest } from './model/ShowWatermarkRuleRequest';
+import { ShowWatermarkRuleResponse } from './model/ShowWatermarkRuleResponse';
+import { ShowWatermarkTemplateRequest } from './model/ShowWatermarkTemplateRequest';
+import { ShowWatermarkTemplateResponse } from './model/ShowWatermarkTemplateResponse';
 import { SourceRsp } from './model/SourceRsp';
 import { SourcesInfo } from './model/SourcesInfo';
 import { StreamForbiddenList } from './model/StreamForbiddenList';
@@ -290,10 +307,18 @@ import { UpdateStreamForbiddenRequest } from './model/UpdateStreamForbiddenReque
 import { UpdateStreamForbiddenResponse } from './model/UpdateStreamForbiddenResponse';
 import { UpdateTranscodingsTemplateRequest } from './model/UpdateTranscodingsTemplateRequest';
 import { UpdateTranscodingsTemplateResponse } from './model/UpdateTranscodingsTemplateResponse';
+import { UpdateWatermarkRuleRequest } from './model/UpdateWatermarkRuleRequest';
+import { UpdateWatermarkRuleResponse } from './model/UpdateWatermarkRuleResponse';
+import { UpdateWatermarkTemplateRequest } from './model/UpdateWatermarkTemplateRequest';
+import { UpdateWatermarkTemplateResponse } from './model/UpdateWatermarkTemplateResponse';
 import { VideoDescriptions } from './model/VideoDescriptions';
 import { VideoFormatVar } from './model/VideoFormatVar';
 import { VodInfoV2 } from './model/VodInfoV2';
 import { VodPackageInfo } from './model/VodPackageInfo';
+import { WatermarkLocation } from './model/WatermarkLocation';
+import { WatermarkRule } from './model/WatermarkRule';
+import { WatermarkTemplate } from './model/WatermarkTemplate';
+import { WordWaterMarkInfo } from './model/WordWaterMarkInfo';
 
 export class LiveClient {
     public static newBuilder(): ClientBuilder<LiveClient> {
@@ -579,6 +604,44 @@ export class LiveClient {
     }
 
     /**
+     * 创建水印规则接口，必须先创建水印模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建水印规则
+     * @param {WatermarkRule} createWatermarkRuleRequestBody 水印规则
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createWatermarkRule(createWatermarkRuleRequest?: CreateWatermarkRuleRequest): Promise<CreateWatermarkRuleResponse> {
+        const options = ParamCreater().createWatermarkRule(createWatermarkRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建水印模板接口，需要绑定水印规则才生效
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建水印模板
+     * @param {WatermarkTemplate} createWatermarkTemplateRequestBody 水印模板
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createWatermarkTemplate(createWatermarkTemplateRequest?: CreateWatermarkTemplateRequest): Promise<CreateWatermarkTemplateResponse> {
+        const options = ParamCreater().createWatermarkTemplate(createWatermarkTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除域名。只有在域名停用（off）状态时才能删除。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -827,6 +890,44 @@ export class LiveClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除水印规则接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除水印规则
+     * @param {string} id 规则ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteWatermarkRule(deleteWatermarkRuleRequest?: DeleteWatermarkRuleRequest): Promise<DeleteWatermarkRuleResponse> {
+        const options = ParamCreater().deleteWatermarkRule(deleteWatermarkRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除水印模板接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除水印模板
+     * @param {string} id 模板ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteWatermarkTemplate(deleteWatermarkTemplateRequest?: DeleteWatermarkTemplateRequest): Promise<DeleteWatermarkTemplateResponse> {
+        const options = ParamCreater().deleteWatermarkTemplate(deleteWatermarkTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1137,6 +1238,53 @@ export class LiveClient {
     }
 
     /**
+     * 查询水印规则列表接口，通过指定条件，查询满足条件的水印规则列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询水印规则列表
+     * @param {string} [templateId] 水印模板ID
+     * @param {string} [domain] 推流域名
+     * @param {string} [app] 推流appname
+     * @param {string} [channelId] OTT场景，频道ID
+     * @param {string} [stream] OTT场景，填转码模板ID，云直播填流名
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，offset大于等于0
+     * @param {number} [limit] 每页记录数，取值范围[1,100]，默认值10
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWatermarkRule(listWatermarkRuleRequest?: ListWatermarkRuleRequest): Promise<ListWatermarkRuleResponse> {
+        const options = ParamCreater().listWatermarkRule(listWatermarkRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询水印模板列表接口，通过指定条件，查询满足条件的水印模板列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询水印模板列表
+     * @param {string} [name] 水印模板名称
+     * @param {'cloud_live' | 'media_live'} [scene] 区分媒体直播还是云直播，默认云直播，默认查询cloud_live
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，offset大于等于0
+     * @param {number} [limit] 每页记录数，取值范围[1,100]，默认值10
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWatermarkTemplate(listWatermarkTemplateRequest?: ListWatermarkTemplateRequest): Promise<ListWatermarkTemplateResponse> {
+        const options = ParamCreater().listWatermarkTemplate(listWatermarkTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新转推输出
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1433,6 +1581,44 @@ export class LiveClient {
     }
 
     /**
+     * 查询水印模板规则接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询水印规则配置
+     * @param {string} id 规则ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWatermarkRule(showWatermarkRuleRequest?: ShowWatermarkRuleRequest): Promise<ShowWatermarkRuleResponse> {
+        const options = ParamCreater().showWatermarkRule(showWatermarkRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询水印模板详情接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询水印模板配置
+     * @param {string} id 模板ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWatermarkTemplate(showWatermarkTemplateRequest?: ShowWatermarkTemplateRequest): Promise<ShowWatermarkTemplateResponse> {
+        const options = ParamCreater().showWatermarkTemplate(showWatermarkTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改播放域名延时配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1702,6 +1888,46 @@ export class LiveClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改水印规则接口，修改后实时生效，只能修改Location
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改水印规则
+     * @param {string} id 规则ID，在创建成功后返回
+     * @param {ModifyWatermarkRule} updateWatermarkRuleRequestBody 水印规则配置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateWatermarkRule(updateWatermarkRuleRequest?: UpdateWatermarkRuleRequest): Promise<UpdateWatermarkRuleResponse> {
+        const options = ParamCreater().updateWatermarkRule(updateWatermarkRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改水印模板接口，修改后实时生效
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改水印模板
+     * @param {string} id 模板ID，在创建成功后返回
+     * @param {WatermarkTemplate} updateWatermarkTemplateRequestBody 水印模板配置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateWatermarkTemplate(updateWatermarkTemplateRequest?: UpdateWatermarkTemplateRequest): Promise<UpdateWatermarkTemplateResponse> {
+        const options = ParamCreater().updateWatermarkTemplate(updateWatermarkTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -2702,6 +2928,82 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建水印规则接口，必须先创建水印模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createWatermarkRule(createWatermarkRuleRequest?: CreateWatermarkRuleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/watermark/rules",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createWatermarkRuleRequest !== null && createWatermarkRuleRequest !== undefined) {
+                if (createWatermarkRuleRequest instanceof CreateWatermarkRuleRequest) {
+                    body = createWatermarkRuleRequest.body
+                } else {
+                    body = createWatermarkRuleRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建水印模板接口，需要绑定水印规则才生效
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createWatermarkTemplate(createWatermarkTemplateRequest?: CreateWatermarkTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/watermark/templates",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createWatermarkTemplateRequest !== null && createWatermarkTemplateRequest !== undefined) {
+                if (createWatermarkTemplateRequest instanceof CreateWatermarkTemplateRequest) {
+                    body = createWatermarkTemplateRequest.body
+                } else {
+                    body = createWatermarkTemplateRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除域名。只有在域名停用（off）状态时才能删除。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3271,6 +3573,80 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除水印规则接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteWatermarkRule(deleteWatermarkRuleRequest?: DeleteWatermarkRuleRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/watermark/rules/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (deleteWatermarkRuleRequest !== null && deleteWatermarkRuleRequest !== undefined) {
+                if (deleteWatermarkRuleRequest instanceof DeleteWatermarkRuleRequest) {
+                    id = deleteWatermarkRuleRequest.id;
+                } else {
+                    id = deleteWatermarkRuleRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteWatermarkRule.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除水印模板接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteWatermarkTemplate(deleteWatermarkTemplateRequest?: DeleteWatermarkTemplateRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/watermark/templates/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (deleteWatermarkTemplateRequest !== null && deleteWatermarkTemplateRequest !== undefined) {
+                if (deleteWatermarkTemplateRequest instanceof DeleteWatermarkTemplateRequest) {
+                    id = deleteWatermarkTemplateRequest.id;
+                } else {
+                    id = deleteWatermarkTemplateRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteWatermarkTemplate.');
+            }
+
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4088,6 +4464,143 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询水印规则列表接口，通过指定条件，查询满足条件的水印规则列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listWatermarkRule(listWatermarkRuleRequest?: ListWatermarkRuleRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/watermark/rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let templateId;
+            
+            let domain;
+            
+            let app;
+            
+            let channelId;
+            
+            let stream;
+            
+            let offset;
+            
+            let limit;
+
+            if (listWatermarkRuleRequest !== null && listWatermarkRuleRequest !== undefined) {
+                if (listWatermarkRuleRequest instanceof ListWatermarkRuleRequest) {
+                    templateId = listWatermarkRuleRequest.templateId;
+                    domain = listWatermarkRuleRequest.domain;
+                    app = listWatermarkRuleRequest.app;
+                    channelId = listWatermarkRuleRequest.channelId;
+                    stream = listWatermarkRuleRequest.stream;
+                    offset = listWatermarkRuleRequest.offset;
+                    limit = listWatermarkRuleRequest.limit;
+                } else {
+                    templateId = listWatermarkRuleRequest['template_id'];
+                    domain = listWatermarkRuleRequest['domain'];
+                    app = listWatermarkRuleRequest['app'];
+                    channelId = listWatermarkRuleRequest['channel_id'];
+                    stream = listWatermarkRuleRequest['stream'];
+                    offset = listWatermarkRuleRequest['offset'];
+                    limit = listWatermarkRuleRequest['limit'];
+                }
+            }
+
+        
+            if (templateId !== null && templateId !== undefined) {
+                localVarQueryParameter['template_id'] = templateId;
+            }
+            if (domain !== null && domain !== undefined) {
+                localVarQueryParameter['domain'] = domain;
+            }
+            if (app !== null && app !== undefined) {
+                localVarQueryParameter['app'] = app;
+            }
+            if (channelId !== null && channelId !== undefined) {
+                localVarQueryParameter['channel_id'] = channelId;
+            }
+            if (stream !== null && stream !== undefined) {
+                localVarQueryParameter['stream'] = stream;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询水印模板列表接口，通过指定条件，查询满足条件的水印模板列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listWatermarkTemplate(listWatermarkTemplateRequest?: ListWatermarkTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/watermark/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let name;
+            
+            let scene;
+            
+            let offset;
+            
+            let limit;
+
+            if (listWatermarkTemplateRequest !== null && listWatermarkTemplateRequest !== undefined) {
+                if (listWatermarkTemplateRequest instanceof ListWatermarkTemplateRequest) {
+                    name = listWatermarkTemplateRequest.name;
+                    scene = listWatermarkTemplateRequest.scene;
+                    offset = listWatermarkTemplateRequest.offset;
+                    limit = listWatermarkTemplateRequest.limit;
+                } else {
+                    name = listWatermarkTemplateRequest['name'];
+                    scene = listWatermarkTemplateRequest['scene'];
+                    offset = listWatermarkTemplateRequest['offset'];
+                    limit = listWatermarkTemplateRequest['limit'];
+                }
+            }
+
+        
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (scene !== null && scene !== undefined) {
+                localVarQueryParameter['scene'] = scene;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新转推输出
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4769,6 +5282,80 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询水印模板规则接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showWatermarkRule(showWatermarkRuleRequest?: ShowWatermarkRuleRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/watermark/rules/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (showWatermarkRuleRequest !== null && showWatermarkRuleRequest !== undefined) {
+                if (showWatermarkRuleRequest instanceof ShowWatermarkRuleRequest) {
+                    id = showWatermarkRuleRequest.id;
+                } else {
+                    id = showWatermarkRuleRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling showWatermarkRule.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询水印模板详情接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showWatermarkTemplate(showWatermarkTemplateRequest?: ShowWatermarkTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/watermark/templates/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (showWatermarkTemplateRequest !== null && showWatermarkTemplateRequest !== undefined) {
+                if (showWatermarkTemplateRequest instanceof ShowWatermarkTemplateRequest) {
+                    id = showWatermarkTemplateRequest.id;
+                } else {
+                    id = showWatermarkTemplateRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling showWatermarkTemplate.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改播放域名延时配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5345,6 +5932,98 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改水印规则接口，修改后实时生效，只能修改Location
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateWatermarkRule(updateWatermarkRuleRequest?: UpdateWatermarkRuleRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/watermark/rules/{id}",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (updateWatermarkRuleRequest !== null && updateWatermarkRuleRequest !== undefined) {
+                if (updateWatermarkRuleRequest instanceof UpdateWatermarkRuleRequest) {
+                    id = updateWatermarkRuleRequest.id;
+                    body = updateWatermarkRuleRequest.body
+                } else {
+                    id = updateWatermarkRuleRequest['id'];
+                    body = updateWatermarkRuleRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateWatermarkRule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改水印模板接口，修改后实时生效
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateWatermarkTemplate(updateWatermarkTemplateRequest?: UpdateWatermarkTemplateRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/watermark/templates/{id}",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (updateWatermarkTemplateRequest !== null && updateWatermarkTemplateRequest !== undefined) {
+                if (updateWatermarkTemplateRequest instanceof UpdateWatermarkTemplateRequest) {
+                    id = updateWatermarkTemplateRequest.id;
+                    body = updateWatermarkTemplateRequest.body
+                } else {
+                    id = updateWatermarkTemplateRequest['id'];
+                    body = updateWatermarkTemplateRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateWatermarkTemplate.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },

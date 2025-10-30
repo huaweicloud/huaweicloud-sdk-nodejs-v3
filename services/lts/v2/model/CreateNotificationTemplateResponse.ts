@@ -1,4 +1,4 @@
-import { SubTemplate } from './SubTemplate';
+import { SubTemplateResBody } from './SubTemplateResBody';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -7,8 +7,8 @@ export class CreateNotificationTemplateResponse extends SdkResponse {
     public type?: Array<string>;
     public desc?: string;
     public source?: string;
-    public locale?: CreateNotificationTemplateResponseLocaleEnum | string;
-    public templates?: Array<SubTemplate>;
+    public templates?: Array<SubTemplateResBody>;
+    public locale?: string;
     public constructor() { 
         super();
     }
@@ -28,21 +28,12 @@ export class CreateNotificationTemplateResponse extends SdkResponse {
         this['source'] = source;
         return this;
     }
-    public withLocale(locale: CreateNotificationTemplateResponseLocaleEnum | string): CreateNotificationTemplateResponse {
-        this['locale'] = locale;
-        return this;
-    }
-    public withTemplates(templates: Array<SubTemplate>): CreateNotificationTemplateResponse {
+    public withTemplates(templates: Array<SubTemplateResBody>): CreateNotificationTemplateResponse {
         this['templates'] = templates;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateNotificationTemplateResponseLocaleEnum {
-    ZH_CN = 'zh-cn',
-    EN_US = 'en-us'
+    public withLocale(locale: string): CreateNotificationTemplateResponse {
+        this['locale'] = locale;
+        return this;
+    }
 }

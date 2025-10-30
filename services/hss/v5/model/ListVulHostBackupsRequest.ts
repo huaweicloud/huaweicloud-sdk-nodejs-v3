@@ -2,6 +2,8 @@
 
 export class ListVulHostBackupsRequest {
     private 'enterprise_project_id'?: string;
+    public limit?: number;
+    public offset?: number;
     private 'vul_id'?: string;
     private 'host_id'?: string;
     public constructor(vulId?: string, hostId?: string) { 
@@ -17,6 +19,14 @@ export class ListVulHostBackupsRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withLimit(limit: number): ListVulHostBackupsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListVulHostBackupsRequest {
+        this['offset'] = offset;
+        return this;
     }
     public withVulId(vulId: string): ListVulHostBackupsRequest {
         this['vul_id'] = vulId;

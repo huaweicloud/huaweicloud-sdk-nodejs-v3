@@ -1,7 +1,7 @@
-import { ModuleURIPrimitiveTypeHolder } from './ModuleURIPrimitiveTypeHolder';
+import { ModuleURIRequiredPrimitiveTypeHolder } from './ModuleURIRequiredPrimitiveTypeHolder';
 import { PrivateModuleIdPrimitiveTypeHolder } from './PrivateModuleIdPrimitiveTypeHolder';
 import { PrivateModuleVersionDescriptionPrimitiveTypeHolder } from './PrivateModuleVersionDescriptionPrimitiveTypeHolder';
-import { PrivateModuleVersionPrimitiveTypeHolder } from './PrivateModuleVersionPrimitiveTypeHolder';
+import { PrivateModuleVersionRequiredPrimitiveTypeHolder } from './PrivateModuleVersionRequiredPrimitiveTypeHolder';
 
 
 export class CreatePrivateModuleVersionRequestBody {
@@ -9,7 +9,9 @@ export class CreatePrivateModuleVersionRequestBody {
     private 'module_version'?: string;
     private 'version_description'?: string;
     private 'module_uri'?: string;
-    public constructor() { 
+    public constructor(moduleVersion?: string, moduleUri?: string) { 
+        this['module_version'] = moduleVersion;
+        this['module_uri'] = moduleUri;
     }
     public withModuleId(moduleId: string): CreatePrivateModuleVersionRequestBody {
         this['module_id'] = moduleId;

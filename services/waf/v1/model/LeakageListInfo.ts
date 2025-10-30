@@ -1,3 +1,4 @@
+import { LeakageListInfoAction } from './LeakageListInfoAction';
 
 
 export class LeakageListInfo {
@@ -9,6 +10,7 @@ export class LeakageListInfo {
     public timestamp?: number;
     public status?: number;
     public description?: string;
+    public action?: LeakageListInfoAction;
     public constructor() { 
     }
     public withId(id: string): LeakageListInfo {
@@ -41,6 +43,10 @@ export class LeakageListInfo {
     }
     public withDescription(description: string): LeakageListInfo {
         this['description'] = description;
+        return this;
+    }
+    public withAction(action: LeakageListInfoAction): LeakageListInfo {
+        this['action'] = action;
         return this;
     }
 }

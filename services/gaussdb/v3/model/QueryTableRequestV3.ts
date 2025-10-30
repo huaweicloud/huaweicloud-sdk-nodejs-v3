@@ -6,7 +6,11 @@ export class QueryTableRequestV3 {
     private 'source_instance_id'?: string;
     private 'selected_tables'?: Array<DatabaseTablesInfo>;
     private 'filter_type'?: string;
-    public constructor() { 
+    public constructor(databaseTables?: Array<DatabaseTablesInfo>, sourceInstanceId?: string, selectedTables?: Array<DatabaseTablesInfo>, filterType?: string) { 
+        this['database_tables'] = databaseTables;
+        this['source_instance_id'] = sourceInstanceId;
+        this['selected_tables'] = selectedTables;
+        this['filter_type'] = filterType;
     }
     public withDatabaseTables(databaseTables: Array<DatabaseTablesInfo>): QueryTableRequestV3 {
         this['database_tables'] = databaseTables;

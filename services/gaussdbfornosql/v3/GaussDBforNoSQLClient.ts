@@ -230,6 +230,9 @@ import { ListSlowLogsRequest } from './model/ListSlowLogsRequest';
 import { ListSlowLogsResponse } from './model/ListSlowLogsResponse';
 import { LogInstanceInfo } from './model/LogInstanceInfo';
 import { MatchOption } from './model/MatchOption';
+import { ModifyAutoNodeExpansionPolicyRequest } from './model/ModifyAutoNodeExpansionPolicyRequest';
+import { ModifyAutoNodeExpansionPolicyRequestBody } from './model/ModifyAutoNodeExpansionPolicyRequestBody';
+import { ModifyAutoNodeExpansionPolicyResponse } from './model/ModifyAutoNodeExpansionPolicyResponse';
 import { ModifyDbUserPrivilegeRequest } from './model/ModifyDbUserPrivilegeRequest';
 import { ModifyDbUserPrivilegeResponse } from './model/ModifyDbUserPrivilegeResponse';
 import { ModifyEpsQuotasRequest } from './model/ModifyEpsQuotasRequest';
@@ -353,6 +356,8 @@ import { ShowApplyHistoryRequest } from './model/ShowApplyHistoryRequest';
 import { ShowApplyHistoryResponse } from './model/ShowApplyHistoryResponse';
 import { ShowAutoEnlargePolicyRequest } from './model/ShowAutoEnlargePolicyRequest';
 import { ShowAutoEnlargePolicyResponse } from './model/ShowAutoEnlargePolicyResponse';
+import { ShowAutoNodeExpansionPolicyRequest } from './model/ShowAutoNodeExpansionPolicyRequest';
+import { ShowAutoNodeExpansionPolicyResponse } from './model/ShowAutoNodeExpansionPolicyResponse';
 import { ShowBackupPoliciesRequest } from './model/ShowBackupPoliciesRequest';
 import { ShowBackupPoliciesResponse } from './model/ShowBackupPoliciesResponse';
 import { ShowBackupPolicyRequest } from './model/ShowBackupPolicyRequest';
@@ -1929,6 +1934,27 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
+     * 设置节点自动扩容策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置节点自动扩容策略
+     * @param {string} instanceId **参数解释：** 实例ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {ModifyAutoNodeExpansionPolicyRequestBody} modifyAutoNodeExpansionPolicyRequestBody 请求体。
+     * @param {string} [xLanguage] **参数解释：** 语言。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyAutoNodeExpansionPolicy(modifyAutoNodeExpansionPolicyRequest?: ModifyAutoNodeExpansionPolicyRequest): Promise<ModifyAutoNodeExpansionPolicyResponse> {
+        const options = ParamCreater().modifyAutoNodeExpansionPolicy(modifyAutoNodeExpansionPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改Redis数据库帐号权限。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2555,6 +2581,26 @@ export class GaussDBforNoSQLClient {
      */
     public showAutoEnlargePolicy(showAutoEnlargePolicyRequest?: ShowAutoEnlargePolicyRequest): Promise<ShowAutoEnlargePolicyResponse> {
         const options = ParamCreater().showAutoEnlargePolicy(showAutoEnlargePolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询节点自动扩容策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询节点自动扩容策略
+     * @param {string} instanceId **参数解释：** 实例ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [xLanguage] **参数解释：** 语言。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutoNodeExpansionPolicy(showAutoNodeExpansionPolicyRequest?: ShowAutoNodeExpansionPolicyRequest): Promise<ShowAutoNodeExpansionPolicyResponse> {
+        const options = ParamCreater().showAutoNodeExpansionPolicy(showAutoNodeExpansionPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6920,6 +6966,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 设置节点自动扩容策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyAutoNodeExpansionPolicy(modifyAutoNodeExpansionPolicyRequest?: ModifyAutoNodeExpansionPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/node-auto-expansion-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (modifyAutoNodeExpansionPolicyRequest !== null && modifyAutoNodeExpansionPolicyRequest !== undefined) {
+                if (modifyAutoNodeExpansionPolicyRequest instanceof ModifyAutoNodeExpansionPolicyRequest) {
+                    instanceId = modifyAutoNodeExpansionPolicyRequest.instanceId;
+                    body = modifyAutoNodeExpansionPolicyRequest.body
+                    xLanguage = modifyAutoNodeExpansionPolicyRequest.xLanguage;
+                } else {
+                    instanceId = modifyAutoNodeExpansionPolicyRequest['instance_id'];
+                    body = modifyAutoNodeExpansionPolicyRequest['body'];
+                    xLanguage = modifyAutoNodeExpansionPolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling modifyAutoNodeExpansionPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改Redis数据库帐号权限。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8400,6 +8499,50 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showAutoEnlargePolicy.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询节点自动扩容策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutoNodeExpansionPolicy(showAutoNodeExpansionPolicyRequest?: ShowAutoNodeExpansionPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/node-auto-expansion-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showAutoNodeExpansionPolicyRequest !== null && showAutoNodeExpansionPolicyRequest !== undefined) {
+                if (showAutoNodeExpansionPolicyRequest instanceof ShowAutoNodeExpansionPolicyRequest) {
+                    instanceId = showAutoNodeExpansionPolicyRequest.instanceId;
+                    xLanguage = showAutoNodeExpansionPolicyRequest.xLanguage;
+                } else {
+                    instanceId = showAutoNodeExpansionPolicyRequest['instance_id'];
+                    xLanguage = showAutoNodeExpansionPolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showAutoNodeExpansionPolicy.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
             options.pathParams = { 'instance_id': instanceId, };

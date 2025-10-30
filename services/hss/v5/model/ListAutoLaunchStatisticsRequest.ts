@@ -6,7 +6,9 @@ export class ListAutoLaunchStatisticsRequest {
     private 'enterprise_project_id'?: string;
     public limit?: number;
     public offset?: number;
-    public constructor() { 
+    public category?: string;
+    public constructor(category?: string) { 
+        this['category'] = category;
     }
     public withName(name: string): ListAutoLaunchStatisticsRequest {
         this['name'] = name;
@@ -32,6 +34,10 @@ export class ListAutoLaunchStatisticsRequest {
     }
     public withOffset(offset: number): ListAutoLaunchStatisticsRequest {
         this['offset'] = offset;
+        return this;
+    }
+    public withCategory(category: string): ListAutoLaunchStatisticsRequest {
+        this['category'] = category;
         return this;
     }
 }

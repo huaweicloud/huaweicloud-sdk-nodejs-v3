@@ -1,3 +1,4 @@
+import { LeakageListInfoAction } from './LeakageListInfoAction';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -8,7 +9,9 @@ export class CreateAntileakageRuleResponse extends SdkResponse {
     public category?: string;
     public contents?: Array<string>;
     public timestamp?: number;
+    public description?: string;
     public status?: number;
+    public action?: LeakageListInfoAction;
     public constructor() { 
         super();
     }
@@ -36,8 +39,16 @@ export class CreateAntileakageRuleResponse extends SdkResponse {
         this['timestamp'] = timestamp;
         return this;
     }
+    public withDescription(description: string): CreateAntileakageRuleResponse {
+        this['description'] = description;
+        return this;
+    }
     public withStatus(status: number): CreateAntileakageRuleResponse {
         this['status'] = status;
+        return this;
+    }
+    public withAction(action: LeakageListInfoAction): CreateAntileakageRuleResponse {
+        this['action'] = action;
         return this;
     }
 }

@@ -18,8 +18,8 @@ export class WebAppAndServiceResponseInfo {
     private 'container_id'?: string;
     private 'container_name'?: string;
     private 'record_time'?: number;
-    private 'host_name'?: string;
     private 'host_id'?: string;
+    private 'host_name'?: string;
     private 'host_ip'?: string;
     public constructor() { 
     }
@@ -133,16 +133,6 @@ export class WebAppAndServiceResponseInfo {
     public get recordTime(): number | undefined {
         return this['record_time'];
     }
-    public withHostName(hostName: string): WebAppAndServiceResponseInfo {
-        this['host_name'] = hostName;
-        return this;
-    }
-    public set hostName(hostName: string  | undefined) {
-        this['host_name'] = hostName;
-    }
-    public get hostName(): string | undefined {
-        return this['host_name'];
-    }
     public withHostId(hostId: string): WebAppAndServiceResponseInfo {
         this['host_id'] = hostId;
         return this;
@@ -152,6 +142,16 @@ export class WebAppAndServiceResponseInfo {
     }
     public get hostId(): string | undefined {
         return this['host_id'];
+    }
+    public withHostName(hostName: string): WebAppAndServiceResponseInfo {
+        this['host_name'] = hostName;
+        return this;
+    }
+    public set hostName(hostName: string  | undefined) {
+        this['host_name'] = hostName;
+    }
+    public get hostName(): string | undefined {
+        return this['host_name'];
     }
     public withHostIp(hostIp: string): WebAppAndServiceResponseInfo {
         this['host_ip'] = hostIp;

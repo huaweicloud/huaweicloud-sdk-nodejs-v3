@@ -1,11 +1,11 @@
-import { BatchCreateAntileakageRuleRequestBodyAction } from './BatchCreateAntileakageRuleRequestBodyAction';
+import { LeakageListInfoAction } from './LeakageListInfoAction';
 
 
 export class UpdateAntileakageRuleRequestBody {
     public url?: string;
     public category?: UpdateAntileakageRuleRequestBodyCategoryEnum | string;
     public contents?: Array<string>;
-    public action?: BatchCreateAntileakageRuleRequestBodyAction;
+    public action?: LeakageListInfoAction;
     public description?: string;
     public constructor(url?: string, category?: string, contents?: Array<string>) { 
         this['url'] = url;
@@ -24,7 +24,7 @@ export class UpdateAntileakageRuleRequestBody {
         this['contents'] = contents;
         return this;
     }
-    public withAction(action: BatchCreateAntileakageRuleRequestBodyAction): UpdateAntileakageRuleRequestBody {
+    public withAction(action: LeakageListInfoAction): UpdateAntileakageRuleRequestBody {
         this['action'] = action;
         return this;
     }

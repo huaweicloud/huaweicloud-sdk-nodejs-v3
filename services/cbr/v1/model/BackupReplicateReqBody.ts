@@ -7,6 +7,7 @@ export class BackupReplicateReqBody {
     private 'destination_vault_id'?: string;
     private 'enable_acceleration'?: boolean;
     public name?: string;
+    private 'cross_account_urn'?: string;
     public constructor(destinationProjectId?: string, destinationRegion?: string, destinationVaultId?: string) { 
         this['destination_project_id'] = destinationProjectId;
         this['destination_region'] = destinationRegion;
@@ -59,5 +60,15 @@ export class BackupReplicateReqBody {
     public withName(name: string): BackupReplicateReqBody {
         this['name'] = name;
         return this;
+    }
+    public withCrossAccountUrn(crossAccountUrn: string): BackupReplicateReqBody {
+        this['cross_account_urn'] = crossAccountUrn;
+        return this;
+    }
+    public set crossAccountUrn(crossAccountUrn: string  | undefined) {
+        this['cross_account_urn'] = crossAccountUrn;
+    }
+    public get crossAccountUrn(): string | undefined {
+        return this['cross_account_urn'];
     }
 }

@@ -4,6 +4,8 @@ export class SubTemplate {
     private 'sub_type'?: SubTemplateSubTypeEnum | string;
     public content?: string;
     public topic?: string;
+    public sendType?: string;
+    public version?: string;
     public constructor(subType?: string, content?: string) { 
         this['sub_type'] = subType;
         this['content'] = content;
@@ -24,6 +26,14 @@ export class SubTemplate {
     }
     public withTopic(topic: string): SubTemplate {
         this['topic'] = topic;
+        return this;
+    }
+    public withSendType(sendType: string): SubTemplate {
+        this['sendType'] = sendType;
+        return this;
+    }
+    public withVersion(version: string): SubTemplate {
+        this['version'] = version;
         return this;
     }
 }

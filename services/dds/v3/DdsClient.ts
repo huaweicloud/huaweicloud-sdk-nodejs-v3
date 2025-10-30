@@ -367,6 +367,7 @@ import { SwitchSslRequest } from './model/SwitchSslRequest';
 import { SwitchSslRequestBody } from './model/SwitchSslRequestBody';
 import { SwitchSslResponse } from './model/SwitchSslResponse';
 import { SwitchoverReplicaSetRequest } from './model/SwitchoverReplicaSetRequest';
+import { SwitchoverReplicaSetRequestBody } from './model/SwitchoverReplicaSetRequestBody';
 import { SwitchoverReplicaSetResponse } from './model/SwitchoverReplicaSetResponse';
 import { TagItem } from './model/TagItem';
 import { TagResponse } from './model/TagResponse';
@@ -2688,12 +2689,13 @@ export class DdsClient {
     }
 
     /**
-     * 切换副本集实例下的主备节点
+     * 切换实例下的主备节点
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 切换副本集实例的主备节点
+     * @summary 切换实例的主备节点
      * @param {string} instanceId 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。
+     * @param {SwitchoverReplicaSetRequestBody} [switchoverReplicaSetRequestBody] 集群实例的shard组ID或config组ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -8285,7 +8287,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 切换副本集实例下的主备节点
+         * 切换实例下的主备节点
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8296,18 +8298,22 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {}
+                headers: {},
+                data: {}
             };
             const localVarHeaderParameter = {} as any;
 
+            let body: any;
             
             let instanceId;
 
             if (switchoverReplicaSetRequest !== null && switchoverReplicaSetRequest !== undefined) {
                 if (switchoverReplicaSetRequest instanceof SwitchoverReplicaSetRequest) {
                     instanceId = switchoverReplicaSetRequest.instanceId;
+                    body = switchoverReplicaSetRequest.body
                 } else {
                     instanceId = switchoverReplicaSetRequest['instance_id'];
+                    body = switchoverReplicaSetRequest['body'];
                 }
             }
 
@@ -8315,7 +8321,9 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchoverReplicaSet.');
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

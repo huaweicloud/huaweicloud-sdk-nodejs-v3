@@ -12,6 +12,9 @@ export class ModifyDataSyncConfigRequestV3 {
     private 'tables_configs'?: Array<TablesConfig>;
     private 'table_repl_config'?: TableReplConfig;
     private 'target_database_name'?: string;
+    private 'is_instance_level_sync'?: string;
+    private 'database_repl_scope'?: string;
+    private 'is_support_reg_exp'?: string;
     public constructor() { 
     }
     public withSourceInstanceId(sourceInstanceId: string): ModifyDataSyncConfigRequestV3 {
@@ -93,5 +96,35 @@ export class ModifyDataSyncConfigRequestV3 {
     }
     public get targetDatabaseName(): string | undefined {
         return this['target_database_name'];
+    }
+    public withIsInstanceLevelSync(isInstanceLevelSync: string): ModifyDataSyncConfigRequestV3 {
+        this['is_instance_level_sync'] = isInstanceLevelSync;
+        return this;
+    }
+    public set isInstanceLevelSync(isInstanceLevelSync: string  | undefined) {
+        this['is_instance_level_sync'] = isInstanceLevelSync;
+    }
+    public get isInstanceLevelSync(): string | undefined {
+        return this['is_instance_level_sync'];
+    }
+    public withDatabaseReplScope(databaseReplScope: string): ModifyDataSyncConfigRequestV3 {
+        this['database_repl_scope'] = databaseReplScope;
+        return this;
+    }
+    public set databaseReplScope(databaseReplScope: string  | undefined) {
+        this['database_repl_scope'] = databaseReplScope;
+    }
+    public get databaseReplScope(): string | undefined {
+        return this['database_repl_scope'];
+    }
+    public withIsSupportRegExp(isSupportRegExp: string): ModifyDataSyncConfigRequestV3 {
+        this['is_support_reg_exp'] = isSupportRegExp;
+        return this;
+    }
+    public set isSupportRegExp(isSupportRegExp: string  | undefined) {
+        this['is_support_reg_exp'] = isSupportRegExp;
+    }
+    public get isSupportRegExp(): string | undefined {
+        return this['is_support_reg_exp'];
     }
 }

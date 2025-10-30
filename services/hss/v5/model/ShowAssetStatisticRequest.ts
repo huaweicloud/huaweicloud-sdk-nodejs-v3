@@ -4,7 +4,8 @@ export class ShowAssetStatisticRequest {
     private 'enterprise_project_id'?: string;
     private 'host_id'?: string;
     public category?: string;
-    public constructor() { 
+    public constructor(category?: string) { 
+        this['category'] = category;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ShowAssetStatisticRequest {
         this['enterprise_project_id'] = enterpriseProjectId;

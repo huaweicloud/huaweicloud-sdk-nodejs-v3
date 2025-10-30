@@ -12,6 +12,8 @@ export class CreateIgnoreRuleResponse extends SdkResponse {
     public rule?: string;
     public mode?: number;
     public conditions?: Array<Condition>;
+    public multiCondition?: boolean;
+    public producer?: number;
     public advanced?: IgnoreAdvanced;
     public domain?: Array<string>;
     public constructor() { 
@@ -47,6 +49,14 @@ export class CreateIgnoreRuleResponse extends SdkResponse {
     }
     public withConditions(conditions: Array<Condition>): CreateIgnoreRuleResponse {
         this['conditions'] = conditions;
+        return this;
+    }
+    public withMultiCondition(multiCondition: boolean): CreateIgnoreRuleResponse {
+        this['multiCondition'] = multiCondition;
+        return this;
+    }
+    public withProducer(producer: number): CreateIgnoreRuleResponse {
+        this['producer'] = producer;
         return this;
     }
     public withAdvanced(advanced: IgnoreAdvanced): CreateIgnoreRuleResponse {

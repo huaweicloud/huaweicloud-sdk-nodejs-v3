@@ -1,4 +1,5 @@
 import { Encryption } from './Encryption';
+import { HttpHeader } from './HttpHeader';
 import { PackageRequestArgs } from './PackageRequestArgs';
 import { StreamSelectionItem } from './StreamSelectionItem';
 
@@ -14,8 +15,15 @@ export class HlsPackageItem {
     private 'ext_args'?: object;
     private 'request_args'?: PackageRequestArgs;
     private 'ad_marker'?: Array<string>;
-    public constructor(url?: string, segmentDurationSeconds?: number) { 
-        this['url'] = url;
+    private 'enable_access'?: boolean;
+    private 'allow_all_ip_access'?: boolean;
+    private 'ip_whitelist'?: string;
+    private 'cdn_identifier_header'?: HttpHeader;
+    private 'origin_domain_master'?: string;
+    private 'origin_domain_slave'?: string;
+    private 'manifest_name'?: string;
+    private 'slave_url'?: string;
+    public constructor(segmentDurationSeconds?: number) { 
         this['segment_duration_seconds'] = segmentDurationSeconds;
     }
     public withUrl(url: string): HlsPackageItem {
@@ -99,5 +107,85 @@ export class HlsPackageItem {
     }
     public get adMarker(): Array<string> | undefined {
         return this['ad_marker'];
+    }
+    public withEnableAccess(enableAccess: boolean): HlsPackageItem {
+        this['enable_access'] = enableAccess;
+        return this;
+    }
+    public set enableAccess(enableAccess: boolean  | undefined) {
+        this['enable_access'] = enableAccess;
+    }
+    public get enableAccess(): boolean | undefined {
+        return this['enable_access'];
+    }
+    public withAllowAllIpAccess(allowAllIpAccess: boolean): HlsPackageItem {
+        this['allow_all_ip_access'] = allowAllIpAccess;
+        return this;
+    }
+    public set allowAllIpAccess(allowAllIpAccess: boolean  | undefined) {
+        this['allow_all_ip_access'] = allowAllIpAccess;
+    }
+    public get allowAllIpAccess(): boolean | undefined {
+        return this['allow_all_ip_access'];
+    }
+    public withIpWhitelist(ipWhitelist: string): HlsPackageItem {
+        this['ip_whitelist'] = ipWhitelist;
+        return this;
+    }
+    public set ipWhitelist(ipWhitelist: string  | undefined) {
+        this['ip_whitelist'] = ipWhitelist;
+    }
+    public get ipWhitelist(): string | undefined {
+        return this['ip_whitelist'];
+    }
+    public withCdnIdentifierHeader(cdnIdentifierHeader: HttpHeader): HlsPackageItem {
+        this['cdn_identifier_header'] = cdnIdentifierHeader;
+        return this;
+    }
+    public set cdnIdentifierHeader(cdnIdentifierHeader: HttpHeader  | undefined) {
+        this['cdn_identifier_header'] = cdnIdentifierHeader;
+    }
+    public get cdnIdentifierHeader(): HttpHeader | undefined {
+        return this['cdn_identifier_header'];
+    }
+    public withOriginDomainMaster(originDomainMaster: string): HlsPackageItem {
+        this['origin_domain_master'] = originDomainMaster;
+        return this;
+    }
+    public set originDomainMaster(originDomainMaster: string  | undefined) {
+        this['origin_domain_master'] = originDomainMaster;
+    }
+    public get originDomainMaster(): string | undefined {
+        return this['origin_domain_master'];
+    }
+    public withOriginDomainSlave(originDomainSlave: string): HlsPackageItem {
+        this['origin_domain_slave'] = originDomainSlave;
+        return this;
+    }
+    public set originDomainSlave(originDomainSlave: string  | undefined) {
+        this['origin_domain_slave'] = originDomainSlave;
+    }
+    public get originDomainSlave(): string | undefined {
+        return this['origin_domain_slave'];
+    }
+    public withManifestName(manifestName: string): HlsPackageItem {
+        this['manifest_name'] = manifestName;
+        return this;
+    }
+    public set manifestName(manifestName: string  | undefined) {
+        this['manifest_name'] = manifestName;
+    }
+    public get manifestName(): string | undefined {
+        return this['manifest_name'];
+    }
+    public withSlaveUrl(slaveUrl: string): HlsPackageItem {
+        this['slave_url'] = slaveUrl;
+        return this;
+    }
+    public set slaveUrl(slaveUrl: string  | undefined) {
+        this['slave_url'] = slaveUrl;
+    }
+    public get slaveUrl(): string | undefined {
+        return this['slave_url'];
     }
 }

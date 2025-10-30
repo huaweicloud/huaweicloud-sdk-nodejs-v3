@@ -4,8 +4,8 @@ export class ListWebAppAndServicesRequest {
     private 'enterprise_project_id'?: string;
     public offset?: number;
     public limit?: number;
-    public name?: string;
     public category?: string;
+    public name?: string;
     public catalogue?: string;
     private 'host_name'?: string;
     private 'host_id'?: string;
@@ -13,9 +13,9 @@ export class ListWebAppAndServicesRequest {
     public version?: string;
     private 'install_dir'?: string;
     private 'part_match'?: boolean;
-    public constructor(name?: string, category?: string, catalogue?: string) { 
-        this['name'] = name;
+    public constructor(category?: string, name?: string, catalogue?: string) { 
         this['category'] = category;
+        this['name'] = name;
         this['catalogue'] = catalogue;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListWebAppAndServicesRequest {
@@ -36,12 +36,12 @@ export class ListWebAppAndServicesRequest {
         this['limit'] = limit;
         return this;
     }
-    public withName(name: string): ListWebAppAndServicesRequest {
-        this['name'] = name;
-        return this;
-    }
     public withCategory(category: string): ListWebAppAndServicesRequest {
         this['category'] = category;
+        return this;
+    }
+    public withName(name: string): ListWebAppAndServicesRequest {
+        this['name'] = name;
         return this;
     }
     public withCatalogue(catalogue: string): ListWebAppAndServicesRequest {

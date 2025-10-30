@@ -2,11 +2,11 @@
 
 export class ShowCommonPortRequest {
     private 'enterprise_project_id'?: string;
+    public category?: string;
     public port?: number;
-    public categoty?: string;
-    public constructor(port?: number, categoty?: string) { 
+    public constructor(category?: string, port?: number) { 
+        this['category'] = category;
         this['port'] = port;
-        this['categoty'] = categoty;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ShowCommonPortRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
@@ -18,12 +18,12 @@ export class ShowCommonPortRequest {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withPort(port: number): ShowCommonPortRequest {
-        this['port'] = port;
+    public withCategory(category: string): ShowCommonPortRequest {
+        this['category'] = category;
         return this;
     }
-    public withCategoty(categoty: string): ShowCommonPortRequest {
-        this['categoty'] = categoty;
+    public withPort(port: number): ShowCommonPortRequest {
+        this['port'] = port;
         return this;
     }
 }

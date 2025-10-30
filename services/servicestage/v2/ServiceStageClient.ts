@@ -53,8 +53,6 @@ import { ConfigurationScheduler } from './model/ConfigurationScheduler';
 import { ConfigurationStrategy } from './model/ConfigurationStrategy';
 import { CreateApplicationRequest } from './model/CreateApplicationRequest';
 import { CreateApplicationResponse } from './model/CreateApplicationResponse';
-import { CreateCamInstanceRequest } from './model/CreateCamInstanceRequest';
-import { CreateCamInstanceResponse } from './model/CreateCamInstanceResponse';
 import { CreateComponentRequest } from './model/CreateComponentRequest';
 import { CreateComponentResponse } from './model/CreateComponentResponse';
 import { CreateEnvironmentRequest } from './model/CreateEnvironmentRequest';
@@ -75,9 +73,6 @@ import { CreateProjectRequest } from './model/CreateProjectRequest';
 import { CreateProjectResponse } from './model/CreateProjectResponse';
 import { CreateTagRequest } from './model/CreateTagRequest';
 import { CreateTagResponse } from './model/CreateTagResponse';
-import { CreateTemplate } from './model/CreateTemplate';
-import { CreateTemplateRequest } from './model/CreateTemplateRequest';
-import { CreateTemplateResponse } from './model/CreateTemplateResponse';
 import { DeleteApplicationConfigurationRequest } from './model/DeleteApplicationConfigurationRequest';
 import { DeleteApplicationConfigurationResponse } from './model/DeleteApplicationConfigurationResponse';
 import { DeleteApplicationRequest } from './model/DeleteApplicationRequest';
@@ -92,16 +87,10 @@ import { DeleteFileRequest } from './model/DeleteFileRequest';
 import { DeleteFileResponse } from './model/DeleteFileResponse';
 import { DeleteHookRequest } from './model/DeleteHookRequest';
 import { DeleteHookResponse } from './model/DeleteHookResponse';
-import { DeleteInstanceByIdRequest } from './model/DeleteInstanceByIdRequest';
-import { DeleteInstanceByIdResponse } from './model/DeleteInstanceByIdResponse';
 import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
 import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
 import { DeleteTagRequest } from './model/DeleteTagRequest';
 import { DeleteTagResponse } from './model/DeleteTagResponse';
-import { DeleteTemplateRequest } from './model/DeleteTemplateRequest';
-import { DeleteTemplateResponse } from './model/DeleteTemplateResponse';
-import { DeployInstanceRequest } from './model/DeployInstanceRequest';
-import { DeployInstanceResponse } from './model/DeployInstanceResponse';
 import { Environment } from './model/Environment';
 import { EnvironmentCreate } from './model/EnvironmentCreate';
 import { EnvironmentModify } from './model/EnvironmentModify';
@@ -122,10 +111,6 @@ import { InstanceActionParameters } from './model/InstanceActionParameters';
 import { InstanceActionType } from './model/InstanceActionType';
 import { InstanceConfiguration } from './model/InstanceConfiguration';
 import { InstanceCreate } from './model/InstanceCreate';
-import { InstanceCreation } from './model/InstanceCreation';
-import { InstanceCreationVariables } from './model/InstanceCreationVariables';
-import { InstanceDeployment } from './model/InstanceDeployment';
-import { InstanceDeploymentVariables } from './model/InstanceDeploymentVariables';
 import { InstanceFailDetail } from './model/InstanceFailDetail';
 import { InstanceListView } from './model/InstanceListView';
 import { InstanceModify } from './model/InstanceModify';
@@ -216,9 +201,6 @@ import { UpdateFileRequest } from './model/UpdateFileRequest';
 import { UpdateFileResponse } from './model/UpdateFileResponse';
 import { UpdateInstanceActionRequest } from './model/UpdateInstanceActionRequest';
 import { UpdateInstanceActionResponse } from './model/UpdateInstanceActionResponse';
-import { UpdateTemplateRequest } from './model/UpdateTemplateRequest';
-import { UpdateTemplateResponse } from './model/UpdateTemplateResponse';
-import { UpdateTemplates } from './model/UpdateTemplates';
 
 export class ServiceStageClient {
     public static newBuilder(): ClientBuilder<ServiceStageClient> {
@@ -381,23 +363,6 @@ export class ServiceStageClient {
     }
 
     /**
-     * 创建、更新实例
-     *
-     * @summary 创建、更新实例
-     * @param {InstanceCreation} [instanceCreation] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createCamInstance(createCamInstanceRequest?: CreateCamInstanceRequest): Promise<CreateCamInstanceResponse> {
-        const options = ParamCreater().createCamInstance(createCamInstanceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 应用组件是组成应用的某个业务特性实现，以代码或者软件包为载体，可独立部署运行。
      * 
      * 此API用来在应用中创建组件。
@@ -454,23 +419,6 @@ export class ServiceStageClient {
      */
     public createInstance(createInstanceRequest?: CreateInstanceRequest): Promise<CreateInstanceResponse> {
         const options = ParamCreater().createInstance(createInstanceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建模板
-     *
-     * @summary 创建模板
-     * @param {CreateTemplate} [createTemplate] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createTemplate(createTemplateRequest?: CreateTemplateRequest): Promise<CreateTemplateResponse> {
-        const options = ParamCreater().createTemplate(createTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -572,57 +520,6 @@ export class ServiceStageClient {
      */
     public deleteInstance(deleteInstanceRequest?: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
         const options = ParamCreater().deleteInstance(deleteInstanceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除实例
-     *
-     * @summary 删除实例
-     * @param {string} instanceId 实例ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteInstanceById(deleteInstanceByIdRequest?: DeleteInstanceByIdRequest): Promise<DeleteInstanceByIdResponse> {
-        const options = ParamCreater().deleteInstanceById(deleteInstanceByIdRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除模板
-     *
-     * @summary 删除模板
-     * @param {string} templateId 模板ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteTemplate(deleteTemplateRequest?: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
-        const options = ParamCreater().deleteTemplate(deleteTemplateRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 部署实例
-     *
-     * @summary 部署实例
-     * @param {InstanceDeployment} [instanceDeployment] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deployInstance(deployInstanceRequest?: DeployInstanceRequest): Promise<DeployInstanceResponse> {
-        const options = ParamCreater().deployInstance(deployInstanceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -906,24 +803,6 @@ export class ServiceStageClient {
      */
     public updateInstanceAction(updateInstanceActionRequest?: UpdateInstanceActionRequest): Promise<UpdateInstanceActionResponse> {
         const options = ParamCreater().updateInstanceAction(updateInstanceActionRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 更新模板
-     *
-     * @summary 更新模板
-     * @param {string} templateId 模板ID
-     * @param {UpdateTemplates} [updateTemplates] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateTemplate(updateTemplateRequest?: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
-        const options = ParamCreater().updateTemplate(updateTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1796,39 +1675,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建、更新实例
-         */
-        createCamInstance(createCamInstanceRequest?: CreateCamInstanceRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/instances",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createCamInstanceRequest !== null && createCamInstanceRequest !== undefined) {
-                if (createCamInstanceRequest instanceof CreateCamInstanceRequest) {
-                    body = createCamInstanceRequest.body
-                } else {
-                    body = createCamInstanceRequest['body'];
-                }
-            }
-
-        
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 应用组件是组成应用的某个业务特性实现，以代码或者软件包为载体，可独立部署运行。
          * 
          * 此API用来在应用中创建组件。
@@ -1956,39 +1802,6 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'application_id': applicationId,'component_id': componentId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建模板
-         */
-        createTemplate(createTemplateRequest?: CreateTemplateRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/templates",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createTemplateRequest !== null && createTemplateRequest !== undefined) {
-                if (createTemplateRequest instanceof CreateTemplateRequest) {
-                    body = createTemplateRequest.body
-                } else {
-                    body = createTemplateRequest['body'];
-                }
-            }
-
-        
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2222,109 +2035,6 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'application_id': applicationId,'component_id': componentId,'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除实例
-         */
-        deleteInstanceById(deleteInstanceByIdRequest?: DeleteInstanceByIdRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v1/{project_id}/instances/{instance_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let instanceId;
-
-            if (deleteInstanceByIdRequest !== null && deleteInstanceByIdRequest !== undefined) {
-                if (deleteInstanceByIdRequest instanceof DeleteInstanceByIdRequest) {
-                    instanceId = deleteInstanceByIdRequest.instanceId;
-                } else {
-                    instanceId = deleteInstanceByIdRequest['instance_id'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteInstanceById.');
-            }
-
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除模板
-         */
-        deleteTemplate(deleteTemplateRequest?: DeleteTemplateRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v1/{project_id}/templates/{template_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let templateId;
-
-            if (deleteTemplateRequest !== null && deleteTemplateRequest !== undefined) {
-                if (deleteTemplateRequest instanceof DeleteTemplateRequest) {
-                    templateId = deleteTemplateRequest.templateId;
-                } else {
-                    templateId = deleteTemplateRequest['template_id'];
-                }
-            }
-
-        
-            if (templateId === null || templateId === undefined) {
-            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling deleteTemplate.');
-            }
-
-            options.pathParams = { 'template_id': templateId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 部署实例
-         */
-        deployInstance(deployInstanceRequest?: DeployInstanceRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/instance/deployments",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (deployInstanceRequest !== null && deployInstanceRequest !== undefined) {
-                if (deployInstanceRequest instanceof DeployInstanceRequest) {
-                    body = deployInstanceRequest.body
-                } else {
-                    body = deployInstanceRequest['body'];
-                }
-            }
-
-        
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3063,47 +2773,6 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'application_id': applicationId,'component_id': componentId,'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 更新模板
-         */
-        updateTemplate(updateTemplateRequest?: UpdateTemplateRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1/{project_id}/templates/{template_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let templateId;
-
-            if (updateTemplateRequest !== null && updateTemplateRequest !== undefined) {
-                if (updateTemplateRequest instanceof UpdateTemplateRequest) {
-                    templateId = updateTemplateRequest.templateId;
-                    body = updateTemplateRequest.body
-                } else {
-                    templateId = updateTemplateRequest['template_id'];
-                    body = updateTemplateRequest['body'];
-                }
-            }
-
-        
-            if (templateId === null || templateId === undefined) {
-            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling updateTemplate.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'template_id': templateId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

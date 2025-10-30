@@ -5,7 +5,6 @@ export class CreateLogStreamIndexResponse extends SdkResponse {
     public errorCode?: string;
     public errorMessage?: string;
     public result?: string;
-    public isQueryComplete?: boolean;
     public constructor() { 
         super();
     }
@@ -19,10 +18,6 @@ export class CreateLogStreamIndexResponse extends SdkResponse {
     }
     public withResult(result: string): CreateLogStreamIndexResponse {
         this['result'] = result;
-        return this;
-    }
-    public withIsQueryComplete(isQueryComplete: boolean): CreateLogStreamIndexResponse {
-        this['isQueryComplete'] = isQueryComplete;
         return this;
     }
 }

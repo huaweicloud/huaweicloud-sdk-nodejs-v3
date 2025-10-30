@@ -22,6 +22,7 @@ import { AlarmLevel } from './model/AlarmLevel';
 import { AlarmName } from './model/AlarmName';
 import { AlarmNameResp } from './model/AlarmNameResp';
 import { AlarmPolicyID } from './model/AlarmPolicyID';
+import { AlarmRulePolicy } from './model/AlarmRulePolicy';
 import { AlarmTemplateID } from './model/AlarmTemplateID';
 import { AlarmTemplateIDResp } from './model/AlarmTemplateIDResp';
 import { AlarmTemplatePolicies } from './model/AlarmTemplatePolicies';

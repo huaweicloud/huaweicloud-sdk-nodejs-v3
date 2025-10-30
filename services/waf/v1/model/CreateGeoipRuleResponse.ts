@@ -8,6 +8,8 @@ export class CreateGeoipRuleResponse extends SdkResponse {
     public geoip?: string;
     public white?: number;
     public status?: number;
+    private 'ip_type'?: string;
+    public description?: string;
     public timestamp?: number;
     public constructor() { 
         super();
@@ -34,6 +36,20 @@ export class CreateGeoipRuleResponse extends SdkResponse {
     }
     public withStatus(status: number): CreateGeoipRuleResponse {
         this['status'] = status;
+        return this;
+    }
+    public withIpType(ipType: string): CreateGeoipRuleResponse {
+        this['ip_type'] = ipType;
+        return this;
+    }
+    public set ipType(ipType: string  | undefined) {
+        this['ip_type'] = ipType;
+    }
+    public get ipType(): string | undefined {
+        return this['ip_type'];
+    }
+    public withDescription(description: string): CreateGeoipRuleResponse {
+        this['description'] = description;
         return this;
     }
     public withTimestamp(timestamp: number): CreateGeoipRuleResponse {

@@ -4,8 +4,7 @@ export class CreateGlobalAssetScanTaskRequestInfo {
     private 'host_ids'?: Array<string>;
     private 'server_group'?: Array<string>;
     private 'all_hosts'?: boolean;
-    public constructor(allHosts?: boolean) { 
-        this['all_hosts'] = allHosts;
+    public constructor() { 
     }
     public withHostIds(hostIds: Array<string>): CreateGlobalAssetScanTaskRequestInfo {
         this['host_ids'] = hostIds;

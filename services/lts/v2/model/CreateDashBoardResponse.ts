@@ -1,3 +1,4 @@
+import { ResourceTag } from './ResourceTag';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -10,6 +11,8 @@ export class CreateDashBoardResponse extends SdkResponse {
     private 'project_id'?: string;
     public title?: string;
     public useSystemTemplate?: boolean;
+    private 'concise_mode_enable'?: boolean;
+    public tags?: Array<ResourceTag>;
     public constructor() { 
         super();
     }
@@ -61,6 +64,20 @@ export class CreateDashBoardResponse extends SdkResponse {
     }
     public withUseSystemTemplate(useSystemTemplate: boolean): CreateDashBoardResponse {
         this['useSystemTemplate'] = useSystemTemplate;
+        return this;
+    }
+    public withConciseModeEnable(conciseModeEnable: boolean): CreateDashBoardResponse {
+        this['concise_mode_enable'] = conciseModeEnable;
+        return this;
+    }
+    public set conciseModeEnable(conciseModeEnable: boolean  | undefined) {
+        this['concise_mode_enable'] = conciseModeEnable;
+    }
+    public get conciseModeEnable(): boolean | undefined {
+        return this['concise_mode_enable'];
+    }
+    public withTags(tags: Array<ResourceTag>): CreateDashBoardResponse {
+        this['tags'] = tags;
         return this;
     }
 }

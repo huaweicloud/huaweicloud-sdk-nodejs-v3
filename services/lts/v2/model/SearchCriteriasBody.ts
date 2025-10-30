@@ -5,6 +5,7 @@ export class SearchCriteriasBody {
     public criterias?: Array<GetQuerySearchCriteriasBody>;
     private 'log_stream_id'?: string;
     private 'log_stream_name'?: string;
+    private 'search_type'?: string;
     public constructor(criterias?: Array<GetQuerySearchCriteriasBody>) { 
         this['criterias'] = criterias;
     }
@@ -31,5 +32,15 @@ export class SearchCriteriasBody {
     }
     public get logStreamName(): string | undefined {
         return this['log_stream_name'];
+    }
+    public withSearchType(searchType: string): SearchCriteriasBody {
+        this['search_type'] = searchType;
+        return this;
+    }
+    public set searchType(searchType: string  | undefined) {
+        this['search_type'] = searchType;
+    }
+    public get searchType(): string | undefined {
+        return this['search_type'];
     }
 }

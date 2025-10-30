@@ -1,6 +1,6 @@
 import { FrequencyRespBody } from './FrequencyRespBody';
 import { KeywordsResBody } from './KeywordsResBody';
-import { Topics } from './Topics';
+import { TagsResBody } from './TagsResBody';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -16,13 +16,15 @@ export class UpdateKeywordsAlarmRuleResponse extends SdkResponse {
     private 'domain_id'?: string;
     private 'create_time'?: number;
     private 'update_time'?: number;
-    public language?: UpdateKeywordsAlarmRuleResponseLanguageEnum | string;
     public projectId?: string;
-    public topics?: Array<Topics>;
     private 'condition_expression'?: string;
-    public indexId?: string;
     private 'notification_frequency'?: UpdateKeywordsAlarmRuleResponseNotificationFrequencyEnum | number;
     private 'alarm_action_rule_name'?: string;
+    private 'recovery_policy'?: number;
+    public tags?: Array<TagsResBody>;
+    private 'trigger_condition_count'?: number;
+    private 'trigger_condition_frequency'?: number;
+    private 'whether_recovery_policy'?: boolean;
     public constructor() { 
         super();
     }
@@ -130,16 +132,8 @@ export class UpdateKeywordsAlarmRuleResponse extends SdkResponse {
     public get updateTime(): number | undefined {
         return this['update_time'];
     }
-    public withLanguage(language: UpdateKeywordsAlarmRuleResponseLanguageEnum | string): UpdateKeywordsAlarmRuleResponse {
-        this['language'] = language;
-        return this;
-    }
     public withProjectId(projectId: string): UpdateKeywordsAlarmRuleResponse {
         this['projectId'] = projectId;
-        return this;
-    }
-    public withTopics(topics: Array<Topics>): UpdateKeywordsAlarmRuleResponse {
-        this['topics'] = topics;
         return this;
     }
     public withConditionExpression(conditionExpression: string): UpdateKeywordsAlarmRuleResponse {
@@ -151,10 +145,6 @@ export class UpdateKeywordsAlarmRuleResponse extends SdkResponse {
     }
     public get conditionExpression(): string | undefined {
         return this['condition_expression'];
-    }
-    public withIndexId(indexId: string): UpdateKeywordsAlarmRuleResponse {
-        this['indexId'] = indexId;
-        return this;
     }
     public withNotificationFrequency(notificationFrequency: UpdateKeywordsAlarmRuleResponseNotificationFrequencyEnum | number): UpdateKeywordsAlarmRuleResponse {
         this['notification_frequency'] = notificationFrequency;
@@ -176,6 +166,50 @@ export class UpdateKeywordsAlarmRuleResponse extends SdkResponse {
     public get alarmActionRuleName(): string | undefined {
         return this['alarm_action_rule_name'];
     }
+    public withRecoveryPolicy(recoveryPolicy: number): UpdateKeywordsAlarmRuleResponse {
+        this['recovery_policy'] = recoveryPolicy;
+        return this;
+    }
+    public set recoveryPolicy(recoveryPolicy: number  | undefined) {
+        this['recovery_policy'] = recoveryPolicy;
+    }
+    public get recoveryPolicy(): number | undefined {
+        return this['recovery_policy'];
+    }
+    public withTags(tags: Array<TagsResBody>): UpdateKeywordsAlarmRuleResponse {
+        this['tags'] = tags;
+        return this;
+    }
+    public withTriggerConditionCount(triggerConditionCount: number): UpdateKeywordsAlarmRuleResponse {
+        this['trigger_condition_count'] = triggerConditionCount;
+        return this;
+    }
+    public set triggerConditionCount(triggerConditionCount: number  | undefined) {
+        this['trigger_condition_count'] = triggerConditionCount;
+    }
+    public get triggerConditionCount(): number | undefined {
+        return this['trigger_condition_count'];
+    }
+    public withTriggerConditionFrequency(triggerConditionFrequency: number): UpdateKeywordsAlarmRuleResponse {
+        this['trigger_condition_frequency'] = triggerConditionFrequency;
+        return this;
+    }
+    public set triggerConditionFrequency(triggerConditionFrequency: number  | undefined) {
+        this['trigger_condition_frequency'] = triggerConditionFrequency;
+    }
+    public get triggerConditionFrequency(): number | undefined {
+        return this['trigger_condition_frequency'];
+    }
+    public withWhetherRecoveryPolicy(whetherRecoveryPolicy: boolean): UpdateKeywordsAlarmRuleResponse {
+        this['whether_recovery_policy'] = whetherRecoveryPolicy;
+        return this;
+    }
+    public set whetherRecoveryPolicy(whetherRecoveryPolicy: boolean  | undefined) {
+        this['whether_recovery_policy'] = whetherRecoveryPolicy;
+    }
+    public get whetherRecoveryPolicy(): boolean | undefined {
+        return this['whether_recovery_policy'];
+    }
 }
 
 /**
@@ -187,14 +221,6 @@ export enum UpdateKeywordsAlarmRuleResponseKeywordsAlarmLevelEnum {
     MINOR = 'Minor',
     MAJOR = 'Major',
     CRITICAL = 'Critical'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum UpdateKeywordsAlarmRuleResponseLanguageEnum {
-    ZH_CN = 'zh-cn',
-    EN_US = 'en-us'
 }
 /**
     * @export

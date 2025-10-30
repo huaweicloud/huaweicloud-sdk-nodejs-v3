@@ -2,6 +2,8 @@
 
 export class ListVulHostAppsRequest {
     private 'enterprise_project_id'?: string;
+    public limit?: number;
+    public offset?: number;
     private 'host_id'?: string;
     private 'vul_id'?: string;
     private 'handle_status'?: string;
@@ -19,6 +21,14 @@ export class ListVulHostAppsRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withLimit(limit: number): ListVulHostAppsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListVulHostAppsRequest {
+        this['offset'] = offset;
+        return this;
     }
     public withHostId(hostId: string): ListVulHostAppsRequest {
         this['host_id'] = hostId;

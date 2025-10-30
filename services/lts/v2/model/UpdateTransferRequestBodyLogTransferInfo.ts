@@ -1,11 +1,11 @@
-import { TransferDetail } from './TransferDetail';
+import { LogTransferDetail } from './LogTransferDetail';
 
 
 export class UpdateTransferRequestBodyLogTransferInfo {
     private 'log_storage_format'?: UpdateTransferRequestBodyLogTransferInfoLogStorageFormatEnum | string;
     private 'log_transfer_status'?: UpdateTransferRequestBodyLogTransferInfoLogTransferStatusEnum | string;
-    private 'log_transfer_detail'?: TransferDetail;
-    public constructor(logStorageFormat?: string, logTransferStatus?: string, logTransferDetail?: TransferDetail) { 
+    private 'log_transfer_detail'?: LogTransferDetail;
+    public constructor(logStorageFormat?: string, logTransferStatus?: string, logTransferDetail?: LogTransferDetail) { 
         this['log_storage_format'] = logStorageFormat;
         this['log_transfer_status'] = logTransferStatus;
         this['log_transfer_detail'] = logTransferDetail;
@@ -30,14 +30,14 @@ export class UpdateTransferRequestBodyLogTransferInfo {
     public get logTransferStatus(): UpdateTransferRequestBodyLogTransferInfoLogTransferStatusEnum | string | undefined {
         return this['log_transfer_status'];
     }
-    public withLogTransferDetail(logTransferDetail: TransferDetail): UpdateTransferRequestBodyLogTransferInfo {
+    public withLogTransferDetail(logTransferDetail: LogTransferDetail): UpdateTransferRequestBodyLogTransferInfo {
         this['log_transfer_detail'] = logTransferDetail;
         return this;
     }
-    public set logTransferDetail(logTransferDetail: TransferDetail  | undefined) {
+    public set logTransferDetail(logTransferDetail: LogTransferDetail  | undefined) {
         this['log_transfer_detail'] = logTransferDetail;
     }
-    public get logTransferDetail(): TransferDetail | undefined {
+    public get logTransferDetail(): LogTransferDetail | undefined {
         return this['log_transfer_detail'];
     }
 }

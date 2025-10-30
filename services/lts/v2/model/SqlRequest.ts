@@ -1,7 +1,6 @@
 
 
 export class SqlRequest {
-    private 'is_time_range_relative'?: boolean;
     private 'log_stream_id'?: string;
     private 'log_stream_name'?: string;
     private 'log_group_id'?: string;
@@ -17,16 +16,6 @@ export class SqlRequest {
         this['sql_request_title'] = sqlRequestTitle;
         this['search_time_range'] = searchTimeRange;
         this['search_time_range_unit'] = searchTimeRangeUnit;
-    }
-    public withIsTimeRangeRelative(isTimeRangeRelative: boolean): SqlRequest {
-        this['is_time_range_relative'] = isTimeRangeRelative;
-        return this;
-    }
-    public set isTimeRangeRelative(isTimeRangeRelative: boolean  | undefined) {
-        this['is_time_range_relative'] = isTimeRangeRelative;
-    }
-    public get isTimeRangeRelative(): boolean | undefined {
-        return this['is_time_range_relative'];
     }
     public withLogStreamId(logStreamId: string): SqlRequest {
         this['log_stream_id'] = logStreamId;

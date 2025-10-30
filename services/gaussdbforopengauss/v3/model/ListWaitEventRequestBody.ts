@@ -8,7 +8,8 @@ export class ListWaitEventRequestBody {
     public offset?: number;
     private 'order_fields'?: Array<Array<string>>;
     private 'wait_event_query_info'?: WaitEventQueryInfo;
-    public constructor() { 
+    public constructor(nodeId?: string) { 
+        this['node_id'] = nodeId;
     }
     public withNodeId(nodeId: string): ListWaitEventRequestBody {
         this['node_id'] = nodeId;

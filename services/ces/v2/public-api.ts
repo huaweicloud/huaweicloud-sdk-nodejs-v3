@@ -20,6 +20,7 @@ export * from './model/AlarmLevel';
 export * from './model/AlarmName';
 export * from './model/AlarmNameResp';
 export * from './model/AlarmPolicyID';
+export * from './model/AlarmRulePolicy';
 export * from './model/AlarmTemplateID';
 export * from './model/AlarmTemplateIDResp';
 export * from './model/AlarmTemplatePolicies';

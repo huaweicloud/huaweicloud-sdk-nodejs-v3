@@ -1,7 +1,9 @@
+import { SwitchoverReplicaSetRequestBody } from './SwitchoverReplicaSetRequestBody';
 
 
 export class SwitchoverReplicaSetRequest {
     private 'instance_id'?: string;
+    public body?: SwitchoverReplicaSetRequestBody;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -14,5 +16,9 @@ export class SwitchoverReplicaSetRequest {
     }
     public get instanceId(): string | undefined {
         return this['instance_id'];
+    }
+    public withBody(body: SwitchoverReplicaSetRequestBody): SwitchoverReplicaSetRequest {
+        this['body'] = body;
+        return this;
     }
 }

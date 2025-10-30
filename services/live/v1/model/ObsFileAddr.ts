@@ -4,10 +4,9 @@ export class ObsFileAddr {
     public bucket?: string;
     public location?: string;
     private 'object'?: string;
-    public constructor(bucket?: string, location?: string, modelObject?: string) { 
+    public constructor(bucket?: string, location?: string) { 
         this['bucket'] = bucket;
         this['location'] = location;
-        this['object'] = modelObject;
     }
     public withBucket(bucket: string): ObsFileAddr {
         this['bucket'] = bucket;

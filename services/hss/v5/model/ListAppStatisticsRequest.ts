@@ -6,7 +6,8 @@ export class ListAppStatisticsRequest {
     public limit?: number;
     public offset?: number;
     public category?: string;
-    public constructor() { 
+    public constructor(category?: string) { 
+        this['category'] = category;
     }
     public withAppName(appName: string): ListAppStatisticsRequest {
         this['app_name'] = appName;

@@ -3,6 +3,7 @@ import { ScaleOut } from './ScaleOut';
 
 export class ResizeClusterRequestBody {
     private 'scale_out'?: ScaleOut;
+    private 'logical_cluster_name'?: string;
     private 'create_node_only'?: boolean;
     private 'waiting_for_killing'?: number;
     private 'auto_redistribute'?: boolean;
@@ -18,6 +19,16 @@ export class ResizeClusterRequestBody {
     }
     public get scaleOut(): ScaleOut | undefined {
         return this['scale_out'];
+    }
+    public withLogicalClusterName(logicalClusterName: string): ResizeClusterRequestBody {
+        this['logical_cluster_name'] = logicalClusterName;
+        return this;
+    }
+    public set logicalClusterName(logicalClusterName: string  | undefined) {
+        this['logical_cluster_name'] = logicalClusterName;
+    }
+    public get logicalClusterName(): string | undefined {
+        return this['logical_cluster_name'];
     }
     public withCreateNodeOnly(createNodeOnly: boolean): ResizeClusterRequestBody {
         this['create_node_only'] = createNodeOnly;

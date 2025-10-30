@@ -7,6 +7,7 @@ export class CheckpointReplicateParam {
     private 'destination_vault_id'?: string;
     private 'enable_acceleration'?: boolean;
     private 'vault_id'?: string;
+    private 'cross_account_urn'?: string;
     public constructor(destinationProjectId?: string, destinationRegion?: string, destinationVaultId?: string, vaultId?: string) { 
         this['destination_project_id'] = destinationProjectId;
         this['destination_region'] = destinationRegion;
@@ -72,5 +73,15 @@ export class CheckpointReplicateParam {
     }
     public get vaultId(): string | undefined {
         return this['vault_id'];
+    }
+    public withCrossAccountUrn(crossAccountUrn: string): CheckpointReplicateParam {
+        this['cross_account_urn'] = crossAccountUrn;
+        return this;
+    }
+    public set crossAccountUrn(crossAccountUrn: string  | undefined) {
+        this['cross_account_urn'] = crossAccountUrn;
+    }
+    public get crossAccountUrn(): string | undefined {
+        return this['cross_account_urn'];
     }
 }

@@ -4,6 +4,7 @@ export class TuningParameter {
     private 'param_name'?: string;
     private 'param_value'?: string;
     public availability?: string;
+    public range?: string;
     public constructor() { 
     }
     public withParamName(paramName: string): TuningParameter {
@@ -28,6 +29,10 @@ export class TuningParameter {
     }
     public withAvailability(availability: string): TuningParameter {
         this['availability'] = availability;
+        return this;
+    }
+    public withRange(range: string): TuningParameter {
+        this['range'] = range;
         return this;
     }
 }

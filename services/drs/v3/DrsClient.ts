@@ -174,7 +174,11 @@ import { ListObejectLevelCompareOverviewRequest } from './model/ListObejectLevel
 import { ListObejectLevelCompareOverviewResponse } from './model/ListObejectLevelCompareOverviewResponse';
 import { ListUsersRequest } from './model/ListUsersRequest';
 import { ListUsersResponse } from './model/ListUsersResponse';
+import { LtsInfo } from './model/LtsInfo';
+import { LtsInfoJob } from './model/LtsInfoJob';
 import { ModifyDbPwdResp } from './model/ModifyDbPwdResp';
+import { ModifyGroupAndStreamRequest } from './model/ModifyGroupAndStreamRequest';
+import { ModifyGroupAndStreamResponse } from './model/ModifyGroupAndStreamResponse';
 import { ModifyJobReq } from './model/ModifyJobReq';
 import { ModifyJobResp } from './model/ModifyJobResp';
 import { ModifyPwdEndPoint } from './model/ModifyPwdEndPoint';
@@ -218,6 +222,8 @@ import { QuerySmnInfoResp } from './model/QuerySmnInfoResp';
 import { QueryStructDetailResp } from './model/QueryStructDetailResp';
 import { QueryStructProcessResp } from './model/QueryStructProcessResp';
 import { QuerySupportNodeTypeBean } from './model/QuerySupportNodeTypeBean';
+import { QueryTuningParamsRequest } from './model/QueryTuningParamsRequest';
+import { QueryTuningParamsResponse } from './model/QueryTuningParamsResponse';
 import { QueryUserDetailResp } from './model/QueryUserDetailResp';
 import { QueryUserResp } from './model/QueryUserResp';
 import { QuotaResource } from './model/QuotaResource';
@@ -226,6 +232,8 @@ import { ResourceTag } from './model/ResourceTag';
 import { RetryInfo } from './model/RetryInfo';
 import { RetryTaskResp } from './model/RetryTaskResp';
 import { RpoAndRtoInfo } from './model/RpoAndRtoInfo';
+import { SelectGroupAndStreamRequest } from './model/SelectGroupAndStreamRequest';
+import { SelectGroupAndStreamResponse } from './model/SelectGroupAndStreamResponse';
 import { SelectedSetAlarmTaskReq } from './model/SelectedSetAlarmTaskReq';
 import { ShowJobListRequest } from './model/ShowJobListRequest';
 import { ShowJobListResponse } from './model/ShowJobListResponse';
@@ -1201,6 +1209,67 @@ export class DrsClient {
      */
     public listUsers(listUsersRequest?: ListUsersRequest): Promise<ListUsersResponse> {
         const options = ParamCreater().listUsers(listUsersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新任务的LTS配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新LTS配置
+     * @param {string} jobId 任务ID。
+     * @param {LtsInfo} modifyGroupAndStreamRequestBody 更新LTS配置请求体。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyGroupAndStream(modifyGroupAndStreamRequest?: ModifyGroupAndStreamRequest): Promise<ModifyGroupAndStreamResponse> {
+        const options = ParamCreater().modifyGroupAndStream(modifyGroupAndStreamRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询高级设置参数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询高级设置参数
+     * @param {string} jobId 任务ID，如果是主备任务，使用父任务ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public queryTuningParams(queryTuningParamsRequest?: QueryTuningParamsRequest): Promise<QueryTuningParamsResponse> {
+        const options = ParamCreater().queryTuningParams(queryTuningParamsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询任务的LTS配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询LTS配置
+     * @param {string} jobId 任务ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public selectGroupAndStream(selectGroupAndStreamRequest?: SelectGroupAndStreamRequest): Promise<SelectGroupAndStreamResponse> {
+        const options = ParamCreater().selectGroupAndStream(selectGroupAndStreamRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3638,6 +3707,147 @@ export const ParamCreater = function () {
         
             if (jobId === null || jobId === undefined) {
             throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling listUsers.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新任务的LTS配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyGroupAndStream(modifyGroupAndStreamRequest?: ModifyGroupAndStreamRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/jobs/{job_id}/lts-log-switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobId;
+            
+            let xLanguage;
+
+            if (modifyGroupAndStreamRequest !== null && modifyGroupAndStreamRequest !== undefined) {
+                if (modifyGroupAndStreamRequest instanceof ModifyGroupAndStreamRequest) {
+                    jobId = modifyGroupAndStreamRequest.jobId;
+                    body = modifyGroupAndStreamRequest.body
+                    xLanguage = modifyGroupAndStreamRequest.xLanguage;
+                } else {
+                    jobId = modifyGroupAndStreamRequest['job_id'];
+                    body = modifyGroupAndStreamRequest['body'];
+                    xLanguage = modifyGroupAndStreamRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling modifyGroupAndStream.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询高级设置参数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        queryTuningParams(queryTuningParamsRequest?: QueryTuningParamsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/job/{job_id}/tuning-params/query-params",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let xLanguage;
+
+            if (queryTuningParamsRequest !== null && queryTuningParamsRequest !== undefined) {
+                if (queryTuningParamsRequest instanceof QueryTuningParamsRequest) {
+                    jobId = queryTuningParamsRequest.jobId;
+                    xLanguage = queryTuningParamsRequest.xLanguage;
+                } else {
+                    jobId = queryTuningParamsRequest['job_id'];
+                    xLanguage = queryTuningParamsRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling queryTuningParams.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询任务的LTS配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        selectGroupAndStream(selectGroupAndStreamRequest?: SelectGroupAndStreamRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/jobs/{job_id}/lts-log-switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let xLanguage;
+
+            if (selectGroupAndStreamRequest !== null && selectGroupAndStreamRequest !== undefined) {
+                if (selectGroupAndStreamRequest instanceof SelectGroupAndStreamRequest) {
+                    jobId = selectGroupAndStreamRequest.jobId;
+                    xLanguage = selectGroupAndStreamRequest.xLanguage;
+                } else {
+                    jobId = selectGroupAndStreamRequest['job_id'];
+                    xLanguage = selectGroupAndStreamRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling selectGroupAndStream.');
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);

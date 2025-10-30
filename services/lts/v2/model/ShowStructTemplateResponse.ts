@@ -1,3 +1,4 @@
+import { CustomTimeInfo } from './CustomTimeInfo';
 import { ShowStructTemplateRule } from './ShowStructTemplateRule';
 import { ShowStructTemplateclusterInfo } from './ShowStructTemplateclusterInfo';
 import { StructFieldInfoReturn } from './StructFieldInfoReturn';
@@ -18,6 +19,9 @@ export class ShowStructTemplateResponse extends SdkResponse {
     public projectId?: string;
     public templateName?: string;
     public regex?: string;
+    private 'custom_time_info'?: CustomTimeInfo;
+    public uploadOriginalLog?: boolean;
+    public uploadParseFailedLog?: boolean;
     public constructor() { 
         super();
     }
@@ -73,6 +77,24 @@ export class ShowStructTemplateResponse extends SdkResponse {
     }
     public withRegex(regex: string): ShowStructTemplateResponse {
         this['regex'] = regex;
+        return this;
+    }
+    public withCustomTimeInfo(customTimeInfo: CustomTimeInfo): ShowStructTemplateResponse {
+        this['custom_time_info'] = customTimeInfo;
+        return this;
+    }
+    public set customTimeInfo(customTimeInfo: CustomTimeInfo  | undefined) {
+        this['custom_time_info'] = customTimeInfo;
+    }
+    public get customTimeInfo(): CustomTimeInfo | undefined {
+        return this['custom_time_info'];
+    }
+    public withUploadOriginalLog(uploadOriginalLog: boolean): ShowStructTemplateResponse {
+        this['uploadOriginalLog'] = uploadOriginalLog;
+        return this;
+    }
+    public withUploadParseFailedLog(uploadParseFailedLog: boolean): ShowStructTemplateResponse {
+        this['uploadParseFailedLog'] = uploadParseFailedLog;
         return this;
     }
 }

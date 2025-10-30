@@ -1,10 +1,10 @@
-import { BatchDeleteTagsRequestBody } from './BatchDeleteTagsRequestBody';
+import { BatchDeleteTagsRequestInfo } from './BatchDeleteTagsRequestInfo';
 
 
 export class BatchDeleteTagsRequest {
     private 'resource_type'?: string;
     private 'resource_id'?: string;
-    public body?: BatchDeleteTagsRequestBody;
+    public body?: BatchDeleteTagsRequestInfo;
     public constructor(resourceType?: string, resourceId?: string) { 
         this['resource_type'] = resourceType;
         this['resource_id'] = resourceId;
@@ -29,7 +29,7 @@ export class BatchDeleteTagsRequest {
     public get resourceId(): string | undefined {
         return this['resource_id'];
     }
-    public withBody(body: BatchDeleteTagsRequestBody): BatchDeleteTagsRequest {
+    public withBody(body: BatchDeleteTagsRequestInfo): BatchDeleteTagsRequest {
         this['body'] = body;
         return this;
     }
