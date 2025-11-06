@@ -26,6 +26,7 @@ export class CreateAccessConfigRequestBody {
     private 'environment_id'?: string;
     private 'component_id'?: Array<string>;
     private 'access_config_type_source'?: string;
+    private 'recursive_depth'?: number;
     public constructor(accessConfigName?: string, accessConfigType?: string, accessConfigDetail?: AccessConfigDeatilCreate, logInfo?: AccessConfigBaseLogInfoCreate) { 
         this['access_config_name'] = accessConfigName;
         this['access_config_type'] = accessConfigType;
@@ -215,6 +216,16 @@ export class CreateAccessConfigRequestBody {
     }
     public get accessConfigTypeSource(): string | undefined {
         return this['access_config_type_source'];
+    }
+    public withRecursiveDepth(recursiveDepth: number): CreateAccessConfigRequestBody {
+        this['recursive_depth'] = recursiveDepth;
+        return this;
+    }
+    public set recursiveDepth(recursiveDepth: number  | undefined) {
+        this['recursive_depth'] = recursiveDepth;
+    }
+    public get recursiveDepth(): number | undefined {
+        return this['recursive_depth'];
     }
 }
 

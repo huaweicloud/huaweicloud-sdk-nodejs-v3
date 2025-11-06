@@ -8,7 +8,7 @@ export class ShowMetricDataRequest {
     private 'dim.2'?: string;
     private 'dim.3'?: string;
     public filter?: ShowMetricDataRequestFilterEnum | string;
-    public period?: number;
+    public period?: ShowMetricDataRequestPeriodEnum | number;
     public from?: number;
     public to?: number;
     public constructor(namespace?: string, metricName?: string, dim0?: string, filter?: string, period?: number, from?: number, to?: number) { 
@@ -78,7 +78,7 @@ export class ShowMetricDataRequest {
         this['filter'] = filter;
         return this;
     }
-    public withPeriod(period: number): ShowMetricDataRequest {
+    public withPeriod(period: ShowMetricDataRequestPeriodEnum | number): ShowMetricDataRequest {
         this['period'] = period;
         return this;
     }
@@ -97,9 +97,22 @@ export class ShowMetricDataRequest {
     * @enum {string}
     */
 export enum ShowMetricDataRequestFilterEnum {
-    MAX = 'max',
-    MIN = 'min',
     AVERAGE = 'average',
-    SUM = 'sum',
-    VARIANCE = 'variance'
+    VARIANCE = 'variance',
+    MIN = 'min',
+    MAX = 'max',
+    SUM = 'sum'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowMetricDataRequestPeriodEnum {
+    NUMBER_1 = 1,
+    NUMBER_60 = 60,
+    NUMBER_300 = 300,
+    NUMBER_1200 = 1200,
+    NUMBER_3600 = 3600,
+    NUMBER_14400 = 14400,
+    NUMBER_86400 = 86400
 }

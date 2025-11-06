@@ -8,7 +8,8 @@ export class EventAlarmSpec {
     private 'trigger_conditions'?: Array<EventTriggerCondition>;
     private 'alarm_rule_template_bind_enable'?: boolean;
     private 'alarm_rule_template_id'?: string;
-    public constructor() { 
+    public constructor(triggerConditions?: Array<EventTriggerCondition>) { 
+        this['trigger_conditions'] = triggerConditions;
     }
     public withAlarmSource(alarmSource: EventAlarmSpecAlarmSourceEnum | string): EventAlarmSpec {
         this['alarm_source'] = alarmSource;

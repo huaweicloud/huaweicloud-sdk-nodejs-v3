@@ -11,6 +11,7 @@ export class Restore {
     private 'public_ip'?: PublicIp;
     private 'enterprise_project_id'?: string;
     private 'ipv6_enable'?: boolean;
+    private 'number_of_cn'?: number;
     public constructor(name?: string) { 
         this['name'] = name;
     }
@@ -91,5 +92,15 @@ export class Restore {
     }
     public get ipv6Enable(): boolean | undefined {
         return this['ipv6_enable'];
+    }
+    public withNumberOfCn(numberOfCn: number): Restore {
+        this['number_of_cn'] = numberOfCn;
+        return this;
+    }
+    public set numberOfCn(numberOfCn: number  | undefined) {
+        this['number_of_cn'] = numberOfCn;
+    }
+    public get numberOfCn(): number | undefined {
+        return this['number_of_cn'];
     }
 }

@@ -1,10 +1,12 @@
+import { ApplicationModel } from './ApplicationModel';
 import { PromConfigModel } from './PromConfigModel';
+import { PromLimits } from './PromLimits';
 
 
 export class PromInstanceEpsModel {
     private 'prom_name'?: string;
     private 'prom_id'?: string;
-    private 'prom_type'?: PromInstanceEpsModelPromTypeEnum | string;
+    private 'prom_type'?: string;
     private 'prom_version'?: string;
     private 'prom_create_timestamp'?: number;
     private 'prom_update_timestamp'?: number;
@@ -15,6 +17,9 @@ export class PromInstanceEpsModel {
     private 'deleted_time'?: number;
     private 'prom_spec_config'?: PromConfigModel;
     private 'cce_spec_config'?: string;
+    private 'prom_limits'?: PromLimits;
+    private 'limits_update_time'?: number;
+    public application?: ApplicationModel;
     public constructor(promName?: string, promType?: string) { 
         this['prom_name'] = promName;
         this['prom_type'] = promType;
@@ -39,14 +44,14 @@ export class PromInstanceEpsModel {
     public get promId(): string | undefined {
         return this['prom_id'];
     }
-    public withPromType(promType: PromInstanceEpsModelPromTypeEnum | string): PromInstanceEpsModel {
+    public withPromType(promType: string): PromInstanceEpsModel {
         this['prom_type'] = promType;
         return this;
     }
-    public set promType(promType: PromInstanceEpsModelPromTypeEnum | string  | undefined) {
+    public set promType(promType: string  | undefined) {
         this['prom_type'] = promType;
     }
-    public get promType(): PromInstanceEpsModelPromTypeEnum | string | undefined {
+    public get promType(): string | undefined {
         return this['prom_type'];
     }
     public withPromVersion(promVersion: string): PromInstanceEpsModel {
@@ -149,22 +154,32 @@ export class PromInstanceEpsModel {
     public get cceSpecConfig(): string | undefined {
         return this['cce_spec_config'];
     }
+    public withPromLimits(promLimits: PromLimits): PromInstanceEpsModel {
+        this['prom_limits'] = promLimits;
+        return this;
+    }
+    public set promLimits(promLimits: PromLimits  | undefined) {
+        this['prom_limits'] = promLimits;
+    }
+    public get promLimits(): PromLimits | undefined {
+        return this['prom_limits'];
+    }
+    public withLimitsUpdateTime(limitsUpdateTime: number): PromInstanceEpsModel {
+        this['limits_update_time'] = limitsUpdateTime;
+        return this;
+    }
+    public set limitsUpdateTime(limitsUpdateTime: number  | undefined) {
+        this['limits_update_time'] = limitsUpdateTime;
+    }
+    public get limitsUpdateTime(): number | undefined {
+        return this['limits_update_time'];
+    }
+    public withApplication(application: ApplicationModel): PromInstanceEpsModel {
+        this['application'] = application;
+        return this;
+    }
 }
 
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PromInstanceEpsModelPromTypeEnum {
-    DEFAULT = 'default',
-    ECS = 'ECS',
-    VPC = 'VPC',
-    CCE = 'CCE',
-    REMOTE_WRITE = 'REMOTE_WRITE',
-    KUBERNETES = 'KUBERNETES',
-    CLOUD_SERVICE = 'CLOUD_SERVICE',
-    ACROSS_ACCOUNT = 'ACROSS_ACCOUNT'
-}
 /**
     * @export
     * @enum {string}

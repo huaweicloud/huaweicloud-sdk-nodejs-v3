@@ -6,7 +6,7 @@ export class ListEventsRequest {
     private 'event_name'?: string;
     public from?: number;
     public to?: number;
-    public start?: number;
+    public start?: string;
     public limit?: number;
     public constructor() { 
     }
@@ -48,7 +48,7 @@ export class ListEventsRequest {
         this['to'] = to;
         return this;
     }
-    public withStart(start: number): ListEventsRequest {
+    public withStart(start: string): ListEventsRequest {
         this['start'] = start;
         return this;
     }

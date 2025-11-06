@@ -11,11 +11,10 @@ export class MuteRule {
     public timezone?: string;
     private 'update_time'?: number;
     private 'user_id'?: string;
-    public constructor(match?: Array<Array<Match>>, muteConfig?: MuteConfig, name?: string, timezone?: string) { 
+    public constructor(match?: Array<Array<Match>>, muteConfig?: MuteConfig, name?: string) { 
         this['match'] = match;
         this['mute_config'] = muteConfig;
         this['name'] = name;
-        this['timezone'] = timezone;
     }
     public withCreateTime(createTime: number): MuteRule {
         this['create_time'] = createTime;

@@ -6,9 +6,8 @@ export class StartAutoCreateSnapshotsReq {
     public frequency?: string;
     public period?: string;
     public prefix?: string;
-    public constructor(keepday?: number, period?: string, prefix?: string) { 
+    public constructor(keepday?: number, prefix?: string) { 
         this['keepday'] = keepday;
-        this['period'] = period;
         this['prefix'] = prefix;
     }
     public withIndices(indices: string): StartAutoCreateSnapshotsReq {

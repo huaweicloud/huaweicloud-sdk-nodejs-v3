@@ -5,9 +5,9 @@ export class ListEventDetailRequest {
     private 'event_type'?: ListEventDetailRequestEventTypeEnum | string;
     private 'sub_event_type'?: ListEventDetailRequestSubEventTypeEnum | string;
     private 'event_source'?: string;
-    private 'event_level'?: string;
+    private 'event_level'?: ListEventDetailRequestEventLevelEnum | string;
     private 'event_user'?: string;
-    private 'event_state'?: string;
+    private 'event_state'?: ListEventDetailRequestEventStateEnum | string;
     public from?: number;
     public to?: number;
     public start?: number;
@@ -56,14 +56,14 @@ export class ListEventDetailRequest {
     public get eventSource(): string | undefined {
         return this['event_source'];
     }
-    public withEventLevel(eventLevel: string): ListEventDetailRequest {
+    public withEventLevel(eventLevel: ListEventDetailRequestEventLevelEnum | string): ListEventDetailRequest {
         this['event_level'] = eventLevel;
         return this;
     }
-    public set eventLevel(eventLevel: string  | undefined) {
+    public set eventLevel(eventLevel: ListEventDetailRequestEventLevelEnum | string  | undefined) {
         this['event_level'] = eventLevel;
     }
-    public get eventLevel(): string | undefined {
+    public get eventLevel(): ListEventDetailRequestEventLevelEnum | string | undefined {
         return this['event_level'];
     }
     public withEventUser(eventUser: string): ListEventDetailRequest {
@@ -76,14 +76,14 @@ export class ListEventDetailRequest {
     public get eventUser(): string | undefined {
         return this['event_user'];
     }
-    public withEventState(eventState: string): ListEventDetailRequest {
+    public withEventState(eventState: ListEventDetailRequestEventStateEnum | string): ListEventDetailRequest {
         this['event_state'] = eventState;
         return this;
     }
-    public set eventState(eventState: string  | undefined) {
+    public set eventState(eventState: ListEventDetailRequestEventStateEnum | string  | undefined) {
         this['event_state'] = eventState;
     }
-    public get eventState(): string | undefined {
+    public get eventState(): ListEventDetailRequestEventStateEnum | string | undefined {
         return this['event_state'];
     }
     public withFrom(from: number): ListEventDetailRequest {
@@ -120,4 +120,23 @@ export enum ListEventDetailRequestSubEventTypeEnum {
     SUB_EVENT_OPS = 'SUB_EVENT.OPS',
     SUB_EVENT_PLAN = 'SUB_EVENT.PLAN',
     SUB_EVENT_CUSTOM = 'SUB_EVENT.CUSTOM'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListEventDetailRequestEventLevelEnum {
+    CRITICAL = 'Critical',
+    MAJOR = 'Major',
+    INFO = 'Info',
+    MINOR = 'Minor'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListEventDetailRequestEventStateEnum {
+    NORMAL = 'normal',
+    WARNING = 'warning',
+    INCIDENT = 'incident'
 }

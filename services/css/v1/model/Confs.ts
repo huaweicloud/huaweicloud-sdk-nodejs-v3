@@ -7,6 +7,7 @@ export class Confs {
     public confContent?: string;
     public setting?: Setting;
     public updateAt?: string;
+    public desc?: string;
     public constructor() { 
     }
     public withName(name: string): Confs {
@@ -27,6 +28,10 @@ export class Confs {
     }
     public withUpdateAt(updateAt: string): Confs {
         this['updateAt'] = updateAt;
+        return this;
+    }
+    public withDesc(desc: string): Confs {
+        this['desc'] = desc;
         return this;
     }
 }

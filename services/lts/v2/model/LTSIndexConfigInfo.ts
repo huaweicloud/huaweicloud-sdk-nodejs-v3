@@ -7,6 +7,7 @@ export class LTSIndexConfigInfo {
     public fields?: Array<LTSFieldsInfo>;
     public sqlAnalysisEnable?: boolean;
     public logStreamId?: string;
+    public fastAnalysisSampleCount?: number;
     public constructor(fullTextIndex?: LTSFullTextIndexInfo, logStreamId?: string) { 
         this['fullTextIndex'] = fullTextIndex;
         this['logStreamId'] = logStreamId;
@@ -25,6 +26,10 @@ export class LTSIndexConfigInfo {
     }
     public withLogStreamId(logStreamId: string): LTSIndexConfigInfo {
         this['logStreamId'] = logStreamId;
+        return this;
+    }
+    public withFastAnalysisSampleCount(fastAnalysisSampleCount: number): LTSIndexConfigInfo {
+        this['fastAnalysisSampleCount'] = fastAnalysisSampleCount;
         return this;
     }
 }

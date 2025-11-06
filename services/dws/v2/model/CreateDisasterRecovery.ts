@@ -1,3 +1,4 @@
+import { CreateDrClusterDto } from './CreateDrClusterDto';
 
 
 export class CreateDisasterRecovery {
@@ -8,6 +9,13 @@ export class CreateDisasterRecovery {
     private 'dr_sync_period'?: string;
     private 'primary_obs_bucket'?: string;
     private 'standby_obs_bucket'?: string;
+    private 'discovery_recovery_id'?: string;
+    private 'primary_cluster_region'?: string;
+    private 'standby_cluster_region'?: string;
+    private 'primary_cluster_project_id'?: string;
+    private 'standby_cluster_project_id'?: string;
+    private 'cluster_role'?: string;
+    private 'primary_cluster_info'?: CreateDrClusterDto;
     public constructor(name?: string, drType?: string, primaryClusterId?: string, standbyClusterId?: string, drSyncPeriod?: string) { 
         this['name'] = name;
         this['dr_type'] = drType;
@@ -78,5 +86,75 @@ export class CreateDisasterRecovery {
     }
     public get standbyObsBucket(): string | undefined {
         return this['standby_obs_bucket'];
+    }
+    public withDiscoveryRecoveryId(discoveryRecoveryId: string): CreateDisasterRecovery {
+        this['discovery_recovery_id'] = discoveryRecoveryId;
+        return this;
+    }
+    public set discoveryRecoveryId(discoveryRecoveryId: string  | undefined) {
+        this['discovery_recovery_id'] = discoveryRecoveryId;
+    }
+    public get discoveryRecoveryId(): string | undefined {
+        return this['discovery_recovery_id'];
+    }
+    public withPrimaryClusterRegion(primaryClusterRegion: string): CreateDisasterRecovery {
+        this['primary_cluster_region'] = primaryClusterRegion;
+        return this;
+    }
+    public set primaryClusterRegion(primaryClusterRegion: string  | undefined) {
+        this['primary_cluster_region'] = primaryClusterRegion;
+    }
+    public get primaryClusterRegion(): string | undefined {
+        return this['primary_cluster_region'];
+    }
+    public withStandbyClusterRegion(standbyClusterRegion: string): CreateDisasterRecovery {
+        this['standby_cluster_region'] = standbyClusterRegion;
+        return this;
+    }
+    public set standbyClusterRegion(standbyClusterRegion: string  | undefined) {
+        this['standby_cluster_region'] = standbyClusterRegion;
+    }
+    public get standbyClusterRegion(): string | undefined {
+        return this['standby_cluster_region'];
+    }
+    public withPrimaryClusterProjectId(primaryClusterProjectId: string): CreateDisasterRecovery {
+        this['primary_cluster_project_id'] = primaryClusterProjectId;
+        return this;
+    }
+    public set primaryClusterProjectId(primaryClusterProjectId: string  | undefined) {
+        this['primary_cluster_project_id'] = primaryClusterProjectId;
+    }
+    public get primaryClusterProjectId(): string | undefined {
+        return this['primary_cluster_project_id'];
+    }
+    public withStandbyClusterProjectId(standbyClusterProjectId: string): CreateDisasterRecovery {
+        this['standby_cluster_project_id'] = standbyClusterProjectId;
+        return this;
+    }
+    public set standbyClusterProjectId(standbyClusterProjectId: string  | undefined) {
+        this['standby_cluster_project_id'] = standbyClusterProjectId;
+    }
+    public get standbyClusterProjectId(): string | undefined {
+        return this['standby_cluster_project_id'];
+    }
+    public withClusterRole(clusterRole: string): CreateDisasterRecovery {
+        this['cluster_role'] = clusterRole;
+        return this;
+    }
+    public set clusterRole(clusterRole: string  | undefined) {
+        this['cluster_role'] = clusterRole;
+    }
+    public get clusterRole(): string | undefined {
+        return this['cluster_role'];
+    }
+    public withPrimaryClusterInfo(primaryClusterInfo: CreateDrClusterDto): CreateDisasterRecovery {
+        this['primary_cluster_info'] = primaryClusterInfo;
+        return this;
+    }
+    public set primaryClusterInfo(primaryClusterInfo: CreateDrClusterDto  | undefined) {
+        this['primary_cluster_info'] = primaryClusterInfo;
+    }
+    public get primaryClusterInfo(): CreateDrClusterDto | undefined {
+        return this['primary_cluster_info'];
     }
 }

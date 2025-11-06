@@ -1,4 +1,4 @@
-import { EventInfoDetail } from './EventInfoDetail';
+import { EventInfoDetailResp } from './EventInfoDetailResp';
 import { TotalMetaData } from './TotalMetaData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -9,7 +9,7 @@ export class ListEventDetailResponse extends SdkResponse {
     private 'sub_event_type'?: ListEventDetailResponseSubEventTypeEnum | string;
     private 'event_users'?: Array<string>;
     private 'event_sources'?: Array<string>;
-    private 'event_info'?: Array<EventInfoDetail>;
+    private 'event_info'?: Array<EventInfoDetailResp>;
     private 'meta_data'?: TotalMetaData;
     public constructor() { 
         super();
@@ -64,14 +64,14 @@ export class ListEventDetailResponse extends SdkResponse {
     public get eventSources(): Array<string> | undefined {
         return this['event_sources'];
     }
-    public withEventInfo(eventInfo: Array<EventInfoDetail>): ListEventDetailResponse {
+    public withEventInfo(eventInfo: Array<EventInfoDetailResp>): ListEventDetailResponse {
         this['event_info'] = eventInfo;
         return this;
     }
-    public set eventInfo(eventInfo: Array<EventInfoDetail>  | undefined) {
+    public set eventInfo(eventInfo: Array<EventInfoDetailResp>  | undefined) {
         this['event_info'] = eventInfo;
     }
-    public get eventInfo(): Array<EventInfoDetail> | undefined {
+    public get eventInfo(): Array<EventInfoDetailResp> | undefined {
         return this['event_info'];
     }
     public withMetaData(metaData: TotalMetaData): ListEventDetailResponse {

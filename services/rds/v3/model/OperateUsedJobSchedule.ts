@@ -11,8 +11,7 @@ export class OperateUsedJobSchedule {
     public frequency?: JobScheduleFrequencyInfo;
     private 'daily_frequency'?: JobScheduleDailyFrequencyInfo;
     public duration?: JobScheduleDurationInfo;
-    public constructor(jobScheduleType?: string) { 
-        this['job_schedule_type'] = jobScheduleType;
+    public constructor() { 
     }
     public withId(id: string): OperateUsedJobSchedule {
         this['id'] = id;

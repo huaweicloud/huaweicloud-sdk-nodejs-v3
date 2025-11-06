@@ -74,7 +74,6 @@ import { BatchUpdateNotificationMasksResponse } from './model/BatchUpdateNotific
 import { BatchUpdateOneClickAlarmPoliciesEnabledStateRequest } from './model/BatchUpdateOneClickAlarmPoliciesEnabledStateRequest';
 import { BatchUpdateOneClickAlarmPoliciesEnabledStateResponse } from './model/BatchUpdateOneClickAlarmPoliciesEnabledStateResponse';
 import { BatchUpdateOneClickAlarmsEnabledStateRequest } from './model/BatchUpdateOneClickAlarmsEnabledStateRequest';
-import { BatchUpdateOneClickAlarmsEnabledStateRequestBody } from './model/BatchUpdateOneClickAlarmsEnabledStateRequestBody';
 import { BatchUpdateOneClickAlarmsEnabledStateResponse } from './model/BatchUpdateOneClickAlarmsEnabledStateResponse';
 import { BatchUpdateWidgetInfo } from './model/BatchUpdateWidgetInfo';
 import { BatchUpdateWidgetsRequest } from './model/BatchUpdateWidgetsRequest';
@@ -605,7 +604,7 @@ export class CesClient {
      *
      * @summary 批量修改一键告警关联告警规则的启用状态
      * @param {string} oneClickAlarmId **参数解释**： 一键告警ID。 **约束限制**： 不涉及。 **取值范围**： 只能为字母或者数字，字符长度为[1,64] **默认取值**： 不涉及。 
-     * @param {BatchUpdateOneClickAlarmsEnabledStateRequestBody} batchUpdateOneClickAlarmsEnabledStateRequestBody 批量启停告警规则请求体
+     * @param {BatchEnableAlarmsRequestBody} batchUpdateOneClickAlarmsEnabledStateRequestBody 批量启停告警规则请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -968,7 +967,7 @@ export class CesClient {
      * @param {string} [dimName] 资源维度，必须以字母开头，多维度用\&quot;,\&quot;分隔，只能包含0-9/a-z/A-Z/_/-，每个维度的最大长度为32
      * @param {'system' | 'custom' | 'system_event' | 'custom_event' | 'system_custom_event'} [templateType] 模板类型(system代表默认指标模板，custom代表自定义指标模板，system_event代表默认事件模板，custom_event代表自定义事件模板，system_custom_event代表全部事件模板),不传返回全部指标模板
      * @param {string} [templateName] 告警模板的名称，以字母或汉字开头，可包含字母、数字、汉字、_、-，长度范围[1,128]，支持模糊匹配
-     * @param {string} [productName] 支持按照产品名称粒度进行查询告警模板，产品名称一般由\&quot;服务命名空间,服务首层维度名称\&quot;组成，如\&quot;SYS.ECS,instance_id\&quot;
+     * @param {string} [productName] （已废弃）支持按照产品名称粒度进行查询告警模板，产品名称一般由\&quot;服务命名空间,服务首层维度名称\&quot;组成，如\&quot;SYS.ECS,instance_id\&quot;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1341,7 +1340,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量修改开启状态的一键告警关联告警规则的告警通知
-     * @param {string} oneClickAlarmId 一键告警ID
+     * @param {string} oneClickAlarmId **参数解释**： 一键告警ID **约束限制**： 不涉及。 **取值范围**： 长度为[1,64]个字符。 **默认取值**： 不涉及。 
      * @param {UpdateOneClickAlarmNotificationsRequestBody} updateOneClickAlarmNotificationsRequestBody 修改告警规则告警通知信息的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

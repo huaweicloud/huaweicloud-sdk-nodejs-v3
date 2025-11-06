@@ -10,6 +10,7 @@ export class LTSFieldsInfo {
     public quickAnalysis?: boolean;
     public ascii?: Array<string>;
     public ltsSubFieldsInfoList?: Array<LTSSubFieldsInfo>;
+    public fieldAnalysisAlias?: string;
     public constructor(fieldType?: string, fieldName?: string, tokenizer?: string) { 
         this['fieldType'] = fieldType;
         this['fieldName'] = fieldName;
@@ -45,6 +46,10 @@ export class LTSFieldsInfo {
     }
     public withLtsSubFieldsInfoList(ltsSubFieldsInfoList: Array<LTSSubFieldsInfo>): LTSFieldsInfo {
         this['ltsSubFieldsInfoList'] = ltsSubFieldsInfoList;
+        return this;
+    }
+    public withFieldAnalysisAlias(fieldAnalysisAlias: string): LTSFieldsInfo {
+        this['fieldAnalysisAlias'] = fieldAnalysisAlias;
         return this;
     }
 }

@@ -1,4 +1,3 @@
-import { FieldModel } from './FieldModel';
 
 
 export class StructConfig {
@@ -7,9 +6,6 @@ export class StructConfig {
     private 'template_id'?: string;
     private 'template_name'?: string;
     private 'template_type'?: StructConfigTemplateTypeEnum | string;
-    private 'demo_fields'?: Array<FieldModel>;
-    private 'tag_fields'?: Array<FieldModel>;
-    private 'quick_analysis'?: boolean;
     public constructor(logGroupId?: string, logStreamId?: string, templateId?: string, templateName?: string, templateType?: string) { 
         this['log_group_id'] = logGroupId;
         this['log_stream_id'] = logStreamId;
@@ -66,36 +62,6 @@ export class StructConfig {
     }
     public get templateType(): StructConfigTemplateTypeEnum | string | undefined {
         return this['template_type'];
-    }
-    public withDemoFields(demoFields: Array<FieldModel>): StructConfig {
-        this['demo_fields'] = demoFields;
-        return this;
-    }
-    public set demoFields(demoFields: Array<FieldModel>  | undefined) {
-        this['demo_fields'] = demoFields;
-    }
-    public get demoFields(): Array<FieldModel> | undefined {
-        return this['demo_fields'];
-    }
-    public withTagFields(tagFields: Array<FieldModel>): StructConfig {
-        this['tag_fields'] = tagFields;
-        return this;
-    }
-    public set tagFields(tagFields: Array<FieldModel>  | undefined) {
-        this['tag_fields'] = tagFields;
-    }
-    public get tagFields(): Array<FieldModel> | undefined {
-        return this['tag_fields'];
-    }
-    public withQuickAnalysis(quickAnalysis: boolean): StructConfig {
-        this['quick_analysis'] = quickAnalysis;
-        return this;
-    }
-    public set quickAnalysis(quickAnalysis: boolean  | undefined) {
-        this['quick_analysis'] = quickAnalysis;
-    }
-    public get quickAnalysis(): boolean | undefined {
-        return this['quick_analysis'];
     }
 }
 

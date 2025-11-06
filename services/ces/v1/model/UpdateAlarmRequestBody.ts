@@ -1,5 +1,5 @@
-import { AlarmActions } from './AlarmActions';
 import { Condition } from './Condition';
+import { Notification } from './Notification';
 
 
 export class UpdateAlarmRequestBody {
@@ -9,9 +9,9 @@ export class UpdateAlarmRequestBody {
     private 'alarm_action_enabled'?: boolean;
     private 'alarm_level'?: number;
     private 'alarm_type'?: UpdateAlarmRequestBodyAlarmTypeEnum | string;
-    private 'alarm_actions'?: Array<AlarmActions>;
-    private 'insufficientdata_actions'?: Array<AlarmActions>;
-    private 'ok_actions'?: Array<AlarmActions>;
+    private 'alarm_actions'?: Array<Array<Notification>>;
+    private 'insufficientdata_actions'?: Array<Array<Notification>>;
+    private 'ok_actions'?: Array<Array<Notification>>;
     public constructor() { 
     }
     public withAlarmName(alarmName: string): UpdateAlarmRequestBody {
@@ -68,34 +68,34 @@ export class UpdateAlarmRequestBody {
     public get alarmType(): UpdateAlarmRequestBodyAlarmTypeEnum | string | undefined {
         return this['alarm_type'];
     }
-    public withAlarmActions(alarmActions: Array<AlarmActions>): UpdateAlarmRequestBody {
+    public withAlarmActions(alarmActions: Array<Array<Notification>>): UpdateAlarmRequestBody {
         this['alarm_actions'] = alarmActions;
         return this;
     }
-    public set alarmActions(alarmActions: Array<AlarmActions>  | undefined) {
+    public set alarmActions(alarmActions: Array<Array<Notification>>  | undefined) {
         this['alarm_actions'] = alarmActions;
     }
-    public get alarmActions(): Array<AlarmActions> | undefined {
+    public get alarmActions(): Array<Array<Notification>> | undefined {
         return this['alarm_actions'];
     }
-    public withInsufficientdataActions(insufficientdataActions: Array<AlarmActions>): UpdateAlarmRequestBody {
+    public withInsufficientdataActions(insufficientdataActions: Array<Array<Notification>>): UpdateAlarmRequestBody {
         this['insufficientdata_actions'] = insufficientdataActions;
         return this;
     }
-    public set insufficientdataActions(insufficientdataActions: Array<AlarmActions>  | undefined) {
+    public set insufficientdataActions(insufficientdataActions: Array<Array<Notification>>  | undefined) {
         this['insufficientdata_actions'] = insufficientdataActions;
     }
-    public get insufficientdataActions(): Array<AlarmActions> | undefined {
+    public get insufficientdataActions(): Array<Array<Notification>> | undefined {
         return this['insufficientdata_actions'];
     }
-    public withOkActions(okActions: Array<AlarmActions>): UpdateAlarmRequestBody {
+    public withOkActions(okActions: Array<Array<Notification>>): UpdateAlarmRequestBody {
         this['ok_actions'] = okActions;
         return this;
     }
-    public set okActions(okActions: Array<AlarmActions>  | undefined) {
+    public set okActions(okActions: Array<Array<Notification>>  | undefined) {
         this['ok_actions'] = okActions;
     }
-    public get okActions(): Array<AlarmActions> | undefined {
+    public get okActions(): Array<Array<Notification>> | undefined {
         return this['ok_actions'];
     }
 }

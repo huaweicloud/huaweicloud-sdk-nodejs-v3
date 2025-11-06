@@ -1,32 +1,32 @@
-import { MetaData } from './MetaData';
-import { MetricAlarms } from './MetricAlarms';
+import { MetaDataResp } from './MetaDataResp';
+import { MetricAlarmsResp } from './MetricAlarmsResp';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListAlarmsResponse extends SdkResponse {
-    private 'metric_alarms'?: Array<MetricAlarms>;
-    private 'meta_data'?: MetaData;
+    private 'metric_alarms'?: Array<MetricAlarmsResp>;
+    private 'meta_data'?: MetaDataResp;
     public constructor() { 
         super();
     }
-    public withMetricAlarms(metricAlarms: Array<MetricAlarms>): ListAlarmsResponse {
+    public withMetricAlarms(metricAlarms: Array<MetricAlarmsResp>): ListAlarmsResponse {
         this['metric_alarms'] = metricAlarms;
         return this;
     }
-    public set metricAlarms(metricAlarms: Array<MetricAlarms>  | undefined) {
+    public set metricAlarms(metricAlarms: Array<MetricAlarmsResp>  | undefined) {
         this['metric_alarms'] = metricAlarms;
     }
-    public get metricAlarms(): Array<MetricAlarms> | undefined {
+    public get metricAlarms(): Array<MetricAlarmsResp> | undefined {
         return this['metric_alarms'];
     }
-    public withMetaData(metaData: MetaData): ListAlarmsResponse {
+    public withMetaData(metaData: MetaDataResp): ListAlarmsResponse {
         this['meta_data'] = metaData;
         return this;
     }
-    public set metaData(metaData: MetaData  | undefined) {
+    public set metaData(metaData: MetaDataResp  | undefined) {
         this['meta_data'] = metaData;
     }
-    public get metaData(): MetaData | undefined {
+    public get metaData(): MetaDataResp | undefined {
         return this['meta_data'];
     }
 }

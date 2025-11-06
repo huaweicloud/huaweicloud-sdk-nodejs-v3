@@ -103,6 +103,8 @@ import { CreateInstanceIam5Response } from './model/CreateInstanceIam5Response';
 import { CreateInstanceRequest } from './model/CreateInstanceRequest';
 import { CreateInstanceRespItem } from './model/CreateInstanceRespItem';
 import { CreateInstanceResponse } from './model/CreateInstanceResponse';
+import { CreateIntelligentKillSessionRequest } from './model/CreateIntelligentKillSessionRequest';
+import { CreateIntelligentKillSessionResponse } from './model/CreateIntelligentKillSessionResponse';
 import { CreateManualBackupRequest } from './model/CreateManualBackupRequest';
 import { CreateManualBackupRequestBody } from './model/CreateManualBackupRequestBody';
 import { CreateManualBackupResponse } from './model/CreateManualBackupResponse';
@@ -266,6 +268,8 @@ import { InstanceRequest } from './model/InstanceRequest';
 import { InstanceResponse } from './model/InstanceResponse';
 import { InstanceRestartRequsetBody } from './model/InstanceRestartRequsetBody';
 import { InstancesWeight } from './model/InstancesWeight';
+import { IntelligentKillSessionHistory } from './model/IntelligentKillSessionHistory';
+import { IntelligentKillSessionReq } from './model/IntelligentKillSessionReq';
 import { JobScheduleDailyFrequencyInfo } from './model/JobScheduleDailyFrequencyInfo';
 import { JobScheduleDurationInfo } from './model/JobScheduleDurationInfo';
 import { JobScheduleFrequencyInfo } from './model/JobScheduleFrequencyInfo';
@@ -284,6 +288,8 @@ import { ListAuthorizedDbUsersRequest } from './model/ListAuthorizedDbUsersReque
 import { ListAuthorizedDbUsersResponse } from './model/ListAuthorizedDbUsersResponse';
 import { ListAuthorizedSqlserverDbUsersRequest } from './model/ListAuthorizedSqlserverDbUsersRequest';
 import { ListAuthorizedSqlserverDbUsersResponse } from './model/ListAuthorizedSqlserverDbUsersResponse';
+import { ListAutoScalingPolicyRequest } from './model/ListAutoScalingPolicyRequest';
+import { ListAutoScalingPolicyResponse } from './model/ListAutoScalingPolicyResponse';
 import { ListBackupTransfersRequest } from './model/ListBackupTransfersRequest';
 import { ListBackupTransfersResponse } from './model/ListBackupTransfersResponse';
 import { ListBackupsRequest } from './model/ListBackupsRequest';
@@ -664,6 +670,8 @@ import { ShowInformationAboutDatabaseProxyRequest } from './model/ShowInformatio
 import { ShowInformationAboutDatabaseProxyResponse } from './model/ShowInformationAboutDatabaseProxyResponse';
 import { ShowInstanceConfigurationRequest } from './model/ShowInstanceConfigurationRequest';
 import { ShowInstanceConfigurationResponse } from './model/ShowInstanceConfigurationResponse';
+import { ShowIntelligentKillSessionHistoryRequest } from './model/ShowIntelligentKillSessionHistoryRequest';
+import { ShowIntelligentKillSessionHistoryResponse } from './model/ShowIntelligentKillSessionHistoryResponse';
 import { ShowOffSiteBackupPolicyRequest } from './model/ShowOffSiteBackupPolicyRequest';
 import { ShowOffSiteBackupPolicyResponse } from './model/ShowOffSiteBackupPolicyResponse';
 import { ShowPostgresqlParamValueRequest } from './model/ShowPostgresqlParamValueRequest';
@@ -1617,6 +1625,26 @@ export class RdsClient {
      */
     public listAuditlogs(listAuditlogsRequest?: ListAuditlogsRequest): Promise<ListAuditlogsResponse> {
         const options = ParamCreater().listAuditlogs(listAuditlogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询自动变配策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询自动变配策略
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAutoScalingPolicy(listAutoScalingPolicyRequest?: ListAutoScalingPolicyRequest): Promise<ListAutoScalingPolicyResponse> {
+        const options = ParamCreater().listAutoScalingPolicy(listAutoScalingPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5725,6 +5753,26 @@ export class RdsClient {
     }
 
     /**
+     * 一键kill会话
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 一键kill会话
+     * @param {string} instanceId 实例id
+     * @param {IntelligentKillSessionReq} [createIntelligentKillSessionRequestBody] 一键自动kill会话请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createIntelligentKillSession(createIntelligentKillSessionRequest?: CreateIntelligentKillSessionRequest): Promise<CreateIntelligentKillSessionResponse> {
+        const options = ParamCreater().createIntelligentKillSession(createIntelligentKillSessionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询无索引表诊断数据
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5738,6 +5786,29 @@ export class RdsClient {
      */
     public getInstancesNoIndexTables(getInstancesNoIndexTablesRequest?: GetInstancesNoIndexTablesRequest): Promise<GetInstancesNoIndexTablesResponse> {
         const options = ParamCreater().getInstancesNoIndexTables(getInstancesNoIndexTablesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询一键kill会话历史
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询一键kill会话历史
+     * @param {string} instanceId 实例id
+     * @param {number} [startTime] 查询开始时间
+     * @param {number} [endTime] 查询结束时间
+     * @param {number} [pageNum] 查询页编号
+     * @param {number} [pageSize] 查询分页大小
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showIntelligentKillSessionHistory(showIntelligentKillSessionHistoryRequest?: ShowIntelligentKillSessionHistoryRequest): Promise<ShowIntelligentKillSessionHistoryResponse> {
+        const options = ParamCreater().showIntelligentKillSessionHistory(showIntelligentKillSessionHistoryRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8161,6 +8232,50 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询自动变配策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAutoScalingPolicy(listAutoScalingPolicyRequest?: ListAutoScalingPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/auto-scaling/policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (listAutoScalingPolicyRequest !== null && listAutoScalingPolicyRequest !== undefined) {
+                if (listAutoScalingPolicyRequest instanceof ListAutoScalingPolicyRequest) {
+                    instanceId = listAutoScalingPolicyRequest.instanceId;
+                    xLanguage = listAutoScalingPolicyRequest.xLanguage;
+                } else {
+                    instanceId = listAutoScalingPolicyRequest['instance_id'];
+                    xLanguage = listAutoScalingPolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listAutoScalingPolicy.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -18555,6 +18670,49 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 一键kill会话
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createIntelligentKillSession(createIntelligentKillSessionRequest?: CreateIntelligentKillSessionRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/ops/intelligent-kill-session",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createIntelligentKillSessionRequest !== null && createIntelligentKillSessionRequest !== undefined) {
+                if (createIntelligentKillSessionRequest instanceof CreateIntelligentKillSessionRequest) {
+                    instanceId = createIntelligentKillSessionRequest.instanceId;
+                    body = createIntelligentKillSessionRequest.body
+                } else {
+                    instanceId = createIntelligentKillSessionRequest['instance_id'];
+                    body = createIntelligentKillSessionRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createIntelligentKillSession.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询无索引表诊断数据
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -18604,6 +18762,72 @@ export const ParamCreater = function () {
             }
             if (tableType !== null && tableType !== undefined) {
                 localVarQueryParameter['table_type'] = tableType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询一键kill会话历史
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showIntelligentKillSessionHistory(showIntelligentKillSessionHistoryRequest?: ShowIntelligentKillSessionHistoryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/ops/intelligent-kill-session/history",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let pageNum;
+            
+            let pageSize;
+
+            if (showIntelligentKillSessionHistoryRequest !== null && showIntelligentKillSessionHistoryRequest !== undefined) {
+                if (showIntelligentKillSessionHistoryRequest instanceof ShowIntelligentKillSessionHistoryRequest) {
+                    instanceId = showIntelligentKillSessionHistoryRequest.instanceId;
+                    startTime = showIntelligentKillSessionHistoryRequest.startTime;
+                    endTime = showIntelligentKillSessionHistoryRequest.endTime;
+                    pageNum = showIntelligentKillSessionHistoryRequest.pageNum;
+                    pageSize = showIntelligentKillSessionHistoryRequest.pageSize;
+                } else {
+                    instanceId = showIntelligentKillSessionHistoryRequest['instance_id'];
+                    startTime = showIntelligentKillSessionHistoryRequest['start_time'];
+                    endTime = showIntelligentKillSessionHistoryRequest['end_time'];
+                    pageNum = showIntelligentKillSessionHistoryRequest['page_num'];
+                    pageSize = showIntelligentKillSessionHistoryRequest['page_size'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showIntelligentKillSessionHistory.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (pageNum !== null && pageNum !== undefined) {
+                localVarQueryParameter['page_num'] = pageNum;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
             }
 
             options.queryParams = localVarQueryParameter;

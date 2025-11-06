@@ -119,6 +119,7 @@ import { CreateDisasterRecovery } from './model/CreateDisasterRecovery';
 import { CreateDisasterRecoveryReq } from './model/CreateDisasterRecoveryReq';
 import { CreateDisasterRecoveryRequest } from './model/CreateDisasterRecoveryRequest';
 import { CreateDisasterRecoveryResponse } from './model/CreateDisasterRecoveryResponse';
+import { CreateDrClusterDto } from './model/CreateDrClusterDto';
 import { CreateEventSubRequest } from './model/CreateEventSubRequest';
 import { CreateEventSubResponse } from './model/CreateEventSubResponse';
 import { CreateLogicalClusterInfo } from './model/CreateLogicalClusterInfo';
@@ -240,6 +241,7 @@ import { ExportUserAuthorityRequest } from './model/ExportUserAuthorityRequest';
 import { ExportUserAuthorityResponse } from './model/ExportUserAuthorityResponse';
 import { ExtDataSource } from './model/ExtDataSource';
 import { ExtDataSourceReq } from './model/ExtDataSourceReq';
+import { ExtFineGrainedSnapshotDetail } from './model/ExtFineGrainedSnapshotDetail';
 import { FailedReason } from './model/FailedReason';
 import { FineGrainedSnapshotDetail } from './model/FineGrainedSnapshotDetail';
 import { FlavorAttributeInfo } from './model/FlavorAttributeInfo';
@@ -1478,6 +1480,7 @@ export class DwsClient {
      *
      * @summary 删除容灾
      * @param {string} disasterRecoveryId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [needSendRequest] **参数解释**： 跨region时是否需要向另一个集群发请求。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2557,11 +2560,14 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询容灾列表
+     * @param {string} [primaryClusterId] **参数解释**： 主集群ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [standbyClusterId] **参数解释**： 备集群ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [id] **参数解释**： 容灾ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listDisasterRecover(listDisasterRecoverRequest?: ListDisasterRecoverRequest): Promise<ListDisasterRecoverResponse> {
-        const options = ParamCreater().listDisasterRecover();
+        const options = ParamCreater().listDisasterRecover(listDisasterRecoverRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3655,7 +3661,7 @@ export class DwsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 集群扩容前检查
+     * @summary 集群扩容前准备
      * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {ExpandPreparationRequestBody} resizePreparationRequestBody **参数解释**： 扩容/添加空闲节点操作请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
@@ -4124,7 +4130,7 @@ export class DwsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询节点列表
+     * @summary 获取扩容准备信息
      * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6649,15 +6655,19 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let disasterRecoveryId;
+            
+            let needSendRequest;
 
             if (deleteDisasterRecoveryRequest !== null && deleteDisasterRecoveryRequest !== undefined) {
                 if (deleteDisasterRecoveryRequest instanceof DeleteDisasterRecoveryRequest) {
                     disasterRecoveryId = deleteDisasterRecoveryRequest.disasterRecoveryId;
+                    needSendRequest = deleteDisasterRecoveryRequest.needSendRequest;
                 } else {
                     disasterRecoveryId = deleteDisasterRecoveryRequest['disaster_recovery_id'];
+                    needSendRequest = deleteDisasterRecoveryRequest['need_send_request'];
                 }
             }
 
@@ -6665,7 +6675,11 @@ export const ParamCreater = function () {
             if (disasterRecoveryId === null || disasterRecoveryId === undefined) {
             throw new RequiredError('disasterRecoveryId','Required parameter disasterRecoveryId was null or undefined when calling deleteDisasterRecovery.');
             }
+            if (needSendRequest !== null && needSendRequest !== undefined) {
+                localVarQueryParameter['need_send_request'] = needSendRequest;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'disaster_recovery_id': disasterRecoveryId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -9137,7 +9151,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listDisasterRecover() {
+        listDisasterRecover(listDisasterRecoverRequest?: ListDisasterRecoverRequest) {
             const options = {
                 method: "GET",
                 url: "/v2/{project_id}/disaster-recoveries",
@@ -9147,8 +9161,38 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let primaryClusterId;
+            
+            let standbyClusterId;
+            
+            let id;
 
+            if (listDisasterRecoverRequest !== null && listDisasterRecoverRequest !== undefined) {
+                if (listDisasterRecoverRequest instanceof ListDisasterRecoverRequest) {
+                    primaryClusterId = listDisasterRecoverRequest.primaryClusterId;
+                    standbyClusterId = listDisasterRecoverRequest.standbyClusterId;
+                    id = listDisasterRecoverRequest.id;
+                } else {
+                    primaryClusterId = listDisasterRecoverRequest['primary_cluster_id'];
+                    standbyClusterId = listDisasterRecoverRequest['standby_cluster_id'];
+                    id = listDisasterRecoverRequest['id'];
+                }
+            }
 
+        
+            if (primaryClusterId !== null && primaryClusterId !== undefined) {
+                localVarQueryParameter['primary_cluster_id'] = primaryClusterId;
+            }
+            if (standbyClusterId !== null && standbyClusterId !== undefined) {
+                localVarQueryParameter['standby_cluster_id'] = standbyClusterId;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

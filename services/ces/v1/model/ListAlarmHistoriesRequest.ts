@@ -4,8 +4,8 @@ export class ListAlarmHistoriesRequest {
     private 'group_id'?: string;
     private 'alarm_id'?: string;
     private 'alarm_name'?: string;
-    private 'alarm_status'?: string;
-    private 'alarm_level'?: string;
+    private 'alarm_status'?: ListAlarmHistoriesRequestAlarmStatusEnum | string;
+    private 'alarm_level'?: ListAlarmHistoriesRequestAlarmLevelEnum | number;
     public namespace?: string;
     public from?: string;
     public to?: string;
@@ -43,24 +43,24 @@ export class ListAlarmHistoriesRequest {
     public get alarmName(): string | undefined {
         return this['alarm_name'];
     }
-    public withAlarmStatus(alarmStatus: string): ListAlarmHistoriesRequest {
+    public withAlarmStatus(alarmStatus: ListAlarmHistoriesRequestAlarmStatusEnum | string): ListAlarmHistoriesRequest {
         this['alarm_status'] = alarmStatus;
         return this;
     }
-    public set alarmStatus(alarmStatus: string  | undefined) {
+    public set alarmStatus(alarmStatus: ListAlarmHistoriesRequestAlarmStatusEnum | string  | undefined) {
         this['alarm_status'] = alarmStatus;
     }
-    public get alarmStatus(): string | undefined {
+    public get alarmStatus(): ListAlarmHistoriesRequestAlarmStatusEnum | string | undefined {
         return this['alarm_status'];
     }
-    public withAlarmLevel(alarmLevel: string): ListAlarmHistoriesRequest {
+    public withAlarmLevel(alarmLevel: ListAlarmHistoriesRequestAlarmLevelEnum | number): ListAlarmHistoriesRequest {
         this['alarm_level'] = alarmLevel;
         return this;
     }
-    public set alarmLevel(alarmLevel: string  | undefined) {
+    public set alarmLevel(alarmLevel: ListAlarmHistoriesRequestAlarmLevelEnum | number  | undefined) {
         this['alarm_level'] = alarmLevel;
     }
-    public get alarmLevel(): string | undefined {
+    public get alarmLevel(): ListAlarmHistoriesRequestAlarmLevelEnum | number | undefined {
         return this['alarm_level'];
     }
     public withNamespace(namespace: string): ListAlarmHistoriesRequest {
@@ -83,4 +83,25 @@ export class ListAlarmHistoriesRequest {
         this['limit'] = limit;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAlarmHistoriesRequestAlarmStatusEnum {
+    OK = 'ok',
+    ALARM = 'alarm',
+    INSUFFICIENT_DATA = 'insufficient_data',
+    INVALID = 'invalid'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAlarmHistoriesRequestAlarmLevelEnum {
+    NUMBER_1 = 1,
+    NUMBER_2 = 2,
+    NUMBER_3 = 3,
+    NUMBER_4 = 4
 }

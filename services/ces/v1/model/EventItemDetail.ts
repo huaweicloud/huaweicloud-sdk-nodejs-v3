@@ -9,7 +9,7 @@ export class EventItemDetail {
     private 'event_state'?: EventItemDetailEventStateEnum | string;
     private 'event_level'?: EventItemDetailEventLevelEnum | string;
     private 'event_user'?: string;
-    private 'event_type'?: string;
+    private 'event_type'?: EventItemDetailEventTypeEnum | string;
     private 'sub_event_type'?: EventItemDetailSubEventTypeEnum | string;
     public dimensions?: Array<MetricsDimension>;
     public constructor() { 
@@ -78,14 +78,14 @@ export class EventItemDetail {
     public get eventUser(): string | undefined {
         return this['event_user'];
     }
-    public withEventType(eventType: string): EventItemDetail {
+    public withEventType(eventType: EventItemDetailEventTypeEnum | string): EventItemDetail {
         this['event_type'] = eventType;
         return this;
     }
-    public set eventType(eventType: string  | undefined) {
+    public set eventType(eventType: EventItemDetailEventTypeEnum | string  | undefined) {
         this['event_type'] = eventType;
     }
-    public get eventType(): string | undefined {
+    public get eventType(): EventItemDetailEventTypeEnum | string | undefined {
         return this['event_type'];
     }
     public withSubEventType(subEventType: EventItemDetailSubEventTypeEnum | string): EventItemDetail {
@@ -122,6 +122,14 @@ export enum EventItemDetailEventLevelEnum {
     MAJOR = 'Major',
     MINOR = 'Minor',
     INFO = 'Info'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum EventItemDetailEventTypeEnum {
+    EVENT_SYS = 'EVENT.SYS',
+    EVENT_CUSTOM = 'EVENT.CUSTOM'
 }
 /**
     * @export

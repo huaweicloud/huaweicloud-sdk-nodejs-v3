@@ -8,6 +8,7 @@ export class CreateSnapshotPolicyRequestBody {
     private 'server_port'?: string;
     private 'backup_param'?: string;
     private 'server_ips'?: Array<string>;
+    private 'auto_backup'?: boolean;
     public constructor() { 
     }
     public withKeepDay(keepDay: number): CreateSnapshotPolicyRequestBody {
@@ -69,5 +70,15 @@ export class CreateSnapshotPolicyRequestBody {
     }
     public get serverIps(): Array<string> | undefined {
         return this['server_ips'];
+    }
+    public withAutoBackup(autoBackup: boolean): CreateSnapshotPolicyRequestBody {
+        this['auto_backup'] = autoBackup;
+        return this;
+    }
+    public set autoBackup(autoBackup: boolean  | undefined) {
+        this['auto_backup'] = autoBackup;
+    }
+    public get autoBackup(): boolean | undefined {
+        return this['auto_backup'];
     }
 }

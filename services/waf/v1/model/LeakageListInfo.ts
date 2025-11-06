@@ -4,6 +4,7 @@ import { LeakageListInfoAction } from './LeakageListInfoAction';
 export class LeakageListInfo {
     public id?: string;
     public policyid?: string;
+    public policyname?: string;
     public url?: string;
     public category?: string;
     public contents?: Array<string>;
@@ -19,6 +20,10 @@ export class LeakageListInfo {
     }
     public withPolicyid(policyid: string): LeakageListInfo {
         this['policyid'] = policyid;
+        return this;
+    }
+    public withPolicyname(policyname: string): LeakageListInfo {
+        this['policyname'] = policyname;
         return this;
     }
     public withUrl(url: string): LeakageListInfo {

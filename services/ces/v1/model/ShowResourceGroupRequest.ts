@@ -2,7 +2,7 @@
 
 export class ShowResourceGroupRequest {
     private 'group_id'?: string;
-    public status?: string;
+    public status?: ShowResourceGroupRequestStatusEnum | string;
     public namespace?: string;
     public dname?: string;
     public start?: string;
@@ -20,7 +20,7 @@ export class ShowResourceGroupRequest {
     public get groupId(): string | undefined {
         return this['group_id'];
     }
-    public withStatus(status: string): ShowResourceGroupRequest {
+    public withStatus(status: ShowResourceGroupRequestStatusEnum | string): ShowResourceGroupRequest {
         this['status'] = status;
         return this;
     }
@@ -40,4 +40,14 @@ export class ShowResourceGroupRequest {
         this['limit'] = limit;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowResourceGroupRequestStatusEnum {
+    HEALTH = 'health',
+    UNHEALTH = 'unhealth',
+    NO_ALARM_RULE = 'no_alarm_rule'
 }

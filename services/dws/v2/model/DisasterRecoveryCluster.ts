@@ -10,6 +10,10 @@ export class DisasterRecoveryCluster {
     public progress?: string;
     private 'last_success_time'?: string;
     private 'obs_bucket_name'?: string;
+    private 'datastore_version'?: string;
+    private 'datastore_type'?: string;
+    private 'disk_capacity'?: string;
+    private 'disk_used'?: string;
     public constructor() { 
     }
     public withId(id: string): DisasterRecoveryCluster {
@@ -65,5 +69,45 @@ export class DisasterRecoveryCluster {
     }
     public get obsBucketName(): string | undefined {
         return this['obs_bucket_name'];
+    }
+    public withDatastoreVersion(datastoreVersion: string): DisasterRecoveryCluster {
+        this['datastore_version'] = datastoreVersion;
+        return this;
+    }
+    public set datastoreVersion(datastoreVersion: string  | undefined) {
+        this['datastore_version'] = datastoreVersion;
+    }
+    public get datastoreVersion(): string | undefined {
+        return this['datastore_version'];
+    }
+    public withDatastoreType(datastoreType: string): DisasterRecoveryCluster {
+        this['datastore_type'] = datastoreType;
+        return this;
+    }
+    public set datastoreType(datastoreType: string  | undefined) {
+        this['datastore_type'] = datastoreType;
+    }
+    public get datastoreType(): string | undefined {
+        return this['datastore_type'];
+    }
+    public withDiskCapacity(diskCapacity: string): DisasterRecoveryCluster {
+        this['disk_capacity'] = diskCapacity;
+        return this;
+    }
+    public set diskCapacity(diskCapacity: string  | undefined) {
+        this['disk_capacity'] = diskCapacity;
+    }
+    public get diskCapacity(): string | undefined {
+        return this['disk_capacity'];
+    }
+    public withDiskUsed(diskUsed: string): DisasterRecoveryCluster {
+        this['disk_used'] = diskUsed;
+        return this;
+    }
+    public set diskUsed(diskUsed: string  | undefined) {
+        this['disk_used'] = diskUsed;
+    }
+    public get diskUsed(): string | undefined {
+        return this['disk_used'];
     }
 }

@@ -3,7 +3,8 @@
 export class EventQueryParam2Sort {
     private 'order_by'?: Array<string>;
     public order?: EventQueryParam2SortOrderEnum | string;
-    public constructor() { 
+    public constructor(orderBy?: Array<string>) { 
+        this['order_by'] = orderBy;
     }
     public withOrderBy(orderBy: Array<string>): EventQueryParam2Sort {
         this['order_by'] = orderBy;

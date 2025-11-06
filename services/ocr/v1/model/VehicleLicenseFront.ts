@@ -1,3 +1,5 @@
+import { VehicleLicenseAlarmConfidence } from './VehicleLicenseAlarmConfidence';
+import { VehicleLicenseAlarmResult } from './VehicleLicenseAlarmResult';
 
 
 export class VehicleLicenseFront {
@@ -13,6 +15,8 @@ export class VehicleLicenseFront {
     private 'issue_date'?: string;
     private 'issuing_authority'?: string;
     private 'text_location'?: object;
+    private 'alarm_result'?: VehicleLicenseAlarmResult;
+    private 'alarm_confidence'?: VehicleLicenseAlarmConfidence;
     public constructor() { 
     }
     public withModelNumber(modelNumber: string): VehicleLicenseFront {
@@ -110,5 +114,25 @@ export class VehicleLicenseFront {
     }
     public get textLocation(): object | undefined {
         return this['text_location'];
+    }
+    public withAlarmResult(alarmResult: VehicleLicenseAlarmResult): VehicleLicenseFront {
+        this['alarm_result'] = alarmResult;
+        return this;
+    }
+    public set alarmResult(alarmResult: VehicleLicenseAlarmResult  | undefined) {
+        this['alarm_result'] = alarmResult;
+    }
+    public get alarmResult(): VehicleLicenseAlarmResult | undefined {
+        return this['alarm_result'];
+    }
+    public withAlarmConfidence(alarmConfidence: VehicleLicenseAlarmConfidence): VehicleLicenseFront {
+        this['alarm_confidence'] = alarmConfidence;
+        return this;
+    }
+    public set alarmConfidence(alarmConfidence: VehicleLicenseAlarmConfidence  | undefined) {
+        this['alarm_confidence'] = alarmConfidence;
+    }
+    public get alarmConfidence(): VehicleLicenseAlarmConfidence | undefined {
+        return this['alarm_confidence'];
     }
 }

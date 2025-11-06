@@ -1,6 +1,6 @@
 import { Frequency } from './Frequency';
 import { KeywordsRequest } from './KeywordsRequest';
-import { SqlNotificationSaveRule } from './SqlNotificationSaveRule';
+import { TagsRequestBody } from './TagsRequestBody';
 
 
 export class CreateKeywordsAlarmRuleRequestBody {
@@ -9,21 +9,19 @@ export class CreateKeywordsAlarmRuleRequestBody {
     private 'keywords_requests'?: Array<KeywordsRequest>;
     public frequency?: Frequency;
     private 'keywords_alarm_level'?: CreateKeywordsAlarmRuleRequestBodyKeywordsAlarmLevelEnum | string;
-    private 'keywords_alarm_send'?: boolean;
     private 'domain_id'?: string;
-    private 'notification_save_rule'?: SqlNotificationSaveRule;
     private 'trigger_condition_count'?: number;
     private 'trigger_condition_frequency'?: number;
     private 'whether_recovery_policy'?: boolean;
     private 'recovery_policy'?: number;
     private 'notification_frequency'?: CreateKeywordsAlarmRuleRequestBodyNotificationFrequencyEnum | number;
     private 'alarm_action_rule_name'?: string;
-    public constructor(keywordsAlarmRuleName?: string, keywordsRequests?: Array<KeywordsRequest>, frequency?: Frequency, keywordsAlarmLevel?: string, keywordsAlarmSend?: boolean, domainId?: string, notificationFrequency?: number) { 
+    public tags?: Array<TagsRequestBody>;
+    public constructor(keywordsAlarmRuleName?: string, keywordsRequests?: Array<KeywordsRequest>, frequency?: Frequency, keywordsAlarmLevel?: string, domainId?: string, notificationFrequency?: number) { 
         this['keywords_alarm_rule_name'] = keywordsAlarmRuleName;
         this['keywords_requests'] = keywordsRequests;
         this['frequency'] = frequency;
         this['keywords_alarm_level'] = keywordsAlarmLevel;
-        this['keywords_alarm_send'] = keywordsAlarmSend;
         this['domain_id'] = domainId;
         this['notification_frequency'] = notificationFrequency;
     }
@@ -71,16 +69,6 @@ export class CreateKeywordsAlarmRuleRequestBody {
     public get keywordsAlarmLevel(): CreateKeywordsAlarmRuleRequestBodyKeywordsAlarmLevelEnum | string | undefined {
         return this['keywords_alarm_level'];
     }
-    public withKeywordsAlarmSend(keywordsAlarmSend: boolean): CreateKeywordsAlarmRuleRequestBody {
-        this['keywords_alarm_send'] = keywordsAlarmSend;
-        return this;
-    }
-    public set keywordsAlarmSend(keywordsAlarmSend: boolean  | undefined) {
-        this['keywords_alarm_send'] = keywordsAlarmSend;
-    }
-    public get keywordsAlarmSend(): boolean | undefined {
-        return this['keywords_alarm_send'];
-    }
     public withDomainId(domainId: string): CreateKeywordsAlarmRuleRequestBody {
         this['domain_id'] = domainId;
         return this;
@@ -90,16 +78,6 @@ export class CreateKeywordsAlarmRuleRequestBody {
     }
     public get domainId(): string | undefined {
         return this['domain_id'];
-    }
-    public withNotificationSaveRule(notificationSaveRule: SqlNotificationSaveRule): CreateKeywordsAlarmRuleRequestBody {
-        this['notification_save_rule'] = notificationSaveRule;
-        return this;
-    }
-    public set notificationSaveRule(notificationSaveRule: SqlNotificationSaveRule  | undefined) {
-        this['notification_save_rule'] = notificationSaveRule;
-    }
-    public get notificationSaveRule(): SqlNotificationSaveRule | undefined {
-        return this['notification_save_rule'];
     }
     public withTriggerConditionCount(triggerConditionCount: number): CreateKeywordsAlarmRuleRequestBody {
         this['trigger_condition_count'] = triggerConditionCount;
@@ -160,6 +138,10 @@ export class CreateKeywordsAlarmRuleRequestBody {
     }
     public get alarmActionRuleName(): string | undefined {
         return this['alarm_action_rule_name'];
+    }
+    public withTags(tags: Array<TagsRequestBody>): CreateKeywordsAlarmRuleRequestBody {
+        this['tags'] = tags;
+        return this;
     }
 }
 

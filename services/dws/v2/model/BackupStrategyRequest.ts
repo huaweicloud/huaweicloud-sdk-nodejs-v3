@@ -6,6 +6,12 @@ export class BackupStrategyRequest {
     private 'backup_strategy'?: string;
     private 'backup_type'?: string;
     private 'backup_level'?: string;
+    private 'next_fire_time'?: string;
+    private 'update_time'?: string;
+    private 'time_zone_offset'?: number;
+    private 'backup_database'?: string;
+    private 'backup_schema_list'?: string;
+    private 'backup_table_list'?: string;
     public constructor() { 
     }
     public withPolicyId(policyId: string): BackupStrategyRequest {
@@ -57,5 +63,65 @@ export class BackupStrategyRequest {
     }
     public get backupLevel(): string | undefined {
         return this['backup_level'];
+    }
+    public withNextFireTime(nextFireTime: string): BackupStrategyRequest {
+        this['next_fire_time'] = nextFireTime;
+        return this;
+    }
+    public set nextFireTime(nextFireTime: string  | undefined) {
+        this['next_fire_time'] = nextFireTime;
+    }
+    public get nextFireTime(): string | undefined {
+        return this['next_fire_time'];
+    }
+    public withUpdateTime(updateTime: string): BackupStrategyRequest {
+        this['update_time'] = updateTime;
+        return this;
+    }
+    public set updateTime(updateTime: string  | undefined) {
+        this['update_time'] = updateTime;
+    }
+    public get updateTime(): string | undefined {
+        return this['update_time'];
+    }
+    public withTimeZoneOffset(timeZoneOffset: number): BackupStrategyRequest {
+        this['time_zone_offset'] = timeZoneOffset;
+        return this;
+    }
+    public set timeZoneOffset(timeZoneOffset: number  | undefined) {
+        this['time_zone_offset'] = timeZoneOffset;
+    }
+    public get timeZoneOffset(): number | undefined {
+        return this['time_zone_offset'];
+    }
+    public withBackupDatabase(backupDatabase: string): BackupStrategyRequest {
+        this['backup_database'] = backupDatabase;
+        return this;
+    }
+    public set backupDatabase(backupDatabase: string  | undefined) {
+        this['backup_database'] = backupDatabase;
+    }
+    public get backupDatabase(): string | undefined {
+        return this['backup_database'];
+    }
+    public withBackupSchemaList(backupSchemaList: string): BackupStrategyRequest {
+        this['backup_schema_list'] = backupSchemaList;
+        return this;
+    }
+    public set backupSchemaList(backupSchemaList: string  | undefined) {
+        this['backup_schema_list'] = backupSchemaList;
+    }
+    public get backupSchemaList(): string | undefined {
+        return this['backup_schema_list'];
+    }
+    public withBackupTableList(backupTableList: string): BackupStrategyRequest {
+        this['backup_table_list'] = backupTableList;
+        return this;
+    }
+    public set backupTableList(backupTableList: string  | undefined) {
+        this['backup_table_list'] = backupTableList;
+    }
+    public get backupTableList(): string | undefined {
+        return this['backup_table_list'];
     }
 }

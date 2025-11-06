@@ -1,10 +1,11 @@
 import { MetricsDimension } from './MetricsDimension';
+import { StatusSchema } from './StatusSchema';
 
 
 export class ResourceGroup {
     public namespace?: string;
     public dimensions?: Array<MetricsDimension>;
-    public status?: string;
+    public status?: StatusSchema;
     private 'event_type'?: number;
     public constructor() { 
     }
@@ -16,7 +17,7 @@ export class ResourceGroup {
         this['dimensions'] = dimensions;
         return this;
     }
-    public withStatus(status: string): ResourceGroup {
+    public withStatus(status: StatusSchema): ResourceGroup {
         this['status'] = status;
         return this;
     }

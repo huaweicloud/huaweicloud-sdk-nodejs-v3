@@ -8,9 +8,8 @@ export class EventQueryParam {
     public search?: string;
     public sort?: EventQueryParamSort;
     private 'metadata_relation'?: Array<RelationModel>;
-    public constructor(timeRange?: string, step?: number) { 
+    public constructor(timeRange?: string) { 
         this['time_range'] = timeRange;
-        this['step'] = step;
     }
     public withTimeRange(timeRange: string): EventQueryParam {
         this['time_range'] = timeRange;

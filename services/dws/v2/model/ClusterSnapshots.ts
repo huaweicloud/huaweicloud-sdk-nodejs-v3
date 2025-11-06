@@ -7,6 +7,7 @@ export class ClusterSnapshots {
     public name?: string;
     public description?: string;
     public started?: string;
+    public finished?: string;
     public size?: number;
     public status?: string;
     private 'cluster_id'?: string;
@@ -31,6 +32,7 @@ export class ClusterSnapshots {
     private 'fine_grained_backup_detail'?: FineGrainedSnapshotDetail;
     private 'guest_agent_version'?: string;
     private 'cluster_status'?: string;
+    private 'cluster_task_status'?: string;
     public constructor() { 
     }
     public withId(id: string): ClusterSnapshots {
@@ -47,6 +49,10 @@ export class ClusterSnapshots {
     }
     public withStarted(started: string): ClusterSnapshots {
         this['started'] = started;
+        return this;
+    }
+    public withFinished(finished: string): ClusterSnapshots {
+        this['finished'] = finished;
         return this;
     }
     public withSize(size: number): ClusterSnapshots {
@@ -252,5 +258,15 @@ export class ClusterSnapshots {
     }
     public get clusterStatus(): string | undefined {
         return this['cluster_status'];
+    }
+    public withClusterTaskStatus(clusterTaskStatus: string): ClusterSnapshots {
+        this['cluster_task_status'] = clusterTaskStatus;
+        return this;
+    }
+    public set clusterTaskStatus(clusterTaskStatus: string  | undefined) {
+        this['cluster_task_status'] = clusterTaskStatus;
+    }
+    public get clusterTaskStatus(): string | undefined {
+        return this['cluster_task_status'];
     }
 }

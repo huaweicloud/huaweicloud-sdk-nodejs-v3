@@ -19,6 +19,8 @@ import { AggregationLogicTableVODetailData } from './model/AggregationLogicTable
 import { AggregationLogicTableVOSearchResultData } from './model/AggregationLogicTableVOSearchResultData';
 import { AggregationLogicTableVOSearchResultDataValue } from './model/AggregationLogicTableVOSearchResultDataValue';
 import { AlarmInfoResponseAlarmInfo } from './model/AlarmInfoResponseAlarmInfo';
+import { AlarmPeriod } from './model/AlarmPeriod';
+import { AlarmRulesItemsDetails } from './model/AlarmRulesItemsDetails';
 import { AlgorithmDetailDTO } from './model/AlgorithmDetailDTO';
 import { AllModelStatisticVO } from './model/AllModelStatisticVO';
 import { AllTableVO } from './model/AllTableVO';
@@ -464,6 +466,7 @@ import { DimensionHierarchiesVO } from './model/DimensionHierarchiesVO';
 import { DimensionLogicTableAttributeVO } from './model/DimensionLogicTableAttributeVO';
 import { DimensionLogicTableVO } from './model/DimensionLogicTableVO';
 import { DimensionVO } from './model/DimensionVO';
+import { DirectoryDTO } from './model/DirectoryDTO';
 import { DirectoryVO } from './model/DirectoryVO';
 import { DisStream } from './model/DisStream';
 import { DlsAdmin } from './model/DlsAdmin';
@@ -679,6 +682,8 @@ import { ListFactLogicTablesResultData } from './model/ListFactLogicTablesResult
 import { ListFactLogicTablesResultDataValue } from './model/ListFactLogicTablesResultDataValue';
 import { ListFactoryAlarmInfoRequest } from './model/ListFactoryAlarmInfoRequest';
 import { ListFactoryAlarmInfoResponse } from './model/ListFactoryAlarmInfoResponse';
+import { ListFactoryAlarmRulesRequest } from './model/ListFactoryAlarmRulesRequest';
+import { ListFactoryAlarmRulesResponse } from './model/ListFactoryAlarmRulesResponse';
 import { ListFactoryJobInstancesByNameRequest } from './model/ListFactoryJobInstancesByNameRequest';
 import { ListFactoryJobInstancesByNameResponse } from './model/ListFactoryJobInstancesByNameResponse';
 import { ListFactoryJobsRequest } from './model/ListFactoryJobsRequest';
@@ -5194,6 +5199,32 @@ export class DataArtsStudioClient {
      */
     public listFactoryAlarmInfo(listFactoryAlarmInfoRequest?: ListFactoryAlarmInfoRequest): Promise<ListFactoryAlarmInfoResponse> {
         const options = ParamCreater().listFactoryAlarmInfo(listFactoryAlarmInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询通知规则列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询通知规则列表
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [name] 作业/规则名称。
+     * @param {number} [remindType] 通知类型：  - 0：运行成功。 - 1：运行异常/失败。 - 3：未完成。 - 4：资源繁忙。 - 5：基线任务异常。 - 6：基线预警。 - 7：基线破线。 - 8：基线加剧。 - 9：保障作业预警时间未完成。 - 10：保障作业承诺时间未完成。 - 11：保障作业失败。 - 12：周期未完成。 - 13：运行取消。 - 14：失败作业重跑成功。 - 15：作业改动。 默认查询所有状态。
+     * @param {string} [dingName] 钉钉机器人名称。
+     * @param {number} [offset] 分页列表的页数，默认值为0。取值范围大于等于0。
+     * @param {number} [limit] 分页返回结果，指定每页最大记录数。范围[1,100]，默认为10。  默认值：10
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFactoryAlarmRules(listFactoryAlarmRulesRequest?: ListFactoryAlarmRulesRequest): Promise<ListFactoryAlarmRulesResponse> {
+        const options = ParamCreater().listFactoryAlarmRules(listFactoryAlarmRulesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -20807,6 +20838,92 @@ export const ParamCreater = function () {
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询通知规则列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFactoryAlarmRules(listFactoryAlarmRulesRequest?: ListFactoryAlarmRulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/factory/alarm/rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+            
+            let name;
+            
+            let remindType;
+            
+            let dingName;
+            
+            let offset;
+            
+            let limit;
+
+            if (listFactoryAlarmRulesRequest !== null && listFactoryAlarmRulesRequest !== undefined) {
+                if (listFactoryAlarmRulesRequest instanceof ListFactoryAlarmRulesRequest) {
+                    workspace = listFactoryAlarmRulesRequest.workspace;
+                    xProjectId = listFactoryAlarmRulesRequest.xProjectId;
+                    contentType = listFactoryAlarmRulesRequest.contentType;
+                    name = listFactoryAlarmRulesRequest.name;
+                    remindType = listFactoryAlarmRulesRequest.remindType;
+                    dingName = listFactoryAlarmRulesRequest.dingName;
+                    offset = listFactoryAlarmRulesRequest.offset;
+                    limit = listFactoryAlarmRulesRequest.limit;
+                } else {
+                    workspace = listFactoryAlarmRulesRequest['workspace'];
+                    xProjectId = listFactoryAlarmRulesRequest['X-Project-Id'];
+                    contentType = listFactoryAlarmRulesRequest['Content-Type'];
+                    name = listFactoryAlarmRulesRequest['name'];
+                    remindType = listFactoryAlarmRulesRequest['remind_type'];
+                    dingName = listFactoryAlarmRulesRequest['ding_name'];
+                    offset = listFactoryAlarmRulesRequest['offset'];
+                    limit = listFactoryAlarmRulesRequest['limit'];
+                }
+            }
+
+        
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (remindType !== null && remindType !== undefined) {
+                localVarQueryParameter['remind_type'] = remindType;
+            }
+            if (dingName !== null && dingName !== undefined) {
+                localVarQueryParameter['ding_name'] = dingName;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;

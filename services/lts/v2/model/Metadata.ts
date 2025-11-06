@@ -12,7 +12,7 @@ export class Metadata {
     private 'log_group_name'?: string;
     private 'log_stream_name'?: string;
     private 'event_subtype'?: string;
-    public constructor(eventType?: string, eventId?: string, eventSeverity?: string, eventName?: string, resourceType?: string, resourceId?: string, resourceProvider?: string, ltsAlarmType?: string) { 
+    public constructor(eventType?: string, eventId?: string, eventSeverity?: string, eventName?: string, resourceType?: string, resourceId?: string, resourceProvider?: string, ltsAlarmType?: string, logGroupName?: string, logStreamName?: string, eventSubtype?: string) { 
         this['event_type'] = eventType;
         this['event_id'] = eventId;
         this['event_severity'] = eventSeverity;
@@ -21,6 +21,9 @@ export class Metadata {
         this['resource_id'] = resourceId;
         this['resource_provider'] = resourceProvider;
         this['lts_alarm_type'] = ltsAlarmType;
+        this['log_group_name'] = logGroupName;
+        this['log_stream_name'] = logStreamName;
+        this['event_subtype'] = eventSubtype;
     }
     public withEventType(eventType: string): Metadata {
         this['event_type'] = eventType;

@@ -1,5 +1,6 @@
 import { MetaData } from './MetaData';
 import { ResourceGroup } from './ResourceGroup';
+import { StatusSchema } from './StatusSchema';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -7,7 +8,7 @@ export class ShowResourceGroupResponse extends SdkResponse {
     private 'group_name'?: string;
     private 'group_id'?: string;
     public resources?: Array<ResourceGroup>;
-    public status?: string;
+    public status?: StatusSchema;
     private 'create_time'?: number;
     private 'meta_data'?: MetaData;
     private 'enterprise_project_id'?: string;
@@ -38,7 +39,7 @@ export class ShowResourceGroupResponse extends SdkResponse {
         this['resources'] = resources;
         return this;
     }
-    public withStatus(status: string): ShowResourceGroupResponse {
+    public withStatus(status: StatusSchema): ShowResourceGroupResponse {
         this['status'] = status;
         return this;
     }

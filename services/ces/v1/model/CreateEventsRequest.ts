@@ -1,11 +1,11 @@
-import { EventItem } from './EventItem';
+import { CreateEventsRequestBody } from './CreateEventsRequestBody';
 
 
 export class CreateEventsRequest {
-    public body?: Array<EventItem>;
+    public body?: Array<CreateEventsRequestBody>;
     public constructor() { 
     }
-    public withBody(body: Array<EventItem>): CreateEventsRequest {
+    public withBody(body: Array<CreateEventsRequestBody>): CreateEventsRequest {
         this['body'] = body;
         return this;
     }

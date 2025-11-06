@@ -8,7 +8,8 @@ export class EventModel {
     public annotations?: { [key: string]: object; };
     private 'attach_rule'?: { [key: string]: object; };
     public id?: string;
-    public constructor() { 
+    public constructor(metadata?: { [key: string]: string; }) { 
+        this['metadata'] = metadata;
     }
     public withStartsAt(startsAt: number): EventModel {
         this['starts_at'] = startsAt;

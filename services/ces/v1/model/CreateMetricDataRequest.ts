@@ -1,11 +1,11 @@
-import { MetricDataItem } from './MetricDataItem';
+import { CreateMetricDataRequestBody } from './CreateMetricDataRequestBody';
 
 
 export class CreateMetricDataRequest {
-    public body?: Array<MetricDataItem>;
+    public body?: Array<CreateMetricDataRequestBody>;
     public constructor() { 
     }
-    public withBody(body: Array<MetricDataItem>): CreateMetricDataRequest {
+    public withBody(body: Array<CreateMetricDataRequestBody>): CreateMetricDataRequest {
         this['body'] = body;
         return this;
     }

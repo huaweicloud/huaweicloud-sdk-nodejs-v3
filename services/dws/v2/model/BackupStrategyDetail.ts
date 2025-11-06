@@ -9,6 +9,9 @@ export class BackupStrategyDetail {
     private 'next_fire_time'?: string;
     private 'update_time'?: string;
     private 'time_zone_offset'?: number;
+    private 'backup_database'?: string;
+    private 'backup_schema_list'?: string;
+    private 'backup_table_list'?: string;
     public constructor() { 
     }
     public withPolicyId(policyId: string): BackupStrategyDetail {
@@ -90,5 +93,35 @@ export class BackupStrategyDetail {
     }
     public get timeZoneOffset(): number | undefined {
         return this['time_zone_offset'];
+    }
+    public withBackupDatabase(backupDatabase: string): BackupStrategyDetail {
+        this['backup_database'] = backupDatabase;
+        return this;
+    }
+    public set backupDatabase(backupDatabase: string  | undefined) {
+        this['backup_database'] = backupDatabase;
+    }
+    public get backupDatabase(): string | undefined {
+        return this['backup_database'];
+    }
+    public withBackupSchemaList(backupSchemaList: string): BackupStrategyDetail {
+        this['backup_schema_list'] = backupSchemaList;
+        return this;
+    }
+    public set backupSchemaList(backupSchemaList: string  | undefined) {
+        this['backup_schema_list'] = backupSchemaList;
+    }
+    public get backupSchemaList(): string | undefined {
+        return this['backup_schema_list'];
+    }
+    public withBackupTableList(backupTableList: string): BackupStrategyDetail {
+        this['backup_table_list'] = backupTableList;
+        return this;
+    }
+    public set backupTableList(backupTableList: string  | undefined) {
+        this['backup_table_list'] = backupTableList;
+    }
+    public get backupTableList(): string | undefined {
+        return this['backup_table_list'];
     }
 }

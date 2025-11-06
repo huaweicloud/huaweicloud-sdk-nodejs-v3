@@ -3,7 +3,7 @@
 export class ListResourceGroupRequest {
     private 'group_name'?: string;
     private 'group_id'?: string;
-    public status?: string;
+    public status?: ListResourceGroupRequestStatusEnum | string;
     public start?: number;
     public limit?: number;
     public constructor() { 
@@ -28,7 +28,7 @@ export class ListResourceGroupRequest {
     public get groupId(): string | undefined {
         return this['group_id'];
     }
-    public withStatus(status: string): ListResourceGroupRequest {
+    public withStatus(status: ListResourceGroupRequestStatusEnum | string): ListResourceGroupRequest {
         this['status'] = status;
         return this;
     }
@@ -40,4 +40,14 @@ export class ListResourceGroupRequest {
         this['limit'] = limit;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListResourceGroupRequestStatusEnum {
+    HEALTH = 'health',
+    UNHEALTH = 'unhealth',
+    NO_ALARM_RULE = 'no_alarm_rule'
 }

@@ -1,11 +1,13 @@
+import { AggrPrometheusInfo } from './AggrPrometheusInfo';
 
 
 export class PromInstanceRequestModel {
     private 'prom_name'?: string;
-    private 'prom_type'?: PromInstanceRequestModelPromTypeEnum | string;
+    private 'prom_type'?: string;
     private 'prom_version'?: string;
     private 'enterprise_project_id'?: string;
     private 'project_id'?: string;
+    private 'aggr_prometheus_info'?: Array<AggrPrometheusInfo>;
     public constructor(promName?: string, promType?: string) { 
         this['prom_name'] = promName;
         this['prom_type'] = promType;
@@ -20,14 +22,14 @@ export class PromInstanceRequestModel {
     public get promName(): string | undefined {
         return this['prom_name'];
     }
-    public withPromType(promType: PromInstanceRequestModelPromTypeEnum | string): PromInstanceRequestModel {
+    public withPromType(promType: string): PromInstanceRequestModel {
         this['prom_type'] = promType;
         return this;
     }
-    public set promType(promType: PromInstanceRequestModelPromTypeEnum | string  | undefined) {
+    public set promType(promType: string  | undefined) {
         this['prom_type'] = promType;
     }
-    public get promType(): PromInstanceRequestModelPromTypeEnum | string | undefined {
+    public get promType(): string | undefined {
         return this['prom_type'];
     }
     public withPromVersion(promVersion: string): PromInstanceRequestModel {
@@ -60,18 +62,14 @@ export class PromInstanceRequestModel {
     public get projectId(): string | undefined {
         return this['project_id'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PromInstanceRequestModelPromTypeEnum {
-    ECS = 'ECS',
-    VPC = 'VPC',
-    CCE = 'CCE',
-    REMOTE_WRITE = 'REMOTE_WRITE',
-    KUBERNETES = 'KUBERNETES',
-    CLOUD_SERVICE = 'CLOUD_SERVICE',
-    ACROSS_ACCOUNT = 'ACROSS_ACCOUNT'
+    public withAggrPrometheusInfo(aggrPrometheusInfo: Array<AggrPrometheusInfo>): PromInstanceRequestModel {
+        this['aggr_prometheus_info'] = aggrPrometheusInfo;
+        return this;
+    }
+    public set aggrPrometheusInfo(aggrPrometheusInfo: Array<AggrPrometheusInfo>  | undefined) {
+        this['aggr_prometheus_info'] = aggrPrometheusInfo;
+    }
+    public get aggrPrometheusInfo(): Array<AggrPrometheusInfo> | undefined {
+        return this['aggr_prometheus_info'];
+    }
 }

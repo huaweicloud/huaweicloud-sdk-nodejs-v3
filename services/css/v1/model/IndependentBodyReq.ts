@@ -4,10 +4,10 @@ export class IndependentBodyReq {
     private 'flavor_ref'?: string;
     private 'node_size'?: number;
     private 'volume_type'?: string;
-    public constructor(flavorRef?: string, nodeSize?: number, volumeType?: string) { 
+    private 'volume_size'?: number;
+    public constructor(flavorRef?: string, nodeSize?: number) { 
         this['flavor_ref'] = flavorRef;
         this['node_size'] = nodeSize;
-        this['volume_type'] = volumeType;
     }
     public withFlavorRef(flavorRef: string): IndependentBodyReq {
         this['flavor_ref'] = flavorRef;
@@ -38,5 +38,15 @@ export class IndependentBodyReq {
     }
     public get volumeType(): string | undefined {
         return this['volume_type'];
+    }
+    public withVolumeSize(volumeSize: number): IndependentBodyReq {
+        this['volume_size'] = volumeSize;
+        return this;
+    }
+    public set volumeSize(volumeSize: number  | undefined) {
+        this['volume_size'] = volumeSize;
+    }
+    public get volumeSize(): number | undefined {
+        return this['volume_size'];
     }
 }

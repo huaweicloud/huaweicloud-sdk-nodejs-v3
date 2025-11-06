@@ -6,6 +6,7 @@ export class CreateCnfReq {
     private 'conf_content'?: string;
     public setting?: Setting;
     private 'sensitive_words'?: Array<string>;
+    public desc?: string;
     public constructor(name?: string, confContent?: string, setting?: Setting) { 
         this['name'] = name;
         this['conf_content'] = confContent;
@@ -38,5 +39,9 @@ export class CreateCnfReq {
     }
     public get sensitiveWords(): Array<string> | undefined {
         return this['sensitive_words'];
+    }
+    public withDesc(desc: string): CreateCnfReq {
+        this['desc'] = desc;
+        return this;
     }
 }

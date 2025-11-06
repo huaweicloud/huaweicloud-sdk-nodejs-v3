@@ -35,6 +35,11 @@ export class WafRegion {
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://waf.ap-southeast-4.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://waf.ap-southeast-5.myhuaweicloud.com"]);
     public static AF_NORTH_1 = new Region("af-north-1", ["https://waf.af-north-1.myhuaweicloud.com"]);
+    public static CN_SOUTH_4 = new Region("cn-south-4", ["https://waf.cn-south-4.myhuaweicloud.com"]);
+    public static CN_NORTH_12 = new Region("cn-north-12", ["https://waf.cn-north-12.myhuaweicloud.com"]);
+    public static CN_SOUTHWEST_3 = new Region("cn-southwest-3", ["https://waf.cn-southwest-3.myhuaweicloud.com"]);
+    public static CN_EAST_4 = new Region("cn-east-4", ["https://waf.cn-east-4.myhuaweicloud.com"]);
+    public static CN_NORTH_11 = new Region("cn-north-11", ["https://waf.cn-north-11.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -66,7 +71,12 @@ export class WafRegion {
         "ru-moscow-1":WafRegion.RU_MOSCOW_1,
         "ap-southeast-4":WafRegion.AP_SOUTHEAST_4,
         "ap-southeast-5":WafRegion.AP_SOUTHEAST_5,
-        "af-north-1":WafRegion.AF_NORTH_1
+        "af-north-1":WafRegion.AF_NORTH_1,
+        "cn-south-4":WafRegion.CN_SOUTH_4,
+        "cn-north-12":WafRegion.CN_NORTH_12,
+        "cn-southwest-3":WafRegion.CN_SOUTHWEST_3,
+        "cn-east-4":WafRegion.CN_EAST_4,
+        "cn-north-11":WafRegion.CN_NORTH_11
     };
   
     public static valueOf(regionId: string) {

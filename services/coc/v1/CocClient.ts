@@ -172,14 +172,14 @@ import { GetScriptJobStatisticsResponse } from './model/GetScriptJobStatisticsRe
 import { GetScriptRequest } from './model/GetScriptRequest';
 import { GetScriptResponse } from './model/GetScriptResponse';
 import { GroupRelationConfiguration } from './model/GroupRelationConfiguration';
-import { HandleAlarmRequest } from './model/HandleAlarmRequest';
-import { HandleAlarmResponse } from './model/HandleAlarmResponse';
 import { HandleCocIncidentRequest } from './model/HandleCocIncidentRequest';
 import { HandleCocIncidentResponse } from './model/HandleCocIncidentResponse';
 import { HandleExternalIncidentRequest } from './model/HandleExternalIncidentRequest';
 import { HandleExternalIncidentResponseData } from './model/HandleExternalIncidentResponseData';
 import { HandleIncidentRequest } from './model/HandleIncidentRequest';
 import { HandleIncidentResponse } from './model/HandleIncidentResponse';
+import { HandlerAlarmRequest } from './model/HandlerAlarmRequest';
+import { HandlerAlarmResponse } from './model/HandlerAlarmResponse';
 import { IncidentSimpleTicketInfo } from './model/IncidentSimpleTicketInfo';
 import { IncidentTicketInfoResponseData } from './model/IncidentTicketInfoResponseData';
 import { InstanceCompliant } from './model/InstanceCompliant';
@@ -476,8 +476,8 @@ export class CocClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public handleAlarm(handleAlarmRequest?: HandleAlarmRequest): Promise<HandleAlarmResponse> {
-        const options = ParamCreater().handleAlarm(handleAlarmRequest);
+    public handlerAlarm(handlerAlarmRequest?: HandlerAlarmRequest): Promise<HandlerAlarmResponse> {
+        const options = ParamCreater().handlerAlarm(handlerAlarmRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2631,7 +2631,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        handleAlarm(handleAlarmRequest?: HandleAlarmRequest) {
+        handlerAlarm(handlerAlarmRequest?: HandlerAlarmRequest) {
             const options = {
                 method: "POST",
                 url: "/v1/alarm-mgmt/alarm/{alarm_id}/auto-process",
@@ -2647,19 +2647,19 @@ export const ParamCreater = function () {
             
             let alarmId;
 
-            if (handleAlarmRequest !== null && handleAlarmRequest !== undefined) {
-                if (handleAlarmRequest instanceof HandleAlarmRequest) {
-                    alarmId = handleAlarmRequest.alarmId;
-                    body = handleAlarmRequest.body
+            if (handlerAlarmRequest !== null && handlerAlarmRequest !== undefined) {
+                if (handlerAlarmRequest instanceof HandlerAlarmRequest) {
+                    alarmId = handlerAlarmRequest.alarmId;
+                    body = handlerAlarmRequest.body
                 } else {
-                    alarmId = handleAlarmRequest['alarm_id'];
-                    body = handleAlarmRequest['body'];
+                    alarmId = handlerAlarmRequest['alarm_id'];
+                    body = handlerAlarmRequest['body'];
                 }
             }
 
         
             if (alarmId === null || alarmId === undefined) {
-            throw new RequiredError('alarmId','Required parameter alarmId was null or undefined when calling handleAlarm.');
+            throw new RequiredError('alarmId','Required parameter alarmId was null or undefined when calling handlerAlarm.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

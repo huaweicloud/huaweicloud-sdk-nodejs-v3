@@ -8,6 +8,7 @@ export class ShowGetConfDetailResponse extends SdkResponse {
     public confContent?: string;
     public setting?: Setting;
     public updateAt?: string;
+    public desc?: string;
     public constructor() { 
         super();
     }
@@ -29,6 +30,10 @@ export class ShowGetConfDetailResponse extends SdkResponse {
     }
     public withUpdateAt(updateAt: string): ShowGetConfDetailResponse {
         this['updateAt'] = updateAt;
+        return this;
+    }
+    public withDesc(desc: string): ShowGetConfDetailResponse {
+        this['desc'] = desc;
         return this;
     }
 }

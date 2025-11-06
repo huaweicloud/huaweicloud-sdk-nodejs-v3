@@ -14,20 +14,26 @@ import { AddMetricDataRequest } from './model/AddMetricDataRequest';
 import { AddMetricDataResponse } from './model/AddMetricDataResponse';
 import { AddMuteRulesRequest } from './model/AddMuteRulesRequest';
 import { AddMuteRulesResponse } from './model/AddMuteRulesResponse';
+import { AddNotificationTemplate } from './model/AddNotificationTemplate';
 import { AddOrUpdateAlarmRuleV4ItemResult } from './model/AddOrUpdateAlarmRuleV4ItemResult';
 import { AddOrUpdateAlarmRuleV4RequestBody } from './model/AddOrUpdateAlarmRuleV4RequestBody';
 import { AddOrUpdateMetricOrEventAlarmRuleRequest } from './model/AddOrUpdateMetricOrEventAlarmRuleRequest';
 import { AddOrUpdateMetricOrEventAlarmRuleResponse } from './model/AddOrUpdateMetricOrEventAlarmRuleResponse';
 import { AddOrUpdateServiceDiscoveryRulesRequest } from './model/AddOrUpdateServiceDiscoveryRulesRequest';
 import { AddOrUpdateServiceDiscoveryRulesResponse } from './model/AddOrUpdateServiceDiscoveryRulesResponse';
+import { AggrPrometheusInfo } from './model/AggrPrometheusInfo';
 import { AlarmNotification } from './model/AlarmNotification';
 import { AlarmParamForV4Db } from './model/AlarmParamForV4Db';
 import { AlarmRuleParam } from './model/AlarmRuleParam';
+import { AlarmRuleTemplateBody } from './model/AlarmRuleTemplateBody';
+import { AlarmRuleTemplateSpecWithCloudService } from './model/AlarmRuleTemplateSpecWithCloudService';
 import { AlarmTags } from './model/AlarmTags';
+import { AlarmTemplateSpecItem } from './model/AlarmTemplateSpecItem';
 import { AppNameRule } from './model/AppNameRule';
 import { AppRules } from './model/AppRules';
 import { AppRulesBody } from './model/AppRulesBody';
 import { AppRulesSpec } from './model/AppRulesSpec';
+import { ApplicationModel } from './model/ApplicationModel';
 import { ApplicationNameRule } from './model/ApplicationNameRule';
 import { BatchAlarmRulesBody } from './model/BatchAlarmRulesBody';
 import { BatchUpdateActionRules } from './model/BatchUpdateActionRules';
@@ -38,18 +44,30 @@ import { BatchUpdateRequest } from './model/BatchUpdateRequest';
 import { CmdbInfo } from './model/CmdbInfo';
 import { CountEventsRequest } from './model/CountEventsRequest';
 import { CountEventsResponse } from './model/CountEventsResponse';
+import { CreateNotificationTemplateRequest } from './model/CreateNotificationTemplateRequest';
+import { CreateNotificationTemplateResponse } from './model/CreateNotificationTemplateResponse';
 import { CreatePromInstanceRequest } from './model/CreatePromInstanceRequest';
 import { CreatePromInstanceResponse } from './model/CreatePromInstanceResponse';
 import { CreateRecordingRuleRequest } from './model/CreateRecordingRuleRequest';
 import { CreateRecordingRuleResponse } from './model/CreateRecordingRuleResponse';
+import { DashBoardsFolder } from './model/DashBoardsFolder';
+import { Dashboard } from './model/Dashboard';
 import { DeleteActionRuleRequest } from './model/DeleteActionRuleRequest';
 import { DeleteActionRuleResponse } from './model/DeleteActionRuleResponse';
 import { DeleteAlarmRuleRequest } from './model/DeleteAlarmRuleRequest';
 import { DeleteAlarmRuleResponse } from './model/DeleteAlarmRuleResponse';
+import { DeleteAlarmRuleTemplateItemResult } from './model/DeleteAlarmRuleTemplateItemResult';
+import { DeleteAlarmRuleTemplateRequest } from './model/DeleteAlarmRuleTemplateRequest';
+import { DeleteAlarmRuleTemplateRequestBody } from './model/DeleteAlarmRuleTemplateRequestBody';
+import { DeleteAlarmRuleTemplateResponse } from './model/DeleteAlarmRuleTemplateResponse';
 import { DeleteAlarmRuleV4RequestBody } from './model/DeleteAlarmRuleV4RequestBody';
 import { DeleteAlarmRulesBody } from './model/DeleteAlarmRulesBody';
 import { DeleteAlarmRulesRequest } from './model/DeleteAlarmRulesRequest';
 import { DeleteAlarmRulesResponse } from './model/DeleteAlarmRulesResponse';
+import { DeleteDashboardRequest } from './model/DeleteDashboardRequest';
+import { DeleteDashboardResponse } from './model/DeleteDashboardResponse';
+import { DeleteDashboardsFolderRequest } from './model/DeleteDashboardsFolderRequest';
+import { DeleteDashboardsFolderResponse } from './model/DeleteDashboardsFolderResponse';
 import { DeleteEvent2alarmRuleRequest } from './model/DeleteEvent2alarmRuleRequest';
 import { DeleteEvent2alarmRuleResponse } from './model/DeleteEvent2alarmRuleResponse';
 import { DeleteMetricOrEventAlarmRuleRequest } from './model/DeleteMetricOrEventAlarmRuleRequest';
@@ -57,6 +75,9 @@ import { DeleteMetricOrEventAlarmRuleResponse } from './model/DeleteMetricOrEven
 import { DeleteMuteRuleName } from './model/DeleteMuteRuleName';
 import { DeleteMuteRulesRequest } from './model/DeleteMuteRulesRequest';
 import { DeleteMuteRulesResponse } from './model/DeleteMuteRulesResponse';
+import { DeleteNotificationRequestBody } from './model/DeleteNotificationRequestBody';
+import { DeleteNotificationTemplateRequest } from './model/DeleteNotificationTemplateRequest';
+import { DeleteNotificationTemplateResponse } from './model/DeleteNotificationTemplateResponse';
 import { DeletePromInstanceRequest } from './model/DeletePromInstanceRequest';
 import { DeletePromInstanceResponse } from './model/DeletePromInstanceResponse';
 import { DeleteserviceDiscoveryRulesRequest } from './model/DeleteserviceDiscoveryRulesRequest';
@@ -69,6 +90,7 @@ import { Event2alarmRuleBody } from './model/Event2alarmRuleBody';
 import { Event2alarmRuleBodyMetadata } from './model/Event2alarmRuleBodyMetadata';
 import { Event2alarmRuleBodyTriggerPolicies } from './model/Event2alarmRuleBodyTriggerPolicies';
 import { EventAlarmSpec } from './model/EventAlarmSpec';
+import { EventAlarmTemplateSpec } from './model/EventAlarmTemplateSpec';
 import { EventList } from './model/EventList';
 import { EventModel } from './model/EventModel';
 import { EventQueryParam } from './model/EventQueryParam';
@@ -86,6 +108,12 @@ import { ListAgentsRequest } from './model/ListAgentsRequest';
 import { ListAgentsResponse } from './model/ListAgentsResponse';
 import { ListAlarmRuleRequest } from './model/ListAlarmRuleRequest';
 import { ListAlarmRuleResponse } from './model/ListAlarmRuleResponse';
+import { ListAlarmRuleTemplateRequest } from './model/ListAlarmRuleTemplateRequest';
+import { ListAlarmRuleTemplateResponse } from './model/ListAlarmRuleTemplateResponse';
+import { ListDashBoardsRequest } from './model/ListDashBoardsRequest';
+import { ListDashBoardsResponse } from './model/ListDashBoardsResponse';
+import { ListDashboardsFolderRequest } from './model/ListDashboardsFolderRequest';
+import { ListDashboardsFolderResponse } from './model/ListDashboardsFolderResponse';
 import { ListEvent2alarmRuleRequest } from './model/ListEvent2alarmRuleRequest';
 import { ListEvent2alarmRuleResponse } from './model/ListEvent2alarmRuleResponse';
 import { ListEventModel } from './model/ListEventModel';
@@ -111,6 +139,10 @@ import { ListMetricOrEventAlarmRuleRequest } from './model/ListMetricOrEventAlar
 import { ListMetricOrEventAlarmRuleResponse } from './model/ListMetricOrEventAlarmRuleResponse';
 import { ListMuteRuleRequest } from './model/ListMuteRuleRequest';
 import { ListMuteRuleResponse } from './model/ListMuteRuleResponse';
+import { ListNotificationTemplateByNameRequest } from './model/ListNotificationTemplateByNameRequest';
+import { ListNotificationTemplateByNameResponse } from './model/ListNotificationTemplateByNameResponse';
+import { ListNotificationTemplatesRequest } from './model/ListNotificationTemplatesRequest';
+import { ListNotificationTemplatesResponse } from './model/ListNotificationTemplatesResponse';
 import { ListNotifiedHistoriesRequest } from './model/ListNotifiedHistoriesRequest';
 import { ListNotifiedHistoriesResponse } from './model/ListNotifiedHistoriesResponse';
 import { ListPermissionsRequest } from './model/ListPermissionsRequest';
@@ -133,6 +165,7 @@ import { MetaData } from './model/MetaData';
 import { MetaDataSeries } from './model/MetaDataSeries';
 import { MetricAPIQueryItemParam } from './model/MetricAPIQueryItemParam';
 import { MetricAlarmSpec } from './model/MetricAlarmSpec';
+import { MetricAlarmTemplateSpec } from './model/MetricAlarmTemplateSpec';
 import { MetricDataItem } from './model/MetricDataItem';
 import { MetricDataPoints } from './model/MetricDataPoints';
 import { MetricDataValue } from './model/MetricDataValue';
@@ -144,6 +177,7 @@ import { MuteRule } from './model/MuteRule';
 import { NameRule } from './model/NameRule';
 import { NoDataCondition } from './model/NoDataCondition';
 import { NodeInfo } from './model/NodeInfo';
+import { NotificationTemplate } from './model/NotificationTemplate';
 import { Notifications } from './model/Notifications';
 import { NotifiedHistoriesResult } from './model/NotifiedHistoriesResult';
 import { PageInfo } from './model/PageInfo';
@@ -151,6 +185,7 @@ import { PromConfigModel } from './model/PromConfigModel';
 import { PromInstanceEpsCreateModel } from './model/PromInstanceEpsCreateModel';
 import { PromInstanceEpsModel } from './model/PromInstanceEpsModel';
 import { PromInstanceRequestModel } from './model/PromInstanceRequestModel';
+import { PromLimits } from './model/PromLimits';
 import { PushEventsRequest } from './model/PushEventsRequest';
 import { PushEventsResponse } from './model/PushEventsResponse';
 import { QueryAlarmResult } from './model/QueryAlarmResult';
@@ -171,12 +206,17 @@ import { ShowActionRuleRequest } from './model/ShowActionRuleRequest';
 import { ShowActionRuleResponse } from './model/ShowActionRuleResponse';
 import { ShowAlarmRuleRequest } from './model/ShowAlarmRuleRequest';
 import { ShowAlarmRuleResponse } from './model/ShowAlarmRuleResponse';
+import { ShowDashBoardRequest } from './model/ShowDashBoardRequest';
+import { ShowDashBoardResponse } from './model/ShowDashBoardResponse';
 import { ShowMetricsDataRequest } from './model/ShowMetricsDataRequest';
 import { ShowMetricsDataResponse } from './model/ShowMetricsDataResponse';
 import { SmnInfo } from './model/SmnInfo';
 import { SmnResponse } from './model/SmnResponse';
 import { SmnTopics } from './model/SmnTopics';
 import { StatisticValue } from './model/StatisticValue';
+import { TemplateInfo } from './model/TemplateInfo';
+import { TemplateTriggerCondition } from './model/TemplateTriggerCondition';
+import { Templating } from './model/Templating';
 import { TriggerCondition } from './model/TriggerCondition';
 import { UpdateActionRuleRequest } from './model/UpdateActionRuleRequest';
 import { UpdateActionRuleResponse } from './model/UpdateActionRuleResponse';
@@ -187,6 +227,12 @@ import { UpdateEventRuleRequest } from './model/UpdateEventRuleRequest';
 import { UpdateEventRuleResponse } from './model/UpdateEventRuleResponse';
 import { UpdateMuteRuleRequest } from './model/UpdateMuteRuleRequest';
 import { UpdateMuteRuleResponse } from './model/UpdateMuteRuleResponse';
+import { UpdateNotificationTemplate } from './model/UpdateNotificationTemplate';
+import { UpdateNotificationTemplateRequest } from './model/UpdateNotificationTemplateRequest';
+import { UpdateNotificationTemplateResponse } from './model/UpdateNotificationTemplateResponse';
+import { UpdatePromInstanceRequest } from './model/UpdatePromInstanceRequest';
+import { UpdatePromInstanceRequestModle } from './model/UpdatePromInstanceRequestModle';
+import { UpdatePromInstanceResponse } from './model/UpdatePromInstanceResponse';
 import { ValueData } from './model/ValueData';
 
 export class AomClient {
@@ -287,7 +333,7 @@ export class AomClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 新增静默规则
-     * @param {MuteRule} addMuteRulesRequestBody 静默规则
+     * @param {MuteRule} addMuteRulesRequestBody 静默规则。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -301,14 +347,14 @@ export class AomClient {
     }
 
     /**
-     * 添加或修改AOM2.0指标类或事件类告警规则。(注：接口目前开放的region为：华东-上海一)
+     * 添加或修改AOM2.0指标类或事件类告警规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加或修改指标类或事件类告警规则
      * @param {string} actionId 告警规则id。 - 新增告警时，填写\&quot;add-alarm-action\&quot; - 更新告警时，填写“update-alarm-action”
      * @param {AddOrUpdateAlarmRuleV4RequestBody} addOrUpdateMetricOrEventAlarmRuleRequestBody 新增或修改告警规则请求体。
-     * @param {string} [enterpriseProjectId] 企业项目id。 - 查询单个企业项目下实例，填写企业项目id。  - 查询所有企业项目下实例，填写“all_granted_eps”。
+     * @param {string} [enterpriseProjectId] 企业项目id。获取方式请参见：[获取企业项目ID](aom_04_0024.xml) 。 - 查询单个企业项目下实例，填写企业项目id。  - 查询所有企业项目下实例，填写“all_granted_eps”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -368,12 +414,32 @@ export class AomClient {
      *
      * @summary 统计事件告警信息
      * @param {EventQueryParam} countEventsRequestBody 查询事件或者告警列表请求参数。
-     * @param {'history_alert' | 'active_alert'} [type] 查询类型。type&#x3D;active_alert代表查询活动告警，type&#x3D;history_alert代表查询历史告警。不传或者传其他值则返回指定查询条件的所有信息。
+     * @param {'history_alert' | 'active_alert'} [type] 查询类型： - active_alert：代表查询活动告警 - history_alert代表查询历史告警。  不传或者传其他值，则返回指定查询条件的所有信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public countEvents(countEventsRequest?: CountEventsRequest): Promise<CountEventsResponse> {
         const options = ParamCreater().countEvents(countEventsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于新增消息通知模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增消息通知模板
+     * @param {AddNotificationTemplate} createNotificationTemplateRequestBody 新增消息通知模板请求体。
+     * @param {string} [enterpriseProjectId] 企业项目id。获取方式请参见：[获取企业项目ID](aom_04_0024.xml)。 - 新增单个企业项目下通知消息模板，填写企业项目id。 - 不填，新增默认企业项目下通知消息模板。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createNotificationTemplate(createNotificationTemplateRequest?: CreateNotificationTemplateRequest): Promise<CreateNotificationTemplateResponse> {
+        const options = ParamCreater().createNotificationTemplate(createNotificationTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -420,6 +486,26 @@ export class AomClient {
     }
 
     /**
+     * 该接口用于删除告警模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除告警模板
+     * @param {DeleteAlarmRuleTemplateRequestBody} deleteAlarmRuleTemplateRequestBody 删除告警模板请求体。
+     * @param {string} [enterpriseProjectId] 企业项目id。获取方式请参见：[获取企业项目ID](aom_04_0024.xml)。 - 删除单个企业项目下实例，填写企业项目id。 - 不填时，默认删除企业项目id为0下的实例。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAlarmRuleTemplate(deleteAlarmRuleTemplateRequest?: DeleteAlarmRuleTemplateRequest): Promise<DeleteAlarmRuleTemplateResponse> {
+        const options = ParamCreater().deleteAlarmRuleTemplate(deleteAlarmRuleTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于批量删除阈值规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -431,6 +517,47 @@ export class AomClient {
      */
     public deleteAlarmRules(deleteAlarmRulesRequest?: DeleteAlarmRulesRequest): Promise<DeleteAlarmRulesResponse> {
         const options = ParamCreater().deleteAlarmRules(deleteAlarmRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除仪表盘。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除仪表盘
+     * @param {string} dashboardId 仪表盘id。
+     * @param {string} [enterpriseProjectId] 企业项目id。获取方式请参见：[获取企业项目ID](aom_04_0024.xml)。 - 删除单个企业项目下实例，填写企业项目id。  - 不填时，默认删除企业项目id为0的企业项目下实例。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDashboard(deleteDashboardRequest?: DeleteDashboardRequest): Promise<DeleteDashboardResponse> {
+        const options = ParamCreater().deleteDashboard(deleteDashboardRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除仪表盘分组。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除仪表盘分组
+     * @param {string} folderId 仪表盘分组id。
+     * @param {boolean} deleteAll 是否删除仪表盘分组下的仪表盘。
+     * @param {string} [enterpriseProjectId] 企业项目id。获取方式请参见：[获取企业项目ID](aom_04_0024.xml)。  - 删除单个企业项目下实例，填写企业项目id。  - 不填时，默认删除企业项目id为0的企业项目下实例。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDashboardsFolder(deleteDashboardsFolderRequest?: DeleteDashboardsFolderRequest): Promise<DeleteDashboardsFolderResponse> {
+        const options = ParamCreater().deleteDashboardsFolder(deleteDashboardsFolderRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -458,7 +585,7 @@ export class AomClient {
     }
 
     /**
-     * 删除AOM2.0指标类或事件类告警规则。(注：接口目前开放的region为：华东-上海一)
+     * 删除AOM2.0指标类或事件类告警规则。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -482,12 +609,32 @@ export class AomClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除静默规则
-     * @param {Array<DeleteMuteRuleName>} deleteMuteRulesRequestBody 要删除的规则的名称
+     * @param {Array<DeleteMuteRuleName>} deleteMuteRulesRequestBody 要删除的规则的名称。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public deleteMuteRules(deleteMuteRulesRequest?: DeleteMuteRulesRequest): Promise<DeleteMuteRulesResponse> {
         const options = ParamCreater().deleteMuteRules(deleteMuteRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于删除消息通知模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除消息通知模板
+     * @param {DeleteNotificationRequestBody} deleteNotificationTemplateRequestBody 删除消息通知模板请求体。
+     * @param {string} [enterpriseProjectId] 企业项目id。 - 删除单个企业项目下通知消息模板，填写企业项目id。 - 不填，删除默认企业项目下通知消息模板。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteNotificationTemplate(deleteNotificationTemplateRequest?: DeleteNotificationTemplateRequest): Promise<DeleteNotificationTemplateResponse> {
+        const options = ParamCreater().deleteNotificationTemplate(deleteNotificationTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -565,6 +712,66 @@ export class AomClient {
      */
     public listAlarmRule(listAlarmRuleRequest?: ListAlarmRuleRequest): Promise<ListAlarmRuleResponse> {
         const options = ParamCreater().listAlarmRule(listAlarmRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询告警模板列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询告警模板列表
+     * @param {string} type 告警模板类型。默认值为“template”
+     * @param {string} [enterpriseProjectId] 企业项目id。获取方式请参见：[获取企业项目ID](aom_04_0024.xml)。 - 查询单个企业项目下实例，填写企业项目id。  - 查询所有企业项目下实例，填写“all_granted_eps”。
+     * @param {string} [id] 告警模板id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAlarmRuleTemplate(listAlarmRuleTemplateRequest?: ListAlarmRuleTemplateRequest): Promise<ListAlarmRuleTemplateResponse> {
+        const options = ParamCreater().listAlarmRuleTemplate(listAlarmRuleTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询仪表盘列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询仪表盘列表
+     * @param {string} [dashboardType] 仪表盘类型。
+     * @param {string} [enterpriseProjectId] 企业项目id。获取方式请参见：[获取企业项目ID](aom_04_0024.xml)。 - 查询单个企业项目下实例，填写企业项目id。 - 查询所有企业项目下实例，填写“all_granted_eps”。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDashBoards(listDashBoardsRequest?: ListDashBoardsRequest): Promise<ListDashBoardsResponse> {
+        const options = ParamCreater().listDashBoards(listDashBoardsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询仪表盘分组列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询仪表盘分组列表
+     * @param {string} [enterpriseProjectId] 企业项目id。获取方式请参见：[获取企业项目ID](aom_04_0024.xml)。 - 查询单个企业项目下实例，填写企业项目id。 - 查询所有企业项目下实例，填写“all_granted_eps”。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDashboardsFolder(listDashboardsFolderRequest?: ListDashboardsFolderRequest): Promise<ListDashboardsFolderResponse> {
+        const options = ParamCreater().listDashboardsFolder(listDashboardsFolderRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -656,7 +863,7 @@ export class AomClient {
     }
 
     /**
-     * 查询AOM2.0指标类或者事件类告警规则列表。(注：接口目前开放的region为：华东-上海一)
+     * 查询AOM2.0指标类或者事件类告警规则列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -672,7 +879,7 @@ export class AomClient {
      * @param {string} [promInstanceId] Prometheus实例id。
      * @param {string} [bindNotificationRuleId] 绑定的告警行动规则名称。
      * @param {string} [relatedCceClusters] CCE集群id。
-     * @param {string} [enterpriseProjectId] 企业项目id。  - 查询单个企业项目下实例，填写企业项目id。  - 查询所有企业项目下实例，填写“all_granted_eps”。
+     * @param {string} [enterpriseProjectId] 企业项目id。获取方式请参见：[获取企业项目ID](aom_04_0024.xml)。 - 查询单个企业项目下实例，填写企业项目id。  - 查询所有企业项目下实例，填写“all_granted_eps”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -696,6 +903,45 @@ export class AomClient {
      */
     public listMuteRule(listMuteRuleRequest?: ListMuteRuleRequest): Promise<ListMuteRuleResponse> {
         const options = ParamCreater().listMuteRule();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于根据消息通知模板名称查询消息通知模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据消息通知模板名称查询消息通知模板
+     * @param {string} name 消息通知模板名称。
+     * @param {string} [enterpriseProjectId] 企业项目id。获取方式请参见：[获取企业项目ID](aom_04_0024.xml)。 - 查询单个企业项目下通知消息模板列表，填写企业项目id。 - 查询所有企业项目下通知消息模板列表，填写“all_granted_eps”。 - 不填，查询默认企业项目下通知消息模板列表。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listNotificationTemplateByName(listNotificationTemplateByNameRequest?: ListNotificationTemplateByNameRequest): Promise<ListNotificationTemplateByNameResponse> {
+        const options = ParamCreater().listNotificationTemplateByName(listNotificationTemplateByNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询消息通知模板列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询消息通知模板列表
+     * @param {string} [enterpriseProjectId] 企业项目id。获取方式请参见：[获取企业项目ID](aom_04_0024.xml)。 - 查询单个企业项目下通知消息模板列表，填写企业项目id。 - 查询所有企业项目下通知消息模板列表，填写“all_granted_eps”。 - 不填，查询默认企业项目下通知消息模板列表。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listNotificationTemplates(listNotificationTemplatesRequest?: ListNotificationTemplatesRequest): Promise<ListNotificationTemplatesResponse> {
+        const options = ParamCreater().listNotificationTemplates(listNotificationTemplatesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -801,14 +1047,14 @@ export class AomClient {
     }
 
     /**
-     * 该接口用于上报对应用户的事件、告警。
+     * 该接口用于上报事件或告警至AOM，同时支持清除告警信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 上报事件告警信息
+     * @summary 上报事件或告警信息
      * @param {EventList} pushEventsRequestBody 事件或者告警列表。
-     * @param {string} [enterpriseProjectId] 告警所属的企业项目id。
-     * @param {'clear'} [action] 接口请求动作。action&#x3D;clear代表清除告警，不传或者传其他值默认为上报动作。
+     * @param {string} [enterpriseProjectId] 告警所属的企业项目id。获取方式请参见：[获取企业项目ID](aom_04_0024.xml)。 如果不传该参数值，默认为default企业项目，ID为0。
+     * @param {'clear'} [action] 接口请求动作： - 不传或者传其他值：代表上报告警或事件动作。该参数值默认为空，即默认上报告警或事件。 - clear：代表清除告警动作。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -852,6 +1098,27 @@ export class AomClient {
      */
     public showAlarmRule(showAlarmRuleRequest?: ShowAlarmRuleRequest): Promise<ShowAlarmRuleResponse> {
         const options = ParamCreater().showAlarmRule(showAlarmRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询仪表盘详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询仪表盘详情
+     * @param {string} dashboardId 仪表盘id。
+     * @param {string} version 仪表盘版本号。
+     * @param {string} [enterpriseProjectId] 企业项目id。获取方式请参见：[获取企业项目ID](aom_04_0024.xml)。  -  查询单个企业项目下实例，填写企业项目id。  -  查询所有企业项目下实例，填写“all_granted_eps”。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDashBoard(showDashBoardRequest?: ShowDashBoardRequest): Promise<ShowDashBoardResponse> {
+        const options = ParamCreater().showDashBoard(showDashBoardRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -942,12 +1209,32 @@ export class AomClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改静默规则
-     * @param {MuteRule} updateMuteRuleRequestBody 服务参数
+     * @param {MuteRule} updateMuteRuleRequestBody 服务参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public updateMuteRule(updateMuteRuleRequest?: UpdateMuteRuleRequest): Promise<UpdateMuteRuleResponse> {
         const options = ParamCreater().updateMuteRule(updateMuteRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于修改消息通知模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改消息通知模板
+     * @param {UpdateNotificationTemplate} updateNotificationTemplateRequestBody 修改消息通知模板请求体。
+     * @param {string} [enterpriseProjectId] 企业项目id。获取方式请参见：[获取企业项目ID](aom_04_0024.xml)。 - 修改单个企业项目下通知消息模板，填写企业项目id。 - 不填，修改默认企业项目下通知消息模板。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateNotificationTemplate(updateNotificationTemplateRequest?: UpdateNotificationTemplateRequest): Promise<UpdateNotificationTemplateResponse> {
+        const options = ParamCreater().updateNotificationTemplate(updateNotificationTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -962,7 +1249,7 @@ export class AomClient {
      *
      * @summary 新增Prometheus实例
      * @param {string} region Prometheus实例所属Region，一般为承载REST服务端点的服务器域名或IP，不同服务不同区域的名称不同。
-     * @param {PromInstanceRequestModel} createPromInstanceRequestBody Prometheus实例信息
+     * @param {PromInstanceRequestModel} createPromInstanceRequestBody Prometheus实例信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1212,6 +1499,26 @@ export class AomClient {
 
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * 该接口用于修改Prometheus实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改Prometheus实例
+     * @param {string} enterpriseProjectId 企业项目id。  - 更新单个企业项目下实例，填写企业项目id。
+     * @param {UpdatePromInstanceRequestModle} updatePromInstanceRequestBody 更新普罗实例请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePromInstance(updatePromInstanceRequest?: UpdatePromInstanceRequest): Promise<UpdatePromInstanceResponse> {
+        const options = ParamCreater().updatePromInstance(updatePromInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
@@ -1408,7 +1715,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 添加或修改AOM2.0指标类或事件类告警规则。(注：接口目前开放的region为：华东-上海一)
+         * 添加或修改AOM2.0指标类或事件类告警规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1601,6 +1908,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于新增消息通知模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createNotificationTemplate(createNotificationTemplateRequest?: CreateNotificationTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/events/notification/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (createNotificationTemplateRequest !== null && createNotificationTemplateRequest !== undefined) {
+                if (createNotificationTemplateRequest instanceof CreateNotificationTemplateRequest) {
+                    body = createNotificationTemplateRequest.body
+                    enterpriseProjectId = createNotificationTemplateRequest.enterpriseProjectId;
+                } else {
+                    body = createNotificationTemplateRequest['body'];
+                    enterpriseProjectId = createNotificationTemplateRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除告警行动规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1676,6 +2028,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于删除告警模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAlarmRuleTemplate(deleteAlarmRuleTemplateRequest?: DeleteAlarmRuleTemplateRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v4/{project_id}/alarm-rules-template",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (deleteAlarmRuleTemplateRequest !== null && deleteAlarmRuleTemplateRequest !== undefined) {
+                if (deleteAlarmRuleTemplateRequest instanceof DeleteAlarmRuleTemplateRequest) {
+                    body = deleteAlarmRuleTemplateRequest.body
+                    enterpriseProjectId = deleteAlarmRuleTemplateRequest.enterpriseProjectId;
+                } else {
+                    body = deleteAlarmRuleTemplateRequest['body'];
+                    enterpriseProjectId = deleteAlarmRuleTemplateRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于批量删除阈值规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1709,6 +2106,105 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除仪表盘。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDashboard(deleteDashboardRequest?: DeleteDashboardRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/aom/dashboards/{dashboard_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let dashboardId;
+            
+            let enterpriseProjectId;
+
+            if (deleteDashboardRequest !== null && deleteDashboardRequest !== undefined) {
+                if (deleteDashboardRequest instanceof DeleteDashboardRequest) {
+                    dashboardId = deleteDashboardRequest.dashboardId;
+                    enterpriseProjectId = deleteDashboardRequest.enterpriseProjectId;
+                } else {
+                    dashboardId = deleteDashboardRequest['dashboard_id'];
+                    enterpriseProjectId = deleteDashboardRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (dashboardId === null || dashboardId === undefined) {
+            throw new RequiredError('dashboardId','Required parameter dashboardId was null or undefined when calling deleteDashboard.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+
+            options.pathParams = { 'dashboard_id': dashboardId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除仪表盘分组。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDashboardsFolder(deleteDashboardsFolderRequest?: DeleteDashboardsFolderRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/aom/dashboards-folder/{folder_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let folderId;
+            
+            let deleteAll;
+            
+            let enterpriseProjectId;
+
+            if (deleteDashboardsFolderRequest !== null && deleteDashboardsFolderRequest !== undefined) {
+                if (deleteDashboardsFolderRequest instanceof DeleteDashboardsFolderRequest) {
+                    folderId = deleteDashboardsFolderRequest.folderId;
+                    deleteAll = deleteDashboardsFolderRequest.deleteAll;
+                    enterpriseProjectId = deleteDashboardsFolderRequest.enterpriseProjectId;
+                } else {
+                    folderId = deleteDashboardsFolderRequest['folder_id'];
+                    deleteAll = deleteDashboardsFolderRequest['delete_all'];
+                    enterpriseProjectId = deleteDashboardsFolderRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (folderId === null || folderId === undefined) {
+            throw new RequiredError('folderId','Required parameter folderId was null or undefined when calling deleteDashboardsFolder.');
+            }
+            if (deleteAll === null || deleteAll === undefined) {
+                throw new RequiredError('deleteAll','Required parameter deleteAll was null or undefined when calling deleteDashboardsFolder.');
+            }
+            if (deleteAll !== null && deleteAll !== undefined) {
+                localVarQueryParameter['delete_all'] = deleteAll;
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'folder_id': folderId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1752,7 +2248,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除AOM2.0指标类或事件类告警规则。(注：接口目前开放的region为：华东-上海一)
+         * 删除AOM2.0指标类或事件类告警规则。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1819,6 +2315,51 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于删除消息通知模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteNotificationTemplate(deleteNotificationTemplateRequest?: DeleteNotificationTemplateRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/events/notification/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (deleteNotificationTemplateRequest !== null && deleteNotificationTemplateRequest !== undefined) {
+                if (deleteNotificationTemplateRequest instanceof DeleteNotificationTemplateRequest) {
+                    body = deleteNotificationTemplateRequest.body
+                    enterpriseProjectId = deleteNotificationTemplateRequest.enterpriseProjectId;
+                } else {
+                    body = deleteNotificationTemplateRequest['body'];
+                    enterpriseProjectId = deleteNotificationTemplateRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1972,6 +2513,140 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询告警模板列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAlarmRuleTemplate(listAlarmRuleTemplateRequest?: ListAlarmRuleTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/{project_id}/alarm-rules-template",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let type;
+            
+            let enterpriseProjectId;
+            
+            let id;
+
+            if (listAlarmRuleTemplateRequest !== null && listAlarmRuleTemplateRequest !== undefined) {
+                if (listAlarmRuleTemplateRequest instanceof ListAlarmRuleTemplateRequest) {
+                    type = listAlarmRuleTemplateRequest.type;
+                    enterpriseProjectId = listAlarmRuleTemplateRequest.enterpriseProjectId;
+                    id = listAlarmRuleTemplateRequest.id;
+                } else {
+                    type = listAlarmRuleTemplateRequest['type'];
+                    enterpriseProjectId = listAlarmRuleTemplateRequest['Enterprise-Project-Id'];
+                    id = listAlarmRuleTemplateRequest['id'];
+                }
+            }
+
+        
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling listAlarmRuleTemplate.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询仪表盘列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDashBoards(listDashBoardsRequest?: ListDashBoardsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/aom/dashboards",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let dashboardType;
+            
+            let enterpriseProjectId;
+
+            if (listDashBoardsRequest !== null && listDashBoardsRequest !== undefined) {
+                if (listDashBoardsRequest instanceof ListDashBoardsRequest) {
+                    dashboardType = listDashBoardsRequest.dashboardType;
+                    enterpriseProjectId = listDashBoardsRequest.enterpriseProjectId;
+                } else {
+                    dashboardType = listDashBoardsRequest['dashboard_type'];
+                    enterpriseProjectId = listDashBoardsRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (dashboardType !== null && dashboardType !== undefined) {
+                localVarQueryParameter['dashboard_type'] = dashboardType;
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询仪表盘分组列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDashboardsFolder(listDashboardsFolderRequest?: ListDashboardsFolderRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/aom/dashboards-folder",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let enterpriseProjectId;
+
+            if (listDashboardsFolderRequest !== null && listDashboardsFolderRequest !== undefined) {
+                if (listDashboardsFolderRequest instanceof ListDashboardsFolderRequest) {
+                    enterpriseProjectId = listDashboardsFolderRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = listDashboardsFolderRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2174,7 +2849,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询AOM2.0指标类或者事件类告警规则列表。(注：接口目前开放的region为：华东-上海一)
+         * 查询AOM2.0指标类或者事件类告警规则列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2303,6 +2978,86 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于根据消息通知模板名称查询消息通知模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listNotificationTemplateByName(listNotificationTemplateByNameRequest?: ListNotificationTemplateByNameRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/events/notification/template/{name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let name;
+            
+            let enterpriseProjectId;
+
+            if (listNotificationTemplateByNameRequest !== null && listNotificationTemplateByNameRequest !== undefined) {
+                if (listNotificationTemplateByNameRequest instanceof ListNotificationTemplateByNameRequest) {
+                    name = listNotificationTemplateByNameRequest.name;
+                    enterpriseProjectId = listNotificationTemplateByNameRequest.enterpriseProjectId;
+                } else {
+                    name = listNotificationTemplateByNameRequest['name'];
+                    enterpriseProjectId = listNotificationTemplateByNameRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (name === null || name === undefined) {
+            throw new RequiredError('name','Required parameter name was null or undefined when calling listNotificationTemplateByName.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+
+            options.pathParams = { 'name': name, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询消息通知模板列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listNotificationTemplates(listNotificationTemplatesRequest?: ListNotificationTemplatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/events/notification/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let enterpriseProjectId;
+
+            if (listNotificationTemplatesRequest !== null && listNotificationTemplatesRequest !== undefined) {
+                if (listNotificationTemplatesRequest instanceof ListNotificationTemplatesRequest) {
+                    enterpriseProjectId = listNotificationTemplatesRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = listNotificationTemplatesRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
@@ -2503,7 +3258,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于上报对应用户的事件、告警。
+         * 该接口用于上报事件或告警至AOM，同时支持清除告警信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2625,6 +3380,61 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'alarm_rule_id': alarmRuleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询仪表盘详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDashBoard(showDashBoardRequest?: ShowDashBoardRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/aom/dashboards/{dashboard_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let dashboardId;
+            
+            let version;
+            
+            let enterpriseProjectId;
+
+            if (showDashBoardRequest !== null && showDashBoardRequest !== undefined) {
+                if (showDashBoardRequest instanceof ShowDashBoardRequest) {
+                    dashboardId = showDashBoardRequest.dashboardId;
+                    version = showDashBoardRequest.version;
+                    enterpriseProjectId = showDashBoardRequest.enterpriseProjectId;
+                } else {
+                    dashboardId = showDashBoardRequest['dashboard_id'];
+                    version = showDashBoardRequest['version'];
+                    enterpriseProjectId = showDashBoardRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (dashboardId === null || dashboardId === undefined) {
+            throw new RequiredError('dashboardId','Required parameter dashboardId was null or undefined when calling showDashBoard.');
+            }
+            if (version === null || version === undefined) {
+                throw new RequiredError('version','Required parameter version was null or undefined when calling showDashBoard.');
+            }
+            if (version !== null && version !== undefined) {
+                localVarQueryParameter['version'] = version;
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'dashboard_id': dashboardId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2816,6 +3626,51 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改消息通知模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateNotificationTemplate(updateNotificationTemplateRequest?: UpdateNotificationTemplateRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/events/notification/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (updateNotificationTemplateRequest !== null && updateNotificationTemplateRequest !== undefined) {
+                if (updateNotificationTemplateRequest instanceof UpdateNotificationTemplateRequest) {
+                    body = updateNotificationTemplateRequest.body
+                    enterpriseProjectId = updateNotificationTemplateRequest.enterpriseProjectId;
+                } else {
+                    body = updateNotificationTemplateRequest['body'];
+                    enterpriseProjectId = updateNotificationTemplateRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -3378,6 +4233,51 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改Prometheus实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePromInstance(updatePromInstanceRequest?: UpdatePromInstanceRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/aom/prometheus",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (updatePromInstanceRequest !== null && updatePromInstanceRequest !== undefined) {
+                if (updatePromInstanceRequest instanceof UpdatePromInstanceRequest) {
+                    enterpriseProjectId = updatePromInstanceRequest.enterpriseProjectId;
+                    body = updatePromInstanceRequest.body
+                } else {
+                    enterpriseProjectId = updatePromInstanceRequest['Enterprise-Project-Id'];
+                    body = updatePromInstanceRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

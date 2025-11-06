@@ -14,6 +14,7 @@ export class SnapshotDetail {
     private 'cluster_id'?: string;
     public datastore?: Datastore;
     private 'cluster_name'?: string;
+    public updated?: string;
     private 'bak_expected_start_time'?: string;
     private 'bak_keep_day'?: number;
     private 'bak_period'?: string;
@@ -31,6 +32,9 @@ export class SnapshotDetail {
     private 'fine_grained_backup_detail'?: FineGrainedSnapshotDetail;
     private 'guest_agent_version'?: string;
     private 'cluster_status'?: string;
+    private 'cluster_task_status'?: string;
+    private 'support_fine_grained_cross_version_restore'?: boolean;
+    private 'support_fine_grained_asymmetric_restore'?: boolean;
     public constructor(id?: string, name?: string, description?: string, started?: string, finished?: string, size?: number, status?: string, type?: string, clusterId?: string) { 
         this['id'] = id;
         this['name'] = name;
@@ -97,6 +101,10 @@ export class SnapshotDetail {
     }
     public get clusterName(): string | undefined {
         return this['cluster_name'];
+    }
+    public withUpdated(updated: string): SnapshotDetail {
+        this['updated'] = updated;
+        return this;
     }
     public withBakExpectedStartTime(bakExpectedStartTime: string): SnapshotDetail {
         this['bak_expected_start_time'] = bakExpectedStartTime;
@@ -261,5 +269,35 @@ export class SnapshotDetail {
     }
     public get clusterStatus(): string | undefined {
         return this['cluster_status'];
+    }
+    public withClusterTaskStatus(clusterTaskStatus: string): SnapshotDetail {
+        this['cluster_task_status'] = clusterTaskStatus;
+        return this;
+    }
+    public set clusterTaskStatus(clusterTaskStatus: string  | undefined) {
+        this['cluster_task_status'] = clusterTaskStatus;
+    }
+    public get clusterTaskStatus(): string | undefined {
+        return this['cluster_task_status'];
+    }
+    public withSupportFineGrainedCrossVersionRestore(supportFineGrainedCrossVersionRestore: boolean): SnapshotDetail {
+        this['support_fine_grained_cross_version_restore'] = supportFineGrainedCrossVersionRestore;
+        return this;
+    }
+    public set supportFineGrainedCrossVersionRestore(supportFineGrainedCrossVersionRestore: boolean  | undefined) {
+        this['support_fine_grained_cross_version_restore'] = supportFineGrainedCrossVersionRestore;
+    }
+    public get supportFineGrainedCrossVersionRestore(): boolean | undefined {
+        return this['support_fine_grained_cross_version_restore'];
+    }
+    public withSupportFineGrainedAsymmetricRestore(supportFineGrainedAsymmetricRestore: boolean): SnapshotDetail {
+        this['support_fine_grained_asymmetric_restore'] = supportFineGrainedAsymmetricRestore;
+        return this;
+    }
+    public set supportFineGrainedAsymmetricRestore(supportFineGrainedAsymmetricRestore: boolean  | undefined) {
+        this['support_fine_grained_asymmetric_restore'] = supportFineGrainedAsymmetricRestore;
+    }
+    public get supportFineGrainedAsymmetricRestore(): boolean | undefined {
+        return this['support_fine_grained_asymmetric_restore'];
     }
 }

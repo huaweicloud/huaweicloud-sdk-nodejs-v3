@@ -1,9 +1,9 @@
-import { ModifyAlarmActionReq } from './ModifyAlarmActionReq';
+import { UpdateAlarmActionRequestBody } from './UpdateAlarmActionRequestBody';
 
 
 export class UpdateAlarmActionRequest {
     private 'alarm_id'?: string;
-    public body?: ModifyAlarmActionReq;
+    public body?: UpdateAlarmActionRequestBody;
     public constructor(alarmId?: string) { 
         this['alarm_id'] = alarmId;
     }
@@ -17,7 +17,7 @@ export class UpdateAlarmActionRequest {
     public get alarmId(): string | undefined {
         return this['alarm_id'];
     }
-    public withBody(body: ModifyAlarmActionReq): UpdateAlarmActionRequest {
+    public withBody(body: UpdateAlarmActionRequestBody): UpdateAlarmActionRequest {
         this['body'] = body;
         return this;
     }

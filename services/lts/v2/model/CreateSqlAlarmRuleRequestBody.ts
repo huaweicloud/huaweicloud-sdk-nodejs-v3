@@ -1,6 +1,6 @@
 import { CreateSqlAlarmRuleFrequency } from './CreateSqlAlarmRuleFrequency';
-import { SqlNotificationSaveRule } from './SqlNotificationSaveRule';
 import { SqlRequest } from './SqlRequest';
+import { TagsRequestBody } from './TagsRequestBody';
 
 
 export class CreateSqlAlarmRuleRequestBody {
@@ -11,22 +11,20 @@ export class CreateSqlAlarmRuleRequestBody {
     public frequency?: CreateSqlAlarmRuleFrequency;
     private 'condition_expression'?: string;
     private 'sql_alarm_level'?: CreateSqlAlarmRuleRequestBodySqlAlarmLevelEnum | string;
-    private 'sql_alarm_send'?: boolean;
     private 'domain_id'?: string;
-    private 'notification_save_rule'?: SqlNotificationSaveRule;
     private 'trigger_condition_count'?: number;
     private 'trigger_condition_frequency'?: number;
     private 'whether_recovery_policy'?: boolean;
     private 'recovery_policy'?: number;
     private 'notification_frequency'?: CreateSqlAlarmRuleRequestBodyNotificationFrequencyEnum | number;
     private 'alarm_action_rule_name'?: string;
-    public constructor(sqlAlarmRuleName?: string, sqlRequests?: Array<SqlRequest>, frequency?: CreateSqlAlarmRuleFrequency, conditionExpression?: string, sqlAlarmLevel?: string, sqlAlarmSend?: boolean, domainId?: string, notificationFrequency?: number) { 
+    public tags?: Array<TagsRequestBody>;
+    public constructor(sqlAlarmRuleName?: string, sqlRequests?: Array<SqlRequest>, frequency?: CreateSqlAlarmRuleFrequency, conditionExpression?: string, sqlAlarmLevel?: string, domainId?: string, notificationFrequency?: number) { 
         this['sql_alarm_rule_name'] = sqlAlarmRuleName;
         this['sql_requests'] = sqlRequests;
         this['frequency'] = frequency;
         this['condition_expression'] = conditionExpression;
         this['sql_alarm_level'] = sqlAlarmLevel;
-        this['sql_alarm_send'] = sqlAlarmSend;
         this['domain_id'] = domainId;
         this['notification_frequency'] = notificationFrequency;
     }
@@ -94,16 +92,6 @@ export class CreateSqlAlarmRuleRequestBody {
     public get sqlAlarmLevel(): CreateSqlAlarmRuleRequestBodySqlAlarmLevelEnum | string | undefined {
         return this['sql_alarm_level'];
     }
-    public withSqlAlarmSend(sqlAlarmSend: boolean): CreateSqlAlarmRuleRequestBody {
-        this['sql_alarm_send'] = sqlAlarmSend;
-        return this;
-    }
-    public set sqlAlarmSend(sqlAlarmSend: boolean  | undefined) {
-        this['sql_alarm_send'] = sqlAlarmSend;
-    }
-    public get sqlAlarmSend(): boolean | undefined {
-        return this['sql_alarm_send'];
-    }
     public withDomainId(domainId: string): CreateSqlAlarmRuleRequestBody {
         this['domain_id'] = domainId;
         return this;
@@ -113,16 +101,6 @@ export class CreateSqlAlarmRuleRequestBody {
     }
     public get domainId(): string | undefined {
         return this['domain_id'];
-    }
-    public withNotificationSaveRule(notificationSaveRule: SqlNotificationSaveRule): CreateSqlAlarmRuleRequestBody {
-        this['notification_save_rule'] = notificationSaveRule;
-        return this;
-    }
-    public set notificationSaveRule(notificationSaveRule: SqlNotificationSaveRule  | undefined) {
-        this['notification_save_rule'] = notificationSaveRule;
-    }
-    public get notificationSaveRule(): SqlNotificationSaveRule | undefined {
-        return this['notification_save_rule'];
     }
     public withTriggerConditionCount(triggerConditionCount: number): CreateSqlAlarmRuleRequestBody {
         this['trigger_condition_count'] = triggerConditionCount;
@@ -183,6 +161,10 @@ export class CreateSqlAlarmRuleRequestBody {
     }
     public get alarmActionRuleName(): string | undefined {
         return this['alarm_action_rule_name'];
+    }
+    public withTags(tags: Array<TagsRequestBody>): CreateSqlAlarmRuleRequestBody {
+        this['tags'] = tags;
+        return this;
     }
 }
 

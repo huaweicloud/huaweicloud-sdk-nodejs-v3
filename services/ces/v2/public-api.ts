@@ -72,7 +72,6 @@ export * from './model/BatchUpdateNotificationMasksResponse';
 export * from './model/BatchUpdateOneClickAlarmPoliciesEnabledStateRequest';
 export * from './model/BatchUpdateOneClickAlarmPoliciesEnabledStateResponse';
 export * from './model/BatchUpdateOneClickAlarmsEnabledStateRequest';
-export * from './model/BatchUpdateOneClickAlarmsEnabledStateRequestBody';
 export * from './model/BatchUpdateOneClickAlarmsEnabledStateResponse';
 export * from './model/BatchUpdateWidgetInfo';
 export * from './model/BatchUpdateWidgetsRequest';

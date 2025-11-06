@@ -1,13 +1,14 @@
+import { Filter } from './Filter';
 import { MetricInfo } from './MetricInfo';
 
 
 export class BatchListMetricDataRequestBody {
     public metrics?: Array<MetricInfo>;
-    public period?: string;
-    public filter?: string;
+    public period?: BatchListMetricDataRequestBodyPeriodEnum | string;
+    public filter?: Filter;
     public from?: number;
     public to?: number;
-    public constructor(metrics?: Array<MetricInfo>, period?: string, filter?: string, from?: number, to?: number) { 
+    public constructor(metrics?: Array<MetricInfo>, period?: string, filter?: Filter, from?: number, to?: number) { 
         this['metrics'] = metrics;
         this['period'] = period;
         this['filter'] = filter;
@@ -18,11 +19,11 @@ export class BatchListMetricDataRequestBody {
         this['metrics'] = metrics;
         return this;
     }
-    public withPeriod(period: string): BatchListMetricDataRequestBody {
+    public withPeriod(period: BatchListMetricDataRequestBodyPeriodEnum | string): BatchListMetricDataRequestBody {
         this['period'] = period;
         return this;
     }
-    public withFilter(filter: string): BatchListMetricDataRequestBody {
+    public withFilter(filter: Filter): BatchListMetricDataRequestBody {
         this['filter'] = filter;
         return this;
     }
@@ -34,4 +35,18 @@ export class BatchListMetricDataRequestBody {
         this['to'] = to;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BatchListMetricDataRequestBodyPeriodEnum {
+    E_1 = '1',
+    E_60 = '60',
+    E_300 = '300',
+    E_1200 = '1200',
+    E_3600 = '3600',
+    E_14400 = '14400',
+    E_86400 = '86400'
 }

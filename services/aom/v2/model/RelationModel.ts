@@ -4,7 +4,8 @@ export class RelationModel {
     public key?: string;
     public value?: Array<string>;
     public relation?: RelationModelRelationEnum | string;
-    public constructor() { 
+    public constructor(key?: string) { 
+        this['key'] = key;
     }
     public withKey(key: string): RelationModel {
         this['key'] = key;
