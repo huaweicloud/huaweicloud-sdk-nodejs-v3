@@ -3,14 +3,16 @@
 export class HtapLTSConfigResponseInstance {
     public id?: string;
     public name?: string;
+    public mode?: string;
     private 'engine_name'?: string;
     private 'engine_version'?: string;
     public status?: string;
     private 'enterprise_project_id'?: string;
     private 'enterprise_project_name'?: string;
-    public constructor(id?: string, name?: string, engineName?: string, engineVersion?: string, status?: string) { 
+    public constructor(id?: string, name?: string, mode?: string, engineName?: string, engineVersion?: string, status?: string) { 
         this['id'] = id;
         this['name'] = name;
+        this['mode'] = mode;
         this['engine_name'] = engineName;
         this['engine_version'] = engineVersion;
         this['status'] = status;
@@ -21,6 +23,10 @@ export class HtapLTSConfigResponseInstance {
     }
     public withName(name: string): HtapLTSConfigResponseInstance {
         this['name'] = name;
+        return this;
+    }
+    public withMode(mode: string): HtapLTSConfigResponseInstance {
+        this['mode'] = mode;
         return this;
     }
     public withEngineName(engineName: string): HtapLTSConfigResponseInstance {

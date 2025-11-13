@@ -1,3 +1,4 @@
+import { CustomDate } from './CustomDate';
 
 
 export class KeywordsRequest {
@@ -10,6 +11,8 @@ export class KeywordsRequest {
     private 'number'?: number;
     private 'search_time_range'?: number;
     private 'search_time_range_unit'?: KeywordsRequestSearchTimeRangeUnitEnum | string;
+    private 'custom_date'?: CustomDate;
+    private 'is_time_range_relative'?: boolean;
     public constructor(logStreamId?: string, logGroupId?: string, keywords?: string, condition?: string, modelNumber?: number, searchTimeRange?: number, searchTimeRangeUnit?: string) { 
         this['log_stream_id'] = logStreamId;
         this['log_group_id'] = logGroupId;
@@ -96,6 +99,26 @@ export class KeywordsRequest {
     }
     public get searchTimeRangeUnit(): KeywordsRequestSearchTimeRangeUnitEnum | string | undefined {
         return this['search_time_range_unit'];
+    }
+    public withCustomDate(customDate: CustomDate): KeywordsRequest {
+        this['custom_date'] = customDate;
+        return this;
+    }
+    public set customDate(customDate: CustomDate  | undefined) {
+        this['custom_date'] = customDate;
+    }
+    public get customDate(): CustomDate | undefined {
+        return this['custom_date'];
+    }
+    public withIsTimeRangeRelative(isTimeRangeRelative: boolean): KeywordsRequest {
+        this['is_time_range_relative'] = isTimeRangeRelative;
+        return this;
+    }
+    public set isTimeRangeRelative(isTimeRangeRelative: boolean  | undefined) {
+        this['is_time_range_relative'] = isTimeRangeRelative;
+    }
+    public get isTimeRangeRelative(): boolean | undefined {
+        return this['is_time_range_relative'];
     }
 }
 

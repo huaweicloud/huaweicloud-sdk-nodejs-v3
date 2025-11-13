@@ -3127,6 +3127,8 @@ export class CodeArtsRepoClient {
      * @summary 获取合并请求评价列表
      * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3247,6 +3249,8 @@ export class CodeArtsRepoClient {
      * @summary 获取文件变更历史版本列表
      * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -13049,19 +13053,27 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let repositoryId;
             
             let mergeRequestIid;
+            
+            let offset;
+            
+            let limit;
 
             if (listMergeRequestEvaluationsRequest !== null && listMergeRequestEvaluationsRequest !== undefined) {
                 if (listMergeRequestEvaluationsRequest instanceof ListMergeRequestEvaluationsRequest) {
                     repositoryId = listMergeRequestEvaluationsRequest.repositoryId;
                     mergeRequestIid = listMergeRequestEvaluationsRequest.mergeRequestIid;
+                    offset = listMergeRequestEvaluationsRequest.offset;
+                    limit = listMergeRequestEvaluationsRequest.limit;
                 } else {
                     repositoryId = listMergeRequestEvaluationsRequest['repository_id'];
                     mergeRequestIid = listMergeRequestEvaluationsRequest['merge_request_iid'];
+                    offset = listMergeRequestEvaluationsRequest['offset'];
+                    limit = listMergeRequestEvaluationsRequest['limit'];
                 }
             }
 
@@ -13072,7 +13084,14 @@ export const ParamCreater = function () {
             if (mergeRequestIid === null || mergeRequestIid === undefined) {
             throw new RequiredError('mergeRequestIid','Required parameter mergeRequestIid was null or undefined when calling listMergeRequestEvaluations.');
             }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'repository_id': repositoryId,'merge_request_iid': mergeRequestIid, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -13416,19 +13435,27 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let repositoryId;
             
             let mergeRequestIid;
+            
+            let offset;
+            
+            let limit;
 
             if (listMergeRequestVersionsRequest !== null && listMergeRequestVersionsRequest !== undefined) {
                 if (listMergeRequestVersionsRequest instanceof ListMergeRequestVersionsRequest) {
                     repositoryId = listMergeRequestVersionsRequest.repositoryId;
                     mergeRequestIid = listMergeRequestVersionsRequest.mergeRequestIid;
+                    offset = listMergeRequestVersionsRequest.offset;
+                    limit = listMergeRequestVersionsRequest.limit;
                 } else {
                     repositoryId = listMergeRequestVersionsRequest['repository_id'];
                     mergeRequestIid = listMergeRequestVersionsRequest['merge_request_iid'];
+                    offset = listMergeRequestVersionsRequest['offset'];
+                    limit = listMergeRequestVersionsRequest['limit'];
                 }
             }
 
@@ -13439,7 +13466,14 @@ export const ParamCreater = function () {
             if (mergeRequestIid === null || mergeRequestIid === undefined) {
             throw new RequiredError('mergeRequestIid','Required parameter mergeRequestIid was null or undefined when calling listMergeRequestVersions.');
             }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'repository_id': repositoryId,'merge_request_iid': mergeRequestIid, };
             options.headers = localVarHeaderParameter;
             return options;

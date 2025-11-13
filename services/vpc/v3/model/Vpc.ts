@@ -15,7 +15,9 @@ export class Vpc {
     private 'updated_at'?: Date;
     private 'cloud_resources'?: Array<CloudResource>;
     public tags?: Array<Tag>;
-    public constructor(id?: string, name?: string, description?: string, cidr?: string, extendCidrs?: Array<string>, status?: string, projectId?: string, enterpriseProjectId?: string, createdAt?: Date, updatedAt?: Date, cloudResources?: Array<CloudResource>, tags?: Array<Tag>) { 
+    private 'block_service_endpoint_states'?: string;
+    private 'enable_network_address_usage_metrics'?: boolean;
+    public constructor(id?: string, name?: string, description?: string, cidr?: string, extendCidrs?: Array<string>, status?: string, projectId?: string, enterpriseProjectId?: string, createdAt?: Date, updatedAt?: Date, cloudResources?: Array<CloudResource>, tags?: Array<Tag>, blockServiceEndpointStates?: string, enableNetworkAddressUsageMetrics?: boolean) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
@@ -28,6 +30,8 @@ export class Vpc {
         this['updated_at'] = updatedAt;
         this['cloud_resources'] = cloudResources;
         this['tags'] = tags;
+        this['block_service_endpoint_states'] = blockServiceEndpointStates;
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
     }
     public withId(id: string): Vpc {
         this['id'] = id;
@@ -112,5 +116,25 @@ export class Vpc {
     public withTags(tags: Array<Tag>): Vpc {
         this['tags'] = tags;
         return this;
+    }
+    public withBlockServiceEndpointStates(blockServiceEndpointStates: string): Vpc {
+        this['block_service_endpoint_states'] = blockServiceEndpointStates;
+        return this;
+    }
+    public set blockServiceEndpointStates(blockServiceEndpointStates: string  | undefined) {
+        this['block_service_endpoint_states'] = blockServiceEndpointStates;
+    }
+    public get blockServiceEndpointStates(): string | undefined {
+        return this['block_service_endpoint_states'];
+    }
+    public withEnableNetworkAddressUsageMetrics(enableNetworkAddressUsageMetrics: boolean): Vpc {
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
+        return this;
+    }
+    public set enableNetworkAddressUsageMetrics(enableNetworkAddressUsageMetrics: boolean  | undefined) {
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
+    }
+    public get enableNetworkAddressUsageMetrics(): boolean | undefined {
+        return this['enable_network_address_usage_metrics'];
     }
 }

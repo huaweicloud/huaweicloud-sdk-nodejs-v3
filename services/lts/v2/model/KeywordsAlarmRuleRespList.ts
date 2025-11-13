@@ -1,6 +1,6 @@
 import { Frequency } from './Frequency';
-import { KeywordsRequest } from './KeywordsRequest';
-import { Topics } from './Topics';
+import { KeywordsRequestResponse } from './KeywordsRequestResponse';
+import { TagsResBody } from './TagsResBody';
 
 
 export class KeywordsAlarmRuleRespList {
@@ -9,15 +9,12 @@ export class KeywordsAlarmRuleRespList {
     private 'keywords_alarm_rule_name'?: string;
     private 'keywords_alarm_rule_description'?: string;
     private 'condition_expression'?: string;
-    private 'keywords_requests'?: Array<KeywordsRequest>;
+    private 'keywords_requests'?: Array<KeywordsRequestResponse>;
     public frequency?: Frequency;
     private 'keywords_alarm_level'?: KeywordsAlarmRuleRespListKeywordsAlarmLevelEnum | string;
-    private 'keywords_alarm_send'?: boolean;
     private 'domain_id'?: string;
     private 'create_time'?: number;
     private 'update_time'?: number;
-    public topics?: Array<Topics>;
-    private 'template_name'?: string;
     public status?: KeywordsAlarmRuleRespListStatusEnum | string;
     private 'trigger_condition_count'?: number;
     private 'trigger_condition_frequency'?: number;
@@ -25,7 +22,8 @@ export class KeywordsAlarmRuleRespList {
     private 'recovery_policy'?: number;
     private 'notification_frequency'?: KeywordsAlarmRuleRespListNotificationFrequencyEnum | number;
     private 'alarm_action_rule_name'?: string;
-    public constructor(keywordsAlarmRuleId?: string, keywordsAlarmRuleName?: string, keywordsAlarmRuleDescription?: string, conditionExpression?: string, keywordsRequests?: Array<KeywordsRequest>, frequency?: Frequency, keywordsAlarmLevel?: string, keywordsAlarmSend?: boolean, domainId?: string, createTime?: number, updateTime?: number, topics?: Array<Topics>, notificationFrequency?: number) { 
+    public tags?: Array<TagsResBody>;
+    public constructor(keywordsAlarmRuleId?: string, keywordsAlarmRuleName?: string, keywordsAlarmRuleDescription?: string, conditionExpression?: string, keywordsRequests?: Array<KeywordsRequestResponse>, frequency?: Frequency, keywordsAlarmLevel?: string, domainId?: string, createTime?: number, updateTime?: number, notificationFrequency?: number) { 
         this['keywords_alarm_rule_id'] = keywordsAlarmRuleId;
         this['keywords_alarm_rule_name'] = keywordsAlarmRuleName;
         this['keywords_alarm_rule_description'] = keywordsAlarmRuleDescription;
@@ -33,11 +31,9 @@ export class KeywordsAlarmRuleRespList {
         this['keywords_requests'] = keywordsRequests;
         this['frequency'] = frequency;
         this['keywords_alarm_level'] = keywordsAlarmLevel;
-        this['keywords_alarm_send'] = keywordsAlarmSend;
         this['domain_id'] = domainId;
         this['create_time'] = createTime;
         this['update_time'] = updateTime;
-        this['topics'] = topics;
         this['notification_frequency'] = notificationFrequency;
     }
     public withProjectId(projectId: string): KeywordsAlarmRuleRespList {
@@ -84,14 +80,14 @@ export class KeywordsAlarmRuleRespList {
     public get conditionExpression(): string | undefined {
         return this['condition_expression'];
     }
-    public withKeywordsRequests(keywordsRequests: Array<KeywordsRequest>): KeywordsAlarmRuleRespList {
+    public withKeywordsRequests(keywordsRequests: Array<KeywordsRequestResponse>): KeywordsAlarmRuleRespList {
         this['keywords_requests'] = keywordsRequests;
         return this;
     }
-    public set keywordsRequests(keywordsRequests: Array<KeywordsRequest>  | undefined) {
+    public set keywordsRequests(keywordsRequests: Array<KeywordsRequestResponse>  | undefined) {
         this['keywords_requests'] = keywordsRequests;
     }
-    public get keywordsRequests(): Array<KeywordsRequest> | undefined {
+    public get keywordsRequests(): Array<KeywordsRequestResponse> | undefined {
         return this['keywords_requests'];
     }
     public withFrequency(frequency: Frequency): KeywordsAlarmRuleRespList {
@@ -107,16 +103,6 @@ export class KeywordsAlarmRuleRespList {
     }
     public get keywordsAlarmLevel(): KeywordsAlarmRuleRespListKeywordsAlarmLevelEnum | string | undefined {
         return this['keywords_alarm_level'];
-    }
-    public withKeywordsAlarmSend(keywordsAlarmSend: boolean): KeywordsAlarmRuleRespList {
-        this['keywords_alarm_send'] = keywordsAlarmSend;
-        return this;
-    }
-    public set keywordsAlarmSend(keywordsAlarmSend: boolean  | undefined) {
-        this['keywords_alarm_send'] = keywordsAlarmSend;
-    }
-    public get keywordsAlarmSend(): boolean | undefined {
-        return this['keywords_alarm_send'];
     }
     public withDomainId(domainId: string): KeywordsAlarmRuleRespList {
         this['domain_id'] = domainId;
@@ -147,20 +133,6 @@ export class KeywordsAlarmRuleRespList {
     }
     public get updateTime(): number | undefined {
         return this['update_time'];
-    }
-    public withTopics(topics: Array<Topics>): KeywordsAlarmRuleRespList {
-        this['topics'] = topics;
-        return this;
-    }
-    public withTemplateName(templateName: string): KeywordsAlarmRuleRespList {
-        this['template_name'] = templateName;
-        return this;
-    }
-    public set templateName(templateName: string  | undefined) {
-        this['template_name'] = templateName;
-    }
-    public get templateName(): string | undefined {
-        return this['template_name'];
     }
     public withStatus(status: KeywordsAlarmRuleRespListStatusEnum | string): KeywordsAlarmRuleRespList {
         this['status'] = status;
@@ -225,6 +197,10 @@ export class KeywordsAlarmRuleRespList {
     }
     public get alarmActionRuleName(): string | undefined {
         return this['alarm_action_rule_name'];
+    }
+    public withTags(tags: Array<TagsResBody>): KeywordsAlarmRuleRespList {
+        this['tags'] = tags;
+        return this;
     }
 }
 

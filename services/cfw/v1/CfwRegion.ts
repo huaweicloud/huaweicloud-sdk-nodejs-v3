@@ -33,6 +33,7 @@ export class CfwRegion {
     public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://cfw.ap-southeast-5.myhuaweicloud.com"]);
     public static AF_NORTH_1 = new Region("af-north-1", ["https://cfw.af-north-1.myhuaweicloud.com"]);
     public static CN_EAST_5 = new Region("cn-east-5", ["https://cfw.cn-east-5.myhuaweicloud.com"]);
+    public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://cfw.my-kualalumpur-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -62,7 +63,8 @@ export class CfwRegion {
         "cn-east-4":CfwRegion.CN_EAST_4,
         "ap-southeast-5":CfwRegion.AP_SOUTHEAST_5,
         "af-north-1":CfwRegion.AF_NORTH_1,
-        "cn-east-5":CfwRegion.CN_EAST_5
+        "cn-east-5":CfwRegion.CN_EAST_5,
+        "my-kualalumpur-1":CfwRegion.MY_KUALALUMPUR_1
     };
   
     public static valueOf(regionId: string) {

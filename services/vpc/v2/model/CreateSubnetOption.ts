@@ -15,6 +15,7 @@ export class CreateSubnetOption {
     private 'availability_zone'?: string;
     private 'extra_dhcp_opts'?: Array<ExtraDhcpOption>;
     public tags?: Array<string>;
+    private 'enable_network_address_usage_metrics'?: boolean;
     public constructor(name?: string, cidr?: string, vpcId?: string, gatewayIp?: string) { 
         this['name'] = name;
         this['cidr'] = cidr;
@@ -120,5 +121,15 @@ export class CreateSubnetOption {
     public withTags(tags: Array<string>): CreateSubnetOption {
         this['tags'] = tags;
         return this;
+    }
+    public withEnableNetworkAddressUsageMetrics(enableNetworkAddressUsageMetrics: boolean): CreateSubnetOption {
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
+        return this;
+    }
+    public set enableNetworkAddressUsageMetrics(enableNetworkAddressUsageMetrics: boolean  | undefined) {
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
+    }
+    public get enableNetworkAddressUsageMetrics(): boolean | undefined {
+        return this['enable_network_address_usage_metrics'];
     }
 }

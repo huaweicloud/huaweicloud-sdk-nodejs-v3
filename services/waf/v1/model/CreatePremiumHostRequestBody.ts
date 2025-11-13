@@ -17,10 +17,9 @@ export class CreatePremiumHostRequestBody {
     private 'protocol_port'?: number;
     public description?: string;
     private 'web_tag'?: string;
-    public constructor(hostname?: string, proxy?: boolean, server?: Array<PremiumWafServer>) { 
+    public constructor(hostname?: string, proxy?: boolean) { 
         this['hostname'] = hostname;
         this['proxy'] = proxy;
-        this['server'] = server;
     }
     public withCertificateid(certificateid: string): CreatePremiumHostRequestBody {
         this['certificateid'] = certificateid;

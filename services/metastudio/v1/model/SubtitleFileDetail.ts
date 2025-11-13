@@ -1,3 +1,4 @@
+import { ErrorResponse } from './ErrorResponse';
 
 
 export class SubtitleFileDetail {
@@ -6,6 +7,7 @@ export class SubtitleFileDetail {
     private 'subtitle_file_download_url'?: string;
     private 'subtitle_file_upload_url'?: string;
     private 'generate_time'?: string;
+    private 'error_info'?: ErrorResponse;
     public constructor() { 
     }
     public withSequenceNo(sequenceNo: number): SubtitleFileDetail {
@@ -57,6 +59,16 @@ export class SubtitleFileDetail {
     }
     public get generateTime(): string | undefined {
         return this['generate_time'];
+    }
+    public withErrorInfo(errorInfo: ErrorResponse): SubtitleFileDetail {
+        this['error_info'] = errorInfo;
+        return this;
+    }
+    public set errorInfo(errorInfo: ErrorResponse  | undefined) {
+        this['error_info'] = errorInfo;
+    }
+    public get errorInfo(): ErrorResponse | undefined {
+        return this['error_info'];
     }
 }
 

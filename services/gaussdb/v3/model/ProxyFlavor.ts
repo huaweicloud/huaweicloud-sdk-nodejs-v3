@@ -1,6 +1,7 @@
 
 
 export class ProxyFlavor {
+    public id?: string;
     private 'spec_code'?: string;
     public vcpus?: string;
     public ram?: string;
@@ -8,6 +9,10 @@ export class ProxyFlavor {
     private 'az_status'?: object;
     private 'supported_ipv6'?: boolean;
     public constructor() { 
+    }
+    public withId(id: string): ProxyFlavor {
+        this['id'] = id;
+        return this;
     }
     public withSpecCode(specCode: string): ProxyFlavor {
         this['spec_code'] = specCode;

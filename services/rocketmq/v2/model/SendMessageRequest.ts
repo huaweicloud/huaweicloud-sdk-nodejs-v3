@@ -1,10 +1,10 @@
-import { SendMessageRep } from './SendMessageRep';
+import { SendMessageReq } from './SendMessageReq';
 
 
 export class SendMessageRequest {
     public engine?: string;
     private 'instance_id'?: string;
-    public body?: SendMessageRep;
+    public body?: SendMessageReq;
     public constructor(engine?: string, instanceId?: string) { 
         this['engine'] = engine;
         this['instance_id'] = instanceId;
@@ -23,7 +23,7 @@ export class SendMessageRequest {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withBody(body: SendMessageRep): SendMessageRequest {
+    public withBody(body: SendMessageReq): SendMessageRequest {
         this['body'] = body;
         return this;
     }

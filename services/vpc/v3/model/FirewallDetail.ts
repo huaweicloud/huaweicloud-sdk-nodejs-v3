@@ -17,7 +17,8 @@ export class FirewallDetail {
     public associations?: Array<FirewallAssociation>;
     private 'ingress_rules'?: Array<FirewallRuleDetail>;
     private 'egress_rules'?: Array<FirewallRuleDetail>;
-    public constructor(id?: string, name?: string, description?: string, projectId?: string, createdAt?: string, updatedAt?: string, adminStateUp?: boolean, status?: string, enterpriseProjectId?: string, tags?: Array<ResourceTag>, associations?: Array<FirewallAssociation>, ingressRules?: Array<FirewallRuleDetail>, egressRules?: Array<FirewallRuleDetail>) { 
+    public type?: string;
+    public constructor(id?: string, name?: string, description?: string, projectId?: string, createdAt?: string, updatedAt?: string, adminStateUp?: boolean, status?: string, enterpriseProjectId?: string, tags?: Array<ResourceTag>, associations?: Array<FirewallAssociation>, ingressRules?: Array<FirewallRuleDetail>, egressRules?: Array<FirewallRuleDetail>, type?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
@@ -31,6 +32,7 @@ export class FirewallDetail {
         this['associations'] = associations;
         this['ingress_rules'] = ingressRules;
         this['egress_rules'] = egressRules;
+        this['type'] = type;
     }
     public withId(id: string): FirewallDetail {
         this['id'] = id;
@@ -125,5 +127,9 @@ export class FirewallDetail {
     }
     public get egressRules(): Array<FirewallRuleDetail> | undefined {
         return this['egress_rules'];
+    }
+    public withType(type: string): FirewallDetail {
+        this['type'] = type;
+        return this;
     }
 }

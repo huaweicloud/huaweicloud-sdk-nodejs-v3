@@ -3,6 +3,8 @@
 export class ListMergeRequestVersionsRequest {
     private 'repository_id'?: number;
     private 'merge_request_iid'?: number;
+    public offset?: number;
+    public limit?: number;
     public constructor(repositoryId?: number, mergeRequestIid?: number) { 
         this['repository_id'] = repositoryId;
         this['merge_request_iid'] = mergeRequestIid;
@@ -26,5 +28,13 @@ export class ListMergeRequestVersionsRequest {
     }
     public get mergeRequestIid(): number | undefined {
         return this['merge_request_iid'];
+    }
+    public withOffset(offset: number): ListMergeRequestVersionsRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: number): ListMergeRequestVersionsRequest {
+        this['limit'] = limit;
+        return this;
     }
 }

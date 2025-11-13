@@ -25,7 +25,9 @@ export class Subnet {
     private 'tenant_id'?: string;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
-    public constructor(id?: string, name?: string, description?: string, cidr?: string, gatewayIp?: string, ipv6Enable?: boolean, cidrV6?: string, gatewayIpV6?: string, dhcpEnable?: boolean, primaryDns?: string, secondaryDns?: string, dnsList?: Array<string>, availabilityZone?: string, vpcId?: string, status?: string, neutronNetworkId?: string, neutronSubnetId?: string, neutronSubnetIdV6?: string, extraDhcpOpts?: Array<ExtraDhcpOption>, tenantId?: string, createdAt?: Date, updatedAt?: Date) { 
+    private 'enable_network_address_usage_metrics'?: boolean;
+    private 'available_ip_address_count'?: number;
+    public constructor(id?: string, name?: string, description?: string, cidr?: string, gatewayIp?: string, ipv6Enable?: boolean, cidrV6?: string, gatewayIpV6?: string, dhcpEnable?: boolean, primaryDns?: string, secondaryDns?: string, dnsList?: Array<string>, availabilityZone?: string, vpcId?: string, status?: string, neutronNetworkId?: string, neutronSubnetId?: string, neutronSubnetIdV6?: string, extraDhcpOpts?: Array<ExtraDhcpOption>, tenantId?: string, createdAt?: Date, updatedAt?: Date, enableNetworkAddressUsageMetrics?: boolean, availableIpAddressCount?: number) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
@@ -48,6 +50,8 @@ export class Subnet {
         this['tenant_id'] = tenantId;
         this['created_at'] = createdAt;
         this['updated_at'] = updatedAt;
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
+        this['available_ip_address_count'] = availableIpAddressCount;
     }
     public withId(id: string): Subnet {
         this['id'] = id;
@@ -236,6 +240,26 @@ export class Subnet {
     }
     public get updatedAt(): Date | undefined {
         return this['updated_at'];
+    }
+    public withEnableNetworkAddressUsageMetrics(enableNetworkAddressUsageMetrics: boolean): Subnet {
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
+        return this;
+    }
+    public set enableNetworkAddressUsageMetrics(enableNetworkAddressUsageMetrics: boolean  | undefined) {
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
+    }
+    public get enableNetworkAddressUsageMetrics(): boolean | undefined {
+        return this['enable_network_address_usage_metrics'];
+    }
+    public withAvailableIpAddressCount(availableIpAddressCount: number): Subnet {
+        this['available_ip_address_count'] = availableIpAddressCount;
+        return this;
+    }
+    public set availableIpAddressCount(availableIpAddressCount: number  | undefined) {
+        this['available_ip_address_count'] = availableIpAddressCount;
+    }
+    public get availableIpAddressCount(): number | undefined {
+        return this['available_ip_address_count'];
     }
 }
 

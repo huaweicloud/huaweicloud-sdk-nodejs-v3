@@ -19,6 +19,7 @@ export class CreateSqlAlarmRuleRequestBody {
     private 'notification_frequency'?: CreateSqlAlarmRuleRequestBodyNotificationFrequencyEnum | number;
     private 'alarm_action_rule_name'?: string;
     public tags?: Array<TagsRequestBody>;
+    private 'enterprise_project_id'?: string;
     public constructor(sqlAlarmRuleName?: string, sqlRequests?: Array<SqlRequest>, frequency?: CreateSqlAlarmRuleFrequency, conditionExpression?: string, sqlAlarmLevel?: string, domainId?: string, notificationFrequency?: number) { 
         this['sql_alarm_rule_name'] = sqlAlarmRuleName;
         this['sql_requests'] = sqlRequests;
@@ -165,6 +166,16 @@ export class CreateSqlAlarmRuleRequestBody {
     public withTags(tags: Array<TagsRequestBody>): CreateSqlAlarmRuleRequestBody {
         this['tags'] = tags;
         return this;
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): CreateSqlAlarmRuleRequestBody {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
 }
 

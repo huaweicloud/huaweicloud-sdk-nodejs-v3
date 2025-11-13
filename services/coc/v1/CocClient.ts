@@ -828,8 +828,6 @@ export class CocClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询诊断记录
-     * @param {number} pageIndex 分页查询页索引
-     * @param {number} pageSize 分页查询页大小
      * @param {string} [taskId] 诊断任务工单ID
      * @param {'ECS' | 'RDS' | 'DCS' | 'DMS' | 'ELB'} [type] 诊断任务实例类别
      * @param {'cancel' | 'executing' | 'waiting' | 'failed' | 'finish'} [status] 诊断任务执行状态
@@ -837,6 +835,10 @@ export class CocClient {
      * @param {string} [creator] 诊断工单创建者
      * @param {number} [startTime] 诊断工单的开始执行时间
      * @param {number} [endTime] 诊断工单的执行结束时间
+     * @param {number} [pageIndex] 分页查询页索引
+     * @param {number} [pageSize] 分页查询页大小
+     * @param {number} [offset] 分页查询页索引
+     * @param {number} [limit] 分页查询页大小
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3524,10 +3526,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let pageIndex;
-            
-            let pageSize;
-            
             let taskId;
             
             let type;
@@ -3541,11 +3539,17 @@ export const ParamCreater = function () {
             let startTime;
             
             let endTime;
+            
+            let pageIndex;
+            
+            let pageSize;
+            
+            let offset;
+            
+            let limit;
 
             if (listDiagnosisTasksRequest !== null && listDiagnosisTasksRequest !== undefined) {
                 if (listDiagnosisTasksRequest instanceof ListDiagnosisTasksRequest) {
-                    pageIndex = listDiagnosisTasksRequest.pageIndex;
-                    pageSize = listDiagnosisTasksRequest.pageSize;
                     taskId = listDiagnosisTasksRequest.taskId;
                     type = listDiagnosisTasksRequest.type;
                     status = listDiagnosisTasksRequest.status;
@@ -3553,9 +3557,11 @@ export const ParamCreater = function () {
                     creator = listDiagnosisTasksRequest.creator;
                     startTime = listDiagnosisTasksRequest.startTime;
                     endTime = listDiagnosisTasksRequest.endTime;
+                    pageIndex = listDiagnosisTasksRequest.pageIndex;
+                    pageSize = listDiagnosisTasksRequest.pageSize;
+                    offset = listDiagnosisTasksRequest.offset;
+                    limit = listDiagnosisTasksRequest.limit;
                 } else {
-                    pageIndex = listDiagnosisTasksRequest['page_index'];
-                    pageSize = listDiagnosisTasksRequest['page_size'];
                     taskId = listDiagnosisTasksRequest['task_id'];
                     type = listDiagnosisTasksRequest['type'];
                     status = listDiagnosisTasksRequest['status'];
@@ -3563,22 +3569,14 @@ export const ParamCreater = function () {
                     creator = listDiagnosisTasksRequest['creator'];
                     startTime = listDiagnosisTasksRequest['start_time'];
                     endTime = listDiagnosisTasksRequest['end_time'];
+                    pageIndex = listDiagnosisTasksRequest['page_index'];
+                    pageSize = listDiagnosisTasksRequest['page_size'];
+                    offset = listDiagnosisTasksRequest['offset'];
+                    limit = listDiagnosisTasksRequest['limit'];
                 }
             }
 
         
-            if (pageIndex === null || pageIndex === undefined) {
-                throw new RequiredError('pageIndex','Required parameter pageIndex was null or undefined when calling listDiagnosisTasks.');
-            }
-            if (pageIndex !== null && pageIndex !== undefined) {
-                localVarQueryParameter['page_index'] = pageIndex;
-            }
-            if (pageSize === null || pageSize === undefined) {
-                throw new RequiredError('pageSize','Required parameter pageSize was null or undefined when calling listDiagnosisTasks.');
-            }
-            if (pageSize !== null && pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
-            }
             if (taskId !== null && taskId !== undefined) {
                 localVarQueryParameter['task_id'] = taskId;
             }
@@ -3599,6 +3597,18 @@ export const ParamCreater = function () {
             }
             if (endTime !== null && endTime !== undefined) {
                 localVarQueryParameter['end_time'] = endTime;
+            }
+            if (pageIndex !== null && pageIndex !== undefined) {
+                localVarQueryParameter['page_index'] = pageIndex;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
 
             options.queryParams = localVarQueryParameter;

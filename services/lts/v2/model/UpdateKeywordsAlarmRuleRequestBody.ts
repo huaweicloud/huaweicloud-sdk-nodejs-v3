@@ -19,6 +19,7 @@ export class UpdateKeywordsAlarmRuleRequestBody {
     private 'notification_frequency'?: UpdateKeywordsAlarmRuleRequestBodyNotificationFrequencyEnum | number;
     private 'alarm_action_rule_name'?: string;
     public tags?: Array<TagsRequestBody>;
+    private 'enterprise_project_id'?: string;
     public constructor(keywordsAlarmRuleId?: string, keywordsAlarmRuleName?: string, keywordsRequests?: Array<KeywordsRequest>, frequency?: Frequency, keywordsAlarmLevel?: string, domainId?: string, notificationFrequency?: number) { 
         this['keywords_alarm_rule_id'] = keywordsAlarmRuleId;
         this['keywords_alarm_rule_name'] = keywordsAlarmRuleName;
@@ -165,6 +166,16 @@ export class UpdateKeywordsAlarmRuleRequestBody {
     public withTags(tags: Array<TagsRequestBody>): UpdateKeywordsAlarmRuleRequestBody {
         this['tags'] = tags;
         return this;
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): UpdateKeywordsAlarmRuleRequestBody {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
 }
 

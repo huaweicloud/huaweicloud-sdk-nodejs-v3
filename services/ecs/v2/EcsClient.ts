@@ -18,6 +18,9 @@ import { AttachServerVolumeRequest } from './model/AttachServerVolumeRequest';
 import { AttachServerVolumeRequestBody } from './model/AttachServerVolumeRequestBody';
 import { AttachServerVolumeResponse } from './model/AttachServerVolumeResponse';
 import { AttachableQuantityForNic } from './model/AttachableQuantityForNic';
+import { BatchAddServerGroupMemberReq } from './model/BatchAddServerGroupMemberReq';
+import { BatchAddServerGroupMemberRequest } from './model/BatchAddServerGroupMemberRequest';
+import { BatchAddServerGroupMemberResponse } from './model/BatchAddServerGroupMemberResponse';
 import { BatchAddServerNicOption } from './model/BatchAddServerNicOption';
 import { BatchAddServerNicsRequest } from './model/BatchAddServerNicsRequest';
 import { BatchAddServerNicsRequestBody } from './model/BatchAddServerNicsRequestBody';
@@ -30,6 +33,9 @@ import { BatchAttachSharableVolumesResponse } from './model/BatchAttachSharableV
 import { BatchCreateServerTagsRequest } from './model/BatchCreateServerTagsRequest';
 import { BatchCreateServerTagsRequestBody } from './model/BatchCreateServerTagsRequestBody';
 import { BatchCreateServerTagsResponse } from './model/BatchCreateServerTagsResponse';
+import { BatchDeleteServerGroupMemberReq } from './model/BatchDeleteServerGroupMemberReq';
+import { BatchDeleteServerGroupMemberRequest } from './model/BatchDeleteServerGroupMemberRequest';
+import { BatchDeleteServerGroupMemberResponse } from './model/BatchDeleteServerGroupMemberResponse';
 import { BatchDeleteServerNicOption } from './model/BatchDeleteServerNicOption';
 import { BatchDeleteServerNicsRequest } from './model/BatchDeleteServerNicsRequest';
 import { BatchDeleteServerNicsRequestBody } from './model/BatchDeleteServerNicsRequestBody';
@@ -39,6 +45,7 @@ import { BatchDeleteServerTagsRequestBody } from './model/BatchDeleteServerTagsR
 import { BatchDeleteServerTagsResponse } from './model/BatchDeleteServerTagsResponse';
 import { BatchDetachVolumesRequest } from './model/BatchDetachVolumesRequest';
 import { BatchDetachVolumesResponse } from './model/BatchDetachVolumesResponse';
+import { BatchOperateResultResponse } from './model/BatchOperateResultResponse';
 import { BatchRebootServersRequest } from './model/BatchRebootServersRequest';
 import { BatchRebootServersRequestBody } from './model/BatchRebootServersRequestBody';
 import { BatchRebootServersResponse } from './model/BatchRebootServersResponse';
@@ -560,6 +567,26 @@ export class EcsClient {
     }
 
     /**
+     * 将云服务器加入云服务器组。添加成功后，该云服务器与云服务器组中的其他成员尽量分散地创建在不同主机上。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 云服务器组批量添加成员
+     * @param {string} serverGroupId 
+     * @param {BatchAddServerGroupMemberReq} batchAddServerGroupMemberReq This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchAddServerGroupMember(batchAddServerGroupMemberRequest?: BatchAddServerGroupMemberRequest): Promise<BatchAddServerGroupMemberResponse> {
+        const options = ParamCreater().batchAddServerGroupMember(batchAddServerGroupMemberRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 给云服务器添加一张或多张网卡。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -614,6 +641,26 @@ export class EcsClient {
      */
     public batchCreateServerTags(batchCreateServerTagsRequest?: BatchCreateServerTagsRequest): Promise<BatchCreateServerTagsResponse> {
         const options = ParamCreater().batchCreateServerTags(batchCreateServerTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 将弹性云服务器移出云服务器组。移出后，该云服务器与云服务器组中的成员不再遵从反亲和策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 云服务器组批量删除成员
+     * @param {string} serverGroupId 
+     * @param {BatchDeleteServerGroupMemberReq} batchDeleteServerGroupMemberReq This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteServerGroupMember(batchDeleteServerGroupMemberRequest?: BatchDeleteServerGroupMemberRequest): Promise<BatchDeleteServerGroupMemberResponse> {
+        const options = ParamCreater().batchDeleteServerGroupMember(batchDeleteServerGroupMemberRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2883,6 +2930,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 将云服务器加入云服务器组。添加成功后，该云服务器与云服务器组中的其他成员尽量分散地创建在不同主机上。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchAddServerGroupMember(batchAddServerGroupMemberRequest?: BatchAddServerGroupMemberRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cloudservers/os-server-groups/{server_group_id}/add_members",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let serverGroupId;
+
+            if (batchAddServerGroupMemberRequest !== null && batchAddServerGroupMemberRequest !== undefined) {
+                if (batchAddServerGroupMemberRequest instanceof BatchAddServerGroupMemberRequest) {
+                    serverGroupId = batchAddServerGroupMemberRequest.serverGroupId;
+                    body = batchAddServerGroupMemberRequest.body
+                } else {
+                    serverGroupId = batchAddServerGroupMemberRequest['server_group_id'];
+                    body = batchAddServerGroupMemberRequest['body'];
+                }
+            }
+
+        
+            if (serverGroupId === null || serverGroupId === undefined) {
+            throw new RequiredError('serverGroupId','Required parameter serverGroupId was null or undefined when calling batchAddServerGroupMember.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'server_group_id': serverGroupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 给云服务器添加一张或多张网卡。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3018,6 +3111,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将弹性云服务器移出云服务器组。移出后，该云服务器与云服务器组中的成员不再遵从反亲和策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteServerGroupMember(batchDeleteServerGroupMemberRequest?: BatchDeleteServerGroupMemberRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cloudservers/os-server-groups/{server_group_id}/remove_members",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let serverGroupId;
+
+            if (batchDeleteServerGroupMemberRequest !== null && batchDeleteServerGroupMemberRequest !== undefined) {
+                if (batchDeleteServerGroupMemberRequest instanceof BatchDeleteServerGroupMemberRequest) {
+                    serverGroupId = batchDeleteServerGroupMemberRequest.serverGroupId;
+                    body = batchDeleteServerGroupMemberRequest.body
+                } else {
+                    serverGroupId = batchDeleteServerGroupMemberRequest['server_group_id'];
+                    body = batchDeleteServerGroupMemberRequest['body'];
+                }
+            }
+
+        
+            if (serverGroupId === null || serverGroupId === undefined) {
+            throw new RequiredError('serverGroupId','Required parameter serverGroupId was null or undefined when calling batchDeleteServerGroupMember.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'server_group_id': serverGroupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

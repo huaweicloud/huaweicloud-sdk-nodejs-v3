@@ -1,10 +1,10 @@
-import { CreateNotificationTemplateRequestBody } from './CreateNotificationTemplateRequestBody';
+import { UpdateNotificationTemplateRequestBody } from './UpdateNotificationTemplateRequestBody';
 
 
 export class UpdateNotificationTemplateRequest {
     private 'domain_id'?: string;
     private 'Content-Type'?: string;
-    public body?: CreateNotificationTemplateRequestBody;
+    public body?: UpdateNotificationTemplateRequestBody;
     public constructor(domainId?: string, contentType?: string) { 
         this['domain_id'] = domainId;
         this['Content-Type'] = contentType;
@@ -29,7 +29,7 @@ export class UpdateNotificationTemplateRequest {
     public get contentType(): string | undefined {
         return this['Content-Type'];
     }
-    public withBody(body: CreateNotificationTemplateRequestBody): UpdateNotificationTemplateRequest {
+    public withBody(body: UpdateNotificationTemplateRequestBody): UpdateNotificationTemplateRequest {
         this['body'] = body;
         return this;
     }

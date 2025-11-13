@@ -1,5 +1,5 @@
 import { FrequencyRespBody } from './FrequencyRespBody';
-import { SqlRequest } from './SqlRequest';
+import { SqlRequestResponse } from './SqlRequestResponse';
 import { TagsResBody } from './TagsResBody';
 import { Topics } from './Topics';
 
@@ -9,7 +9,7 @@ export class SqlAlarmRuleRespList {
     private 'is_css_sql'?: boolean;
     private 'sql_alarm_rule_id'?: string;
     private 'sql_alarm_rule_description'?: string;
-    private 'sql_requests'?: Array<SqlRequest>;
+    private 'sql_requests'?: Array<SqlRequestResponse>;
     public frequency?: FrequencyRespBody;
     private 'condition_expression'?: string;
     public topics?: Array<Topics>;
@@ -26,7 +26,7 @@ export class SqlAlarmRuleRespList {
     private 'notification_frequency'?: SqlAlarmRuleRespListNotificationFrequencyEnum | number;
     private 'alarm_action_rule_name'?: string;
     public tags?: Array<TagsResBody>;
-    public constructor(sqlAlarmRuleName?: string, sqlAlarmRuleId?: string, sqlAlarmRuleDescription?: string, sqlRequests?: Array<SqlRequest>, frequency?: FrequencyRespBody, conditionExpression?: string, topics?: Array<Topics>, sqlAlarmLevel?: string, domainId?: string, createTime?: number, updateTime?: number, notificationFrequency?: number) { 
+    public constructor(sqlAlarmRuleName?: string, sqlAlarmRuleId?: string, sqlAlarmRuleDescription?: string, sqlRequests?: Array<SqlRequestResponse>, frequency?: FrequencyRespBody, conditionExpression?: string, topics?: Array<Topics>, sqlAlarmLevel?: string, domainId?: string, createTime?: number, updateTime?: number, notificationFrequency?: number) { 
         this['sql_alarm_rule_name'] = sqlAlarmRuleName;
         this['sql_alarm_rule_id'] = sqlAlarmRuleId;
         this['sql_alarm_rule_description'] = sqlAlarmRuleDescription;
@@ -80,14 +80,14 @@ export class SqlAlarmRuleRespList {
     public get sqlAlarmRuleDescription(): string | undefined {
         return this['sql_alarm_rule_description'];
     }
-    public withSqlRequests(sqlRequests: Array<SqlRequest>): SqlAlarmRuleRespList {
+    public withSqlRequests(sqlRequests: Array<SqlRequestResponse>): SqlAlarmRuleRespList {
         this['sql_requests'] = sqlRequests;
         return this;
     }
-    public set sqlRequests(sqlRequests: Array<SqlRequest>  | undefined) {
+    public set sqlRequests(sqlRequests: Array<SqlRequestResponse>  | undefined) {
         this['sql_requests'] = sqlRequests;
     }
-    public get sqlRequests(): Array<SqlRequest> | undefined {
+    public get sqlRequests(): Array<SqlRequestResponse> | undefined {
         return this['sql_requests'];
     }
     public withFrequency(frequency: FrequencyRespBody): SqlAlarmRuleRespList {

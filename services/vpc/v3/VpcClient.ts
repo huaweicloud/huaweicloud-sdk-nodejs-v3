@@ -54,6 +54,7 @@ import { BatchDeletePortTagsResponse } from './model/BatchDeletePortTagsResponse
 import { BatchDeleteRequestBody } from './model/BatchDeleteRequestBody';
 import { BatchDeleteRequestBodySysTags } from './model/BatchDeleteRequestBodySysTags';
 import { BatchDeleteRequestBodyTags } from './model/BatchDeleteRequestBodyTags';
+import { BindingVifDetails } from './model/BindingVifDetails';
 import { CloudResource } from './model/CloudResource';
 import { ClouddcnResource } from './model/ClouddcnResource';
 import { ClouddcnSubnet } from './model/ClouddcnSubnet';

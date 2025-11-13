@@ -29,6 +29,7 @@ export class UpdateSmartChatRoomResponse extends SdkResponse {
     private 'chat_subtitle_config'?: ChatSubtitleConfig;
     private 'chat_video_type'?: UpdateSmartChatRoomResponseChatVideoTypeEnum | string;
     private 'exit_mute_threshold'?: number;
+    private 'enable_semantic_action'?: boolean;
     private 'room_id'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
@@ -213,6 +214,16 @@ export class UpdateSmartChatRoomResponse extends SdkResponse {
     }
     public get exitMuteThreshold(): number | undefined {
         return this['exit_mute_threshold'];
+    }
+    public withEnableSemanticAction(enableSemanticAction: boolean): UpdateSmartChatRoomResponse {
+        this['enable_semantic_action'] = enableSemanticAction;
+        return this;
+    }
+    public set enableSemanticAction(enableSemanticAction: boolean  | undefined) {
+        this['enable_semantic_action'] = enableSemanticAction;
+    }
+    public get enableSemanticAction(): boolean | undefined {
+        return this['enable_semantic_action'];
     }
     public withRoomId(roomId: string): UpdateSmartChatRoomResponse {
         this['room_id'] = roomId;

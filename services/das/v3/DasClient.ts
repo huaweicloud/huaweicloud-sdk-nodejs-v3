@@ -30,9 +30,14 @@ import { ChangeTransactionSwitchStatusResponse } from './model/ChangeTransaction
 import { CheckCredentialRequest } from './model/CheckCredentialRequest';
 import { CheckCredentialRequestBody } from './model/CheckCredentialRequestBody';
 import { CheckCredentialResponse } from './model/CheckCredentialResponse';
+import { CommonResponse } from './model/CommonResponse';
+import { CreateExportTaskReq } from './model/CreateExportTaskReq';
+import { CreateExportTaskResp } from './model/CreateExportTaskResp';
 import { CreateHealthReportReq } from './model/CreateHealthReportReq';
 import { CreateHealthReportTaskRequest } from './model/CreateHealthReportTaskRequest';
 import { CreateHealthReportTaskResponse } from './model/CreateHealthReportTaskResponse';
+import { CreateHistoryTransactionExportTaskRequest } from './model/CreateHistoryTransactionExportTaskRequest';
+import { CreateHistoryTransactionExportTaskResponse } from './model/CreateHistoryTransactionExportTaskResponse';
 import { CreateInstanceConnectionReq } from './model/CreateInstanceConnectionReq';
 import { CreateInstanceConnectionRequest } from './model/CreateInstanceConnectionRequest';
 import { CreateInstanceConnectionResponse } from './model/CreateInstanceConnectionResponse';
@@ -57,6 +62,8 @@ import { DbObjectSpaceInfo } from './model/DbObjectSpaceInfo';
 import { DbUser } from './model/DbUser';
 import { DeleteDbUserRequest } from './model/DeleteDbUserRequest';
 import { DeleteDbUserResponse } from './model/DeleteDbUserResponse';
+import { DeleteHistoryTransactionExportTaskRequest } from './model/DeleteHistoryTransactionExportTaskRequest';
+import { DeleteHistoryTransactionExportTaskResponse } from './model/DeleteHistoryTransactionExportTaskResponse';
 import { DeleteProcessReqBody } from './model/DeleteProcessReqBody';
 import { DeleteProcessRequest } from './model/DeleteProcessRequest';
 import { DeleteProcessResponse } from './model/DeleteProcessResponse';
@@ -78,6 +85,7 @@ import { ExportSlowSqlTrendDetailsRequest } from './model/ExportSlowSqlTrendDeta
 import { ExportSlowSqlTrendDetailsResponse } from './model/ExportSlowSqlTrendDetailsResponse';
 import { ExportSqlStatementsRequest } from './model/ExportSqlStatementsRequest';
 import { ExportSqlStatementsResponse } from './model/ExportSqlStatementsResponse';
+import { ExportTaskDetailResp } from './model/ExportTaskDetailResp';
 import { ExportTopRiskInstancesRequest } from './model/ExportTopRiskInstancesRequest';
 import { ExportTopRiskInstancesResponse } from './model/ExportTopRiskInstancesResponse';
 import { ExportTopSqlTemplatesDetailsRequest } from './model/ExportTopSqlTemplatesDetailsRequest';
@@ -134,6 +142,8 @@ import { ListFullSqlTasksRequest } from './model/ListFullSqlTasksRequest';
 import { ListFullSqlTasksResponse } from './model/ListFullSqlTasksResponse';
 import { ListHealthReportTaskRequest } from './model/ListHealthReportTaskRequest';
 import { ListHealthReportTaskResponse } from './model/ListHealthReportTaskResponse';
+import { ListHistoryTransactionExportTaskRequest } from './model/ListHistoryTransactionExportTaskRequest';
+import { ListHistoryTransactionExportTaskResponse } from './model/ListHistoryTransactionExportTaskResponse';
 import { ListInnodbLocksRequest } from './model/ListInnodbLocksRequest';
 import { ListInnodbLocksResponse } from './model/ListInnodbLocksResponse';
 import { ListInstanceDistributionRequest } from './model/ListInstanceDistributionRequest';
@@ -165,6 +175,12 @@ import { ListTopSlowLogRequest } from './model/ListTopSlowLogRequest';
 import { ListTopSlowLogResponse } from './model/ListTopSlowLogResponse';
 import { ListTransactionsRequest } from './model/ListTransactionsRequest';
 import { ListTransactionsResponse } from './model/ListTransactionsResponse';
+import { LoginBuiltInAccountRequest } from './model/LoginBuiltInAccountRequest';
+import { LoginBuiltInAccountRequestBody } from './model/LoginBuiltInAccountRequestBody';
+import { LoginBuiltInAccountResponse } from './model/LoginBuiltInAccountResponse';
+import { LogoffBuiltInAccountRequest } from './model/LogoffBuiltInAccountRequest';
+import { LogoffBuiltInAccountRequestBody } from './model/LogoffBuiltInAccountRequestBody';
+import { LogoffBuiltInAccountResponse } from './model/LogoffBuiltInAccountResponse';
 import { MetadataLock } from './model/MetadataLock';
 import { MultiNodesSingleMetricMetrics } from './model/MultiNodesSingleMetricMetrics';
 import { ParseSqlLimitRulesReq } from './model/ParseSqlLimitRulesReq';
@@ -200,6 +216,8 @@ import { ShowFullDeadLockSwitchRequest } from './model/ShowFullDeadLockSwitchReq
 import { ShowFullDeadLockSwitchResponse } from './model/ShowFullDeadLockSwitchResponse';
 import { ShowHealthReportSettingsRequest } from './model/ShowHealthReportSettingsRequest';
 import { ShowHealthReportSettingsResponse } from './model/ShowHealthReportSettingsResponse';
+import { ShowHistoryTransactionExportTaskInfoRequest } from './model/ShowHistoryTransactionExportTaskInfoRequest';
+import { ShowHistoryTransactionExportTaskInfoResponse } from './model/ShowHistoryTransactionExportTaskInfoResponse';
 import { ShowInstanceHealthReportRequest } from './model/ShowInstanceHealthReportRequest';
 import { ShowInstanceHealthReportResponse } from './model/ShowInstanceHealthReportResponse';
 import { ShowLatestDeadLockSnapshotRequest } from './model/ShowLatestDeadLockSnapshotRequest';
@@ -561,6 +579,27 @@ export class DasClient {
     }
 
     /**
+     * DAS收集历史事务开关打开后，支持创建一次性导出指定时间范围内的历史事务数据任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建导出历史事务任务
+     * @param {string} instanceId 实例ID。
+     * @param {CreateExportTaskReq} createHistoryTransactionExportTaskRequestBody 请求body体
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createHistoryTransactionExportTask(createHistoryTransactionExportTaskRequest?: CreateHistoryTransactionExportTaskRequest): Promise<CreateHistoryTransactionExportTaskResponse> {
+        const options = ParamCreater().createHistoryTransactionExportTask(createHistoryTransactionExportTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建快照
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -670,6 +709,27 @@ export class DasClient {
      */
     public deleteDbUser(deleteDbUserRequest?: DeleteDbUserRequest): Promise<DeleteDbUserResponse> {
         const options = ParamCreater().deleteDbUser(deleteDbUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * DAS收集历史事务开关打开后，删除历史事务导出任务记录对应的OBS文件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除导出历史事务任务
+     * @param {string} instanceId 实例ID。
+     * @param {CreateExportTaskResp} deleteHistoryTransactionExportTaskRequestBody 请求body体
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteHistoryTransactionExportTask(deleteHistoryTransactionExportTaskRequest?: DeleteHistoryTransactionExportTaskRequest): Promise<DeleteHistoryTransactionExportTaskResponse> {
+        const options = ParamCreater().deleteHistoryTransactionExportTask(deleteHistoryTransactionExportTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1095,6 +1155,28 @@ export class DasClient {
     }
 
     /**
+     * DAS收集历史事务开关打开后，查询历史事务导出任务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询历史事务导出任务列表
+     * @param {string} instanceId 实例ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {number} [offset] 偏移量。从第一条数据偏移offset条数据后开始查询,默认为0(偏移0条数据,表示从第一条数据开始查询),必须为数字,不能为负数。
+     * @param {number} [limit] 查询记录数。默认为100,不能为负数,最小值为1,最大值为100。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHistoryTransactionExportTask(listHistoryTransactionExportTaskRequest?: ListHistoryTransactionExportTaskRequest): Promise<ListHistoryTransactionExportTaskResponse> {
+        const options = ParamCreater().listHistoryTransactionExportTask(listHistoryTransactionExportTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询InnoDB锁等待列表。
      * 目前仅支持MySQL实例。
      * 
@@ -1425,6 +1507,48 @@ export class DasClient {
     }
 
     /**
+     * 内置账号登录
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 内置账号登录
+     * @param {string} instanceId 实例ID
+     * @param {LoginBuiltInAccountRequestBody} loginBuiltInAccountRequestBody 请求体
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public loginBuiltInAccount(loginBuiltInAccountRequest?: LoginBuiltInAccountRequest): Promise<LoginBuiltInAccountResponse> {
+        const options = ParamCreater().loginBuiltInAccount(loginBuiltInAccountRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 内置账号登出
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 内置账号登出
+     * @param {string} instanceId 实例ID
+     * @param {LogoffBuiltInAccountRequestBody} logoffBuiltInAccountRequestBody 请求体
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public logoffBuiltInAccount(logoffBuiltInAccountRequest?: LogoffBuiltInAccountRequest): Promise<LogoffBuiltInAccountResponse> {
+        const options = ParamCreater().logoffBuiltInAccount(logoffBuiltInAccountRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据原始SQL生成SQL限流关键字，目前支持MySQL、MariaDB、GaussDB(for MySQL)三种引擎。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1606,6 +1730,27 @@ export class DasClient {
      */
     public showHealthReportSettings(showHealthReportSettingsRequest?: ShowHealthReportSettingsRequest): Promise<ShowHealthReportSettingsResponse> {
         const options = ParamCreater().showHealthReportSettings(showHealthReportSettingsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * DAS收集历史事务开关打开后，查询历史事务导出任务详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询历史事务导出任务详情
+     * @param {string} instanceId 实例ID。
+     * @param {number} taskId 导出任务id
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showHistoryTransactionExportTaskInfo(showHistoryTransactionExportTaskInfoRequest?: ShowHistoryTransactionExportTaskInfoRequest): Promise<ShowHistoryTransactionExportTaskInfoResponse> {
+        const options = ParamCreater().showHistoryTransactionExportTaskInfo(showHistoryTransactionExportTaskInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2635,6 +2780,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * DAS收集历史事务开关打开后，支持创建一次性导出指定时间范围内的历史事务数据任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createHistoryTransactionExportTask(createHistoryTransactionExportTaskRequest?: CreateHistoryTransactionExportTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/transaction/{instance_id}/create-export-task",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (createHistoryTransactionExportTaskRequest !== null && createHistoryTransactionExportTaskRequest !== undefined) {
+                if (createHistoryTransactionExportTaskRequest instanceof CreateHistoryTransactionExportTaskRequest) {
+                    instanceId = createHistoryTransactionExportTaskRequest.instanceId;
+                    body = createHistoryTransactionExportTaskRequest.body
+                    xLanguage = createHistoryTransactionExportTaskRequest.xLanguage;
+                } else {
+                    instanceId = createHistoryTransactionExportTaskRequest['instance_id'];
+                    body = createHistoryTransactionExportTaskRequest['body'];
+                    xLanguage = createHistoryTransactionExportTaskRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createHistoryTransactionExportTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建快照
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2902,6 +3100,59 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'db_user_id': dbUserId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * DAS收集历史事务开关打开后，删除历史事务导出任务记录对应的OBS文件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteHistoryTransactionExportTask(deleteHistoryTransactionExportTaskRequest?: DeleteHistoryTransactionExportTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/transaction/{instance_id}/delete-export-task",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (deleteHistoryTransactionExportTaskRequest !== null && deleteHistoryTransactionExportTaskRequest !== undefined) {
+                if (deleteHistoryTransactionExportTaskRequest instanceof DeleteHistoryTransactionExportTaskRequest) {
+                    instanceId = deleteHistoryTransactionExportTaskRequest.instanceId;
+                    body = deleteHistoryTransactionExportTaskRequest.body
+                    xLanguage = deleteHistoryTransactionExportTaskRequest.xLanguage;
+                } else {
+                    instanceId = deleteHistoryTransactionExportTaskRequest['instance_id'];
+                    body = deleteHistoryTransactionExportTaskRequest['body'];
+                    xLanguage = deleteHistoryTransactionExportTaskRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteHistoryTransactionExportTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4380,6 +4631,65 @@ export const ParamCreater = function () {
         },
     
         /**
+         * DAS收集历史事务开关打开后，查询历史事务导出任务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listHistoryTransactionExportTask(listHistoryTransactionExportTaskRequest?: ListHistoryTransactionExportTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/transaction/{instance_id}/get-export-task-list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (listHistoryTransactionExportTaskRequest !== null && listHistoryTransactionExportTaskRequest !== undefined) {
+                if (listHistoryTransactionExportTaskRequest instanceof ListHistoryTransactionExportTaskRequest) {
+                    instanceId = listHistoryTransactionExportTaskRequest.instanceId;
+                    xLanguage = listHistoryTransactionExportTaskRequest.xLanguage;
+                    offset = listHistoryTransactionExportTaskRequest.offset;
+                    limit = listHistoryTransactionExportTaskRequest.limit;
+                } else {
+                    instanceId = listHistoryTransactionExportTaskRequest['instance_id'];
+                    xLanguage = listHistoryTransactionExportTaskRequest['X-Language'];
+                    offset = listHistoryTransactionExportTaskRequest['offset'];
+                    limit = listHistoryTransactionExportTaskRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listHistoryTransactionExportTask.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询InnoDB锁等待列表。
          * 目前仅支持MySQL实例。
          * 
@@ -5406,6 +5716,112 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 内置账号登录
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        loginBuiltInAccount(loginBuiltInAccountRequest?: LoginBuiltInAccountRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/login-built-in-account",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (loginBuiltInAccountRequest !== null && loginBuiltInAccountRequest !== undefined) {
+                if (loginBuiltInAccountRequest instanceof LoginBuiltInAccountRequest) {
+                    instanceId = loginBuiltInAccountRequest.instanceId;
+                    body = loginBuiltInAccountRequest.body
+                    xLanguage = loginBuiltInAccountRequest.xLanguage;
+                } else {
+                    instanceId = loginBuiltInAccountRequest['instance_id'];
+                    body = loginBuiltInAccountRequest['body'];
+                    xLanguage = loginBuiltInAccountRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling loginBuiltInAccount.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 内置账号登出
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        logoffBuiltInAccount(logoffBuiltInAccountRequest?: LogoffBuiltInAccountRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/logoff-built-in-account",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (logoffBuiltInAccountRequest !== null && logoffBuiltInAccountRequest !== undefined) {
+                if (logoffBuiltInAccountRequest instanceof LogoffBuiltInAccountRequest) {
+                    instanceId = logoffBuiltInAccountRequest.instanceId;
+                    body = logoffBuiltInAccountRequest.body
+                    xLanguage = logoffBuiltInAccountRequest.xLanguage;
+                } else {
+                    instanceId = logoffBuiltInAccountRequest['instance_id'];
+                    body = logoffBuiltInAccountRequest['body'];
+                    xLanguage = logoffBuiltInAccountRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling logoffBuiltInAccount.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据原始SQL生成SQL限流关键字，目前支持MySQL、MariaDB、GaussDB(for MySQL)三种引擎。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5860,6 +6276,61 @@ export const ParamCreater = function () {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showHealthReportSettings.');
             }
 
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * DAS收集历史事务开关打开后，查询历史事务导出任务详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showHistoryTransactionExportTaskInfo(showHistoryTransactionExportTaskInfoRequest?: ShowHistoryTransactionExportTaskInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/transaction/{instance_id}/get-export-task-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let taskId;
+            
+            let xLanguage;
+
+            if (showHistoryTransactionExportTaskInfoRequest !== null && showHistoryTransactionExportTaskInfoRequest !== undefined) {
+                if (showHistoryTransactionExportTaskInfoRequest instanceof ShowHistoryTransactionExportTaskInfoRequest) {
+                    instanceId = showHistoryTransactionExportTaskInfoRequest.instanceId;
+                    taskId = showHistoryTransactionExportTaskInfoRequest.taskId;
+                    xLanguage = showHistoryTransactionExportTaskInfoRequest.xLanguage;
+                } else {
+                    instanceId = showHistoryTransactionExportTaskInfoRequest['instance_id'];
+                    taskId = showHistoryTransactionExportTaskInfoRequest['task_id'];
+                    xLanguage = showHistoryTransactionExportTaskInfoRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showHistoryTransactionExportTaskInfo.');
+            }
+            if (taskId === null || taskId === undefined) {
+                throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showHistoryTransactionExportTaskInfo.');
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

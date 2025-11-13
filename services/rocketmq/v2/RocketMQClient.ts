@@ -141,7 +141,7 @@ import { RocketMQProductSupportFeaturesEntity } from './model/RocketMQProductSup
 import { SendDlqMessageRequest } from './model/SendDlqMessageRequest';
 import { SendDlqMessageResponse } from './model/SendDlqMessageResponse';
 import { SendMessageProperties } from './model/SendMessageProperties';
-import { SendMessageRep } from './model/SendMessageRep';
+import { SendMessageReq } from './model/SendMessageReq';
 import { SendMessageRequest } from './model/SendMessageRequest';
 import { SendMessageResponse } from './model/SendMessageResponse';
 import { ShowConsumerConnectionsRequest } from './model/ShowConsumerConnectionsRequest';
@@ -933,7 +933,7 @@ export class RocketMQClient {
      * @summary 发送消息
      * @param {string} engine **参数解释**： 引擎。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录RocketMQ控制台，在RocketMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {SendMessageRep} sendMessageBody **参数解释**： 发送消息请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。。
+     * @param {SendMessageReq} sendMessageBody **参数解释**： 发送消息请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

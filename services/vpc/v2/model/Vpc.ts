@@ -12,7 +12,9 @@ export class Vpc {
     private 'tenant_id'?: string;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
-    public constructor(id?: string, name?: string, cidr?: string, description?: string, routes?: Array<Route>, status?: string, enterpriseProjectId?: string, tenantId?: string, createdAt?: Date, updatedAt?: Date) { 
+    private 'block_service_endpoint_states'?: string;
+    private 'enable_network_address_usage_metrics'?: boolean;
+    public constructor(id?: string, name?: string, cidr?: string, description?: string, routes?: Array<Route>, status?: string, enterpriseProjectId?: string, tenantId?: string, createdAt?: Date, updatedAt?: Date, blockServiceEndpointStates?: string, enableNetworkAddressUsageMetrics?: boolean) { 
         this['id'] = id;
         this['name'] = name;
         this['cidr'] = cidr;
@@ -23,6 +25,8 @@ export class Vpc {
         this['tenant_id'] = tenantId;
         this['created_at'] = createdAt;
         this['updated_at'] = updatedAt;
+        this['block_service_endpoint_states'] = blockServiceEndpointStates;
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
     }
     public withId(id: string): Vpc {
         this['id'] = id;
@@ -87,6 +91,26 @@ export class Vpc {
     }
     public get updatedAt(): Date | undefined {
         return this['updated_at'];
+    }
+    public withBlockServiceEndpointStates(blockServiceEndpointStates: string): Vpc {
+        this['block_service_endpoint_states'] = blockServiceEndpointStates;
+        return this;
+    }
+    public set blockServiceEndpointStates(blockServiceEndpointStates: string  | undefined) {
+        this['block_service_endpoint_states'] = blockServiceEndpointStates;
+    }
+    public get blockServiceEndpointStates(): string | undefined {
+        return this['block_service_endpoint_states'];
+    }
+    public withEnableNetworkAddressUsageMetrics(enableNetworkAddressUsageMetrics: boolean): Vpc {
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
+        return this;
+    }
+    public set enableNetworkAddressUsageMetrics(enableNetworkAddressUsageMetrics: boolean  | undefined) {
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
+    }
+    public get enableNetworkAddressUsageMetrics(): boolean | undefined {
+        return this['enable_network_address_usage_metrics'];
     }
 }
 

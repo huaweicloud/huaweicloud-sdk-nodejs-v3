@@ -139,7 +139,7 @@ export * from './model/RocketMQProductSupportFeaturesEntity';
 export * from './model/SendDlqMessageRequest';
 export * from './model/SendDlqMessageResponse';
 export * from './model/SendMessageProperties';
-export * from './model/SendMessageRep';
+export * from './model/SendMessageReq';
 export * from './model/SendMessageRequest';
 export * from './model/SendMessageResponse';
 export * from './model/ShowConsumerConnectionsRequest';

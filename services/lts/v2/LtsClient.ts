@@ -97,6 +97,7 @@ import { CreateTransferResponseBodyLogTransferInfoLogAgencyTransfer } from './mo
 import { CreatefavoriteReqbody } from './model/CreatefavoriteReqbody';
 import { CreatefavoriteRequest } from './model/CreatefavoriteRequest';
 import { CreatefavoriteResponse } from './model/CreatefavoriteResponse';
+import { CustomDate } from './model/CustomDate';
 import { CustomTimeInfo } from './model/CustomTimeInfo';
 import { DeleteAccessConfigRequest } from './model/DeleteAccessConfigRequest';
 import { DeleteAccessConfigRequestBody } from './model/DeleteAccessConfigRequestBody';
@@ -157,6 +158,7 @@ import { GetQuerySearchCriteriasBody } from './model/GetQuerySearchCriteriasBody
 import { HostGroupTag } from './model/HostGroupTag';
 import { KeywordsAlarmRuleRespList } from './model/KeywordsAlarmRuleRespList';
 import { KeywordsRequest } from './model/KeywordsRequest';
+import { KeywordsRequestResponse } from './model/KeywordsRequestResponse';
 import { KeywordsResBody } from './model/KeywordsResBody';
 import { LTSAccessConfigInfoRespon200 } from './model/LTSAccessConfigInfoRespon200';
 import { LTSFieldsInfo } from './model/LTSFieldsInfo';
@@ -281,6 +283,7 @@ import { ShowStructTemplateclusterInfo } from './model/ShowStructTemplatecluster
 import { Sort } from './model/Sort';
 import { SqlAlarmRuleRespList } from './model/SqlAlarmRuleRespList';
 import { SqlRequest } from './model/SqlRequest';
+import { SqlRequestResponse } from './model/SqlRequestResponse';
 import { StructConfig } from './model/StructConfig';
 import { StructFieldInfo } from './model/StructFieldInfo';
 import { StructFieldInfoReturn } from './model/StructFieldInfoReturn';
@@ -326,6 +329,7 @@ import { UpdateLogStreamParams } from './model/UpdateLogStreamParams';
 import { UpdateLogStreamRequest } from './model/UpdateLogStreamRequest';
 import { UpdateLogStreamResponse } from './model/UpdateLogStreamResponse';
 import { UpdateNotificationTemplateRequest } from './model/UpdateNotificationTemplateRequest';
+import { UpdateNotificationTemplateRequestBody } from './model/UpdateNotificationTemplateRequestBody';
 import { UpdateNotificationTemplateResponse } from './model/UpdateNotificationTemplateResponse';
 import { UpdateSqlAlarmRuleRequest } from './model/UpdateSqlAlarmRuleRequest';
 import { UpdateSqlAlarmRuleRequestBody } from './model/UpdateSqlAlarmRuleRequestBody';
@@ -334,6 +338,7 @@ import { UpdateStructConfigRequest } from './model/UpdateStructConfigRequest';
 import { UpdateStructConfigResponse } from './model/UpdateStructConfigResponse';
 import { UpdateStructTemplateRequest } from './model/UpdateStructTemplateRequest';
 import { UpdateStructTemplateResponse } from './model/UpdateStructTemplateResponse';
+import { UpdateSubTemplate } from './model/UpdateSubTemplate';
 import { UpdateSwitchRequest } from './model/UpdateSwitchRequest';
 import { UpdateSwitchResponse } from './model/UpdateSwitchResponse';
 import { UpdateTransferRequest } from './model/UpdateTransferRequest';
@@ -1781,7 +1786,7 @@ export class LtsClient {
      * @summary 修改消息模板
      * @param {string} domainId 账号id，获取方式请参见：获取账号ID、项目ID、日志组ID、日志流ID（https://support.huaweicloud.com/api-lts/lts_api_0006.html）。
      * @param {string} contentType 该字段填为：application/json;charset&#x3D;UTF-8。
-     * @param {CreateNotificationTemplateRequestBody} updateNotificationTemplateRequestBody 创建关键字告警的请求体
+     * @param {UpdateNotificationTemplateRequestBody} updateNotificationTemplateRequestBody 创建关键字告警的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

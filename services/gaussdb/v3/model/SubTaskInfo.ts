@@ -3,6 +3,7 @@
 export class SubTaskInfo {
     private 'sub_task_name'?: string;
     public percent?: string;
+    public status?: string;
     private 'remaining_time'?: string;
     public constructor() { 
     }
@@ -18,6 +19,10 @@ export class SubTaskInfo {
     }
     public withPercent(percent: string): SubTaskInfo {
         this['percent'] = percent;
+        return this;
+    }
+    public withStatus(status: string): SubTaskInfo {
+        this['status'] = status;
         return this;
     }
     public withRemainingTime(remainingTime: string): SubTaskInfo {

@@ -6,6 +6,7 @@ export class UpdateVpcOption {
     public description?: string;
     public cidr?: string;
     public routes?: Array<Route>;
+    private 'enable_network_address_usage_metrics'?: boolean;
     public constructor() { 
     }
     public withName(name: string): UpdateVpcOption {
@@ -23,5 +24,15 @@ export class UpdateVpcOption {
     public withRoutes(routes: Array<Route>): UpdateVpcOption {
         this['routes'] = routes;
         return this;
+    }
+    public withEnableNetworkAddressUsageMetrics(enableNetworkAddressUsageMetrics: boolean): UpdateVpcOption {
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
+        return this;
+    }
+    public set enableNetworkAddressUsageMetrics(enableNetworkAddressUsageMetrics: boolean  | undefined) {
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
+    }
+    public get enableNetworkAddressUsageMetrics(): boolean | undefined {
+        return this['enable_network_address_usage_metrics'];
     }
 }

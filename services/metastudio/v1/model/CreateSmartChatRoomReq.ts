@@ -28,6 +28,7 @@ export class CreateSmartChatRoomReq {
     private 'chat_subtitle_config'?: ChatSubtitleConfig;
     private 'chat_video_type'?: CreateSmartChatRoomReqChatVideoTypeEnum | string;
     private 'exit_mute_threshold'?: number;
+    private 'enable_semantic_action'?: boolean;
     private 'chat_resource_config'?: Array<ChatResourceConfig>;
     public constructor(roomName?: string) { 
         this['room_name'] = roomName;
@@ -205,6 +206,16 @@ export class CreateSmartChatRoomReq {
     }
     public get exitMuteThreshold(): number | undefined {
         return this['exit_mute_threshold'];
+    }
+    public withEnableSemanticAction(enableSemanticAction: boolean): CreateSmartChatRoomReq {
+        this['enable_semantic_action'] = enableSemanticAction;
+        return this;
+    }
+    public set enableSemanticAction(enableSemanticAction: boolean  | undefined) {
+        this['enable_semantic_action'] = enableSemanticAction;
+    }
+    public get enableSemanticAction(): boolean | undefined {
+        return this['enable_semantic_action'];
     }
     public withChatResourceConfig(chatResourceConfig: Array<ChatResourceConfig>): CreateSmartChatRoomReq {
         this['chat_resource_config'] = chatResourceConfig;

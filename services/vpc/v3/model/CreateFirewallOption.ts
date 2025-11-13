@@ -7,6 +7,7 @@ export class CreateFirewallOption {
     private 'enterprise_project_id'?: string;
     public tags?: Array<ResourceTag>;
     private 'admin_state_up'?: boolean;
+    public type?: string;
     public constructor(name?: string) { 
         this['name'] = name;
     }
@@ -41,5 +42,9 @@ export class CreateFirewallOption {
     }
     public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
+    }
+    public withType(type: string): CreateFirewallOption {
+        this['type'] = type;
+        return this;
     }
 }

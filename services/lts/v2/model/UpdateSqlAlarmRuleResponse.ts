@@ -1,6 +1,6 @@
 import { FrequencyRespBody } from './FrequencyRespBody';
-import { SqlRequest } from './SqlRequest';
-import { Topics } from './Topics';
+import { SqlRequestResponse } from './SqlRequestResponse';
+import { TagsResBody } from './TagsResBody';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -8,23 +8,22 @@ export class UpdateSqlAlarmRuleResponse extends SdkResponse {
     private 'sql_alarm_rule_name'?: string;
     private 'alarm_rule_alias'?: string;
     private 'is_css_sql'?: boolean;
-    public indexId?: string;
     public projectId?: string;
     private 'sql_alarm_rule_id'?: string;
     private 'sql_alarm_rule_description'?: string;
-    private 'sql_requests'?: Array<SqlRequest>;
+    private 'sql_requests'?: Array<SqlRequestResponse>;
     public frequency?: FrequencyRespBody;
     private 'condition_expression'?: string;
     private 'sql_alarm_level'?: UpdateSqlAlarmRuleResponseSqlAlarmLevelEnum | string;
     private 'sql_alarm_send'?: boolean;
     private 'domain_id'?: string;
-    private 'create_time'?: number;
-    private 'update_time'?: number;
-    public topics?: Array<Topics>;
-    public language?: UpdateSqlAlarmRuleResponseLanguageEnum | string;
-    public id?: string;
     private 'notification_frequency'?: UpdateSqlAlarmRuleResponseNotificationFrequencyEnum | number;
     private 'alarm_action_rule_name'?: string;
+    private 'trigger_condition_count'?: number;
+    private 'trigger_condition_frequency'?: number;
+    private 'whether_recovery_policy'?: boolean;
+    private 'recovery_policy'?: number;
+    public tags?: Array<TagsResBody>;
     public constructor() { 
         super();
     }
@@ -58,10 +57,6 @@ export class UpdateSqlAlarmRuleResponse extends SdkResponse {
     public get isCssSql(): boolean | undefined {
         return this['is_css_sql'];
     }
-    public withIndexId(indexId: string): UpdateSqlAlarmRuleResponse {
-        this['indexId'] = indexId;
-        return this;
-    }
     public withProjectId(projectId: string): UpdateSqlAlarmRuleResponse {
         this['projectId'] = projectId;
         return this;
@@ -86,14 +81,14 @@ export class UpdateSqlAlarmRuleResponse extends SdkResponse {
     public get sqlAlarmRuleDescription(): string | undefined {
         return this['sql_alarm_rule_description'];
     }
-    public withSqlRequests(sqlRequests: Array<SqlRequest>): UpdateSqlAlarmRuleResponse {
+    public withSqlRequests(sqlRequests: Array<SqlRequestResponse>): UpdateSqlAlarmRuleResponse {
         this['sql_requests'] = sqlRequests;
         return this;
     }
-    public set sqlRequests(sqlRequests: Array<SqlRequest>  | undefined) {
+    public set sqlRequests(sqlRequests: Array<SqlRequestResponse>  | undefined) {
         this['sql_requests'] = sqlRequests;
     }
-    public get sqlRequests(): Array<SqlRequest> | undefined {
+    public get sqlRequests(): Array<SqlRequestResponse> | undefined {
         return this['sql_requests'];
     }
     public withFrequency(frequency: FrequencyRespBody): UpdateSqlAlarmRuleResponse {
@@ -140,38 +135,6 @@ export class UpdateSqlAlarmRuleResponse extends SdkResponse {
     public get domainId(): string | undefined {
         return this['domain_id'];
     }
-    public withCreateTime(createTime: number): UpdateSqlAlarmRuleResponse {
-        this['create_time'] = createTime;
-        return this;
-    }
-    public set createTime(createTime: number  | undefined) {
-        this['create_time'] = createTime;
-    }
-    public get createTime(): number | undefined {
-        return this['create_time'];
-    }
-    public withUpdateTime(updateTime: number): UpdateSqlAlarmRuleResponse {
-        this['update_time'] = updateTime;
-        return this;
-    }
-    public set updateTime(updateTime: number  | undefined) {
-        this['update_time'] = updateTime;
-    }
-    public get updateTime(): number | undefined {
-        return this['update_time'];
-    }
-    public withTopics(topics: Array<Topics>): UpdateSqlAlarmRuleResponse {
-        this['topics'] = topics;
-        return this;
-    }
-    public withLanguage(language: UpdateSqlAlarmRuleResponseLanguageEnum | string): UpdateSqlAlarmRuleResponse {
-        this['language'] = language;
-        return this;
-    }
-    public withId(id: string): UpdateSqlAlarmRuleResponse {
-        this['id'] = id;
-        return this;
-    }
     public withNotificationFrequency(notificationFrequency: UpdateSqlAlarmRuleResponseNotificationFrequencyEnum | number): UpdateSqlAlarmRuleResponse {
         this['notification_frequency'] = notificationFrequency;
         return this;
@@ -192,6 +155,50 @@ export class UpdateSqlAlarmRuleResponse extends SdkResponse {
     public get alarmActionRuleName(): string | undefined {
         return this['alarm_action_rule_name'];
     }
+    public withTriggerConditionCount(triggerConditionCount: number): UpdateSqlAlarmRuleResponse {
+        this['trigger_condition_count'] = triggerConditionCount;
+        return this;
+    }
+    public set triggerConditionCount(triggerConditionCount: number  | undefined) {
+        this['trigger_condition_count'] = triggerConditionCount;
+    }
+    public get triggerConditionCount(): number | undefined {
+        return this['trigger_condition_count'];
+    }
+    public withTriggerConditionFrequency(triggerConditionFrequency: number): UpdateSqlAlarmRuleResponse {
+        this['trigger_condition_frequency'] = triggerConditionFrequency;
+        return this;
+    }
+    public set triggerConditionFrequency(triggerConditionFrequency: number  | undefined) {
+        this['trigger_condition_frequency'] = triggerConditionFrequency;
+    }
+    public get triggerConditionFrequency(): number | undefined {
+        return this['trigger_condition_frequency'];
+    }
+    public withWhetherRecoveryPolicy(whetherRecoveryPolicy: boolean): UpdateSqlAlarmRuleResponse {
+        this['whether_recovery_policy'] = whetherRecoveryPolicy;
+        return this;
+    }
+    public set whetherRecoveryPolicy(whetherRecoveryPolicy: boolean  | undefined) {
+        this['whether_recovery_policy'] = whetherRecoveryPolicy;
+    }
+    public get whetherRecoveryPolicy(): boolean | undefined {
+        return this['whether_recovery_policy'];
+    }
+    public withRecoveryPolicy(recoveryPolicy: number): UpdateSqlAlarmRuleResponse {
+        this['recovery_policy'] = recoveryPolicy;
+        return this;
+    }
+    public set recoveryPolicy(recoveryPolicy: number  | undefined) {
+        this['recovery_policy'] = recoveryPolicy;
+    }
+    public get recoveryPolicy(): number | undefined {
+        return this['recovery_policy'];
+    }
+    public withTags(tags: Array<TagsResBody>): UpdateSqlAlarmRuleResponse {
+        this['tags'] = tags;
+        return this;
+    }
 }
 
 /**
@@ -203,14 +210,6 @@ export enum UpdateSqlAlarmRuleResponseSqlAlarmLevelEnum {
     MINOR = 'Minor',
     MAJOR = 'Major',
     CRITICAL = 'CRITICAL'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum UpdateSqlAlarmRuleResponseLanguageEnum {
-    ZH_CN = 'zh-cn',
-    EN_US = 'en-us'
 }
 /**
     * @export

@@ -1,6 +1,7 @@
 import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
+import FormData from 'form-data';
 
 import { AccessControlRule } from './model/AccessControlRule';
 import { AddDatabasePermissionRequest } from './model/AddDatabasePermissionRequest';
@@ -223,11 +224,14 @@ import { DeleteTaurusDbNodeProcessesResponse } from './model/DeleteTaurusDbNodeP
 import { DescribeBackupEncryptStatusRequest } from './model/DescribeBackupEncryptStatusRequest';
 import { DescribeBackupEncryptStatusResponse } from './model/DescribeBackupEncryptStatusResponse';
 import { DiagnosisInfo } from './model/DiagnosisInfo';
+import { DownloadImportExcelTemplateRequest } from './model/DownloadImportExcelTemplateRequest';
+import { DownloadImportExcelTemplateResponse } from './model/DownloadImportExcelTemplateResponse';
 import { DownloadSlowLogFileItem } from './model/DownloadSlowLogFileItem';
 import { DownloadSlowLogFileRequest } from './model/DownloadSlowLogFileRequest';
 import { DownloadSlowLogFileResponse } from './model/DownloadSlowLogFileResponse';
 import { EnlargeProxyRequest } from './model/EnlargeProxyRequest';
 import { EnterpriseProjectItem } from './model/EnterpriseProjectItem';
+import { ErrorTable } from './model/ErrorTable';
 import { ExpandGaussMySqlInstanceVolumeRequest } from './model/ExpandGaussMySqlInstanceVolumeRequest';
 import { ExpandGaussMySqlInstanceVolumeResponse } from './model/ExpandGaussMySqlInstanceVolumeResponse';
 import { ExpandGaussMySqlProxyRequest } from './model/ExpandGaussMySqlProxyRequest';
@@ -686,6 +690,7 @@ import { StarRocksInstanceInfoTagsInfoTags } from './model/StarRocksInstanceInfo
 import { StarRocksInstanceInfoVolume } from './model/StarRocksInstanceInfoVolume';
 import { StarRocksReplicationInfo } from './model/StarRocksReplicationInfo';
 import { SubTaskInfo } from './model/SubTaskInfo';
+import { SuccessTable } from './model/SuccessTable';
 import { SwitchAccessControlRequest } from './model/SwitchAccessControlRequest';
 import { SwitchAccessControlRequestBody } from './model/SwitchAccessControlRequestBody';
 import { SwitchAccessControlResponse } from './model/SwitchAccessControlResponse';
@@ -829,6 +834,9 @@ import { UpgradeProxyVersionResponse } from './model/UpgradeProxyVersionResponse
 import { UpgradeSrKernelVersionRequest } from './model/UpgradeSrKernelVersionRequest';
 import { UpgradeSrKernelVersionRequestV3 } from './model/UpgradeSrKernelVersionRequestV3';
 import { UpgradeSrKernelVersionResponse } from './model/UpgradeSrKernelVersionResponse';
+import { UploadImportExcelTemplateRequest } from './model/UploadImportExcelTemplateRequest';
+import { UploadImportExcelTemplateRequestBody } from './model/UploadImportExcelTemplateRequestBody';
+import { UploadImportExcelTemplateResponse } from './model/UploadImportExcelTemplateResponse';
 import { UserSyncReq } from './model/UserSyncReq';
 
 export class GaussDBClient {
@@ -4889,6 +4897,27 @@ export class GaussDBClient {
     }
 
     /**
+     * HTAP数据同步模板下载。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary HTAP数据同步模板下载
+     * @param {string} instanceId **参数解释**：  HTAP标准版实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in17，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} templateType **参数解释**：  具体选择哪一种模板进行下载。  **约束限制**：  不涉及。  **取值范围**：  import_async: Excel导入文件类型。  **默认取值**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：              请求语言类型。  **约束限制**：  不涉及。  **取值范围**： - en-us - zh-cn  **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadImportExcelTemplate(downloadImportExcelTemplateRequest?: DownloadImportExcelTemplateRequest): Promise<DownloadImportExcelTemplateResponse> {
+        const options = ParamCreater().downloadImportExcelTemplate(downloadImportExcelTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询数据库列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5946,6 +5975,31 @@ export class GaussDBClient {
      */
     public upgradeSrKernelVersion(upgradeSrKernelVersionRequest?: UpgradeSrKernelVersionRequest): Promise<UpgradeSrKernelVersionResponse> {
         const options = ParamCreater().upgradeSrKernelVersion(upgradeSrKernelVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建数据同步时支持Excel导入并进行校验。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary HTAP库表导入校验
+     * @param {string} instanceId **参数解释**：  HTAP标准版实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in17，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} templateType **参数解释**：  具体选择哪一种模板进行下载。  **约束限制**：  不涉及。  **取值范围**：  import_async: Excel导入文件类型。  **默认取值**：  不涉及。
+     * @param {any} file **参数解释**：  Excel文件上传。  **约束限制**：  Excel文件。  **取值范围**：  .xlsx文件。  **默认取值**：  不涉及。
+     * @param {string} selectedDbs **参数解释**：  用户选中的数据库名，用英文\\\&quot;,\\\&quot;隔开。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：              请求语言类型。  **约束限制**：  不涉及。  **取值范围**： - en-us - zh-cn  **默认取值**：  en-us。
+     * @param {string} [isInstanceLevel] **参数解释**：  判断是否是实例级同步。  **约束限制**：  不涉及。  **取值范围**：  - true：实例级同步。 - false: 非实例级同步。  **默认取值**：  false。
+     * @param {string} [isSupportRegexp] **参数解释**：  是否支持标配符。  **约束限制**：  不涉及。  **取值范围**：  - true: 支持标配符。 - false: 不支持标配符。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public uploadImportExcelTemplate(uploadImportExcelTemplateRequest?: UploadImportExcelTemplateRequest): Promise<UploadImportExcelTemplateResponse> {
+        const options = ParamCreater().uploadImportExcelTemplate(uploadImportExcelTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -16265,6 +16319,61 @@ export const ParamCreater = function () {
         },
     
         /**
+         * HTAP数据同步模板下载。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadImportExcelTemplate(downloadImportExcelTemplateRequest?: DownloadImportExcelTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/htap/template",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let templateType;
+            
+            let xLanguage;
+
+            if (downloadImportExcelTemplateRequest !== null && downloadImportExcelTemplateRequest !== undefined) {
+                if (downloadImportExcelTemplateRequest instanceof DownloadImportExcelTemplateRequest) {
+                    instanceId = downloadImportExcelTemplateRequest.instanceId;
+                    templateType = downloadImportExcelTemplateRequest.templateType;
+                    xLanguage = downloadImportExcelTemplateRequest.xLanguage;
+                } else {
+                    instanceId = downloadImportExcelTemplateRequest['instance_id'];
+                    templateType = downloadImportExcelTemplateRequest['template_type'];
+                    xLanguage = downloadImportExcelTemplateRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling downloadImportExcelTemplate.');
+            }
+            if (templateType === null || templateType === undefined) {
+                throw new RequiredError('templateType','Required parameter templateType was null or undefined when calling downloadImportExcelTemplate.');
+            }
+            if (templateType !== null && templateType !== undefined) {
+                localVarQueryParameter['template_type'] = templateType;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询数据库列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -18985,6 +19094,98 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建数据同步时支持Excel导入并进行校验。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        uploadImportExcelTemplate(uploadImportExcelTemplateRequest?: UploadImportExcelTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/htap/template",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            const localVarFormParams = new FormData();
+            
+            let instanceId;
+            let templateType;
+            
+            let file;
+            
+            let selectedDbs;
+            
+            
+            let xLanguage;
+            let isInstanceLevel;
+            
+            let isSupportRegexp;
+            
+
+            if (uploadImportExcelTemplateRequest !== null && uploadImportExcelTemplateRequest !== undefined) {
+                if (uploadImportExcelTemplateRequest instanceof UploadImportExcelTemplateRequest) {
+                    instanceId = uploadImportExcelTemplateRequest.instanceId;
+                    templateType = uploadImportExcelTemplateRequest.body?.templateType;
+                    file = uploadImportExcelTemplateRequest.body?.file;
+                    selectedDbs = uploadImportExcelTemplateRequest.body?.selectedDbs;
+                    xLanguage = uploadImportExcelTemplateRequest.xLanguage;
+                    isInstanceLevel = uploadImportExcelTemplateRequest.body?.isInstanceLevel;
+                    isSupportRegexp = uploadImportExcelTemplateRequest.body?.isSupportRegexp;
+                } else {
+                    instanceId = uploadImportExcelTemplateRequest['instance_id'];
+                    templateType = uploadImportExcelTemplateRequest['body']['templateType'];
+                    file = uploadImportExcelTemplateRequest['body']['file'];
+                    selectedDbs = uploadImportExcelTemplateRequest['body']['selectedDbs'];
+                    xLanguage = uploadImportExcelTemplateRequest['X-Language'];
+                    isInstanceLevel = uploadImportExcelTemplateRequest['body']['isInstanceLevel'];
+                    isSupportRegexp = uploadImportExcelTemplateRequest['body']['isSupportRegexp'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling uploadImportExcelTemplate.');
+            }
+            if (templateType === null || templateType === undefined) {
+            throw new RequiredError('templateType','Required parameter templateType was null or undefined when calling uploadImportExcelTemplate.');
+            }
+            if (file === null || file === undefined) {
+            throw new RequiredError('file','Required parameter file was null or undefined when calling uploadImportExcelTemplate.');
+            }
+            if (selectedDbs === null || selectedDbs === undefined) {
+            throw new RequiredError('selectedDbs','Required parameter selectedDbs was null or undefined when calling uploadImportExcelTemplate.');
+            }
+            if (templateType !== undefined) { 
+                localVarFormParams.append('template_type', templateType as any);
+            }
+            if (isInstanceLevel !== undefined) { 
+                localVarFormParams.append('is_instance_level', isInstanceLevel as any);
+            }
+            if (selectedDbs !== undefined) { 
+                localVarFormParams.append('selected_dbs', selectedDbs as any);
+            }
+            if (isSupportRegexp !== undefined) { 
+                localVarFormParams.append('is_support_regexp', isSupportRegexp as any);
+            }
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

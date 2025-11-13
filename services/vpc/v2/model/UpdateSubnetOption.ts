@@ -10,6 +10,7 @@ export class UpdateSubnetOption {
     private 'secondary_dns'?: string;
     public dnsList?: Array<string>;
     private 'extra_dhcp_opts'?: Array<ExtraDhcpOption>;
+    private 'enable_network_address_usage_metrics'?: boolean;
     public constructor(name?: string) { 
         this['name'] = name;
     }
@@ -74,5 +75,15 @@ export class UpdateSubnetOption {
     }
     public get extraDhcpOpts(): Array<ExtraDhcpOption> | undefined {
         return this['extra_dhcp_opts'];
+    }
+    public withEnableNetworkAddressUsageMetrics(enableNetworkAddressUsageMetrics: boolean): UpdateSubnetOption {
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
+        return this;
+    }
+    public set enableNetworkAddressUsageMetrics(enableNetworkAddressUsageMetrics: boolean  | undefined) {
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
+    }
+    public get enableNetworkAddressUsageMetrics(): boolean | undefined {
+        return this['enable_network_address_usage_metrics'];
     }
 }

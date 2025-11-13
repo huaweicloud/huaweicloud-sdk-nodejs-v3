@@ -10,7 +10,8 @@ export class TrafficMirrorFilter {
     private 'egress_rules'?: Array<TrafficMirrorFilterRule>;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
-    public constructor(id?: string, projectId?: string, description?: string, name?: string, ingressRules?: Array<TrafficMirrorFilterRule>, egressRules?: Array<TrafficMirrorFilterRule>, createdAt?: Date, updatedAt?: Date) { 
+    public type?: string;
+    public constructor(id?: string, projectId?: string, description?: string, name?: string, ingressRules?: Array<TrafficMirrorFilterRule>, egressRules?: Array<TrafficMirrorFilterRule>, createdAt?: Date, updatedAt?: Date, type?: string) { 
         this['id'] = id;
         this['project_id'] = projectId;
         this['description'] = description;
@@ -19,6 +20,7 @@ export class TrafficMirrorFilter {
         this['egress_rules'] = egressRules;
         this['created_at'] = createdAt;
         this['updated_at'] = updatedAt;
+        this['type'] = type;
     }
     public withId(id: string): TrafficMirrorFilter {
         this['id'] = id;
@@ -81,5 +83,9 @@ export class TrafficMirrorFilter {
     }
     public get updatedAt(): Date | undefined {
         return this['updated_at'];
+    }
+    public withType(type: string): TrafficMirrorFilter {
+        this['type'] = type;
+        return this;
     }
 }

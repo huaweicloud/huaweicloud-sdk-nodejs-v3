@@ -2,18 +2,18 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class DeleteStarrocksInstanceResponse extends SdkResponse {
-    private 'workflow_id'?: string;
+    private 'job_id'?: string;
     public constructor() { 
         super();
     }
-    public withWorkflowId(workflowId: string): DeleteStarrocksInstanceResponse {
-        this['workflow_id'] = workflowId;
+    public withJobId(jobId: string): DeleteStarrocksInstanceResponse {
+        this['job_id'] = jobId;
         return this;
     }
-    public set workflowId(workflowId: string  | undefined) {
-        this['workflow_id'] = workflowId;
+    public set jobId(jobId: string  | undefined) {
+        this['job_id'] = jobId;
     }
-    public get workflowId(): string | undefined {
-        return this['workflow_id'];
+    public get jobId(): string | undefined {
+        return this['job_id'];
     }
 }

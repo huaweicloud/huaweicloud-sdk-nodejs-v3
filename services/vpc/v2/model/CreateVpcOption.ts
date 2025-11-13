@@ -6,6 +6,8 @@ export class CreateVpcOption {
     public description?: string;
     private 'enterprise_project_id'?: string;
     public tags?: Array<string>;
+    private 'block_service_endpoint_states'?: string;
+    private 'enable_network_address_usage_metrics'?: boolean;
     public constructor() { 
     }
     public withCidr(cidr: string): CreateVpcOption {
@@ -33,5 +35,25 @@ export class CreateVpcOption {
     public withTags(tags: Array<string>): CreateVpcOption {
         this['tags'] = tags;
         return this;
+    }
+    public withBlockServiceEndpointStates(blockServiceEndpointStates: string): CreateVpcOption {
+        this['block_service_endpoint_states'] = blockServiceEndpointStates;
+        return this;
+    }
+    public set blockServiceEndpointStates(blockServiceEndpointStates: string  | undefined) {
+        this['block_service_endpoint_states'] = blockServiceEndpointStates;
+    }
+    public get blockServiceEndpointStates(): string | undefined {
+        return this['block_service_endpoint_states'];
+    }
+    public withEnableNetworkAddressUsageMetrics(enableNetworkAddressUsageMetrics: boolean): CreateVpcOption {
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
+        return this;
+    }
+    public set enableNetworkAddressUsageMetrics(enableNetworkAddressUsageMetrics: boolean  | undefined) {
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
+    }
+    public get enableNetworkAddressUsageMetrics(): boolean | undefined {
+        return this['enable_network_address_usage_metrics'];
     }
 }

@@ -10,9 +10,9 @@ export class ListDiagnosisTasksRequest {
     private 'end_time'?: number;
     private 'page_index'?: number;
     private 'page_size'?: number;
-    public constructor(pageIndex?: number, pageSize?: number) { 
-        this['page_index'] = pageIndex;
-        this['page_size'] = pageSize;
+    public offset?: number;
+    public limit?: number;
+    public constructor() { 
     }
     public withTaskId(taskId: string): ListDiagnosisTasksRequest {
         this['task_id'] = taskId;
@@ -79,6 +79,14 @@ export class ListDiagnosisTasksRequest {
     }
     public get pageSize(): number | undefined {
         return this['page_size'];
+    }
+    public withOffset(offset: number): ListDiagnosisTasksRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: number): ListDiagnosisTasksRequest {
+        this['limit'] = limit;
+        return this;
     }
 }
 

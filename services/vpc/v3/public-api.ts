@@ -52,6 +52,7 @@ export * from './model/BatchDeletePortTagsResponse';
 export * from './model/BatchDeleteRequestBody';
 export * from './model/BatchDeleteRequestBodySysTags';
 export * from './model/BatchDeleteRequestBodyTags';
+export * from './model/BindingVifDetails';
 export * from './model/CloudResource';
 export * from './model/ClouddcnResource';
 export * from './model/ClouddcnSubnet';

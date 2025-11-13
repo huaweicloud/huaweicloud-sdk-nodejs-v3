@@ -5,6 +5,7 @@ export class DigitalAssetSummary {
     private 'asset_name'?: string;
     private 'asset_state'?: DigitalAssetSummaryAssetStateEnum | string;
     private 'asset_type'?: DigitalAssetSummaryAssetTypeEnum | string;
+    private 'block_reason_code'?: string;
     private 'cover_url'?: string;
     private 'thumbnail_url'?: string;
     public constructor() { 
@@ -48,6 +49,16 @@ export class DigitalAssetSummary {
     }
     public get assetType(): DigitalAssetSummaryAssetTypeEnum | string | undefined {
         return this['asset_type'];
+    }
+    public withBlockReasonCode(blockReasonCode: string): DigitalAssetSummary {
+        this['block_reason_code'] = blockReasonCode;
+        return this;
+    }
+    public set blockReasonCode(blockReasonCode: string  | undefined) {
+        this['block_reason_code'] = blockReasonCode;
+    }
+    public get blockReasonCode(): string | undefined {
+        return this['block_reason_code'];
     }
     public withCoverUrl(coverUrl: string): DigitalAssetSummary {
         this['cover_url'] = coverUrl;

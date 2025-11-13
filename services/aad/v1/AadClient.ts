@@ -87,6 +87,8 @@ import { ShowAlarmConfigRequest } from './model/ShowAlarmConfigRequest';
 import { ShowAlarmConfigResponse } from './model/ShowAlarmConfigResponse';
 import { ShowBlockStatisticsRequest } from './model/ShowBlockStatisticsRequest';
 import { ShowBlockStatisticsResponse } from './model/ShowBlockStatisticsResponse';
+import { ShowLtsConfigRequest } from './model/ShowLtsConfigRequest';
+import { ShowLtsConfigResponse } from './model/ShowLtsConfigResponse';
 import { ShowPolicyRequest } from './model/ShowPolicyRequest';
 import { ShowPolicyResponse } from './model/ShowPolicyResponse';
 import { ShowUnblockRecordRequest } from './model/ShowUnblockRecordRequest';
@@ -100,6 +102,10 @@ import { UpdateDomainRequest } from './model/UpdateDomainRequest';
 import { UpdateDomainResponse } from './model/UpdateDomainResponse';
 import { UpdateInstanceIpRuleRequest } from './model/UpdateInstanceIpRuleRequest';
 import { UpdateInstanceIpRuleResponse } from './model/UpdateInstanceIpRuleResponse';
+import { UpdateLtsConfigRequest } from './model/UpdateLtsConfigRequest';
+import { UpdateLtsConfigRequestBody } from './model/UpdateLtsConfigRequestBody';
+import { UpdateLtsConfigRequestBodyLtsIdInfo } from './model/UpdateLtsConfigRequestBodyLtsIdInfo';
+import { UpdateLtsConfigResponse } from './model/UpdateLtsConfigResponse';
 import { UpdatePackageIpRequest } from './model/UpdatePackageIpRequest';
 import { UpdatePackageIpRequestBody } from './model/UpdatePackageIpRequestBody';
 import { UpdatePackageIpResponse } from './model/UpdatePackageIpResponse';
@@ -759,6 +765,25 @@ export class AadClient {
     }
 
     /**
+     * 查询日志配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询日志配置
+     * @param {string} [enterpriseProjectId] 企业项目id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLtsConfig(showLtsConfigRequest?: ShowLtsConfigRequest): Promise<ShowLtsConfigResponse> {
+        const options = ParamCreater().showLtsConfig(showLtsConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询策略详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -831,6 +856,26 @@ export class AadClient {
      */
     public updateInstanceIpRule(updateInstanceIpRuleRequest?: UpdateInstanceIpRuleRequest): Promise<UpdateInstanceIpRuleResponse> {
         const options = ParamCreater().updateInstanceIpRule(updateInstanceIpRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 设置日志配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置日志配置
+     * @param {UpdateLtsConfigRequestBody} updateLtsConfigRequestBody 更新日志配置的请求体
+     * @param {string} [enterpriseProjectId] 企业项目id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateLtsConfig(updateLtsConfigRequest?: UpdateLtsConfigRequest): Promise<UpdateLtsConfigResponse> {
+        const options = ParamCreater().updateLtsConfig(updateLtsConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2231,6 +2276,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询日志配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLtsConfig(showLtsConfigRequest?: ShowLtsConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/cnad/config/lts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showLtsConfigRequest !== null && showLtsConfigRequest !== undefined) {
+                if (showLtsConfigRequest instanceof ShowLtsConfigRequest) {
+                    enterpriseProjectId = showLtsConfigRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showLtsConfigRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询策略详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2407,6 +2489,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'ip': ip,'rule_id': ruleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 设置日志配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateLtsConfig(updateLtsConfigRequest?: UpdateLtsConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/cnad/config/lts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (updateLtsConfigRequest !== null && updateLtsConfigRequest !== undefined) {
+                if (updateLtsConfigRequest instanceof UpdateLtsConfigRequest) {
+                    body = updateLtsConfigRequest.body
+                    enterpriseProjectId = updateLtsConfigRequest.enterpriseProjectId;
+                } else {
+                    body = updateLtsConfigRequest['body'];
+                    enterpriseProjectId = updateLtsConfigRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -1,3 +1,4 @@
+import { CustomDate } from './CustomDate';
 
 
 export class SqlRequest {
@@ -6,16 +7,14 @@ export class SqlRequest {
     private 'log_group_id'?: string;
     private 'log_group_name'?: string;
     public sql?: string;
-    private 'sql_request_title'?: string;
     private 'search_time_range'?: number;
     private 'search_time_range_unit'?: SqlRequestSearchTimeRangeUnitEnum | string;
-    public constructor(logStreamId?: string, logGroupId?: string, sql?: string, sqlRequestTitle?: string, searchTimeRange?: number, searchTimeRangeUnit?: string) { 
+    private 'custom_date'?: CustomDate;
+    private 'is_time_range_relative'?: boolean;
+    public constructor(logStreamId?: string, logGroupId?: string, sql?: string) { 
         this['log_stream_id'] = logStreamId;
         this['log_group_id'] = logGroupId;
         this['sql'] = sql;
-        this['sql_request_title'] = sqlRequestTitle;
-        this['search_time_range'] = searchTimeRange;
-        this['search_time_range_unit'] = searchTimeRangeUnit;
     }
     public withLogStreamId(logStreamId: string): SqlRequest {
         this['log_stream_id'] = logStreamId;
@@ -61,16 +60,6 @@ export class SqlRequest {
         this['sql'] = sql;
         return this;
     }
-    public withSqlRequestTitle(sqlRequestTitle: string): SqlRequest {
-        this['sql_request_title'] = sqlRequestTitle;
-        return this;
-    }
-    public set sqlRequestTitle(sqlRequestTitle: string  | undefined) {
-        this['sql_request_title'] = sqlRequestTitle;
-    }
-    public get sqlRequestTitle(): string | undefined {
-        return this['sql_request_title'];
-    }
     public withSearchTimeRange(searchTimeRange: number): SqlRequest {
         this['search_time_range'] = searchTimeRange;
         return this;
@@ -90,6 +79,26 @@ export class SqlRequest {
     }
     public get searchTimeRangeUnit(): SqlRequestSearchTimeRangeUnitEnum | string | undefined {
         return this['search_time_range_unit'];
+    }
+    public withCustomDate(customDate: CustomDate): SqlRequest {
+        this['custom_date'] = customDate;
+        return this;
+    }
+    public set customDate(customDate: CustomDate  | undefined) {
+        this['custom_date'] = customDate;
+    }
+    public get customDate(): CustomDate | undefined {
+        return this['custom_date'];
+    }
+    public withIsTimeRangeRelative(isTimeRangeRelative: boolean): SqlRequest {
+        this['is_time_range_relative'] = isTimeRangeRelative;
+        return this;
+    }
+    public set isTimeRangeRelative(isTimeRangeRelative: boolean  | undefined) {
+        this['is_time_range_relative'] = isTimeRangeRelative;
+    }
+    public get isTimeRangeRelative(): boolean | undefined {
+        return this['is_time_range_relative'];
     }
 }
 

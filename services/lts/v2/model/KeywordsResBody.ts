@@ -1,3 +1,4 @@
+import { CustomDate } from './CustomDate';
 
 
 export class KeywordsResBody {
@@ -10,6 +11,8 @@ export class KeywordsResBody {
     private 'number'?: number;
     private 'search_time_range'?: number;
     private 'search_time_range_unit'?: string;
+    private 'custom_date'?: CustomDate;
+    private 'is_time_range_relative'?: boolean;
     public constructor() { 
     }
     public withLogStreamId(logStreamId: string): KeywordsResBody {
@@ -89,6 +92,26 @@ export class KeywordsResBody {
     }
     public get searchTimeRangeUnit(): string | undefined {
         return this['search_time_range_unit'];
+    }
+    public withCustomDate(customDate: CustomDate): KeywordsResBody {
+        this['custom_date'] = customDate;
+        return this;
+    }
+    public set customDate(customDate: CustomDate  | undefined) {
+        this['custom_date'] = customDate;
+    }
+    public get customDate(): CustomDate | undefined {
+        return this['custom_date'];
+    }
+    public withIsTimeRangeRelative(isTimeRangeRelative: boolean): KeywordsResBody {
+        this['is_time_range_relative'] = isTimeRangeRelative;
+        return this;
+    }
+    public set isTimeRangeRelative(isTimeRangeRelative: boolean  | undefined) {
+        this['is_time_range_relative'] = isTimeRangeRelative;
+    }
+    public get isTimeRangeRelative(): boolean | undefined {
+        return this['is_time_range_relative'];
     }
 }
 
