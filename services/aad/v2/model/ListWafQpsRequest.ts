@@ -7,6 +7,8 @@ export class ListWafQpsRequest {
     private 'end_time'?: string;
     public recent?: string;
     private 'overseas_type'?: number;
+    public limit?: number;
+    public offset?: number;
     public constructor(valueType?: string) { 
         this['value_type'] = valueType;
     }
@@ -57,5 +59,13 @@ export class ListWafQpsRequest {
     }
     public get overseasType(): number | undefined {
         return this['overseas_type'];
+    }
+    public withLimit(limit: number): ListWafQpsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListWafQpsRequest {
+        this['offset'] = offset;
+        return this;
     }
 }

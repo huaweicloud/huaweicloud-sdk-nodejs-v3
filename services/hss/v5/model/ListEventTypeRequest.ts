@@ -12,7 +12,6 @@ export class ListEventTypeRequest {
     private 'private_ip'?: string;
     private 'public_ip'?: string;
     private 'container_name'?: string;
-    private 'event_type'?: number;
     private 'handle_status'?: string;
     public severity?: string;
     private 'severity_list'?: Array<string>;
@@ -121,16 +120,6 @@ export class ListEventTypeRequest {
     }
     public get containerName(): string | undefined {
         return this['container_name'];
-    }
-    public withEventType(eventType: number): ListEventTypeRequest {
-        this['event_type'] = eventType;
-        return this;
-    }
-    public set eventType(eventType: number  | undefined) {
-        this['event_type'] = eventType;
-    }
-    public get eventType(): number | undefined {
-        return this['event_type'];
     }
     public withHandleStatus(handleStatus: string): ListEventTypeRequest {
         this['handle_status'] = handleStatus;

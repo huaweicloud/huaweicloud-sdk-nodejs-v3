@@ -10,7 +10,8 @@ export class ExportVulHandleHistoryRequestBody {
     private 'host_ip'?: string;
     private 'export_size'?: number;
     private 'export_header_list'?: Array<Array<string>>;
-    public constructor() { 
+    public constructor(exportHeaderList?: Array<Array<string>>) { 
+        this['export_header_list'] = exportHeaderList;
     }
     public withStatus(status: ExportVulHandleHistoryRequestBodyStatusEnum | string): ExportVulHandleHistoryRequestBody {
         this['status'] = status;

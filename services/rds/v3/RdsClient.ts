@@ -28,6 +28,7 @@ import { ArticlePropertiesResponse } from './model/ArticlePropertiesResponse';
 import { AttachEipRequest } from './model/AttachEipRequest';
 import { AttachEipResponse } from './model/AttachEipResponse';
 import { Auditlog } from './model/Auditlog';
+import { AutoEnlargeStrategyForConsoleApi } from './model/AutoEnlargeStrategyForConsoleApi';
 import { AvailableZone } from './model/AvailableZone';
 import { BackupDatabase } from './model/BackupDatabase';
 import { BackupDatastore } from './model/BackupDatastore';
@@ -321,6 +322,12 @@ import { ListDatabasesRequest } from './model/ListDatabasesRequest';
 import { ListDatabasesResponse } from './model/ListDatabasesResponse';
 import { ListDatastoresRequest } from './model/ListDatastoresRequest';
 import { ListDatastoresResponse } from './model/ListDatastoresResponse';
+import { ListDbAgentJobHistoryStepsRequest } from './model/ListDbAgentJobHistoryStepsRequest';
+import { ListDbAgentJobHistoryStepsResponse } from './model/ListDbAgentJobHistoryStepsResponse';
+import { ListDbAgentJobHistoryStepsResult } from './model/ListDbAgentJobHistoryStepsResult';
+import { ListDbAgentJobHistorysRequest } from './model/ListDbAgentJobHistorysRequest';
+import { ListDbAgentJobHistorysResponse } from './model/ListDbAgentJobHistorysResponse';
+import { ListDbAgentJobHistorysResult } from './model/ListDbAgentJobHistorysResult';
 import { ListDbAgentJobsRequest } from './model/ListDbAgentJobsRequest';
 import { ListDbAgentJobsResponse } from './model/ListDbAgentJobsResponse';
 import { ListDbAgentJobsResult } from './model/ListDbAgentJobsResult';
@@ -557,6 +564,10 @@ import { RecyclePolicy } from './model/RecyclePolicy';
 import { RecyclePolicyRequestBody } from './model/RecyclePolicyRequestBody';
 import { ReduceVolumeObject } from './model/ReduceVolumeObject';
 import { ReduceVolumeRequestBody } from './model/ReduceVolumeRequestBody';
+import { RefreshPublicationSnapshotRequest } from './model/RefreshPublicationSnapshotRequest';
+import { RefreshPublicationSnapshotResponse } from './model/RefreshPublicationSnapshotResponse';
+import { RefreshSubscriptionRequest } from './model/RefreshSubscriptionRequest';
+import { RefreshSubscriptionResponse } from './model/RefreshSubscriptionResponse';
 import { RelatedInstance } from './model/RelatedInstance';
 import { ReplaceNodeRequest } from './model/ReplaceNodeRequest';
 import { ReplicationInstanceInfo } from './model/ReplicationInstanceInfo';
@@ -789,6 +800,8 @@ import { SwitchSqlLimitRequest } from './model/SwitchSqlLimitRequest';
 import { SwitchSqlLimitResponse } from './model/SwitchSqlLimitResponse';
 import { SwitchSslRequest } from './model/SwitchSslRequest';
 import { SwitchSslResponse } from './model/SwitchSslResponse';
+import { SyncReplicationMetadataRequest } from './model/SyncReplicationMetadataRequest';
+import { SyncReplicationMetadataResponse } from './model/SyncReplicationMetadataResponse';
 import { TagDelWithKeyValue } from './model/TagDelWithKeyValue';
 import { TagResp } from './model/TagResp';
 import { TagResponse } from './model/TagResponse';
@@ -6227,6 +6240,53 @@ export class RdsClient {
     }
 
     /**
+     * 查询数据库代理作业执行历史步骤。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据库代理作业执行历史步骤
+     * @param {string} instanceId 实例ID
+     * @param {string} historyId 作业执行历史ID
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为10，不能为负数，最小值为1，最大值为100。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDbAgentJobHistorySteps(listDbAgentJobHistoryStepsRequest?: ListDbAgentJobHistoryStepsRequest): Promise<ListDbAgentJobHistoryStepsResponse> {
+        const options = ParamCreater().listDbAgentJobHistorySteps(listDbAgentJobHistoryStepsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询数据库代理作业执行历史。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据库代理作业执行历史
+     * @param {string} instanceId 实例ID
+     * @param {string} jobId 作业ID
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {string} [runStatus] 作业执行状态。默认不传，查询所有执行历史。 若传，则取值如下: failed:失败。 succeeded:成功。 retrying:重试中。 canceled:已取消。 in_progress:正在运行。
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为10，不能为负数，最小值为1，最大值为100。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDbAgentJobHistorys(listDbAgentJobHistorysRequest?: ListDbAgentJobHistorysRequest): Promise<ListDbAgentJobHistorysResponse> {
+        const options = ParamCreater().listDbAgentJobHistorys(listDbAgentJobHistorysRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询数据库代理作业列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6544,6 +6604,48 @@ export class RdsClient {
     }
 
     /**
+     * 重新生成发布快照。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重新生成发布快照
+     * @param {string} instanceId 实例ID
+     * @param {string} publicationId 发布ID
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public refreshPublicationSnapshot(refreshPublicationSnapshotRequest?: RefreshPublicationSnapshotRequest): Promise<RefreshPublicationSnapshotResponse> {
+        const options = ParamCreater().refreshPublicationSnapshot(refreshPublicationSnapshotRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 重新生成订阅。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重新生成订阅
+     * @param {string} instanceId 实例ID
+     * @param {string} subscriptionId 订阅ID
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public refreshSubscription(refreshSubscriptionRequest?: RefreshSubscriptionRequest): Promise<RefreshSubscriptionResponse> {
+        const options = ParamCreater().refreshSubscription(refreshSubscriptionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 解除数据库帐号权限。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6597,6 +6699,26 @@ export class RdsClient {
      */
     public setInstancesNewDbShrink(setInstancesNewDbShrinkRequest?: SetInstancesNewDbShrinkRequest): Promise<SetInstancesNewDbShrinkResponse> {
         const options = ParamCreater().setInstancesNewDbShrink(setInstancesNewDbShrinkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 同步发布订阅元数据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 同步发布订阅元数据
+     * @param {string} instanceId 实例ID
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public syncReplicationMetadata(syncReplicationMetadataRequest?: SyncReplicationMetadataRequest): Promise<SyncReplicationMetadataResponse> {
+        const options = ParamCreater().syncReplicationMetadata(syncReplicationMetadataRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -20030,6 +20152,145 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询数据库代理作业执行历史步骤。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDbAgentJobHistorySteps(listDbAgentJobHistoryStepsRequest?: ListDbAgentJobHistoryStepsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/db-jobs/histories/{history_id}/steps",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let historyId;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (listDbAgentJobHistoryStepsRequest !== null && listDbAgentJobHistoryStepsRequest !== undefined) {
+                if (listDbAgentJobHistoryStepsRequest instanceof ListDbAgentJobHistoryStepsRequest) {
+                    instanceId = listDbAgentJobHistoryStepsRequest.instanceId;
+                    historyId = listDbAgentJobHistoryStepsRequest.historyId;
+                    xLanguage = listDbAgentJobHistoryStepsRequest.xLanguage;
+                    offset = listDbAgentJobHistoryStepsRequest.offset;
+                    limit = listDbAgentJobHistoryStepsRequest.limit;
+                } else {
+                    instanceId = listDbAgentJobHistoryStepsRequest['instance_id'];
+                    historyId = listDbAgentJobHistoryStepsRequest['history_id'];
+                    xLanguage = listDbAgentJobHistoryStepsRequest['X-Language'];
+                    offset = listDbAgentJobHistoryStepsRequest['offset'];
+                    limit = listDbAgentJobHistoryStepsRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listDbAgentJobHistorySteps.');
+            }
+            if (historyId === null || historyId === undefined) {
+            throw new RequiredError('historyId','Required parameter historyId was null or undefined when calling listDbAgentJobHistorySteps.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'history_id': historyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询数据库代理作业执行历史。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDbAgentJobHistorys(listDbAgentJobHistorysRequest?: ListDbAgentJobHistorysRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/db-jobs/{job_id}/histories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let jobId;
+            
+            let xLanguage;
+            
+            let runStatus;
+            
+            let offset;
+            
+            let limit;
+
+            if (listDbAgentJobHistorysRequest !== null && listDbAgentJobHistorysRequest !== undefined) {
+                if (listDbAgentJobHistorysRequest instanceof ListDbAgentJobHistorysRequest) {
+                    instanceId = listDbAgentJobHistorysRequest.instanceId;
+                    jobId = listDbAgentJobHistorysRequest.jobId;
+                    xLanguage = listDbAgentJobHistorysRequest.xLanguage;
+                    runStatus = listDbAgentJobHistorysRequest.runStatus;
+                    offset = listDbAgentJobHistorysRequest.offset;
+                    limit = listDbAgentJobHistorysRequest.limit;
+                } else {
+                    instanceId = listDbAgentJobHistorysRequest['instance_id'];
+                    jobId = listDbAgentJobHistorysRequest['job_id'];
+                    xLanguage = listDbAgentJobHistorysRequest['X-Language'];
+                    runStatus = listDbAgentJobHistorysRequest['run_status'];
+                    offset = listDbAgentJobHistorysRequest['offset'];
+                    limit = listDbAgentJobHistorysRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listDbAgentJobHistorys.');
+            }
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling listDbAgentJobHistorys.');
+            }
+            if (runStatus !== null && runStatus !== undefined) {
+                localVarQueryParameter['run_status'] = runStatus;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询数据库代理作业列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -20933,6 +21194,108 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 重新生成发布快照。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        refreshPublicationSnapshot(refreshPublicationSnapshotRequest?: RefreshPublicationSnapshotRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/replication/publications/{publication_id}/reinitialize",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let publicationId;
+            
+            let xLanguage;
+
+            if (refreshPublicationSnapshotRequest !== null && refreshPublicationSnapshotRequest !== undefined) {
+                if (refreshPublicationSnapshotRequest instanceof RefreshPublicationSnapshotRequest) {
+                    instanceId = refreshPublicationSnapshotRequest.instanceId;
+                    publicationId = refreshPublicationSnapshotRequest.publicationId;
+                    xLanguage = refreshPublicationSnapshotRequest.xLanguage;
+                } else {
+                    instanceId = refreshPublicationSnapshotRequest['instance_id'];
+                    publicationId = refreshPublicationSnapshotRequest['publication_id'];
+                    xLanguage = refreshPublicationSnapshotRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling refreshPublicationSnapshot.');
+            }
+            if (publicationId === null || publicationId === undefined) {
+            throw new RequiredError('publicationId','Required parameter publicationId was null or undefined when calling refreshPublicationSnapshot.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'publication_id': publicationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 重新生成订阅。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        refreshSubscription(refreshSubscriptionRequest?: RefreshSubscriptionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/replication/subscriptions/{subscription_id}/reinitialize",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let subscriptionId;
+            
+            let xLanguage;
+
+            if (refreshSubscriptionRequest !== null && refreshSubscriptionRequest !== undefined) {
+                if (refreshSubscriptionRequest instanceof RefreshSubscriptionRequest) {
+                    instanceId = refreshSubscriptionRequest.instanceId;
+                    subscriptionId = refreshSubscriptionRequest.subscriptionId;
+                    xLanguage = refreshSubscriptionRequest.xLanguage;
+                } else {
+                    instanceId = refreshSubscriptionRequest['instance_id'];
+                    subscriptionId = refreshSubscriptionRequest['subscription_id'];
+                    xLanguage = refreshSubscriptionRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling refreshSubscription.');
+            }
+            if (subscriptionId === null || subscriptionId === undefined) {
+            throw new RequiredError('subscriptionId','Required parameter subscriptionId was null or undefined when calling refreshSubscription.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'subscription_id': subscriptionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 解除数据库帐号权限。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -21072,6 +21435,50 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 同步发布订阅元数据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        syncReplicationMetadata(syncReplicationMetadataRequest?: SyncReplicationMetadataRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/replication/metadata/sync",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (syncReplicationMetadataRequest !== null && syncReplicationMetadataRequest !== undefined) {
+                if (syncReplicationMetadataRequest instanceof SyncReplicationMetadataRequest) {
+                    instanceId = syncReplicationMetadataRequest.instanceId;
+                    xLanguage = syncReplicationMetadataRequest.xLanguage;
+                } else {
+                    instanceId = syncReplicationMetadataRequest['instance_id'];
+                    xLanguage = syncReplicationMetadataRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling syncReplicationMetadata.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

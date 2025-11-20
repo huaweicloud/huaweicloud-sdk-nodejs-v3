@@ -1,5 +1,5 @@
-import { CreateNotificationTemplateRequestBody } from './CreateNotificationTemplateRequestBody';
-import { SubTemplate } from './SubTemplate';
+import { CreateNotificationTemplateResBody } from './CreateNotificationTemplateResBody';
+import { SubTemplateResBody } from './SubTemplateResBody';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -8,16 +8,15 @@ export class ShowNotificationTemplateResponse extends SdkResponse {
     public type?: Array<string>;
     public desc?: string;
     public source?: string;
-    public locale?: ShowNotificationTemplateResponseLocaleEnum | string;
-    public templates?: Array<SubTemplate>;
+    public templates?: Array<SubTemplateResBody>;
+    public locale?: string;
     private 'create_time'?: number;
     private 'modify_time'?: number;
     private 'project_id'?: string;
-    public constructor(name?: string, source?: string, locale?: string, templates?: Array<SubTemplate>, createTime?: number, modifyTime?: number, projectId?: string) { 
+    public constructor(name?: string, source?: string, templates?: Array<SubTemplateResBody>, createTime?: number, modifyTime?: number, projectId?: string) { 
         super();
         this['name'] = name;
         this['source'] = source;
-        this['locale'] = locale;
         this['templates'] = templates;
         this['create_time'] = createTime;
         this['modify_time'] = modifyTime;
@@ -39,12 +38,12 @@ export class ShowNotificationTemplateResponse extends SdkResponse {
         this['source'] = source;
         return this;
     }
-    public withLocale(locale: ShowNotificationTemplateResponseLocaleEnum | string): ShowNotificationTemplateResponse {
-        this['locale'] = locale;
+    public withTemplates(templates: Array<SubTemplateResBody>): ShowNotificationTemplateResponse {
+        this['templates'] = templates;
         return this;
     }
-    public withTemplates(templates: Array<SubTemplate>): ShowNotificationTemplateResponse {
-        this['templates'] = templates;
+    public withLocale(locale: string): ShowNotificationTemplateResponse {
+        this['locale'] = locale;
         return this;
     }
     public withCreateTime(createTime: number): ShowNotificationTemplateResponse {
@@ -77,13 +76,4 @@ export class ShowNotificationTemplateResponse extends SdkResponse {
     public get projectId(): string | undefined {
         return this['project_id'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ShowNotificationTemplateResponseLocaleEnum {
-    ZH_CN = 'zh-cn',
-    EN_US = 'en-us'
 }

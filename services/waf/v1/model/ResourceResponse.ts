@@ -8,6 +8,9 @@ export class ResourceResponse {
     public status?: number;
     public expireTime?: string;
     public resourceSize?: number;
+    public timestamp?: number;
+    public relativeType?: number;
+    public region?: string;
     public constructor() { 
     }
     public withResourceId(resourceId: string): ResourceResponse {
@@ -36,6 +39,18 @@ export class ResourceResponse {
     }
     public withResourceSize(resourceSize: number): ResourceResponse {
         this['resourceSize'] = resourceSize;
+        return this;
+    }
+    public withTimestamp(timestamp: number): ResourceResponse {
+        this['timestamp'] = timestamp;
+        return this;
+    }
+    public withRelativeType(relativeType: number): ResourceResponse {
+        this['relativeType'] = relativeType;
+        return this;
+    }
+    public withRegion(region: string): ResourceResponse {
+        this['region'] = region;
         return this;
     }
 }

@@ -16,6 +16,7 @@ export class CreateResponseVpnConnection {
     private 'tunnel_peer_address'?: string;
     private 'enable_nqa'?: boolean;
     private 'enable_hub'?: boolean;
+    private 'enable_health_check'?: boolean;
     private 'policy_rules'?: Array<PolicyRule>;
     public ikepolicy?: IkePolicy;
     public ipsecpolicy?: IpsecPolicy;
@@ -119,6 +120,16 @@ export class CreateResponseVpnConnection {
     }
     public get enableHub(): boolean | undefined {
         return this['enable_hub'];
+    }
+    public withEnableHealthCheck(enableHealthCheck: boolean): CreateResponseVpnConnection {
+        this['enable_health_check'] = enableHealthCheck;
+        return this;
+    }
+    public set enableHealthCheck(enableHealthCheck: boolean  | undefined) {
+        this['enable_health_check'] = enableHealthCheck;
+    }
+    public get enableHealthCheck(): boolean | undefined {
+        return this['enable_health_check'];
     }
     public withPolicyRules(policyRules: Array<PolicyRule>): CreateResponseVpnConnection {
         this['policy_rules'] = policyRules;

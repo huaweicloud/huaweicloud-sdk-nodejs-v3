@@ -1,3 +1,4 @@
+import { NotificationMode } from './NotificationMode';
 import { ScheduleGroupInfo } from './ScheduleGroupInfo';
 
 
@@ -14,6 +15,7 @@ export class CreateWarRoomRequestBody {
     private 'region_names'?: Array<string>;
     private 'enterprise_project_id'?: string;
     private 'notification_type'?: string;
+    private 'notification_modes'?: Array<NotificationMode>;
     public constructor(warRoomName?: string, applicationIdList?: Array<string>, incidentNumber?: string, scheduleGroup?: Array<ScheduleGroupInfo>, warRoomAdmin?: string, enterpriseProjectId?: string) { 
         this['war_room_name'] = warRoomName;
         this['application_id_list'] = applicationIdList;
@@ -129,5 +131,15 @@ export class CreateWarRoomRequestBody {
     }
     public get notificationType(): string | undefined {
         return this['notification_type'];
+    }
+    public withNotificationModes(notificationModes: Array<NotificationMode>): CreateWarRoomRequestBody {
+        this['notification_modes'] = notificationModes;
+        return this;
+    }
+    public set notificationModes(notificationModes: Array<NotificationMode>  | undefined) {
+        this['notification_modes'] = notificationModes;
+    }
+    public get notificationModes(): Array<NotificationMode> | undefined {
+        return this['notification_modes'];
     }
 }

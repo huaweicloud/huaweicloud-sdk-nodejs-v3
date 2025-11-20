@@ -4,11 +4,13 @@ import { InferenceActionMarkInfo } from './InferenceActionMarkInfo';
 import { InferenceEyeCorrectionMarkInfo } from './InferenceEyeCorrectionMarkInfo';
 import { InferenceVideoMarkInfo } from './InferenceVideoMarkInfo';
 import { OperationLogInfo } from './OperationLogInfo';
+import { SubTrainingJobInfoDto } from './SubTrainingJobInfoDto';
 import { SupportedServiceEnum } from './SupportedServiceEnum';
 import { TrainingAllocatedResource } from './TrainingAllocatedResource';
 import { TrainingJobBasicInfo } from './TrainingJobBasicInfo';
 import { TrainingVideoMarkInfo } from './TrainingVideoMarkInfo';
 import { VerifyVideoMattingInfo } from './VerifyVideoMattingInfo';
+import { VoiceProperties } from './VoiceProperties';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -29,15 +31,23 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     private 'model_resolution'?: string;
     private 'app_user_id'?: string;
     private 'is_flexus'?: boolean;
+    private 'is_live_copy'?: boolean;
+    private 'is_fast_flexus'?: boolean;
     private 'is_only_human_model'?: boolean;
+    private 'optional_training_location'?: Array<string>;
+    private 'is_background_replacement'?: boolean;
+    private 'is_ondemand_resource'?: boolean;
     private 'training_video_download_url'?: string;
     private 'id_card_image1_download_url'?: string;
     private 'id_card_image2_download_url'?: string;
     private 'grant_file_download_url'?: string;
     private 'pre_beauty_image_download_url'?: string;
+    private 'external_action_json_data_download_url'?: string;
     private 'action_video_download_url'?: string;
     private 'post_beauty_image_download_url'?: string;
     private 'audio_file_download_url'?: string;
+    private 'action_mark_file_download_url'?: string;
+    private 'action_mark_file_upload_url'?: string;
     private 'operation_logs'?: Array<OperationLogInfo>;
     private 'verify_video_matting_info'?: Array<VerifyVideoMattingInfo>;
     private 'comment_logs'?: Array<CommentLogInfo>;
@@ -46,18 +56,22 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     private 'mask_file_download_url'?: string;
     private 'verify_video_download_url'?: string;
     private 'markable_video_download_url'?: string;
+    private 'markable_action_video_download_url'?: string;
     private 'traning_video_mark_info'?: TrainingVideoMarkInfo;
     private 'inference_data_process_video_mark_info'?: InferenceVideoMarkInfo;
+    private 'voice_properties'?: VoiceProperties;
     private 'inference_data_process_action_mark_info'?: InferenceActionMarkInfo;
     private 'inference_data_process_chat_action_mark_info'?: InferenceActionMarkInfo;
     private 'inference_data_process_eye_correction_mark_info'?: InferenceEyeCorrectionMarkInfo;
-    private 'is_background_replacement'?: boolean;
     private 'worker_type'?: Array<string>;
     private 'voice_train_job_id'?: string;
     private 'flexus_retry_count'?: number;
     private 'audio_source_type'?: Show2dModelTrainingJobResponseAudioSourceTypeEnum | string;
     private 'supported_service'?: Array<SupportedServiceEnum>;
     private 'allocated_resource'?: TrainingAllocatedResource;
+    private 'train_video_rotation_state'?: Show2dModelTrainingJobResponseTrainVideoRotationStateEnum | string;
+    private 'action_video_rotation_state'?: Show2dModelTrainingJobResponseActionVideoRotationStateEnum | string;
+    private 'sub_training_job_info'?: Array<SubTrainingJobInfoDto>;
     private 'X-Request-Id'?: string;
     public constructor(jobId?: string, name?: string, state?: string) { 
         super();
@@ -201,6 +215,26 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     public get isFlexus(): boolean | undefined {
         return this['is_flexus'];
     }
+    public withIsLiveCopy(isLiveCopy: boolean): Show2dModelTrainingJobResponse {
+        this['is_live_copy'] = isLiveCopy;
+        return this;
+    }
+    public set isLiveCopy(isLiveCopy: boolean  | undefined) {
+        this['is_live_copy'] = isLiveCopy;
+    }
+    public get isLiveCopy(): boolean | undefined {
+        return this['is_live_copy'];
+    }
+    public withIsFastFlexus(isFastFlexus: boolean): Show2dModelTrainingJobResponse {
+        this['is_fast_flexus'] = isFastFlexus;
+        return this;
+    }
+    public set isFastFlexus(isFastFlexus: boolean  | undefined) {
+        this['is_fast_flexus'] = isFastFlexus;
+    }
+    public get isFastFlexus(): boolean | undefined {
+        return this['is_fast_flexus'];
+    }
     public withIsOnlyHumanModel(isOnlyHumanModel: boolean): Show2dModelTrainingJobResponse {
         this['is_only_human_model'] = isOnlyHumanModel;
         return this;
@@ -210,6 +244,36 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     }
     public get isOnlyHumanModel(): boolean | undefined {
         return this['is_only_human_model'];
+    }
+    public withOptionalTrainingLocation(optionalTrainingLocation: Array<string>): Show2dModelTrainingJobResponse {
+        this['optional_training_location'] = optionalTrainingLocation;
+        return this;
+    }
+    public set optionalTrainingLocation(optionalTrainingLocation: Array<string>  | undefined) {
+        this['optional_training_location'] = optionalTrainingLocation;
+    }
+    public get optionalTrainingLocation(): Array<string> | undefined {
+        return this['optional_training_location'];
+    }
+    public withIsBackgroundReplacement(isBackgroundReplacement: boolean): Show2dModelTrainingJobResponse {
+        this['is_background_replacement'] = isBackgroundReplacement;
+        return this;
+    }
+    public set isBackgroundReplacement(isBackgroundReplacement: boolean  | undefined) {
+        this['is_background_replacement'] = isBackgroundReplacement;
+    }
+    public get isBackgroundReplacement(): boolean | undefined {
+        return this['is_background_replacement'];
+    }
+    public withIsOndemandResource(isOndemandResource: boolean): Show2dModelTrainingJobResponse {
+        this['is_ondemand_resource'] = isOndemandResource;
+        return this;
+    }
+    public set isOndemandResource(isOndemandResource: boolean  | undefined) {
+        this['is_ondemand_resource'] = isOndemandResource;
+    }
+    public get isOndemandResource(): boolean | undefined {
+        return this['is_ondemand_resource'];
     }
     public withTrainingVideoDownloadUrl(trainingVideoDownloadUrl: string): Show2dModelTrainingJobResponse {
         this['training_video_download_url'] = trainingVideoDownloadUrl;
@@ -261,6 +325,16 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     public get preBeautyImageDownloadUrl(): string | undefined {
         return this['pre_beauty_image_download_url'];
     }
+    public withExternalActionJsonDataDownloadUrl(externalActionJsonDataDownloadUrl: string): Show2dModelTrainingJobResponse {
+        this['external_action_json_data_download_url'] = externalActionJsonDataDownloadUrl;
+        return this;
+    }
+    public set externalActionJsonDataDownloadUrl(externalActionJsonDataDownloadUrl: string  | undefined) {
+        this['external_action_json_data_download_url'] = externalActionJsonDataDownloadUrl;
+    }
+    public get externalActionJsonDataDownloadUrl(): string | undefined {
+        return this['external_action_json_data_download_url'];
+    }
     public withActionVideoDownloadUrl(actionVideoDownloadUrl: string): Show2dModelTrainingJobResponse {
         this['action_video_download_url'] = actionVideoDownloadUrl;
         return this;
@@ -290,6 +364,26 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     }
     public get audioFileDownloadUrl(): string | undefined {
         return this['audio_file_download_url'];
+    }
+    public withActionMarkFileDownloadUrl(actionMarkFileDownloadUrl: string): Show2dModelTrainingJobResponse {
+        this['action_mark_file_download_url'] = actionMarkFileDownloadUrl;
+        return this;
+    }
+    public set actionMarkFileDownloadUrl(actionMarkFileDownloadUrl: string  | undefined) {
+        this['action_mark_file_download_url'] = actionMarkFileDownloadUrl;
+    }
+    public get actionMarkFileDownloadUrl(): string | undefined {
+        return this['action_mark_file_download_url'];
+    }
+    public withActionMarkFileUploadUrl(actionMarkFileUploadUrl: string): Show2dModelTrainingJobResponse {
+        this['action_mark_file_upload_url'] = actionMarkFileUploadUrl;
+        return this;
+    }
+    public set actionMarkFileUploadUrl(actionMarkFileUploadUrl: string  | undefined) {
+        this['action_mark_file_upload_url'] = actionMarkFileUploadUrl;
+    }
+    public get actionMarkFileUploadUrl(): string | undefined {
+        return this['action_mark_file_upload_url'];
     }
     public withOperationLogs(operationLogs: Array<OperationLogInfo>): Show2dModelTrainingJobResponse {
         this['operation_logs'] = operationLogs;
@@ -365,6 +459,16 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     public get markableVideoDownloadUrl(): string | undefined {
         return this['markable_video_download_url'];
     }
+    public withMarkableActionVideoDownloadUrl(markableActionVideoDownloadUrl: string): Show2dModelTrainingJobResponse {
+        this['markable_action_video_download_url'] = markableActionVideoDownloadUrl;
+        return this;
+    }
+    public set markableActionVideoDownloadUrl(markableActionVideoDownloadUrl: string  | undefined) {
+        this['markable_action_video_download_url'] = markableActionVideoDownloadUrl;
+    }
+    public get markableActionVideoDownloadUrl(): string | undefined {
+        return this['markable_action_video_download_url'];
+    }
     public withTraningVideoMarkInfo(traningVideoMarkInfo: TrainingVideoMarkInfo): Show2dModelTrainingJobResponse {
         this['traning_video_mark_info'] = traningVideoMarkInfo;
         return this;
@@ -384,6 +488,16 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     }
     public get inferenceDataProcessVideoMarkInfo(): InferenceVideoMarkInfo | undefined {
         return this['inference_data_process_video_mark_info'];
+    }
+    public withVoiceProperties(voiceProperties: VoiceProperties): Show2dModelTrainingJobResponse {
+        this['voice_properties'] = voiceProperties;
+        return this;
+    }
+    public set voiceProperties(voiceProperties: VoiceProperties  | undefined) {
+        this['voice_properties'] = voiceProperties;
+    }
+    public get voiceProperties(): VoiceProperties | undefined {
+        return this['voice_properties'];
     }
     public withInferenceDataProcessActionMarkInfo(inferenceDataProcessActionMarkInfo: InferenceActionMarkInfo): Show2dModelTrainingJobResponse {
         this['inference_data_process_action_mark_info'] = inferenceDataProcessActionMarkInfo;
@@ -414,16 +528,6 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     }
     public get inferenceDataProcessEyeCorrectionMarkInfo(): InferenceEyeCorrectionMarkInfo | undefined {
         return this['inference_data_process_eye_correction_mark_info'];
-    }
-    public withIsBackgroundReplacement(isBackgroundReplacement: boolean): Show2dModelTrainingJobResponse {
-        this['is_background_replacement'] = isBackgroundReplacement;
-        return this;
-    }
-    public set isBackgroundReplacement(isBackgroundReplacement: boolean  | undefined) {
-        this['is_background_replacement'] = isBackgroundReplacement;
-    }
-    public get isBackgroundReplacement(): boolean | undefined {
-        return this['is_background_replacement'];
     }
     public withWorkerType(workerType: Array<string>): Show2dModelTrainingJobResponse {
         this['worker_type'] = workerType;
@@ -484,6 +588,36 @@ export class Show2dModelTrainingJobResponse extends SdkResponse {
     }
     public get allocatedResource(): TrainingAllocatedResource | undefined {
         return this['allocated_resource'];
+    }
+    public withTrainVideoRotationState(trainVideoRotationState: Show2dModelTrainingJobResponseTrainVideoRotationStateEnum | string): Show2dModelTrainingJobResponse {
+        this['train_video_rotation_state'] = trainVideoRotationState;
+        return this;
+    }
+    public set trainVideoRotationState(trainVideoRotationState: Show2dModelTrainingJobResponseTrainVideoRotationStateEnum | string  | undefined) {
+        this['train_video_rotation_state'] = trainVideoRotationState;
+    }
+    public get trainVideoRotationState(): Show2dModelTrainingJobResponseTrainVideoRotationStateEnum | string | undefined {
+        return this['train_video_rotation_state'];
+    }
+    public withActionVideoRotationState(actionVideoRotationState: Show2dModelTrainingJobResponseActionVideoRotationStateEnum | string): Show2dModelTrainingJobResponse {
+        this['action_video_rotation_state'] = actionVideoRotationState;
+        return this;
+    }
+    public set actionVideoRotationState(actionVideoRotationState: Show2dModelTrainingJobResponseActionVideoRotationStateEnum | string  | undefined) {
+        this['action_video_rotation_state'] = actionVideoRotationState;
+    }
+    public get actionVideoRotationState(): Show2dModelTrainingJobResponseActionVideoRotationStateEnum | string | undefined {
+        return this['action_video_rotation_state'];
+    }
+    public withSubTrainingJobInfo(subTrainingJobInfo: Array<SubTrainingJobInfoDto>): Show2dModelTrainingJobResponse {
+        this['sub_training_job_info'] = subTrainingJobInfo;
+        return this;
+    }
+    public set subTrainingJobInfo(subTrainingJobInfo: Array<SubTrainingJobInfoDto>  | undefined) {
+        this['sub_training_job_info'] = subTrainingJobInfo;
+    }
+    public get subTrainingJobInfo(): Array<SubTrainingJobInfoDto> | undefined {
+        return this['sub_training_job_info'];
     }
     public withXRequestId(xRequestId: string): Show2dModelTrainingJobResponse {
         this['X-Request-Id'] = xRequestId;
@@ -549,7 +683,20 @@ export enum Show2dModelTrainingJobResponseStateEnum {
     BEAUTYFACE_SUCCESS = 'BEAUTYFACE_SUCCESS',
     BEAUTYFACE_FAILED = 'BEAUTYFACE_FAILED',
     WAIT_BEAUTY_VIDEO_FILE_UPLOAD = 'WAIT_BEAUTY_VIDEO_FILE_UPLOAD',
-    BEAUTYFACE_ROCESSING = 'BEAUTYFACE_ROCESSING'
+    BEAUTYFACE_ROCESSING = 'BEAUTYFACE_ROCESSING',
+    WAIT_TEST_VIDEO_CHECK = 'WAIT_TEST_VIDEO_CHECK',
+    TEST_VIDEO_CHECK_PROCESSING = 'TEST_VIDEO_CHECK_PROCESSING',
+    TEST_VIDEO_CHECK_SUCCESS = 'TEST_VIDEO_CHECK_SUCCESS',
+    TEST_VIDEO_CHECK_FAILED = 'TEST_VIDEO_CHECK_FAILED',
+    VIDEO_ANALYZE_PROCESSING = 'VIDEO_ANALYZE_PROCESSING',
+    VIDEO_ANALYZE_SUCCESS = 'VIDEO_ANALYZE_SUCCESS',
+    VIDEO_ANALYZE_FAILED = 'VIDEO_ANALYZE_FAILED',
+    ACTION_MARKING = 'ACTION_MARKING',
+    ACTION_MARK_SUCCESS = 'ACTION_MARK_SUCCESS',
+    ACTION_MARK_FAILED = 'ACTION_MARK_FAILED',
+    ACTION_MARK_UPLOADED = 'ACTION_MARK_UPLOADED',
+    WAIT_GENERATE_ACTION_MARK = 'WAIT_GENERATE_ACTION_MARK',
+    MANUL_STOP_ACTION_MARK = 'MANUL_STOP_ACTION_MARK'
 }
 /**
     * @export
@@ -558,7 +705,8 @@ export enum Show2dModelTrainingJobResponseStateEnum {
 export enum Show2dModelTrainingJobResponseModelVersionEnum {
     V2 = 'V2',
     V3 = 'V3',
-    V3_2 = 'V3.2'
+    V3_2 = 'V3.2',
+    V3_3 = 'V3.3'
 }
 /**
     * @export
@@ -575,4 +723,24 @@ export enum Show2dModelTrainingJobResponseMattingTypeEnum {
 export enum Show2dModelTrainingJobResponseAudioSourceTypeEnum {
     VIDEO = 'VIDEO',
     AUDIO = 'AUDIO'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum Show2dModelTrainingJobResponseTrainVideoRotationStateEnum {
+    WAITING = 'WAITING',
+    PROCESSING = 'PROCESSING',
+    SUCCESS = 'SUCCESS',
+    FAILED = 'FAILED'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum Show2dModelTrainingJobResponseActionVideoRotationStateEnum {
+    WAITING = 'WAITING',
+    PROCESSING = 'PROCESSING',
+    SUCCESS = 'SUCCESS',
+    FAILED = 'FAILED'
 }

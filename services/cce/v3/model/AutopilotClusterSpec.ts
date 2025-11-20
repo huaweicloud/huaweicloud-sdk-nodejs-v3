@@ -30,6 +30,9 @@ export class AutopilotClusterSpec {
     public kubeProxyMode?: AutopilotClusterSpecKubeProxyModeEnum | string;
     public az?: string;
     public extendParam?: AutopilotClusterExtendParam;
+    public enableMasterVolumeEncryption?: boolean;
+    public enableDistMgt?: boolean;
+    public deletionProtection?: boolean;
     public configurationsOverride?: Array<AutopilotPackageConfiguration>;
     public constructor(flavor?: string, hostNetwork?: AutopilotHostNetwork, containerNetwork?: AutopilotContainerNetwork) { 
         this['flavor'] = flavor;
@@ -118,6 +121,18 @@ export class AutopilotClusterSpec {
     }
     public withExtendParam(extendParam: AutopilotClusterExtendParam): AutopilotClusterSpec {
         this['extendParam'] = extendParam;
+        return this;
+    }
+    public withEnableMasterVolumeEncryption(enableMasterVolumeEncryption: boolean): AutopilotClusterSpec {
+        this['enableMasterVolumeEncryption'] = enableMasterVolumeEncryption;
+        return this;
+    }
+    public withEnableDistMgt(enableDistMgt: boolean): AutopilotClusterSpec {
+        this['enableDistMgt'] = enableDistMgt;
+        return this;
+    }
+    public withDeletionProtection(deletionProtection: boolean): AutopilotClusterSpec {
+        this['deletionProtection'] = deletionProtection;
         return this;
     }
     public withConfigurationsOverride(configurationsOverride: Array<AutopilotPackageConfiguration>): AutopilotClusterSpec {

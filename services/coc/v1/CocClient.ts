@@ -263,6 +263,7 @@ import { ListWarRoomsRequest } from './model/ListWarRoomsRequest';
 import { ListWarRoomsResponse } from './model/ListWarRoomsResponse';
 import { MessageNotification } from './model/MessageNotification';
 import { NonCompliantSummary } from './model/NonCompliantSummary';
+import { NotificationMode } from './model/NotificationMode';
 import { ObjectFilter } from './model/ObjectFilter';
 import { ObjectFilterV2 } from './model/ObjectFilterV2';
 import { OperateExecutionRequest } from './model/OperateExecutionRequest';

@@ -4,19 +4,34 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AdminUserInfoReq } from './model/AdminUserInfoReq';
 import { ApiVersion } from './model/ApiVersion';
+import { AvailableDnInstance } from './model/AvailableDnInstance';
 import { AvailableZone } from './model/AvailableZone';
+import { BackupInfo } from './model/BackupInfo';
+import { CancelMigrationRequest } from './model/CancelMigrationRequest';
+import { CancelMigrationResponse } from './model/CancelMigrationResponse';
 import { ChangeDatabaseVersionRequest } from './model/ChangeDatabaseVersionRequest';
 import { ChangeDatabaseVersionResponse } from './model/ChangeDatabaseVersionResponse';
+import { ChangeStrategyRequest } from './model/ChangeStrategyRequest';
+import { ChangeStrategyResponse } from './model/ChangeStrategyResponse';
+import { CheckMigrateLogicDbRequest } from './model/CheckMigrateLogicDbRequest';
+import { CheckMigrateLogicDbResponse } from './model/CheckMigrateLogicDbResponse';
+import { CheckPreliminaryResultsRequest } from './model/CheckPreliminaryResultsRequest';
+import { CheckPreliminaryResultsResponse } from './model/CheckPreliminaryResultsResponse';
+import { CleanMigrationRequest } from './model/CleanMigrationRequest';
+import { CleanMigrationResponse } from './model/CleanMigrationResponse';
 import { ComputeFlavorGroupsInfo } from './model/ComputeFlavorGroupsInfo';
 import { ComputeFlavors } from './model/ComputeFlavors';
 import { ConfigurationInfo } from './model/ConfigurationInfo';
 import { ConfigurationParameter } from './model/ConfigurationParameter';
 import { ConfigurationParameterList } from './model/ConfigurationParameterList';
+import { CreateConfigurationRequest } from './model/CreateConfigurationRequest';
 import { CreateDatabaseDetail } from './model/CreateDatabaseDetail';
 import { CreateDatabaseDetailResponses } from './model/CreateDatabaseDetailResponses';
 import { CreateDatabaseReq } from './model/CreateDatabaseReq';
 import { CreateDatabaseRequest } from './model/CreateDatabaseRequest';
 import { CreateDatabaseResponse } from './model/CreateDatabaseResponse';
+import { CreateDdmConfigurationsRequest } from './model/CreateDdmConfigurationsRequest';
+import { CreateDdmConfigurationsResponse } from './model/CreateDdmConfigurationsResponse';
 import { CreateDdmDatabaseRequest } from './model/CreateDdmDatabaseRequest';
 import { CreateDdmDatabaseRequestBody } from './model/CreateDdmDatabaseRequestBody';
 import { CreateDdmDatabaseResponse } from './model/CreateDdmDatabaseResponse';
@@ -34,9 +49,18 @@ import { CreateUsersInfo } from './model/CreateUsersInfo';
 import { CreateUsersReq } from './model/CreateUsersReq';
 import { CreateUsersRequest } from './model/CreateUsersRequest';
 import { CreateUsersResponse } from './model/CreateUsersResponse';
+import { DDMInstance4Restore } from './model/DDMInstance4Restore';
+import { DNInstance } from './model/DNInstance';
+import { DataNode } from './model/DataNode';
+import { DataNodeRelation } from './model/DataNodeRelation';
+import { DataNodes } from './model/DataNodes';
 import { DatabaseDnInstances } from './model/DatabaseDnInstances';
 import { DatabaseInstabcesParam } from './model/DatabaseInstabcesParam';
 import { DatabaseVersionRequest } from './model/DatabaseVersionRequest';
+import { DeleteBackupRequest } from './model/DeleteBackupRequest';
+import { DeleteBackupResponse } from './model/DeleteBackupResponse';
+import { DeleteConfigurationRequest } from './model/DeleteConfigurationRequest';
+import { DeleteConfigurationResponse } from './model/DeleteConfigurationResponse';
 import { DeleteDatabaseRequest } from './model/DeleteDatabaseRequest';
 import { DeleteDatabaseResponse } from './model/DeleteDatabaseResponse';
 import { DeleteDdmDatabaseRequest } from './model/DeleteDdmDatabaseRequest';
@@ -47,6 +71,9 @@ import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
 import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
 import { DeleteUserRequest } from './model/DeleteUserRequest';
 import { DeleteUserResponse } from './model/DeleteUserResponse';
+import { DnInstanceInfo } from './model/DnInstanceInfo';
+import { DownloadSchemaMetadataRequest } from './model/DownloadSchemaMetadataRequest';
+import { DownloadSchemaMetadataResponse } from './model/DownloadSchemaMetadataResponse';
 import { EngineGroupInfo } from './model/EngineGroupInfo';
 import { EngineGroupsInfo } from './model/EngineGroupsInfo';
 import { EnlargeNodeInfo } from './model/EnlargeNodeInfo';
@@ -72,14 +99,21 @@ import { GetUsersListDetailResponses } from './model/GetUsersListDetailResponses
 import { GetUsersListdatabase } from './model/GetUsersListdatabase';
 import { GroupInfo } from './model/GroupInfo';
 import { GroupNodeInfo } from './model/GroupNodeInfo';
+import { IamAccount } from './model/IamAccount';
 import { Instance } from './model/Instance';
 import { JobInfo } from './model/JobInfo';
 import { KillProcessesOpenRequest } from './model/KillProcessesOpenRequest';
 import { LinkInfo } from './model/LinkInfo';
 import { ListApiVersionRequest } from './model/ListApiVersionRequest';
 import { ListApiVersionResponse } from './model/ListApiVersionResponse';
+import { ListAvailableRdsForMigrateRequest } from './model/ListAvailableRdsForMigrateRequest';
+import { ListAvailableRdsForMigrateResponse } from './model/ListAvailableRdsForMigrateResponse';
 import { ListAvailableRdsListRequest } from './model/ListAvailableRdsListRequest';
 import { ListAvailableRdsListResponse } from './model/ListAvailableRdsListResponse';
+import { ListAvailableRdsRequest } from './model/ListAvailableRdsRequest';
+import { ListAvailableRdsResponse } from './model/ListAvailableRdsResponse';
+import { ListBackupsRequest } from './model/ListBackupsRequest';
+import { ListBackupsResponse } from './model/ListBackupsResponse';
 import { ListDatabaseAvailableVersionsRequest } from './model/ListDatabaseAvailableVersionsRequest';
 import { ListDatabaseAvailableVersionsResponse } from './model/ListDatabaseAvailableVersionsResponse';
 import { ListDatabasesRequest } from './model/ListDatabasesRequest';
@@ -108,18 +142,32 @@ import { ListSlowLogsRequest } from './model/ListSlowLogsRequest';
 import { ListSlowLogsResponse } from './model/ListSlowLogsResponse';
 import { ListUsersRequest } from './model/ListUsersRequest';
 import { ListUsersResponse } from './model/ListUsersResponse';
+import { LoadSchemaMetadataReq } from './model/LoadSchemaMetadataReq';
 import { LogicalProcessInfo } from './model/LogicalProcessInfo';
+import { MigrateDnInfoOpenResponse } from './model/MigrateDnInfoOpenResponse';
+import { MigrateLogicDbOpenReq } from './model/MigrateLogicDbOpenReq';
+import { MigrateLogicDbRequest } from './model/MigrateLogicDbRequest';
+import { MigrateLogicDbResponse } from './model/MigrateLogicDbResponse';
+import { MigrateResultsRequest } from './model/MigrateResultsRequest';
+import { MigrateResultsResponse } from './model/MigrateResultsResponse';
+import { MigrateRouteSwitchReqVO } from './model/MigrateRouteSwitchReqVO';
+import { ModifyConfigurationRequest } from './model/ModifyConfigurationRequest';
+import { ModifyConfigurationResponse } from './model/ModifyConfigurationResponse';
 import { ModifyInstanceNameReq } from './model/ModifyInstanceNameReq';
 import { ModifyInstanceSecurityGroupReq } from './model/ModifyInstanceSecurityGroupReq';
 import { ModifyReadAndWriteStrategyReq } from './model/ModifyReadAndWriteStrategyReq';
 import { NodeInfo } from './model/NodeInfo';
 import { NodeList } from './model/NodeList';
+import { ParaGroupUpdate } from './model/ParaGroupUpdate';
 import { PhysicalProcessInfo } from './model/PhysicalProcessInfo';
+import { PreCheckResult } from './model/PreCheckResult';
 import { QueryAvailableRdsList } from './model/QueryAvailableRdsList';
 import { ReadWriteRatioList } from './model/ReadWriteRatioList';
 import { RebuildConfigRequest } from './model/RebuildConfigRequest';
 import { RebuildConfigResponse } from './model/RebuildConfigResponse';
 import { ReduceRequest } from './model/ReduceRequest';
+import { RelatedDn } from './model/RelatedDn';
+import { RelatedDnVO } from './model/RelatedDnVO';
 import { ResetAdministratorRequest } from './model/ResetAdministratorRequest';
 import { ResetAdministratorResponse } from './model/ResetAdministratorResponse';
 import { ResetUserPasswordReq } from './model/ResetUserPasswordReq';
@@ -132,9 +180,29 @@ import { RestarInstanceInfo } from './model/RestarInstanceInfo';
 import { RestartInstanceReq } from './model/RestartInstanceReq';
 import { RestartInstanceRequest } from './model/RestartInstanceRequest';
 import { RestartInstanceResponse } from './model/RestartInstanceResponse';
+import { Restore2ExistRequest } from './model/Restore2ExistRequest';
+import { Restore2ExistResponse } from './model/Restore2ExistResponse';
+import { RestoreInst2ExistReq } from './model/RestoreInst2ExistReq';
+import { RestoreMetaData2ExistReq } from './model/RestoreMetaData2ExistReq';
+import { RestoreMetadataRequest } from './model/RestoreMetadataRequest';
+import { RestoreMetadataResponse } from './model/RestoreMetadataResponse';
+import { RestoreTimeInterval } from './model/RestoreTimeInterval';
+import { RetryMigrationRequest } from './model/RetryMigrationRequest';
+import { RetryMigrationResponse } from './model/RetryMigrationResponse';
 import { Risks } from './model/Risks';
 import { RollBackDatabaseVersionRequest } from './model/RollBackDatabaseVersionRequest';
 import { RollBackDatabaseVersionResponse } from './model/RollBackDatabaseVersionResponse';
+import { RollbackMigrationRequest } from './model/RollbackMigrationRequest';
+import { RollbackMigrationResponse } from './model/RollbackMigrationResponse';
+import { Shards } from './model/Shards';
+import { ShowAvalibleDdmsRequest } from './model/ShowAvalibleDdmsRequest';
+import { ShowAvalibleDdmsResponse } from './model/ShowAvalibleDdmsResponse';
+import { ShowAvalibleRdsRequest } from './model/ShowAvalibleRdsRequest';
+import { ShowAvalibleRdsResponse } from './model/ShowAvalibleRdsResponse';
+import { ShowAvalibleTimeRequest } from './model/ShowAvalibleTimeRequest';
+import { ShowAvalibleTimeResponse } from './model/ShowAvalibleTimeResponse';
+import { ShowBackupRequest } from './model/ShowBackupRequest';
+import { ShowBackupResponse } from './model/ShowBackupResponse';
 import { ShowConfigurationRequest } from './model/ShowConfigurationRequest';
 import { ShowConfigurationResponse } from './model/ShowConfigurationResponse';
 import { ShowDatabaseRequest } from './model/ShowDatabaseRequest';
@@ -142,6 +210,8 @@ import { ShowDatabaseResponse } from './model/ShowDatabaseResponse';
 import { ShowDdmJobResultRequest } from './model/ShowDdmJobResultRequest';
 import { ShowDdmJobResultResponse } from './model/ShowDdmJobResultResponse';
 import { ShowInstanceBeanResponse } from './model/ShowInstanceBeanResponse';
+import { ShowInstanceDatabaseRequest } from './model/ShowInstanceDatabaseRequest';
+import { ShowInstanceDatabaseResponse } from './model/ShowInstanceDatabaseResponse';
 import { ShowInstanceParamRequest } from './model/ShowInstanceParamRequest';
 import { ShowInstanceParamResponse } from './model/ShowInstanceParamResponse';
 import { ShowInstanceRequest } from './model/ShowInstanceRequest';
@@ -154,6 +224,8 @@ import { ShowPhysicalProcessesRequest } from './model/ShowPhysicalProcessesReque
 import { ShowPhysicalProcessesResponse } from './model/ShowPhysicalProcessesResponse';
 import { ShowProcessesAuditLogRequest } from './model/ShowProcessesAuditLogRequest';
 import { ShowProcessesAuditLogResponse } from './model/ShowProcessesAuditLogResponse';
+import { ShowRelatedDnsRequest } from './model/ShowRelatedDnsRequest';
+import { ShowRelatedDnsResponse } from './model/ShowRelatedDnsResponse';
 import { ShowRiskInfoRequest } from './model/ShowRiskInfoRequest';
 import { ShowRiskInfoResponse } from './model/ShowRiskInfoResponse';
 import { ShrinkInstanceNodesRequest } from './model/ShrinkInstanceNodesRequest';
@@ -161,9 +233,12 @@ import { ShrinkInstanceNodesResponse } from './model/ShrinkInstanceNodesResponse
 import { SlowLogList } from './model/SlowLogList';
 import { SlowLogs } from './model/SlowLogs';
 import { SupportAzsInfo } from './model/SupportAzsInfo';
+import { SwitchRouteRequest } from './model/SwitchRouteRequest';
+import { SwitchRouteResponse } from './model/SwitchRouteResponse';
 import { SwitchSslOpenRequest } from './model/SwitchSslOpenRequest';
 import { SwitchSslRequest } from './model/SwitchSslRequest';
 import { SwitchSslResponse } from './model/SwitchSslResponse';
+import { TargetDn4Restore } from './model/TargetDn4Restore';
 import { UpdateDatabaseInfoRequest } from './model/UpdateDatabaseInfoRequest';
 import { UpdateDatabaseInfoResponse } from './model/UpdateDatabaseInfoResponse';
 import { UpdateInstanceNameRequest } from './model/UpdateInstanceNameRequest';
@@ -184,6 +259,8 @@ import { UpdateUserReq } from './model/UpdateUserReq';
 import { UpdateUserRequest } from './model/UpdateUserRequest';
 import { UpdateUserResponse } from './model/UpdateUserResponse';
 import { UpdateUsersDatabases } from './model/UpdateUsersDatabases';
+import { UploadSchemaMetadataRequest } from './model/UploadSchemaMetadataRequest';
+import { UploadSchemaMetadataResponse } from './model/UploadSchemaMetadataResponse';
 import { UserProcessAuditLog } from './model/UserProcessAuditLog';
 import { ValidateWeakPasswordRequest } from './model/ValidateWeakPasswordRequest';
 import { ValidateWeakPasswordResponse } from './model/ValidateWeakPasswordResponse';
@@ -226,6 +303,44 @@ export class DdmClient {
     }
 
     /**
+     * 创建参数组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建参数组
+     * @param {CreateConfigurationRequest} createDdmConfigurationsRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDdmConfigurations(createDdmConfigurationsRequest?: CreateDdmConfigurationsRequest): Promise<CreateDdmConfigurationsResponse> {
+        const options = ParamCreater().createDdmConfigurations(createDdmConfigurationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除参数组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除参数组
+     * @param {string} configId 参数组 ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteConfiguration(deleteConfigurationRequest?: DeleteConfigurationRequest): Promise<DeleteConfigurationResponse> {
+        const options = ParamCreater().deleteConfiguration(deleteConfigurationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询可变更内核版本
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -257,6 +372,26 @@ export class DdmClient {
      */
     public listDdmConfigurations(listDdmConfigurationsRequest?: ListDdmConfigurationsRequest): Promise<ListDdmConfigurationsResponse> {
         const options = ParamCreater().listDdmConfigurations(listDdmConfigurationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改实例参数
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改实例参数
+     * @param {string} instanceId 实例 ID。
+     * @param {ParaGroupUpdate} modifyConfigurationRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyConfiguration(modifyConfigurationRequest?: ModifyConfigurationRequest): Promise<ModifyConfigurationResponse> {
+        const options = ParamCreater().modifyConfiguration(modifyConfigurationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -332,6 +467,112 @@ export class DdmClient {
      */
     public listApiVersion(listApiVersionRequest?: ListApiVersionRequest): Promise<ListApiVersionResponse> {
         const options = ParamCreater().listApiVersion();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 取消分片变更
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 取消分片变更
+     * @param {string} instanceId DDM实例ID
+     * @param {string} dbName 逻辑库名称
+     * @param {string} jobId 任务流id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public cancelMigration(cancelMigrationRequest?: CancelMigrationRequest): Promise<CancelMigrationResponse> {
+        const options = ParamCreater().cancelMigration(cancelMigrationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改切换路由策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改切换路由策略
+     * @param {string} instanceId DDM实例ID
+     * @param {string} dbName 逻辑库名称
+     * @param {string} jobId 任务流id
+     * @param {MigrateRouteSwitchReqVO} [changeStrategyRequestBody] 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeStrategy(changeStrategyRequest?: ChangeStrategyRequest): Promise<ChangeStrategyResponse> {
+        const options = ParamCreater().changeStrategy(changeStrategyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分片变更预校验
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 分片变更预校验
+     * @param {string} instanceId DDM实例ID
+     * @param {string} dbName 逻辑库名称
+     * @param {MigrateLogicDbOpenReq} checkMigrateLogicDbRequestBody 预校验请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkMigrateLogicDb(checkMigrateLogicDbRequest?: CheckMigrateLogicDbRequest): Promise<CheckMigrateLogicDbResponse> {
+        const options = ParamCreater().checkMigrateLogicDb(checkMigrateLogicDbRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询分片变更预校验异步结果
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询分片变更预校验异步结果
+     * @param {string} instanceId DDM实例ID
+     * @param {string} dbName 逻辑库名称
+     * @param {string} jobId 工作流名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkPreliminaryResults(checkPreliminaryResultsRequest?: CheckPreliminaryResultsRequest): Promise<CheckPreliminaryResultsResponse> {
+        const options = ParamCreater().checkPreliminaryResults(checkPreliminaryResultsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 清理分片变更
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 清理分片变更
+     * @param {string} instanceId DDM实例ID
+     * @param {string} dbName 逻辑库名称
+     * @param {string} jobId 任务流id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public cleanMigration(cleanMigrationRequest?: CleanMigrationRequest): Promise<CleanMigrationResponse> {
+        const options = ParamCreater().cleanMigration(cleanMigrationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -433,6 +674,25 @@ export class DdmClient {
      */
     public createUsers(createUsersRequest?: CreateUsersRequest): Promise<CreateUsersResponse> {
         const options = ParamCreater().createUsers(createUsersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除备份
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除备份
+     * @param {string} backupId 备份 ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteBackup(deleteBackupRequest?: DeleteBackupRequest): Promise<DeleteBackupResponse> {
+        const options = ParamCreater().deleteBackup(deleteBackupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -543,6 +803,25 @@ export class DdmClient {
     }
 
     /**
+     * 导出所有逻辑库物理分片在数据节点上的分布关系
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导出逻辑库元数据
+     * @param {string} instanceId DDM实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadSchemaMetadata(downloadSchemaMetadataRequest?: DownloadSchemaMetadataRequest): Promise<DownloadSchemaMetadataResponse> {
+        const options = ParamCreater().downloadSchemaMetadata(downloadSchemaMetadataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * kill逻辑会话
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -623,6 +902,45 @@ export class DdmClient {
     }
 
     /**
+     * 查询创建逻辑库可选取的数据节点实例列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询创建逻辑库可选取的数据节点实例列表
+     * @param {string} instanceId DDM实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAvailableRds(listAvailableRdsRequest?: ListAvailableRdsRequest): Promise<ListAvailableRdsResponse> {
+        const options = ParamCreater().listAvailableRds(listAvailableRdsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询分片变更可选取的数据节点实例列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询分片变更可选取的数据节点实例列表
+     * @param {string} instanceId DDM实例ID
+     * @param {string} dbName 逻辑库名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAvailableRdsForMigrate(listAvailableRdsForMigrateRequest?: ListAvailableRdsForMigrateRequest): Promise<ListAvailableRdsForMigrateResponse> {
+        const options = ParamCreater().listAvailableRdsForMigrate(listAvailableRdsForMigrateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询创建逻辑库可选取的数据库实例列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -636,6 +954,24 @@ export class DdmClient {
      */
     public listAvailableRdsList(listAvailableRdsListRequest?: ListAvailableRdsListRequest): Promise<ListAvailableRdsListResponse> {
         const options = ParamCreater().listAvailableRdsList(listAvailableRdsListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取备份列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取备份列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBackups(listBackupsRequest?: ListBackupsRequest): Promise<ListBackupsResponse> {
+        const options = ParamCreater().listBackups();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -901,6 +1237,48 @@ export class DdmClient {
     }
 
     /**
+     * 分片变更
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 分片变更
+     * @param {string} instanceId DDM实例ID
+     * @param {string} dbName 逻辑库名称
+     * @param {MigrateLogicDbOpenReq} migrateLogicDbRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public migrateLogicDb(migrateLogicDbRequest?: MigrateLogicDbRequest): Promise<MigrateLogicDbResponse> {
+        const options = ParamCreater().migrateLogicDb(migrateLogicDbRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询分片变更任务详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询分片变更任务详情
+     * @param {string} instanceId DDM实例ID
+     * @param {string} dbName 逻辑库名称
+     * @param {string} jobId 任务流id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public migrateResults(migrateResultsRequest?: MigrateResultsRequest): Promise<MigrateResultsResponse> {
+        const options = ParamCreater().migrateResults(migrateResultsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * DDM实例跨region容灾场景下，针对目标DDM实例实现表数据reload，使数据同步。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1001,6 +1379,168 @@ export class DdmClient {
     }
 
     /**
+     * 恢复到新实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 恢复到新实例
+     * @param {string} instanceId 实例 ID。
+     * @param {RestoreInst2ExistReq} restore2ExistRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public restore2Exist(restore2ExistRequest?: Restore2ExistRequest): Promise<Restore2ExistResponse> {
+        const options = ParamCreater().restore2Exist(restore2ExistRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 元数据恢复
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 元数据恢复
+     * @param {string} instanceId 实例 ID。
+     * @param {RestoreMetaData2ExistReq} restoreMetadataRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public restoreMetadata(restoreMetadataRequest?: RestoreMetadataRequest): Promise<RestoreMetadataResponse> {
+        const options = ParamCreater().restoreMetadata(restoreMetadataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 重试分片变更
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重试分片变更
+     * @param {string} instanceId DDM实例ID
+     * @param {string} dbName 逻辑库名称
+     * @param {string} jobId 任务流id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public retryMigration(retryMigrationRequest?: RetryMigrationRequest): Promise<RetryMigrationResponse> {
+        const options = ParamCreater().retryMigration(retryMigrationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 回滚分片变更
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 回滚分片变更
+     * @param {string} instanceId DDM实例ID
+     * @param {string} dbName 逻辑库名称
+     * @param {string} jobId 任务流id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public rollbackMigration(rollbackMigrationRequest?: RollbackMigrationRequest): Promise<RollbackMigrationResponse> {
+        const options = ParamCreater().rollbackMigration(rollbackMigrationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询可用于恢复的实例列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询可用于恢复的实例列表
+     * @param {string} instanceId 实例 ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAvalibleDdms(showAvalibleDdmsRequest?: ShowAvalibleDdmsRequest): Promise<ShowAvalibleDdmsResponse> {
+        const options = ParamCreater().showAvalibleDdms(showAvalibleDdmsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询可用于时间点恢复的数据节点列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询可用于时间点恢复的数据节点列表
+     * @param {string} instanceId 实例 ID。
+     * @param {string} targetInstanceId 目标实例 ID。
+     * @param {string} sourceDnInstanceId 源DN实例 ID。
+     * @param {string} restoreTime 恢复时间。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAvalibleRds(showAvalibleRdsRequest?: ShowAvalibleRdsRequest): Promise<ShowAvalibleRdsResponse> {
+        const options = ParamCreater().showAvalibleRds(showAvalibleRdsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询可恢复时间段
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询可恢复时间段
+     * @param {string} instanceId 实例 ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAvalibleTime(showAvalibleTimeRequest?: ShowAvalibleTimeRequest): Promise<ShowAvalibleTimeResponse> {
+        const options = ParamCreater().showAvalibleTime(showAvalibleTimeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询备份详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询备份详情
+     * @param {string} instanceId 实例 ID。
+     * @param {string} backupId 备份 ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBackup(showBackupRequest?: ShowBackupRequest): Promise<ShowBackupResponse> {
+        const options = ParamCreater().showBackup(showBackupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询指定逻辑库的详细信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1051,6 +1591,26 @@ export class DdmClient {
      */
     public showInstance(showInstanceRequest?: ShowInstanceRequest): Promise<ShowInstanceResponse> {
         const options = ParamCreater().showInstance(showInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询逻辑库详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询逻辑库详情
+     * @param {string} instanceId 实例ID。
+     * @param {string} databaseName 逻辑库名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceDatabase(showInstanceDatabaseRequest?: ShowInstanceDatabaseRequest): Promise<ShowInstanceDatabaseResponse> {
+        const options = ParamCreater().showInstanceDatabase(showInstanceDatabaseRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1168,6 +1728,26 @@ export class DdmClient {
     }
 
     /**
+     * 查询实例在恢复时间点关联的数据节点
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例在恢复时间点关联的数据节点
+     * @param {string} instanceId 实例 ID。
+     * @param {string} restoreTime 恢复时间。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRelatedDns(showRelatedDnsRequest?: ShowRelatedDnsRequest): Promise<ShowRelatedDnsResponse> {
+        const options = ParamCreater().showRelatedDns(showRelatedDnsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 对指定的DDM实例的节点个数进行缩容。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1180,6 +1760,27 @@ export class DdmClient {
      */
     public shrinkInstanceNodes(shrinkInstanceNodesRequest?: ShrinkInstanceNodesRequest): Promise<ShrinkInstanceNodesResponse> {
         const options = ParamCreater().shrinkInstanceNodes(shrinkInstanceNodesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 切换路由
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 切换路由
+     * @param {string} instanceId DDM实例ID
+     * @param {string} dbName 逻辑库名称
+     * @param {string} jobId 任务流id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchRoute(switchRouteRequest?: SwitchRouteRequest): Promise<SwitchRouteResponse> {
+        const options = ParamCreater().switchRoute(switchRouteRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1349,6 +1950,26 @@ export class DdmClient {
     }
 
     /**
+     * 导入所有逻辑库物理分片分布关系，以此创建相同物理分片分布关系的逻辑库。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导入逻辑库元数据
+     * @param {string} instanceId DDM实例ID
+     * @param {LoadSchemaMetadataReq} uploadSchemaMetadataRequestBody 导入逻辑库请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public uploadSchemaMetadata(uploadSchemaMetadataRequest?: UploadSchemaMetadataRequest): Promise<UploadSchemaMetadataResponse> {
+        const options = ParamCreater().uploadSchemaMetadata(uploadSchemaMetadataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 弱密码校验
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1413,6 +2034,81 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建参数组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDdmConfigurations(createDdmConfigurationsRequest?: CreateDdmConfigurationsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/configurations",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createDdmConfigurationsRequest !== null && createDdmConfigurationsRequest !== undefined) {
+                if (createDdmConfigurationsRequest instanceof CreateDdmConfigurationsRequest) {
+                    body = createDdmConfigurationsRequest.body
+                } else {
+                    body = createDdmConfigurationsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除参数组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteConfiguration(deleteConfigurationRequest?: DeleteConfigurationRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/configurations/{config_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let configId;
+
+            if (deleteConfigurationRequest !== null && deleteConfigurationRequest !== undefined) {
+                if (deleteConfigurationRequest instanceof DeleteConfigurationRequest) {
+                    configId = deleteConfigurationRequest.configId;
+                } else {
+                    configId = deleteConfigurationRequest['config_id'];
+                }
+            }
+
+        
+            if (configId === null || configId === undefined) {
+            throw new RequiredError('configId','Required parameter configId was null or undefined when calling deleteConfiguration.');
+            }
+
+            options.pathParams = { 'config_id': configId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1494,6 +2190,52 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改实例参数
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyConfiguration(modifyConfigurationRequest?: ModifyConfigurationRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3.1/{project_id}/instances/{instance_id}/configurations",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (modifyConfigurationRequest !== null && modifyConfigurationRequest !== undefined) {
+                if (modifyConfigurationRequest instanceof ModifyConfigurationRequest) {
+                    instanceId = modifyConfigurationRequest.instanceId;
+                    body = modifyConfigurationRequest.body
+                } else {
+                    instanceId = modifyConfigurationRequest['instance_id'];
+                    body = modifyConfigurationRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling modifyConfiguration.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1626,6 +2368,269 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 取消分片变更
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        cancelMigration(cancelMigrationRequest?: CancelMigrationRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/databases/{db_name}/migration/jobs/{job_id}/cancel",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let dbName;
+            
+            let jobId;
+
+            if (cancelMigrationRequest !== null && cancelMigrationRequest !== undefined) {
+                if (cancelMigrationRequest instanceof CancelMigrationRequest) {
+                    instanceId = cancelMigrationRequest.instanceId;
+                    dbName = cancelMigrationRequest.dbName;
+                    jobId = cancelMigrationRequest.jobId;
+                } else {
+                    instanceId = cancelMigrationRequest['instance_id'];
+                    dbName = cancelMigrationRequest['db_name'];
+                    jobId = cancelMigrationRequest['job_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling cancelMigration.');
+            }
+            if (dbName === null || dbName === undefined) {
+            throw new RequiredError('dbName','Required parameter dbName was null or undefined when calling cancelMigration.');
+            }
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling cancelMigration.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'db_name': dbName,'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改切换路由策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeStrategy(changeStrategyRequest?: ChangeStrategyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/databases/{db_name}/migration/jobs/{job_id}/route-switch-strategy",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let dbName;
+            
+            let jobId;
+
+            if (changeStrategyRequest !== null && changeStrategyRequest !== undefined) {
+                if (changeStrategyRequest instanceof ChangeStrategyRequest) {
+                    instanceId = changeStrategyRequest.instanceId;
+                    dbName = changeStrategyRequest.dbName;
+                    jobId = changeStrategyRequest.jobId;
+                    body = changeStrategyRequest.body
+                } else {
+                    instanceId = changeStrategyRequest['instance_id'];
+                    dbName = changeStrategyRequest['db_name'];
+                    jobId = changeStrategyRequest['job_id'];
+                    body = changeStrategyRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling changeStrategy.');
+            }
+            if (dbName === null || dbName === undefined) {
+            throw new RequiredError('dbName','Required parameter dbName was null or undefined when calling changeStrategy.');
+            }
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling changeStrategy.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'db_name': dbName,'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分片变更预校验
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkMigrateLogicDb(checkMigrateLogicDbRequest?: CheckMigrateLogicDbRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/databases/{db_name}/migration/precheck",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let dbName;
+
+            if (checkMigrateLogicDbRequest !== null && checkMigrateLogicDbRequest !== undefined) {
+                if (checkMigrateLogicDbRequest instanceof CheckMigrateLogicDbRequest) {
+                    instanceId = checkMigrateLogicDbRequest.instanceId;
+                    dbName = checkMigrateLogicDbRequest.dbName;
+                    body = checkMigrateLogicDbRequest.body
+                } else {
+                    instanceId = checkMigrateLogicDbRequest['instance_id'];
+                    dbName = checkMigrateLogicDbRequest['db_name'];
+                    body = checkMigrateLogicDbRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling checkMigrateLogicDb.');
+            }
+            if (dbName === null || dbName === undefined) {
+            throw new RequiredError('dbName','Required parameter dbName was null or undefined when calling checkMigrateLogicDb.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'db_name': dbName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询分片变更预校验异步结果
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkPreliminaryResults(checkPreliminaryResultsRequest?: CheckPreliminaryResultsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/databases/{db_name}/migration/precheck/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let dbName;
+            
+            let jobId;
+
+            if (checkPreliminaryResultsRequest !== null && checkPreliminaryResultsRequest !== undefined) {
+                if (checkPreliminaryResultsRequest instanceof CheckPreliminaryResultsRequest) {
+                    instanceId = checkPreliminaryResultsRequest.instanceId;
+                    dbName = checkPreliminaryResultsRequest.dbName;
+                    jobId = checkPreliminaryResultsRequest.jobId;
+                } else {
+                    instanceId = checkPreliminaryResultsRequest['instance_id'];
+                    dbName = checkPreliminaryResultsRequest['db_name'];
+                    jobId = checkPreliminaryResultsRequest['job_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling checkPreliminaryResults.');
+            }
+            if (dbName === null || dbName === undefined) {
+            throw new RequiredError('dbName','Required parameter dbName was null or undefined when calling checkPreliminaryResults.');
+            }
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling checkPreliminaryResults.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'db_name': dbName,'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 清理分片变更
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        cleanMigration(cleanMigrationRequest?: CleanMigrationRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/databases/{db_name}/migration/jobs/{job_id}/clean",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let dbName;
+            
+            let jobId;
+
+            if (cleanMigrationRequest !== null && cleanMigrationRequest !== undefined) {
+                if (cleanMigrationRequest instanceof CleanMigrationRequest) {
+                    instanceId = cleanMigrationRequest.instanceId;
+                    dbName = cleanMigrationRequest.dbName;
+                    jobId = cleanMigrationRequest.jobId;
+                } else {
+                    instanceId = cleanMigrationRequest['instance_id'];
+                    dbName = cleanMigrationRequest['db_name'];
+                    jobId = cleanMigrationRequest['job_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling cleanMigration.');
+            }
+            if (dbName === null || dbName === undefined) {
+            throw new RequiredError('dbName','Required parameter dbName was null or undefined when calling cleanMigration.');
+            }
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling cleanMigration.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'db_name': dbName,'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1847,6 +2852,43 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除备份
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteBackup(deleteBackupRequest?: DeleteBackupRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/backups/{backup_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let backupId;
+
+            if (deleteBackupRequest !== null && deleteBackupRequest !== undefined) {
+                if (deleteBackupRequest instanceof DeleteBackupRequest) {
+                    backupId = deleteBackupRequest.backupId;
+                } else {
+                    backupId = deleteBackupRequest['backup_id'];
+                }
+            }
+
+        
+            if (backupId === null || backupId === undefined) {
+            throw new RequiredError('backupId','Required parameter backupId was null or undefined when calling deleteBackup.');
+            }
+
+            options.pathParams = { 'backup_id': backupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2093,6 +3135,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 导出所有逻辑库物理分片在数据节点上的分布关系
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadSchemaMetadata(downloadSchemaMetadataRequest?: DownloadSchemaMetadataRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/schema-metadata",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (downloadSchemaMetadataRequest !== null && downloadSchemaMetadataRequest !== undefined) {
+                if (downloadSchemaMetadataRequest instanceof DownloadSchemaMetadataRequest) {
+                    instanceId = downloadSchemaMetadataRequest.instanceId;
+                } else {
+                    instanceId = downloadSchemaMetadataRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling downloadSchemaMetadata.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * kill逻辑会话
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2277,6 +3356,87 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询创建逻辑库可选取的数据节点实例列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAvailableRds(listAvailableRdsRequest?: ListAvailableRdsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/available-data-nodes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (listAvailableRdsRequest !== null && listAvailableRdsRequest !== undefined) {
+                if (listAvailableRdsRequest instanceof ListAvailableRdsRequest) {
+                    instanceId = listAvailableRdsRequest.instanceId;
+                } else {
+                    instanceId = listAvailableRdsRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listAvailableRds.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询分片变更可选取的数据节点实例列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAvailableRdsForMigrate(listAvailableRdsForMigrateRequest?: ListAvailableRdsForMigrateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/databases/{db_name}/migration/available-data-nodes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let dbName;
+
+            if (listAvailableRdsForMigrateRequest !== null && listAvailableRdsForMigrateRequest !== undefined) {
+                if (listAvailableRdsForMigrateRequest instanceof ListAvailableRdsForMigrateRequest) {
+                    instanceId = listAvailableRdsForMigrateRequest.instanceId;
+                    dbName = listAvailableRdsForMigrateRequest.dbName;
+                } else {
+                    instanceId = listAvailableRdsForMigrateRequest['instance_id'];
+                    dbName = listAvailableRdsForMigrateRequest['db_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listAvailableRdsForMigrate.');
+            }
+            if (dbName === null || dbName === undefined) {
+            throw new RequiredError('dbName','Required parameter dbName was null or undefined when calling listAvailableRdsForMigrate.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'db_name': dbName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询创建逻辑库可选取的数据库实例列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2324,6 +3484,27 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取备份列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBackups() {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/backups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3016,6 +4197,110 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 分片变更
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        migrateLogicDb(migrateLogicDbRequest?: MigrateLogicDbRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/databases/{db_name}/migration",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let dbName;
+
+            if (migrateLogicDbRequest !== null && migrateLogicDbRequest !== undefined) {
+                if (migrateLogicDbRequest instanceof MigrateLogicDbRequest) {
+                    instanceId = migrateLogicDbRequest.instanceId;
+                    dbName = migrateLogicDbRequest.dbName;
+                    body = migrateLogicDbRequest.body
+                } else {
+                    instanceId = migrateLogicDbRequest['instance_id'];
+                    dbName = migrateLogicDbRequest['db_name'];
+                    body = migrateLogicDbRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling migrateLogicDb.');
+            }
+            if (dbName === null || dbName === undefined) {
+            throw new RequiredError('dbName','Required parameter dbName was null or undefined when calling migrateLogicDb.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'db_name': dbName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询分片变更任务详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        migrateResults(migrateResultsRequest?: MigrateResultsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/databases/{db_name}/migration/jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let dbName;
+            
+            let jobId;
+
+            if (migrateResultsRequest !== null && migrateResultsRequest !== undefined) {
+                if (migrateResultsRequest instanceof MigrateResultsRequest) {
+                    instanceId = migrateResultsRequest.instanceId;
+                    dbName = migrateResultsRequest.dbName;
+                    jobId = migrateResultsRequest.jobId;
+                } else {
+                    instanceId = migrateResultsRequest['instance_id'];
+                    dbName = migrateResultsRequest['db_name'];
+                    jobId = migrateResultsRequest['job_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling migrateResults.');
+            }
+            if (dbName === null || dbName === undefined) {
+            throw new RequiredError('dbName','Required parameter dbName was null or undefined when calling migrateResults.');
+            }
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling migrateResults.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'db_name': dbName,'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * DDM实例跨region容灾场景下，针对目标DDM实例实现表数据reload，使数据同步。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3244,6 +4529,386 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 恢复到新实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        restore2Exist(restore2ExistRequest?: Restore2ExistRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/recovery",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (restore2ExistRequest !== null && restore2ExistRequest !== undefined) {
+                if (restore2ExistRequest instanceof Restore2ExistRequest) {
+                    instanceId = restore2ExistRequest.instanceId;
+                    body = restore2ExistRequest.body
+                } else {
+                    instanceId = restore2ExistRequest['instance_id'];
+                    body = restore2ExistRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling restore2Exist.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 元数据恢复
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        restoreMetadata(restoreMetadataRequest?: RestoreMetadataRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/metadata-recovery",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (restoreMetadataRequest !== null && restoreMetadataRequest !== undefined) {
+                if (restoreMetadataRequest instanceof RestoreMetadataRequest) {
+                    instanceId = restoreMetadataRequest.instanceId;
+                    body = restoreMetadataRequest.body
+                } else {
+                    instanceId = restoreMetadataRequest['instance_id'];
+                    body = restoreMetadataRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling restoreMetadata.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 重试分片变更
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        retryMigration(retryMigrationRequest?: RetryMigrationRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/databases/{db_name}/migration/jobs/{job_id}/retry",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let dbName;
+            
+            let jobId;
+
+            if (retryMigrationRequest !== null && retryMigrationRequest !== undefined) {
+                if (retryMigrationRequest instanceof RetryMigrationRequest) {
+                    instanceId = retryMigrationRequest.instanceId;
+                    dbName = retryMigrationRequest.dbName;
+                    jobId = retryMigrationRequest.jobId;
+                } else {
+                    instanceId = retryMigrationRequest['instance_id'];
+                    dbName = retryMigrationRequest['db_name'];
+                    jobId = retryMigrationRequest['job_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling retryMigration.');
+            }
+            if (dbName === null || dbName === undefined) {
+            throw new RequiredError('dbName','Required parameter dbName was null or undefined when calling retryMigration.');
+            }
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling retryMigration.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'db_name': dbName,'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 回滚分片变更
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        rollbackMigration(rollbackMigrationRequest?: RollbackMigrationRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/databases/{db_name}/migration/jobs/{job_id}/rollback",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let dbName;
+            
+            let jobId;
+
+            if (rollbackMigrationRequest !== null && rollbackMigrationRequest !== undefined) {
+                if (rollbackMigrationRequest instanceof RollbackMigrationRequest) {
+                    instanceId = rollbackMigrationRequest.instanceId;
+                    dbName = rollbackMigrationRequest.dbName;
+                    jobId = rollbackMigrationRequest.jobId;
+                } else {
+                    instanceId = rollbackMigrationRequest['instance_id'];
+                    dbName = rollbackMigrationRequest['db_name'];
+                    jobId = rollbackMigrationRequest['job_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling rollbackMigration.');
+            }
+            if (dbName === null || dbName === undefined) {
+            throw new RequiredError('dbName','Required parameter dbName was null or undefined when calling rollbackMigration.');
+            }
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling rollbackMigration.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'db_name': dbName,'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询可用于恢复的实例列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAvalibleDdms(showAvalibleDdmsRequest?: ShowAvalibleDdmsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/restorable-instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showAvalibleDdmsRequest !== null && showAvalibleDdmsRequest !== undefined) {
+                if (showAvalibleDdmsRequest instanceof ShowAvalibleDdmsRequest) {
+                    instanceId = showAvalibleDdmsRequest.instanceId;
+                } else {
+                    instanceId = showAvalibleDdmsRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showAvalibleDdms.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询可用于时间点恢复的数据节点列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAvalibleRds(showAvalibleRdsRequest?: ShowAvalibleRdsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/restorable-data-node",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let targetInstanceId;
+            
+            let sourceDnInstanceId;
+            
+            let restoreTime;
+
+            if (showAvalibleRdsRequest !== null && showAvalibleRdsRequest !== undefined) {
+                if (showAvalibleRdsRequest instanceof ShowAvalibleRdsRequest) {
+                    instanceId = showAvalibleRdsRequest.instanceId;
+                    targetInstanceId = showAvalibleRdsRequest.targetInstanceId;
+                    sourceDnInstanceId = showAvalibleRdsRequest.sourceDnInstanceId;
+                    restoreTime = showAvalibleRdsRequest.restoreTime;
+                } else {
+                    instanceId = showAvalibleRdsRequest['instance_id'];
+                    targetInstanceId = showAvalibleRdsRequest['target_instance_id'];
+                    sourceDnInstanceId = showAvalibleRdsRequest['source_dn_instance_id'];
+                    restoreTime = showAvalibleRdsRequest['restore_time'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showAvalibleRds.');
+            }
+            if (targetInstanceId === null || targetInstanceId === undefined) {
+                throw new RequiredError('targetInstanceId','Required parameter targetInstanceId was null or undefined when calling showAvalibleRds.');
+            }
+            if (targetInstanceId !== null && targetInstanceId !== undefined) {
+                localVarQueryParameter['target_instance_id'] = targetInstanceId;
+            }
+            if (sourceDnInstanceId === null || sourceDnInstanceId === undefined) {
+                throw new RequiredError('sourceDnInstanceId','Required parameter sourceDnInstanceId was null or undefined when calling showAvalibleRds.');
+            }
+            if (sourceDnInstanceId !== null && sourceDnInstanceId !== undefined) {
+                localVarQueryParameter['source_dn_instance_id'] = sourceDnInstanceId;
+            }
+            if (restoreTime === null || restoreTime === undefined) {
+                throw new RequiredError('restoreTime','Required parameter restoreTime was null or undefined when calling showAvalibleRds.');
+            }
+            if (restoreTime !== null && restoreTime !== undefined) {
+                localVarQueryParameter['restore_time'] = restoreTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询可恢复时间段
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAvalibleTime(showAvalibleTimeRequest?: ShowAvalibleTimeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/restorable-time-interval",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showAvalibleTimeRequest !== null && showAvalibleTimeRequest !== undefined) {
+                if (showAvalibleTimeRequest instanceof ShowAvalibleTimeRequest) {
+                    instanceId = showAvalibleTimeRequest.instanceId;
+                } else {
+                    instanceId = showAvalibleTimeRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showAvalibleTime.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询备份详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBackup(showBackupRequest?: ShowBackupRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/{backup_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let backupId;
+
+            if (showBackupRequest !== null && showBackupRequest !== undefined) {
+                if (showBackupRequest instanceof ShowBackupRequest) {
+                    instanceId = showBackupRequest.instanceId;
+                    backupId = showBackupRequest.backupId;
+                } else {
+                    instanceId = showBackupRequest['instance_id'];
+                    backupId = showBackupRequest['backup_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showBackup.');
+            }
+            if (backupId === null || backupId === undefined) {
+            throw new RequiredError('backupId','Required parameter backupId was null or undefined when calling showBackup.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'backup_id': backupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询指定逻辑库的详细信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3357,6 +5022,50 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询逻辑库详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceDatabase(showInstanceDatabaseRequest?: ShowInstanceDatabaseRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/databases/{database_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let databaseName;
+
+            if (showInstanceDatabaseRequest !== null && showInstanceDatabaseRequest !== undefined) {
+                if (showInstanceDatabaseRequest instanceof ShowInstanceDatabaseRequest) {
+                    instanceId = showInstanceDatabaseRequest.instanceId;
+                    databaseName = showInstanceDatabaseRequest.databaseName;
+                } else {
+                    instanceId = showInstanceDatabaseRequest['instance_id'];
+                    databaseName = showInstanceDatabaseRequest['database_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceDatabase.');
+            }
+            if (databaseName === null || databaseName === undefined) {
+            throw new RequiredError('databaseName','Required parameter databaseName was null or undefined when calling showInstanceDatabase.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'database_name': databaseName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3655,6 +5364,54 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例在恢复时间点关联的数据节点
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRelatedDns(showRelatedDnsRequest?: ShowRelatedDnsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/related-dn",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let restoreTime;
+
+            if (showRelatedDnsRequest !== null && showRelatedDnsRequest !== undefined) {
+                if (showRelatedDnsRequest instanceof ShowRelatedDnsRequest) {
+                    instanceId = showRelatedDnsRequest.instanceId;
+                    restoreTime = showRelatedDnsRequest.restoreTime;
+                } else {
+                    instanceId = showRelatedDnsRequest['instance_id'];
+                    restoreTime = showRelatedDnsRequest['restore_time'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showRelatedDns.');
+            }
+            if (restoreTime === null || restoreTime === undefined) {
+                throw new RequiredError('restoreTime','Required parameter restoreTime was null or undefined when calling showRelatedDns.');
+            }
+            if (restoreTime !== null && restoreTime !== undefined) {
+                localVarQueryParameter['restore_time'] = restoreTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 对指定的DDM实例的节点个数进行缩容。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3696,6 +5453,57 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 切换路由
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchRoute(switchRouteRequest?: SwitchRouteRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/databases/{db_name}/migration/jobs/{job_id}/route-switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let dbName;
+            
+            let jobId;
+
+            if (switchRouteRequest !== null && switchRouteRequest !== undefined) {
+                if (switchRouteRequest instanceof SwitchRouteRequest) {
+                    instanceId = switchRouteRequest.instanceId;
+                    dbName = switchRouteRequest.dbName;
+                    jobId = switchRouteRequest.jobId;
+                } else {
+                    instanceId = switchRouteRequest['instance_id'];
+                    dbName = switchRouteRequest['db_name'];
+                    jobId = switchRouteRequest['job_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchRoute.');
+            }
+            if (dbName === null || dbName === undefined) {
+            throw new RequiredError('dbName','Required parameter dbName was null or undefined when calling switchRoute.');
+            }
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling switchRoute.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'db_name': dbName,'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4069,6 +5877,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'username': username, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 导入所有逻辑库物理分片分布关系，以此创建相同物理分片分布关系的逻辑库。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        uploadSchemaMetadata(uploadSchemaMetadataRequest?: UploadSchemaMetadataRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/schema-metadata",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (uploadSchemaMetadataRequest !== null && uploadSchemaMetadataRequest !== undefined) {
+                if (uploadSchemaMetadataRequest instanceof UploadSchemaMetadataRequest) {
+                    instanceId = uploadSchemaMetadataRequest.instanceId;
+                    body = uploadSchemaMetadataRequest.body
+                } else {
+                    instanceId = uploadSchemaMetadataRequest['instance_id'];
+                    body = uploadSchemaMetadataRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling uploadSchemaMetadata.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

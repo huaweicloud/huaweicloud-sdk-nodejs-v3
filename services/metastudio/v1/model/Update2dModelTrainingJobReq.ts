@@ -1,5 +1,6 @@
 import { ActionBasicSampleInfo } from './ActionBasicSampleInfo';
 import { SupportedServiceEnum } from './SupportedServiceEnum';
+import { VoiceProperties } from './VoiceProperties';
 
 
 export class Update2dModelTrainingJobReq {
@@ -11,7 +12,9 @@ export class Update2dModelTrainingJobReq {
     private 'is_background_replacement'?: boolean;
     private 'batch_name'?: string;
     public tags?: Array<string>;
+    private 'is_fast_flexus'?: boolean;
     private 'samples_basic_info'?: Array<ActionBasicSampleInfo>;
+    private 'voice_properties'?: VoiceProperties;
     private 'supported_service'?: Array<SupportedServiceEnum>;
     private 'audio_source_type'?: Update2dModelTrainingJobReqAudioSourceTypeEnum | string;
     public constructor() { 
@@ -78,6 +81,16 @@ export class Update2dModelTrainingJobReq {
         this['tags'] = tags;
         return this;
     }
+    public withIsFastFlexus(isFastFlexus: boolean): Update2dModelTrainingJobReq {
+        this['is_fast_flexus'] = isFastFlexus;
+        return this;
+    }
+    public set isFastFlexus(isFastFlexus: boolean  | undefined) {
+        this['is_fast_flexus'] = isFastFlexus;
+    }
+    public get isFastFlexus(): boolean | undefined {
+        return this['is_fast_flexus'];
+    }
     public withSamplesBasicInfo(samplesBasicInfo: Array<ActionBasicSampleInfo>): Update2dModelTrainingJobReq {
         this['samples_basic_info'] = samplesBasicInfo;
         return this;
@@ -87,6 +100,16 @@ export class Update2dModelTrainingJobReq {
     }
     public get samplesBasicInfo(): Array<ActionBasicSampleInfo> | undefined {
         return this['samples_basic_info'];
+    }
+    public withVoiceProperties(voiceProperties: VoiceProperties): Update2dModelTrainingJobReq {
+        this['voice_properties'] = voiceProperties;
+        return this;
+    }
+    public set voiceProperties(voiceProperties: VoiceProperties  | undefined) {
+        this['voice_properties'] = voiceProperties;
+    }
+    public get voiceProperties(): VoiceProperties | undefined {
+        return this['voice_properties'];
     }
     public withSupportedService(supportedService: Array<SupportedServiceEnum>): Update2dModelTrainingJobReq {
         this['supported_service'] = supportedService;

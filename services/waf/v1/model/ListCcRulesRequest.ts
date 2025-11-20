@@ -6,6 +6,10 @@ export class ListCcRulesRequest {
     private 'policy_id'?: string;
     public offset?: number;
     public limit?: number;
+    public name?: string;
+    public status?: number;
+    public category?: string;
+    private 'tag_type'?: string;
     public constructor(contentType?: string, policyId?: string, offset?: number, limit?: number) { 
         this['Content-Type'] = contentType;
         this['policy_id'] = policyId;
@@ -49,5 +53,27 @@ export class ListCcRulesRequest {
     public withLimit(limit: number): ListCcRulesRequest {
         this['limit'] = limit;
         return this;
+    }
+    public withName(name: string): ListCcRulesRequest {
+        this['name'] = name;
+        return this;
+    }
+    public withStatus(status: number): ListCcRulesRequest {
+        this['status'] = status;
+        return this;
+    }
+    public withCategory(category: string): ListCcRulesRequest {
+        this['category'] = category;
+        return this;
+    }
+    public withTagType(tagType: string): ListCcRulesRequest {
+        this['tag_type'] = tagType;
+        return this;
+    }
+    public set tagType(tagType: string  | undefined) {
+        this['tag_type'] = tagType;
+    }
+    public get tagType(): string | undefined {
+        return this['tag_type'];
     }
 }

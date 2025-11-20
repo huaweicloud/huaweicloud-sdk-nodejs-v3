@@ -99,6 +99,9 @@ import { CreateDevicePolicyRequest } from './model/CreateDevicePolicyRequest';
 import { CreateDevicePolicyResponse } from './model/CreateDevicePolicyResponse';
 import { CreateDeviceProxyRequest } from './model/CreateDeviceProxyRequest';
 import { CreateDeviceProxyResponse } from './model/CreateDeviceProxyResponse';
+import { CreateDomainConfigurationDTO } from './model/CreateDomainConfigurationDTO';
+import { CreateDomainConfigurationRequest } from './model/CreateDomainConfigurationRequest';
+import { CreateDomainConfigurationResponse } from './model/CreateDomainConfigurationResponse';
 import { CreateMessageRequest } from './model/CreateMessageRequest';
 import { CreateMessageResponse } from './model/CreateMessageResponse';
 import { CreateOrDeleteDeviceInGroupRequest } from './model/CreateOrDeleteDeviceInGroupRequest';
@@ -126,6 +129,9 @@ import { CreateRuleRequest } from './model/CreateRuleRequest';
 import { CreateRuleResponse } from './model/CreateRuleResponse';
 import { CreateSecurityProfileRequest } from './model/CreateSecurityProfileRequest';
 import { CreateSecurityProfileResponse } from './model/CreateSecurityProfileResponse';
+import { CreateServerCertificateDTO } from './model/CreateServerCertificateDTO';
+import { CreateServerCertificateRequest } from './model/CreateServerCertificateRequest';
+import { CreateServerCertificateResponse } from './model/CreateServerCertificateResponse';
 import { CreateSyncHarmonySoftBusRequest } from './model/CreateSyncHarmonySoftBusRequest';
 import { CreateSyncHarmonySoftBusResponse } from './model/CreateSyncHarmonySoftBusResponse';
 import { DailyTimerType } from './model/DailyTimerType';
@@ -159,6 +165,8 @@ import { DeleteDeviceShadowRequest } from './model/DeleteDeviceShadowRequest';
 import { DeleteDeviceShadowResponse } from './model/DeleteDeviceShadowResponse';
 import { DeleteDeviceTunnelRequest } from './model/DeleteDeviceTunnelRequest';
 import { DeleteDeviceTunnelResponse } from './model/DeleteDeviceTunnelResponse';
+import { DeleteDomainConfigurationRequest } from './model/DeleteDomainConfigurationRequest';
+import { DeleteDomainConfigurationResponse } from './model/DeleteDomainConfigurationResponse';
 import { DeleteFunctionsRequest } from './model/DeleteFunctionsRequest';
 import { DeleteFunctionsResponse } from './model/DeleteFunctionsResponse';
 import { DeleteHarmonySoftBusRequest } from './model/DeleteHarmonySoftBusRequest';
@@ -185,6 +193,8 @@ import { DeleteRuleRequest } from './model/DeleteRuleRequest';
 import { DeleteRuleResponse } from './model/DeleteRuleResponse';
 import { DeleteSecurityProfileRequest } from './model/DeleteSecurityProfileRequest';
 import { DeleteSecurityProfileResponse } from './model/DeleteSecurityProfileResponse';
+import { DeleteServerCertificateRequest } from './model/DeleteServerCertificateRequest';
+import { DeleteServerCertificateResponse } from './model/DeleteServerCertificateResponse';
 import { DeviceAuthorizerSimple } from './model/DeviceAuthorizerSimple';
 import { DeviceBroadcastRequest } from './model/DeviceBroadcastRequest';
 import { DeviceCertificateSimple } from './model/DeviceCertificateSimple';
@@ -204,6 +214,7 @@ import { DeviceSimple } from './model/DeviceSimple';
 import { DisForwarding } from './model/DisForwarding';
 import { DmsKafkaForwarding } from './model/DmsKafkaForwarding';
 import { DmsRocketMQForwarding } from './model/DmsRocketMQForwarding';
+import { DomainConfigurationDTO } from './model/DomainConfigurationDTO';
 import { EffectiveTimeRange } from './model/EffectiveTimeRange';
 import { EffectiveTimeRangeResponseDTO } from './model/EffectiveTimeRangeResponseDTO';
 import { ErrorInfo } from './model/ErrorInfo';
@@ -257,6 +268,8 @@ import { ListDeviceTunnelsRequest } from './model/ListDeviceTunnelsRequest';
 import { ListDeviceTunnelsResponse } from './model/ListDeviceTunnelsResponse';
 import { ListDevicesRequest } from './model/ListDevicesRequest';
 import { ListDevicesResponse } from './model/ListDevicesResponse';
+import { ListDomainConfigurationsRequest } from './model/ListDomainConfigurationsRequest';
+import { ListDomainConfigurationsResponse } from './model/ListDomainConfigurationsResponse';
 import { ListFunctionsRequest } from './model/ListFunctionsRequest';
 import { ListFunctionsResponse } from './model/ListFunctionsResponse';
 import { ListHarmonySoftBusRequest } from './model/ListHarmonySoftBusRequest';
@@ -285,6 +298,8 @@ import { ListRulesRequest } from './model/ListRulesRequest';
 import { ListRulesResponse } from './model/ListRulesResponse';
 import { ListSecurityProfilesRequest } from './model/ListSecurityProfilesRequest';
 import { ListSecurityProfilesResponse } from './model/ListSecurityProfilesResponse';
+import { ListServerCertificateRequest } from './model/ListServerCertificateRequest';
+import { ListServerCertificateResponse } from './model/ListServerCertificateResponse';
 import { MessageResult } from './model/MessageResult';
 import { ModuleDTO } from './model/ModuleDTO';
 import { ModuleSearchDTO } from './model/ModuleSearchDTO';
@@ -341,6 +356,8 @@ import { SearchSql } from './model/SearchSql';
 import { SecurityProfile } from './model/SecurityProfile';
 import { SecurityProfileDTO } from './model/SecurityProfileDTO';
 import { SecurityTarget } from './model/SecurityTarget';
+import { ServerCertificateConfig } from './model/ServerCertificateConfig';
+import { ServerCertificateDTO } from './model/ServerCertificateDTO';
 import { ServiceCapability } from './model/ServiceCapability';
 import { ServiceCommand } from './model/ServiceCommand';
 import { ServiceCommandPara } from './model/ServiceCommandPara';
@@ -377,6 +394,8 @@ import { ShowDeviceTunnelRequest } from './model/ShowDeviceTunnelRequest';
 import { ShowDeviceTunnelResponse } from './model/ShowDeviceTunnelResponse';
 import { ShowDevicesInGroupRequest } from './model/ShowDevicesInGroupRequest';
 import { ShowDevicesInGroupResponse } from './model/ShowDevicesInGroupResponse';
+import { ShowDomainConfigurationRequest } from './model/ShowDomainConfigurationRequest';
+import { ShowDomainConfigurationResponse } from './model/ShowDomainConfigurationResponse';
 import { ShowHarmonySoftBusRequest } from './model/ShowHarmonySoftBusRequest';
 import { ShowHarmonySoftBusResponse } from './model/ShowHarmonySoftBusResponse';
 import { ShowOtaModuleRequest } from './model/ShowOtaModuleRequest';
@@ -401,6 +420,8 @@ import { ShowRuleRequest } from './model/ShowRuleRequest';
 import { ShowRuleResponse } from './model/ShowRuleResponse';
 import { ShowSecurityProfileRequest } from './model/ShowSecurityProfileRequest';
 import { ShowSecurityProfileResponse } from './model/ShowSecurityProfileResponse';
+import { ShowServerCertificateRequest } from './model/ShowServerCertificateRequest';
+import { ShowServerCertificateResponse } from './model/ShowServerCertificateResponse';
 import { ShowTargetsInDevicePolicyRequest } from './model/ShowTargetsInDevicePolicyRequest';
 import { ShowTargetsInDevicePolicyRequestBody } from './model/ShowTargetsInDevicePolicyRequestBody';
 import { ShowTargetsInDevicePolicyResponse } from './model/ShowTargetsInDevicePolicyResponse';
@@ -465,6 +486,9 @@ import { UpdateDeviceRequest } from './model/UpdateDeviceRequest';
 import { UpdateDeviceResponse } from './model/UpdateDeviceResponse';
 import { UpdateDeviceShadowDesiredDataRequest } from './model/UpdateDeviceShadowDesiredDataRequest';
 import { UpdateDeviceShadowDesiredDataResponse } from './model/UpdateDeviceShadowDesiredDataResponse';
+import { UpdateDomainConfigurationDTO } from './model/UpdateDomainConfigurationDTO';
+import { UpdateDomainConfigurationRequest } from './model/UpdateDomainConfigurationRequest';
+import { UpdateDomainConfigurationResponse } from './model/UpdateDomainConfigurationResponse';
 import { UpdateFlowControlPolicy } from './model/UpdateFlowControlPolicy';
 import { UpdateOtaModule } from './model/UpdateOtaModule';
 import { UpdateOtaModuleRequest } from './model/UpdateOtaModuleRequest';
@@ -2396,6 +2420,109 @@ export class IoTDAClient {
     }
 
     /**
+     * 应用服务器可调用此接口在物联网平台上添加域配置，域配置配额上限为：1个。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加域配置
+     * @param {CreateDomainConfigurationDTO} addDomainConfigurationRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDomainConfiguration(createDomainConfigurationRequest?: CreateDomainConfigurationRequest): Promise<CreateDomainConfigurationResponse> {
+        const options = ParamCreater().createDomainConfiguration(createDomainConfigurationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台删除域配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除域配置
+     * @param {string} configurationId 域配置ID，由平台分配的唯一标识。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDomainConfiguration(deleteDomainConfigurationRequest?: DeleteDomainConfigurationRequest): Promise<DeleteDomainConfigurationResponse> {
+        const options = ParamCreater().deleteDomainConfiguration(deleteDomainConfigurationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台获取域配置列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取域配置列表
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {number} [limit] 分页查询时每页显示的记录数，默认值为10，取值范围为1-50的整数。
+     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 
+     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDomainConfigurations(listDomainConfigurationsRequest?: ListDomainConfigurationsRequest): Promise<ListDomainConfigurationsResponse> {
+        const options = ParamCreater().listDomainConfigurations(listDomainConfigurationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台查询域配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询域配置
+     * @param {string} configurationId 域配置ID，由平台分配的唯一标识。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDomainConfiguration(showDomainConfigurationRequest?: ShowDomainConfigurationRequest): Promise<ShowDomainConfigurationResponse> {
+        const options = ParamCreater().showDomainConfiguration(showDomainConfigurationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台上更新域配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新域配置
+     * @param {string} configurationId 域配置ID，由平台分配的唯一标识。
+     * @param {UpdateDomainConfigurationDTO} updateDomainConfigurationRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDomainConfiguration(updateDomainConfigurationRequest?: UpdateDomainConfigurationRequest): Promise<UpdateDomainConfigurationResponse> {
+        const options = ParamCreater().updateDomainConfiguration(updateDomainConfigurationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 应用服务器可调用此接口在物联网平台创建数据流转流控策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3858,6 +3985,88 @@ export class IoTDAClient {
      */
     public updateSecurityProfile(updateSecurityProfileRequest?: UpdateSecurityProfileRequest): Promise<UpdateSecurityProfileResponse> {
         const options = ParamCreater().updateSecurityProfile(updateSecurityProfileRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台上添加服务器证书，服务器证书配额限制为：2个。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加服务器证书
+     * @param {CreateServerCertificateDTO} addServerCertificateRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createServerCertificate(createServerCertificateRequest?: CreateServerCertificateRequest): Promise<CreateServerCertificateResponse> {
+        const options = ParamCreater().createServerCertificate(createServerCertificateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台删除服务器证书
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除服务端证书
+     * @param {string} serverCertificateId 服务器证书ID，由平台分配的唯一标识。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteServerCertificate(deleteServerCertificateRequest?: DeleteServerCertificateRequest): Promise<DeleteServerCertificateResponse> {
+        const options = ParamCreater().deleteServerCertificate(deleteServerCertificateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台上获取服务器证书列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取服务器证书列表
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {number} [limit] 分页查询时每页显示的记录数，默认值为10，取值范围为1-50的整数。
+     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 
+     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listServerCertificate(listServerCertificateRequest?: ListServerCertificateRequest): Promise<ListServerCertificateResponse> {
+        const options = ParamCreater().listServerCertificate(listServerCertificateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台查询服务器证书
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询服务器证书
+     * @param {string} serverCertificateId 服务器证书ID，由平台分配的唯一标识。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showServerCertificate(showServerCertificateRequest?: ShowServerCertificateRequest): Promise<ShowServerCertificateResponse> {
+        const options = ParamCreater().showServerCertificate(showServerCertificateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8565,6 +8774,250 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 应用服务器可调用此接口在物联网平台上添加域配置，域配置配额上限为：1个。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDomainConfiguration(createDomainConfigurationRequest?: CreateDomainConfigurationRequest) {
+            const options = {
+                method: "POST",
+                url: "/{project_id}/domain-configurations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createDomainConfigurationRequest !== null && createDomainConfigurationRequest !== undefined) {
+                if (createDomainConfigurationRequest instanceof CreateDomainConfigurationRequest) {
+                    body = createDomainConfigurationRequest.body
+                    instanceId = createDomainConfigurationRequest.instanceId;
+                } else {
+                    body = createDomainConfigurationRequest['body'];
+                    instanceId = createDomainConfigurationRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台删除域配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDomainConfiguration(deleteDomainConfigurationRequest?: DeleteDomainConfigurationRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/{project_id}/domain-configurations/{configuration_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let configurationId;
+            
+            let instanceId;
+
+            if (deleteDomainConfigurationRequest !== null && deleteDomainConfigurationRequest !== undefined) {
+                if (deleteDomainConfigurationRequest instanceof DeleteDomainConfigurationRequest) {
+                    configurationId = deleteDomainConfigurationRequest.configurationId;
+                    instanceId = deleteDomainConfigurationRequest.instanceId;
+                } else {
+                    configurationId = deleteDomainConfigurationRequest['configuration_id'];
+                    instanceId = deleteDomainConfigurationRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (configurationId === null || configurationId === undefined) {
+            throw new RequiredError('configurationId','Required parameter configurationId was null or undefined when calling deleteDomainConfiguration.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'configuration_id': configurationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台获取域配置列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDomainConfigurations(listDomainConfigurationsRequest?: ListDomainConfigurationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/{project_id}/domain-configurations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let limit;
+            
+            let marker;
+            
+            let offset;
+
+            if (listDomainConfigurationsRequest !== null && listDomainConfigurationsRequest !== undefined) {
+                if (listDomainConfigurationsRequest instanceof ListDomainConfigurationsRequest) {
+                    instanceId = listDomainConfigurationsRequest.instanceId;
+                    limit = listDomainConfigurationsRequest.limit;
+                    marker = listDomainConfigurationsRequest.marker;
+                    offset = listDomainConfigurationsRequest.offset;
+                } else {
+                    instanceId = listDomainConfigurationsRequest['Instance-Id'];
+                    limit = listDomainConfigurationsRequest['limit'];
+                    marker = listDomainConfigurationsRequest['marker'];
+                    offset = listDomainConfigurationsRequest['offset'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台查询域配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDomainConfiguration(showDomainConfigurationRequest?: ShowDomainConfigurationRequest) {
+            const options = {
+                method: "GET",
+                url: "/{project_id}/domain-configurations/{configuration_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let configurationId;
+            
+            let instanceId;
+
+            if (showDomainConfigurationRequest !== null && showDomainConfigurationRequest !== undefined) {
+                if (showDomainConfigurationRequest instanceof ShowDomainConfigurationRequest) {
+                    configurationId = showDomainConfigurationRequest.configurationId;
+                    instanceId = showDomainConfigurationRequest.instanceId;
+                } else {
+                    configurationId = showDomainConfigurationRequest['configuration_id'];
+                    instanceId = showDomainConfigurationRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (configurationId === null || configurationId === undefined) {
+            throw new RequiredError('configurationId','Required parameter configurationId was null or undefined when calling showDomainConfiguration.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'configuration_id': configurationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台上更新域配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDomainConfiguration(updateDomainConfigurationRequest?: UpdateDomainConfigurationRequest) {
+            const options = {
+                method: "PUT",
+                url: "/{project_id}/domain-configurations/{configuration_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let configurationId;
+            
+            let instanceId;
+
+            if (updateDomainConfigurationRequest !== null && updateDomainConfigurationRequest !== undefined) {
+                if (updateDomainConfigurationRequest instanceof UpdateDomainConfigurationRequest) {
+                    configurationId = updateDomainConfigurationRequest.configurationId;
+                    body = updateDomainConfigurationRequest.body
+                    instanceId = updateDomainConfigurationRequest.instanceId;
+                } else {
+                    configurationId = updateDomainConfigurationRequest['configuration_id'];
+                    body = updateDomainConfigurationRequest['body'];
+                    instanceId = updateDomainConfigurationRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (configurationId === null || configurationId === undefined) {
+            throw new RequiredError('configurationId','Required parameter configurationId was null or undefined when calling updateDomainConfiguration.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'configuration_id': configurationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 应用服务器可调用此接口在物联网平台创建数据流转流控策略。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12157,6 +12610,197 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'profile_id': profileId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台上添加服务器证书，服务器证书配额限制为：2个。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createServerCertificate(createServerCertificateRequest?: CreateServerCertificateRequest) {
+            const options = {
+                method: "POST",
+                url: "/{project_id}/server-certificates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createServerCertificateRequest !== null && createServerCertificateRequest !== undefined) {
+                if (createServerCertificateRequest instanceof CreateServerCertificateRequest) {
+                    body = createServerCertificateRequest.body
+                    instanceId = createServerCertificateRequest.instanceId;
+                } else {
+                    body = createServerCertificateRequest['body'];
+                    instanceId = createServerCertificateRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台删除服务器证书
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteServerCertificate(deleteServerCertificateRequest?: DeleteServerCertificateRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/{project_id}/server-certificates/{server_certificate_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let serverCertificateId;
+            
+            let instanceId;
+
+            if (deleteServerCertificateRequest !== null && deleteServerCertificateRequest !== undefined) {
+                if (deleteServerCertificateRequest instanceof DeleteServerCertificateRequest) {
+                    serverCertificateId = deleteServerCertificateRequest.serverCertificateId;
+                    instanceId = deleteServerCertificateRequest.instanceId;
+                } else {
+                    serverCertificateId = deleteServerCertificateRequest['server_certificate_id'];
+                    instanceId = deleteServerCertificateRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (serverCertificateId === null || serverCertificateId === undefined) {
+            throw new RequiredError('serverCertificateId','Required parameter serverCertificateId was null or undefined when calling deleteServerCertificate.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'server_certificate_id': serverCertificateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台上获取服务器证书列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listServerCertificate(listServerCertificateRequest?: ListServerCertificateRequest) {
+            const options = {
+                method: "GET",
+                url: "/{project_id}/server-certificates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let limit;
+            
+            let marker;
+            
+            let offset;
+
+            if (listServerCertificateRequest !== null && listServerCertificateRequest !== undefined) {
+                if (listServerCertificateRequest instanceof ListServerCertificateRequest) {
+                    instanceId = listServerCertificateRequest.instanceId;
+                    limit = listServerCertificateRequest.limit;
+                    marker = listServerCertificateRequest.marker;
+                    offset = listServerCertificateRequest.offset;
+                } else {
+                    instanceId = listServerCertificateRequest['Instance-Id'];
+                    limit = listServerCertificateRequest['limit'];
+                    marker = listServerCertificateRequest['marker'];
+                    offset = listServerCertificateRequest['offset'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口在物联网平台查询服务器证书
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showServerCertificate(showServerCertificateRequest?: ShowServerCertificateRequest) {
+            const options = {
+                method: "GET",
+                url: "/{project_id}/server-certificates/{server_certificate_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let serverCertificateId;
+            
+            let instanceId;
+
+            if (showServerCertificateRequest !== null && showServerCertificateRequest !== undefined) {
+                if (showServerCertificateRequest instanceof ShowServerCertificateRequest) {
+                    serverCertificateId = showServerCertificateRequest.serverCertificateId;
+                    instanceId = showServerCertificateRequest.instanceId;
+                } else {
+                    serverCertificateId = showServerCertificateRequest['server_certificate_id'];
+                    instanceId = showServerCertificateRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (serverCertificateId === null || serverCertificateId === undefined) {
+            throw new RequiredError('serverCertificateId','Required parameter serverCertificateId was null or undefined when calling showServerCertificate.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'server_certificate_id': serverCertificateId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

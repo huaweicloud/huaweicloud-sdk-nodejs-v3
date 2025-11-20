@@ -13,6 +13,7 @@ import { ServiceNetwork } from './ServiceNetwork';
 
 export class ClusterSpec {
     public category?: ClusterSpecCategoryEnum | string;
+    public agencyName?: string;
     public type?: ClusterSpecTypeEnum | string;
     public flavor?: string;
     public version?: string;
@@ -48,6 +49,10 @@ export class ClusterSpec {
     }
     public withCategory(category: ClusterSpecCategoryEnum | string): ClusterSpec {
         this['category'] = category;
+        return this;
+    }
+    public withAgencyName(agencyName: string): ClusterSpec {
+        this['agencyName'] = agencyName;
         return this;
     }
     public withType(type: ClusterSpecTypeEnum | string): ClusterSpec {

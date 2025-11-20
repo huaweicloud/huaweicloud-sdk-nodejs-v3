@@ -1,3 +1,4 @@
+import { ErrorResponse } from './ErrorResponse';
 import { MultipartUploadInfo } from './MultipartUploadInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -7,6 +8,7 @@ export class Execute2dModelTrainingCommandByUserResponse extends SdkResponse {
     private 'attachment_upload_url'?: Array<string>;
     private 'multipart_data'?: Array<MultipartUploadInfo>;
     private 'excute_failed_msg'?: string;
+    private 'error_info'?: ErrorResponse;
     private 'X-Request-Id'?: string;
     public constructor() { 
         super();
@@ -50,6 +52,16 @@ export class Execute2dModelTrainingCommandByUserResponse extends SdkResponse {
     }
     public get excuteFailedMsg(): string | undefined {
         return this['excute_failed_msg'];
+    }
+    public withErrorInfo(errorInfo: ErrorResponse): Execute2dModelTrainingCommandByUserResponse {
+        this['error_info'] = errorInfo;
+        return this;
+    }
+    public set errorInfo(errorInfo: ErrorResponse  | undefined) {
+        this['error_info'] = errorInfo;
+    }
+    public get errorInfo(): ErrorResponse | undefined {
+        return this['error_info'];
     }
     public withXRequestId(xRequestId: string): Execute2dModelTrainingCommandByUserResponse {
         this['X-Request-Id'] = xRequestId;

@@ -67,6 +67,7 @@ export * from './model/CreateLogStreamRequest';
 export * from './model/CreateLogStreamResponse';
 export * from './model/CreateNotificationTemplateRequest';
 export * from './model/CreateNotificationTemplateRequestBody';
+export * from './model/CreateNotificationTemplateResBody';
 export * from './model/CreateNotificationTemplateResponse';
 export * from './model/CreateSearchCriteriasBody';
 export * from './model/CreateSearchCriteriasRequest';

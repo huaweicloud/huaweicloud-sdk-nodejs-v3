@@ -1,3 +1,4 @@
+import { AutoEnlargeStrategyForConsoleApi } from './AutoEnlargeStrategyForConsoleApi';
 import { BackupStrategy } from './BackupStrategy';
 import { ChargeInfo } from './ChargeInfo';
 import { Datastore } from './Datastore';
@@ -39,6 +40,7 @@ export class InstanceRequest {
     public count?: number;
     private 'serverless_info'?: ServerlessInfo;
     private 'is_auto_upgrade'?: boolean;
+    private 'auto_enlarge_strategy'?: AutoEnlargeStrategyForConsoleApi;
     public constructor(name?: string, datastore?: Datastore, flavorRef?: string, volume?: Volume, region?: string, availabilityZone?: string, vpcId?: string, subnetId?: string, securityGroupId?: string) { 
         this['name'] = name;
         this['datastore'] = datastore;
@@ -279,5 +281,15 @@ export class InstanceRequest {
     }
     public get isAutoUpgrade(): boolean | undefined {
         return this['is_auto_upgrade'];
+    }
+    public withAutoEnlargeStrategy(autoEnlargeStrategy: AutoEnlargeStrategyForConsoleApi): InstanceRequest {
+        this['auto_enlarge_strategy'] = autoEnlargeStrategy;
+        return this;
+    }
+    public set autoEnlargeStrategy(autoEnlargeStrategy: AutoEnlargeStrategyForConsoleApi  | undefined) {
+        this['auto_enlarge_strategy'] = autoEnlargeStrategy;
+    }
+    public get autoEnlargeStrategy(): AutoEnlargeStrategyForConsoleApi | undefined {
+        return this['auto_enlarge_strategy'];
     }
 }

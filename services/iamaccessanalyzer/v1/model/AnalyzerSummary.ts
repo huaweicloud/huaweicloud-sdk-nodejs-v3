@@ -10,6 +10,7 @@ export class AnalyzerSummary {
     public id?: string;
     private 'last_analyzed_resource'?: string;
     private 'last_resource_analyzed_at'?: Date;
+    private 'last_all_analyzed_at'?: Date;
     public name?: string;
     private 'organization_id'?: string;
     public status?: AnalyzerSummaryStatusEnum | string;
@@ -62,6 +63,16 @@ export class AnalyzerSummary {
     }
     public get lastResourceAnalyzedAt(): Date | undefined {
         return this['last_resource_analyzed_at'];
+    }
+    public withLastAllAnalyzedAt(lastAllAnalyzedAt: Date): AnalyzerSummary {
+        this['last_all_analyzed_at'] = lastAllAnalyzedAt;
+        return this;
+    }
+    public set lastAllAnalyzedAt(lastAllAnalyzedAt: Date  | undefined) {
+        this['last_all_analyzed_at'] = lastAllAnalyzedAt;
+    }
+    public get lastAllAnalyzedAt(): Date | undefined {
+        return this['last_all_analyzed_at'];
     }
     public withName(name: string): AnalyzerSummary {
         this['name'] = name;

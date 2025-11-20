@@ -3,6 +3,8 @@
 export class ListInstanceIpRuleRequest {
     private 'instance_id'?: string;
     public ip?: string;
+    public limit?: number;
+    public offset?: number;
     public constructor(instanceId?: string, ip?: string) { 
         this['instance_id'] = instanceId;
         this['ip'] = ip;
@@ -19,6 +21,14 @@ export class ListInstanceIpRuleRequest {
     }
     public withIp(ip: string): ListInstanceIpRuleRequest {
         this['ip'] = ip;
+        return this;
+    }
+    public withLimit(limit: number): ListInstanceIpRuleRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListInstanceIpRuleRequest {
+        this['offset'] = offset;
         return this;
     }
 }

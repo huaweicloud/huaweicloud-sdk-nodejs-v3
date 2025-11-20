@@ -1,12 +1,12 @@
 import { PartitionReqBodyMetadata } from './PartitionReqBodyMetadata';
-import { PartitionSpec } from './PartitionSpec';
+import { PartitionReqBodySpec } from './PartitionReqBodySpec';
 
 
 export class PartitionReqBody {
     public kind?: string;
     public apiVersion?: string;
     public metadata?: PartitionReqBodyMetadata;
-    public spec?: PartitionSpec;
+    public spec?: PartitionReqBodySpec;
     public constructor() { 
     }
     public withKind(kind: string): PartitionReqBody {
@@ -21,7 +21,7 @@ export class PartitionReqBody {
         this['metadata'] = metadata;
         return this;
     }
-    public withSpec(spec: PartitionSpec): PartitionReqBody {
+    public withSpec(spec: PartitionReqBodySpec): PartitionReqBody {
         this['spec'] = spec;
         return this;
     }

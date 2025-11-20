@@ -1,5 +1,5 @@
-import { CreateNotificationTemplateRequestBody } from './CreateNotificationTemplateRequestBody';
-import { SubTemplate } from './SubTemplate';
+import { CreateNotificationTemplateResBody } from './CreateNotificationTemplateResBody';
+import { SubTemplateResBody } from './SubTemplateResBody';
 
 
 export class NotificationTemplate {
@@ -7,15 +7,14 @@ export class NotificationTemplate {
     public type?: Array<string>;
     public desc?: string;
     public source?: string;
-    public locale?: NotificationTemplateLocaleEnum | string;
-    public templates?: Array<SubTemplate>;
+    public templates?: Array<SubTemplateResBody>;
+    public locale?: string;
     private 'create_time'?: number;
     private 'modify_time'?: number;
     private 'project_id'?: string;
-    public constructor(name?: string, source?: string, locale?: string, templates?: Array<SubTemplate>, createTime?: number, modifyTime?: number, projectId?: string) { 
+    public constructor(name?: string, source?: string, templates?: Array<SubTemplateResBody>, createTime?: number, modifyTime?: number, projectId?: string) { 
         this['name'] = name;
         this['source'] = source;
-        this['locale'] = locale;
         this['templates'] = templates;
         this['create_time'] = createTime;
         this['modify_time'] = modifyTime;
@@ -37,12 +36,12 @@ export class NotificationTemplate {
         this['source'] = source;
         return this;
     }
-    public withLocale(locale: NotificationTemplateLocaleEnum | string): NotificationTemplate {
-        this['locale'] = locale;
+    public withTemplates(templates: Array<SubTemplateResBody>): NotificationTemplate {
+        this['templates'] = templates;
         return this;
     }
-    public withTemplates(templates: Array<SubTemplate>): NotificationTemplate {
-        this['templates'] = templates;
+    public withLocale(locale: string): NotificationTemplate {
+        this['locale'] = locale;
         return this;
     }
     public withCreateTime(createTime: number): NotificationTemplate {
@@ -75,13 +74,4 @@ export class NotificationTemplate {
     public get projectId(): string | undefined {
         return this['project_id'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum NotificationTemplateLocaleEnum {
-    ZH_CN = 'zh-cn',
-    EN_US = 'en-us'
 }

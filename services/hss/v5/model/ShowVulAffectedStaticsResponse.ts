@@ -11,8 +11,8 @@ export class ShowVulAffectedStaticsResponse extends SdkResponse {
     private 'container_num'?: number;
     private 'data_list'?: Array<VulAffectedStatisticsResponseInfoDataList>;
     private 'total_vul_num'?: number;
-    private 'extend_tips'?: string;
-    private 'extend_text_tips'?: string;
+    private 'extend_tips'?: Array<string>;
+    private 'extend_text_tips'?: Array<string>;
     private 'disabled_operate_types'?: VulAffectedStatisticsResponseInfoDisabledOperateTypes;
     private 'cce_vul_num'?: number;
     private 'basic_host_num'?: number;
@@ -80,24 +80,24 @@ export class ShowVulAffectedStaticsResponse extends SdkResponse {
     public get totalVulNum(): number | undefined {
         return this['total_vul_num'];
     }
-    public withExtendTips(extendTips: string): ShowVulAffectedStaticsResponse {
+    public withExtendTips(extendTips: Array<string>): ShowVulAffectedStaticsResponse {
         this['extend_tips'] = extendTips;
         return this;
     }
-    public set extendTips(extendTips: string  | undefined) {
+    public set extendTips(extendTips: Array<string>  | undefined) {
         this['extend_tips'] = extendTips;
     }
-    public get extendTips(): string | undefined {
+    public get extendTips(): Array<string> | undefined {
         return this['extend_tips'];
     }
-    public withExtendTextTips(extendTextTips: string): ShowVulAffectedStaticsResponse {
+    public withExtendTextTips(extendTextTips: Array<string>): ShowVulAffectedStaticsResponse {
         this['extend_text_tips'] = extendTextTips;
         return this;
     }
-    public set extendTextTips(extendTextTips: string  | undefined) {
+    public set extendTextTips(extendTextTips: Array<string>  | undefined) {
         this['extend_text_tips'] = extendTextTips;
     }
-    public get extendTextTips(): string | undefined {
+    public get extendTextTips(): Array<string> | undefined {
         return this['extend_text_tips'];
     }
     public withDisabledOperateTypes(disabledOperateTypes: VulAffectedStatisticsResponseInfoDisabledOperateTypes): ShowVulAffectedStaticsResponse {

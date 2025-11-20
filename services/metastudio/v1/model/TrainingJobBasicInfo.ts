@@ -17,7 +17,12 @@ export class TrainingJobBasicInfo {
     private 'model_resolution'?: string;
     private 'app_user_id'?: string;
     private 'is_flexus'?: boolean;
+    private 'is_live_copy'?: boolean;
+    private 'is_fast_flexus'?: boolean;
     private 'is_only_human_model'?: boolean;
+    private 'optional_training_location'?: Array<string>;
+    private 'is_background_replacement'?: boolean;
+    private 'is_ondemand_resource'?: boolean;
     public constructor(jobId?: string, name?: string, state?: string) { 
         this['job_id'] = jobId;
         this['name'] = name;
@@ -159,6 +164,26 @@ export class TrainingJobBasicInfo {
     public get isFlexus(): boolean | undefined {
         return this['is_flexus'];
     }
+    public withIsLiveCopy(isLiveCopy: boolean): TrainingJobBasicInfo {
+        this['is_live_copy'] = isLiveCopy;
+        return this;
+    }
+    public set isLiveCopy(isLiveCopy: boolean  | undefined) {
+        this['is_live_copy'] = isLiveCopy;
+    }
+    public get isLiveCopy(): boolean | undefined {
+        return this['is_live_copy'];
+    }
+    public withIsFastFlexus(isFastFlexus: boolean): TrainingJobBasicInfo {
+        this['is_fast_flexus'] = isFastFlexus;
+        return this;
+    }
+    public set isFastFlexus(isFastFlexus: boolean  | undefined) {
+        this['is_fast_flexus'] = isFastFlexus;
+    }
+    public get isFastFlexus(): boolean | undefined {
+        return this['is_fast_flexus'];
+    }
     public withIsOnlyHumanModel(isOnlyHumanModel: boolean): TrainingJobBasicInfo {
         this['is_only_human_model'] = isOnlyHumanModel;
         return this;
@@ -168,6 +193,36 @@ export class TrainingJobBasicInfo {
     }
     public get isOnlyHumanModel(): boolean | undefined {
         return this['is_only_human_model'];
+    }
+    public withOptionalTrainingLocation(optionalTrainingLocation: Array<string>): TrainingJobBasicInfo {
+        this['optional_training_location'] = optionalTrainingLocation;
+        return this;
+    }
+    public set optionalTrainingLocation(optionalTrainingLocation: Array<string>  | undefined) {
+        this['optional_training_location'] = optionalTrainingLocation;
+    }
+    public get optionalTrainingLocation(): Array<string> | undefined {
+        return this['optional_training_location'];
+    }
+    public withIsBackgroundReplacement(isBackgroundReplacement: boolean): TrainingJobBasicInfo {
+        this['is_background_replacement'] = isBackgroundReplacement;
+        return this;
+    }
+    public set isBackgroundReplacement(isBackgroundReplacement: boolean  | undefined) {
+        this['is_background_replacement'] = isBackgroundReplacement;
+    }
+    public get isBackgroundReplacement(): boolean | undefined {
+        return this['is_background_replacement'];
+    }
+    public withIsOndemandResource(isOndemandResource: boolean): TrainingJobBasicInfo {
+        this['is_ondemand_resource'] = isOndemandResource;
+        return this;
+    }
+    public set isOndemandResource(isOndemandResource: boolean  | undefined) {
+        this['is_ondemand_resource'] = isOndemandResource;
+    }
+    public get isOndemandResource(): boolean | undefined {
+        return this['is_ondemand_resource'];
     }
 }
 
@@ -223,7 +278,20 @@ export enum TrainingJobBasicInfoStateEnum {
     BEAUTYFACE_SUCCESS = 'BEAUTYFACE_SUCCESS',
     BEAUTYFACE_FAILED = 'BEAUTYFACE_FAILED',
     WAIT_BEAUTY_VIDEO_FILE_UPLOAD = 'WAIT_BEAUTY_VIDEO_FILE_UPLOAD',
-    BEAUTYFACE_ROCESSING = 'BEAUTYFACE_ROCESSING'
+    BEAUTYFACE_ROCESSING = 'BEAUTYFACE_ROCESSING',
+    WAIT_TEST_VIDEO_CHECK = 'WAIT_TEST_VIDEO_CHECK',
+    TEST_VIDEO_CHECK_PROCESSING = 'TEST_VIDEO_CHECK_PROCESSING',
+    TEST_VIDEO_CHECK_SUCCESS = 'TEST_VIDEO_CHECK_SUCCESS',
+    TEST_VIDEO_CHECK_FAILED = 'TEST_VIDEO_CHECK_FAILED',
+    VIDEO_ANALYZE_PROCESSING = 'VIDEO_ANALYZE_PROCESSING',
+    VIDEO_ANALYZE_SUCCESS = 'VIDEO_ANALYZE_SUCCESS',
+    VIDEO_ANALYZE_FAILED = 'VIDEO_ANALYZE_FAILED',
+    ACTION_MARKING = 'ACTION_MARKING',
+    ACTION_MARK_SUCCESS = 'ACTION_MARK_SUCCESS',
+    ACTION_MARK_FAILED = 'ACTION_MARK_FAILED',
+    ACTION_MARK_UPLOADED = 'ACTION_MARK_UPLOADED',
+    WAIT_GENERATE_ACTION_MARK = 'WAIT_GENERATE_ACTION_MARK',
+    MANUL_STOP_ACTION_MARK = 'MANUL_STOP_ACTION_MARK'
 }
 /**
     * @export
@@ -232,7 +300,8 @@ export enum TrainingJobBasicInfoStateEnum {
 export enum TrainingJobBasicInfoModelVersionEnum {
     V2 = 'V2',
     V3 = 'V3',
-    V3_2 = 'V3.2'
+    V3_2 = 'V3.2',
+    V3_3 = 'V3.3'
 }
 /**
     * @export

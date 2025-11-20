@@ -5,6 +5,8 @@ export class ShowLivePlatformAccessTypeRequest {
     private 'X-Sdk-Date'?: string;
     private 'X-Project-Id'?: string;
     private 'X-App-UserId'?: string;
+    public offset?: number;
+    public limit?: number;
     public used?: boolean;
     public constructor() { 
     }
@@ -47,6 +49,14 @@ export class ShowLivePlatformAccessTypeRequest {
     }
     public get xAppUserId(): string | undefined {
         return this['X-App-UserId'];
+    }
+    public withOffset(offset: number): ShowLivePlatformAccessTypeRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: number): ShowLivePlatformAccessTypeRequest {
+        this['limit'] = limit;
+        return this;
     }
     public withUsed(used: boolean): ShowLivePlatformAccessTypeRequest {
         this['used'] = used;

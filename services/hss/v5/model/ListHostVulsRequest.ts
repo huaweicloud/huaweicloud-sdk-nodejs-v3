@@ -7,9 +7,14 @@ export class ListHostVulsRequest {
     private 'host_id'?: string;
     public type?: string;
     private 'vul_name'?: string;
+    private 'vul_id'?: string;
     private 'handle_status'?: string;
     public status?: string;
     private 'repair_priority'?: string;
+    private 'severity_level'?: string;
+    private 'is_affect_business'?: boolean;
+    private 'label_list'?: string;
+    private 'excluded_label_list'?: string;
     public constructor(hostId?: string) { 
         this['host_id'] = hostId;
     }
@@ -55,6 +60,16 @@ export class ListHostVulsRequest {
     public get vulName(): string | undefined {
         return this['vul_name'];
     }
+    public withVulId(vulId: string): ListHostVulsRequest {
+        this['vul_id'] = vulId;
+        return this;
+    }
+    public set vulId(vulId: string  | undefined) {
+        this['vul_id'] = vulId;
+    }
+    public get vulId(): string | undefined {
+        return this['vul_id'];
+    }
     public withHandleStatus(handleStatus: string): ListHostVulsRequest {
         this['handle_status'] = handleStatus;
         return this;
@@ -78,5 +93,45 @@ export class ListHostVulsRequest {
     }
     public get repairPriority(): string | undefined {
         return this['repair_priority'];
+    }
+    public withSeverityLevel(severityLevel: string): ListHostVulsRequest {
+        this['severity_level'] = severityLevel;
+        return this;
+    }
+    public set severityLevel(severityLevel: string  | undefined) {
+        this['severity_level'] = severityLevel;
+    }
+    public get severityLevel(): string | undefined {
+        return this['severity_level'];
+    }
+    public withIsAffectBusiness(isAffectBusiness: boolean): ListHostVulsRequest {
+        this['is_affect_business'] = isAffectBusiness;
+        return this;
+    }
+    public set isAffectBusiness(isAffectBusiness: boolean  | undefined) {
+        this['is_affect_business'] = isAffectBusiness;
+    }
+    public get isAffectBusiness(): boolean | undefined {
+        return this['is_affect_business'];
+    }
+    public withLabelList(labelList: string): ListHostVulsRequest {
+        this['label_list'] = labelList;
+        return this;
+    }
+    public set labelList(labelList: string  | undefined) {
+        this['label_list'] = labelList;
+    }
+    public get labelList(): string | undefined {
+        return this['label_list'];
+    }
+    public withExcludedLabelList(excludedLabelList: string): ListHostVulsRequest {
+        this['excluded_label_list'] = excludedLabelList;
+        return this;
+    }
+    public set excludedLabelList(excludedLabelList: string  | undefined) {
+        this['excluded_label_list'] = excludedLabelList;
+    }
+    public get excludedLabelList(): string | undefined {
+        return this['excluded_label_list'];
     }
 }

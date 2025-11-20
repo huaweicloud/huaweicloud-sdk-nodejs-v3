@@ -23,6 +23,7 @@ export class ListCicdImagesRequest {
     private 'has_vul'?: boolean;
     private 'severity_level'?: string;
     public risky?: boolean;
+    private 'pipeline_type'?: string;
     public constructor() { 
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListCicdImagesRequest {
@@ -220,5 +221,15 @@ export class ListCicdImagesRequest {
     public withRisky(risky: boolean): ListCicdImagesRequest {
         this['risky'] = risky;
         return this;
+    }
+    public withPipelineType(pipelineType: string): ListCicdImagesRequest {
+        this['pipeline_type'] = pipelineType;
+        return this;
+    }
+    public set pipelineType(pipelineType: string  | undefined) {
+        this['pipeline_type'] = pipelineType;
+    }
+    public get pipelineType(): string | undefined {
+        return this['pipeline_type'];
     }
 }

@@ -1,3 +1,4 @@
+import { VulScanPolicyResponseInfoTime } from './VulScanPolicyResponseInfoTime';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -8,6 +9,7 @@ export class ShowVulScanPolicyResponse extends SdkResponse {
     private 'host_ids'?: Array<string>;
     private 'total_host_num'?: number;
     public status?: string;
+    public time?: VulScanPolicyResponseInfoTime;
     public constructor() { 
         super();
     }
@@ -63,6 +65,10 @@ export class ShowVulScanPolicyResponse extends SdkResponse {
     }
     public withStatus(status: string): ShowVulScanPolicyResponse {
         this['status'] = status;
+        return this;
+    }
+    public withTime(time: VulScanPolicyResponseInfoTime): ShowVulScanPolicyResponse {
+        this['time'] = time;
         return this;
     }
 }

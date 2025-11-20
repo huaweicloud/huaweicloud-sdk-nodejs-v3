@@ -1,10 +1,10 @@
-import { CertDuration } from './CertDuration';
+import { ClusterCertDuration } from './ClusterCertDuration';
 
 
 export class CreateKubernetesClusterCertRequest {
     private 'cluster_id'?: string;
     private 'Content-Type'?: string;
-    public body?: CertDuration;
+    public body?: ClusterCertDuration;
     public constructor(clusterId?: string, contentType?: string) { 
         this['cluster_id'] = clusterId;
         this['Content-Type'] = contentType;
@@ -29,7 +29,7 @@ export class CreateKubernetesClusterCertRequest {
     public get contentType(): string | undefined {
         return this['Content-Type'];
     }
-    public withBody(body: CertDuration): CreateKubernetesClusterCertRequest {
+    public withBody(body: ClusterCertDuration): CreateKubernetesClusterCertRequest {
         this['body'] = body;
         return this;
     }

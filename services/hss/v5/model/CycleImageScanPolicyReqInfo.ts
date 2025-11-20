@@ -8,7 +8,13 @@ export class CycleImageScanPolicyReqInfo {
     private 'rate_limit'?: number;
     private 'time_scope'?: number;
     private 'registry_info'?: Array<CycleImageScanPolicyReqInfoRegistryInfo>;
-    public constructor() { 
+    public constructor(enabled?: boolean, scanCycle?: number, scanScope?: number, rateLimit?: number, timeScope?: number, registryInfo?: Array<CycleImageScanPolicyReqInfoRegistryInfo>) { 
+        this['enabled'] = enabled;
+        this['scan_cycle'] = scanCycle;
+        this['scan_scope'] = scanScope;
+        this['rate_limit'] = rateLimit;
+        this['time_scope'] = timeScope;
+        this['registry_info'] = registryInfo;
     }
     public withEnabled(enabled: boolean): CycleImageScanPolicyReqInfo {
         this['enabled'] = enabled;

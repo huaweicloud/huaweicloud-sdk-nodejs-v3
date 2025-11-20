@@ -10,6 +10,7 @@ import { Backend } from './model/Backend';
 import { BlackWhiteListRule } from './model/BlackWhiteListRule';
 import { BwListIps } from './model/BwListIps';
 import { CertInfo } from './model/CertInfo';
+import { CipherInfo } from './model/CipherInfo';
 import { Condition } from './model/Condition';
 import { CreateAadDomainRequestBody } from './model/CreateAadDomainRequestBody';
 import { CreateDomainRequest } from './model/CreateDomainRequest';
@@ -26,13 +27,17 @@ import { EmptyJsonResponse } from './model/EmptyJsonResponse';
 import { FlowBps } from './model/FlowBps';
 import { FlowPps } from './model/FlowPps';
 import { FrequencyControlRule } from './model/FrequencyControlRule';
+import { InstanceConfig } from './model/InstanceConfig';
 import { InstanceDomainItem } from './model/InstanceDomainItem';
 import { Ips } from './model/Ips';
+import { ListBlackHoleEventRecordItem } from './model/ListBlackHoleEventRecordItem';
 import { ListConnectionNumberData } from './model/ListConnectionNumberData';
 import { ListConnectionNumberDataList } from './model/ListConnectionNumberDataList';
 import { ListDDoSAttackEventRequest } from './model/ListDDoSAttackEventRequest';
 import { ListDDoSAttackEventRequestBody } from './model/ListDDoSAttackEventRequestBody';
 import { ListDDoSAttackEventResponse } from './model/ListDDoSAttackEventResponse';
+import { ListDDoSBlackHoleEventRequest } from './model/ListDDoSBlackHoleEventRequest';
+import { ListDDoSBlackHoleEventResponse } from './model/ListDDoSBlackHoleEventResponse';
 import { ListDDoSConnectionNumberRequest } from './model/ListDDoSConnectionNumberRequest';
 import { ListDDoSConnectionNumberResponse } from './model/ListDDoSConnectionNumberResponse';
 import { ListDDoSEventData } from './model/ListDDoSEventData';
@@ -40,8 +45,12 @@ import { ListDDoSFlowRequest } from './model/ListDDoSFlowRequest';
 import { ListDDoSFlowResponse } from './model/ListDDoSFlowResponse';
 import { ListFrequencyControlRuleRequest } from './model/ListFrequencyControlRuleRequest';
 import { ListFrequencyControlRuleResponse } from './model/ListFrequencyControlRuleResponse';
+import { ListGlobalConfigRequest } from './model/ListGlobalConfigRequest';
+import { ListGlobalConfigResponse } from './model/ListGlobalConfigResponse';
 import { ListInstanceDomainsRequest } from './model/ListInstanceDomainsRequest';
 import { ListInstanceDomainsResponse } from './model/ListInstanceDomainsResponse';
+import { ListSourceIpRequest } from './model/ListSourceIpRequest';
+import { ListSourceIpResponse } from './model/ListSourceIpResponse';
 import { ListWafAttackEventRequest } from './model/ListWafAttackEventRequest';
 import { ListWafAttackEventResponse } from './model/ListWafAttackEventResponse';
 import { ListWafAttackEventlist } from './model/ListWafAttackEventlist';
@@ -59,15 +68,33 @@ import { ListWhiteBlackIpRuleRequest } from './model/ListWhiteBlackIpRuleRequest
 import { ListWhiteBlackIpRuleResponse } from './model/ListWhiteBlackIpRuleResponse';
 import { PageRespInfo } from './model/PageRespInfo';
 import { Point } from './model/Point';
+import { ProductSpecData } from './model/ProductSpecData';
+import { ShowAlarmConfigRequest } from './model/ShowAlarmConfigRequest';
+import { ShowAlarmConfigResponse } from './model/ShowAlarmConfigResponse';
+import { ShowDDoSPeakRequest } from './model/ShowDDoSPeakRequest';
+import { ShowDDoSPeakResponse } from './model/ShowDDoSPeakResponse';
 import { ShowDomainCertificateRequest } from './model/ShowDomainCertificateRequest';
 import { ShowDomainCertificateResponse } from './model/ShowDomainCertificateResponse';
+import { ShowDomainDetailRequest } from './model/ShowDomainDetailRequest';
+import { ShowDomainDetailResponse } from './model/ShowDomainDetailResponse';
+import { ShowDomainNameConfigRequest } from './model/ShowDomainNameConfigRequest';
+import { ShowDomainNameConfigResponse } from './model/ShowDomainNameConfigResponse';
 import { ShowFlowBlockRequest } from './model/ShowFlowBlockRequest';
 import { ShowFlowBlockResponse } from './model/ShowFlowBlockResponse';
+import { ShowInstanceByInstanceIdRequest } from './model/ShowInstanceByInstanceIdRequest';
+import { ShowInstanceByInstanceIdResponse } from './model/ShowInstanceByInstanceIdResponse';
 import { ShowWafPolicyRequest } from './model/ShowWafPolicyRequest';
 import { ShowWafPolicyResponse } from './model/ShowWafPolicyResponse';
 import { ShowWafQpsRequest } from './model/ShowWafQpsRequest';
 import { ShowWafQpsResponse } from './model/ShowWafQpsResponse';
+import { SourceIp } from './model/SourceIp';
 import { TagCondition } from './model/TagCondition';
+import { UpdateDomainConfigRequest } from './model/UpdateDomainConfigRequest';
+import { UpdateDomainConfigRequestBody } from './model/UpdateDomainConfigRequestBody';
+import { UpdateDomainConfigResponse } from './model/UpdateDomainConfigResponse';
+import { UpdateForwardRuleRequest } from './model/UpdateForwardRuleRequest';
+import { UpdateForwardRuleRequestBody } from './model/UpdateForwardRuleRequestBody';
+import { UpdateForwardRuleResponse } from './model/UpdateForwardRuleResponse';
 import { UpgradeInstanceData } from './model/UpgradeInstanceData';
 import { UpgradeInstanceSpecRequest } from './model/UpgradeInstanceSpecRequest';
 import { UpgradeInstanceSpecResponse } from './model/UpgradeInstanceSpecResponse';
@@ -191,6 +218,27 @@ export class AadClient {
     }
 
     /**
+     * 黑洞事件列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 黑洞事件列表
+     * @param {string} startTime 开始时间（毫秒时间戳）
+     * @param {string} endTime 结束时间（毫秒时间戳）
+     * @param {string} [ip] 高防IP
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDDoSBlackHoleEvent(listDDoSBlackHoleEventRequest?: ListDDoSBlackHoleEventRequest): Promise<ListDDoSBlackHoleEventResponse> {
+        const options = ParamCreater().listDDoSBlackHoleEvent(listDDoSBlackHoleEventRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询新建连接数和并发连接数
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -200,6 +248,8 @@ export class AadClient {
      * @param {string} endTime 结束时间（毫秒时间戳）
      * @param {string} instanceId 实例id
      * @param {string} ip 高防ip
+     * @param {number} [limit] 限制条数
+     * @param {number} [offset] 偏移量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -255,17 +305,55 @@ export class AadClient {
     }
 
     /**
+     * 查询控制台WAF全局配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询控制台WAF全局配置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGlobalConfig(listGlobalConfigRequest?: ListGlobalConfigRequest): Promise<ListGlobalConfigResponse> {
+        const options = ParamCreater().listGlobalConfig();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询实例关联的域名信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询实例关联的域名信息
      * @param {string} instanceId 实例id
+     * @param {number} [limit] 限制条数
+     * @param {number} [offset] 偏移量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listInstanceDomains(listInstanceDomainsRequest?: ListInstanceDomainsRequest): Promise<ListInstanceDomainsResponse> {
         const options = ParamCreater().listInstanceDomains(listInstanceDomainsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询回源ip列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询回源ip列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSourceIp(listSourceIpRequest?: ListSourceIpRequest): Promise<ListSourceIpResponse> {
+        const options = ParamCreater().listSourceIp();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -375,6 +463,8 @@ export class AadClient {
      * @param {string} [endTime] 结束时间（毫秒时间戳）
      * @param {string} [recent] 枚举值：yesterday,today,3days,1week,1month 与开始结束时间不同时为空
      * @param {number} [overseasType] 实例类型，0-大陆，1-海外
+     * @param {number} [limit] 限制条数
+     * @param {number} [offset] 偏移量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -428,6 +518,46 @@ export class AadClient {
     }
 
     /**
+     * 查询告警设置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询告警设置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAlarmConfig(showAlarmConfigRequest?: ShowAlarmConfigRequest): Promise<ShowAlarmConfigResponse> {
+        const options = ParamCreater().showAlarmConfig();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询高防入流量峰值、攻击流量峰值、DDoS攻击次数
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询高防入流量峰值、攻击流量峰值、DDoS攻击次数
+     * @param {string} startTime 开始时间（毫秒时间戳）
+     * @param {string} endTime 结束时间（毫秒时间戳）
+     * @param {string} instanceId 实例id
+     * @param {string} ip 高防IP
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDDoSPeak(showDDoSPeakRequest?: ShowDDoSPeakRequest): Promise<ShowDDoSPeakResponse> {
+        const options = ParamCreater().showDDoSPeak(showDDoSPeakRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询域名关联的证书信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -447,6 +577,45 @@ export class AadClient {
     }
 
     /**
+     * 查询域名详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询域名详情
+     * @param {string} domainId 域名ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDomainDetail(showDomainDetailRequest?: ShowDomainDetailRequest): Promise<ShowDomainDetailResponse> {
+        const options = ParamCreater().showDomainDetail(showDomainDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看域名配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看域名配置
+     * @param {string} domainId 域名id
+     * @param {'DOMAIN' | 'WAF'} type 请求类型 domain、waf
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDomainNameConfig(showDomainNameConfigRequest?: ShowDomainNameConfigRequest): Promise<ShowDomainNameConfigResponse> {
+        const options = ParamCreater().showDomainNameConfig(showDomainNameConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询流量封禁信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -458,6 +627,25 @@ export class AadClient {
      */
     public showFlowBlock(showFlowBlockRequest?: ShowFlowBlockRequest): Promise<ShowFlowBlockResponse> {
         const options = ParamCreater().showFlowBlock(showFlowBlockRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例详情
+     * @param {string} instanceId 实例id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceByInstanceId(showInstanceByInstanceIdRequest?: ShowInstanceByInstanceIdRequest): Promise<ShowInstanceByInstanceIdResponse> {
+        const options = ParamCreater().showInstanceByInstanceId(showInstanceByInstanceIdRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -501,6 +689,48 @@ export class AadClient {
      */
     public showWafQps(showWafQpsRequest?: ShowWafQpsRequest): Promise<ShowWafQpsResponse> {
         const options = ParamCreater().showWafQps(showWafQpsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改域名配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改域名配置
+     * @param {string} domainId 域名id
+     * @param {UpdateDomainConfigRequestBody} updateDomainConfigRequestBody 防护域名信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDomainConfig(updateDomainConfigRequest?: UpdateDomainConfigRequest): Promise<UpdateDomainConfigResponse> {
+        const options = ParamCreater().updateDomainConfig(updateDomainConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改转发规则中的源站IP
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改转发规则中的源站IP
+     * @param {string} instanceId 实例id
+     * @param {string} ruleId 规则id
+     * @param {string} ip 高防ip
+     * @param {UpdateForwardRuleRequestBody} updateForwardRuleRequestBody 修改转发规则信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateForwardRule(updateForwardRuleRequest?: UpdateForwardRuleRequest): Promise<UpdateForwardRuleResponse> {
+        const options = ParamCreater().updateForwardRule(updateForwardRuleRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -727,6 +957,63 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 黑洞事件列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDDoSBlackHoleEvent(listDDoSBlackHoleEventRequest?: ListDDoSBlackHoleEventRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/aad/instances/ddos-info/attack/blackhole-event",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let ip;
+
+            if (listDDoSBlackHoleEventRequest !== null && listDDoSBlackHoleEventRequest !== undefined) {
+                if (listDDoSBlackHoleEventRequest instanceof ListDDoSBlackHoleEventRequest) {
+                    startTime = listDDoSBlackHoleEventRequest.startTime;
+                    endTime = listDDoSBlackHoleEventRequest.endTime;
+                    ip = listDDoSBlackHoleEventRequest.ip;
+                } else {
+                    startTime = listDDoSBlackHoleEventRequest['start_time'];
+                    endTime = listDDoSBlackHoleEventRequest['end_time'];
+                    ip = listDDoSBlackHoleEventRequest['ip'];
+                }
+            }
+
+        
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listDDoSBlackHoleEvent.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listDDoSBlackHoleEvent.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (ip !== null && ip !== undefined) {
+                localVarQueryParameter['ip'] = ip;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询新建连接数和并发连接数
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -750,6 +1037,10 @@ export const ParamCreater = function () {
             let instanceId;
             
             let ip;
+            
+            let limit;
+            
+            let offset;
 
             if (listDDoSConnectionNumberRequest !== null && listDDoSConnectionNumberRequest !== undefined) {
                 if (listDDoSConnectionNumberRequest instanceof ListDDoSConnectionNumberRequest) {
@@ -757,11 +1048,15 @@ export const ParamCreater = function () {
                     endTime = listDDoSConnectionNumberRequest.endTime;
                     instanceId = listDDoSConnectionNumberRequest.instanceId;
                     ip = listDDoSConnectionNumberRequest.ip;
+                    limit = listDDoSConnectionNumberRequest.limit;
+                    offset = listDDoSConnectionNumberRequest.offset;
                 } else {
                     startTime = listDDoSConnectionNumberRequest['start_time'];
                     endTime = listDDoSConnectionNumberRequest['end_time'];
                     instanceId = listDDoSConnectionNumberRequest['instance_id'];
                     ip = listDDoSConnectionNumberRequest['ip'];
+                    limit = listDDoSConnectionNumberRequest['limit'];
+                    offset = listDDoSConnectionNumberRequest['offset'];
                 }
             }
 
@@ -786,6 +1081,12 @@ export const ParamCreater = function () {
             }
             if (ip !== null && ip !== undefined) {
                 localVarQueryParameter['ip'] = ip;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -913,6 +1214,27 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询控制台WAF全局配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGlobalConfig() {
+            const options = {
+                method: "GET",
+                url: "/v2/aad/domains/global-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询实例关联的域名信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -927,15 +1249,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let instanceId;
+            
+            let limit;
+            
+            let offset;
 
             if (listInstanceDomainsRequest !== null && listInstanceDomainsRequest !== undefined) {
                 if (listInstanceDomainsRequest instanceof ListInstanceDomainsRequest) {
                     instanceId = listInstanceDomainsRequest.instanceId;
+                    limit = listInstanceDomainsRequest.limit;
+                    offset = listInstanceDomainsRequest.offset;
                 } else {
                     instanceId = listInstanceDomainsRequest['instance_id'];
+                    limit = listInstanceDomainsRequest['limit'];
+                    offset = listInstanceDomainsRequest['offset'];
                 }
             }
 
@@ -943,8 +1273,36 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceDomains.');
             }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询回源ip列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSourceIp() {
+            const options = {
+                method: "GET",
+                url: "/v2/aad/source-ip",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1238,6 +1596,10 @@ export const ParamCreater = function () {
             let recent;
             
             let overseasType;
+            
+            let limit;
+            
+            let offset;
 
             if (listWafQpsRequest !== null && listWafQpsRequest !== undefined) {
                 if (listWafQpsRequest instanceof ListWafQpsRequest) {
@@ -1247,6 +1609,8 @@ export const ParamCreater = function () {
                     endTime = listWafQpsRequest.endTime;
                     recent = listWafQpsRequest.recent;
                     overseasType = listWafQpsRequest.overseasType;
+                    limit = listWafQpsRequest.limit;
+                    offset = listWafQpsRequest.offset;
                 } else {
                     valueType = listWafQpsRequest['value_type'];
                     domains = listWafQpsRequest['domains'];
@@ -1254,6 +1618,8 @@ export const ParamCreater = function () {
                     endTime = listWafQpsRequest['end_time'];
                     recent = listWafQpsRequest['recent'];
                     overseasType = listWafQpsRequest['overseas_type'];
+                    limit = listWafQpsRequest['limit'];
+                    offset = listWafQpsRequest['offset'];
                 }
             }
 
@@ -1278,6 +1644,12 @@ export const ParamCreater = function () {
             }
             if (overseasType !== null && overseasType !== undefined) {
                 localVarQueryParameter['overseas_type'] = overseasType;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1386,6 +1758,95 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询告警设置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAlarmConfig() {
+            const options = {
+                method: "GET",
+                url: "/v2/aad/alarm",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询高防入流量峰值、攻击流量峰值、DDoS攻击次数
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDDoSPeak(showDDoSPeakRequest?: ShowDDoSPeakRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/aad/instances/{instance_id}/ddos-info/flow/peak",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let instanceId;
+            
+            let ip;
+
+            if (showDDoSPeakRequest !== null && showDDoSPeakRequest !== undefined) {
+                if (showDDoSPeakRequest instanceof ShowDDoSPeakRequest) {
+                    startTime = showDDoSPeakRequest.startTime;
+                    endTime = showDDoSPeakRequest.endTime;
+                    instanceId = showDDoSPeakRequest.instanceId;
+                    ip = showDDoSPeakRequest.ip;
+                } else {
+                    startTime = showDDoSPeakRequest['start_time'];
+                    endTime = showDDoSPeakRequest['end_time'];
+                    instanceId = showDDoSPeakRequest['instance_id'];
+                    ip = showDDoSPeakRequest['ip'];
+                }
+            }
+
+        
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling showDDoSPeak.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling showDDoSPeak.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showDDoSPeak.');
+            }
+            if (ip === null || ip === undefined) {
+                throw new RequiredError('ip','Required parameter ip was null or undefined when calling showDDoSPeak.');
+            }
+            if (ip !== null && ip !== undefined) {
+                localVarQueryParameter['ip'] = ip;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询域名关联的证书信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1417,6 +1878,91 @@ export const ParamCreater = function () {
             throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainCertificate.');
             }
 
+            options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询域名详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDomainDetail(showDomainDetailRequest?: ShowDomainDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/aad/domains/{domain_id}/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let domainId;
+
+            if (showDomainDetailRequest !== null && showDomainDetailRequest !== undefined) {
+                if (showDomainDetailRequest instanceof ShowDomainDetailRequest) {
+                    domainId = showDomainDetailRequest.domainId;
+                } else {
+                    domainId = showDomainDetailRequest['domain_id'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainDetail.');
+            }
+
+            options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看域名配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDomainNameConfig(showDomainNameConfigRequest?: ShowDomainNameConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/aad/domains/{domain_id}/config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domainId;
+            
+            let type;
+
+            if (showDomainNameConfigRequest !== null && showDomainNameConfigRequest !== undefined) {
+                if (showDomainNameConfigRequest instanceof ShowDomainNameConfigRequest) {
+                    domainId = showDomainNameConfigRequest.domainId;
+                    type = showDomainNameConfigRequest.type;
+                } else {
+                    domainId = showDomainNameConfigRequest['domain_id'];
+                    type = showDomainNameConfigRequest['type'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainNameConfig.');
+            }
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling showDomainNameConfig.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'domain_id': domainId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -1458,6 +2004,43 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceByInstanceId(showInstanceByInstanceIdRequest?: ShowInstanceByInstanceIdRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/aad/instances/{instance_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showInstanceByInstanceIdRequest !== null && showInstanceByInstanceIdRequest !== undefined) {
+                if (showInstanceByInstanceIdRequest instanceof ShowInstanceByInstanceIdRequest) {
+                    instanceId = showInstanceByInstanceIdRequest.instanceId;
+                } else {
+                    instanceId = showInstanceByInstanceIdRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceByInstanceId.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1573,6 +2156,112 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改域名配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDomainConfig(updateDomainConfigRequest?: UpdateDomainConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/aad/domains/{domain_id}/config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let domainId;
+
+            if (updateDomainConfigRequest !== null && updateDomainConfigRequest !== undefined) {
+                if (updateDomainConfigRequest instanceof UpdateDomainConfigRequest) {
+                    domainId = updateDomainConfigRequest.domainId;
+                    body = updateDomainConfigRequest.body
+                } else {
+                    domainId = updateDomainConfigRequest['domain_id'];
+                    body = updateDomainConfigRequest['body'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling updateDomainConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改转发规则中的源站IP
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateForwardRule(updateForwardRuleRequest?: UpdateForwardRuleRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/aad/forward-rules/{instance_id}/{ip}/{rule_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let ruleId;
+            
+            let ip;
+
+            if (updateForwardRuleRequest !== null && updateForwardRuleRequest !== undefined) {
+                if (updateForwardRuleRequest instanceof UpdateForwardRuleRequest) {
+                    instanceId = updateForwardRuleRequest.instanceId;
+                    ruleId = updateForwardRuleRequest.ruleId;
+                    ip = updateForwardRuleRequest.ip;
+                    body = updateForwardRuleRequest.body
+                } else {
+                    instanceId = updateForwardRuleRequest['instance_id'];
+                    ruleId = updateForwardRuleRequest['rule_id'];
+                    ip = updateForwardRuleRequest['ip'];
+                    body = updateForwardRuleRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateForwardRule.');
+            }
+            if (ruleId === null || ruleId === undefined) {
+            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling updateForwardRule.');
+            }
+            if (ip === null || ip === undefined) {
+            throw new RequiredError('ip','Required parameter ip was null or undefined when calling updateForwardRule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'rule_id': ruleId,'ip': ip, };
             options.headers = localVarHeaderParameter;
             return options;
         },

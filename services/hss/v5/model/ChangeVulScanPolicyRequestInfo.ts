@@ -1,3 +1,4 @@
+import { ChangeVulScanPolicyRequestInfoTime } from './ChangeVulScanPolicyRequestInfoTime';
 
 
 export class ChangeVulScanPolicyRequestInfo {
@@ -6,6 +7,7 @@ export class ChangeVulScanPolicyRequestInfo {
     private 'host_ids'?: Array<string>;
     private 'scan_vul_types'?: Array<string>;
     public status?: string;
+    public time?: ChangeVulScanPolicyRequestInfoTime;
     public constructor(scanPeriod?: string, scanRangeType?: string, status?: string) { 
         this['scan_period'] = scanPeriod;
         this['scan_range_type'] = scanRangeType;
@@ -53,6 +55,10 @@ export class ChangeVulScanPolicyRequestInfo {
     }
     public withStatus(status: string): ChangeVulScanPolicyRequestInfo {
         this['status'] = status;
+        return this;
+    }
+    public withTime(time: ChangeVulScanPolicyRequestInfoTime): ChangeVulScanPolicyRequestInfo {
+        this['time'] = time;
         return this;
     }
 }

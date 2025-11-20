@@ -9,6 +9,7 @@ export class ImageScanRequestInfo {
     private 'login_user_name'?: string;
     private 'login_password'?: string;
     public namespace?: string;
+    private 'pipeline_type'?: string;
     public constructor() { 
     }
     public withScanType(scanType: string): ImageScanRequestInfo {
@@ -84,5 +85,15 @@ export class ImageScanRequestInfo {
     public withNamespace(namespace: string): ImageScanRequestInfo {
         this['namespace'] = namespace;
         return this;
+    }
+    public withPipelineType(pipelineType: string): ImageScanRequestInfo {
+        this['pipeline_type'] = pipelineType;
+        return this;
+    }
+    public set pipelineType(pipelineType: string  | undefined) {
+        this['pipeline_type'] = pipelineType;
+    }
+    public get pipelineType(): string | undefined {
+        return this['pipeline_type'];
     }
 }

@@ -1342,8 +1342,9 @@ export class DasClient {
      * @summary 查询资源风险实例风险项
      * @param {string} datastoreType 数据库类型
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言
-     * @param {number} [page] 页码，默认1
+     * @param {number} [page] 页码，默认1；待废弃，不建议使用，page和offset同时存在使用offset
      * @param {number} [limit] 每页记录数，默认20。
+     * @param {number} [offset] 开始查询的偏移量，默认0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5158,6 +5159,8 @@ export const ParamCreater = function () {
             let page;
             
             let limit;
+            
+            let offset;
 
             if (listRiskItemsRequest !== null && listRiskItemsRequest !== undefined) {
                 if (listRiskItemsRequest instanceof ListRiskItemsRequest) {
@@ -5165,11 +5168,13 @@ export const ParamCreater = function () {
                     xLanguage = listRiskItemsRequest.xLanguage;
                     page = listRiskItemsRequest.page;
                     limit = listRiskItemsRequest.limit;
+                    offset = listRiskItemsRequest.offset;
                 } else {
                     datastoreType = listRiskItemsRequest['datastore_type'];
                     xLanguage = listRiskItemsRequest['X-Language'];
                     page = listRiskItemsRequest['page'];
                     limit = listRiskItemsRequest['limit'];
+                    offset = listRiskItemsRequest['offset'];
                 }
             }
 
@@ -5185,6 +5190,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);

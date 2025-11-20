@@ -9,11 +9,11 @@ export class ListCheckRuleHostRequest {
     private 'check_type'?: string;
     public standard?: string;
     private 'result_type'?: string;
+    private 'cluster_id'?: string;
+    private 'host_name'?: string;
     private 'host_type'?: string;
     private 'check_cce'?: boolean;
-    private 'cluster_id'?: string;
     private 'policy_group_id'?: string;
-    private 'host_name'?: string;
     public constructor(checkRuleId?: string, standard?: string) { 
         this['check_rule_id'] = checkRuleId;
         this['standard'] = standard;
@@ -80,6 +80,26 @@ export class ListCheckRuleHostRequest {
     public get resultType(): string | undefined {
         return this['result_type'];
     }
+    public withClusterId(clusterId: string): ListCheckRuleHostRequest {
+        this['cluster_id'] = clusterId;
+        return this;
+    }
+    public set clusterId(clusterId: string  | undefined) {
+        this['cluster_id'] = clusterId;
+    }
+    public get clusterId(): string | undefined {
+        return this['cluster_id'];
+    }
+    public withHostName(hostName: string): ListCheckRuleHostRequest {
+        this['host_name'] = hostName;
+        return this;
+    }
+    public set hostName(hostName: string  | undefined) {
+        this['host_name'] = hostName;
+    }
+    public get hostName(): string | undefined {
+        return this['host_name'];
+    }
     public withHostType(hostType: string): ListCheckRuleHostRequest {
         this['host_type'] = hostType;
         return this;
@@ -100,16 +120,6 @@ export class ListCheckRuleHostRequest {
     public get checkCce(): boolean | undefined {
         return this['check_cce'];
     }
-    public withClusterId(clusterId: string): ListCheckRuleHostRequest {
-        this['cluster_id'] = clusterId;
-        return this;
-    }
-    public set clusterId(clusterId: string  | undefined) {
-        this['cluster_id'] = clusterId;
-    }
-    public get clusterId(): string | undefined {
-        return this['cluster_id'];
-    }
     public withPolicyGroupId(policyGroupId: string): ListCheckRuleHostRequest {
         this['policy_group_id'] = policyGroupId;
         return this;
@@ -119,15 +129,5 @@ export class ListCheckRuleHostRequest {
     }
     public get policyGroupId(): string | undefined {
         return this['policy_group_id'];
-    }
-    public withHostName(hostName: string): ListCheckRuleHostRequest {
-        this['host_name'] = hostName;
-        return this;
-    }
-    public set hostName(hostName: string  | undefined) {
-        this['host_name'] = hostName;
-    }
-    public get hostName(): string | undefined {
-        return this['host_name'];
     }
 }

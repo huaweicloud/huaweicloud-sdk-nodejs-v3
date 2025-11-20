@@ -5,6 +5,7 @@ export class ListRiskItemsRequest {
     private 'datastore_type'?: string;
     public page?: number;
     public limit?: number;
+    public offset?: number;
     public constructor(datastoreType?: string) { 
         this['datastore_type'] = datastoreType;
     }
@@ -34,6 +35,10 @@ export class ListRiskItemsRequest {
     }
     public withLimit(limit: number): ListRiskItemsRequest {
         this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListRiskItemsRequest {
+        this['offset'] = offset;
         return this;
     }
 }

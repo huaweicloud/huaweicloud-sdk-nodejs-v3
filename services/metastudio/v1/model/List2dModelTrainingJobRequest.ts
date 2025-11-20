@@ -7,18 +7,23 @@ export class List2dModelTrainingJobRequest {
     private 'X-App-UserId'?: string;
     public offset?: number;
     public limit?: number;
+    public state?: string;
     private 'sort_key'?: string;
     private 'sort_dir'?: string;
     private 'create_until'?: string;
     private 'create_since'?: string;
-    public state?: string;
     private 'query_project_id'?: string;
+    private 'update_since'?: string;
+    private 'update_until'?: string;
     private 'batch_name'?: string;
     public tag?: string;
     private 'job_id'?: string;
     public name?: string;
     private 'model_resolution'?: string;
     private 'is_flexus'?: boolean;
+    private 'is_live_copy'?: boolean;
+    private 'train_location'?: string;
+    private 'is_ondemand_resource'?: boolean;
     public constructor() { 
     }
     public withAuthorization(authorization: string): List2dModelTrainingJobRequest {
@@ -69,6 +74,10 @@ export class List2dModelTrainingJobRequest {
         this['limit'] = limit;
         return this;
     }
+    public withState(state: string): List2dModelTrainingJobRequest {
+        this['state'] = state;
+        return this;
+    }
     public withSortKey(sortKey: string): List2dModelTrainingJobRequest {
         this['sort_key'] = sortKey;
         return this;
@@ -109,10 +118,6 @@ export class List2dModelTrainingJobRequest {
     public get createSince(): string | undefined {
         return this['create_since'];
     }
-    public withState(state: string): List2dModelTrainingJobRequest {
-        this['state'] = state;
-        return this;
-    }
     public withQueryProjectId(queryProjectId: string): List2dModelTrainingJobRequest {
         this['query_project_id'] = queryProjectId;
         return this;
@@ -122,6 +127,26 @@ export class List2dModelTrainingJobRequest {
     }
     public get queryProjectId(): string | undefined {
         return this['query_project_id'];
+    }
+    public withUpdateSince(updateSince: string): List2dModelTrainingJobRequest {
+        this['update_since'] = updateSince;
+        return this;
+    }
+    public set updateSince(updateSince: string  | undefined) {
+        this['update_since'] = updateSince;
+    }
+    public get updateSince(): string | undefined {
+        return this['update_since'];
+    }
+    public withUpdateUntil(updateUntil: string): List2dModelTrainingJobRequest {
+        this['update_until'] = updateUntil;
+        return this;
+    }
+    public set updateUntil(updateUntil: string  | undefined) {
+        this['update_until'] = updateUntil;
+    }
+    public get updateUntil(): string | undefined {
+        return this['update_until'];
     }
     public withBatchName(batchName: string): List2dModelTrainingJobRequest {
         this['batch_name'] = batchName;
@@ -170,5 +195,35 @@ export class List2dModelTrainingJobRequest {
     }
     public get isFlexus(): boolean | undefined {
         return this['is_flexus'];
+    }
+    public withIsLiveCopy(isLiveCopy: boolean): List2dModelTrainingJobRequest {
+        this['is_live_copy'] = isLiveCopy;
+        return this;
+    }
+    public set isLiveCopy(isLiveCopy: boolean  | undefined) {
+        this['is_live_copy'] = isLiveCopy;
+    }
+    public get isLiveCopy(): boolean | undefined {
+        return this['is_live_copy'];
+    }
+    public withTrainLocation(trainLocation: string): List2dModelTrainingJobRequest {
+        this['train_location'] = trainLocation;
+        return this;
+    }
+    public set trainLocation(trainLocation: string  | undefined) {
+        this['train_location'] = trainLocation;
+    }
+    public get trainLocation(): string | undefined {
+        return this['train_location'];
+    }
+    public withIsOndemandResource(isOndemandResource: boolean): List2dModelTrainingJobRequest {
+        this['is_ondemand_resource'] = isOndemandResource;
+        return this;
+    }
+    public set isOndemandResource(isOndemandResource: boolean  | undefined) {
+        this['is_ondemand_resource'] = isOndemandResource;
+    }
+    public get isOndemandResource(): boolean | undefined {
+        return this['is_ondemand_resource'];
     }
 }

@@ -21,6 +21,7 @@ export class CICDImageResponseInfo {
     private 'unsafe_setting_num'?: number;
     private 'malicious_file_num'?: number;
     private 'severity_level'?: string;
+    private 'pipeline_type'?: string;
     public constructor() { 
     }
     public withImageId(imageId: string): CICDImageResponseInfo {
@@ -216,5 +217,15 @@ export class CICDImageResponseInfo {
     }
     public get severityLevel(): string | undefined {
         return this['severity_level'];
+    }
+    public withPipelineType(pipelineType: string): CICDImageResponseInfo {
+        this['pipeline_type'] = pipelineType;
+        return this;
+    }
+    public set pipelineType(pipelineType: string  | undefined) {
+        this['pipeline_type'] = pipelineType;
+    }
+    public get pipelineType(): string | undefined {
+        return this['pipeline_type'];
     }
 }

@@ -261,6 +261,7 @@ export * from './model/ListWarRoomsRequest';
 export * from './model/ListWarRoomsResponse';
 export * from './model/MessageNotification';
 export * from './model/NonCompliantSummary';
+export * from './model/NotificationMode';
 export * from './model/ObjectFilter';
 export * from './model/ObjectFilterV2';
 export * from './model/OperateExecutionRequest';

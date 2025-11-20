@@ -44,5 +44,6 @@ export class TrainingAllocatedResource {
     */
 export enum TrainingAllocatedResourceChargeModeEnum {
     PERIODIC = 'PERIODIC',
-    ONE_TIME = 'ONE_TIME'
+    ONE_TIME = 'ONE_TIME',
+    ON_DEMAND = 'ON_DEMAND'
 }

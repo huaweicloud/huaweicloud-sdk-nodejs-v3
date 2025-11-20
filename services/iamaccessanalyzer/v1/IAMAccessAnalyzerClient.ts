@@ -33,12 +33,23 @@ import { CreateAnalyzerResponse } from './model/CreateAnalyzerResponse';
 import { CreateArchiveRuleReqBody } from './model/CreateArchiveRuleReqBody';
 import { CreateArchiveRuleRequest } from './model/CreateArchiveRuleRequest';
 import { CreateArchiveRuleResponse } from './model/CreateArchiveRuleResponse';
+import { CreateNotificationSettingReqBody } from './model/CreateNotificationSettingReqBody';
+import { CreateNotificationSettingRequest } from './model/CreateNotificationSettingRequest';
+import { CreateNotificationSettingResponse } from './model/CreateNotificationSettingResponse';
+import { CreateResourceConfigurationsReqBody } from './model/CreateResourceConfigurationsReqBody';
+import { CreateResourceConfigurationsRequest } from './model/CreateResourceConfigurationsRequest';
+import { CreateResourceConfigurationsResponse } from './model/CreateResourceConfigurationsResponse';
 import { Criterion } from './model/Criterion';
 import { CurrentCount } from './model/CurrentCount';
 import { DeleteAnalyzerRequest } from './model/DeleteAnalyzerRequest';
 import { DeleteAnalyzerResponse } from './model/DeleteAnalyzerResponse';
 import { DeleteArchiveRuleRequest } from './model/DeleteArchiveRuleRequest';
 import { DeleteArchiveRuleResponse } from './model/DeleteArchiveRuleResponse';
+import { DeleteNotificationSettingRequest } from './model/DeleteNotificationSettingRequest';
+import { DeleteNotificationSettingResponse } from './model/DeleteNotificationSettingResponse';
+import { DeleteResourceConfigurationReqBody } from './model/DeleteResourceConfigurationReqBody';
+import { DeleteResourceConfigurationsRequest } from './model/DeleteResourceConfigurationsRequest';
+import { DeleteResourceConfigurationsResponse } from './model/DeleteResourceConfigurationsResponse';
 import { ExternalAccessDetails } from './model/ExternalAccessDetails';
 import { Finding } from './model/Finding';
 import { FindingCondition } from './model/FindingCondition';
@@ -50,6 +61,14 @@ import { FindingSourceType } from './model/FindingSourceType';
 import { FindingSummary } from './model/FindingSummary';
 import { FindingType } from './model/FindingType';
 import { IAMAgency } from './model/IAMAgency';
+import { IamBpAccessApiWithPasswordDetails } from './model/IamBpAccessApiWithPasswordDetails';
+import { IamBpAssignHighRiskSysPolicyOrRoleToAgencyDetails } from './model/IamBpAssignHighRiskSysPolicyOrRoleToAgencyDetails';
+import { IamBpAssignHighRiskSysPolicyOrRoleToUserDetails } from './model/IamBpAssignHighRiskSysPolicyOrRoleToUserDetails';
+import { IamBpAttachHighRiskSysIdentityPolicyToAgencyDetails } from './model/IamBpAttachHighRiskSysIdentityPolicyToAgencyDetails';
+import { IamBpAttachHighRiskSysIdentityPolicyToUserDetails } from './model/IamBpAttachHighRiskSysIdentityPolicyToUserDetails';
+import { IamBpLoginProtectionDisabledDetails } from './model/IamBpLoginProtectionDisabledDetails';
+import { IamBpMfaUnconfiguredDetails } from './model/IamBpMfaUnconfiguredDetails';
+import { IamBpRootUserHasAccessKeyDetails } from './model/IamBpRootUserHasAccessKeyDetails';
 import { KMSCmk } from './model/KMSCmk';
 import { LastAnalyzedResourceUrn } from './model/LastAnalyzedResourceUrn';
 import { Limit } from './model/Limit';
@@ -64,10 +83,17 @@ import { ListArchiveRulesResponse } from './model/ListArchiveRulesResponse';
 import { ListFindingsReqBody } from './model/ListFindingsReqBody';
 import { ListFindingsRequest } from './model/ListFindingsRequest';
 import { ListFindingsResponse } from './model/ListFindingsResponse';
+import { ListNotificationSettingsRequest } from './model/ListNotificationSettingsRequest';
+import { ListNotificationSettingsResponse } from './model/ListNotificationSettingsResponse';
 import { ListPreviewFindingsReqBody } from './model/ListPreviewFindingsReqBody';
+import { ListResourceConfigurationsRequest } from './model/ListResourceConfigurationsRequest';
+import { ListResourceConfigurationsResponse } from './model/ListResourceConfigurationsResponse';
 import { Location } from './model/Location';
 import { Marker } from './model/Marker';
 import { NextMarker } from './model/NextMarker';
+import { NotificationSettingId } from './model/NotificationSettingId';
+import { NotificationSettingSummary } from './model/NotificationSettingSummary';
+import { NotificationSettingUrn } from './model/NotificationSettingUrn';
 import { OBSBucket } from './model/OBSBucket';
 import { OrganizationId } from './model/OrganizationId';
 import { PageInfo } from './model/PageInfo';
@@ -78,6 +104,9 @@ import { PolicyType } from './model/PolicyType';
 import { Position } from './model/Position';
 import { PreviewFinding } from './model/PreviewFinding';
 import { PreviewStatusReason } from './model/PreviewStatusReason';
+import { PrivilegeEscalationDetails } from './model/PrivilegeEscalationDetails';
+import { PrivilegeEscalationStep } from './model/PrivilegeEscalationStep';
+import { ResourceConfiguration } from './model/ResourceConfiguration';
 import { ResourceOwnerAccount } from './model/ResourceOwnerAccount';
 import { ResourceType } from './model/ResourceType';
 import { ResourceUrn } from './model/ResourceUrn';
@@ -89,6 +118,8 @@ import { ShowArchiveRuleRequest } from './model/ShowArchiveRuleRequest';
 import { ShowArchiveRuleResponse } from './model/ShowArchiveRuleResponse';
 import { ShowFindingRequest } from './model/ShowFindingRequest';
 import { ShowFindingResponse } from './model/ShowFindingResponse';
+import { ShowNotificationSettingRequest } from './model/ShowNotificationSettingRequest';
+import { ShowNotificationSettingResponse } from './model/ShowNotificationSettingResponse';
 import { Span } from './model/Span';
 import { StartResourceScanReqBody } from './model/StartResourceScanReqBody';
 import { StartResourceScanRequest } from './model/StartResourceScanRequest';
@@ -105,15 +136,24 @@ import { UntagResourceReqBody } from './model/UntagResourceReqBody';
 import { UntagResourceRequest } from './model/UntagResourceRequest';
 import { UntagResourceResponse } from './model/UntagResourceResponse';
 import { UnusedAction } from './model/UnusedAction';
+import { UnusedAnalysisRule } from './model/UnusedAnalysisRule';
+import { UnusedAnalysisRuleCriteria } from './model/UnusedAnalysisRuleCriteria';
+import { UnusedIamAgencyDetails } from './model/UnusedIamAgencyDetails';
 import { UnusedIamUserAccessKeyDetails } from './model/UnusedIamUserAccessKeyDetails';
 import { UnusedIamUserPasswordDetails } from './model/UnusedIamUserPasswordDetails';
 import { UnusedPermissionDetails } from './model/UnusedPermissionDetails';
+import { UpdateAnalyzerReqBody } from './model/UpdateAnalyzerReqBody';
+import { UpdateAnalyzerRequest } from './model/UpdateAnalyzerRequest';
+import { UpdateAnalyzerResponse } from './model/UpdateAnalyzerResponse';
 import { UpdateArchiveRuleReqBody } from './model/UpdateArchiveRuleReqBody';
 import { UpdateArchiveRuleRequest } from './model/UpdateArchiveRuleRequest';
 import { UpdateArchiveRuleResponse } from './model/UpdateArchiveRuleResponse';
 import { UpdateFindingsReqBody } from './model/UpdateFindingsReqBody';
 import { UpdateFindingsRequest } from './model/UpdateFindingsRequest';
 import { UpdateFindingsResponse } from './model/UpdateFindingsResponse';
+import { UpdateNotificationSettingReqBody } from './model/UpdateNotificationSettingReqBody';
+import { UpdateNotificationSettingRequest } from './model/UpdateNotificationSettingRequest';
+import { UpdateNotificationSettingResponse } from './model/UpdateNotificationSettingResponse';
 import { ValidatePolicyFinding } from './model/ValidatePolicyFinding';
 import { ValidatePolicyReqBody } from './model/ValidatePolicyReqBody';
 import { ValidatePolicyRequest } from './model/ValidatePolicyRequest';
@@ -182,7 +222,7 @@ export class IAMAccessAnalyzerClient {
      * @summary 检索分析器的列表
      * @param {number} [limit] 单页最大结果数。
      * @param {string} [marker] 页面标记。
-     * @param {'account' | 'organization' | 'account_unused_access' | 'organization_unused_access'} [type] 分析器的类型。
+     * @param {'account' | 'organization' | 'account_unused_access' | 'organization_unused_access' | 'account_privilege_escalation' | 'account_iam_best_practice'} [type] 分析器的类型。 - account：账号级外部访问分析器 - organization：组织级外部访问分析器 - account_unused_access：账号级未使用访问分析器 - organization_unused_access：组织级未使用访问分析器 - account_privilege_escalation：账号级提权访问分析器 - account_iam_best_practice：账号级IAM最佳实践分析器 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -227,6 +267,26 @@ export class IAMAccessAnalyzerClient {
      */
     public startResourceScan(startResourceScanRequest?: StartResourceScanRequest): Promise<StartResourceScanResponse> {
         const options = ParamCreater().startResourceScan(startResourceScanRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新指定分析器的配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新指定分析器的配置
+     * @param {string} analyzerId 分析器的唯一标识符。
+     * @param {UpdateAnalyzerReqBody} updateAnalyzerReqBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAnalyzer(updateAnalyzerRequest?: UpdateAnalyzerRequest): Promise<UpdateAnalyzerResponse> {
+        const options = ParamCreater().updateAnalyzer(updateAnalyzerRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -357,6 +417,67 @@ export class IAMAccessAnalyzerClient {
     }
 
     /**
+     * 创建指定分析器的资源分析配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建资源分析配置
+     * @param {string} analyzerId 分析器的唯一标识符。
+     * @param {CreateResourceConfigurationsReqBody} createResourceConfigurationsReqBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createResourceConfigurations(createResourceConfigurationsRequest?: CreateResourceConfigurationsRequest): Promise<CreateResourceConfigurationsResponse> {
+        const options = ParamCreater().createResourceConfigurations(createResourceConfigurationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除指定分析器的资源分析配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除资源分析配置
+     * @param {string} analyzerId 分析器的唯一标识符。
+     * @param {DeleteResourceConfigurationReqBody} deleteResourceConfigurationReqBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteResourceConfigurations(deleteResourceConfigurationsRequest?: DeleteResourceConfigurationsRequest): Promise<DeleteResourceConfigurationsResponse> {
+        const options = ParamCreater().deleteResourceConfigurations(deleteResourceConfigurationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列举指定分析器的资源分析配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举资源分析配置
+     * @param {string} analyzerId 分析器的唯一标识符。
+     * @param {number} [limit] 单页最大结果数。
+     * @param {string} [marker] 页面标记。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listResourceConfigurations(listResourceConfigurationsRequest?: ListResourceConfigurationsRequest): Promise<ListResourceConfigurationsResponse> {
+        const options = ParamCreater().listResourceConfigurations(listResourceConfigurationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 检索指定分析器生成的访问分析结果列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -409,6 +530,103 @@ export class IAMAccessAnalyzerClient {
      */
     public updateFindings(updateFindingsRequest?: UpdateFindingsRequest): Promise<UpdateFindingsResponse> {
         const options = ParamCreater().updateFindings(updateFindingsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建消息通知配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建消息通知配置
+     * @param {CreateNotificationSettingReqBody} createNotificationSettingReqBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createNotificationSetting(createNotificationSettingRequest?: CreateNotificationSettingRequest): Promise<CreateNotificationSettingResponse> {
+        const options = ParamCreater().createNotificationSetting(createNotificationSettingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除消息通知配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除消息通知配置
+     * @param {string} notificationSettingId 消息通知配置的唯一标识符。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteNotificationSetting(deleteNotificationSettingRequest?: DeleteNotificationSettingRequest): Promise<DeleteNotificationSettingResponse> {
+        const options = ParamCreater().deleteNotificationSetting(deleteNotificationSettingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取消息通知配置列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取消息通知配置列表
+     * @param {number} [limit] 单页最大结果数。
+     * @param {string} [marker] 页面标记。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listNotificationSettings(listNotificationSettingsRequest?: ListNotificationSettingsRequest): Promise<ListNotificationSettingsResponse> {
+        const options = ParamCreater().listNotificationSettings(listNotificationSettingsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取消息通知配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取消息通知配置
+     * @param {string} notificationSettingId 消息通知配置的唯一标识符。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showNotificationSetting(showNotificationSettingRequest?: ShowNotificationSettingRequest): Promise<ShowNotificationSettingResponse> {
+        const options = ParamCreater().showNotificationSetting(showNotificationSettingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新消息通知配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新消息通知配置
+     * @param {string} notificationSettingId 消息通知配置的唯一标识符。
+     * @param {UpdateNotificationSettingReqBody} updateNotificationSettingReqBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateNotificationSetting(updateNotificationSettingRequest?: UpdateNotificationSettingRequest): Promise<UpdateNotificationSettingResponse> {
+        const options = ParamCreater().updateNotificationSetting(updateNotificationSettingRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -504,7 +722,7 @@ export class IAMAccessAnalyzerClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 向指定资源添加标签
-     * @param {'analyzers'} resourceType 资源类型。
+     * @param {'analyzers'} resourceType 资源类型。 - analyzers：分析器 
      * @param {string} resourceId 资源的唯一标识符。
      * @param {TagResourceReqBody} tagResourceReqBody 
      * @param {*} [options] Override http request option.
@@ -525,7 +743,7 @@ export class IAMAccessAnalyzerClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 从指定资源中删除标签
-     * @param {'analyzers'} resourceType 资源类型。
+     * @param {'analyzers'} resourceType 资源类型。 - analyzers：分析器 
      * @param {string} resourceId 资源的唯一标识符。
      * @param {UntagResourceReqBody} untagResourceReqBody 
      * @param {*} [options] Override http request option.
@@ -568,7 +786,7 @@ export class IAMAccessAnalyzerClient {
      * @param {ValidatePolicyReqBody} validatePolicyReqBody 
      * @param {number} [limit] 单页最大结果数。
      * @param {string} [marker] 页面标记。
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 返回消息的语言，默认值为\&#39;zh-cn\&#39;，表示中文。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 返回消息的语言，默认值为\&#39;zh-cn\&#39;。 - zh-cn：中文 - en-us：英文 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -782,6 +1000,52 @@ export const ParamCreater = function () {
         
             if (analyzerId === null || analyzerId === undefined) {
             throw new RequiredError('analyzerId','Required parameter analyzerId was null or undefined when calling startResourceScan.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'analyzer_id': analyzerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新指定分析器的配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAnalyzer(updateAnalyzerRequest?: UpdateAnalyzerRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/analyzers/{analyzer_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let analyzerId;
+
+            if (updateAnalyzerRequest !== null && updateAnalyzerRequest !== undefined) {
+                if (updateAnalyzerRequest instanceof UpdateAnalyzerRequest) {
+                    analyzerId = updateAnalyzerRequest.analyzerId;
+                    body = updateAnalyzerRequest.body
+                } else {
+                    analyzerId = updateAnalyzerRequest['analyzer_id'];
+                    body = updateAnalyzerRequest['body'];
+                }
+            }
+
+        
+            if (analyzerId === null || analyzerId === undefined) {
+            throw new RequiredError('analyzerId','Required parameter analyzerId was null or undefined when calling updateAnalyzer.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1078,6 +1342,150 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建指定分析器的资源分析配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createResourceConfigurations(createResourceConfigurationsRequest?: CreateResourceConfigurationsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/analyzers/{analyzer_id}/resource-configurations/create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let analyzerId;
+
+            if (createResourceConfigurationsRequest !== null && createResourceConfigurationsRequest !== undefined) {
+                if (createResourceConfigurationsRequest instanceof CreateResourceConfigurationsRequest) {
+                    analyzerId = createResourceConfigurationsRequest.analyzerId;
+                    body = createResourceConfigurationsRequest.body
+                } else {
+                    analyzerId = createResourceConfigurationsRequest['analyzer_id'];
+                    body = createResourceConfigurationsRequest['body'];
+                }
+            }
+
+        
+            if (analyzerId === null || analyzerId === undefined) {
+            throw new RequiredError('analyzerId','Required parameter analyzerId was null or undefined when calling createResourceConfigurations.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'analyzer_id': analyzerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除指定分析器的资源分析配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteResourceConfigurations(deleteResourceConfigurationsRequest?: DeleteResourceConfigurationsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/analyzers/{analyzer_id}/resource-configurations/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let analyzerId;
+
+            if (deleteResourceConfigurationsRequest !== null && deleteResourceConfigurationsRequest !== undefined) {
+                if (deleteResourceConfigurationsRequest instanceof DeleteResourceConfigurationsRequest) {
+                    analyzerId = deleteResourceConfigurationsRequest.analyzerId;
+                    body = deleteResourceConfigurationsRequest.body
+                } else {
+                    analyzerId = deleteResourceConfigurationsRequest['analyzer_id'];
+                    body = deleteResourceConfigurationsRequest['body'];
+                }
+            }
+
+        
+            if (analyzerId === null || analyzerId === undefined) {
+            throw new RequiredError('analyzerId','Required parameter analyzerId was null or undefined when calling deleteResourceConfigurations.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'analyzer_id': analyzerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列举指定分析器的资源分析配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listResourceConfigurations(listResourceConfigurationsRequest?: ListResourceConfigurationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/analyzers/{analyzer_id}/resource-configurations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let analyzerId;
+            
+            let limit;
+            
+            let marker;
+
+            if (listResourceConfigurationsRequest !== null && listResourceConfigurationsRequest !== undefined) {
+                if (listResourceConfigurationsRequest instanceof ListResourceConfigurationsRequest) {
+                    analyzerId = listResourceConfigurationsRequest.analyzerId;
+                    limit = listResourceConfigurationsRequest.limit;
+                    marker = listResourceConfigurationsRequest.marker;
+                } else {
+                    analyzerId = listResourceConfigurationsRequest['analyzer_id'];
+                    limit = listResourceConfigurationsRequest['limit'];
+                    marker = listResourceConfigurationsRequest['marker'];
+                }
+            }
+
+        
+            if (analyzerId === null || analyzerId === undefined) {
+            throw new RequiredError('analyzerId','Required parameter analyzerId was null or undefined when calling listResourceConfigurations.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'analyzer_id': analyzerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 检索指定分析器生成的访问分析结果列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1209,6 +1617,208 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'analyzer_id': analyzerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建消息通知配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createNotificationSetting(createNotificationSettingRequest?: CreateNotificationSettingRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/notification-settings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createNotificationSettingRequest !== null && createNotificationSettingRequest !== undefined) {
+                if (createNotificationSettingRequest instanceof CreateNotificationSettingRequest) {
+                    body = createNotificationSettingRequest.body
+                } else {
+                    body = createNotificationSettingRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除消息通知配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteNotificationSetting(deleteNotificationSettingRequest?: DeleteNotificationSettingRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/notification-settings/{notification_setting_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let notificationSettingId;
+
+            if (deleteNotificationSettingRequest !== null && deleteNotificationSettingRequest !== undefined) {
+                if (deleteNotificationSettingRequest instanceof DeleteNotificationSettingRequest) {
+                    notificationSettingId = deleteNotificationSettingRequest.notificationSettingId;
+                } else {
+                    notificationSettingId = deleteNotificationSettingRequest['notification_setting_id'];
+                }
+            }
+
+        
+            if (notificationSettingId === null || notificationSettingId === undefined) {
+            throw new RequiredError('notificationSettingId','Required parameter notificationSettingId was null or undefined when calling deleteNotificationSetting.');
+            }
+
+            options.pathParams = { 'notification_setting_id': notificationSettingId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取消息通知配置列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listNotificationSettings(listNotificationSettingsRequest?: ListNotificationSettingsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/notification-settings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+
+            if (listNotificationSettingsRequest !== null && listNotificationSettingsRequest !== undefined) {
+                if (listNotificationSettingsRequest instanceof ListNotificationSettingsRequest) {
+                    limit = listNotificationSettingsRequest.limit;
+                    marker = listNotificationSettingsRequest.marker;
+                } else {
+                    limit = listNotificationSettingsRequest['limit'];
+                    marker = listNotificationSettingsRequest['marker'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取消息通知配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showNotificationSetting(showNotificationSettingRequest?: ShowNotificationSettingRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/notification-settings/{notification_setting_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let notificationSettingId;
+
+            if (showNotificationSettingRequest !== null && showNotificationSettingRequest !== undefined) {
+                if (showNotificationSettingRequest instanceof ShowNotificationSettingRequest) {
+                    notificationSettingId = showNotificationSettingRequest.notificationSettingId;
+                } else {
+                    notificationSettingId = showNotificationSettingRequest['notification_setting_id'];
+                }
+            }
+
+        
+            if (notificationSettingId === null || notificationSettingId === undefined) {
+            throw new RequiredError('notificationSettingId','Required parameter notificationSettingId was null or undefined when calling showNotificationSetting.');
+            }
+
+            options.pathParams = { 'notification_setting_id': notificationSettingId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新消息通知配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateNotificationSetting(updateNotificationSettingRequest?: UpdateNotificationSettingRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/notification-settings/{notification_setting_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let notificationSettingId;
+
+            if (updateNotificationSettingRequest !== null && updateNotificationSettingRequest !== undefined) {
+                if (updateNotificationSettingRequest instanceof UpdateNotificationSettingRequest) {
+                    notificationSettingId = updateNotificationSettingRequest.notificationSettingId;
+                    body = updateNotificationSettingRequest.body
+                } else {
+                    notificationSettingId = updateNotificationSettingRequest['notification_setting_id'];
+                    body = updateNotificationSettingRequest['body'];
+                }
+            }
+
+        
+            if (notificationSettingId === null || notificationSettingId === undefined) {
+            throw new RequiredError('notificationSettingId','Required parameter notificationSettingId was null or undefined when calling updateNotificationSetting.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'notification_setting_id': notificationSettingId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

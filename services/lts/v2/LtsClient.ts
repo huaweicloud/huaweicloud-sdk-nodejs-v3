@@ -69,6 +69,7 @@ import { CreateLogStreamRequest } from './model/CreateLogStreamRequest';
 import { CreateLogStreamResponse } from './model/CreateLogStreamResponse';
 import { CreateNotificationTemplateRequest } from './model/CreateNotificationTemplateRequest';
 import { CreateNotificationTemplateRequestBody } from './model/CreateNotificationTemplateRequestBody';
+import { CreateNotificationTemplateResBody } from './model/CreateNotificationTemplateResBody';
 import { CreateNotificationTemplateResponse } from './model/CreateNotificationTemplateResponse';
 import { CreateSearchCriteriasBody } from './model/CreateSearchCriteriasBody';
 import { CreateSearchCriteriasRequest } from './model/CreateSearchCriteriasRequest';

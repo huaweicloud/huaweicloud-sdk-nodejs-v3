@@ -17,6 +17,7 @@ import { AddNodesToNodePoolList } from './model/AddNodesToNodePoolList';
 import { AddNodesToNodePoolRequest } from './model/AddNodesToNodePoolRequest';
 import { AddNodesToNodePoolResponse } from './model/AddNodesToNodePoolResponse';
 import { AddonCheckStatus } from './model/AddonCheckStatus';
+import { AddonCheckTask } from './model/AddonCheckTask';
 import { AddonInstance } from './model/AddonInstance';
 import { AddonInstanceRollbackRequest } from './model/AddonInstanceRollbackRequest';
 import { AddonInstanceStatus } from './model/AddonInstanceStatus';
@@ -64,8 +65,13 @@ import { CertDuration } from './model/CertDuration';
 import { CertRevokeConfigRequestBody } from './model/CertRevokeConfigRequestBody';
 import { ChartResp } from './model/ChartResp';
 import { ChartValueValues } from './model/ChartValueValues';
+import { CheckTaskMetadata } from './model/CheckTaskMetadata';
+import { CheckTaskRisk } from './model/CheckTaskRisk';
+import { CheckTaskSpec } from './model/CheckTaskSpec';
+import { CheckTaskStatus } from './model/CheckTaskStatus';
 import { Cluster } from './model/Cluster';
 import { ClusterCert } from './model/ClusterCert';
+import { ClusterCertDuration } from './model/ClusterCertDuration';
 import { ClusterCheckStatus } from './model/ClusterCheckStatus';
 import { ClusterConfigurationsSpec } from './model/ClusterConfigurationsSpec';
 import { ClusterConfigurationsSpecPackages } from './model/ClusterConfigurationsSpecPackages';
@@ -209,6 +215,11 @@ import { HibernateClusterRequest } from './model/HibernateClusterRequest';
 import { HibernateClusterResponse } from './model/HibernateClusterResponse';
 import { HostNetwork } from './model/HostNetwork';
 import { HostnameConfig } from './model/HostnameConfig';
+import { HyperNode } from './model/HyperNode';
+import { HyperNodeMetadata } from './model/HyperNodeMetadata';
+import { HyperNodeMetadataOwnerReference } from './model/HyperNodeMetadataOwnerReference';
+import { HyperNodeSpec } from './model/HyperNodeSpec';
+import { HyperNodeStatus } from './model/HyperNodeStatus';
 import { InPlaceRollingUpdate } from './model/InPlaceRollingUpdate';
 import { InstanceRequest } from './model/InstanceRequest';
 import { InstanceRequestSpec } from './model/InstanceRequestSpec';
@@ -223,6 +234,8 @@ import { ListAccessPolicyRequest } from './model/ListAccessPolicyRequest';
 import { ListAccessPolicyResponse } from './model/ListAccessPolicyResponse';
 import { ListAddonInstancesRequest } from './model/ListAddonInstancesRequest';
 import { ListAddonInstancesResponse } from './model/ListAddonInstancesResponse';
+import { ListAddonPrecheckTasksRequest } from './model/ListAddonPrecheckTasksRequest';
+import { ListAddonPrecheckTasksResponse } from './model/ListAddonPrecheckTasksResponse';
 import { ListAddonTemplatesRequest } from './model/ListAddonTemplatesRequest';
 import { ListAddonTemplatesResponse } from './model/ListAddonTemplatesResponse';
 import { ListAutopilotAddonInstancesRequest } from './model/ListAutopilotAddonInstancesRequest';
@@ -259,6 +272,8 @@ import { ListClusterUpgradePathsRequest } from './model/ListClusterUpgradePathsR
 import { ListClusterUpgradePathsResponse } from './model/ListClusterUpgradePathsResponse';
 import { ListClustersRequest } from './model/ListClustersRequest';
 import { ListClustersResponse } from './model/ListClustersResponse';
+import { ListHyperNodesRequest } from './model/ListHyperNodesRequest';
+import { ListHyperNodesResponse } from './model/ListHyperNodesResponse';
 import { ListNodePoolsRequest } from './model/ListNodePoolsRequest';
 import { ListNodePoolsResponse } from './model/ListNodePoolsResponse';
 import { ListNodesRequest } from './model/ListNodesRequest';
@@ -334,14 +349,20 @@ import { NodeSpecUpdateNodeNicSpecUpdatePrimaryNic } from './model/NodeSpecUpdat
 import { NodeStageStatus } from './model/NodeStageStatus';
 import { NodeStatus } from './model/NodeStatus';
 import { NodeTemplate } from './model/NodeTemplate';
+import { NodeTemplateInHyperNode } from './model/NodeTemplateInHyperNode';
+import { OpenAPIResponseStatus } from './model/OpenAPIResponseStatus';
 import { OpenAPISpec } from './model/OpenAPISpec';
 import { OpenAPISpecSpec } from './model/OpenAPISpecSpec';
 import { PackageConfiguration } from './model/PackageConfiguration';
 import { PackageOptions } from './model/PackageOptions';
+import { PageInfo } from './model/PageInfo';
 import { Partition } from './model/Partition';
 import { PartitionMetadata } from './model/PartitionMetadata';
 import { PartitionReqBody } from './model/PartitionReqBody';
 import { PartitionReqBodyMetadata } from './model/PartitionReqBodyMetadata';
+import { PartitionReqBodySpec } from './model/PartitionReqBodySpec';
+import { PartitionReqBodySpecContainerNetwork } from './model/PartitionReqBodySpecContainerNetwork';
+import { PartitionReqBodySpecHostNetwork } from './model/PartitionReqBodySpecHostNetwork';
 import { PartitionSpec } from './model/PartitionSpec';
 import { PartitionSpecContainerNetwork } from './model/PartitionSpecContainerNetwork';
 import { PartitionSpecHostNetwork } from './model/PartitionSpecHostNetwork';
@@ -896,7 +917,7 @@ export class CceClient {
      * @summary 获取集群证书
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
-     * @param {CertDuration} createKubernetesClusterCertRequestBody 创建集群证书的请求Body。
+     * @param {ClusterCertDuration} createKubernetesClusterCertRequestBody 创建集群证书的请求Body。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -920,7 +941,7 @@ export class CceClient {
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {NodeCreateRequest} createNodeRequestBody 创建节点的请求体
-     * @param {'NodepoolScaleUp'} [nodepoolScaleUp] **参数解释**： 标明是否为nodepool扩容下发的创建节点请求。若为“NodepoolScaleUp”将根据当前集群子网实际能支持的用户节点数自动更新本次创建节点的个数，比如集群子网仅能支持的用户节点个数为1，当请求创建节点的个数大于1时，将自动调整为创建1个节点。 **约束限制**： 不涉及 **取值范围**： - NodepoolScaleUp：表示节点池扩容创建节点  **默认取值**： 无
+     * @param {'NodepoolScaleUp'} [nodepoolScaleUp] **参数解释**： 标明是否为nodepool扩容下发的创建节点请求。若为“NodepoolScaleUp”将根据当前集群子网实际能支持的用户节点数自动更新本次创建节点的个数，比如集群子网仅能支持的用户节点个数为1，当请求创建节点的个数大于1时，将自动调整为创建1个节点。若不为“NodepoolScaleUp”将自动更新对应节点池的实例数。 **约束限制**： 不涉及 **取值范围**： - NodepoolScaleUp：表示节点池扩容创建节点  **默认取值**： 无
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1189,9 +1210,9 @@ export class CceClient {
      *
      * @summary 删除节点
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} nodeId 节点ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} nodeId **参数解释**： 节点ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
      * @param {string} contentType 消息体的类型（格式）
-     * @param {'NoScaleDown'} [nodepoolScaleDown] 标明是否为nodepool下发的请求。若不为“NoScaleDown”将自动更新对应节点池的实例数
+     * @param {'NoScaleDown'} [nodepoolScaleDown] **参数解释**： 标明是否为nodepool下发的请求。若不为“NoScaleDown”将自动更新对应节点池的实例数 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1469,6 +1490,29 @@ export class CceClient {
     }
 
     /**
+     * 获取集群下插件检查任务结果列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取插件检查任务结果列表
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {'addonStatic' | 'addonUpgrade'} [type] **参数解释：** 根据插件检查类型筛选结果 **约束限制：** 不涉及 **取值范围：** - addonStatic: 运行中插件巡检 - addonUpgrade: 插件升级前检查  **默认取值：** 不涉及 
+     * @param {string} [taskId] **参数解释：** 根据插件检查任务ID筛选结果，插件检查任务ID可以通过[批量创建插件检查任务](BatchCreateAddonPrecheck.xml)中的status.items[].metadata.taskID字段获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及 
+     * @param {string} [addonInstanceId] **参数解释：** 根据插件实例ID筛选结果，实例ID可以通过[获取AddonInstance列表](cce_02_0326.xml)中的items[].metadata.uid字段获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAddonPrecheckTasks(listAddonPrecheckTasksRequest?: ListAddonPrecheckTasksRequest): Promise<ListAddonPrecheckTasksResponse> {
+        const options = ParamCreater().listAddonPrecheckTasks(listAddonPrecheckTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 插件模板查询接口，查询插件信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1580,6 +1624,27 @@ export class CceClient {
      */
     public listClusters(listClustersRequest?: ListClustersRequest): Promise<ListClustersResponse> {
         const options = ParamCreater().listClusters(listClustersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于获取指定集群下所有超节点的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群中超节点列表
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {number} [limit] **参数解释**： 设置每页显示的数据条数 **约束限制**： 不涉及 **取值范围**： 1到1000之间（含1和1000）的整数 **默认取值**： 100
+     * @param {number} [offset] **参数解释**： 设置从第几条数据开始显示（用于翻页），比如输入0表示从第一条数据开始，输入10表示跳过前10条，从第11条开始显示，不填时默认从第一条开始显示（即默认为0）。 **约束限制**： 不涉及 **取值范围**： 32 位非负整数 **默认取值**： 0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHyperNodes(listHyperNodesRequest?: ListHyperNodesRequest): Promise<ListHyperNodesResponse> {
+        const options = ParamCreater().listHyperNodes(listHyperNodesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1760,7 +1825,7 @@ export class CceClient {
      *
      * @summary 节点迁移
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} targetClusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} targetClusterId **参数解释**： 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
      * @param {string} contentType 消息体的类型（格式）
      * @param {MigrateNodesTask} migrateNodesTask 迁移节点的请求体
      * @param {*} [options] Override http request option.
@@ -2169,7 +2234,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取任务信息
-     * @param {string} jobId 任务ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} jobId **参数解释**： 任务ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2191,7 +2256,7 @@ export class CceClient {
      *
      * @summary 获取指定的节点
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} nodeId 节点ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} nodeId **参数解释**： 节点ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2276,7 +2341,7 @@ export class CceClient {
      *
      * @summary 获取分区详情
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} partitionName 分区名称
+     * @param {string} partitionName **参数解释**： 分区名称 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2442,7 +2507,7 @@ export class CceClient {
      *
      * @summary 同步节点
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} nodeId 节点ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} nodeId **参数解释**： 节点ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2614,9 +2679,9 @@ export class CceClient {
      *
      * @summary 更新指定的节点
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} nodeId 节点ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} nodeId **参数解释**： 节点ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
      * @param {string} contentType 消息体的类型（格式）
-     * @param {ClusterNodeInformation} updateNodeRequestBody metadata是节点对象的元数据定义，是集合类的元素类型，包含一组由不同名称定义的属性。
+     * @param {ClusterNodeInformation} updateNodeRequestBody **参数解释**： metadata是节点对象的元数据定义，是集合类的元素类型，包含一组由不同名称定义的属性。 **约束限制**： 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2634,8 +2699,8 @@ export class CceClient {
      * 
      * 
      * &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径
-     * 
-     * &gt; - 当前仅支持更新节点池名称，spec下的initialNodeCount，k8sTags，taints，login，userTags与节点池的扩缩容配置相关字段。若此次更新未设置相关值，默认更新为初始值。
+     * &gt; - 当前仅支持更新节点池名称，spec下的initialNodeCount，k8sTags，taints，login，userTags与节点池的扩缩容配置相关字段。
+     * &gt; - 若此次更新节点池未设置initialNodeCount的相关值，节点池期望节点个数将默认更新为初始值0，如果此时节点池节点个数大于0将导致节点池缩容。若用户期望不填该参数，请在此次更新设置spec下的ignoreInitialNodeCount为true，用于忽略spec.initialNodeCount参数。特殊场景说明：若节点池当前节点数等于0时，可忽略initialNodeCount和ignoreInitialNodeCount参数配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2685,7 +2750,7 @@ export class CceClient {
      *
      * @summary 更新分区
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} partitionName 分区名称
+     * @param {string} partitionName **参数解释**： 分区名称 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
      * @param {PartitionReqBody} updatePartitionRequestBody 请求body参数说明；非单个参数名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3605,7 +3670,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取任务信息
-     * @param {string} jobId 任务ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} jobId **参数解释**： 任务ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5993,6 +6058,72 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取集群下插件检查任务结果列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAddonPrecheckTasks(listAddonPrecheckTasksRequest?: ListAddonPrecheckTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/addons/precheck/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let contentType;
+            
+            let type;
+            
+            let taskId;
+            
+            let addonInstanceId;
+
+            if (listAddonPrecheckTasksRequest !== null && listAddonPrecheckTasksRequest !== undefined) {
+                if (listAddonPrecheckTasksRequest instanceof ListAddonPrecheckTasksRequest) {
+                    clusterId = listAddonPrecheckTasksRequest.clusterId;
+                    contentType = listAddonPrecheckTasksRequest.contentType;
+                    type = listAddonPrecheckTasksRequest.type;
+                    taskId = listAddonPrecheckTasksRequest.taskId;
+                    addonInstanceId = listAddonPrecheckTasksRequest.addonInstanceId;
+                } else {
+                    clusterId = listAddonPrecheckTasksRequest['cluster_id'];
+                    contentType = listAddonPrecheckTasksRequest['Content-Type'];
+                    type = listAddonPrecheckTasksRequest['type'];
+                    taskId = listAddonPrecheckTasksRequest['task_id'];
+                    addonInstanceId = listAddonPrecheckTasksRequest['addon_instance_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listAddonPrecheckTasks.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
+            }
+            if (addonInstanceId !== null && addonInstanceId !== undefined) {
+                localVarQueryParameter['addon_instance_id'] = addonInstanceId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 插件模板查询接口，查询插件信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6242,6 +6373,58 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于获取指定集群下所有超节点的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listHyperNodes(listHyperNodesRequest?: ListHyperNodesRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/hypernodes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let limit;
+            
+            let offset;
+
+            if (listHyperNodesRequest !== null && listHyperNodesRequest !== undefined) {
+                if (listHyperNodesRequest instanceof ListHyperNodesRequest) {
+                    clusterId = listHyperNodesRequest.clusterId;
+                    limit = listHyperNodesRequest.limit;
+                    offset = listHyperNodesRequest.offset;
+                } else {
+                    clusterId = listHyperNodesRequest['cluster_id'];
+                    limit = listHyperNodesRequest['limit'];
+                    offset = listHyperNodesRequest['offset'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listHyperNodes.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8680,8 +8863,8 @@ export const ParamCreater = function () {
          * 
          * 
          * &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径
-         * 
-         * &gt; - 当前仅支持更新节点池名称，spec下的initialNodeCount，k8sTags，taints，login，userTags与节点池的扩缩容配置相关字段。若此次更新未设置相关值，默认更新为初始值。
+         * &gt; - 当前仅支持更新节点池名称，spec下的initialNodeCount，k8sTags，taints，login，userTags与节点池的扩缩容配置相关字段。
+         * &gt; - 若此次更新节点池未设置initialNodeCount的相关值，节点池期望节点个数将默认更新为初始值0，如果此时节点池节点个数大于0将导致节点池缩容。若用户期望不填该参数，请在此次更新设置spec下的ignoreInitialNodeCount为true，用于忽略spec.initialNodeCount参数。特殊场景说明：若节点池当前节点数等于0时，可忽略initialNodeCount和ignoreInitialNodeCount参数配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

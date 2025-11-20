@@ -5,6 +5,7 @@ export class Execute2dModelTrainingCommandByUserReq {
     public command?: Execute2dModelTrainingCommandByUserReqCommandEnum | string;
     private 'command_message'?: Execute2dModelTrainingCommandByUserReqCommandMessageEnum | string;
     private 'comment_data'?: CommentData;
+    private 'operation_reason'?: string;
     public constructor(command?: string) { 
         this['command'] = command;
     }
@@ -32,6 +33,16 @@ export class Execute2dModelTrainingCommandByUserReq {
     public get commentData(): CommentData | undefined {
         return this['comment_data'];
     }
+    public withOperationReason(operationReason: string): Execute2dModelTrainingCommandByUserReq {
+        this['operation_reason'] = operationReason;
+        return this;
+    }
+    public set operationReason(operationReason: string  | undefined) {
+        this['operation_reason'] = operationReason;
+    }
+    public get operationReason(): string | undefined {
+        return this['operation_reason'];
+    }
 }
 
 /**
@@ -49,7 +60,9 @@ export enum Execute2dModelTrainingCommandByUserReqCommandEnum {
     CONFIRM_REPAIR = 'CONFIRM_REPAIR',
     CONFIRM_MULTIPART_UPLOADED = 'CONFIRM_MULTIPART_UPLOADED',
     GET_ACTION_VIDEO_MULTIPART_UPLOADED = 'GET_ACTION_VIDEO_MULTIPART_UPLOADED',
-    CONFIRM_ACTION_VIDEO_MULTIPART_UPLOADED = 'CONFIRM_ACTION_VIDEO_MULTIPART_UPLOADED'
+    CONFIRM_ACTION_VIDEO_MULTIPART_UPLOADED = 'CONFIRM_ACTION_VIDEO_MULTIPART_UPLOADED',
+    CONFIRM_AUTHORIZATION_LETTER = 'CONFIRM_AUTHORIZATION_LETTER',
+    DELETE_JOB_VIDEO = 'DELETE_JOB_VIDEO'
 }
 /**
     * @export

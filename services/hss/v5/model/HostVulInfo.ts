@@ -22,12 +22,14 @@ export class HostVulInfo {
     private 'is_affect_business'?: boolean;
     private 'first_scan_time'?: number;
     private 'app_name'?: string;
-    private 'app_version'?: string;
     private 'app_path'?: string;
     public version?: string;
     private 'support_restore'?: boolean;
     private 'disabled_operate_types'?: Array<HostVulInfoDisabledOperateTypes>;
     private 'repair_priority'?: string;
+    private 'software_version'?: string;
+    private 'backup_name'?: string;
+    private 'failed_reason'?: string;
     public constructor() { 
     }
     public withVulName(vulName: string): HostVulInfo {
@@ -186,16 +188,6 @@ export class HostVulInfo {
     public get appName(): string | undefined {
         return this['app_name'];
     }
-    public withAppVersion(appVersion: string): HostVulInfo {
-        this['app_version'] = appVersion;
-        return this;
-    }
-    public set appVersion(appVersion: string  | undefined) {
-        this['app_version'] = appVersion;
-    }
-    public get appVersion(): string | undefined {
-        return this['app_version'];
-    }
     public withAppPath(appPath: string): HostVulInfo {
         this['app_path'] = appPath;
         return this;
@@ -239,5 +231,35 @@ export class HostVulInfo {
     }
     public get repairPriority(): string | undefined {
         return this['repair_priority'];
+    }
+    public withSoftwareVersion(softwareVersion: string): HostVulInfo {
+        this['software_version'] = softwareVersion;
+        return this;
+    }
+    public set softwareVersion(softwareVersion: string  | undefined) {
+        this['software_version'] = softwareVersion;
+    }
+    public get softwareVersion(): string | undefined {
+        return this['software_version'];
+    }
+    public withBackupName(backupName: string): HostVulInfo {
+        this['backup_name'] = backupName;
+        return this;
+    }
+    public set backupName(backupName: string  | undefined) {
+        this['backup_name'] = backupName;
+    }
+    public get backupName(): string | undefined {
+        return this['backup_name'];
+    }
+    public withFailedReason(failedReason: string): HostVulInfo {
+        this['failed_reason'] = failedReason;
+        return this;
+    }
+    public set failedReason(failedReason: string  | undefined) {
+        this['failed_reason'] = failedReason;
+    }
+    public get failedReason(): string | undefined {
+        return this['failed_reason'];
     }
 }

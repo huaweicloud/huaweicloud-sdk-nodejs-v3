@@ -23,8 +23,8 @@ import { BlockListBlockingList } from './model/BlockListBlockingList';
 import { Bw } from './model/Bw';
 import { CadDomainSwitchRequest } from './model/CadDomainSwitchRequest';
 import { CertificateBody } from './model/CertificateBody';
-import { CreateAadDomainRequest } from './model/CreateAadDomainRequest';
-import { CreateAadDomainResponse } from './model/CreateAadDomainResponse';
+import { CreateDomainRequest } from './model/CreateDomainRequest';
+import { CreateDomainResponse } from './model/CreateDomainResponse';
 import { CreatePolicyRequest } from './model/CreatePolicyRequest';
 import { CreatePolicyRequestBody } from './model/CreatePolicyRequestBody';
 import { CreatePolicyResponse } from './model/CreatePolicyResponse';
@@ -365,8 +365,8 @@ export class AadClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createAadDomain(createAadDomainRequest?: CreateAadDomainRequest): Promise<CreateAadDomainResponse> {
-        const options = ParamCreater().createAadDomain(createAadDomainRequest);
+    public createDomain(createDomainRequest?: CreateDomainRequest): Promise<CreateDomainResponse> {
+        const options = ParamCreater().createDomain(createDomainRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -515,11 +515,13 @@ export class AadClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询域名列表
+     * @param {number} [limit] 限制条数
+     * @param {number} [offset] 偏移量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listDomain(listDomainRequest?: ListDomainRequest): Promise<ListDomainResponse> {
-        const options = ParamCreater().listDomain();
+        const options = ParamCreater().listDomain(listDomainRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -572,6 +574,8 @@ export class AadClient {
      * @summary 查询高防实例IP的转发规则列表
      * @param {string} instanceId 实例Id
      * @param {string} ip 单个 IP
+     * @param {number} [limit] 限制条数
+     * @param {number} [offset] 偏移量
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1468,7 +1472,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        createAadDomain(createAadDomainRequest?: CreateAadDomainRequest) {
+        createDomain(createDomainRequest?: CreateDomainRequest) {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/aad/external/domains",
@@ -1482,11 +1486,11 @@ export const ParamCreater = function () {
 
             let body: any;
 
-            if (createAadDomainRequest !== null && createAadDomainRequest !== undefined) {
-                if (createAadDomainRequest instanceof CreateAadDomainRequest) {
-                    body = createAadDomainRequest.body
+            if (createDomainRequest !== null && createDomainRequest !== undefined) {
+                if (createDomainRequest instanceof CreateDomainRequest) {
+                    body = createDomainRequest.body
                 } else {
-                    body = createAadDomainRequest['body'];
+                    body = createDomainRequest['body'];
                 }
             }
 
@@ -1778,7 +1782,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listDomain() {
+        listDomain(listDomainRequest?: ListDomainRequest) {
             const options = {
                 method: "GET",
                 url: "/v1/aad/protected-domains",
@@ -1788,8 +1792,31 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
 
+            if (listDomainRequest !== null && listDomainRequest !== undefined) {
+                if (listDomainRequest instanceof ListDomainRequest) {
+                    limit = listDomainRequest.limit;
+                    offset = listDomainRequest.offset;
+                } else {
+                    limit = listDomainRequest['limit'];
+                    offset = listDomainRequest['offset'];
+                }
+            }
 
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1867,19 +1894,27 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let instanceId;
             
             let ip;
+            
+            let limit;
+            
+            let offset;
 
             if (listInstanceIpRuleRequest !== null && listInstanceIpRuleRequest !== undefined) {
                 if (listInstanceIpRuleRequest instanceof ListInstanceIpRuleRequest) {
                     instanceId = listInstanceIpRuleRequest.instanceId;
                     ip = listInstanceIpRuleRequest.ip;
+                    limit = listInstanceIpRuleRequest.limit;
+                    offset = listInstanceIpRuleRequest.offset;
                 } else {
                     instanceId = listInstanceIpRuleRequest['instance_id'];
                     ip = listInstanceIpRuleRequest['ip'];
+                    limit = listInstanceIpRuleRequest['limit'];
+                    offset = listInstanceIpRuleRequest['offset'];
                 }
             }
 
@@ -1890,7 +1925,14 @@ export const ParamCreater = function () {
             if (ip === null || ip === undefined) {
             throw new RequiredError('ip','Required parameter ip was null or undefined when calling listInstanceIpRule.');
             }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId,'ip': ip, };
             options.headers = localVarHeaderParameter;
             return options;

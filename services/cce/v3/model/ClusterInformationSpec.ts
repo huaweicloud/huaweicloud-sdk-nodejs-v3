@@ -4,6 +4,7 @@ import { EniNetworkUpdate } from './EniNetworkUpdate';
 
 
 export class ClusterInformationSpec {
+    public agencyName?: string;
     public description?: string;
     public customSan?: Array<string>;
     public containerNetwork?: ContainerNetworkUpdate;
@@ -11,6 +12,10 @@ export class ClusterInformationSpec {
     public hostNetwork?: ClusterInformationSpecHostNetwork;
     public deletionProtection?: boolean;
     public constructor() { 
+    }
+    public withAgencyName(agencyName: string): ClusterInformationSpec {
+        this['agencyName'] = agencyName;
+        return this;
     }
     public withDescription(description: string): ClusterInformationSpec {
         this['description'] = description;

@@ -12,6 +12,8 @@ export class ShowNodeResponse extends SdkResponse {
     private 'datavolume_id'?: string;
     private 'res_subnet_ip'?: string;
     private 'systemvolume_id'?: string;
+    private 'group_id'?: string;
+    private 'subnet_id'?: string;
     public constructor() { 
         super();
     }
@@ -102,5 +104,25 @@ export class ShowNodeResponse extends SdkResponse {
     }
     public get systemvolumeId(): string | undefined {
         return this['systemvolume_id'];
+    }
+    public withGroupId(groupId: string): ShowNodeResponse {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
+    }
+    public withSubnetId(subnetId: string): ShowNodeResponse {
+        this['subnet_id'] = subnetId;
+        return this;
+    }
+    public set subnetId(subnetId: string  | undefined) {
+        this['subnet_id'] = subnetId;
+    }
+    public get subnetId(): string | undefined {
+        return this['subnet_id'];
     }
 }

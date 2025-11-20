@@ -12,7 +12,10 @@ export class Create2dModelTrainingJobReq {
     private 'batch_name'?: string;
     public tags?: Array<string>;
     private 'model_version'?: Create2dModelTrainingJobReqModelVersionEnum | string;
+    private 'is_ondemand_resource'?: boolean;
     private 'is_flexus'?: boolean;
+    private 'is_fast_flexus'?: boolean;
+    private 'is_live_copy'?: boolean;
     private 'is_only_human_model'?: boolean;
     private 'audio_source_type'?: Create2dModelTrainingJobReqAudioSourceTypeEnum | string;
     private 'voice_properties'?: VoiceProperties;
@@ -92,6 +95,16 @@ export class Create2dModelTrainingJobReq {
     public get modelVersion(): Create2dModelTrainingJobReqModelVersionEnum | string | undefined {
         return this['model_version'];
     }
+    public withIsOndemandResource(isOndemandResource: boolean): Create2dModelTrainingJobReq {
+        this['is_ondemand_resource'] = isOndemandResource;
+        return this;
+    }
+    public set isOndemandResource(isOndemandResource: boolean  | undefined) {
+        this['is_ondemand_resource'] = isOndemandResource;
+    }
+    public get isOndemandResource(): boolean | undefined {
+        return this['is_ondemand_resource'];
+    }
     public withIsFlexus(isFlexus: boolean): Create2dModelTrainingJobReq {
         this['is_flexus'] = isFlexus;
         return this;
@@ -101,6 +114,26 @@ export class Create2dModelTrainingJobReq {
     }
     public get isFlexus(): boolean | undefined {
         return this['is_flexus'];
+    }
+    public withIsFastFlexus(isFastFlexus: boolean): Create2dModelTrainingJobReq {
+        this['is_fast_flexus'] = isFastFlexus;
+        return this;
+    }
+    public set isFastFlexus(isFastFlexus: boolean  | undefined) {
+        this['is_fast_flexus'] = isFastFlexus;
+    }
+    public get isFastFlexus(): boolean | undefined {
+        return this['is_fast_flexus'];
+    }
+    public withIsLiveCopy(isLiveCopy: boolean): Create2dModelTrainingJobReq {
+        this['is_live_copy'] = isLiveCopy;
+        return this;
+    }
+    public set isLiveCopy(isLiveCopy: boolean  | undefined) {
+        this['is_live_copy'] = isLiveCopy;
+    }
+    public get isLiveCopy(): boolean | undefined {
+        return this['is_live_copy'];
     }
     public withIsOnlyHumanModel(isOnlyHumanModel: boolean): Create2dModelTrainingJobReq {
         this['is_only_human_model'] = isOnlyHumanModel;
@@ -161,7 +194,8 @@ export enum Create2dModelTrainingJobReqCommandMessageEnum {
 export enum Create2dModelTrainingJobReqModelVersionEnum {
     V2 = 'V2',
     V3 = 'V3',
-    V3_2 = 'V3.2'
+    V3_2 = 'V3.2',
+    V3_3 = 'V3.3'
 }
 /**
     * @export

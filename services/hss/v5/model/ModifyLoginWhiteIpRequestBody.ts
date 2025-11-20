@@ -4,8 +4,9 @@ export class ModifyLoginWhiteIpRequestBody {
     public enabled?: boolean;
     private 'white_ip'?: string;
     private 'host_id_list'?: Array<string>;
-    public constructor(whiteIp?: string) { 
+    public constructor(whiteIp?: string, hostIdList?: Array<string>) { 
         this['white_ip'] = whiteIp;
+        this['host_id_list'] = hostIdList;
     }
     public withEnabled(enabled: boolean): ModifyLoginWhiteIpRequestBody {
         this['enabled'] = enabled;

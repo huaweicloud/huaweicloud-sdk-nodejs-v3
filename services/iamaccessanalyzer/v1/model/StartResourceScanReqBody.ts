@@ -1,3 +1,4 @@
+import { FindingType } from './FindingType';
 
 
 export class StartResourceScanReqBody {
@@ -5,6 +6,7 @@ export class StartResourceScanReqBody {
     private 'resource_owner_account'?: string;
     private 'resource_project_id'?: string;
     private 'resource_urn'?: string;
+    private 'finding_type'?: FindingType;
     public constructor(resourceOwnerAccount?: string, resourceUrn?: string) { 
         this['resource_owner_account'] = resourceOwnerAccount;
         this['resource_urn'] = resourceUrn;
@@ -48,5 +50,15 @@ export class StartResourceScanReqBody {
     }
     public get resourceUrn(): string | undefined {
         return this['resource_urn'];
+    }
+    public withFindingType(findingType: FindingType): StartResourceScanReqBody {
+        this['finding_type'] = findingType;
+        return this;
+    }
+    public set findingType(findingType: FindingType  | undefined) {
+        this['finding_type'] = findingType;
+    }
+    public get findingType(): FindingType | undefined {
+        return this['finding_type'];
     }
 }

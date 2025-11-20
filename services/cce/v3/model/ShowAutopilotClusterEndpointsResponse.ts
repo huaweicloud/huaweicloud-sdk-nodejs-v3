@@ -1,5 +1,5 @@
-import { MasterEIPResponseStatus } from './MasterEIPResponseStatus';
 import { Metadata } from './Metadata';
+import { OpenAPIResponseStatus } from './OpenAPIResponseStatus';
 import { OpenAPISpec } from './OpenAPISpec';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -7,7 +7,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowAutopilotClusterEndpointsResponse extends SdkResponse {
     public metadata?: Metadata;
     public spec?: OpenAPISpec;
-    public status?: MasterEIPResponseStatus;
+    public status?: OpenAPIResponseStatus;
     public constructor() { 
         super();
     }
@@ -19,7 +19,7 @@ export class ShowAutopilotClusterEndpointsResponse extends SdkResponse {
         this['spec'] = spec;
         return this;
     }
-    public withStatus(status: MasterEIPResponseStatus): ShowAutopilotClusterEndpointsResponse {
+    public withStatus(status: OpenAPIResponseStatus): ShowAutopilotClusterEndpointsResponse {
         this['status'] = status;
         return this;
     }

@@ -5,6 +5,8 @@ export class ListDDoSConnectionNumberRequest {
     private 'end_time'?: string;
     private 'instance_id'?: string;
     public ip?: string;
+    public limit?: number;
+    public offset?: number;
     public constructor(startTime?: string, endTime?: string, instanceId?: string, ip?: string) { 
         this['start_time'] = startTime;
         this['end_time'] = endTime;
@@ -43,6 +45,14 @@ export class ListDDoSConnectionNumberRequest {
     }
     public withIp(ip: string): ListDDoSConnectionNumberRequest {
         this['ip'] = ip;
+        return this;
+    }
+    public withLimit(limit: number): ListDDoSConnectionNumberRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListDDoSConnectionNumberRequest {
+        this['offset'] = offset;
         return this;
     }
 }

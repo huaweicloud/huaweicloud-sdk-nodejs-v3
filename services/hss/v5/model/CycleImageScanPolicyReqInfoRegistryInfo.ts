@@ -4,7 +4,10 @@ export class CycleImageScanPolicyReqInfoRegistryInfo {
     private 'registry_id'?: string;
     private 'registry_name'?: string;
     private 'registry_type'?: string;
-    public constructor() { 
+    public constructor(registryId?: string, registryName?: string, registryType?: string) { 
+        this['registry_id'] = registryId;
+        this['registry_name'] = registryName;
+        this['registry_type'] = registryType;
     }
     public withRegistryId(registryId: string): CycleImageScanPolicyReqInfoRegistryInfo {
         this['registry_id'] = registryId;
