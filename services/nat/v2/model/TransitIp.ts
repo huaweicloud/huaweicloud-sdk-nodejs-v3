@@ -1,4 +1,4 @@
-import { PrivateTag } from './PrivateTag';
+import { Tag } from './Tag';
 
 
 export class TransitIp {
@@ -9,9 +9,10 @@ export class TransitIp {
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
     private 'virsubnet_id'?: string;
-    public tags?: Array<PrivateTag>;
+    public tags?: Array<Tag>;
     private 'gateway_id'?: string;
     private 'enterprise_project_id'?: string;
+    public status?: TransitIpStatusEnum | string;
     public constructor(id?: string, projectId?: string, networkInterfaceId?: string, ipAddress?: string, createdAt?: Date, updatedAt?: Date, gatewayId?: string, enterpriseProjectId?: string) { 
         this['id'] = id;
         this['project_id'] = projectId;
@@ -86,7 +87,7 @@ export class TransitIp {
     public get virsubnetId(): string | undefined {
         return this['virsubnet_id'];
     }
-    public withTags(tags: Array<PrivateTag>): TransitIp {
+    public withTags(tags: Array<Tag>): TransitIp {
         this['tags'] = tags;
         return this;
     }
@@ -110,4 +111,18 @@ export class TransitIp {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
+    public withStatus(status: TransitIpStatusEnum | string): TransitIp {
+        this['status'] = status;
+        return this;
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TransitIpStatusEnum {
+    ACTIVE = 'ACTIVE',
+    FROZEN = 'FROZEN',
+    INACTIVE = 'INACTIVE'
 }

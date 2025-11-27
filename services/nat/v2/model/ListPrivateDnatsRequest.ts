@@ -9,10 +9,13 @@ export class ListPrivateDnatsRequest {
     public description?: Array<string>;
     private 'gateway_id'?: Array<string>;
     private 'transit_ip_id'?: Array<string>;
-    private 'external_ip_address'?: Array<string>;
     private 'network_interface_id'?: Array<string>;
     public type?: Array<string>;
     private 'private_ip_address'?: Array<string>;
+    public protocol?: Array<string>;
+    private 'internal_service_port'?: Array<string>;
+    private 'transit_service_port'?: Array<string>;
+    private 'transit_ip_address'?: Array<string>;
     public constructor() { 
     }
     public withLimit(limit: number): ListPrivateDnatsRequest {
@@ -71,16 +74,6 @@ export class ListPrivateDnatsRequest {
     public get transitIpId(): Array<string> | undefined {
         return this['transit_ip_id'];
     }
-    public withExternalIpAddress(externalIpAddress: Array<string>): ListPrivateDnatsRequest {
-        this['external_ip_address'] = externalIpAddress;
-        return this;
-    }
-    public set externalIpAddress(externalIpAddress: Array<string>  | undefined) {
-        this['external_ip_address'] = externalIpAddress;
-    }
-    public get externalIpAddress(): Array<string> | undefined {
-        return this['external_ip_address'];
-    }
     public withNetworkInterfaceId(networkInterfaceId: Array<string>): ListPrivateDnatsRequest {
         this['network_interface_id'] = networkInterfaceId;
         return this;
@@ -104,5 +97,39 @@ export class ListPrivateDnatsRequest {
     }
     public get privateIpAddress(): Array<string> | undefined {
         return this['private_ip_address'];
+    }
+    public withProtocol(protocol: Array<string>): ListPrivateDnatsRequest {
+        this['protocol'] = protocol;
+        return this;
+    }
+    public withInternalServicePort(internalServicePort: Array<string>): ListPrivateDnatsRequest {
+        this['internal_service_port'] = internalServicePort;
+        return this;
+    }
+    public set internalServicePort(internalServicePort: Array<string>  | undefined) {
+        this['internal_service_port'] = internalServicePort;
+    }
+    public get internalServicePort(): Array<string> | undefined {
+        return this['internal_service_port'];
+    }
+    public withTransitServicePort(transitServicePort: Array<string>): ListPrivateDnatsRequest {
+        this['transit_service_port'] = transitServicePort;
+        return this;
+    }
+    public set transitServicePort(transitServicePort: Array<string>  | undefined) {
+        this['transit_service_port'] = transitServicePort;
+    }
+    public get transitServicePort(): Array<string> | undefined {
+        return this['transit_service_port'];
+    }
+    public withTransitIpAddress(transitIpAddress: Array<string>): ListPrivateDnatsRequest {
+        this['transit_ip_address'] = transitIpAddress;
+        return this;
+    }
+    public set transitIpAddress(transitIpAddress: Array<string>  | undefined) {
+        this['transit_ip_address'] = transitIpAddress;
+    }
+    public get transitIpAddress(): Array<string> | undefined {
+        return this['transit_ip_address'];
     }
 }

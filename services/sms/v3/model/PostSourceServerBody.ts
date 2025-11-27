@@ -11,7 +11,6 @@ export class PostSourceServerBody {
     public hostname?: string;
     private 'os_type'?: PostSourceServerBodyOsTypeEnum | string;
     private 'os_version'?: string;
-    private 'virtualization_type'?: string;
     private 'linux_block_check'?: string;
     public firmware?: PostSourceServerBodyFirmwareEnum | string;
     private 'cpu_quantity'?: number;
@@ -75,16 +74,6 @@ export class PostSourceServerBody {
     }
     public get osVersion(): string | undefined {
         return this['os_version'];
-    }
-    public withVirtualizationType(virtualizationType: string): PostSourceServerBody {
-        this['virtualization_type'] = virtualizationType;
-        return this;
-    }
-    public set virtualizationType(virtualizationType: string  | undefined) {
-        this['virtualization_type'] = virtualizationType;
-    }
-    public get virtualizationType(): string | undefined {
-        return this['virtualization_type'];
     }
     public withLinuxBlockCheck(linuxBlockCheck: string): PostSourceServerBody {
         this['linux_block_check'] = linuxBlockCheck;
@@ -356,17 +345,16 @@ export enum PostSourceServerBodyStateEnum {
     STOPPED = 'stopped',
     SKIPPING = 'skipping',
     DELETING = 'deleting',
-    ERROR = 'error',
-    CLONING = 'cloning',
-    CUTOVERING = 'cutovering',
-    FINISHED = 'finished',
     CLEARING = 'clearing',
     CLEARED = 'cleared',
     CLEARFAILED = 'clearfailed',
     PREMIGREADY = 'premigready',
-    PREMIGING = 'premiging',
     PREMIGED = 'premiged',
-    PREMIGFAILED = 'premigfailed'
+    PREMIGFAILED = 'premigfailed',
+    CLONING = 'cloning',
+    CUTOVERING = 'cutovering',
+    FINISHED = 'finished',
+    ERROR = 'error'
 }
 /**
     * @export

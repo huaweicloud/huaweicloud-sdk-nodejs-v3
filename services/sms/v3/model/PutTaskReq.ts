@@ -22,7 +22,7 @@ export class PutTaskReq {
     private 'vm_template_id'?: string;
     private 'source_server'?: PostSourceServerBody;
     private 'target_server'?: TargetServer;
-    public state?: string;
+    public state?: PutTaskReqStateEnum | string;
     private 'estimate_complete_time'?: number;
     public connected?: boolean;
     private 'create_date'?: number;
@@ -184,7 +184,7 @@ export class PutTaskReq {
     public get targetServer(): TargetServer | undefined {
         return this['target_server'];
     }
-    public withState(state: string): PutTaskReq {
+    public withState(state: PutTaskReqStateEnum | string): PutTaskReq {
         this['state'] = state;
         return this;
     }
@@ -338,4 +338,22 @@ export enum PutTaskReqPriorityEnum {
     NUMBER_0 = 0,
     NUMBER_1 = 1,
     NUMBER_2 = 2
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum PutTaskReqStateEnum {
+    READY = 'READY',
+    RUNNING = 'RUNNING',
+    SYNCING = 'SYNCING',
+    MIGRATE_SUCCESS = 'MIGRATE_SUCCESS',
+    SYNC_SUCCESS = 'SYNC_SUCCESS',
+    MIGRATE_FAIL = 'MIGRATE_FAIL',
+    SYNC_FAIL = 'SYNC_FAIL',
+    ABORTING = 'ABORTING',
+    ABORT = 'ABORT',
+    SKIPPING = 'SKIPPING',
+    DELETING = 'DELETING',
+    RESETING = 'RESETING'
 }

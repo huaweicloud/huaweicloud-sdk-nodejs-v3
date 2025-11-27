@@ -72,6 +72,7 @@ export class Cluster {
     public eipId?: string;
     public eipAddress?: string;
     public eipv6Address?: string;
+    public azCategory?: number;
     public constructor() { 
     }
     public withClusterId(clusterId: string): Cluster {
@@ -344,6 +345,10 @@ export class Cluster {
     }
     public withEipv6Address(eipv6Address: string): Cluster {
         this['eipv6Address'] = eipv6Address;
+        return this;
+    }
+    public withAzCategory(azCategory: number): Cluster {
+        this['azCategory'] = azCategory;
         return this;
     }
 }

@@ -493,7 +493,7 @@ export class SmsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询源端服务器列表
-     * @param {'unavailable' | 'waiting' | 'initialize' | 'replicate' | 'syncing' | 'stopping' | 'stopped' | 'skipping' | 'deleting' | 'error' | 'cloning' | 'cutovering' | 'finished' | 'clearing' | 'cleared' | 'clearfailed' | 'premigready' | 'premiging' | 'premiged' | 'premigfailed'} [state] 源端服务器状态 unavailable：环境校验不通过 waiting：等待 initialize：初始化 replicate：复制 syncing：持续同步 stopping：暂停中 stopped：已暂停 skipping：跳过中 deleting：删除中 error：错误 cloning：等待克隆完成 cutovering：启动目的端中 finished：启动目的端完成 clearing: 清理快照资源中 cleared：清理快照资源完成 clearfailed：清理快照资源失败 premigready: 迁移演练已就绪 premiging: 迁移演练中 premiged: 迁移演练已完成 premigfailed: 迁移演练失败
+     * @param {'unavailable' | 'waiting' | 'initialize' | 'replicate' | 'syncing' | 'stopping' | 'stopped' | 'skipping' | 'deleting' | 'clearing' | 'cleared' | 'clearfailed' | 'premigready' | 'premiged' | 'premigfailed' | 'cloning' | 'cutovering' | 'finished' | 'error'} [state] 源端服务器状态 unavailable：环境校验不通过 waiting：等待 initialize：初始化 replicate：复制 syncing：持续同步 stopping：暂停中 stopped：已暂停 skipping：跳过中 deleting：删除中 clearing: 清理快照资源中 cleared：清理快照资源完成 clearfailed：清理快照资源失败 premigready：迁移演练就绪 premiged：迁移演练完成 premigfailed：迁移演练失败 cloning：等待克隆完成 cutovering：启动目的端中 finished：启动目的端完成 error：错误
      * @param {string} [name] 源端服务器名称
      * @param {string} [id] 源端服务器ID
      * @param {string} [ip] 源端服务器IP地址

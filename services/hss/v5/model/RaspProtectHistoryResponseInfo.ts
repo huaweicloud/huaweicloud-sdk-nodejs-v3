@@ -3,7 +3,7 @@
 export class RaspProtectHistoryResponseInfo {
     private 'host_name'?: string;
     private 'private_ip'?: string;
-    private 'alarm_time'?: object;
+    private 'alarm_time'?: number;
     private 'event_name'?: string;
     public severity?: string;
     private 'req_src_ip'?: string;
@@ -44,14 +44,14 @@ export class RaspProtectHistoryResponseInfo {
     public get privateIp(): string | undefined {
         return this['private_ip'];
     }
-    public withAlarmTime(alarmTime: object): RaspProtectHistoryResponseInfo {
+    public withAlarmTime(alarmTime: number): RaspProtectHistoryResponseInfo {
         this['alarm_time'] = alarmTime;
         return this;
     }
-    public set alarmTime(alarmTime: object  | undefined) {
+    public set alarmTime(alarmTime: number  | undefined) {
         this['alarm_time'] = alarmTime;
     }
-    public get alarmTime(): object | undefined {
+    public get alarmTime(): number | undefined {
         return this['alarm_time'];
     }
     public withEventName(eventName: string): RaspProtectHistoryResponseInfo {

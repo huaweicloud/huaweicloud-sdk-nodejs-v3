@@ -1,19 +1,14 @@
-import { ScriptTag } from './ScriptTag';
+import { ListTagsResponse } from './ListTagsResponse';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListScriptResourceTagsResponse extends SdkResponse {
-    public tags?: Array<ScriptTag>;
-    public total?: number;
+    public data?: ListTagsResponse;
     public constructor() { 
         super();
     }
-    public withTags(tags: Array<ScriptTag>): ListScriptResourceTagsResponse {
-        this['tags'] = tags;
-        return this;
-    }
-    public withTotal(total: number): ListScriptResourceTagsResponse {
-        this['total'] = total;
+    public withData(data: ListTagsResponse): ListScriptResourceTagsResponse {
+        this['data'] = data;
         return this;
     }
 }

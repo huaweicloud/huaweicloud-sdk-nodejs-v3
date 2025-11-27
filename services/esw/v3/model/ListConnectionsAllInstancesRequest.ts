@@ -6,6 +6,8 @@ export class ListConnectionsAllInstancesRequest {
     private 'instance_id'?: string;
     private 'vpc_id'?: string;
     private 'virsubnet_id'?: string;
+    public limit?: number;
+    public marker?: string;
     public constructor() { 
     }
     public withId(id: string): ListConnectionsAllInstancesRequest {
@@ -45,5 +47,13 @@ export class ListConnectionsAllInstancesRequest {
     }
     public get virsubnetId(): string | undefined {
         return this['virsubnet_id'];
+    }
+    public withLimit(limit: number): ListConnectionsAllInstancesRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListConnectionsAllInstancesRequest {
+        this['marker'] = marker;
+        return this;
     }
 }

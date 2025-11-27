@@ -92,7 +92,8 @@ export enum ListPrivateNatsRequestSpecEnum {
     SMALL = 'Small',
     MEDIUM = 'Medium',
     LARGE = 'Large',
-    EXTRA_LARGE = 'Extra-large'
+    EXTRA_LARGE = 'Extra-large',
+    EXTRA_XLARGE = 'Extra-xlarge'
 }
 /**
     * @export
@@ -100,5 +101,6 @@ export enum ListPrivateNatsRequestSpecEnum {
     */
 export enum ListPrivateNatsRequestStatusEnum {
     ACTIVE = 'ACTIVE',
-    FROZEN = 'FROZEN'
+    FROZEN = 'FROZEN',
+    INACTIVE = 'INACTIVE'
 }

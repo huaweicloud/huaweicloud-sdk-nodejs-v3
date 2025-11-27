@@ -1,3 +1,4 @@
+import { PrepaidOptions } from './PrepaidOptions';
 import { SessionConfiguration } from './SessionConfiguration';
 
 
@@ -5,11 +6,13 @@ export class CreateNatGatewayOption {
     public name?: string;
     private 'router_id'?: string;
     private 'internal_network_id'?: string;
+    private 'ngport_ip_address'?: string;
     public description?: string;
+    public tags?: Array<string>;
     public spec?: CreateNatGatewayOptionSpecEnum | string;
     private 'enterprise_project_id'?: string;
     private 'session_conf'?: SessionConfiguration;
-    private 'ngport_ip_address'?: string;
+    private 'prepaid_options'?: PrepaidOptions;
     public constructor(name?: string, routerId?: string, internalNetworkId?: string, spec?: string) { 
         this['name'] = name;
         this['router_id'] = routerId;
@@ -40,8 +43,22 @@ export class CreateNatGatewayOption {
     public get internalNetworkId(): string | undefined {
         return this['internal_network_id'];
     }
+    public withNgportIpAddress(ngportIpAddress: string): CreateNatGatewayOption {
+        this['ngport_ip_address'] = ngportIpAddress;
+        return this;
+    }
+    public set ngportIpAddress(ngportIpAddress: string  | undefined) {
+        this['ngport_ip_address'] = ngportIpAddress;
+    }
+    public get ngportIpAddress(): string | undefined {
+        return this['ngport_ip_address'];
+    }
     public withDescription(description: string): CreateNatGatewayOption {
         this['description'] = description;
+        return this;
+    }
+    public withTags(tags: Array<string>): CreateNatGatewayOption {
+        this['tags'] = tags;
         return this;
     }
     public withSpec(spec: CreateNatGatewayOptionSpecEnum | string): CreateNatGatewayOption {
@@ -68,15 +85,15 @@ export class CreateNatGatewayOption {
     public get sessionConf(): SessionConfiguration | undefined {
         return this['session_conf'];
     }
-    public withNgportIpAddress(ngportIpAddress: string): CreateNatGatewayOption {
-        this['ngport_ip_address'] = ngportIpAddress;
+    public withPrepaidOptions(prepaidOptions: PrepaidOptions): CreateNatGatewayOption {
+        this['prepaid_options'] = prepaidOptions;
         return this;
     }
-    public set ngportIpAddress(ngportIpAddress: string  | undefined) {
-        this['ngport_ip_address'] = ngportIpAddress;
+    public set prepaidOptions(prepaidOptions: PrepaidOptions  | undefined) {
+        this['prepaid_options'] = prepaidOptions;
     }
-    public get ngportIpAddress(): string | undefined {
-        return this['ngport_ip_address'];
+    public get prepaidOptions(): PrepaidOptions | undefined {
+        return this['prepaid_options'];
     }
 }
 
@@ -88,5 +105,6 @@ export enum CreateNatGatewayOptionSpecEnum {
     E_1 = '1',
     E_2 = '2',
     E_3 = '3',
-    E_4 = '4'
+    E_4 = '4',
+    E_5 = '5'
 }

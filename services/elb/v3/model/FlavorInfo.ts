@@ -3,6 +3,8 @@
 export class FlavorInfo {
     public connection?: number;
     public cps?: number;
+    private 'tls_connection'?: number;
+    private 'tls_cps'?: number;
     public qps?: number;
     public bandwidth?: number;
     public lcu?: number;
@@ -18,6 +20,26 @@ export class FlavorInfo {
     public withCps(cps: number): FlavorInfo {
         this['cps'] = cps;
         return this;
+    }
+    public withTlsConnection(tlsConnection: number): FlavorInfo {
+        this['tls_connection'] = tlsConnection;
+        return this;
+    }
+    public set tlsConnection(tlsConnection: number  | undefined) {
+        this['tls_connection'] = tlsConnection;
+    }
+    public get tlsConnection(): number | undefined {
+        return this['tls_connection'];
+    }
+    public withTlsCps(tlsCps: number): FlavorInfo {
+        this['tls_cps'] = tlsCps;
+        return this;
+    }
+    public set tlsCps(tlsCps: number  | undefined) {
+        this['tls_cps'] = tlsCps;
+    }
+    public get tlsCps(): number | undefined {
+        return this['tls_cps'];
     }
     public withQps(qps: number): FlavorInfo {
         this['qps'] = qps;

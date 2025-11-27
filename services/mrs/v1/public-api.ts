@@ -39,6 +39,8 @@ export * from './model/HostModel';
 export * from './model/JobExeResult';
 export * from './model/ListAllTagsRequest';
 export * from './model/ListAllTagsResponse';
+export * from './model/ListAsyncTaskStatusRequest';
+export * from './model/ListAsyncTaskStatusResponse';
 export * from './model/ListAvailableZonesRequest';
 export * from './model/ListAvailableZonesResponse';
 export * from './model/ListClusterTagsRequest';

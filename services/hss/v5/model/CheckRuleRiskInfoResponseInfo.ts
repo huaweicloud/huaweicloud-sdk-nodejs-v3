@@ -13,6 +13,7 @@ export class CheckRuleRiskInfoResponseInfo {
     public status?: string;
     private 'enable_fix'?: number;
     private 'enable_click'?: boolean;
+    private 'not_enable_click_description'?: string;
     private 'rule_params'?: Array<CheckRuleFixParamInfo>;
     public constructor() { 
     }
@@ -107,6 +108,16 @@ export class CheckRuleRiskInfoResponseInfo {
     }
     public get enableClick(): boolean | undefined {
         return this['enable_click'];
+    }
+    public withNotEnableClickDescription(notEnableClickDescription: string): CheckRuleRiskInfoResponseInfo {
+        this['not_enable_click_description'] = notEnableClickDescription;
+        return this;
+    }
+    public set notEnableClickDescription(notEnableClickDescription: string  | undefined) {
+        this['not_enable_click_description'] = notEnableClickDescription;
+    }
+    public get notEnableClickDescription(): string | undefined {
+        return this['not_enable_click_description'];
     }
     public withRuleParams(ruleParams: Array<CheckRuleFixParamInfo>): CheckRuleRiskInfoResponseInfo {
         this['rule_params'] = ruleParams;

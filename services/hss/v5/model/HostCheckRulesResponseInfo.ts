@@ -14,6 +14,7 @@ export class HostCheckRulesResponseInfo {
     public description?: string;
     private 'enable_fix'?: number;
     private 'enable_click'?: boolean;
+    private 'enable_verify'?: boolean;
     private 'cancel_ignore_enable_click'?: boolean;
     private 'fix_failed_reason'?: string;
     public constructor() { 
@@ -119,6 +120,16 @@ export class HostCheckRulesResponseInfo {
     }
     public get enableClick(): boolean | undefined {
         return this['enable_click'];
+    }
+    public withEnableVerify(enableVerify: boolean): HostCheckRulesResponseInfo {
+        this['enable_verify'] = enableVerify;
+        return this;
+    }
+    public set enableVerify(enableVerify: boolean  | undefined) {
+        this['enable_verify'] = enableVerify;
+    }
+    public get enableVerify(): boolean | undefined {
+        return this['enable_verify'];
     }
     public withCancelIgnoreEnableClick(cancelIgnoreEnableClick: boolean): HostCheckRulesResponseInfo {
         this['cancel_ignore_enable_click'] = cancelIgnoreEnableClick;

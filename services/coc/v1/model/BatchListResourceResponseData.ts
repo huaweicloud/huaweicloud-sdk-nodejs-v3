@@ -1,3 +1,4 @@
+import { TagResponse } from './TagResponse';
 
 
 export class BatchListResourceResponseData {
@@ -12,7 +13,7 @@ export class BatchListResourceResponseData {
     private 'region_id'?: string;
     private 'ep_id'?: string;
     private 'ep_name'?: string;
-    public tags?: object;
+    public tags?: Array<TagResponse>;
     private 'agent_id'?: string;
     private 'agent_state'?: BatchListResourceResponseDataAgentStateEnum | string;
     public properties?: object;
@@ -112,7 +113,7 @@ export class BatchListResourceResponseData {
     public get epName(): string | undefined {
         return this['ep_name'];
     }
-    public withTags(tags: object): BatchListResourceResponseData {
+    public withTags(tags: Array<TagResponse>): BatchListResourceResponseData {
         this['tags'] = tags;
         return this;
     }

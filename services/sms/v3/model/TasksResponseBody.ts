@@ -11,7 +11,7 @@ export class TasksResponseBody {
     public name?: string;
     public type?: TasksResponseBodyTypeEnum | string;
     private 'os_type'?: TasksResponseBodyOsTypeEnum | string;
-    public state?: string;
+    public state?: TasksResponseBodyStateEnum | string;
     private 'estimate_complete_time'?: number;
     private 'create_date'?: number;
     public priority?: TasksResponseBodyPriorityEnum | number;
@@ -63,7 +63,7 @@ export class TasksResponseBody {
     public get osType(): TasksResponseBodyOsTypeEnum | string | undefined {
         return this['os_type'];
     }
-    public withState(state: string): TasksResponseBody {
+    public withState(state: TasksResponseBodyStateEnum | string): TasksResponseBody {
         this['state'] = state;
         return this;
     }
@@ -347,6 +347,24 @@ export enum TasksResponseBodyOsTypeEnum {
     * @export
     * @enum {string}
     */
+export enum TasksResponseBodyStateEnum {
+    READY = 'READY',
+    RUNNING = 'RUNNING',
+    SYNCING = 'SYNCING',
+    MIGRATE_SUCCESS = 'MIGRATE_SUCCESS',
+    SYNC_SUCCESS = 'SYNC_SUCCESS',
+    MIGRATE_FAIL = 'MIGRATE_FAIL',
+    SYNC_FAIL = 'SYNC_FAIL',
+    ABORTING = 'ABORTING',
+    ABORT = 'ABORT',
+    SKIPPING = 'SKIPPING',
+    DELETING = 'DELETING',
+    RESETING = 'RESETING'
+}
+/**
+    * @export
+    * @enum {string}
+    */
 export enum TasksResponseBodyPriorityEnum {
     NUMBER_0 = 0,
     NUMBER_1 = 1,
@@ -358,13 +376,7 @@ export enum TasksResponseBodyPriorityEnum {
     */
 export enum TasksResponseBodyLogCollectStatusEnum {
     INIT = 'INIT',
-    TELL_AGENT_TO_COLLECT = 'TELL_AGENT_TO_COLLECT',
-    WAIT_AGENT_COLLECT_ACK = 'WAIT_AGENT_COLLECT_ACK',
-    AGENT_COLLECT_FAIL = 'AGENT_COLLECT_FAIL',
-    AGENT_COLLECT_SUCCESS = 'AGENT_COLLECT_SUCCESS',
-    WAIT_SERVER_COLLECT = 'WAIT_SERVER_COLLECT',
-    SERVER_COLLECT_FAIL = 'SERVER_COLLECT_FAIL',
-    SERVER_COLLECT_SUCCESS = 'SERVER_COLLECT_SUCCESS',
-    TELL_AGENT_RESET_ACL = 'TELL_AGENT_RESET_ACL',
-    WAIT_AGENT_RESET_ACL_ACK = 'WAIT_AGENT_RESET_ACL_ACK'
+    UPLOADING = 'UPLOADING',
+    UPLOAD_FAIL = 'UPLOAD_FAIL',
+    UPLOADED = 'UPLOADED'
 }

@@ -10,6 +10,8 @@ import { BatchCreateDeletePrivateNatTagsRequest } from './model/BatchCreateDelet
 import { BatchCreateDeletePrivateNatTagsResponse } from './model/BatchCreateDeletePrivateNatTagsResponse';
 import { BatchCreateDeleteTransitIpTagsRequest } from './model/BatchCreateDeleteTransitIpTagsRequest';
 import { BatchCreateDeleteTransitIpTagsResponse } from './model/BatchCreateDeleteTransitIpTagsResponse';
+import { BatchCreateDeleteTransitSubnetTagsRequest } from './model/BatchCreateDeleteTransitSubnetTagsRequest';
+import { BatchCreateDeleteTransitSubnetTagsResponse } from './model/BatchCreateDeleteTransitSubnetTagsResponse';
 import { BatchCreateNatGatewayDnatRulesRequest } from './model/BatchCreateNatGatewayDnatRulesRequest';
 import { BatchCreateNatGatewayDnatRulesRequestBody } from './model/BatchCreateNatGatewayDnatRulesRequestBody';
 import { BatchCreateNatGatewayDnatRulesResponse } from './model/BatchCreateNatGatewayDnatRulesResponse';
@@ -51,6 +53,12 @@ import { CreateTransitIpRequestBody } from './model/CreateTransitIpRequestBody';
 import { CreateTransitIpResponse } from './model/CreateTransitIpResponse';
 import { CreateTransitIpTagRequest } from './model/CreateTransitIpTagRequest';
 import { CreateTransitIpTagResponse } from './model/CreateTransitIpTagResponse';
+import { CreateTransitSubnetOption } from './model/CreateTransitSubnetOption';
+import { CreateTransitSubnetRequest } from './model/CreateTransitSubnetRequest';
+import { CreateTransitSubnetRequestBody } from './model/CreateTransitSubnetRequestBody';
+import { CreateTransitSubnetResponse } from './model/CreateTransitSubnetResponse';
+import { CreateTransitSubnetTagRequest } from './model/CreateTransitSubnetTagRequest';
+import { CreateTransitSubnetTagResponse } from './model/CreateTransitSubnetTagResponse';
 import { DeleteNatGatewayDnatRuleRequest } from './model/DeleteNatGatewayDnatRuleRequest';
 import { DeleteNatGatewayDnatRuleResponse } from './model/DeleteNatGatewayDnatRuleResponse';
 import { DeleteNatGatewayRequest } from './model/DeleteNatGatewayRequest';
@@ -71,6 +79,10 @@ import { DeleteTransitIpRequest } from './model/DeleteTransitIpRequest';
 import { DeleteTransitIpResponse } from './model/DeleteTransitIpResponse';
 import { DeleteTransitIpTagRequest } from './model/DeleteTransitIpTagRequest';
 import { DeleteTransitIpTagResponse } from './model/DeleteTransitIpTagResponse';
+import { DeleteTransitSubnetRequest } from './model/DeleteTransitSubnetRequest';
+import { DeleteTransitSubnetResponse } from './model/DeleteTransitSubnetResponse';
+import { DeleteTransitSubnetTagRequest } from './model/DeleteTransitSubnetTagRequest';
+import { DeleteTransitSubnetTagResponse } from './model/DeleteTransitSubnetTagResponse';
 import { DownlinkVpc } from './model/DownlinkVpc';
 import { DownlinkVpcOption } from './model/DownlinkVpcOption';
 import { ListNatGatewayByTagRequest } from './model/ListNatGatewayByTagRequest';
@@ -79,6 +91,8 @@ import { ListNatGatewayDnatRulesRequest } from './model/ListNatGatewayDnatRulesR
 import { ListNatGatewayDnatRulesResponse } from './model/ListNatGatewayDnatRulesResponse';
 import { ListNatGatewaySnatRulesRequest } from './model/ListNatGatewaySnatRulesRequest';
 import { ListNatGatewaySnatRulesResponse } from './model/ListNatGatewaySnatRulesResponse';
+import { ListNatGatewaySpecsRequest } from './model/ListNatGatewaySpecsRequest';
+import { ListNatGatewaySpecsResponse } from './model/ListNatGatewaySpecsResponse';
 import { ListNatGatewayTagRequest } from './model/ListNatGatewayTagRequest';
 import { ListNatGatewayTagResponse } from './model/ListNatGatewayTagResponse';
 import { ListNatGatewaysRequest } from './model/ListNatGatewaysRequest';
@@ -94,6 +108,8 @@ import { ListPrivateNatsRequest } from './model/ListPrivateNatsRequest';
 import { ListPrivateNatsResponse } from './model/ListPrivateNatsResponse';
 import { ListPrivateSnatsRequest } from './model/ListPrivateSnatsRequest';
 import { ListPrivateSnatsResponse } from './model/ListPrivateSnatsResponse';
+import { ListSpecsRequest } from './model/ListSpecsRequest';
+import { ListSpecsResponse } from './model/ListSpecsResponse';
 import { ListTagResourceInstancesRequestBody } from './model/ListTagResourceInstancesRequestBody';
 import { ListTransitIpTagsRequest } from './model/ListTransitIpTagsRequest';
 import { ListTransitIpTagsResponse } from './model/ListTransitIpTagsResponse';
@@ -101,12 +117,19 @@ import { ListTransitIpsByTagsRequest } from './model/ListTransitIpsByTagsRequest
 import { ListTransitIpsByTagsResponse } from './model/ListTransitIpsByTagsResponse';
 import { ListTransitIpsRequest } from './model/ListTransitIpsRequest';
 import { ListTransitIpsResponse } from './model/ListTransitIpsResponse';
+import { ListTransitSubnetRequest } from './model/ListTransitSubnetRequest';
+import { ListTransitSubnetResponse } from './model/ListTransitSubnetResponse';
+import { ListTransitSubnetTagsRequest } from './model/ListTransitSubnetTagsRequest';
+import { ListTransitSubnetTagsResponse } from './model/ListTransitSubnetTagsResponse';
+import { ListTransitSubnetsByTagsRequest } from './model/ListTransitSubnetsByTagsRequest';
+import { ListTransitSubnetsByTagsResponse } from './model/ListTransitSubnetsByTagsResponse';
 import { Match } from './model/Match';
 import { NatGatewayDnatRuleResponseBody } from './model/NatGatewayDnatRuleResponseBody';
 import { NatGatewayResponseBody } from './model/NatGatewayResponseBody';
 import { NatGatewaySnatRuleResponseBody } from './model/NatGatewaySnatRuleResponseBody';
 import { NatGatewayUpdateSnatRuleResponseBody } from './model/NatGatewayUpdateSnatRuleResponseBody';
 import { PageInfo } from './model/PageInfo';
+import { PrepaidOptions } from './model/PrepaidOptions';
 import { PrivateDnat } from './model/PrivateDnat';
 import { PrivateNat } from './model/PrivateNat';
 import { PrivateSnat } from './model/PrivateSnat';
@@ -139,16 +162,23 @@ import { ShowTransitIpRequest } from './model/ShowTransitIpRequest';
 import { ShowTransitIpResponse } from './model/ShowTransitIpResponse';
 import { ShowTransitIpTagsRequest } from './model/ShowTransitIpTagsRequest';
 import { ShowTransitIpTagsResponse } from './model/ShowTransitIpTagsResponse';
+import { ShowTransitSubnetRequest } from './model/ShowTransitSubnetRequest';
+import { ShowTransitSubnetResponse } from './model/ShowTransitSubnetResponse';
+import { ShowTransitSubnetTagsRequest } from './model/ShowTransitSubnetTagsRequest';
+import { ShowTransitSubnetTagsResponse } from './model/ShowTransitSubnetTagsResponse';
+import { Spec } from './model/Spec';
 import { Tag } from './model/Tag';
 import { TagBody } from './model/TagBody';
 import { Tags } from './model/Tags';
 import { TagsBody } from './model/TagsBody';
 import { TransitIp } from './model/TransitIp';
+import { TransitSubnet } from './model/TransitSubnet';
 import { UpdateNatGatewayDnatRuleOption } from './model/UpdateNatGatewayDnatRuleOption';
 import { UpdateNatGatewayDnatRuleRequest } from './model/UpdateNatGatewayDnatRuleRequest';
 import { UpdateNatGatewayDnatRuleRequestBody } from './model/UpdateNatGatewayDnatRuleRequestBody';
 import { UpdateNatGatewayDnatRuleResponse } from './model/UpdateNatGatewayDnatRuleResponse';
 import { UpdateNatGatewayOption } from './model/UpdateNatGatewayOption';
+import { UpdateNatGatewayOptionPrepaidOptions } from './model/UpdateNatGatewayOptionPrepaidOptions';
 import { UpdateNatGatewayRequest } from './model/UpdateNatGatewayRequest';
 import { UpdateNatGatewayRequestBody } from './model/UpdateNatGatewayRequestBody';
 import { UpdateNatGatewayResponse } from './model/UpdateNatGatewayResponse';
@@ -168,6 +198,10 @@ import { UpdatePrivateSnatOption } from './model/UpdatePrivateSnatOption';
 import { UpdatePrivateSnatOptionBody } from './model/UpdatePrivateSnatOptionBody';
 import { UpdatePrivateSnatRequest } from './model/UpdatePrivateSnatRequest';
 import { UpdatePrivateSnatResponse } from './model/UpdatePrivateSnatResponse';
+import { UpdateTransitSubnetOption } from './model/UpdateTransitSubnetOption';
+import { UpdateTransitSubnetRequest } from './model/UpdateTransitSubnetRequest';
+import { UpdateTransitSubnetRequestBody } from './model/UpdateTransitSubnetRequestBody';
+import { UpdateTransitSubnetResponse } from './model/UpdateTransitSubnetResponse';
 
 export class NatClient {
     public static newBuilder(): ClientBuilder<NatClient> {
@@ -184,6 +218,236 @@ export class NatClient {
         return __dirname;
     }
 
+
+    /**
+     * - 为指定中转子网实例批量添加或删除标签
+     * - 标签管理服务需要使用该接口批量管理中转子网实例的标签。
+     * - 一个中转子网上最多有20个标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量添加删除中转子网标签
+     * @param {string} resourceId 中转子网的ID。
+     * @param {BatchOperateResourceTagsRequestBody} batchCreateDeleteTransitSubnetTagsRequestBody 批量添加删除中转子网的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateDeleteTransitSubnetTags(batchCreateDeleteTransitSubnetTagsRequest?: BatchCreateDeleteTransitSubnetTagsRequest): Promise<BatchCreateDeleteTransitSubnetTagsResponse> {
+        const options = ParamCreater().batchCreateDeleteTransitSubnetTags(batchCreateDeleteTransitSubnetTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建中转子网。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建中转子网
+     * @param {CreateTransitSubnetRequestBody} createTransitSubnetRequestBody 中转子网请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTransitSubnet(createTransitSubnetRequest?: CreateTransitSubnetRequest): Promise<CreateTransitSubnetResponse> {
+        const options = ParamCreater().createTransitSubnet(createTransitSubnetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * - 为指定中转子网添加标签
+     * - 一个中转子网上最多有20个标签。
+     * - 此接口为幂等接口：
+     * - 创建时，如果创建的标签已经存在（key相同），则覆盖。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加中转子网标签
+     * @param {string} resourceId 中转子网的ID。
+     * @param {CreateResourceTagRequestBody} createTransitSubnetTagRequestBody 添加中转子网标签的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTransitSubnetTag(createTransitSubnetTagRequest?: CreateTransitSubnetTagRequest): Promise<CreateTransitSubnetTagResponse> {
+        const options = ParamCreater().createTransitSubnetTag(createTransitSubnetTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除中转子网。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除中转子网
+     * @param {string} transitSubnetId 中转子网ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTransitSubnet(deleteTransitSubnetRequest?: DeleteTransitSubnetRequest): Promise<DeleteTransitSubnetResponse> {
+        const options = ParamCreater().deleteTransitSubnet(deleteTransitSubnetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * - 幂等接口：
+     * - 删除时，不对标签字符集做校验，调用接口前必须要做encodeURI，服务端需要对接口uri做decodeURI。删除的key不存在报404，key不能为空或者空字符串。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除中转子网标签
+     * @param {string} key 标签key。
+     * @param {string} resourceId 中转子网的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTransitSubnetTag(deleteTransitSubnetTagRequest?: DeleteTransitSubnetTagRequest): Promise<DeleteTransitSubnetTagResponse> {
+        const options = ParamCreater().deleteTransitSubnetTag(deleteTransitSubnetTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询中转子网列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询中转子网列表
+     * @param {Array<string>} [id] 中转子网的ID
+     * @param {Array<string>} [name] 中转子网的名字
+     * @param {Array<string>} [description] 中转子网的描述
+     * @param {Array<string>} [virsubnetProjectId] 中转子网的子网所属项目的ID
+     * @param {Array<string>} [vpcId] 中转子网的子网所属的VPC的ID
+     * @param {Array<string>} [virsubnetId] 中转子网的子网ID
+     * @param {Array<string>} [status] 中转子网状态。 取值范围： ACTIVE： 当前资源状态正常。 INACTIVE： 不可用。
+     * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：1~2000。 默认值：2000
+     * @param {string} [marker] 功能说明：分页查询起始的资源ID，为空时查询第一页。 值从上一次查询的PageInfo中的next_marker或者previous_marker中获取
+     * @param {boolean} [pageReverse] 是否查询前一页
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTransitSubnet(listTransitSubnetRequest?: ListTransitSubnetRequest): Promise<ListTransitSubnetResponse> {
+        const options = ParamCreater().listTransitSubnet(listTransitSubnetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * - 查询租户在指定Project的所有中转子网标签集合。
+     * - 标签管理服务需要能够列出当前租户全部已使用的中转子网标签集合，为打中转子网标签和过滤中转子网实例时提供标签联想功能。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询中转子网项目标签
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTransitSubnetTags(listTransitSubnetTagsRequest?: ListTransitSubnetTagsRequest): Promise<ListTransitSubnetTagsResponse> {
+        const options = ParamCreater().listTransitSubnetTags();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * - 使用标签过滤中转子网实例。
+     * - 标签管理服务需要提供按标签过滤中转子网服务实例并汇总显示在列表中，需要中转子网服务提供查询能力。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询中转子网实例
+     * @param {ListTagResourceInstancesRequestBody} listTransitSubnetsByTagsRequestBody 查询中转子网实例的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTransitSubnetsByTags(listTransitSubnetsByTagsRequest?: ListTransitSubnetsByTagsRequest): Promise<ListTransitSubnetsByTagsResponse> {
+        const options = ParamCreater().listTransitSubnetsByTags(listTransitSubnetsByTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定的中转子网详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定的中转子网详情
+     * @param {string} transitSubnetId 中转子网ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTransitSubnet(showTransitSubnetRequest?: ShowTransitSubnetRequest): Promise<ShowTransitSubnetResponse> {
+        const options = ParamCreater().showTransitSubnet(showTransitSubnetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * - 查询指定中转子网实例的标签信息。
+     * - 标签管理服务需要使用该接口查询指定中转子网实例的全部标签数据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询中转子网标签
+     * @param {string} resourceId 中转子网的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTransitSubnetTags(showTransitSubnetTagsRequest?: ShowTransitSubnetTagsRequest): Promise<ShowTransitSubnetTagsResponse> {
+        const options = ParamCreater().showTransitSubnetTags(showTransitSubnetTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新指定的中转子网。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新中转子网
+     * @param {string} transitSubnetId 中转子网ID。
+     * @param {UpdateTransitSubnetRequestBody} updateTransitSubnetRequestBody 更新中转子网请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTransitSubnet(updateTransitSubnetRequest?: UpdateTransitSubnetRequest): Promise<UpdateTransitSubnetResponse> {
+        const options = ParamCreater().updateTransitSubnet(updateTransitSubnetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 批量创建DNAT规则。
@@ -290,13 +554,15 @@ export class NatClient {
      * @param {boolean} [adminStateUp] 解冻/冻结状态。 取值范围： \&quot;true\&quot;：解冻 \&quot;false\&quot;：冻结
      * @param {number} [externalServicePort] Floatingip对外提供服务的端口号。 取值范围：0~65535。
      * @param {string} [floatingIpAddress] 弹性公网的IP地址。
-     * @param {Array<'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'EIP_FREEZED' | 'INACTIVE'>} [status] DNAT规则的状态。 取值为： \&quot;ACTIVE\&quot;: 可用 \&quot;PENDING_CREATE\&quot;：创建中 \&quot;PENDING_UPDATE\&quot;：更新中 \&quot;PENDING_DELETE\&quot;：删除中 \&quot;EIP_FREEZED\&quot;：EIP冻结 \&quot;INACTIVE\&quot;：不可用
+     * @param {string} [globalEipAddress] 全域弹性公网的IP地址。
+     * @param {Array<'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'EIP_FREEZED' | 'INACTIVE'>} [status] DNAT规则的状态。 取值为:  ACTIVE: 可用 PENDING_CREATE: 创建中 PENDING_UPDATE: 更新中 PENDING_DELETE: 删除中 EIP_FREEZED: EIP冻结 INACTIVE: 不可用
      * @param {string} [floatingIpId] 弹性公网IP的id。
+     * @param {string} [globalEipId] 全域弹性公网IP的id。
      * @param {number} [internalServicePort] 虚拟机或者裸机对外提供服务的协议端口号。 取值范围：0~65535。
-     * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：0~2000。 默认值：2000。
+     * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：1~2000。 默认值：2000。
      * @param {string} [id] DNAT规则的ID。
      * @param {string} [description] DNAT规则的描述，长度范围小于等于255个字符，不能包含“&lt;”和“&gt;”。
-     * @param {string} [createdAt] DNAT规则的创建时间，格式是yyyy-mm-dd hh:mm:ss.SSSSSS。
+     * @param {Date} [createdAt] DNAT规则的创建时间，格式是yyyy-mm-dd hh:mm:ss.SSSSSS。
      * @param {Array<string>} [natGatewayId] 公网NAT网关实例的ID。
      * @param {string} [portId] 虚拟机或者裸机的Port ID，对应虚拟私有云场景，与private_ip参数二选一。
      * @param {string} [privateIp] 用户私有IP地址，对应专线、云连接场景，与port_id参数二选一。
@@ -320,7 +586,7 @@ export class NatClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询DNAT规则列表
-     * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：0~2000。 默认值：2000。
+     * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：1~2000。 默认值：2000。
      * @param {string} [marker] 功能说明：分页查询起始的资源ID，为空时查询第一页。 值从上一次查询的PageInfo中的next_marker或者previous_marker中获取。
      * @param {boolean} [pageReverse] 是否查询前一页。
      * @param {Array<string>} [id] DNAT规则的ID。
@@ -328,10 +594,13 @@ export class NatClient {
      * @param {Array<string>} [description] DNAT规则的描述。长度范围小于等于255个字符，不能包含“&lt;”和“&gt;”。
      * @param {Array<string>} [gatewayId] 私网NAT网关实例的ID。
      * @param {Array<string>} [transitIpId] 中转IP的ID。
-     * @param {Array<string>} [externalIpAddress] 中转IP的地址。
-     * @param {Array<string>} [networkInterfaceId] 网络接口ID，支持计算、ELB、VIP等实例的网络接口。
-     * @param {Array<string>} [type] DNAT规则后端的类型。 取值：     COMPUTE：后端为计算实例。     VIP：后端为VIP的实例。     ELB：后端为ELB的实例。     ELBv3：后端为ELBv3的实例。     CUSTOMIZE：后端为自定义IP。
-     * @param {Array<string>} [privateIpAddress] 后端实例的IP私网地址。
+     * @param {Array<string>} [networkInterfaceId] 计算实例、ELBV2、ELBV3、VIP等资源的端口ID。
+     * @param {Array<string>} [type] DNAT规则后端的类型。 取值：     COMPUTE：后端为计算实例。     VIP：后端为VIP的实例。     ELB：后端为ELBv2的实例。     ELBv3：后端为ELBv3的实例。     CUSTOMIZE：后端为自定义IP。
+     * @param {Array<string>} [privateIpAddress] 后端资源（计算实例、ELBV2、ELBV3、VIP等）的私网IP地址。
+     * @param {Array<string>} [protocol] DNAT规则协议类型， 目前支持TCP/tcp/Tcp/tCp/tcP/TCp/tCP/TcP、 UDP/udp/Udp/uDp/udP/UDp/uDP/UdP、 ANY/any/Any/aNy/anY/ANy/aNY/AnY。 分别对应协议号6、17、0。
+     * @param {Array<string>} [internalServicePort] 后端实例的端口号（计算实例、ELBV2、ELBV3、VIP等)。
+     * @param {Array<string>} [transitServicePort] 中转IP的端口号。
+     * @param {Array<string>} [transitIpAddress] 中转IP的地址。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -771,6 +1040,24 @@ export class NatClient {
     }
 
     /**
+     * 支持创建的NAT网关规格列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 支持创建的NAT网关规格列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listNatGatewaySpecs(listNatGatewaySpecsRequest?: ListNatGatewaySpecsRequest): Promise<ListNatGatewaySpecsResponse> {
+        const options = ParamCreater().listNatGatewaySpecs();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 查询租户在指定项目和公网NAT网关实例类型的所有标签集合。
      * - 标签管理服务需要能够列出当前租户全部已使用的标签集合，为各服务Console打标签和过滤实例时提供标签联想功能。
      * 
@@ -795,18 +1082,21 @@ export class NatClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询公网NAT网关列表
+     * @param {string} [tenantId] 项目的ID。
      * @param {string} [id] 公网NAT网关实例的ID。
      * @param {string} [enterpriseProjectId] 企业项目ID。创建公网NAT网关实例时，关联的企业项目ID。
      * @param {string} [description] 公网NAT网关实例的描述，长度范围小于等于255个字符，不能包含“&lt;”和“&gt;”。
-     * @param {string} [createdAt] 公网NAT网关实例的创建时间，格式是yyyy-mm-dd hh:mm:ss.SSSSSS。
+     * @param {Date} [createdAt] 公网NAT网关实例的创建时间，遵循UTC时间，格式是yyyy-mm-ddThh:mm:ssZ。
      * @param {string} [name] 公网NAT网关实例的名字，长度限制为64。 公网NAT网关实例的名字仅支持数字、字母、_（下划线）、-（中划线）、中文
-     * @param {Array<'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'INACTIVE'>} [status] 公网NAT网关实例的状态。 取值为： \&quot;ACTIVE\&quot;: 可用 \&quot;PENDING_CREATE\&quot;：创建中 \&quot;PENDING_UPDATE\&quot;：更新中 \&quot;PENDING_DELETE\&quot;：删除中 \&quot;INACTIVE\&quot;：不可用
-     * @param {Array<'1' | '2' | '3' | '4'>} [spec] 公网NAT网关实例的规格。 取值为： \&quot;1\&quot;：小型，SNAT最大连接数10000 \&quot;2\&quot;：中型，SNAT最大连接数50000 \&quot;3\&quot;：大型，SNAT最大连接数200000 \&quot;4\&quot;：超大型，SNAT最大连接数1000000 
+     * @param {Array<'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'INACTIVE'>} [status] 公网NAT网关实例的状态。 取值为:  ACTIVE: 可用 PENDING_CREATE: 创建中 PENDING_UPDATE: 更新中 PENDING_DELETE: 删除中 INACTIVE: 不可用
+     * @param {Array<'1' | '2' | '3' | '4' | '5'>} [spec] 公网NAT网关实例的规格。 取值为： \&quot;1\&quot;：小型，SNAT最大连接数10000 \&quot;2\&quot;：中型，SNAT最大连接数50000 \&quot;3\&quot;：大型，SNAT最大连接数200000 \&quot;4\&quot;：超大型，SNAT最大连接数1000000 “5”：企业型，SNAT最大连接数10000000 
      * @param {boolean} [adminStateUp] 解冻/冻结状态。 取值范围： \&quot;true\&quot;：解冻 \&quot;false\&quot;：冻结
      * @param {string} [internalNetworkId] 公网NAT网关下行口（DVR的下一跳）所属的network id。
      * @param {string} [routerId] VPC的id。
-     * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：0~2000。 默认值：2000。
+     * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：1~2000。 默认值：2000。
      * @param {string} [marker] 分页查询的起始资源ID，表示从指定资源的下一条记录开始查询。 - 若不传入marker和limit参数，查询结果返回第一页全部资源记录（默认2000条）。 - 若不传入marker参数，limit为10，查询结果返回第1~10条资源记录。 - 若marker为第10条记录的资源ID，limit为10，查询结果返回第11~20条资源记录。 - 若marker为第10条记录的资源ID，不传入limit参数，查询结果返回第11条及之后的资源记录（默认2000条）。
+     * @param {'id' | 'name' | 'status' | 'created_at'} [sortKey] 排序使用的key
+     * @param {'desc' | 'asc'} [sortDir] 返回结果按照升序或降序排列，默认降序desc，升序为asc
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -844,14 +1134,14 @@ export class NatClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询私网NAT网关列表
-     * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：0~2000。 默认值：2000。
+     * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：1~2000。 默认值：2000。
      * @param {string} [marker] 功能说明：分页查询起始的资源ID，为空时查询第一页。 值从上一次查询的PageInfo中的next_marker或者previous_marker中获取。
      * @param {boolean} [pageReverse] 是否查询前一页。
      * @param {Array<string>} [id] 私网NAT网关实例的ID。
      * @param {Array<string>} [name] 私网NAT网关实例的名字。
      * @param {Array<string>} [description] 私网NAT网关实例的描述。长度范围小于等于255个字符，不能包含“&lt;”和“&gt;”。
-     * @param {Array<'Small' | 'Medium' | 'Large' | 'Extra-large'>} [spec] 私网NAT网关实例的规格。 取值为： \&quot;Small\&quot;：小型 \&quot;Medium\&quot;：中型 \&quot;Large\&quot;：大型 \&quot;Extra-large\&quot;：超大型
-     * @param {Array<'ACTIVE' | 'FROZEN'>} [status] 私网NAT网关实例的状态。 取值为： \&quot;ACTIVE\&quot;：正常运行 \&quot;FROZEN\&quot;：冻结
+     * @param {Array<'Small' | 'Medium' | 'Large' | 'Extra-large' | 'Extra-xlarge'>} [spec] 私网NAT网关实例的规格。 取值为： \&quot;Small\&quot;：小型 \&quot;Medium\&quot;：中型 \&quot;Large\&quot;：大型 \&quot;Extra-large\&quot;：超大型 \&quot;Extra-xlarge\&quot;：企业型
+     * @param {Array<'ACTIVE' | 'FROZEN' | 'INACTIVE'>} [status] 私网NAT网关实例的状态。 取值为： \&quot;ACTIVE\&quot;：正常运行 \&quot;FROZEN\&quot;：冻结 \&quot;INACTIVE\&quot;：不可用
      * @param {Array<string>} [vpcId] 私网NAT网关实例所属VPC的ID。
      * @param {Array<string>} [virsubnetId] 私网NAT网关实例所属子网的ID。
      * @param {Array<string>} [enterpriseProjectId] 企业项目ID。创建私网NAT网关实例时，关联的企业项目ID。
@@ -880,6 +1170,24 @@ export class NatClient {
      */
     public listPrivateNatsByTags(listPrivateNatsByTagsRequest?: ListPrivateNatsByTagsRequest): Promise<ListPrivateNatsByTagsResponse> {
         const options = ParamCreater().listPrivateNatsByTags(listPrivateNatsByTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询项目支持的网关规格列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询项目支持的网关规格列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSpecs(listSpecsRequest?: ListSpecsRequest): Promise<ListSpecsResponse> {
+        const options = ParamCreater().listSpecs();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1049,7 +1357,7 @@ export class NatClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询中转IP列表
-     * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：0~2000。 默认值：2000。
+     * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：1~2000。 默认值：2000。
      * @param {string} [marker] 功能说明：分页查询起始的资源ID，为空时查询第一页。 值从上一次查询的PageInfo中的next_marker或者previous_marker中获取。
      * @param {boolean} [pageReverse] 是否查询前一页。
      * @param {Array<string>} [id] 中转IP的ID。
@@ -1058,6 +1366,7 @@ export class NatClient {
      * @param {Array<string>} [gatewayId] 中转IP绑定的私网NAT网关实例的ID。
      * @param {Array<string>} [enterpriseProjectId] 企业项目ID。创建中转IP时，关联的企业项目ID。
      * @param {Array<string>} [virsubnetId] 当前租户子网的ID。
+     * @param {Array<string>} [transitSubnetId] 中转子网的ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1174,16 +1483,18 @@ export class NatClient {
      * @summary 查询SNAT规则列表
      * @param {boolean} [adminStateUp] 解冻/冻结状态。 取值范围： \&quot;true\&quot;：解冻 \&quot;false\&quot;：冻结
      * @param {string} [cidr] 可以是网段或者主机格式，与network_id参数二选一。 Source_type&#x3D;0时，cidr必须是vpc子网网段的子集(不能相等）; Source_type&#x3D;1时，cidr必须指定专线侧网段。
-     * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：0~2000。 默认值：2000。
-     * @param {Array<string>} [floatingIpAddress] 功能说明：弹性公网IP。
-     * @param {Array<string>} [floatingIpId] 功能说明：弹性公网IP的id。
+     * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：1~2000。 默认值：2000。
+     * @param {string} [floatingIpAddress] 功能说明：弹性公网IP，多个弹性公网IP使用逗号分隔。 取值范围：最大长度1024字节。
+     * @param {string} [globalEipAddress] 功能说明：全域弹性公网IP，多个全域弹性公网IP使用逗号分隔。 取值范围：最大长度1024字节。
+     * @param {string} [floatingIpId] 功能说明：弹性公网IP的id，多个弹性公网IP使用逗号分隔。 取值范围：最大长度4096字节。
+     * @param {string} [globalEipId] 功能说明：全域弹性公网IP的id，多个全域弹性公网IP使用逗号分隔。 取值范围：最大长度4096字节。
      * @param {string} [id] SNAT规则的ID。
      * @param {string} [description] SNAT规则的描述，长度范围小于等于255个字符，不能包含“&lt;”和“&gt;”。
-     * @param {string} [createdAt] SNAT规则的创建时间，格式是yyyy-mm-dd hh:mm:ss.SSSSSS。
+     * @param {Date} [createdAt] SNAT规则的创建时间，格式是yyyy-mm-dd hh:mm:ss.SSSSSS。
      * @param {Array<string>} [natGatewayId] 公网NAT网关实例的ID。
      * @param {string} [networkId] 规则使用的网络id。与cidr参数二选一。
      * @param {number} [sourceType] 0：VPC侧，可以指定network_id 或者cidr 1：专线侧，只能指定cidr 不输入默认为0（VPC）
-     * @param {'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'EIP_FREEZED' | 'INACTIVE'} [status] SNAT规则的状态。 取值为： \&quot;ACTIVE\&quot;: 可用 \&quot;PENDING_CREATE\&quot;：创建中 \&quot;PENDING_UPDATE\&quot;：更新中 \&quot;PENDING_DELETE\&quot;：删除中 \&quot;EIP_FREEZED\&quot;：EIP冻结 \&quot;INACTIVE\&quot;：不可用
+     * @param {'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'EIP_FREEZED' | 'INACTIVE'} [status] SNAT规则的状态。 取值为:  ACTIVE: 可用 PENDING_CREATE: 创建中 PENDING_UPDATE: 更新中 PENDING_DELETE: 删除中 EIP_FREEZED: EIP冻结 INACTIVE: 不可用
      * @param {string} [marker] 分页查询的起始资源ID，表示从指定资源的下一条记录开始查询。 - 若不传入marker和limit参数，查询结果返回第一页全部资源记录（默认2000条）。 - 若不传入marker参数，limit为10，查询结果返回第1~10条资源记录。 - 若marker为第10条记录的资源ID，limit为10，查询结果返回第11~20条资源记录。 - 若marker为第10条记录的资源ID，不传入limit参数，查询结果返回第11条及之后的资源记录（默认2000条）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1203,7 +1514,7 @@ export class NatClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询SNAT规则列表
-     * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：0~2000。 默认值：2000。
+     * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：1~2000。 默认值：2000。
      * @param {string} [marker] 功能说明：分页查询起始的资源ID，为空时查询第一页。 值从上一次查询的PageInfo中的next_marker或者previous_marker中获取。
      * @param {boolean} [pageReverse] 是否查询前一页。
      * @param {Array<string>} [id] SNAT规则的ID。
@@ -1307,6 +1618,505 @@ export class NatClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * - 为指定中转子网实例批量添加或删除标签
+         * - 标签管理服务需要使用该接口批量管理中转子网实例的标签。
+         * - 一个中转子网上最多有20个标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateDeleteTransitSubnetTags(batchCreateDeleteTransitSubnetTagsRequest?: BatchCreateDeleteTransitSubnetTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/transit-subnets/{resource_id}/tags/action",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceId;
+
+            if (batchCreateDeleteTransitSubnetTagsRequest !== null && batchCreateDeleteTransitSubnetTagsRequest !== undefined) {
+                if (batchCreateDeleteTransitSubnetTagsRequest instanceof BatchCreateDeleteTransitSubnetTagsRequest) {
+                    resourceId = batchCreateDeleteTransitSubnetTagsRequest.resourceId;
+                    body = batchCreateDeleteTransitSubnetTagsRequest.body
+                } else {
+                    resourceId = batchCreateDeleteTransitSubnetTagsRequest['resource_id'];
+                    body = batchCreateDeleteTransitSubnetTagsRequest['body'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling batchCreateDeleteTransitSubnetTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建中转子网。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTransitSubnet(createTransitSubnetRequest?: CreateTransitSubnetRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/private-nat/transit-subnets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createTransitSubnetRequest !== null && createTransitSubnetRequest !== undefined) {
+                if (createTransitSubnetRequest instanceof CreateTransitSubnetRequest) {
+                    body = createTransitSubnetRequest.body
+                } else {
+                    body = createTransitSubnetRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * - 为指定中转子网添加标签
+         * - 一个中转子网上最多有20个标签。
+         * - 此接口为幂等接口：
+         * - 创建时，如果创建的标签已经存在（key相同），则覆盖。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTransitSubnetTag(createTransitSubnetTagRequest?: CreateTransitSubnetTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/transit-subnets/{resource_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceId;
+
+            if (createTransitSubnetTagRequest !== null && createTransitSubnetTagRequest !== undefined) {
+                if (createTransitSubnetTagRequest instanceof CreateTransitSubnetTagRequest) {
+                    resourceId = createTransitSubnetTagRequest.resourceId;
+                    body = createTransitSubnetTagRequest.body
+                } else {
+                    resourceId = createTransitSubnetTagRequest['resource_id'];
+                    body = createTransitSubnetTagRequest['body'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling createTransitSubnetTag.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除中转子网。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteTransitSubnet(deleteTransitSubnetRequest?: DeleteTransitSubnetRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/private-nat/transit-subnets/{transit_subnet_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let transitSubnetId;
+
+            if (deleteTransitSubnetRequest !== null && deleteTransitSubnetRequest !== undefined) {
+                if (deleteTransitSubnetRequest instanceof DeleteTransitSubnetRequest) {
+                    transitSubnetId = deleteTransitSubnetRequest.transitSubnetId;
+                } else {
+                    transitSubnetId = deleteTransitSubnetRequest['transit_subnet_id'];
+                }
+            }
+
+        
+            if (transitSubnetId === null || transitSubnetId === undefined) {
+            throw new RequiredError('transitSubnetId','Required parameter transitSubnetId was null or undefined when calling deleteTransitSubnet.');
+            }
+
+            options.pathParams = { 'transit_subnet_id': transitSubnetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * - 幂等接口：
+         * - 删除时，不对标签字符集做校验，调用接口前必须要做encodeURI，服务端需要对接口uri做decodeURI。删除的key不存在报404，key不能为空或者空字符串。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteTransitSubnetTag(deleteTransitSubnetTagRequest?: DeleteTransitSubnetTagRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/transit-subnets/{resource_id}/tags/{key}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let key;
+            
+            let resourceId;
+
+            if (deleteTransitSubnetTagRequest !== null && deleteTransitSubnetTagRequest !== undefined) {
+                if (deleteTransitSubnetTagRequest instanceof DeleteTransitSubnetTagRequest) {
+                    key = deleteTransitSubnetTagRequest.key;
+                    resourceId = deleteTransitSubnetTagRequest.resourceId;
+                } else {
+                    key = deleteTransitSubnetTagRequest['key'];
+                    resourceId = deleteTransitSubnetTagRequest['resource_id'];
+                }
+            }
+
+        
+            if (key === null || key === undefined) {
+            throw new RequiredError('key','Required parameter key was null or undefined when calling deleteTransitSubnetTag.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling deleteTransitSubnetTag.');
+            }
+
+            options.pathParams = { 'key': key,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询中转子网列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTransitSubnet(listTransitSubnetRequest?: ListTransitSubnetRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/private-nat/transit-subnets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let id;
+            
+            let name;
+            
+            let description;
+            
+            let virsubnetProjectId;
+            
+            let vpcId;
+            
+            let virsubnetId;
+            
+            let status;
+            
+            let limit;
+            
+            let marker;
+            
+            let pageReverse;
+
+            if (listTransitSubnetRequest !== null && listTransitSubnetRequest !== undefined) {
+                if (listTransitSubnetRequest instanceof ListTransitSubnetRequest) {
+                    id = listTransitSubnetRequest.id;
+                    name = listTransitSubnetRequest.name;
+                    description = listTransitSubnetRequest.description;
+                    virsubnetProjectId = listTransitSubnetRequest.virsubnetProjectId;
+                    vpcId = listTransitSubnetRequest.vpcId;
+                    virsubnetId = listTransitSubnetRequest.virsubnetId;
+                    status = listTransitSubnetRequest.status;
+                    limit = listTransitSubnetRequest.limit;
+                    marker = listTransitSubnetRequest.marker;
+                    pageReverse = listTransitSubnetRequest.pageReverse;
+                } else {
+                    id = listTransitSubnetRequest['id'];
+                    name = listTransitSubnetRequest['name'];
+                    description = listTransitSubnetRequest['description'];
+                    virsubnetProjectId = listTransitSubnetRequest['virsubnet_project_id'];
+                    vpcId = listTransitSubnetRequest['vpc_id'];
+                    virsubnetId = listTransitSubnetRequest['virsubnet_id'];
+                    status = listTransitSubnetRequest['status'];
+                    limit = listTransitSubnetRequest['limit'];
+                    marker = listTransitSubnetRequest['marker'];
+                    pageReverse = listTransitSubnetRequest['page_reverse'];
+                }
+            }
+
+        
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (description !== null && description !== undefined) {
+                localVarQueryParameter['description'] = description;
+            }
+            if (virsubnetProjectId !== null && virsubnetProjectId !== undefined) {
+                localVarQueryParameter['virsubnet_project_id'] = virsubnetProjectId;
+            }
+            if (vpcId !== null && vpcId !== undefined) {
+                localVarQueryParameter['vpc_id'] = vpcId;
+            }
+            if (virsubnetId !== null && virsubnetId !== undefined) {
+                localVarQueryParameter['virsubnet_id'] = virsubnetId;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (pageReverse !== null && pageReverse !== undefined) {
+                localVarQueryParameter['page_reverse'] = pageReverse;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * - 查询租户在指定Project的所有中转子网标签集合。
+         * - 标签管理服务需要能够列出当前租户全部已使用的中转子网标签集合，为打中转子网标签和过滤中转子网实例时提供标签联想功能。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTransitSubnetTags() {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/transit-subnets/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * - 使用标签过滤中转子网实例。
+         * - 标签管理服务需要提供按标签过滤中转子网服务实例并汇总显示在列表中，需要中转子网服务提供查询能力。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTransitSubnetsByTags(listTransitSubnetsByTagsRequest?: ListTransitSubnetsByTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/transit-subnets/resource_instances/action",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (listTransitSubnetsByTagsRequest !== null && listTransitSubnetsByTagsRequest !== undefined) {
+                if (listTransitSubnetsByTagsRequest instanceof ListTransitSubnetsByTagsRequest) {
+                    body = listTransitSubnetsByTagsRequest.body
+                } else {
+                    body = listTransitSubnetsByTagsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定的中转子网详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTransitSubnet(showTransitSubnetRequest?: ShowTransitSubnetRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/private-nat/transit-subnets/{transit_subnet_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let transitSubnetId;
+
+            if (showTransitSubnetRequest !== null && showTransitSubnetRequest !== undefined) {
+                if (showTransitSubnetRequest instanceof ShowTransitSubnetRequest) {
+                    transitSubnetId = showTransitSubnetRequest.transitSubnetId;
+                } else {
+                    transitSubnetId = showTransitSubnetRequest['transit_subnet_id'];
+                }
+            }
+
+        
+            if (transitSubnetId === null || transitSubnetId === undefined) {
+            throw new RequiredError('transitSubnetId','Required parameter transitSubnetId was null or undefined when calling showTransitSubnet.');
+            }
+
+            options.pathParams = { 'transit_subnet_id': transitSubnetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * - 查询指定中转子网实例的标签信息。
+         * - 标签管理服务需要使用该接口查询指定中转子网实例的全部标签数据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTransitSubnetTags(showTransitSubnetTagsRequest?: ShowTransitSubnetTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/transit-subnets/{resource_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resourceId;
+
+            if (showTransitSubnetTagsRequest !== null && showTransitSubnetTagsRequest !== undefined) {
+                if (showTransitSubnetTagsRequest instanceof ShowTransitSubnetTagsRequest) {
+                    resourceId = showTransitSubnetTagsRequest.resourceId;
+                } else {
+                    resourceId = showTransitSubnetTagsRequest['resource_id'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling showTransitSubnetTags.');
+            }
+
+            options.pathParams = { 'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新指定的中转子网。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateTransitSubnet(updateTransitSubnetRequest?: UpdateTransitSubnetRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/private-nat/transit-subnets/{transit_subnet_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let transitSubnetId;
+
+            if (updateTransitSubnetRequest !== null && updateTransitSubnetRequest !== undefined) {
+                if (updateTransitSubnetRequest instanceof UpdateTransitSubnetRequest) {
+                    transitSubnetId = updateTransitSubnetRequest.transitSubnetId;
+                    body = updateTransitSubnetRequest.body
+                } else {
+                    transitSubnetId = updateTransitSubnetRequest['transit_subnet_id'];
+                    body = updateTransitSubnetRequest['body'];
+                }
+            }
+
+        
+            if (transitSubnetId === null || transitSubnetId === undefined) {
+            throw new RequiredError('transitSubnetId','Required parameter transitSubnetId was null or undefined when calling updateTransitSubnet.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'transit_subnet_id': transitSubnetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 批量创建DNAT规则。
@@ -1526,9 +2336,13 @@ export const ParamCreater = function () {
             
             let floatingIpAddress;
             
+            let globalEipAddress;
+            
             let status;
             
             let floatingIpId;
+            
+            let globalEipId;
             
             let internalServicePort;
             
@@ -1555,8 +2369,10 @@ export const ParamCreater = function () {
                     adminStateUp = listNatGatewayDnatRulesRequest.adminStateUp;
                     externalServicePort = listNatGatewayDnatRulesRequest.externalServicePort;
                     floatingIpAddress = listNatGatewayDnatRulesRequest.floatingIpAddress;
+                    globalEipAddress = listNatGatewayDnatRulesRequest.globalEipAddress;
                     status = listNatGatewayDnatRulesRequest.status;
                     floatingIpId = listNatGatewayDnatRulesRequest.floatingIpId;
+                    globalEipId = listNatGatewayDnatRulesRequest.globalEipId;
                     internalServicePort = listNatGatewayDnatRulesRequest.internalServicePort;
                     limit = listNatGatewayDnatRulesRequest.limit;
                     id = listNatGatewayDnatRulesRequest.id;
@@ -1571,8 +2387,10 @@ export const ParamCreater = function () {
                     adminStateUp = listNatGatewayDnatRulesRequest['admin_state_up'];
                     externalServicePort = listNatGatewayDnatRulesRequest['external_service_port'];
                     floatingIpAddress = listNatGatewayDnatRulesRequest['floating_ip_address'];
+                    globalEipAddress = listNatGatewayDnatRulesRequest['global_eip_address'];
                     status = listNatGatewayDnatRulesRequest['status'];
                     floatingIpId = listNatGatewayDnatRulesRequest['floating_ip_id'];
+                    globalEipId = listNatGatewayDnatRulesRequest['global_eip_id'];
                     internalServicePort = listNatGatewayDnatRulesRequest['internal_service_port'];
                     limit = listNatGatewayDnatRulesRequest['limit'];
                     id = listNatGatewayDnatRulesRequest['id'];
@@ -1596,11 +2414,17 @@ export const ParamCreater = function () {
             if (floatingIpAddress !== null && floatingIpAddress !== undefined) {
                 localVarQueryParameter['floating_ip_address'] = floatingIpAddress;
             }
+            if (globalEipAddress !== null && globalEipAddress !== undefined) {
+                localVarQueryParameter['global_eip_address'] = globalEipAddress;
+            }
             if (status !== null && status !== undefined) {
                 localVarQueryParameter['status'] = status;
             }
             if (floatingIpId !== null && floatingIpId !== undefined) {
                 localVarQueryParameter['floating_ip_id'] = floatingIpId;
+            }
+            if (globalEipId !== null && globalEipId !== undefined) {
+                localVarQueryParameter['global_eip_id'] = globalEipId;
             }
             if (internalServicePort !== null && internalServicePort !== undefined) {
                 localVarQueryParameter['internal_service_port'] = internalServicePort;
@@ -1671,13 +2495,19 @@ export const ParamCreater = function () {
             
             let transitIpId;
             
-            let externalIpAddress;
-            
             let networkInterfaceId;
             
             let type;
             
             let privateIpAddress;
+            
+            let protocol;
+            
+            let internalServicePort;
+            
+            let transitServicePort;
+            
+            let transitIpAddress;
 
             if (listPrivateDnatsRequest !== null && listPrivateDnatsRequest !== undefined) {
                 if (listPrivateDnatsRequest instanceof ListPrivateDnatsRequest) {
@@ -1689,10 +2519,13 @@ export const ParamCreater = function () {
                     description = listPrivateDnatsRequest.description;
                     gatewayId = listPrivateDnatsRequest.gatewayId;
                     transitIpId = listPrivateDnatsRequest.transitIpId;
-                    externalIpAddress = listPrivateDnatsRequest.externalIpAddress;
                     networkInterfaceId = listPrivateDnatsRequest.networkInterfaceId;
                     type = listPrivateDnatsRequest.type;
                     privateIpAddress = listPrivateDnatsRequest.privateIpAddress;
+                    protocol = listPrivateDnatsRequest.protocol;
+                    internalServicePort = listPrivateDnatsRequest.internalServicePort;
+                    transitServicePort = listPrivateDnatsRequest.transitServicePort;
+                    transitIpAddress = listPrivateDnatsRequest.transitIpAddress;
                 } else {
                     limit = listPrivateDnatsRequest['limit'];
                     marker = listPrivateDnatsRequest['marker'];
@@ -1702,10 +2535,13 @@ export const ParamCreater = function () {
                     description = listPrivateDnatsRequest['description'];
                     gatewayId = listPrivateDnatsRequest['gateway_id'];
                     transitIpId = listPrivateDnatsRequest['transit_ip_id'];
-                    externalIpAddress = listPrivateDnatsRequest['external_ip_address'];
                     networkInterfaceId = listPrivateDnatsRequest['network_interface_id'];
                     type = listPrivateDnatsRequest['type'];
                     privateIpAddress = listPrivateDnatsRequest['private_ip_address'];
+                    protocol = listPrivateDnatsRequest['protocol'];
+                    internalServicePort = listPrivateDnatsRequest['internal_service_port'];
+                    transitServicePort = listPrivateDnatsRequest['transit_service_port'];
+                    transitIpAddress = listPrivateDnatsRequest['transit_ip_address'];
                 }
             }
 
@@ -1734,9 +2570,6 @@ export const ParamCreater = function () {
             if (transitIpId !== null && transitIpId !== undefined) {
                 localVarQueryParameter['transit_ip_id'] = transitIpId;
             }
-            if (externalIpAddress !== null && externalIpAddress !== undefined) {
-                localVarQueryParameter['external_ip_address'] = externalIpAddress;
-            }
             if (networkInterfaceId !== null && networkInterfaceId !== undefined) {
                 localVarQueryParameter['network_interface_id'] = networkInterfaceId;
             }
@@ -1745,6 +2578,18 @@ export const ParamCreater = function () {
             }
             if (privateIpAddress !== null && privateIpAddress !== undefined) {
                 localVarQueryParameter['private_ip_address'] = privateIpAddress;
+            }
+            if (protocol !== null && protocol !== undefined) {
+                localVarQueryParameter['protocol'] = protocol;
+            }
+            if (internalServicePort !== null && internalServicePort !== undefined) {
+                localVarQueryParameter['internal_service_port'] = internalServicePort;
+            }
+            if (transitServicePort !== null && transitServicePort !== undefined) {
+                localVarQueryParameter['transit_service_port'] = transitServicePort;
+            }
+            if (transitIpAddress !== null && transitIpAddress !== undefined) {
+                localVarQueryParameter['transit_ip_address'] = transitIpAddress;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2628,6 +3473,27 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 支持创建的NAT网关规格列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listNatGatewaySpecs() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/nat_gateway_specs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 查询租户在指定项目和公网NAT网关实例类型的所有标签集合。
          * - 标签管理服务需要能够列出当前租户全部已使用的标签集合，为各服务Console打标签和过滤实例时提供标签联想功能。
          * 
@@ -2666,6 +3532,8 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let tenantId;
+            
             let id;
             
             let enterpriseProjectId;
@@ -2689,9 +3557,14 @@ export const ParamCreater = function () {
             let limit;
             
             let marker;
+            
+            let sortKey;
+            
+            let sortDir;
 
             if (listNatGatewaysRequest !== null && listNatGatewaysRequest !== undefined) {
                 if (listNatGatewaysRequest instanceof ListNatGatewaysRequest) {
+                    tenantId = listNatGatewaysRequest.tenantId;
                     id = listNatGatewaysRequest.id;
                     enterpriseProjectId = listNatGatewaysRequest.enterpriseProjectId;
                     description = listNatGatewaysRequest.description;
@@ -2704,7 +3577,10 @@ export const ParamCreater = function () {
                     routerId = listNatGatewaysRequest.routerId;
                     limit = listNatGatewaysRequest.limit;
                     marker = listNatGatewaysRequest.marker;
+                    sortKey = listNatGatewaysRequest.sortKey;
+                    sortDir = listNatGatewaysRequest.sortDir;
                 } else {
+                    tenantId = listNatGatewaysRequest['tenant_id'];
                     id = listNatGatewaysRequest['id'];
                     enterpriseProjectId = listNatGatewaysRequest['enterprise_project_id'];
                     description = listNatGatewaysRequest['description'];
@@ -2717,10 +3593,15 @@ export const ParamCreater = function () {
                     routerId = listNatGatewaysRequest['router_id'];
                     limit = listNatGatewaysRequest['limit'];
                     marker = listNatGatewaysRequest['marker'];
+                    sortKey = listNatGatewaysRequest['sort_key'];
+                    sortDir = listNatGatewaysRequest['sort_dir'];
                 }
             }
 
         
+            if (tenantId !== null && tenantId !== undefined) {
+                localVarQueryParameter['tenant_id'] = tenantId;
+            }
             if (id !== null && id !== undefined) {
                 localVarQueryParameter['id'] = id;
             }
@@ -2756,6 +3637,12 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2927,6 +3814,27 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询项目支持的网关规格列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSpecs() {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/private-nat/specs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3282,6 +4190,8 @@ export const ParamCreater = function () {
             let enterpriseProjectId;
             
             let virsubnetId;
+            
+            let transitSubnetId;
 
             if (listTransitIpsRequest !== null && listTransitIpsRequest !== undefined) {
                 if (listTransitIpsRequest instanceof ListTransitIpsRequest) {
@@ -3294,6 +4204,7 @@ export const ParamCreater = function () {
                     gatewayId = listTransitIpsRequest.gatewayId;
                     enterpriseProjectId = listTransitIpsRequest.enterpriseProjectId;
                     virsubnetId = listTransitIpsRequest.virsubnetId;
+                    transitSubnetId = listTransitIpsRequest.transitSubnetId;
                 } else {
                     limit = listTransitIpsRequest['limit'];
                     marker = listTransitIpsRequest['marker'];
@@ -3304,6 +4215,7 @@ export const ParamCreater = function () {
                     gatewayId = listTransitIpsRequest['gateway_id'];
                     enterpriseProjectId = listTransitIpsRequest['enterprise_project_id'];
                     virsubnetId = listTransitIpsRequest['virsubnet_id'];
+                    transitSubnetId = listTransitIpsRequest['transit_subnet_id'];
                 }
             }
 
@@ -3334,6 +4246,9 @@ export const ParamCreater = function () {
             }
             if (virsubnetId !== null && virsubnetId !== undefined) {
                 localVarQueryParameter['virsubnet_id'] = virsubnetId;
+            }
+            if (transitSubnetId !== null && transitSubnetId !== undefined) {
+                localVarQueryParameter['transit_subnet_id'] = transitSubnetId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3560,7 +4475,11 @@ export const ParamCreater = function () {
             
             let floatingIpAddress;
             
+            let globalEipAddress;
+            
             let floatingIpId;
+            
+            let globalEipId;
             
             let id;
             
@@ -3584,7 +4503,9 @@ export const ParamCreater = function () {
                     cidr = listNatGatewaySnatRulesRequest.cidr;
                     limit = listNatGatewaySnatRulesRequest.limit;
                     floatingIpAddress = listNatGatewaySnatRulesRequest.floatingIpAddress;
+                    globalEipAddress = listNatGatewaySnatRulesRequest.globalEipAddress;
                     floatingIpId = listNatGatewaySnatRulesRequest.floatingIpId;
+                    globalEipId = listNatGatewaySnatRulesRequest.globalEipId;
                     id = listNatGatewaySnatRulesRequest.id;
                     description = listNatGatewaySnatRulesRequest.description;
                     createdAt = listNatGatewaySnatRulesRequest.createdAt;
@@ -3598,7 +4519,9 @@ export const ParamCreater = function () {
                     cidr = listNatGatewaySnatRulesRequest['cidr'];
                     limit = listNatGatewaySnatRulesRequest['limit'];
                     floatingIpAddress = listNatGatewaySnatRulesRequest['floating_ip_address'];
+                    globalEipAddress = listNatGatewaySnatRulesRequest['global_eip_address'];
                     floatingIpId = listNatGatewaySnatRulesRequest['floating_ip_id'];
+                    globalEipId = listNatGatewaySnatRulesRequest['global_eip_id'];
                     id = listNatGatewaySnatRulesRequest['id'];
                     description = listNatGatewaySnatRulesRequest['description'];
                     createdAt = listNatGatewaySnatRulesRequest['created_at'];
@@ -3623,8 +4546,14 @@ export const ParamCreater = function () {
             if (floatingIpAddress !== null && floatingIpAddress !== undefined) {
                 localVarQueryParameter['floating_ip_address'] = floatingIpAddress;
             }
+            if (globalEipAddress !== null && globalEipAddress !== undefined) {
+                localVarQueryParameter['global_eip_address'] = globalEipAddress;
+            }
             if (floatingIpId !== null && floatingIpId !== undefined) {
                 localVarQueryParameter['floating_ip_id'] = floatingIpId;
+            }
+            if (globalEipId !== null && globalEipId !== undefined) {
+                localVarQueryParameter['global_eip_id'] = globalEipId;
             }
             if (id !== null && id !== undefined) {
                 localVarQueryParameter['id'] = id;

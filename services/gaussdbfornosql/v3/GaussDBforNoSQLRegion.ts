@@ -31,6 +31,7 @@ export class GaussDBforNoSQLRegion {
     public static LA_SOUTH_2 = new Region("la-south-2", ["https://gaussdb-nosql.la-south-2.myhuaweicloud.com"]);
     public static CN_NORTH_9 = new Region("cn-north-9", ["https://gaussdb-nosql.cn-north-9.myhuaweicloud.com"]);
     public static EU_WEST_101 = new Region("eu-west-101", ["https://gaussdb-nosql.eu-west-101.myhuaweicloud.eu"]);
+    public static CN_NORTH_11 = new Region("cn-north-11", ["https://gaussdb-nosql.cn-north-11.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -58,7 +59,8 @@ export class GaussDBforNoSQLRegion {
         "sa-brazil-1":GaussDBforNoSQLRegion.SA_BRAZIL_1,
         "la-south-2":GaussDBforNoSQLRegion.LA_SOUTH_2,
         "cn-north-9":GaussDBforNoSQLRegion.CN_NORTH_9,
-        "eu-west-101":GaussDBforNoSQLRegion.EU_WEST_101
+        "eu-west-101":GaussDBforNoSQLRegion.EU_WEST_101,
+        "cn-north-11":GaussDBforNoSQLRegion.CN_NORTH_11
     };
   
     public static valueOf(regionId: string) {

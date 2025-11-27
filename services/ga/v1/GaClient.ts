@@ -11,6 +11,7 @@ import { Area } from './model/Area';
 import { AssociateListenerRequest } from './model/AssociateListenerRequest';
 import { AssociateListenerRequestBody } from './model/AssociateListenerRequestBody';
 import { AssociateListenerResponse } from './model/AssociateListenerResponse';
+import { ByoipPool } from './model/ByoipPool';
 import { ClientAffinity } from './model/ClientAffinity';
 import { ConfigStatus } from './model/ConfigStatus';
 import { CountResourcesByTagRequest } from './model/CountResourcesByTagRequest';
@@ -82,6 +83,8 @@ import { ListAcceleratorsRequest } from './model/ListAcceleratorsRequest';
 import { ListAcceleratorsResponse } from './model/ListAcceleratorsResponse';
 import { ListAllPopsRequest } from './model/ListAllPopsRequest';
 import { ListAllPopsResponse } from './model/ListAllPopsResponse';
+import { ListByoipPoolsRequest } from './model/ListByoipPoolsRequest';
+import { ListByoipPoolsResponse } from './model/ListByoipPoolsResponse';
 import { ListEndpointGroupsRequest } from './model/ListEndpointGroupsRequest';
 import { ListEndpointGroupsResponse } from './model/ListEndpointGroupsResponse';
 import { ListEndpointsRequest } from './model/ListEndpointsRequest';
@@ -280,6 +283,26 @@ export class GaClient {
      */
     public updateAccelerator(updateAcceleratorRequest?: UpdateAcceleratorRequest): Promise<UpdateAcceleratorResponse> {
         const options = ParamCreater().updateAccelerator(updateAcceleratorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询自带IP地址池列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询自带IP地址池列表
+     * @param {number} [limit] 分页查询每页的资源个数。如果不设置，则默认为500。
+     * @param {string} [marker] 分页查询的起始的资源ID，表示上一页最后一条查询资源记录的ID。不指定时表示查询第一页。 必须与limit一起使用。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listByoipPools(listByoipPoolsRequest?: ListByoipPoolsRequest): Promise<ListByoipPoolsResponse> {
+        const options = ParamCreater().listByoipPools(listByoipPoolsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -930,7 +953,7 @@ export class GaClient {
      * @param {string} [id] 资源ID。
      * @param {'ACTIVE' | 'PENDING' | 'ERROR' | 'DELETING'} [status] 配置状态，可选范围: - ACTIVE：运行中 - PENDING：待定 - ERROR：错误 - DELETING：正在删除
      * @param {Array<string>} [resourceIds] 资源ID列表。
-     * @param {'LISTENER'} [resourceType] 关联云日志的资源类型。
+     * @param {'LISTENER'} [resourceType] 云日志的资源类型。 取值范围： LISTENER：监听器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1045,7 +1068,7 @@ export class GaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 通过标签查询资源实例数量
-     * @param {ResourceType} resourceType 资源类型。
+     * @param {ResourceType} resourceType 资源类型，取值范围： - ga-accelerators：加速实例 - ga-listeners：监听器
      * @param {ListResourcesByTagRequestBody} listResourcesByTagRequestBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1065,7 +1088,7 @@ export class GaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建资源标签
-     * @param {ResourceType} resourceType 资源类型。
+     * @param {ResourceType} resourceType 资源类型，取值范围： - ga-accelerators：加速实例 - ga-listeners：监听器
      * @param {string} resourceId 资源ID。
      * @param {CreateTagsRequestBody} createTagsRequestBody 
      * @param {*} [options] Override http request option.
@@ -1086,7 +1109,7 @@ export class GaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除资源标签
-     * @param {ResourceType} resourceType 资源类型。
+     * @param {ResourceType} resourceType 资源类型，取值范围： - ga-accelerators：加速实例 - ga-listeners：监听器
      * @param {string} resourceId 资源ID。
      * @param {DeleteTagsRequestBody} deleteTagsRequestBody 
      * @param {*} [options] Override http request option.
@@ -1107,7 +1130,7 @@ export class GaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 通过标签查询资源实例列表
-     * @param {ResourceType} resourceType 资源类型。
+     * @param {ResourceType} resourceType 资源类型，取值范围： - ga-accelerators：加速实例 - ga-listeners：监听器
      * @param {ListResourcesByTagRequestBody} listResourcesByTagRequestBody 
      * @param {number} [limit] 每页返回的个数。
      * @param {number} [offset] 偏移量。
@@ -1129,7 +1152,7 @@ export class GaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询标签列表
-     * @param {ResourceType} resourceType 资源类型。
+     * @param {ResourceType} resourceType 资源类型，取值范围： - ga-accelerators：加速实例 - ga-listeners：监听器
      * @param {number} [limit] 每页返回的个数。
      * @param {number} [offset] 偏移量。
      * @param {*} [options] Override http request option.
@@ -1150,7 +1173,7 @@ export class GaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询特定资源标签
-     * @param {ResourceType} resourceType 资源类型。
+     * @param {ResourceType} resourceType 资源类型，取值范围： - ga-accelerators：加速实例 - ga-listeners：监听器
      * @param {string} resourceId 资源ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1401,6 +1424,50 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'accelerator_id': acceleratorId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询自带IP地址池列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listByoipPools(listByoipPoolsRequest?: ListByoipPoolsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/byoip-pools",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+
+            if (listByoipPoolsRequest !== null && listByoipPoolsRequest !== undefined) {
+                if (listByoipPoolsRequest instanceof ListByoipPoolsRequest) {
+                    limit = listByoipPoolsRequest.limit;
+                    marker = listByoipPoolsRequest.marker;
+                } else {
+                    limit = listByoipPoolsRequest['limit'];
+                    marker = listByoipPoolsRequest['marker'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

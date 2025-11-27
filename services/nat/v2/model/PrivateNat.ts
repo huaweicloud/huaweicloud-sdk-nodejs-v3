@@ -1,5 +1,5 @@
 import { DownlinkVpc } from './DownlinkVpc';
-import { PrivateTag } from './PrivateTag';
+import { Tag } from './Tag';
 
 
 export class PrivateNat {
@@ -12,8 +12,10 @@ export class PrivateNat {
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
     private 'downlink_vpcs'?: Array<DownlinkVpc>;
-    public tags?: Array<PrivateTag>;
+    public tags?: Array<Tag>;
     private 'enterprise_project_id'?: string;
+    private 'rule_max'?: number;
+    private 'transit_ip_pool_size_max'?: number;
     public constructor(id?: string, projectId?: string, name?: string, description?: string, spec?: string, status?: string, createdAt?: Date, updatedAt?: Date, downlinkVpcs?: Array<DownlinkVpc>, enterpriseProjectId?: string) { 
         this['id'] = id;
         this['project_id'] = projectId;
@@ -86,7 +88,7 @@ export class PrivateNat {
     public get downlinkVpcs(): Array<DownlinkVpc> | undefined {
         return this['downlink_vpcs'];
     }
-    public withTags(tags: Array<PrivateTag>): PrivateNat {
+    public withTags(tags: Array<Tag>): PrivateNat {
         this['tags'] = tags;
         return this;
     }
@@ -100,6 +102,26 @@ export class PrivateNat {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
+    public withRuleMax(ruleMax: number): PrivateNat {
+        this['rule_max'] = ruleMax;
+        return this;
+    }
+    public set ruleMax(ruleMax: number  | undefined) {
+        this['rule_max'] = ruleMax;
+    }
+    public get ruleMax(): number | undefined {
+        return this['rule_max'];
+    }
+    public withTransitIpPoolSizeMax(transitIpPoolSizeMax: number): PrivateNat {
+        this['transit_ip_pool_size_max'] = transitIpPoolSizeMax;
+        return this;
+    }
+    public set transitIpPoolSizeMax(transitIpPoolSizeMax: number  | undefined) {
+        this['transit_ip_pool_size_max'] = transitIpPoolSizeMax;
+    }
+    public get transitIpPoolSizeMax(): number | undefined {
+        return this['transit_ip_pool_size_max'];
+    }
 }
 
 /**
@@ -110,7 +132,8 @@ export enum PrivateNatSpecEnum {
     SMALL = 'Small',
     MEDIUM = 'Medium',
     LARGE = 'Large',
-    EXTRA_LARGE = 'Extra-large'
+    EXTRA_LARGE = 'Extra-large',
+    EXTRA_XLARGE = 'Extra-xlarge'
 }
 /**
     * @export
@@ -118,5 +141,6 @@ export enum PrivateNatSpecEnum {
     */
 export enum PrivateNatStatusEnum {
     ACTIVE = 'ACTIVE',
-    FROZEN = 'FROZEN'
+    FROZEN = 'FROZEN',
+    INACTIVE = 'INACTIVE'
 }

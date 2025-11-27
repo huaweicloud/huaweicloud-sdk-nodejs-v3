@@ -28,5 +28,6 @@ export enum UpdatePrivateNatOptionSpecEnum {
     SMALL = 'Small',
     MEDIUM = 'Medium',
     LARGE = 'Large',
-    EXTRA_LARGE = 'Extra-large'
+    EXTRA_LARGE = 'Extra-large',
+    EXTRA_XLARGE = 'Extra-xlarge'
 }

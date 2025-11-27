@@ -4,13 +4,15 @@ export class ListNatGatewayDnatRulesRequest {
     private 'admin_state_up'?: boolean;
     private 'external_service_port'?: number;
     private 'floating_ip_address'?: string;
+    private 'global_eip_address'?: string;
     public status?: Array<ListNatGatewayDnatRulesRequestStatusEnum> | Array<string>;
     private 'floating_ip_id'?: string;
+    private 'global_eip_id'?: string;
     private 'internal_service_port'?: number;
     public limit?: number;
     public id?: string;
     public description?: string;
-    private 'created_at'?: string;
+    private 'created_at'?: Date;
     private 'nat_gateway_id'?: Array<string>;
     private 'port_id'?: string;
     private 'private_ip'?: string;
@@ -48,6 +50,16 @@ export class ListNatGatewayDnatRulesRequest {
     public get floatingIpAddress(): string | undefined {
         return this['floating_ip_address'];
     }
+    public withGlobalEipAddress(globalEipAddress: string): ListNatGatewayDnatRulesRequest {
+        this['global_eip_address'] = globalEipAddress;
+        return this;
+    }
+    public set globalEipAddress(globalEipAddress: string  | undefined) {
+        this['global_eip_address'] = globalEipAddress;
+    }
+    public get globalEipAddress(): string | undefined {
+        return this['global_eip_address'];
+    }
     public withStatus(status: Array<ListNatGatewayDnatRulesRequestStatusEnum> | Array<string>): ListNatGatewayDnatRulesRequest {
         this['status'] = status;
         return this;
@@ -61,6 +73,16 @@ export class ListNatGatewayDnatRulesRequest {
     }
     public get floatingIpId(): string | undefined {
         return this['floating_ip_id'];
+    }
+    public withGlobalEipId(globalEipId: string): ListNatGatewayDnatRulesRequest {
+        this['global_eip_id'] = globalEipId;
+        return this;
+    }
+    public set globalEipId(globalEipId: string  | undefined) {
+        this['global_eip_id'] = globalEipId;
+    }
+    public get globalEipId(): string | undefined {
+        return this['global_eip_id'];
     }
     public withInternalServicePort(internalServicePort: number): ListNatGatewayDnatRulesRequest {
         this['internal_service_port'] = internalServicePort;
@@ -84,14 +106,14 @@ export class ListNatGatewayDnatRulesRequest {
         this['description'] = description;
         return this;
     }
-    public withCreatedAt(createdAt: string): ListNatGatewayDnatRulesRequest {
+    public withCreatedAt(createdAt: Date): ListNatGatewayDnatRulesRequest {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string  | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): string | undefined {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withNatGatewayId(natGatewayId: Array<string>): ListNatGatewayDnatRulesRequest {

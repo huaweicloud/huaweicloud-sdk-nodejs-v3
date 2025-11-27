@@ -4,6 +4,7 @@ import { Target } from './Target';
 
 
 export class ListExecutionResponseData {
+    public id?: string;
     private 'execution_id'?: string;
     private 'document_name'?: string;
     private 'document_id'?: string;
@@ -22,6 +23,10 @@ export class ListExecutionResponseData {
     private 'target_parameter_name'?: string;
     public targets?: Array<Target>;
     public constructor() { 
+    }
+    public withId(id: string): ListExecutionResponseData {
+        this['id'] = id;
+        return this;
     }
     public withExecutionId(executionId: string): ListExecutionResponseData {
         this['execution_id'] = executionId;

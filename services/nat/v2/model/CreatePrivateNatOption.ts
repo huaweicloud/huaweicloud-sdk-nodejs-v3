@@ -1,5 +1,5 @@
 import { DownlinkVpcOption } from './DownlinkVpcOption';
-import { PrivateTag } from './PrivateTag';
+import { Tag } from './Tag';
 
 
 export class CreatePrivateNatOption {
@@ -7,7 +7,7 @@ export class CreatePrivateNatOption {
     public description?: string;
     public spec?: CreatePrivateNatOptionSpecEnum | string;
     private 'downlink_vpcs'?: Array<DownlinkVpcOption>;
-    public tags?: Array<PrivateTag>;
+    public tags?: Array<Tag>;
     private 'enterprise_project_id'?: string;
     public constructor(name?: string, downlinkVpcs?: Array<DownlinkVpcOption>) { 
         this['name'] = name;
@@ -35,7 +35,7 @@ export class CreatePrivateNatOption {
     public get downlinkVpcs(): Array<DownlinkVpcOption> | undefined {
         return this['downlink_vpcs'];
     }
-    public withTags(tags: Array<PrivateTag>): CreatePrivateNatOption {
+    public withTags(tags: Array<Tag>): CreatePrivateNatOption {
         this['tags'] = tags;
         return this;
     }
@@ -59,5 +59,6 @@ export enum CreatePrivateNatOptionSpecEnum {
     SMALL = 'Small',
     MEDIUM = 'Medium',
     LARGE = 'Large',
-    EXTRA_LARGE = 'Extra-large'
+    EXTRA_LARGE = 'Extra-large',
+    EXTRA_XLARGE = 'Extra-xlarge'
 }

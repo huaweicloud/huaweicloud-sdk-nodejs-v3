@@ -13,13 +13,10 @@ export class PostMigProjectBody {
     private 'enterprise_project'?: string;
     public syncing?: boolean;
     private 'start_network_check'?: boolean;
-    public constructor(name?: string, region?: string, usePublicIp?: boolean, existServer?: boolean, type?: string, syncing?: boolean) { 
+    public constructor(name?: string, region?: string, type?: string) { 
         this['name'] = name;
         this['region'] = region;
-        this['use_public_ip'] = usePublicIp;
-        this['exist_server'] = existServer;
         this['type'] = type;
-        this['syncing'] = syncing;
     }
     public withName(name: string): PostMigProjectBody {
         this['name'] = name;

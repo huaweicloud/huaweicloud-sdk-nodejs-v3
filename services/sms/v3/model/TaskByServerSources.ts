@@ -5,7 +5,7 @@ import { TargetServerById } from './TargetServerById';
 export class TaskByServerSources {
     public id?: string;
     public name?: string;
-    public type?: string;
+    public type?: TaskByServerSourcesTypeEnum | string;
     public state?: string;
     private 'estimate_complete_time'?: number;
     private 'start_date'?: number;
@@ -18,7 +18,7 @@ export class TaskByServerSources {
     private 'project_name'?: string;
     private 'project_id'?: string;
     private 'target_server'?: TargetServerById;
-    private 'log_collect_status'?: string;
+    private 'log_collect_status'?: TaskByServerSourcesLogCollectStatusEnum | string;
     private 'exist_server'?: boolean;
     private 'use_public_ip'?: boolean;
     private 'clone_server'?: CloneServer;
@@ -38,7 +38,7 @@ export class TaskByServerSources {
         this['name'] = name;
         return this;
     }
-    public withType(type: string): TaskByServerSources {
+    public withType(type: TaskByServerSourcesTypeEnum | string): TaskByServerSources {
         this['type'] = type;
         return this;
     }
@@ -156,14 +156,14 @@ export class TaskByServerSources {
     public get targetServer(): TargetServerById | undefined {
         return this['target_server'];
     }
-    public withLogCollectStatus(logCollectStatus: string): TaskByServerSources {
+    public withLogCollectStatus(logCollectStatus: TaskByServerSourcesLogCollectStatusEnum | string): TaskByServerSources {
         this['log_collect_status'] = logCollectStatus;
         return this;
     }
-    public set logCollectStatus(logCollectStatus: string  | undefined) {
+    public set logCollectStatus(logCollectStatus: TaskByServerSourcesLogCollectStatusEnum | string  | undefined) {
         this['log_collect_status'] = logCollectStatus;
     }
-    public get logCollectStatus(): string | undefined {
+    public get logCollectStatus(): TaskByServerSourcesLogCollectStatusEnum | string | undefined {
         return this['log_collect_status'];
     }
     public withExistServer(existServer: boolean): TaskByServerSources {
@@ -256,4 +256,23 @@ export class TaskByServerSources {
     public get subtaskInfo(): string | undefined {
         return this['subtask_info'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TaskByServerSourcesTypeEnum {
+    MIGRATE_BLOCK = 'MIGRATE_BLOCK',
+    MIGRATE_FILE = 'MIGRATE_FILE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TaskByServerSourcesLogCollectStatusEnum {
+    INIT = 'INIT',
+    UPLOADING = 'UPLOADING',
+    UPLOAD_FAIL = 'UPLOAD_FAIL',
+    UPLOADED = 'UPLOADED'
 }

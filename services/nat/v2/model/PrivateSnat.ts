@@ -12,6 +12,7 @@ export class PrivateSnat {
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
     private 'enterprise_project_id'?: string;
+    public status?: PrivateSnatStatusEnum | string;
     public constructor() { 
     }
     public withId(id: string): PrivateSnat {
@@ -96,4 +97,18 @@ export class PrivateSnat {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
+    public withStatus(status: PrivateSnatStatusEnum | string): PrivateSnat {
+        this['status'] = status;
+        return this;
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum PrivateSnatStatusEnum {
+    ACTIVE = 'ACTIVE',
+    FROZEN = 'FROZEN',
+    INACTIVE = 'INACTIVE'
 }

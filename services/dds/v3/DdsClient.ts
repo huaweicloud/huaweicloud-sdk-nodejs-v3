@@ -24,7 +24,6 @@ import { BackupForList } from './model/BackupForList';
 import { BackupPolicy } from './model/BackupPolicy';
 import { BackupPolicyItem } from './model/BackupPolicyItem';
 import { BackupStrategy } from './model/BackupStrategy';
-import { BackupStrategyForItemResponse } from './model/BackupStrategyForItemResponse';
 import { BalancerActiveWindow } from './model/BalancerActiveWindow';
 import { BatchDeleteBackupRequest } from './model/BatchDeleteBackupRequest';
 import { BatchDeleteBackupRequestBody } from './model/BatchDeleteBackupRequestBody';
@@ -66,11 +65,6 @@ import { CreateDatabaseRoleResponse } from './model/CreateDatabaseRoleResponse';
 import { CreateDatabaseUserRequest } from './model/CreateDatabaseUserRequest';
 import { CreateDatabaseUserRequestBody } from './model/CreateDatabaseUserRequestBody';
 import { CreateDatabaseUserResponse } from './model/CreateDatabaseUserResponse';
-import { CreateInstanceConfigurationsOption } from './model/CreateInstanceConfigurationsOption';
-import { CreateInstanceFlavorOption } from './model/CreateInstanceFlavorOption';
-import { CreateInstanceRequest } from './model/CreateInstanceRequest';
-import { CreateInstanceRequestBody } from './model/CreateInstanceRequestBody';
-import { CreateInstanceResponse } from './model/CreateInstanceResponse';
 import { CreateIpRequest } from './model/CreateIpRequest';
 import { CreateIpRequestBody } from './model/CreateIpRequestBody';
 import { CreateIpResponse } from './model/CreateIpResponse';
@@ -83,7 +77,6 @@ import { CreateManualBackupRequestBody } from './model/CreateManualBackupRequest
 import { CreateManualBackupResponse } from './model/CreateManualBackupResponse';
 import { DatabaseInfoItem } from './model/DatabaseInfoItem';
 import { Datastore } from './model/Datastore';
-import { DatastoreItem } from './model/DatastoreItem';
 import { DatastoreResult } from './model/DatastoreResult';
 import { DeleteAuditLogRequest } from './model/DeleteAuditLogRequest';
 import { DeleteAuditLogRequestBody } from './model/DeleteAuditLogRequestBody';
@@ -145,7 +138,6 @@ import { ExpandReplicasetNodeResponse } from './model/ExpandReplicasetNodeRespon
 import { Flavor } from './model/Flavor';
 import { FlavorInfo } from './model/FlavorInfo';
 import { GetBackupDownloadLinkResponseBodyFiles } from './model/GetBackupDownloadLinkResponseBodyFiles';
-import { GroupResponseItem } from './model/GroupResponseItem';
 import { HistoryInfo } from './model/HistoryInfo';
 import { InstanceItem } from './model/InstanceItem';
 import { InstanceItemTagItem } from './model/InstanceItemTagItem';
@@ -191,8 +183,6 @@ import { ListInstanceTagsResponse } from './model/ListInstanceTagsResponse';
 import { ListInstancesByTagsRequest } from './model/ListInstancesByTagsRequest';
 import { ListInstancesByTagsRequestBody } from './model/ListInstancesByTagsRequestBody';
 import { ListInstancesByTagsResponse } from './model/ListInstancesByTagsResponse';
-import { ListInstancesRequest } from './model/ListInstancesRequest';
-import { ListInstancesResponse } from './model/ListInstancesResponse';
 import { ListLtsConfigsRequest } from './model/ListLtsConfigsRequest';
 import { ListLtsConfigsResponse } from './model/ListLtsConfigsResponse';
 import { ListLtsErrorLogsRequest } from './model/ListLtsErrorLogsRequest';
@@ -233,12 +223,10 @@ import { MigrateAzRequest } from './model/MigrateAzRequest';
 import { MigrateAzRequestBody } from './model/MigrateAzRequestBody';
 import { MigrateAzResponse } from './model/MigrateAzResponse';
 import { MongoUpdateReplSetV3RequestBody } from './model/MongoUpdateReplSetV3RequestBody';
-import { NodeItem } from './model/NodeItem';
 import { OpsWindowRequestBody } from './model/OpsWindowRequestBody';
 import { ParamGroupInfoResult } from './model/ParamGroupInfoResult';
 import { ProduceAuditlogLinksRequestBody } from './model/ProduceAuditlogLinksRequestBody';
 import { QueryConnectionsResponse } from './model/QueryConnectionsResponse';
-import { QueryInstanceResponse } from './model/QueryInstanceResponse';
 import { QueryMatchItem } from './model/QueryMatchItem';
 import { QueryProjectTagItem } from './model/QueryProjectTagItem';
 import { QueryResourceTagItem } from './model/QueryResourceTagItem';
@@ -370,8 +358,6 @@ import { SwitchoverReplicaSetRequest } from './model/SwitchoverReplicaSetRequest
 import { SwitchoverReplicaSetRequestBody } from './model/SwitchoverReplicaSetRequestBody';
 import { SwitchoverReplicaSetResponse } from './model/SwitchoverReplicaSetResponse';
 import { TagItem } from './model/TagItem';
-import { TagResponse } from './model/TagResponse';
-import { TagWithKeyValue } from './model/TagWithKeyValue';
 import { Target } from './model/Target';
 import { UpdateBackupDownloadPolicyRequest } from './model/UpdateBackupDownloadPolicyRequest';
 import { UpdateBackupDownloadPolicyRequestBody } from './model/UpdateBackupDownloadPolicyRequestBody';
@@ -411,7 +397,6 @@ import { UpgradeDatabaseVersionResponse } from './model/UpgradeDatabaseVersionRe
 import { UpgradeResult } from './model/UpgradeResult';
 import { ValidateConfigurationNameRequest } from './model/ValidateConfigurationNameRequest';
 import { ValidateConfigurationNameResponse } from './model/ValidateConfigurationNameResponse';
-import { Volume } from './model/Volume';
 import { WeakPasswordCheckRequestBody } from './model/WeakPasswordCheckRequestBody';
 
 export class DdsClient {
@@ -758,25 +743,6 @@ export class DdsClient {
      */
     public createDatabaseUser(createDatabaseUserRequest?: CreateDatabaseUserRequest): Promise<CreateDatabaseUserResponse> {
         const options = ParamCreater().createDatabaseUser(createDatabaseUserRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建文档数据库实例，包括集群实例、副本集实例、以及单节点实例。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建实例
-     * @param {CreateInstanceRequestBody} createInstanceRequestBody 请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createInstance(createInstanceRequest?: CreateInstanceRequest): Promise<CreateInstanceResponse> {
-        const options = ParamCreater().createInstance(createInstanceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1462,33 +1428,6 @@ export class DdsClient {
     }
 
     /**
-     * 根据指定条件查询实例列表和详情。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询实例列表和详情
-     * @param {string} [id] 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。
-     * @param {string} [name] 实例名称。 如果name以“*”起始，表示按照“*”后面的值模糊匹配，否则，按照实际填写的name精确匹配查询。 - “*”为系统保留字符，不能只传入该字符。
-     * @param {'Sharding' | 'ReplicaSet' | 'Single'} [mode] 实例类型。 - 取值为“Sharding”，表示集群实例。 - 取值为“ReplicaSet”，表示副本集实例。 - 取值为“Single”，表示单节点实例。
-     * @param {'DDS-Community' | 'DDS-Enhanced'} [datastoreType] 数据库版本类型。取值为“DDS-Community”。
-     * @param {string} [vpcId] 虚拟私有云ID。可登录虚拟私有云控制台界面，获取DDS实例所在虚拟私有云的ID。
-     * @param {string} [subnetId] 子网的网络ID。可登录虚拟私有云控制台界面，获取DDS实例所在虚拟私有云下子网的网络ID。
-     * @param {number} [offset] 索引位置偏移量，表示从指定project ID下最新的实例创建时间开始，按时间的先后顺序偏移offset条数据后查询对应的实例信息。 取值大于或等于0。不传该参数时，查询偏移量默认为0，表示从最新的实例创建时间对应的实例开始查询。
-     * @param {number} [limit] 查询实例个数上限值。 取值范围：1~100。不传该参数时，默认查询前100条实例信息。
-     * @param {string} [tags] 根据实例标签键值对进行查询。{key}表示标签键，{value}表示标签值，最多包含20组。key不可以为空或重复，value可以为空。如果同时使用多个标签键值对进行查询，中间使用逗号分隔开，表示查询同时包含指定标签键值对的实例。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listInstances(listInstancesRequest?: ListInstancesRequest): Promise<ListInstancesResponse> {
-        const options = ParamCreater().listInstances(listInstancesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 根据标签查询指定的数据库实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1680,8 +1619,8 @@ export class DdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询定时任务
-     * @param {string} [jobName] 任务名称，默认为空。对应取值如下：  \&quot;RESIZE_FLAVOR\&quot;：变更实例的CPU和内存规格
-     * @param {string} [jobStatus] 任务执行状态，默认为空。 取值：  值为\&quot;Pending\&quot;，表示任务未执行。  值为\&quot;Running\&quot;，表示任务正在执行。  值为\&quot;Completed\&quot;，表示任务执行成功。  值为\&quot;Failed\&quot;，表示任务执行失败。  值为\&quot;Canceled\&quot;，表示任务取消执行。
+     * @param {string} [jobName] 任务名称，默认为空。对应取值如下： \&quot;RESIZE_FLAVOR\&quot;：变更实例的CPU和内存规格
+     * @param {string} [jobStatus] 任务执行状态，默认为空。 取值： - 值为\&quot;Pending\&quot;，表示任务未执行。 - 值为\&quot;Running\&quot;，表示任务正在执行。 - 值为\&quot;Completed\&quot;，表示任务执行成功。 - 值为\&quot;Failed\&quot;，表示任务执行失败。 - 值为\&quot;Canceled\&quot;，表示任务取消执行。
      * @param {string} [instanceId] 实例ID，不传该值默认查所有符合条件的实例。
      * @param {string} [startTime] 任务创建起始时间，格式为\&quot;yyyy-mm-ddThh:mm:ssZ\&quot;。 其中，T指某个时间的开始；Z指时区偏移量，例如偏移1个小时显示为+0100，不传默认为当前时间前七天。
      * @param {string} [endTime] 任务创建结束时间，格式为\&quot;yyyy-mm-ddThh:mm:ssZ\&quot;。 其中，T指某个时间的开始；Z指时区偏移量，例如偏移1个小时显示为+0100，不传默认为当前时间。
@@ -2175,7 +2114,6 @@ export class DdsClient {
      * @summary 获取备份下载链接
      * @param {string} instanceId 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。
      * @param {string} backupId 备份ID。
-     * @param {string} [xLanguage] 语言。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3742,44 +3680,6 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建文档数据库实例，包括集群实例、副本集实例、以及单节点实例。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createInstance(createInstanceRequest?: CreateInstanceRequest) {
-            const options = {
-                method: "POST",
-                url: "/v3/{project_id}/instances",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createInstanceRequest !== null && createInstanceRequest !== undefined) {
-                if (createInstanceRequest instanceof CreateInstanceRequest) {
-                    body = createInstanceRequest.body
-                } else {
-                    body = createInstanceRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5384,99 +5284,6 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 根据指定条件查询实例列表和详情。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listInstances(listInstancesRequest?: ListInstancesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v3/{project_id}/instances",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let id;
-            
-            let name;
-            
-            let mode;
-            
-            let datastoreType;
-            
-            let vpcId;
-            
-            let subnetId;
-            
-            let offset;
-            
-            let limit;
-            
-            let tags;
-
-            if (listInstancesRequest !== null && listInstancesRequest !== undefined) {
-                if (listInstancesRequest instanceof ListInstancesRequest) {
-                    id = listInstancesRequest.id;
-                    name = listInstancesRequest.name;
-                    mode = listInstancesRequest.mode;
-                    datastoreType = listInstancesRequest.datastoreType;
-                    vpcId = listInstancesRequest.vpcId;
-                    subnetId = listInstancesRequest.subnetId;
-                    offset = listInstancesRequest.offset;
-                    limit = listInstancesRequest.limit;
-                    tags = listInstancesRequest.tags;
-                } else {
-                    id = listInstancesRequest['id'];
-                    name = listInstancesRequest['name'];
-                    mode = listInstancesRequest['mode'];
-                    datastoreType = listInstancesRequest['datastore_type'];
-                    vpcId = listInstancesRequest['vpc_id'];
-                    subnetId = listInstancesRequest['subnet_id'];
-                    offset = listInstancesRequest['offset'];
-                    limit = listInstancesRequest['limit'];
-                    tags = listInstancesRequest['tags'];
-                }
-            }
-
-        
-            if (id !== null && id !== undefined) {
-                localVarQueryParameter['id'] = id;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (mode !== null && mode !== undefined) {
-                localVarQueryParameter['mode'] = mode;
-            }
-            if (datastoreType !== null && datastoreType !== undefined) {
-                localVarQueryParameter['datastore_type'] = datastoreType;
-            }
-            if (vpcId !== null && vpcId !== undefined) {
-                localVarQueryParameter['vpc_id'] = vpcId;
-            }
-            if (subnetId !== null && subnetId !== undefined) {
-                localVarQueryParameter['subnet_id'] = subnetId;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (tags !== null && tags !== undefined) {
-                localVarQueryParameter['tags'] = tags;
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7134,18 +6941,14 @@ export const ParamCreater = function () {
             let instanceId;
             
             let backupId;
-            
-            let xLanguage;
 
             if (showBackupDownloadLinkRequest !== null && showBackupDownloadLinkRequest !== undefined) {
                 if (showBackupDownloadLinkRequest instanceof ShowBackupDownloadLinkRequest) {
                     instanceId = showBackupDownloadLinkRequest.instanceId;
                     backupId = showBackupDownloadLinkRequest.backupId;
-                    xLanguage = showBackupDownloadLinkRequest.xLanguage;
                 } else {
                     instanceId = showBackupDownloadLinkRequest['instance_id'];
                     backupId = showBackupDownloadLinkRequest['backup_id'];
-                    xLanguage = showBackupDownloadLinkRequest['X-Language'];
                 }
             }
 
@@ -7161,9 +6964,6 @@ export const ParamCreater = function () {
             }
             if (backupId !== null && backupId !== undefined) {
                 localVarQueryParameter['backup_id'] = backupId;
-            }
-            if (xLanguage !== undefined && xLanguage !== null) {
-                localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
             options.queryParams = localVarQueryParameter;

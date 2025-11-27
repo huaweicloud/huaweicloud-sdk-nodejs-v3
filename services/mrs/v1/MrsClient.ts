@@ -41,6 +41,8 @@ import { HostModel } from './model/HostModel';
 import { JobExeResult } from './model/JobExeResult';
 import { ListAllTagsRequest } from './model/ListAllTagsRequest';
 import { ListAllTagsResponse } from './model/ListAllTagsResponse';
+import { ListAsyncTaskStatusRequest } from './model/ListAsyncTaskStatusRequest';
+import { ListAsyncTaskStatusResponse } from './model/ListAsyncTaskStatusResponse';
 import { ListAvailableZonesRequest } from './model/ListAvailableZonesRequest';
 import { ListAvailableZonesResponse } from './model/ListAvailableZonesResponse';
 import { ListClusterTagsRequest } from './model/ListClusterTagsRequest';
@@ -318,6 +320,25 @@ export class MrsClient {
      */
     public listAllTags(listAllTagsRequest?: ListAllTagsRequest): Promise<ListAllTagsResponse> {
         const options = ParamCreater().listAllTags();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定集群切换委托任务状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定集群切换委托任务状态
+     * @param {string} clusterId 集群ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAsyncTaskStatus(listAsyncTaskStatusRequest?: ListAsyncTaskStatusRequest): Promise<ListAsyncTaskStatusResponse> {
+        const options = ParamCreater().listAsyncTaskStatus(listAsyncTaskStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -961,6 +982,43 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定集群切换委托任务状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAsyncTaskStatus(listAsyncTaskStatusRequest?: ListAsyncTaskStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/async_task_status/update_ecs_agency",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (listAsyncTaskStatusRequest !== null && listAsyncTaskStatusRequest !== undefined) {
+                if (listAsyncTaskStatusRequest instanceof ListAsyncTaskStatusRequest) {
+                    clusterId = listAsyncTaskStatusRequest.clusterId;
+                } else {
+                    clusterId = listAsyncTaskStatusRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listAsyncTaskStatus.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -3,7 +3,6 @@
 export class VolumeMetadata {
     private '__system__cmkid'?: string;
     private '__system__encrypted'?: string;
-    private 'full_clone'?: string;
     private 'hw:passthrough'?: string;
     public orderID?: string;
     public constructor() { 
@@ -27,16 +26,6 @@ export class VolumeMetadata {
     }
     public get systemEncrypted(): string | undefined {
         return this['__system__encrypted'];
-    }
-    public withFullClone(fullClone: string): VolumeMetadata {
-        this['full_clone'] = fullClone;
-        return this;
-    }
-    public set fullClone(fullClone: string  | undefined) {
-        this['full_clone'] = fullClone;
-    }
-    public get fullClone(): string | undefined {
-        return this['full_clone'];
     }
     public withHwPassthrough(hwPassthrough: string): VolumeMetadata {
         this['hw:passthrough'] = hwPassthrough;

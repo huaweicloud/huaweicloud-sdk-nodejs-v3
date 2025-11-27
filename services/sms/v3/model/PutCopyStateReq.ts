@@ -20,26 +20,25 @@ export class PutCopyStateReq {
     * @enum {string}
     */
 export enum PutCopyStateReqCopystateEnum {
-    UNAVAILABLE = 'UNAVAILABLE',
-    WAITING = 'WAITING',
-    INIT = 'INIT',
-    REPLICATE = 'REPLICATE',
-    SYNCING = 'SYNCING',
-    STOPPING = 'STOPPING',
-    STOPPED = 'STOPPED',
-    SKIPPING = 'SKIPPING',
-    DELETING = 'DELETING',
-    ERROR = 'ERROR',
-    CLONING = 'CLONING',
-    CUTOVERING = 'CUTOVERING',
-    FINISHED = 'FINISHED',
+    UNAVAILABLE = 'unavailable',
+    WAITING = 'waiting',
+    INITIALIZE = 'initialize',
+    REPLICATE = 'replicate',
+    SYNCING = 'syncing',
+    STOPPING = 'stopping',
+    STOPPED = 'stopped',
+    SKIPPING = 'skipping',
+    DELETING = 'deleting',
     CLEARING = 'clearing',
     CLEARED = 'cleared',
     CLEARFAILED = 'clearfailed',
     PREMIGREADY = 'premigready',
-    PREMIGING = 'premiging',
     PREMIGED = 'premiged',
-    PREMIGFAILED = 'premigfailed'
+    PREMIGFAILED = 'premigfailed',
+    CLONING = 'cloning',
+    CUTOVERING = 'cutovering',
+    FINISHED = 'finished',
+    ERROR = 'error'
 }
 /**
     * @export

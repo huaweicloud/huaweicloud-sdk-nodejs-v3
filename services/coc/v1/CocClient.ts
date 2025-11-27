@@ -12,6 +12,9 @@ import { AlarmHandleHistory } from './model/AlarmHandleHistory';
 import { AlarmInfoDTO } from './model/AlarmInfoDTO';
 import { AlarmScheduleInstance } from './model/AlarmScheduleInstance';
 import { AlarmToIncidentRequestBody } from './model/AlarmToIncidentRequestBody';
+import { ApplicationCreateRequest } from './model/ApplicationCreateRequest';
+import { ApplicationUpdateRequest } from './model/ApplicationUpdateRequest';
+import { ApplicationViewQueryResponseData } from './model/ApplicationViewQueryResponseData';
 import { ApprovalJobScriptModel } from './model/ApprovalJobScriptModel';
 import { AtomicInputModel } from './model/AtomicInputModel';
 import { AtomicModel } from './model/AtomicModel';
@@ -24,6 +27,7 @@ import { BaseIdResponseData } from './model/BaseIdResponseData';
 import { BaseQueryAssessTaskListResponseData } from './model/BaseQueryAssessTaskListResponseData';
 import { BaseResponse } from './model/BaseResponse';
 import { BasicDTO } from './model/BasicDTO';
+import { BasicResourceTagResponseData } from './model/BasicResourceTagResponseData';
 import { BasicResponse } from './model/BasicResponse';
 import { BatchCreateApplicationViewRequest } from './model/BatchCreateApplicationViewRequest';
 import { BatchCreateApplicationViewRequestBody } from './model/BatchCreateApplicationViewRequestBody';
@@ -32,9 +36,16 @@ import { BatchCreateApplicationViewRequestBodyComponentList } from './model/Batc
 import { BatchCreateApplicationViewRequestBodyGroupList } from './model/BatchCreateApplicationViewRequestBodyGroupList';
 import { BatchCreateApplicationViewRequestBodySyncRules } from './model/BatchCreateApplicationViewRequestBodySyncRules';
 import { BatchCreateApplicationViewResponse } from './model/BatchCreateApplicationViewResponse';
+import { BatchCreateApplicationViewResponseBodyData } from './model/BatchCreateApplicationViewResponseBodyData';
 import { BatchListResourceResponseData } from './model/BatchListResourceResponseData';
+import { BatchListVendorAccountResponseData } from './model/BatchListVendorAccountResponseData';
 import { CancelDiagnosisTaskRequest } from './model/CancelDiagnosisTaskRequest';
 import { CancelDiagnosisTaskResponse } from './model/CancelDiagnosisTaskResponse';
+import { CapacityOrderResponseData } from './model/CapacityOrderResponseData';
+import { CapacityOrderResponseRankList } from './model/CapacityOrderResponseRankList';
+import { CapacityOverviewResponseData } from './model/CapacityOverviewResponseData';
+import { CapacityWebListRequest } from './model/CapacityWebListRequest';
+import { CapacityWebListRequestProviderObj } from './model/CapacityWebListRequestProviderObj';
 import { CheckScriptRiskRequest } from './model/CheckScriptRiskRequest';
 import { CheckScriptRiskResData } from './model/CheckScriptRiskResData';
 import { CheckScriptRiskResDataBlacklistCommands } from './model/CheckScriptRiskResDataBlacklistCommands';
@@ -62,10 +73,27 @@ import { CocUpdateChangeRequestBodyV2SubTickets } from './model/CocUpdateChangeR
 import { CocUpdateChangeRequestBodyV2TicketInfo } from './model/CocUpdateChangeRequestBodyV2TicketInfo';
 import { ComplianceItem } from './model/ComplianceItem';
 import { CompliantSummary } from './model/CompliantSummary';
+import { ComponentCreateRequest } from './model/ComponentCreateRequest';
+import { ComponentQueryResponseData } from './model/ComponentQueryResponseData';
+import { ComponentUpdateRequest } from './model/ComponentUpdateRequest';
+import { CountGroupRmsResourceRelationsRequest } from './model/CountGroupRmsResourceRelationsRequest';
+import { CountGroupRmsResourceRelationsResponse } from './model/CountGroupRmsResourceRelationsResponse';
 import { CountMultiCloudResourcesRequest } from './model/CountMultiCloudResourcesRequest';
 import { CountMultiCloudResourcesResponse } from './model/CountMultiCloudResourcesResponse';
 import { CountMultiResourcesRequest } from './model/CountMultiResourcesRequest';
 import { CountMultiResourcesResponse } from './model/CountMultiResourcesResponse';
+import { CountOtherResourceRequest } from './model/CountOtherResourceRequest';
+import { CountOtherResourceResponse } from './model/CountOtherResourceResponse';
+import { CountResourcesOfResourceViewRequest } from './model/CountResourcesOfResourceViewRequest';
+import { CountResourcesOfResourceViewResponse } from './model/CountResourcesOfResourceViewResponse';
+import { CountResourcesRequest } from './model/CountResourcesRequest';
+import { CountResourcesResponse } from './model/CountResourcesResponse';
+import { CreateApplicationComponentsRequest } from './model/CreateApplicationComponentsRequest';
+import { CreateApplicationComponentsResponse } from './model/CreateApplicationComponentsResponse';
+import { CreateApplicationGroupRequest } from './model/CreateApplicationGroupRequest';
+import { CreateApplicationGroupResponse } from './model/CreateApplicationGroupResponse';
+import { CreateApplicationRequest } from './model/CreateApplicationRequest';
+import { CreateApplicationResponse } from './model/CreateApplicationResponse';
 import { CreateAssessTaskRequest } from './model/CreateAssessTaskRequest';
 import { CreateAssessTaskRequestBody } from './model/CreateAssessTaskRequestBody';
 import { CreateAssessTaskResponse } from './model/CreateAssessTaskResponse';
@@ -90,6 +118,8 @@ import { CreateExternalIncidentRequest } from './model/CreateExternalIncidentReq
 import { CreateExternalIncidentResponseData } from './model/CreateExternalIncidentResponseData';
 import { CreateExternalIssuesRequest } from './model/CreateExternalIssuesRequest';
 import { CreateExternalIssuesResponseData } from './model/CreateExternalIssuesResponseData';
+import { CreateGroupRmsResourceRelationRequest } from './model/CreateGroupRmsResourceRelationRequest';
+import { CreateGroupRmsResourceRelationResponse } from './model/CreateGroupRmsResourceRelationResponse';
 import { CreatePasswordChangePlanRequest } from './model/CreatePasswordChangePlanRequest';
 import { CreatePasswordChangePlanRequestBody } from './model/CreatePasswordChangePlanRequestBody';
 import { CreatePasswordChangePlanResponse } from './model/CreatePasswordChangePlanResponse';
@@ -98,24 +128,43 @@ import { CreateReportCustomEventRequest } from './model/CreateReportCustomEventR
 import { CreateReportCustomEventResponse } from './model/CreateReportCustomEventResponse';
 import { CreateReportPrometheusEventRequest } from './model/CreateReportPrometheusEventRequest';
 import { CreateReportPrometheusEventResponse } from './model/CreateReportPrometheusEventResponse';
+import { CreateResourceTagsRequest } from './model/CreateResourceTagsRequest';
+import { CreateResourceTagsResponse } from './model/CreateResourceTagsResponse';
+import { CreateResourceViewsRequest } from './model/CreateResourceViewsRequest';
+import { CreateResourceViewsRequestBody } from './model/CreateResourceViewsRequestBody';
+import { CreateResourceViewsResponse } from './model/CreateResourceViewsResponse';
 import { CreateScheduledTaskRequest } from './model/CreateScheduledTaskRequest';
 import { CreateScheduledTaskResponse } from './model/CreateScheduledTaskResponse';
 import { CreateScriptRequest } from './model/CreateScriptRequest';
 import { CreateScriptResponse } from './model/CreateScriptResponse';
 import { CreateTicketRequest } from './model/CreateTicketRequest';
 import { CreateTicketResponse } from './model/CreateTicketResponse';
+import { CreateVendorAccountRequest } from './model/CreateVendorAccountRequest';
+import { CreateVendorAccountResponse } from './model/CreateVendorAccountResponse';
 import { CreateWarRoomRequest } from './model/CreateWarRoomRequest';
 import { CreateWarRoomRequestBody } from './model/CreateWarRoomRequestBody';
 import { CreateWarRoomResponse } from './model/CreateWarRoomResponse';
 import { Customttribute } from './model/Customttribute';
+import { DeleteApplicationComponentRequest } from './model/DeleteApplicationComponentRequest';
+import { DeleteApplicationComponentResponse } from './model/DeleteApplicationComponentResponse';
+import { DeleteApplicationGroupRequest } from './model/DeleteApplicationGroupRequest';
+import { DeleteApplicationGroupResponse } from './model/DeleteApplicationGroupResponse';
+import { DeleteApplicationRequest } from './model/DeleteApplicationRequest';
+import { DeleteApplicationResponse } from './model/DeleteApplicationResponse';
 import { DeleteDocumentRequest } from './model/DeleteDocumentRequest';
 import { DeleteDocumentResponse } from './model/DeleteDocumentResponse';
+import { DeleteGroupRmsResourceRelationRequest } from './model/DeleteGroupRmsResourceRelationRequest';
+import { DeleteGroupRmsResourceRelationResponse } from './model/DeleteGroupRmsResourceRelationResponse';
+import { DeleteResourceViewsRequest } from './model/DeleteResourceViewsRequest';
+import { DeleteResourceViewsResponse } from './model/DeleteResourceViewsResponse';
 import { DeleteScheduledTaskRequest } from './model/DeleteScheduledTaskRequest';
 import { DeleteScheduledTaskResponse } from './model/DeleteScheduledTaskResponse';
 import { DeleteScriptRequest } from './model/DeleteScriptRequest';
 import { DeleteScriptResponse } from './model/DeleteScriptResponse';
 import { DeleteTicketInfoRequest } from './model/DeleteTicketInfoRequest';
 import { DeleteTicketInfoResponse } from './model/DeleteTicketInfoResponse';
+import { DeleteVendorAccountRequest } from './model/DeleteVendorAccountRequest';
+import { DeleteVendorAccountResponse } from './model/DeleteVendorAccountResponse';
 import { DiagnosisSummaryItem } from './model/DiagnosisSummaryItem';
 import { DiagnosisTask } from './model/DiagnosisTask';
 import { DiagnosisTaskDetail } from './model/DiagnosisTaskDetail';
@@ -132,16 +181,17 @@ import { EditScriptModel } from './model/EditScriptModel';
 import { EnableScheduledTaskRequest } from './model/EnableScheduledTaskRequest';
 import { EnableScheduledTaskRequestBody } from './model/EnableScheduledTaskRequestBody';
 import { EnableScheduledTaskResponse } from './model/EnableScheduledTaskResponse';
+import { EnterpriseProjectCollectQueryResponseData } from './model/EnterpriseProjectCollectQueryResponseData';
 import { EnumDataInfo } from './model/EnumDataInfo';
 import { ExectionInstanceModel } from './model/ExectionInstanceModel';
 import { ExectuionStatistic } from './model/ExectuionStatistic';
 import { ExecuteActionParams } from './model/ExecuteActionParams';
 import { ExecuteActionParamsV2 } from './model/ExecuteActionParamsV2';
 import { ExecuteDocumentRequest } from './model/ExecuteDocumentRequest';
-import { ExecuteDocumentRequsetBody } from './model/ExecuteDocumentRequsetBody';
-import { ExecuteDocumentRequsetBodyParameters } from './model/ExecuteDocumentRequsetBodyParameters';
-import { ExecuteDocumentRequsetBodySysTags } from './model/ExecuteDocumentRequsetBodySysTags';
-import { ExecuteDocumentRequsetBodyTargets } from './model/ExecuteDocumentRequsetBodyTargets';
+import { ExecuteDocumentRequestBody } from './model/ExecuteDocumentRequestBody';
+import { ExecuteDocumentRequestBodyParameters } from './model/ExecuteDocumentRequestBodyParameters';
+import { ExecuteDocumentRequestBodySysTags } from './model/ExecuteDocumentRequestBodySysTags';
+import { ExecuteDocumentRequestBodyTargets } from './model/ExecuteDocumentRequestBodyTargets';
 import { ExecuteDocumentResponse } from './model/ExecuteDocumentResponse';
 import { ExecuteInstancesBatchInfo } from './model/ExecuteInstancesBatchInfo';
 import { ExecutePublicScriptRequest } from './model/ExecutePublicScriptRequest';
@@ -171,7 +221,18 @@ import { GetScriptJobStatisticsRequest } from './model/GetScriptJobStatisticsReq
 import { GetScriptJobStatisticsResponse } from './model/GetScriptJobStatisticsResponse';
 import { GetScriptRequest } from './model/GetScriptRequest';
 import { GetScriptResponse } from './model/GetScriptResponse';
+import { GroupAliResourceRelationQueryResponseData } from './model/GroupAliResourceRelationQueryResponseData';
+import { GroupCreateRequest } from './model/GroupCreateRequest';
+import { GroupCreateResponseData } from './model/GroupCreateResponseData';
+import { GroupOtherResourceRelationQueryResponseData } from './model/GroupOtherResourceRelationQueryResponseData';
+import { GroupQueryResponseData } from './model/GroupQueryResponseData';
 import { GroupRelationConfiguration } from './model/GroupRelationConfiguration';
+import { GroupRmsResourceRelationCreateRequest } from './model/GroupRmsResourceRelationCreateRequest';
+import { GroupRmsResourceRelationQueryResponseData } from './model/GroupRmsResourceRelationQueryResponseData';
+import { GroupRmsResourceRelationQueryResponseTags } from './model/GroupRmsResourceRelationQueryResponseTags';
+import { GroupRmsResourceRelationUpdateRequest } from './model/GroupRmsResourceRelationUpdateRequest';
+import { GroupUpdateRequest } from './model/GroupUpdateRequest';
+import { GroupUpdateRequestSyncRules } from './model/GroupUpdateRequestSyncRules';
 import { HandleCocIncidentRequest } from './model/HandleCocIncidentRequest';
 import { HandleCocIncidentResponse } from './model/HandleCocIncidentResponse';
 import { HandleExternalIncidentRequest } from './model/HandleExternalIncidentRequest';
@@ -180,6 +241,9 @@ import { HandleIncidentRequest } from './model/HandleIncidentRequest';
 import { HandleIncidentResponse } from './model/HandleIncidentResponse';
 import { HandlerAlarmRequest } from './model/HandlerAlarmRequest';
 import { HandlerAlarmResponse } from './model/HandlerAlarmResponse';
+import { ImportOtherResourceRequest } from './model/ImportOtherResourceRequest';
+import { ImportOtherResourceRequestBody } from './model/ImportOtherResourceRequestBody';
+import { ImportOtherResourceResponse } from './model/ImportOtherResourceResponse';
 import { IncidentSimpleTicketInfo } from './model/IncidentSimpleTicketInfo';
 import { IncidentTicketInfoResponseData } from './model/IncidentTicketInfoResponseData';
 import { InstanceCompliant } from './model/InstanceCompliant';
@@ -198,6 +262,12 @@ import { JobScriptOrderOperationBody } from './model/JobScriptOrderOperationBody
 import { JobScriptOrderStatisticsModel } from './model/JobScriptOrderStatisticsModel';
 import { ListAlarmHandleHistoriesRequest } from './model/ListAlarmHandleHistoriesRequest';
 import { ListAlarmHandleHistoriesResponse } from './model/ListAlarmHandleHistoriesResponse';
+import { ListApplicationComponentsRequest } from './model/ListApplicationComponentsRequest';
+import { ListApplicationComponentsResponse } from './model/ListApplicationComponentsResponse';
+import { ListApplicationGroupsRequest } from './model/ListApplicationGroupsRequest';
+import { ListApplicationGroupsResponse } from './model/ListApplicationGroupsResponse';
+import { ListApplicationViewRequest } from './model/ListApplicationViewRequest';
+import { ListApplicationViewResponse } from './model/ListApplicationViewResponse';
 import { ListAssessTaskRequest } from './model/ListAssessTaskRequest';
 import { ListAssessTaskResponse } from './model/ListAssessTaskResponse';
 import { ListAuthorizableTicketsExternalRequest } from './model/ListAuthorizableTicketsExternalRequest';
@@ -205,6 +275,10 @@ import { ListAuthorizableTicketsExternalResponse } from './model/ListAuthorizabl
 import { ListAuthorizableTicketsReq } from './model/ListAuthorizableTicketsReq';
 import { ListBaseRequest } from './model/ListBaseRequest';
 import { ListBaseResponse } from './model/ListBaseResponse';
+import { ListCapacityOrderRequest } from './model/ListCapacityOrderRequest';
+import { ListCapacityOrderResponse } from './model/ListCapacityOrderResponse';
+import { ListCapacityViewRequest } from './model/ListCapacityViewRequest';
+import { ListCapacityViewResponse } from './model/ListCapacityViewResponse';
 import { ListCocTicketOperationHistoriesRequest } from './model/ListCocTicketOperationHistoriesRequest';
 import { ListCocTicketOperationHistoriesResponse } from './model/ListCocTicketOperationHistoriesResponse';
 import { ListDiagnosisTasksRequest } from './model/ListDiagnosisTasksRequest';
@@ -213,6 +287,8 @@ import { ListDocumentAtomicsRequest } from './model/ListDocumentAtomicsRequest';
 import { ListDocumentAtomicsResponse } from './model/ListDocumentAtomicsResponse';
 import { ListDocumentsRequest } from './model/ListDocumentsRequest';
 import { ListDocumentsResponse } from './model/ListDocumentsResponse';
+import { ListEnterpriseProjectCollectRequest } from './model/ListEnterpriseProjectCollectRequest';
+import { ListEnterpriseProjectCollectResponse } from './model/ListEnterpriseProjectCollectResponse';
 import { ListExecutionInstancesRequest } from './model/ListExecutionInstancesRequest';
 import { ListExecutionInstancesResponse } from './model/ListExecutionInstancesResponse';
 import { ListExecutionResponseData } from './model/ListExecutionResponseData';
@@ -221,6 +297,12 @@ import { ListExecutionStepsRequest } from './model/ListExecutionStepsRequest';
 import { ListExecutionStepsResponse } from './model/ListExecutionStepsResponse';
 import { ListExecutionsRequest } from './model/ListExecutionsRequest';
 import { ListExecutionsResponse } from './model/ListExecutionsResponse';
+import { ListGroupAliResourceRelationsRequest } from './model/ListGroupAliResourceRelationsRequest';
+import { ListGroupAliResourceRelationsResponse } from './model/ListGroupAliResourceRelationsResponse';
+import { ListGroupOtherResourceRelationsRequest } from './model/ListGroupOtherResourceRelationsRequest';
+import { ListGroupOtherResourceRelationsResponse } from './model/ListGroupOtherResourceRelationsResponse';
+import { ListGroupRmsResourceRelationsRequest } from './model/ListGroupRmsResourceRelationsRequest';
+import { ListGroupRmsResourceRelationsResponse } from './model/ListGroupRmsResourceRelationsResponse';
 import { ListIncidentSimpleTicketsRequest } from './model/ListIncidentSimpleTicketsRequest';
 import { ListIncidentSimpleTicketsResponse } from './model/ListIncidentSimpleTicketsResponse';
 import { ListIncidentsHistoriesRequest } from './model/ListIncidentsHistoriesRequest';
@@ -233,6 +315,12 @@ import { ListInstancesBatchRequest } from './model/ListInstancesBatchRequest';
 import { ListInstancesBatchResponse } from './model/ListInstancesBatchResponse';
 import { ListPublicScriptsRequest } from './model/ListPublicScriptsRequest';
 import { ListPublicScriptsResponse } from './model/ListPublicScriptsResponse';
+import { ListResourceTagsRequest } from './model/ListResourceTagsRequest';
+import { ListResourceTagsResponse } from './model/ListResourceTagsResponse';
+import { ListResourceViewsRequest } from './model/ListResourceViewsRequest';
+import { ListResourceViewsResponse } from './model/ListResourceViewsResponse';
+import { ListResourcesOfResourceViewRequest } from './model/ListResourcesOfResourceViewRequest';
+import { ListResourcesOfResourceViewResponse } from './model/ListResourcesOfResourceViewResponse';
 import { ListResourcesRequest } from './model/ListResourcesRequest';
 import { ListResourcesResponse } from './model/ListResourcesResponse';
 import { ListScheduledTaskHistoryRequest } from './model/ListScheduledTaskHistoryRequest';
@@ -249,6 +337,7 @@ import { ListScriptsRequest } from './model/ListScriptsRequest';
 import { ListScriptsResponse } from './model/ListScriptsResponse';
 import { ListSubTicketsRequest } from './model/ListSubTicketsRequest';
 import { ListSubTicketsResponse } from './model/ListSubTicketsResponse';
+import { ListTagsResponse } from './model/ListTagsResponse';
 import { ListTenantWarRoomRequestBody } from './model/ListTenantWarRoomRequestBody';
 import { ListTicketOperationHistoriesRequest } from './model/ListTicketOperationHistoriesRequest';
 import { ListTicketOperationHistoriesResponse } from './model/ListTicketOperationHistoriesResponse';
@@ -259,6 +348,11 @@ import { ListTicketParamsWithPage } from './model/ListTicketParamsWithPage';
 import { ListTicketParamsWithPageV2 } from './model/ListTicketParamsWithPageV2';
 import { ListTicketsRequest } from './model/ListTicketsRequest';
 import { ListTicketsResponse } from './model/ListTicketsResponse';
+import { ListVendorAccountRequest } from './model/ListVendorAccountRequest';
+import { ListVendorAccountResponse } from './model/ListVendorAccountResponse';
+import { ListViewResourceResponseBodyData } from './model/ListViewResourceResponseBodyData';
+import { ListViewResourceResponseBodyTags } from './model/ListViewResourceResponseBodyTags';
+import { ListViewResponseBodyData } from './model/ListViewResponseBodyData';
 import { ListWarRoomsRequest } from './model/ListWarRoomsRequest';
 import { ListWarRoomsResponse } from './model/ListWarRoomsResponse';
 import { MessageNotification } from './model/MessageNotification';
@@ -289,6 +383,7 @@ import { ResourceInstanceProp } from './model/ResourceInstanceProp';
 import { ResourceMultiCountResponseData } from './model/ResourceMultiCountResponseData';
 import { ResourceQuery } from './model/ResourceQuery';
 import { ResourceTag } from './model/ResourceTag';
+import { ResourceTagOperateRequest } from './model/ResourceTagOperateRequest';
 import { ResponseBodyTemplate } from './model/ResponseBodyTemplate';
 import { RetryDiagnosisTaskRequest } from './model/RetryDiagnosisTaskRequest';
 import { RetryDiagnosisTaskRequestBody } from './model/RetryDiagnosisTaskRequestBody';
@@ -332,12 +427,21 @@ import { ShowTicketInfoRequest } from './model/ShowTicketInfoRequest';
 import { ShowTicketInfoResponse } from './model/ShowTicketInfoResponse';
 import { SubTaskInfoDTO } from './model/SubTaskInfoDTO';
 import { SubTicketListInfo } from './model/SubTicketListInfo';
+import { SyncGroupResourceRequest } from './model/SyncGroupResourceRequest';
+import { SyncGroupResourceResponse } from './model/SyncGroupResourceResponse';
 import { SyncMultiCloudResourceRequest } from './model/SyncMultiCloudResourceRequest';
 import { SyncMultiCloudResourceRequestBody } from './model/SyncMultiCloudResourceRequestBody';
 import { SyncMultiCloudResourceResponse } from './model/SyncMultiCloudResourceResponse';
+import { SyncResourceAgentReq } from './model/SyncResourceAgentReq';
+import { SyncResourceAgentReqResourceInfos } from './model/SyncResourceAgentReqResourceInfos';
+import { SyncResourceAgentRequest } from './model/SyncResourceAgentRequest';
+import { SyncResourceAgentResponse } from './model/SyncResourceAgentResponse';
 import { SyncResourceReq } from './model/SyncResourceReq';
 import { SyncResourceRequest } from './model/SyncResourceRequest';
 import { SyncResourceResponse } from './model/SyncResourceResponse';
+import { SyncResourcesOfResourceViewRequest } from './model/SyncResourcesOfResourceViewRequest';
+import { SyncResourcesOfResourceViewResponse } from './model/SyncResourcesOfResourceViewResponse';
+import { TagResponse } from './model/TagResponse';
 import { Target } from './model/Target';
 import { TargetResource } from './model/TargetResource';
 import { TicketCreateSubTicketInfo } from './model/TicketCreateSubTicketInfo';
@@ -352,13 +456,27 @@ import { UpdateAccountPassword } from './model/UpdateAccountPassword';
 import { UpdateAccountPasswordRequest } from './model/UpdateAccountPasswordRequest';
 import { UpdateAccountPasswordRequestBody } from './model/UpdateAccountPasswordRequestBody';
 import { UpdateAccountPasswordResponse } from './model/UpdateAccountPasswordResponse';
+import { UpdateApplicationComponentRequest } from './model/UpdateApplicationComponentRequest';
+import { UpdateApplicationComponentResponse } from './model/UpdateApplicationComponentResponse';
+import { UpdateApplicationGroupRequest } from './model/UpdateApplicationGroupRequest';
+import { UpdateApplicationGroupResponse } from './model/UpdateApplicationGroupResponse';
+import { UpdateApplicationRequest } from './model/UpdateApplicationRequest';
+import { UpdateApplicationResponse } from './model/UpdateApplicationResponse';
 import { UpdateChangeRequest } from './model/UpdateChangeRequest';
 import { UpdateChangeResponse } from './model/UpdateChangeResponse';
 import { UpdateDocumentRequest } from './model/UpdateDocumentRequest';
 import { UpdateDocumentResponse } from './model/UpdateDocumentResponse';
+import { UpdateEnterpriseProjectCollectRequest } from './model/UpdateEnterpriseProjectCollectRequest';
+import { UpdateEnterpriseProjectCollectRequestBody } from './model/UpdateEnterpriseProjectCollectRequestBody';
+import { UpdateEnterpriseProjectCollectResponse } from './model/UpdateEnterpriseProjectCollectResponse';
+import { UpdateGroupRmsResourceRelationRequest } from './model/UpdateGroupRmsResourceRelationRequest';
+import { UpdateGroupRmsResourceRelationResponse } from './model/UpdateGroupRmsResourceRelationResponse';
 import { UpdateResourceTagsRequest } from './model/UpdateResourceTagsRequest';
 import { UpdateResourceTagsRequestBody } from './model/UpdateResourceTagsRequestBody';
 import { UpdateResourceTagsResponse } from './model/UpdateResourceTagsResponse';
+import { UpdateResourceViewsRequest } from './model/UpdateResourceViewsRequest';
+import { UpdateResourceViewsRequestBody } from './model/UpdateResourceViewsRequestBody';
+import { UpdateResourceViewsResponse } from './model/UpdateResourceViewsResponse';
 import { UpdateRunbookRequestBody } from './model/UpdateRunbookRequestBody';
 import { UpdateScheduledTaskRequest } from './model/UpdateScheduledTaskRequest';
 import { UpdateScheduledTaskResponse } from './model/UpdateScheduledTaskResponse';
@@ -367,7 +485,11 @@ import { UpdateScriptResponse } from './model/UpdateScriptResponse';
 import { UpdateTicketHistoryInfo } from './model/UpdateTicketHistoryInfo';
 import { UpdateTicketRequest } from './model/UpdateTicketRequest';
 import { UpdateTicketResponse } from './model/UpdateTicketResponse';
+import { UpdateVendorAccountRequest } from './model/UpdateVendorAccountRequest';
+import { UpdateVendorAccountResponse } from './model/UpdateVendorAccountResponse';
 import { UploadFileResponse } from './model/UploadFileResponse';
+import { VendorAccountCreateRequest } from './model/VendorAccountCreateRequest';
+import { VendorAccountUpdateRequest } from './model/VendorAccountUpdateRequest';
 import { WarRoomEnumeration } from './model/WarRoomEnumeration';
 import { WarRoomIncident } from './model/WarRoomIncident';
 import { WarRoomTenantInfo } from './model/WarRoomTenantInfo';
@@ -546,6 +668,64 @@ export class CocClient {
     }
 
     /**
+     * 创建应用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建应用
+     * @param {ApplicationCreateRequest} [createApplicationRequestBody] 创建应用请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createApplication(createApplicationRequest?: CreateApplicationRequest): Promise<CreateApplicationResponse> {
+        const options = ParamCreater().createApplication(createApplicationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除应用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除应用
+     * @param {string} id 应用id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteApplication(deleteApplicationRequest?: DeleteApplicationRequest): Promise<DeleteApplicationResponse> {
+        const options = ParamCreater().deleteApplication(deleteApplicationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改应用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改应用
+     * @param {string} id 应用ID。
+     * @param {ApplicationUpdateRequest} [updateApplicationRequestBody] 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateApplication(updateApplicationRequest?: UpdateApplicationRequest): Promise<UpdateApplicationResponse> {
+        const options = ParamCreater().updateApplication(updateApplicationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量创建应用，分组，组件。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -557,6 +737,30 @@ export class CocClient {
      */
     public batchCreateApplicationView(batchCreateApplicationViewRequest?: BatchCreateApplicationViewRequest): Promise<BatchCreateApplicationViewResponse> {
         const options = ParamCreater().batchCreateApplicationView(batchCreateApplicationViewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询应用、组件、分组名称列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询应用、组件、分组名称列表
+     * @param {number} limit **参数解释：** 分页查询每页显示的条目数量。 **约束限制：** 不涉及。 **取值范围：** 自定义，在1-500范围。 **默认取值：** 不涉及。
+     * @param {string} [nameLike] **参数解释：** 名称模糊匹配，支持模糊查询。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {Array<string>} [codeList] **参数解释：** 应用、组件、分组code组成。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [marker] **参数解释：** 分页参数，上一页请求最后一个id。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {number} [pageNo] **参数解释：** 分页页码。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {boolean} [isCollection] **参数解释：** 是否收藏。 **约束限制：** 不涉及。 **取值范围：** - true：在我的收藏去查询应用、组件、分组，默认为true。 - false：在全部应用中查询应用、组件、分组，可以不传。 **默认取值：** 默认未收藏。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listApplicationView(listApplicationViewRequest?: ListApplicationViewRequest): Promise<ListApplicationViewResponse> {
+        const options = ParamCreater().listApplicationView(listApplicationViewRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -766,6 +970,85 @@ export class CocClient {
     }
 
     /**
+     * 创建组件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建组件
+     * @param {ComponentCreateRequest} [createApplicationComponentsRequestBody] 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createApplicationComponents(createApplicationComponentsRequest?: CreateApplicationComponentsRequest): Promise<CreateApplicationComponentsResponse> {
+        const options = ParamCreater().createApplicationComponents(createApplicationComponentsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除组件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除组件
+     * @param {string} id 分组id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteApplicationComponent(deleteApplicationComponentRequest?: DeleteApplicationComponentRequest): Promise<DeleteApplicationComponentResponse> {
+        const options = ParamCreater().deleteApplicationComponent(deleteApplicationComponentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询组件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询组件
+     * @param {number} limit 最大的返回数量。
+     * @param {string} [applicationId] 应用id。
+     * @param {string} [marker] 分页参数，上一页请求最后一个id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listApplicationComponents(listApplicationComponentsRequest?: ListApplicationComponentsRequest): Promise<ListApplicationComponentsResponse> {
+        const options = ParamCreater().listApplicationComponents(listApplicationComponentsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改组件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改组件
+     * @param {string} id 分组ID。
+     * @param {ComponentUpdateRequest} [updateApplicationComponentRequestBody] 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateApplicationComponent(updateApplicationComponentRequest?: UpdateApplicationComponentRequest): Promise<UpdateApplicationComponentResponse> {
+        const options = ParamCreater().updateApplicationComponent(updateApplicationComponentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 支持租户将自开发的监控系统按照标准化集成至COC，集成后告警会按照标准格式上报至COC告警中心
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -778,6 +1061,56 @@ export class CocClient {
      */
     public createReportCustomEvent(createReportCustomEventRequest?: CreateReportCustomEventRequest): Promise<CreateReportCustomEventResponse> {
         const options = ParamCreater().createReportCustomEvent(createReportCustomEventRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询IDC离线资源的数量。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询线下IDC资源数量
+     * @param {boolean} [isDelegated] **参数解释：** 是否已托管。 **约束限制：** 不涉及。 **取值范围：** - true：已经托管。 - false：未托管。 **默认取值：** 不涉及。
+     * @param {string} [type] **参数解释：** 资源类型。 **约束限制：** 不涉及。 **取值范围：** - vm：虚拟机。 - PM：物理机。 - Middleware：中间件设备。 **默认取值：** 不涉及。
+     * @param {boolean} [isDelegateDomain] **参数解释：** 是否为sre。 **约束限制：** 不涉及。 **取值范围：** - true：是sre。 - false：非sre。 **默认取值：** 不涉及。
+     * @param {Array<string>} [nameList] **参数解释：** 资源名称，支持模糊查询。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [regionId] **参数解释：** 区域id。 **约束限制：** 不涉及。 **取值范围：** 关联的区域region的id。 **默认取值：** 不涉及。
+     * @param {string} [createSince] **参数解释：** 创建时间中的开始日期，参考ISO8601标准格式。 **约束限制：** 开始日期和结束日期，至少有一个日期存在。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [createUntil] **参数解释：** 创建时间中的结束日期，参考ISO8601标准格式。 **约束限制：** 开始日期和结束日期，至少有一个日期存在。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [ip] **参数解释：** 私有ip。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [osType] **参数解释：** 操作系统。 **约束限制：** 不涉及。 **取值范围：** - windows：windows操作系统类型。 - linux：linux操作系统类型。 **默认取值：** 不涉及。
+     * @param {string} [osVersionList] **参数解释：** OS版本。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [agentState] **参数解释：** agent状态。 **约束限制：** 不涉及。 **取值范围：** - ONLINE：运行中。 - OFFLINE：异常。 - INSTALLING：安装中。 - FAILED：安装失败。 - UNINSTALLED：已卸载。 - null：未安装。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countOtherResource(countOtherResourceRequest?: CountOtherResourceRequest): Promise<CountOtherResourceResponse> {
+        const options = ParamCreater().countOtherResource(countOtherResourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 管理线下设备提供IDC离线资源纳管功能-导入IDC离线资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导入IDC离线资源
+     * @param {any} file **参数解释：** 上传的物理机/虚拟机/中间件设备下载模板excel（相关的设备信息）。 **约束限制：** 不涉及。 **取值范围：** 物理机/虚拟机/中间件设备下载模板excel（相关的设备信息）。 **默认取值：** 不涉及。
+     * @param {string} type **参数解释：** 导入类型。 **约束限制：** 不涉及。 **取值范围：** - vm：虚拟机。 - PM：物理机。 - Middleware：中间件设备。 **默认取值：** 不涉及。
+     * @param {string} regionId **参数解释：** 区域id。 **约束限制：** 不涉及。 **取值范围：** 字符串，长度在[0,64]之间。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public importOtherResource(importOtherResourceRequest?: ImportOtherResourceRequest): Promise<ImportOtherResourceResponse> {
+        const options = ParamCreater().importOtherResource(importOtherResourceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -977,7 +1310,7 @@ export class CocClient {
      *
      * @summary 执行自定义作业
      * @param {string} documentId 
-     * @param {ExecuteDocumentRequsetBody} executeDocumentRequsetBody 执行自定义作业请求体
+     * @param {ExecuteDocumentRequestBody} executeDocumentRequestBody 执行自定义作业请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1090,6 +1423,46 @@ export class CocClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询企业项目收藏。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询企业项目收藏
+     * @param {number} limit **参数解释：** 分页查询每页显示的条目数量。 **约束限制：** 不涉及。 **取值范围：** 自定义，在1~500范围。 **默认取值：** 不涉及。
+     * @param {string} [id] **参数解释：** 唯一标识id。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [marker] **参数解释：** 分页参数，上一页请求最后一个id。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listEnterpriseProjectCollect(listEnterpriseProjectCollectRequest?: ListEnterpriseProjectCollectRequest): Promise<ListEnterpriseProjectCollectResponse> {
+        const options = ParamCreater().listEnterpriseProjectCollect(listEnterpriseProjectCollectRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新企业项目收藏。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新企业项目收藏
+     * @param {UpdateEnterpriseProjectCollectRequestBody} updateEnterpriseProjectCollectRequestBody 更新企业项目收藏请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateEnterpriseProjectCollect(updateEnterpriseProjectCollectRequest?: UpdateEnterpriseProjectCollectRequest): Promise<UpdateEnterpriseProjectCollectResponse> {
+        const options = ParamCreater().updateEnterpriseProjectCollect(updateEnterpriseProjectCollectRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1581,6 +1954,364 @@ export class CocClient {
     }
 
     /**
+     * 创建分组。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建分组
+     * @param {GroupCreateRequest} [createApplicationGroupRequestBody] 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createApplicationGroup(createApplicationGroupRequest?: CreateApplicationGroupRequest): Promise<CreateApplicationGroupResponse> {
+        const options = ParamCreater().createApplicationGroup(createApplicationGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除分组。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除分组
+     * @param {string} id 分组id。
+     * @param {boolean} [forceDelete] 是否强制删除。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteApplicationGroup(deleteApplicationGroupRequest?: DeleteApplicationGroupRequest): Promise<DeleteApplicationGroupResponse> {
+        const options = ParamCreater().deleteApplicationGroup(deleteApplicationGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询应用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询分组
+     * @param {number} limit 最大的返回数量。
+     * @param {Array<string>} [idList] 分组id集合。
+     * @param {string} [componentId] 组件id。
+     * @param {string} [applicationId] 应用id。
+     * @param {string} [nameLike] 分组名称模糊匹配。
+     * @param {string} [code] 分组code。
+     * @param {string} [marker] 分页参数，上一页请求最后一个id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listApplicationGroups(listApplicationGroupsRequest?: ListApplicationGroupsRequest): Promise<ListApplicationGroupsResponse> {
+        const options = ParamCreater().listApplicationGroups(listApplicationGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分组智能同步资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 分组智能同步资源
+     * @param {string} id 分组ID。
+     * @param {SyncResourceReq} [syncGroupResourceRequestBody] 同步资源请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public syncGroupResource(syncGroupResourceRequest?: SyncGroupResourceRequest): Promise<SyncGroupResourceResponse> {
+        const options = ParamCreater().syncGroupResource(syncGroupResourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改分组。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改分组
+     * @param {string} id 分组ID。
+     * @param {GroupUpdateRequest} [updateApplicationGroupRequestBody] 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateApplicationGroup(updateApplicationGroupRequest?: UpdateApplicationGroupRequest): Promise<UpdateApplicationGroupResponse> {
+        const options = ParamCreater().updateApplicationGroup(updateApplicationGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询分组关联的阿里云资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询分组关联的阿里云资源
+     * @param {string} vendor **参数解释：** 厂商信息。 **约束限制：** 不涉及。 **取值范围：** - RMS：华为云厂商。 - ALI：阿里云厂商。 - OTHER：其他厂商。 **默认取值：** 不涉及。
+     * @param {string} type **参数解释：** 资源类型。 **约束限制：** 不涉及。 **取值范围：** 自定义，云资源类型。 **默认取值：** 不涉及。
+     * @param {number} limit **参数解释：** 用于分页查询，查询数量。 **约束限制：** 不涉及。 **取值范围：** 自定义，在1-500范围。 **默认取值：** 不涉及。
+     * @param {string} [applicationId] **参数解释：** 分组关联的应用id。 **约束限制：** 应用id和分组id，组件id不能共存,且必填其中一个。 **取值范围：** 分组关联的应用id。 **默认取值：** 不涉及。
+     * @param {string} [componentId] **参数解释：** 组件id。 **约束限制：** 应用id和分组id，组件id不能共存,且必填其中一个。 **取值范围：** 分组关联的组件id。 **默认取值：** 不涉及。
+     * @param {string} [groupId] **参数解释：** 分组id。 **约束限制：** 应用id和分组id，组件id不能共存,且必填其中一个。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [offset] **参数解释：** 分页查询偏移量，表示从此偏移量开始查询。 **约束限制：** 不涉及。 **取值范围：** 0-2147483647。 **默认取值：** 0。
+     * @param {Array<string>} [resourceIdList] **参数解释：** 资源id列表。 **约束限制：** 不涉及。 **取值范围：** 资源id列表，最大值100。 **默认取值：** 不涉及。
+     * @param {string} [name] **参数解释：** 云资源名称。 **约束限制：** 不涉及。 **取值范围：** 自定义，可参考：裸金属服务器BMS。 **默认取值：** 不涉及。
+     * @param {string} [regionId] **参数解释：** 区域id列表。 **约束限制：** 不涉及。 **取值范围：** 区域id列表，最大值100。 **默认取值：** 不涉及。
+     * @param {string} [azId] **参数解释：** 可用区id。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [ipType] **参数解释：** ip类型。 **约束限制：** 不涉及。 **取值范围：** fixed：内网IP。 floating：弹性公网IP。 **默认取值：** 不涉及。
+     * @param {string} [ip] **参数解释：** 云资源IP。 **约束限制：** 不涉及。 **取值范围：** IPv4地址过滤结果，匹配规则为模糊匹配。 **默认取值：** 不涉及。
+     * @param {string} [status] **参数解释：** 云资源状态。 **约束限制：** 不涉及。 **取值范围：** 请选择[[弹性云服务器 ECS](https://support.huaweicloud.com/api-ecs/ecs_08_0002.html)](tag:hws)[[弹性云服务器 ECS](https://support.huaweicloud.com/api-ecs/ecs_08_0002.html)](tag:hws_hk)中存在的云服务器状态。 **默认取值：** 不涉及。
+     * @param {string} [agentState] **参数解释：** agent状态。 **约束限制：** 不涉及。 **取值范围：** - 运行中。 - 异常。 - 安装中。 - 安装失败。 - 已卸载。 - 未安装。 **默认取值：** 不涉及。
+     * @param {string} [imageName] **参数解释：** 镜像名称，模糊匹配。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [osType] **参数解释：** 系统类型。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [tag] **参数解释：** 云资源的标签。 **约束限制：** 标签的格式为“key.value”。其中，key的长度不超过36个字符，value的长度不超过43个字符。 **取值范围：** 标签命名时，需满足如下要求：标签的key值只能包含大写字母（A~Z）、小写字母（a~z）、数字（0-9）、下划线（）、中划线（-）以及中文字符。 标签的value值只能包含大写字母（A~Z）、小写字母（a~z）、数字（0-9）、下划线（）、中划线（-）、小数点（.）以及中文字符。 **默认取值：** 不涉及。
+     * @param {string} [chargingMode] **参数解释：** 云服务器的计费类型。 **约束限制：** 不涉及。 **取值范围：** 计费模式： - 0：按需计费。 - 1：包年包月。 - 2：竞价计费。 **默认取值：** 不涉及。
+     * @param {string} [flavorName] **参数解释：** 规格名称。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {Array<string>} [ipList] **参数解释：** ip列表。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {boolean} [isCollected] **参数解释：** 是否已收藏。 **约束限制：** 不涉及。 **取值范围：** - true：查询已收藏分组管理的资源关联。 - false：查询未收藏分组管理的资源关联。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGroupAliResourceRelations(listGroupAliResourceRelationsRequest?: ListGroupAliResourceRelationsRequest): Promise<ListGroupAliResourceRelationsResponse> {
+        const options = ParamCreater().listGroupAliResourceRelations(listGroupAliResourceRelationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询分组关联的离线资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询分组关联的离线资源
+     * @param {string} vendor **参数解释：** 厂商信息。 **约束限制：** 不涉及。 **取值范围：** - RMS：华为云厂商。 - ALI：阿里云厂商。 - OTHER：其他厂商。 **默认取值：** 不涉及。
+     * @param {string} type **参数解释：** 资源类型。 **约束限制：** 不涉及。 **取值范围：** 自定义，云资源类型。 **默认取值：** 不涉及。
+     * @param {number} limit **参数解释：** 用于分页查询，查询数量。 **约束限制：** 不涉及。 **取值范围：** 自定义，在1-500范围。 **默认取值：** 不涉及。
+     * @param {string} [applicationId] **参数解释：** 分组关联的应用id。 **约束限制：** 应用id和分组id，组件id不能共存,且必填其中一个。 **取值范围：** 分组关联的应用id。 **默认取值：** 不涉及。
+     * @param {string} [componentId] **参数解释：** 组件id。 **约束限制：** 应用id和分组id，组件id不能共存,且必填其中一个。 **取值范围：** 分组关联的组件id。 **默认取值：** 不涉及。
+     * @param {string} [groupId] **参数解释：** 分组id。 **约束限制：** 应用id和分组id，组件id不能共存,且必填其中一个。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [offset] **参数解释：** 分页查询偏移量，表示从此偏移量开始查询。 **约束限制：** 不涉及。 **取值范围：** 0-2147483647。 **默认取值：** 0。
+     * @param {Array<string>} [resourceIdList] **参数解释：** 资源id列表。 **约束限制：** 不涉及。 **取值范围：** 资源id列表，最大值100。 **默认取值：** 不涉及。
+     * @param {string} [name] **参数解释：** 云资源名称。 **约束限制：** 不涉及。 **取值范围：** 自定义，可参考：裸金属服务器BMS。 **默认取值：** 不涉及。
+     * @param {string} [regionId] **参数解释：** 区域id列表。 **约束限制：** 不涉及。 **取值范围：** 区域id列表，最大值100。 **默认取值：** 不涉及。
+     * @param {string} [azId] **参数解释：** 可用区id。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [ipType] **参数解释：** ip类型。 **约束限制：** 不涉及。 **取值范围：** fixed：内网IP。 floating：弹性公网IP。 **默认取值：** 不涉及。
+     * @param {string} [ip] **参数解释：** 云资源IP。 **约束限制：** 不涉及。 **取值范围：** IPv4地址过滤结果，匹配规则为模糊匹配。 **默认取值：** 不涉及。
+     * @param {string} [status] **参数解释：** 云资源状态。 **约束限制：** 不涉及。 **取值范围：** 请选择[[弹性云服务器 ECS](https://support.huaweicloud.com/api-ecs/ecs_08_0002.html)](tag:hws)[[弹性云服务器 ECS](https://support.huaweicloud.com/api-ecs/ecs_08_0002.html)](tag:hws_hk)中存在的云服务器状态。 **默认取值：** 不涉及。
+     * @param {string} [agentState] **参数解释：** agent状态。 **约束限制：** 不涉及。 **取值范围：** - 运行中。 - 异常。 - 安装中。 - 安装失败。 - 已卸载。 - 未安装。 **默认取值：** 不涉及。
+     * @param {string} [imageName] **参数解释：** 镜像名称，模糊匹配。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [osType] **参数解释：** 系统类型。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [tag] **参数解释：** 云资源的标签。 **约束限制：** 标签的格式为“key.value”。其中，key的长度不超过36个字符，value的长度不超过43个字符。 **取值范围：** 标签命名时，需满足如下要求：标签的key值只能包含大写字母（A~Z）、小写字母（a~z）、数字（0-9）、下划线（）、中划线（-）以及中文字符。 标签的value值只能包含大写字母（A~Z）、小写字母（a~z）、数字（0-9）、下划线（）、中划线（-）、小数点（.）以及中文字符。 **默认取值：** 不涉及。
+     * @param {string} [chargingMode] **参数解释：** 云服务器的计费类型。 **约束限制：** 不涉及。 **取值范围：** 计费模式： - 0：按需计费。 - 1：包年包月。 - 2：竞价计费。 **默认取值：** 不涉及。
+     * @param {string} [flavorName] **参数解释：** 规格名称。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {Array<string>} [ipList] **参数解释：** ip列表。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {boolean} [isCollected] **参数解释：** 是否已收藏。 **约束限制：** 不涉及。 **取值范围：** - true：查询已收藏分组管理的资源关联。 - false：查询未收藏分组管理的资源关联。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGroupOtherResourceRelations(listGroupOtherResourceRelationsRequest?: ListGroupOtherResourceRelationsRequest): Promise<ListGroupOtherResourceRelationsResponse> {
+        const options = ParamCreater().listGroupOtherResourceRelations(listGroupOtherResourceRelationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分组管理多个资源后，可查询分组关联的资源总数， 应用id和分组id不能共存，且必填其中一个。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询分组关联的资源总数
+     * @param {string} provider **参数解释：** 云服务名称。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} type **参数解释：** 云服务资源类型。 **约束限制：** 不涉及。 **取值范围：** 资源类型较多，根据实际业务选择资源类型、常用资源类型如下： - cloudservers：弹性云服务器。 - servers：裸金属服务器。 - clusters：云容器引擎。 - instances：云数据库。 **默认取值：** 不涉及。
+     * @param {string} vendor **参数解释：** 厂商信息。 **约束限制：** 不涉及。 **取值范围：** - RMS：华为云厂商。 - ALI：阿里云厂商。 - OTHER：其他厂商。 **默认取值：** 不涉及
+     * @param {string} [applicationId] **参数解释：** 应用id。 **约束限制：** 应用id，和分组id不能共存，且必填其中一个。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [groupId] **参数解释：** 分组id。 **约束限制：** 分组id，和应用id不能共存，且必填其中一个。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {Array<string>} [resourceIdList] **参数解释：** 资源id列表。 **约束限制：** 不涉及。 **取值范围：** 用户选择的资源id组成的集合。 **默认取值：** 不涉及。
+     * @param {string} [name] **参数解释：** 云资源名称。 **约束限制：** 不涉及。 **取值范围：** 自定义，可参考：裸金属服务器BMS。 **默认取值：** 不涉及。
+     * @param {string} [regionId] **参数解释：** 区域id。 **约束限制：** 不涉及。 **取值范围：** 关联的区域region的id。 **默认取值：** 不涉及。
+     * @param {string} [azId] **参数解释：** 可用区id。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [ipType] **参数解释：** ip类型。 **约束限制：** 不涉及。 **取值范围：** fixed：内网IP。 floating：弹性公网IP。 **默认取值：** 不涉及。
+     * @param {string} [ip] **参数解释：** 云资源IP。 **约束限制：** 不涉及。 **取值范围：** IPv4地址过滤结果，匹配规则为模糊匹配。 **默认取值：** 不涉及。
+     * @param {string} [status] **参数解释：** 云资源状态。 **约束限制：** 不涉及。 **取值范围：** 请选择[[弹性云服务器 ECS](https://support.huaweicloud.com/api-ecs/ecs_08_0002.html)](tag:hws)[[弹性云服务器 ECS](https://support.huaweicloud.com/api-ecs/ecs_08_0002.html)](tag:hws_hk)中存在的云服务器状态。 **默认取值：** 不涉及。
+     * @param {string} [agentState] **参数解释：** agent状态。 **约束限制：** 不涉及。 **取值范围：** - 运行中。 - 异常。 - 安装中。 - 安装失败。 - 已卸载。 - 未安装。 **默认取值：** 不涉及。
+     * @param {string} [imageName] **参数解释：** 镜像名称，模糊匹配。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [osType] **参数解释：** 系统类型。 **约束限制：** 不涉及。 **取值范围：** - windows：windows操作系统类型。 - linux：linux操作系统类型。 **默认取值：** 不涉及。
+     * @param {string} [tag] **参数解释：** 云资源的标签。 **约束限制：** 标签的格式为“key.value”。其中，key的长度不超过36个字符，value的长度不超过43个字符。 **取值范围：** 标签命名时，需满足如下要求：标签的key值只能包含大写字母（A~Z）、小写字母（a~z）、数字（0-9）、下划线（）、中划线（-）以及中文字符。 标签的value值只能包含大写字母（A~Z）、小写字母（a~z）、数字（0-9）、下划线（）、中划线（-）、小数点（.）以及中文字符。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countGroupRmsResourceRelations(countGroupRmsResourceRelationsRequest?: CountGroupRmsResourceRelationsRequest): Promise<CountGroupRmsResourceRelationsResponse> {
+        const options = ParamCreater().countGroupRmsResourceRelations(countGroupRmsResourceRelationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建分组资源关联。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建分组资源关联
+     * @param {GroupRmsResourceRelationCreateRequest} createGroupRmsResourceRelationBody 创建分组资源关联请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createGroupRmsResourceRelation(createGroupRmsResourceRelationRequest?: CreateGroupRmsResourceRelationRequest): Promise<CreateGroupRmsResourceRelationResponse> {
+        const options = ParamCreater().createGroupRmsResourceRelation(createGroupRmsResourceRelationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 解绑分组资源关联。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解绑分组资源关联
+     * @param {Array<string>} idList **参数解释：** 分组id列表。 **约束限制：** 不涉及。 **取值范围：** 用户所选的资源所在的分组id组成的list。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteGroupRmsResourceRelation(deleteGroupRmsResourceRelationRequest?: DeleteGroupRmsResourceRelationRequest): Promise<DeleteGroupRmsResourceRelationResponse> {
+        const options = ParamCreater().deleteGroupRmsResourceRelation(deleteGroupRmsResourceRelationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询应用、组件、分组容量数据的排名，其中应用、组件和分组ID，有且仅有1个有值。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询应用、组件、分组容量数据的排名
+     * @param {string} provider **参数解释：** 云服务名称。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} type **参数解释：** 资源类型名称。 **约束限制：** 不涉及。 **取值范围：** 资源类型较多，根据实际业务选择资源类型、常用资源类型如下： - cloudservers：弹性云服务器。 - servers：裸金属服务器。 - clusters：云容器引擎。 - instances：云数据库。 **默认取值：** 不涉及。
+     * @param {string} [applicationId] **参数解释：** 应用id。 **约束限制：** 不涉及。 **取值范围：** 需要查询容量数据排名的应用id。 **默认取值：** 不涉及
+     * @param {string} [componentId] **参数解释：** 组件id。 **约束限制：** 不涉及。 **取值范围：** 需要查询容量数据排名的组件id。 **默认取值：** 不涉及
+     * @param {string} [groupId] **参数解释：** 分组id。 **约束限制：** 不涉及。 **取值范围：** 需要查询容量数据排名的分组id **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCapacityOrder(listCapacityOrderRequest?: ListCapacityOrderRequest): Promise<ListCapacityOrderResponse> {
+        const options = ParamCreater().listCapacityOrder(listCapacityOrderRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 云运维中心支持查看应用、子应用、组件或分组下已关联的资源容量详情，按照资源类型展示资源核心数据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询应用的容量数据
+     * @param {CapacityWebListRequest} [listCapacityViewRequestBody] 查询应用容量请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCapacityView(listCapacityViewRequest?: ListCapacityViewRequest): Promise<ListCapacityViewResponse> {
+        const options = ParamCreater().listCapacityView(listCapacityViewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询分组关联的华为云资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询分组关联的华为云资源
+     * @param {string} provider **参数解释：** 云服务名称。 **约束限制：** 不涉及。 **取值范围：** 可选ecs，cce，rds等服务资源。 **默认取值：** 不涉及。
+     * @param {string} vendor **参数解释：** 厂商信息。 **约束限制：** 不涉及。 **取值范围：** - RMS：华为云厂商。 - ALI：阿里云厂商。 - OTHER：其他厂商。 **默认取值：** 不涉及。
+     * @param {string} type **参数解释：** 资源类型。 **约束限制：** 不涉及。 **取值范围：** 自定义，云资源类型。 **默认取值：** 不涉及。
+     * @param {number} limit **参数解释：** 用于分页查询，查询数量。 **约束限制：** 不涉及。 **取值范围：** 自定义，在1-500范围。 **默认取值：** 不涉及。
+     * @param {string} [applicationId] **参数解释：** 分组关联的应用id。 **约束限制：** 应用id和分组id，组件id不能共存,且必填其中一个。 **取值范围：** 分组关联的应用id。 **默认取值：** 不涉及。
+     * @param {string} [componentId] **参数解释：** 组件id。 **约束限制：** 应用id和分组id，组件id不能共存,且必填其中一个。 **取值范围：** 分组关联的组件id。 **默认取值：** 不涉及。
+     * @param {string} [groupId] **参数解释：** 分组id。 **约束限制：** 应用id和分组id，组件id不能共存,且必填其中一个。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [offset] **参数解释：** 分页查询偏移量，表示从此偏移量开始查询。 **约束限制：** 不涉及。 **取值范围：** 0-2147483647。 **默认取值：** 0。
+     * @param {Array<string>} [resourceIdList] **参数解释：** 资源id列表。 **约束限制：** 不涉及。 **取值范围：** 资源id列表，最大值100。 **默认取值：** 不涉及。
+     * @param {string} [name] **参数解释：** 云资源名称。 **约束限制：** 不涉及。 **取值范围：** 自定义，可参考：裸金属服务器BMS。 **默认取值：** 不涉及。
+     * @param {string} [regionId] **参数解释：** 区域id列表。 **约束限制：** 不涉及。 **取值范围：** 区域id列表，最大值100。 **默认取值：** 不涉及。
+     * @param {string} [azId] **参数解释：** 可用区id。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [ipType] **参数解释：** ip类型。 **约束限制：** 不涉及。 **取值范围：** fixed：内网IP。 floating：弹性公网IP。 **默认取值：** 不涉及。
+     * @param {string} [ip] **参数解释：** 云资源IP。 **约束限制：** 不涉及。 **取值范围：** IPv4地址过滤结果，匹配规则为模糊匹配。 **默认取值：** 不涉及。
+     * @param {string} [status] **参数解释：** 云资源状态。 **约束限制：** 不涉及。 **取值范围：** 请选择[[弹性云服务器 ECS](https://support.huaweicloud.com/api-ecs/ecs_08_0002.html)](tag:hws)[[弹性云服务器 ECS](https://support.huaweicloud.com/api-ecs/ecs_08_0002.html)](tag:hws_hk)中存在的云服务器状态。 **默认取值：** 不涉及。
+     * @param {string} [agentState] **参数解释：** agent状态。 **约束限制：** 不涉及。 **取值范围：** - 运行中。 - 异常。 - 安装中。 - 安装失败。 - 已卸载。 - 未安装。 **默认取值：** 不涉及。
+     * @param {string} [imageName] **参数解释：** 镜像名称，模糊匹配。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [osType] **参数解释：** 系统类型。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [tag] **参数解释：** 云资源的标签。 **约束限制：** 标签的格式为“key.value”。其中，key的长度不超过36个字符，value的长度不超过43个字符。 **取值范围：** 标签命名时，需满足如下要求：标签的key值只能包含大写字母（A~Z）、小写字母（a~z）、数字（0-9）、下划线（）、中划线（-）以及中文字符。 标签的value值只能包含大写字母（A~Z）、小写字母（a~z）、数字（0-9）、下划线（）、中划线（-）、小数点（.）以及中文字符。 **默认取值：** 不涉及。
+     * @param {string} [chargingMode] **参数解释：** 云服务器的计费类型。 **约束限制：** 不涉及。 **取值范围：** 计费模式： - 0：按需计费。 - 1：包年包月。 - 2：竞价计费。 **默认取值：** 不涉及。
+     * @param {string} [flavorName] **参数解释：** 规格名称。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {Array<string>} [ipList] **参数解释：** ip列表。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {boolean} [isCollected] **参数解释：** 是否已收藏。 **约束限制：** 不涉及。 **取值范围：** - true：查询已收藏分组管理的资源关联。 - false：查询未收藏分组管理的资源关联。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGroupRmsResourceRelations(listGroupRmsResourceRelationsRequest?: ListGroupRmsResourceRelationsRequest): Promise<ListGroupRmsResourceRelationsResponse> {
+        const options = ParamCreater().listGroupRmsResourceRelations(listGroupRmsResourceRelationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 转移资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 转移资源
+     * @param {GroupRmsResourceRelationUpdateRequest} [updateGroupRmsResourceRelationBody] 转移资源请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateGroupRmsResourceRelation(updateGroupRmsResourceRelationRequest?: UpdateGroupRmsResourceRelationRequest): Promise<UpdateGroupRmsResourceRelationResponse> {
+        const options = ParamCreater().updateGroupRmsResourceRelation(updateGroupRmsResourceRelationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询COC可授权单列表（变更单号、事件单号、warroom和告警）
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1664,6 +2395,47 @@ export class CocClient {
     }
 
     /**
+     * 查询用户资源总数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户资源总数
+     * @param {string} provider **参数解释：** 云服务名称。 **约束限制：** 不涉及。 **取值范围：** 可选ecs,cce，rds等服务资源。 **默认取值：** 不涉及。
+     * @param {string} type **参数解释：** 资源类型名称。 **约束限制：** 不涉及。 **取值范围：** 资源类型较多，根据实际业务选择资源类型、常用资源类型如下： - cloudservers：弹性云服务器 。 - servers：裸金属服务器。 - clusters：云容器引擎。 - instances：云数据库。 **默认取值：** 不涉及。
+     * @param {Array<string>} [resourceIdList] **参数解释：** 资源id列表。 **约束限制：** 不涉及。 **取值范围：** 自定义,资源id组成的集合。 **默认取值：** 不涉及。
+     * @param {string} [name] **参数解释：** 云资源名称。 **约束限制：** 不涉及。 **取值范围：** 自定义，可参考：裸金属服务器 BMS。 **默认取值：** 不涉及。
+     * @param {string} [regionId] **参数解释：** 区域id。 **约束限制：** 不涉及。 **取值范围：** 关联的区域region的id。 **默认取值：** 不涉及。
+     * @param {string} [azId] **参数解释：** 可用区id。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [ipType] **参数解释：** ip类型。 **约束限制：** 不涉及。 **取值范围：** fixed：内网IP，floating：弹性公网IP。 **默认取值：** 不涉及。
+     * @param {string} [ip] **参数解释：** 云资源IP。 **约束限制：** 不涉及。 **取值范围：** IPv4地址过滤结果，匹配规则为模糊匹配。 **默认取值：** 不涉及。
+     * @param {string} [status] **参数解释：** 云资源状态。 **约束限制：** 不涉及。 **取值范围：** 请选择[[弹性云服务器 ECS](https://support.huaweicloud.com/api-ecs/ecs_08_0002.html)](tag:hws)[[弹性云服务器 ECS](https://support.huaweicloud.com/api-ecs/ecs_08_0002.html)](tag:hws_hk)中存在的云服务器状态。 **默认取值：** 不涉及。
+     * @param {string} [agentState] **参数解释：** agent状态。 **约束限制：** 不涉及。 **取值范围：** - 运行中。 - 异常。 - 安装中。 - 安装失败。 - 已卸载。 - 未安装。 **默认取值：** 不涉及。
+     * @param {string} [imageName] **参数解释：** 镜像名称，模糊匹配。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [osType] **参数解释：** 系统类型。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [tag] **参数解释：** 云资源的标签。 **约束限制：** 标签的格式为“key.value”。其中，key的长度不超过36个字符，value的长度不超过43个字符。 **取值范围：** 标签命名时，需满足如下要求：标签的key值只能包含大写字母（A~Z）、小写字母（a~z）、数字（0-9）、下划线（）、中划线（-）以及中文字符。 标签的value值只能包含大写字母（A~Z）、小写字母（a~z）、数字（0-9）、下划线（）、中划线（-）、小数点（.）以及中文字符。 **默认取值：** 不涉及。
+     * @param {string} [tagKey] **参数解释：** 云资源的标签key。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [groupId] **参数解释：** 云资源下的分组ID。 **约束限制：** 不涉及。 **取值范围：** 设置null值时获取未绑定分组的资源。 **默认取值：** 不涉及。
+     * @param {string} [componentId] **参数解释：** 云资源下组件ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [applicationId] **参数解释：** 云资源下应用ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [cceClusterId] **参数解释：** cce集群ID。 **约束限制：** 不涉及。 **取值范围：** 资源属于的cce的ID。 **默认取值：** 不涉及。
+     * @param {string} [epId] **参数解释：** 企业项目id。 **约束限制：** 不涉及。 **取值范围：** 请选择[[企业管理](https://support.huaweicloud.com/usermanual-em/em_eps_qs_0400.html)](tag:hws)[[企业管理](https://support.huaweicloud.com/intl/zh-cn/usermanual-em/em_eps_qs_0400.html)](tag:hws_hk)中存在的项目ID。 **默认取值：** 不涉及。
+     * @param {string} [isDelegated] **参数解释：** 是否已托管。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {boolean} [isCollected] **参数解释：** 是否已收藏。 **约束限制：** 不涉及。 **取值范围：** - true：已收藏的企业项目。 - false：未收藏的企业项目。 **默认取值：** 不涉及。
+     * @param {string} [flavorName] **参数解释：** 云资源规格名称。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [chargingMode] **参数解释：** 云服务器的计费类型。 **约束限制：** 不涉及。 **取值范围：** 计费模式： - 0：按需计费。 - 1：包年包月。 - 2：竞价计费。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countResources(countResourcesRequest?: CountResourcesRequest): Promise<CountResourcesResponse> {
+        const options = ParamCreater().countResources(countResourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询租户所有资源：
      *  - 查询租户所有资源等相关信息，便于租户详细了解资源总体情况。
      *  - 请求参数provider（云服务名称），type（云资源类型），limit（查询条数）必填，单次最大查询条数：500。
@@ -1739,6 +2511,25 @@ export class CocClient {
     }
 
     /**
+     * 同步华为云资源Agent信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 同步华为云资源Agent信息
+     * @param {SyncResourceAgentReq} syncResourceAgentReqBody 同步华为云资源请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public syncResourceAgent(syncResourceAgentRequest?: SyncResourceAgentRequest): Promise<SyncResourceAgentResponse> {
+        const options = ParamCreater().syncResourceAgent(syncResourceAgentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询资源标签列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1773,6 +2564,186 @@ export class CocClient {
      */
     public updateResourceTags(updateResourceTagsRequest?: UpdateResourceTagsRequest): Promise<UpdateResourceTagsResponse> {
         const options = ParamCreater().updateResourceTags(updateResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 添加资源标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加资源标签
+     * @param {string} resourceId **参数解释：** 资源ID。 **约束限制：** 不涉及。 **取值范围：** 标签对应的资源id。 **默认取值：** 不涉及。
+     * @param {ResourceTagOperateRequest} resourceTagOperateRequestBody 添加资源标签请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createResourceTags(createResourceTagsRequest?: CreateResourceTagsRequest): Promise<CreateResourceTagsResponse> {
+        const options = ParamCreater().createResourceTags(createResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询资源标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源标签
+     * @param {string} resourceId **参数解释：** 资源ID。 **约束限制：** 不涉及。 **取值范围：** 标签对应的资源id。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listResourceTags(listResourceTagsRequest?: ListResourceTagsRequest): Promise<ListResourceTagsResponse> {
+        const options = ParamCreater().listResourceTags(listResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询CMDB跨账号资源视图聚合的资源总数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询CMDB跨账号资源视图聚合的资源总数
+     * @param {string} viewId **参数解释：** 视图ID。 **约束限制：** 不涉及。 **取值范围：** 自定义生成 长度1~32之间。 **默认取值：** 不涉及。
+     * @param {string} [provider] **参数解释：** 云服务名称。 **约束限制：** 不涉及。 **取值范围：** 自定义，可选esc，cce等资源。 **默认取值：** 不涉及。
+     * @param {string} [type] **参数解释：** 资源类型名称。 **约束限制：** 不涉及。 **取值范围：** 自定义，云资源类型。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countResourcesOfResourceView(countResourcesOfResourceViewRequest?: CountResourcesOfResourceViewRequest): Promise<CountResourcesOfResourceViewResponse> {
+        const options = ParamCreater().countResourcesOfResourceView(countResourcesOfResourceViewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建CMDB跨账号资源视图。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建CMDB跨账号资源视图
+     * @param {CreateResourceViewsRequestBody} createResourceViewsRequestBody 创建视图请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createResourceViews(createResourceViewsRequest?: CreateResourceViewsRequest): Promise<CreateResourceViewsResponse> {
+        const options = ParamCreater().createResourceViews(createResourceViewsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除CMDB的跨账号资源管理视图。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除CMDB的跨账号资源管理视图
+     * @param {string} id 视图ID。长度1~32之间。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteResourceViews(deleteResourceViewsRequest?: DeleteResourceViewsRequest): Promise<DeleteResourceViewsResponse> {
+        const options = ParamCreater().deleteResourceViews(deleteResourceViewsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询CMDB跨账号资源视图。视图是一组筛选器，用户可以自由配置筛选范围，用于在跨账号场景下访问华为云中的资源信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询CMDB跨账号资源视图
+     * @param {number} limit 用于分页查询，查询数量，最大的返回数量。取值范围：1-500。
+     * @param {string} [marker] 用于分页查询。分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listResourceViews(listResourceViewsRequest?: ListResourceViewsRequest): Promise<ListResourceViewsResponse> {
+        const options = ParamCreater().listResourceViews(listResourceViewsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询CMDB跨账号资源视图聚合的资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询CMDB跨账号资源视图聚合的资源
+     * @param {number} limit **参数解释：** 用于分页查询，查询数量，最大的返回数量。 **约束限制：** 不涉及。 **取值范围：** 自定义，在1-500范围。 **默认取值：** 不涉及。
+     * @param {string} viewId **参数解释：** 视图ID。 **约束限制：** 不涉及。 **取值范围：** 自定义生成 长度1~32之间。 **默认取值：** 不涉及。
+     * @param {string} [offset] **参数解释：** 用于分页查询。 **约束限制：** 不涉及。 **取值范围：** 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页。 **默认取值：** 不涉及。
+     * @param {string} [provider] **参数解释：** 云服务名称。 **约束限制：** 不涉及。 **取值范围：** 自定义，可选esc，cce等资源。 **默认取值：** 不涉及。
+     * @param {string} [type] **参数解释：** 资源类型名称。 **约束限制：** 不涉及。 **取值范围：** 自定义，云资源类型。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listResourcesOfResourceView(listResourcesOfResourceViewRequest?: ListResourcesOfResourceViewRequest): Promise<ListResourcesOfResourceViewResponse> {
+        const options = ParamCreater().listResourcesOfResourceView(listResourcesOfResourceViewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 同步CMDB跨账号资源视图。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 同步CMDB跨账号资源视图
+     * @param {string} id **参数解释**: 视图ID。 **约束限制**: 不涉及。 **取值范围**: 自定义生成，长度1~32之间。 **默认取值**: 不涉及。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public syncResourcesOfResourceView(syncResourcesOfResourceViewRequest?: SyncResourcesOfResourceViewRequest): Promise<SyncResourcesOfResourceViewResponse> {
+        const options = ParamCreater().syncResourcesOfResourceView(syncResourcesOfResourceViewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新CMDB跨账号资源视图。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新CMDB跨账号资源视图
+     * @param {string} id 视图ID，长度1~32之间。
+     * @param {UpdateResourceViewsRequestBody} updateResourceViewsRequestBody 更新视图请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateResourceViews(updateResourceViewsRequest?: UpdateResourceViewsRequest): Promise<UpdateResourceViewsResponse> {
+        const options = ParamCreater().updateResourceViews(updateResourceViewsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2439,6 +3410,88 @@ export class CocClient {
     }
 
     /**
+     * 创建云厂商（阿里云、AWS、Azure和HCS等）账号。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建云厂商账号
+     * @param {VendorAccountCreateRequest} createVendorAccountRequestBody 创建云厂商账号请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createVendorAccount(createVendorAccountRequest?: CreateVendorAccountRequest): Promise<CreateVendorAccountResponse> {
+        const options = ParamCreater().createVendorAccount(createVendorAccountRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 增加云广商账号，不需要后，可删除云厂商账号。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除云厂商账号
+     * @param {string} id **参数解释：** 唯一标识id。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteVendorAccount(deleteVendorAccountRequest?: DeleteVendorAccountRequest): Promise<DeleteVendorAccountResponse> {
+        const options = ParamCreater().deleteVendorAccount(deleteVendorAccountRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询所有云厂商（阿里云、AWS、Azure和HCS等）账号信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询云厂商账号
+     * @param {number} limit **参数解释：** 分页查询每页显示的条目数量。 **约束限制：** 不涉及。 **取值范围：** 自定义，在1-500范围。 **默认取值：** 不涉及。
+     * @param {string} [offset] **参数解释：** 分页查询偏移量，表示从此偏移量开始查询。 **约束限制：** 不涉及。 **取值范围：** 0-2147483647。 **默认取值：** 0。
+     * @param {string} [marker] **参数解释：** 分页参数，上一页请求最后一个id。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [vendor] **参数解释：** 供应商。 **约束限制：** 不涉及。 **取值范围：** - RMS： 华为云。 - AWS：亚马逊。 - AZURE：微软。 - ALI：阿里云。 - VMWARE：VMware。 - OPENSTACK：openstack云平台。 - HCS：Huawei Cloud Stack。 - OTHER：其他云广商。 **默认取值：** 不涉及。
+     * @param {string} [accountId] **参数解释：** 供应商的账户ID。 **约束限制：** 不涉及。 **取值范围：** 字符串，长度0到64个字符。 **默认取值：** 不涉及。
+     * @param {string} [accountName] **参数解释：** 账户名。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVendorAccount(listVendorAccountRequest?: ListVendorAccountRequest): Promise<ListVendorAccountResponse> {
+        const options = ParamCreater().listVendorAccount(listVendorAccountRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改所有云厂商（阿里云、AWS、Azure和HCS等）账号信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改云厂商账号
+     * @param {string} id **参数解释：** 唯一标识id。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {VendorAccountUpdateRequest} updateVendorAccountRequestBody 修改云厂商账号请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateVendorAccount(updateVendorAccountRequest?: UpdateVendorAccountRequest): Promise<UpdateVendorAccountResponse> {
+        const options = ParamCreater().updateVendorAccount(updateVendorAccountRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建租户区WarRoom
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2806,6 +3859,121 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建应用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createApplication(createApplicationRequest?: CreateApplicationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/applications",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createApplicationRequest !== null && createApplicationRequest !== undefined) {
+                if (createApplicationRequest instanceof CreateApplicationRequest) {
+                    body = createApplicationRequest.body
+                } else {
+                    body = createApplicationRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除应用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteApplication(deleteApplicationRequest?: DeleteApplicationRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/applications/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (deleteApplicationRequest !== null && deleteApplicationRequest !== undefined) {
+                if (deleteApplicationRequest instanceof DeleteApplicationRequest) {
+                    id = deleteApplicationRequest.id;
+                } else {
+                    id = deleteApplicationRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteApplication.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改应用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateApplication(updateApplicationRequest?: UpdateApplicationRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/applications/{id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (updateApplicationRequest !== null && updateApplicationRequest !== undefined) {
+                if (updateApplicationRequest instanceof UpdateApplicationRequest) {
+                    id = updateApplicationRequest.id;
+                    body = updateApplicationRequest.body
+                } else {
+                    id = updateApplicationRequest['id'];
+                    body = updateApplicationRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateApplication.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量创建应用，分组，组件。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2836,6 +4004,81 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询应用、组件、分组名称列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listApplicationView(listApplicationViewRequest?: ListApplicationViewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/application-view/search",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let nameLike;
+            
+            let codeList;
+            
+            let marker;
+            
+            let pageNo;
+            
+            let isCollection;
+
+            if (listApplicationViewRequest !== null && listApplicationViewRequest !== undefined) {
+                if (listApplicationViewRequest instanceof ListApplicationViewRequest) {
+                    limit = listApplicationViewRequest.limit;
+                    nameLike = listApplicationViewRequest.nameLike;
+                    codeList = listApplicationViewRequest.codeList;
+                    marker = listApplicationViewRequest.marker;
+                    pageNo = listApplicationViewRequest.pageNo;
+                    isCollection = listApplicationViewRequest.isCollection;
+                } else {
+                    limit = listApplicationViewRequest['limit'];
+                    nameLike = listApplicationViewRequest['name_like'];
+                    codeList = listApplicationViewRequest['code_list'];
+                    marker = listApplicationViewRequest['marker'];
+                    pageNo = listApplicationViewRequest['page_no'];
+                    isCollection = listApplicationViewRequest['is_collection'];
+                }
+            }
+
+        
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listApplicationView.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (nameLike !== null && nameLike !== undefined) {
+                localVarQueryParameter['name_like'] = nameLike;
+            }
+            if (codeList !== null && codeList !== undefined) {
+                localVarQueryParameter['code_list'] = codeList;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (pageNo !== null && pageNo !== undefined) {
+                localVarQueryParameter['page_no'] = pageNo;
+            }
+            if (isCollection !== null && isCollection !== undefined) {
+                localVarQueryParameter['is_collection'] = isCollection;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3393,6 +4636,175 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建组件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createApplicationComponents(createApplicationComponentsRequest?: CreateApplicationComponentsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/components",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createApplicationComponentsRequest !== null && createApplicationComponentsRequest !== undefined) {
+                if (createApplicationComponentsRequest instanceof CreateApplicationComponentsRequest) {
+                    body = createApplicationComponentsRequest.body
+                } else {
+                    body = createApplicationComponentsRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除组件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteApplicationComponent(deleteApplicationComponentRequest?: DeleteApplicationComponentRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/components/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (deleteApplicationComponentRequest !== null && deleteApplicationComponentRequest !== undefined) {
+                if (deleteApplicationComponentRequest instanceof DeleteApplicationComponentRequest) {
+                    id = deleteApplicationComponentRequest.id;
+                } else {
+                    id = deleteApplicationComponentRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteApplicationComponent.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询组件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listApplicationComponents(listApplicationComponentsRequest?: ListApplicationComponentsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/components",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let applicationId;
+            
+            let marker;
+
+            if (listApplicationComponentsRequest !== null && listApplicationComponentsRequest !== undefined) {
+                if (listApplicationComponentsRequest instanceof ListApplicationComponentsRequest) {
+                    limit = listApplicationComponentsRequest.limit;
+                    applicationId = listApplicationComponentsRequest.applicationId;
+                    marker = listApplicationComponentsRequest.marker;
+                } else {
+                    limit = listApplicationComponentsRequest['limit'];
+                    applicationId = listApplicationComponentsRequest['application_id'];
+                    marker = listApplicationComponentsRequest['marker'];
+                }
+            }
+
+        
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listApplicationComponents.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (applicationId !== null && applicationId !== undefined) {
+                localVarQueryParameter['application_id'] = applicationId;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改组件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateApplicationComponent(updateApplicationComponentRequest?: UpdateApplicationComponentRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/components/{id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (updateApplicationComponentRequest !== null && updateApplicationComponentRequest !== undefined) {
+                if (updateApplicationComponentRequest instanceof UpdateApplicationComponentRequest) {
+                    id = updateApplicationComponentRequest.id;
+                    body = updateApplicationComponentRequest.body
+                } else {
+                    id = updateApplicationComponentRequest['id'];
+                    body = updateApplicationComponentRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateApplicationComponent.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 支持租户将自开发的监控系统按照标准化集成至COC，集成后告警会按照标准格式上报至COC告警中心
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3434,6 +4846,176 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'integration_key': integrationKey, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询IDC离线资源的数量。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countOtherResource(countOtherResourceRequest?: CountOtherResourceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/other-resources/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let isDelegated;
+            
+            let type;
+            
+            let isDelegateDomain;
+            
+            let nameList;
+            
+            let regionId;
+            
+            let createSince;
+            
+            let createUntil;
+            
+            let ip;
+            
+            let osType;
+            
+            let osVersionList;
+            
+            let agentState;
+
+            if (countOtherResourceRequest !== null && countOtherResourceRequest !== undefined) {
+                if (countOtherResourceRequest instanceof CountOtherResourceRequest) {
+                    isDelegated = countOtherResourceRequest.isDelegated;
+                    type = countOtherResourceRequest.type;
+                    isDelegateDomain = countOtherResourceRequest.isDelegateDomain;
+                    nameList = countOtherResourceRequest.nameList;
+                    regionId = countOtherResourceRequest.regionId;
+                    createSince = countOtherResourceRequest.createSince;
+                    createUntil = countOtherResourceRequest.createUntil;
+                    ip = countOtherResourceRequest.ip;
+                    osType = countOtherResourceRequest.osType;
+                    osVersionList = countOtherResourceRequest.osVersionList;
+                    agentState = countOtherResourceRequest.agentState;
+                } else {
+                    isDelegated = countOtherResourceRequest['is_delegated'];
+                    type = countOtherResourceRequest['type'];
+                    isDelegateDomain = countOtherResourceRequest['is_delegate_domain'];
+                    nameList = countOtherResourceRequest['name_list'];
+                    regionId = countOtherResourceRequest['region_id'];
+                    createSince = countOtherResourceRequest['create_since'];
+                    createUntil = countOtherResourceRequest['create_until'];
+                    ip = countOtherResourceRequest['ip'];
+                    osType = countOtherResourceRequest['os_type'];
+                    osVersionList = countOtherResourceRequest['os_version_list'];
+                    agentState = countOtherResourceRequest['agent_state'];
+                }
+            }
+
+        
+            if (isDelegated !== null && isDelegated !== undefined) {
+                localVarQueryParameter['is_delegated'] = isDelegated;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (isDelegateDomain !== null && isDelegateDomain !== undefined) {
+                localVarQueryParameter['is_delegate_domain'] = isDelegateDomain;
+            }
+            if (nameList !== null && nameList !== undefined) {
+                localVarQueryParameter['name_list'] = nameList;
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+            if (createSince !== null && createSince !== undefined) {
+                localVarQueryParameter['create_since'] = createSince;
+            }
+            if (createUntil !== null && createUntil !== undefined) {
+                localVarQueryParameter['create_until'] = createUntil;
+            }
+            if (ip !== null && ip !== undefined) {
+                localVarQueryParameter['ip'] = ip;
+            }
+            if (osType !== null && osType !== undefined) {
+                localVarQueryParameter['os_type'] = osType;
+            }
+            if (osVersionList !== null && osVersionList !== undefined) {
+                localVarQueryParameter['os_version_list'] = osVersionList;
+            }
+            if (agentState !== null && agentState !== undefined) {
+                localVarQueryParameter['agent_state'] = agentState;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 管理线下设备提供IDC离线资源纳管功能-导入IDC离线资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        importOtherResource(importOtherResourceRequest?: ImportOtherResourceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/other-resources/import",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            const localVarFormParams = new FormData();
+            let file;
+            
+            let type;
+            
+            let regionId;
+            
+
+            if (importOtherResourceRequest !== null && importOtherResourceRequest !== undefined) {
+                if (importOtherResourceRequest instanceof ImportOtherResourceRequest) {
+                    file = importOtherResourceRequest.body?.file;
+                    type = importOtherResourceRequest.body?.type;
+                    regionId = importOtherResourceRequest.body?.regionId;
+                } else {
+                    file = importOtherResourceRequest['body']['file'];
+                    type = importOtherResourceRequest['body']['type'];
+                    regionId = importOtherResourceRequest['body']['regionId'];
+                }
+            }
+
+        
+            if (file === null || file === undefined) {
+            throw new RequiredError('file','Required parameter file was null or undefined when calling importOtherResource.');
+            }
+            if (type === null || type === undefined) {
+            throw new RequiredError('type','Required parameter type was null or undefined when calling importOtherResource.');
+            }
+            if (regionId === null || regionId === undefined) {
+            throw new RequiredError('regionId','Required parameter regionId was null or undefined when calling importOtherResource.');
+            }
+            if (type !== undefined) { 
+                localVarFormParams.append('type', type as any);
+            }
+            if (regionId !== undefined) { 
+                localVarFormParams.append('region_id', regionId as any);
+            }
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4171,6 +5753,98 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'document_id': documentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询企业项目收藏。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listEnterpriseProjectCollect(listEnterpriseProjectCollectRequest?: ListEnterpriseProjectCollectRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/enterprise-project-collect",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let id;
+            
+            let marker;
+
+            if (listEnterpriseProjectCollectRequest !== null && listEnterpriseProjectCollectRequest !== undefined) {
+                if (listEnterpriseProjectCollectRequest instanceof ListEnterpriseProjectCollectRequest) {
+                    limit = listEnterpriseProjectCollectRequest.limit;
+                    id = listEnterpriseProjectCollectRequest.id;
+                    marker = listEnterpriseProjectCollectRequest.marker;
+                } else {
+                    limit = listEnterpriseProjectCollectRequest['limit'];
+                    id = listEnterpriseProjectCollectRequest['id'];
+                    marker = listEnterpriseProjectCollectRequest['marker'];
+                }
+            }
+
+        
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listEnterpriseProjectCollect.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新企业项目收藏。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateEnterpriseProjectCollect(updateEnterpriseProjectCollectRequest?: UpdateEnterpriseProjectCollectRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/enterprise-project-collect",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateEnterpriseProjectCollectRequest !== null && updateEnterpriseProjectCollectRequest !== undefined) {
+                if (updateEnterpriseProjectCollectRequest instanceof UpdateEnterpriseProjectCollectRequest) {
+                    body = updateEnterpriseProjectCollectRequest.body
+                } else {
+                    body = updateEnterpriseProjectCollectRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5304,6 +6978,1213 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建分组。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createApplicationGroup(createApplicationGroupRequest?: CreateApplicationGroupRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/groups",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createApplicationGroupRequest !== null && createApplicationGroupRequest !== undefined) {
+                if (createApplicationGroupRequest instanceof CreateApplicationGroupRequest) {
+                    body = createApplicationGroupRequest.body
+                } else {
+                    body = createApplicationGroupRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除分组。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteApplicationGroup(deleteApplicationGroupRequest?: DeleteApplicationGroupRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/groups/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let id;
+            
+            let forceDelete;
+
+            if (deleteApplicationGroupRequest !== null && deleteApplicationGroupRequest !== undefined) {
+                if (deleteApplicationGroupRequest instanceof DeleteApplicationGroupRequest) {
+                    id = deleteApplicationGroupRequest.id;
+                    forceDelete = deleteApplicationGroupRequest.forceDelete;
+                } else {
+                    id = deleteApplicationGroupRequest['id'];
+                    forceDelete = deleteApplicationGroupRequest['force_delete'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteApplicationGroup.');
+            }
+            if (forceDelete !== null && forceDelete !== undefined) {
+                localVarQueryParameter['force_delete'] = forceDelete;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询应用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listApplicationGroups(listApplicationGroupsRequest?: ListApplicationGroupsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let idList;
+            
+            let componentId;
+            
+            let applicationId;
+            
+            let nameLike;
+            
+            let code;
+            
+            let marker;
+
+            if (listApplicationGroupsRequest !== null && listApplicationGroupsRequest !== undefined) {
+                if (listApplicationGroupsRequest instanceof ListApplicationGroupsRequest) {
+                    limit = listApplicationGroupsRequest.limit;
+                    idList = listApplicationGroupsRequest.idList;
+                    componentId = listApplicationGroupsRequest.componentId;
+                    applicationId = listApplicationGroupsRequest.applicationId;
+                    nameLike = listApplicationGroupsRequest.nameLike;
+                    code = listApplicationGroupsRequest.code;
+                    marker = listApplicationGroupsRequest.marker;
+                } else {
+                    limit = listApplicationGroupsRequest['limit'];
+                    idList = listApplicationGroupsRequest['id_list'];
+                    componentId = listApplicationGroupsRequest['component_id'];
+                    applicationId = listApplicationGroupsRequest['application_id'];
+                    nameLike = listApplicationGroupsRequest['name_like'];
+                    code = listApplicationGroupsRequest['code'];
+                    marker = listApplicationGroupsRequest['marker'];
+                }
+            }
+
+        
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listApplicationGroups.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (idList !== null && idList !== undefined) {
+                localVarQueryParameter['id_list'] = idList;
+            }
+            if (componentId !== null && componentId !== undefined) {
+                localVarQueryParameter['component_id'] = componentId;
+            }
+            if (applicationId !== null && applicationId !== undefined) {
+                localVarQueryParameter['application_id'] = applicationId;
+            }
+            if (nameLike !== null && nameLike !== undefined) {
+                localVarQueryParameter['name_like'] = nameLike;
+            }
+            if (code !== null && code !== undefined) {
+                localVarQueryParameter['code'] = code;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分组智能同步资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        syncGroupResource(syncGroupResourceRequest?: SyncGroupResourceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/groups/{id}/sync",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (syncGroupResourceRequest !== null && syncGroupResourceRequest !== undefined) {
+                if (syncGroupResourceRequest instanceof SyncGroupResourceRequest) {
+                    id = syncGroupResourceRequest.id;
+                    body = syncGroupResourceRequest.body
+                } else {
+                    id = syncGroupResourceRequest['id'];
+                    body = syncGroupResourceRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling syncGroupResource.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改分组。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateApplicationGroup(updateApplicationGroupRequest?: UpdateApplicationGroupRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/groups/{id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (updateApplicationGroupRequest !== null && updateApplicationGroupRequest !== undefined) {
+                if (updateApplicationGroupRequest instanceof UpdateApplicationGroupRequest) {
+                    id = updateApplicationGroupRequest.id;
+                    body = updateApplicationGroupRequest.body
+                } else {
+                    id = updateApplicationGroupRequest['id'];
+                    body = updateApplicationGroupRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateApplicationGroup.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询分组关联的阿里云资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGroupAliResourceRelations(listGroupAliResourceRelationsRequest?: ListGroupAliResourceRelationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/group-resource-relations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let vendor;
+            
+            let type;
+            
+            let limit;
+            
+            let applicationId;
+            
+            let componentId;
+            
+            let groupId;
+            
+            let offset;
+            
+            let resourceIdList;
+            
+            let name;
+            
+            let regionId;
+            
+            let azId;
+            
+            let ipType;
+            
+            let ip;
+            
+            let status;
+            
+            let agentState;
+            
+            let imageName;
+            
+            let osType;
+            
+            let tag;
+            
+            let chargingMode;
+            
+            let flavorName;
+            
+            let ipList;
+            
+            let isCollected;
+
+            if (listGroupAliResourceRelationsRequest !== null && listGroupAliResourceRelationsRequest !== undefined) {
+                if (listGroupAliResourceRelationsRequest instanceof ListGroupAliResourceRelationsRequest) {
+                    vendor = listGroupAliResourceRelationsRequest.vendor;
+                    type = listGroupAliResourceRelationsRequest.type;
+                    limit = listGroupAliResourceRelationsRequest.limit;
+                    applicationId = listGroupAliResourceRelationsRequest.applicationId;
+                    componentId = listGroupAliResourceRelationsRequest.componentId;
+                    groupId = listGroupAliResourceRelationsRequest.groupId;
+                    offset = listGroupAliResourceRelationsRequest.offset;
+                    resourceIdList = listGroupAliResourceRelationsRequest.resourceIdList;
+                    name = listGroupAliResourceRelationsRequest.name;
+                    regionId = listGroupAliResourceRelationsRequest.regionId;
+                    azId = listGroupAliResourceRelationsRequest.azId;
+                    ipType = listGroupAliResourceRelationsRequest.ipType;
+                    ip = listGroupAliResourceRelationsRequest.ip;
+                    status = listGroupAliResourceRelationsRequest.status;
+                    agentState = listGroupAliResourceRelationsRequest.agentState;
+                    imageName = listGroupAliResourceRelationsRequest.imageName;
+                    osType = listGroupAliResourceRelationsRequest.osType;
+                    tag = listGroupAliResourceRelationsRequest.tag;
+                    chargingMode = listGroupAliResourceRelationsRequest.chargingMode;
+                    flavorName = listGroupAliResourceRelationsRequest.flavorName;
+                    ipList = listGroupAliResourceRelationsRequest.ipList;
+                    isCollected = listGroupAliResourceRelationsRequest.isCollected;
+                } else {
+                    vendor = listGroupAliResourceRelationsRequest['vendor'];
+                    type = listGroupAliResourceRelationsRequest['type'];
+                    limit = listGroupAliResourceRelationsRequest['limit'];
+                    applicationId = listGroupAliResourceRelationsRequest['application_id'];
+                    componentId = listGroupAliResourceRelationsRequest['component_id'];
+                    groupId = listGroupAliResourceRelationsRequest['group_id'];
+                    offset = listGroupAliResourceRelationsRequest['offset'];
+                    resourceIdList = listGroupAliResourceRelationsRequest['resource_id_list'];
+                    name = listGroupAliResourceRelationsRequest['name'];
+                    regionId = listGroupAliResourceRelationsRequest['region_id'];
+                    azId = listGroupAliResourceRelationsRequest['az_id'];
+                    ipType = listGroupAliResourceRelationsRequest['ip_type'];
+                    ip = listGroupAliResourceRelationsRequest['ip'];
+                    status = listGroupAliResourceRelationsRequest['status'];
+                    agentState = listGroupAliResourceRelationsRequest['agent_state'];
+                    imageName = listGroupAliResourceRelationsRequest['image_name'];
+                    osType = listGroupAliResourceRelationsRequest['os_type'];
+                    tag = listGroupAliResourceRelationsRequest['tag'];
+                    chargingMode = listGroupAliResourceRelationsRequest['charging_mode'];
+                    flavorName = listGroupAliResourceRelationsRequest['flavor_name'];
+                    ipList = listGroupAliResourceRelationsRequest['ip_list'];
+                    isCollected = listGroupAliResourceRelationsRequest['is_collected'];
+                }
+            }
+
+        
+            if (vendor === null || vendor === undefined) {
+                throw new RequiredError('vendor','Required parameter vendor was null or undefined when calling listGroupAliResourceRelations.');
+            }
+            if (vendor !== null && vendor !== undefined) {
+                localVarQueryParameter['vendor'] = vendor;
+            }
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling listGroupAliResourceRelations.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listGroupAliResourceRelations.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (applicationId !== null && applicationId !== undefined) {
+                localVarQueryParameter['application_id'] = applicationId;
+            }
+            if (componentId !== null && componentId !== undefined) {
+                localVarQueryParameter['component_id'] = componentId;
+            }
+            if (groupId !== null && groupId !== undefined) {
+                localVarQueryParameter['group_id'] = groupId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (resourceIdList !== null && resourceIdList !== undefined) {
+                localVarQueryParameter['resource_id_list'] = resourceIdList;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+            if (azId !== null && azId !== undefined) {
+                localVarQueryParameter['az_id'] = azId;
+            }
+            if (ipType !== null && ipType !== undefined) {
+                localVarQueryParameter['ip_type'] = ipType;
+            }
+            if (ip !== null && ip !== undefined) {
+                localVarQueryParameter['ip'] = ip;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (agentState !== null && agentState !== undefined) {
+                localVarQueryParameter['agent_state'] = agentState;
+            }
+            if (imageName !== null && imageName !== undefined) {
+                localVarQueryParameter['image_name'] = imageName;
+            }
+            if (osType !== null && osType !== undefined) {
+                localVarQueryParameter['os_type'] = osType;
+            }
+            if (tag !== null && tag !== undefined) {
+                localVarQueryParameter['tag'] = tag;
+            }
+            if (chargingMode !== null && chargingMode !== undefined) {
+                localVarQueryParameter['charging_mode'] = chargingMode;
+            }
+            if (flavorName !== null && flavorName !== undefined) {
+                localVarQueryParameter['flavor_name'] = flavorName;
+            }
+            if (ipList !== null && ipList !== undefined) {
+                localVarQueryParameter['ip_list'] = ipList;
+            }
+            if (isCollected !== null && isCollected !== undefined) {
+                localVarQueryParameter['is_collected'] = isCollected;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询分组关联的离线资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGroupOtherResourceRelations(listGroupOtherResourceRelationsRequest?: ListGroupOtherResourceRelationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/group-resource-relations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let vendor;
+            
+            let type;
+            
+            let limit;
+            
+            let applicationId;
+            
+            let componentId;
+            
+            let groupId;
+            
+            let offset;
+            
+            let resourceIdList;
+            
+            let name;
+            
+            let regionId;
+            
+            let azId;
+            
+            let ipType;
+            
+            let ip;
+            
+            let status;
+            
+            let agentState;
+            
+            let imageName;
+            
+            let osType;
+            
+            let tag;
+            
+            let chargingMode;
+            
+            let flavorName;
+            
+            let ipList;
+            
+            let isCollected;
+
+            if (listGroupOtherResourceRelationsRequest !== null && listGroupOtherResourceRelationsRequest !== undefined) {
+                if (listGroupOtherResourceRelationsRequest instanceof ListGroupOtherResourceRelationsRequest) {
+                    vendor = listGroupOtherResourceRelationsRequest.vendor;
+                    type = listGroupOtherResourceRelationsRequest.type;
+                    limit = listGroupOtherResourceRelationsRequest.limit;
+                    applicationId = listGroupOtherResourceRelationsRequest.applicationId;
+                    componentId = listGroupOtherResourceRelationsRequest.componentId;
+                    groupId = listGroupOtherResourceRelationsRequest.groupId;
+                    offset = listGroupOtherResourceRelationsRequest.offset;
+                    resourceIdList = listGroupOtherResourceRelationsRequest.resourceIdList;
+                    name = listGroupOtherResourceRelationsRequest.name;
+                    regionId = listGroupOtherResourceRelationsRequest.regionId;
+                    azId = listGroupOtherResourceRelationsRequest.azId;
+                    ipType = listGroupOtherResourceRelationsRequest.ipType;
+                    ip = listGroupOtherResourceRelationsRequest.ip;
+                    status = listGroupOtherResourceRelationsRequest.status;
+                    agentState = listGroupOtherResourceRelationsRequest.agentState;
+                    imageName = listGroupOtherResourceRelationsRequest.imageName;
+                    osType = listGroupOtherResourceRelationsRequest.osType;
+                    tag = listGroupOtherResourceRelationsRequest.tag;
+                    chargingMode = listGroupOtherResourceRelationsRequest.chargingMode;
+                    flavorName = listGroupOtherResourceRelationsRequest.flavorName;
+                    ipList = listGroupOtherResourceRelationsRequest.ipList;
+                    isCollected = listGroupOtherResourceRelationsRequest.isCollected;
+                } else {
+                    vendor = listGroupOtherResourceRelationsRequest['vendor'];
+                    type = listGroupOtherResourceRelationsRequest['type'];
+                    limit = listGroupOtherResourceRelationsRequest['limit'];
+                    applicationId = listGroupOtherResourceRelationsRequest['application_id'];
+                    componentId = listGroupOtherResourceRelationsRequest['component_id'];
+                    groupId = listGroupOtherResourceRelationsRequest['group_id'];
+                    offset = listGroupOtherResourceRelationsRequest['offset'];
+                    resourceIdList = listGroupOtherResourceRelationsRequest['resource_id_list'];
+                    name = listGroupOtherResourceRelationsRequest['name'];
+                    regionId = listGroupOtherResourceRelationsRequest['region_id'];
+                    azId = listGroupOtherResourceRelationsRequest['az_id'];
+                    ipType = listGroupOtherResourceRelationsRequest['ip_type'];
+                    ip = listGroupOtherResourceRelationsRequest['ip'];
+                    status = listGroupOtherResourceRelationsRequest['status'];
+                    agentState = listGroupOtherResourceRelationsRequest['agent_state'];
+                    imageName = listGroupOtherResourceRelationsRequest['image_name'];
+                    osType = listGroupOtherResourceRelationsRequest['os_type'];
+                    tag = listGroupOtherResourceRelationsRequest['tag'];
+                    chargingMode = listGroupOtherResourceRelationsRequest['charging_mode'];
+                    flavorName = listGroupOtherResourceRelationsRequest['flavor_name'];
+                    ipList = listGroupOtherResourceRelationsRequest['ip_list'];
+                    isCollected = listGroupOtherResourceRelationsRequest['is_collected'];
+                }
+            }
+
+        
+            if (vendor === null || vendor === undefined) {
+                throw new RequiredError('vendor','Required parameter vendor was null or undefined when calling listGroupOtherResourceRelations.');
+            }
+            if (vendor !== null && vendor !== undefined) {
+                localVarQueryParameter['vendor'] = vendor;
+            }
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling listGroupOtherResourceRelations.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listGroupOtherResourceRelations.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (applicationId !== null && applicationId !== undefined) {
+                localVarQueryParameter['application_id'] = applicationId;
+            }
+            if (componentId !== null && componentId !== undefined) {
+                localVarQueryParameter['component_id'] = componentId;
+            }
+            if (groupId !== null && groupId !== undefined) {
+                localVarQueryParameter['group_id'] = groupId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (resourceIdList !== null && resourceIdList !== undefined) {
+                localVarQueryParameter['resource_id_list'] = resourceIdList;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+            if (azId !== null && azId !== undefined) {
+                localVarQueryParameter['az_id'] = azId;
+            }
+            if (ipType !== null && ipType !== undefined) {
+                localVarQueryParameter['ip_type'] = ipType;
+            }
+            if (ip !== null && ip !== undefined) {
+                localVarQueryParameter['ip'] = ip;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (agentState !== null && agentState !== undefined) {
+                localVarQueryParameter['agent_state'] = agentState;
+            }
+            if (imageName !== null && imageName !== undefined) {
+                localVarQueryParameter['image_name'] = imageName;
+            }
+            if (osType !== null && osType !== undefined) {
+                localVarQueryParameter['os_type'] = osType;
+            }
+            if (tag !== null && tag !== undefined) {
+                localVarQueryParameter['tag'] = tag;
+            }
+            if (chargingMode !== null && chargingMode !== undefined) {
+                localVarQueryParameter['charging_mode'] = chargingMode;
+            }
+            if (flavorName !== null && flavorName !== undefined) {
+                localVarQueryParameter['flavor_name'] = flavorName;
+            }
+            if (ipList !== null && ipList !== undefined) {
+                localVarQueryParameter['ip_list'] = ipList;
+            }
+            if (isCollected !== null && isCollected !== undefined) {
+                localVarQueryParameter['is_collected'] = isCollected;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分组管理多个资源后，可查询分组关联的资源总数， 应用id和分组id不能共存，且必填其中一个。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countGroupRmsResourceRelations(countGroupRmsResourceRelationsRequest?: CountGroupRmsResourceRelationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/group-resource-relations/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let provider;
+            
+            let type;
+            
+            let vendor;
+            
+            let applicationId;
+            
+            let groupId;
+            
+            let resourceIdList;
+            
+            let name;
+            
+            let regionId;
+            
+            let azId;
+            
+            let ipType;
+            
+            let ip;
+            
+            let status;
+            
+            let agentState;
+            
+            let imageName;
+            
+            let osType;
+            
+            let tag;
+
+            if (countGroupRmsResourceRelationsRequest !== null && countGroupRmsResourceRelationsRequest !== undefined) {
+                if (countGroupRmsResourceRelationsRequest instanceof CountGroupRmsResourceRelationsRequest) {
+                    provider = countGroupRmsResourceRelationsRequest.provider;
+                    type = countGroupRmsResourceRelationsRequest.type;
+                    vendor = countGroupRmsResourceRelationsRequest.vendor;
+                    applicationId = countGroupRmsResourceRelationsRequest.applicationId;
+                    groupId = countGroupRmsResourceRelationsRequest.groupId;
+                    resourceIdList = countGroupRmsResourceRelationsRequest.resourceIdList;
+                    name = countGroupRmsResourceRelationsRequest.name;
+                    regionId = countGroupRmsResourceRelationsRequest.regionId;
+                    azId = countGroupRmsResourceRelationsRequest.azId;
+                    ipType = countGroupRmsResourceRelationsRequest.ipType;
+                    ip = countGroupRmsResourceRelationsRequest.ip;
+                    status = countGroupRmsResourceRelationsRequest.status;
+                    agentState = countGroupRmsResourceRelationsRequest.agentState;
+                    imageName = countGroupRmsResourceRelationsRequest.imageName;
+                    osType = countGroupRmsResourceRelationsRequest.osType;
+                    tag = countGroupRmsResourceRelationsRequest.tag;
+                } else {
+                    provider = countGroupRmsResourceRelationsRequest['provider'];
+                    type = countGroupRmsResourceRelationsRequest['type'];
+                    vendor = countGroupRmsResourceRelationsRequest['vendor'];
+                    applicationId = countGroupRmsResourceRelationsRequest['application_id'];
+                    groupId = countGroupRmsResourceRelationsRequest['group_id'];
+                    resourceIdList = countGroupRmsResourceRelationsRequest['resource_id_list'];
+                    name = countGroupRmsResourceRelationsRequest['name'];
+                    regionId = countGroupRmsResourceRelationsRequest['region_id'];
+                    azId = countGroupRmsResourceRelationsRequest['az_id'];
+                    ipType = countGroupRmsResourceRelationsRequest['ip_type'];
+                    ip = countGroupRmsResourceRelationsRequest['ip'];
+                    status = countGroupRmsResourceRelationsRequest['status'];
+                    agentState = countGroupRmsResourceRelationsRequest['agent_state'];
+                    imageName = countGroupRmsResourceRelationsRequest['image_name'];
+                    osType = countGroupRmsResourceRelationsRequest['os_type'];
+                    tag = countGroupRmsResourceRelationsRequest['tag'];
+                }
+            }
+
+        
+            if (provider === null || provider === undefined) {
+                throw new RequiredError('provider','Required parameter provider was null or undefined when calling countGroupRmsResourceRelations.');
+            }
+            if (provider !== null && provider !== undefined) {
+                localVarQueryParameter['provider'] = provider;
+            }
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling countGroupRmsResourceRelations.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (vendor === null || vendor === undefined) {
+                throw new RequiredError('vendor','Required parameter vendor was null or undefined when calling countGroupRmsResourceRelations.');
+            }
+            if (vendor !== null && vendor !== undefined) {
+                localVarQueryParameter['vendor'] = vendor;
+            }
+            if (applicationId !== null && applicationId !== undefined) {
+                localVarQueryParameter['application_id'] = applicationId;
+            }
+            if (groupId !== null && groupId !== undefined) {
+                localVarQueryParameter['group_id'] = groupId;
+            }
+            if (resourceIdList !== null && resourceIdList !== undefined) {
+                localVarQueryParameter['resource_id_list'] = resourceIdList;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+            if (azId !== null && azId !== undefined) {
+                localVarQueryParameter['az_id'] = azId;
+            }
+            if (ipType !== null && ipType !== undefined) {
+                localVarQueryParameter['ip_type'] = ipType;
+            }
+            if (ip !== null && ip !== undefined) {
+                localVarQueryParameter['ip'] = ip;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (agentState !== null && agentState !== undefined) {
+                localVarQueryParameter['agent_state'] = agentState;
+            }
+            if (imageName !== null && imageName !== undefined) {
+                localVarQueryParameter['image_name'] = imageName;
+            }
+            if (osType !== null && osType !== undefined) {
+                localVarQueryParameter['os_type'] = osType;
+            }
+            if (tag !== null && tag !== undefined) {
+                localVarQueryParameter['tag'] = tag;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建分组资源关联。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createGroupRmsResourceRelation(createGroupRmsResourceRelationRequest?: CreateGroupRmsResourceRelationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/group-resource-relations",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createGroupRmsResourceRelationRequest !== null && createGroupRmsResourceRelationRequest !== undefined) {
+                if (createGroupRmsResourceRelationRequest instanceof CreateGroupRmsResourceRelationRequest) {
+                    body = createGroupRmsResourceRelationRequest.body
+                } else {
+                    body = createGroupRmsResourceRelationRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 解绑分组资源关联。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteGroupRmsResourceRelation(deleteGroupRmsResourceRelationRequest?: DeleteGroupRmsResourceRelationRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/group-resource-relations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let idList;
+
+            if (deleteGroupRmsResourceRelationRequest !== null && deleteGroupRmsResourceRelationRequest !== undefined) {
+                if (deleteGroupRmsResourceRelationRequest instanceof DeleteGroupRmsResourceRelationRequest) {
+                    idList = deleteGroupRmsResourceRelationRequest.idList;
+                } else {
+                    idList = deleteGroupRmsResourceRelationRequest['id_list'];
+                }
+            }
+
+        
+            if (idList === null || idList === undefined) {
+                throw new RequiredError('idList','Required parameter idList was null or undefined when calling deleteGroupRmsResourceRelation.');
+            }
+            if (idList !== null && idList !== undefined) {
+                localVarQueryParameter['id_list'] = idList;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询应用、组件、分组容量数据的排名，其中应用、组件和分组ID，有且仅有1个有值。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCapacityOrder(listCapacityOrderRequest?: ListCapacityOrderRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/capacity/order",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let provider;
+            
+            let type;
+            
+            let applicationId;
+            
+            let componentId;
+            
+            let groupId;
+
+            if (listCapacityOrderRequest !== null && listCapacityOrderRequest !== undefined) {
+                if (listCapacityOrderRequest instanceof ListCapacityOrderRequest) {
+                    provider = listCapacityOrderRequest.provider;
+                    type = listCapacityOrderRequest.type;
+                    applicationId = listCapacityOrderRequest.applicationId;
+                    componentId = listCapacityOrderRequest.componentId;
+                    groupId = listCapacityOrderRequest.groupId;
+                } else {
+                    provider = listCapacityOrderRequest['provider'];
+                    type = listCapacityOrderRequest['type'];
+                    applicationId = listCapacityOrderRequest['application_id'];
+                    componentId = listCapacityOrderRequest['component_id'];
+                    groupId = listCapacityOrderRequest['group_id'];
+                }
+            }
+
+        
+            if (provider === null || provider === undefined) {
+                throw new RequiredError('provider','Required parameter provider was null or undefined when calling listCapacityOrder.');
+            }
+            if (provider !== null && provider !== undefined) {
+                localVarQueryParameter['provider'] = provider;
+            }
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling listCapacityOrder.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (applicationId !== null && applicationId !== undefined) {
+                localVarQueryParameter['application_id'] = applicationId;
+            }
+            if (componentId !== null && componentId !== undefined) {
+                localVarQueryParameter['component_id'] = componentId;
+            }
+            if (groupId !== null && groupId !== undefined) {
+                localVarQueryParameter['group_id'] = groupId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 云运维中心支持查看应用、子应用、组件或分组下已关联的资源容量详情，按照资源类型展示资源核心数据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCapacityView(listCapacityViewRequest?: ListCapacityViewRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/capacity",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (listCapacityViewRequest !== null && listCapacityViewRequest !== undefined) {
+                if (listCapacityViewRequest instanceof ListCapacityViewRequest) {
+                    body = listCapacityViewRequest.body
+                } else {
+                    body = listCapacityViewRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询分组关联的华为云资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGroupRmsResourceRelations(listGroupRmsResourceRelationsRequest?: ListGroupRmsResourceRelationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/group-resource-relations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let provider;
+            
+            let vendor;
+            
+            let type;
+            
+            let limit;
+            
+            let applicationId;
+            
+            let componentId;
+            
+            let groupId;
+            
+            let offset;
+            
+            let resourceIdList;
+            
+            let name;
+            
+            let regionId;
+            
+            let azId;
+            
+            let ipType;
+            
+            let ip;
+            
+            let status;
+            
+            let agentState;
+            
+            let imageName;
+            
+            let osType;
+            
+            let tag;
+            
+            let chargingMode;
+            
+            let flavorName;
+            
+            let ipList;
+            
+            let isCollected;
+
+            if (listGroupRmsResourceRelationsRequest !== null && listGroupRmsResourceRelationsRequest !== undefined) {
+                if (listGroupRmsResourceRelationsRequest instanceof ListGroupRmsResourceRelationsRequest) {
+                    provider = listGroupRmsResourceRelationsRequest.provider;
+                    vendor = listGroupRmsResourceRelationsRequest.vendor;
+                    type = listGroupRmsResourceRelationsRequest.type;
+                    limit = listGroupRmsResourceRelationsRequest.limit;
+                    applicationId = listGroupRmsResourceRelationsRequest.applicationId;
+                    componentId = listGroupRmsResourceRelationsRequest.componentId;
+                    groupId = listGroupRmsResourceRelationsRequest.groupId;
+                    offset = listGroupRmsResourceRelationsRequest.offset;
+                    resourceIdList = listGroupRmsResourceRelationsRequest.resourceIdList;
+                    name = listGroupRmsResourceRelationsRequest.name;
+                    regionId = listGroupRmsResourceRelationsRequest.regionId;
+                    azId = listGroupRmsResourceRelationsRequest.azId;
+                    ipType = listGroupRmsResourceRelationsRequest.ipType;
+                    ip = listGroupRmsResourceRelationsRequest.ip;
+                    status = listGroupRmsResourceRelationsRequest.status;
+                    agentState = listGroupRmsResourceRelationsRequest.agentState;
+                    imageName = listGroupRmsResourceRelationsRequest.imageName;
+                    osType = listGroupRmsResourceRelationsRequest.osType;
+                    tag = listGroupRmsResourceRelationsRequest.tag;
+                    chargingMode = listGroupRmsResourceRelationsRequest.chargingMode;
+                    flavorName = listGroupRmsResourceRelationsRequest.flavorName;
+                    ipList = listGroupRmsResourceRelationsRequest.ipList;
+                    isCollected = listGroupRmsResourceRelationsRequest.isCollected;
+                } else {
+                    provider = listGroupRmsResourceRelationsRequest['provider'];
+                    vendor = listGroupRmsResourceRelationsRequest['vendor'];
+                    type = listGroupRmsResourceRelationsRequest['type'];
+                    limit = listGroupRmsResourceRelationsRequest['limit'];
+                    applicationId = listGroupRmsResourceRelationsRequest['application_id'];
+                    componentId = listGroupRmsResourceRelationsRequest['component_id'];
+                    groupId = listGroupRmsResourceRelationsRequest['group_id'];
+                    offset = listGroupRmsResourceRelationsRequest['offset'];
+                    resourceIdList = listGroupRmsResourceRelationsRequest['resource_id_list'];
+                    name = listGroupRmsResourceRelationsRequest['name'];
+                    regionId = listGroupRmsResourceRelationsRequest['region_id'];
+                    azId = listGroupRmsResourceRelationsRequest['az_id'];
+                    ipType = listGroupRmsResourceRelationsRequest['ip_type'];
+                    ip = listGroupRmsResourceRelationsRequest['ip'];
+                    status = listGroupRmsResourceRelationsRequest['status'];
+                    agentState = listGroupRmsResourceRelationsRequest['agent_state'];
+                    imageName = listGroupRmsResourceRelationsRequest['image_name'];
+                    osType = listGroupRmsResourceRelationsRequest['os_type'];
+                    tag = listGroupRmsResourceRelationsRequest['tag'];
+                    chargingMode = listGroupRmsResourceRelationsRequest['charging_mode'];
+                    flavorName = listGroupRmsResourceRelationsRequest['flavor_name'];
+                    ipList = listGroupRmsResourceRelationsRequest['ip_list'];
+                    isCollected = listGroupRmsResourceRelationsRequest['is_collected'];
+                }
+            }
+
+        
+            if (provider === null || provider === undefined) {
+                throw new RequiredError('provider','Required parameter provider was null or undefined when calling listGroupRmsResourceRelations.');
+            }
+            if (provider !== null && provider !== undefined) {
+                localVarQueryParameter['provider'] = provider;
+            }
+            if (vendor === null || vendor === undefined) {
+                throw new RequiredError('vendor','Required parameter vendor was null or undefined when calling listGroupRmsResourceRelations.');
+            }
+            if (vendor !== null && vendor !== undefined) {
+                localVarQueryParameter['vendor'] = vendor;
+            }
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling listGroupRmsResourceRelations.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listGroupRmsResourceRelations.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (applicationId !== null && applicationId !== undefined) {
+                localVarQueryParameter['application_id'] = applicationId;
+            }
+            if (componentId !== null && componentId !== undefined) {
+                localVarQueryParameter['component_id'] = componentId;
+            }
+            if (groupId !== null && groupId !== undefined) {
+                localVarQueryParameter['group_id'] = groupId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (resourceIdList !== null && resourceIdList !== undefined) {
+                localVarQueryParameter['resource_id_list'] = resourceIdList;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+            if (azId !== null && azId !== undefined) {
+                localVarQueryParameter['az_id'] = azId;
+            }
+            if (ipType !== null && ipType !== undefined) {
+                localVarQueryParameter['ip_type'] = ipType;
+            }
+            if (ip !== null && ip !== undefined) {
+                localVarQueryParameter['ip'] = ip;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (agentState !== null && agentState !== undefined) {
+                localVarQueryParameter['agent_state'] = agentState;
+            }
+            if (imageName !== null && imageName !== undefined) {
+                localVarQueryParameter['image_name'] = imageName;
+            }
+            if (osType !== null && osType !== undefined) {
+                localVarQueryParameter['os_type'] = osType;
+            }
+            if (tag !== null && tag !== undefined) {
+                localVarQueryParameter['tag'] = tag;
+            }
+            if (chargingMode !== null && chargingMode !== undefined) {
+                localVarQueryParameter['charging_mode'] = chargingMode;
+            }
+            if (flavorName !== null && flavorName !== undefined) {
+                localVarQueryParameter['flavor_name'] = flavorName;
+            }
+            if (ipList !== null && ipList !== undefined) {
+                localVarQueryParameter['ip_list'] = ipList;
+            }
+            if (isCollected !== null && isCollected !== undefined) {
+                localVarQueryParameter['is_collected'] = isCollected;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 转移资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateGroupRmsResourceRelation(updateGroupRmsResourceRelationRequest?: UpdateGroupRmsResourceRelationRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/group-resource-relations",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateGroupRmsResourceRelationRequest !== null && updateGroupRmsResourceRelationRequest !== undefined) {
+                if (updateGroupRmsResourceRelationRequest instanceof UpdateGroupRmsResourceRelationRequest) {
+                    body = updateGroupRmsResourceRelationRequest.body
+                } else {
+                    body = updateGroupRmsResourceRelationRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询COC可授权单列表（变更单号、事件单号、warroom和告警）
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5498,6 +8379,203 @@ export const ParamCreater = function () {
             }
             if (regionId !== null && regionId !== undefined) {
                 localVarQueryParameter['region_id'] = regionId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用户资源总数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countResources(countResourcesRequest?: CountResourcesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resources/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let provider;
+            
+            let type;
+            
+            let resourceIdList;
+            
+            let name;
+            
+            let regionId;
+            
+            let azId;
+            
+            let ipType;
+            
+            let ip;
+            
+            let status;
+            
+            let agentState;
+            
+            let imageName;
+            
+            let osType;
+            
+            let tag;
+            
+            let tagKey;
+            
+            let groupId;
+            
+            let componentId;
+            
+            let applicationId;
+            
+            let cceClusterId;
+            
+            let epId;
+            
+            let isDelegated;
+            
+            let isCollected;
+            
+            let flavorName;
+            
+            let chargingMode;
+
+            if (countResourcesRequest !== null && countResourcesRequest !== undefined) {
+                if (countResourcesRequest instanceof CountResourcesRequest) {
+                    provider = countResourcesRequest.provider;
+                    type = countResourcesRequest.type;
+                    resourceIdList = countResourcesRequest.resourceIdList;
+                    name = countResourcesRequest.name;
+                    regionId = countResourcesRequest.regionId;
+                    azId = countResourcesRequest.azId;
+                    ipType = countResourcesRequest.ipType;
+                    ip = countResourcesRequest.ip;
+                    status = countResourcesRequest.status;
+                    agentState = countResourcesRequest.agentState;
+                    imageName = countResourcesRequest.imageName;
+                    osType = countResourcesRequest.osType;
+                    tag = countResourcesRequest.tag;
+                    tagKey = countResourcesRequest.tagKey;
+                    groupId = countResourcesRequest.groupId;
+                    componentId = countResourcesRequest.componentId;
+                    applicationId = countResourcesRequest.applicationId;
+                    cceClusterId = countResourcesRequest.cceClusterId;
+                    epId = countResourcesRequest.epId;
+                    isDelegated = countResourcesRequest.isDelegated;
+                    isCollected = countResourcesRequest.isCollected;
+                    flavorName = countResourcesRequest.flavorName;
+                    chargingMode = countResourcesRequest.chargingMode;
+                } else {
+                    provider = countResourcesRequest['provider'];
+                    type = countResourcesRequest['type'];
+                    resourceIdList = countResourcesRequest['resource_id_list'];
+                    name = countResourcesRequest['name'];
+                    regionId = countResourcesRequest['region_id'];
+                    azId = countResourcesRequest['az_id'];
+                    ipType = countResourcesRequest['ip_type'];
+                    ip = countResourcesRequest['ip'];
+                    status = countResourcesRequest['status'];
+                    agentState = countResourcesRequest['agent_state'];
+                    imageName = countResourcesRequest['image_name'];
+                    osType = countResourcesRequest['os_type'];
+                    tag = countResourcesRequest['tag'];
+                    tagKey = countResourcesRequest['tag_key'];
+                    groupId = countResourcesRequest['group_id'];
+                    componentId = countResourcesRequest['component_id'];
+                    applicationId = countResourcesRequest['application_id'];
+                    cceClusterId = countResourcesRequest['cce_cluster_id'];
+                    epId = countResourcesRequest['ep_id'];
+                    isDelegated = countResourcesRequest['is_delegated'];
+                    isCollected = countResourcesRequest['is_collected'];
+                    flavorName = countResourcesRequest['flavor_name'];
+                    chargingMode = countResourcesRequest['charging_mode'];
+                }
+            }
+
+        
+            if (provider === null || provider === undefined) {
+                throw new RequiredError('provider','Required parameter provider was null or undefined when calling countResources.');
+            }
+            if (provider !== null && provider !== undefined) {
+                localVarQueryParameter['provider'] = provider;
+            }
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling countResources.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (resourceIdList !== null && resourceIdList !== undefined) {
+                localVarQueryParameter['resource_id_list'] = resourceIdList;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+            if (azId !== null && azId !== undefined) {
+                localVarQueryParameter['az_id'] = azId;
+            }
+            if (ipType !== null && ipType !== undefined) {
+                localVarQueryParameter['ip_type'] = ipType;
+            }
+            if (ip !== null && ip !== undefined) {
+                localVarQueryParameter['ip'] = ip;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (agentState !== null && agentState !== undefined) {
+                localVarQueryParameter['agent_state'] = agentState;
+            }
+            if (imageName !== null && imageName !== undefined) {
+                localVarQueryParameter['image_name'] = imageName;
+            }
+            if (osType !== null && osType !== undefined) {
+                localVarQueryParameter['os_type'] = osType;
+            }
+            if (tag !== null && tag !== undefined) {
+                localVarQueryParameter['tag'] = tag;
+            }
+            if (tagKey !== null && tagKey !== undefined) {
+                localVarQueryParameter['tag_key'] = tagKey;
+            }
+            if (groupId !== null && groupId !== undefined) {
+                localVarQueryParameter['group_id'] = groupId;
+            }
+            if (componentId !== null && componentId !== undefined) {
+                localVarQueryParameter['component_id'] = componentId;
+            }
+            if (applicationId !== null && applicationId !== undefined) {
+                localVarQueryParameter['application_id'] = applicationId;
+            }
+            if (cceClusterId !== null && cceClusterId !== undefined) {
+                localVarQueryParameter['cce_cluster_id'] = cceClusterId;
+            }
+            if (epId !== null && epId !== undefined) {
+                localVarQueryParameter['ep_id'] = epId;
+            }
+            if (isDelegated !== null && isDelegated !== undefined) {
+                localVarQueryParameter['is_delegated'] = isDelegated;
+            }
+            if (isCollected !== null && isCollected !== undefined) {
+                localVarQueryParameter['is_collected'] = isCollected;
+            }
+            if (flavorName !== null && flavorName !== undefined) {
+                localVarQueryParameter['flavor_name'] = flavorName;
+            }
+            if (chargingMode !== null && chargingMode !== undefined) {
+                localVarQueryParameter['charging_mode'] = chargingMode;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -5831,6 +8909,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 同步华为云资源Agent信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        syncResourceAgent(syncResourceAgentRequest?: SyncResourceAgentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/resources/uniagent/sync",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (syncResourceAgentRequest !== null && syncResourceAgentRequest !== undefined) {
+                if (syncResourceAgentRequest instanceof SyncResourceAgentRequest) {
+                    body = syncResourceAgentRequest.body
+                } else {
+                    body = syncResourceAgentRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询资源标签列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5928,6 +9044,419 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'resource_id': resourceId,'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 添加资源标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createResourceTags(createResourceTagsRequest?: CreateResourceTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/resources/{resource_id}/tags",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceId;
+
+            if (createResourceTagsRequest !== null && createResourceTagsRequest !== undefined) {
+                if (createResourceTagsRequest instanceof CreateResourceTagsRequest) {
+                    resourceId = createResourceTagsRequest.resourceId;
+                    body = createResourceTagsRequest.body
+                } else {
+                    resourceId = createResourceTagsRequest['resource_id'];
+                    body = createResourceTagsRequest['body'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling createResourceTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询资源标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listResourceTags(listResourceTagsRequest?: ListResourceTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resources/{resource_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resourceId;
+
+            if (listResourceTagsRequest !== null && listResourceTagsRequest !== undefined) {
+                if (listResourceTagsRequest instanceof ListResourceTagsRequest) {
+                    resourceId = listResourceTagsRequest.resourceId;
+                } else {
+                    resourceId = listResourceTagsRequest['resource_id'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling listResourceTags.');
+            }
+
+            options.pathParams = { 'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询CMDB跨账号资源视图聚合的资源总数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countResourcesOfResourceView(countResourcesOfResourceViewRequest?: CountResourcesOfResourceViewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource/views/resources/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let viewId;
+            
+            let provider;
+            
+            let type;
+
+            if (countResourcesOfResourceViewRequest !== null && countResourcesOfResourceViewRequest !== undefined) {
+                if (countResourcesOfResourceViewRequest instanceof CountResourcesOfResourceViewRequest) {
+                    viewId = countResourcesOfResourceViewRequest.viewId;
+                    provider = countResourcesOfResourceViewRequest.provider;
+                    type = countResourcesOfResourceViewRequest.type;
+                } else {
+                    viewId = countResourcesOfResourceViewRequest['view_id'];
+                    provider = countResourcesOfResourceViewRequest['provider'];
+                    type = countResourcesOfResourceViewRequest['type'];
+                }
+            }
+
+        
+            if (viewId === null || viewId === undefined) {
+                throw new RequiredError('viewId','Required parameter viewId was null or undefined when calling countResourcesOfResourceView.');
+            }
+            if (viewId !== null && viewId !== undefined) {
+                localVarQueryParameter['view_id'] = viewId;
+            }
+            if (provider !== null && provider !== undefined) {
+                localVarQueryParameter['provider'] = provider;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建CMDB跨账号资源视图。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createResourceViews(createResourceViewsRequest?: CreateResourceViewsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/resource/views",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createResourceViewsRequest !== null && createResourceViewsRequest !== undefined) {
+                if (createResourceViewsRequest instanceof CreateResourceViewsRequest) {
+                    body = createResourceViewsRequest.body
+                } else {
+                    body = createResourceViewsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除CMDB的跨账号资源管理视图。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteResourceViews(deleteResourceViewsRequest?: DeleteResourceViewsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/resource/views/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (deleteResourceViewsRequest !== null && deleteResourceViewsRequest !== undefined) {
+                if (deleteResourceViewsRequest instanceof DeleteResourceViewsRequest) {
+                    id = deleteResourceViewsRequest.id;
+                } else {
+                    id = deleteResourceViewsRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteResourceViews.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询CMDB跨账号资源视图。视图是一组筛选器，用户可以自由配置筛选范围，用于在跨账号场景下访问华为云中的资源信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listResourceViews(listResourceViewsRequest?: ListResourceViewsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource/views",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+
+            if (listResourceViewsRequest !== null && listResourceViewsRequest !== undefined) {
+                if (listResourceViewsRequest instanceof ListResourceViewsRequest) {
+                    limit = listResourceViewsRequest.limit;
+                    marker = listResourceViewsRequest.marker;
+                } else {
+                    limit = listResourceViewsRequest['limit'];
+                    marker = listResourceViewsRequest['marker'];
+                }
+            }
+
+        
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listResourceViews.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询CMDB跨账号资源视图聚合的资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listResourcesOfResourceView(listResourcesOfResourceViewRequest?: ListResourcesOfResourceViewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource/views/resources",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let viewId;
+            
+            let offset;
+            
+            let provider;
+            
+            let type;
+
+            if (listResourcesOfResourceViewRequest !== null && listResourcesOfResourceViewRequest !== undefined) {
+                if (listResourcesOfResourceViewRequest instanceof ListResourcesOfResourceViewRequest) {
+                    limit = listResourcesOfResourceViewRequest.limit;
+                    viewId = listResourcesOfResourceViewRequest.viewId;
+                    offset = listResourcesOfResourceViewRequest.offset;
+                    provider = listResourcesOfResourceViewRequest.provider;
+                    type = listResourcesOfResourceViewRequest.type;
+                } else {
+                    limit = listResourcesOfResourceViewRequest['limit'];
+                    viewId = listResourcesOfResourceViewRequest['view_id'];
+                    offset = listResourcesOfResourceViewRequest['offset'];
+                    provider = listResourcesOfResourceViewRequest['provider'];
+                    type = listResourcesOfResourceViewRequest['type'];
+                }
+            }
+
+        
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listResourcesOfResourceView.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (viewId === null || viewId === undefined) {
+                throw new RequiredError('viewId','Required parameter viewId was null or undefined when calling listResourcesOfResourceView.');
+            }
+            if (viewId !== null && viewId !== undefined) {
+                localVarQueryParameter['view_id'] = viewId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (provider !== null && provider !== undefined) {
+                localVarQueryParameter['provider'] = provider;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 同步CMDB跨账号资源视图。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        syncResourcesOfResourceView(syncResourcesOfResourceViewRequest?: SyncResourcesOfResourceViewRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/resource/views/{id}/sync",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (syncResourcesOfResourceViewRequest !== null && syncResourcesOfResourceViewRequest !== undefined) {
+                if (syncResourcesOfResourceViewRequest instanceof SyncResourcesOfResourceViewRequest) {
+                    id = syncResourcesOfResourceViewRequest.id;
+                } else {
+                    id = syncResourcesOfResourceViewRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling syncResourcesOfResourceView.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新CMDB跨账号资源视图。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateResourceViews(updateResourceViewsRequest?: UpdateResourceViewsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/resource/views/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (updateResourceViewsRequest !== null && updateResourceViewsRequest !== undefined) {
+                if (updateResourceViewsRequest instanceof UpdateResourceViewsRequest) {
+                    id = updateResourceViewsRequest.id;
+                    body = updateResourceViewsRequest.body
+                } else {
+                    id = updateResourceViewsRequest['id'];
+                    body = updateResourceViewsRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateResourceViews.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7748,6 +11277,202 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建云厂商（阿里云、AWS、Azure和HCS等）账号。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createVendorAccount(createVendorAccountRequest?: CreateVendorAccountRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/vendor-account",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createVendorAccountRequest !== null && createVendorAccountRequest !== undefined) {
+                if (createVendorAccountRequest instanceof CreateVendorAccountRequest) {
+                    body = createVendorAccountRequest.body
+                } else {
+                    body = createVendorAccountRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 增加云广商账号，不需要后，可删除云厂商账号。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteVendorAccount(deleteVendorAccountRequest?: DeleteVendorAccountRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/vendor-account/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (deleteVendorAccountRequest !== null && deleteVendorAccountRequest !== undefined) {
+                if (deleteVendorAccountRequest instanceof DeleteVendorAccountRequest) {
+                    id = deleteVendorAccountRequest.id;
+                } else {
+                    id = deleteVendorAccountRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteVendorAccount.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询所有云厂商（阿里云、AWS、Azure和HCS等）账号信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listVendorAccount(listVendorAccountRequest?: ListVendorAccountRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/vendor-account",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+            
+            let marker;
+            
+            let vendor;
+            
+            let accountId;
+            
+            let accountName;
+
+            if (listVendorAccountRequest !== null && listVendorAccountRequest !== undefined) {
+                if (listVendorAccountRequest instanceof ListVendorAccountRequest) {
+                    limit = listVendorAccountRequest.limit;
+                    offset = listVendorAccountRequest.offset;
+                    marker = listVendorAccountRequest.marker;
+                    vendor = listVendorAccountRequest.vendor;
+                    accountId = listVendorAccountRequest.accountId;
+                    accountName = listVendorAccountRequest.accountName;
+                } else {
+                    limit = listVendorAccountRequest['limit'];
+                    offset = listVendorAccountRequest['offset'];
+                    marker = listVendorAccountRequest['marker'];
+                    vendor = listVendorAccountRequest['vendor'];
+                    accountId = listVendorAccountRequest['account_id'];
+                    accountName = listVendorAccountRequest['account_name'];
+                }
+            }
+
+        
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listVendorAccount.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (vendor !== null && vendor !== undefined) {
+                localVarQueryParameter['vendor'] = vendor;
+            }
+            if (accountId !== null && accountId !== undefined) {
+                localVarQueryParameter['account_id'] = accountId;
+            }
+            if (accountName !== null && accountName !== undefined) {
+                localVarQueryParameter['account_name'] = accountName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改所有云厂商（阿里云、AWS、Azure和HCS等）账号信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateVendorAccount(updateVendorAccountRequest?: UpdateVendorAccountRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/vendor-account/{id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (updateVendorAccountRequest !== null && updateVendorAccountRequest !== undefined) {
+                if (updateVendorAccountRequest instanceof UpdateVendorAccountRequest) {
+                    id = updateVendorAccountRequest.id;
+                    body = updateVendorAccountRequest.body
+                } else {
+                    id = updateVendorAccountRequest['id'];
+                    body = updateVendorAccountRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateVendorAccount.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },

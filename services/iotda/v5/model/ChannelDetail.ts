@@ -5,6 +5,7 @@ import { DmsRocketMQForwarding } from './DmsRocketMQForwarding';
 import { FunctionGraphForwarding } from './FunctionGraphForwarding';
 import { HttpForwarding } from './HttpForwarding';
 import { InfluxDBForwarding } from './InfluxDBForwarding';
+import { MqttDeviceForwarding } from './MqttDeviceForwarding';
 import { MrsKafkaForwarding } from './MrsKafkaForwarding';
 import { MysqlForwarding } from './MysqlForwarding';
 import { ObsForwarding } from './ObsForwarding';
@@ -23,6 +24,7 @@ export class ChannelDetail {
     private 'functiongraph_forwarding'?: FunctionGraphForwarding;
     private 'mrs_kafka_forwarding'?: MrsKafkaForwarding;
     private 'dms_rocketmq_forwarding'?: DmsRocketMQForwarding;
+    private 'mqtt_device_forwarding'?: MqttDeviceForwarding;
     public constructor() { 
     }
     public withHttpForwarding(httpForwarding: HttpForwarding): ChannelDetail {
@@ -134,5 +136,15 @@ export class ChannelDetail {
     }
     public get dmsRocketmqForwarding(): DmsRocketMQForwarding | undefined {
         return this['dms_rocketmq_forwarding'];
+    }
+    public withMqttDeviceForwarding(mqttDeviceForwarding: MqttDeviceForwarding): ChannelDetail {
+        this['mqtt_device_forwarding'] = mqttDeviceForwarding;
+        return this;
+    }
+    public set mqttDeviceForwarding(mqttDeviceForwarding: MqttDeviceForwarding  | undefined) {
+        this['mqtt_device_forwarding'] = mqttDeviceForwarding;
+    }
+    public get mqttDeviceForwarding(): MqttDeviceForwarding | undefined {
+        return this['mqtt_device_forwarding'];
     }
 }

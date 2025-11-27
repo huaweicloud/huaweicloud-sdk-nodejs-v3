@@ -4,7 +4,8 @@ export class ExportVulRequestBody {
     private 'export_headers'?: Array<Array<string>>;
     private 'vul_id_list'?: Array<string>;
     private 'host_id_list'?: Array<string>;
-    public constructor() { 
+    public constructor(exportHeaders?: Array<Array<string>>) { 
+        this['export_headers'] = exportHeaders;
     }
     public withExportHeaders(exportHeaders: Array<Array<string>>): ExportVulRequestBody {
         this['export_headers'] = exportHeaders;

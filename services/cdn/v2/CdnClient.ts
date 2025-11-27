@@ -4,6 +4,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AccessAreaFilter } from './model/AccessAreaFilter';
 import { AccessControl } from './model/AccessControl';
+import { AccessControlTask } from './model/AccessControlTask';
+import { AccessControlUrls } from './model/AccessControlUrls';
 import { AccountConfigModifyRequest } from './model/AccountConfigModifyRequest';
 import { Actions } from './model/Actions';
 import { ApplyDomainTemplateRequest } from './model/ApplyDomainTemplateRequest';
@@ -11,6 +13,7 @@ import { ApplyDomainTemplateResponse } from './model/ApplyDomainTemplateResponse
 import { ApplyRecord } from './model/ApplyRecord';
 import { ApplyTmlDetail } from './model/ApplyTmlDetail';
 import { BackSources } from './model/BackSources';
+import { BanUrlList } from './model/BanUrlList';
 import { BatchCopyConfigs } from './model/BatchCopyConfigs';
 import { BatchCopyDRequestBody } from './model/BatchCopyDRequestBody';
 import { BatchCopyDomainRequest } from './model/BatchCopyDomainRequest';
@@ -34,18 +37,25 @@ import { CdnIps } from './model/CdnIps';
 import { CertificatesGetBody } from './model/CertificatesGetBody';
 import { CertificatesPutBody } from './model/CertificatesPutBody';
 import { ClientCert } from './model/ClientCert';
+import { CnameStatus } from './model/CnameStatus';
 import { CommonRemoteAuth } from './model/CommonRemoteAuth';
 import { Compress } from './model/Compress';
 import { Conditions } from './model/Conditions';
 import { ConfigInfo } from './model/ConfigInfo';
 import { Configs } from './model/Configs';
 import { ConfigsGetBody } from './model/ConfigsGetBody';
+import { CreateAccessControlTaskRequest } from './model/CreateAccessControlTaskRequest';
+import { CreateAccessControlTaskResponse } from './model/CreateAccessControlTaskResponse';
+import { CreateDomainByDuplicateRequest } from './model/CreateDomainByDuplicateRequest';
+import { CreateDomainByDuplicateResponse } from './model/CreateDomainByDuplicateResponse';
 import { CreateDomainRequest } from './model/CreateDomainRequest';
 import { CreateDomainRequestBody } from './model/CreateDomainRequestBody';
 import { CreateDomainResponse } from './model/CreateDomainResponse';
 import { CreateDomainResponseBodyContent } from './model/CreateDomainResponseBodyContent';
 import { CreateDomainTemplateRequest } from './model/CreateDomainTemplateRequest';
 import { CreateDomainTemplateResponse } from './model/CreateDomainTemplateResponse';
+import { CreateExportTaskRequest } from './model/CreateExportTaskRequest';
+import { CreateExportTaskResponse } from './model/CreateExportTaskResponse';
 import { CreatePreheatingTasksRequest } from './model/CreatePreheatingTasksRequest';
 import { CreatePreheatingTasksResponse } from './model/CreatePreheatingTasksResponse';
 import { CreateRefreshTasksRequest } from './model/CreateRefreshTasksRequest';
@@ -86,6 +96,7 @@ import { DownloadRegionCarrierExcelRequest } from './model/DownloadRegionCarrier
 import { DownloadRegionCarrierExcelResponse } from './model/DownloadRegionCarrierExcelResponse';
 import { DownloadStatisticsExcelRequest } from './model/DownloadStatisticsExcelRequest';
 import { DownloadStatisticsExcelResponse } from './model/DownloadStatisticsExcelResponse';
+import { DuplicateDomainRequestBody } from './model/DuplicateDomainRequestBody';
 import { EnableDomainRequest } from './model/EnableDomainRequest';
 import { EnableDomainResponse } from './model/EnableDomainResponse';
 import { EpResourceTag } from './model/EpResourceTag';
@@ -94,6 +105,11 @@ import { ErrRsp } from './model/ErrRsp';
 import { ErrorCodeCache } from './model/ErrorCodeCache';
 import { ErrorCodeCacheEngine } from './model/ErrorCodeCacheEngine';
 import { ErrorCodeRedirectRules } from './model/ErrorCodeRedirectRules';
+import { ExportStatsOpenRequest } from './model/ExportStatsOpenRequest';
+import { ExportStatsOpenResponse } from './model/ExportStatsOpenResponse';
+import { ExportTask } from './model/ExportTask';
+import { ExportTaskVo } from './model/ExportTaskVo';
+import { ExportVo } from './model/ExportVo';
 import { FlexibleOrigins } from './model/FlexibleOrigins';
 import { FlexibleOriginsEngine } from './model/FlexibleOriginsEngine';
 import { FlowLimitStrategy } from './model/FlowLimitStrategy';
@@ -111,24 +127,36 @@ import { InheritConfigQuery } from './model/InheritConfigQuery';
 import { IpFilter } from './model/IpFilter';
 import { IpFrequencyLimit } from './model/IpFrequencyLimit';
 import { IpFrequencyLimitQuery } from './model/IpFrequencyLimitQuery';
+import { ListAccessControlTaskRequest } from './model/ListAccessControlTaskRequest';
+import { ListAccessControlTaskResponse } from './model/ListAccessControlTaskResponse';
+import { ListBanUrlRequest } from './model/ListBanUrlRequest';
+import { ListBanUrlResponse } from './model/ListBanUrlResponse';
 import { ListCdnDomainTopIpsRequest } from './model/ListCdnDomainTopIpsRequest';
 import { ListCdnDomainTopIpsResponse } from './model/ListCdnDomainTopIpsResponse';
 import { ListCdnDomainTopOriginUrlRequest } from './model/ListCdnDomainTopOriginUrlRequest';
 import { ListCdnDomainTopOriginUrlResponse } from './model/ListCdnDomainTopOriginUrlResponse';
+import { ListCdnDomainTopPathRequest } from './model/ListCdnDomainTopPathRequest';
+import { ListCdnDomainTopPathResponse } from './model/ListCdnDomainTopPathResponse';
 import { ListCdnDomainTopRefersRequest } from './model/ListCdnDomainTopRefersRequest';
 import { ListCdnDomainTopRefersResponse } from './model/ListCdnDomainTopRefersResponse';
 import { ListCdnDomainTopUasRequest } from './model/ListCdnDomainTopUasRequest';
 import { ListCdnDomainTopUasResponse } from './model/ListCdnDomainTopUasResponse';
 import { ListDomainClientStatsRequest } from './model/ListDomainClientStatsRequest';
 import { ListDomainClientStatsResponse } from './model/ListDomainClientStatsResponse';
+import { ListDomainConfigsRequest } from './model/ListDomainConfigsRequest';
+import { ListDomainConfigsResponse } from './model/ListDomainConfigsResponse';
 import { ListDomainsRequest } from './model/ListDomainsRequest';
 import { ListDomainsResponse } from './model/ListDomainsResponse';
+import { ListExportTasksRequest } from './model/ListExportTasksRequest';
+import { ListExportTasksResponse } from './model/ListExportTasksResponse';
 import { ListRuleDetailsRequest } from './model/ListRuleDetailsRequest';
 import { ListRuleDetailsResponse } from './model/ListRuleDetailsResponse';
 import { ListShareCacheGroupsConfig } from './model/ListShareCacheGroupsConfig';
 import { ListShareCacheGroupsRecord } from './model/ListShareCacheGroupsRecord';
 import { ListShareCacheGroupsRequest } from './model/ListShareCacheGroupsRequest';
 import { ListShareCacheGroupsResponse } from './model/ListShareCacheGroupsResponse';
+import { ListSpecialConfigurationRequest } from './model/ListSpecialConfigurationRequest';
+import { ListSpecialConfigurationResponse } from './model/ListSpecialConfigurationResponse';
 import { ListSubscriptionTasksRequest } from './model/ListSubscriptionTasksRequest';
 import { ListSubscriptionTasksResponse } from './model/ListSubscriptionTasksResponse';
 import { LogObject } from './model/LogObject';
@@ -168,6 +196,8 @@ import { ShowCertificatesHttpsInfoRequest } from './model/ShowCertificatesHttpsI
 import { ShowCertificatesHttpsInfoResponse } from './model/ShowCertificatesHttpsInfoResponse';
 import { ShowChargeModesRequest } from './model/ShowChargeModesRequest';
 import { ShowChargeModesResponse } from './model/ShowChargeModesResponse';
+import { ShowDomainCountryStatRequest } from './model/ShowDomainCountryStatRequest';
+import { ShowDomainCountryStatResponse } from './model/ShowDomainCountryStatResponse';
 import { ShowDomainDetailByNameRequest } from './model/ShowDomainDetailByNameRequest';
 import { ShowDomainDetailByNameResponse } from './model/ShowDomainDetailByNameResponse';
 import { ShowDomainFullConfigRequest } from './model/ShowDomainFullConfigRequest';
@@ -188,6 +218,8 @@ import { ShowLogsRequest } from './model/ShowLogsRequest';
 import { ShowLogsResponse } from './model/ShowLogsResponse';
 import { ShowQuotaRequest } from './model/ShowQuotaRequest';
 import { ShowQuotaResponse } from './model/ShowQuotaResponse';
+import { ShowSpecialUserRequest } from './model/ShowSpecialUserRequest';
+import { ShowSpecialUserResponse } from './model/ShowSpecialUserResponse';
 import { ShowStatsConfigsRequest } from './model/ShowStatsConfigsRequest';
 import { ShowStatsConfigsResponse } from './model/ShowStatsConfigsResponse';
 import { ShowTagsRequest } from './model/ShowTagsRequest';
@@ -207,6 +239,7 @@ import { SourcesConfig } from './model/SourcesConfig';
 import { SourcesConfigResponseBody } from './model/SourcesConfigResponseBody';
 import { SourcesDomainConfig } from './model/SourcesDomainConfig';
 import { SourcesRequestBody } from './model/SourcesRequestBody';
+import { SpeicialConfiguration } from './model/SpeicialConfiguration';
 import { StatsConfigDetails } from './model/StatsConfigDetails';
 import { SubscriptionTask } from './model/SubscriptionTask';
 import { SubscriptionTaskVo } from './model/SubscriptionTaskVo';
@@ -217,6 +250,7 @@ import { TemplateConfigs } from './model/TemplateConfigs';
 import { TemplateItem } from './model/TemplateItem';
 import { TopIpSummary } from './model/TopIpSummary';
 import { TopOriginUrlSummary } from './model/TopOriginUrlSummary';
+import { TopPathSummary } from './model/TopPathSummary';
 import { TopReferSummary } from './model/TopReferSummary';
 import { TopUa } from './model/TopUa';
 import { TopUaSummary } from './model/TopUaSummary';
@@ -247,6 +281,7 @@ import { UpdateShareCacheGroupsRequstBody } from './model/UpdateShareCacheGroups
 import { UpdateShareCacheGroupsResponse } from './model/UpdateShareCacheGroupsResponse';
 import { UpdateSubscriptionTaskRequest } from './model/UpdateSubscriptionTaskRequest';
 import { UpdateSubscriptionTaskResponse } from './model/UpdateSubscriptionTaskResponse';
+import { UrlAccessControlTaskRequestBody } from './model/UrlAccessControlTaskRequestBody';
 import { UrlAuth } from './model/UrlAuth';
 import { UrlAuthGetBody } from './model/UrlAuthGetBody';
 import { UrlObject } from './model/UrlObject';
@@ -355,6 +390,27 @@ export class CdnClient {
     }
 
     /**
+     * 创建封禁/解禁URL任务，如需使用本接口，请提交工单申请。
+     * - 单租户调用频率：10次/s。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建封禁/解禁URL任务
+     * @param {string} action **参数解释：** 操作类型， **约束限制：** 不涉及 **取值范围：** - ban：禁用 - unban：解禁  **默认取值：** 不涉及
+     * @param {UrlAccessControlTaskRequestBody} urlAccessControlTaskRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAccessControlTask(createAccessControlTaskRequest?: CreateAccessControlTaskRequest): Promise<CreateAccessControlTaskResponse> {
+        const options = ParamCreater().createAccessControlTask(createAccessControlTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建加速域名。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -374,6 +430,28 @@ export class CdnClient {
     }
 
     /**
+     * 将存量加速域名的配置复制给新添加的域名。
+     * - 已开通CDN服务。
+     * - 如果加速域名的服务范围包含中国大陆，加速域名需要已完成备案。
+     * - 单租户调用频率：20次/min。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 复制配置到新添加域名
+     * @param {DuplicateDomainRequestBody} [duplicateDomainRequestBody] 复制域名
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDomainByDuplicate(createDomainByDuplicateRequest?: CreateDomainByDuplicateRequest): Promise<CreateDomainByDuplicateResponse> {
+        const options = ParamCreater().createDomainByDuplicate(createDomainByDuplicateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建域名模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -385,6 +463,25 @@ export class CdnClient {
      */
     public createDomainTemplate(createDomainTemplateRequest?: CreateDomainTemplateRequest): Promise<CreateDomainTemplateResponse> {
         const options = ParamCreater().createDomainTemplate(createDomainTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建统计数据异步导出任务，目前支持话单数据导出、top url导出
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建统计数据异步导出任务
+     * @param {ExportTaskVo} [exportTaskVo] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createExportTask(createExportTaskRequest?: CreateExportTaskRequest): Promise<CreateExportTaskResponse> {
+        const options = ParamCreater().createExportTask(createExportTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -727,6 +824,74 @@ export class CdnClient {
     }
 
     /**
+     * CDN数据导出
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary CDN数据导出
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
+     * @param {ExportVo} [exportVo] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportStatsOpen(exportStatsOpenRequest?: ExportStatsOpenRequest): Promise<ExportStatsOpenResponse> {
+        const options = ParamCreater().exportStatsOpen(exportStatsOpenRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询封禁/解禁URL任务，如需使用本接口，请提交工单申请。
+     * - 单租户调用频率：30次/s。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询封禁/解禁URL任务
+     * @param {number} [startTime] 查询起始时间戳（毫秒），不传默认为当前时间，需与结束时间戳同时指定，时间跨度不能超过7天。
+     * @param {number} [endTime] 查询结束时间戳（毫秒），不传默认3天前，需与开始时间戳同时指定，时间跨度不能超过7天。
+     * @param {number} [offset] 偏移量：特定数据字段与起始数据字段位置的距离，默认为0。
+     * @param {number} [limit] 单次查询数据条数，上限为10000，默认为10。
+     * @param {string} [status] 任务状态，状态类型：processing：处理中；succeed：完成；failed：失败。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAccessControlTask(listAccessControlTaskRequest?: ListAccessControlTaskRequest): Promise<ListAccessControlTaskResponse> {
+        const options = ParamCreater().listAccessControlTask(listAccessControlTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询已封禁的URL，如需使用本接口，请提交工单申请。
+     * - 单租户调用频率：30次/s。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询已封禁的URL
+     * @param {number} [startTime] 查询起始时间戳（毫秒），需与结束时间戳同时指定。
+     * @param {number} [endTime] 查询结束时间戳（毫秒），需与开始时间戳同时指定。
+     * @param {number} [pageSize] 封禁的url所显示单页最大数量，取值范围为1-50。page_size和page_number必须同时传值。默认值10.
+     * @param {number} [pageNumber] 封禁的url当前查询为第几页，取值范围为1-65535。默认值1
+     * @param {string} [url] 封禁的url地址。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBanUrl(listBanUrlRequest?: ListBanUrlRequest): Promise<ListBanUrlResponse> {
+        const options = ParamCreater().listBanUrl(listBanUrlRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 查询域名top ip统计分析数据
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -770,6 +935,30 @@ export class CdnClient {
      */
     public listCdnDomainTopOriginUrl(listCdnDomainTopOriginUrlRequest?: ListCdnDomainTopOriginUrlRequest): Promise<ListCdnDomainTopOriginUrlResponse> {
         const options = ParamCreater().listCdnDomainTopOriginUrl(listCdnDomainTopOriginUrlRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询 TOP Path明细
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询 TOP Path明细
+     * @param {number} startTime 查询起始时间戳，只能传0点毫秒时间戳
+     * @param {number} endTime 查询结束时间戳，只能传0点毫秒时间戳
+     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
+     * @param {string} statType - 参数类型支持：flux(流量),req_num(请求数)
+     * @param {string} [serviceArea] 服务区域：mainland_china(大陆)，outside_mainland_china(海外)，默认为global(全球)
+     * @param {string} [userDomainId] 域名所属用户的domain_id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCdnDomainTopPath(listCdnDomainTopPathRequest?: ListCdnDomainTopPathRequest): Promise<ListCdnDomainTopPathResponse> {
+        const options = ParamCreater().listCdnDomainTopPath(listCdnDomainTopPathRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -864,6 +1053,28 @@ export class CdnClient {
     }
 
     /**
+     * 查询加速域名的基础信息，包含cname状态、加速域名是否支持复制配置。
+     * - 单租户调用频率：5次/s。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询加速域名基础信息
+     * @param {string} item **参数解释：** 查询数据类型 **约束限制：** 不涉及 **取值范围：** - cname_status: 域名cname状态 - copy: 查询账号下哪些加速域名支持复制配置  **默认取值：** 不涉及
+     * @param {string} [domainNames] **参数解释：** 加速域名  - 多个域名使用英文半角逗号分隔  - 当查询cname状态时，该参数必传  **约束限制：** 仅支持查询已经在CDN添加成功的域名 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 企业项目id。您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id **约束限制：** 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDomainConfigs(listDomainConfigsRequest?: ListDomainConfigsRequest): Promise<ListDomainConfigsResponse> {
+        const options = ParamCreater().listDomainConfigs(listDomainConfigsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询加速域名。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -886,6 +1097,28 @@ export class CdnClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分页查询统计数据异步导出任务，按修改时间降序排列，当任务状态为success时，返回参数中会包含download_link
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 分页查询统计数据异步导出
+     * @param {string} taskId 任务id
+     * @param {string} taskName 任务名称
+     * @param {number} [limit] - 每页显示的条目数量, 默认为10
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0，默认为0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listExportTasks(listExportTasksRequest?: ListExportTasksRequest): Promise<ListExportTasksResponse> {
+        const options = ParamCreater().listExportTasks(listExportTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -923,6 +1156,28 @@ export class CdnClient {
      */
     public listShareCacheGroups(listShareCacheGroupsRequest?: ListShareCacheGroupsRequest): Promise<ListShareCacheGroupsResponse> {
         const options = ParamCreater().listShareCacheGroups(listShareCacheGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询加速域名的特殊配置，当前支持查询备忘录信息。
+     * - 单租户调用频率：15次/s。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询加速域名的特殊配置
+     * @param {string} domainName **参数解释：** 加速域名  **约束限制：** 仅支持查询已经在CDN添加成功的域名 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} [pageSize] **参数解释：** 每页加速域名的数量 **约束限制：** 不涉及 **取值范围：** 1-10000 **默认取值：** 30
+     * @param {number} [pageNumber] **参数解释：** 查询的页码 **约束限制：** 不涉及 **取值范围：** 1-65535 **默认取值：** 1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSpecialConfiguration(listSpecialConfigurationRequest?: ListSpecialConfigurationRequest): Promise<ListSpecialConfigurationResponse> {
+        const options = ParamCreater().listSpecialConfiguration(listSpecialConfigurationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1119,6 +1374,32 @@ export class CdnClient {
      */
     public showChargeModes(showChargeModesRequest?: ShowChargeModesRequest): Promise<ShowChargeModesResponse> {
         const options = ParamCreater().showChargeModes(showChargeModesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * CDN查询域名的国家统计数据
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary CDN查询域名的国家统计数据
+     * @param {string} action 动作名称，可选summary、detail。 - summary：查询汇总数据 - detail：查询数据详情。
+     * @param {number} startTime 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下： - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
+     * @param {number} endTime 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下： - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00) - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
+     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
+     * @param {string} statType - 网络资源消耗   - bw（带宽）   - flux（流量） - 访问情况   - req_num（请求总数） - HTTP状态码（组合指标）   - http_code_2xx(状态码汇总2xx)   - http_code_3xx(状态码汇总3xx)   - http_code_4xx(状态码汇总4xx)   - http_code_5xx(状态码汇总5xx)   - status_code_2xx(状态码详情2xx)   - status_code_3xx(状态码详情3xx)   - status_code_4xx(状态码详情4xx)   - status_code_5xx(状态码详情5xx)
+     * @param {string} [country] - 国家&amp;地区编码，多个以英文逗号分隔，all表示全部，取值见附录 - 访问运营商统计数据时不能填写 - 访问top_url数据时不能填写 - 访问区域情况数据时只能填写cn(中国)
+     * @param {string} [groupBy] 数据分组方式，多个以英文逗号分隔，可选domain（域名）、country（国家）、province（省份，仅国家为中国时有效）、isp（区域运营商），默认不分组
+     * @param {string} [userDomainId] 域名所属用户的domain_id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDomainCountryStat(showDomainCountryStatRequest?: ShowDomainCountryStatRequest): Promise<ShowDomainCountryStatResponse> {
+        const options = ParamCreater().showDomainCountryStat(showDomainCountryStatRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1386,6 +1667,24 @@ export class CdnClient {
     }
 
     /**
+     * 查询CDN特殊用户接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询CDN特殊用户接口
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSpecialUser(showSpecialUserRequest?: ShowSpecialUserRequest): Promise<ShowSpecialUserResponse> {
+        const options = ParamCreater().showSpecialUser();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 配置类型：目前支持，
      * - 0：热点统计。
      * - 1：ces上报。
@@ -1394,6 +1693,8 @@ export class CdnClient {
      *
      * @summary 查询统计配置
      * @param {number} configType - 配置类型 - 目前支持0：热点统计，1：ces上报
+     * @param {number} [limit] **参数解释：** 分页查询每页的数量 **约束限制：** 不涉及 **取值范围：** 1-1000 **默认取值：** 10
+     * @param {number} [offset] **参数解释：** 查询偏移量，表示跳过多少个数据开始查询 **约束限制：** 不涉及 **取值范围：** 0-65535 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1894,6 +2195,53 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建封禁/解禁URL任务，如需使用本接口，请提交工单申请。
+         * - 单租户调用频率：10次/s。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAccessControlTask(createAccessControlTaskRequest?: CreateAccessControlTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/cdn/content/access-control-urls/{action}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let action;
+
+            if (createAccessControlTaskRequest !== null && createAccessControlTaskRequest !== undefined) {
+                if (createAccessControlTaskRequest instanceof CreateAccessControlTaskRequest) {
+                    action = createAccessControlTaskRequest.action;
+                    body = createAccessControlTaskRequest.body
+                } else {
+                    action = createAccessControlTaskRequest['action'];
+                    body = createAccessControlTaskRequest['body'];
+                }
+            }
+
+        
+            if (action === null || action === undefined) {
+            throw new RequiredError('action','Required parameter action was null or undefined when calling createAccessControlTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'action': action, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建加速域名。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1917,6 +2265,44 @@ export const ParamCreater = function () {
                     body = createDomainRequest.body
                 } else {
                     body = createDomainRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将存量加速域名的配置复制给新添加的域名。
+         * - 已开通CDN服务。
+         * - 如果加速域名的服务范围包含中国大陆，加速域名需要已完成备案。
+         * - 单租户调用频率：20次/min。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDomainByDuplicate(createDomainByDuplicateRequest?: CreateDomainByDuplicateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/cdn/configuration/domains/duplicate",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createDomainByDuplicateRequest !== null && createDomainByDuplicateRequest !== undefined) {
+                if (createDomainByDuplicateRequest instanceof CreateDomainByDuplicateRequest) {
+                    body = createDomainByDuplicateRequest.body
+                } else {
+                    body = createDomainByDuplicateRequest['body'];
                 }
             }
 
@@ -1959,6 +2345,41 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建统计数据异步导出任务，目前支持话单数据导出、top url导出
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createExportTask(createExportTaskRequest?: CreateExportTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/cdn/statistics/export-tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createExportTaskRequest !== null && createExportTaskRequest !== undefined) {
+                if (createExportTaskRequest instanceof CreateExportTaskRequest) {
+                    body = createExportTaskRequest.body
+                } else {
+                    body = createExportTaskRequest['body'];
+                }
+            }
+
+        
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -2736,6 +3157,181 @@ export const ParamCreater = function () {
         },
     
         /**
+         * CDN数据导出
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportStatsOpen(exportStatsOpenRequest?: ExportStatsOpenRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/cdn/statistics/stats/export",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (exportStatsOpenRequest !== null && exportStatsOpenRequest !== undefined) {
+                if (exportStatsOpenRequest instanceof ExportStatsOpenRequest) {
+                    enterpriseProjectId = exportStatsOpenRequest.enterpriseProjectId;
+                    body = exportStatsOpenRequest.body
+                } else {
+                    enterpriseProjectId = exportStatsOpenRequest['enterprise_project_id'];
+                    body = exportStatsOpenRequest['body'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询封禁/解禁URL任务，如需使用本接口，请提交工单申请。
+         * - 单租户调用频率：30次/s。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAccessControlTask(listAccessControlTaskRequest?: ListAccessControlTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/content/access-control-tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let offset;
+            
+            let limit;
+            
+            let status;
+
+            if (listAccessControlTaskRequest !== null && listAccessControlTaskRequest !== undefined) {
+                if (listAccessControlTaskRequest instanceof ListAccessControlTaskRequest) {
+                    startTime = listAccessControlTaskRequest.startTime;
+                    endTime = listAccessControlTaskRequest.endTime;
+                    offset = listAccessControlTaskRequest.offset;
+                    limit = listAccessControlTaskRequest.limit;
+                    status = listAccessControlTaskRequest.status;
+                } else {
+                    startTime = listAccessControlTaskRequest['start_time'];
+                    endTime = listAccessControlTaskRequest['end_time'];
+                    offset = listAccessControlTaskRequest['offset'];
+                    limit = listAccessControlTaskRequest['limit'];
+                    status = listAccessControlTaskRequest['status'];
+                }
+            }
+
+        
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询已封禁的URL，如需使用本接口，请提交工单申请。
+         * - 单租户调用频率：30次/s。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBanUrl(listBanUrlRequest?: ListBanUrlRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/content/ban-urls",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let pageSize;
+            
+            let pageNumber;
+            
+            let url;
+
+            if (listBanUrlRequest !== null && listBanUrlRequest !== undefined) {
+                if (listBanUrlRequest instanceof ListBanUrlRequest) {
+                    startTime = listBanUrlRequest.startTime;
+                    endTime = listBanUrlRequest.endTime;
+                    pageSize = listBanUrlRequest.pageSize;
+                    pageNumber = listBanUrlRequest.pageNumber;
+                    url = listBanUrlRequest.url;
+                } else {
+                    startTime = listBanUrlRequest['start_time'];
+                    endTime = listBanUrlRequest['end_time'];
+                    pageSize = listBanUrlRequest['page_size'];
+                    pageNumber = listBanUrlRequest['page_number'];
+                    url = listBanUrlRequest['url'];
+                }
+            }
+
+        
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (pageNumber !== null && pageNumber !== undefined) {
+                localVarQueryParameter['page_number'] = pageNumber;
+            }
+            if (url !== null && url !== undefined) {
+                localVarQueryParameter['url'] = url;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 查询域名top ip统计分析数据
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2917,6 +3513,90 @@ export const ParamCreater = function () {
             }
             if (includeRatio !== null && includeRatio !== undefined) {
                 localVarQueryParameter['include_ratio'] = includeRatio;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询 TOP Path明细
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCdnDomainTopPath(listCdnDomainTopPathRequest?: ListCdnDomainTopPathRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/statistics/top-path",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let domainName;
+            
+            let statType;
+            
+            let serviceArea;
+            
+            let userDomainId;
+
+            if (listCdnDomainTopPathRequest !== null && listCdnDomainTopPathRequest !== undefined) {
+                if (listCdnDomainTopPathRequest instanceof ListCdnDomainTopPathRequest) {
+                    startTime = listCdnDomainTopPathRequest.startTime;
+                    endTime = listCdnDomainTopPathRequest.endTime;
+                    domainName = listCdnDomainTopPathRequest.domainName;
+                    statType = listCdnDomainTopPathRequest.statType;
+                    serviceArea = listCdnDomainTopPathRequest.serviceArea;
+                    userDomainId = listCdnDomainTopPathRequest.userDomainId;
+                } else {
+                    startTime = listCdnDomainTopPathRequest['start_time'];
+                    endTime = listCdnDomainTopPathRequest['end_time'];
+                    domainName = listCdnDomainTopPathRequest['domain_name'];
+                    statType = listCdnDomainTopPathRequest['stat_type'];
+                    serviceArea = listCdnDomainTopPathRequest['service_area'];
+                    userDomainId = listCdnDomainTopPathRequest['user_domain_id'];
+                }
+            }
+
+        
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listCdnDomainTopPath.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listCdnDomainTopPath.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (domainName === null || domainName === undefined) {
+                throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling listCdnDomainTopPath.');
+            }
+            if (domainName !== null && domainName !== undefined) {
+                localVarQueryParameter['domain_name'] = domainName;
+            }
+            if (statType === null || statType === undefined) {
+                throw new RequiredError('statType','Required parameter statType was null or undefined when calling listCdnDomainTopPath.');
+            }
+            if (statType !== null && statType !== undefined) {
+                localVarQueryParameter['stat_type'] = statType;
+            }
+            if (serviceArea !== null && serviceArea !== undefined) {
+                localVarQueryParameter['service_area'] = serviceArea;
+            }
+            if (userDomainId !== null && userDomainId !== undefined) {
+                localVarQueryParameter['user_domain_id'] = userDomainId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3209,6 +3889,61 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询加速域名的基础信息，包含cname状态、加速域名是否支持复制配置。
+         * - 单租户调用频率：5次/s。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDomainConfigs(listDomainConfigsRequest?: ListDomainConfigsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/configuration/domains",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let item;
+            
+            let domainNames;
+            
+            let enterpriseProjectId;
+
+            if (listDomainConfigsRequest !== null && listDomainConfigsRequest !== undefined) {
+                if (listDomainConfigsRequest instanceof ListDomainConfigsRequest) {
+                    item = listDomainConfigsRequest.item;
+                    domainNames = listDomainConfigsRequest.domainNames;
+                    enterpriseProjectId = listDomainConfigsRequest.enterpriseProjectId;
+                } else {
+                    item = listDomainConfigsRequest['item'];
+                    domainNames = listDomainConfigsRequest['domain_names'];
+                    enterpriseProjectId = listDomainConfigsRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (item === null || item === undefined) {
+                throw new RequiredError('item','Required parameter item was null or undefined when calling listDomainConfigs.');
+            }
+            if (item !== null && item !== undefined) {
+                localVarQueryParameter['item'] = item;
+            }
+            if (domainNames !== null && domainNames !== undefined) {
+                localVarQueryParameter['domain_names'] = domainNames;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询加速域名。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3302,6 +4037,70 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 分页查询统计数据异步导出任务，按修改时间降序排列，当任务状态为success时，返回参数中会包含download_link
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listExportTasks(listExportTasksRequest?: ListExportTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/cdn/statistics/export-tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let taskId;
+            
+            let taskName;
+            
+            let limit;
+            
+            let offset;
+
+            if (listExportTasksRequest !== null && listExportTasksRequest !== undefined) {
+                if (listExportTasksRequest instanceof ListExportTasksRequest) {
+                    taskId = listExportTasksRequest.taskId;
+                    taskName = listExportTasksRequest.taskName;
+                    limit = listExportTasksRequest.limit;
+                    offset = listExportTasksRequest.offset;
+                } else {
+                    taskId = listExportTasksRequest['task_id'];
+                    taskName = listExportTasksRequest['task_name'];
+                    limit = listExportTasksRequest['limit'];
+                    offset = listExportTasksRequest['offset'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+                throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling listExportTasks.');
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
+            }
+            if (taskName === null || taskName === undefined) {
+                throw new RequiredError('taskName','Required parameter taskName was null or undefined when calling listExportTasks.');
+            }
+            if (taskName !== null && taskName !== undefined) {
+                localVarQueryParameter['task_name'] = taskName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询规则引擎列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3376,6 +4175,61 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询加速域名的特殊配置，当前支持查询备忘录信息。
+         * - 单租户调用频率：15次/s。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSpecialConfiguration(listSpecialConfigurationRequest?: ListSpecialConfigurationRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/configuration/special-configurations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domainName;
+            
+            let pageSize;
+            
+            let pageNumber;
+
+            if (listSpecialConfigurationRequest !== null && listSpecialConfigurationRequest !== undefined) {
+                if (listSpecialConfigurationRequest instanceof ListSpecialConfigurationRequest) {
+                    domainName = listSpecialConfigurationRequest.domainName;
+                    pageSize = listSpecialConfigurationRequest.pageSize;
+                    pageNumber = listSpecialConfigurationRequest.pageNumber;
+                } else {
+                    domainName = listSpecialConfigurationRequest['domain_name'];
+                    pageSize = listSpecialConfigurationRequest['page_size'];
+                    pageNumber = listSpecialConfigurationRequest['page_number'];
+                }
+            }
+
+        
+            if (domainName === null || domainName === undefined) {
+                throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling listSpecialConfiguration.');
+            }
+            if (domainName !== null && domainName !== undefined) {
+                localVarQueryParameter['domain_name'] = domainName;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (pageNumber !== null && pageNumber !== undefined) {
+                localVarQueryParameter['page_number'] = pageNumber;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3824,6 +4678,107 @@ export const ParamCreater = function () {
             }
             if (serviceArea !== null && serviceArea !== undefined) {
                 localVarQueryParameter['service_area'] = serviceArea;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * CDN查询域名的国家统计数据
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDomainCountryStat(showDomainCountryStatRequest?: ShowDomainCountryStatRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/statistics/domain-country-stats",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let action;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let domainName;
+            
+            let statType;
+            
+            let country;
+            
+            let groupBy;
+            
+            let userDomainId;
+
+            if (showDomainCountryStatRequest !== null && showDomainCountryStatRequest !== undefined) {
+                if (showDomainCountryStatRequest instanceof ShowDomainCountryStatRequest) {
+                    action = showDomainCountryStatRequest.action;
+                    startTime = showDomainCountryStatRequest.startTime;
+                    endTime = showDomainCountryStatRequest.endTime;
+                    domainName = showDomainCountryStatRequest.domainName;
+                    statType = showDomainCountryStatRequest.statType;
+                    country = showDomainCountryStatRequest.country;
+                    groupBy = showDomainCountryStatRequest.groupBy;
+                    userDomainId = showDomainCountryStatRequest.userDomainId;
+                } else {
+                    action = showDomainCountryStatRequest['action'];
+                    startTime = showDomainCountryStatRequest['start_time'];
+                    endTime = showDomainCountryStatRequest['end_time'];
+                    domainName = showDomainCountryStatRequest['domain_name'];
+                    statType = showDomainCountryStatRequest['stat_type'];
+                    country = showDomainCountryStatRequest['country'];
+                    groupBy = showDomainCountryStatRequest['group_by'];
+                    userDomainId = showDomainCountryStatRequest['user_domain_id'];
+                }
+            }
+
+        
+            if (action === null || action === undefined) {
+                throw new RequiredError('action','Required parameter action was null or undefined when calling showDomainCountryStat.');
+            }
+            if (action !== null && action !== undefined) {
+                localVarQueryParameter['action'] = action;
+            }
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling showDomainCountryStat.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling showDomainCountryStat.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (domainName === null || domainName === undefined) {
+                throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling showDomainCountryStat.');
+            }
+            if (domainName !== null && domainName !== undefined) {
+                localVarQueryParameter['domain_name'] = domainName;
+            }
+            if (statType === null || statType === undefined) {
+                throw new RequiredError('statType','Required parameter statType was null or undefined when calling showDomainCountryStat.');
+            }
+            if (statType !== null && statType !== undefined) {
+                localVarQueryParameter['stat_type'] = statType;
+            }
+            if (country !== null && country !== undefined) {
+                localVarQueryParameter['country'] = country;
+            }
+            if (groupBy !== null && groupBy !== undefined) {
+                localVarQueryParameter['group_by'] = groupBy;
+            }
+            if (userDomainId !== null && userDomainId !== undefined) {
+                localVarQueryParameter['user_domain_id'] = userDomainId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4571,6 +5526,27 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询CDN特殊用户接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSpecialUser() {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/statistics/special-user",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 配置类型：目前支持，
          * - 0：热点统计。
          * - 1：ces上报。
@@ -4590,12 +5566,20 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let configType;
+            
+            let limit;
+            
+            let offset;
 
             if (showStatsConfigsRequest !== null && showStatsConfigsRequest !== undefined) {
                 if (showStatsConfigsRequest instanceof ShowStatsConfigsRequest) {
                     configType = showStatsConfigsRequest.configType;
+                    limit = showStatsConfigsRequest.limit;
+                    offset = showStatsConfigsRequest.offset;
                 } else {
                     configType = showStatsConfigsRequest['config_type'];
+                    limit = showStatsConfigsRequest['limit'];
+                    offset = showStatsConfigsRequest['offset'];
                 }
             }
 
@@ -4605,6 +5589,12 @@ export const ParamCreater = function () {
             }
             if (configType !== null && configType !== undefined) {
                 localVarQueryParameter['config_type'] = configType;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
             options.queryParams = localVarQueryParameter;

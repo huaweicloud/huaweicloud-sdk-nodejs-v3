@@ -4,6 +4,8 @@ export class ListConnectionsRequest {
     private 'instance_id'?: string;
     public id?: string;
     public name?: string;
+    public limit?: number;
+    public marker?: string;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -23,6 +25,14 @@ export class ListConnectionsRequest {
     }
     public withName(name: string): ListConnectionsRequest {
         this['name'] = name;
+        return this;
+    }
+    public withLimit(limit: number): ListConnectionsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListConnectionsRequest {
+        this['marker'] = marker;
         return this;
     }
 }

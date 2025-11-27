@@ -31,6 +31,7 @@ import { BigKeysInfoResponseBody } from './model/BigKeysInfoResponseBody';
 import { CancelInstanceScheduleWindowRequest } from './model/CancelInstanceScheduleWindowRequest';
 import { CancelInstanceScheduleWindowResponse } from './model/CancelInstanceScheduleWindowResponse';
 import { CassandraSlowLogDetail } from './model/CassandraSlowLogDetail';
+import { CertInfo } from './model/CertInfo';
 import { ChargeInfoOption } from './model/ChargeInfoOption';
 import { ChargeInfoResult } from './model/ChargeInfoResult';
 import { CheckDisasterRecoveryOperationRequest } from './model/CheckDisasterRecoveryOperationRequest';
@@ -228,6 +229,8 @@ import { ListRestoreTimeRequest } from './model/ListRestoreTimeRequest';
 import { ListRestoreTimeResponse } from './model/ListRestoreTimeResponse';
 import { ListSlowLogsRequest } from './model/ListSlowLogsRequest';
 import { ListSlowLogsResponse } from './model/ListSlowLogsResponse';
+import { ListSslCertDownloadAddressesRequest } from './model/ListSslCertDownloadAddressesRequest';
+import { ListSslCertDownloadAddressesResponse } from './model/ListSslCertDownloadAddressesResponse';
 import { LogInstanceInfo } from './model/LogInstanceInfo';
 import { MatchOption } from './model/MatchOption';
 import { ModifyAutoNodeExpansionPolicyRequest } from './model/ModifyAutoNodeExpansionPolicyRequest';
@@ -1926,6 +1929,25 @@ export class GaussDBforNoSQLClient {
      */
     public listSlowLogs(listSlowLogsRequest?: ListSlowLogsRequest): Promise<ListSlowLogsResponse> {
         const options = ParamCreater().listSlowLogs(listSlowLogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取SSL证书下载地址。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取SSL证书下载地址
+     * @param {string} instanceId **参数解释：** 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSslCertDownloadAddresses(listSslCertDownloadAddressesRequest?: ListSslCertDownloadAddressesRequest): Promise<ListSslCertDownloadAddressesResponse> {
+        const options = ParamCreater().listSslCertDownloadAddresses(listSslCertDownloadAddressesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6960,6 +6982,43 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取SSL证书下载地址。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSslCertDownloadAddresses(listSslCertDownloadAddressesRequest?: ListSslCertDownloadAddressesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/ssl-cert/download-link",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (listSslCertDownloadAddressesRequest !== null && listSslCertDownloadAddressesRequest !== undefined) {
+                if (listSslCertDownloadAddressesRequest instanceof ListSslCertDownloadAddressesRequest) {
+                    instanceId = listSslCertDownloadAddressesRequest.instanceId;
+                } else {
+                    instanceId = listSslCertDownloadAddressesRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listSslCertDownloadAddresses.');
+            }
+
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

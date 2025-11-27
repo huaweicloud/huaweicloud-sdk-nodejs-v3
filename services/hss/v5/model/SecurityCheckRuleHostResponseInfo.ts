@@ -14,6 +14,7 @@ export class SecurityCheckRuleHostResponseInfo {
     public description?: string;
     private 'host_type'?: string;
     private 'enable_fix'?: number;
+    private 'enable_verify'?: boolean;
     private 'enable_click'?: boolean;
     private 'cancel_ignore_enable_click'?: boolean;
     private 'result_type'?: string;
@@ -144,6 +145,16 @@ export class SecurityCheckRuleHostResponseInfo {
     }
     public get enableFix(): number | undefined {
         return this['enable_fix'];
+    }
+    public withEnableVerify(enableVerify: boolean): SecurityCheckRuleHostResponseInfo {
+        this['enable_verify'] = enableVerify;
+        return this;
+    }
+    public set enableVerify(enableVerify: boolean  | undefined) {
+        this['enable_verify'] = enableVerify;
+    }
+    public get enableVerify(): boolean | undefined {
+        return this['enable_verify'];
     }
     public withEnableClick(enableClick: boolean): SecurityCheckRuleHostResponseInfo {
         this['enable_click'] = enableClick;

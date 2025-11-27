@@ -11,6 +11,8 @@ export class AvailableZoneV2 {
     private 'az_group_id'?: string;
     private 'az_type'?: string;
     private 'az_tags'?: AvailableTag;
+    private 'az_category'?: number;
+    private 'charge_policy'?: AvailableZoneV2ChargePolicyEnum | string;
     public constructor() { 
     }
     public withId(id: string): AvailableZoneV2 {
@@ -91,4 +93,33 @@ export class AvailableZoneV2 {
     public get azTags(): AvailableTag | undefined {
         return this['az_tags'];
     }
+    public withAzCategory(azCategory: number): AvailableZoneV2 {
+        this['az_category'] = azCategory;
+        return this;
+    }
+    public set azCategory(azCategory: number  | undefined) {
+        this['az_category'] = azCategory;
+    }
+    public get azCategory(): number | undefined {
+        return this['az_category'];
+    }
+    public withChargePolicy(chargePolicy: AvailableZoneV2ChargePolicyEnum | string): AvailableZoneV2 {
+        this['charge_policy'] = chargePolicy;
+        return this;
+    }
+    public set chargePolicy(chargePolicy: AvailableZoneV2ChargePolicyEnum | string  | undefined) {
+        this['charge_policy'] = chargePolicy;
+    }
+    public get chargePolicy(): AvailableZoneV2ChargePolicyEnum | string | undefined {
+        return this['charge_policy'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AvailableZoneV2ChargePolicyEnum {
+    CHARGE = 'charge',
+    NOTCHARGE = 'notCharge'
 }

@@ -1,21 +1,15 @@
 import { QuotaDetailBackupGigabytes } from './QuotaDetailBackupGigabytes';
 import { QuotaDetailBackups } from './QuotaDetailBackups';
 import { QuotaDetailGigabytes } from './QuotaDetailGigabytes';
-import { QuotaDetailGigabytesESSD } from './QuotaDetailGigabytesESSD';
-import { QuotaDetailGigabytesGPSSD } from './QuotaDetailGigabytesGPSSD';
 import { QuotaDetailGigabytesSAS } from './QuotaDetailGigabytesSAS';
 import { QuotaDetailGigabytesSATA } from './QuotaDetailGigabytesSATA';
 import { QuotaDetailGigabytesSSD } from './QuotaDetailGigabytesSSD';
 import { QuotaDetailPerVolumeGigabytes } from './QuotaDetailPerVolumeGigabytes';
 import { QuotaDetailSnapshots } from './QuotaDetailSnapshots';
-import { QuotaDetailSnapshotsESSD } from './QuotaDetailSnapshotsESSD';
-import { QuotaDetailSnapshotsGPSSD } from './QuotaDetailSnapshotsGPSSD';
 import { QuotaDetailSnapshotsSAS } from './QuotaDetailSnapshotsSAS';
 import { QuotaDetailSnapshotsSATA } from './QuotaDetailSnapshotsSATA';
 import { QuotaDetailSnapshotsSSD } from './QuotaDetailSnapshotsSSD';
 import { QuotaDetailVolumes } from './QuotaDetailVolumes';
-import { QuotaDetailVolumesESSD } from './QuotaDetailVolumesESSD';
-import { QuotaDetailVolumesGPSSD } from './QuotaDetailVolumesGPSSD';
 import { QuotaDetailVolumesSAS } from './QuotaDetailVolumesSAS';
 import { QuotaDetailVolumesSATA } from './QuotaDetailVolumesSATA';
 import { QuotaDetailVolumesSSD } from './QuotaDetailVolumesSSD';
@@ -37,12 +31,6 @@ export class QuotaList {
     private 'gigabytes_SSD'?: QuotaDetailGigabytesSSD;
     private 'snapshots_SSD'?: QuotaDetailSnapshotsSSD;
     private 'volumes_SSD'?: QuotaDetailVolumesSSD;
-    private 'gigabytes_ESSD'?: QuotaDetailGigabytesESSD;
-    private 'snapshots_ESSD'?: QuotaDetailSnapshotsESSD;
-    private 'volumes_ESSD'?: QuotaDetailVolumesESSD;
-    private 'gigabytes_GPSSD'?: QuotaDetailGigabytesGPSSD;
-    private 'snapshots_GPSSD'?: QuotaDetailSnapshotsGPSSD;
-    private 'volumes_GPSSD'?: QuotaDetailVolumesGPSSD;
     private 'per_volume_gigabytes'?: QuotaDetailPerVolumeGigabytes;
     public constructor(backupGigabytes?: QuotaDetailBackupGigabytes, backups?: QuotaDetailBackups, gigabytes?: QuotaDetailGigabytes, id?: string, snapshots?: QuotaDetailSnapshots, volumes?: QuotaDetailVolumes) { 
         this['backup_gigabytes'] = backupGigabytes;
@@ -171,66 +159,6 @@ export class QuotaList {
     }
     public get volumesSSD(): QuotaDetailVolumesSSD | undefined {
         return this['volumes_SSD'];
-    }
-    public withGigabytesESSD(gigabytesESSD: QuotaDetailGigabytesESSD): QuotaList {
-        this['gigabytes_ESSD'] = gigabytesESSD;
-        return this;
-    }
-    public set gigabytesESSD(gigabytesESSD: QuotaDetailGigabytesESSD  | undefined) {
-        this['gigabytes_ESSD'] = gigabytesESSD;
-    }
-    public get gigabytesESSD(): QuotaDetailGigabytesESSD | undefined {
-        return this['gigabytes_ESSD'];
-    }
-    public withSnapshotsESSD(snapshotsESSD: QuotaDetailSnapshotsESSD): QuotaList {
-        this['snapshots_ESSD'] = snapshotsESSD;
-        return this;
-    }
-    public set snapshotsESSD(snapshotsESSD: QuotaDetailSnapshotsESSD  | undefined) {
-        this['snapshots_ESSD'] = snapshotsESSD;
-    }
-    public get snapshotsESSD(): QuotaDetailSnapshotsESSD | undefined {
-        return this['snapshots_ESSD'];
-    }
-    public withVolumesESSD(volumesESSD: QuotaDetailVolumesESSD): QuotaList {
-        this['volumes_ESSD'] = volumesESSD;
-        return this;
-    }
-    public set volumesESSD(volumesESSD: QuotaDetailVolumesESSD  | undefined) {
-        this['volumes_ESSD'] = volumesESSD;
-    }
-    public get volumesESSD(): QuotaDetailVolumesESSD | undefined {
-        return this['volumes_ESSD'];
-    }
-    public withGigabytesGPSSD(gigabytesGPSSD: QuotaDetailGigabytesGPSSD): QuotaList {
-        this['gigabytes_GPSSD'] = gigabytesGPSSD;
-        return this;
-    }
-    public set gigabytesGPSSD(gigabytesGPSSD: QuotaDetailGigabytesGPSSD  | undefined) {
-        this['gigabytes_GPSSD'] = gigabytesGPSSD;
-    }
-    public get gigabytesGPSSD(): QuotaDetailGigabytesGPSSD | undefined {
-        return this['gigabytes_GPSSD'];
-    }
-    public withSnapshotsGPSSD(snapshotsGPSSD: QuotaDetailSnapshotsGPSSD): QuotaList {
-        this['snapshots_GPSSD'] = snapshotsGPSSD;
-        return this;
-    }
-    public set snapshotsGPSSD(snapshotsGPSSD: QuotaDetailSnapshotsGPSSD  | undefined) {
-        this['snapshots_GPSSD'] = snapshotsGPSSD;
-    }
-    public get snapshotsGPSSD(): QuotaDetailSnapshotsGPSSD | undefined {
-        return this['snapshots_GPSSD'];
-    }
-    public withVolumesGPSSD(volumesGPSSD: QuotaDetailVolumesGPSSD): QuotaList {
-        this['volumes_GPSSD'] = volumesGPSSD;
-        return this;
-    }
-    public set volumesGPSSD(volumesGPSSD: QuotaDetailVolumesGPSSD  | undefined) {
-        this['volumes_GPSSD'] = volumesGPSSD;
-    }
-    public get volumesGPSSD(): QuotaDetailVolumesGPSSD | undefined {
-        return this['volumes_GPSSD'];
     }
     public withPerVolumeGigabytes(perVolumeGigabytes: QuotaDetailPerVolumeGigabytes): QuotaList {
         this['per_volume_gigabytes'] = perVolumeGigabytes;

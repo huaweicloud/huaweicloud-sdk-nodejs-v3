@@ -5,12 +5,12 @@ export class Resource {
     private 'resource_detail'?: object;
     private 'resource_id'?: string;
     private 'resource_name'?: string;
-    private 'resource_tag'?: Array<ResourceTag>;
-    public constructor(resourceDetail?: object, resourceId?: string, resourceName?: string, resourceTag?: Array<ResourceTag>) { 
+    public tags?: Array<ResourceTag>;
+    public constructor(resourceDetail?: object, resourceId?: string, resourceName?: string, tags?: Array<ResourceTag>) { 
         this['resource_detail'] = resourceDetail;
         this['resource_id'] = resourceId;
         this['resource_name'] = resourceName;
-        this['resource_tag'] = resourceTag;
+        this['tags'] = tags;
     }
     public withResourceDetail(resourceDetail: object): Resource {
         this['resource_detail'] = resourceDetail;
@@ -42,14 +42,8 @@ export class Resource {
     public get resourceName(): string | undefined {
         return this['resource_name'];
     }
-    public withResourceTag(resourceTag: Array<ResourceTag>): Resource {
-        this['resource_tag'] = resourceTag;
+    public withTags(tags: Array<ResourceTag>): Resource {
+        this['tags'] = tags;
         return this;
-    }
-    public set resourceTag(resourceTag: Array<ResourceTag>  | undefined) {
-        this['resource_tag'] = resourceTag;
-    }
-    public get resourceTag(): Array<ResourceTag> | undefined {
-        return this['resource_tag'];
     }
 }

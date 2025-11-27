@@ -2,6 +2,8 @@
 
 export class ListResourceJobsRequest {
     private 'resource_id'?: string;
+    public limit?: number;
+    public marker?: string;
     public constructor(resourceId?: string) { 
         this['resource_id'] = resourceId;
     }
@@ -14,5 +16,13 @@ export class ListResourceJobsRequest {
     }
     public get resourceId(): string | undefined {
         return this['resource_id'];
+    }
+    public withLimit(limit: number): ListResourceJobsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListResourceJobsRequest {
+        this['marker'] = marker;
+        return this;
     }
 }

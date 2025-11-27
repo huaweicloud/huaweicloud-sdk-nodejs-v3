@@ -59,6 +59,7 @@ import { BatchAddRelationsByOneCaseRequest } from './model/BatchAddRelationsByOn
 import { BatchAddRelationsByOneCaseResponse } from './model/BatchAddRelationsByOneCaseResponse';
 import { BatchAddResourcesForIteratorRequest } from './model/BatchAddResourcesForIteratorRequest';
 import { BatchAddResourcesForIteratorResponse } from './model/BatchAddResourcesForIteratorResponse';
+import { BatchCreateUpdateApiTestCaseVo } from './model/BatchCreateUpdateApiTestCaseVo';
 import { BatchDeleteFacotrByIdsRequest } from './model/BatchDeleteFacotrByIdsRequest';
 import { BatchDeleteFacotrByIdsResponse } from './model/BatchDeleteFacotrByIdsResponse';
 import { BatchDeleteTestCaseRequest } from './model/BatchDeleteTestCaseRequest';
@@ -72,6 +73,8 @@ import { BatchRemoveTestCasesFromIteratorRequest } from './model/BatchRemoveTest
 import { BatchRemoveTestCasesFromIteratorResponse } from './model/BatchRemoveTestCasesFromIteratorResponse';
 import { BatchShowTestCaseRequest } from './model/BatchShowTestCaseRequest';
 import { BatchShowTestCaseResponse } from './model/BatchShowTestCaseResponse';
+import { BatchUpdateTestCasesInDiffVersionRequest } from './model/BatchUpdateTestCasesInDiffVersionRequest';
+import { BatchUpdateTestCasesInDiffVersionResponse } from './model/BatchUpdateTestCasesInDiffVersionResponse';
 import { BatchUpdateVersionTestCasesRequest } from './model/BatchUpdateVersionTestCasesRequest';
 import { BatchUpdateVersionTestCasesResponse } from './model/BatchUpdateVersionTestCasesResponse';
 import { BranchVersionInfo } from './model/BranchVersionInfo';
@@ -399,6 +402,7 @@ import { ResourcePoolVo } from './model/ResourcePoolVo';
 import { ResultStepVo } from './model/ResultStepVo';
 import { ResultValueAttachmentFileVo } from './model/ResultValueAttachmentFileVo';
 import { ResultValueBackgroundInfoVo } from './model/ResultValueBackgroundInfoVo';
+import { ResultValueBatchCreateUpdateApiTestCaseVo } from './model/ResultValueBatchCreateUpdateApiTestCaseVo';
 import { ResultValueBoolean } from './model/ResultValueBoolean';
 import { ResultValueCustomReportListVo } from './model/ResultValueCustomReportListVo';
 import { ResultValueExecuteTaskVo } from './model/ResultValueExecuteTaskVo';
@@ -872,6 +876,25 @@ export class CloudtestClient {
      */
     public batchRemoveTestCasesFromIterator(batchRemoveTestCasesFromIteratorRequest?: BatchRemoveTestCasesFromIteratorRequest): Promise<BatchRemoveTestCasesFromIteratorResponse> {
         const options = ParamCreater().batchRemoveTestCasesFromIterator(batchRemoveTestCasesFromIteratorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 在不同分支或者迭代下批量修改用例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 在不同分支或者迭代下批量修改用例
+     * @param {Array<TestCaseInfo>} testCaseInfo 批量更新用例请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateTestCasesInDiffVersion(batchUpdateTestCasesInDiffVersionRequest?: BatchUpdateTestCasesInDiffVersionRequest): Promise<BatchUpdateTestCasesInDiffVersionResponse> {
+        const options = ParamCreater().batchUpdateTestCasesInDiffVersion(batchUpdateTestCasesInDiffVersionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4624,6 +4647,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'iterator_id': iteratorId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 在不同分支或者迭代下批量修改用例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdateTestCasesInDiffVersion(batchUpdateTestCasesInDiffVersionRequest?: BatchUpdateTestCasesInDiffVersionRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/batch/update/testcases",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchUpdateTestCasesInDiffVersionRequest !== null && batchUpdateTestCasesInDiffVersionRequest !== undefined) {
+                if (batchUpdateTestCasesInDiffVersionRequest instanceof BatchUpdateTestCasesInDiffVersionRequest) {
+                    body = batchUpdateTestCasesInDiffVersionRequest.body
+                } else {
+                    body = batchUpdateTestCasesInDiffVersionRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

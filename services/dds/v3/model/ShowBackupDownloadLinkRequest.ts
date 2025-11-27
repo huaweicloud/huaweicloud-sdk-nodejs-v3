@@ -1,22 +1,11 @@
 
 
 export class ShowBackupDownloadLinkRequest {
-    private 'X-Language'?: string;
     private 'instance_id'?: string;
     private 'backup_id'?: string;
     public constructor(instanceId?: string, backupId?: string) { 
         this['instance_id'] = instanceId;
         this['backup_id'] = backupId;
-    }
-    public withXLanguage(xLanguage: string): ShowBackupDownloadLinkRequest {
-        this['X-Language'] = xLanguage;
-        return this;
-    }
-    public set xLanguage(xLanguage: string  | undefined) {
-        this['X-Language'] = xLanguage;
-    }
-    public get xLanguage(): string | undefined {
-        return this['X-Language'];
     }
     public withInstanceId(instanceId: string): ShowBackupDownloadLinkRequest {
         this['instance_id'] = instanceId;

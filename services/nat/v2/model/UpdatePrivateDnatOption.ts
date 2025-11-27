@@ -3,6 +3,7 @@
 export class UpdatePrivateDnatOption {
     public description?: string;
     private 'transit_ip_id'?: string;
+    private 'transit_ip_address'?: string;
     private 'network_interface_id'?: string;
     private 'private_ip_address'?: string;
     public protocol?: UpdatePrivateDnatOptionProtocolEnum | string;
@@ -23,6 +24,16 @@ export class UpdatePrivateDnatOption {
     }
     public get transitIpId(): string | undefined {
         return this['transit_ip_id'];
+    }
+    public withTransitIpAddress(transitIpAddress: string): UpdatePrivateDnatOption {
+        this['transit_ip_address'] = transitIpAddress;
+        return this;
+    }
+    public set transitIpAddress(transitIpAddress: string  | undefined) {
+        this['transit_ip_address'] = transitIpAddress;
+    }
+    public get transitIpAddress(): string | undefined {
+        return this['transit_ip_address'];
     }
     public withNetworkInterfaceId(networkInterfaceId: string): UpdatePrivateDnatOption {
         this['network_interface_id'] = networkInterfaceId;

@@ -1,9 +1,9 @@
-import { ExecuteDocumentRequsetBody } from './ExecuteDocumentRequsetBody';
+import { ExecuteDocumentRequestBody } from './ExecuteDocumentRequestBody';
 
 
 export class ExecuteDocumentRequest {
     private 'document_id'?: string;
-    public body?: ExecuteDocumentRequsetBody;
+    public body?: ExecuteDocumentRequestBody;
     public constructor(documentId?: string) { 
         this['document_id'] = documentId;
     }
@@ -17,7 +17,7 @@ export class ExecuteDocumentRequest {
     public get documentId(): string | undefined {
         return this['document_id'];
     }
-    public withBody(body: ExecuteDocumentRequsetBody): ExecuteDocumentRequest {
+    public withBody(body: ExecuteDocumentRequestBody): ExecuteDocumentRequest {
         this['body'] = body;
         return this;
     }

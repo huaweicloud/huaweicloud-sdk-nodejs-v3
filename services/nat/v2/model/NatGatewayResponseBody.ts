@@ -9,7 +9,7 @@ export class NatGatewayResponseBody {
     public spec?: NatGatewayResponseBodySpecEnum | string;
     public status?: NatGatewayResponseBodyStatusEnum | string;
     private 'admin_state_up'?: boolean;
-    private 'created_at'?: string;
+    private 'created_at'?: Date;
     private 'router_id'?: string;
     private 'internal_network_id'?: string;
     private 'enterprise_project_id'?: string;
@@ -18,23 +18,9 @@ export class NatGatewayResponseBody {
     private 'billing_info'?: string;
     private 'dnat_rules_limit'?: number;
     private 'snat_rule_public_ip_limit'?: number;
-    public constructor(id?: string, tenantId?: string, name?: string, description?: string, spec?: string, status?: string, adminStateUp?: boolean, createdAt?: string, routerId?: string, internalNetworkId?: string, enterpriseProjectId?: string, sessionConf?: SessionConfiguration, ngportIpAddress?: string, billingInfo?: string, dnatRulesLimit?: number, snatRulePublicIpLimit?: number) { 
-        this['id'] = id;
-        this['tenant_id'] = tenantId;
-        this['name'] = name;
-        this['description'] = description;
-        this['spec'] = spec;
-        this['status'] = status;
-        this['admin_state_up'] = adminStateUp;
-        this['created_at'] = createdAt;
-        this['router_id'] = routerId;
-        this['internal_network_id'] = internalNetworkId;
-        this['enterprise_project_id'] = enterpriseProjectId;
-        this['session_conf'] = sessionConf;
-        this['ngport_ip_address'] = ngportIpAddress;
-        this['billing_info'] = billingInfo;
-        this['dnat_rules_limit'] = dnatRulesLimit;
-        this['snat_rule_public_ip_limit'] = snatRulePublicIpLimit;
+    private 'pps_max'?: number;
+    private 'bps_max'?: number;
+    public constructor() { 
     }
     public withId(id: string): NatGatewayResponseBody {
         this['id'] = id;
@@ -76,14 +62,14 @@ export class NatGatewayResponseBody {
     public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
-    public withCreatedAt(createdAt: string): NatGatewayResponseBody {
+    public withCreatedAt(createdAt: Date): NatGatewayResponseBody {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string  | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): string | undefined {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withRouterId(routerId: string): NatGatewayResponseBody {
@@ -166,6 +152,26 @@ export class NatGatewayResponseBody {
     public get snatRulePublicIpLimit(): number | undefined {
         return this['snat_rule_public_ip_limit'];
     }
+    public withPpsMax(ppsMax: number): NatGatewayResponseBody {
+        this['pps_max'] = ppsMax;
+        return this;
+    }
+    public set ppsMax(ppsMax: number  | undefined) {
+        this['pps_max'] = ppsMax;
+    }
+    public get ppsMax(): number | undefined {
+        return this['pps_max'];
+    }
+    public withBpsMax(bpsMax: number): NatGatewayResponseBody {
+        this['bps_max'] = bpsMax;
+        return this;
+    }
+    public set bpsMax(bpsMax: number  | undefined) {
+        this['bps_max'] = bpsMax;
+    }
+    public get bpsMax(): number | undefined {
+        return this['bps_max'];
+    }
 }
 
 /**
@@ -176,7 +182,8 @@ export enum NatGatewayResponseBodySpecEnum {
     E_1 = '1',
     E_2 = '2',
     E_3 = '3',
-    E_4 = '4'
+    E_4 = '4',
+    E_5 = '5'
 }
 /**
     * @export

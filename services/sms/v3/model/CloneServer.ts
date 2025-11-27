@@ -4,7 +4,7 @@ export class CloneServer {
     private 'vm_id'?: string;
     public name?: string;
     private 'clone_error'?: string;
-    private 'clone_state'?: string;
+    private 'clone_state'?: CloneServerCloneStateEnum | string;
     private 'error_msg'?: string;
     public constructor() { 
     }
@@ -32,14 +32,14 @@ export class CloneServer {
     public get cloneError(): string | undefined {
         return this['clone_error'];
     }
-    public withCloneState(cloneState: string): CloneServer {
+    public withCloneState(cloneState: CloneServerCloneStateEnum | string): CloneServer {
         this['clone_state'] = cloneState;
         return this;
     }
-    public set cloneState(cloneState: string  | undefined) {
+    public set cloneState(cloneState: CloneServerCloneStateEnum | string  | undefined) {
         this['clone_state'] = cloneState;
     }
-    public get cloneState(): string | undefined {
+    public get cloneState(): CloneServerCloneStateEnum | string | undefined {
         return this['clone_state'];
     }
     public withErrorMsg(errorMsg: string): CloneServer {
@@ -52,4 +52,17 @@ export class CloneServer {
     public get errorMsg(): string | undefined {
         return this['error_msg'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CloneServerCloneStateEnum {
+    NOT_READY = 'NOT_READY',
+    READY = 'READY',
+    PREPARING = 'PREPARING',
+    CREATING = 'CREATING',
+    ERROR = 'ERROR',
+    FINISHED = 'FINISHED'
 }

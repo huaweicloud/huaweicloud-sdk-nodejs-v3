@@ -7,7 +7,7 @@ export class PostTask {
     public type?: PostTaskTypeEnum | string;
     private 'start_target_server'?: boolean;
     private 'auto_start'?: boolean;
-    private 'os_type'?: string;
+    private 'os_type'?: PostTaskOsTypeEnum | string;
     private 'source_server'?: SourceServerByTask;
     private 'target_server'?: TargetServerByTask;
     private 'migration_ip'?: string;
@@ -65,14 +65,14 @@ export class PostTask {
     public get autoStart(): boolean | undefined {
         return this['auto_start'];
     }
-    public withOsType(osType: string): PostTask {
+    public withOsType(osType: PostTaskOsTypeEnum | string): PostTask {
         this['os_type'] = osType;
         return this;
     }
-    public set osType(osType: string  | undefined) {
+    public set osType(osType: PostTaskOsTypeEnum | string  | undefined) {
         this['os_type'] = osType;
     }
-    public get osType(): string | undefined {
+    public get osType(): PostTaskOsTypeEnum | string | undefined {
         return this['os_type'];
     }
     public withSourceServer(sourceServer: SourceServerByTask): PostTask {
@@ -252,4 +252,12 @@ export class PostTask {
 export enum PostTaskTypeEnum {
     MIGRATE_FILE = 'MIGRATE_FILE',
     MIGRATE_BLOCK = 'MIGRATE_BLOCK'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum PostTaskOsTypeEnum {
+    WINDOWS = 'WINDOWS',
+    LINUX = 'LINUX'
 }

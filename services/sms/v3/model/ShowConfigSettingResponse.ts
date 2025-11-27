@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowConfigSettingResponse extends SdkResponse {
     private 'task_id'?: string;
-    private 'migrate_type'?: string;
+    private 'migrate_type'?: ShowConfigSettingResponseMigrateTypeEnum | string;
     public configurations?: Array<ConfigBody>;
     public constructor() { 
         super();
@@ -19,18 +19,28 @@ export class ShowConfigSettingResponse extends SdkResponse {
     public get taskId(): string | undefined {
         return this['task_id'];
     }
-    public withMigrateType(migrateType: string): ShowConfigSettingResponse {
+    public withMigrateType(migrateType: ShowConfigSettingResponseMigrateTypeEnum | string): ShowConfigSettingResponse {
         this['migrate_type'] = migrateType;
         return this;
     }
-    public set migrateType(migrateType: string  | undefined) {
+    public set migrateType(migrateType: ShowConfigSettingResponseMigrateTypeEnum | string  | undefined) {
         this['migrate_type'] = migrateType;
     }
-    public get migrateType(): string | undefined {
+    public get migrateType(): ShowConfigSettingResponseMigrateTypeEnum | string | undefined {
         return this['migrate_type'];
     }
     public withConfigurations(configurations: Array<ConfigBody>): ShowConfigSettingResponse {
         this['configurations'] = configurations;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowConfigSettingResponseMigrateTypeEnum {
+    WINDOWS_MIGRATE_BLOCK = 'WINDOWS_MIGRATE_BLOCK',
+    LINUX_MIGRATE_FILE = 'LINUX_MIGRATE_FILE',
+    LINUX_MIGRATE_BLOCK = 'LINUX_MIGRATE_BLOCK'
 }

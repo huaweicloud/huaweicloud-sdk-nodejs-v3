@@ -133,6 +133,7 @@ import { CreateSecurityPolicyRequestBody } from './model/CreateSecurityPolicyReq
 import { CreateSecurityPolicyResponse } from './model/CreateSecurityPolicyResponse';
 import { CreateTrafficLimitConfig } from './model/CreateTrafficLimitConfig';
 import { CreateTrafficMirrorConfig } from './model/CreateTrafficMirrorConfig';
+import { CustomQosLimit } from './model/CustomQosLimit';
 import { DeleteCertificateRequest } from './model/DeleteCertificateRequest';
 import { DeleteCertificateResponse } from './model/DeleteCertificateResponse';
 import { DeleteHealthMonitorRequest } from './model/DeleteHealthMonitorRequest';
@@ -183,6 +184,8 @@ import { IpGroup } from './model/IpGroup';
 import { IpGroupIp } from './model/IpGroupIp';
 import { IpInfo } from './model/IpInfo';
 import { JobEntities } from './model/JobEntities';
+import { L4Limit } from './model/L4Limit';
+import { L7Limit } from './model/L7Limit';
 import { L7Policy } from './model/L7Policy';
 import { L7Rule } from './model/L7Rule';
 import { ListAllMembersRequest } from './model/ListAllMembersRequest';
@@ -632,7 +635,7 @@ export class ElbClient {
     }
 
     /**
-     * 创建用于弹性负载均衡器HTTPS/TLS/QUIC协议监听器的证书。支持关联云证书管理服务(CCM)的证书，或者使用自有证书。
+     * 创建用于弹性负载均衡器HTTPS/TLS/QUIC协议监听器的证书。支持关联云证书与管理服务(CCM)的证书，或者使用自有证书。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -900,7 +903,7 @@ export class ElbClient {
     }
 
     /**
-     * 删除ELB证书。若是删除source&#x3D;scm的证书，关联的云证书管理服务（CCM）中的证书不会被删除。若想删除已关联到监听器的证书，则需要先解除监听器和证书的绑定关系。
+     * 删除ELB证书。若是删除source&#x3D;scm的证书，关联的云证书与管理服务（CCM）中的证书不会被删除。若想删除已关联到监听器的证书，则需要先解除监听器和证书的绑定关系。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1287,10 +1290,10 @@ export class ElbClient {
      * @param {boolean} [adminStateUp] **参数解释**：证书的管理状态。  **约束限制**：不涉及  **取值范围**： - true：表示证书可用。 - false：表示证书不可用。  **默认取值**：不涉及
      * @param {Array<string>} [domain] **参数解释**：服务器证书所签域名。 支持多值查询，查询条件格式：domain&#x3D;xxx&amp;domain&#x3D;xxx。  **约束限制**：不涉及  **取值范围**：不涉及  **默认取值**：不涉及
      * @param {Array<string>} [type] **参数解释**：证书的类型。 支持多值查询，查询条件格式：type&#x3D;xxx&amp;type&#x3D;xxx。  **约束限制**：不涉及  **取值范围**： - server：服务器证书。 - client：CA证书。 - server_sm：服务器SM双证书。  **默认取值**：不涉及
-     * @param {Array<string>} [scmCertificateId] **参数解释**：云证书管理服务（CCM）中的证书ID。 支持多值查询，查询条件格式：scm_certificate_id&#x3D;xxx&amp;scm_certificate_id&#x3D;xxx。  **约束限制**：不涉及  **取值范围**：不涉及  **默认取值**：不涉及
+     * @param {Array<string>} [scmCertificateId] **参数解释**：云证书与管理服务（CCM）中的证书ID。 支持多值查询，查询条件格式：scm_certificate_id&#x3D;xxx&amp;scm_certificate_id&#x3D;xxx。  **约束限制**：不涉及  **取值范围**：不涉及  **默认取值**：不涉及
      * @param {Array<string>} [commonName] **参数解释**：证书的主域名。 支持多值查询，查询条件格式：common_name&#x3D;xxx&amp;common_name&#x3D;xxx。  **约束限制**：不涉及  **取值范围**：不涉及  **默认取值**：不涉及
      * @param {Array<string>} [fingerprint] **参数解释**：证书的指纹。 支持多值查询，查询条件格式：fingerprint&#x3D;xxx&amp;fingerprint&#x3D;xxx。  **约束限制**：不涉及  **取值范围**：不涉及  **默认取值**：不涉及
-     * @param {Array<string>} [source] **参数解释**：证书来源。 支持多值查询，查询条件格式：source&#x3D;xxx&amp;source&#x3D;xxx。  **约束限制**：不涉及  **取值范围**： - scm：表示关联云证书管理服务（CCM）中的证书。 - 空值：表示自有证书。  **默认取值**：不涉及
+     * @param {Array<string>} [source] **参数解释**：证书来源。 支持多值查询，查询条件格式：source&#x3D;xxx&amp;source&#x3D;xxx。  **约束限制**：不涉及  **取值范围**： - scm：表示关联云证书与管理服务（CCM）中的证书。 - 空值：表示自有证书。  **默认取值**：不涉及
      * @param {Array<string>} [protectionStatus] **参数解释**：修改保护状态。 支持多值查询，查询条件格式：protection_status&#x3D;xxx&amp;protection_status&#x3D;xxx。  **约束限制**：不涉及  **取值范围**： - nonProtection: 不保护 - consoleProtection: 控制台修改保护，即禁止通过控制台修改。  **默认取值**：不涉及
      * @param {Array<string>} [protectionReason] **参数解释**：设置修改保护的原因。 支持多值查询，查询条件格式：protection_reason&#x3D;xxx&amp;protection_reason&#x3D;xxx。  **约束限制**：不涉及  **取值范围**：不涉及  **默认取值**：不涉及
      * @param {Array<string>} [enterpriseProjectId] **参数解释**：资源所属的企业项目ID。 支持多值查询，查询条件格式： *enterprise_project_id&#x3D;xxx&amp;enterprise_project_id&#x3D;xxx*。  **约束限制**： - 如果enterprise_project_id不传值，默认查询所有企业项目下的资源，鉴权按照细粒度权限鉴权，必须在用户组下分配elb:certificates:list权限。 - 如果enterprise_project_id传值，鉴权按照企业项目权限鉴权，分为传入具体eps_id和all_granted_eps两种场景，前者查询指定eps_id的eps下的资源，后者查询的是所有有list权限的eps下的资源。  **取值范围**：不涉及  **默认取值**：不涉及
@@ -1373,7 +1376,7 @@ export class ElbClient {
      * @param {Array<number>} [maxRetriesDown] **参数解释**：健康检查连续失败多少次后，将后端服务器的健康检查状态由ONLINE判定为OFFLINE。 支持多值查询，查询条件格式：******max_retries_down&#x3D;xxx&amp;max_retries_down&#x3D;xxx******。  **约束限制**：不涉及  **取值范围**：1-10  **默认取值**：不涉及
      * @param {number} [timeout] **参数解释**：一次健康检查请求的超时时间。  **约束限制**：不涉及  **取值范围**：不涉及  **默认取值**：不涉及
      * @param {Array<string>} [type] **参数解释**：健康检查请求协议。 支持多值查询，查询条件格式：*****type&#x3D;xxx&amp;type&#x3D;xxx*****。  **约束限制**：不涉及  **取值范围**：TCP、UDP_CONNECT、HTTP、HTTPS、TLS和GRPC。  **默认取值**：不涉及
-     * @param {Array<string>} [expectedCodes] **参数解释**：期望响应状态码。 支持多值查询，查询条件格式：****expected_codes&#x3D;xxx&amp;expected_codes&#x3D;xxx****。  **约束限制**： - 单值：单个返回码，例如200。 - 列表：多个特定返回码，例如200，202。 - 区间：一个返回码区间，例如200-204。  **取值范围**：不涉及  **默认取值**：不涉及
+     * @param {Array<string>} [expectedCodes] **参数解释**：期望响应状态码。 支持多值查询，查询条件格式：****expected_codes&#x3D;xxx&amp;expected_codes&#x3D;xxx****。  **约束限制**：不涉及  **取值范围**： - 单值：单个返回码，例如200。 - 列表：多个特定返回码，例如200，202。 - 区间：一个返回码区间，例如200-204。  **默认取值**：不涉及
      * @param {Array<string>} [urlPath] **参数解释**：健康检查测试member健康时发送的http请求路径。 支持多值查询，查询条件格式：***url_path&#x3D;xxx&amp;url_path&#x3D;xxx***。  **约束限制**：不涉及  **取值范围**：不涉及  **默认取值**：不涉及
      * @param {Array<string>} [httpMethod] **参数解释**：HTTP请求方法。 支持多值查询，查询条件格式：**http_method&#x3D;xxx&amp;http_method&#x3D;xxx**。  **约束限制**：不涉及  **取值范围**：GET、HEAD、POST  **默认取值**：不涉及
      * @param {Array<string>} [enterpriseProjectId] **参数解释**：资源所属的企业项目ID。 支持多值查询，查询条件格式：*enterprise_project_id&#x3D;xxx&amp;enterprise_project_id&#x3D;xxx*。  **约束限制**： - 如果enterprise_project_id不传值，默认查询所有企业项目下的资源，鉴权按照细粒度权限鉴权，必须在用户组下分配elb:healthmonitors:list权限。 - 如果enterprise_project_id传值，鉴权按照企业项目权限鉴权，分为传入具体eps_id和all_granted_eps两种场景，前者查询指定eps_id的eps下的资源，后者查询的是所有有list权限的eps下的资源。  **取值范围**：不涉及  **默认取值**：不涉及  [不支持该字段，请勿使用。](tag:dt,hcso_dt)
@@ -3161,7 +3164,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建用于弹性负载均衡器HTTPS/TLS/QUIC协议监听器的证书。支持关联云证书管理服务(CCM)的证书，或者使用自有证书。
+         * 创建用于弹性负载均衡器HTTPS/TLS/QUIC协议监听器的证书。支持关联云证书与管理服务(CCM)的证书，或者使用自有证书。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3697,7 +3700,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除ELB证书。若是删除source&#x3D;scm的证书，关联的云证书管理服务（CCM）中的证书不会被删除。若想删除已关联到监听器的证书，则需要先解除监听器和证书的绑定关系。
+         * 删除ELB证书。若是删除source&#x3D;scm的证书，关联的云证书与管理服务（CCM）中的证书不会被删除。若想删除已关联到监听器的证书，则需要先解除监听器和证书的绑定关系。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

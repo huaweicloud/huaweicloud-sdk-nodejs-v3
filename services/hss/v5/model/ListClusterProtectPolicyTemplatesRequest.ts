@@ -9,9 +9,7 @@ export class ListClusterProtectPolicyTemplatesRequest {
     private 'target_kind'?: string;
     public tag?: string;
     public level?: string;
-    public constructor(limit?: number, offset?: number) { 
-        this['limit'] = limit;
-        this['offset'] = offset;
+    public constructor() { 
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListClusterProtectPolicyTemplatesRequest {
         this['enterprise_project_id'] = enterpriseProjectId;

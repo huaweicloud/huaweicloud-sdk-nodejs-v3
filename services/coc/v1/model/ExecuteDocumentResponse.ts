@@ -2,13 +2,13 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ExecuteDocumentResponse extends SdkResponse {
-    public body?: string;
+    public data?: string;
     private 'X-request-id'?: string;
     public constructor() { 
         super();
     }
-    public withBody(body: string): ExecuteDocumentResponse {
-        this['body'] = body;
+    public withData(data: string): ExecuteDocumentResponse {
+        this['data'] = data;
         return this;
     }
     public withXRequestId(xRequestId: string): ExecuteDocumentResponse {

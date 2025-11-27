@@ -23,7 +23,7 @@ export class ShowTaskResponse extends SdkResponse {
     private 'vm_template_id'?: string;
     private 'source_server'?: SourceServerResponse;
     private 'target_server'?: TaskTargetServer;
-    public state?: string;
+    public state?: ShowTaskResponseStateEnum | string;
     private 'estimate_complete_time'?: number;
     public connected?: boolean;
     private 'create_date'?: number;
@@ -186,7 +186,7 @@ export class ShowTaskResponse extends SdkResponse {
     public get targetServer(): TaskTargetServer | undefined {
         return this['target_server'];
     }
-    public withState(state: string): ShowTaskResponse {
+    public withState(state: ShowTaskResponseStateEnum | string): ShowTaskResponse {
         this['state'] = state;
         return this;
     }
@@ -440,4 +440,22 @@ export enum ShowTaskResponsePriorityEnum {
     NUMBER_0 = 0,
     NUMBER_1 = 1,
     NUMBER_2 = 2
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowTaskResponseStateEnum {
+    READY = 'READY',
+    RUNNING = 'RUNNING',
+    SYNCING = 'SYNCING',
+    MIGRATE_SUCCESS = 'MIGRATE_SUCCESS',
+    SYNC_SUCCESS = 'SYNC_SUCCESS',
+    MIGRATE_FAIL = 'MIGRATE_FAIL',
+    SYNC_FAIL = 'SYNC_FAIL',
+    ABORTING = 'ABORTING',
+    ABORT = 'ABORT',
+    SKIPPING = 'SKIPPING',
+    DELETING = 'DELETING',
+    RESETING = 'RESETING'
 }

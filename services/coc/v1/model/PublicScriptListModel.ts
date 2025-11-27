@@ -6,6 +6,7 @@ export class PublicScriptListModel {
     private 'script_uuid'?: string;
     public name?: string;
     public type?: PublicScriptListModelTypeEnum | string;
+    public status?: PublicScriptListModelStatusEnum | string;
     private 'gmt_created'?: number;
     public description?: string;
     public properties?: PublicScriptPropertiesModel;
@@ -40,6 +41,10 @@ export class PublicScriptListModel {
         this['type'] = type;
         return this;
     }
+    public withStatus(status: PublicScriptListModelStatusEnum | string): PublicScriptListModel {
+        this['status'] = status;
+        return this;
+    }
     public withGmtCreated(gmtCreated: number): PublicScriptListModel {
         this['gmt_created'] = gmtCreated;
         return this;
@@ -68,4 +73,13 @@ export enum PublicScriptListModelTypeEnum {
     SHELL = 'SHELL',
     PYTHON = 'PYTHON',
     BAT = 'BAT'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum PublicScriptListModelStatusEnum {
+    PENDING_APPROVE = 'PENDING_APPROVE',
+    APPROVED = 'APPROVED',
+    REJECTED = 'REJECTED'
 }

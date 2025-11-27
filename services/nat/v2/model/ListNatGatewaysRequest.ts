@@ -1,10 +1,11 @@
 
 
 export class ListNatGatewaysRequest {
+    private 'tenant_id'?: string;
     public id?: string;
     private 'enterprise_project_id'?: string;
     public description?: string;
-    private 'created_at'?: string;
+    private 'created_at'?: Date;
     public name?: string;
     public status?: Array<ListNatGatewaysRequestStatusEnum> | Array<string>;
     public spec?: Array<ListNatGatewaysRequestSpecEnum> | Array<string>;
@@ -13,7 +14,19 @@ export class ListNatGatewaysRequest {
     private 'router_id'?: string;
     public limit?: number;
     public marker?: string;
+    private 'sort_key'?: ListNatGatewaysRequestSortKeyEnum | string;
+    private 'sort_dir'?: ListNatGatewaysRequestSortDirEnum | string;
     public constructor() { 
+    }
+    public withTenantId(tenantId: string): ListNatGatewaysRequest {
+        this['tenant_id'] = tenantId;
+        return this;
+    }
+    public set tenantId(tenantId: string  | undefined) {
+        this['tenant_id'] = tenantId;
+    }
+    public get tenantId(): string | undefined {
+        return this['tenant_id'];
     }
     public withId(id: string): ListNatGatewaysRequest {
         this['id'] = id;
@@ -33,14 +46,14 @@ export class ListNatGatewaysRequest {
         this['description'] = description;
         return this;
     }
-    public withCreatedAt(createdAt: string): ListNatGatewaysRequest {
+    public withCreatedAt(createdAt: Date): ListNatGatewaysRequest {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string  | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): string | undefined {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withName(name: string): ListNatGatewaysRequest {
@@ -93,6 +106,26 @@ export class ListNatGatewaysRequest {
         this['marker'] = marker;
         return this;
     }
+    public withSortKey(sortKey: ListNatGatewaysRequestSortKeyEnum | string): ListNatGatewaysRequest {
+        this['sort_key'] = sortKey;
+        return this;
+    }
+    public set sortKey(sortKey: ListNatGatewaysRequestSortKeyEnum | string  | undefined) {
+        this['sort_key'] = sortKey;
+    }
+    public get sortKey(): ListNatGatewaysRequestSortKeyEnum | string | undefined {
+        return this['sort_key'];
+    }
+    public withSortDir(sortDir: ListNatGatewaysRequestSortDirEnum | string): ListNatGatewaysRequest {
+        this['sort_dir'] = sortDir;
+        return this;
+    }
+    public set sortDir(sortDir: ListNatGatewaysRequestSortDirEnum | string  | undefined) {
+        this['sort_dir'] = sortDir;
+    }
+    public get sortDir(): ListNatGatewaysRequestSortDirEnum | string | undefined {
+        return this['sort_dir'];
+    }
 }
 
 /**
@@ -114,5 +147,24 @@ export enum ListNatGatewaysRequestSpecEnum {
     E_1 = '1',
     E_2 = '2',
     E_3 = '3',
-    E_4 = '4'
+    E_4 = '4',
+    E_5 = '5'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListNatGatewaysRequestSortKeyEnum {
+    ID = 'id',
+    NAME = 'name',
+    STATUS = 'status',
+    CREATED_AT = 'created_at'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListNatGatewaysRequestSortDirEnum {
+    DESC = 'desc',
+    ASC = 'asc'
 }

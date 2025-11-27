@@ -39,5 +39,6 @@ export class AccelerateIp {
     * @enum {string}
     */
 export enum AccelerateIpIpTypeEnum {
-    IPV4 = 'IPV4'
+    IPV4 = 'IPV4',
+    IPV6 = 'IPV6'
 }

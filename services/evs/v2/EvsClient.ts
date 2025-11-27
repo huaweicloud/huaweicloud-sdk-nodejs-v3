@@ -49,6 +49,8 @@ import { CreateVolumeTransferOption } from './model/CreateVolumeTransferOption';
 import { DeleteSnapshotRequest } from './model/DeleteSnapshotRequest';
 import { DeleteSnapshotResponse } from './model/DeleteSnapshotResponse';
 import { DeleteTagsOption } from './model/DeleteTagsOption';
+import { DeleteVolumeInRecycleRequest } from './model/DeleteVolumeInRecycleRequest';
+import { DeleteVolumeInRecycleResponse } from './model/DeleteVolumeInRecycleResponse';
 import { DeleteVolumeRequest } from './model/DeleteVolumeRequest';
 import { DeleteVolumeResponse } from './model/DeleteVolumeResponse';
 import { Iops } from './model/Iops';
@@ -63,10 +65,13 @@ import { ListVolumeTagsResponse } from './model/ListVolumeTagsResponse';
 import { ListVolumesByTagsRequest } from './model/ListVolumesByTagsRequest';
 import { ListVolumesByTagsRequestBody } from './model/ListVolumesByTagsRequestBody';
 import { ListVolumesByTagsResponse } from './model/ListVolumesByTagsResponse';
+import { ListVolumesInRecycleRequest } from './model/ListVolumesInRecycleRequest';
+import { ListVolumesInRecycleResponse } from './model/ListVolumesInRecycleResponse';
 import { ListVolumesRequest } from './model/ListVolumesRequest';
 import { ListVolumesResponse } from './model/ListVolumesResponse';
 import { Match } from './model/Match';
 import { MediaTypes } from './model/MediaTypes';
+import { ModifyRecycleBinPolicyRequestBody } from './model/ModifyRecycleBinPolicyRequestBody';
 import { ModifyVolumeQoSOption } from './model/ModifyVolumeQoSOption';
 import { ModifyVolumeQoSRequest } from './model/ModifyVolumeQoSRequest';
 import { ModifyVolumeQoSRequestBody } from './model/ModifyVolumeQoSRequestBody';
@@ -77,25 +82,20 @@ import { QuotaDetail } from './model/QuotaDetail';
 import { QuotaDetailBackupGigabytes } from './model/QuotaDetailBackupGigabytes';
 import { QuotaDetailBackups } from './model/QuotaDetailBackups';
 import { QuotaDetailGigabytes } from './model/QuotaDetailGigabytes';
-import { QuotaDetailGigabytesESSD } from './model/QuotaDetailGigabytesESSD';
-import { QuotaDetailGigabytesGPSSD } from './model/QuotaDetailGigabytesGPSSD';
 import { QuotaDetailGigabytesSAS } from './model/QuotaDetailGigabytesSAS';
 import { QuotaDetailGigabytesSATA } from './model/QuotaDetailGigabytesSATA';
 import { QuotaDetailGigabytesSSD } from './model/QuotaDetailGigabytesSSD';
 import { QuotaDetailPerVolumeGigabytes } from './model/QuotaDetailPerVolumeGigabytes';
 import { QuotaDetailSnapshots } from './model/QuotaDetailSnapshots';
-import { QuotaDetailSnapshotsESSD } from './model/QuotaDetailSnapshotsESSD';
-import { QuotaDetailSnapshotsGPSSD } from './model/QuotaDetailSnapshotsGPSSD';
 import { QuotaDetailSnapshotsSAS } from './model/QuotaDetailSnapshotsSAS';
 import { QuotaDetailSnapshotsSATA } from './model/QuotaDetailSnapshotsSATA';
 import { QuotaDetailSnapshotsSSD } from './model/QuotaDetailSnapshotsSSD';
 import { QuotaDetailVolumes } from './model/QuotaDetailVolumes';
-import { QuotaDetailVolumesESSD } from './model/QuotaDetailVolumesESSD';
-import { QuotaDetailVolumesGPSSD } from './model/QuotaDetailVolumesGPSSD';
 import { QuotaDetailVolumesSAS } from './model/QuotaDetailVolumesSAS';
 import { QuotaDetailVolumesSATA } from './model/QuotaDetailVolumesSATA';
 import { QuotaDetailVolumesSSD } from './model/QuotaDetailVolumesSSD';
 import { QuotaList } from './model/QuotaList';
+import { RecycleBinVolume } from './model/RecycleBinVolume';
 import { ResizeVolumeRequest } from './model/ResizeVolumeRequest';
 import { ResizeVolumeRequestBody } from './model/ResizeVolumeRequestBody';
 import { ResizeVolumeResponse } from './model/ResizeVolumeResponse';
@@ -104,6 +104,8 @@ import { RetypeVolume } from './model/RetypeVolume';
 import { RetypeVolumeRequest } from './model/RetypeVolumeRequest';
 import { RetypeVolumeRequestBody } from './model/RetypeVolumeRequestBody';
 import { RetypeVolumeResponse } from './model/RetypeVolumeResponse';
+import { RevertVolumeInRecycleRequest } from './model/RevertVolumeInRecycleRequest';
+import { RevertVolumeInRecycleResponse } from './model/RevertVolumeInRecycleResponse';
 import { RollbackInfo } from './model/RollbackInfo';
 import { RollbackSnapshotOption } from './model/RollbackSnapshotOption';
 import { RollbackSnapshotRequest } from './model/RollbackSnapshotRequest';
@@ -111,10 +113,14 @@ import { RollbackSnapshotRequestBody } from './model/RollbackSnapshotRequestBody
 import { RollbackSnapshotResponse } from './model/RollbackSnapshotResponse';
 import { ShowJobRequest } from './model/ShowJobRequest';
 import { ShowJobResponse } from './model/ShowJobResponse';
+import { ShowRecyclePolicyRequest } from './model/ShowRecyclePolicyRequest';
+import { ShowRecyclePolicyResponse } from './model/ShowRecyclePolicyResponse';
 import { ShowSnapshotRequest } from './model/ShowSnapshotRequest';
 import { ShowSnapshotResponse } from './model/ShowSnapshotResponse';
 import { ShowVersionRequest } from './model/ShowVersionRequest';
 import { ShowVersionResponse } from './model/ShowVersionResponse';
+import { ShowVolumeInRecycleRequest } from './model/ShowVolumeInRecycleRequest';
+import { ShowVolumeInRecycleResponse } from './model/ShowVolumeInRecycleResponse';
 import { ShowVolumeRequest } from './model/ShowVolumeRequest';
 import { ShowVolumeResponse } from './model/ShowVolumeResponse';
 import { ShowVolumeTagsRequest } from './model/ShowVolumeTagsRequest';
@@ -131,6 +137,8 @@ import { UnsubscribePostpaidVolumeResponse } from './model/UnsubscribePostpaidVo
 import { UnsubscribeVolume } from './model/UnsubscribeVolume';
 import { UnsubscribeVolumeRequestBody } from './model/UnsubscribeVolumeRequestBody';
 import { UnsubscribeVolumeResponseBody } from './model/UnsubscribeVolumeResponseBody';
+import { UpdateRecyclePolicyRequest } from './model/UpdateRecyclePolicyRequest';
+import { UpdateRecyclePolicyResponse } from './model/UpdateRecyclePolicyResponse';
 import { UpdateSnapshotOption } from './model/UpdateSnapshotOption';
 import { UpdateSnapshotRequest } from './model/UpdateSnapshotRequest';
 import { UpdateSnapshotRequestBody } from './model/UpdateSnapshotRequestBody';
@@ -469,6 +477,25 @@ export class EvsClient {
     }
 
     /**
+     * 删除回收站中单个云硬盘。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除回收站中单个云硬盘
+     * @param {string} volumeId **参数解释** 云硬盘ID。 可通过[查询所有云硬盘详情](evs_04_2006.xml)获取云硬盘ID。 **约束限制** 不涉及。 **取值范围** 不涉及。 **默认取值** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteVolumeInRecycle(deleteVolumeInRecycleRequest?: DeleteVolumeInRecycleRequest): Promise<DeleteVolumeInRecycleResponse> {
+        const options = ParamCreater().deleteVolumeInRecycle(deleteVolumeInRecycleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询云硬盘快照详细列表信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -572,6 +599,30 @@ export class EvsClient {
     }
 
     /**
+     * 查询回收站中所有云硬盘的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询回收站中所有云硬盘详情
+     * @param {string} [name] **参数解释** 云硬盘名称。 可通过[查询所有云硬盘详情](evs_04_2006.xml)获取云硬盘名称。 **约束限制** 最大支持64个字符。 **取值范围** 不涉及。 **默认取值** 不涉及。
+     * @param {string} [status] **参数解释** 云硬盘状态，取值可参考：\&quot;[云硬盘状态](evs_04_0040.xml)\&quot;。 **约束限制** 不涉及。 **取值范围** 不涉及。 **默认取值** 不涉及。
+     * @param {number} [limit] **参数解释** 返回结果个数限制。 **约束限制** 不涉及。 **取值范围** 1-1000 **默认取值** 1000
+     * @param {string} [availabilityZone] **参数解释** 可用区信息。 可通过接口[查询所有的可用分区信息](evs_04_2081.xml)获取，也可参考[地区和终端节点](https://console.huaweicloud.com/apiexplorer/#/endpoint)获取。 **约束限制** 不涉及。 **取值范围** 不涉及。 **默认取值** 不涉及。
+     * @param {string} [serviceType] **参数解释** 服务类型。 **约束限制** 不涉及。 **取值范围** - EVS：云硬盘。 - DSS：专属分布式存储服务。 **默认取值** 不涉及。
+     * @param {number} [offset] **参数解释** 分页查询时的偏移量。 **约束限制** 不涉及。 **取值范围** 取值为一个大于0小于磁盘总个数的整数。 **默认取值** 0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVolumesInRecycle(listVolumesInRecycleRequest?: ListVolumesInRecycleRequest): Promise<ListVolumesInRecycleResponse> {
+        const options = ParamCreater().listVolumesInRecycle(listVolumesInRecycleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 调整云硬盘的iops或者吞吐量。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -642,6 +693,25 @@ export class EvsClient {
     }
 
     /**
+     * 还原回收站中单个云硬盘。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 还原回收站中单个云硬盘
+     * @param {string} volumeId **参数解释** 云硬盘ID。 可通过[查询所有云硬盘详情](evs_04_2006.xml)获取云硬盘ID。 **约束限制** 不涉及。 **取值范围** 不涉及。 **默认取值** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public revertVolumeInRecycle(revertVolumeInRecycleRequest?: RevertVolumeInRecycleRequest): Promise<RevertVolumeInRecycleResponse> {
+        const options = ParamCreater().revertVolumeInRecycle(revertVolumeInRecycleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 将快照数据回滚到云硬盘。支持企业项目授权功能。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -674,6 +744,24 @@ export class EvsClient {
      */
     public showJob(showJobRequest?: ShowJobRequest): Promise<ShowJobResponse> {
         const options = ParamCreater().showJob(showJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询回收站策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询回收站策略
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRecyclePolicy(showRecyclePolicyRequest?: ShowRecyclePolicyRequest): Promise<ShowRecyclePolicyResponse> {
+        const options = ParamCreater().showRecyclePolicy();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -720,6 +808,25 @@ export class EvsClient {
     }
 
     /**
+     * 查询回收站中单个云硬盘的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询回收站中单个云硬盘详情
+     * @param {string} volumeId **参数解释** 云硬盘ID。 可通过[查询所有云硬盘详情](evs_04_2006.xml)获取云硬盘ID。 **约束限制** 不涉及。 **取值范围** 不涉及。 **默认取值** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVolumeInRecycle(showVolumeInRecycleRequest?: ShowVolumeInRecycleRequest): Promise<ShowVolumeInRecycleResponse> {
+        const options = ParamCreater().showVolumeInRecycle(showVolumeInRecycleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询指定云硬盘的标签信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -752,6 +859,25 @@ export class EvsClient {
      */
     public unsubscribePostpaidVolume(unsubscribePostpaidVolumeRequest?: UnsubscribePostpaidVolumeRequest): Promise<UnsubscribePostpaidVolumeResponse> {
         const options = ParamCreater().unsubscribePostpaidVolume(unsubscribePostpaidVolumeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新回收站策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新回收站策略
+     * @param {ModifyRecycleBinPolicyRequestBody} [updateRecycleBinPolicyRequestBody] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRecyclePolicy(updateRecyclePolicyRequest?: UpdateRecyclePolicyRequest): Promise<UpdateRecyclePolicyResponse> {
+        const options = ParamCreater().updateRecyclePolicy(updateRecyclePolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1433,6 +1559,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除回收站中单个云硬盘。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteVolumeInRecycle(deleteVolumeInRecycleRequest?: DeleteVolumeInRecycleRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/recycle-bin-volumes/{volume_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let volumeId;
+
+            if (deleteVolumeInRecycleRequest !== null && deleteVolumeInRecycleRequest !== undefined) {
+                if (deleteVolumeInRecycleRequest instanceof DeleteVolumeInRecycleRequest) {
+                    volumeId = deleteVolumeInRecycleRequest.volumeId;
+                } else {
+                    volumeId = deleteVolumeInRecycleRequest['volume_id'];
+                }
+            }
+
+        
+            if (volumeId === null || volumeId === undefined) {
+            throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling deleteVolumeInRecycle.');
+            }
+
+            options.pathParams = { 'volume_id': volumeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询云硬盘快照详细列表信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1762,6 +1925,78 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询回收站中所有云硬盘的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listVolumesInRecycle(listVolumesInRecycleRequest?: ListVolumesInRecycleRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/recycle-bin-volumes/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let name;
+            
+            let status;
+            
+            let limit;
+            
+            let availabilityZone;
+            
+            let serviceType;
+            
+            let offset;
+
+            if (listVolumesInRecycleRequest !== null && listVolumesInRecycleRequest !== undefined) {
+                if (listVolumesInRecycleRequest instanceof ListVolumesInRecycleRequest) {
+                    name = listVolumesInRecycleRequest.name;
+                    status = listVolumesInRecycleRequest.status;
+                    limit = listVolumesInRecycleRequest.limit;
+                    availabilityZone = listVolumesInRecycleRequest.availabilityZone;
+                    serviceType = listVolumesInRecycleRequest.serviceType;
+                    offset = listVolumesInRecycleRequest.offset;
+                } else {
+                    name = listVolumesInRecycleRequest['name'];
+                    status = listVolumesInRecycleRequest['status'];
+                    limit = listVolumesInRecycleRequest['limit'];
+                    availabilityZone = listVolumesInRecycleRequest['availability_zone'];
+                    serviceType = listVolumesInRecycleRequest['service_type'];
+                    offset = listVolumesInRecycleRequest['offset'];
+                }
+            }
+
+        
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (availabilityZone !== null && availabilityZone !== undefined) {
+                localVarQueryParameter['availability_zone'] = availabilityZone;
+            }
+            if (serviceType !== null && serviceType !== undefined) {
+                localVarQueryParameter['service_type'] = serviceType;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 调整云硬盘的iops或者吞吐量。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1910,6 +2145,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 还原回收站中单个云硬盘。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        revertVolumeInRecycle(revertVolumeInRecycleRequest?: RevertVolumeInRecycleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/recycle-bin-volumes/{volume_id}/revert",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let volumeId;
+
+            if (revertVolumeInRecycleRequest !== null && revertVolumeInRecycleRequest !== undefined) {
+                if (revertVolumeInRecycleRequest instanceof RevertVolumeInRecycleRequest) {
+                    volumeId = revertVolumeInRecycleRequest.volumeId;
+                } else {
+                    volumeId = revertVolumeInRecycleRequest['volume_id'];
+                }
+            }
+
+        
+            if (volumeId === null || volumeId === undefined) {
+            throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling revertVolumeInRecycle.');
+            }
+
+            options.pathParams = { 'volume_id': volumeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 将快照数据回滚到云硬盘。支持企业项目授权功能。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1994,6 +2266,27 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询回收站策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRecyclePolicy() {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/recycle-bin-volumes/policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询单个云硬盘快照信息。支持企业项目授权功能。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2060,6 +2353,43 @@ export const ParamCreater = function () {
         
             if (volumeId === null || volumeId === undefined) {
             throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling showVolume.');
+            }
+
+            options.pathParams = { 'volume_id': volumeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询回收站中单个云硬盘的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVolumeInRecycle(showVolumeInRecycleRequest?: ShowVolumeInRecycleRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/recycle-bin-volumes/{volume_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let volumeId;
+
+            if (showVolumeInRecycleRequest !== null && showVolumeInRecycleRequest !== undefined) {
+                if (showVolumeInRecycleRequest instanceof ShowVolumeInRecycleRequest) {
+                    volumeId = showVolumeInRecycleRequest.volumeId;
+                } else {
+                    volumeId = showVolumeInRecycleRequest['volume_id'];
+                }
+            }
+
+        
+            if (volumeId === null || volumeId === undefined) {
+            throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling showVolumeInRecycle.');
             }
 
             options.pathParams = { 'volume_id': volumeId, };
@@ -2137,6 +2467,41 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新回收站策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateRecyclePolicy(updateRecyclePolicyRequest?: UpdateRecyclePolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/recycle-bin-volumes/policy",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateRecyclePolicyRequest !== null && updateRecyclePolicyRequest !== undefined) {
+                if (updateRecyclePolicyRequest instanceof UpdateRecyclePolicyRequest) {
+                    body = updateRecyclePolicyRequest.body
+                } else {
+                    body = updateRecyclePolicyRequest['body'];
+                }
+            }
+
+        
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};

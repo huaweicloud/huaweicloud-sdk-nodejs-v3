@@ -2,12 +2,12 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateResourceTagsResponse extends SdkResponse {
-    public body?: string;
+    public data?: string;
     public constructor() { 
         super();
     }
-    public withBody(body: string): UpdateResourceTagsResponse {
-        this['body'] = body;
+    public withData(data: string): UpdateResourceTagsResponse {
+        this['data'] = data;
         return this;
     }
 }

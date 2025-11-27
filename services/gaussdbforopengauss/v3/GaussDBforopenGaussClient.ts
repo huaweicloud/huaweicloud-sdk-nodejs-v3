@@ -114,6 +114,7 @@ import { CreateSqlLimitTaskResponse } from './model/CreateSqlLimitTaskResponse';
 import { CreateWdrSnapshotRequest } from './model/CreateWdrSnapshotRequest';
 import { CreateWdrSnapshotResponse } from './model/CreateWdrSnapshotResponse';
 import { CustomerPluginInfoResult } from './model/CustomerPluginInfoResult';
+import { DBMSuccessResponseBody } from './model/DBMSuccessResponseBody';
 import { DataIoTime } from './model/DataIoTime';
 import { DataStroeErrorResponse } from './model/DataStroeErrorResponse';
 import { DatabaseForListTableResult } from './model/DatabaseForListTableResult';
@@ -541,7 +542,7 @@ import { ResetPwdRequest } from './model/ResetPwdRequest';
 import { ResetPwdResponse } from './model/ResetPwdResponse';
 import { ResizeInstanceFlavorRequest } from './model/ResizeInstanceFlavorRequest';
 import { ResizeInstanceFlavorResponse } from './model/ResizeInstanceFlavorResponse';
-import { ResourceErrorResponse } from './model/ResourceErrorResponse';
+import { ResourceErrorResponseBody } from './model/ResourceErrorResponseBody';
 import { ResourceResult } from './model/ResourceResult';
 import { ResourceTime } from './model/ResourceTime';
 import { ResourceTimeDetails } from './model/ResourceTimeDetails';
@@ -716,6 +717,8 @@ import { SwitchConfigurationResponse } from './model/SwitchConfigurationResponse
 import { SwitchKmsTdeRequest } from './model/SwitchKmsTdeRequest';
 import { SwitchKmsTdeRequestBody } from './model/SwitchKmsTdeRequestBody';
 import { SwitchKmsTdeResponse } from './model/SwitchKmsTdeResponse';
+import { SwitchLogCollectionStatusRequest } from './model/SwitchLogCollectionStatusRequest';
+import { SwitchLogCollectionStatusResponse } from './model/SwitchLogCollectionStatusResponse';
 import { SwitchReplicaRequest } from './model/SwitchReplicaRequest';
 import { SwitchReplicaRequestBody } from './model/SwitchReplicaRequestBody';
 import { SwitchReplicaResponse } from './model/SwitchReplicaResponse';
@@ -3966,7 +3969,7 @@ export class GaussDBforopenGaussClient {
      *
      * @summary 查询错误日志采集开关状态
      * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
-     * @param {string} [xLanguage] 语言
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**: - zh-cn  - en-us  **默认取值**: en-us
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4671,6 +4674,27 @@ export class GaussDBforopenGaussClient {
      */
     public switchKmsTde(switchKmsTdeRequest?: SwitchKmsTdeRequest): Promise<SwitchKmsTdeResponse> {
         const options = ParamCreater().switchKmsTde(switchKmsTdeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 打开或者关闭数据库错误日志采集的开关。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改错误日志采集开关状态
+     * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
+     * @param {string} status **参数解释**: 采集状态。 **约束限制**: 不涉及。 **取值范围**: - ON：开始采集。 - OFF：关闭采集。 **默认取值**: 不涉及。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**: - zh-cn  - en-us  **默认取值**: en-us
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchLogCollectionStatus(switchLogCollectionStatusRequest?: SwitchLogCollectionStatusRequest): Promise<SwitchLogCollectionStatusResponse> {
+        const options = ParamCreater().switchLogCollectionStatus(switchLogCollectionStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -15776,6 +15800,57 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 打开或者关闭数据库错误日志采集的开关。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchLogCollectionStatus(switchLogCollectionStatusRequest?: SwitchLogCollectionStatusRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/error-log/switch/{status}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let status;
+            
+            let xLanguage;
+
+            if (switchLogCollectionStatusRequest !== null && switchLogCollectionStatusRequest !== undefined) {
+                if (switchLogCollectionStatusRequest instanceof SwitchLogCollectionStatusRequest) {
+                    instanceId = switchLogCollectionStatusRequest.instanceId;
+                    status = switchLogCollectionStatusRequest.status;
+                    xLanguage = switchLogCollectionStatusRequest.xLanguage;
+                } else {
+                    instanceId = switchLogCollectionStatusRequest['instance_id'];
+                    status = switchLogCollectionStatusRequest['status'];
+                    xLanguage = switchLogCollectionStatusRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchLogCollectionStatus.');
+            }
+            if (status === null || status === undefined) {
+            throw new RequiredError('status','Required parameter status was null or undefined when calling switchLogCollectionStatus.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'status': status, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -4,11 +4,13 @@ export class ListNatGatewaySnatRulesRequest {
     private 'admin_state_up'?: boolean;
     public cidr?: string;
     public limit?: number;
-    private 'floating_ip_address'?: Array<string>;
-    private 'floating_ip_id'?: Array<string>;
+    private 'floating_ip_address'?: string;
+    private 'global_eip_address'?: string;
+    private 'floating_ip_id'?: string;
+    private 'global_eip_id'?: string;
     public id?: string;
     public description?: string;
-    private 'created_at'?: string;
+    private 'created_at'?: Date;
     private 'nat_gateway_id'?: Array<string>;
     private 'network_id'?: string;
     private 'source_type'?: number;
@@ -34,25 +36,45 @@ export class ListNatGatewaySnatRulesRequest {
         this['limit'] = limit;
         return this;
     }
-    public withFloatingIpAddress(floatingIpAddress: Array<string>): ListNatGatewaySnatRulesRequest {
+    public withFloatingIpAddress(floatingIpAddress: string): ListNatGatewaySnatRulesRequest {
         this['floating_ip_address'] = floatingIpAddress;
         return this;
     }
-    public set floatingIpAddress(floatingIpAddress: Array<string>  | undefined) {
+    public set floatingIpAddress(floatingIpAddress: string  | undefined) {
         this['floating_ip_address'] = floatingIpAddress;
     }
-    public get floatingIpAddress(): Array<string> | undefined {
+    public get floatingIpAddress(): string | undefined {
         return this['floating_ip_address'];
     }
-    public withFloatingIpId(floatingIpId: Array<string>): ListNatGatewaySnatRulesRequest {
+    public withGlobalEipAddress(globalEipAddress: string): ListNatGatewaySnatRulesRequest {
+        this['global_eip_address'] = globalEipAddress;
+        return this;
+    }
+    public set globalEipAddress(globalEipAddress: string  | undefined) {
+        this['global_eip_address'] = globalEipAddress;
+    }
+    public get globalEipAddress(): string | undefined {
+        return this['global_eip_address'];
+    }
+    public withFloatingIpId(floatingIpId: string): ListNatGatewaySnatRulesRequest {
         this['floating_ip_id'] = floatingIpId;
         return this;
     }
-    public set floatingIpId(floatingIpId: Array<string>  | undefined) {
+    public set floatingIpId(floatingIpId: string  | undefined) {
         this['floating_ip_id'] = floatingIpId;
     }
-    public get floatingIpId(): Array<string> | undefined {
+    public get floatingIpId(): string | undefined {
         return this['floating_ip_id'];
+    }
+    public withGlobalEipId(globalEipId: string): ListNatGatewaySnatRulesRequest {
+        this['global_eip_id'] = globalEipId;
+        return this;
+    }
+    public set globalEipId(globalEipId: string  | undefined) {
+        this['global_eip_id'] = globalEipId;
+    }
+    public get globalEipId(): string | undefined {
+        return this['global_eip_id'];
     }
     public withId(id: string): ListNatGatewaySnatRulesRequest {
         this['id'] = id;
@@ -62,14 +84,14 @@ export class ListNatGatewaySnatRulesRequest {
         this['description'] = description;
         return this;
     }
-    public withCreatedAt(createdAt: string): ListNatGatewaySnatRulesRequest {
+    public withCreatedAt(createdAt: Date): ListNatGatewaySnatRulesRequest {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string  | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt(): string | undefined {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withNatGatewayId(natGatewayId: Array<string>): ListNatGatewaySnatRulesRequest {

@@ -22,6 +22,7 @@ import { AddDeviceGroupResponse } from './model/AddDeviceGroupResponse';
 import { AddDeviceProxy } from './model/AddDeviceProxy';
 import { AddDeviceRequest } from './model/AddDeviceRequest';
 import { AddDeviceResponse } from './model/AddDeviceResponse';
+import { AddExportTask } from './model/AddExportTask';
 import { AddFlowControlPolicy } from './model/AddFlowControlPolicy';
 import { AddFunctionsRequest } from './model/AddFunctionsRequest';
 import { AddFunctionsResponse } from './model/AddFunctionsResponse';
@@ -102,6 +103,8 @@ import { CreateDeviceProxyResponse } from './model/CreateDeviceProxyResponse';
 import { CreateDomainConfigurationDTO } from './model/CreateDomainConfigurationDTO';
 import { CreateDomainConfigurationRequest } from './model/CreateDomainConfigurationRequest';
 import { CreateDomainConfigurationResponse } from './model/CreateDomainConfigurationResponse';
+import { CreateExportTaskRequest } from './model/CreateExportTaskRequest';
+import { CreateExportTaskResponse } from './model/CreateExportTaskResponse';
 import { CreateMessageRequest } from './model/CreateMessageRequest';
 import { CreateMessageResponse } from './model/CreateMessageResponse';
 import { CreateOrDeleteDeviceInGroupRequest } from './model/CreateOrDeleteDeviceInGroupRequest';
@@ -167,6 +170,8 @@ import { DeleteDeviceTunnelRequest } from './model/DeleteDeviceTunnelRequest';
 import { DeleteDeviceTunnelResponse } from './model/DeleteDeviceTunnelResponse';
 import { DeleteDomainConfigurationRequest } from './model/DeleteDomainConfigurationRequest';
 import { DeleteDomainConfigurationResponse } from './model/DeleteDomainConfigurationResponse';
+import { DeleteExportTaskRequest } from './model/DeleteExportTaskRequest';
+import { DeleteExportTaskResponse } from './model/DeleteExportTaskResponse';
 import { DeleteFunctionsRequest } from './model/DeleteFunctionsRequest';
 import { DeleteFunctionsResponse } from './model/DeleteFunctionsResponse';
 import { DeleteHarmonySoftBusRequest } from './model/DeleteHarmonySoftBusRequest';
@@ -219,6 +224,7 @@ import { EffectiveTimeRange } from './model/EffectiveTimeRange';
 import { EffectiveTimeRangeResponseDTO } from './model/EffectiveTimeRangeResponseDTO';
 import { ErrorInfo } from './model/ErrorInfo';
 import { ErrorInfoDTO } from './model/ErrorInfoDTO';
+import { ExportTask } from './model/ExportTask';
 import { FileLocation } from './model/FileLocation';
 import { FlowControlPolicyInfo } from './model/FlowControlPolicyInfo';
 import { FreezeDeviceRequest } from './model/FreezeDeviceRequest';
@@ -270,6 +276,8 @@ import { ListDevicesRequest } from './model/ListDevicesRequest';
 import { ListDevicesResponse } from './model/ListDevicesResponse';
 import { ListDomainConfigurationsRequest } from './model/ListDomainConfigurationsRequest';
 import { ListDomainConfigurationsResponse } from './model/ListDomainConfigurationsResponse';
+import { ListExportTasksRequest } from './model/ListExportTasksRequest';
+import { ListExportTasksResponse } from './model/ListExportTasksResponse';
 import { ListFunctionsRequest } from './model/ListFunctionsRequest';
 import { ListFunctionsResponse } from './model/ListFunctionsResponse';
 import { ListHarmonySoftBusRequest } from './model/ListHarmonySoftBusRequest';
@@ -303,6 +311,7 @@ import { ListServerCertificateResponse } from './model/ListServerCertificateResp
 import { MessageResult } from './model/MessageResult';
 import { ModuleDTO } from './model/ModuleDTO';
 import { ModuleSearchDTO } from './model/ModuleSearchDTO';
+import { MqttDeviceForwarding } from './model/MqttDeviceForwarding';
 import { MrsKafkaForwarding } from './model/MrsKafkaForwarding';
 import { MysqlForwarding } from './model/MysqlForwarding';
 import { NetAddress } from './model/NetAddress';
@@ -372,6 +381,8 @@ import { ShowAsyncDeviceCommandRequest } from './model/ShowAsyncDeviceCommandReq
 import { ShowAsyncDeviceCommandResponse } from './model/ShowAsyncDeviceCommandResponse';
 import { ShowBatchTaskRequest } from './model/ShowBatchTaskRequest';
 import { ShowBatchTaskResponse } from './model/ShowBatchTaskResponse';
+import { ShowCertificateRequest } from './model/ShowCertificateRequest';
+import { ShowCertificateResponse } from './model/ShowCertificateResponse';
 import { ShowDeviceAuthenticationTemplateRequest } from './model/ShowDeviceAuthenticationTemplateRequest';
 import { ShowDeviceAuthenticationTemplateResponse } from './model/ShowDeviceAuthenticationTemplateResponse';
 import { ShowDeviceAuthorizerRequest } from './model/ShowDeviceAuthorizerRequest';
@@ -396,6 +407,8 @@ import { ShowDevicesInGroupRequest } from './model/ShowDevicesInGroupRequest';
 import { ShowDevicesInGroupResponse } from './model/ShowDevicesInGroupResponse';
 import { ShowDomainConfigurationRequest } from './model/ShowDomainConfigurationRequest';
 import { ShowDomainConfigurationResponse } from './model/ShowDomainConfigurationResponse';
+import { ShowExportTaskRequest } from './model/ShowExportTaskRequest';
+import { ShowExportTaskResponse } from './model/ShowExportTaskResponse';
 import { ShowHarmonySoftBusRequest } from './model/ShowHarmonySoftBusRequest';
 import { ShowHarmonySoftBusResponse } from './model/ShowHarmonySoftBusResponse';
 import { ShowOtaModuleRequest } from './model/ShowOtaModuleRequest';
@@ -1330,6 +1343,28 @@ export class IoTDAClient {
      */
     public listCertificates(listCertificatesRequest?: ListCertificatesRequest): Promise<ListCertificatesResponse> {
         const options = ParamCreater().listCertificates(listCertificatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口在物联网平台查询CA证书
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询CA证书
+     * @param {string} certificateId 设备CA证书ID，在上传设备CA证书时由平台分配的唯一标识。
+     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
+     * @param {string} [stageAuthToken] Stage用户的Token, 仅提供给IoStage服务使用
+     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCertificate(showCertificateRequest?: ShowCertificateRequest): Promise<ShowCertificateResponse> {
+        const options = ParamCreater().showCertificate(showCertificateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2523,6 +2558,92 @@ export class IoTDAClient {
     }
 
     /**
+     * 应用服务器可调用此接口创建资源导出任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建导出任务
+     * @param {AddExportTask} createExportTasksRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createExportTask(createExportTaskRequest?: CreateExportTaskRequest): Promise<CreateExportTaskResponse> {
+        const options = ParamCreater().createExportTask(createExportTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口删除在平台创建的导出任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除导出任务
+     * @param {string} exportTaskId 导出任务id，在物联网平台创建导出任务后由平台分配获得。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteExportTask(deleteExportTaskRequest?: DeleteExportTaskRequest): Promise<DeleteExportTaskResponse> {
+        const options = ParamCreater().deleteExportTask(deleteExportTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口查询已创建的导出任务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询导出任务列表
+     * @param {string} resourceType 导出源资源类型，支持批量任务导出类型BatchTask。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {number} [limit] 分页查询时每页显示的记录数，默认值为10，取值范围为1-50的整数。
+     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。
+     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
+     * @param {string} [resourceCondition] 资源过滤条件，Json格式，里面是(K,V)键值对，当resource_type为BatchTasks时填写填写key为task_id，value为BatchTask的task_id(task_id从批量任务接口获得)。当app_type为APP时，导出的结果也会在该app范围内，否则为租户级别筛选。
+     * @param {string} [appType] 租户规则的生效范围，默认GLOBAL，rule_id不携带的时候，该参数生效，取值如下： - GLOBAL：生效范围为租户级 - APP：生效范围为应用级，如果类型为APP，需要携带app_id，如果不带，生效范围为defaultApp。 
+     * @param {string} [appId] 应用ID。此参数为非必选参数，rule_id不携带切app_type为APP时，该参数生效，用于兼容平台老用户存在多应用的场景。存在多应用的用户需要使用该接口时，必须携带该参数指定查询哪个应用下的消息订阅，否则接口会提示错误。如果用户存在多应用，同时又不想携带该参数，可以联系华为技术支持对用户数据做应用合并。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listExportTasks(listExportTasksRequest?: ListExportTasksRequest): Promise<ListExportTasksResponse> {
+        const options = ParamCreater().listExportTasks(listExportTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口下载已经完成的导出任务生成的文件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下载导出文件
+     * @param {string} exportTaskId 导出任务id，在物联网平台创建导出任务后由平台分配获得。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showExportTask(showExportTaskRequest?: ShowExportTaskRequest): Promise<ShowExportTaskResponse> {
+        const options = ParamCreater().showExportTask(showExportTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 应用服务器可调用此接口在物联网平台创建数据流转流控策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3638,7 +3759,7 @@ export class IoTDAClient {
      * @summary 查询规则动作列表
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
      * @param {string} [ruleId] **参数说明**：规则触发条件ID。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
-     * @param {string} [channel] **参数说明**：规则动作的类型。 **取值范围**： - HTTP_FORWARDING：HTTP服务消息类型。 - DIS_FORWARDING：转发DIS服务消息类型。 - OBS_FORWARDING：转发OBS服务消息类型。 - AMQP_FORWARDING：转发AMQP服务消息类型。 - DMS_KAFKA_FORWARDING：转发kafka消息类型。[ - ROMA_FORWARDING：转发Roma消息类型。（仅企业版支持） - INFLUXDB_FORWARDING：转发InfluxDB消息类型。（仅标准版和企业版支持） - MYSQL_FORWARDING：转发MySQL消息类型。（仅标准版和企业版支持） - FUNCTIONGRAPH_FORWARDING：转发FunctionGraph消息类型。（仅标准版和企业版支持） - MRS_KAFKA_FORWARDING：转发MRS_KAFKA消息类型。（仅企业版支持） - DMS_ROCKETMQ_FORWARDING：转发RocketMQ消息类型。（仅标准版和企业版支持）](tag:hws)[ - INFLUXDB_FORWARDING：转发InfluxDB消息类型。 - MYSQL_FORWARDING：转发MySQL消息类型。 - FUNCTIONGRAPH_FORWARDING：转发FunctionGraph消息类型。](tag:hws_hk)
+     * @param {string} [channel] **参数说明**：规则动作的类型。 **取值范围**： - HTTP_FORWARDING：HTTP服务消息类型。 - DIS_FORWARDING：转发DIS服务消息类型。 - OBS_FORWARDING：转发OBS服务消息类型。 - AMQP_FORWARDING：转发AMQP服务消息类型。 - DMS_KAFKA_FORWARDING：转发kafka消息类型。[ - ROMA_FORWARDING：转发Roma消息类型。（仅企业版支持） - INFLUXDB_FORWARDING：转发InfluxDB消息类型。（仅标准版和企业版支持） - MYSQL_FORWARDING：转发MySQL消息类型。（仅标准版和企业版支持） - FUNCTIONGRAPH_FORWARDING：转发FunctionGraph消息类型。（仅标准版和企业版支持） - MRS_KAFKA_FORWARDING：转发MRS_KAFKA消息类型。（仅企业版支持） - DMS_ROCKETMQ_FORWARDING：转发RocketMQ消息类型。（仅标准版和企业版支持） - MQTT_DEVICE_FORWARDING：转发设备消息类型。（仅标准版和企业版支持）](tag:hws)[ - INFLUXDB_FORWARDING：转发InfluxDB消息类型。 - MYSQL_FORWARDING：转发MySQL消息类型。 - FUNCTIONGRAPH_FORWARDING：转发FunctionGraph消息类型。 - MQTT_DEVICE_FORWARDING：转发设备消息类型。](tag:hws_hk)
      * @param {string} [appType] **参数说明**：租户规则的生效范围。 **取值范围**： - GLOBAL：生效范围为租户级。 - APP：生效范围为资源空间级。如果类型为APP，可携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)](tag:hws)[[默认资源空间](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0006.html#section0)](tag:hws_hk)下的规则动作列表。
      * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，rule_id不携带且app_type为APP时，该参数生效，可携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)](tag:hws)[[默认资源空间](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0006.html#section0)](tag:hws_hk)下的规则动作列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。默认每页10条记录，最大设定每页50条记录。 **取值范围**：1-50的整数，默认值为10。
@@ -6301,6 +6422,64 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 应用服务器可调用此接口在物联网平台查询CA证书
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCertificate(showCertificateRequest?: ShowCertificateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/certificates/{certificate_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let certificateId;
+            
+            let spAuthToken;
+            
+            let stageAuthToken;
+            
+            let instanceId;
+
+            if (showCertificateRequest !== null && showCertificateRequest !== undefined) {
+                if (showCertificateRequest instanceof ShowCertificateRequest) {
+                    certificateId = showCertificateRequest.certificateId;
+                    spAuthToken = showCertificateRequest.spAuthToken;
+                    stageAuthToken = showCertificateRequest.stageAuthToken;
+                    instanceId = showCertificateRequest.instanceId;
+                } else {
+                    certificateId = showCertificateRequest['certificate_id'];
+                    spAuthToken = showCertificateRequest['Sp-Auth-Token'];
+                    stageAuthToken = showCertificateRequest['Stage-Auth-Token'];
+                    instanceId = showCertificateRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (certificateId === null || certificateId === undefined) {
+            throw new RequiredError('certificateId','Required parameter certificateId was null or undefined when calling showCertificate.');
+            }
+            if (spAuthToken !== undefined && spAuthToken !== null) {
+                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
+            }
+            if (stageAuthToken !== undefined && stageAuthToken !== null) {
+                localVarHeaderParameter['Stage-Auth-Token'] = String(stageAuthToken);
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'certificate_id': certificateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 应用服务器可调用此接口在物联网平台上更新CA证书。仅标准版实例、企业版实例支持该接口调用，基础版不支持。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8781,7 +8960,7 @@ export const ParamCreater = function () {
         createDomainConfiguration(createDomainConfigurationRequest?: CreateDomainConfigurationRequest) {
             const options = {
                 method: "POST",
-                url: "/{project_id}/domain-configurations",
+                url: "/v5/iot/{project_id}/domain-configurations",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -8826,7 +9005,7 @@ export const ParamCreater = function () {
         deleteDomainConfiguration(deleteDomainConfigurationRequest?: DeleteDomainConfigurationRequest) {
             const options = {
                 method: "DELETE",
-                url: "/{project_id}/domain-configurations/{configuration_id}",
+                url: "/v5/iot/{project_id}/domain-configurations/{configuration_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -8870,7 +9049,7 @@ export const ParamCreater = function () {
         listDomainConfigurations(listDomainConfigurationsRequest?: ListDomainConfigurationsRequest) {
             const options = {
                 method: "GET",
-                url: "/{project_id}/domain-configurations",
+                url: "/v5/iot/{project_id}/domain-configurations",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -8928,7 +9107,7 @@ export const ParamCreater = function () {
         showDomainConfiguration(showDomainConfigurationRequest?: ShowDomainConfigurationRequest) {
             const options = {
                 method: "GET",
-                url: "/{project_id}/domain-configurations/{configuration_id}",
+                url: "/v5/iot/{project_id}/domain-configurations/{configuration_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -8972,7 +9151,7 @@ export const ParamCreater = function () {
         updateDomainConfiguration(updateDomainConfigurationRequest?: UpdateDomainConfigurationRequest) {
             const options = {
                 method: "PUT",
-                url: "/{project_id}/domain-configurations/{configuration_id}",
+                url: "/v5/iot/{project_id}/domain-configurations/{configuration_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -9013,6 +9192,228 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'configuration_id': configurationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口创建资源导出任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createExportTask(createExportTaskRequest?: CreateExportTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/export-tasks",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createExportTaskRequest !== null && createExportTaskRequest !== undefined) {
+                if (createExportTaskRequest instanceof CreateExportTaskRequest) {
+                    body = createExportTaskRequest.body
+                    instanceId = createExportTaskRequest.instanceId;
+                } else {
+                    body = createExportTaskRequest['body'];
+                    instanceId = createExportTaskRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口删除在平台创建的导出任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteExportTask(deleteExportTaskRequest?: DeleteExportTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/iot/{project_id}/export-tasks/{export_task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let exportTaskId;
+            
+            let instanceId;
+
+            if (deleteExportTaskRequest !== null && deleteExportTaskRequest !== undefined) {
+                if (deleteExportTaskRequest instanceof DeleteExportTaskRequest) {
+                    exportTaskId = deleteExportTaskRequest.exportTaskId;
+                    instanceId = deleteExportTaskRequest.instanceId;
+                } else {
+                    exportTaskId = deleteExportTaskRequest['export_task_id'];
+                    instanceId = deleteExportTaskRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (exportTaskId === null || exportTaskId === undefined) {
+            throw new RequiredError('exportTaskId','Required parameter exportTaskId was null or undefined when calling deleteExportTask.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'export_task_id': exportTaskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口查询已创建的导出任务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listExportTasks(listExportTasksRequest?: ListExportTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/export-tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let resourceType;
+            
+            let instanceId;
+            
+            let limit;
+            
+            let marker;
+            
+            let offset;
+            
+            let resourceCondition;
+            
+            let appType;
+            
+            let appId;
+
+            if (listExportTasksRequest !== null && listExportTasksRequest !== undefined) {
+                if (listExportTasksRequest instanceof ListExportTasksRequest) {
+                    resourceType = listExportTasksRequest.resourceType;
+                    instanceId = listExportTasksRequest.instanceId;
+                    limit = listExportTasksRequest.limit;
+                    marker = listExportTasksRequest.marker;
+                    offset = listExportTasksRequest.offset;
+                    resourceCondition = listExportTasksRequest.resourceCondition;
+                    appType = listExportTasksRequest.appType;
+                    appId = listExportTasksRequest.appId;
+                } else {
+                    resourceType = listExportTasksRequest['resource_type'];
+                    instanceId = listExportTasksRequest['Instance-Id'];
+                    limit = listExportTasksRequest['limit'];
+                    marker = listExportTasksRequest['marker'];
+                    offset = listExportTasksRequest['offset'];
+                    resourceCondition = listExportTasksRequest['resource_condition'];
+                    appType = listExportTasksRequest['app_type'];
+                    appId = listExportTasksRequest['app_id'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+                throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listExportTasks.');
+            }
+            if (resourceType !== null && resourceType !== undefined) {
+                localVarQueryParameter['resource_type'] = resourceType;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (resourceCondition !== null && resourceCondition !== undefined) {
+                localVarQueryParameter['resource_condition'] = resourceCondition;
+            }
+            if (appType !== null && appType !== undefined) {
+                localVarQueryParameter['app_type'] = appType;
+            }
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口下载已经完成的导出任务生成的文件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showExportTask(showExportTaskRequest?: ShowExportTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/export-tasks/{export_task_id}/file",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let exportTaskId;
+            
+            let instanceId;
+
+            if (showExportTaskRequest !== null && showExportTaskRequest !== undefined) {
+                if (showExportTaskRequest instanceof ShowExportTaskRequest) {
+                    exportTaskId = showExportTaskRequest.exportTaskId;
+                    instanceId = showExportTaskRequest.instanceId;
+                } else {
+                    exportTaskId = showExportTaskRequest['export_task_id'];
+                    instanceId = showExportTaskRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (exportTaskId === null || exportTaskId === undefined) {
+            throw new RequiredError('exportTaskId','Required parameter exportTaskId was null or undefined when calling showExportTask.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'export_task_id': exportTaskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -12622,7 +13023,7 @@ export const ParamCreater = function () {
         createServerCertificate(createServerCertificateRequest?: CreateServerCertificateRequest) {
             const options = {
                 method: "POST",
-                url: "/{project_id}/server-certificates",
+                url: "/v5/iot/{project_id}/server-certificates",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -12667,7 +13068,7 @@ export const ParamCreater = function () {
         deleteServerCertificate(deleteServerCertificateRequest?: DeleteServerCertificateRequest) {
             const options = {
                 method: "DELETE",
-                url: "/{project_id}/server-certificates/{server_certificate_id}",
+                url: "/v5/iot/{project_id}/server-certificates/{server_certificate_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -12711,7 +13112,7 @@ export const ParamCreater = function () {
         listServerCertificate(listServerCertificateRequest?: ListServerCertificateRequest) {
             const options = {
                 method: "GET",
-                url: "/{project_id}/server-certificates",
+                url: "/v5/iot/{project_id}/server-certificates",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -12769,7 +13170,7 @@ export const ParamCreater = function () {
         showServerCertificate(showServerCertificateRequest?: ShowServerCertificateRequest) {
             const options = {
                 method: "GET",
-                url: "/{project_id}/server-certificates/{server_certificate_id}",
+                url: "/v5/iot/{project_id}/server-certificates/{server_certificate_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},

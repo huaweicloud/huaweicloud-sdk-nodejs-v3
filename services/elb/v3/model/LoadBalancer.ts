@@ -1,4 +1,5 @@
 import { AutoscalingRef } from './AutoscalingRef';
+import { CustomQosLimit } from './CustomQosLimit';
 import { EipInfo } from './EipInfo';
 import { GlobalEipInfo } from './GlobalEipInfo';
 import { ListenerRef } from './ListenerRef';
@@ -59,6 +60,7 @@ export class LoadBalancer {
     private 'protection_reason'?: string;
     private 'log_group_id'?: string;
     private 'log_topic_id'?: string;
+    private 'custom_qos_limit'?: CustomQosLimit;
     public constructor(id?: string, description?: string, provisioningStatus?: string, adminStateUp?: boolean, provider?: string, pools?: Array<PoolRef>, listeners?: Array<ListenerRef>, operatingStatus?: string, name?: string, projectId?: string, vipSubnetCidrId?: string, vipAddress?: string, vipPortId?: string, tags?: Array<Tag>, createdAt?: string, updatedAt?: string, guaranteed?: boolean, vpcId?: string, eips?: Array<EipInfo>, ipv6VipAddress?: string, ipv6VipVirsubnetId?: string, ipv6VipPortId?: string, availabilityZoneList?: Array<string>, enterpriseProjectId?: string, billingInfo?: string, l4FlavorId?: string, l4ScaleFlavorId?: string, l7FlavorId?: string, l7ScaleFlavorId?: string, publicips?: Array<PublicIpInfo>, globalEips?: Array<GlobalEipInfo>, elbVirsubnetIds?: Array<string>, elbVirsubnetType?: string, ipTargetEnable?: boolean, frozenScene?: string) { 
         this['id'] = id;
         this['description'] = description;
@@ -529,6 +531,16 @@ export class LoadBalancer {
     }
     public get logTopicId(): string | undefined {
         return this['log_topic_id'];
+    }
+    public withCustomQosLimit(customQosLimit: CustomQosLimit): LoadBalancer {
+        this['custom_qos_limit'] = customQosLimit;
+        return this;
+    }
+    public set customQosLimit(customQosLimit: CustomQosLimit  | undefined) {
+        this['custom_qos_limit'] = customQosLimit;
+    }
+    public get customQosLimit(): CustomQosLimit | undefined {
+        return this['custom_qos_limit'];
     }
 }
 

@@ -1,58 +1,36 @@
-import { AtomicInputModel } from './AtomicInputModel';
-import { AtomicOutputModel } from './AtomicOutputModel';
+import { OpsflowBaseResponse } from './OpsflowBaseResponse';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class GetDocumentAtomicInfoResponse extends SdkResponse {
-    private 'atomic_unique_key'?: string;
-    private 'atomic_name_zh'?: string;
-    private 'atomic_name_en'?: string;
-    public tags?: Array<string>;
-    public inputs?: Array<AtomicInputModel>;
-    public outputs?: AtomicOutputModel;
+    private 'error_code'?: string;
+    private 'error_msg'?: string;
+    public data?: object;
     public constructor() { 
         super();
     }
-    public withAtomicUniqueKey(atomicUniqueKey: string): GetDocumentAtomicInfoResponse {
-        this['atomic_unique_key'] = atomicUniqueKey;
+    public withErrorCode(errorCode: string): GetDocumentAtomicInfoResponse {
+        this['error_code'] = errorCode;
         return this;
     }
-    public set atomicUniqueKey(atomicUniqueKey: string  | undefined) {
-        this['atomic_unique_key'] = atomicUniqueKey;
+    public set errorCode(errorCode: string  | undefined) {
+        this['error_code'] = errorCode;
     }
-    public get atomicUniqueKey(): string | undefined {
-        return this['atomic_unique_key'];
+    public get errorCode(): string | undefined {
+        return this['error_code'];
     }
-    public withAtomicNameZh(atomicNameZh: string): GetDocumentAtomicInfoResponse {
-        this['atomic_name_zh'] = atomicNameZh;
+    public withErrorMsg(errorMsg: string): GetDocumentAtomicInfoResponse {
+        this['error_msg'] = errorMsg;
         return this;
     }
-    public set atomicNameZh(atomicNameZh: string  | undefined) {
-        this['atomic_name_zh'] = atomicNameZh;
+    public set errorMsg(errorMsg: string  | undefined) {
+        this['error_msg'] = errorMsg;
     }
-    public get atomicNameZh(): string | undefined {
-        return this['atomic_name_zh'];
+    public get errorMsg(): string | undefined {
+        return this['error_msg'];
     }
-    public withAtomicNameEn(atomicNameEn: string): GetDocumentAtomicInfoResponse {
-        this['atomic_name_en'] = atomicNameEn;
-        return this;
-    }
-    public set atomicNameEn(atomicNameEn: string  | undefined) {
-        this['atomic_name_en'] = atomicNameEn;
-    }
-    public get atomicNameEn(): string | undefined {
-        return this['atomic_name_en'];
-    }
-    public withTags(tags: Array<string>): GetDocumentAtomicInfoResponse {
-        this['tags'] = tags;
-        return this;
-    }
-    public withInputs(inputs: Array<AtomicInputModel>): GetDocumentAtomicInfoResponse {
-        this['inputs'] = inputs;
-        return this;
-    }
-    public withOutputs(outputs: AtomicOutputModel): GetDocumentAtomicInfoResponse {
-        this['outputs'] = outputs;
+    public withData(data: object): GetDocumentAtomicInfoResponse {
+        this['data'] = data;
         return this;
     }
 }

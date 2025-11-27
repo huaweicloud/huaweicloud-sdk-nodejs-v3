@@ -203,6 +203,8 @@ export class EswClient {
      * @param {string} instanceId - 参数解释：ESW实例的唯一标识。 - 约束限制：带“-”的UUID格式。 - 取值范围：不涉及。 - 默认取值：不涉及。
      * @param {string} [id] - 参数解释：二层连接资源ID。二层连接创建成功后，会生成一个ID，是二层连接对应的唯一标识。 - 约束限制：带“-”的UUID格式。 - 取值范围：不涉及。 - 默认取值：不涉及。
      * @param {string} [name] - 参数解释：二层连接的名称。 - 约束限制：   - 长度范围为1~64个字符。   - 名称由中文、英文字母、数字、下划线（_）、中划线（-）、点（.）组成。 - 取值范围：不涉及。 - 默认取值：不涉及。
+     * @param {number} [limit] - 参数解释：分页查询每页返回的记录个数。 - 约束限制：limit需要和marker配合使用，详细规则请见marker的参数说明。 - 取值范围：0~2^31-1。 - 默认取值：2000。
+     * @param {string} [marker] - 参数解释：分页查询的起始资源ID，表示从指定资源的下一条记录开始查询。 - 约束限制：marker需要和limit配合使用。   - 若不传入marker和limit参数，查询结果返回第一页全部资源记录。   - 若不传入marker参数，limit为10，查询结果返回第1~10条资源记录。   - 若marker为第10条记录的资源ID，limit为10，查询结果返回第11~20条资源记录。   - 若marker为第10条记录的资源ID，不传入limit参数，查询结果返回第11~2000条（limit默认值2000）资源记录。 - 取值范围：不涉及。 - 默认取值：不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -226,6 +228,8 @@ export class EswClient {
      * @param {string} [instanceId] - 参数解释：ESW资源ID。ESW创建成功后，会生成一个ESW ID，是ESW对应的唯一标识。 - 约束限制：带“-”的UUID格式。 - 取值范围：不涉及。 - 默认取值：不涉及。
      * @param {string} [vpcId] - 参数解释：ESW所在VPC资源ID。 - 约束限制：   - 需要使用本租户下可操作的VPC资源的ID。   - 带“-”的UUID格式。 - 取值范围：不涉及。 - 默认取值：不涉及。
      * @param {string} [virsubnetId] - 参数解释：二层连接关联的二层子网ID。 - 约束限制：   - 需要使用本租户下可操作的子网资源的ID；此值即为子网详情中的“网络ID”参数值。   - 带“-”的UUID格式。 - 取值范围：不涉及。 - 默认取值：不涉及。
+     * @param {number} [limit] - 参数解释：分页查询每页返回的记录个数。 - 约束限制：limit需要和marker配合使用，详细规则请见marker的参数说明。 - 取值范围：0~2^31-1。 - 默认取值：2000。
+     * @param {string} [marker] - 参数解释：分页查询的起始资源ID，表示从指定资源的下一条记录开始查询。 - 约束限制：marker需要和limit配合使用。   - 若不传入marker和limit参数，查询结果返回第一页全部资源记录。   - 若不传入marker参数，limit为10，查询结果返回第1~10条资源记录。   - 若marker为第10条记录的资源ID，limit为10，查询结果返回第11~20条资源记录。   - 若marker为第10条记录的资源ID，不传入limit参数，查询结果返回第11~2000条（limit默认值2000）资源记录。 - 取值范围：不涉及。 - 默认取值：不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -265,6 +269,8 @@ export class EswClient {
      * @param {string} [id] - 参数解释：ESW资源ID。ESW创建成功后，会生成一个ESW ID，是ESW对应的唯一标识。 - 约束限制：带“-”的UUID格式。 - 取值范围：不涉及。 - 默认取值：不涉及。
      * @param {string} [name] - 参数解释：ESW实例的名称。 - 约束限制：   - 长度范围为1~64个字符。   - 名称由中文、英文字母、数字、下划线（_）、中划线（-）、点（.）组成。 - 取值范围：不涉及。 - 默认取值：不涉及。
      * @param {string} [description] - 参数解释：ESW的描述信息。 - 约束限制：   - 长度范围为0~255个字符。   - 不能包含“&lt;”和“&gt;”。 - 取值范围：不涉及。 - 默认取值：不涉及。
+     * @param {number} [limit] - 参数解释：分页查询每页返回的记录个数。 - 约束限制：limit需要和marker配合使用，详细规则请见marker的参数说明。 - 取值范围：0~2^31-1。 - 默认取值：2000。
+     * @param {string} [marker] - 参数解释：分页查询的起始资源ID，表示从指定资源的下一条记录开始查询。 - 约束限制：marker需要和limit配合使用。   - 若不传入marker和limit参数，查询结果返回第一页全部资源记录。   - 若不传入marker参数，limit为10，查询结果返回第1~10条资源记录。   - 若marker为第10条记录的资源ID，limit为10，查询结果返回第11~20条资源记录。   - 若marker为第10条记录的资源ID，不传入limit参数，查询结果返回第11~2000条（limit默认值2000）资源记录。 - 取值范围：不涉及。 - 默认取值：不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -302,6 +308,8 @@ export class EswClient {
      *
      * @summary 查询任务的执行状态
      * @param {string} resourceId - 参数解释：ESW实例的唯一标识。 - 约束限制：带“-”的UUID格式。 - 取值范围：不涉及。 - 默认取值：不涉及。
+     * @param {number} [limit] - 参数解释：分页查询每页返回的记录个数。 - 约束限制：limit需要和marker配合使用，详细规则请见marker的参数说明。 - 取值范围：0~2^31-1。 - 默认取值：2000。
+     * @param {string} [marker] - 参数解释：分页查询的起始资源ID，表示从指定资源的下一条记录开始查询。 - 约束限制：marker需要和limit配合使用。   - 若不传入marker和limit参数，查询结果返回第一页全部资源记录。   - 若不传入marker参数，limit为10，查询结果返回第1~10条资源记录。   - 若marker为第10条记录的资源ID，limit为10，查询结果返回第11~20条资源记录。   - 若marker为第10条记录的资源ID，不传入limit参数，查询结果返回第11~2000条（limit默认值2000）资源记录。 - 取值范围：不涉及。 - 默认取值：不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -672,16 +680,24 @@ export const ParamCreater = function () {
             let id;
             
             let name;
+            
+            let limit;
+            
+            let marker;
 
             if (listConnectionsRequest !== null && listConnectionsRequest !== undefined) {
                 if (listConnectionsRequest instanceof ListConnectionsRequest) {
                     instanceId = listConnectionsRequest.instanceId;
                     id = listConnectionsRequest.id;
                     name = listConnectionsRequest.name;
+                    limit = listConnectionsRequest.limit;
+                    marker = listConnectionsRequest.marker;
                 } else {
                     instanceId = listConnectionsRequest['instance_id'];
                     id = listConnectionsRequest['id'];
                     name = listConnectionsRequest['name'];
+                    limit = listConnectionsRequest['limit'];
+                    marker = listConnectionsRequest['marker'];
                 }
             }
 
@@ -694,6 +710,12 @@ export const ParamCreater = function () {
             }
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -728,6 +750,10 @@ export const ParamCreater = function () {
             let vpcId;
             
             let virsubnetId;
+            
+            let limit;
+            
+            let marker;
 
             if (listConnectionsAllInstancesRequest !== null && listConnectionsAllInstancesRequest !== undefined) {
                 if (listConnectionsAllInstancesRequest instanceof ListConnectionsAllInstancesRequest) {
@@ -736,12 +762,16 @@ export const ParamCreater = function () {
                     instanceId = listConnectionsAllInstancesRequest.instanceId;
                     vpcId = listConnectionsAllInstancesRequest.vpcId;
                     virsubnetId = listConnectionsAllInstancesRequest.virsubnetId;
+                    limit = listConnectionsAllInstancesRequest.limit;
+                    marker = listConnectionsAllInstancesRequest.marker;
                 } else {
                     id = listConnectionsAllInstancesRequest['id'];
                     name = listConnectionsAllInstancesRequest['name'];
                     instanceId = listConnectionsAllInstancesRequest['instance_id'];
                     vpcId = listConnectionsAllInstancesRequest['vpc_id'];
                     virsubnetId = listConnectionsAllInstancesRequest['virsubnet_id'];
+                    limit = listConnectionsAllInstancesRequest['limit'];
+                    marker = listConnectionsAllInstancesRequest['marker'];
                 }
             }
 
@@ -760,6 +790,12 @@ export const ParamCreater = function () {
             }
             if (virsubnetId !== null && virsubnetId !== undefined) {
                 localVarQueryParameter['virsubnet_id'] = virsubnetId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -810,16 +846,24 @@ export const ParamCreater = function () {
             let name;
             
             let description;
+            
+            let limit;
+            
+            let marker;
 
             if (listInstancesRequest !== null && listInstancesRequest !== undefined) {
                 if (listInstancesRequest instanceof ListInstancesRequest) {
                     id = listInstancesRequest.id;
                     name = listInstancesRequest.name;
                     description = listInstancesRequest.description;
+                    limit = listInstancesRequest.limit;
+                    marker = listInstancesRequest.marker;
                 } else {
                     id = listInstancesRequest['id'];
                     name = listInstancesRequest['name'];
                     description = listInstancesRequest['description'];
+                    limit = listInstancesRequest['limit'];
+                    marker = listInstancesRequest['marker'];
                 }
             }
 
@@ -832,6 +876,12 @@ export const ParamCreater = function () {
             }
             if (description !== null && description !== undefined) {
                 localVarQueryParameter['description'] = description;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -875,15 +925,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let resourceId;
+            
+            let limit;
+            
+            let marker;
 
             if (listResourceJobsRequest !== null && listResourceJobsRequest !== undefined) {
                 if (listResourceJobsRequest instanceof ListResourceJobsRequest) {
                     resourceId = listResourceJobsRequest.resourceId;
+                    limit = listResourceJobsRequest.limit;
+                    marker = listResourceJobsRequest.marker;
                 } else {
                     resourceId = listResourceJobsRequest['resource_id'];
+                    limit = listResourceJobsRequest['limit'];
+                    marker = listResourceJobsRequest['marker'];
                 }
             }
 
@@ -891,7 +949,14 @@ export const ParamCreater = function () {
             if (resourceId === null || resourceId === undefined) {
             throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling listResourceJobs.');
             }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'resource_id': resourceId, };
             options.headers = localVarHeaderParameter;
             return options;

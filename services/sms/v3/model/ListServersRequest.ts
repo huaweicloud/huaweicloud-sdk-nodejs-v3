@@ -92,17 +92,16 @@ export enum ListServersRequestStateEnum {
     STOPPED = 'stopped',
     SKIPPING = 'skipping',
     DELETING = 'deleting',
-    ERROR = 'error',
-    CLONING = 'cloning',
-    CUTOVERING = 'cutovering',
-    FINISHED = 'finished',
     CLEARING = 'clearing',
     CLEARED = 'cleared',
     CLEARFAILED = 'clearfailed',
     PREMIGREADY = 'premigready',
-    PREMIGING = 'premiging',
     PREMIGED = 'premiged',
-    PREMIGFAILED = 'premigfailed'
+    PREMIGFAILED = 'premigfailed',
+    CLONING = 'cloning',
+    CUTOVERING = 'cutovering',
+    FINISHED = 'finished',
+    ERROR = 'error'
 }
 /**
     * @export

@@ -2,14 +2,31 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AddEmailTemplateRequest } from './model/AddEmailTemplateRequest';
+import { AddEmailTemplateRequestBody } from './model/AddEmailTemplateRequestBody';
+import { AddEmailTemplateResponse } from './model/AddEmailTemplateResponse';
 import { AddFullSqlTaskBody } from './model/AddFullSqlTaskBody';
 import { AddFullSqlTaskRequest } from './model/AddFullSqlTaskRequest';
 import { AddFullSqlTaskResponse } from './model/AddFullSqlTaskResponse';
+import { AddInstanceGroupRequest } from './model/AddInstanceGroupRequest';
+import { AddInstanceGroupRequestBody } from './model/AddInstanceGroupRequestBody';
+import { AddInstanceGroupResponse } from './model/AddInstanceGroupResponse';
+import { AddInstanceToGroupRequest } from './model/AddInstanceToGroupRequest';
+import { AddInstanceToGroupRequestBody } from './model/AddInstanceToGroupRequestBody';
+import { AddInstanceToGroupResponse } from './model/AddInstanceToGroupResponse';
 import { AdviceResult } from './model/AdviceResult';
 import { ApiListConnectionsInfoRespDasConnInfoList } from './model/ApiListConnectionsInfoRespDasConnInfoList';
 import { ApiSetMetricCodeThresholdReq } from './model/ApiSetMetricCodeThresholdReq';
 import { ApiVersion } from './model/ApiVersion';
 import { AutoIncrementUsageRespAutoIncrementUsageList } from './model/AutoIncrementUsageRespAutoIncrementUsageList';
+import { BatchInspectionLostPointsDetail } from './model/BatchInspectionLostPointsDetail';
+import { BatchInspectionReport } from './model/BatchInspectionReport';
+import { BatchSendEmailRequest } from './model/BatchSendEmailRequest';
+import { BatchSendEmailRequestBody } from './model/BatchSendEmailRequestBody';
+import { BatchSendEmailResponse } from './model/BatchSendEmailResponse';
+import { BatchSubscribeReportRequest } from './model/BatchSubscribeReportRequest';
+import { BatchSubscribeReportRequestBody } from './model/BatchSubscribeReportRequestBody';
+import { BatchSubscribeReportResponse } from './model/BatchSubscribeReportResponse';
 import { CancelShareConnectionsRequest } from './model/CancelShareConnectionsRequest';
 import { CancelShareConnectionsRequestBody } from './model/CancelShareConnectionsRequestBody';
 import { CancelShareConnectionsResponse } from './model/CancelShareConnectionsResponse';
@@ -27,6 +44,8 @@ import { ChangeSqlSwitchRequest } from './model/ChangeSqlSwitchRequest';
 import { ChangeSqlSwitchResponse } from './model/ChangeSqlSwitchResponse';
 import { ChangeTransactionSwitchStatusRequest } from './model/ChangeTransactionSwitchStatusRequest';
 import { ChangeTransactionSwitchStatusResponse } from './model/ChangeTransactionSwitchStatusResponse';
+import { CheckCredentialForBatchInspectionRequest } from './model/CheckCredentialForBatchInspectionRequest';
+import { CheckCredentialForBatchInspectionResponse } from './model/CheckCredentialForBatchInspectionResponse';
 import { CheckCredentialRequest } from './model/CheckCredentialRequest';
 import { CheckCredentialRequestBody } from './model/CheckCredentialRequestBody';
 import { CheckCredentialResponse } from './model/CheckCredentialResponse';
@@ -62,14 +81,22 @@ import { DbObjectSpaceInfo } from './model/DbObjectSpaceInfo';
 import { DbUser } from './model/DbUser';
 import { DeleteDbUserRequest } from './model/DeleteDbUserRequest';
 import { DeleteDbUserResponse } from './model/DeleteDbUserResponse';
+import { DeleteEmailTemplateRequest } from './model/DeleteEmailTemplateRequest';
+import { DeleteEmailTemplateRequestBody } from './model/DeleteEmailTemplateRequestBody';
+import { DeleteEmailTemplateResponse } from './model/DeleteEmailTemplateResponse';
 import { DeleteHistoryTransactionExportTaskRequest } from './model/DeleteHistoryTransactionExportTaskRequest';
 import { DeleteHistoryTransactionExportTaskResponse } from './model/DeleteHistoryTransactionExportTaskResponse';
+import { DeleteInstanceGroupRequest } from './model/DeleteInstanceGroupRequest';
+import { DeleteInstanceGroupRequestBody } from './model/DeleteInstanceGroupRequestBody';
+import { DeleteInstanceGroupResponse } from './model/DeleteInstanceGroupResponse';
 import { DeleteProcessReqBody } from './model/DeleteProcessReqBody';
 import { DeleteProcessRequest } from './model/DeleteProcessRequest';
 import { DeleteProcessResponse } from './model/DeleteProcessResponse';
 import { DeleteSqlLimitRulesBody } from './model/DeleteSqlLimitRulesBody';
 import { DeleteSqlLimitRulesRequest } from './model/DeleteSqlLimitRulesRequest';
 import { DeleteSqlLimitRulesResponse } from './model/DeleteSqlLimitRulesResponse';
+import { EmailRecord } from './model/EmailRecord';
+import { EmailTemplate } from './model/EmailTemplate';
 import { ExecutionPlan } from './model/ExecutionPlan';
 import { Explain } from './model/Explain';
 import { ExportFullSqlDetailsRequest } from './model/ExportFullSqlDetailsRequest';
@@ -125,6 +152,8 @@ import { InnodbLockWaits } from './model/InnodbLockWaits';
 import { InnodbTrx } from './model/InnodbTrx';
 import { InstanceEngineDistributionListEngineDistribution } from './model/InstanceEngineDistributionListEngineDistribution';
 import { InstanceEngineDistributionListInstanceInfos } from './model/InstanceEngineDistributionListInstanceInfos';
+import { InstanceGroup } from './model/InstanceGroup';
+import { InstanceHealthReport } from './model/InstanceHealthReport';
 import { InstanceNodesInfoInstanceNodes } from './model/InstanceNodesInfoInstanceNodes';
 import { InstanceSpaceInfo } from './model/InstanceSpaceInfo';
 import { ListApiVersionsRequest } from './model/ListApiVersionsRequest';
@@ -138,6 +167,10 @@ import { ListConnectionsRequest } from './model/ListConnectionsRequest';
 import { ListConnectionsResponse } from './model/ListConnectionsResponse';
 import { ListDbUsersRequest } from './model/ListDbUsersRequest';
 import { ListDbUsersResponse } from './model/ListDbUsersResponse';
+import { ListEmailRecordRequest } from './model/ListEmailRecordRequest';
+import { ListEmailRecordResponse } from './model/ListEmailRecordResponse';
+import { ListEmailTemplateRequest } from './model/ListEmailTemplateRequest';
+import { ListEmailTemplateResponse } from './model/ListEmailTemplateResponse';
 import { ListFullSqlTasksRequest } from './model/ListFullSqlTasksRequest';
 import { ListFullSqlTasksResponse } from './model/ListFullSqlTasksResponse';
 import { ListHealthReportTaskRequest } from './model/ListHealthReportTaskRequest';
@@ -146,8 +179,12 @@ import { ListHistoryTransactionExportTaskRequest } from './model/ListHistoryTran
 import { ListHistoryTransactionExportTaskResponse } from './model/ListHistoryTransactionExportTaskResponse';
 import { ListInnodbLocksRequest } from './model/ListInnodbLocksRequest';
 import { ListInnodbLocksResponse } from './model/ListInnodbLocksResponse';
+import { ListInspectionReportRequest } from './model/ListInspectionReportRequest';
+import { ListInspectionReportResponse } from './model/ListInspectionReportResponse';
 import { ListInstanceDistributionRequest } from './model/ListInstanceDistributionRequest';
 import { ListInstanceDistributionResponse } from './model/ListInstanceDistributionResponse';
+import { ListInstanceGroupRequest } from './model/ListInstanceGroupRequest';
+import { ListInstanceGroupResponse } from './model/ListInstanceGroupResponse';
 import { ListInstanceMultiNodesSingleMetric } from './model/ListInstanceMultiNodesSingleMetric';
 import { ListInstanceMultiNodesSingleMetricInstanceInfos } from './model/ListInstanceMultiNodesSingleMetricInstanceInfos';
 import { ListInstanceMultiNodesSingleMetricNodeInfos } from './model/ListInstanceMultiNodesSingleMetricNodeInfos';
@@ -198,6 +235,8 @@ import { RecommendSqlLimitRuleRespSqlLimitInfos } from './model/RecommendSqlLimi
 import { RegisterDbUserRequest } from './model/RegisterDbUserRequest';
 import { RegisterDbUserRequestBody } from './model/RegisterDbUserRequestBody';
 import { RegisterDbUserResponse } from './model/RegisterDbUserResponse';
+import { SaveCredentialForBatchInspectionRequest } from './model/SaveCredentialForBatchInspectionRequest';
+import { SaveCredentialForBatchInspectionResponse } from './model/SaveCredentialForBatchInspectionResponse';
 import { SaveCredentialRequest } from './model/SaveCredentialRequest';
 import { SaveCredentialRequestBody } from './model/SaveCredentialRequestBody';
 import { SaveCredentialResponse } from './model/SaveCredentialResponse';
@@ -206,6 +245,8 @@ import { SetThresholdForMetricResponse } from './model/SetThresholdForMetricResp
 import { ShareConnUserInfo } from './model/ShareConnUserInfo';
 import { ShowApiVersionRequest } from './model/ShowApiVersionRequest';
 import { ShowApiVersionResponse } from './model/ShowApiVersionResponse';
+import { ShowCredentialRequest } from './model/ShowCredentialRequest';
+import { ShowCredentialResponse } from './model/ShowCredentialResponse';
 import { ShowDasRecommendSqlLimitRuleRequest } from './model/ShowDasRecommendSqlLimitRuleRequest';
 import { ShowDasRecommendSqlLimitRuleResponse } from './model/ShowDasRecommendSqlLimitRuleResponse';
 import { ShowDbUserRequest } from './model/ShowDbUserRequest';
@@ -261,9 +302,15 @@ import { TransactionSwitchReq } from './model/TransactionSwitchReq';
 import { UpdateDbUserRequest } from './model/UpdateDbUserRequest';
 import { UpdateDbUserRequestBody } from './model/UpdateDbUserRequestBody';
 import { UpdateDbUserResponse } from './model/UpdateDbUserResponse';
+import { UpdateEmailTemplateRequest } from './model/UpdateEmailTemplateRequest';
+import { UpdateEmailTemplateRequestBody } from './model/UpdateEmailTemplateRequestBody';
+import { UpdateEmailTemplateResponse } from './model/UpdateEmailTemplateResponse';
 import { UpdateHealthReportSettingsRequest } from './model/UpdateHealthReportSettingsRequest';
 import { UpdateHealthReportSettingsRequestBody } from './model/UpdateHealthReportSettingsRequestBody';
 import { UpdateHealthReportSettingsResponse } from './model/UpdateHealthReportSettingsResponse';
+import { UpdateInstanceGroupRequest } from './model/UpdateInstanceGroupRequest';
+import { UpdateInstanceGroupRequestBody } from './model/UpdateInstanceGroupRequestBody';
+import { UpdateInstanceGroupResponse } from './model/UpdateInstanceGroupResponse';
 import { UpdateSqlLimitRuleOption } from './model/UpdateSqlLimitRuleOption';
 import { UpdateSqlLimitRulesBody } from './model/UpdateSqlLimitRulesBody';
 import { UpdateSqlLimitRulesRequest } from './model/UpdateSqlLimitRulesRequest';
@@ -412,6 +459,25 @@ export class DasClient {
     }
 
     /**
+     * 新增邮件模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增邮件模板
+     * @param {AddEmailTemplateRequestBody} addEmailTemplateRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addEmailTemplate(addEmailTemplateRequest?: AddEmailTemplateRequest): Promise<AddEmailTemplateResponse> {
+        const options = ParamCreater().addEmailTemplate(addEmailTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建全量SQL明细解析任务
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -425,6 +491,82 @@ export class DasClient {
      */
     public addFullSqlTask(addFullSqlTaskRequest?: AddFullSqlTaskRequest): Promise<AddFullSqlTaskResponse> {
         const options = ParamCreater().addFullSqlTask(addFullSqlTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 新增实例组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增实例组
+     * @param {AddInstanceGroupRequestBody} addInstanceGroupRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addInstanceGroup(addInstanceGroupRequest?: AddInstanceGroupRequest): Promise<AddInstanceGroupResponse> {
+        const options = ParamCreater().addInstanceGroup(addInstanceGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 将实例添加到实例组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 将实例添加到实例组
+     * @param {AddInstanceToGroupRequestBody} addInstanceToGroupRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addInstanceToGroup(addInstanceToGroupRequest?: AddInstanceToGroupRequest): Promise<AddInstanceToGroupResponse> {
+        const options = ParamCreater().addInstanceToGroup(addInstanceToGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量发送邮件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量发送邮件
+     * @param {BatchSendEmailRequestBody} batchSendEmailRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchSendEmail(batchSendEmailRequest?: BatchSendEmailRequest): Promise<BatchSendEmailResponse> {
+        const options = ParamCreater().batchSendEmail(batchSendEmailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量订阅/取消订阅
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量订阅/取消订阅
+     * @param {BatchSubscribeReportRequestBody} batchSubscribeReportRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchSubscribeReport(batchSubscribeReportRequest?: BatchSubscribeReportRequest): Promise<BatchSubscribeReportResponse> {
+        const options = ParamCreater().batchSubscribeReport(batchSubscribeReportRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -550,6 +692,25 @@ export class DasClient {
      */
     public checkCredential(checkCredentialRequest?: CheckCredentialRequest): Promise<CheckCredentialResponse> {
         const options = ParamCreater().checkCredential(checkCredentialRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 测试AK/SK，测试用户AK/SK能否正常访问OBS桶。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 测试AK/SK
+     * @param {CheckCredentialRequestBody} checkCredentialForBatchInspectionRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkCredentialForBatchInspection(checkCredentialForBatchInspectionRequest?: CheckCredentialForBatchInspectionRequest): Promise<CheckCredentialForBatchInspectionResponse> {
+        const options = ParamCreater().checkCredentialForBatchInspection(checkCredentialForBatchInspectionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -717,6 +878,25 @@ export class DasClient {
     }
 
     /**
+     * 删除邮件模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除邮件模板
+     * @param {DeleteEmailTemplateRequestBody} deleteEmailTemplateRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteEmailTemplate(deleteEmailTemplateRequest?: DeleteEmailTemplateRequest): Promise<DeleteEmailTemplateResponse> {
+        const options = ParamCreater().deleteEmailTemplate(deleteEmailTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * DAS收集历史事务开关打开后，删除历史事务导出任务记录对应的OBS文件。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -730,6 +910,25 @@ export class DasClient {
      */
     public deleteHistoryTransactionExportTask(deleteHistoryTransactionExportTaskRequest?: DeleteHistoryTransactionExportTaskRequest): Promise<DeleteHistoryTransactionExportTaskResponse> {
         const options = ParamCreater().deleteHistoryTransactionExportTask(deleteHistoryTransactionExportTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除实例组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除实例组
+     * @param {DeleteInstanceGroupRequestBody} deleteInstanceGroupRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteInstanceGroup(deleteInstanceGroupRequest?: DeleteInstanceGroupRequest): Promise<DeleteInstanceGroupResponse> {
+        const options = ParamCreater().deleteInstanceGroup(deleteInstanceGroupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1095,6 +1294,51 @@ export class DasClient {
     }
 
     /**
+     * 查询邮件推送记录
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询邮件推送记录
+     * @param {string} datastoreType 数据库类型。支持MySQL、TaurusDB、GaussDB、MariaDB。
+     * @param {number} [startAt] 开始时间（Unix timestamp），单位：毫秒。
+     * @param {number} [endAt] 结束时间（Unix timestamp），单位：毫秒。
+     * @param {number} [sendStatus] 发送状态
+     * @param {number} [offset] 偏移量
+     * @param {number} [limit] 每页记录数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listEmailRecord(listEmailRecordRequest?: ListEmailRecordRequest): Promise<ListEmailRecordResponse> {
+        const options = ParamCreater().listEmailRecord(listEmailRecordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询邮件模板列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询邮件模板列表
+     * @param {string} datastoreType 数据库类型。支持MySQL、TaurusDB、GaussDB、MariaDB。
+     * @param {number} [offset] 偏移量
+     * @param {number} [limit] 每页记录数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listEmailTemplate(listEmailTemplateRequest?: ListEmailTemplateRequest): Promise<ListEmailTemplateResponse> {
+        const options = ParamCreater().listEmailTemplate(listEmailTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 全量SQL开关打开后，查询SQL洞察任务列表。该功能仅支持付费实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1199,6 +1443,32 @@ export class DasClient {
     }
 
     /**
+     * 查询巡检报告列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询巡检报告列表
+     * @param {number} startAt 开始时间（Unix timestamp），单位：毫秒。
+     * @param {number} endAt 结束时间（Unix timestamp），单位：毫秒。
+     * @param {string} datastoreType 数据库类型。支持MySQL、TaurusDB、GaussDB、MariaDB。
+     * @param {string} [healthRank] 健康等级
+     * @param {string} [sortField] 排序字段
+     * @param {boolean} [asc] 排序顺序（true:正序, false:逆序）
+     * @param {number} [offset] 偏移量
+     * @param {number} [limit] 每页记录数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInspectionReport(listInspectionReportRequest?: ListInspectionReportRequest): Promise<ListInspectionReportResponse> {
+        const options = ParamCreater().listInspectionReport(listInspectionReportRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询实例分布情况
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1211,6 +1481,28 @@ export class DasClient {
      */
     public listInstanceDistribution(listInstanceDistributionRequest?: ListInstanceDistributionRequest): Promise<ListInstanceDistributionResponse> {
         const options = ParamCreater().listInstanceDistribution(listInstanceDistributionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例组列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例组列表
+     * @param {string} datastoreType 数据库类型。支持MySQL、TaurusDB、GaussDB、MariaDB。
+     * @param {string} [groupName] 实例组名称
+     * @param {number} [offset] 偏移量
+     * @param {number} [limit] 每页记录数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceGroup(listInstanceGroupRequest?: ListInstanceGroupRequest): Promise<ListInstanceGroupResponse> {
+        const options = ParamCreater().listInstanceGroup(listInstanceGroupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1613,6 +1905,25 @@ export class DasClient {
     }
 
     /**
+     * 保存AK/SK，用于后台任务访问OBS上传实例诊断报告
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 保存AK/SK
+     * @param {SaveCredentialRequestBody} saveCredentialForBatchInspectionRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public saveCredentialForBatchInspection(saveCredentialForBatchInspectionRequest?: SaveCredentialForBatchInspectionRequest): Promise<SaveCredentialForBatchInspectionResponse> {
+        const options = ParamCreater().saveCredentialForBatchInspection(saveCredentialForBatchInspectionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设置指标阈值
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1625,6 +1936,24 @@ export class DasClient {
      */
     public setThresholdForMetric(setThresholdForMetricRequest?: SetThresholdForMetricRequest): Promise<SetThresholdForMetricResponse> {
         const options = ParamCreater().setThresholdForMetric(setThresholdForMetricRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询AK/SK。用于判断是否已保存AK/SK
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询AK/SK
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCredential(showCredentialRequest?: ShowCredentialRequest): Promise<ShowCredentialResponse> {
+        const options = ParamCreater().showCredential();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2037,6 +2366,25 @@ export class DasClient {
     }
 
     /**
+     * 修改邮件模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改邮件模板
+     * @param {UpdateEmailTemplateRequestBody} updateEmailTemplateRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateEmailTemplate(updateEmailTemplateRequest?: UpdateEmailTemplateRequest): Promise<UpdateEmailTemplateResponse> {
+        const options = ParamCreater().updateEmailTemplate(updateEmailTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新实例诊断报告设置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2049,6 +2397,25 @@ export class DasClient {
      */
     public updateHealthReportSettings(updateHealthReportSettingsRequest?: UpdateHealthReportSettingsRequest): Promise<UpdateHealthReportSettingsResponse> {
         const options = ParamCreater().updateHealthReportSettings(updateHealthReportSettingsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改实例组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改实例组
+     * @param {UpdateInstanceGroupRequestBody} updateInstanceGroupRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstanceGroup(updateInstanceGroupRequest?: UpdateInstanceGroupRequest): Promise<UpdateInstanceGroupResponse> {
+        const options = ParamCreater().updateInstanceGroup(updateInstanceGroupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2371,6 +2738,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 新增邮件模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addEmailTemplate(addEmailTemplateRequest?: AddEmailTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/batch-inspection/email-template",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (addEmailTemplateRequest !== null && addEmailTemplateRequest !== undefined) {
+                if (addEmailTemplateRequest instanceof AddEmailTemplateRequest) {
+                    body = addEmailTemplateRequest.body
+                } else {
+                    body = addEmailTemplateRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建全量SQL明细解析任务
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2419,6 +2824,158 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 新增实例组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addInstanceGroup(addInstanceGroupRequest?: AddInstanceGroupRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/batch-inspection/instance-group",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (addInstanceGroupRequest !== null && addInstanceGroupRequest !== undefined) {
+                if (addInstanceGroupRequest instanceof AddInstanceGroupRequest) {
+                    body = addInstanceGroupRequest.body
+                } else {
+                    body = addInstanceGroupRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将实例添加到实例组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addInstanceToGroup(addInstanceToGroupRequest?: AddInstanceToGroupRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/batch-inspection/add-instance-to-group",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (addInstanceToGroupRequest !== null && addInstanceToGroupRequest !== undefined) {
+                if (addInstanceToGroupRequest instanceof AddInstanceToGroupRequest) {
+                    body = addInstanceToGroupRequest.body
+                } else {
+                    body = addInstanceToGroupRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量发送邮件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchSendEmail(batchSendEmailRequest?: BatchSendEmailRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/batch-inspection/batch-send-email",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchSendEmailRequest !== null && batchSendEmailRequest !== undefined) {
+                if (batchSendEmailRequest instanceof BatchSendEmailRequest) {
+                    body = batchSendEmailRequest.body
+                } else {
+                    body = batchSendEmailRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量订阅/取消订阅
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchSubscribeReport(batchSubscribeReportRequest?: BatchSubscribeReportRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/batch-inspection/batch-subscribe",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchSubscribeReportRequest !== null && batchSubscribeReportRequest !== undefined) {
+                if (batchSubscribeReportRequest instanceof BatchSubscribeReportRequest) {
+                    body = batchSubscribeReportRequest.body
+                } else {
+                    body = batchSubscribeReportRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2723,6 +3280,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 测试AK/SK，测试用户AK/SK能否正常访问OBS桶。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkCredentialForBatchInspection(checkCredentialForBatchInspectionRequest?: CheckCredentialForBatchInspectionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/batch-inspection/check-credential",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (checkCredentialForBatchInspectionRequest !== null && checkCredentialForBatchInspectionRequest !== undefined) {
+                if (checkCredentialForBatchInspectionRequest instanceof CheckCredentialForBatchInspectionRequest) {
+                    body = checkCredentialForBatchInspectionRequest.body
+                } else {
+                    body = checkCredentialForBatchInspectionRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3106,6 +3701,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除邮件模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteEmailTemplate(deleteEmailTemplateRequest?: DeleteEmailTemplateRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/batch-inspection/email-template",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deleteEmailTemplateRequest !== null && deleteEmailTemplateRequest !== undefined) {
+                if (deleteEmailTemplateRequest instanceof DeleteEmailTemplateRequest) {
+                    body = deleteEmailTemplateRequest.body
+                } else {
+                    body = deleteEmailTemplateRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * DAS收集历史事务开关打开后，删除历史事务导出任务记录对应的OBS文件。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3154,6 +3787,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除实例组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteInstanceGroup(deleteInstanceGroupRequest?: DeleteInstanceGroupRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/batch-inspection/instance-group",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deleteInstanceGroupRequest !== null && deleteInstanceGroupRequest !== undefined) {
+                if (deleteInstanceGroupRequest instanceof DeleteInstanceGroupRequest) {
+                    body = deleteInstanceGroupRequest.body
+                } else {
+                    body = deleteInstanceGroupRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4396,6 +5067,135 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询邮件推送记录
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listEmailRecord(listEmailRecordRequest?: ListEmailRecordRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/batch-inspection/email-record",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let datastoreType;
+            
+            let startAt;
+            
+            let endAt;
+            
+            let sendStatus;
+            
+            let offset;
+            
+            let limit;
+
+            if (listEmailRecordRequest !== null && listEmailRecordRequest !== undefined) {
+                if (listEmailRecordRequest instanceof ListEmailRecordRequest) {
+                    datastoreType = listEmailRecordRequest.datastoreType;
+                    startAt = listEmailRecordRequest.startAt;
+                    endAt = listEmailRecordRequest.endAt;
+                    sendStatus = listEmailRecordRequest.sendStatus;
+                    offset = listEmailRecordRequest.offset;
+                    limit = listEmailRecordRequest.limit;
+                } else {
+                    datastoreType = listEmailRecordRequest['datastore_type'];
+                    startAt = listEmailRecordRequest['start_at'];
+                    endAt = listEmailRecordRequest['end_at'];
+                    sendStatus = listEmailRecordRequest['send_status'];
+                    offset = listEmailRecordRequest['offset'];
+                    limit = listEmailRecordRequest['limit'];
+                }
+            }
+
+        
+            if (datastoreType === null || datastoreType === undefined) {
+                throw new RequiredError('datastoreType','Required parameter datastoreType was null or undefined when calling listEmailRecord.');
+            }
+            if (datastoreType !== null && datastoreType !== undefined) {
+                localVarQueryParameter['datastore_type'] = datastoreType;
+            }
+            if (startAt !== null && startAt !== undefined) {
+                localVarQueryParameter['start_at'] = startAt;
+            }
+            if (endAt !== null && endAt !== undefined) {
+                localVarQueryParameter['end_at'] = endAt;
+            }
+            if (sendStatus !== null && sendStatus !== undefined) {
+                localVarQueryParameter['send_status'] = sendStatus;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询邮件模板列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listEmailTemplate(listEmailTemplateRequest?: ListEmailTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/batch-inspection/email-template",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let datastoreType;
+            
+            let offset;
+            
+            let limit;
+
+            if (listEmailTemplateRequest !== null && listEmailTemplateRequest !== undefined) {
+                if (listEmailTemplateRequest instanceof ListEmailTemplateRequest) {
+                    datastoreType = listEmailTemplateRequest.datastoreType;
+                    offset = listEmailTemplateRequest.offset;
+                    limit = listEmailTemplateRequest.limit;
+                } else {
+                    datastoreType = listEmailTemplateRequest['datastore_type'];
+                    offset = listEmailTemplateRequest['offset'];
+                    limit = listEmailTemplateRequest['limit'];
+                }
+            }
+
+        
+            if (datastoreType === null || datastoreType === undefined) {
+                throw new RequiredError('datastoreType','Required parameter datastoreType was null or undefined when calling listEmailTemplate.');
+            }
+            if (datastoreType !== null && datastoreType !== undefined) {
+                localVarQueryParameter['datastore_type'] = datastoreType;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 全量SQL开关打开后，查询SQL洞察任务列表。该功能仅支持付费实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4747,6 +5547,101 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询巡检报告列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInspectionReport(listInspectionReportRequest?: ListInspectionReportRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/batch-inspection/health-report-list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let startAt;
+            
+            let endAt;
+            
+            let datastoreType;
+            
+            let healthRank;
+            
+            let sortField;
+            
+            let asc;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInspectionReportRequest !== null && listInspectionReportRequest !== undefined) {
+                if (listInspectionReportRequest instanceof ListInspectionReportRequest) {
+                    startAt = listInspectionReportRequest.startAt;
+                    endAt = listInspectionReportRequest.endAt;
+                    datastoreType = listInspectionReportRequest.datastoreType;
+                    healthRank = listInspectionReportRequest.healthRank;
+                    sortField = listInspectionReportRequest.sortField;
+                    asc = listInspectionReportRequest.asc;
+                    offset = listInspectionReportRequest.offset;
+                    limit = listInspectionReportRequest.limit;
+                } else {
+                    startAt = listInspectionReportRequest['start_at'];
+                    endAt = listInspectionReportRequest['end_at'];
+                    datastoreType = listInspectionReportRequest['datastore_type'];
+                    healthRank = listInspectionReportRequest['health_rank'];
+                    sortField = listInspectionReportRequest['sort_field'];
+                    asc = listInspectionReportRequest['asc'];
+                    offset = listInspectionReportRequest['offset'];
+                    limit = listInspectionReportRequest['limit'];
+                }
+            }
+
+        
+            if (startAt === null || startAt === undefined) {
+                throw new RequiredError('startAt','Required parameter startAt was null or undefined when calling listInspectionReport.');
+            }
+            if (startAt !== null && startAt !== undefined) {
+                localVarQueryParameter['start_at'] = startAt;
+            }
+            if (endAt === null || endAt === undefined) {
+                throw new RequiredError('endAt','Required parameter endAt was null or undefined when calling listInspectionReport.');
+            }
+            if (endAt !== null && endAt !== undefined) {
+                localVarQueryParameter['end_at'] = endAt;
+            }
+            if (datastoreType === null || datastoreType === undefined) {
+                throw new RequiredError('datastoreType','Required parameter datastoreType was null or undefined when calling listInspectionReport.');
+            }
+            if (datastoreType !== null && datastoreType !== undefined) {
+                localVarQueryParameter['datastore_type'] = datastoreType;
+            }
+            if (healthRank !== null && healthRank !== undefined) {
+                localVarQueryParameter['health_rank'] = healthRank;
+            }
+            if (sortField !== null && sortField !== undefined) {
+                localVarQueryParameter['sort_field'] = sortField;
+            }
+            if (asc !== null && asc !== undefined) {
+                localVarQueryParameter['asc'] = asc;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询实例分布情况
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4783,6 +5678,67 @@ export const ParamCreater = function () {
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例组列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceGroup(listInstanceGroupRequest?: ListInstanceGroupRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/batch-inspection/instance-group",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let datastoreType;
+            
+            let groupName;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceGroupRequest !== null && listInstanceGroupRequest !== undefined) {
+                if (listInstanceGroupRequest instanceof ListInstanceGroupRequest) {
+                    datastoreType = listInstanceGroupRequest.datastoreType;
+                    groupName = listInstanceGroupRequest.groupName;
+                    offset = listInstanceGroupRequest.offset;
+                    limit = listInstanceGroupRequest.limit;
+                } else {
+                    datastoreType = listInstanceGroupRequest['datastore_type'];
+                    groupName = listInstanceGroupRequest['group_name'];
+                    offset = listInstanceGroupRequest['offset'];
+                    limit = listInstanceGroupRequest['limit'];
+                }
+            }
+
+        
+            if (datastoreType === null || datastoreType === undefined) {
+                throw new RequiredError('datastoreType','Required parameter datastoreType was null or undefined when calling listInstanceGroup.');
+            }
+            if (datastoreType !== null && datastoreType !== undefined) {
+                localVarQueryParameter['datastore_type'] = datastoreType;
+            }
+            if (groupName !== null && groupName !== undefined) {
+                localVarQueryParameter['group_name'] = groupName;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -5980,6 +6936,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 保存AK/SK，用于后台任务访问OBS上传实例诊断报告
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        saveCredentialForBatchInspection(saveCredentialForBatchInspectionRequest?: SaveCredentialForBatchInspectionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/batch-inspection/save-credential",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (saveCredentialForBatchInspectionRequest !== null && saveCredentialForBatchInspectionRequest !== undefined) {
+                if (saveCredentialForBatchInspectionRequest instanceof SaveCredentialForBatchInspectionRequest) {
+                    body = saveCredentialForBatchInspectionRequest.body
+                } else {
+                    body = saveCredentialForBatchInspectionRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设置指标阈值
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6020,6 +7014,27 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询AK/SK。用于判断是否已保存AK/SK
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCredential() {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/batch-inspection/get-credential",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7046,6 +8061,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改邮件模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateEmailTemplate(updateEmailTemplateRequest?: UpdateEmailTemplateRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/batch-inspection/email-template",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateEmailTemplateRequest !== null && updateEmailTemplateRequest !== undefined) {
+                if (updateEmailTemplateRequest instanceof UpdateEmailTemplateRequest) {
+                    body = updateEmailTemplateRequest.body
+                } else {
+                    body = updateEmailTemplateRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新实例诊断报告设置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7087,6 +8140,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改实例组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstanceGroup(updateInstanceGroupRequest?: UpdateInstanceGroupRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/batch-inspection/instance-group",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateInstanceGroupRequest !== null && updateInstanceGroupRequest !== undefined) {
+                if (updateInstanceGroupRequest instanceof UpdateInstanceGroupRequest) {
+                    body = updateInstanceGroupRequest.body
+                } else {
+                    body = updateInstanceGroupRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

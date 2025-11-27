@@ -4,6 +4,8 @@ export class GetInstancesNoIndexTablesRequest {
     private 'instance_id'?: string;
     public newest?: boolean;
     private 'table_type'?: string;
+    public offset?: string;
+    public limit?: string;
     public constructor(instanceId?: string, newest?: boolean, tableType?: string) { 
         this['instance_id'] = instanceId;
         this['newest'] = newest;
@@ -32,5 +34,13 @@ export class GetInstancesNoIndexTablesRequest {
     }
     public get tableType(): string | undefined {
         return this['table_type'];
+    }
+    public withOffset(offset: string): GetInstancesNoIndexTablesRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: string): GetInstancesNoIndexTablesRequest {
+        this['limit'] = limit;
+        return this;
     }
 }

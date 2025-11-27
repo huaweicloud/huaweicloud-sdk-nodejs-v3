@@ -10,6 +10,7 @@ export class ListTransitIpsRequest {
     private 'gateway_id'?: Array<string>;
     private 'enterprise_project_id'?: Array<string>;
     private 'virsubnet_id'?: Array<string>;
+    private 'transit_subnet_id'?: Array<string>;
     public constructor() { 
     }
     public withLimit(limit: number): ListTransitIpsRequest {
@@ -83,5 +84,15 @@ export class ListTransitIpsRequest {
     }
     public get virsubnetId(): Array<string> | undefined {
         return this['virsubnet_id'];
+    }
+    public withTransitSubnetId(transitSubnetId: Array<string>): ListTransitIpsRequest {
+        this['transit_subnet_id'] = transitSubnetId;
+        return this;
+    }
+    public set transitSubnetId(transitSubnetId: Array<string>  | undefined) {
+        this['transit_subnet_id'] = transitSubnetId;
+    }
+    public get transitSubnetId(): Array<string> | undefined {
+        return this['transit_subnet_id'];
     }
 }
