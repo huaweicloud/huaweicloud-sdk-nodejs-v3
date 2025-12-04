@@ -7,7 +7,7 @@ export class ListCertificatesRequest {
     public pagesize?: number;
     public name?: string;
     public host?: boolean;
-    private 'exp_status'?: number;
+    private 'exp_status'?: ListCertificatesRequestExpStatusEnum | number;
     private 'query_scm'?: boolean;
     public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
@@ -48,14 +48,14 @@ export class ListCertificatesRequest {
         this['host'] = host;
         return this;
     }
-    public withExpStatus(expStatus: number): ListCertificatesRequest {
+    public withExpStatus(expStatus: ListCertificatesRequestExpStatusEnum | number): ListCertificatesRequest {
         this['exp_status'] = expStatus;
         return this;
     }
-    public set expStatus(expStatus: number  | undefined) {
+    public set expStatus(expStatus: ListCertificatesRequestExpStatusEnum | number  | undefined) {
         this['exp_status'] = expStatus;
     }
-    public get expStatus(): number | undefined {
+    public get expStatus(): ListCertificatesRequestExpStatusEnum | number | undefined {
         return this['exp_status'];
     }
     public withQueryScm(queryScm: boolean): ListCertificatesRequest {
@@ -68,4 +68,14 @@ export class ListCertificatesRequest {
     public get queryScm(): boolean | undefined {
         return this['query_scm'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListCertificatesRequestExpStatusEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1,
+    NUMBER_2 = 2
 }

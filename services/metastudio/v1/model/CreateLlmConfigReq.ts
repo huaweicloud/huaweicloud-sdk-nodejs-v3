@@ -4,6 +4,7 @@ export class CreateLlmConfigReq {
     public name?: string;
     private 'llm_url'?: string;
     private 'api_key'?: string;
+    public model?: string;
     public constructor(name?: string, llmUrl?: string, apiKey?: string) { 
         this['name'] = name;
         this['llm_url'] = llmUrl;
@@ -32,5 +33,9 @@ export class CreateLlmConfigReq {
     }
     public get apiKey(): string | undefined {
         return this['api_key'];
+    }
+    public withModel(model: string): CreateLlmConfigReq {
+        this['model'] = model;
+        return this;
     }
 }

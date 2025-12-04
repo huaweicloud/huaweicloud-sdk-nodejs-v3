@@ -1,10 +1,10 @@
-import { BatchModifyGroupDescriptionReq } from './BatchModifyGroupDescriptionReq';
+import { BatchModiftGroupDescriptionReq } from './BatchModiftGroupDescriptionReq';
 
 
 export class UpdateInstanceGroupRequest {
     public engine?: string;
     private 'instance_id'?: string;
-    public body?: BatchModifyGroupDescriptionReq;
+    public body?: BatchModiftGroupDescriptionReq;
     public constructor(engine?: string, instanceId?: string) { 
         this['engine'] = engine;
         this['instance_id'] = instanceId;
@@ -23,7 +23,7 @@ export class UpdateInstanceGroupRequest {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withBody(body: BatchModifyGroupDescriptionReq): UpdateInstanceGroupRequest {
+    public withBody(body: BatchModiftGroupDescriptionReq): UpdateInstanceGroupRequest {
         this['body'] = body;
         return this;
     }

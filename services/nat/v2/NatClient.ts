@@ -186,6 +186,9 @@ import { UpdateNatGatewaySnatRuleOption } from './model/UpdateNatGatewaySnatRule
 import { UpdateNatGatewaySnatRuleRequest } from './model/UpdateNatGatewaySnatRuleRequest';
 import { UpdateNatGatewaySnatRuleRequestOption } from './model/UpdateNatGatewaySnatRuleRequestOption';
 import { UpdateNatGatewaySnatRuleResponse } from './model/UpdateNatGatewaySnatRuleResponse';
+import { UpdateNatGatewayToPeriodRequest } from './model/UpdateNatGatewayToPeriodRequest';
+import { UpdateNatGatewayToPeriodRequestBody } from './model/UpdateNatGatewayToPeriodRequestBody';
+import { UpdateNatGatewayToPeriodResponse } from './model/UpdateNatGatewayToPeriodResponse';
 import { UpdatePrivateDnatOption } from './model/UpdatePrivateDnatOption';
 import { UpdatePrivateDnatRequest } from './model/UpdatePrivateDnatRequest';
 import { UpdatePrivateDnatRequestBody } from './model/UpdatePrivateDnatRequestBody';
@@ -1286,6 +1289,26 @@ export class NatClient {
      */
     public updateNatGateway(updateNatGatewayRequest?: UpdateNatGatewayRequest): Promise<UpdateNatGatewayResponse> {
         const options = ParamCreater().updateNatGateway(updateNatGatewayRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 公网NAT网关按需转包。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 公网NAT网关按需转包
+     * @param {string} natGatewayId 公网NAT网关实例的ID。
+     * @param {UpdateNatGatewayToPeriodRequestBody} updateNatGatewayToPeriodRequestBody 公网NAT网关按需转包的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateNatGatewayToPeriod(updateNatGatewayToPeriodRequest?: UpdateNatGatewayToPeriodRequest): Promise<UpdateNatGatewayToPeriodResponse> {
+        const options = ParamCreater().updateNatGatewayToPeriod(updateNatGatewayToPeriodRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4023,6 +4046,52 @@ export const ParamCreater = function () {
         
             if (natGatewayId === null || natGatewayId === undefined) {
             throw new RequiredError('natGatewayId','Required parameter natGatewayId was null or undefined when calling updateNatGateway.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'nat_gateway_id': natGatewayId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 公网NAT网关按需转包。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateNatGatewayToPeriod(updateNatGatewayToPeriodRequest?: UpdateNatGatewayToPeriodRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/nat_gateways/{nat_gateway_id}/change_to_period",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let natGatewayId;
+
+            if (updateNatGatewayToPeriodRequest !== null && updateNatGatewayToPeriodRequest !== undefined) {
+                if (updateNatGatewayToPeriodRequest instanceof UpdateNatGatewayToPeriodRequest) {
+                    natGatewayId = updateNatGatewayToPeriodRequest.natGatewayId;
+                    body = updateNatGatewayToPeriodRequest.body
+                } else {
+                    natGatewayId = updateNatGatewayToPeriodRequest['nat_gateway_id'];
+                    body = updateNatGatewayToPeriodRequest['body'];
+                }
+            }
+
+        
+            if (natGatewayId === null || natGatewayId === undefined) {
+            throw new RequiredError('natGatewayId','Required parameter natGatewayId was null or undefined when calling updateNatGatewayToPeriod.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

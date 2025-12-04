@@ -105,6 +105,8 @@ export * from './model/ListAssetDailySummaryLogRequest';
 export * from './model/ListAssetDailySummaryLogResponse';
 export * from './model/ListAssetListRequest';
 export * from './model/ListAssetListResponse';
+export * from './model/ListCdnStatisticsRequest';
+export * from './model/ListCdnStatisticsResponse';
 export * from './model/ListDomainLogsRequest';
 export * from './model/ListDomainLogsResponse';
 export * from './model/ListTakeOverTaskRequest';

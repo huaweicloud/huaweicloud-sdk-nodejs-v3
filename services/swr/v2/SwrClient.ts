@@ -12,6 +12,8 @@ import { AuditLog } from './model/AuditLog';
 import { AuthInfo } from './model/AuthInfo';
 import { AuthToken } from './model/AuthToken';
 import { BuildHistory } from './model/BuildHistory';
+import { CVEAllowlist } from './model/CVEAllowlist';
+import { CVEAllowlistItem } from './model/CVEAllowlistItem';
 import { CreateAuthorizationTokenRequest } from './model/CreateAuthorizationTokenRequest';
 import { CreateAuthorizationTokenResponse } from './model/CreateAuthorizationTokenResponse';
 import { CreateEndpointPolicyRequestBody } from './model/CreateEndpointPolicyRequestBody';
@@ -180,6 +182,8 @@ import { ListInstanceAccessoriesRequest } from './model/ListInstanceAccessoriesR
 import { ListInstanceAccessoriesResponse } from './model/ListInstanceAccessoriesResponse';
 import { ListInstanceAllArtifactsRequest } from './model/ListInstanceAllArtifactsRequest';
 import { ListInstanceAllArtifactsResponse } from './model/ListInstanceAllArtifactsResponse';
+import { ListInstanceArtifactVulnerabilitiesRequest } from './model/ListInstanceArtifactVulnerabilitiesRequest';
+import { ListInstanceArtifactVulnerabilitiesResponse } from './model/ListInstanceArtifactVulnerabilitiesResponse';
 import { ListInstanceArtifactsRequest } from './model/ListInstanceArtifactsRequest';
 import { ListInstanceArtifactsResponse } from './model/ListInstanceArtifactsResponse';
 import { ListInstanceInternalEndpointsRequest } from './model/ListInstanceInternalEndpointsRequest';
@@ -269,6 +273,7 @@ import { ListTriggersDetailsRequest } from './model/ListTriggersDetailsRequest';
 import { ListTriggersDetailsResponse } from './model/ListTriggersDetailsResponse';
 import { Namespace } from './model/Namespace';
 import { NamespaceMetadata } from './model/NamespaceMetadata';
+import { NativeReportSummary } from './model/NativeReportSummary';
 import { ProjectTag } from './model/ProjectTag';
 import { Registry } from './model/Registry';
 import { ReplicationPolicy } from './model/ReplicationPolicy';
@@ -286,6 +291,7 @@ import { RetentionRuleResponseBody } from './model/RetentionRuleResponseBody';
 import { RetentionSelector } from './model/RetentionSelector';
 import { Rule } from './model/Rule';
 import { RuleSelector } from './model/RuleSelector';
+import { Scanner } from './model/Scanner';
 import { ScopeRule } from './model/ScopeRule';
 import { ShowAccessDomainRequest } from './model/ShowAccessDomainRequest';
 import { ShowAccessDomainResponse } from './model/ShowAccessDomainResponse';
@@ -357,6 +363,8 @@ import { SignRuleSelector } from './model/SignRuleSelector';
 import { SignScopeRule } from './model/SignScopeRule';
 import { SignatureExecutionSubTask } from './model/SignatureExecutionSubTask';
 import { SignatureExecutionTask } from './model/SignatureExecutionTask';
+import { StartManualScanningRequest } from './model/StartManualScanningRequest';
+import { StartManualScanningResponse } from './model/StartManualScanningResponse';
 import { StopInstanceReplicationPolicyExecutionRequest } from './model/StopInstanceReplicationPolicyExecutionRequest';
 import { StopInstanceReplicationPolicyExecutionResponse } from './model/StopInstanceReplicationPolicyExecutionResponse';
 import { Subtask } from './model/Subtask';
@@ -372,6 +380,7 @@ import { Trigger } from './model/Trigger';
 import { TriggerConfig } from './model/TriggerConfig';
 import { TriggerHistories } from './model/TriggerHistories';
 import { TriggerSetting } from './model/TriggerSetting';
+import { UpdateCVEAllowlistRequest } from './model/UpdateCVEAllowlistRequest';
 import { UpdateDomainNameRequest } from './model/UpdateDomainNameRequest';
 import { UpdateDomainNameRequestBody } from './model/UpdateDomainNameRequestBody';
 import { UpdateDomainNameResponse } from './model/UpdateDomainNameResponse';
@@ -426,6 +435,10 @@ import { UpdateWebhookPolicyRequestBody } from './model/UpdateWebhookPolicyReque
 import { UpdateWhiteListRequestBody } from './model/UpdateWhiteListRequestBody';
 import { UserAuth } from './model/UserAuth';
 import { VersionDetail } from './model/VersionDetail';
+import { Vulnerability } from './model/Vulnerability';
+import { VulnerabilityPreferredCvss } from './model/VulnerabilityPreferredCvss';
+import { VulnerabilityReports } from './model/VulnerabilityReports';
+import { VulnerabilitySummary } from './model/VulnerabilitySummary';
 import { WebhookPolicyDetail } from './model/WebhookPolicyDetail';
 
 export class SwrClient {
@@ -650,7 +663,7 @@ export class SwrClient {
         const options = ParamCreater().createSecret(createSecretRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-Swr-Dockerlogin'];
+        options['responseHeaders'] = ['X-Swr-Dockerlogin', 'X-Swr-Expireat'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1039,6 +1052,8 @@ export class SwrClient {
      * @param {number} [limit] 返回条数,默认返回100条，最多返回1000条数据。
      * @param {string} [marker] Start position of the cursor for querying the next page in pagination query.
      * @param {string} [tag] 镜像版本名。
+     * @param {string} [orderColumn] 按列排序，可设置为updated_at（按更新时间排序）或者tag（按照镜像版本排序）。注意：order_column和order_type参数需要配套使用。
+     * @param {string} [orderType] 排序类型，可设置为desc（降序）、asc（升序）。注意：order_column和order_type参数需要配套使用。
      * @param {boolean} [withManifest] 是否返回镜像的manifest信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2512,6 +2527,28 @@ export class SwrClient {
     }
 
     /**
+     * 获取制品扫描的漏洞信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取制品扫描的漏洞信息
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {string} repositoryName 仓库名称
+     * @param {string} reference 制品摘要
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceArtifactVulnerabilities(listInstanceArtifactVulnerabilitiesRequest?: ListInstanceArtifactVulnerabilitiesRequest): Promise<ListInstanceArtifactVulnerabilitiesResponse> {
+        const options = ParamCreater().listInstanceArtifactVulnerabilities(listInstanceArtifactVulnerabilitiesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取制品版本列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3227,6 +3264,7 @@ export class SwrClient {
      * @param {string} namespaceName 命名空间名称
      * @param {string} repositoryName 制品名称
      * @param {string} reference 制品摘要
+     * @param {boolean} [withScanOverview] 是否返回制品扫描摘要
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3518,6 +3556,28 @@ export class SwrClient {
      */
     public showSubResourceInstancesCount(showSubResourceInstancesCountRequest?: ShowSubResourceInstancesCountRequest): Promise<ShowSubResourceInstancesCountResponse> {
         const options = ParamCreater().showSubResourceInstancesCount(showSubResourceInstancesCountRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 手动启动制品扫描
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 手动启动制品扫描
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {string} repositoryName 仓库名称
+     * @param {string} reference 制品摘要
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startManualScanning(startManualScanningRequest?: StartManualScanningRequest): Promise<StartManualScanningResponse> {
+        const options = ParamCreater().startManualScanning(startManualScanningRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5345,6 +5405,10 @@ export const ParamCreater = function () {
             
             let tag;
             
+            let orderColumn;
+            
+            let orderType;
+            
             let withManifest;
 
             if (listRepositoryTagRequest !== null && listRepositoryTagRequest !== undefined) {
@@ -5355,6 +5419,8 @@ export const ParamCreater = function () {
                     limit = listRepositoryTagRequest.limit;
                     marker = listRepositoryTagRequest.marker;
                     tag = listRepositoryTagRequest.tag;
+                    orderColumn = listRepositoryTagRequest.orderColumn;
+                    orderType = listRepositoryTagRequest.orderType;
                     withManifest = listRepositoryTagRequest.withManifest;
                 } else {
                     contentType = listRepositoryTagRequest['Content-Type'];
@@ -5363,6 +5429,8 @@ export const ParamCreater = function () {
                     limit = listRepositoryTagRequest['limit'];
                     marker = listRepositoryTagRequest['marker'];
                     tag = listRepositoryTagRequest['tag'];
+                    orderColumn = listRepositoryTagRequest['order_column'];
+                    orderType = listRepositoryTagRequest['order_type'];
                     withManifest = listRepositoryTagRequest['with_manifest'];
                 }
             }
@@ -5382,6 +5450,12 @@ export const ParamCreater = function () {
             }
             if (tag !== null && tag !== undefined) {
                 localVarQueryParameter['tag'] = tag;
+            }
+            if (orderColumn !== null && orderColumn !== undefined) {
+                localVarQueryParameter['order_column'] = orderColumn;
+            }
+            if (orderType !== null && orderType !== undefined) {
+                localVarQueryParameter['order_type'] = orderType;
             }
             if (withManifest !== null && withManifest !== undefined) {
                 localVarQueryParameter['with_manifest'] = withManifest;
@@ -9032,6 +9106,64 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取制品扫描的漏洞信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceArtifactVulnerabilities(listInstanceArtifactVulnerabilitiesRequest?: ListInstanceArtifactVulnerabilitiesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/repositories/{repository_name}/artifacts/{reference}/vulnerabilities",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let repositoryName;
+            
+            let reference;
+
+            if (listInstanceArtifactVulnerabilitiesRequest !== null && listInstanceArtifactVulnerabilitiesRequest !== undefined) {
+                if (listInstanceArtifactVulnerabilitiesRequest instanceof ListInstanceArtifactVulnerabilitiesRequest) {
+                    instanceId = listInstanceArtifactVulnerabilitiesRequest.instanceId;
+                    namespaceName = listInstanceArtifactVulnerabilitiesRequest.namespaceName;
+                    repositoryName = listInstanceArtifactVulnerabilitiesRequest.repositoryName;
+                    reference = listInstanceArtifactVulnerabilitiesRequest.reference;
+                } else {
+                    instanceId = listInstanceArtifactVulnerabilitiesRequest['instance_id'];
+                    namespaceName = listInstanceArtifactVulnerabilitiesRequest['namespace_name'];
+                    repositoryName = listInstanceArtifactVulnerabilitiesRequest['repository_name'];
+                    reference = listInstanceArtifactVulnerabilitiesRequest['reference'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceArtifactVulnerabilities.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling listInstanceArtifactVulnerabilities.');
+            }
+            if (repositoryName === null || repositoryName === undefined) {
+            throw new RequiredError('repositoryName','Required parameter repositoryName was null or undefined when calling listInstanceArtifactVulnerabilities.');
+            }
+            if (reference === null || reference === undefined) {
+            throw new RequiredError('reference','Required parameter reference was null or undefined when calling listInstanceArtifactVulnerabilities.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'repository_name': repositoryName,'reference': reference, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取制品版本列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11031,7 +11163,7 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let instanceId;
             
@@ -11040,6 +11172,8 @@ export const ParamCreater = function () {
             let repositoryName;
             
             let reference;
+            
+            let withScanOverview;
 
             if (showInstanceArtifactRequest !== null && showInstanceArtifactRequest !== undefined) {
                 if (showInstanceArtifactRequest instanceof ShowInstanceArtifactRequest) {
@@ -11047,11 +11181,13 @@ export const ParamCreater = function () {
                     namespaceName = showInstanceArtifactRequest.namespaceName;
                     repositoryName = showInstanceArtifactRequest.repositoryName;
                     reference = showInstanceArtifactRequest.reference;
+                    withScanOverview = showInstanceArtifactRequest.withScanOverview;
                 } else {
                     instanceId = showInstanceArtifactRequest['instance_id'];
                     namespaceName = showInstanceArtifactRequest['namespace_name'];
                     repositoryName = showInstanceArtifactRequest['repository_name'];
                     reference = showInstanceArtifactRequest['reference'];
+                    withScanOverview = showInstanceArtifactRequest['with_scan_overview'];
                 }
             }
 
@@ -11068,7 +11204,11 @@ export const ParamCreater = function () {
             if (reference === null || reference === undefined) {
             throw new RequiredError('reference','Required parameter reference was null or undefined when calling showInstanceArtifact.');
             }
+            if (withScanOverview !== null && withScanOverview !== undefined) {
+                localVarQueryParameter['with_scan_overview'] = withScanOverview;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'repository_name': repositoryName,'reference': reference, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -11732,6 +11872,64 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId,'sub_resource_type': subResourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 手动启动制品扫描
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        startManualScanning(startManualScanningRequest?: StartManualScanningRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/repositories/{repository_name}/artifacts/{reference}/scan",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let repositoryName;
+            
+            let reference;
+
+            if (startManualScanningRequest !== null && startManualScanningRequest !== undefined) {
+                if (startManualScanningRequest instanceof StartManualScanningRequest) {
+                    instanceId = startManualScanningRequest.instanceId;
+                    namespaceName = startManualScanningRequest.namespaceName;
+                    repositoryName = startManualScanningRequest.repositoryName;
+                    reference = startManualScanningRequest.reference;
+                } else {
+                    instanceId = startManualScanningRequest['instance_id'];
+                    namespaceName = startManualScanningRequest['namespace_name'];
+                    repositoryName = startManualScanningRequest['repository_name'];
+                    reference = startManualScanningRequest['reference'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling startManualScanning.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling startManualScanning.');
+            }
+            if (repositoryName === null || repositoryName === undefined) {
+            throw new RequiredError('repositoryName','Required parameter repositoryName was null or undefined when calling startManualScanning.');
+            }
+            if (reference === null || reference === undefined) {
+            throw new RequiredError('reference','Required parameter reference was null or undefined when calling startManualScanning.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'repository_name': repositoryName,'reference': reference, };
             options.headers = localVarHeaderParameter;
             return options;
         },

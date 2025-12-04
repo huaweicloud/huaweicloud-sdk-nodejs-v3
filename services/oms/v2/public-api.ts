@@ -106,6 +106,8 @@ export * from './model/TaskResp';
 export * from './model/UpdateBandwidthPolicyReq';
 export * from './model/UpdateBandwidthPolicyRequest';
 export * from './model/UpdateBandwidthPolicyResponse';
+export * from './model/UpdatePrivacyAgreementRecordRequest';
+export * from './model/UpdatePrivacyAgreementRecordResponse';
 export * from './model/UpdateTaskGroupRequest';
 export * from './model/UpdateTaskGroupResponse';
 export * from './model/Version';

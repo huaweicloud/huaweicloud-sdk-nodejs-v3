@@ -5,7 +5,7 @@ export class ListFoldersAndFilesRequest {
     private 'cloud_storage_assignment_id'?: string;
     private 'folder_url'?: string;
     public marker?: string;
-    private 'max_keys'?: number;
+    public limit?: number;
     public constructor(userName?: string, folderUrl?: string) { 
         this['user_name'] = userName;
         this['folder_url'] = folderUrl;
@@ -44,14 +44,8 @@ export class ListFoldersAndFilesRequest {
         this['marker'] = marker;
         return this;
     }
-    public withMaxKeys(maxKeys: number): ListFoldersAndFilesRequest {
-        this['max_keys'] = maxKeys;
+    public withLimit(limit: number): ListFoldersAndFilesRequest {
+        this['limit'] = limit;
         return this;
-    }
-    public set maxKeys(maxKeys: number  | undefined) {
-        this['max_keys'] = maxKeys;
-    }
-    public get maxKeys(): number | undefined {
-        return this['max_keys'];
     }
 }

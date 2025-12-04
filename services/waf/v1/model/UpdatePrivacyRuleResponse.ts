@@ -5,7 +5,7 @@ export class UpdatePrivacyRuleResponse extends SdkResponse {
     public id?: string;
     public policyid?: string;
     public timestamp?: number;
-    public status?: number;
+    public status?: UpdatePrivacyRuleResponseStatusEnum | number;
     public url?: string;
     public category?: UpdatePrivacyRuleResponseCategoryEnum | string;
     public index?: string;
@@ -25,7 +25,7 @@ export class UpdatePrivacyRuleResponse extends SdkResponse {
         this['timestamp'] = timestamp;
         return this;
     }
-    public withStatus(status: number): UpdatePrivacyRuleResponse {
+    public withStatus(status: UpdatePrivacyRuleResponseStatusEnum | number): UpdatePrivacyRuleResponse {
         this['status'] = status;
         return this;
     }
@@ -47,6 +47,14 @@ export class UpdatePrivacyRuleResponse extends SdkResponse {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdatePrivacyRuleResponseStatusEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
+}
 /**
     * @export
     * @enum {string}

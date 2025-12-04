@@ -16,10 +16,10 @@ export class UpdatePremiumInstanceResponse extends SdkResponse {
     private 'service_ipv6'?: string;
     public floatIp?: string;
     private 'security_group_ids'?: Array<string>;
-    public status?: number;
-    private 'run_status'?: number;
-    private 'access_status'?: number;
-    public upgradable?: number;
+    public status?: UpdatePremiumInstanceResponseStatusEnum | number;
+    private 'run_status'?: UpdatePremiumInstanceResponseRunStatusEnum | number;
+    private 'access_status'?: UpdatePremiumInstanceResponseAccessStatusEnum | number;
+    public upgradable?: UpdatePremiumInstanceResponseUpgradableEnum | number;
     public cloudServiceType?: string;
     public resourceType?: string;
     public resourceSpecCode?: string;
@@ -120,31 +120,31 @@ export class UpdatePremiumInstanceResponse extends SdkResponse {
     public get securityGroupIds(): Array<string> | undefined {
         return this['security_group_ids'];
     }
-    public withStatus(status: number): UpdatePremiumInstanceResponse {
+    public withStatus(status: UpdatePremiumInstanceResponseStatusEnum | number): UpdatePremiumInstanceResponse {
         this['status'] = status;
         return this;
     }
-    public withRunStatus(runStatus: number): UpdatePremiumInstanceResponse {
+    public withRunStatus(runStatus: UpdatePremiumInstanceResponseRunStatusEnum | number): UpdatePremiumInstanceResponse {
         this['run_status'] = runStatus;
         return this;
     }
-    public set runStatus(runStatus: number  | undefined) {
+    public set runStatus(runStatus: UpdatePremiumInstanceResponseRunStatusEnum | number  | undefined) {
         this['run_status'] = runStatus;
     }
-    public get runStatus(): number | undefined {
+    public get runStatus(): UpdatePremiumInstanceResponseRunStatusEnum | number | undefined {
         return this['run_status'];
     }
-    public withAccessStatus(accessStatus: number): UpdatePremiumInstanceResponse {
+    public withAccessStatus(accessStatus: UpdatePremiumInstanceResponseAccessStatusEnum | number): UpdatePremiumInstanceResponse {
         this['access_status'] = accessStatus;
         return this;
     }
-    public set accessStatus(accessStatus: number  | undefined) {
+    public set accessStatus(accessStatus: UpdatePremiumInstanceResponseAccessStatusEnum | number  | undefined) {
         this['access_status'] = accessStatus;
     }
-    public get accessStatus(): number | undefined {
+    public get accessStatus(): UpdatePremiumInstanceResponseAccessStatusEnum | number | undefined {
         return this['access_status'];
     }
-    public withUpgradable(upgradable: number): UpdatePremiumInstanceResponse {
+    public withUpgradable(upgradable: UpdatePremiumInstanceResponseUpgradableEnum | number): UpdatePremiumInstanceResponse {
         this['upgradable'] = upgradable;
         return this;
     }
@@ -208,4 +208,45 @@ export class UpdatePremiumInstanceResponse extends SdkResponse {
     public get chargeMode(): number | undefined {
         return this['charge_mode'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdatePremiumInstanceResponseStatusEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1,
+    NUMBER_2 = 2
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdatePremiumInstanceResponseRunStatusEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1,
+    NUMBER_2 = 2,
+    NUMBER_3 = 3,
+    NUMBER_4 = 4,
+    NUMBER_5 = 5,
+    NUMBER_6 = 6,
+    NUMBER_7 = 7,
+    NUMBER_8 = 8
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdatePremiumInstanceResponseAccessStatusEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdatePremiumInstanceResponseUpgradableEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
 }

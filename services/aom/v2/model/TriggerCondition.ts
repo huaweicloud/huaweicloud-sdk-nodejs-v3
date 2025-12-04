@@ -8,7 +8,7 @@ export class TriggerCondition {
     private 'metric_unit'?: string;
     private 'metric_labels'?: Array<string>;
     public promql?: string;
-    private 'promql_expr'?: Array<string>;
+    private 'promql_expr'?: string;
     private 'trigger_times'?: number;
     private 'trigger_interval'?: string;
     private 'trigger_type'?: TriggerConditionTriggerTypeEnum | string;
@@ -88,14 +88,14 @@ export class TriggerCondition {
         this['promql'] = promql;
         return this;
     }
-    public withPromqlExpr(promqlExpr: Array<string>): TriggerCondition {
+    public withPromqlExpr(promqlExpr: string): TriggerCondition {
         this['promql_expr'] = promqlExpr;
         return this;
     }
-    public set promqlExpr(promqlExpr: Array<string>  | undefined) {
+    public set promqlExpr(promqlExpr: string  | undefined) {
         this['promql_expr'] = promqlExpr;
     }
-    public get promqlExpr(): Array<string> | undefined {
+    public get promqlExpr(): string | undefined {
         return this['promql_expr'];
     }
     public withTriggerTimes(triggerTimes: number): TriggerCondition {

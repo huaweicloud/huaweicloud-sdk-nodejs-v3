@@ -1,0 +1,19 @@
+
+import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
+
+export class DownloadHttpSignCertResponse extends SdkResponse {
+    private 'content-type'?: string;
+    public constructor() { 
+        super();
+    }
+    public withContentType(contentType: string): DownloadHttpSignCertResponse {
+        this['content-type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['content-type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['content-type'];
+    }
+}

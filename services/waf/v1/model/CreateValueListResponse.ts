@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class CreateValueListResponse extends SdkResponse {
     public id?: string;
     public name?: string;
-    public type?: string;
+    public type?: CreateValueListResponseTypeEnum | string;
     public description?: string;
     public timestamp?: number;
     public values?: Array<string>;
@@ -20,7 +20,7 @@ export class CreateValueListResponse extends SdkResponse {
         this['name'] = name;
         return this;
     }
-    public withType(type: string): CreateValueListResponse {
+    public withType(type: CreateValueListResponseTypeEnum | string): CreateValueListResponse {
         this['type'] = type;
         return this;
     }
@@ -40,4 +40,21 @@ export class CreateValueListResponse extends SdkResponse {
         this['producer'] = producer;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateValueListResponseTypeEnum {
+    URL = 'url',
+    PARAMS = 'params',
+    IP = 'ip',
+    COOKIE = 'cookie',
+    REFERER = 'referer',
+    USER_AGENT = 'user-agent',
+    HEADER = 'header',
+    RESPONSE_CODE = 'response_code',
+    RESPONSE_HEADER = 'response_header',
+    RESPONSE_BODY = 'response_body'
 }

@@ -12,9 +12,9 @@ export class ShowInstanceResponse extends SdkResponse {
     private 'subnet_id'?: string;
     private 'service_ip'?: string;
     private 'security_group_ids'?: Array<string>;
-    public status?: number;
-    private 'run_status'?: number;
-    private 'access_status'?: number;
+    public status?: ShowInstanceResponseStatusEnum | number;
+    private 'run_status'?: ShowInstanceResponseRunStatusEnum | number;
+    private 'access_status'?: ShowInstanceResponseAccessStatusEnum | number;
     public upgradable?: number;
     public cloudServiceType?: string;
     public resourceType?: string;
@@ -95,28 +95,28 @@ export class ShowInstanceResponse extends SdkResponse {
     public get securityGroupIds(): Array<string> | undefined {
         return this['security_group_ids'];
     }
-    public withStatus(status: number): ShowInstanceResponse {
+    public withStatus(status: ShowInstanceResponseStatusEnum | number): ShowInstanceResponse {
         this['status'] = status;
         return this;
     }
-    public withRunStatus(runStatus: number): ShowInstanceResponse {
+    public withRunStatus(runStatus: ShowInstanceResponseRunStatusEnum | number): ShowInstanceResponse {
         this['run_status'] = runStatus;
         return this;
     }
-    public set runStatus(runStatus: number  | undefined) {
+    public set runStatus(runStatus: ShowInstanceResponseRunStatusEnum | number  | undefined) {
         this['run_status'] = runStatus;
     }
-    public get runStatus(): number | undefined {
+    public get runStatus(): ShowInstanceResponseRunStatusEnum | number | undefined {
         return this['run_status'];
     }
-    public withAccessStatus(accessStatus: number): ShowInstanceResponse {
+    public withAccessStatus(accessStatus: ShowInstanceResponseAccessStatusEnum | number): ShowInstanceResponse {
         this['access_status'] = accessStatus;
         return this;
     }
-    public set accessStatus(accessStatus: number  | undefined) {
+    public set accessStatus(accessStatus: ShowInstanceResponseAccessStatusEnum | number  | undefined) {
         this['access_status'] = accessStatus;
     }
-    public get accessStatus(): number | undefined {
+    public get accessStatus(): ShowInstanceResponseAccessStatusEnum | number | undefined {
         return this['access_status'];
     }
     public withUpgradable(upgradable: number): ShowInstanceResponse {
@@ -153,4 +153,37 @@ export class ShowInstanceResponse extends SdkResponse {
     public get createTime(): number | undefined {
         return this['create_time'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowInstanceResponseStatusEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1,
+    NUMBER_2 = 2
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowInstanceResponseRunStatusEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1,
+    NUMBER_2 = 2,
+    NUMBER_3 = 3,
+    NUMBER_4 = 4,
+    NUMBER_5 = 5,
+    NUMBER_6 = 6,
+    NUMBER_7 = 7,
+    NUMBER_8 = 8
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowInstanceResponseAccessStatusEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
 }

@@ -3,8 +3,8 @@
 export class DeleteKafkaUserClientQuotaTaskReq {
     public user?: string;
     public client?: string;
-    private 'user-default'?: boolean;
-    private 'client-default'?: boolean;
+    private 'user_default'?: boolean;
+    private 'client_default'?: boolean;
     public constructor() { 
     }
     public withUser(user: string): DeleteKafkaUserClientQuotaTaskReq {
@@ -16,23 +16,23 @@ export class DeleteKafkaUserClientQuotaTaskReq {
         return this;
     }
     public withUserDefault(userDefault: boolean): DeleteKafkaUserClientQuotaTaskReq {
-        this['user-default'] = userDefault;
+        this['user_default'] = userDefault;
         return this;
     }
     public set userDefault(userDefault: boolean  | undefined) {
-        this['user-default'] = userDefault;
+        this['user_default'] = userDefault;
     }
     public get userDefault(): boolean | undefined {
-        return this['user-default'];
+        return this['user_default'];
     }
     public withClientDefault(clientDefault: boolean): DeleteKafkaUserClientQuotaTaskReq {
-        this['client-default'] = clientDefault;
+        this['client_default'] = clientDefault;
         return this;
     }
     public set clientDefault(clientDefault: boolean  | undefined) {
-        this['client-default'] = clientDefault;
+        this['client_default'] = clientDefault;
     }
     public get clientDefault(): boolean | undefined {
-        return this['client-default'];
+        return this['client_default'];
     }
 }

@@ -5,7 +5,9 @@ export class PrepaidOptions {
     private 'period_num'?: number;
     private 'is_auto_renew'?: boolean;
     private 'is_auto_pay'?: boolean;
-    public constructor() { 
+    public constructor(periodType?: string, periodNum?: number) { 
+        this['period_type'] = periodType;
+        this['period_num'] = periodNum;
     }
     public withPeriodType(periodType: PrepaidOptionsPeriodTypeEnum | string): PrepaidOptions {
         this['period_type'] = periodType;

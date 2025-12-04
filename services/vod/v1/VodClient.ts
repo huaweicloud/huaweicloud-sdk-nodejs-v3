@@ -107,6 +107,8 @@ import { ListAssetDailySummaryLogRequest } from './model/ListAssetDailySummaryLo
 import { ListAssetDailySummaryLogResponse } from './model/ListAssetDailySummaryLogResponse';
 import { ListAssetListRequest } from './model/ListAssetListRequest';
 import { ListAssetListResponse } from './model/ListAssetListResponse';
+import { ListCdnStatisticsRequest } from './model/ListCdnStatisticsRequest';
+import { ListCdnStatisticsResponse } from './model/ListCdnStatisticsResponse';
 import { ListDomainLogsRequest } from './model/ListDomainLogsRequest';
 import { ListDomainLogsResponse } from './model/ListDomainLogsResponse';
 import { ListTakeOverTaskRequest } from './model/ListTakeOverTaskRequest';
@@ -966,6 +968,30 @@ export class VodClient {
      */
     public listAssetList(listAssetListRequest?: ListAssetListRequest): Promise<ListAssetListResponse> {
         const options = ParamCreater().listAssetList(listAssetListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询CDN的统计数据，包括流量、峰值带宽、请求总数、请求命中率、流量命中率。查询存在1小时误差。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询CDN统计信息
+     * @param {string} startTime 开始时间，格式为yyyymmddhhmmss。   - interval为300时，end_time设置为整5分钟时刻点，如：20240601000000。   - interval为3600时，end_time设置为整小时时刻点，如：20240601120000。   - interval为86400时，end_time设置为东8区零点时刻点，如：20240601000000。   - 只能查询最近三个月内的数据，且时间跨度不能超过31天。
+     * @param {string} endTime 结束时间，格式为yyyymmddhhmmss。   - interval为300时，end_time设置为整5分钟时刻点，如：20240601000000。   - interval为3600时，end_time设置为整小时时刻点，如：20240601120000。   - interval为86400时，end_time设置为东8区零点时刻点，如：20240601000000。   - 只能查询最近三个月内的数据，且时间跨度不能超过31天。
+     * @param {string} statType 统计数据类型。  取值如下： - bw：CDN峰值带宽 - flux：CDN流量 - req_num：请求总数 - req_hit_rate：请求命中率 - flux_hit_rate：流量命中率 - http_code_2xx 状态码汇总2xx - http_code_3xx 状态码汇总3xx - http_code_4xx 状态码汇总4xx - http_code_5xx 状态码汇总5xx  每次只能查询一种统计数据。
+     * @param {string} domain 域名列表，多个域名以逗号（半角）分隔。  示例：example.test1.com,example.test2.com。  ALL表示查询名下全部域名。一次最多查询20个域名。
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {number} [interval] 查询粒度间隔。  取值如下： - 300(5分钟)：最大查询跨度2天。 - 3600(1小时)：最大查询跨度7天。 - 86400(1天)：最大查询跨度31天，最少跨度为2天。  单位：秒。  若不设置，小于1天 300，大于1天小于7天3600，大于7天86400。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCdnStatistics(listCdnStatisticsRequest?: ListCdnStatisticsRequest): Promise<ListCdnStatisticsResponse> {
+        const options = ParamCreater().listCdnStatistics(listCdnStatisticsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3427,6 +3453,90 @@ export const ParamCreater = function () {
             }
             if (order !== null && order !== undefined) {
                 localVarQueryParameter['order'] = order;
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询CDN的统计数据，包括流量、峰值带宽、请求总数、请求命中率、流量命中率。查询存在1小时误差。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCdnStatistics(listCdnStatisticsRequest?: ListCdnStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/asset/cdn-statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let statType;
+            
+            let domain;
+            
+            let xSdkDate;
+            
+            let interval;
+
+            if (listCdnStatisticsRequest !== null && listCdnStatisticsRequest !== undefined) {
+                if (listCdnStatisticsRequest instanceof ListCdnStatisticsRequest) {
+                    startTime = listCdnStatisticsRequest.startTime;
+                    endTime = listCdnStatisticsRequest.endTime;
+                    statType = listCdnStatisticsRequest.statType;
+                    domain = listCdnStatisticsRequest.domain;
+                    xSdkDate = listCdnStatisticsRequest.xSdkDate;
+                    interval = listCdnStatisticsRequest.interval;
+                } else {
+                    startTime = listCdnStatisticsRequest['start_time'];
+                    endTime = listCdnStatisticsRequest['end_time'];
+                    statType = listCdnStatisticsRequest['stat_type'];
+                    domain = listCdnStatisticsRequest['domain'];
+                    xSdkDate = listCdnStatisticsRequest['X-Sdk-Date'];
+                    interval = listCdnStatisticsRequest['interval'];
+                }
+            }
+
+        
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listCdnStatistics.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listCdnStatistics.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (statType === null || statType === undefined) {
+                throw new RequiredError('statType','Required parameter statType was null or undefined when calling listCdnStatistics.');
+            }
+            if (statType !== null && statType !== undefined) {
+                localVarQueryParameter['stat_type'] = statType;
+            }
+            if (domain === null || domain === undefined) {
+                throw new RequiredError('domain','Required parameter domain was null or undefined when calling listCdnStatistics.');
+            }
+            if (domain !== null && domain !== undefined) {
+                localVarQueryParameter['domain'] = domain;
+            }
+            if (interval !== null && interval !== undefined) {
+                localVarQueryParameter['interval'] = interval;
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);

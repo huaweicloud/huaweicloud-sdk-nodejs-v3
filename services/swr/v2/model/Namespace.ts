@@ -1,3 +1,4 @@
+import { CVEAllowlist } from './CVEAllowlist';
 import { NamespaceMetadata } from './NamespaceMetadata';
 
 
@@ -8,6 +9,7 @@ export class Namespace {
     private 'created_at'?: string;
     private 'updated_at'?: string;
     private 'repo_count'?: number;
+    private 'cve_allowlist'?: CVEAllowlist;
     public constructor() { 
     }
     public withName(name: string): Namespace {
@@ -57,5 +59,15 @@ export class Namespace {
     }
     public get repoCount(): number | undefined {
         return this['repo_count'];
+    }
+    public withCveAllowlist(cveAllowlist: CVEAllowlist): Namespace {
+        this['cve_allowlist'] = cveAllowlist;
+        return this;
+    }
+    public set cveAllowlist(cveAllowlist: CVEAllowlist  | undefined) {
+        this['cve_allowlist'] = cveAllowlist;
+    }
+    public get cveAllowlist(): CVEAllowlist | undefined {
+        return this['cve_allowlist'];
     }
 }

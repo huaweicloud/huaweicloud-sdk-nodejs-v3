@@ -7,6 +7,8 @@ export class ListRepositoryTagRequest {
     public limit?: number;
     public marker?: string;
     public tag?: string;
+    private 'order_column'?: string;
+    private 'order_type'?: string;
     private 'with_manifest'?: boolean;
     public constructor(contentType?: string, namespace?: string, repository?: string) { 
         this['Content-Type'] = contentType;
@@ -42,6 +44,26 @@ export class ListRepositoryTagRequest {
     public withTag(tag: string): ListRepositoryTagRequest {
         this['tag'] = tag;
         return this;
+    }
+    public withOrderColumn(orderColumn: string): ListRepositoryTagRequest {
+        this['order_column'] = orderColumn;
+        return this;
+    }
+    public set orderColumn(orderColumn: string  | undefined) {
+        this['order_column'] = orderColumn;
+    }
+    public get orderColumn(): string | undefined {
+        return this['order_column'];
+    }
+    public withOrderType(orderType: string): ListRepositoryTagRequest {
+        this['order_type'] = orderType;
+        return this;
+    }
+    public set orderType(orderType: string  | undefined) {
+        this['order_type'] = orderType;
+    }
+    public get orderType(): string | undefined {
+        return this['order_type'];
     }
     public withWithManifest(withManifest: boolean): ListRepositoryTagRequest {
         this['with_manifest'] = withManifest;

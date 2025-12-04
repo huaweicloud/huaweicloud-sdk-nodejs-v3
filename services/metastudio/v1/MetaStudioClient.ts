@@ -79,7 +79,6 @@ import { ConfirmSmarLiveRoomRequest } from './model/ConfirmSmarLiveRoomRequest';
 import { ConfirmSmarLiveRoomResponse } from './model/ConfirmSmarLiveRoomResponse';
 import { ConfirmTrainingSegmentRequest } from './model/ConfirmTrainingSegmentRequest';
 import { ConfirmTrainingSegmentResponse } from './model/ConfirmTrainingSegmentResponse';
-import { ControlDigitalHumanLiveReq } from './model/ControlDigitalHumanLiveReq';
 import { ControlSmartLiveReq } from './model/ControlSmartLiveReq';
 import { CopyVideoScriptsRequest } from './model/CopyVideoScriptsRequest';
 import { CopyVideoScriptsResponse } from './model/CopyVideoScriptsResponse';
@@ -245,8 +244,6 @@ import { CreateType } from './model/CreateType';
 import { CreateUserQuotaInfo } from './model/CreateUserQuotaInfo';
 import { CreateUserQuotasRequest } from './model/CreateUserQuotasRequest';
 import { CreateUserQuotasResponse } from './model/CreateUserQuotasResponse';
-import { CreateVideoMotionCaptureJobRequest } from './model/CreateVideoMotionCaptureJobRequest';
-import { CreateVideoMotionCaptureJobResponse } from './model/CreateVideoMotionCaptureJobResponse';
 import { CreateVideoScriptsReq } from './model/CreateVideoScriptsReq';
 import { CreateVideoScriptsRequest } from './model/CreateVideoScriptsRequest';
 import { CreateVideoScriptsResponse } from './model/CreateVideoScriptsResponse';
@@ -358,8 +355,6 @@ import { ExecuteSmartLiveCommandRequest } from './model/ExecuteSmartLiveCommandR
 import { ExecuteSmartLiveCommandResponse } from './model/ExecuteSmartLiveCommandResponse';
 import { ExecuteTransferAssetActionRequest } from './model/ExecuteTransferAssetActionRequest';
 import { ExecuteTransferAssetActionResponse } from './model/ExecuteTransferAssetActionResponse';
-import { ExecuteVideoMotionCaptureCommandRequest } from './model/ExecuteVideoMotionCaptureCommandRequest';
-import { ExecuteVideoMotionCaptureCommandResponse } from './model/ExecuteVideoMotionCaptureCommandResponse';
 import { ExportKnowledgeSkillRequest } from './model/ExportKnowledgeSkillRequest';
 import { ExportKnowledgeSkillResponse } from './model/ExportKnowledgeSkillResponse';
 import { ExportResourceRequest } from './model/ExportResourceRequest';
@@ -384,7 +379,6 @@ import { ImportResourceResponse } from './model/ImportResourceResponse';
 import { InferenceActionMarkInfo } from './model/InferenceActionMarkInfo';
 import { InferenceEyeCorrectionMarkInfo } from './model/InferenceEyeCorrectionMarkInfo';
 import { InferenceVideoMarkInfo } from './model/InferenceVideoMarkInfo';
-import { InputInfo } from './model/InputInfo';
 import { InsertCommandItem } from './model/InsertCommandItem';
 import { InstructionInfo } from './model/InstructionInfo';
 import { InstructionLibraryInfo } from './model/InstructionLibraryInfo';
@@ -502,8 +496,6 @@ import { ListTtscVocabularyGroupsResponse } from './model/ListTtscVocabularyGrou
 import { ListUserQuotaDetail } from './model/ListUserQuotaDetail';
 import { ListUserQuotasRequest } from './model/ListUserQuotasRequest';
 import { ListUserQuotasResponse } from './model/ListUserQuotasResponse';
-import { ListVideoMotionCaptureJobsRequest } from './model/ListVideoMotionCaptureJobsRequest';
-import { ListVideoMotionCaptureJobsResponse } from './model/ListVideoMotionCaptureJobsResponse';
 import { ListVideoScriptsRequest } from './model/ListVideoScriptsRequest';
 import { ListVideoScriptsResponse } from './model/ListVideoScriptsResponse';
 import { ListVoiceTrainingJobRequest } from './model/ListVoiceTrainingJobRequest';
@@ -544,7 +536,6 @@ import { OperationLogInfo } from './model/OperationLogInfo';
 import { OperationLogItem } from './model/OperationLogItem';
 import { OutputAssetConfig } from './model/OutputAssetConfig';
 import { OutputAssetInfo } from './model/OutputAssetInfo';
-import { OutputInfo } from './model/OutputInfo';
 import { PPTAssetMeta } from './model/PPTAssetMeta';
 import { PPTPageInfo } from './model/PPTPageInfo';
 import { PacifyWordsInfo } from './model/PacifyWordsInfo';
@@ -769,8 +760,6 @@ import { ShowUsageDataRequest } from './model/ShowUsageDataRequest';
 import { ShowUsageDataResponse } from './model/ShowUsageDataResponse';
 import { ShowUserReviewAttachmentUploadingAddressRequest } from './model/ShowUserReviewAttachmentUploadingAddressRequest';
 import { ShowUserReviewAttachmentUploadingAddressResponse } from './model/ShowUserReviewAttachmentUploadingAddressResponse';
-import { ShowVideoMotionCaptureJobRequest } from './model/ShowVideoMotionCaptureJobRequest';
-import { ShowVideoMotionCaptureJobResponse } from './model/ShowVideoMotionCaptureJobResponse';
 import { ShowVideoScriptRequest } from './model/ShowVideoScriptRequest';
 import { ShowVideoScriptResponse } from './model/ShowVideoScriptResponse';
 import { ShowVocabularySwitchConfigsRequest } from './model/ShowVocabularySwitchConfigsRequest';
@@ -815,8 +804,6 @@ import { StopSmartChatJobRequest } from './model/StopSmartChatJobRequest';
 import { StopSmartChatJobResponse } from './model/StopSmartChatJobResponse';
 import { StopSmartLiveRequest } from './model/StopSmartLiveRequest';
 import { StopSmartLiveResponse } from './model/StopSmartLiveResponse';
-import { StopVideoMotionCaptureJobRequest } from './model/StopVideoMotionCaptureJobRequest';
-import { StopVideoMotionCaptureJobResponse } from './model/StopVideoMotionCaptureJobResponse';
 import { StyleAssetItem } from './model/StyleAssetItem';
 import { StyleExtraMeta } from './model/StyleExtraMeta';
 import { StyleInfo } from './model/StyleInfo';
@@ -984,8 +971,6 @@ import { VerifyVideoMattingInfo } from './model/VerifyVideoMattingInfo';
 import { VideoAssetMeta } from './model/VideoAssetMeta';
 import { VideoConfig } from './model/VideoConfig';
 import { VideoLayerConfig } from './model/VideoLayerConfig';
-import { VideoMotionCaptureInfo } from './model/VideoMotionCaptureInfo';
-import { VideoMotionCaptureJobReq } from './model/VideoMotionCaptureJobReq';
 import { VideoScriptBaseInfo } from './model/VideoScriptBaseInfo';
 import { VideoScriptsCreateInfo } from './model/VideoScriptsCreateInfo';
 import { VideoScriptsShowInfo } from './model/VideoScriptsShowInfo';
@@ -7877,124 +7862,6 @@ export class MetaStudioClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口用于创建视频驱动任务。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建视频驱动任务
-     * @param {VideoMotionCaptureJobReq} createVideoMotionCaptureJobRequestBody 视频驱动任务创建请求。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {string} [xUserPrivilege] 测试用户判断。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createVideoMotionCaptureJob(createVideoMotionCaptureJobRequest?: CreateVideoMotionCaptureJobRequest): Promise<CreateVideoMotionCaptureJobResponse> {
-        const options = ParamCreater().createVideoMotionCaptureJob(createVideoMotionCaptureJobRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口用于控制数字人驱动。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 控制数字人驱动
-     * @param {string} jobId 任务ID。
-     * @param {ControlDigitalHumanLiveReq} executeVideoMotionCaptureCommandRequestBody 控制数字人驱动。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public executeVideoMotionCaptureCommand(executeVideoMotionCaptureCommandRequest?: ExecuteVideoMotionCaptureCommandRequest): Promise<ExecuteVideoMotionCaptureCommandResponse> {
-        const options = ParamCreater().executeVideoMotionCaptureCommand(executeVideoMotionCaptureCommandRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口用于查询视频驱动任务列表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询视频驱动任务列表
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
-     * @param {number} [limit] 每页显示的条目数量。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listVideoMotionCaptureJobs(listVideoMotionCaptureJobsRequest?: ListVideoMotionCaptureJobsRequest): Promise<ListVideoMotionCaptureJobsResponse> {
-        const options = ParamCreater().listVideoMotionCaptureJobs(listVideoMotionCaptureJobsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口用于查询视频驱动任务详情。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询视频驱动任务详情
-     * @param {string} jobId 任务ID。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showVideoMotionCaptureJob(showVideoMotionCaptureJobRequest?: ShowVideoMotionCaptureJobRequest): Promise<ShowVideoMotionCaptureJobResponse> {
-        const options = ParamCreater().showVideoMotionCaptureJob(showVideoMotionCaptureJobRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口用于停止视频驱动任务。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 停止视频驱动任务
-     * @param {string} jobId 任务ID。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
-     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。  格式为(YYYYMMDD\&#39;T\&#39;HHMMSS\&#39;Z\&#39;)。
-     * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
-     * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public stopVideoMotionCaptureJob(stopVideoMotionCaptureJobRequest?: StopVideoMotionCaptureJobRequest): Promise<StopVideoMotionCaptureJobResponse> {
-        const options = ParamCreater().stopVideoMotionCaptureJob(stopVideoMotionCaptureJobRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -28931,355 +28798,6 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'group_id': groupId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口用于创建视频驱动任务。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createVideoMotionCaptureJob(createVideoMotionCaptureJobRequest?: CreateVideoMotionCaptureJobRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/video-motion-capture-jobs",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let authorization;
-            
-            let xSdkDate;
-            
-            let xProjectId;
-            
-            let xAppUserId;
-            
-            let xUserPrivilege;
-
-            if (createVideoMotionCaptureJobRequest !== null && createVideoMotionCaptureJobRequest !== undefined) {
-                if (createVideoMotionCaptureJobRequest instanceof CreateVideoMotionCaptureJobRequest) {
-                    body = createVideoMotionCaptureJobRequest.body
-                    authorization = createVideoMotionCaptureJobRequest.authorization;
-                    xSdkDate = createVideoMotionCaptureJobRequest.xSdkDate;
-                    xProjectId = createVideoMotionCaptureJobRequest.xProjectId;
-                    xAppUserId = createVideoMotionCaptureJobRequest.xAppUserId;
-                    xUserPrivilege = createVideoMotionCaptureJobRequest.xUserPrivilege;
-                } else {
-                    body = createVideoMotionCaptureJobRequest['body'];
-                    authorization = createVideoMotionCaptureJobRequest['Authorization'];
-                    xSdkDate = createVideoMotionCaptureJobRequest['X-Sdk-Date'];
-                    xProjectId = createVideoMotionCaptureJobRequest['X-Project-Id'];
-                    xAppUserId = createVideoMotionCaptureJobRequest['X-App-UserId'];
-                    xUserPrivilege = createVideoMotionCaptureJobRequest['X-User-Privilege'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (xSdkDate !== undefined && xSdkDate !== null) {
-                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
-            }
-            if (xProjectId !== undefined && xProjectId !== null) {
-                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
-            }
-            if (xAppUserId !== undefined && xAppUserId !== null) {
-                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
-            }
-            if (xUserPrivilege !== undefined && xUserPrivilege !== null) {
-                localVarHeaderParameter['X-User-Privilege'] = String(xUserPrivilege);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口用于控制数字人驱动。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        executeVideoMotionCaptureCommand(executeVideoMotionCaptureCommandRequest?: ExecuteVideoMotionCaptureCommandRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/video-motion-capture-jobs/{job_id}/command",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let jobId;
-            
-            let authorization;
-            
-            let xSdkDate;
-            
-            let xProjectId;
-            
-            let xAppUserId;
-
-            if (executeVideoMotionCaptureCommandRequest !== null && executeVideoMotionCaptureCommandRequest !== undefined) {
-                if (executeVideoMotionCaptureCommandRequest instanceof ExecuteVideoMotionCaptureCommandRequest) {
-                    jobId = executeVideoMotionCaptureCommandRequest.jobId;
-                    body = executeVideoMotionCaptureCommandRequest.body
-                    authorization = executeVideoMotionCaptureCommandRequest.authorization;
-                    xSdkDate = executeVideoMotionCaptureCommandRequest.xSdkDate;
-                    xProjectId = executeVideoMotionCaptureCommandRequest.xProjectId;
-                    xAppUserId = executeVideoMotionCaptureCommandRequest.xAppUserId;
-                } else {
-                    jobId = executeVideoMotionCaptureCommandRequest['job_id'];
-                    body = executeVideoMotionCaptureCommandRequest['body'];
-                    authorization = executeVideoMotionCaptureCommandRequest['Authorization'];
-                    xSdkDate = executeVideoMotionCaptureCommandRequest['X-Sdk-Date'];
-                    xProjectId = executeVideoMotionCaptureCommandRequest['X-Project-Id'];
-                    xAppUserId = executeVideoMotionCaptureCommandRequest['X-App-UserId'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling executeVideoMotionCaptureCommand.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (xSdkDate !== undefined && xSdkDate !== null) {
-                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
-            }
-            if (xProjectId !== undefined && xProjectId !== null) {
-                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
-            }
-            if (xAppUserId !== undefined && xAppUserId !== null) {
-                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'job_id': jobId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口用于查询视频驱动任务列表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listVideoMotionCaptureJobs(listVideoMotionCaptureJobsRequest?: ListVideoMotionCaptureJobsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/video-motion-capture-jobs",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let authorization;
-            
-            let xSdkDate;
-            
-            let xProjectId;
-            
-            let xAppUserId;
-            
-            let offset;
-            
-            let limit;
-
-            if (listVideoMotionCaptureJobsRequest !== null && listVideoMotionCaptureJobsRequest !== undefined) {
-                if (listVideoMotionCaptureJobsRequest instanceof ListVideoMotionCaptureJobsRequest) {
-                    authorization = listVideoMotionCaptureJobsRequest.authorization;
-                    xSdkDate = listVideoMotionCaptureJobsRequest.xSdkDate;
-                    xProjectId = listVideoMotionCaptureJobsRequest.xProjectId;
-                    xAppUserId = listVideoMotionCaptureJobsRequest.xAppUserId;
-                    offset = listVideoMotionCaptureJobsRequest.offset;
-                    limit = listVideoMotionCaptureJobsRequest.limit;
-                } else {
-                    authorization = listVideoMotionCaptureJobsRequest['Authorization'];
-                    xSdkDate = listVideoMotionCaptureJobsRequest['X-Sdk-Date'];
-                    xProjectId = listVideoMotionCaptureJobsRequest['X-Project-Id'];
-                    xAppUserId = listVideoMotionCaptureJobsRequest['X-App-UserId'];
-                    offset = listVideoMotionCaptureJobsRequest['offset'];
-                    limit = listVideoMotionCaptureJobsRequest['limit'];
-                }
-            }
-
-        
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (xSdkDate !== undefined && xSdkDate !== null) {
-                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
-            }
-            if (xProjectId !== undefined && xProjectId !== null) {
-                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
-            }
-            if (xAppUserId !== undefined && xAppUserId !== null) {
-                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口用于查询视频驱动任务详情。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showVideoMotionCaptureJob(showVideoMotionCaptureJobRequest?: ShowVideoMotionCaptureJobRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/video-motion-capture-jobs/{job_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let jobId;
-            
-            let authorization;
-            
-            let xSdkDate;
-            
-            let xProjectId;
-            
-            let xAppUserId;
-
-            if (showVideoMotionCaptureJobRequest !== null && showVideoMotionCaptureJobRequest !== undefined) {
-                if (showVideoMotionCaptureJobRequest instanceof ShowVideoMotionCaptureJobRequest) {
-                    jobId = showVideoMotionCaptureJobRequest.jobId;
-                    authorization = showVideoMotionCaptureJobRequest.authorization;
-                    xSdkDate = showVideoMotionCaptureJobRequest.xSdkDate;
-                    xProjectId = showVideoMotionCaptureJobRequest.xProjectId;
-                    xAppUserId = showVideoMotionCaptureJobRequest.xAppUserId;
-                } else {
-                    jobId = showVideoMotionCaptureJobRequest['job_id'];
-                    authorization = showVideoMotionCaptureJobRequest['Authorization'];
-                    xSdkDate = showVideoMotionCaptureJobRequest['X-Sdk-Date'];
-                    xProjectId = showVideoMotionCaptureJobRequest['X-Project-Id'];
-                    xAppUserId = showVideoMotionCaptureJobRequest['X-App-UserId'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showVideoMotionCaptureJob.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (xSdkDate !== undefined && xSdkDate !== null) {
-                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
-            }
-            if (xProjectId !== undefined && xProjectId !== null) {
-                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
-            }
-            if (xAppUserId !== undefined && xAppUserId !== null) {
-                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
-            }
-
-            options.pathParams = { 'job_id': jobId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口用于停止视频驱动任务。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        stopVideoMotionCaptureJob(stopVideoMotionCaptureJobRequest?: StopVideoMotionCaptureJobRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/video-motion-capture-jobs/{job_id}/finish",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let jobId;
-            
-            let authorization;
-            
-            let xSdkDate;
-            
-            let xProjectId;
-            
-            let xAppUserId;
-
-            if (stopVideoMotionCaptureJobRequest !== null && stopVideoMotionCaptureJobRequest !== undefined) {
-                if (stopVideoMotionCaptureJobRequest instanceof StopVideoMotionCaptureJobRequest) {
-                    jobId = stopVideoMotionCaptureJobRequest.jobId;
-                    authorization = stopVideoMotionCaptureJobRequest.authorization;
-                    xSdkDate = stopVideoMotionCaptureJobRequest.xSdkDate;
-                    xProjectId = stopVideoMotionCaptureJobRequest.xProjectId;
-                    xAppUserId = stopVideoMotionCaptureJobRequest.xAppUserId;
-                } else {
-                    jobId = stopVideoMotionCaptureJobRequest['job_id'];
-                    authorization = stopVideoMotionCaptureJobRequest['Authorization'];
-                    xSdkDate = stopVideoMotionCaptureJobRequest['X-Sdk-Date'];
-                    xProjectId = stopVideoMotionCaptureJobRequest['X-Project-Id'];
-                    xAppUserId = stopVideoMotionCaptureJobRequest['X-App-UserId'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling stopVideoMotionCaptureJob.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-            if (xSdkDate !== undefined && xSdkDate !== null) {
-                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
-            }
-            if (xProjectId !== undefined && xProjectId !== null) {
-                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
-            }
-            if (xAppUserId !== undefined && xAppUserId !== null) {
-                localVarHeaderParameter['X-App-UserId'] = String(xAppUserId);
-            }
-
-            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

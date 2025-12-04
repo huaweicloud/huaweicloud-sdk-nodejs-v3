@@ -17,7 +17,7 @@ export class UpdateHostRequestBody {
     private 'ipv6_enable'?: boolean;
     private 'web_tag'?: string;
     private 'exclusive_ip'?: boolean;
-    private 'paid_type'?: string;
+    private 'paid_type'?: UpdateHostRequestBodyPaidTypeEnum | string;
     private 'block_page'?: BlockPage;
     private 'traffic_mark'?: TrafficMark;
     public flag?: Flag;
@@ -91,14 +91,14 @@ export class UpdateHostRequestBody {
     public get exclusiveIp(): boolean | undefined {
         return this['exclusive_ip'];
     }
-    public withPaidType(paidType: string): UpdateHostRequestBody {
+    public withPaidType(paidType: UpdateHostRequestBodyPaidTypeEnum | string): UpdateHostRequestBody {
         this['paid_type'] = paidType;
         return this;
     }
-    public set paidType(paidType: string  | undefined) {
+    public set paidType(paidType: UpdateHostRequestBodyPaidTypeEnum | string  | undefined) {
         this['paid_type'] = paidType;
     }
-    public get paidType(): string | undefined {
+    public get paidType(): UpdateHostRequestBodyPaidTypeEnum | string | undefined {
         return this['paid_type'];
     }
     public withBlockPage(blockPage: BlockPage): UpdateHostRequestBody {
@@ -182,4 +182,12 @@ export enum UpdateHostRequestBodyCipherEnum {
     CIPHER_5 = 'cipher_5',
     CIPHER_6 = 'cipher_6',
     CIPHER_DEFAULT = 'cipher_default'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateHostRequestBodyPaidTypeEnum {
+    PREPAID = 'prePaid',
+    POSTPAID = 'postPaid'
 }

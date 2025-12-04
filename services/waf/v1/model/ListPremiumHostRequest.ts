@@ -7,7 +7,7 @@ export class ListPremiumHostRequest {
     public pagesize?: string;
     public hostname?: string;
     public policyname?: string;
-    private 'protect_status'?: number;
+    private 'protect_status'?: ListPremiumHostRequestProtectStatusEnum | number;
     public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
     }
@@ -47,14 +47,24 @@ export class ListPremiumHostRequest {
         this['policyname'] = policyname;
         return this;
     }
-    public withProtectStatus(protectStatus: number): ListPremiumHostRequest {
+    public withProtectStatus(protectStatus: ListPremiumHostRequestProtectStatusEnum | number): ListPremiumHostRequest {
         this['protect_status'] = protectStatus;
         return this;
     }
-    public set protectStatus(protectStatus: number  | undefined) {
+    public set protectStatus(protectStatus: ListPremiumHostRequestProtectStatusEnum | number  | undefined) {
         this['protect_status'] = protectStatus;
     }
-    public get protectStatus(): number | undefined {
+    public get protectStatus(): ListPremiumHostRequestProtectStatusEnum | number | undefined {
         return this['protect_status'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListPremiumHostRequestProtectStatusEnum {
+    NUMBER_MINUS_1 = -1,
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
 }

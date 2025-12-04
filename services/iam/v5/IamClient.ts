@@ -198,8 +198,6 @@ import { ShowLoginProfileV5Request } from './model/ShowLoginProfileV5Request';
 import { ShowLoginProfileV5Response } from './model/ShowLoginProfileV5Response';
 import { ShowPasswordPolicyV5Request } from './model/ShowPasswordPolicyV5Request';
 import { ShowPasswordPolicyV5Response } from './model/ShowPasswordPolicyV5Response';
-import { ShowTokenPolicyV5Request } from './model/ShowTokenPolicyV5Request';
-import { ShowTokenPolicyV5Response } from './model/ShowTokenPolicyV5Response';
 import { ShowUserLastLoginV5Request } from './model/ShowUserLastLoginV5Request';
 import { ShowUserLastLoginV5Response } from './model/ShowUserLastLoginV5Response';
 import { ShowUserV5Request } from './model/ShowUserV5Request';
@@ -208,7 +206,6 @@ import { Tag } from './model/Tag';
 import { TagResourceV5Request } from './model/TagResourceV5Request';
 import { TagResourceV5Response } from './model/TagResourceV5Response';
 import { Tags } from './model/Tags';
-import { TokenPolicy } from './model/TokenPolicy';
 import { TrustAgency } from './model/TrustAgency';
 import { TrustAgencyId } from './model/TrustAgencyId';
 import { TrustAgencyName } from './model/TrustAgencyName';
@@ -233,9 +230,6 @@ import { UpdateLoginProfileV5Response } from './model/UpdateLoginProfileV5Respon
 import { UpdatePasswordPolicyReqBody } from './model/UpdatePasswordPolicyReqBody';
 import { UpdatePasswordPolicyV5Request } from './model/UpdatePasswordPolicyV5Request';
 import { UpdatePasswordPolicyV5Response } from './model/UpdatePasswordPolicyV5Response';
-import { UpdateTokenPolicyReqBody } from './model/UpdateTokenPolicyReqBody';
-import { UpdateTokenPolicyV5Request } from './model/UpdateTokenPolicyV5Request';
-import { UpdateTokenPolicyV5Response } from './model/UpdateTokenPolicyV5Response';
 import { UpdateTrustPolicyReqBody } from './model/UpdateTrustPolicyReqBody';
 import { UpdateTrustPolicyV5Request } from './model/UpdateTrustPolicyV5Request';
 import { UpdateTrustPolicyV5Response } from './model/UpdateTrustPolicyV5Response';
@@ -1306,24 +1300,6 @@ export class IamClient {
     }
 
     /**
-     * 查询账号的Token策略，Token策略控制账号下的所有身份类型（IAM用户、委托、联邦用户）是否允许获取Token（联邦认证获取的unscoped token不受Token策略影响）。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询账号的Token策略
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showTokenPolicyV5(showTokenPolicyV5Request?: ShowTokenPolicyV5Request): Promise<ShowTokenPolicyV5Response> {
-        const options = ParamCreater().showTokenPolicyV5();
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 该接口可以用于修改账号登录策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1354,25 +1330,6 @@ export class IamClient {
      */
     public updatePasswordPolicyV5(updatePasswordPolicyV5Request?: UpdatePasswordPolicyV5Request): Promise<UpdatePasswordPolicyV5Response> {
         const options = ParamCreater().updatePasswordPolicyV5(updatePasswordPolicyV5Request);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 修改账号的Token策略，Token策略控制账号下的所有身份类型（IAM用户、委托、联邦用户）是否允许获取Token（联邦认证获取的unscoped token不受Token策略影响）。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 修改账号的Token策略
-     * @param {UpdateTokenPolicyReqBody} updateTokenPolicyReqBody 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateTokenPolicyV5(updateTokenPolicyV5Request?: UpdateTokenPolicyV5Request): Promise<UpdateTokenPolicyV5Response> {
-        const options = ParamCreater().updateTokenPolicyV5(updateTokenPolicyV5Request);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3940,27 +3897,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询账号的Token策略，Token策略控制账号下的所有身份类型（IAM用户、委托、联邦用户）是否允许获取Token（联邦认证获取的unscoped token不受Token策略影响）。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showTokenPolicyV5() {
-            const options = {
-                method: "GET",
-                url: "/v5/token-policy",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 该接口可以用于修改账号登录策略。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4022,44 +3958,6 @@ export const ParamCreater = function () {
                     body = updatePasswordPolicyV5Request.body
                 } else {
                     body = updatePasswordPolicyV5Request['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 修改账号的Token策略，Token策略控制账号下的所有身份类型（IAM用户、委托、联邦用户）是否允许获取Token（联邦认证获取的unscoped token不受Token策略影响）。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateTokenPolicyV5(updateTokenPolicyV5Request?: UpdateTokenPolicyV5Request) {
-            const options = {
-                method: "PUT",
-                url: "/v5/token-policy",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (updateTokenPolicyV5Request !== null && updateTokenPolicyV5Request !== undefined) {
-                if (updateTokenPolicyV5Request instanceof UpdateTokenPolicyV5Request) {
-                    body = updateTokenPolicyV5Request.body
-                } else {
-                    body = updateTokenPolicyV5Request['body'];
                 }
             }
 

@@ -12,6 +12,9 @@ export class ShowInstanceMessagesRequest {
     private 'message_offset'?: string;
     public partition?: string;
     public keyword?: string;
+    public key?: string;
+    public include?: string;
+    public exclude?: string;
     public constructor(instanceId?: string, topic?: string) { 
         this['instance_id'] = instanceId;
         this['topic'] = topic;
@@ -82,6 +85,18 @@ export class ShowInstanceMessagesRequest {
     }
     public withKeyword(keyword: string): ShowInstanceMessagesRequest {
         this['keyword'] = keyword;
+        return this;
+    }
+    public withKey(key: string): ShowInstanceMessagesRequest {
+        this['key'] = key;
+        return this;
+    }
+    public withInclude(include: string): ShowInstanceMessagesRequest {
+        this['include'] = include;
+        return this;
+    }
+    public withExclude(exclude: string): ShowInstanceMessagesRequest {
+        this['exclude'] = exclude;
         return this;
     }
 }

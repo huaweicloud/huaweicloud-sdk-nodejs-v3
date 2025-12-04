@@ -14,7 +14,7 @@ export class CompositeHostResponse {
     private 'access_status'?: number;
     public proxy?: boolean;
     public timestamp?: number;
-    private 'paid_type'?: string;
+    private 'paid_type'?: CompositeHostResponsePaidTypeEnum | string;
     public flag?: Flag;
     private 'waf_type'?: string;
     private 'web_tag'?: string;
@@ -81,14 +81,14 @@ export class CompositeHostResponse {
         this['timestamp'] = timestamp;
         return this;
     }
-    public withPaidType(paidType: string): CompositeHostResponse {
+    public withPaidType(paidType: CompositeHostResponsePaidTypeEnum | string): CompositeHostResponse {
         this['paid_type'] = paidType;
         return this;
     }
-    public set paidType(paidType: string  | undefined) {
+    public set paidType(paidType: CompositeHostResponsePaidTypeEnum | string  | undefined) {
         this['paid_type'] = paidType;
     }
-    public get paidType(): string | undefined {
+    public get paidType(): CompositeHostResponsePaidTypeEnum | string | undefined {
         return this['paid_type'];
     }
     public withFlag(flag: Flag): CompositeHostResponse {
@@ -167,4 +167,13 @@ export class CompositeHostResponse {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CompositeHostResponsePaidTypeEnum {
+    PREPAID = 'prePaid',
+    POSTPAID = 'postPaid'
 }

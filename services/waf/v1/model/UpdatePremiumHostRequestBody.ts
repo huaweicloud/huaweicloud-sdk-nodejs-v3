@@ -15,8 +15,8 @@ export class UpdatePremiumHostRequestBody {
     public cipher?: UpdatePremiumHostRequestBodyCipherEnum | string;
     public mode?: string;
     public locked?: number;
-    private 'protect_status'?: number;
-    private 'access_status'?: number;
+    private 'protect_status'?: UpdatePremiumHostRequestBodyProtectStatusEnum | number;
+    private 'access_status'?: UpdatePremiumHostRequestBodyAccessStatusEnum | number;
     public timestamp?: number;
     private 'pool_ids'?: Array<string>;
     private 'block_page'?: BlockPage;
@@ -59,24 +59,24 @@ export class UpdatePremiumHostRequestBody {
         this['locked'] = locked;
         return this;
     }
-    public withProtectStatus(protectStatus: number): UpdatePremiumHostRequestBody {
+    public withProtectStatus(protectStatus: UpdatePremiumHostRequestBodyProtectStatusEnum | number): UpdatePremiumHostRequestBody {
         this['protect_status'] = protectStatus;
         return this;
     }
-    public set protectStatus(protectStatus: number  | undefined) {
+    public set protectStatus(protectStatus: UpdatePremiumHostRequestBodyProtectStatusEnum | number  | undefined) {
         this['protect_status'] = protectStatus;
     }
-    public get protectStatus(): number | undefined {
+    public get protectStatus(): UpdatePremiumHostRequestBodyProtectStatusEnum | number | undefined {
         return this['protect_status'];
     }
-    public withAccessStatus(accessStatus: number): UpdatePremiumHostRequestBody {
+    public withAccessStatus(accessStatus: UpdatePremiumHostRequestBodyAccessStatusEnum | number): UpdatePremiumHostRequestBody {
         this['access_status'] = accessStatus;
         return this;
     }
-    public set accessStatus(accessStatus: number  | undefined) {
+    public set accessStatus(accessStatus: UpdatePremiumHostRequestBodyAccessStatusEnum | number  | undefined) {
         this['access_status'] = accessStatus;
     }
-    public get accessStatus(): number | undefined {
+    public get accessStatus(): UpdatePremiumHostRequestBodyAccessStatusEnum | number | undefined {
         return this['access_status'];
     }
     public withTimestamp(timestamp: number): UpdatePremiumHostRequestBody {
@@ -170,4 +170,21 @@ export enum UpdatePremiumHostRequestBodyCipherEnum {
     CIPHER_5 = 'cipher_5',
     CIPHER_6 = 'cipher_6',
     CIPHER_DEFAULT = 'cipher_default'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdatePremiumHostRequestBodyProtectStatusEnum {
+    NUMBER_MINUS_1 = -1,
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdatePremiumHostRequestBodyAccessStatusEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
 }

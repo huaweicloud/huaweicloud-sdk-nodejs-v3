@@ -1,9 +1,9 @@
-import { BareMetalModifyPortRequest } from './BareMetalModifyPortRequest';
+import { BareMetalModifyPortRequestBody } from './BareMetalModifyPortRequestBody';
 
 
 export class ModifyVmNicRequest {
     private 'nic_id'?: string;
-    public body?: BareMetalModifyPortRequest;
+    public body?: BareMetalModifyPortRequestBody;
     public constructor(nicId?: string) { 
         this['nic_id'] = nicId;
     }
@@ -17,7 +17,7 @@ export class ModifyVmNicRequest {
     public get nicId(): string | undefined {
         return this['nic_id'];
     }
-    public withBody(body: BareMetalModifyPortRequest): ModifyVmNicRequest {
+    public withBody(body: BareMetalModifyPortRequestBody): ModifyVmNicRequest {
         this['body'] = body;
         return this;
     }

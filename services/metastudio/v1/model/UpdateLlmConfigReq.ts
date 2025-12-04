@@ -4,6 +4,7 @@ export class UpdateLlmConfigReq {
     public name?: string;
     private 'llm_url'?: string;
     private 'api_key'?: string;
+    public model?: string;
     public constructor() { 
     }
     public withName(name: string): UpdateLlmConfigReq {
@@ -29,5 +30,9 @@ export class UpdateLlmConfigReq {
     }
     public get apiKey(): string | undefined {
         return this['api_key'];
+    }
+    public withModel(model: string): UpdateLlmConfigReq {
+        this['model'] = model;
+        return this;
     }
 }

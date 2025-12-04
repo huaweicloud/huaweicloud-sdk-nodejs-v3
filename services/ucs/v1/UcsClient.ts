@@ -81,10 +81,10 @@ import { DeleteRepoRequest } from './model/DeleteRepoRequest';
 import { DeleteRepoResponse } from './model/DeleteRepoResponse';
 import { DeleteRuleRequest } from './model/DeleteRuleRequest';
 import { DeleteRuleResponse } from './model/DeleteRuleResponse';
+import { DisableClusterGroupPolicyRequest } from './model/DisableClusterGroupPolicyRequest';
+import { DisableClusterGroupPolicyResponse } from './model/DisableClusterGroupPolicyResponse';
 import { DisableClusterPolicyRequest } from './model/DisableClusterPolicyRequest';
 import { DisableClusterPolicyResponse } from './model/DisableClusterPolicyResponse';
-import { DisableClustergroupPolicyRequest } from './model/DisableClustergroupPolicyRequest';
-import { DisableClustergroupPolicyResponse } from './model/DisableClustergroupPolicyResponse';
 import { DisableFederationRequest } from './model/DisableFederationRequest';
 import { DisableFederationResponse } from './model/DisableFederationResponse';
 import { DisableGitOpsRequest } from './model/DisableGitOpsRequest';
@@ -92,10 +92,10 @@ import { DisableGitOpsResponse } from './model/DisableGitOpsResponse';
 import { DownloadFederationKubeconfigRequest } from './model/DownloadFederationKubeconfigRequest';
 import { DownloadFederationKubeconfigRequestBody } from './model/DownloadFederationKubeconfigRequestBody';
 import { DownloadFederationKubeconfigResponse } from './model/DownloadFederationKubeconfigResponse';
+import { EnableClusterGroupPolicyRequest } from './model/EnableClusterGroupPolicyRequest';
+import { EnableClusterGroupPolicyResponse } from './model/EnableClusterGroupPolicyResponse';
 import { EnableClusterPolicyRequest } from './model/EnableClusterPolicyRequest';
 import { EnableClusterPolicyResponse } from './model/EnableClusterPolicyResponse';
-import { EnableClustergroupPolicyRequest } from './model/EnableClustergroupPolicyRequest';
-import { EnableClustergroupPolicyResponse } from './model/EnableClustergroupPolicyResponse';
 import { EnableFederationRequest } from './model/EnableFederationRequest';
 import { EnableFederationResponse } from './model/EnableFederationResponse';
 import { EnableGitOpsRequest } from './model/EnableGitOpsRequest';
@@ -632,8 +632,8 @@ export class UcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public disableClustergroupPolicy(disableClustergroupPolicyRequest?: DisableClustergroupPolicyRequest): Promise<DisableClustergroupPolicyResponse> {
-        const options = ParamCreater().disableClustergroupPolicy(disableClustergroupPolicyRequest);
+    public disableClusterGroupPolicy(disableClusterGroupPolicyRequest?: DisableClusterGroupPolicyRequest): Promise<DisableClusterGroupPolicyResponse> {
+        const options = ParamCreater().disableClusterGroupPolicy(disableClusterGroupPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -691,8 +691,8 @@ export class UcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public enableClustergroupPolicy(enableClustergroupPolicyRequest?: EnableClustergroupPolicyRequest): Promise<EnableClustergroupPolicyResponse> {
-        const options = ParamCreater().enableClustergroupPolicy(enableClustergroupPolicyRequest);
+    public enableClusterGroupPolicy(enableClusterGroupPolicyRequest?: EnableClusterGroupPolicyRequest): Promise<EnableClusterGroupPolicyResponse> {
+        const options = ParamCreater().enableClusterGroupPolicy(enableClusterGroupPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1010,7 +1010,7 @@ export class UcsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取插件实例
-     * @param {string} id 插件示例id
+     * @param {string} id 插件实例id
      * @param {string} [isDatabaseStatus] 是否使用数据库存储的插件状态
      * @param {string} [clusterId] 集群id
      * @param {*} [options] Override http request option.
@@ -1482,11 +1482,11 @@ export class UcsClient {
     }
 
     /**
-     * 创建集群建策略实例
+     * 创建集群策略实例
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建集群建策略实例
+     * @summary 创建集群策略实例
      * @param {string} clusterid 集群id
      * @param {UCSConstraintRequest} [uCSConstraintRequest] 策略实例创建请求体
      * @param {*} [options] Override http request option.
@@ -2497,7 +2497,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        disableClustergroupPolicy(disableClustergroupPolicyRequest?: DisableClustergroupPolicyRequest) {
+        disableClusterGroupPolicy(disableClusterGroupPolicyRequest?: DisableClusterGroupPolicyRequest) {
             const options = {
                 method: "DELETE",
                 url: "/v1/clustergroups/{clustergroupid}/policy",
@@ -2511,17 +2511,17 @@ export const ParamCreater = function () {
             
             let clustergroupid;
 
-            if (disableClustergroupPolicyRequest !== null && disableClustergroupPolicyRequest !== undefined) {
-                if (disableClustergroupPolicyRequest instanceof DisableClustergroupPolicyRequest) {
-                    clustergroupid = disableClustergroupPolicyRequest.clustergroupid;
+            if (disableClusterGroupPolicyRequest !== null && disableClusterGroupPolicyRequest !== undefined) {
+                if (disableClusterGroupPolicyRequest instanceof DisableClusterGroupPolicyRequest) {
+                    clustergroupid = disableClusterGroupPolicyRequest.clustergroupid;
                 } else {
-                    clustergroupid = disableClustergroupPolicyRequest['clustergroupid'];
+                    clustergroupid = disableClusterGroupPolicyRequest['clustergroupid'];
                 }
             }
 
         
             if (clustergroupid === null || clustergroupid === undefined) {
-            throw new RequiredError('clustergroupid','Required parameter clustergroupid was null or undefined when calling disableClustergroupPolicy.');
+            throw new RequiredError('clustergroupid','Required parameter clustergroupid was null or undefined when calling disableClusterGroupPolicy.');
             }
 
             options.pathParams = { 'clustergroupid': clustergroupid, };
@@ -2617,7 +2617,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        enableClustergroupPolicy(enableClustergroupPolicyRequest?: EnableClustergroupPolicyRequest) {
+        enableClusterGroupPolicy(enableClusterGroupPolicyRequest?: EnableClusterGroupPolicyRequest) {
             const options = {
                 method: "POST",
                 url: "/v1/clustergroups/{clustergroupid}/policy",
@@ -2633,19 +2633,19 @@ export const ParamCreater = function () {
             
             let retry;
 
-            if (enableClustergroupPolicyRequest !== null && enableClustergroupPolicyRequest !== undefined) {
-                if (enableClustergroupPolicyRequest instanceof EnableClustergroupPolicyRequest) {
-                    clustergroupid = enableClustergroupPolicyRequest.clustergroupid;
-                    retry = enableClustergroupPolicyRequest.retry;
+            if (enableClusterGroupPolicyRequest !== null && enableClusterGroupPolicyRequest !== undefined) {
+                if (enableClusterGroupPolicyRequest instanceof EnableClusterGroupPolicyRequest) {
+                    clustergroupid = enableClusterGroupPolicyRequest.clustergroupid;
+                    retry = enableClusterGroupPolicyRequest.retry;
                 } else {
-                    clustergroupid = enableClustergroupPolicyRequest['clustergroupid'];
-                    retry = enableClustergroupPolicyRequest['retry'];
+                    clustergroupid = enableClusterGroupPolicyRequest['clustergroupid'];
+                    retry = enableClusterGroupPolicyRequest['retry'];
                 }
             }
 
         
             if (clustergroupid === null || clustergroupid === undefined) {
-            throw new RequiredError('clustergroupid','Required parameter clustergroupid was null or undefined when calling enableClustergroupPolicy.');
+            throw new RequiredError('clustergroupid','Required parameter clustergroupid was null or undefined when calling enableClusterGroupPolicy.');
             }
             if (retry !== null && retry !== undefined) {
                 localVarQueryParameter['retry'] = retry;
@@ -4362,7 +4362,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建集群建策略实例
+         * 创建集群策略实例
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

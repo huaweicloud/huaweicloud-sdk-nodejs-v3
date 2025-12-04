@@ -1,10 +1,10 @@
-import { ResetUserPasswrodReq } from './ResetUserPasswrodReq';
+import { ResetUserPasswordReq } from './ResetUserPasswordReq';
 
 
 export class ResetUserPasswrodRequest {
     private 'instance_id'?: string;
     private 'user_name'?: string;
-    public body?: ResetUserPasswrodReq;
+    public body?: ResetUserPasswordReq;
     public constructor(instanceId?: string, userName?: string) { 
         this['instance_id'] = instanceId;
         this['user_name'] = userName;
@@ -29,7 +29,7 @@ export class ResetUserPasswrodRequest {
     public get userName(): string | undefined {
         return this['user_name'];
     }
-    public withBody(body: ResetUserPasswrodReq): ResetUserPasswrodRequest {
+    public withBody(body: ResetUserPasswordReq): ResetUserPasswrodRequest {
         this['body'] = body;
         return this;
     }

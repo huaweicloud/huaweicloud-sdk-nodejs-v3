@@ -5,6 +5,7 @@ export class ListLogContextRequestBody {
     private '__time__'?: string;
     private 'backwards_size'?: number;
     private 'forwards_size'?: number;
+    private 'scroll_id'?: string;
     public constructor() { 
     }
     public withLineNum(lineNum: string): ListLogContextRequestBody {
@@ -46,5 +47,15 @@ export class ListLogContextRequestBody {
     }
     public get forwardsSize(): number | undefined {
         return this['forwards_size'];
+    }
+    public withScrollId(scrollId: string): ListLogContextRequestBody {
+        this['scroll_id'] = scrollId;
+        return this;
+    }
+    public set scrollId(scrollId: string  | undefined) {
+        this['scroll_id'] = scrollId;
+    }
+    public get scrollId(): string | undefined {
+        return this['scroll_id'];
     }
 }

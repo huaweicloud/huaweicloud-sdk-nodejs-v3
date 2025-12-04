@@ -9,6 +9,8 @@ export * from './model/ListAreaDetailRequest';
 export * from './model/ListAreaDetailResponse';
 export * from './model/ListBandwidthDetailRequest';
 export * from './model/ListBandwidthDetailResponse';
+export * from './model/ListCarouselTaskDetailRequest';
+export * from './model/ListCarouselTaskDetailResponse';
 export * from './model/ListDomainBandwidthPeakRequest';
 export * from './model/ListDomainBandwidthPeakResponse';
 export * from './model/ListDomainTrafficDetailRequest';

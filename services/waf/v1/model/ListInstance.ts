@@ -12,9 +12,9 @@ export class ListInstance {
     private 'subnet_id'?: string;
     private 'service_ip'?: string;
     private 'security_group_ids'?: Array<string>;
-    public status?: number;
-    private 'run_status'?: number;
-    private 'access_status'?: number;
+    public status?: ListInstanceStatusEnum | number;
+    private 'run_status'?: ListInstanceRunStatusEnum | number;
+    private 'access_status'?: ListInstanceAccessStatusEnum | number;
     public upgradable?: number;
     public cloudServiceType?: string;
     public resourceType?: string;
@@ -96,28 +96,28 @@ export class ListInstance {
     public get securityGroupIds(): Array<string> | undefined {
         return this['security_group_ids'];
     }
-    public withStatus(status: number): ListInstance {
+    public withStatus(status: ListInstanceStatusEnum | number): ListInstance {
         this['status'] = status;
         return this;
     }
-    public withRunStatus(runStatus: number): ListInstance {
+    public withRunStatus(runStatus: ListInstanceRunStatusEnum | number): ListInstance {
         this['run_status'] = runStatus;
         return this;
     }
-    public set runStatus(runStatus: number  | undefined) {
+    public set runStatus(runStatus: ListInstanceRunStatusEnum | number  | undefined) {
         this['run_status'] = runStatus;
     }
-    public get runStatus(): number | undefined {
+    public get runStatus(): ListInstanceRunStatusEnum | number | undefined {
         return this['run_status'];
     }
-    public withAccessStatus(accessStatus: number): ListInstance {
+    public withAccessStatus(accessStatus: ListInstanceAccessStatusEnum | number): ListInstance {
         this['access_status'] = accessStatus;
         return this;
     }
-    public set accessStatus(accessStatus: number  | undefined) {
+    public set accessStatus(accessStatus: ListInstanceAccessStatusEnum | number  | undefined) {
         this['access_status'] = accessStatus;
     }
-    public get accessStatus(): number | undefined {
+    public get accessStatus(): ListInstanceAccessStatusEnum | number | undefined {
         return this['access_status'];
     }
     public withUpgradable(upgradable: number): ListInstance {
@@ -168,4 +168,37 @@ export class ListInstance {
     public get instanceName(): string | undefined {
         return this['instance_name'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListInstanceStatusEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1,
+    NUMBER_2 = 2
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListInstanceRunStatusEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1,
+    NUMBER_2 = 2,
+    NUMBER_3 = 3,
+    NUMBER_4 = 4,
+    NUMBER_5 = 5,
+    NUMBER_6 = 6,
+    NUMBER_7 = 7,
+    NUMBER_8 = 8
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListInstanceAccessStatusEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
 }

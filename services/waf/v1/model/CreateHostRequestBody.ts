@@ -9,7 +9,7 @@ export class CreateHostRequestBody {
     public certificatename?: string;
     private 'web_tag'?: string;
     private 'exclusive_ip'?: boolean;
-    private 'paid_type'?: string;
+    private 'paid_type'?: CreateHostRequestBodyPaidTypeEnum | string;
     public proxy?: boolean;
     private 'lb_algorithm'?: CreateHostRequestBodyLbAlgorithmEnum | string;
     public description?: string;
@@ -59,14 +59,14 @@ export class CreateHostRequestBody {
     public get exclusiveIp(): boolean | undefined {
         return this['exclusive_ip'];
     }
-    public withPaidType(paidType: string): CreateHostRequestBody {
+    public withPaidType(paidType: CreateHostRequestBodyPaidTypeEnum | string): CreateHostRequestBody {
         this['paid_type'] = paidType;
         return this;
     }
-    public set paidType(paidType: string  | undefined) {
+    public set paidType(paidType: CreateHostRequestBodyPaidTypeEnum | string  | undefined) {
         this['paid_type'] = paidType;
     }
-    public get paidType(): string | undefined {
+    public get paidType(): CreateHostRequestBodyPaidTypeEnum | string | undefined {
         return this['paid_type'];
     }
     public withProxy(proxy: boolean): CreateHostRequestBody {
@@ -99,6 +99,14 @@ export class CreateHostRequestBody {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateHostRequestBodyPaidTypeEnum {
+    PREPAID = 'prePaid',
+    POSTPAID = 'postPaid'
+}
 /**
     * @export
     * @enum {string}

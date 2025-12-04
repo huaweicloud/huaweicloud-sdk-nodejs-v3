@@ -7,13 +7,17 @@ export class ListTopicsItem {
     private 'push_policy'?: number;
     private 'enterprise_project_id'?: string;
     private 'topic_id'?: string;
-    public constructor(topicUrn?: string, name?: string, displayName?: string, pushPolicy?: number, enterpriseProjectId?: string, topicId?: string) { 
+    private 'create_time'?: string;
+    private 'update_time'?: string;
+    public constructor(topicUrn?: string, name?: string, displayName?: string, pushPolicy?: number, enterpriseProjectId?: string, topicId?: string, createTime?: string, updateTime?: string) { 
         this['topic_urn'] = topicUrn;
         this['name'] = name;
         this['display_name'] = displayName;
         this['push_policy'] = pushPolicy;
         this['enterprise_project_id'] = enterpriseProjectId;
         this['topic_id'] = topicId;
+        this['create_time'] = createTime;
+        this['update_time'] = updateTime;
     }
     public withTopicUrn(topicUrn: string): ListTopicsItem {
         this['topic_urn'] = topicUrn;
@@ -68,5 +72,25 @@ export class ListTopicsItem {
     }
     public get topicId(): string | undefined {
         return this['topic_id'];
+    }
+    public withCreateTime(createTime: string): ListTopicsItem {
+        this['create_time'] = createTime;
+        return this;
+    }
+    public set createTime(createTime: string  | undefined) {
+        this['create_time'] = createTime;
+    }
+    public get createTime(): string | undefined {
+        return this['create_time'];
+    }
+    public withUpdateTime(updateTime: string): ListTopicsItem {
+        this['update_time'] = updateTime;
+        return this;
+    }
+    public set updateTime(updateTime: string  | undefined) {
+        this['update_time'] = updateTime;
+    }
+    public get updateTime(): string | undefined {
+        return this['update_time'];
     }
 }

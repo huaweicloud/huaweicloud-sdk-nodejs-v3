@@ -13,6 +13,7 @@ export * from './model/AttachBaremetalServerVolumeResponse';
 export * from './model/AttachVolumeBody';
 export * from './model/BandWidth';
 export * from './model/BareMetalModifyPortRequest';
+export * from './model/BareMetalModifyPortRequestBody';
 export * from './model/BaremetalServerTag';
 export * from './model/BatchCreateBaremetalServerTagsRequest';
 export * from './model/BatchCreateBaremetalServerTagsRequestBody';

@@ -1,10 +1,11 @@
 import { ListProductsRespHourly } from './ListProductsRespHourly';
+import { ListProductsRespMonthly } from './ListProductsRespMonthly';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListProductsResponse extends SdkResponse {
     private 'Hourly'?: Array<ListProductsRespHourly>;
-    private 'Monthly'?: Array<ListProductsRespHourly>;
+    private 'Monthly'?: Array<ListProductsRespMonthly>;
     public constructor() { 
         super();
     }
@@ -18,14 +19,14 @@ export class ListProductsResponse extends SdkResponse {
     public get hourly(): Array<ListProductsRespHourly> | undefined {
         return this['Hourly'];
     }
-    public withMonthly(monthly: Array<ListProductsRespHourly>): ListProductsResponse {
+    public withMonthly(monthly: Array<ListProductsRespMonthly>): ListProductsResponse {
         this['Monthly'] = monthly;
         return this;
     }
-    public set monthly(monthly: Array<ListProductsRespHourly>  | undefined) {
+    public set monthly(monthly: Array<ListProductsRespMonthly>  | undefined) {
         this['Monthly'] = monthly;
     }
-    public get monthly(): Array<ListProductsRespHourly> | undefined {
+    public get monthly(): Array<ListProductsRespMonthly> | undefined {
         return this['Monthly'];
     }
 }

@@ -5,6 +5,7 @@ export class ShowInstanceArtifactRequest {
     private 'namespace_name'?: string;
     private 'repository_name'?: string;
     public reference?: string;
+    private 'with_scan_overview'?: boolean;
     public constructor(instanceId?: string, namespaceName?: string, repositoryName?: string, reference?: string) { 
         this['instance_id'] = instanceId;
         this['namespace_name'] = namespaceName;
@@ -44,5 +45,15 @@ export class ShowInstanceArtifactRequest {
     public withReference(reference: string): ShowInstanceArtifactRequest {
         this['reference'] = reference;
         return this;
+    }
+    public withWithScanOverview(withScanOverview: boolean): ShowInstanceArtifactRequest {
+        this['with_scan_overview'] = withScanOverview;
+        return this;
+    }
+    public set withScanOverview(withScanOverview: boolean  | undefined) {
+        this['with_scan_overview'] = withScanOverview;
+    }
+    public get withScanOverview(): boolean | undefined {
+        return this['with_scan_overview'];
     }
 }

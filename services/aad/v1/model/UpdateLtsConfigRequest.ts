@@ -4,7 +4,8 @@ import { UpdateLtsConfigRequestBody } from './UpdateLtsConfigRequestBody';
 export class UpdateLtsConfigRequest {
     private 'enterprise_project_id'?: string;
     public body?: UpdateLtsConfigRequestBody;
-    public constructor() { 
+    public constructor(enterpriseProjectId?: string) { 
+        this['enterprise_project_id'] = enterpriseProjectId;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): UpdateLtsConfigRequest {
         this['enterprise_project_id'] = enterpriseProjectId;

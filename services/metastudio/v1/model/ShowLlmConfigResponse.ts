@@ -5,6 +5,7 @@ export class ShowLlmConfigResponse extends SdkResponse {
     private 'llm_config_id'?: string;
     public name?: string;
     private 'llm_url'?: string;
+    public model?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
     private 'X-Request-Id'?: string;
@@ -34,6 +35,10 @@ export class ShowLlmConfigResponse extends SdkResponse {
     }
     public get llmUrl(): string | undefined {
         return this['llm_url'];
+    }
+    public withModel(model: string): ShowLlmConfigResponse {
+        this['model'] = model;
+        return this;
     }
     public withCreateTime(createTime: string): ShowLlmConfigResponse {
         this['create_time'] = createTime;

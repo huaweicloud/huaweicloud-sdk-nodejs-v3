@@ -2,19 +2,19 @@ import { UpdateBandwidthPolicyReq } from './UpdateBandwidthPolicyReq';
 
 
 export class UpdateBandwidthPolicyRequest {
-    private 'task_id'?: string;
+    private 'task_id'?: number;
     public body?: UpdateBandwidthPolicyReq;
-    public constructor(taskId?: string) { 
+    public constructor(taskId?: number) { 
         this['task_id'] = taskId;
     }
-    public withTaskId(taskId: string): UpdateBandwidthPolicyRequest {
+    public withTaskId(taskId: number): UpdateBandwidthPolicyRequest {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: string  | undefined) {
+    public set taskId(taskId: number  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId(): string | undefined {
+    public get taskId(): number | undefined {
         return this['task_id'];
     }
     public withBody(body: UpdateBandwidthPolicyReq): UpdateBandwidthPolicyRequest {

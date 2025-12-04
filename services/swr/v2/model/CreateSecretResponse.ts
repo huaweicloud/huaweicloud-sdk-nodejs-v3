@@ -5,6 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class CreateSecretResponse extends SdkResponse {
     public auths?: { [key: string]: AuthInfo; };
     private 'X-Swr-Dockerlogin'?: string;
+    private 'X-Swr-Expireat'?: string;
     public constructor() { 
         super();
     }
@@ -21,5 +22,15 @@ export class CreateSecretResponse extends SdkResponse {
     }
     public get xSwrDockerlogin(): string | undefined {
         return this['X-Swr-Dockerlogin'];
+    }
+    public withXSwrExpireat(xSwrExpireat: string): CreateSecretResponse {
+        this['X-Swr-Expireat'] = xSwrExpireat;
+        return this;
+    }
+    public set xSwrExpireat(xSwrExpireat: string  | undefined) {
+        this['X-Swr-Expireat'] = xSwrExpireat;
+    }
+    public get xSwrExpireat(): string | undefined {
+        return this['X-Swr-Expireat'];
     }
 }

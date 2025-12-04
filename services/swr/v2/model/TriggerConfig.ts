@@ -2,12 +2,12 @@ import { TriggerSetting } from './TriggerSetting';
 
 
 export class TriggerConfig {
-    public type?: string;
+    public type?: TriggerConfigTypeEnum | string;
     private 'trigger_settings'?: TriggerSetting;
     public constructor(type?: string) { 
         this['type'] = type;
     }
-    public withType(type: string): TriggerConfig {
+    public withType(type: TriggerConfigTypeEnum | string): TriggerConfig {
         this['type'] = type;
         return this;
     }
@@ -21,4 +21,14 @@ export class TriggerConfig {
     public get triggerSettings(): TriggerSetting | undefined {
         return this['trigger_settings'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TriggerConfigTypeEnum {
+    MANUAL = 'manual',
+    SCHEDULED = 'scheduled',
+    EVENT_BASED = 'event_based'
 }

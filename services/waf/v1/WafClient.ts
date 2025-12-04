@@ -217,6 +217,8 @@ import { CustomRuleConditions } from './model/CustomRuleConditions';
 import { DeleteAgencyRequest } from './model/DeleteAgencyRequest';
 import { DeleteAgencyResponse } from './model/DeleteAgencyResponse';
 import { DeleteAlertNoticeConfigBody } from './model/DeleteAlertNoticeConfigBody';
+import { DeleteAlertNoticeConfigRequest } from './model/DeleteAlertNoticeConfigRequest';
+import { DeleteAlertNoticeConfigResponse } from './model/DeleteAlertNoticeConfigResponse';
 import { DeleteAnticrawlerRuleRequest } from './model/DeleteAnticrawlerRuleRequest';
 import { DeleteAnticrawlerRuleResponse } from './model/DeleteAnticrawlerRuleResponse';
 import { DeleteAntileakageRuleRequest } from './model/DeleteAntileakageRuleRequest';
@@ -371,8 +373,12 @@ import { ListSecurityReportSendingRecordsRequest } from './model/ListSecurityRep
 import { ListSecurityReportSendingRecordsResponse } from './model/ListSecurityReportSendingRecordsResponse';
 import { ListSecurityReportSubscriptionsRequest } from './model/ListSecurityReportSubscriptionsRequest';
 import { ListSecurityReportSubscriptionsResponse } from './model/ListSecurityReportSubscriptionsResponse';
+import { ListSourceIpTop5Request } from './model/ListSourceIpTop5Request';
+import { ListSourceIpTop5Response } from './model/ListSourceIpTop5Response';
 import { ListStatisticsRequest } from './model/ListStatisticsRequest';
 import { ListStatisticsResponse } from './model/ListStatisticsResponse';
+import { ListThreatsRequest } from './model/ListThreatsRequest';
+import { ListThreatsResponse } from './model/ListThreatsResponse';
 import { ListTopAbnormalRequest } from './model/ListTopAbnormalRequest';
 import { ListTopAbnormalResponse } from './model/ListTopAbnormalResponse';
 import { ListTopDomainsRequest } from './model/ListTopDomainsRequest';
@@ -381,6 +387,8 @@ import { ListTopIpRequest } from './model/ListTopIpRequest';
 import { ListTopIpResponse } from './model/ListTopIpResponse';
 import { ListTopUrlRequest } from './model/ListTopUrlRequest';
 import { ListTopUrlResponse } from './model/ListTopUrlResponse';
+import { ListUrlRequest } from './model/ListUrlRequest';
+import { ListUrlResponse } from './model/ListUrlResponse';
 import { ListValueListRequest } from './model/ListValueListRequest';
 import { ListValueListResponse } from './model/ListValueListResponse';
 import { ListWebBasicProtectionRulesRequest } from './model/ListWebBasicProtectionRulesRequest';
@@ -507,6 +515,7 @@ import { ShowWebProtectionRuleResponse } from './model/ShowWebProtectionRuleResp
 import { ShowWhiteBlackIpRuleRequest } from './model/ShowWhiteBlackIpRuleRequest';
 import { ShowWhiteBlackIpRuleResponse } from './model/ShowWhiteBlackIpRuleResponse';
 import { SimplePremiumWafHost } from './model/SimplePremiumWafHost';
+import { SourceIpTopListInfoItems } from './model/SourceIpTopListInfoItems';
 import { StatisticsTimelineItem } from './model/StatisticsTimelineItem';
 import { ThreatMapResponseBodyLocale } from './model/ThreatMapResponseBodyLocale';
 import { TimeLineItem } from './model/TimeLineItem';
@@ -898,7 +907,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除防护策略
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {BatchDeletePoliciesRequestBody} batchDeletePoliciesRequestBody 批量删除防护策略body
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS)的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
      * @param {*} [options] Override http request option.
@@ -1116,9 +1125,9 @@ export class WafClient {
 
     /**
      * 变更包周期云模式waf规格。注：
-     *  - 1.变更某产品规格的前提是必须已购买该产品 
-     *  - 2.waf版本只支持升配，不支持降配；扩展包数量可以增加或者减少，但不支持数量减少为0 
-     *  - 3.不支持同时升降配，如增加域名扩展包数量，同时减少规则扩展包数量
+     *  - 变更某产品规格的前提是必须已购买该产品 
+     *  - 云模式支持版本降配，扩展包支持减少数量，最少可以到0 
+     *  - 不支持同时升降配，如增加域名扩展包数量，同时减少规则扩展包数量
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1434,7 +1443,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建JS脚本反爬虫规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {CreateAnticrawlerRuleRequestbody} createAnticrawlerRuleRequestBody 创建JS脚本反爬虫规则请求体
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
@@ -1456,7 +1465,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建防敏感信息泄露规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {CreateAntileakageRuleRequestBody} createAntileakageRuleRequestBody 创建防泄露规则请求参数
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
@@ -1544,7 +1553,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建精准防护规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {CreateCustomRuleRequestBody} createCustomRuleRequestBody CreateCustomRuleRequestBody
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
@@ -1629,7 +1638,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建全局白名单(原误报屏蔽)规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {CreateIgnoreRuleRequestBody} createIgnoreRuleRequestBody 创建误报屏蔽规则请求体
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
@@ -1651,7 +1660,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建WAF独享引擎实例
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {CreateInstanceRequestBody} createInstanceRequestBody 待创建的独享引擎信息
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
      * @param {*} [options] Override http request option.
@@ -1672,7 +1681,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建ip地址组
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {CreateIpGroupRequestBody} createIpGroupRequestBody 创建ip地址组请求体
      * @param {string} [enterpriseProjectId] 企业项目id
      * @param {*} [options] Override http request option.
@@ -1800,7 +1809,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建攻击惩罚规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {CreatePunishmentRuleRequestBody} createPunishmentRuleRequestBody 创建攻击惩罚规则请求参数
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
@@ -1901,12 +1910,33 @@ export class WafClient {
     }
 
     /**
+     * 删除告警通知配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除告警通知配置
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} xLanguage **参数解释：** zh-cn/en-us **约束限制：** 不涉及 **取值范围：** - zh-cn - en-us  **默认取值：** 不涉及
+     * @param {string} alertId **参数解释：** 告警通知id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAlertNoticeConfig(deleteAlertNoticeConfigRequest?: DeleteAlertNoticeConfigRequest): Promise<DeleteAlertNoticeConfigResponse> {
+        const options = ParamCreater().deleteAlertNoticeConfig(deleteAlertNoticeConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除JS脚本反爬虫防护规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除JS脚本反爬虫防护规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 规则id
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
@@ -1928,7 +1958,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除防敏感信息泄露防护规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 防敏感信息泄露规则id，通过查询防敏感信息泄露规则列表接口（ListAntileakageRules）获取
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
@@ -2036,7 +2066,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除精准防护规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 精准防护规则id，通过查询精准防护规则列表接口（ListCustomRules）获取
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
@@ -2101,7 +2131,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除全局白名单(原误报屏蔽)防护规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 误报屏蔽规则id，您可以通过查询误报屏蔽规则列表（ListIgnoreRule）接口的响应体中的id字段获取误报屏蔽规则id
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
@@ -2123,7 +2153,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除WAF独享引擎信息
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} instanceId 独享引擎ID（通过调用WAF的ListInstance接口获取所有独享引擎信息查询独享引擎ID）
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
      * @param {*} [options] Override http request option.
@@ -2252,7 +2282,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除攻击惩罚规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 攻击惩罚规则id，通过查询攻击惩罚规则列表接口（ListPunishmentRules）获取
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
@@ -2360,12 +2390,12 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询JS脚本反爬虫规则列表
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {number} offset 偏移量，表示查询该偏移量之后的记录。
      * @param {number} limit 查询返回记录的数量限制。
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
-     * @param {string} [type] JS脚本反爬虫规则防护模式   - anticrawler_except_url: 防护所有路径模式，在该模式下，查询的JS脚本反爬虫规则为排除的防护路径规则   - anticrawler_specific_url: 防护指定路径模式，在该模式下，查询的JS脚本反爬虫规则为指定要防护的路径规则   - 默认值：anticrawler_except_url
+     * @param {'anticrawler_except_url' | 'anticrawler_specific_url'} [type] **参数解释：** JS脚本反爬虫规则防护模式 **约束限制：** 不涉及 **取值范围：**  - anticrawler_except_url: 防护所有路径模式，在该模式下，查询的JS脚本反爬虫规则为排除的防护路径规则  - anticrawler_specific_url: 防护指定路径模式，在该模式下，查询的JS脚本反爬虫规则为指定要防护的路径规则  **默认取值：** anticrawler_except_url
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2407,7 +2437,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询防敏感信息泄露规则列表
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防敏感信息泄露规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {number} offset 偏移量，表示查询该偏移量之后的记录。
      * @param {number} limit 查询返回记录的数量限制。
@@ -2475,7 +2505,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询安全统计带宽数据
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {number} from 查询的带宽统计数据的起始时间（13位毫秒时间戳），需要和to同时使用
      * @param {number} to 查询的带宽统计数据的结束时间（13位毫秒时间戳），需要和from同时使用
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
@@ -2532,7 +2562,7 @@ export class WafClient {
      * @param {string} [name] 规则名称
      * @param {number} [status] 规则的开启状态，1表示开启，0表示关闭
      * @param {string} [category] **参数解释：** 防护动作 **取值范围：** - block: 拦截，表示超过“限速频率”将直接拦截。 - log：仅记录，表示超过“限速频率”将只记录不拦截。 - captcha：表示超过“限速频率”后弹出验证码，进行人机验证，完成验证后，请求将不受访问限制。人机验证目前支持英文。 - dynamic_block：上一个限速周期内，请求频率超过“限速频率”将被拦截，那么在下一个限速周期内，请求频率超过“放行频率”将被拦截。 - advanced_captcha：高阶人机验证，表示超过“限速频率”后弹出验证码，进行人机验证。 - js_challenge：要求客户端完成一段脚本的执行或验证，从而验证请求来源的合法性。
-     * @param {string} [tagType] 限速模式：   - ip：IP限速，根据IP区分单个Web访问者。   - cookie：用户限速，根据Cookie键值区分单个Web访问者。   - header：用户限速，根据Header区分单个Web访问者。   - other：根据Referer（自定义请求访问的来源）字段区分单个Web访问者。   - policy: 策略限速   - domain: 域名限速     - url: url限速
+     * @param {'ip' | 'cookie' | 'header' | 'other' | 'policy' | 'domain' | 'url'} [tagType] **参数解释：** 限速模式标识，用于指定区分单个Web访问者的判断依据 **约束限制：** 不涉及 **取值范围：**  - ip：IP限速，根据IP区分单个Web访问者  - cookie：用户限速，根据Cookie键值区分单个Web访问者  - header：用户限速，根据Header区分单个Web访问者  - other：根据Referer（自定义请求访问的来源）字段区分单个Web访问者  - policy：策略限速  - domain：域名限速  - url：url限速 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2557,7 +2587,7 @@ export class WafClient {
      * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。
      * @param {string} [name] 证书名称
      * @param {boolean} [host] 是否获取证书关联的域名，默认为false   -true:获取已关联域名的证书   -false:获取未关联域名的证书
-     * @param {number} [expStatus] 证书过期状态，0-未过期，1-已过期，2-即将过期（证书将在一个月内过期）
+     * @param {0 | 1 | 2} [expStatus] **参数解释：** 证书过期状态 **约束限制：** 不涉及 **取值范围：**  - 0:未过期  - 1:已过期  - 2:即将过期（证书将在一个月内过期）  **默认取值：** 不涉及
      * @param {boolean} [queryScm] 查询结果的证书来源服务是否包括SCM服务，值为true或者false。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2583,7 +2613,7 @@ export class WafClient {
      * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。如果需要一次查全部域名，该参数值填-1。
      * @param {string} [hostname] 域名名称
      * @param {string} [policyname] 防护策略名称
-     * @param {number} [protectStatus] 域名防护状态：  - -1：bypass，该域名的请求直接到达其后端服务器，不再经过WAF  - 0：暂停防护，WAF只转发该域名的请求，不做攻击检测  - 1：开启防护，WAF根据您配置的策略进行攻击检测
+     * @param {-1 | 0 | 1} [protectStatus] **参数解释：** 域名防护状态标识，用于指定域名在WAF中的防护运行状态 **约束限制：** 不涉及 **取值范围：**  - -1：bypass，该域名的请求直接到达其后端服务器，不再经过WAF  - 0：暂停防护，WAF只转发该域名的请求，不做攻击检测  - 1：开启防护，WAF根据您配置的策略进行攻击检测 **默认取值：** 不涉及
      * @param {string} [wafType] 域名所属WAF模式
      * @param {boolean} [isHttps] 域名是否使用HTTPS
      * @param {*} [options] Override http request option.
@@ -2627,7 +2657,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询精准防护规则列表
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {number} offset 偏移量，表示查询该偏移量之后的记录。
      * @param {number} limit 查询返回记录的数量限制。
@@ -2653,10 +2683,10 @@ export class WafClient {
      * @param {string} contentType 内容类型
      * @param {string} [xLanguage] 语言，默认值为en-us。zh-cn（中文）/en-us（英文）
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
-     * @param {'yesterday' | 'today' | '3days' | '1week' | '1month'} [recent] 查询日志的时间范围（不能和from、to同时使用，同时使用以recent为准），且recent参数与from、to必须使用其中一个。当同时使用recent参数与from、to时，以recent参数为准
+     * @param {'yesterday' | 'today' | '3days' | '1week' | '1month'} [recent] **参数解释：** 查询日志的时间范围（不能和from、to同时使用，同时使用以recent为准），且recent参数与from、to必须使用其中一个。当同时使用recent参数与from、to时，以recent参数为准 **约束限制：** 不涉及 **取值范围：**  - yesterday：昨天  - today：今天  - 3days：命令注入攻击   - 1week：XSS攻击   - 1month：恶意爬虫   **默认取值：** 不涉及
      * @param {number} [from] 起始时间(13位时间戳)，需要和to同时使用，不能和recent参数同时使用
      * @param {number} [to] 结束时间(13位时间戳)，需要和from同时使用，不能和recent参数同时使用
-     * @param {Array<string>} [attacks] **参数解释：** 攻击类型 **约束限制：** 不涉及 **取值范围：**  - sqli：sql注入攻击   - lfi：本地文件包含  - cmdi：命令注入攻击   - xss：XSS攻击   - robot：恶意爬虫   - rfi：远程文件包含   - custom_custom：精准防护   - cc: cc攻击   - webshell：网站木马   - custom_whiteblackip：黑白名单拦截   - custom_geoip：地理访问控制拦截   - antitamper：防篡改   - anticrawler：反爬虫    - leakage：网站信息防泄漏   - illegal：非法请求  - antiscan_high_freq_scan：高频扫描封禁  - antiscan_dir_traversal：目录遍历防护  - vuln：除上述攻击类型外的其他漏洞攻击 **默认取值：** 不涉及
+     * @param {Array<string>} [attacks] **参数解释：** 攻击类型 **约束限制：** 不涉及 **取值范围：**  - sqli：sql注入攻击   - lfi：本地文件包含  - cmdi：命令注入攻击   - xss：XSS攻击   - robot：恶意爬虫   - rfi：远程文件包含   - custom_custom：精准防护   - cc: cc攻击   - webshell：网站木马   - custom_whiteblackip：黑白名单拦截   - custom_geoip：地理访问控制拦截   - antitamper：防篡改   - anticrawler：反爬虫    - leakage：网站信息防泄漏   - illegal：非法请求  - antiscan_high_freq_scan：高频扫描封禁  - antiscan_dir_traversal：目录遍历防护  - vuln：除上述攻击类型外的其他漏洞攻击  **默认取值：** 不涉及
      * @param {Array<string>} [hosts] 域名id，从获取防护网站列表（ListHost）接口获取域名id
      * @param {Array<string>} [sips] 源ip，Web访问者的IP地址（攻击者IP地址）
      * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
@@ -2679,7 +2709,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询事件日志下载的url
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {number} [page] 页数
      * @param {number} [pagesize] 单页显示数
      * @param {*} [options] Override http request option.
@@ -2814,7 +2844,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询全局白名单(原误报屏蔽)规则列表
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的全局白名单规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
@@ -2837,7 +2867,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询WAF独享引擎列表
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {number} [page] 分页查询参数，第page页，默认值为1
      * @param {number} [pagesize] 分页查询参数，每页pagesize条记录，默认值为10
@@ -2971,7 +3001,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询安全总览分类统计top信息
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {number} from 起始时间（13位毫秒时间戳），需要和to同时使用
      * @param {number} to 结束时间（13位毫秒时间戳），需要和from同时使用
      * @param {string} [xLanguage] 语言，默认值为en-us。zh-cn（中文）/en-us（英文）
@@ -3026,7 +3056,7 @@ export class WafClient {
      * @param {string} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。如果需要一次查全部域名，该参数值填-1。
      * @param {string} [hostname] 域名
      * @param {string} [policyname] 策略名称
-     * @param {number} [protectStatus] 域名防护状态：  - 0：暂停防护，WAF只转发该域名的请求，不做攻击检测  - 1：开启防护，WAF根据您配置的策略进行攻击检测
+     * @param {-1 | 0 | 1} [protectStatus] **参数解释：** 域名防护状态标识，用于指定域名在WAF中的防护运行状态 **约束限制：** 不涉及 **取值范围：**  - -1：bypass，该域名的请求直接到达其后端服务器，不再经过WAF  - 0：暂停防护，WAF只转发该域名的请求，不做攻击检测  - 1：开启防护，WAF根据您配置的策略进行攻击检测 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3113,7 +3143,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询攻击惩罚规则列表
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的攻击惩罚规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {number} offset 偏移量，表示查询该偏移量之后的记录。
      * @param {number} limit 查询返回记录的数量限制。
@@ -3136,7 +3166,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询安全统计qps次数
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {number} from 起始时间（13位毫秒时间戳），需要和to同时使用
      * @param {number} to 结束时间（13位毫秒时间戳），需要和from同时使用
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
@@ -3161,7 +3191,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询安全总览中请求次数时间线统计数据
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {number} from 起始时间（13位毫秒时间戳），需要和to同时使用
      * @param {number} to 结束时间（13位毫秒时间戳），需要和from同时使用
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
@@ -3277,12 +3307,33 @@ export class WafClient {
     }
 
     /**
+     * 查询攻击源ip
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询攻击源ip
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} recent **参数解释：** 查询日志的时间范围，如1week（1周）、1month（1个月） **约束限制：** 不涉及 **取值范围：** - yesterday - today - 3days - 1week - 1month  **默认取值：** 不涉及
+     * @param {Array<string>} hosts 要查询事件域名id列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSourceIpTop5(listSourceIpTop5Request?: ListSourceIpTop5Request): Promise<ListSourceIpTop5Response> {
+        const options = ParamCreater().listSourceIpTop5(listSourceIpTop5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询安全总览请求与攻击数量。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询安全总览请求与攻击数量
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {number} from 起始时间(13位时间戳)，需要和to同时使用
      * @param {number} to 结束时间(13位时间戳),需要和from同时使用
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
@@ -3301,12 +3352,33 @@ export class WafClient {
     }
 
     /**
+     * 查询攻击事件分布类型。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询攻击事件分布类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} recent **参数解释：** 查询日志的时间范围，如1week（1周）、1month（1个月） **约束限制：** 不涉及 **取值范围：** - yesterday - today - 3days - 1week - 1month  **默认取值：** 不涉及
+     * @param {Array<string>} [hosts] 要查询事件的域名列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listThreats(listThreatsRequest?: ListThreatsRequest): Promise<ListThreatsResponse> {
+        const options = ParamCreater().listThreats(listThreatsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询业务异常TOP统计信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询业务异常数量
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {number} from 起始时间（13位毫秒时间戳），需要和to同时使用
      * @param {number} to 结束时间（13位毫秒时间戳），需要和from同时使用
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
@@ -3401,12 +3473,37 @@ export class WafClient {
     }
 
     /**
+     * 查询QPS。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询事件日志中的url
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {number} top 受攻击次数最多的几条url
+     * @param {string} [recent] **参数解释：** 查询日志的时间范围，如1week（1周）、1month（1个月） **约束限制：** 不涉及 **取值范围：** - yesterday - today - 3days - 1week - 1month  **默认取值：** 不涉及
+     * @param {number} [from] **参数解释：** 开始时间，统计周期的起始时间戳（毫秒级）。不使用recent参数时需要填写 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} [to] **参数解释：** 结束时间，统计周期的终止时间戳（毫秒级）。不使用recent参数时需要填写 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [hosts] 要查询事件的域名id列表
+     * @param {Array<string>} [instances] 要查询事件的独享域名id列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listUrl(listUrlRequest?: ListUrlRequest): Promise<ListUrlResponse> {
+        const options = ParamCreater().listUrl(listUrlRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询引用表列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询引用表列表
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
      * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。
      * @param {string} [name] 引用表名称
@@ -3529,7 +3626,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 重命名WAF独享引擎
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} instanceId 独享引擎ID（通过调用WAF的ListInstance接口获取所有独享引擎信息查询独享引擎ID）
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
      * @param {RenameInstanceRequestBody} [renameInstanceRequestBody] 独享引擎新名称
@@ -3551,7 +3648,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询JS脚本反爬虫防护规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 规则id
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
@@ -3573,7 +3670,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询防敏感信息泄露防护规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 防敏感信息泄露规则id，通过查询防敏感信息泄露规则列表接口（ListAntileakageRules）获取
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
@@ -3700,7 +3797,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 根据Id查询精准防护规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 精准防护规则id，通过查询精准防护规则列表接口（ListCustomRules）获取
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
@@ -3807,7 +3904,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询全局白名单(原误报屏蔽)防护规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 误报屏蔽规则id，您可以通过查询误报屏蔽规则列表（ListIgnoreRule）接口的响应体中的id字段获取误报屏蔽规则id
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
@@ -3829,7 +3926,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询WAF独享引擎信息
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} instanceId 独享引擎ID（通过调用WAF的ListInstance接口获取所有独享引擎信息查询独享引擎ID）
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
@@ -3975,7 +4072,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 根据Id查询攻击惩罚防护规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 攻击惩罚规则id，通过查询攻击惩罚规则列表接口（ListPunishmentRules）获取
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
@@ -4038,7 +4135,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询WAF回源Ip信息
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4184,7 +4281,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新JS脚本反爬虫防护规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 规则id
      * @param {UpdateAnticrawlerRuleRequestBody} updateAnticrawlerRuleRequestBody 更新反爬虫规则的请求体
@@ -4207,7 +4304,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新JS脚本反爬虫规则防护模式
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {UpdateAnticrawlerRuleTypeRequestbody} updateAnticrawlerRuleTypeRequestbody 创建JS脚本反爬虫规则body
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
@@ -4229,7 +4326,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新防敏感信息泄露防护规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 防敏感信息泄露规则id，通过查询防敏感信息泄露规则列表接口（ListAntileakageRules）获取
      * @param {UpdateAntileakageRuleRequestBody} updateAntileakageRuleRequestBody UpdateAntileakageRuleRequestBody
@@ -4297,7 +4394,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新精准防护规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 精准防护规则id，通过查询精准防护规则列表接口（ListCustomRules）获取
      * @param {UpdateCustomRuleRequestBody} updateCustomRuleRequestBody UpdateCustomRuleRequestBody
@@ -4408,7 +4505,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新全局白名单(原误报屏蔽)防护规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 误报屏蔽规则id，您可以通过查询误报屏蔽规则列表（ListIgnoreRule）接口的响应体中的id字段获取误报屏蔽规则id
      * @param {UpdateIgnoreRuleRequestBody} updateRuleRequestBody 请求体
@@ -4566,7 +4663,7 @@ export class WafClient {
      * @summary 修改单条规则的状态
      * @param {string} contentType 内容类型
      * @param {string} policyId 策略id（策略id从查询防护策略列表接口获取）
-     * @param {'whiteblackip' | 'geoip' | 'privacy' | 'antitamper' | 'custom' | 'ignore' | 'cc'} ruletype 策略类型
+     * @param {'whiteblackip' | 'geoip' | 'privacy' | 'antitamper' | 'custom' | 'ignore' | 'cc'} ruletype **参数解释：** 策略类型 **约束限制：** 不涉及 **取值范围：**  - custom：精准防护   - cc: cc攻击   - whiteblackip: 黑白名单  - geoip: 地理位置  - privacy: 私屏蔽防护  - antitamper: 防篡改规则  - ignore: 全局白名单  **默认取值：** 不涉及
      * @param {string} ruleId 规则id，根据不同的规则类型（ruletype）调用规则列表接口获取规则id，例如黑白名单（whiteblackip）规则id，您可以通过调用查询黑白名单规则列表（ListWhiteblackipRule）获取规则id
      * @param {UpdatePolicyRuleStatusRequestBody} updatePolicyRuleStatusRequestBody 修改规则状态入参
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
@@ -4716,7 +4813,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新攻击惩罚规则
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} ruleId 攻击惩罚规则id，通过查询攻击惩罚规则列表接口（ListPunishmentRules）获取
      * @param {UpdatePunishmentRuleRequestBody} updatePunishmentRuleRequestBody 更新攻击惩罚规则的请求体
@@ -6055,9 +6152,9 @@ export const ParamCreater = function () {
     
         /**
          * 变更包周期云模式waf规格。注：
-         *  - 1.变更某产品规格的前提是必须已购买该产品 
-         *  - 2.waf版本只支持升配，不支持降配；扩展包数量可以增加或者减少，但不支持数量减少为0 
-         *  - 3.不支持同时升降配，如增加域名扩展包数量，同时减少规则扩展包数量
+         *  - 变更某产品规格的前提是必须已购买该产品 
+         *  - 云模式支持版本降配，扩展包支持减少数量，最少可以到0 
+         *  - 不支持同时升降配，如增加域名扩展包数量，同时减少规则扩展包数量
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8050,6 +8147,57 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除告警通知配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAlertNoticeConfig(deleteAlertNoticeConfigRequest?: DeleteAlertNoticeConfigRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/waf/alert/{alert_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+            
+            let xLanguage;
+            
+            let alertId;
+
+            if (deleteAlertNoticeConfigRequest !== null && deleteAlertNoticeConfigRequest !== undefined) {
+                if (deleteAlertNoticeConfigRequest instanceof DeleteAlertNoticeConfigRequest) {
+                    contentType = deleteAlertNoticeConfigRequest.contentType;
+                    xLanguage = deleteAlertNoticeConfigRequest.xLanguage;
+                    alertId = deleteAlertNoticeConfigRequest.alertId;
+                } else {
+                    contentType = deleteAlertNoticeConfigRequest['Content-Type'];
+                    xLanguage = deleteAlertNoticeConfigRequest['X-Language'];
+                    alertId = deleteAlertNoticeConfigRequest['alert_id'];
+                }
+            }
+
+        
+            if (alertId === null || alertId === undefined) {
+            throw new RequiredError('alertId','Required parameter alertId was null or undefined when calling deleteAlertNoticeConfig.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'alert_id': alertId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -12036,6 +12184,63 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询攻击源ip
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSourceIpTop5(listSourceIpTop5Request?: ListSourceIpTop5Request) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/waf/event/attack/source",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let recent;
+            
+            let hosts;
+
+            if (listSourceIpTop5Request !== null && listSourceIpTop5Request !== undefined) {
+                if (listSourceIpTop5Request instanceof ListSourceIpTop5Request) {
+                    contentType = listSourceIpTop5Request.contentType;
+                    recent = listSourceIpTop5Request.recent;
+                    hosts = listSourceIpTop5Request.hosts;
+                } else {
+                    contentType = listSourceIpTop5Request['Content-Type'];
+                    recent = listSourceIpTop5Request['recent'];
+                    hosts = listSourceIpTop5Request['hosts'];
+                }
+            }
+
+        
+            if (recent === null || recent === undefined) {
+                throw new RequiredError('recent','Required parameter recent was null or undefined when calling listSourceIpTop5.');
+            }
+            if (recent !== null && recent !== undefined) {
+                localVarQueryParameter['recent'] = recent;
+            }
+            if (hosts === null || hosts === undefined) {
+                throw new RequiredError('hosts','Required parameter hosts was null or undefined when calling listSourceIpTop5.');
+            }
+            if (hosts !== null && hosts !== undefined) {
+                localVarQueryParameter['hosts'] = hosts;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询安全总览请求与攻击数量。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12103,6 +12308,60 @@ export const ParamCreater = function () {
             }
             if (instances !== null && instances !== undefined) {
                 localVarQueryParameter['instances'] = instances;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询攻击事件分布类型。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listThreats(listThreatsRequest?: ListThreatsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/waf/event/attack/type",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let recent;
+            
+            let hosts;
+
+            if (listThreatsRequest !== null && listThreatsRequest !== undefined) {
+                if (listThreatsRequest instanceof ListThreatsRequest) {
+                    contentType = listThreatsRequest.contentType;
+                    recent = listThreatsRequest.recent;
+                    hosts = listThreatsRequest.hosts;
+                } else {
+                    contentType = listThreatsRequest['Content-Type'];
+                    recent = listThreatsRequest['recent'];
+                    hosts = listThreatsRequest['hosts'];
+                }
+            }
+
+        
+            if (recent === null || recent === undefined) {
+                throw new RequiredError('recent','Required parameter recent was null or undefined when calling listThreats.');
+            }
+            if (recent !== null && recent !== undefined) {
+                localVarQueryParameter['recent'] = recent;
+            }
+            if (hosts !== null && hosts !== undefined) {
+                localVarQueryParameter['hosts'] = hosts;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -12437,6 +12696,88 @@ export const ParamCreater = function () {
             }
             if (top !== null && top !== undefined) {
                 localVarQueryParameter['top'] = top;
+            }
+            if (hosts !== null && hosts !== undefined) {
+                localVarQueryParameter['hosts'] = hosts;
+            }
+            if (instances !== null && instances !== undefined) {
+                localVarQueryParameter['instances'] = instances;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询QPS。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listUrl(listUrlRequest?: ListUrlRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/waf/event/url",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let top;
+            
+            let recent;
+            
+            let from;
+            
+            let to;
+            
+            let hosts;
+            
+            let instances;
+
+            if (listUrlRequest !== null && listUrlRequest !== undefined) {
+                if (listUrlRequest instanceof ListUrlRequest) {
+                    contentType = listUrlRequest.contentType;
+                    top = listUrlRequest.top;
+                    recent = listUrlRequest.recent;
+                    from = listUrlRequest.from;
+                    to = listUrlRequest.to;
+                    hosts = listUrlRequest.hosts;
+                    instances = listUrlRequest.instances;
+                } else {
+                    contentType = listUrlRequest['Content-Type'];
+                    top = listUrlRequest['top'];
+                    recent = listUrlRequest['recent'];
+                    from = listUrlRequest['from'];
+                    to = listUrlRequest['to'];
+                    hosts = listUrlRequest['hosts'];
+                    instances = listUrlRequest['instances'];
+                }
+            }
+
+        
+            if (top === null || top === undefined) {
+                throw new RequiredError('top','Required parameter top was null or undefined when calling listUrl.');
+            }
+            if (top !== null && top !== undefined) {
+                localVarQueryParameter['top'] = top;
+            }
+            if (recent !== null && recent !== undefined) {
+                localVarQueryParameter['recent'] = recent;
+            }
+            if (from !== null && from !== undefined) {
+                localVarQueryParameter['from'] = from;
+            }
+            if (to !== null && to !== undefined) {
+                localVarQueryParameter['to'] = to;
             }
             if (hosts !== null && hosts !== undefined) {
                 localVarQueryParameter['hosts'] = hosts;

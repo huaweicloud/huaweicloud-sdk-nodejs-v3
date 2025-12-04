@@ -4,6 +4,7 @@ export class LlmConfigInfo {
     private 'llm_config_id'?: string;
     public name?: string;
     private 'llm_url'?: string;
+    public model?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
     public constructor() { 
@@ -31,6 +32,10 @@ export class LlmConfigInfo {
     }
     public get llmUrl(): string | undefined {
         return this['llm_url'];
+    }
+    public withModel(model: string): LlmConfigInfo {
+        this['model'] = model;
+        return this;
     }
     public withCreateTime(createTime: string): LlmConfigInfo {
         this['create_time'] = createTime;

@@ -11,6 +11,8 @@ import { ListAreaDetailRequest } from './model/ListAreaDetailRequest';
 import { ListAreaDetailResponse } from './model/ListAreaDetailResponse';
 import { ListBandwidthDetailRequest } from './model/ListBandwidthDetailRequest';
 import { ListBandwidthDetailResponse } from './model/ListBandwidthDetailResponse';
+import { ListCarouselTaskDetailRequest } from './model/ListCarouselTaskDetailRequest';
+import { ListCarouselTaskDetailResponse } from './model/ListCarouselTaskDetailResponse';
 import { ListDomainBandwidthPeakRequest } from './model/ListDomainBandwidthPeakRequest';
 import { ListDomainBandwidthPeakResponse } from './model/ListDomainBandwidthPeakResponse';
 import { ListDomainTrafficDetailRequest } from './model/ListDomainTrafficDetailRequest';
@@ -535,6 +537,31 @@ export class LiveClient {
      */
     public showUpBandwidth(showUpBandwidthRequest?: ShowUpBandwidthRequest): Promise<ShowUpBandwidthResponse> {
         const options = ParamCreater().showUpBandwidth(showUpBandwidthRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询轮播任务监控数据接口，包括轮播任务帧率码率情况。
+     * 
+     * 最大查询跨度3小时，最大查询周期7天。
+     * 
+     * 返回的帧率码率数据列表粒度为1秒钟。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询轮播任务监控数据接口
+     * @param {string} carouselTaskId 轮播任务id。 
+     * @param {string} [startTime] 起始时间。日期格式按照ISO8601表示法，并使用UTC时间。  格式为：YYYY-MM-DDThh:mm:ssZ。最大查询跨度3小时，最大查询周期7天。  若参数为空，默认查询最近1小时数据。 
+     * @param {string} [endTime] 结束时间。日期格式按照ISO8601表示法，并使用UTC时间。  格式为：YYYY-MM-DDThh:mm:ssZ。最大查询跨度3小时，最大查询周期7天。  若参数为空，默认为当前时间。结束时间需大于起始时间。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCarouselTaskDetail(listCarouselTaskDetailRequest?: ListCarouselTaskDetailRequest): Promise<ListCarouselTaskDetailResponse> {
+        const options = ParamCreater().listCarouselTaskDetail(listCarouselTaskDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
@@ -1997,6 +2024,64 @@ export const ParamCreater = function () {
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询轮播任务监控数据接口，包括轮播任务帧率码率情况。
+         * 
+         * 最大查询跨度3小时，最大查询周期7天。
+         * 
+         * 返回的帧率码率数据列表粒度为1秒钟。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCarouselTaskDetail(listCarouselTaskDetailRequest?: ListCarouselTaskDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/stats/carousel-task/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let carouselTaskId;
+            
+            let startTime;
+            
+            let endTime;
+
+            if (listCarouselTaskDetailRequest !== null && listCarouselTaskDetailRequest !== undefined) {
+                if (listCarouselTaskDetailRequest instanceof ListCarouselTaskDetailRequest) {
+                    carouselTaskId = listCarouselTaskDetailRequest.carouselTaskId;
+                    startTime = listCarouselTaskDetailRequest.startTime;
+                    endTime = listCarouselTaskDetailRequest.endTime;
+                } else {
+                    carouselTaskId = listCarouselTaskDetailRequest['carousel_task_id'];
+                    startTime = listCarouselTaskDetailRequest['start_time'];
+                    endTime = listCarouselTaskDetailRequest['end_time'];
+                }
+            }
+
+        
+            if (carouselTaskId === null || carouselTaskId === undefined) {
+                throw new RequiredError('carouselTaskId','Required parameter carouselTaskId was null or undefined when calling listCarouselTaskDetail.');
+            }
+            if (carouselTaskId !== null && carouselTaskId !== undefined) {
+                localVarQueryParameter['carousel_task_id'] = carouselTaskId;
             }
             if (startTime !== null && startTime !== undefined) {
                 localVarQueryParameter['start_time'] = startTime;

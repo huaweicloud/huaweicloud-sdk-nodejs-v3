@@ -7,7 +7,7 @@ export class ShowAnticrawlerRuleResponse extends SdkResponse {
     public policyid?: string;
     public conditions?: Array<AnticrawlerCondition>;
     public name?: string;
-    public type?: string;
+    public type?: ShowAnticrawlerRuleResponseTypeEnum | string;
     public timestamp?: number;
     public status?: number;
     public priority?: number;
@@ -30,7 +30,7 @@ export class ShowAnticrawlerRuleResponse extends SdkResponse {
         this['name'] = name;
         return this;
     }
-    public withType(type: string): ShowAnticrawlerRuleResponse {
+    public withType(type: ShowAnticrawlerRuleResponseTypeEnum | string): ShowAnticrawlerRuleResponse {
         this['type'] = type;
         return this;
     }
@@ -46,4 +46,13 @@ export class ShowAnticrawlerRuleResponse extends SdkResponse {
         this['priority'] = priority;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowAnticrawlerRuleResponseTypeEnum {
+    ANTICRAWLER_EXCEPT_URL = 'anticrawler_except_url',
+    ANTICRAWLER_SPECIFIC_URL = 'anticrawler_specific_url'
 }

@@ -9,6 +9,9 @@ export class CreateFlinkJarJobRequestBody {
     private 'cu_number'?: number;
     private 'manager_cu_number'?: number;
     private 'parallel_number'?: number;
+    private 'checkpoint_enabled'?: boolean;
+    private 'checkpoint_mode'?: number;
+    private 'checkpoint_interval'?: number;
     private 'log_enabled'?: boolean;
     private 'obs_bucket'?: string;
     private 'smn_topic'?: string;
@@ -81,6 +84,36 @@ export class CreateFlinkJarJobRequestBody {
     }
     public get parallelNumber(): number | undefined {
         return this['parallel_number'];
+    }
+    public withCheckpointEnabled(checkpointEnabled: boolean): CreateFlinkJarJobRequestBody {
+        this['checkpoint_enabled'] = checkpointEnabled;
+        return this;
+    }
+    public set checkpointEnabled(checkpointEnabled: boolean  | undefined) {
+        this['checkpoint_enabled'] = checkpointEnabled;
+    }
+    public get checkpointEnabled(): boolean | undefined {
+        return this['checkpoint_enabled'];
+    }
+    public withCheckpointMode(checkpointMode: number): CreateFlinkJarJobRequestBody {
+        this['checkpoint_mode'] = checkpointMode;
+        return this;
+    }
+    public set checkpointMode(checkpointMode: number  | undefined) {
+        this['checkpoint_mode'] = checkpointMode;
+    }
+    public get checkpointMode(): number | undefined {
+        return this['checkpoint_mode'];
+    }
+    public withCheckpointInterval(checkpointInterval: number): CreateFlinkJarJobRequestBody {
+        this['checkpoint_interval'] = checkpointInterval;
+        return this;
+    }
+    public set checkpointInterval(checkpointInterval: number  | undefined) {
+        this['checkpoint_interval'] = checkpointInterval;
+    }
+    public get checkpointInterval(): number | undefined {
+        return this['checkpoint_interval'];
     }
     public withLogEnabled(logEnabled: boolean): CreateFlinkJarJobRequestBody {
         this['log_enabled'] = logEnabled;

@@ -30,8 +30,8 @@ export class ShowPremiumHostResponse extends SdkResponse {
     private 'enterprise_project_id'?: string;
     public certificateid?: string;
     public certificatename?: string;
-    private 'protect_status'?: number;
-    private 'access_status'?: number;
+    private 'protect_status'?: ShowPremiumHostResponseProtectStatusEnum | number;
+    private 'access_status'?: ShowPremiumHostResponseAccessStatusEnum | number;
     private 'web_tag'?: string;
     private 'block_page'?: BlockPage;
     private 'traffic_mark'?: TrafficMark;
@@ -153,24 +153,24 @@ export class ShowPremiumHostResponse extends SdkResponse {
         this['certificatename'] = certificatename;
         return this;
     }
-    public withProtectStatus(protectStatus: number): ShowPremiumHostResponse {
+    public withProtectStatus(protectStatus: ShowPremiumHostResponseProtectStatusEnum | number): ShowPremiumHostResponse {
         this['protect_status'] = protectStatus;
         return this;
     }
-    public set protectStatus(protectStatus: number  | undefined) {
+    public set protectStatus(protectStatus: ShowPremiumHostResponseProtectStatusEnum | number  | undefined) {
         this['protect_status'] = protectStatus;
     }
-    public get protectStatus(): number | undefined {
+    public get protectStatus(): ShowPremiumHostResponseProtectStatusEnum | number | undefined {
         return this['protect_status'];
     }
-    public withAccessStatus(accessStatus: number): ShowPremiumHostResponse {
+    public withAccessStatus(accessStatus: ShowPremiumHostResponseAccessStatusEnum | number): ShowPremiumHostResponse {
         this['access_status'] = accessStatus;
         return this;
     }
-    public set accessStatus(accessStatus: number  | undefined) {
+    public set accessStatus(accessStatus: ShowPremiumHostResponseAccessStatusEnum | number  | undefined) {
         this['access_status'] = accessStatus;
     }
-    public get accessStatus(): number | undefined {
+    public get accessStatus(): ShowPremiumHostResponseAccessStatusEnum | number | undefined {
         return this['access_status'];
     }
     public withWebTag(webTag: string): ShowPremiumHostResponse {
@@ -256,4 +256,21 @@ export enum ShowPremiumHostResponseCipherEnum {
     CIPHER_5 = 'cipher_5',
     CIPHER_6 = 'cipher_6',
     CIPHER_DEFAULT = 'cipher_default'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowPremiumHostResponseProtectStatusEnum {
+    NUMBER_MINUS_1 = -1,
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowPremiumHostResponseAccessStatusEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
 }

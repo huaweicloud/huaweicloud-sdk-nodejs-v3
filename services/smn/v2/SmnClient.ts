@@ -2,6 +2,7 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AddKmsKeyRequestBody } from './model/AddKmsKeyRequestBody';
 import { AddSubscriptionFromSubscriptionUserRequest } from './model/AddSubscriptionFromSubscriptionUserRequest';
 import { AddSubscriptionFromSubscriptionUserRequestBody } from './model/AddSubscriptionFromSubscriptionUserRequestBody';
 import { AddSubscriptionFromSubscriptionUserResponse } from './model/AddSubscriptionFromSubscriptionUserResponse';
@@ -43,6 +44,8 @@ import { CreateApplicationEndpointResponse } from './model/CreateApplicationEndp
 import { CreateApplicationRequest } from './model/CreateApplicationRequest';
 import { CreateApplicationRequestBody } from './model/CreateApplicationRequestBody';
 import { CreateApplicationResponse } from './model/CreateApplicationResponse';
+import { CreateKmsKeyRequest } from './model/CreateKmsKeyRequest';
+import { CreateKmsKeyResponse } from './model/CreateKmsKeyResponse';
 import { CreateLogtankRequest } from './model/CreateLogtankRequest';
 import { CreateLogtankRequestBody } from './model/CreateLogtankRequestBody';
 import { CreateLogtankResponse } from './model/CreateLogtankResponse';
@@ -61,6 +64,8 @@ import { DeleteApplicationEndpointRequest } from './model/DeleteApplicationEndpo
 import { DeleteApplicationEndpointResponse } from './model/DeleteApplicationEndpointResponse';
 import { DeleteApplicationRequest } from './model/DeleteApplicationRequest';
 import { DeleteApplicationResponse } from './model/DeleteApplicationResponse';
+import { DeleteKmsKeyRequest } from './model/DeleteKmsKeyRequest';
+import { DeleteKmsKeyResponse } from './model/DeleteKmsKeyResponse';
 import { DeleteLogtankRequest } from './model/DeleteLogtankRequest';
 import { DeleteLogtankResponse } from './model/DeleteLogtankResponse';
 import { DeleteMessageTemplateRequest } from './model/DeleteMessageTemplateRequest';
@@ -79,6 +84,8 @@ import { DeleteTopicRequest } from './model/DeleteTopicRequest';
 import { DeleteTopicResponse } from './model/DeleteTopicResponse';
 import { DownloadHttpCertRequest } from './model/DownloadHttpCertRequest';
 import { DownloadHttpCertResponse } from './model/DownloadHttpCertResponse';
+import { DownloadHttpSignCertRequest } from './model/DownloadHttpSignCertRequest';
+import { DownloadHttpSignCertResponse } from './model/DownloadHttpSignCertResponse';
 import { GetHttpDetectResponseBodyDetail } from './model/GetHttpDetectResponseBodyDetail';
 import { HttpDetectRequestBody } from './model/HttpDetectRequestBody';
 import { HttpDetectRequestBodyExtension } from './model/HttpDetectRequestBodyExtension';
@@ -96,6 +103,8 @@ import { ListApplicationsResponse } from './model/ListApplicationsResponse';
 import { ListCloudServiceRequest } from './model/ListCloudServiceRequest';
 import { ListCloudServiceResponse } from './model/ListCloudServiceResponse';
 import { ListCloudServiceResponseItemInfo } from './model/ListCloudServiceResponseItemInfo';
+import { ListCloudServicesRequest } from './model/ListCloudServicesRequest';
+import { ListCloudServicesResponse } from './model/ListCloudServicesResponse';
 import { ListInstanceRequestBody } from './model/ListInstanceRequestBody';
 import { ListLogtankRequest } from './model/ListLogtankRequest';
 import { ListLogtankResponse } from './model/ListLogtankResponse';
@@ -125,6 +134,9 @@ import { ListTopicMessageStatisticsResponse } from './model/ListTopicMessageStat
 import { ListTopicsItem } from './model/ListTopicsItem';
 import { ListTopicsRequest } from './model/ListTopicsRequest';
 import { ListTopicsResponse } from './model/ListTopicsResponse';
+import { ListTopicsWithAssociatedResourcesItem } from './model/ListTopicsWithAssociatedResourcesItem';
+import { ListTopicsWithAssociatedResourcesRequest } from './model/ListTopicsWithAssociatedResourcesRequest';
+import { ListTopicsWithAssociatedResourcesResponse } from './model/ListTopicsWithAssociatedResourcesResponse';
 import { ListVersionRequest } from './model/ListVersionRequest';
 import { ListVersionResponse } from './model/ListVersionResponse';
 import { ListVersionsRequest } from './model/ListVersionsRequest';
@@ -149,23 +161,33 @@ import { ResourceTag } from './model/ResourceTag';
 import { ResourceTags } from './model/ResourceTags';
 import { ShowHttpDetectResultRequest } from './model/ShowHttpDetectResultRequest';
 import { ShowHttpDetectResultResponse } from './model/ShowHttpDetectResultResponse';
+import { ShowKmsKeyRequest } from './model/ShowKmsKeyRequest';
+import { ShowKmsKeyResponse } from './model/ShowKmsKeyResponse';
 import { ShowNotifyPolicyRequest } from './model/ShowNotifyPolicyRequest';
 import { ShowNotifyPolicyResponse } from './model/ShowNotifyPolicyResponse';
 import { StatisticsDetail } from './model/StatisticsDetail';
+import { SubscribeTopicRequest } from './model/SubscribeTopicRequest';
+import { SubscribeTopicResponse } from './model/SubscribeTopicResponse';
 import { SubscriptionExtension } from './model/SubscriptionExtension';
 import { SubscriptionsFilterPolicy } from './model/SubscriptionsFilterPolicy';
 import { SumCountDetail } from './model/SumCountDetail';
 import { TagMatch } from './model/TagMatch';
 import { TagResource } from './model/TagResource';
+import { TopicAccessPolicyAttribute } from './model/TopicAccessPolicyAttribute';
 import { TopicAttribute } from './model/TopicAttribute';
 import { UnsubscribeSubscriptionRequest } from './model/UnsubscribeSubscriptionRequest';
 import { UnsubscribeSubscriptionResponse } from './model/UnsubscribeSubscriptionResponse';
+import { UnsubscribeTopicRequest } from './model/UnsubscribeTopicRequest';
+import { UnsubscribeTopicResponse } from './model/UnsubscribeTopicResponse';
 import { UpdateApplicationEndpointRequest } from './model/UpdateApplicationEndpointRequest';
 import { UpdateApplicationEndpointRequestBody } from './model/UpdateApplicationEndpointRequestBody';
 import { UpdateApplicationEndpointResponse } from './model/UpdateApplicationEndpointResponse';
 import { UpdateApplicationRequest } from './model/UpdateApplicationRequest';
 import { UpdateApplicationRequestBody } from './model/UpdateApplicationRequestBody';
 import { UpdateApplicationResponse } from './model/UpdateApplicationResponse';
+import { UpdateKmsKeyRequest } from './model/UpdateKmsKeyRequest';
+import { UpdateKmsKeyRequestBody } from './model/UpdateKmsKeyRequestBody';
+import { UpdateKmsKeyResponse } from './model/UpdateKmsKeyResponse';
 import { UpdateLogtankRequest } from './model/UpdateLogtankRequest';
 import { UpdateLogtankRequestBody } from './model/UpdateLogtankRequestBody';
 import { UpdateLogtankResponse } from './model/UpdateLogtankResponse';
@@ -402,6 +424,26 @@ export class SmnClient {
     }
 
     /**
+     * 为主题绑定KMS密钥。KMS密钥于绑定后五分钟生效，生效后该主题下发布的消息（确认订阅消息、取消订阅消息、主题消息）均使用指定密钥的数据密钥进行加解密，并将消息内容在SMN服务内部加密传输。执行绑定KMS密钥时，用户需要先在IAM处创建名为smn_kms_agency的委托，并将资源操作权限授权给SMN服务。SMN会使用该委托进行创建数据密钥操作。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 主题绑定KMS密钥
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {AddKmsKeyRequestBody} addKmsKeyRequestBody 在主题下绑定密钥的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createKmsKey(createKmsKeyRequest?: CreateKmsKeyRequest): Promise<CreateKmsKeyResponse> {
+        const options = ParamCreater().createKmsKey(createKmsKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 为指定Topic绑定一个云日志，用于记录主题消息发送状态等信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -495,6 +537,26 @@ export class SmnClient {
      */
     public createTopic(createTopicRequest?: CreateTopicRequest): Promise<CreateTopicResponse> {
         const options = ParamCreater().createTopic(createTopicRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除主题绑定的密钥。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除主题下KMS密钥
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {string} id 当前已绑定密钥的资源ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteKmsKey(deleteKmsKeyRequest?: DeleteKmsKeyRequest): Promise<DeleteKmsKeyResponse> {
+        const options = ParamCreater().deleteKmsKey(deleteKmsKeyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -680,6 +742,25 @@ export class SmnClient {
     }
 
     /**
+     * 下载HTTP签名证书
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下载HTTP签名证书
+     * @param {string} certificateId 证书文件ID名称，格式为SMN-{RegionID}-{UUID}.pem
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadHttpSignCert(downloadHttpSignCertRequest?: DownloadHttpSignCertRequest): Promise<DownloadHttpSignCertResponse> {
+        const options = ParamCreater().downloadHttpSignCert(downloadHttpSignCertRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['content-type'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询授权云服务列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -690,6 +771,24 @@ export class SmnClient {
      */
     public listCloudService(listCloudServiceRequest?: ListCloudServiceRequest): Promise<ListCloudServiceResponse> {
         const options = ParamCreater().listCloudService();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询授权服务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询授权服务列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCloudServices(listCloudServicesRequest?: ListCloudServicesRequest): Promise<ListCloudServicesResponse> {
+        const options = ParamCreater().listCloudServices();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -966,6 +1065,31 @@ export class SmnClient {
     }
 
     /**
+     * 查询Topic及Topic关联资源信息列表，关联资源信息随业务演进会持续扩展。Topic列表默认按照创建时间进行降序排列。分页查询可以指定offset以及limit。如果不存在Topic，则返回空列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询主题列表及主题关联资源信息
+     * @param {number} [offset] 偏移量。  偏移量为一个大于0小于资源总个数的整数，表示查询该偏移量后面的所有的资源，默认值为0。
+     * @param {number} [limit] 查询的数量限制。  取值范围：1~100，取值一般为10，20，50。功能说明：每页返回的资源个数。默认值为100。
+     * @param {string} [topicId] 检索的主题ID，完全匹配。
+     * @param {string} [enterpriseProjectId] 企业项目id。
+     * @param {string} [name] 检索的主题名称，完全匹配。
+     * @param {string} [fuzzyName] 检索的主题名称，模糊匹配。
+     * @param {string} [fuzzyDisplayName] 检索的主题显示名。模糊匹配。参数字节长度不能大于192字节。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTopicsWithAssociatedResources(listTopicsWithAssociatedResourcesRequest?: ListTopicsWithAssociatedResourcesRequest): Promise<ListTopicsWithAssociatedResourcesResponse> {
+        const options = ParamCreater().listTopicsWithAssociatedResources(listTopicsWithAssociatedResourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询SMN API V2版本信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1033,6 +1157,7 @@ export class SmnClient {
      * 
      * 只需要设置其中一个，如果同时设置，生效的优先级为
      * message_structure &gt; message_template_name &gt; message。
+     * 若发布消息的主题下绑定了KMS密钥，请确保发布消息前，用户需要先在IAM处创建名为smn_kms_agency的委托，并将资源操作权限授权给SMN服务。当发布消息时，SMN会使用该委托进行创建数据密钥和解密数据密钥操作。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1072,6 +1197,25 @@ export class SmnClient {
     }
 
     /**
+     * 查询主题下密钥ID。执行绑定KMS密钥时，用户需要先在IAM处创建名为smn_kms_agency的委托，并将资源操作权限授权给SMN服务。SMN会使用该委托进行查询密钥信息操作。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询主题下KMS密钥
+     * @param {string} topicUrn Topic的唯一的资源标识。可以通过[查看主题列表](smn_api_51004.xml)获取该标识。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showKmsKey(showKmsKeyRequest?: ShowKmsKeyRequest): Promise<ShowKmsKeyResponse> {
+        const options = ParamCreater().showKmsKey(showKmsKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询通知策略
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1091,6 +1235,27 @@ export class SmnClient {
     }
 
     /**
+     * 订阅终端确认订阅主题消息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 订阅主题
+     * @param {string} token 订阅主题Token信息。
+     * @param {string} [topicUrn] Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {string} [endpoint] 订阅终端地址。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public subscribeTopic(subscribeTopicRequest?: SubscribeTopicRequest): Promise<SubscribeTopicResponse> {
+        const options = ParamCreater().subscribeTopic(subscribeTopicRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 取消订阅主题
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1102,6 +1267,46 @@ export class SmnClient {
      */
     public unsubscribeSubscription(unsubscribeSubscriptionRequest?: UnsubscribeSubscriptionRequest): Promise<UnsubscribeSubscriptionResponse> {
         const options = ParamCreater().unsubscribeSubscription(unsubscribeSubscriptionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 订阅终端取消订阅主题消息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 取消订阅主题
+     * @param {string} subscriptionUrn 订阅者的唯一的资源标识，可通过[查询订阅者列表](ListSubscriptions.xml)获取该标识。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public unsubscribeTopic(unsubscribeTopicRequest?: UnsubscribeTopicRequest): Promise<UnsubscribeTopicResponse> {
+        const options = ParamCreater().unsubscribeTopic(unsubscribeTopicRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新密钥ID。执行更新KMS密钥时，用户需要先在IAM处创建名为smn_kms_agency的委托，并将对应的资源操作权限授权给SMN服务。SMN会使用该委托进行查询密钥状态和创建数据密钥操作。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新主题下KMS密钥
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {string} id 当前已绑定密钥的资源ID。
+     * @param {UpdateKmsKeyRequestBody} updateKmsKeyRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateKmsKey(updateKmsKeyRequest?: UpdateKmsKeyRequest): Promise<UpdateKmsKeyResponse> {
+        const options = ParamCreater().updateKmsKey(updateKmsKeyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1890,6 +2095,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 为主题绑定KMS密钥。KMS密钥于绑定后五分钟生效，生效后该主题下发布的消息（确认订阅消息、取消订阅消息、主题消息）均使用指定密钥的数据密钥进行加解密，并将消息内容在SMN服务内部加密传输。执行绑定KMS密钥时，用户需要先在IAM处创建名为smn_kms_agency的委托，并将资源操作权限授权给SMN服务。SMN会使用该委托进行创建数据密钥操作。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createKmsKey(createKmsKeyRequest?: CreateKmsKeyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/notifications/topics/{topic_urn}/kms",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let topicUrn;
+
+            if (createKmsKeyRequest !== null && createKmsKeyRequest !== undefined) {
+                if (createKmsKeyRequest instanceof CreateKmsKeyRequest) {
+                    topicUrn = createKmsKeyRequest.topicUrn;
+                    body = createKmsKeyRequest.body
+                } else {
+                    topicUrn = createKmsKeyRequest['topic_urn'];
+                    body = createKmsKeyRequest['body'];
+                }
+            }
+
+        
+            if (topicUrn === null || topicUrn === undefined) {
+            throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling createKmsKey.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'topic_urn': topicUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 为指定Topic绑定一个云日志，用于记录主题消息发送状态等信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2102,6 +2353,50 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除主题绑定的密钥。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteKmsKey(deleteKmsKeyRequest?: DeleteKmsKeyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/notifications/topics/{topic_urn}/kms/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let topicUrn;
+            
+            let id;
+
+            if (deleteKmsKeyRequest !== null && deleteKmsKeyRequest !== undefined) {
+                if (deleteKmsKeyRequest instanceof DeleteKmsKeyRequest) {
+                    topicUrn = deleteKmsKeyRequest.topicUrn;
+                    id = deleteKmsKeyRequest.id;
+                } else {
+                    topicUrn = deleteKmsKeyRequest['topic_urn'];
+                    id = deleteKmsKeyRequest['id'];
+                }
+            }
+
+        
+            if (topicUrn === null || topicUrn === undefined) {
+            throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling deleteKmsKey.');
+            }
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteKmsKey.');
+            }
+
+            options.pathParams = { 'topic_urn': topicUrn,'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2482,6 +2777,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 下载HTTP签名证书
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadHttpSignCert(downloadHttpSignCertRequest?: DownloadHttpSignCertRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/notifications/certifications/download/{certificate_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let certificateId;
+
+            if (downloadHttpSignCertRequest !== null && downloadHttpSignCertRequest !== undefined) {
+                if (downloadHttpSignCertRequest instanceof DownloadHttpSignCertRequest) {
+                    certificateId = downloadHttpSignCertRequest.certificateId;
+                } else {
+                    certificateId = downloadHttpSignCertRequest['certificate_id'];
+                }
+            }
+
+        
+            if (certificateId === null || certificateId === undefined) {
+            throw new RequiredError('certificateId','Required parameter certificateId was null or undefined when calling downloadHttpSignCert.');
+            }
+
+            options.pathParams = { 'certificate_id': certificateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询授权云服务列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2490,6 +2822,27 @@ export const ParamCreater = function () {
             const options = {
                 method: "GET",
                 url: "/v2/notifications/cloud_service",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询授权服务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCloudServices() {
+            const options = {
+                method: "GET",
+                url: "/v2/notifications/cloud-services",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3130,6 +3483,85 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询Topic及Topic关联资源信息列表，关联资源信息随业务演进会持续扩展。Topic列表默认按照创建时间进行降序排列。分页查询可以指定offset以及limit。如果不存在Topic，则返回空列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTopicsWithAssociatedResources(listTopicsWithAssociatedResourcesRequest?: ListTopicsWithAssociatedResourcesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/notifications/topics-with-associated-resources",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+            
+            let topicId;
+            
+            let enterpriseProjectId;
+            
+            let name;
+            
+            let fuzzyName;
+            
+            let fuzzyDisplayName;
+
+            if (listTopicsWithAssociatedResourcesRequest !== null && listTopicsWithAssociatedResourcesRequest !== undefined) {
+                if (listTopicsWithAssociatedResourcesRequest instanceof ListTopicsWithAssociatedResourcesRequest) {
+                    offset = listTopicsWithAssociatedResourcesRequest.offset;
+                    limit = listTopicsWithAssociatedResourcesRequest.limit;
+                    topicId = listTopicsWithAssociatedResourcesRequest.topicId;
+                    enterpriseProjectId = listTopicsWithAssociatedResourcesRequest.enterpriseProjectId;
+                    name = listTopicsWithAssociatedResourcesRequest.name;
+                    fuzzyName = listTopicsWithAssociatedResourcesRequest.fuzzyName;
+                    fuzzyDisplayName = listTopicsWithAssociatedResourcesRequest.fuzzyDisplayName;
+                } else {
+                    offset = listTopicsWithAssociatedResourcesRequest['offset'];
+                    limit = listTopicsWithAssociatedResourcesRequest['limit'];
+                    topicId = listTopicsWithAssociatedResourcesRequest['topic_id'];
+                    enterpriseProjectId = listTopicsWithAssociatedResourcesRequest['enterprise_project_id'];
+                    name = listTopicsWithAssociatedResourcesRequest['name'];
+                    fuzzyName = listTopicsWithAssociatedResourcesRequest['fuzzy_name'];
+                    fuzzyDisplayName = listTopicsWithAssociatedResourcesRequest['fuzzy_display_name'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (topicId !== null && topicId !== undefined) {
+                localVarQueryParameter['topic_id'] = topicId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (fuzzyName !== null && fuzzyName !== undefined) {
+                localVarQueryParameter['fuzzy_name'] = fuzzyName;
+            }
+            if (fuzzyDisplayName !== null && fuzzyDisplayName !== undefined) {
+                localVarQueryParameter['fuzzy_display_name'] = fuzzyDisplayName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询SMN API V2版本信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3229,6 +3661,7 @@ export const ParamCreater = function () {
          * 
          * 只需要设置其中一个，如果同时设置，生效的优先级为
          * message_structure &gt; message_template_name &gt; message。
+         * 若发布消息的主题下绑定了KMS密钥，请确保发布消息前，用户需要先在IAM处创建名为smn_kms_agency的委托，并将资源操作权限授权给SMN服务。当发布消息时，SMN会使用该委托进行创建数据密钥和解密数据密钥操作。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3315,6 +3748,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询主题下密钥ID。执行绑定KMS密钥时，用户需要先在IAM处创建名为smn_kms_agency的委托，并将资源操作权限授权给SMN服务。SMN会使用该委托进行查询密钥信息操作。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showKmsKey(showKmsKeyRequest?: ShowKmsKeyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/notifications/topics/{topic_urn}/kms",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let topicUrn;
+
+            if (showKmsKeyRequest !== null && showKmsKeyRequest !== undefined) {
+                if (showKmsKeyRequest instanceof ShowKmsKeyRequest) {
+                    topicUrn = showKmsKeyRequest.topicUrn;
+                } else {
+                    topicUrn = showKmsKeyRequest['topic_urn'];
+                }
+            }
+
+        
+            if (topicUrn === null || topicUrn === undefined) {
+            throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling showKmsKey.');
+            }
+
+            options.pathParams = { 'topic_urn': topicUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询通知策略
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3347,6 +3817,60 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'topic_urn': topicUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 订阅终端确认订阅主题消息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        subscribeTopic(subscribeTopicRequest?: SubscribeTopicRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/notifications/subscriptions/subscribe",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let token;
+            
+            let topicUrn;
+            
+            let endpoint;
+
+            if (subscribeTopicRequest !== null && subscribeTopicRequest !== undefined) {
+                if (subscribeTopicRequest instanceof SubscribeTopicRequest) {
+                    token = subscribeTopicRequest.token;
+                    topicUrn = subscribeTopicRequest.topicUrn;
+                    endpoint = subscribeTopicRequest.endpoint;
+                } else {
+                    token = subscribeTopicRequest['token'];
+                    topicUrn = subscribeTopicRequest['topic_urn'];
+                    endpoint = subscribeTopicRequest['endpoint'];
+                }
+            }
+
+        
+            if (token === null || token === undefined) {
+                throw new RequiredError('token','Required parameter token was null or undefined when calling subscribeTopic.');
+            }
+            if (token !== null && token !== undefined) {
+                localVarQueryParameter['token'] = token;
+            }
+            if (topicUrn !== null && topicUrn !== undefined) {
+                localVarQueryParameter['topic_urn'] = topicUrn;
+            }
+            if (endpoint !== null && endpoint !== undefined) {
+                localVarQueryParameter['endpoint'] = endpoint;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3387,6 +3911,99 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 订阅终端取消订阅主题消息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        unsubscribeTopic(unsubscribeTopicRequest?: UnsubscribeTopicRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/notifications/subscriptions/unsubscribe",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let subscriptionUrn;
+
+            if (unsubscribeTopicRequest !== null && unsubscribeTopicRequest !== undefined) {
+                if (unsubscribeTopicRequest instanceof UnsubscribeTopicRequest) {
+                    subscriptionUrn = unsubscribeTopicRequest.subscriptionUrn;
+                } else {
+                    subscriptionUrn = unsubscribeTopicRequest['subscription_urn'];
+                }
+            }
+
+        
+            if (subscriptionUrn === null || subscriptionUrn === undefined) {
+                throw new RequiredError('subscriptionUrn','Required parameter subscriptionUrn was null or undefined when calling unsubscribeTopic.');
+            }
+            if (subscriptionUrn !== null && subscriptionUrn !== undefined) {
+                localVarQueryParameter['subscription_urn'] = subscriptionUrn;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新密钥ID。执行更新KMS密钥时，用户需要先在IAM处创建名为smn_kms_agency的委托，并将对应的资源操作权限授权给SMN服务。SMN会使用该委托进行查询密钥状态和创建数据密钥操作。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateKmsKey(updateKmsKeyRequest?: UpdateKmsKeyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/notifications/topics/{topic_urn}/kms/{id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let topicUrn;
+            
+            let id;
+
+            if (updateKmsKeyRequest !== null && updateKmsKeyRequest !== undefined) {
+                if (updateKmsKeyRequest instanceof UpdateKmsKeyRequest) {
+                    topicUrn = updateKmsKeyRequest.topicUrn;
+                    id = updateKmsKeyRequest.id;
+                    body = updateKmsKeyRequest.body
+                } else {
+                    topicUrn = updateKmsKeyRequest['topic_urn'];
+                    id = updateKmsKeyRequest['id'];
+                    body = updateKmsKeyRequest['body'];
+                }
+            }
+
+        
+            if (topicUrn === null || topicUrn === undefined) {
+            throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling updateKmsKey.');
+            }
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateKmsKey.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'topic_urn': topicUrn,'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },

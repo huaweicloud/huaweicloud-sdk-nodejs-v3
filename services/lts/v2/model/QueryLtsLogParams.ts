@@ -9,6 +9,7 @@ export class QueryLtsLogParams {
     private 'line_num'?: string;
     private '__time__'?: string;
     private 'is_desc'?: boolean;
+    private 'scroll_id'?: string;
     private 'search_type'?: QueryLtsLogParamsSearchTypeEnum | string;
     public limit?: number;
     public highlight?: boolean;
@@ -86,6 +87,16 @@ export class QueryLtsLogParams {
     }
     public get isDesc(): boolean | undefined {
         return this['is_desc'];
+    }
+    public withScrollId(scrollId: string): QueryLtsLogParams {
+        this['scroll_id'] = scrollId;
+        return this;
+    }
+    public set scrollId(scrollId: string  | undefined) {
+        this['scroll_id'] = scrollId;
+    }
+    public get scrollId(): string | undefined {
+        return this['scroll_id'];
     }
     public withSearchType(searchType: QueryLtsLogParamsSearchTypeEnum | string): QueryLtsLogParams {
         this['search_type'] = searchType;

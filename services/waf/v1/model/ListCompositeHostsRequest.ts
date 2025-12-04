@@ -7,7 +7,7 @@ export class ListCompositeHostsRequest {
     public pagesize?: number;
     public hostname?: string;
     public policyname?: string;
-    private 'protect_status'?: number;
+    private 'protect_status'?: ListCompositeHostsRequestProtectStatusEnum | number;
     private 'waf_type'?: string;
     private 'is_https'?: boolean;
     public constructor(contentType?: string) { 
@@ -49,14 +49,14 @@ export class ListCompositeHostsRequest {
         this['policyname'] = policyname;
         return this;
     }
-    public withProtectStatus(protectStatus: number): ListCompositeHostsRequest {
+    public withProtectStatus(protectStatus: ListCompositeHostsRequestProtectStatusEnum | number): ListCompositeHostsRequest {
         this['protect_status'] = protectStatus;
         return this;
     }
-    public set protectStatus(protectStatus: number  | undefined) {
+    public set protectStatus(protectStatus: ListCompositeHostsRequestProtectStatusEnum | number  | undefined) {
         this['protect_status'] = protectStatus;
     }
-    public get protectStatus(): number | undefined {
+    public get protectStatus(): ListCompositeHostsRequestProtectStatusEnum | number | undefined {
         return this['protect_status'];
     }
     public withWafType(wafType: string): ListCompositeHostsRequest {
@@ -79,4 +79,14 @@ export class ListCompositeHostsRequest {
     public get isHttps(): boolean | undefined {
         return this['is_https'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListCompositeHostsRequestProtectStatusEnum {
+    NUMBER_MINUS_1 = -1,
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
 }

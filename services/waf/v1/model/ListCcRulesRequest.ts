@@ -9,7 +9,7 @@ export class ListCcRulesRequest {
     public name?: string;
     public status?: number;
     public category?: string;
-    private 'tag_type'?: string;
+    private 'tag_type'?: ListCcRulesRequestTagTypeEnum | string;
     public constructor(contentType?: string, policyId?: string, offset?: number, limit?: number) { 
         this['Content-Type'] = contentType;
         this['policy_id'] = policyId;
@@ -66,14 +66,28 @@ export class ListCcRulesRequest {
         this['category'] = category;
         return this;
     }
-    public withTagType(tagType: string): ListCcRulesRequest {
+    public withTagType(tagType: ListCcRulesRequestTagTypeEnum | string): ListCcRulesRequest {
         this['tag_type'] = tagType;
         return this;
     }
-    public set tagType(tagType: string  | undefined) {
+    public set tagType(tagType: ListCcRulesRequestTagTypeEnum | string  | undefined) {
         this['tag_type'] = tagType;
     }
-    public get tagType(): string | undefined {
+    public get tagType(): ListCcRulesRequestTagTypeEnum | string | undefined {
         return this['tag_type'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListCcRulesRequestTagTypeEnum {
+    IP = 'ip',
+    COOKIE = 'cookie',
+    HEADER = 'header',
+    OTHER = 'other',
+    POLICY = 'policy',
+    DOMAIN = 'domain',
+    URL = 'url'
 }

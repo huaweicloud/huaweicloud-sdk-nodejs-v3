@@ -15,6 +15,7 @@ import { AttachBaremetalServerVolumeResponse } from './model/AttachBaremetalServ
 import { AttachVolumeBody } from './model/AttachVolumeBody';
 import { BandWidth } from './model/BandWidth';
 import { BareMetalModifyPortRequest } from './model/BareMetalModifyPortRequest';
+import { BareMetalModifyPortRequestBody } from './model/BareMetalModifyPortRequestBody';
 import { BaremetalServerTag } from './model/BaremetalServerTag';
 import { BatchCreateBaremetalServerTagsRequest } from './model/BatchCreateBaremetalServerTagsRequest';
 import { BatchCreateBaremetalServerTagsRequestBody } from './model/BatchCreateBaremetalServerTagsRequestBody';
@@ -545,7 +546,7 @@ export class BmsClient {
      *
      * @summary 编辑port
      * @param {string} nicId 
-     * @param {BareMetalModifyPortRequest} bareMetalModifyPortRequest This is a auto create Body Object
+     * @param {BareMetalModifyPortRequestBody} bareMetalModifyPortRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

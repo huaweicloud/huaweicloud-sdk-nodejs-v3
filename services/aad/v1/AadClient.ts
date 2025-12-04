@@ -873,8 +873,8 @@ export class AadClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 设置日志配置
+     * @param {string} enterpriseProjectId 企业项目id
      * @param {UpdateLtsConfigRequestBody} updateLtsConfigRequestBody 更新日志配置的请求体
-     * @param {string} [enterpriseProjectId] 企业项目id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2558,20 +2558,23 @@ export const ParamCreater = function () {
 
             if (updateLtsConfigRequest !== null && updateLtsConfigRequest !== undefined) {
                 if (updateLtsConfigRequest instanceof UpdateLtsConfigRequest) {
-                    body = updateLtsConfigRequest.body
                     enterpriseProjectId = updateLtsConfigRequest.enterpriseProjectId;
+                    body = updateLtsConfigRequest.body
                 } else {
-                    body = updateLtsConfigRequest['body'];
                     enterpriseProjectId = updateLtsConfigRequest['enterprise_project_id'];
+                    body = updateLtsConfigRequest['body'];
                 }
             }
 
         
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            if (enterpriseProjectId === null || enterpriseProjectId === undefined) {
+                throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling updateLtsConfig.');
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

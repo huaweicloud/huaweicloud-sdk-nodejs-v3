@@ -7,6 +7,11 @@ import { ApiVersion } from './model/ApiVersion';
 import { AvailableDnInstance } from './model/AvailableDnInstance';
 import { AvailableZone } from './model/AvailableZone';
 import { BackupInfo } from './model/BackupInfo';
+import { BatchDeleteNodesRequest } from './model/BatchDeleteNodesRequest';
+import { BatchDeleteNodesResponse } from './model/BatchDeleteNodesResponse';
+import { BindEipOpenRequest } from './model/BindEipOpenRequest';
+import { BindEipRequest } from './model/BindEipRequest';
+import { BindEipResponse } from './model/BindEipResponse';
 import { CancelMigrationRequest } from './model/CancelMigrationRequest';
 import { CancelMigrationResponse } from './model/CancelMigrationResponse';
 import { ChangeDatabaseVersionRequest } from './model/ChangeDatabaseVersionRequest';
@@ -35,6 +40,9 @@ import { CreateDdmConfigurationsResponse } from './model/CreateDdmConfigurations
 import { CreateDdmDatabaseRequest } from './model/CreateDdmDatabaseRequest';
 import { CreateDdmDatabaseRequestBody } from './model/CreateDdmDatabaseRequestBody';
 import { CreateDdmDatabaseResponse } from './model/CreateDdmDatabaseResponse';
+import { CreateDdmInstanceReq } from './model/CreateDdmInstanceReq';
+import { CreateDdmInstanceRequest } from './model/CreateDdmInstanceRequest';
+import { CreateDdmInstanceResponse } from './model/CreateDdmInstanceResponse';
 import { CreateGroupRequest } from './model/CreateGroupRequest';
 import { CreateGroupRequestBody } from './model/CreateGroupRequestBody';
 import { CreateGroupResponse } from './model/CreateGroupResponse';
@@ -67,8 +75,12 @@ import { DeleteDdmDatabaseRequest } from './model/DeleteDdmDatabaseRequest';
 import { DeleteDdmDatabaseResponse } from './model/DeleteDdmDatabaseResponse';
 import { DeleteDdmInstanceRequest } from './model/DeleteDdmInstanceRequest';
 import { DeleteDdmInstanceResponse } from './model/DeleteDdmInstanceResponse';
+import { DeleteGroupRequest } from './model/DeleteGroupRequest';
+import { DeleteGroupResponse } from './model/DeleteGroupResponse';
 import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
 import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
+import { DeleteNodesRequest } from './model/DeleteNodesRequest';
+import { DeleteNodesResponse } from './model/DeleteNodesResponse';
 import { DeleteUserRequest } from './model/DeleteUserRequest';
 import { DeleteUserResponse } from './model/DeleteUserResponse';
 import { DnInstanceInfo } from './model/DnInstanceInfo';
@@ -102,6 +114,7 @@ import { GroupNodeInfo } from './model/GroupNodeInfo';
 import { IamAccount } from './model/IamAccount';
 import { Instance } from './model/Instance';
 import { JobInfo } from './model/JobInfo';
+import { JobItem } from './model/JobItem';
 import { KillProcessesOpenRequest } from './model/KillProcessesOpenRequest';
 import { LinkInfo } from './model/LinkInfo';
 import { ListApiVersionRequest } from './model/ListApiVersionRequest';
@@ -140,6 +153,8 @@ import { ListSlowLogRequest } from './model/ListSlowLogRequest';
 import { ListSlowLogResponse } from './model/ListSlowLogResponse';
 import { ListSlowLogsRequest } from './model/ListSlowLogsRequest';
 import { ListSlowLogsResponse } from './model/ListSlowLogsResponse';
+import { ListTasksRequest } from './model/ListTasksRequest';
+import { ListTasksResponse } from './model/ListTasksResponse';
 import { ListUsersRequest } from './model/ListUsersRequest';
 import { ListUsersResponse } from './model/ListUsersResponse';
 import { LoadSchemaMetadataReq } from './model/LoadSchemaMetadataReq';
@@ -153,6 +168,9 @@ import { MigrateResultsResponse } from './model/MigrateResultsResponse';
 import { MigrateRouteSwitchReqVO } from './model/MigrateRouteSwitchReqVO';
 import { ModifyConfigurationRequest } from './model/ModifyConfigurationRequest';
 import { ModifyConfigurationResponse } from './model/ModifyConfigurationResponse';
+import { ModifyEipRequest } from './model/ModifyEipRequest';
+import { ModifyEipResponse } from './model/ModifyEipResponse';
+import { ModifyElbVipOpenReq } from './model/ModifyElbVipOpenReq';
 import { ModifyInstanceNameReq } from './model/ModifyInstanceNameReq';
 import { ModifyInstanceSecurityGroupReq } from './model/ModifyInstanceSecurityGroupReq';
 import { ModifyReadAndWriteStrategyReq } from './model/ModifyReadAndWriteStrategyReq';
@@ -161,10 +179,12 @@ import { NodeList } from './model/NodeList';
 import { ParaGroupUpdate } from './model/ParaGroupUpdate';
 import { PhysicalProcessInfo } from './model/PhysicalProcessInfo';
 import { PreCheckResult } from './model/PreCheckResult';
+import { PublicIpInfo } from './model/PublicIpInfo';
 import { QueryAvailableRdsList } from './model/QueryAvailableRdsList';
 import { ReadWriteRatioList } from './model/ReadWriteRatioList';
 import { RebuildConfigRequest } from './model/RebuildConfigRequest';
 import { RebuildConfigResponse } from './model/RebuildConfigResponse';
+import { ReduceNodeOpenRequest } from './model/ReduceNodeOpenRequest';
 import { ReduceRequest } from './model/ReduceRequest';
 import { RelatedDn } from './model/RelatedDn';
 import { RelatedDnVO } from './model/RelatedDnVO';
@@ -177,9 +197,13 @@ import { ResizeFlavorReq } from './model/ResizeFlavorReq';
 import { ResizeFlavorRequest } from './model/ResizeFlavorRequest';
 import { ResizeFlavorResponse } from './model/ResizeFlavorResponse';
 import { RestarInstanceInfo } from './model/RestarInstanceInfo';
+import { RestartDdmInstanceRequest } from './model/RestartDdmInstanceRequest';
+import { RestartDdmInstanceResponse } from './model/RestartDdmInstanceResponse';
 import { RestartInstanceReq } from './model/RestartInstanceReq';
 import { RestartInstanceRequest } from './model/RestartInstanceRequest';
 import { RestartInstanceResponse } from './model/RestartInstanceResponse';
+import { RestartNodeRequest } from './model/RestartNodeRequest';
+import { RestartNodeResponse } from './model/RestartNodeResponse';
 import { Restore2ExistRequest } from './model/Restore2ExistRequest';
 import { Restore2ExistResponse } from './model/Restore2ExistResponse';
 import { RestoreInst2ExistReq } from './model/RestoreInst2ExistReq';
@@ -209,6 +233,8 @@ import { ShowDatabaseRequest } from './model/ShowDatabaseRequest';
 import { ShowDatabaseResponse } from './model/ShowDatabaseResponse';
 import { ShowDdmJobResultRequest } from './model/ShowDdmJobResultRequest';
 import { ShowDdmJobResultResponse } from './model/ShowDdmJobResultResponse';
+import { ShowDdmNodeDetailRequest } from './model/ShowDdmNodeDetailRequest';
+import { ShowDdmNodeDetailResponse } from './model/ShowDdmNodeDetailResponse';
 import { ShowInstanceBeanResponse } from './model/ShowInstanceBeanResponse';
 import { ShowInstanceDatabaseRequest } from './model/ShowInstanceDatabaseRequest';
 import { ShowInstanceDatabaseResponse } from './model/ShowInstanceDatabaseResponse';
@@ -224,6 +250,8 @@ import { ShowPhysicalProcessesRequest } from './model/ShowPhysicalProcessesReque
 import { ShowPhysicalProcessesResponse } from './model/ShowPhysicalProcessesResponse';
 import { ShowProcessesAuditLogRequest } from './model/ShowProcessesAuditLogRequest';
 import { ShowProcessesAuditLogResponse } from './model/ShowProcessesAuditLogResponse';
+import { ShowPublicIpRequest } from './model/ShowPublicIpRequest';
+import { ShowPublicIpResponse } from './model/ShowPublicIpResponse';
 import { ShowRelatedDnsRequest } from './model/ShowRelatedDnsRequest';
 import { ShowRelatedDnsResponse } from './model/ShowRelatedDnsResponse';
 import { ShowRiskInfoRequest } from './model/ShowRiskInfoRequest';
@@ -238,7 +266,11 @@ import { SwitchRouteResponse } from './model/SwitchRouteResponse';
 import { SwitchSslOpenRequest } from './model/SwitchSslOpenRequest';
 import { SwitchSslRequest } from './model/SwitchSslRequest';
 import { SwitchSslResponse } from './model/SwitchSslResponse';
+import { SyncDnInformationRequest } from './model/SyncDnInformationRequest';
+import { SyncDnInformationResponse } from './model/SyncDnInformationResponse';
 import { TargetDn4Restore } from './model/TargetDn4Restore';
+import { UnbindEipRequest } from './model/UnbindEipRequest';
+import { UnbindEipResponse } from './model/UnbindEipResponse';
 import { UpdateDatabaseInfoRequest } from './model/UpdateDatabaseInfoRequest';
 import { UpdateDatabaseInfoResponse } from './model/UpdateDatabaseInfoResponse';
 import { UpdateInstanceNameRequest } from './model/UpdateInstanceNameRequest';
@@ -475,6 +507,46 @@ export class DdmClient {
     }
 
     /**
+     * 批量删除实例的节点
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除实例的节点
+     * @param {string} instanceId 实例 ID。
+     * @param {ReduceNodeOpenRequest} batchDeleteNodesRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteNodes(batchDeleteNodesRequest?: BatchDeleteNodesRequest): Promise<BatchDeleteNodesResponse> {
+        const options = ParamCreater().batchDeleteNodes(batchDeleteNodesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 绑定弹性公网IP
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 绑定弹性公网IP
+     * @param {string} instanceId 实例 ID。
+     * @param {BindEipOpenRequest} bindEipRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public bindEip(bindEipRequest?: BindEipRequest): Promise<BindEipResponse> {
+        const options = ParamCreater().bindEip(bindEipRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 取消分片变更
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -613,6 +685,25 @@ export class DdmClient {
      */
     public createDdmDatabase(createDdmDatabaseRequest?: CreateDdmDatabaseRequest): Promise<CreateDdmDatabaseResponse> {
         const options = ParamCreater().createDdmDatabase(createDdmDatabaseRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 购买创建DDM实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 购买创建DDM实例
+     * @param {CreateDdmInstanceReq} createDdmInstanceRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDdmInstance(createDdmInstanceRequest?: CreateDdmInstanceRequest): Promise<CreateDdmInstanceResponse> {
+        const options = ParamCreater().createDdmInstance(createDdmInstanceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -763,6 +854,26 @@ export class DdmClient {
     }
 
     /**
+     * 删除实例组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除实例组
+     * @param {string} instanceId 实例 ID。
+     * @param {string} groupId 组 ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteGroup(deleteGroupRequest?: DeleteGroupRequest): Promise<DeleteGroupResponse> {
+        const options = ParamCreater().deleteGroup(deleteGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除指定的DDM实例，释放该实例的所有资源。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -775,6 +886,26 @@ export class DdmClient {
      */
     public deleteInstance(deleteInstanceRequest?: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
         const options = ParamCreater().deleteInstance(deleteInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除实例的节点。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除实例的节点
+     * @param {string} instanceId DDM实例ID
+     * @param {ReduceNodeOpenRequest} deleteNodesRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteNodes(deleteNodesRequest?: DeleteNodesRequest): Promise<DeleteNodesResponse> {
+        const options = ParamCreater().deleteNodes(deleteNodesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1216,6 +1347,26 @@ export class DdmClient {
     }
 
     /**
+     * 查询任务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询任务列表
+     * @param {number} startTime 开始时间。
+     * @param {number} endTime 开始时间。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTasks(listTasksRequest?: ListTasksRequest): Promise<ListTasksResponse> {
+        const options = ParamCreater().listTasks(listTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询DDM帐号列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1271,6 +1422,26 @@ export class DdmClient {
      */
     public migrateResults(migrateResultsRequest?: MigrateResultsRequest): Promise<MigrateResultsResponse> {
         const options = ParamCreater().migrateResults(migrateResultsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改实例的ELB IP
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改实例的ELB IP
+     * @param {string} instanceId 实例 ID。
+     * @param {ModifyElbVipOpenReq} modifyEipRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyEip(modifyEipRequest?: ModifyEipRequest): Promise<ModifyEipResponse> {
+        const options = ParamCreater().modifyEip(modifyEipRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1359,6 +1530,25 @@ export class DdmClient {
     }
 
     /**
+     * 重启DDM实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重启DDM实例
+     * @param {string} instanceId 实例 ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public restartDdmInstance(restartDdmInstanceRequest?: RestartDdmInstanceRequest): Promise<RestartDdmInstanceResponse> {
+        const options = ParamCreater().restartDdmInstance(restartDdmInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 重启指定的DDM实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1371,6 +1561,26 @@ export class DdmClient {
      */
     public restartInstance(restartInstanceRequest?: RestartInstanceRequest): Promise<RestartInstanceResponse> {
         const options = ParamCreater().restartInstance(restartInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 重启DDM节点
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重启DDM节点
+     * @param {string} instanceId 实例 ID。
+     * @param {string} nodeId 节点 ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public restartNode(restartNodeRequest?: RestartNodeRequest): Promise<RestartNodeResponse> {
+        const options = ParamCreater().restartNode(restartNodeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1580,6 +1790,26 @@ export class DdmClient {
     }
 
     /**
+     * 查询DDM实例节点详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询DDM实例节点详情
+     * @param {string} instanceId 实例 ID。
+     * @param {string} nodeId 节点 ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDdmNodeDetail(showDdmNodeDetailRequest?: ShowDdmNodeDetailRequest): Promise<ShowDdmNodeDetailResponse> {
+        const options = ParamCreater().showDdmNodeDetail(showDdmNodeDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询指定DDM实例的详细信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1728,6 +1958,27 @@ export class DdmClient {
     }
 
     /**
+     * 获取DDM实例绑定的弹性公网IP信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取DDM实例绑定的弹性公网IP信息
+     * @param {string} instanceId DDM实例ID。
+     * @param {number} [offset] 分页参数：起始值 [大于等于0] 。默认值是0。
+     * @param {number} [limit] 分页参数：每页多少条 [大于0且小于等于128]。默认值是10。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPublicIp(showPublicIpRequest?: ShowPublicIpRequest): Promise<ShowPublicIpResponse> {
+        const options = ParamCreater().showPublicIp(showPublicIpRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询实例在恢复时间点关联的数据节点
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1801,6 +2052,44 @@ export class DdmClient {
      */
     public switchSsl(switchSslRequest?: SwitchSslRequest): Promise<SwitchSslResponse> {
         const options = ParamCreater().switchSsl(switchSslRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 同步数据节点
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 同步数据节点
+     * @param {string} instanceId 实例 ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public syncDnInformation(syncDnInformationRequest?: SyncDnInformationRequest): Promise<SyncDnInformationResponse> {
+        const options = ParamCreater().syncDnInformation(syncDnInformationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 解绑弹性公网IP
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解绑弹性公网IP
+     * @param {string} instanceId 实例 ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public unbindEip(unbindEipRequest?: UnbindEipRequest): Promise<UnbindEipResponse> {
+        const options = ParamCreater().unbindEip(unbindEipRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2373,6 +2662,98 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量删除实例的节点
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteNodes(batchDeleteNodesRequest?: BatchDeleteNodesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/nodes/batch-delete",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (batchDeleteNodesRequest !== null && batchDeleteNodesRequest !== undefined) {
+                if (batchDeleteNodesRequest instanceof BatchDeleteNodesRequest) {
+                    instanceId = batchDeleteNodesRequest.instanceId;
+                    body = batchDeleteNodesRequest.body
+                } else {
+                    instanceId = batchDeleteNodesRequest['instance_id'];
+                    body = batchDeleteNodesRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling batchDeleteNodes.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 绑定弹性公网IP
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        bindEip(bindEipRequest?: BindEipRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/eip",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (bindEipRequest !== null && bindEipRequest !== undefined) {
+                if (bindEipRequest instanceof BindEipRequest) {
+                    instanceId = bindEipRequest.instanceId;
+                    body = bindEipRequest.body
+                } else {
+                    instanceId = bindEipRequest['instance_id'];
+                    body = bindEipRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling bindEip.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 取消分片变更
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2725,6 +3106,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 购买创建DDM实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDdmInstance(createDdmInstanceRequest?: CreateDdmInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createDdmInstanceRequest !== null && createDdmInstanceRequest !== undefined) {
+                if (createDdmInstanceRequest instanceof CreateDdmInstanceRequest) {
+                    body = createDdmInstanceRequest.body
+                } else {
+                    body = createDdmInstanceRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建组
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3046,6 +3465,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除实例组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteGroup(deleteGroupRequest?: DeleteGroupRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/groups/{group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let groupId;
+
+            if (deleteGroupRequest !== null && deleteGroupRequest !== undefined) {
+                if (deleteGroupRequest instanceof DeleteGroupRequest) {
+                    instanceId = deleteGroupRequest.instanceId;
+                    groupId = deleteGroupRequest.groupId;
+                } else {
+                    instanceId = deleteGroupRequest['instance_id'];
+                    groupId = deleteGroupRequest['group_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteGroup.');
+            }
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling deleteGroup.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除指定的DDM实例，释放该实例的所有资源。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3085,6 +3548,52 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除实例的节点。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteNodes(deleteNodesRequest?: DeleteNodesRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/nodes",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (deleteNodesRequest !== null && deleteNodesRequest !== undefined) {
+                if (deleteNodesRequest instanceof DeleteNodesRequest) {
+                    instanceId = deleteNodesRequest.instanceId;
+                    body = deleteNodesRequest.body
+                } else {
+                    instanceId = deleteNodesRequest['instance_id'];
+                    body = deleteNodesRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteNodes.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -4145,6 +4654,56 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询任务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTasks(listTasksRequest?: ListTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let startTime;
+            
+            let endTime;
+
+            if (listTasksRequest !== null && listTasksRequest !== undefined) {
+                if (listTasksRequest instanceof ListTasksRequest) {
+                    startTime = listTasksRequest.startTime;
+                    endTime = listTasksRequest.endTime;
+                } else {
+                    startTime = listTasksRequest['start_time'];
+                    endTime = listTasksRequest['end_time'];
+                }
+            }
+
+        
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listTasks.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listTasks.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询DDM帐号列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4296,6 +4855,52 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'db_name': dbName,'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改实例的ELB IP
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyEip(modifyEipRequest?: ModifyEipRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/elb/ip",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (modifyEipRequest !== null && modifyEipRequest !== undefined) {
+                if (modifyEipRequest instanceof ModifyEipRequest) {
+                    instanceId = modifyEipRequest.instanceId;
+                    body = modifyEipRequest.body
+                } else {
+                    instanceId = modifyEipRequest['instance_id'];
+                    body = modifyEipRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling modifyEip.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4483,6 +5088,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 重启DDM实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        restartDdmInstance(restartDdmInstanceRequest?: RestartDdmInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/restart",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (restartDdmInstanceRequest !== null && restartDdmInstanceRequest !== undefined) {
+                if (restartDdmInstanceRequest instanceof RestartDdmInstanceRequest) {
+                    instanceId = restartDdmInstanceRequest.instanceId;
+                } else {
+                    instanceId = restartDdmInstanceRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling restartDdmInstance.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 重启指定的DDM实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4524,6 +5166,50 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 重启DDM节点
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        restartNode(restartNodeRequest?: RestartNodeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/nodes/{node_id}/restart",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let nodeId;
+
+            if (restartNodeRequest !== null && restartNodeRequest !== undefined) {
+                if (restartNodeRequest instanceof RestartNodeRequest) {
+                    instanceId = restartNodeRequest.instanceId;
+                    nodeId = restartNodeRequest.nodeId;
+                } else {
+                    instanceId = restartNodeRequest['instance_id'];
+                    nodeId = restartNodeRequest['node_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling restartNode.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling restartNode.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'node_id': nodeId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4990,6 +5676,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询DDM实例节点详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDdmNodeDetail(showDdmNodeDetailRequest?: ShowDdmNodeDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/nodes/{node_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let nodeId;
+
+            if (showDdmNodeDetailRequest !== null && showDdmNodeDetailRequest !== undefined) {
+                if (showDdmNodeDetailRequest instanceof ShowDdmNodeDetailRequest) {
+                    instanceId = showDdmNodeDetailRequest.instanceId;
+                    nodeId = showDdmNodeDetailRequest.nodeId;
+                } else {
+                    instanceId = showDdmNodeDetailRequest['instance_id'];
+                    nodeId = showDdmNodeDetailRequest['node_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showDdmNodeDetail.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling showDdmNodeDetail.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'node_id': nodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询指定DDM实例的详细信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5364,6 +6094,58 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取DDM实例绑定的弹性公网IP信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPublicIp(showPublicIpRequest?: ShowPublicIpRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/public-ips",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (showPublicIpRequest !== null && showPublicIpRequest !== undefined) {
+                if (showPublicIpRequest instanceof ShowPublicIpRequest) {
+                    instanceId = showPublicIpRequest.instanceId;
+                    offset = showPublicIpRequest.offset;
+                    limit = showPublicIpRequest.limit;
+                } else {
+                    instanceId = showPublicIpRequest['instance_id'];
+                    offset = showPublicIpRequest['offset'];
+                    limit = showPublicIpRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showPublicIp.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询实例在恢复时间点关联的数据节点
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5549,6 +6331,80 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 同步数据节点
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        syncDnInformation(syncDnInformationRequest?: SyncDnInformationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/data-nodes/sync",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (syncDnInformationRequest !== null && syncDnInformationRequest !== undefined) {
+                if (syncDnInformationRequest instanceof SyncDnInformationRequest) {
+                    instanceId = syncDnInformationRequest.instanceId;
+                } else {
+                    instanceId = syncDnInformationRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling syncDnInformation.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 解绑弹性公网IP
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        unbindEip(unbindEipRequest?: UnbindEipRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/eip",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (unbindEipRequest !== null && unbindEipRequest !== undefined) {
+                if (unbindEipRequest instanceof UnbindEipRequest) {
+                    instanceId = unbindEipRequest.instanceId;
+                } else {
+                    instanceId = unbindEipRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling unbindEip.');
+            }
+
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

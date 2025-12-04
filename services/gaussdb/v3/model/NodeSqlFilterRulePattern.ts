@@ -4,9 +4,10 @@ export class NodeSqlFilterRulePattern {
     public pattern?: string;
     private 'max_concurrency'?: number;
     private 'expire_at'?: number;
-    public constructor(pattern?: string, maxConcurrency?: number) { 
+    public constructor(pattern?: string, maxConcurrency?: number, expireAt?: number) { 
         this['pattern'] = pattern;
         this['max_concurrency'] = maxConcurrency;
+        this['expire_at'] = expireAt;
     }
     public withPattern(pattern: string): NodeSqlFilterRulePattern {
         this['pattern'] = pattern;

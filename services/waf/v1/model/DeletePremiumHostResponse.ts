@@ -10,8 +10,8 @@ export class DeletePremiumHostResponse extends SdkResponse {
     public flag?: Flag;
     public description?: string;
     public policyid?: string;
-    private 'protect_status'?: number;
-    private 'access_status'?: number;
+    private 'protect_status'?: DeletePremiumHostResponseProtectStatusEnum | number;
+    private 'access_status'?: DeletePremiumHostResponseAccessStatusEnum | number;
     private 'web_tag'?: string;
     private 'host_id'?: string;
     public constructor() { 
@@ -45,24 +45,24 @@ export class DeletePremiumHostResponse extends SdkResponse {
         this['policyid'] = policyid;
         return this;
     }
-    public withProtectStatus(protectStatus: number): DeletePremiumHostResponse {
+    public withProtectStatus(protectStatus: DeletePremiumHostResponseProtectStatusEnum | number): DeletePremiumHostResponse {
         this['protect_status'] = protectStatus;
         return this;
     }
-    public set protectStatus(protectStatus: number  | undefined) {
+    public set protectStatus(protectStatus: DeletePremiumHostResponseProtectStatusEnum | number  | undefined) {
         this['protect_status'] = protectStatus;
     }
-    public get protectStatus(): number | undefined {
+    public get protectStatus(): DeletePremiumHostResponseProtectStatusEnum | number | undefined {
         return this['protect_status'];
     }
-    public withAccessStatus(accessStatus: number): DeletePremiumHostResponse {
+    public withAccessStatus(accessStatus: DeletePremiumHostResponseAccessStatusEnum | number): DeletePremiumHostResponse {
         this['access_status'] = accessStatus;
         return this;
     }
-    public set accessStatus(accessStatus: number  | undefined) {
+    public set accessStatus(accessStatus: DeletePremiumHostResponseAccessStatusEnum | number  | undefined) {
         this['access_status'] = accessStatus;
     }
-    public get accessStatus(): number | undefined {
+    public get accessStatus(): DeletePremiumHostResponseAccessStatusEnum | number | undefined {
         return this['access_status'];
     }
     public withWebTag(webTag: string): DeletePremiumHostResponse {
@@ -85,4 +85,22 @@ export class DeletePremiumHostResponse extends SdkResponse {
     public get hostId(): string | undefined {
         return this['host_id'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DeletePremiumHostResponseProtectStatusEnum {
+    NUMBER_MINUS_1 = -1,
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DeletePremiumHostResponseAccessStatusEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
 }

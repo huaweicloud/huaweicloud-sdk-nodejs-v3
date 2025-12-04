@@ -1,4 +1,4 @@
-import { ListProductsRespIo } from './ListProductsRespIo';
+import { ShowInstanceExtendProductInfoRespIo } from './ShowInstanceExtendProductInfoRespIo';
 
 
 export class ShowInstanceExtendProductInfoRespDetail {
@@ -7,7 +7,7 @@ export class ShowInstanceExtendProductInfoRespDetail {
     private 'partition_num'?: string;
     private 'product_id'?: string;
     private 'spec_code'?: string;
-    public io?: Array<ListProductsRespIo>;
+    public io?: Array<ShowInstanceExtendProductInfoRespIo>;
     public bandwidth?: string;
     private 'recommend_max_consGroups'?: string;
     private 'unavailable_zones'?: Array<string>;
@@ -54,7 +54,7 @@ export class ShowInstanceExtendProductInfoRespDetail {
     public get specCode(): string | undefined {
         return this['spec_code'];
     }
-    public withIo(io: Array<ListProductsRespIo>): ShowInstanceExtendProductInfoRespDetail {
+    public withIo(io: Array<ShowInstanceExtendProductInfoRespIo>): ShowInstanceExtendProductInfoRespDetail {
         this['io'] = io;
         return this;
     }

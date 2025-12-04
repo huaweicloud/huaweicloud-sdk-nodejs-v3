@@ -11,6 +11,7 @@ export class GroupCreateRequest {
     private 'sync_mode'?: string;
     private 'sync_rules'?: Array<GroupUpdateRequestSyncRules>;
     private 'relation_configurations'?: Array<GroupRelationConfiguration>;
+    private 'related_domain_id'?: string;
     public constructor(name?: string, componentId?: string, regionId?: string, syncMode?: string) { 
         this['name'] = name;
         this['component_id'] = componentId;
@@ -84,5 +85,15 @@ export class GroupCreateRequest {
     }
     public get relationConfigurations(): Array<GroupRelationConfiguration> | undefined {
         return this['relation_configurations'];
+    }
+    public withRelatedDomainId(relatedDomainId: string): GroupCreateRequest {
+        this['related_domain_id'] = relatedDomainId;
+        return this;
+    }
+    public set relatedDomainId(relatedDomainId: string  | undefined) {
+        this['related_domain_id'] = relatedDomainId;
+    }
+    public get relatedDomainId(): string | undefined {
+        return this['related_domain_id'];
     }
 }

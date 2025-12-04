@@ -11,6 +11,8 @@ export class ScriptInfo {
     private 'queue_name'?: string;
     public configuration?: object;
     public description?: string;
+    public owner?: string;
+    public version?: number;
     public constructor() { 
     }
     public withName(name: string): ScriptInfo {
@@ -69,6 +71,14 @@ export class ScriptInfo {
     }
     public withDescription(description: string): ScriptInfo {
         this['description'] = description;
+        return this;
+    }
+    public withOwner(owner: string): ScriptInfo {
+        this['owner'] = owner;
+        return this;
+    }
+    public withVersion(version: number): ScriptInfo {
+        this['version'] = version;
         return this;
     }
 }

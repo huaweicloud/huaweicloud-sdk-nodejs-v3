@@ -1,15 +1,21 @@
-import { DescribeGroupsRespGroupMembers } from './DescribeGroupsRespGroupMembers';
-import { ShowGroupsRespGroupGroupMessageOffsets } from './ShowGroupsRespGroupGroupMessageOffsets';
 
 
 export class DescribeGroupsRespGroup {
-    private 'group_id'?: string;
     public state?: string;
+    public createdAt?: object;
+    private 'group_id'?: string;
     private 'coordinator_id'?: number;
-    public members?: Array<DescribeGroupsRespGroupMembers>;
-    private 'group_message_offsets'?: Array<ShowGroupsRespGroupGroupMessageOffsets>;
     private 'assignment_strategy'?: string;
+    private 'group_desc'?: string;
     public constructor() { 
+    }
+    public withState(state: string): DescribeGroupsRespGroup {
+        this['state'] = state;
+        return this;
+    }
+    public withCreatedAt(createdAt: object): DescribeGroupsRespGroup {
+        this['createdAt'] = createdAt;
+        return this;
     }
     public withGroupId(groupId: string): DescribeGroupsRespGroup {
         this['group_id'] = groupId;
@@ -21,10 +27,6 @@ export class DescribeGroupsRespGroup {
     public get groupId(): string | undefined {
         return this['group_id'];
     }
-    public withState(state: string): DescribeGroupsRespGroup {
-        this['state'] = state;
-        return this;
-    }
     public withCoordinatorId(coordinatorId: number): DescribeGroupsRespGroup {
         this['coordinator_id'] = coordinatorId;
         return this;
@@ -35,20 +37,6 @@ export class DescribeGroupsRespGroup {
     public get coordinatorId(): number | undefined {
         return this['coordinator_id'];
     }
-    public withMembers(members: Array<DescribeGroupsRespGroupMembers>): DescribeGroupsRespGroup {
-        this['members'] = members;
-        return this;
-    }
-    public withGroupMessageOffsets(groupMessageOffsets: Array<ShowGroupsRespGroupGroupMessageOffsets>): DescribeGroupsRespGroup {
-        this['group_message_offsets'] = groupMessageOffsets;
-        return this;
-    }
-    public set groupMessageOffsets(groupMessageOffsets: Array<ShowGroupsRespGroupGroupMessageOffsets>  | undefined) {
-        this['group_message_offsets'] = groupMessageOffsets;
-    }
-    public get groupMessageOffsets(): Array<ShowGroupsRespGroupGroupMessageOffsets> | undefined {
-        return this['group_message_offsets'];
-    }
     public withAssignmentStrategy(assignmentStrategy: string): DescribeGroupsRespGroup {
         this['assignment_strategy'] = assignmentStrategy;
         return this;
@@ -58,5 +46,15 @@ export class DescribeGroupsRespGroup {
     }
     public get assignmentStrategy(): string | undefined {
         return this['assignment_strategy'];
+    }
+    public withGroupDesc(groupDesc: string): DescribeGroupsRespGroup {
+        this['group_desc'] = groupDesc;
+        return this;
+    }
+    public set groupDesc(groupDesc: string  | undefined) {
+        this['group_desc'] = groupDesc;
+    }
+    public get groupDesc(): string | undefined {
+        return this['group_desc'];
     }
 }

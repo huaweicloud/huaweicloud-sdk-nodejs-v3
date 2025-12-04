@@ -5,7 +5,8 @@ export class ResetMessageOffsetReq {
     public partition?: number;
     private 'message_offset'?: number;
     public timestamp?: number;
-    public constructor(partition?: number) { 
+    public constructor(topic?: string, partition?: number) { 
+        this['topic'] = topic;
         this['partition'] = partition;
     }
     public withTopic(topic: string): ResetMessageOffsetReq {

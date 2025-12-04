@@ -1,4 +1,6 @@
+import { Artifact } from './Artifact';
 import { ArtifactTag } from './ArtifactTag';
+import { NativeReportSummary } from './NativeReportSummary';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -15,6 +17,7 @@ export class ShowInstanceArtifactResponse extends SdkResponse {
     private 'push_time'?: string;
     public size?: number;
     public tags?: Array<ArtifactTag>;
+    private 'scan_overview'?: { [key: string]: NativeReportSummary; };
     public constructor() { 
         super();
     }
@@ -107,5 +110,15 @@ export class ShowInstanceArtifactResponse extends SdkResponse {
     public withTags(tags: Array<ArtifactTag>): ShowInstanceArtifactResponse {
         this['tags'] = tags;
         return this;
+    }
+    public withScanOverview(scanOverview: { [key: string]: NativeReportSummary; }): ShowInstanceArtifactResponse {
+        this['scan_overview'] = scanOverview;
+        return this;
+    }
+    public set scanOverview(scanOverview: { [key: string]: NativeReportSummary; }  | undefined) {
+        this['scan_overview'] = scanOverview;
+    }
+    public get scanOverview(): { [key: string]: NativeReportSummary; } | undefined {
+        return this['scan_overview'];
     }
 }

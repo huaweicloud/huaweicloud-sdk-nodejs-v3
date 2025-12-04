@@ -6,6 +6,7 @@ export class UpdateResourceViewsRequestBody {
     private 'organization_id'?: string;
     private 'view_type'?: string;
     public name?: string;
+    private 'domain_ids'?: Array<string>;
     public constructor(organizationUnitIds?: Array<string>, resourceTypes?: Array<string>, viewType?: string, name?: string) { 
         this['organization_unit_ids'] = organizationUnitIds;
         this['resource_types'] = resourceTypes;
@@ -55,5 +56,15 @@ export class UpdateResourceViewsRequestBody {
     public withName(name: string): UpdateResourceViewsRequestBody {
         this['name'] = name;
         return this;
+    }
+    public withDomainIds(domainIds: Array<string>): UpdateResourceViewsRequestBody {
+        this['domain_ids'] = domainIds;
+        return this;
+    }
+    public set domainIds(domainIds: Array<string>  | undefined) {
+        this['domain_ids'] = domainIds;
+    }
+    public get domainIds(): Array<string> | undefined {
+        return this['domain_ids'];
     }
 }

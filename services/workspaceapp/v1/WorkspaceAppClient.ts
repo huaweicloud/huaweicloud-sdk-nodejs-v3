@@ -1629,7 +1629,7 @@ export class WorkspaceAppClient {
      * @param {string} folderUrl 查询文件夹路径
      * @param {string} [cloudStorageAssignmentId] 个人文件夹ID。(用户拥有多个文件夹时，如果不传个人文件夹id则选择最早创建的文件系统进行文件查询)
      * @param {string} [marker] 指定一个标识符，从该标识符以后按文件名的字典顺序返回文件列表。
-     * @param {number} [maxKeys] 列举文件系统的最大数目，返回的文件系统列表将是按照字典顺序的最多前 maxKeys 个，默认取值为1000。
+     * @param {number} [limit] 列举文件系统的最大数目，返回的文件系统列表将是按照字典顺序的最多前 limit 个，默认取值为1000。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6211,7 +6211,7 @@ export const ParamCreater = function () {
             
             let marker;
             
-            let maxKeys;
+            let limit;
 
             if (listFoldersAndFilesRequest !== null && listFoldersAndFilesRequest !== undefined) {
                 if (listFoldersAndFilesRequest instanceof ListFoldersAndFilesRequest) {
@@ -6219,13 +6219,13 @@ export const ParamCreater = function () {
                     folderUrl = listFoldersAndFilesRequest.folderUrl;
                     cloudStorageAssignmentId = listFoldersAndFilesRequest.cloudStorageAssignmentId;
                     marker = listFoldersAndFilesRequest.marker;
-                    maxKeys = listFoldersAndFilesRequest.maxKeys;
+                    limit = listFoldersAndFilesRequest.limit;
                 } else {
                     userName = listFoldersAndFilesRequest['user_name'];
                     folderUrl = listFoldersAndFilesRequest['folder_url'];
                     cloudStorageAssignmentId = listFoldersAndFilesRequest['cloud_storage_assignment_id'];
                     marker = listFoldersAndFilesRequest['marker'];
-                    maxKeys = listFoldersAndFilesRequest['max_keys'];
+                    limit = listFoldersAndFilesRequest['limit'];
                 }
             }
 
@@ -6248,8 +6248,8 @@ export const ParamCreater = function () {
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
             }
-            if (maxKeys !== null && maxKeys !== undefined) {
-                localVarQueryParameter['max_keys'] = maxKeys;
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
 
             options.queryParams = localVarQueryParameter;

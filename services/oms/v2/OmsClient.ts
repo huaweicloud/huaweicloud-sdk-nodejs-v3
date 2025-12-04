@@ -108,6 +108,8 @@ import { TaskResp } from './model/TaskResp';
 import { UpdateBandwidthPolicyReq } from './model/UpdateBandwidthPolicyReq';
 import { UpdateBandwidthPolicyRequest } from './model/UpdateBandwidthPolicyRequest';
 import { UpdateBandwidthPolicyResponse } from './model/UpdateBandwidthPolicyResponse';
+import { UpdatePrivacyAgreementRecordRequest } from './model/UpdatePrivacyAgreementRecordRequest';
+import { UpdatePrivacyAgreementRecordResponse } from './model/UpdatePrivacyAgreementRecordResponse';
 import { UpdateTaskGroupRequest } from './model/UpdateTaskGroupRequest';
 import { UpdateTaskGroupResponse } from './model/UpdateTaskGroupResponse';
 import { Version } from './model/Version';
@@ -270,7 +272,7 @@ export class OmsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除迁移任务
-     * @param {string} taskId 迁移任务ID。
+     * @param {number} taskId 迁移任务ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -310,9 +312,9 @@ export class OmsClient {
      *
      * @summary 查询指定ID的同步任务统计数据
      * @param {string} syncTaskId 同步任务ID。
-     * @param {'REQUEST' | 'SUCCESS' | 'FAILURE' | 'SKIP' | 'SIZE'} dataType 统计数据类型： 多类型查询用‘,’分割； REQUEST：接收同步请求对象数 SUCCESS：同步成功对象数 FAILURE：同步失败对象数 SKIP：同步跳过对象数 SIZE：同步成功对象容量(Byte)
+     * @param {'REQUEST' | 'SUCCESS' | 'FAILURE' | 'SKIP' | 'SIZE'} dataType 统计数据类型： 多类型查询用‘,’分隔； REQUEST：接收同步请求对象数 SUCCESS：同步成功对象数 FAILURE：同步失败对象数 SKIP：同步跳过对象数 SIZE：同步成功对象容量(Byte)
      * @param {string} startTime 查询开始时间
-     * @param {string} endTime 查询开始时间
+     * @param {string} endTime 查询结束时间
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -505,11 +507,11 @@ export class OmsClient {
     }
 
     /**
-     * 查询云厂商支持的reigon
+     * 查询云厂商支持的region
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询云厂商支持的reigon
+     * @summary 查询云厂商支持的region
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -548,7 +550,7 @@ export class OmsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定ID的任务详情
-     * @param {string} taskId 任务ID
+     * @param {number} taskId 任务ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -606,7 +608,7 @@ export class OmsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 启动迁移任务
-     * @param {string} taskId 迁移任务ID。
+     * @param {number} taskId 迁移任务ID。
      * @param {StartTaskReq} startTaskRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -665,7 +667,7 @@ export class OmsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 暂停迁移任务
-     * @param {string} taskId 迁移任务ID。
+     * @param {number} taskId 迁移任务ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -703,13 +705,31 @@ export class OmsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新任务带宽策略
-     * @param {string} taskId 任务ID。
+     * @param {number} taskId 任务ID。
      * @param {UpdateBandwidthPolicyReq} updateBandwidthPolicyRequestBody 流量控制策略。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public updateBandwidthPolicy(updateBandwidthPolicyRequest?: UpdateBandwidthPolicyRequest): Promise<UpdateBandwidthPolicyResponse> {
         const options = ParamCreater().updateBandwidthPolicy(updateBandwidthPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建迁移任务、任务组、评估任务时，记录用户同意隐私协议。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 同意隐私协议
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePrivacyAgreementRecord(updatePrivacyAgreementRecordRequest?: UpdatePrivacyAgreementRecordRequest): Promise<UpdatePrivacyAgreementRecordResponse> {
+        const options = ParamCreater().updatePrivacyAgreementRecord();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1595,7 +1615,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询云厂商支持的reigon
+         * 查询云厂商支持的region
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2028,6 +2048,27 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建迁移任务、任务组、评估任务时，记录用户同意隐私协议。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePrivacyAgreementRecord() {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/privacy-agreements",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
