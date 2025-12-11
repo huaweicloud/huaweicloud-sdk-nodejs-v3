@@ -2,6 +2,8 @@
 
 export class ListAvailableRdsRequest {
     private 'instance_id'?: string;
+    public offset?: number;
+    public limit?: number;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -14,5 +16,13 @@ export class ListAvailableRdsRequest {
     }
     public get instanceId(): string | undefined {
         return this['instance_id'];
+    }
+    public withOffset(offset: number): ListAvailableRdsRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: number): ListAvailableRdsRequest {
+        this['limit'] = limit;
+        return this;
     }
 }

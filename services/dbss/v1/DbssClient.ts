@@ -1730,7 +1730,7 @@ export class DbssClient {
      * @summary 查询风险规则策略[待下线]
      * @param {string} instanceId **参数解释**： 实例ID。可通过查询实例列表接口ID字段获取 **约束限制**： 不涉及 **取值范围**： 以查询实例列表接口值为准，字符长度32-64。 **默认取值**： 不涉及 
      * @param {string} [name] 风险名称
-     * @param {'LOW' | 'MEDIUM' | 'HIGH' | 'NO_RISK'} [riskLevels] 风险级别 - LOW - MEDIUM - HIGH - NO_RISK
+     * @param {'LOW' | 'MEDIUM' | 'HIGH' | 'NO_RISK'} [riskLevels] 风险级别 - LOW：低 - MEDIUM：中 - HIGH：高 - NO_RISK：无风险
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2043,7 +2043,7 @@ export class DbssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询RDS数据库列表
-     * @param {'MYSQL' | 'ORACLE' | 'POSTGRESQL' | 'SQLSERVER' | 'DAMENG' | 'TAURUS' | 'DWS' | 'KINGBASE' | 'MARIADB' | 'GAUSSDBOPENGAUSS'} dbType **参数解释**： 数据库类型 **约束限制**： 区分大小写，只能传递取值范围内的值 **取值范围**：   - MYSQL   - ORACLE   - POSTGRESQL   - SQLSERVER   - DAMENG   - TAURUS   - DWS   - KINGBASE   - MARIADB   - GAUSSDBOPENGAUSS **默认取值**： 不涉及 
+     * @param {'MYSQL' | 'ORACLE' | 'POSTGRESQL' | 'SQLSERVER' | 'DAMENG' | 'TAURUS' | 'DWS' | 'KINGBASE' | 'MARIADB' | 'GAUSSDBOPENGAUSS'} dbType **参数解释**： 数据库类型 **约束限制**： 区分大小写，只能传递取值范围内的值 **取值范围**：   - MYSQL: Mysql   - ORACLE: Oracle   - POSTGRESQL: PostgreSQL   - SQLSERVER: SQL Server   - DAMENG: DAMENG   - TAURUS: TaurusDB   - DWS: GaussDB DWS   - KINGBASE: KINGBASE   - MARIADB: MariaDB   - GAUSSDBOPENGAUSS: GaussDB/openGauss **默认取值**： 不涉及 
      * @param {string} [offset] **参数解释**： 分页偏移量，从第一条数据偏移offset条数据后开始查询 **约束限制**： 仅支持大于等于0的整数 **取值范围**： 大于等于0 **默认取值**： 默认值为0 
      * @param {string} [limit] **参数解释**： 每页查询记录数。 **约束限制**： 仅支持大于0的整数 **取值范围**： 大于0小于等于10000 **默认取值**： 默认值为100 
      * @param {*} [options] Override http request option.

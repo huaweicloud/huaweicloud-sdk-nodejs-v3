@@ -3,8 +3,8 @@
 export class ListOrganizationTreeRequest {
     private 'X-Security-Token'?: string;
     public region?: string;
-    private 'is_refresh'?: boolean;
     private 'enterprise_project_id'?: string;
+    private 'is_refresh'?: boolean;
     public constructor() { 
     }
     public withXSecurityToken(xSecurityToken: string): ListOrganizationTreeRequest {
@@ -21,16 +21,6 @@ export class ListOrganizationTreeRequest {
         this['region'] = region;
         return this;
     }
-    public withIsRefresh(isRefresh: boolean): ListOrganizationTreeRequest {
-        this['is_refresh'] = isRefresh;
-        return this;
-    }
-    public set isRefresh(isRefresh: boolean  | undefined) {
-        this['is_refresh'] = isRefresh;
-    }
-    public get isRefresh(): boolean | undefined {
-        return this['is_refresh'];
-    }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListOrganizationTreeRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
@@ -40,5 +30,15 @@ export class ListOrganizationTreeRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withIsRefresh(isRefresh: boolean): ListOrganizationTreeRequest {
+        this['is_refresh'] = isRefresh;
+        return this;
+    }
+    public set isRefresh(isRefresh: boolean  | undefined) {
+        this['is_refresh'] = isRefresh;
+    }
+    public get isRefresh(): boolean | undefined {
+        return this['is_refresh'];
     }
 }

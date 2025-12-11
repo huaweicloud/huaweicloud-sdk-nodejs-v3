@@ -1,10 +1,10 @@
 
 
-export class ShowPorcessTopRequest {
+export class ShowProcessTopRequest {
     private 'enterprise_project_id'?: string;
     public constructor() { 
     }
-    public withEnterpriseProjectId(enterpriseProjectId: string): ShowPorcessTopRequest {
+    public withEnterpriseProjectId(enterpriseProjectId: string): ShowProcessTopRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }

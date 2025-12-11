@@ -13,6 +13,8 @@ export class ScheduleTask {
     private 'job_status'?: string;
     private 'datastore_type'?: string;
     private 'target_config'?: object;
+    private 'proxy_id'?: string;
+    private 'proxy_name'?: string;
     public constructor() { 
     }
     public withJobId(jobId: string): ScheduleTask {
@@ -134,5 +136,25 @@ export class ScheduleTask {
     }
     public get targetConfig(): object | undefined {
         return this['target_config'];
+    }
+    public withProxyId(proxyId: string): ScheduleTask {
+        this['proxy_id'] = proxyId;
+        return this;
+    }
+    public set proxyId(proxyId: string  | undefined) {
+        this['proxy_id'] = proxyId;
+    }
+    public get proxyId(): string | undefined {
+        return this['proxy_id'];
+    }
+    public withProxyName(proxyName: string): ScheduleTask {
+        this['proxy_name'] = proxyName;
+        return this;
+    }
+    public set proxyName(proxyName: string  | undefined) {
+        this['proxy_name'] = proxyName;
+    }
+    public get proxyName(): string | undefined {
+        return this['proxy_name'];
     }
 }

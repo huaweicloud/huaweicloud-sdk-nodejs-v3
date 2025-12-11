@@ -120,7 +120,7 @@ export * from './model/PhoneMetadata';
 export * from './model/PhoneModel';
 export * from './model/PhoneProperty';
 export * from './model/Port';
-export * from './model/Property';
+export * from './model/PropertyToUpdate';
 export * from './model/PushFileRequest';
 export * from './model/PushFileRequestBody';
 export * from './model/PushFileResponse';

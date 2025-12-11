@@ -1,12 +1,12 @@
-import { Property } from './Property';
+import { PropertyToUpdate } from './PropertyToUpdate';
 
 
 export class UpdateCloudPhonePropertyRequestBody {
-    public phones?: Array<Property>;
-    public constructor(phones?: Array<Property>) { 
+    public phones?: Array<PropertyToUpdate>;
+    public constructor(phones?: Array<PropertyToUpdate>) { 
         this['phones'] = phones;
     }
-    public withPhones(phones: Array<Property>): UpdateCloudPhonePropertyRequestBody {
+    public withPhones(phones: Array<PropertyToUpdate>): UpdateCloudPhonePropertyRequestBody {
         this['phones'] = phones;
         return this;
     }

@@ -756,7 +756,7 @@ export class GaussDBforNoSQLClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建参数模板
-     * @param {CreateConfigurationRequestBody} createConfigurationRequestBody 请求体。
+     * @param {CreateConfigurationRequestBody} createConfigurationRequestBody **参数解释：** 请求体。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2576,9 +2576,9 @@ export class GaussDBforNoSQLClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询参数模板应用历史
-     * @param {string} configId 参数组id
-     * @param {number} [offset] 索引位置，偏移量。  从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询）。  取值必须为数字，不能为负数。
-     * @param {number} [limit] 查询个数上限值。   - 取值范围: 1~100。   - 不传该参数时，默认查询前100条信息。
+     * @param {string} configId **参数解释：** 参数组id。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {number} [offset] **参数解释：** 索引位置，偏移量。 **约束限制：** 不涉及。 **取值范围：** 取值必须为数字，不能为负数。 **默认取值：** 从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询）。
+     * @param {number} [limit] **参数解释：** 查询个数上限值。 **约束限制：** 不涉及。 **取值范围：** 取值范围: 1~100。 **默认取值：** 不传该参数时，默认查询前100条信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

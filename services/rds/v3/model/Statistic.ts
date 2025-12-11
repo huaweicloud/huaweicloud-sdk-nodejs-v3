@@ -3,11 +3,11 @@
 export class Statistic {
     private 'user_name'?: string;
     public database?: string;
-    private 'query_id'?: number;
+    private 'query_id'?: string;
     public calls?: number;
     public query?: string;
     public rows?: number;
-    private 'can_use'?: number;
+    public canUse?: number;
     public constructor() { 
     }
     public withUserName(userName: string): Statistic {
@@ -24,14 +24,14 @@ export class Statistic {
         this['database'] = database;
         return this;
     }
-    public withQueryId(queryId: number): Statistic {
+    public withQueryId(queryId: string): Statistic {
         this['query_id'] = queryId;
         return this;
     }
-    public set queryId(queryId: number  | undefined) {
+    public set queryId(queryId: string  | undefined) {
         this['query_id'] = queryId;
     }
-    public get queryId(): number | undefined {
+    public get queryId(): string | undefined {
         return this['query_id'];
     }
     public withCalls(calls: number): Statistic {
@@ -47,13 +47,7 @@ export class Statistic {
         return this;
     }
     public withCanUse(canUse: number): Statistic {
-        this['can_use'] = canUse;
+        this['canUse'] = canUse;
         return this;
-    }
-    public set canUse(canUse: number  | undefined) {
-        this['can_use'] = canUse;
-    }
-    public get canUse(): number | undefined {
-        return this['can_use'];
     }
 }

@@ -4,6 +4,8 @@ export class ShowBackupRestoreTimeRequest {
     private 'X-Language'?: string;
     private 'instance_id'?: string;
     public date?: string;
+    private 'start_time'?: string;
+    private 'end_time'?: string;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -30,5 +32,25 @@ export class ShowBackupRestoreTimeRequest {
     public withDate(date: string): ShowBackupRestoreTimeRequest {
         this['date'] = date;
         return this;
+    }
+    public withStartTime(startTime: string): ShowBackupRestoreTimeRequest {
+        this['start_time'] = startTime;
+        return this;
+    }
+    public set startTime(startTime: string  | undefined) {
+        this['start_time'] = startTime;
+    }
+    public get startTime(): string | undefined {
+        return this['start_time'];
+    }
+    public withEndTime(endTime: string): ShowBackupRestoreTimeRequest {
+        this['end_time'] = endTime;
+        return this;
+    }
+    public set endTime(endTime: string  | undefined) {
+        this['end_time'] = endTime;
+    }
+    public get endTime(): string | undefined {
+        return this['end_time'];
     }
 }

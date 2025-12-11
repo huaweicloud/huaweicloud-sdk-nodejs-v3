@@ -13,9 +13,8 @@ export class ListWebAppAndServicesRequest {
     public version?: string;
     private 'install_dir'?: string;
     private 'part_match'?: boolean;
-    public constructor(category?: string, name?: string, catalogue?: string) { 
+    public constructor(category?: string, catalogue?: string) { 
         this['category'] = category;
-        this['name'] = name;
         this['catalogue'] = catalogue;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListWebAppAndServicesRequest {

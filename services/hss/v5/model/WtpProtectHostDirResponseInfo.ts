@@ -3,6 +3,7 @@
 export class WtpProtectHostDirResponseInfo {
     private 'protect_dir'?: string;
     private 'exclude_child_dir'?: string;
+    private 'exclude_file_path'?: string;
     private 'exclue_file_path'?: string;
     private 'local_backup_dir'?: string;
     private 'protect_status'?: string;
@@ -28,6 +29,16 @@ export class WtpProtectHostDirResponseInfo {
     }
     public get excludeChildDir(): string | undefined {
         return this['exclude_child_dir'];
+    }
+    public withExcludeFilePath(excludeFilePath: string): WtpProtectHostDirResponseInfo {
+        this['exclude_file_path'] = excludeFilePath;
+        return this;
+    }
+    public set excludeFilePath(excludeFilePath: string  | undefined) {
+        this['exclude_file_path'] = excludeFilePath;
+    }
+    public get excludeFilePath(): string | undefined {
+        return this['exclude_file_path'];
     }
     public withExclueFilePath(exclueFilePath: string): WtpProtectHostDirResponseInfo {
         this['exclue_file_path'] = exclueFilePath;

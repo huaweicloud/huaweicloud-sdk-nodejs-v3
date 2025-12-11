@@ -227,6 +227,7 @@ import { SealList } from './model/SealList';
 import { SealRequestBody } from './model/SealRequestBody';
 import { SealResult } from './model/SealResult';
 import { SealWordsBlockList } from './model/SealWordsBlockList';
+import { SmartDocumentRecognizerCharList } from './model/SmartDocumentRecognizerCharList';
 import { SmartDocumentRecognizerFormResult } from './model/SmartDocumentRecognizerFormResult';
 import { SmartDocumentRecognizerFormulaBlock } from './model/SmartDocumentRecognizerFormulaBlock';
 import { SmartDocumentRecognizerFormulaResult } from './model/SmartDocumentRecognizerFormulaResult';

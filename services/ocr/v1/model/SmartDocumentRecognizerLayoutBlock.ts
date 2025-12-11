@@ -7,6 +7,7 @@ export class SmartDocumentRecognizerLayoutBlock {
     private 'words_ids'?: Array<number>;
     private 'table_id'?: number;
     private 'form_id'?: number;
+    private 'formula_id'?: number;
     public constructor() { 
     }
     public withLocation(location: Array<Array<number>>): SmartDocumentRecognizerLayoutBlock {
@@ -50,5 +51,15 @@ export class SmartDocumentRecognizerLayoutBlock {
     }
     public get formId(): number | undefined {
         return this['form_id'];
+    }
+    public withFormulaId(formulaId: number): SmartDocumentRecognizerLayoutBlock {
+        this['formula_id'] = formulaId;
+        return this;
+    }
+    public set formulaId(formulaId: number  | undefined) {
+        this['formula_id'] = formulaId;
+    }
+    public get formulaId(): number | undefined {
+        return this['formula_id'];
     }
 }

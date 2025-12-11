@@ -6,9 +6,9 @@ export class CreateConfigurationRequestBody {
     public description?: string;
     public datastore?: CreateConfigurationDatastoreOption;
     public values?: { [key: string]: string; };
-    public constructor(name?: string, datastore?: CreateConfigurationDatastoreOption) { 
+    private 'instance_id'?: string;
+    public constructor(name?: string) { 
         this['name'] = name;
-        this['datastore'] = datastore;
     }
     public withName(name: string): CreateConfigurationRequestBody {
         this['name'] = name;
@@ -25,5 +25,15 @@ export class CreateConfigurationRequestBody {
     public withValues(values: { [key: string]: string; }): CreateConfigurationRequestBody {
         this['values'] = values;
         return this;
+    }
+    public withInstanceId(instanceId: string): CreateConfigurationRequestBody {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
     }
 }

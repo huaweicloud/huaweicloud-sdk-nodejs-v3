@@ -6,6 +6,7 @@ export class IncrementalBackups {
     private 'begin_time'?: string;
     private 'end_time'?: string;
     public size?: number;
+    private 'backup_type'?: string;
     private 'instance_id'?: string;
     public constructor() { 
     }
@@ -40,6 +41,16 @@ export class IncrementalBackups {
     public withSize(size: number): IncrementalBackups {
         this['size'] = size;
         return this;
+    }
+    public withBackupType(backupType: string): IncrementalBackups {
+        this['backup_type'] = backupType;
+        return this;
+    }
+    public set backupType(backupType: string  | undefined) {
+        this['backup_type'] = backupType;
+    }
+    public get backupType(): string | undefined {
+        return this['backup_type'];
     }
     public withInstanceId(instanceId: string): IncrementalBackups {
         this['instance_id'] = instanceId;

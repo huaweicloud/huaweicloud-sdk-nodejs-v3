@@ -122,7 +122,7 @@ import { PhoneMetadata } from './model/PhoneMetadata';
 import { PhoneModel } from './model/PhoneModel';
 import { PhoneProperty } from './model/PhoneProperty';
 import { Port } from './model/Port';
-import { Property } from './model/Property';
+import { PropertyToUpdate } from './model/PropertyToUpdate';
 import { PushFileRequest } from './model/PushFileRequest';
 import { PushFileRequestBody } from './model/PushFileRequestBody';
 import { PushFileResponse } from './model/PushFileResponse';

@@ -1,11 +1,13 @@
 import { ShowVulReportDataResponseInfoHosts } from './ShowVulReportDataResponseInfoHosts';
 import { ShowVulReportDataResponseInfoSumary } from './ShowVulReportDataResponseInfoSumary';
+import { ShowVulReportDataResponseInfoSummary } from './ShowVulReportDataResponseInfoSummary';
 import { ShowVulReportDataResponseInfoVulnerabilities } from './ShowVulReportDataResponseInfoVulnerabilities';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowVulReportDataResponse extends SdkResponse {
     public sumary?: ShowVulReportDataResponseInfoSumary;
+    public summary?: ShowVulReportDataResponseInfoSummary;
     public hosts?: Array<ShowVulReportDataResponseInfoHosts>;
     public vulnerabilities?: Array<ShowVulReportDataResponseInfoVulnerabilities>;
     private 'report_create_time'?: number;
@@ -16,6 +18,10 @@ export class ShowVulReportDataResponse extends SdkResponse {
     }
     public withSumary(sumary: ShowVulReportDataResponseInfoSumary): ShowVulReportDataResponse {
         this['sumary'] = sumary;
+        return this;
+    }
+    public withSummary(summary: ShowVulReportDataResponseInfoSummary): ShowVulReportDataResponse {
+        this['summary'] = summary;
         return this;
     }
     public withHosts(hosts: Array<ShowVulReportDataResponseInfoHosts>): ShowVulReportDataResponse {

@@ -8,12 +8,15 @@ import { AssociateRouteTableRequest } from './model/AssociateRouteTableRequest';
 import { AssociateRouteTableResponse } from './model/AssociateRouteTableResponse';
 import { Association } from './model/Association';
 import { AssociationRequestBody } from './model/AssociationRequestBody';
+import { AssociationRoutePolicyRequestBody } from './model/AssociationRoutePolicyRequestBody';
 import { AttachmentDetails } from './model/AttachmentDetails';
 import { AttachmentResponse } from './model/AttachmentResponse';
 import { AvailableZone } from './model/AvailableZone';
 import { BatchCreateResourceTagsRequest } from './model/BatchCreateResourceTagsRequest';
 import { BatchCreateResourceTagsResponse } from './model/BatchCreateResourceTagsResponse';
 import { BatchOperateResourceTagsRequestBody } from './model/BatchOperateResourceTagsRequestBody';
+import { ChangeAssociationRoutePolicyRequest } from './model/ChangeAssociationRoutePolicyRequest';
+import { ChangeAssociationRoutePolicyResponse } from './model/ChangeAssociationRoutePolicyResponse';
 import { ChangeAvailabilityZoneRequest } from './model/ChangeAvailabilityZoneRequest';
 import { ChangeAvailabilityZoneResponse } from './model/ChangeAvailabilityZoneResponse';
 import { CreateEnterpriseRouter } from './model/CreateEnterpriseRouter';
@@ -126,6 +129,9 @@ import { UpdateEnterpriseRouterResponse } from './model/UpdateEnterpriseRouterRe
 import { UpdateFlowLogRequest } from './model/UpdateFlowLogRequest';
 import { UpdateFlowLogRequestBody } from './model/UpdateFlowLogRequestBody';
 import { UpdateFlowLogResponse } from './model/UpdateFlowLogResponse';
+import { UpdatePropagationRequestBody } from './model/UpdatePropagationRequestBody';
+import { UpdatePropagationRoutePolicyRequest } from './model/UpdatePropagationRoutePolicyRequest';
+import { UpdatePropagationRoutePolicyResponse } from './model/UpdatePropagationRoutePolicyResponse';
 import { UpdateRoute } from './model/UpdateRoute';
 import { UpdateRouteRequestBody } from './model/UpdateRouteRequestBody';
 import { UpdateRouteTable } from './model/UpdateRouteTable';
@@ -180,6 +186,28 @@ export class ErClient {
     }
 
     /**
+     * 修改关联的路由策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改关联的路由策略
+     * @param {string} erId 企业路由器实例ID
+     * @param {string} routeTableId 路由表ID
+     * @param {string} associationId 关联ID
+     * @param {AssociationRoutePolicyRequestBody} changeExportRoutePolicyRequestBody Association object that needs to be update
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeAssociationRoutePolicy(changeAssociationRoutePolicyRequest?: ChangeAssociationRoutePolicyRequest): Promise<ChangeAssociationRoutePolicyResponse> {
+        const options = ParamCreater().changeAssociationRoutePolicy(changeAssociationRoutePolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 解绑连接和路由表的关联关系。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -211,7 +239,7 @@ export class ErClient {
      * @param {number} [limit] 每页返回的个数。 取值范围：0~2000。
      * @param {string} [marker] 上一页最后一条记录的企业路由器实例的id，为空时为查询第一页。 使用说明：必须与limit一起使用。
      * @param {Array<string>} [attachmentId] 连接ID
-     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'ecn' | 'gdgw' | 'connect' | 'cfw'>} [resourceType] - vpc：虚拟私有云 - vpn：vpn网关 - vgw：云专线的虚拟网关 - peering：对等连接，通过云连接CC加载不同区域的企业路由器来创建“对等连接（Peering）”连接 -  -  -  -
+     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'ecn' | 'gdgw' | 'connect' | 'cfw'>} [resourceType] - vpc：虚拟私有云 - vpn：vpn网关 - vgw：云专线的虚拟网关 - peering：对等连接，通过云连接CC加载不同区域的企业路由器来创建“对等连接（Peering）”连接
      * @param {Array<'pending' | 'available' | 'deleting' | 'deleted' | 'failed' | 'modifying'>} [state] 状态
      * @param {Array<string>} [sortKey] 按关键字排序，默认按照id排序，可选值:id|name|state
      * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序或降序排列，默认为asc,降序为desc
@@ -257,7 +285,7 @@ export class ErClient {
      * @param {number} [limit] 每页返回的个数。 取值范围：0~2000。
      * @param {string} [marker] 上一页最后一条记录的企业路由器实例的id，为空时为查询第一页。 使用说明：必须与limit一起使用。
      * @param {Array<'pending' | 'available' | 'modifying' | 'deleting' | 'deleted' | 'failed' | 'initiating_request' | 'rejected' | 'pending_acceptance'>} [state] 连接状态:pending|available|modifying|deleting|deleted|failed|pending_acceptance|rejected|initiating_request
-     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'ecn' | 'gdgw' | 'connect' | 'cfw'>} [resourceType] - vpc：虚拟私有云 - vpn：vpn网关 - vgw：云专线的虚拟网关 - peering：对等连接，通过云连接CC加载不同区域的企业路由器来创建“对等连接（Peering）”连接 -  -  -  -
+     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'ecn' | 'gdgw' | 'connect' | 'cfw'>} [resourceType] - vpc：虚拟私有云 - vpn：vpn网关 - vgw：云专线的虚拟网关 - peering：对等连接，通过云连接CC加载不同区域的企业路由器来创建“对等连接（Peering）”连接
      * @param {Array<string>} [resourceId] 连接对应的资源ID列表
      * @param {Array<string>} [sortKey] 按关键字排序，默认按照id排序，可选值:id|name|state
      * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序或降序排列，默认为asc,降序为desc
@@ -679,7 +707,7 @@ export class ErClient {
      * @param {number} [limit] 每页返回的个数。 取值范围：0~2000。
      * @param {string} [marker] 上一页最后一条记录的企业路由器实例的id，为空时为查询第一页。 使用说明：必须与limit一起使用。
      * @param {Array<string>} [attachmentId] 连接ID
-     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'ecn' | 'gdgw' | 'connect' | 'cfw'>} [resourceType] - vpc：虚拟私有云 - vpn：vpn网关 - vgw：云专线的虚拟网关 - peering：对等连接，通过云连接CC加载不同区域的企业路由器来创建“对等连接（Peering）”连接 -  -  -  -
+     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'ecn' | 'gdgw' | 'connect' | 'cfw'>} [resourceType] - vpc：虚拟私有云 - vpn：vpn网关 - vgw：云专线的虚拟网关 - peering：对等连接，通过云连接CC加载不同区域的企业路由器来创建“对等连接（Peering）”连接
      * @param {Array<'pending' | 'available' | 'modifying' | 'deleting' | 'deleted' | 'failed'>} [state] 企业路由器实例状态
      * @param {Array<string>} [sortKey] 按关键字排序，默认按照id排序，可选值:id|name|state
      * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序或降序排列，默认为asc,降序为desc
@@ -688,6 +716,28 @@ export class ErClient {
      */
     public listPropagations(listPropagationsRequest?: ListPropagationsRequest): Promise<ListPropagationsResponse> {
         const options = ParamCreater().listPropagations(listPropagationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改路由策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改路由策略
+     * @param {string} erId 企业路由器实例ID
+     * @param {string} routeTableId 路由表ID
+     * @param {string} propagationId 传播ID
+     * @param {UpdatePropagationRequestBody} updatePropagationRequestBody Propagation object that needs to be update
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePropagationRoutePolicy(updatePropagationRoutePolicyRequest?: UpdatePropagationRoutePolicyRequest): Promise<UpdatePropagationRoutePolicyResponse> {
+        const options = ParamCreater().updatePropagationRoutePolicy(updatePropagationRoutePolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -768,7 +818,7 @@ export class ErClient {
      * @param {number} [limit] 每页返回的个数。 取值范围：0~2000。
      * @param {string} [marker] 上一页最后一条记录的企业路由器实例的id，为空时为查询第一页。 使用说明：必须与limit一起使用。
      * @param {Array<string>} [destination] 路由目的地址
-     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'ecn' | 'gdgw' | 'connect' | 'cfw'>} [resourceType] - vpc：虚拟私有云 - vpn：vpn网关 - vgw：云专线的虚拟网关 - peering：对等连接，通过云连接CC加载不同区域的企业路由器来创建“对等连接（Peering）”连接 -  -  -  -
+     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'ecn' | 'gdgw' | 'connect' | 'cfw'>} [resourceType] - vpc：虚拟私有云 - vpn：vpn网关 - vgw：云专线的虚拟网关 - peering：对等连接，通过云连接CC加载不同区域的企业路由器来创建“对等连接（Peering）”连接
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -792,7 +842,7 @@ export class ErClient {
      * @param {string} [marker] 上一页最后一条记录的企业路由器实例的id，为空时为查询第一页。 使用说明：必须与limit一起使用。
      * @param {Array<string>} [destination] 路由目的地址
      * @param {Array<string>} [attachmentId] 连接ID
-     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'ecn' | 'gdgw' | 'connect' | 'cfw'>} [resourceType] - vpc：虚拟私有云 - vpn：vpn网关 - vgw：云专线的虚拟网关 - peering：对等连接，通过云连接CC加载不同区域的企业路由器来创建“对等连接（Peering）”连接 -  -  -  -
+     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'ecn' | 'gdgw' | 'connect' | 'cfw'>} [resourceType] - vpc：虚拟私有云 - vpn：vpn网关 - vgw：云专线的虚拟网关 - peering：对等连接，通过云连接CC加载不同区域的企业路由器来创建“对等连接（Peering）”连接
      * @param {Array<string>} [sortKey] 按关键字排序，默认按照id排序，可选值:id|name|state
      * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序或降序排列，默认为asc,降序为desc
      * @param {*} [options] Override http request option.
@@ -965,7 +1015,7 @@ export class ErClient {
      *
      * @summary 批量添加删除资源标签
      * @param {string} resourceId 资源ID
-     * @param {'instance' | 'route-table' | 'vpc-attachment' | 'dgw-attachment' | 'vgw-attachment' | 'peering-attachment' | 'vpn-attachment' | 'can-attachment' | 'ecn-attachment' | 'gdgw-attachment' | 'connect-attachment' | 'cfw-attachment' | 'attachments'} resourceType 标签资源类型: - instance: 企业路由器实例 - route-table: 路由表 - vpc-attachment: VPC连接 - vgw-attachment: 虚拟网关连接 - peering-attachment: 对等连接（Peering）连接 - vpn-attachment: VPN网关连接 -  -  -  -  - attachments: 所有连接类型
+     * @param {'instance' | 'route-table' | 'vpc-attachment' | 'dgw-attachment' | 'vgw-attachment' | 'peering-attachment' | 'vpn-attachment' | 'can-attachment' | 'ecn-attachment' | 'gdgw-attachment' | 'connect-attachment' | 'cfw-attachment' | 'attachments'} resourceType 标签资源类型: - instance: 企业路由器实例 - route-table: 路由表 - vpc-attachment: VPC连接 - vgw-attachment: 虚拟网关连接 - peering-attachment: 对等连接（Peering）连接 - vpn-attachment: VPN网关连接 - attachments: 所有连接类型
      * @param {BatchOperateResourceTagsRequestBody} batchCreateResourceTagsRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -986,7 +1036,7 @@ export class ErClient {
      *
      * @summary 创建资源标签
      * @param {string} resourceId 资源ID
-     * @param {'instance' | 'route-table' | 'vpc-attachment' | 'dgw-attachment' | 'vgw-attachment' | 'peering-attachment' | 'vpn-attachment' | 'can-attachment' | 'ecn-attachment' | 'gdgw-attachment' | 'connect-attachment' | 'cfw-attachment' | 'attachments'} resourceType 标签资源类型: - instance: 企业路由器实例 - route-table: 路由表 - vpc-attachment: VPC连接 - vgw-attachment: 虚拟网关连接 - peering-attachment: 对等连接（Peering）连接 - vpn-attachment: VPN网关连接 -  -  -  -  - attachments: 所有连接类型
+     * @param {'instance' | 'route-table' | 'vpc-attachment' | 'dgw-attachment' | 'vgw-attachment' | 'peering-attachment' | 'vpn-attachment' | 'can-attachment' | 'ecn-attachment' | 'gdgw-attachment' | 'connect-attachment' | 'cfw-attachment' | 'attachments'} resourceType 标签资源类型: - instance: 企业路由器实例 - route-table: 路由表 - vpc-attachment: VPC连接 - vgw-attachment: 虚拟网关连接 - peering-attachment: 对等连接（Peering）连接 - vpn-attachment: VPN网关连接 - attachments: 所有连接类型
      * @param {CreateResourceTagRequestBody} createResourceTagRequestBody 创建资源标签请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1008,7 +1058,7 @@ export class ErClient {
      * @summary 删除资源标签
      * @param {string} key 标签键
      * @param {string} resourceId 资源ID
-     * @param {'instance' | 'route-table' | 'vpc-attachment' | 'dgw-attachment' | 'vgw-attachment' | 'peering-attachment' | 'vpn-attachment' | 'can-attachment' | 'ecn-attachment' | 'gdgw-attachment' | 'connect-attachment' | 'cfw-attachment' | 'attachments'} resourceType 标签资源类型: - instance: 企业路由器实例 - route-table: 路由表 - vpc-attachment: VPC连接 - vgw-attachment: 虚拟网关连接 - peering-attachment: 对等连接（Peering）连接 - vpn-attachment: VPN网关连接 -  -  -  -  - attachments: 所有连接类型
+     * @param {'instance' | 'route-table' | 'vpc-attachment' | 'dgw-attachment' | 'vgw-attachment' | 'peering-attachment' | 'vpn-attachment' | 'can-attachment' | 'ecn-attachment' | 'gdgw-attachment' | 'connect-attachment' | 'cfw-attachment' | 'attachments'} resourceType 标签资源类型: - instance: 企业路由器实例 - route-table: 路由表 - vpc-attachment: VPC连接 - vgw-attachment: 虚拟网关连接 - peering-attachment: 对等连接（Peering）连接 - vpn-attachment: VPN网关连接 - attachments: 所有连接类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1027,7 +1077,7 @@ export class ErClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询项目标签
-     * @param {'instance' | 'route-table' | 'vpc-attachment' | 'dgw-attachment' | 'vgw-attachment' | 'peering-attachment' | 'vpn-attachment' | 'can-attachment' | 'ecn-attachment' | 'gdgw-attachment' | 'connect-attachment' | 'cfw-attachment' | 'attachments'} resourceType 标签资源类型: - instance: 企业路由器实例 - route-table: 路由表 - vpc-attachment: VPC连接 - vgw-attachment: 虚拟网关连接 - peering-attachment: 对等连接（Peering）连接 - vpn-attachment: VPN网关连接 -  -  -  -  - attachments: 所有连接类型
+     * @param {'instance' | 'route-table' | 'vpc-attachment' | 'dgw-attachment' | 'vgw-attachment' | 'peering-attachment' | 'vpn-attachment' | 'can-attachment' | 'ecn-attachment' | 'gdgw-attachment' | 'connect-attachment' | 'cfw-attachment' | 'attachments'} resourceType 标签资源类型: - instance: 企业路由器实例 - route-table: 路由表 - vpc-attachment: VPC连接 - vgw-attachment: 虚拟网关连接 - peering-attachment: 对等连接（Peering）连接 - vpn-attachment: VPN网关连接 - attachments: 所有连接类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1047,7 +1097,7 @@ export class ErClient {
      *
      * @summary 查询资源标签
      * @param {string} resourceId 资源ID
-     * @param {'instance' | 'route-table' | 'vpc-attachment' | 'dgw-attachment' | 'vgw-attachment' | 'peering-attachment' | 'vpn-attachment' | 'can-attachment' | 'ecn-attachment' | 'gdgw-attachment' | 'connect-attachment' | 'cfw-attachment' | 'attachments'} resourceType 标签资源类型: - instance: 企业路由器实例 - route-table: 路由表 - vpc-attachment: VPC连接 - vgw-attachment: 虚拟网关连接 - peering-attachment: 对等连接（Peering）连接 - vpn-attachment: VPN网关连接 -  -  -  -  - attachments: 所有连接类型
+     * @param {'instance' | 'route-table' | 'vpc-attachment' | 'dgw-attachment' | 'vgw-attachment' | 'peering-attachment' | 'vpn-attachment' | 'can-attachment' | 'ecn-attachment' | 'gdgw-attachment' | 'connect-attachment' | 'cfw-attachment' | 'attachments'} resourceType 标签资源类型: - instance: 企业路由器实例 - route-table: 路由表 - vpc-attachment: VPC连接 - vgw-attachment: 虚拟网关连接 - peering-attachment: 对等连接（Peering）连接 - vpn-attachment: VPN网关连接 - attachments: 所有连接类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1228,6 +1278,66 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'er_id': erId,'route_table_id': routeTableId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改关联的路由策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeAssociationRoutePolicy(changeAssociationRoutePolicyRequest?: ChangeAssociationRoutePolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/enterprise-router/{er_id}/route-tables/{route_table_id}/associations/{association_id}/change-route-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let erId;
+            
+            let routeTableId;
+            
+            let associationId;
+
+            if (changeAssociationRoutePolicyRequest !== null && changeAssociationRoutePolicyRequest !== undefined) {
+                if (changeAssociationRoutePolicyRequest instanceof ChangeAssociationRoutePolicyRequest) {
+                    erId = changeAssociationRoutePolicyRequest.erId;
+                    routeTableId = changeAssociationRoutePolicyRequest.routeTableId;
+                    associationId = changeAssociationRoutePolicyRequest.associationId;
+                    body = changeAssociationRoutePolicyRequest.body
+                } else {
+                    erId = changeAssociationRoutePolicyRequest['er_id'];
+                    routeTableId = changeAssociationRoutePolicyRequest['route_table_id'];
+                    associationId = changeAssociationRoutePolicyRequest['association_id'];
+                    body = changeAssociationRoutePolicyRequest['body'];
+                }
+            }
+
+        
+            if (erId === null || erId === undefined) {
+            throw new RequiredError('erId','Required parameter erId was null or undefined when calling changeAssociationRoutePolicy.');
+            }
+            if (routeTableId === null || routeTableId === undefined) {
+            throw new RequiredError('routeTableId','Required parameter routeTableId was null or undefined when calling changeAssociationRoutePolicy.');
+            }
+            if (associationId === null || associationId === undefined) {
+            throw new RequiredError('associationId','Required parameter associationId was null or undefined when calling changeAssociationRoutePolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'er_id': erId,'route_table_id': routeTableId,'association_id': associationId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2557,6 +2667,66 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'er_id': erId,'route_table_id': routeTableId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改路由策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePropagationRoutePolicy(updatePropagationRoutePolicyRequest?: UpdatePropagationRoutePolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/enterprise-router/{er_id}/route-tables/{route_table_id}/propagations/{propagation_id}/change-route-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let erId;
+            
+            let routeTableId;
+            
+            let propagationId;
+
+            if (updatePropagationRoutePolicyRequest !== null && updatePropagationRoutePolicyRequest !== undefined) {
+                if (updatePropagationRoutePolicyRequest instanceof UpdatePropagationRoutePolicyRequest) {
+                    erId = updatePropagationRoutePolicyRequest.erId;
+                    routeTableId = updatePropagationRoutePolicyRequest.routeTableId;
+                    propagationId = updatePropagationRoutePolicyRequest.propagationId;
+                    body = updatePropagationRoutePolicyRequest.body
+                } else {
+                    erId = updatePropagationRoutePolicyRequest['er_id'];
+                    routeTableId = updatePropagationRoutePolicyRequest['route_table_id'];
+                    propagationId = updatePropagationRoutePolicyRequest['propagation_id'];
+                    body = updatePropagationRoutePolicyRequest['body'];
+                }
+            }
+
+        
+            if (erId === null || erId === undefined) {
+            throw new RequiredError('erId','Required parameter erId was null or undefined when calling updatePropagationRoutePolicy.');
+            }
+            if (routeTableId === null || routeTableId === undefined) {
+            throw new RequiredError('routeTableId','Required parameter routeTableId was null or undefined when calling updatePropagationRoutePolicy.');
+            }
+            if (propagationId === null || propagationId === undefined) {
+            throw new RequiredError('propagationId','Required parameter propagationId was null or undefined when calling updatePropagationRoutePolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'er_id': erId,'route_table_id': routeTableId,'propagation_id': propagationId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -12,10 +12,15 @@ import { AuditLogDetail } from './model/AuditLogDetail';
 import { AuditLogDownloadLinkRequestBody } from './model/AuditLogDownloadLinkRequestBody';
 import { AutoScalingRecordInfo } from './model/AutoScalingRecordInfo';
 import { AutoScalingSwitchStatus } from './model/AutoScalingSwitchStatus';
+import { AutoSqlLimitingLog } from './model/AutoSqlLimitingLog';
+import { AutoSqlLimitingRule } from './model/AutoSqlLimitingRule';
 import { Backup } from './model/Backup';
 import { BackupEncryptRequest } from './model/BackupEncryptRequest';
 import { BackupPolicy } from './model/BackupPolicy';
 import { Backups } from './model/Backups';
+import { BatchDeleteBackupRequest } from './model/BatchDeleteBackupRequest';
+import { BatchDeleteBackupRequestBody } from './model/BatchDeleteBackupRequestBody';
+import { BatchDeleteBackupResponse } from './model/BatchDeleteBackupResponse';
 import { BatchOperateInstanceTagRequestBody } from './model/BatchOperateInstanceTagRequestBody';
 import { BatchTagActionRequest } from './model/BatchTagActionRequest';
 import { BatchTagActionResponse } from './model/BatchTagActionResponse';
@@ -164,6 +169,7 @@ import { DedicatedComputeInfo } from './model/DedicatedComputeInfo';
 import { DedicatedResource } from './model/DedicatedResource';
 import { DedicatedResourceCapacity } from './model/DedicatedResourceCapacity';
 import { DedicatedStorageInfo } from './model/DedicatedStorageInfo';
+import { DeleteBackupResult } from './model/DeleteBackupResult';
 import { DeleteChLtsConfigRequestBody } from './model/DeleteChLtsConfigRequestBody';
 import { DeleteChLtsConfigRequestBodyLogConfigs } from './model/DeleteChLtsConfigRequestBodyLogConfigs';
 import { DeleteClickHouseDataBaseConfigRequest } from './model/DeleteClickHouseDataBaseConfigRequest';
@@ -244,6 +250,7 @@ import { GetJobInfoDetail } from './model/GetJobInfoDetail';
 import { GetJobInstanceInfoDetail } from './model/GetJobInstanceInfoDetail';
 import { GrantDatabasePermission } from './model/GrantDatabasePermission';
 import { GrantDatabasePermissionRequestBody } from './model/GrantDatabasePermissionRequestBody';
+import { HistoricalSqlFilterRule } from './model/HistoricalSqlFilterRule';
 import { HtapErrorLogDetailResponseErrorLogList } from './model/HtapErrorLogDetailResponseErrorLogList';
 import { HtapErrorLogQueryRequestBody } from './model/HtapErrorLogQueryRequestBody';
 import { HtapFlavorInfoFlavors } from './model/HtapFlavorInfoFlavors';
@@ -434,6 +441,7 @@ import { MysqlUpdateInstanceNameRequest } from './model/MysqlUpdateInstanceNameR
 import { MysqlVolume } from './model/MysqlVolume';
 import { MysqlVolumeInfo } from './model/MysqlVolumeInfo';
 import { MysqlVolumeResp } from './model/MysqlVolumeResp';
+import { NodeSqlAutoSqlLimiting } from './model/NodeSqlAutoSqlLimiting';
 import { NodeSqlFilterRule } from './model/NodeSqlFilterRule';
 import { NodeSqlFilterRuleInfo } from './model/NodeSqlFilterRuleInfo';
 import { NodeSqlFilterRulePattern } from './model/NodeSqlFilterRulePattern';
@@ -456,6 +464,7 @@ import { PauseStarRocksDataReplicationResponse } from './model/PauseStarRocksDat
 import { ProjectQuotas } from './model/ProjectQuotas';
 import { ProjectTagItem } from './model/ProjectTagItem';
 import { ProxyConfiguration } from './model/ProxyConfiguration';
+import { ProxyEngineRisk } from './model/ProxyEngineRisk';
 import { ProxyFlavor } from './model/ProxyFlavor';
 import { ProxyFlavorGroup } from './model/ProxyFlavorGroup';
 import { ProxyIpGroupDetail } from './model/ProxyIpGroupDetail';
@@ -472,6 +481,7 @@ import { RDSErrorLogDownload } from './model/RDSErrorLogDownload';
 import { ReadableNodeInfos } from './model/ReadableNodeInfos';
 import { RebootClickHouseInstanceRequest } from './model/RebootClickHouseInstanceRequest';
 import { RebootClickHouseInstanceResponse } from './model/RebootClickHouseInstanceResponse';
+import { RecycleBackupV3 } from './model/RecycleBackupV3';
 import { RecycleInstanceV3 } from './model/RecycleInstanceV3';
 import { RecyclePolicy } from './model/RecyclePolicy';
 import { RenameInstanceNodeRequest } from './model/RenameInstanceNodeRequest';
@@ -522,6 +532,9 @@ import { ServerlessScalingPolicy } from './model/ServerlessScalingPolicy';
 import { SetAuditLogPolicyRequest } from './model/SetAuditLogPolicyRequest';
 import { SetAuditLogPolicyRequestBody } from './model/SetAuditLogPolicyRequestBody';
 import { SetAuditLogPolicyResponse } from './model/SetAuditLogPolicyResponse';
+import { SetAutoSqlLimitingReq } from './model/SetAutoSqlLimitingReq';
+import { SetAutoSqlLimitingRequest } from './model/SetAutoSqlLimitingRequest';
+import { SetAutoSqlLimitingResponse } from './model/SetAutoSqlLimitingResponse';
 import { SetGaussMySqlProxyWeightRequest } from './model/SetGaussMySqlProxyWeightRequest';
 import { SetGaussMySqlProxyWeightResponse } from './model/SetGaussMySqlProxyWeightResponse';
 import { SetGaussMySqlQuotasRequest } from './model/SetGaussMySqlQuotasRequest';
@@ -547,6 +560,8 @@ import { ShowAutoScalingHistoryRequest } from './model/ShowAutoScalingHistoryReq
 import { ShowAutoScalingHistoryResponse } from './model/ShowAutoScalingHistoryResponse';
 import { ShowAutoScalingPolicyRequest } from './model/ShowAutoScalingPolicyRequest';
 import { ShowAutoScalingPolicyResponse } from './model/ShowAutoScalingPolicyResponse';
+import { ShowAutoSqlLimitingLogRequest } from './model/ShowAutoSqlLimitingLogRequest';
+import { ShowAutoSqlLimitingLogResponse } from './model/ShowAutoSqlLimitingLogResponse';
 import { ShowBackupRestoreTimeRequest } from './model/ShowBackupRestoreTimeRequest';
 import { ShowBackupRestoreTimeResponse } from './model/ShowBackupRestoreTimeResponse';
 import { ShowClickHouseDatabaseUserRequest } from './model/ShowClickHouseDatabaseUserRequest';
@@ -588,6 +603,8 @@ import { ShowGaussMySqlProxyListRequest } from './model/ShowGaussMySqlProxyListR
 import { ShowGaussMySqlProxyListResponse } from './model/ShowGaussMySqlProxyListResponse';
 import { ShowGaussMySqlQuotasRequest } from './model/ShowGaussMySqlQuotasRequest';
 import { ShowGaussMySqlQuotasResponse } from './model/ShowGaussMySqlQuotasResponse';
+import { ShowHistoricalSqlFilterRuleRequest } from './model/ShowHistoricalSqlFilterRuleRequest';
+import { ShowHistoricalSqlFilterRuleResponse } from './model/ShowHistoricalSqlFilterRuleResponse';
 import { ShowHtapErrorLogDetailRequest } from './model/ShowHtapErrorLogDetailRequest';
 import { ShowHtapErrorLogDetailResponse } from './model/ShowHtapErrorLogDetailResponse';
 import { ShowHtapLtsConfigRequest } from './model/ShowHtapLtsConfigRequest';
@@ -638,6 +655,9 @@ import { ShowSlowLogStatisticsRequestBody } from './model/ShowSlowLogStatisticsR
 import { ShowSlowLogStatisticsResponse } from './model/ShowSlowLogStatisticsResponse';
 import { ShowSlowlogSensitiveStatusRequest } from './model/ShowSlowlogSensitiveStatusRequest';
 import { ShowSlowlogSensitiveStatusResponse } from './model/ShowSlowlogSensitiveStatusResponse';
+import { ShowSqlAutoSqlLimitingReq } from './model/ShowSqlAutoSqlLimitingReq';
+import { ShowSqlAutoSqlLimitingRequest } from './model/ShowSqlAutoSqlLimitingRequest';
+import { ShowSqlAutoSqlLimitingResponse } from './model/ShowSqlAutoSqlLimitingResponse';
 import { ShowSqlFilterControlRequest } from './model/ShowSqlFilterControlRequest';
 import { ShowSqlFilterControlResponse } from './model/ShowSqlFilterControlResponse';
 import { ShowSqlFilterRuleRequest } from './model/ShowSqlFilterRuleRequest';
@@ -869,6 +889,26 @@ export class GaussDBClient {
      */
     public addDatabasePermission(addDatabasePermissionRequest?: AddDatabasePermissionRequest): Promise<AddDatabasePermissionResponse> {
         const options = ParamCreater().addDatabasePermission(addDatabasePermissionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除手动备份。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除手动备份
+     * @param {BatchDeleteBackupRequestBody} batchDeleteBackupRequestBody 请求体。
+     * @param {string} [xLanguage] **参数解释**：              请求语言类型。  **约束限制**：  不涉及。  **取值范围**： - en-us - zh-cn  **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteBackup(batchDeleteBackupRequest?: BatchDeleteBackupRequest): Promise<BatchDeleteBackupResponse> {
+        const options = ParamCreater().batchDeleteBackup(batchDeleteBackupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2240,6 +2280,7 @@ export class GaussDBClient {
      * @param {string} [endTime] 结束时间，格式为\&quot;yyyy-mm-ddThh:mm:ssZ\&quot;。 其中，T指某个时间的开始；Z指时区偏移量，例如偏移1个小时显示为+0100。 说明：创建时返回值为空，数据库实例创建成功后该值不为空。
      * @param {string} [jobId] 任务ID。
      * @param {string} [jobName] 任务调度类型。
+     * @param {string} [instanceId] 实例ID，此参数是实例的唯一标识。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2551,6 +2592,27 @@ export class GaussDBClient {
     }
 
     /**
+     * 开启自治限流。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启自治限流
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  获取方法请参见[查询实例列表](https://support.huaweicloud.com/api-taurusdb/ListGaussMySqlInstancesUnifyStatus.html)。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {SetAutoSqlLimitingReq} setAutoSqlLimitingRequestBody **参数解释**：  开启自治限流请求体。  **约束限制**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：              请求语言类型。  **约束限制**：  不涉及。  **取值范围**： - en-us - zh-cn  **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setAutoSqlLimiting(setAutoSqlLimitingRequest?: SetAutoSqlLimitingRequest): Promise<SetAutoSqlLimitingResponse> {
+        const options = ParamCreater().setAutoSqlLimiting(setAutoSqlLimitingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设置读写分离权重。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2757,6 +2819,27 @@ export class GaussDBClient {
     }
 
     /**
+     * 查询自治限流执行记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询自治限流执行记录
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  获取方法请参见[查询实例列表](https://support.huaweicloud.com/api-taurusdb/ListGaussMySqlInstancesUnifyStatus.html)。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} nodeId **参数解释**：  节点ID。  获取方法请参见[查询实例详情](https://support.huaweicloud.com/api-taurusdb/ShowGaussMySqlInstanceInfoUnifyStatus.html)。  **约束限制**：  节点角色必须为主节点。  **取值范围**：  只能由英文字母、数字组成，前面为UUID，后缀为no07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn  **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutoSqlLimitingLog(showAutoSqlLimitingLogRequest?: ShowAutoSqlLimitingLogRequest): Promise<ShowAutoSqlLimitingLogResponse> {
+        const options = ParamCreater().showAutoSqlLimitingLog(showAutoSqlLimitingLogRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询实例的可恢复时间段。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2765,6 +2848,9 @@ export class GaussDBClient {
      * @param {string} instanceId 租户在某一project下的实例ID。
      * @param {string} [xLanguage] 语言。
      * @param {string} [date] 所需查询的日志，为yyyy-mm-dd字符串格式，时区为UTC。
+     * @param {string} [date2] **参数解释**：  所需查询的日期。  **约束限制**：  不涉及。  **取值范围**：  yyyy-mm-dd字符串格式，时区为UTC。  **默认取值**：  不涉及。
+     * @param {string} [startTime] **参数解释**：  所需查询的起始时间戳。  **约束限制**：  - “start_time”有值时，“end_time”必选。 - “date”有值时，“start_time”失效。  **取值范围**：  格式为UNIX时间戳，单位是毫秒，时区为UTC标准时区。传参时需要将对应时区的时间转为标准时区对应的时间戳，比如，北京时区的时间点需要-8h后再转为时间戳。  **默认取值**：  不涉及。
+     * @param {string} [endTime] **参数解释**：  所需查询的结束时间戳。  **约束限制**：  - “end_time”有值时，“start_time”必选。 - “date”有值时，“end_time”失效。  **取值范围**：  格式为UNIX时间戳，单位是毫秒，时区为UTC标准时区。传参时需要将对应时区的时间转为标准时区对应的时间戳，比如，北京时区的时间点需要-8h后再转为时间戳。  **默认取值**：  不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2941,6 +3027,7 @@ export class GaussDBClient {
      * @param {string} [limit] 查询记录数。默认为10，可取范围：10、20、50。
      * @param {string} [beginTime] 查询开始时间，格式为“yyyy-mm-ddThh:mm:ssZ”。  其中，T指某个时间的开始；Z指时区偏移量，例如偏移1个小时显示为+0100。  “begin_time”有值时，“end_time”必选。
      * @param {string} [endTime] 查询结束时间，格式为“yyyy-mm-ddThh:mm:ssZ”，且大于查询开始时间。  其中，T指某个时间的开始；Z指时区偏移量，例如偏移1个小时显示为+0100。  “end_time”有值时，“begin_time”必选。
+     * @param {boolean} [displayOffsiteBackup] **参数解释**：  是否展示跨区域增量备份。  **约束限制**：  不涉及。  **取值范围**：  - true：展示同区域和跨区域增量备份。 - false：仅展示同区域增量备份。  **默认取值**：  false。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3041,6 +3128,8 @@ export class GaussDBClient {
      * @summary 查询数据库代理规格信息
      * @param {string} instanceId 实例ID。
      * @param {string} [xLanguage] 语言。
+     * @param {'create' | 'scale'} [queryType] 查询的场景
+     * @param {string} [proxyId] 数据代理的ID, 规格变更场景需要传该参数，过滤掉无法变更的目标规格
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3090,6 +3179,28 @@ export class GaussDBClient {
      */
     public showGaussMySqlQuotas(showGaussMySqlQuotasRequest?: ShowGaussMySqlQuotasRequest): Promise<ShowGaussMySqlQuotasResponse> {
         const options = ParamCreater().showGaussMySqlQuotas(showGaussMySqlQuotasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询历史SQL限流规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询历史SQL限流规则
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} nodeId **参数解释**：  节点ID，此参数是节点的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，前面为UUID，后缀为no07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：              请求语言类型。  **约束限制**：  不涉及。  **取值范围**： - en-us - zh-cn  **默认取值**：  en-us。
+     * @param {string} [sqlType] **参数解释**：  SQL限流类型。  **约束限制**：  不涉及。  **取值范围**：  - SELECT：查询语句。 - UPDATE：更新语句。 - DELETE：删除语句。 - INSERT：插入语句。  **默认取值**：  不传则默认查询所有类型的限流规则。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showHistoricalSqlFilterRule(showHistoricalSqlFilterRuleRequest?: ShowHistoricalSqlFilterRuleRequest): Promise<ShowHistoricalSqlFilterRuleResponse> {
+        const options = ParamCreater().showHistoricalSqlFilterRule(showHistoricalSqlFilterRuleRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3492,6 +3603,27 @@ export class GaussDBClient {
      */
     public showSlowlogSensitiveStatus(showSlowlogSensitiveStatusRequest?: ShowSlowlogSensitiveStatusRequest): Promise<ShowSlowlogSensitiveStatusResponse> {
         const options = ParamCreater().showSlowlogSensitiveStatus(showSlowlogSensitiveStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询自治限流规则。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询自治限流规则
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  获取方法请参见[查询实例列表](https://support.huaweicloud.com/api-taurusdb/ListGaussMySqlInstancesUnifyStatus.html)。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {ShowSqlAutoSqlLimitingReq} showSqlAutoSqlLimitingRequestBody **参数解释**：  查询自治限流规则请求体。
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn  **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSqlAutoSqlLimiting(showSqlAutoSqlLimitingRequest?: ShowSqlAutoSqlLimitingRequest): Promise<ShowSqlAutoSqlLimitingResponse> {
+        const options = ParamCreater().showSqlAutoSqlLimiting(showSqlAutoSqlLimitingRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6060,6 +6192,51 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除手动备份。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteBackup(batchDeleteBackupRequest?: BatchDeleteBackupRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/backups",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (batchDeleteBackupRequest !== null && batchDeleteBackupRequest !== undefined) {
+                if (batchDeleteBackupRequest instanceof BatchDeleteBackupRequest) {
+                    body = batchDeleteBackupRequest.body
+                    xLanguage = batchDeleteBackupRequest.xLanguage;
+                } else {
+                    body = batchDeleteBackupRequest['body'];
+                    xLanguage = batchDeleteBackupRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -9576,6 +9753,8 @@ export const ParamCreater = function () {
             let jobId;
             
             let jobName;
+            
+            let instanceId;
 
             if (listScheduleJobsRequest !== null && listScheduleJobsRequest !== undefined) {
                 if (listScheduleJobsRequest instanceof ListScheduleJobsRequest) {
@@ -9587,6 +9766,7 @@ export const ParamCreater = function () {
                     endTime = listScheduleJobsRequest.endTime;
                     jobId = listScheduleJobsRequest.jobId;
                     jobName = listScheduleJobsRequest.jobName;
+                    instanceId = listScheduleJobsRequest.instanceId;
                 } else {
                     xLanguage = listScheduleJobsRequest['X-Language'];
                     offset = listScheduleJobsRequest['offset'];
@@ -9596,6 +9776,7 @@ export const ParamCreater = function () {
                     endTime = listScheduleJobsRequest['end_time'];
                     jobId = listScheduleJobsRequest['job_id'];
                     jobName = listScheduleJobsRequest['job_name'];
+                    instanceId = listScheduleJobsRequest['instance_id'];
                 }
             }
 
@@ -9620,6 +9801,9 @@ export const ParamCreater = function () {
             }
             if (jobName !== null && jobName !== undefined) {
                 localVarQueryParameter['job_name'] = jobName;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -10391,6 +10575,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 开启自治限流。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setAutoSqlLimiting(setAutoSqlLimitingRequest?: SetAutoSqlLimitingRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/auto-sql-limiting",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (setAutoSqlLimitingRequest !== null && setAutoSqlLimitingRequest !== undefined) {
+                if (setAutoSqlLimitingRequest instanceof SetAutoSqlLimitingRequest) {
+                    instanceId = setAutoSqlLimitingRequest.instanceId;
+                    body = setAutoSqlLimitingRequest.body
+                    xLanguage = setAutoSqlLimitingRequest.xLanguage;
+                } else {
+                    instanceId = setAutoSqlLimitingRequest['instance_id'];
+                    body = setAutoSqlLimitingRequest['body'];
+                    xLanguage = setAutoSqlLimitingRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setAutoSqlLimiting.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设置读写分离权重。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10879,6 +11116,57 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询自治限流执行记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutoSqlLimitingLog(showAutoSqlLimitingLogRequest?: ShowAutoSqlLimitingLogRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/nodes/{node_id}/auto-sql-limiting/log",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let nodeId;
+            
+            let xLanguage;
+
+            if (showAutoSqlLimitingLogRequest !== null && showAutoSqlLimitingLogRequest !== undefined) {
+                if (showAutoSqlLimitingLogRequest instanceof ShowAutoSqlLimitingLogRequest) {
+                    instanceId = showAutoSqlLimitingLogRequest.instanceId;
+                    nodeId = showAutoSqlLimitingLogRequest.nodeId;
+                    xLanguage = showAutoSqlLimitingLogRequest.xLanguage;
+                } else {
+                    instanceId = showAutoSqlLimitingLogRequest['instance_id'];
+                    nodeId = showAutoSqlLimitingLogRequest['node_id'];
+                    xLanguage = showAutoSqlLimitingLogRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showAutoSqlLimitingLog.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling showAutoSqlLimitingLog.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'node_id': nodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询实例的可恢复时间段。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10900,16 +11188,28 @@ export const ParamCreater = function () {
             let xLanguage;
             
             let date;
+            
+            let date2;
+            
+            let startTime;
+            
+            let endTime;
 
             if (showBackupRestoreTimeRequest !== null && showBackupRestoreTimeRequest !== undefined) {
                 if (showBackupRestoreTimeRequest instanceof ShowBackupRestoreTimeRequest) {
                     instanceId = showBackupRestoreTimeRequest.instanceId;
                     xLanguage = showBackupRestoreTimeRequest.xLanguage;
                     date = showBackupRestoreTimeRequest.date;
+                    date2 = showBackupRestoreTimeRequest.date2;
+                    startTime = showBackupRestoreTimeRequest.startTime;
+                    endTime = showBackupRestoreTimeRequest.endTime;
                 } else {
                     instanceId = showBackupRestoreTimeRequest['instance_id'];
                     xLanguage = showBackupRestoreTimeRequest['X-Language'];
                     date = showBackupRestoreTimeRequest['date'];
+                    date2 = showBackupRestoreTimeRequest['date'];
+                    startTime = showBackupRestoreTimeRequest['start_time'];
+                    endTime = showBackupRestoreTimeRequest['end_time'];
                 }
             }
 
@@ -10919,6 +11219,15 @@ export const ParamCreater = function () {
             }
             if (date !== null && date !== undefined) {
                 localVarQueryParameter['date'] = date;
+            }
+            if (date2 !== null && date2 !== undefined) {
+                localVarQueryParameter['date'] = date2;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -11354,6 +11663,8 @@ export const ParamCreater = function () {
             let beginTime;
             
             let endTime;
+            
+            let displayOffsiteBackup;
 
             if (showGaussMySqlIncrementalBackupListRequest !== null && showGaussMySqlIncrementalBackupListRequest !== undefined) {
                 if (showGaussMySqlIncrementalBackupListRequest instanceof ShowGaussMySqlIncrementalBackupListRequest) {
@@ -11363,6 +11674,7 @@ export const ParamCreater = function () {
                     limit = showGaussMySqlIncrementalBackupListRequest.limit;
                     beginTime = showGaussMySqlIncrementalBackupListRequest.beginTime;
                     endTime = showGaussMySqlIncrementalBackupListRequest.endTime;
+                    displayOffsiteBackup = showGaussMySqlIncrementalBackupListRequest.displayOffsiteBackup;
                 } else {
                     instanceId = showGaussMySqlIncrementalBackupListRequest['instance_id'];
                     xLanguage = showGaussMySqlIncrementalBackupListRequest['X-Language'];
@@ -11370,6 +11682,7 @@ export const ParamCreater = function () {
                     limit = showGaussMySqlIncrementalBackupListRequest['limit'];
                     beginTime = showGaussMySqlIncrementalBackupListRequest['begin_time'];
                     endTime = showGaussMySqlIncrementalBackupListRequest['end_time'];
+                    displayOffsiteBackup = showGaussMySqlIncrementalBackupListRequest['display_offsite_backup'];
                 }
             }
 
@@ -11388,6 +11701,9 @@ export const ParamCreater = function () {
             }
             if (endTime !== null && endTime !== undefined) {
                 localVarQueryParameter['end_time'] = endTime;
+            }
+            if (displayOffsiteBackup !== null && displayOffsiteBackup !== undefined) {
+                localVarQueryParameter['display_offsite_backup'] = displayOffsiteBackup;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -11593,19 +11909,27 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let instanceId;
             
             let xLanguage;
+            
+            let queryType;
+            
+            let proxyId;
 
             if (showGaussMySqlProxyFlavorsRequest !== null && showGaussMySqlProxyFlavorsRequest !== undefined) {
                 if (showGaussMySqlProxyFlavorsRequest instanceof ShowGaussMySqlProxyFlavorsRequest) {
                     instanceId = showGaussMySqlProxyFlavorsRequest.instanceId;
                     xLanguage = showGaussMySqlProxyFlavorsRequest.xLanguage;
+                    queryType = showGaussMySqlProxyFlavorsRequest.queryType;
+                    proxyId = showGaussMySqlProxyFlavorsRequest.proxyId;
                 } else {
                     instanceId = showGaussMySqlProxyFlavorsRequest['instance_id'];
                     xLanguage = showGaussMySqlProxyFlavorsRequest['X-Language'];
+                    queryType = showGaussMySqlProxyFlavorsRequest['query_type'];
+                    proxyId = showGaussMySqlProxyFlavorsRequest['proxy_id'];
                 }
             }
 
@@ -11613,10 +11937,17 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showGaussMySqlProxyFlavors.');
             }
+            if (queryType !== null && queryType !== undefined) {
+                localVarQueryParameter['query_type'] = queryType;
+            }
+            if (proxyId !== null && proxyId !== undefined) {
+                localVarQueryParameter['proxy_id'] = proxyId;
+            }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -11735,6 +12066,68 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询历史SQL限流规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showHistoricalSqlFilterRule(showHistoricalSqlFilterRuleRequest?: ShowHistoricalSqlFilterRuleRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/sql-filter/history-rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let nodeId;
+            
+            let xLanguage;
+            
+            let sqlType;
+
+            if (showHistoricalSqlFilterRuleRequest !== null && showHistoricalSqlFilterRuleRequest !== undefined) {
+                if (showHistoricalSqlFilterRuleRequest instanceof ShowHistoricalSqlFilterRuleRequest) {
+                    instanceId = showHistoricalSqlFilterRuleRequest.instanceId;
+                    nodeId = showHistoricalSqlFilterRuleRequest.nodeId;
+                    xLanguage = showHistoricalSqlFilterRuleRequest.xLanguage;
+                    sqlType = showHistoricalSqlFilterRuleRequest.sqlType;
+                } else {
+                    instanceId = showHistoricalSqlFilterRuleRequest['instance_id'];
+                    nodeId = showHistoricalSqlFilterRuleRequest['node_id'];
+                    xLanguage = showHistoricalSqlFilterRuleRequest['X-Language'];
+                    sqlType = showHistoricalSqlFilterRuleRequest['sql_type'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showHistoricalSqlFilterRule.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+                throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling showHistoricalSqlFilterRule.');
+            }
+            if (nodeId !== null && nodeId !== undefined) {
+                localVarQueryParameter['node_id'] = nodeId;
+            }
+            if (sqlType !== null && sqlType !== undefined) {
+                localVarQueryParameter['sql_type'] = sqlType;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -12756,6 +13149,59 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询自治限流规则。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSqlAutoSqlLimiting(showSqlAutoSqlLimitingRequest?: ShowSqlAutoSqlLimitingRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/auto-sql-limiting",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showSqlAutoSqlLimitingRequest !== null && showSqlAutoSqlLimitingRequest !== undefined) {
+                if (showSqlAutoSqlLimitingRequest instanceof ShowSqlAutoSqlLimitingRequest) {
+                    instanceId = showSqlAutoSqlLimitingRequest.instanceId;
+                    body = showSqlAutoSqlLimitingRequest.body
+                    xLanguage = showSqlAutoSqlLimitingRequest.xLanguage;
+                } else {
+                    instanceId = showSqlAutoSqlLimitingRequest['instance_id'];
+                    body = showSqlAutoSqlLimitingRequest['body'];
+                    xLanguage = showSqlAutoSqlLimitingRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showSqlAutoSqlLimiting.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

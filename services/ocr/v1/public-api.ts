@@ -225,6 +225,7 @@ export * from './model/SealList';
 export * from './model/SealRequestBody';
 export * from './model/SealResult';
 export * from './model/SealWordsBlockList';
+export * from './model/SmartDocumentRecognizerCharList';
 export * from './model/SmartDocumentRecognizerFormResult';
 export * from './model/SmartDocumentRecognizerFormulaBlock';
 export * from './model/SmartDocumentRecognizerFormulaResult';

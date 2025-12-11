@@ -12,7 +12,7 @@ export class ListAllRiskConfigCheckRulesRequest {
     private 'cluster_id'?: string;
     public tag?: string;
     private 'policy_group_id'?: string;
-    private 'statistics_flag'?: string;
+    private 'statistics_flag'?: boolean;
     public constructor(offset?: number, limit?: number) { 
         this['offset'] = offset;
         this['limit'] = limit;
@@ -97,14 +97,14 @@ export class ListAllRiskConfigCheckRulesRequest {
     public get policyGroupId(): string | undefined {
         return this['policy_group_id'];
     }
-    public withStatisticsFlag(statisticsFlag: string): ListAllRiskConfigCheckRulesRequest {
+    public withStatisticsFlag(statisticsFlag: boolean): ListAllRiskConfigCheckRulesRequest {
         this['statistics_flag'] = statisticsFlag;
         return this;
     }
-    public set statisticsFlag(statisticsFlag: string  | undefined) {
+    public set statisticsFlag(statisticsFlag: boolean  | undefined) {
         this['statistics_flag'] = statisticsFlag;
     }
-    public get statisticsFlag(): string | undefined {
+    public get statisticsFlag(): boolean | undefined {
         return this['statistics_flag'];
     }
 }

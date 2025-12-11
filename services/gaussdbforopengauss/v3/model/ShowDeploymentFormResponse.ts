@@ -6,6 +6,9 @@ export class ShowDeploymentFormResponse extends SdkResponse {
     public solution?: string;
     private 'shard_num'?: number;
     private 'replica_num'?: number;
+    private 'each_expand_nodes'?: number;
+    private 'max_shard_count'?: number;
+    private 'each_shard_num'?: number;
     public constructor() { 
         super();
     }
@@ -42,5 +45,35 @@ export class ShowDeploymentFormResponse extends SdkResponse {
     }
     public get replicaNum(): number | undefined {
         return this['replica_num'];
+    }
+    public withEachExpandNodes(eachExpandNodes: number): ShowDeploymentFormResponse {
+        this['each_expand_nodes'] = eachExpandNodes;
+        return this;
+    }
+    public set eachExpandNodes(eachExpandNodes: number  | undefined) {
+        this['each_expand_nodes'] = eachExpandNodes;
+    }
+    public get eachExpandNodes(): number | undefined {
+        return this['each_expand_nodes'];
+    }
+    public withMaxShardCount(maxShardCount: number): ShowDeploymentFormResponse {
+        this['max_shard_count'] = maxShardCount;
+        return this;
+    }
+    public set maxShardCount(maxShardCount: number  | undefined) {
+        this['max_shard_count'] = maxShardCount;
+    }
+    public get maxShardCount(): number | undefined {
+        return this['max_shard_count'];
+    }
+    public withEachShardNum(eachShardNum: number): ShowDeploymentFormResponse {
+        this['each_shard_num'] = eachShardNum;
+        return this;
+    }
+    public set eachShardNum(eachShardNum: number  | undefined) {
+        this['each_shard_num'] = eachShardNum;
+    }
+    public get eachShardNum(): number | undefined {
+        return this['each_shard_num'];
     }
 }

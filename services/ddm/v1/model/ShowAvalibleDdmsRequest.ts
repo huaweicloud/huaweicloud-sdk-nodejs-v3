@@ -2,6 +2,8 @@
 
 export class ShowAvalibleDdmsRequest {
     private 'instance_id'?: string;
+    public offset?: number;
+    public limit?: number;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -14,5 +16,13 @@ export class ShowAvalibleDdmsRequest {
     }
     public get instanceId(): string | undefined {
         return this['instance_id'];
+    }
+    public withOffset(offset: number): ShowAvalibleDdmsRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: number): ShowAvalibleDdmsRequest {
+        this['limit'] = limit;
+        return this;
     }
 }

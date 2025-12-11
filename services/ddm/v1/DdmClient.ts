@@ -1039,6 +1039,8 @@ export class DdmClient {
      *
      * @summary 查询创建逻辑库可选取的数据节点实例列表
      * @param {string} instanceId DDM实例ID
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0。取值必须为数字，且不能为负数。
+     * @param {number} [limit] 分页参数：每页多少条。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1059,6 +1061,8 @@ export class DdmClient {
      * @summary 查询分片变更可选取的数据节点实例列表
      * @param {string} instanceId DDM实例ID
      * @param {string} dbName 逻辑库名称
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0。取值必须为数字，且不能为负数。
+     * @param {number} [limit] 分页参数：每页多少条。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1098,11 +1102,16 @@ export class DdmClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取备份列表
+     * @param {string} [instanceId] 实例ID。
+     * @param {string} [instanceName] 实例名称。
+     * @param {string} [backupName] 备份名称。
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0。取值必须为数字，且不能为负数。
+     * @param {number} [limit] 分页参数：每页多少条。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listBackups(listBackupsRequest?: ListBackupsRequest): Promise<ListBackupsResponse> {
-        const options = ParamCreater().listBackups();
+        const options = ParamCreater().listBackups(listBackupsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1354,6 +1363,8 @@ export class DdmClient {
      * @summary 查询任务列表
      * @param {number} startTime 开始时间。
      * @param {number} endTime 开始时间。
+     * @param {number} [offset] offset
+     * @param {number} [limit] query
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1677,6 +1688,8 @@ export class DdmClient {
      *
      * @summary 查询可用于恢复的实例列表
      * @param {string} instanceId 实例 ID。
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0。取值必须为数字，且不能为负数。
+     * @param {number} [limit] 分页参数：每页多少条。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3879,15 +3892,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let instanceId;
+            
+            let offset;
+            
+            let limit;
 
             if (listAvailableRdsRequest !== null && listAvailableRdsRequest !== undefined) {
                 if (listAvailableRdsRequest instanceof ListAvailableRdsRequest) {
                     instanceId = listAvailableRdsRequest.instanceId;
+                    offset = listAvailableRdsRequest.offset;
+                    limit = listAvailableRdsRequest.limit;
                 } else {
                     instanceId = listAvailableRdsRequest['instance_id'];
+                    offset = listAvailableRdsRequest['offset'];
+                    limit = listAvailableRdsRequest['limit'];
                 }
             }
 
@@ -3895,7 +3916,14 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listAvailableRds.');
             }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3916,19 +3944,27 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let instanceId;
             
             let dbName;
+            
+            let offset;
+            
+            let limit;
 
             if (listAvailableRdsForMigrateRequest !== null && listAvailableRdsForMigrateRequest !== undefined) {
                 if (listAvailableRdsForMigrateRequest instanceof ListAvailableRdsForMigrateRequest) {
                     instanceId = listAvailableRdsForMigrateRequest.instanceId;
                     dbName = listAvailableRdsForMigrateRequest.dbName;
+                    offset = listAvailableRdsForMigrateRequest.offset;
+                    limit = listAvailableRdsForMigrateRequest.limit;
                 } else {
                     instanceId = listAvailableRdsForMigrateRequest['instance_id'];
                     dbName = listAvailableRdsForMigrateRequest['db_name'];
+                    offset = listAvailableRdsForMigrateRequest['offset'];
+                    limit = listAvailableRdsForMigrateRequest['limit'];
                 }
             }
 
@@ -3939,7 +3975,14 @@ export const ParamCreater = function () {
             if (dbName === null || dbName === undefined) {
             throw new RequiredError('dbName','Required parameter dbName was null or undefined when calling listAvailableRdsForMigrate.');
             }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId,'db_name': dbName, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -4002,7 +4045,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listBackups() {
+        listBackups(listBackupsRequest?: ListBackupsRequest) {
             const options = {
                 method: "GET",
                 url: "/v3/{project_id}/backups",
@@ -4012,8 +4055,52 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let instanceName;
+            
+            let backupName;
+            
+            let offset;
+            
+            let limit;
 
+            if (listBackupsRequest !== null && listBackupsRequest !== undefined) {
+                if (listBackupsRequest instanceof ListBackupsRequest) {
+                    instanceId = listBackupsRequest.instanceId;
+                    instanceName = listBackupsRequest.instanceName;
+                    backupName = listBackupsRequest.backupName;
+                    offset = listBackupsRequest.offset;
+                    limit = listBackupsRequest.limit;
+                } else {
+                    instanceId = listBackupsRequest['instance_id'];
+                    instanceName = listBackupsRequest['instance_name'];
+                    backupName = listBackupsRequest['backup_name'];
+                    offset = listBackupsRequest['offset'];
+                    limit = listBackupsRequest['limit'];
+                }
+            }
 
+        
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (instanceName !== null && instanceName !== undefined) {
+                localVarQueryParameter['instance_name'] = instanceName;
+            }
+            if (backupName !== null && backupName !== undefined) {
+                localVarQueryParameter['backup_name'] = backupName;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4673,14 +4760,22 @@ export const ParamCreater = function () {
             let startTime;
             
             let endTime;
+            
+            let offset;
+            
+            let limit;
 
             if (listTasksRequest !== null && listTasksRequest !== undefined) {
                 if (listTasksRequest instanceof ListTasksRequest) {
                     startTime = listTasksRequest.startTime;
                     endTime = listTasksRequest.endTime;
+                    offset = listTasksRequest.offset;
+                    limit = listTasksRequest.limit;
                 } else {
                     startTime = listTasksRequest['start_time'];
                     endTime = listTasksRequest['end_time'];
+                    offset = listTasksRequest['offset'];
+                    limit = listTasksRequest['limit'];
                 }
             }
 
@@ -4696,6 +4791,12 @@ export const ParamCreater = function () {
             }
             if (endTime !== null && endTime !== undefined) {
                 localVarQueryParameter['end_time'] = endTime;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -5423,15 +5524,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let instanceId;
+            
+            let offset;
+            
+            let limit;
 
             if (showAvalibleDdmsRequest !== null && showAvalibleDdmsRequest !== undefined) {
                 if (showAvalibleDdmsRequest instanceof ShowAvalibleDdmsRequest) {
                     instanceId = showAvalibleDdmsRequest.instanceId;
+                    offset = showAvalibleDdmsRequest.offset;
+                    limit = showAvalibleDdmsRequest.limit;
                 } else {
                     instanceId = showAvalibleDdmsRequest['instance_id'];
+                    offset = showAvalibleDdmsRequest['offset'];
+                    limit = showAvalibleDdmsRequest['limit'];
                 }
             }
 
@@ -5439,7 +5548,14 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showAvalibleDdms.');
             }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

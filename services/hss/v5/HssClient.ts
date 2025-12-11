@@ -227,6 +227,8 @@ import { ChangeExtendedWeakPasswordResponse } from './model/ChangeExtendedWeakPa
 import { ChangeFilePathWhiteDetailRequest } from './model/ChangeFilePathWhiteDetailRequest';
 import { ChangeFilePathWhiteDetailRequestInfo } from './model/ChangeFilePathWhiteDetailRequestInfo';
 import { ChangeFilePathWhiteDetailResponse } from './model/ChangeFilePathWhiteDetailResponse';
+import { ChangeFilePathWhiteListsRequest } from './model/ChangeFilePathWhiteListsRequest';
+import { ChangeFilePathWhiteListsResponse } from './model/ChangeFilePathWhiteListsResponse';
 import { ChangeHostIgnoreStatusRequest } from './model/ChangeHostIgnoreStatusRequest';
 import { ChangeHostIgnoreStatusResponse } from './model/ChangeHostIgnoreStatusResponse';
 import { ChangeHostsGroupRequest } from './model/ChangeHostsGroupRequest';
@@ -1554,6 +1556,8 @@ import { ShowExtendedWeakPasswordRequest } from './model/ShowExtendedWeakPasswor
 import { ShowExtendedWeakPasswordResponse } from './model/ShowExtendedWeakPasswordResponse';
 import { ShowFilePathWhiteDetailRequest } from './model/ShowFilePathWhiteDetailRequest';
 import { ShowFilePathWhiteDetailResponse } from './model/ShowFilePathWhiteDetailResponse';
+import { ShowFilePathWhiteListsRequest } from './model/ShowFilePathWhiteListsRequest';
+import { ShowFilePathWhiteListsResponse } from './model/ShowFilePathWhiteListsResponse';
 import { ShowFileStatisticRequest } from './model/ShowFileStatisticRequest';
 import { ShowFileStatisticResponse } from './model/ShowFileStatisticResponse';
 import { ShowHostAssetManualCollectStatusRequest } from './model/ShowHostAssetManualCollectStatusRequest';
@@ -1620,10 +1624,10 @@ import { ShowPageNoticesResponse } from './model/ShowPageNoticesResponse';
 import { ShowPeriodResponseInfo } from './model/ShowPeriodResponseInfo';
 import { ShowPolicySwitchStatusRequest } from './model/ShowPolicySwitchStatusRequest';
 import { ShowPolicySwitchStatusResponse } from './model/ShowPolicySwitchStatusResponse';
-import { ShowPorcessTopRequest } from './model/ShowPorcessTopRequest';
-import { ShowPorcessTopResponse } from './model/ShowPorcessTopResponse';
 import { ShowPortTopRequest } from './model/ShowPortTopRequest';
 import { ShowPortTopResponse } from './model/ShowPortTopResponse';
+import { ShowProcessTopRequest } from './model/ShowProcessTopRequest';
+import { ShowProcessTopResponse } from './model/ShowProcessTopResponse';
 import { ShowProductdataOfferingInfosRequest } from './model/ShowProductdataOfferingInfosRequest';
 import { ShowProductdataOfferingInfosResponse } from './model/ShowProductdataOfferingInfosResponse';
 import { ShowProtectStatisticsRequest } from './model/ShowProtectStatisticsRequest';
@@ -1674,6 +1678,7 @@ import { ShowVulReportDataResponse } from './model/ShowVulReportDataResponse';
 import { ShowVulReportDataResponseInfoCveList } from './model/ShowVulReportDataResponseInfoCveList';
 import { ShowVulReportDataResponseInfoHosts } from './model/ShowVulReportDataResponseInfoHosts';
 import { ShowVulReportDataResponseInfoSumary } from './model/ShowVulReportDataResponseInfoSumary';
+import { ShowVulReportDataResponseInfoSummary } from './model/ShowVulReportDataResponseInfoSummary';
 import { ShowVulReportDataResponseInfoVulnerabilities } from './model/ShowVulReportDataResponseInfoVulnerabilities';
 import { ShowVulScanPolicyRequest } from './model/ShowVulScanPolicyRequest';
 import { ShowVulScanPolicyResponse } from './model/ShowVulScanPolicyResponse';
@@ -2089,10 +2094,9 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量创建标签
-     * @param {string} resourceType 由标签管理服务定义的资源类别，企业主机安全服务调用此接口时资源类别为hss
-     * @param {string} resourceId 由标签管理服务定义的资源id，企业主机安全服务调用此接口时资源id为配额ID
+     * @param {string} resourceType **参数解释**: 由标签管理服务定义的资源类别，企业主机安全服务调用此接口时资源类别为hss。 **约束限制**: 不涉及 **取值范围**: 字符长度1-64位。 **默认取值**: hss 
+     * @param {string} resourceId **参数解释**: 由标签管理服务定义的资源id，企业主机安全服务调用此接口时资源id为配额ID。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位。 **默认取值**: 无 
      * @param {BatchCreateTagsRequestInfo} batchCreateTagsRequestBody 批量创建标签的请求体
-     * @param {string} [contentType] 缺省值:application/json; charset&#x3D;utf-8
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2567,9 +2571,9 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除资源标签
-     * @param {string} resourceType 由标签管理服务定义的资源类别，企业主机安全服务调用此接口时资源类别为hss
-     * @param {string} resourceId 由标签管理服务定义的资源id，企业主机安全服务调用此接口时资源id为配额ID
-     * @param {string} key 待删除的key
+     * @param {string} resourceType **参数解释**: 由标签管理服务定义的资源类别，企业主机安全服务调用此接口时资源类别为hss。 **约束限制**: 不涉及 **取值范围**: 字符长度1-64位。 **默认取值**: hss 
+     * @param {string} resourceId **参数解释**: 由标签管理服务定义的资源id，企业主机安全服务调用此接口时资源id为配额ID。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位。 **默认取值**: 无 
+     * @param {string} key **参数解释**: 待删除的标签key。 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位。 **默认取值**: 无 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2709,10 +2713,10 @@ export class HssClient {
      * @param {string} [severity] **参数解释**: 威胁等级 **约束限制**: 不涉及 **取值范围**: - Security：安全 - Low：低危 - Medium：中危 - High：高危 - Critical：危急  **默认取值**: 不涉及 
      * @param {number} [beginTime] **参数解释**： 自定义查询时间，与查询时间范围天数互斥，查询时间段的起始时间，毫秒级时间戳，end_time减去begin_time小于等于2天，与查询时间范围天数互斥 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及
      * @param {number} [endTime] **参数解释**： 自定义时间，查询时间段的终止时间，毫秒级时间戳，end_time减去begin_time小于等于2天，与查询时间范围天数互斥 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及
-     * @param {Array<string>} [eventClassIds] **参数解释**： 事件标识 **约束限制**： 不涉及 **取值范围**： - container_1001：容器命名空间 - container_1002：容器开放端口 - container_1003：容器安全选项 - container_1004：容器挂载目录 - containerescape_0001：容器高危系统调用 - containerescape_0002：Shocker攻击 - containerescape_0003：DirtCow攻击 - containerescape_0004：容器文件逃逸攻击 - dockerfile_001：用户自定义容器保护文件被修改 - dockerfile_002：容器文件系统可执行文件被修改 - dockerproc_001：容器进程异常事件上报 - fileprotect_0001：文件提权 - fileprotect_0002：关键文件变更 - fileprotect_0003：关键文件路径变更 - fileprotect_0004：文件/目录变更 - av_1002：病毒 - av_1003：蠕虫 - av_1004：木马 - av_1005：僵尸网络 - av_1006：后门 - av_1007：间谍软件 - av_1008：恶意广告软件 - av_1009：钓鱼 - av_1010：Rootkit - av_1011：勒索软件 - av_1012：黑客工具 - av_1013：灰色软件 - av_1015：Webshell - av_1016：挖矿软件 - login_0001：尝试暴力破解 - login_0002：爆破成功 - login_1001：登录成功 - login_1002：异地登录 - login_1003：弱口令 - malware_0001：shell变更事件上报 - malware_0002：反弹shell事件上报 - malware_1001：恶意程序 - procdet_0001：进程异常行为检测 - procdet_0002：进程提权 - procreport_0001：危险命令 - user_1001：账号变更 - user_1002：风险账号 - vmescape_0001：虚拟机敏感命令执行 - vmescape_0002：虚拟化进程访问敏感文件 - vmescape_0003：虚拟机异常端口访问 - webshell_0001：网站后门 - network_1001：恶意挖矿 - network_1002：对外DDoS攻击 - network_1003：恶意扫描 - network_1004：敏感区域攻击 - ransomware_0001：勒索攻击 - ransomware_0002：勒索攻击 - ransomware_0003：勒索攻击 - fileless_0001：进程注入 - fileless_0002：动态库注入进程 - fileless_0003：关键配置变更 - fileless_0004：环境变量变更 - fileless_0005：内存文件进程 - fileless_0006：vdso劫持 - crontab_1001：Crontab可疑任务 - vul_exploit_0001：Redis漏洞利用攻击 - vul_exploit_0002：Hadoop漏洞利用攻击 - vul_exploit_0003：MySQL漏洞利用攻击 - rootkit_0001：可疑rootkit文件 - rootkit_0002：可疑内核模块 - RASP_0004：上传Webshell - RASP_0018：无文件Webshell - blockexec_001：已知勒索攻击 - hips_0001：Windows Defender防护被禁用 - hips_0002：可疑的黑客工具 - hips_0003：可疑的勒索加密行为 - hips_0004：隐藏账号创建 - hips_0005：读取用户密码凭据 - hips_0006：可疑的SAM文件导出 - hips_0007：可疑shadow copy删除操作 - hips_0008：备份文件删除 - hips_0009：可疑勒索病毒操作注册表 - hips_0010：可疑的异常进程行为 - hips_0011：可疑的扫描探测 - hips_0012：可疑的勒索病毒脚本运行 - hips_0013：可疑的挖矿命令执行 - hips_0014：可疑的禁用windows安全中心 - hips_0015：可疑的停止防火墙服务行为 - hips_0016：可疑的系统自动恢复禁用 - hips_0017：Offies 创建可执行文件 - hips_0018：带宏Offies文件异常创建 - hips_0019：可疑的注册表操作 - hips_0020：Confluence远程代码执行 - hips_0021：MSDT远程代码执行 - portscan_0001：通用端口扫描 - portscan_0002：秘密端口扫描 - k8s_1001：Kubernetes事件删除 - k8s_1002：创建特权Pod - k8s_1003：Pod中使用交互式shell - k8s_1004：创建敏感目录Pod - k8s_1005：创建主机网络的Pod - k8s_1006：创建主机Pid空间的Pod - k8s_1007：普通pod访问APIserver认证失败 - k8s_1008：普通Pod通过Curl访问APIServer - k8s_1009：系统管理空间执行exec - k8s_1010：系统管理空间创建Pod - k8s_1011：创建静态Pod - k8s_1012：创建DaemonSet - k8s_1013：创建集群计划任务 - k8s_1014：Secrets操作 - k8s_1015：枚举用户可执行的操作 - k8s_1016：高权限RoleBinding或ClusterRoleBinding - k8s_1017：ServiceAccount创建 - k8s_1018：创建Cronjob - k8s_1019：Pod中exec使用交互式shell - k8s_1020：无权限访问Apiserver - k8s_1021：使用curl访问APIServer - k8s_1022：Ingress漏洞 - k8s_1023：中间人攻击 - k8s_1024：蠕虫挖矿木马 - k8s_1025：K8s事件删除 - k8s_1026：SelfSubjectRulesReview场景 - imgblock_0001：镜像白名单阻断 - imgblock_0002：镜像黑名单阻断 - imgblock_0003：镜像标签白名单阻断 - imgblock_0004：镜像标签黑名单阻断 - imgblock_0005：创建容器白名单阻断 - imgblock_0006：创建容器黑名单阻断 - imgblock_0007：容器mount proc阻断 - imgblock_0008：容器seccomp unconfined阻断 - imgblock_0009：容器特权阻断 - imgblock_0010：容器capabilities阻断 - honeypot_0001：可疑的蜜罐异常访问  **默认取值**： 不涉及
+     * @param {Array<string>} [eventClassIds] **参数解释**： 事件标识 **约束限制**： 不涉及 **取值范围**： - container_1001：容器命名空间 - container_1002：容器开放端口 - container_1003：容器安全选项 - container_1004：容器挂载目录 - containerescape_0001：容器高危系统调用 - containerescape_0002：Shocker攻击 - containerescape_0003：DirtCow攻击 - containerescape_0004：容器文件逃逸攻击 - dockerfile_001：用户自定义容器保护文件被修改 - dockerfile_002：容器文件系统可执行文件被修改 - dockerproc_001：容器进程异常事件上报 - fileprotect_0001：文件提权 - fileprotect_0002：关键文件变更 - fileprotect_0003：关键文件路径变更 - fileprotect_0004：文件/目录变更 - av_1002：病毒 - av_1003：蠕虫 - av_1004：木马 - av_1005：僵尸网络 - av_1006：后门 - av_1007：间谍软件 - av_1008：恶意广告软件 - av_1009：钓鱼 - av_1010：Rootkit - av_1011：勒索软件 - av_1012：黑客工具 - av_1013：灰色软件 - av_1015：Webshell - av_1016：挖矿软件 - login_0001：尝试暴力破解 - login_0002：爆破成功 - login_1001：登录成功 - login_1002：异地登录 - login_1003：弱口令 - malware_0001：shell变更事件上报 - malware_0002：反弹shell事件上报 - malware_1001：恶意程序 - procdet_0001：进程异常行为检测 - procdet_0002：进程提权 - procreport_0001：危险命令 - user_1001：账号变更 - user_1002：风险账号 - vmescape_0001：虚拟机敏感命令执行 - vmescape_0002：虚拟化进程访问敏感文件 - vmescape_0003：虚拟机异常端口访问 - webshell_0001：网站后门 - network_1001：恶意挖矿 - network_1002：对外DDoS攻击 - network_1003：恶意扫描 - network_1004：敏感区域攻击 - ransomware_0001：勒索攻击 - ransomware_0002：勒索攻击 - ransomware_0003：勒索攻击 - fileless_0001：进程注入 - fileless_0002：动态库注入进程 - fileless_0003：关键配置变更 - fileless_0004：环境变量变更 - fileless_0005：内存文件进程 - fileless_0006：vdso劫持 - crontab_1001：Crontab可疑任务 - vul_exploit_0001：Redis漏洞利用攻击 - vul_exploit_0002：Hadoop漏洞利用攻击 - vul_exploit_0003：MySQL漏洞利用攻击 - rootkit_0001：可疑rootkit文件 - rootkit_0002：可疑内核模块 - RASP_0004：上传Webshell - RASP_0018：无文件Webshell - blockexec_001：已知勒索攻击 - hips_0001：Windows Defender防护被禁用 - hips_0002：可疑的黑客工具 - hips_0003：可疑的勒索加密行为 - hips_0004：隐藏账号创建 - hips_0005：读取用户密码凭据 - hips_0006：可疑的SAM文件导出 - hips_0007：可疑shadow copy删除操作 - hips_0008：备份文件删除 - hips_0009：可疑勒索病毒操作注册表 - hips_0010：可疑的异常进程行为 - hips_0011：可疑的扫描探测 - hips_0012：可疑的勒索病毒脚本运行 - hips_0013：可疑的挖矿命令执行 - hips_0014：可疑的禁用windows安全中心 - hips_0015：可疑的停止防火墙服务行为 - hips_0016：可疑的系统自动恢复禁用 - hips_0017：Office 创建可执行文件 - hips_0018：带宏Office文件异常创建 - hips_0019：可疑的注册表操作 - hips_0020：Confluence远程代码执行 - hips_0021：MSDT远程代码执行 - portscan_0001：通用端口扫描 - portscan_0002：秘密端口扫描 - k8s_1001：Kubernetes事件删除 - k8s_1002：创建特权Pod - k8s_1003：Pod中使用交互式shell - k8s_1004：创建敏感目录Pod - k8s_1005：创建主机网络的Pod - k8s_1006：创建主机Pid空间的Pod - k8s_1007：普通pod访问APIserver认证失败 - k8s_1008：普通Pod通过Curl访问APIServer - k8s_1009：系统管理空间执行exec - k8s_1010：系统管理空间创建Pod - k8s_1011：创建静态Pod - k8s_1012：创建DaemonSet - k8s_1013：创建集群计划任务 - k8s_1014：Secrets操作 - k8s_1015：枚举用户可执行的操作 - k8s_1016：高权限RoleBinding或ClusterRoleBinding - k8s_1017：ServiceAccount创建 - k8s_1018：创建Cronjob - k8s_1019：Pod中exec使用交互式shell - k8s_1020：无权限访问Apiserver - k8s_1021：使用curl访问APIServer - k8s_1022：Ingress漏洞 - k8s_1023：中间人攻击 - k8s_1024：蠕虫挖矿木马 - k8s_1025：K8s事件删除 - k8s_1026：SelfSubjectRulesReview场景 - imgblock_0001：镜像白名单阻断 - imgblock_0002：镜像黑名单阻断 - imgblock_0003：镜像标签白名单阻断 - imgblock_0004：镜像标签黑名单阻断 - imgblock_0005：创建容器白名单阻断 - imgblock_0006：创建容器黑名单阻断 - imgblock_0007：容器mount proc阻断 - imgblock_0008：容器seccomp unconfined阻断 - imgblock_0009：容器特权阻断 - imgblock_0010：容器capabilities阻断 - honeypot_0001：可疑的蜜罐异常访问  **默认取值**： 不涉及
      * @param {Array<string>} [severityList] **参数解释**: 威胁等级 **约束限制**: 不涉及 **取值范围**: - Security：安全 - Low：低危 - Medium：中危 - High：高危 - Critical：危急  **默认取值**: 不涉及 
      * @param {string} [attackTag] **参数解释**: 攻击标识 **约束限制**: 不涉及 **取值范围**: - attack_success：攻击成功 - attack_attempt：攻击尝试 - attack_blocked：攻击被阻断 - abnormal_behavior：异常行为 - collapsible_host：主机失陷 - system_vulnerability：系统脆弱性  **默认取值**: 不涉及 
-     * @param {string} [assetValue] **参数解释**: 资产重要性 **约束限制**: 不涉及 **取值范围**: - important：重要资产 - common：般资产 - test：测试资产  **默认取值**: 不涉及 
+     * @param {string} [assetValue] **参数解释**: 资产重要性 **约束限制**: 不涉及 **取值范围**: - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**: 不涉及 
      * @param {Array<string>} [tagList] **参数解释**: 事件标签列表 **约束限制**: 不涉及 **取值范围**: 不涉及 **默认取值**: 不涉及 
      * @param {string} [attCk] **参数解释**: ATT&amp;CK攻击阶段 **约束限制**: 不涉及 **取值范围**: - Reconnaissance：侦察 - Initial Access：初始访问 - Execution：执行 - Persistence：持久化 - Privilege Escalation：权限提升 - Defense Evasion：防御绕过 - Credential Access：凭据访问 - Command and Control：命令与控制 - Impact：影响破坏  **默认取值**: 不涉及 
      * @param {string} [eventName] **参数解释**： 告警名称 **约束限制**： 不涉及 **取值范围**： 字符长度1-128位 **默认取值**： 不涉及
@@ -2738,11 +2742,11 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询多账号列表
-     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
-     * @param {string} [region] Region ID
-     * @param {number} [limit] 每页显示数量
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [xSecurityToken] **参数解释**: 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。 **约束限制**: 不涉及 **取值范围**: 字符长度1-2048位 **默认取值**: 不涉及 
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2822,7 +2826,7 @@ export class HssClient {
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {number} [startTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
-     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
+     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 需大于等于begin_time，未传begin_time时默认从时间戳0开始查询 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2864,7 +2868,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询软件的服务器列表
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [appName] **参数解释**: 软件名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
@@ -2894,7 +2898,7 @@ export class HssClient {
      *
      * @summary 获取自启动项的历史变动记录
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [autoLaunchName] **参数解释**: 自启动项名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
@@ -2905,7 +2909,7 @@ export class HssClient {
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {number} [startTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
-     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
+     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 需大于等于begin_time，未传begin_time时默认从时间戳0开始查询 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2948,7 +2952,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询自启动项的服务列表
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [name] **参数解释**: 自启动项名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
@@ -3550,11 +3554,11 @@ export class HssClient {
      * @param {string} name **参数解释**： 插件名称 **约束限制**： 不涉及 **取值范围**： 字符长度1-256位  **默认取值**： opa-docker-authz 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 无 
-     * @param {string} [groupId] **参数解释**: 服务器组ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
-     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产。 - common：一般资产。 - test：测试资产。  **默认取值**： 无 
+     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
+     * @param {string} [groupId] **参数解释**: 服务器组的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**： 无 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {string} [agentStatus] **参数解释**： 客户端状态 **约束限制**： 不涉及 **取值范围**： 字符长度1-256位  **默认取值**： 不涉及 
@@ -3626,7 +3630,7 @@ export class HssClient {
      * @param {string} [severity] **参数解释**: 威胁等级 **约束限制**: 不涉及 **取值范围**: - Security：安全 - Low：低危 - Medium：中危 - High：高危 - Critical：危急  **默认取值**: 不涉及 
      * @param {Array<string>} [severityList] **参数解释**: 威胁等级 **约束限制**: 不涉及 **取值范围**: - Security：安全 - Low：低危 - Medium：中危 - High：高危 - Critical：危急  **默认取值**: 不涉及 
      * @param {string} [attackTag] **参数解释**: 攻击标识 **约束限制**: 不涉及 **取值范围**: - attack_success：攻击成功 - attack_attempt：攻击尝试 - attack_blocked：攻击被阻断 - abnormal_behavior：异常行为 - collapsible_host：主机失陷 - system_vulnerability：系统脆弱性  **默认取值**: 不涉及 
-     * @param {string} [assetValue] **参数解释**: 资产重要性 **约束限制**: 不涉及 **取值范围**: - important：重要资产 - common：般资产 - test：测试资产  **默认取值**: 不涉及 
+     * @param {string} [assetValue] **参数解释**: 资产重要性 **约束限制**: 不涉及 **取值范围**: - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**: 不涉及 
      * @param {Array<string>} [tagList] 事件标签列表，例如:[\&quot;热点事件\&quot;]
      * @param {string} [eventName] **参数解释**： 告警名称 **约束限制**： 不涉及 **取值范围**： 字符长度1-128位 **默认取值**： 不涉及 
      * @param {*} [options] Override http request option.
@@ -3694,8 +3698,8 @@ export class HssClient {
      * @param {string} category 事件类别，包含如下:   - host : 主机安全事件   - container : 容器安全事件
      * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
-     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
+     * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 需小于等于end_time，未传end_time时默认查询至当前时间 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
+     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 需大于等于begin_time，未传begin_time时默认从时间戳0开始查询 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
      * @param {number} [lastDays] 查询时间范围天数，与自定义查询时间begin_time，end_time互斥
      * @param {string} [hostName] 服务器名称
      * @param {string} [hostId] 服务器ID
@@ -3725,8 +3729,8 @@ export class HssClient {
      * @param {string} category **参数解释**: 事件类别 **约束限制**: 不涉及 **取值范围**: - host : 主机安全事件 - container : 容器安全事件 - serverless : serverless场景安全事件 **默认取值**: 不涉及 
      * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
-     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
+     * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 需小于等于end_time，未传end_time时默认查询至当前时间 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
+     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 需大于等于begin_time，未传begin_time时默认从时间戳0开始查询 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
      * @param {number} [lastDays] 查询时间范围天数，与自定义查询时间begin_time，end_time互斥
      * @param {string} [hostName] 服务器名称
      * @param {string} [hostId] 服务器ID
@@ -3909,9 +3913,9 @@ export class HssClient {
      * @param {number} limit **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {string} [daemonsetName] daemonset名称
-     * @param {string} [namespaceName] 命名空间名称
-     * @param {string} [clusterName] 所属集群名称
+     * @param {string} [daemonsetName] **参数解释**: daemonset名称，用作查询参数。 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 无 
+     * @param {string} [namespaceName] **参数解释**: 命名空间名称，用作查询参数。 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 无 
+     * @param {string} [clusterName] **参数解释**: 所属集群名称，用作查询参数。 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 无 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4229,10 +4233,10 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询账号组织
-     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
-     * @param {string} [region] Region ID
-     * @param {boolean} [isRefresh] 是否强制从organization同步组织信息
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [xSecurityToken] **参数解释**: 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。 **约束限制**: 不涉及 **取值范围**: 字符长度1-2048位 **默认取值**: 不涉及 
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {boolean} [isRefresh] **参数解释**: 控制是否忽略本地缓存，强制从组织服务同步最新的组织树信息； **约束限制**: 无特殊约束，按需选择是否强制同步； **取值范围**: true（强制同步）、false（使用本地缓存，默认） **默认取值**: false 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4274,14 +4278,14 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定开放端口的服务器列表
-     * @param {number} port 端口号
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
-     * @param {string} [hostName] 主机名称
-     * @param {string} [hostIp] 主机ip
-     * @param {string} [type] 端口类型：目前包括TCP，UDP两种
-     * @param {string} [category] 类别，默认为host，包含如下： - host：主机 - container：容器
-     * @param {number} [limit] 每页显示数量
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
+     * @param {number} port **参数解释**: 端口号 **约束限制**: 不涉及 **取值范围**: 最小值1，最大值65535（TCP/UDP标准端口范围） **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {string} [type] **参数解释**: 端口类型 **约束限制**: 不涉及 **取值范围**: TCP、UDP **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4404,7 +4408,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户当前项目下所有用过的标签
-     * @param {string} resourceType **参数解释**: 资源类别 **约束限制**: 不涉及 **取值范围**: - hss：主机安全服务 **默认取值**: hss 
+     * @param {string} resourceType **参数解释**: 由标签管理服务定义的资源类别，企业主机安全服务调用此接口时资源类别为hss。 **约束限制**: 不涉及 **取值范围**: 字符长度1-64位。 **默认取值**: hss 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4543,7 +4547,7 @@ export class HssClient {
      *
      * @summary 查询某告警事件的相同告警列表
      * @param {string} eventId 事件编号
-     * @param {string} eventClassId 事件标识，包含如下: - container_1001 : 容器命名空间 - container_1002 : 容器开放端口 - container_1003 : 容器安全选项 - container_1004 : 容器挂载目录 - containerescape_0001 : 容器高危系统调用 - containerescape_0002 : Shocker攻击 - containerescape_0003 : DirtCow攻击 - containerescape_0004 : 容器文件逃逸攻击 - dockerfile_001 : 用户自定义容器保护文件被修改 - dockerfile_002 : 容器文件系统可执行文件被修改 - dockerproc_001 : 容器进程异常事件上报 - fileprotect_0001 : 文件提权 - fileprotect_0002 : 关键文件变更 - fileprotect_0003 : 关键文件路径变更 - fileprotect_0004 : 文件/目录变更 - av_1002 : 病毒 - av_1003 : 蠕虫 - av_1004 : 木马 - av_1005 : 僵尸网络 - av_1006 : 后门 - av_1007 : 间谍软件 - av_1008 : 恶意广告软件 - av_1009 : 钓鱼 - av_1010 : Rootkit - av_1011 : 勒索软件 - av_1012 : 黑客工具 - av_1013 : 灰色软件 - av_1015 : Webshell - av_1016 : 挖矿软件 - login_0001 : 尝试暴力破解 - login_0002 : 爆破成功 - login_1001 : 登录成功 - login_1002 : 异地登录 - login_1003 : 弱口令 - malware_0001 : shell变更事件上报 - malware_0002 : 反弹shell事件上报 - malware_1001 : 恶意程序 - procdet_0001 : 进程异常行为检测 - procdet_0002 : 进程提权 - crontab_0001 : crontab脚本提权 - crontab_0002 : 恶意路径提权 - procreport_0001 : 危险命令 - user_1001 : 账号变更 - user_1002 : 风险账号 - vmescape_0001 : 虚拟机敏感命令执行 - vmescape_0002 : 虚拟化进程访问敏感文件 - vmescape_0003 : 虚拟机异常端口访问 - webshell_0001 : 网站后门 - network_1001 : 恶意挖矿 - network_1002 : 对外DDoS攻击 - network_1003 : 恶意扫描 - network_1004 : 敏感区域攻击 - ransomware_0001 : 勒索攻击 - ransomware_0002 : 勒索攻击 - ransomware_0003 : 勒索攻击 - fileless_0001 : 进程注入 - fileless_0002 : 动态库注入进程 - fileless_0003 : 关键配置变更 - fileless_0004 : 环境变量变更 - fileless_0005 : 内存文件进程 - fileless_0006 : vdso劫持 - crontab_1001 : Crontab可疑任务 - vul_exploit_0001 : Redis漏洞利用攻击 - vul_exploit_0002 : Hadoop漏洞利用攻击 - vul_exploit_0003 : MySQL漏洞利用攻击 - rootkit_0001 : 可疑rootkit文件 - rootkit_0002 : 可疑内核模块 - RASP_0004 : 上传Webshell - RASP_0018 : 无文件Webshell - blockexec_001 : 已知勒索攻击 - hips_0001 : Windows Defender防护被禁用 - hips_0002 : 可疑的黑客工具 - hips_0003 : 可疑的勒索加密行为 - hips_0004 : 隐藏账号创建 - hips_0005 : 读取用户密码凭据 - hips_0006 : 可疑的SAM文件导出 - hips_0007 : 可疑shadow copy删除操作 - hips_0008 : 备份文件删除 - hips_0009 : 可疑勒索病毒操作注册表 - hips_0010 : 可疑的异常进程行为 - hips_0011 : 可疑的扫描探测 - hips_0012 : 可疑的勒索病毒脚本运行 - hips_0013 : 可疑的挖矿命令执行 - hips_0014 : 可疑的禁用windows安全中心 - hips_0015 : 可疑的停止防火墙服务行为 - hips_0016 : 可疑的系统自动恢复禁用 - hips_0017 : Offies 创建可执行文件 - hips_0018 : 带宏Offies文件异常创建 - hips_0019 : 可疑的注册表操作 - hips_0020 : Confluence远程代码执行 - hips_0021 : MSDT远程代码执行 - portscan_0001 : 通用端口扫描 - portscan_0002 : 秘密端口扫描 - k8s_1001 : Kubernetes事件删除 - k8s_1002 : 创建特权Pod - k8s_1003 : Pod中使用交互式shell - k8s_1004 : 创建敏感目录Pod - k8s_1005 : 创建主机网络的Pod - k8s_1006 : 创建主机Pid空间的Pod - k8s_1007 : 普通pod访问APIserver认证失败 - k8s_1008 : 普通Pod通过Curl访问APIServer - k8s_1009 : 系统管理空间执行exec - k8s_1010 : 系统管理空间创建Pod - k8s_1011 : 创建静态Pod - k8s_1012 : 创建DaemonSet - k8s_1013 : 创建集群计划任务 - k8s_1014 : Secrets操作 - k8s_1015 : 枚举用户可执行的操作 - k8s_1016 : 高权限RoleBinding或ClusterRoleBinding - k8s_1017 : ServiceAccount创建 - k8s_1018 : 创建Cronjob - k8s_1019 : Pod中exec使用交互式shell - k8s_1020 : 无权限访问Apiserver - k8s_1021 : 使用curl访问APIServer - k8s_1022 : Ingress漏洞 - k8s_1023 : 中间人攻击 - k8s_1024 : 蠕虫挖矿木马 - k8s_1025 : K8s事件删除 - k8s_1026 : SelfSubjectRulesReview场景 - imgblock_0001 : 镜像白名单阻断 - imgblock_0002 : 镜像黑名单阻断 - imgblock_0003 : 镜像标签白名单阻断 - imgblock_0004 : 镜像标签黑名单阻断 - imgblock_0005 : 创建容器白名单阻断 - imgblock_0006 : 创建容器黑名单阻断 - imgblock_0007 : 容器mount proc阻断 - imgblock_0008 : 容器seccomp unconfined阻断 - imgblock_0009 : 容器特权阻断 - imgblock_0010 : 容器capabilities阻断
+     * @param {string} eventClassId 事件标识，包含如下: - container_1001 : 容器命名空间 - container_1002 : 容器开放端口 - container_1003 : 容器安全选项 - container_1004 : 容器挂载目录 - containerescape_0001 : 容器高危系统调用 - containerescape_0002 : Shocker攻击 - containerescape_0003 : DirtCow攻击 - containerescape_0004 : 容器文件逃逸攻击 - dockerfile_001 : 用户自定义容器保护文件被修改 - dockerfile_002 : 容器文件系统可执行文件被修改 - dockerproc_001 : 容器进程异常事件上报 - fileprotect_0001 : 文件提权 - fileprotect_0002 : 关键文件变更 - fileprotect_0003 : 关键文件路径变更 - fileprotect_0004 : 文件/目录变更 - av_1002 : 病毒 - av_1003 : 蠕虫 - av_1004 : 木马 - av_1005 : 僵尸网络 - av_1006 : 后门 - av_1007 : 间谍软件 - av_1008 : 恶意广告软件 - av_1009 : 钓鱼 - av_1010 : Rootkit - av_1011 : 勒索软件 - av_1012 : 黑客工具 - av_1013 : 灰色软件 - av_1015 : Webshell - av_1016 : 挖矿软件 - login_0001 : 尝试暴力破解 - login_0002 : 爆破成功 - login_1001 : 登录成功 - login_1002 : 异地登录 - login_1003 : 弱口令 - malware_0001 : shell变更事件上报 - malware_0002 : 反弹shell事件上报 - malware_1001 : 恶意程序 - procdet_0001 : 进程异常行为检测 - procdet_0002 : 进程提权 - crontab_0001 : crontab脚本提权 - crontab_0002 : 恶意路径提权 - procreport_0001 : 危险命令 - user_1001 : 账号变更 - user_1002 : 风险账号 - vmescape_0001 : 虚拟机敏感命令执行 - vmescape_0002 : 虚拟化进程访问敏感文件 - vmescape_0003 : 虚拟机异常端口访问 - webshell_0001 : 网站后门 - network_1001 : 恶意挖矿 - network_1002 : 对外DDoS攻击 - network_1003 : 恶意扫描 - network_1004 : 敏感区域攻击 - ransomware_0001 : 勒索攻击 - ransomware_0002 : 勒索攻击 - ransomware_0003 : 勒索攻击 - fileless_0001 : 进程注入 - fileless_0002 : 动态库注入进程 - fileless_0003 : 关键配置变更 - fileless_0004 : 环境变量变更 - fileless_0005 : 内存文件进程 - fileless_0006 : vdso劫持 - crontab_1001 : Crontab可疑任务 - vul_exploit_0001 : Redis漏洞利用攻击 - vul_exploit_0002 : Hadoop漏洞利用攻击 - vul_exploit_0003 : MySQL漏洞利用攻击 - rootkit_0001 : 可疑rootkit文件 - rootkit_0002 : 可疑内核模块 - RASP_0004 : 上传Webshell - RASP_0018 : 无文件Webshell - blockexec_001 : 已知勒索攻击 - hips_0001 : Windows Defender防护被禁用 - hips_0002 : 可疑的黑客工具 - hips_0003 : 可疑的勒索加密行为 - hips_0004 : 隐藏账号创建 - hips_0005 : 读取用户密码凭据 - hips_0006 : 可疑的SAM文件导出 - hips_0007 : 可疑shadow copy删除操作 - hips_0008 : 备份文件删除 - hips_0009 : 可疑勒索病毒操作注册表 - hips_0010 : 可疑的异常进程行为 - hips_0011 : 可疑的扫描探测 - hips_0012 : 可疑的勒索病毒脚本运行 - hips_0013 : 可疑的挖矿命令执行 - hips_0014 : 可疑的禁用windows安全中心 - hips_0015 : 可疑的停止防火墙服务行为 - hips_0016 : 可疑的系统自动恢复禁用 - hips_0017 : Office 创建可执行文件 - hips_0018 : 带宏Office文件异常创建 - hips_0019 : 可疑的注册表操作 - hips_0020 : Confluence远程代码执行 - hips_0021 : MSDT远程代码执行 - portscan_0001 : 通用端口扫描 - portscan_0002 : 秘密端口扫描 - k8s_1001 : Kubernetes事件删除 - k8s_1002 : 创建特权Pod - k8s_1003 : Pod中使用交互式shell - k8s_1004 : 创建敏感目录Pod - k8s_1005 : 创建主机网络的Pod - k8s_1006 : 创建主机Pid空间的Pod - k8s_1007 : 普通pod访问APIserver认证失败 - k8s_1008 : 普通Pod通过Curl访问APIServer - k8s_1009 : 系统管理空间执行exec - k8s_1010 : 系统管理空间创建Pod - k8s_1011 : 创建静态Pod - k8s_1012 : 创建DaemonSet - k8s_1013 : 创建集群计划任务 - k8s_1014 : Secrets操作 - k8s_1015 : 枚举用户可执行的操作 - k8s_1016 : 高权限RoleBinding或ClusterRoleBinding - k8s_1017 : ServiceAccount创建 - k8s_1018 : 创建Cronjob - k8s_1019 : Pod中exec使用交互式shell - k8s_1020 : 无权限访问Apiserver - k8s_1021 : 使用curl访问APIServer - k8s_1022 : Ingress漏洞 - k8s_1023 : 中间人攻击 - k8s_1024 : 蠕虫挖矿木马 - k8s_1025 : K8s事件删除 - k8s_1026 : SelfSubjectRulesReview场景 - imgblock_0001 : 镜像白名单阻断 - imgblock_0002 : 镜像黑名单阻断 - imgblock_0003 : 镜像标签白名单阻断 - imgblock_0004 : 镜像标签黑名单阻断 - imgblock_0005 : 创建容器白名单阻断 - imgblock_0006 : 创建容器黑名单阻断 - imgblock_0007 : 容器mount proc阻断 - imgblock_0008 : 容器seccomp unconfined阻断 - imgblock_0009 : 容器特权阻断 - imgblock_0010 : 容器capabilities阻断
      * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [occurTime] 事件发生时间
@@ -4583,10 +4587,10 @@ export class HssClient {
      * @param {string} [severity] **参数解释**: 威胁等级 **约束限制**: 不涉及 **取值范围**: - Security：安全 - Low：低危 - Medium：中危 - High：高危 - Critical：危急  **默认取值**: 不涉及 
      * @param {string} [beginTime] **参数解释**： 自定义查询时间，开始时间 **约束限制**： 不涉及 **取值范围**： 字符长度13位 **默认取值**： 不涉及 
      * @param {string} [endTime] **参数解释**： 自定义查询时间，结束时间 **约束限制**： 不涉及 **取值范围**： 字符长度13位 **默认取值**： 不涉及 
-     * @param {Array<string>} [eventClassIds] **参数解释**: 事件标识 **约束限制**: 不涉及 **取值范围**: - container_1001：容器命名空间 - container_1002：容器开放端口 - container_1003：容器安全选项 - container_1004：容器挂载目录 - containerescape_0001：容器高危系统调用 - containerescape_0002：Shocker攻击 - containerescape_0003：DirtCow攻击 - containerescape_0004：容器文件逃逸攻击 - dockerfile_001：用户自定义容器保护文件被修改 - dockerfile_002：容器文件系统可执行文件被修改 - dockerproc_001：容器进程异常事件上报 - fileprotect_0001：文件提权 - fileprotect_0002：关键文件变更 - fileprotect_0003：关键文件路径变更 - fileprotect_0004：文件/目录变更 - av_1002：病毒 - av_1003：蠕虫 - av_1004：木马 - av_1005：僵尸网络 - av_1006：后门 - av_1007：间谍软件 - av_1008：恶意广告软件 - av_1009：钓鱼 - av_1010：Rootkit - av_1011：勒索软件 - av_1012：黑客工具 - av_1013：灰色软件 - av_1015：Webshell - av_1016：挖矿软件 - login_0001：尝试暴力破解 - login_0002：爆破成功 - login_1001：登录成功 - login_1002：异地登录 - login_1003：弱口令 - malware_0001：shell变更事件上报 - malware_0002：反弹shell事件上报 - malware_1001：恶意程序 - procdet_0001：进程异常行为检测 - procdet_0002：进程提权 - crontab_0001：crontab脚本提权 - crontab_0002：恶意路径提权 - procreport_0001：危险命令 - user_1001：账号变更 - user_1002：风险账号 - vmescape_0001：虚拟机敏感命令执行 - vmescape_0002：虚拟化进程访问敏感文件 - vmescape_0003：虚拟机异常端口访问 - webshell_0001：网站后门 - network_1001：恶意挖矿 - network_1002：对外DDoS攻击 - network_1003：恶意扫描 - network_1004：敏感区域攻击 - ransomware_0001：勒索攻击 - ransomware_0002：勒索攻击 - ransomware_0003：勒索攻击 - fileless_0001：进程注入 - fileless_0002：动态库注入进程 - fileless_0003：关键配置变更 - fileless_0004：环境变量变更 - fileless_0005：内存文件进程 - fileless_0006：vdso劫持 - crontab_1001：Crontab可疑任务 - vul_exploit_0001：Redis漏洞利用攻击 - vul_exploit_0002：Hadoop漏洞利用攻击 - vul_exploit_0003：MySQL漏洞利用攻击 - rootkit_0001：可疑rootkit文件 - rootkit_0002：可疑内核模块 - RASP_0004：上传Webshell - RASP_0018：无文件Webshell - blockexec_001：已知勒索攻击 - hips_0001：Windows Defender防护被禁用 - hips_0002：可疑的黑客工具 - hips_0003：可疑的勒索加密行为 - hips_0004：隐藏账号创建 - hips_0005：读取用户密码凭据 - hips_0006：可疑的SAM文件导出 - hips_0007：可疑shadow copy删除操作 - hips_0008：备份文件删除 - hips_0009：可疑勒索病毒操作注册表 - hips_0010：可疑的异常进程行为 - hips_0011：可疑的扫描探测 - hips_0012：可疑的勒索病毒脚本运行 - hips_0013：可疑的挖矿命令执行 - hips_0014：可疑的禁用windows安全中心 - hips_0015：可疑的停止防火墙服务行为 - hips_0016：可疑的系统自动恢复禁用 - hips_0017：Offies创建可执行文件 - hips_0018：带宏Offies文件异常创建 - hips_0019：可疑的注册表操作 - hips_0020：Confluence远程代码执行 - hips_0021：MSDT远程代码执行 - portscan_0001：通用端口扫描 - portscan_0002：秘密端口扫描 - k8s_1001：Kubernetes事件删除 - k8s_1002：创建特权Pod - k8s_1003：Pod中使用交互式shell - k8s_1004：创建敏感目录Pod - k8s_1005：创建主机网络的Pod - k8s_1006：创建主机Pid空间的Pod - k8s_1007：普通pod访问APIserver认证失败 - k8s_1008：普通Pod通过Curl访问APIServer - k8s_1009：系统管理空间执行exec - k8s_1010：系统管理空间创建Pod - k8s_1011：创建静态Pod - k8s_1012：创建DaemonSet - k8s_1013：创建集群计划任务 - k8s_1014：Secrets操作 - k8s_1015：枚举用户可执行的操作 - k8s_1016：高权限RoleBinding或ClusterRoleBinding - k8s_1017：ServiceAccount创建 - k8s_1018：创建Cronjob - k8s_1019：Pod中exec使用交互式shell - k8s_1020：无权限访问Apiserver - k8s_1021：使用curl访问APIServer - k8s_1022：Ingress漏洞 - k8s_1023：中间人攻击 - k8s_1024：蠕虫挖矿木马 - k8s_1025：K8s事件删除 - k8s_1026：SelfSubjectRulesReview场景 - imgblock_0001：镜像白名单阻断 - imgblock_0002：镜像黑名单阻断 - imgblock_0003：镜像标签白名单阻断 - imgblock_0004：镜像标签黑名单阻断 - imgblock_0005：创建容器白名单阻断 - imgblock_0006：创建容器黑名单阻断 - imgblock_0007：容器mount proc阻断 - imgblock_0008：容器seccomp unconfined阻断 - imgblock_0009：容器特权阻断 - imgblock_0010：容器capabilities阻断  **默认取值**: 不涉及 
+     * @param {Array<string>} [eventClassIds] **参数解释**: 事件标识 **约束限制**: 不涉及 **取值范围**: - container_1001：容器命名空间 - container_1002：容器开放端口 - container_1003：容器安全选项 - container_1004：容器挂载目录 - containerescape_0001：容器高危系统调用 - containerescape_0002：Shocker攻击 - containerescape_0003：DirtCow攻击 - containerescape_0004：容器文件逃逸攻击 - dockerfile_001：用户自定义容器保护文件被修改 - dockerfile_002：容器文件系统可执行文件被修改 - dockerproc_001：容器进程异常事件上报 - fileprotect_0001：文件提权 - fileprotect_0002：关键文件变更 - fileprotect_0003：关键文件路径变更 - fileprotect_0004：文件/目录变更 - av_1002：病毒 - av_1003：蠕虫 - av_1004：木马 - av_1005：僵尸网络 - av_1006：后门 - av_1007：间谍软件 - av_1008：恶意广告软件 - av_1009：钓鱼 - av_1010：Rootkit - av_1011：勒索软件 - av_1012：黑客工具 - av_1013：灰色软件 - av_1015：Webshell - av_1016：挖矿软件 - login_0001：尝试暴力破解 - login_0002：爆破成功 - login_1001：登录成功 - login_1002：异地登录 - login_1003：弱口令 - malware_0001：shell变更事件上报 - malware_0002：反弹shell事件上报 - malware_1001：恶意程序 - procdet_0001：进程异常行为检测 - procdet_0002：进程提权 - crontab_0001：crontab脚本提权 - crontab_0002：恶意路径提权 - procreport_0001：危险命令 - user_1001：账号变更 - user_1002：风险账号 - vmescape_0001：虚拟机敏感命令执行 - vmescape_0002：虚拟化进程访问敏感文件 - vmescape_0003：虚拟机异常端口访问 - webshell_0001：网站后门 - network_1001：恶意挖矿 - network_1002：对外DDoS攻击 - network_1003：恶意扫描 - network_1004：敏感区域攻击 - ransomware_0001：勒索攻击 - ransomware_0002：勒索攻击 - ransomware_0003：勒索攻击 - fileless_0001：进程注入 - fileless_0002：动态库注入进程 - fileless_0003：关键配置变更 - fileless_0004：环境变量变更 - fileless_0005：内存文件进程 - fileless_0006：vdso劫持 - crontab_1001：Crontab可疑任务 - vul_exploit_0001：Redis漏洞利用攻击 - vul_exploit_0002：Hadoop漏洞利用攻击 - vul_exploit_0003：MySQL漏洞利用攻击 - rootkit_0001：可疑rootkit文件 - rootkit_0002：可疑内核模块 - RASP_0004：上传Webshell - RASP_0018：无文件Webshell - blockexec_001：已知勒索攻击 - hips_0001：Windows Defender防护被禁用 - hips_0002：可疑的黑客工具 - hips_0003：可疑的勒索加密行为 - hips_0004：隐藏账号创建 - hips_0005：读取用户密码凭据 - hips_0006：可疑的SAM文件导出 - hips_0007：可疑shadow copy删除操作 - hips_0008：备份文件删除 - hips_0009：可疑勒索病毒操作注册表 - hips_0010：可疑的异常进程行为 - hips_0011：可疑的扫描探测 - hips_0012：可疑的勒索病毒脚本运行 - hips_0013：可疑的挖矿命令执行 - hips_0014：可疑的禁用windows安全中心 - hips_0015：可疑的停止防火墙服务行为 - hips_0016：可疑的系统自动恢复禁用 - hips_0017：Office创建可执行文件 - hips_0018：带宏Office文件异常创建 - hips_0019：可疑的注册表操作 - hips_0020：Confluence远程代码执行 - hips_0021：MSDT远程代码执行 - portscan_0001：通用端口扫描 - portscan_0002：秘密端口扫描 - k8s_1001：Kubernetes事件删除 - k8s_1002：创建特权Pod - k8s_1003：Pod中使用交互式shell - k8s_1004：创建敏感目录Pod - k8s_1005：创建主机网络的Pod - k8s_1006：创建主机Pid空间的Pod - k8s_1007：普通pod访问APIserver认证失败 - k8s_1008：普通Pod通过Curl访问APIServer - k8s_1009：系统管理空间执行exec - k8s_1010：系统管理空间创建Pod - k8s_1011：创建静态Pod - k8s_1012：创建DaemonSet - k8s_1013：创建集群计划任务 - k8s_1014：Secrets操作 - k8s_1015：枚举用户可执行的操作 - k8s_1016：高权限RoleBinding或ClusterRoleBinding - k8s_1017：ServiceAccount创建 - k8s_1018：创建Cronjob - k8s_1019：Pod中exec使用交互式shell - k8s_1020：无权限访问Apiserver - k8s_1021：使用curl访问APIServer - k8s_1022：Ingress漏洞 - k8s_1023：中间人攻击 - k8s_1024：蠕虫挖矿木马 - k8s_1025：K8s事件删除 - k8s_1026：SelfSubjectRulesReview场景 - imgblock_0001：镜像白名单阻断 - imgblock_0002：镜像黑名单阻断 - imgblock_0003：镜像标签白名单阻断 - imgblock_0004：镜像标签黑名单阻断 - imgblock_0005：创建容器白名单阻断 - imgblock_0006：创建容器黑名单阻断 - imgblock_0007：容器mount proc阻断 - imgblock_0008：容器seccomp unconfined阻断 - imgblock_0009：容器特权阻断 - imgblock_0010：容器capabilities阻断  **默认取值**: 不涉及 
      * @param {Array<string>} [severityList] **参数解释**: 威胁等级 **约束限制**: 不涉及 **取值范围**: - Security：安全 - Low：低危 - Medium：中危 - High：高危 - Critical：危急  **默认取值**: 不涉及 
      * @param {string} [attackTag] **参数解释**: 攻击标识 **约束限制**: 不涉及 **取值范围**: - attack_success：攻击成功 - attack_attempt：攻击尝试 - attack_blocked：攻击被阻断 - abnormal_behavior：异常行为 - collapsible_host：主机失陷 - system_vulnerability：系统脆弱性  **默认取值**: 不涉及 
-     * @param {string} [assetValue] **参数解释**: 资产重要性 **约束限制**: 不涉及 **取值范围**: - important：重要资产 - common：般资产 - test：测试资产  **默认取值**: 不涉及 
+     * @param {string} [assetValue] **参数解释**: 资产重要性 **约束限制**: 不涉及 **取值范围**: - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**: 不涉及 
      * @param {Array<string>} [tagList] 事件标签列表，例如:[\&quot;热点事件\&quot;]
      * @param {string} [attCk] **参数解释**: ATT&amp;CK攻击阶段 **约束限制**: 不涉及 **取值范围**: - Reconnaissance：侦察 - Initial Access：初始访问 - Execution：执行 - Persistence：持久化 - Privilege Escalation：权限提升 - Defense Evasion：防御绕过 - Credential Access：凭据访问 - Command and Control：命令与控制 - Impact：影响破坏  **默认取值**: 不涉及 
      * @param {string} [eventName] **参数解释**： 告警名称 **约束限制**： 不涉及 **取值范围**： 字符长度1-128位 **默认取值**： 不涉及 
@@ -4675,10 +4679,10 @@ export class HssClient {
      * @param {number} offset **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 不涉及 
      * @param {number} limit **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 无 
+     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
      * @param {string} [systemUserName] 系统用户名
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4718,7 +4722,7 @@ export class HssClient {
      *
      * @summary 获取账户变动历史信息
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [userName] **参数解释**: 用户名 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位  **默认取值**: 不涉及 
      * @param {boolean} [rootPermission] **参数解释**: 是否有root权限 **约束限制**: 不涉及 **取值范围**: true: 具有root权限 false: 不具有root权限  **默认取值**: 不涉及 
@@ -4747,10 +4751,10 @@ export class HssClient {
      *
      * @summary 查询账号信息列表
      * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} [userName] 账号名称，参考windows文件命名规则，支持字母、数字、下划线、中文，特殊字符!@.-等，不包括中文标点符号
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
-     * @param {number} [limit] 每页显示数量
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {string} [userName] **参数解释**: 用于筛选指定名称的账号统计数据（支持模糊匹配） **约束限制**: 符合Windows文件命名规则，不包含中文标点符号 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4769,7 +4773,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询账号的服务器列表
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [userName] **参数解释**: 账号名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-32位 **默认取值**: 不涉及 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
@@ -4824,11 +4828,11 @@ export class HssClient {
      *
      * @summary 查询指定Web服务、Web应用、数据库的服务器列表
      * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} name **参数解释**: web应用，web服务或数据库名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
      * @param {string} catalogue **参数解释**: 资产类型 **约束限制**: 不涉及 **取值范围**: - web-app：web应用 - web-service：web服务 - database：数据库  **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {string} [name] **参数解释**: web应用，web服务或数据库名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
      * @param {string} [hostName] **参数解释**: 服务器名称(可选)，可让用户根据主机名字搜索 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
      * @param {string} [hostId] **参数解释**: 服务器id(可选)，可让用户根据主机id搜索 **约束限制**: 不涉及 **取值范围**: 字符长度0-64 **默认取值**: 不涉及 
      * @param {string} [hostIp] **参数解释**: 服务器ip(可选)，可让用户根据主机ip搜索 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
@@ -5198,9 +5202,9 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 统计资产信息数量
-     * @param {string} category **参数解释**: 类别，默认为host **约束限制**: 不涉及 **取值范围**: - host：主机 - container：容器  **默认取值**: host 
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [hostId] **参数解释**： 主机ID **约束限制**： 不涉及 **取值范围**： 字符长度1-128位 **默认取值**： 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5378,7 +5382,7 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {string} [groupId] **参数解释**: 服务器组ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [groupId] **参数解释**: 服务器组的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [policyId] 策略ID
@@ -5461,8 +5465,8 @@ export class HssClient {
      * @param {string} category **参数解释**: 事件类别 **约束限制**: 不涉及 **取值范围**: - host : 主机安全事件 - container : 容器安全事件 - serverless : serverless场景安全事件 **默认取值**: 不涉及 
      * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
-     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
+     * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 需小于等于end_time，未传end_time时默认查询至当前时间 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
+     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 需大于等于begin_time，未传begin_time时默认从时间戳0开始查询 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
      * @param {number} [lastDays] 查询时间范围天数，与自定义查询时间begin_time，end_time互斥
      * @param {string} [hostName] 服务器名称
      * @param {string} [hostId] 服务器ID
@@ -5767,25 +5771,6 @@ export class HssClient {
     }
 
     /**
-     * 资产管理-概览-进程Top
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 资产管理-概览-进程Top
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showPorcessTop(showPorcessTopRequest?: ShowPorcessTopRequest): Promise<ShowPorcessTopResponse> {
-        const options = ParamCreater().showPorcessTop(showPorcessTopRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 资产管理-概览-端口Top
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5797,6 +5782,25 @@ export class HssClient {
      */
     public showPortTop(showPortTopRequest?: ShowPortTopRequest): Promise<ShowPortTopResponse> {
         const options = ParamCreater().showPortTop(showPortTopRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 资产管理-概览-进程Top
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产管理-概览-进程Top
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProcessTop(showProcessTopRequest?: ShowProcessTopRequest): Promise<ShowProcessTopResponse> {
+        const options = ParamCreater().showProcessTop(showProcessTopRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6426,16 +6430,16 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 无 
-     * @param {string} [handleStatus] 处置状态，包含如下:   - unhandled：未处理   - handled：已处理
-     * @param {Array<string>} [severityList] 威胁等级，包含如下:   - Low：低危   - Medium：中危   - High：高危   - Critical：致命
-     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产。 - common：一般资产。 - test：测试资产。  **默认取值**： 无 
-     * @param {string} [malwareName] 病毒名称
-     * @param {string} [filePath] 文件路径
+     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
+     * @param {string} [handleStatus] **参数解释**: 处置状态 **约束限制**: 不涉及 **取值范围**: 包含如下:   - unhandled：未处理   - handled：已处理 **默认取值**: 不涉及 
+     * @param {Array<string>} [severityList] **参数解释**: 威胁等级 **约束限制**: 不涉及 **取值范围**: 威胁等级，包含如下:   - Low：低危   - Medium：中危   - High：高危   - Critical：致命 **默认取值**: 不涉及 
+     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**： 无 
+     * @param {string} [malwareName] **参数解释**: 病毒名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [filePath] **参数解释**： 文件路径 **约束限制**： 不涉及 **取值范围**： 字符数1-512位 **默认取值**： 不涉及 
      * @param {number} [exportSize] 导出条数
-     * @param {string} [fileHash] 文件hash，当前为sha256
-     * @param {string} [taskName] 任务名称
-     * @param {boolean} [manualIsolate] 是否使用手动隔离按钮
+     * @param {string} [fileHash] **参数解释**： 文件hash，当前为sha256 **约束限制**： 需为合法的SHA256哈希值 **取值范围**： 字符长度64位 **默认取值**： 不涉及 
+     * @param {string} [taskName] **参数解释**: 任务名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {boolean} [manualIsolate] **参数解释**: 是否使用手动隔离按钮 **约束限制**: 不涉及 **取值范围**: true（已使用手动隔离）、false（未使用手动隔离） **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6479,11 +6483,11 @@ export class HssClient {
      * @param {string} scanType 任务类型，包含如下:   - quick ：快速扫描   - full : 全盘扫描   - custom : 自定义扫描
      * @param {string} startType 启动类型，包含如下:   - now ：立即启动   - period : 周期启动
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 无 
-     * @param {string} [groupId] **参数解释**: 服务器组ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
+     * @param {string} [groupId] **参数解释**: 服务器组的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [policyId] 策略ID
      * @param {number} [nextStartTime] 下次启动时间，毫秒
      * @param {*} [options] Override http request option.
@@ -6504,16 +6508,16 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询付费病毒查杀服务器列表
-     * @param {string} scanType 任务类型，包含如下:   - quick ：快速扫描   - full：全盘扫描   - custom : 自定义扫描
-     * @param {string} startType 启动类型，包含如下:   - now ：立即启动   - period : 周期启动
+     * @param {string} scanType **参数解释**: 任务类型 **约束限制**: 不涉及 **取值范围**:   - quick ：快速扫描   - full：全盘扫描   - custom : 自定义扫描 **默认取值**: 不涉及 
+     * @param {string} startType **参数解释**: 启动类型 **约束限制**: 不涉及 **取值范围**: - now ：立即启动 - period : 周期启动 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 无 
-     * @param {string} [groupId] **参数解释**: 服务器组ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
+     * @param {string} [groupId] **参数解释**: 服务器组的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6559,15 +6563,15 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 无 
-     * @param {string} [handleStatus] 处置状态，包含如下:   - unhandled：未处理   - handled：已处理
-     * @param {Array<string>} [severityList] 威胁等级，包含如下:   - Low：低危   - Medium：中危   - High：高危   - Critical：致命
-     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产。 - common：一般资产。 - test：测试资产。  **默认取值**： 无 
-     * @param {string} [malwareName] 病毒名称
-     * @param {string} [filePath] 文件路径
-     * @param {string} [fileHash] 文件hash，当前为sha256
-     * @param {string} [taskName] 任务名称
-     * @param {boolean} [manualIsolate] 是否使用手动隔离按钮
+     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
+     * @param {string} [handleStatus] **参数解释**: 处置状态 **约束限制**: 不涉及 **取值范围**: 包含如下:   - unhandled：未处理   - handled：已处理 **默认取值**: 不涉及 
+     * @param {Array<string>} [severityList] **参数解释**: 威胁等级 **约束限制**: 不涉及 **取值范围**: 威胁等级，包含如下:   - Low：低危   - Medium：中危   - High：高危   - Critical：致命 **默认取值**: 不涉及 
+     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**： 无 
+     * @param {string} [malwareName] **参数解释**: 病毒名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [filePath] **参数解释**： 文件路径 **约束限制**： 不涉及 **取值范围**： 字符数1-512位 **默认取值**： 不涉及 
+     * @param {string} [fileHash] **参数解释**： 文件hash，当前为sha256 **约束限制**： 需为合法的SHA256哈希值 **取值范围**： 字符长度64位 **默认取值**： 不涉及 
+     * @param {string} [taskName] **参数解释**: 任务名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {boolean} [manualIsolate] **参数解释**: 是否使用手动隔离按钮 **约束限制**: 不涉及 **取值范围**: true（已使用手动隔离）、false（未使用手动隔离） **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6588,17 +6592,17 @@ export class HssClient {
      * @summary 查看病毒扫描任务列表
      * @param {number} offset **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 不涉及 
      * @param {number} limit **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {boolean} whetherPaidTask 此次扫描任务是否付费
+     * @param {boolean} whetherPaidTask **参数解释**: 此次扫描任务是否付费 **约束限制**: 必选参数，仅支持指定布尔值 **取值范围**: true（付费任务）、false（免费任务） **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [taskName] 任务名称
-     * @param {number} [lastDays] 查询时间范围天数，与自定义查询时间begin_time，end_time互斥
-     * @param {string} [beginTime] 自定义查询时间，开始时间
-     * @param {string} [endTime] 自定义查询时间，结束时间
-     * @param {string} [taskStatus] 任务状态，包含如下4种   - scanning ：扫描中   - cancel ：已取消   - fail ：扫描失败   - finish ：已完成
+     * @param {string} [taskName] **参数解释**: 任务名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {number} [lastDays] **参数解释**: 查询时间范围天数 **约束限制**: 与begin_time、end_time互斥，不可同时传参，优先按last_days筛选 **取值范围**: 最小值1，最大值90（支持查询近90天内任务） **默认取值**: 不涉及 
+     * @param {string} [beginTime] **参数解释**： 自定义筛选任务的开始时间（任务启动时间≥该时间） **约束限制**： 与last_days互斥，需与end_time同时传参，格式需合法 **取值范围**： UTC时区，格式为YYYY-MM-DD HH:MM:SS **默认取值**： 不涉及 
+     * @param {string} [endTime] **参数解释**： 自定义筛选任务的结束时间（任务启动时间≤该时间） **约束限制**： 与last_days互斥，需与begin_time同时传参，且需大于等于begin_time **取值范围**： UTC时区，格式为YYYY-MM-DD HH:MM:SS **默认取值**： 不涉及 
+     * @param {string} [taskStatus] **参数解释**: 任务状态 **约束限制**: 不涉及 **取值范围**: 包含如下4种   - scanning：扫描中   - cancel：已取消   - fail：扫描失败   - finish：已完成 **默认取值**: 不涉及 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 无 
-     * @param {Array<string>} [hostTaskStatus] 服务器扫描状态，包含如下4种   - scanning ：扫描中   - success ：扫描成功   - fail ：扫描失败   - cancel ：取消扫描
+     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
+     * @param {Array<string>} [hostTaskStatus] 服务器扫描状态， **参数解释**： 服务器扫描状态 **约束限制**: 不涉及 **取值范围**: 包含如下4种   - scanning ：扫描中   - success ：扫描成功   - fail ：扫描失败   - cancel ：取消扫描 **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6869,11 +6873,11 @@ export class HssClient {
      * @param {number} offset **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 不涉及 
      * @param {number} limit **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [version] 主机防护版本
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 无 
+     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
      * @param {string} [policyId] 策略ID
      * @param {string} [groupId] 服务器组ID
      * @param {*} [options] Override http request option.
@@ -6925,12 +6929,12 @@ export class HssClient {
      * @param {string} [policyName] 策略名称
      * @param {string} [learningStatus] **策略学习状态**： 策略学习状态 **约束限制**: 不涉及 **取值范围**: - effecting：学习完成，策略生效 - learned：学习完成，待确认 - learning：学习中 - pause：暂停 - abnormal：学习异常  **默认取值**: 不涉及 
      * @param {boolean} [applyStatus] **策略学习状态**： 策略应用状态 **约束限制**: 不涉及 **取值范围**: - true：是 - false：否  **默认取值**: 不涉及 
-     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产。 - common：一般资产。 - test：测试资产。  **默认取值**： 无 
+     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**： 无 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [osType] **参数解释**: 操作系统类型。 **约束限制**: 不涉及 **取值范围**: - Linux：Linux操作系统。 - Windows：Windows操作系统。  **默认取值**: 无 
      * @param {string} [policyId] 策略ID
-     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 无 
+     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -7140,11 +7144,11 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 对未通过的配置检查项进行忽略/取消忽略/修复/验证操作
-     * @param {string} action 动作 - \&quot;ignore\&quot; - \&quot;unignore\&quot; - \&quot;fix\&quot; - \&quot;verify\&quot;
+     * @param {string} action **参数解释**: 对检查项的操作类型 **约束限制**: 不涉及 **取值范围**: - ignore：忽略 - unignore：取消忽略 - fix：修复 - verify：验证 - add_to_whitelist：加白  **默认取值**: ignore 
      * @param {CheckRuleIdListRequestInfo} changeCheckRuleActionRequestBody 要执行操作的检查项ID列表
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
-     * @param {string} [hostId] 主机ID，不赋值时，查租户所有主机
-     * @param {boolean} [checkCce] 是否校验cce
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [hostId] **参数解释**: 主机ID，不赋值时，查租户所有主机 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位。 **默认取值**: 不涉及 
+     * @param {boolean} [checkCce] **参数解释**: 是否校验cce **约束限制**: 不涉及 **取值范围**: - true：是 - false：否  **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -7265,8 +7269,8 @@ export class HssClient {
      *
      * @summary 按查询结果导出配置检测报告
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [groupId] **参数解释**: 服务器组ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [groupId] **参数解释**: 服务器组的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [checkName] **参数解释** : \&quot;配置检查（基线）的名称，例如SSH、CentOS 7、Windows\&quot;。 **约束限制** : 不涉及 **取值范围** : 字符长度1-256位 **默认取值** : 不涉及 
      * @param {string} [standard] **参数解释**: 标准类型。 **约束限制**: 不涉及 **取值范围**: - cn_standard : 等保合规标准 - hw_standard : 云安全实践标准 - cis_standard : 通用安全标准  **默认取值**: 不涉及 
      * @param {string} [scanResult] **参数解释**: 检查结果。 **约束限制**: 不涉及 **取值范围**: - pass : 检查通过 - failed : 检查未通过  **默认取值**: 不涉及 
@@ -7300,7 +7304,7 @@ export class HssClient {
      * @param {string} [clusterId] **参数解释** 集群ID **约束限制** 不涉及 **取值范围** 字符长度0-64位 **默认取值** 不涉及
      * @param {string} [tag] **参数解释** 基线检查项的类型 **约束限制** 不涉及 **取值范围** 字符长度0-256位 **默认取值** 不涉及
      * @param {string} [policyGroupId] **参数解释** 策略组ID，不赋值时，查租户所有主机，host_id存在时，此值无效 **约束限制** 不涉及 **取值范围** 字符长度0-128位 **默认取值** 不涉及
-     * @param {string} [statisticsFlag] **参数解释** 是否从统计维度展示数据 **约束限制** 不涉及 **取值范围** - false : 不从统计维度展示 - true  : 从统计维度展示  **默认取值** false
+     * @param {boolean} [statisticsFlag] **参数解释** 是否从统计维度展示数据 **约束限制** 不涉及 **取值范围** - false : 不从统计维度展示 - true  : 从统计维度展示  **默认取值** false
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -7638,7 +7642,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询基线扫描手动检测结果
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -7658,7 +7662,7 @@ export class HssClient {
      *
      * @summary 查询基线检查的统计数据信息，包括弱口令，口令复杂度，配置检测
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [groupId] **参数解释** 策略组ID **约束限制** 不涉及 **取值范围** 字符长度0-128位 **默认取值** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -7724,7 +7728,7 @@ export class HssClient {
      * @summary 查询检查项修复失败原因
      * @param {string} checkRuleId **参数解释**:  检查项ID，值可以通过这个接口的返回数据获得：/v5/{project_id}/baseline/risk-config/{check_name}/check-rules **约束限制**: 不涉及 **取值范围**: 字符长度0-255位 **默认取值**: 不涉及
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [checkName] **参数解释** : \&quot;配置检查（基线）的名称，例如SSH、CentOS 7、Windows\&quot;。 **约束限制** : 不涉及 **取值范围** : 字符长度1-256位 **默认取值** : 不涉及 
      * @param {string} [standard] **参数解释**: 标准类型。 **约束限制**: 不涉及 **取值范围**: - cn_standard : 等保合规标准 - hw_standard : 云安全实践标准 - cis_standard : 通用安全标准  **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
@@ -8308,7 +8312,7 @@ export class HssClient {
      * @summary 获取镜像同步任务关联的镜像仓的信息
      * @param {string} taskId **参数解释** 任务ID **约束限制** 不涉及 **取值范围** 字符长度1-64位  **默认取值** 不涉及
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [registryName] **参数解释**: 仓库名称 **取值范围**: 字符长度1-128位 
+     * @param {string} [registryName] **参数解释**: 仓库名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [registryType] **参数解释**: 镜像仓类型，不传默认返回所有类型。如果要查询多个类型，可以使用逗号分隔。 **取值范围**: - Harbor harbor - Jfrog jfrog - SwrPrivate swr私有 - SwrShared  swr共享 - SwrEnterprise  swr企业 - Other  其他仓库 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
@@ -8379,8 +8383,8 @@ export class HssClient {
      * @summary 查询cicd镜像列表
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [namespace] **参数解释**: 组织名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位。  **默认取值**: 不涉及 
-     * @param {string} [imageName] **参数解释**: 镜像名称 **取值范围**: 字符长度1-128位 
-     * @param {string} [imageVersion] **参数解释**: 镜像版本 **取值范围**: 字符长度1-64位 
+     * @param {string} [imageName] **参数解释**: 镜像名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [imageVersion] **参数解释**: 镜像版本 **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [sortKey] **参数解释**: 可排序字段 **约束限制**: 不涉及 **取值范围**: - latest_scan_time：最近扫描时间。  **默认取值**: 不涉及 
      * @param {string} [sortDir] **参数解释**: 排序的顺序 **约束限制**: 不涉及 **取值范围**:   - asc  : 正序   - desc : 倒序  **默认取值**: 正序排序 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
@@ -8443,7 +8447,7 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {string} [registryName] **参数解释**: 仓库名称 **取值范围**: 字符长度1-128位 
+     * @param {string} [registryName] **参数解释**: 仓库名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [registryId] **参数解释**: 仓库ID **取值范围**: 字符长度1-64位 
      * @param {string} [registryType] **参数解释**: 镜像仓类型，不传默认返回所有类型。如果要查询多个类型，可以使用逗号分隔。 **取值范围**: - Harbor harbor - Jfrog jfrog - SwrPrivate swr私有 - SwrShared  swr共享 - SwrEnterprise  swr企业 - Other  其他仓库 
      * @param {string} [registryAddr] **参数解释**: 镜像仓地址 **取值范围**: 字符长度1-256位 
@@ -8800,10 +8804,10 @@ export class HssClient {
      * @param {number} limit **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
-     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
+     * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 需小于等于end_time，未传end_time时默认查询至当前时间 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
+     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 需大于等于begin_time，未传begin_time时默认从时间戳0开始查询 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
      * @param {string} [fileName] 文件名称
-     * @param {string} [filePath] 文件路径
+     * @param {string} [filePath] **参数解释**： 文件路径 **约束限制**： 不涉及 **取值范围**： 字符数1-512位 **默认取值**： 不涉及 
      * @param {string} [changeType] 变更类型，包含如下:   - \&quot;all\&quot; : 全部   - \&quot;registry\&quot; : 注册表   - \&quot;file\&quot; : 文件
      * @param {string} [changeCategory] 变更类别，包含如下:   - \&quot;all\&quot; : 全部   - \&quot;modify\&quot; : 修改   - \&quot;add\&quot; : 新增   - \&quot;delete\&quot; : 删除
      * @param {string} [status] 状态，包含如下:   - \&quot;all\&quot; : 全部   - \&quot;trust\&quot; : 可信   - \&quot;untrust\&quot; : 不可信   - \&quot;unknown\&quot; : 未知 
@@ -8829,10 +8833,10 @@ export class HssClient {
      * @param {number} offset **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 不涉及 
      * @param {number} limit **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
-     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
+     * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 需小于等于end_time，未传end_time时默认查询至当前时间 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
+     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 需大于等于begin_time，未传begin_time时默认从时间戳0开始查询 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
      * @param {string} [fileName] 文件名称
-     * @param {string} [filePath] 文件路径
+     * @param {string} [filePath] **参数解释**： 文件路径 **约束限制**： 不涉及 **取值范围**： 字符数1-512位 **默认取值**： 不涉及 
      * @param {string} [changeType] 变更类型，包含如下:   - \&quot;all\&quot; : 全部   - \&quot;registry\&quot; : 注册表   - \&quot;file\&quot; : 文件
      * @param {string} [changeCategory] 变更类别，包含如下:   - \&quot;all\&quot; : 全部   - \&quot;modify\&quot; : 修改   - \&quot;add\&quot; : 新增   - \&quot;delete\&quot; : 删除
      * @param {string} [status] 状态，包含如下:   - \&quot;all\&quot; : 全部   - \&quot;trust\&quot; : 可信   - \&quot;untrust\&quot; : 不可信   - \&quot;unknown\&quot; : 未知 
@@ -8857,8 +8861,8 @@ export class HssClient {
      * @param {number} offset **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 不涉及 
      * @param {number} limit **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
-     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
+     * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 需小于等于end_time，未传end_time时默认查询至当前时间 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
+     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 需大于等于begin_time，未传begin_time时默认从时间戳0开始查询 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -8879,8 +8883,8 @@ export class HssClient {
      *
      * @summary 获取服务器文件统计信息
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
-     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
+     * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 需小于等于end_time，未传end_time时默认查询至当前时间 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
+     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 需大于等于begin_time，未传begin_time时默认从时间戳0开始查询 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -8900,9 +8904,9 @@ export class HssClient {
      *
      * @summary 创建服务器组
      * @param {AddHostsGroupRequestInfo} addHostsGroupRequestBody 创建服务器组的请求体
-     * @param {string} [region] Region ID
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
-     * @param {string} [contentType] 缺省值:application/json; charset&#x3D;utf-8
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [contentType] **参数解释**: 内容类型 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: application/json; charset&#x3D;utf-8 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -9002,9 +9006,9 @@ export class HssClient {
      *
      * @summary 编辑服务器组
      * @param {ChangeHostsGroupRequestInfo} changeHostsGroupRequestBody request
-     * @param {string} [region] Region ID
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
-     * @param {string} [contentType] 缺省值:application/json; charset&#x3D;utf-8
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [contentType] **参数解释**: 内容类型 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: application/json; charset&#x3D;utf-8 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -9042,9 +9046,9 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除服务器组
-     * @param {string} groupId 服务器组ID
-     * @param {string} [region] Region ID
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} groupId **参数解释**: 服务器组id **约束限制**: 不涉及 **取值范围**: 字符范围0-128位 **默认取值**: 不涉及 
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -9111,14 +9115,14 @@ export class HssClient {
      * @param {string} [agentStatus] **参数解释**: Agent的状态 **约束限制**: 不涉及 **取值范围**: Agent的状态分为两类： - installed：已安装。已安装状态包含以下四种情况：   - online：在线。表示Agent已经成功安装并且与HSS云端防护中心保持连接。   - offline：离线。表示虽然Agent已经安装，但当前与HSS云端防护中心的连接中断。   - install_failed：安装失败。表示在尝试安装过程中遇到错误或问题，导致安装未能完成。   - installing：安装中。表示当前正在进行Agent安装。 - not_installed ：未安装。表示服务器中尚未安装Agent。 如果您要筛选除在线以外所有状态的Agent，可设置not_online（仅作为查询条件） **默认取值**: 不涉及
      * @param {string} [detectResult] **参数解释**: 检测结果 **约束限制**: 不涉及 **取值范围**: 包含如下4种。   - undetected ：未检测。   - clean ：无风险。   - risk ：有风险。   - scanning ：检测中。 **默认取值**: 不涉及
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [hostStatus] **参数解释**: 主机状态 **约束限制**: 不涉及 **取值范围**: 包含如下4种。 - ACTIVE ：正在运行。 - SHUTOFF ：关机。 - BUILDING ：创建中。 - ERROR ：故障。 **默认取值**: 不涉及
      * @param {string} [osType] **参数解释**: 操作系统类型 **约束限制**: 不涉及 **取值范围**: 包含如下2种。 - Linux ：Linux。 - Windows ：Windows。 **默认取值**: 不涉及
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 无 
+     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
      * @param {string} [ipAddr] **参数解释**: 公网或私网IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及
      * @param {string} [protectStatus] **参数解释**: 防护状态 **约束限制**: 不涉及 **取值范围**: 包含如下3种： - closed ：关闭。 - opened ：开启。 - protection_exception ：防护异常。 **默认取值**: 不涉及
-     * @param {string} [groupId] **参数解释**: 服务器组ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [groupId] **参数解释**: 服务器组的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [groupName] **参数解释**: 服务器组名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [vpcId] **参数解释**: VPC的ID **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {boolean} [hasIntrusion] **参数解释**: 存在告警事件 **约束限制**: 不涉及 **取值范围**: true或者false **默认取值**: 不涉及 
@@ -9307,8 +9311,8 @@ export class HssClient {
      *
      * @summary 切换防护状态
      * @param {SwitchHostsProtectStatusRequestInfo} switchHostsProtectStatusRequestBody 服务器列表
-     * @param {string} [region] Region ID
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -9569,6 +9573,27 @@ export class HssClient {
     }
 
     /**
+     * 修改镜像的敏感信息文件路径白名单--接口已废弃
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改镜像的敏感信息文件路径白名单--接口已废弃
+     * @param {ChangeFilePathWhiteDetailRequestInfo} changeFilePathWhiteDetailRequestBody request
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeFilePathWhiteDetail(changeFilePathWhiteDetailRequest?: ChangeFilePathWhiteDetailRequest): Promise<ChangeFilePathWhiteDetailResponse> {
+        const options = ParamCreater().changeFilePathWhiteDetail(changeFilePathWhiteDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改镜像的敏感信息文件路径白名单
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -9580,8 +9605,8 @@ export class HssClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public changeFilePathWhiteDetail(changeFilePathWhiteDetailRequest?: ChangeFilePathWhiteDetailRequest): Promise<ChangeFilePathWhiteDetailResponse> {
-        const options = ParamCreater().changeFilePathWhiteDetail(changeFilePathWhiteDetailRequest);
+    public changeFilePathWhiteLists(changeFilePathWhiteListsRequest?: ChangeFilePathWhiteListsRequest): Promise<ChangeFilePathWhiteListsResponse> {
+        const options = ParamCreater().changeFilePathWhiteLists(changeFilePathWhiteListsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -10610,14 +10635,14 @@ export class HssClient {
     }
 
     /**
-     * 从SWR服务同步镜像列表
+     * 从SWR服务同步镜像列表--接口已废弃
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 从SWR服务同步镜像列表
+     * @summary 从SWR服务同步镜像列表--接口已废弃
      * @param {RunImageSynchronizeRequestInfo} runImageSynchronizeRequestBody request
-     * @param {string} [region] Region ID
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -10651,6 +10676,27 @@ export class HssClient {
     }
 
     /**
+     * 查询镜像的敏感信息文件路径白名单--接口已废弃
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询镜像的敏感信息文件路径白名单--接口已废弃
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [filePath] **参数解释**: 文件路径 **约束限制**: 不涉及 **取值范围**: 字符长度0-65535位 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFilePathWhiteDetail(showFilePathWhiteDetailRequest?: ShowFilePathWhiteDetailRequest): Promise<ShowFilePathWhiteDetailResponse> {
+        const options = ParamCreater().showFilePathWhiteDetail(showFilePathWhiteDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询镜像的敏感信息文件路径白名单
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -10662,8 +10708,8 @@ export class HssClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showFilePathWhiteDetail(showFilePathWhiteDetailRequest?: ShowFilePathWhiteDetailRequest): Promise<ShowFilePathWhiteDetailResponse> {
-        const options = ParamCreater().showFilePathWhiteDetail(showFilePathWhiteDetailRequest);
+    public showFilePathWhiteLists(showFilePathWhiteListsRequest?: ShowFilePathWhiteListsRequest): Promise<ShowFilePathWhiteListsResponse> {
+        const options = ParamCreater().showFilePathWhiteLists(showFilePathWhiteListsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -11413,9 +11459,9 @@ export class HssClient {
      *
      * @summary HSS服务创建订单订购配额
      * @param {CreateQuotasOrderRequestInfo} createQuotasOrderRequestBody 创建订单订购配额请求体对象
-     * @param {string} [contentType] 缺省值:application/json; charset&#x3D;utf-8
-     * @param {string} [region] Region ID
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [contentType] **参数解释**: 内容类型 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: application/json; charset&#x3D;utf-8 
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -12060,30 +12106,30 @@ export class HssClient {
      * @summary 查询仓库镜像列表
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [namespace] **参数解释**: 组织名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位。  **默认取值**: 不涉及 
-     * @param {string} [imageName] **参数解释**: 镜像名称 **取值范围**: 字符长度1-128位 
-     * @param {string} [imageVersion] **参数解释**: 镜像版本 **取值范围**: 字符长度1-64位 
-     * @param {string} [registryName] **参数解释**: 仓库名称 **取值范围**: 字符长度1-128位 
+     * @param {string} [imageName] **参数解释**: 镜像名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [imageVersion] **参数解释**: 镜像版本 **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [registryName] **参数解释**: 仓库名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {string} [imageType] **参数解释**: 镜像类型 **约束限制**: 不涉及 **取值范围**: - private_image：SWR私有镜像。 - shared_image：SWR共享镜像。 - instance_image：SWR企业版镜像。 - harbor：Harbor仓库镜像。 - jfrog：Jfrog镜像。  **默认取值**: 不涉及 
      * @param {string} [sortKey] **参数解释**: 可排序字段 **约束限制**: 不涉及 **取值范围**: - latest_scan_time：最近扫描时间。  **默认取值**: 不涉及 
      * @param {string} [sortDir] **参数解释**: 排序的顺序 **约束限制**: 不涉及 **取值范围**:   - asc  : 正序   - desc : 倒序  **默认取值**: 正序排序 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值1-200 **默认取值**: 10 
-     * @param {boolean} [latestVersion] 仅关注最新版本镜像
-     * @param {number} [imageSize] **参数解释**: 镜像大小 **约束限制**: 不涉及 **取值范围**: 取值0-2147483547 **默认取值**: 不涉及 
+     * @param {boolean} [latestVersion] **参数解释**: 仅关注最新版本镜像 **约束限制**: 不涉及 **取值范围**: - true：是。 - false：否。  **默认取值**: false 
+     * @param {number} [imageSize] **参数解释**: 镜像大小 **约束限制**: 取值为非负整数，单位为字节（bytes） **取值范围**: 取值0-2147483547 **默认取值**: 不涉及 
      * @param {string} [scanStatus] **参数解释**: 扫描状态 **约束限制**: 不涉及 **取值范围**: - unscan：未扫描。 - success：扫描完成。 - scanning：扫描中。 - failed：扫描失败。 - waiting_for_scan：等待扫描。  **默认取值**: 不涉及 
-     * @param {number} [startLatestUpdateTime] **参数解释**: 创建时间开始日期，时间单位 毫秒（ms） **约束限制**: 不涉及 **取值范围**: 取值0-9223372036854775807 **默认取值**: 不涉及 
-     * @param {number} [endLatestUpdateTime] **参数解释**: 创建时间结束日期，时间单位 毫秒（ms） **约束限制**: 不涉及 **取值范围**: 取值0-9223372036854775807 **默认取值**: 不涉及 
-     * @param {number} [startLatestScanTime] **参数解释**: 最近一次扫描完成时间开始日期，时间单位 毫秒（ms） **约束限制**: 不涉及 **取值范围**: 取值0-9223372036854775807 **默认取值**: 不涉及 
-     * @param {number} [endLatestScanTime] **参数解释**: 最近一次扫描完成时间结束日期，时间单位 毫秒（ms） **约束限制**: 不涉及 **取值范围**: 取值0-9223372036854775807 **默认取值**: 不涉及 
-     * @param {number} [startLatestSyncTime] **参数解释**: 最近一次同步完成时间开始日期，时间单位 毫秒（ms） **约束限制**: 不涉及 **取值范围**: 取值0-9223372036854775807 **默认取值**: 不涉及 
-     * @param {number} [endLatestSyncTime] **参数解释**: 最近一次同步完成时间结束日期，时间单位 毫秒（ms） **约束限制**: 不涉及 **取值范围**: 取值0-9223372036854775807 **默认取值**: 不涉及 
-     * @param {boolean} [hasMaliciousFile] 是否存在恶意文件
-     * @param {boolean} [hasUnsafeSetting] 是否存在基线检查风险
-     * @param {boolean} [hasVul] 是否存在软件漏洞
-     * @param {boolean} [risky] 有安全风险
-     * @param {string} [instanceId] **参数解释**： 企业仓库实例ID，SWR企业版可以使用该参数 **约束限制**： 不涉及 **取值范围**： 字符长度0-128位 **默认取值**： 不涉及 
-     * @param {string} [instanceName] **参数解释**： 企业镜像实例名称，SWR企业版可以使用该参数 **约束限制**： 不涉及 **取值范围**： 字符长度0-128位 **默认取值**： 不涉及 
-     * @param {boolean} [isMultarch] 是否是多架构镜像
+     * @param {number} [startLatestUpdateTime] **参数解释**: 最后更新时间的查询起始值，时间单位 毫秒（ms） **约束限制**: 需≤end_latest_update_time，未传end参数时默认查询至当前时间 **取值范围**: 取值0-9223372036854775807 ms（UTC时区，1970-01-01 00:00:00起） **默认取值**: 不涉及 
+     * @param {number} [endLatestUpdateTime] **参数解释**: 最后更新时间的查询结束值，时间单位 毫秒（ms） **约束限制**: 需≥start_latest_update_time，未传start参数时默认从0开始 **取值范围**: 取值0-9223372036854775807 ms（UTC时区，1970-01-01 00:00:00起） **默认取值**: 不涉及 
+     * @param {number} [startLatestScanTime] **参数解释**: 最近一次扫描完成时间的查询起始值，时间单位 毫秒（ms） **约束限制**: 需≤end_latest_scan_time，未传end参数时默认查询至当前时间 **取值范围**: 取值0-9223372036854775807 ms（UTC时区，1970-01-01 00:00:00起） **默认取值**: 不涉及 
+     * @param {number} [endLatestScanTime] **参数解释**: 最近一次扫描完成时间的查询结束值，时间单位 毫秒（ms） **约束限制**: 需≥start_latest_scan_time，未传start参数时默认从0开始 **取值范围**: 取值0-9223372036854775807 ms（UTC时区，1970-01-01 00:00:00起） **默认取值**: 不涉及 
+     * @param {number} [startLatestSyncTime] **参数解释**: 最近一次同步完成时间的查询起始值，时间单位 毫秒（ms） **约束限制**: 需≤end_latest_sync_time，未传end参数时默认查询至当前时间 **取值范围**: 取值0-9223372036854775807 ms（UTC时区，1970-01-01 00:00:00起） **默认取值**: 不涉及 
+     * @param {number} [endLatestSyncTime] **参数解释**: 最近一次同步完成时间的查询结束值，时间单位 毫秒（ms） **约束限制**: 需≥start_latest_sync_time，未传start参数时默认从0开始 **取值范围**: 取值0-9223372036854775807 ms（UTC时区，1970-01-01 00:00:00起） **默认取值**: 不涉及 
+     * @param {boolean} [hasMaliciousFile] **参数解释**: 是否存在恶意文件 **约束限制**: 不涉及 **取值范围**: - true：是。 - false：否。  **默认取值**: 不涉及 
+     * @param {boolean} [hasUnsafeSetting] **参数解释**： 是否存在基线检查风险 **约束限制**: 不涉及 **取值范围**： - true：是。 - false：否。  **默认取值**: 不涉及 
+     * @param {boolean} [hasVul] **参数解释**： 是否存在软件漏洞 **约束限制**: 不涉及 **取值范围**： - true：是。 - false：否。  **默认取值**: 不涉及 
+     * @param {boolean} [risky] **参数解释**: 有安全风险 **约束限制**: 不涉及 **取值范围**: - true：是。 - false：否。  **默认取值**: 不涉及 
+     * @param {string} [instanceId] **参数解释**： 企业仓库实例ID，SWR企业版可以使用该参数，需要到SWR企业版服务中获取 **约束限制**： 仅SWR企业版镜像查询有效 **取值范围**： 字符长度0-128位 **默认取值**： 不涉及 
+     * @param {string} [instanceName] **参数解释**： 企业仓库实例名称，SWR企业版可以使用该参数，需要到SWR企业版服务中获取 **约束限制**： 仅SWR企业版镜像查询有效 **取值范围**： 字符长度0-128位 **默认取值**： 不涉及 
+     * @param {boolean} [isMultarch] **参数解释**: 是否是多架构镜像 **约束限制**: 不涉及 **取值范围**: - true：是。 - false：否。  **默认取值**: 不涉及 
      * @param {string} [severityLevel] **参数解释**: 镜像风险程度，在镜像扫描完成后展示 **约束限制**: 不涉及 **取值范围**: - Security：安全。 - Low：低危。 - Medium：中危。 - High：高危。  **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -12127,18 +12173,18 @@ export class HssClient {
      * @param {number} limit **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [malwareName] 病毒名称
-     * @param {string} [filePath] 文件路径
-     * @param {Array<string>} [severityList] 威胁等级，包含如下:   - Low：低危   - Medium：中危   - High：高危   - Critical：致命
+     * @param {string} [malwareName] **参数解释**: 病毒名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [filePath] **参数解释**： 文件路径 **约束限制**： 不涉及 **取值范围**： 字符数1-512位 **默认取值**： 不涉及 
+     * @param {Array<string>} [severityList] **参数解释**: 威胁等级 **约束限制**: 不涉及 **取值范围**: 威胁等级，包含如下:   - Low：低危   - Medium：中危   - High：高危   - Critical：致命 **默认取值**: 不涉及 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 无 
-     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产。 - common：一般资产。 - test：测试资产。  **默认取值**： 无 
-     * @param {string} [handleMethod] 处理方式，包含如下:   - mark_as_handled：手动处理   - ignore：忽略   - add_to_alarm_whitelist：加入告警白名单   - isolate_and_kill：隔离文件   - unhandle：取消手动处理   - do_not_ignore：取消忽略   - remove_from_alarm_whitelist：删除告警白名单   - do_not_isolate_or_kill：取消隔离文件
-     * @param {string} [userName] 用户名
-     * @param {number} [eventType] 事件类型
-     * @param {string} [sortDir] 排序顺序，若sort_key不为空,设置返回结果按照sort_key升序或降序排序,默认降序排序，包含如下:   - asc : 升序   - desc : 降序
-     * @param {string} [sortKey] 排序字段，包含如下:   - handle_time : 处置时间
+     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
+     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**： 无 
+     * @param {string} [handleMethod] **参数解释**: 处理方式 **约束限制**: 不涉及 **取值范围**: 处理方式，包含如下:   - mark_as_handled：手动处理   - ignore：忽略   - add_to_alarm_whitelist：加入告警白名单   - isolate_and_kill：隔离文件   - unhandle：取消手动处理   - do_not_ignore：取消忽略   - remove_from_alarm_whitelist：删除告警白名单   - do_not_isolate_or_kill：取消隔离文件 **默认取值**: 不涉及 
+     * @param {string} [userName] **参数解释**: 用户名 **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [sortDir] **参数解释**: 排序的顺序 **约束限制**: 不涉及 **取值范围**:   - asc  : 正序   - desc : 倒序  **默认取值**: 正序排序 
+     * @param {number} [eventType] **参数解释**: 事件类型 **约束限制**: 不涉及 **取值范围**: 0（病毒查杀事件）、1（恶意文件处置事件） **默认取值**: 不涉及 
+     * @param {string} [sortKey] **参数解释**: 排序字段 **约束限制**: 不涉及 **取值范围**: handle_time（处置时间） **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -12162,14 +12208,14 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [severity] 威胁等级，包含如下:   - Security：安全   - Low：低危   - Medium：中危   - High：高危   - Critical：危急
      * @param {string} [attackTag] 攻击标识，包含如下：   - attack_success : 攻击成功   - attack_attempt : 攻击尝试   - attack_blocked : 攻击被阻断   - abnormal_behavior : 异常行为   - collapsible_host : 主机失陷   - system_vulnerability : 系统脆弱性
-     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产。 - common：一般资产。 - test：测试资产。  **默认取值**： 无 
-     * @param {Array<string>} [eventClassIds] 事件标识，包含如下: - container_1001：容器命名空间 - container_1002：容器开放端口 - container_1003：容器安全选项 - container_1004：容器挂载目录 - containerescape_0001：容器高危系统调用 - containerescape_0002：Shocker攻击 - containerescape_0003：DirtCow攻击 - containerescape_0004：容器文件逃逸攻击 - dockerfile_001：用户自定义容器保护文件被修改 - dockerfile_002：容器文件系统可执行文件被修改 - dockerproc_001：容器进程异常事件上报 - fileprotect_0001：文件提权 - fileprotect_0002：关键文件变更 - fileprotect_0003：关键文件路径变更 - fileprotect_0004：文件/目录变更 - av_1002：病毒 - av_1003：蠕虫 - av_1004：木马 - av_1005：僵尸网络 - av_1006：后门 - av_1007：间谍软件 - av_1008：恶意广告软件 - av_1009：钓鱼 - av_1010：Rootkit - av_1011：勒索软件 - av_1012：黑客工具 - av_1013：灰色软件 - av_1015：Webshell - av_1016：挖矿软件 - login_0001：尝试暴力破解 - login_0002：爆破成功 - login_1001：登录成功 - login_1002：异地登录 - login_1003：弱口令 - malware_0001：shell变更事件上报 - malware_0002：反弹shell事件上报 - malware_1001：恶意程序 - procdet_0001：进程异常行为检测 - procdet_0002：进程提权 - crontab_0001：crontab脚本提权 - crontab_0002：恶意路径提权 - procreport_0001：危险命令 - user_1001：账号变更 - user_1002：风险账号 - vmescape_0001：虚拟机敏感命令执行 - vmescape_0002：虚拟化进程访问敏感文件 - vmescape_0003：虚拟机异常端口访问 - webshell_0001：网站后门 - network_1001：恶意挖矿 - network_1002：对外DDoS攻击 - network_1003：恶意扫描 - network_1004：敏感区域攻击 - ransomware_0001：勒索攻击 - ransomware_0002：勒索攻击 - ransomware_0003：勒索攻击 - fileless_0001：进程注入 - fileless_0002：动态库注入进程 - fileless_0003：关键配置变更 - fileless_0004：环境变量变更 - fileless_0005：内存文件进程 - fileless_0006：vdso劫持 - crontab_1001：Crontab可疑任务 - vul_exploit_0001：Redis漏洞利用攻击 - vul_exploit_0002：Hadoop漏洞利用攻击 - vul_exploit_0003：MySQL漏洞利用攻击 - rootkit_0001：可疑rootkit文件 - rootkit_0002：可疑内核模块 - RASP_0004：上传Webshell - RASP_0018：无文件Webshell - blockexec_001：已知勒索攻击 - hips_0001：Windows Defender防护被禁用 - hips_0002：可疑的黑客工具 - hips_0003：可疑的勒索加密行为 - hips_0004：隐藏账号创建 - hips_0005：读取用户密码凭据 - hips_0006：可疑的SAM文件导出 - hips_0007：可疑shadow copy删除操作 - hips_0008：备份文件删除 - hips_0009：可疑勒索病毒操作注册表 - hips_0010：可疑的异常进程行为 - hips_0011：可疑的扫描探测 - hips_0012：可疑的勒索病毒脚本运行 - hips_0013：可疑的挖矿命令执行 - hips_0014：可疑的禁用windows安全中心 - hips_0015：可疑的停止防火墙服务行为 - hips_0016：可疑的系统自动恢复禁用 - hips_0017：Offies创建可执行文件 - hips_0018：带宏Offies文件异常创建 - hips_0019：可疑的注册表操作 - hips_0020：Confluence远程代码执行 - hips_0021：MSDT远程代码执行 - portscan_0001：通用端口扫描 - portscan_0002：秘密端口扫描 - k8s_1001：Kubernetes事件删除 - k8s_1002：创建特权Pod - k8s_1003：Pod中使用交互式shell - k8s_1004：创建敏感目录Pod - k8s_1005：创建主机网络的Pod - k8s_1006：创建主机Pid空间的Pod - k8s_1007：普通pod访问APIserver认证失败 - k8s_1008：普通Pod通过Curl访问APIServer - k8s_1009：系统管理空间执行exec - k8s_1010：系统管理空间创建Pod - k8s_1011：创建静态Pod - k8s_1012：创建DaemonSet - k8s_1013：创建集群计划任务 - k8s_1014：Secrets操作 - k8s_1015：枚举用户可执行的操作 - k8s_1016：高权限RoleBinding或ClusterRoleBinding - k8s_1017：ServiceAccount创建 - k8s_1018：创建Cronjob - k8s_1019：Pod中exec使用交互式shell - k8s_1020：无权限访问Apiserver - k8s_1021：使用curl访问APIServer - k8s_1022：Ingress漏洞 - k8s_1023：中间人攻击 - k8s_1024：蠕虫挖矿木马 - k8s_1025：K8s事件删除 - k8s_1026：SelfSubjectRulesReview场景 - imgblock_0001：镜像白名单阻断 - imgblock_0002：镜像黑名单阻断 - imgblock_0003：镜像标签白名单阻断 - imgblock_0004：镜像标签黑名单阻断 - imgblock_0005：创建容器白名单阻断 - imgblock_0006：创建容器黑名单阻断 - imgblock_0007：容器mount proc阻断 - imgblock_0008：容器seccomp unconfined阻断 - imgblock_0009：容器特权阻断 - imgblock_0010：容器capabilities阻断
+     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**： 无 
+     * @param {Array<string>} [eventClassIds] 事件标识，包含如下: - container_1001：容器命名空间 - container_1002：容器开放端口 - container_1003：容器安全选项 - container_1004：容器挂载目录 - containerescape_0001：容器高危系统调用 - containerescape_0002：Shocker攻击 - containerescape_0003：DirtCow攻击 - containerescape_0004：容器文件逃逸攻击 - dockerfile_001：用户自定义容器保护文件被修改 - dockerfile_002：容器文件系统可执行文件被修改 - dockerproc_001：容器进程异常事件上报 - fileprotect_0001：文件提权 - fileprotect_0002：关键文件变更 - fileprotect_0003：关键文件路径变更 - fileprotect_0004：文件/目录变更 - av_1002：病毒 - av_1003：蠕虫 - av_1004：木马 - av_1005：僵尸网络 - av_1006：后门 - av_1007：间谍软件 - av_1008：恶意广告软件 - av_1009：钓鱼 - av_1010：Rootkit - av_1011：勒索软件 - av_1012：黑客工具 - av_1013：灰色软件 - av_1015：Webshell - av_1016：挖矿软件 - login_0001：尝试暴力破解 - login_0002：爆破成功 - login_1001：登录成功 - login_1002：异地登录 - login_1003：弱口令 - malware_0001：shell变更事件上报 - malware_0002：反弹shell事件上报 - malware_1001：恶意程序 - procdet_0001：进程异常行为检测 - procdet_0002：进程提权 - crontab_0001：crontab脚本提权 - crontab_0002：恶意路径提权 - procreport_0001：危险命令 - user_1001：账号变更 - user_1002：风险账号 - vmescape_0001：虚拟机敏感命令执行 - vmescape_0002：虚拟化进程访问敏感文件 - vmescape_0003：虚拟机异常端口访问 - webshell_0001：网站后门 - network_1001：恶意挖矿 - network_1002：对外DDoS攻击 - network_1003：恶意扫描 - network_1004：敏感区域攻击 - ransomware_0001：勒索攻击 - ransomware_0002：勒索攻击 - ransomware_0003：勒索攻击 - fileless_0001：进程注入 - fileless_0002：动态库注入进程 - fileless_0003：关键配置变更 - fileless_0004：环境变量变更 - fileless_0005：内存文件进程 - fileless_0006：vdso劫持 - crontab_1001：Crontab可疑任务 - vul_exploit_0001：Redis漏洞利用攻击 - vul_exploit_0002：Hadoop漏洞利用攻击 - vul_exploit_0003：MySQL漏洞利用攻击 - rootkit_0001：可疑rootkit文件 - rootkit_0002：可疑内核模块 - RASP_0004：上传Webshell - RASP_0018：无文件Webshell - blockexec_001：已知勒索攻击 - hips_0001：Windows Defender防护被禁用 - hips_0002：可疑的黑客工具 - hips_0003：可疑的勒索加密行为 - hips_0004：隐藏账号创建 - hips_0005：读取用户密码凭据 - hips_0006：可疑的SAM文件导出 - hips_0007：可疑shadow copy删除操作 - hips_0008：备份文件删除 - hips_0009：可疑勒索病毒操作注册表 - hips_0010：可疑的异常进程行为 - hips_0011：可疑的扫描探测 - hips_0012：可疑的勒索病毒脚本运行 - hips_0013：可疑的挖矿命令执行 - hips_0014：可疑的禁用windows安全中心 - hips_0015：可疑的停止防火墙服务行为 - hips_0016：可疑的系统自动恢复禁用 - hips_0017：Office创建可执行文件 - hips_0018：带宏Office文件异常创建 - hips_0019：可疑的注册表操作 - hips_0020：Confluence远程代码执行 - hips_0021：MSDT远程代码执行 - portscan_0001：通用端口扫描 - portscan_0002：秘密端口扫描 - k8s_1001：Kubernetes事件删除 - k8s_1002：创建特权Pod - k8s_1003：Pod中使用交互式shell - k8s_1004：创建敏感目录Pod - k8s_1005：创建主机网络的Pod - k8s_1006：创建主机Pid空间的Pod - k8s_1007：普通pod访问APIserver认证失败 - k8s_1008：普通Pod通过Curl访问APIServer - k8s_1009：系统管理空间执行exec - k8s_1010：系统管理空间创建Pod - k8s_1011：创建静态Pod - k8s_1012：创建DaemonSet - k8s_1013：创建集群计划任务 - k8s_1014：Secrets操作 - k8s_1015：枚举用户可执行的操作 - k8s_1016：高权限RoleBinding或ClusterRoleBinding - k8s_1017：ServiceAccount创建 - k8s_1018：创建Cronjob - k8s_1019：Pod中exec使用交互式shell - k8s_1020：无权限访问Apiserver - k8s_1021：使用curl访问APIServer - k8s_1022：Ingress漏洞 - k8s_1023：中间人攻击 - k8s_1024：蠕虫挖矿木马 - k8s_1025：K8s事件删除 - k8s_1026：SelfSubjectRulesReview场景 - imgblock_0001：镜像白名单阻断 - imgblock_0002：镜像黑名单阻断 - imgblock_0003：镜像标签白名单阻断 - imgblock_0004：镜像标签黑名单阻断 - imgblock_0005：创建容器白名单阻断 - imgblock_0006：创建容器黑名单阻断 - imgblock_0007：容器mount proc阻断 - imgblock_0008：容器seccomp unconfined阻断 - imgblock_0009：容器特权阻断 - imgblock_0010：容器capabilities阻断
      * @param {string} [eventName] 告警名称
      * @param {number} [eventType] **参数解释**： 事件类型 **取值范围**：   - 1001：通用恶意软件   - 1002：病毒   - 1003：蠕虫   - 1004：木马   - 1005：僵尸网络   - 1006：后门   - 1010：Rootkit   - 1011：勒索软件   - 1012 ：黑客工具   - 1015：Webshell   - 1016：挖矿   - 1017：反弹Shell   - 2001：一般漏洞利用   - 2012：远程代码执行   - 2047：Redis漏洞利用   - 2048：Hadoop漏洞利用   - 2049：MySQL漏洞利用   - 3002：文件提权   - 3003：进程提权   - 3004：关键文件变更   - 3005：文件/目录变更   - 3007：进程异常行为   - 3015：高危命令执行   - 3018：异常Shell   - 3027：Crontab可疑任务   - 3029：系统安全防护被禁用   - 3030：备份删除   - 3031：异常注册表操作   - 3036：容器镜像阻断   - 4002：暴力破解   - 4004：异常登录   - 4006：非法系统账号   - 4014：用户账号添加   - 4020：用户密码窃取   - 6002：端口扫描   - 6003：主机扫描   - 13001：Kubernetes事件删除   - 13002：Pod异常行为   - 13003：枚举用户信息   - 13004：绑定集群用户角色 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [handleStatus] 处置状态，包含如下:   - unhandled：未处理   - handled：已处理
+     * @param {string} [handleStatus] **参数解释**: 处置状态 **约束限制**: 不涉及 **取值范围**: 包含如下:   - unhandled：未处理   - handled：已处理 **默认取值**: 不涉及 
      * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 无 
+     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [sortDir] 排序顺序，若sort_key不为空，设置返回结果按照sort_key升序或降序排序，默认降序排序，包含如下：   - asc：升序   - desc：降序
      * @param {string} [sortKey] 排序字段，包含如下：   - handle_time：处置时间
@@ -14183,7 +14229,7 @@ export class HssClient {
      * @param {number} offset **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [filePath] **参数解释**: 防护文件的文件路径 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
@@ -14212,7 +14258,7 @@ export class HssClient {
      * @param {number} offset **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {number} [alarmLevel] **参数解释**: 告警等级 **约束限制**: 不涉及 **取值范围**: - 1 : 紧急。 - 2 : 重要。 - 3 : 次要。 - 4 : 提示。  **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -14272,11 +14318,11 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 无 
-     * @param {string} [groupId] **参数解释**: 服务器组ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
+     * @param {string} [groupId] **参数解释**: 服务器组的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [osType] **参数解释**: 操作系统类型。 **约束限制**: 不涉及 **取值范围**: - Linux：Linux操作系统。 - Windows：Windows操作系统。  **默认取值**: 无 
      * @param {string} [webAppName] Web应用名称
      * @param {*} [options] Override http request option.
@@ -14324,8 +14370,8 @@ export class HssClient {
      *
      * @summary 查询容器网页防篡改防护统计数据
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
-     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
+     * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 需小于等于end_time，未传end_time时默认查询至当前时间 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
+     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 需大于等于begin_time，未传begin_time时默认从时间戳0开始查询 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -14434,12 +14480,12 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
-     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 无 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [groupName] **参数解释**: 服务器组名称。 **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 无 
      * @param {string} [osType] **参数解释**: 操作系统类型。 **约束限制**: 不涉及 **取值范围**: - Linux：Linux操作系统。 - Windows：Windows操作系统。  **默认取值**: 无 
-     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产。 - common：一般资产。 - test：测试资产。  **默认取值**： 无 
+     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**： 无 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {string} [protectStatus] **参数解释**: 网页防篡改防护开启状态。 **约束限制**: 不涉及 **取值范围**: - opened ：已开启网页防篡改防护。  **默认取值**: 无 
@@ -15071,20 +15117,16 @@ export const ParamCreater = function () {
             let resourceType;
             
             let resourceId;
-            
-            let contentType;
 
             if (batchCreateTagsRequest !== null && batchCreateTagsRequest !== undefined) {
                 if (batchCreateTagsRequest instanceof BatchCreateTagsRequest) {
                     resourceType = batchCreateTagsRequest.resourceType;
                     resourceId = batchCreateTagsRequest.resourceId;
                     body = batchCreateTagsRequest.body
-                    contentType = batchCreateTagsRequest.contentType;
                 } else {
                     resourceType = batchCreateTagsRequest['resource_type'];
                     resourceId = batchCreateTagsRequest['resource_id'];
                     body = batchCreateTagsRequest['body'];
-                    contentType = batchCreateTagsRequest['Content-Type'];
                 }
             }
 
@@ -15097,9 +15139,6 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -21660,30 +21699,30 @@ export const ParamCreater = function () {
             
             let region;
             
-            let isRefresh;
-            
             let enterpriseProjectId;
+            
+            let isRefresh;
 
             if (listOrganizationTreeRequest !== null && listOrganizationTreeRequest !== undefined) {
                 if (listOrganizationTreeRequest instanceof ListOrganizationTreeRequest) {
                     xSecurityToken = listOrganizationTreeRequest.xSecurityToken;
                     region = listOrganizationTreeRequest.region;
-                    isRefresh = listOrganizationTreeRequest.isRefresh;
                     enterpriseProjectId = listOrganizationTreeRequest.enterpriseProjectId;
+                    isRefresh = listOrganizationTreeRequest.isRefresh;
                 } else {
                     xSecurityToken = listOrganizationTreeRequest['X-Security-Token'];
                     region = listOrganizationTreeRequest['region'];
-                    isRefresh = listOrganizationTreeRequest['is_refresh'];
                     enterpriseProjectId = listOrganizationTreeRequest['enterprise_project_id'];
+                    isRefresh = listOrganizationTreeRequest['is_refresh'];
                 }
             }
 
         
-            if (isRefresh !== null && isRefresh !== undefined) {
-                localVarQueryParameter['is_refresh'] = isRefresh;
-            }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (isRefresh !== null && isRefresh !== undefined) {
+                localVarQueryParameter['is_refresh'] = isRefresh;
             }
             if (xSecurityToken !== undefined && xSecurityToken !== null) {
                 localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
@@ -21785,6 +21824,8 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let category;
+            
             let port;
             
             let enterpriseProjectId;
@@ -21793,37 +21834,41 @@ export const ParamCreater = function () {
             
             let hostIp;
             
-            let type;
-            
-            let category;
-            
             let limit;
             
             let offset;
+            
+            let type;
 
             if (listPortHostRequest !== null && listPortHostRequest !== undefined) {
                 if (listPortHostRequest instanceof ListPortHostRequest) {
+                    category = listPortHostRequest.category;
                     port = listPortHostRequest.port;
                     enterpriseProjectId = listPortHostRequest.enterpriseProjectId;
                     hostName = listPortHostRequest.hostName;
                     hostIp = listPortHostRequest.hostIp;
-                    type = listPortHostRequest.type;
-                    category = listPortHostRequest.category;
                     limit = listPortHostRequest.limit;
                     offset = listPortHostRequest.offset;
+                    type = listPortHostRequest.type;
                 } else {
+                    category = listPortHostRequest['category'];
                     port = listPortHostRequest['port'];
                     enterpriseProjectId = listPortHostRequest['enterprise_project_id'];
                     hostName = listPortHostRequest['host_name'];
                     hostIp = listPortHostRequest['host_ip'];
-                    type = listPortHostRequest['type'];
-                    category = listPortHostRequest['category'];
                     limit = listPortHostRequest['limit'];
                     offset = listPortHostRequest['offset'];
+                    type = listPortHostRequest['type'];
                 }
             }
 
         
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listPortHost.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
             if (port === null || port === undefined) {
                 throw new RequiredError('port','Required parameter port was null or undefined when calling listPortHost.');
             }
@@ -21839,17 +21884,14 @@ export const ParamCreater = function () {
             if (hostIp !== null && hostIp !== undefined) {
                 localVarQueryParameter['host_ip'] = hostIp;
             }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -23322,27 +23364,27 @@ export const ParamCreater = function () {
             
             let category;
             
-            let userName;
-            
             let enterpriseProjectId;
             
             let limit;
             
             let offset;
+            
+            let userName;
 
             if (listUserStatisticsRequest !== null && listUserStatisticsRequest !== undefined) {
                 if (listUserStatisticsRequest instanceof ListUserStatisticsRequest) {
                     category = listUserStatisticsRequest.category;
-                    userName = listUserStatisticsRequest.userName;
                     enterpriseProjectId = listUserStatisticsRequest.enterpriseProjectId;
                     limit = listUserStatisticsRequest.limit;
                     offset = listUserStatisticsRequest.offset;
+                    userName = listUserStatisticsRequest.userName;
                 } else {
                     category = listUserStatisticsRequest['category'];
-                    userName = listUserStatisticsRequest['user_name'];
                     enterpriseProjectId = listUserStatisticsRequest['enterprise_project_id'];
                     limit = listUserStatisticsRequest['limit'];
                     offset = listUserStatisticsRequest['offset'];
+                    userName = listUserStatisticsRequest['user_name'];
                 }
             }
 
@@ -23353,9 +23395,6 @@ export const ParamCreater = function () {
             if (category !== null && category !== undefined) {
                 localVarQueryParameter['category'] = category;
             }
-            if (userName !== null && userName !== undefined) {
-                localVarQueryParameter['user_name'] = userName;
-            }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
@@ -23364,6 +23403,9 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (userName !== null && userName !== undefined) {
+                localVarQueryParameter['user_name'] = userName;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -23582,8 +23624,6 @@ export const ParamCreater = function () {
             
             let category;
             
-            let name;
-            
             let catalogue;
             
             let enterpriseProjectId;
@@ -23591,6 +23631,8 @@ export const ParamCreater = function () {
             let offset;
             
             let limit;
+            
+            let name;
             
             let hostName;
             
@@ -23607,11 +23649,11 @@ export const ParamCreater = function () {
             if (listWebAppAndServicesRequest !== null && listWebAppAndServicesRequest !== undefined) {
                 if (listWebAppAndServicesRequest instanceof ListWebAppAndServicesRequest) {
                     category = listWebAppAndServicesRequest.category;
-                    name = listWebAppAndServicesRequest.name;
                     catalogue = listWebAppAndServicesRequest.catalogue;
                     enterpriseProjectId = listWebAppAndServicesRequest.enterpriseProjectId;
                     offset = listWebAppAndServicesRequest.offset;
                     limit = listWebAppAndServicesRequest.limit;
+                    name = listWebAppAndServicesRequest.name;
                     hostName = listWebAppAndServicesRequest.hostName;
                     hostId = listWebAppAndServicesRequest.hostId;
                     hostIp = listWebAppAndServicesRequest.hostIp;
@@ -23620,11 +23662,11 @@ export const ParamCreater = function () {
                     partMatch = listWebAppAndServicesRequest.partMatch;
                 } else {
                     category = listWebAppAndServicesRequest['category'];
-                    name = listWebAppAndServicesRequest['name'];
                     catalogue = listWebAppAndServicesRequest['catalogue'];
                     enterpriseProjectId = listWebAppAndServicesRequest['enterprise_project_id'];
                     offset = listWebAppAndServicesRequest['offset'];
                     limit = listWebAppAndServicesRequest['limit'];
+                    name = listWebAppAndServicesRequest['name'];
                     hostName = listWebAppAndServicesRequest['host_name'];
                     hostId = listWebAppAndServicesRequest['host_id'];
                     hostIp = listWebAppAndServicesRequest['host_ip'];
@@ -23641,12 +23683,6 @@ export const ParamCreater = function () {
             if (category !== null && category !== undefined) {
                 localVarQueryParameter['category'] = category;
             }
-            if (name === null || name === undefined) {
-                throw new RequiredError('name','Required parameter name was null or undefined when calling listWebAppAndServices.');
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
             if (catalogue === null || catalogue === undefined) {
                 throw new RequiredError('catalogue','Required parameter catalogue was null or undefined when calling listWebAppAndServices.');
             }
@@ -23661,6 +23697,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
             }
             if (hostName !== null && hostName !== undefined) {
                 localVarQueryParameter['host_name'] = hostName;
@@ -26077,43 +26116,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 资产管理-概览-进程Top
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showPorcessTop(showPorcessTopRequest?: ShowPorcessTopRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/overview/statistics/top/process",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let enterpriseProjectId;
-
-            if (showPorcessTopRequest !== null && showPorcessTopRequest !== undefined) {
-                if (showPorcessTopRequest instanceof ShowPorcessTopRequest) {
-                    enterpriseProjectId = showPorcessTopRequest.enterpriseProjectId;
-                } else {
-                    enterpriseProjectId = showPorcessTopRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 资产管理-概览-端口Top
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -26137,6 +26139,43 @@ export const ParamCreater = function () {
                     enterpriseProjectId = showPortTopRequest.enterpriseProjectId;
                 } else {
                     enterpriseProjectId = showPortTopRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 资产管理-概览-进程Top
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProcessTop(showProcessTopRequest?: ShowProcessTopRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/overview/statistics/top/process",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showProcessTopRequest !== null && showProcessTopRequest !== undefined) {
+                if (showProcessTopRequest instanceof ShowProcessTopRequest) {
+                    enterpriseProjectId = showProcessTopRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showProcessTopRequest['enterprise_project_id'];
                 }
             }
 
@@ -36789,7 +36828,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改镜像的敏感信息文件路径白名单
+         * 修改镜像的敏感信息文件路径白名单--接口已废弃
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -36820,6 +36859,59 @@ export const ParamCreater = function () {
                     body = changeFilePathWhiteDetailRequest['body'];
                     region = changeFilePathWhiteDetailRequest['region'];
                     enterpriseProjectId = changeFilePathWhiteDetailRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改镜像的敏感信息文件路径白名单
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeFilePathWhiteLists(changeFilePathWhiteListsRequest?: ChangeFilePathWhiteListsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/image/sensitive/filepath-whitelist",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let region;
+            
+            let enterpriseProjectId;
+
+            if (changeFilePathWhiteListsRequest !== null && changeFilePathWhiteListsRequest !== undefined) {
+                if (changeFilePathWhiteListsRequest instanceof ChangeFilePathWhiteListsRequest) {
+                    body = changeFilePathWhiteListsRequest.body
+                    region = changeFilePathWhiteListsRequest.region;
+                    enterpriseProjectId = changeFilePathWhiteListsRequest.enterpriseProjectId;
+                } else {
+                    body = changeFilePathWhiteListsRequest['body'];
+                    region = changeFilePathWhiteListsRequest['region'];
+                    enterpriseProjectId = changeFilePathWhiteListsRequest['enterprise_project_id'];
                 }
             }
 
@@ -40504,7 +40596,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 从SWR服务同步镜像列表
+         * 从SWR服务同步镜像列表--接口已废弃
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -40601,7 +40693,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询镜像的敏感信息文件路径白名单
+         * 查询镜像的敏感信息文件路径白名单--接口已废弃
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -40632,6 +40724,57 @@ export const ParamCreater = function () {
                     region = showFilePathWhiteDetailRequest['region'];
                     enterpriseProjectId = showFilePathWhiteDetailRequest['enterprise_project_id'];
                     filePath = showFilePathWhiteDetailRequest['file_path'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (filePath !== null && filePath !== undefined) {
+                localVarQueryParameter['file_path'] = filePath;
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询镜像的敏感信息文件路径白名单
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFilePathWhiteLists(showFilePathWhiteListsRequest?: ShowFilePathWhiteListsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/image/sensitive/filepath-whitelist",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let region;
+            
+            let enterpriseProjectId;
+            
+            let filePath;
+
+            if (showFilePathWhiteListsRequest !== null && showFilePathWhiteListsRequest !== undefined) {
+                if (showFilePathWhiteListsRequest instanceof ShowFilePathWhiteListsRequest) {
+                    region = showFilePathWhiteListsRequest.region;
+                    enterpriseProjectId = showFilePathWhiteListsRequest.enterpriseProjectId;
+                    filePath = showFilePathWhiteListsRequest.filePath;
+                } else {
+                    region = showFilePathWhiteListsRequest['region'];
+                    enterpriseProjectId = showFilePathWhiteListsRequest['enterprise_project_id'];
+                    filePath = showFilePathWhiteListsRequest['file_path'];
                 }
             }
 
@@ -44669,9 +44812,9 @@ export const ParamCreater = function () {
             
             let userName;
             
-            let eventType;
-            
             let sortDir;
+            
+            let eventType;
             
             let sortKey;
 
@@ -44690,8 +44833,8 @@ export const ParamCreater = function () {
                     assetValue = listAntivirusHandleHistoryRequest.assetValue;
                     handleMethod = listAntivirusHandleHistoryRequest.handleMethod;
                     userName = listAntivirusHandleHistoryRequest.userName;
-                    eventType = listAntivirusHandleHistoryRequest.eventType;
                     sortDir = listAntivirusHandleHistoryRequest.sortDir;
+                    eventType = listAntivirusHandleHistoryRequest.eventType;
                     sortKey = listAntivirusHandleHistoryRequest.sortKey;
                 } else {
                     offset = listAntivirusHandleHistoryRequest['offset'];
@@ -44707,8 +44850,8 @@ export const ParamCreater = function () {
                     assetValue = listAntivirusHandleHistoryRequest['asset_value'];
                     handleMethod = listAntivirusHandleHistoryRequest['handle_method'];
                     userName = listAntivirusHandleHistoryRequest['user_name'];
-                    eventType = listAntivirusHandleHistoryRequest['event_type'];
                     sortDir = listAntivirusHandleHistoryRequest['sort_dir'];
+                    eventType = listAntivirusHandleHistoryRequest['event_type'];
                     sortKey = listAntivirusHandleHistoryRequest['sort_key'];
                 }
             }
@@ -44756,11 +44899,11 @@ export const ParamCreater = function () {
             if (userName !== null && userName !== undefined) {
                 localVarQueryParameter['user_name'] = userName;
             }
-            if (eventType !== null && eventType !== undefined) {
-                localVarQueryParameter['event_type'] = eventType;
-            }
             if (sortDir !== null && sortDir !== undefined) {
                 localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (eventType !== null && eventType !== undefined) {
+                localVarQueryParameter['event_type'] = eventType;
             }
             if (sortKey !== null && sortKey !== undefined) {
                 localVarQueryParameter['sort_key'] = sortKey;

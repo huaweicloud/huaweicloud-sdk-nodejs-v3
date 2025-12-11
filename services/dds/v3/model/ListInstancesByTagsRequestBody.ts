@@ -38,6 +38,6 @@ export class ListInstancesByTagsRequestBody {
     * @enum {string}
     */
 export enum ListInstancesByTagsRequestBodyActionEnum {
-    FILTER = 'filter',
-    COUNT = 'count'
+    COUNT = 'count',
+    FILTER = 'filter'
 }

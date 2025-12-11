@@ -13,6 +13,10 @@ export class MysqlProxyV3 {
     public vcpus?: string;
     public ram?: string;
     private 'node_num'?: number;
+    public type?: MysqlProxyV3TypeEnum | string;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
+    private 'support_ap_node'?: boolean;
     public mode?: string;
     public nodes?: Array<MysqlProxyNodes>;
     private 'flavor_ref'?: string;
@@ -102,6 +106,40 @@ export class MysqlProxyV3 {
     }
     public get nodeNum(): number | undefined {
         return this['node_num'];
+    }
+    public withType(type: MysqlProxyV3TypeEnum | string): MysqlProxyV3 {
+        this['type'] = type;
+        return this;
+    }
+    public withCreatedAt(createdAt: string): MysqlProxyV3 {
+        this['created_at'] = createdAt;
+        return this;
+    }
+    public set createdAt(createdAt: string  | undefined) {
+        this['created_at'] = createdAt;
+    }
+    public get createdAt(): string | undefined {
+        return this['created_at'];
+    }
+    public withUpdatedAt(updatedAt: string): MysqlProxyV3 {
+        this['updated_at'] = updatedAt;
+        return this;
+    }
+    public set updatedAt(updatedAt: string  | undefined) {
+        this['updated_at'] = updatedAt;
+    }
+    public get updatedAt(): string | undefined {
+        return this['updated_at'];
+    }
+    public withSupportApNode(supportApNode: boolean): MysqlProxyV3 {
+        this['support_ap_node'] = supportApNode;
+        return this;
+    }
+    public set supportApNode(supportApNode: boolean  | undefined) {
+        this['support_ap_node'] = supportApNode;
+    }
+    public get supportApNode(): boolean | undefined {
+        return this['support_ap_node'];
     }
     public withMode(mode: string): MysqlProxyV3 {
         this['mode'] = mode;
@@ -225,4 +263,13 @@ export class MysqlProxyV3 {
     public get newNodeWeight(): number | undefined {
         return this['new_node_weight'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum MysqlProxyV3TypeEnum {
+    READWRITE = 'readwrite',
+    READONLY = 'readonly'
 }

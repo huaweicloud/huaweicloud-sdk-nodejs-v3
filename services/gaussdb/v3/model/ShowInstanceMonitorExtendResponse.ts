@@ -4,6 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowInstanceMonitorExtendResponse extends SdkResponse {
     private 'monitor_switch'?: boolean;
     public period?: number;
+    public allow?: boolean;
     public constructor() { 
         super();
     }
@@ -19,6 +20,10 @@ export class ShowInstanceMonitorExtendResponse extends SdkResponse {
     }
     public withPeriod(period: number): ShowInstanceMonitorExtendResponse {
         this['period'] = period;
+        return this;
+    }
+    public withAllow(allow: boolean): ShowInstanceMonitorExtendResponse {
+        this['allow'] = allow;
         return this;
     }
 }

@@ -3,6 +3,8 @@
 export class ListTasksRequest {
     private 'start_time'?: number;
     private 'end_time'?: number;
+    public offset?: number;
+    public limit?: number;
     public constructor(startTime?: number, endTime?: number) { 
         this['start_time'] = startTime;
         this['end_time'] = endTime;
@@ -26,5 +28,13 @@ export class ListTasksRequest {
     }
     public get endTime(): number | undefined {
         return this['end_time'];
+    }
+    public withOffset(offset: number): ListTasksRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: number): ListTasksRequest {
+        this['limit'] = limit;
+        return this;
     }
 }

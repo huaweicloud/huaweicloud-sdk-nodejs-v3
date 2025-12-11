@@ -1126,7 +1126,7 @@ export class DdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 扩容副本集实例的节点数量
-     * @param {string} instanceId 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。
+     * @param {string} instanceId **参数解释：** 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {EnlargeReplicasetNodeRequestBody} enlargeReplicasetNodeRequestBody 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1917,7 +1917,7 @@ export class DdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 重启实例
-     * @param {string} instanceId 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。
+     * @param {string} instanceId **参数解释：** 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {RestartInstanceRequestBody} restartInstanceRequestBody 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2953,7 +2953,7 @@ export class DdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 校验参数模板名称是否存在
-     * @param {string} name 参数模板名称。
+     * @param {string} name **参数解释：** 参数模板名称。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

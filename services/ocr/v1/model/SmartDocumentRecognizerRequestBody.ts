@@ -11,9 +11,11 @@ export class SmartDocumentRecognizerRequestBody {
     private 'return_excel'?: boolean;
     public form?: boolean;
     public formula?: boolean;
+    private 'image_layout'?: boolean;
     private 'kv_map'?: string;
     private 'erase_seal'?: boolean;
     private 'pdf_page_number'?: number;
+    private 'character_mode'?: boolean;
     public constructor() { 
     }
     public withData(data: string): SmartDocumentRecognizerRequestBody {
@@ -68,6 +70,16 @@ export class SmartDocumentRecognizerRequestBody {
         this['formula'] = formula;
         return this;
     }
+    public withImageLayout(imageLayout: boolean): SmartDocumentRecognizerRequestBody {
+        this['image_layout'] = imageLayout;
+        return this;
+    }
+    public set imageLayout(imageLayout: boolean  | undefined) {
+        this['image_layout'] = imageLayout;
+    }
+    public get imageLayout(): boolean | undefined {
+        return this['image_layout'];
+    }
     public withKvMap(kvMap: string): SmartDocumentRecognizerRequestBody {
         this['kv_map'] = kvMap;
         return this;
@@ -97,5 +109,15 @@ export class SmartDocumentRecognizerRequestBody {
     }
     public get pdfPageNumber(): number | undefined {
         return this['pdf_page_number'];
+    }
+    public withCharacterMode(characterMode: boolean): SmartDocumentRecognizerRequestBody {
+        this['character_mode'] = characterMode;
+        return this;
+    }
+    public set characterMode(characterMode: boolean  | undefined) {
+        this['character_mode'] = characterMode;
+    }
+    public get characterMode(): boolean | undefined {
+        return this['character_mode'];
     }
 }

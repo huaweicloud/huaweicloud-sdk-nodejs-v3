@@ -14,6 +14,10 @@ import { AuthToken } from './model/AuthToken';
 import { BuildHistory } from './model/BuildHistory';
 import { CVEAllowlist } from './model/CVEAllowlist';
 import { CVEAllowlistItem } from './model/CVEAllowlistItem';
+import { CheckAgencyRequest } from './model/CheckAgencyRequest';
+import { CheckAgencyResponse } from './model/CheckAgencyResponse';
+import { CreateAgencyRequest } from './model/CreateAgencyRequest';
+import { CreateAgencyResponse } from './model/CreateAgencyResponse';
 import { CreateAuthorizationTokenRequest } from './model/CreateAuthorizationTokenRequest';
 import { CreateAuthorizationTokenResponse } from './model/CreateAuthorizationTokenResponse';
 import { CreateEndpointPolicyRequestBody } from './model/CreateEndpointPolicyRequestBody';
@@ -269,12 +273,15 @@ import { ListSubResourceInstancesRequest } from './model/ListSubResourceInstance
 import { ListSubResourceInstancesResponse } from './model/ListSubResourceInstancesResponse';
 import { ListSubResourceTagsRequest } from './model/ListSubResourceTagsRequest';
 import { ListSubResourceTagsResponse } from './model/ListSubResourceTagsResponse';
+import { ListSyncRegionsRequest } from './model/ListSyncRegionsRequest';
+import { ListSyncRegionsResponse } from './model/ListSyncRegionsResponse';
 import { ListTriggersDetailsRequest } from './model/ListTriggersDetailsRequest';
 import { ListTriggersDetailsResponse } from './model/ListTriggersDetailsResponse';
 import { Namespace } from './model/Namespace';
 import { NamespaceMetadata } from './model/NamespaceMetadata';
 import { NativeReportSummary } from './model/NativeReportSummary';
 import { ProjectTag } from './model/ProjectTag';
+import { RegionInfo } from './model/RegionInfo';
 import { Registry } from './model/Registry';
 import { ReplicationPolicy } from './model/ReplicationPolicy';
 import { ReplicationRegistry } from './model/ReplicationRegistry';
@@ -456,6 +463,43 @@ export class SwrClient {
         return __dirname;
     }
 
+
+    /**
+     * 检查租户是否已委托SWR服务通过触发器功能调用CCE、CCI服务，一般由前端控制台自动调用，用户无需手动调用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询委托是否存在
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkAgency(checkAgencyRequest?: CheckAgencyRequest): Promise<CheckAgencyResponse> {
+        const options = ParamCreater().checkAgency();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 租户首次使用SWR服务时创建SWR服务内部委托，一般由前端控制台自动调用，用户无需手动调用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建委托
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAgency(createAgencyRequest?: CreateAgencyRequest): Promise<CreateAgencyResponse> {
+        const options = ParamCreater().createAgency(createAgencyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 调用该接口，通过获取响应消息头的X-Swr-Dockerlogin的值及响应消息体的host值，可生成增强型登录指令,注：此接口只支持IAM新平面的调用方式。
@@ -1187,6 +1231,24 @@ export class SwrClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['Content-Range'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取可进行镜像同步的区域列表，用户可以将镜像手动或自动同步到此接口返回的区域。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取可进行镜像同步的区域列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSyncRegions(listSyncRegionsRequest?: ListSyncRegionsRequest): Promise<ListSyncRegionsResponse> {
+        const options = ParamCreater().listSyncRegions();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3865,6 +3927,63 @@ export const ParamCreater = function () {
     return {
     
         /**
+         * 检查租户是否已委托SWR服务通过触发器功能调用CCE、CCI服务，一般由前端控制台自动调用，用户无需手动调用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkAgency() {
+            const options = {
+                method: "GET",
+                url: "/v2/manage/agency",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 租户首次使用SWR服务时创建SWR服务内部委托，一般由前端控制台自动调用，用户无需手动调用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAgency(createAgencyRequest?: CreateAgencyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/manage/agency",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+
+            if (createAgencyRequest !== null && createAgencyRequest !== undefined) {
+                if (createAgencyRequest instanceof CreateAgencyRequest) {
+                    contentType = createAgencyRequest.contentType;
+                } else {
+                    contentType = createAgencyRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 调用该接口，通过获取响应消息头的X-Swr-Dockerlogin的值及响应消息体的host值，可生成增强型登录指令,注：此接口只支持IAM新平面的调用方式。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5862,6 +5981,27 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取可进行镜像同步的区域列表，用户可以将镜像手动或自动同步到此接口返回的区域。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSyncRegions() {
+            const options = {
+                method: "GET",
+                url: "/v2/manage/regions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

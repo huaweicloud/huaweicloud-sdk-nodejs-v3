@@ -2,13 +2,13 @@ import { CommonTopResponseInfo } from './CommonTopResponseInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
-export class ShowPorcessTopResponse extends SdkResponse {
+export class ShowProcessTopResponse extends SdkResponse {
     private 'total_num'?: number;
     private 'data_list'?: Array<CommonTopResponseInfo>;
     public constructor() { 
         super();
     }
-    public withTotalNum(totalNum: number): ShowPorcessTopResponse {
+    public withTotalNum(totalNum: number): ShowProcessTopResponse {
         this['total_num'] = totalNum;
         return this;
     }
@@ -18,7 +18,7 @@ export class ShowPorcessTopResponse extends SdkResponse {
     public get totalNum(): number | undefined {
         return this['total_num'];
     }
-    public withDataList(dataList: Array<CommonTopResponseInfo>): ShowPorcessTopResponse {
+    public withDataList(dataList: Array<CommonTopResponseInfo>): ShowProcessTopResponse {
         this['data_list'] = dataList;
         return this;
     }

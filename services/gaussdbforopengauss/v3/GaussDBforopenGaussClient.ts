@@ -29,6 +29,9 @@ import { BackupPolicyInfo } from './model/BackupPolicyInfo';
 import { Backups } from './model/Backups';
 import { BackupsResult } from './model/BackupsResult';
 import { BaseOpsKeyViewRequestBody } from './model/BaseOpsKeyViewRequestBody';
+import { BatchDeleteInstanceTagRequest } from './model/BatchDeleteInstanceTagRequest';
+import { BatchDeleteInstanceTagRequestBody } from './model/BatchDeleteInstanceTagRequestBody';
+import { BatchDeleteInstanceTagResponse } from './model/BatchDeleteInstanceTagResponse';
 import { BatchSetBackupPolicyFailedRecordResult } from './model/BatchSetBackupPolicyFailedRecordResult';
 import { BatchSetBackupPolicyRequest } from './model/BatchSetBackupPolicyRequest';
 import { BatchSetBackupPolicyRequestBody } from './model/BatchSetBackupPolicyRequestBody';
@@ -919,6 +922,27 @@ export class GaussDBforopenGaussClient {
      */
     public authorizeBackupDownload(authorizeBackupDownloadRequest?: AuthorizeBackupDownloadRequest): Promise<AuthorizeBackupDownloadResponse> {
         const options = ParamCreater().authorizeBackupDownload(authorizeBackupDownloadRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除实例标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除实例标签
+     * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
+     * @param {BatchDeleteInstanceTagRequestBody} batchDeleteInstanceTagRequestBody 请求体。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**:   - zh-cn   - en-us  **默认取值**: en-us
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteInstanceTag(batchDeleteInstanceTagRequest?: BatchDeleteInstanceTagRequest): Promise<BatchDeleteInstanceTagResponse> {
+        const options = ParamCreater().batchDeleteInstanceTag(batchDeleteInstanceTagRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3010,6 +3034,10 @@ export class GaussDBforopenGaussClient {
      * @param {string} [restoreTime] 恢复点，当备份ID为空时，通过此参数查询实例拓扑信息，过滤实例列表。
      * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
      * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100。
+     * @param {string} [backupRestoreType] **参数解释**: 查备份恢复的粒度。 **约束限制**: 不涉及。 **取值范围**:   - INSTANCE   - DATABASE_TABLE   - DATABASE **默认取值**: INSTANCE
+     * @param {string} [sourceBackupSchema] **参数解释**: 源实例的备份类型。 **约束限制**: 不涉及。 **取值范围**:   - INSTANCE   - DATABASE_TABLE **默认取值**: INSTANCE
+     * @param {string} [targetInstanceId] **参数解释**: 目标实例ID，通过此参数过滤实例列表。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 不涉及。
+     * @param {string} [instanceName] **参数解释**: 目标实例名称，通过此参数过滤实例列表。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3930,6 +3958,9 @@ export class GaussDBforopenGaussClient {
      * @param {string} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**:   - zh-cn   - en-us  **默认取值**: en-us
      * @param {'triset' | 'single'} [solution] 解决方案模板名称。
      * @param {string} [instanceId] 实例ID。
+     * @param {string} [consistency] **参数解释**: 事务一致性类型。 **约束限制**: 不涉及。 **取值范围**: - strong - eventual **默认取值**: 不涉及。
+     * @param {string} [consistencyProtocol] **参数解释**: 副本一致性协议类型。 **约束限制**: 不涉及。 **取值范围**: - quorum - paxos **默认取值**: 不涉及。
+     * @param {string} [engineVersion] **参数解释**: 引擎版本号。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6155,6 +6186,59 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'backup_id': backupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除实例标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteInstanceTag(batchDeleteInstanceTagRequest?: BatchDeleteInstanceTagRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/tags",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (batchDeleteInstanceTagRequest !== null && batchDeleteInstanceTagRequest !== undefined) {
+                if (batchDeleteInstanceTagRequest instanceof BatchDeleteInstanceTagRequest) {
+                    instanceId = batchDeleteInstanceTagRequest.instanceId;
+                    body = batchDeleteInstanceTagRequest.body
+                    xLanguage = batchDeleteInstanceTagRequest.xLanguage;
+                } else {
+                    instanceId = batchDeleteInstanceTagRequest['instance_id'];
+                    body = batchDeleteInstanceTagRequest['body'];
+                    xLanguage = batchDeleteInstanceTagRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling batchDeleteInstanceTag.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -11570,6 +11654,14 @@ export const ParamCreater = function () {
             let offset;
             
             let limit;
+            
+            let backupRestoreType;
+            
+            let sourceBackupSchema;
+            
+            let targetInstanceId;
+            
+            let instanceName;
 
             if (listRestorableInstancesDetailsRequest !== null && listRestorableInstancesDetailsRequest !== undefined) {
                 if (listRestorableInstancesDetailsRequest instanceof ListRestorableInstancesDetailsRequest) {
@@ -11579,6 +11671,10 @@ export const ParamCreater = function () {
                     restoreTime = listRestorableInstancesDetailsRequest.restoreTime;
                     offset = listRestorableInstancesDetailsRequest.offset;
                     limit = listRestorableInstancesDetailsRequest.limit;
+                    backupRestoreType = listRestorableInstancesDetailsRequest.backupRestoreType;
+                    sourceBackupSchema = listRestorableInstancesDetailsRequest.sourceBackupSchema;
+                    targetInstanceId = listRestorableInstancesDetailsRequest.targetInstanceId;
+                    instanceName = listRestorableInstancesDetailsRequest.instanceName;
                 } else {
                     sourceInstanceId = listRestorableInstancesDetailsRequest['source_instance_id'];
                     xLanguage = listRestorableInstancesDetailsRequest['X-Language'];
@@ -11586,6 +11682,10 @@ export const ParamCreater = function () {
                     restoreTime = listRestorableInstancesDetailsRequest['restore_time'];
                     offset = listRestorableInstancesDetailsRequest['offset'];
                     limit = listRestorableInstancesDetailsRequest['limit'];
+                    backupRestoreType = listRestorableInstancesDetailsRequest['backup_restore_type'];
+                    sourceBackupSchema = listRestorableInstancesDetailsRequest['source_backup_schema'];
+                    targetInstanceId = listRestorableInstancesDetailsRequest['target_instance_id'];
+                    instanceName = listRestorableInstancesDetailsRequest['instance_name'];
                 }
             }
 
@@ -11607,6 +11707,18 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (backupRestoreType !== null && backupRestoreType !== undefined) {
+                localVarQueryParameter['backup_restore_type'] = backupRestoreType;
+            }
+            if (sourceBackupSchema !== null && sourceBackupSchema !== undefined) {
+                localVarQueryParameter['source_backup_schema'] = sourceBackupSchema;
+            }
+            if (targetInstanceId !== null && targetInstanceId !== undefined) {
+                localVarQueryParameter['target_instance_id'] = targetInstanceId;
+            }
+            if (instanceName !== null && instanceName !== undefined) {
+                localVarQueryParameter['instance_name'] = instanceName;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -14001,16 +14113,28 @@ export const ParamCreater = function () {
             let solution;
             
             let instanceId;
+            
+            let consistency;
+            
+            let consistencyProtocol;
+            
+            let engineVersion;
 
             if (showDeploymentFormRequest !== null && showDeploymentFormRequest !== undefined) {
                 if (showDeploymentFormRequest instanceof ShowDeploymentFormRequest) {
                     xLanguage = showDeploymentFormRequest.xLanguage;
                     solution = showDeploymentFormRequest.solution;
                     instanceId = showDeploymentFormRequest.instanceId;
+                    consistency = showDeploymentFormRequest.consistency;
+                    consistencyProtocol = showDeploymentFormRequest.consistencyProtocol;
+                    engineVersion = showDeploymentFormRequest.engineVersion;
                 } else {
                     xLanguage = showDeploymentFormRequest['X-Language'];
                     solution = showDeploymentFormRequest['solution'];
                     instanceId = showDeploymentFormRequest['instance_id'];
+                    consistency = showDeploymentFormRequest['consistency'];
+                    consistencyProtocol = showDeploymentFormRequest['consistency_protocol'];
+                    engineVersion = showDeploymentFormRequest['engine_version'];
                 }
             }
 
@@ -14020,6 +14144,15 @@ export const ParamCreater = function () {
             }
             if (instanceId !== null && instanceId !== undefined) {
                 localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (consistency !== null && consistency !== undefined) {
+                localVarQueryParameter['consistency'] = consistency;
+            }
+            if (consistencyProtocol !== null && consistencyProtocol !== undefined) {
+                localVarQueryParameter['consistency_protocol'] = consistencyProtocol;
+            }
+            if (engineVersion !== null && engineVersion !== undefined) {
+                localVarQueryParameter['engine_version'] = engineVersion;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);

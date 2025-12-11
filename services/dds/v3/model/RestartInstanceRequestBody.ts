@@ -3,6 +3,8 @@
 export class RestartInstanceRequestBody {
     private 'target_type'?: RestartInstanceRequestBodyTargetTypeEnum | string;
     private 'target_id'?: string;
+    private 'is_serial'?: boolean;
+    private 'is_force'?: boolean;
     public constructor(targetId?: string) { 
         this['target_id'] = targetId;
     }
@@ -25,6 +27,26 @@ export class RestartInstanceRequestBody {
     }
     public get targetId(): string | undefined {
         return this['target_id'];
+    }
+    public withIsSerial(isSerial: boolean): RestartInstanceRequestBody {
+        this['is_serial'] = isSerial;
+        return this;
+    }
+    public set isSerial(isSerial: boolean  | undefined) {
+        this['is_serial'] = isSerial;
+    }
+    public get isSerial(): boolean | undefined {
+        return this['is_serial'];
+    }
+    public withIsForce(isForce: boolean): RestartInstanceRequestBody {
+        this['is_force'] = isForce;
+        return this;
+    }
+    public set isForce(isForce: boolean  | undefined) {
+        this['is_force'] = isForce;
+    }
+    public get isForce(): boolean | undefined {
+        return this['is_force'];
     }
 }
 

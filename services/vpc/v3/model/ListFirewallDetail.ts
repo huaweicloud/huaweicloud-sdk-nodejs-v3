@@ -14,7 +14,8 @@ export class ListFirewallDetail {
     private 'enterprise_project_id'?: string;
     public tags?: Array<ResourceTag>;
     public associations?: Array<FirewallAssociation>;
-    public constructor(id?: string, name?: string, description?: string, projectId?: string, createdAt?: string, updatedAt?: string, adminStateUp?: boolean, status?: string, enterpriseProjectId?: string, tags?: Array<ResourceTag>, associations?: Array<FirewallAssociation>) { 
+    public type?: string;
+    public constructor(id?: string, name?: string, description?: string, projectId?: string, createdAt?: string, updatedAt?: string, adminStateUp?: boolean, status?: string, enterpriseProjectId?: string, tags?: Array<ResourceTag>, associations?: Array<FirewallAssociation>, type?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
@@ -26,6 +27,7 @@ export class ListFirewallDetail {
         this['enterprise_project_id'] = enterpriseProjectId;
         this['tags'] = tags;
         this['associations'] = associations;
+        this['type'] = type;
     }
     public withId(id: string): ListFirewallDetail {
         this['id'] = id;
@@ -99,6 +101,10 @@ export class ListFirewallDetail {
     }
     public withAssociations(associations: Array<FirewallAssociation>): ListFirewallDetail {
         this['associations'] = associations;
+        return this;
+    }
+    public withType(type: string): ListFirewallDetail {
+        this['type'] = type;
         return this;
     }
 }

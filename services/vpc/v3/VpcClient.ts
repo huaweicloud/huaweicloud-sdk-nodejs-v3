@@ -106,6 +106,10 @@ import { CreateTrafficMirrorSessionOption } from './model/CreateTrafficMirrorSes
 import { CreateTrafficMirrorSessionRequest } from './model/CreateTrafficMirrorSessionRequest';
 import { CreateTrafficMirrorSessionRequestBody } from './model/CreateTrafficMirrorSessionRequestBody';
 import { CreateTrafficMirrorSessionResponse } from './model/CreateTrafficMirrorSessionResponse';
+import { CreateVirsubnetCidrReservationOption } from './model/CreateVirsubnetCidrReservationOption';
+import { CreateVirsubnetCidrReservationRequest } from './model/CreateVirsubnetCidrReservationRequest';
+import { CreateVirsubnetCidrReservationRequestBody } from './model/CreateVirsubnetCidrReservationRequestBody';
+import { CreateVirsubnetCidrReservationResponse } from './model/CreateVirsubnetCidrReservationResponse';
 import { CreateVpcOption } from './model/CreateVpcOption';
 import { CreateVpcRequest } from './model/CreateVpcRequest';
 import { CreateVpcRequestBody } from './model/CreateVpcRequestBody';
@@ -137,6 +141,8 @@ import { DeleteTrafficMirrorFilterRuleRequest } from './model/DeleteTrafficMirro
 import { DeleteTrafficMirrorFilterRuleResponse } from './model/DeleteTrafficMirrorFilterRuleResponse';
 import { DeleteTrafficMirrorSessionRequest } from './model/DeleteTrafficMirrorSessionRequest';
 import { DeleteTrafficMirrorSessionResponse } from './model/DeleteTrafficMirrorSessionResponse';
+import { DeleteVirsubnetCidrReservationRequest } from './model/DeleteVirsubnetCidrReservationRequest';
+import { DeleteVirsubnetCidrReservationResponse } from './model/DeleteVirsubnetCidrReservationResponse';
 import { DeleteVpcRequest } from './model/DeleteVpcRequest';
 import { DeleteVpcResponse } from './model/DeleteVpcResponse';
 import { DisassociateSubnetFirewallRequest } from './model/DisassociateSubnetFirewallRequest';
@@ -193,6 +199,8 @@ import { ListTrafficMirrorFiltersRequest } from './model/ListTrafficMirrorFilter
 import { ListTrafficMirrorFiltersResponse } from './model/ListTrafficMirrorFiltersResponse';
 import { ListTrafficMirrorSessionsRequest } from './model/ListTrafficMirrorSessionsRequest';
 import { ListTrafficMirrorSessionsResponse } from './model/ListTrafficMirrorSessionsResponse';
+import { ListVirsubnetCidrReservationsRequest } from './model/ListVirsubnetCidrReservationsRequest';
+import { ListVirsubnetCidrReservationsResponse } from './model/ListVirsubnetCidrReservationsResponse';
 import { ListVpcsRequest } from './model/ListVpcsRequest';
 import { ListVpcsResponse } from './model/ListVpcsResponse';
 import { Match } from './model/Match';
@@ -248,6 +256,8 @@ import { ShowTrafficMirrorFilterRuleRequest } from './model/ShowTrafficMirrorFil
 import { ShowTrafficMirrorFilterRuleResponse } from './model/ShowTrafficMirrorFilterRuleResponse';
 import { ShowTrafficMirrorSessionRequest } from './model/ShowTrafficMirrorSessionRequest';
 import { ShowTrafficMirrorSessionResponse } from './model/ShowTrafficMirrorSessionResponse';
+import { ShowVirsubnetCidrReservationRequest } from './model/ShowVirsubnetCidrReservationRequest';
+import { ShowVirsubnetCidrReservationResponse } from './model/ShowVirsubnetCidrReservationResponse';
 import { ShowVpcRequest } from './model/ShowVpcRequest';
 import { ShowVpcResponse } from './model/ShowVpcResponse';
 import { SubNetworkInterface } from './model/SubNetworkInterface';
@@ -293,10 +303,15 @@ import { UpdateTrafficMirrorSessionOption } from './model/UpdateTrafficMirrorSes
 import { UpdateTrafficMirrorSessionRequest } from './model/UpdateTrafficMirrorSessionRequest';
 import { UpdateTrafficMirrorSessionRequestBody } from './model/UpdateTrafficMirrorSessionRequestBody';
 import { UpdateTrafficMirrorSessionResponse } from './model/UpdateTrafficMirrorSessionResponse';
+import { UpdateVirsubnetCidrReservationOption } from './model/UpdateVirsubnetCidrReservationOption';
+import { UpdateVirsubnetCidrReservationRequest } from './model/UpdateVirsubnetCidrReservationRequest';
+import { UpdateVirsubnetCidrReservationRequestBody } from './model/UpdateVirsubnetCidrReservationRequestBody';
+import { UpdateVirsubnetCidrReservationResponse } from './model/UpdateVirsubnetCidrReservationResponse';
 import { UpdateVpcOption } from './model/UpdateVpcOption';
 import { UpdateVpcRequest } from './model/UpdateVpcRequest';
 import { UpdateVpcRequestBody } from './model/UpdateVpcRequestBody';
 import { UpdateVpcResponse } from './model/UpdateVpcResponse';
+import { VirsubnetCidrReservation } from './model/VirsubnetCidrReservation';
 import { Vpc } from './model/Vpc';
 
 export class VpcClient {
@@ -595,6 +610,25 @@ export class VpcClient {
     }
 
     /**
+     * 子网预留网段是子网网段范围的IP网段，此IP网段内的IP不会被子网内的实例占用。用户可以通过创建子网预留网段来预留某个IP网段，用于后续的特殊场景使用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建子网预留网段
+     * @param {CreateVirsubnetCidrReservationRequestBody} createVirsubnetCidrReservationRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createVirsubnetCidrReservation(createVirsubnetCidrReservationRequest?: CreateVirsubnetCidrReservationRequest): Promise<CreateVirsubnetCidrReservationResponse> {
+        const options = ParamCreater().createVirsubnetCidrReservation(createVirsubnetCidrReservationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除指定端口的标签信息
      * 该接口为幂等接口：删除的key不存在报404，key不能为空或者空字符串。
      * 该接口在华南-深圳上线。
@@ -723,6 +757,25 @@ export class VpcClient {
      */
     public deleteTrafficMirrorSession(deleteTrafficMirrorSessionRequest?: DeleteTrafficMirrorSessionRequest): Promise<DeleteTrafficMirrorSessionResponse> {
         const options = ParamCreater().deleteTrafficMirrorSession(deleteTrafficMirrorSessionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当您已创建的子网预留网段不再使用时，您可以通过调用该接口删除子网预留网段资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除子网预留网段
+     * @param {string} virsubnetCidrReservationId **参数解释**： 子网预留网段的资源ID。 **取值范围**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteVirsubnetCidrReservation(deleteVirsubnetCidrReservationRequest?: DeleteVirsubnetCidrReservationRequest): Promise<DeleteVirsubnetCidrReservationResponse> {
+        const options = ParamCreater().deleteVirsubnetCidrReservation(deleteVirsubnetCidrReservationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -946,6 +999,33 @@ export class VpcClient {
     }
 
     /**
+     * 当您的子网预留网段创建成功后，您可以通过调用该接口查询所有子网预留网段信息，包括子网预留网段名称、IP网段等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询子网预留网段列表
+     * @param {number} [limit] **参数解释**： 每页返回的资源个数。 **取值范围**： 0~2000
+     * @param {string} [marker] **参数解释**： 分页查询起始的资源ID，为空时查询第一页。 **取值范围**： 子网预留网段的资源ID。
+     * @param {Array<string>} [id] **参数解释**： 子网预留网段的资源ID。可以使用该字段过滤子网预留网段，支持传入多个ID过滤。 **取值范围**： 不涉及。
+     * @param {Array<string>} [virsubnetId] **参数解释**： 子网预留网段所在的子网ID。可以使用该字段过滤子网预留网段，支持传入多个ID过滤。 **取值范围**： 不涉及。
+     * @param {Array<string>} [cidr] **参数解释**： 子网预留网段的IP网段。可以使用该字段过滤子网预留网段，支持传入多个IP网段过滤。 **取值范围**： 不涉及。
+     * @param {Array<number>} [ipVersion] **参数解释**： 子网预留网段所在子网的IP版本。可以使用该字段过滤子网预留网段，支持传入多个IP版本过滤。 **取值范围**： - 4：过滤出IPv4子网预留网段。 - 6：过滤出IPv6子网预留网段。
+     * @param {Array<string>} [name] **参数解释**： 子网预留网段的名称。可以使用该字段过滤满足条件的子网预留网段，支持传入多个名称过滤。 **取值范围**： 不涉及。
+     * @param {Array<string>} [description] **参数解释**： 子网预留网段的描述信息。可以使用该字段过滤子网预留网段，支持传入多个描述信息进行过滤。 **取值范围**： 不涉及。
+     * @param {string} [enterpriseProjectId] **参数解释**： 子网预留网段所属的企业项目ID。可以使用该字段过滤某个企业项目下的子网预留网段。 **取值范围**： - 最大长度36字节，带“-”连字符的UUID格式，或者是字符串“0”。“0”表示默认企业项目。 - 若需要查询当前用户所有有权限查看企业项目绑定的子网预留网段，请传参all_granted_eps。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVirsubnetCidrReservations(listVirsubnetCidrReservationsRequest?: ListVirsubnetCidrReservationsRequest): Promise<ListVirsubnetCidrReservationsResponse> {
+        const options = ParamCreater().listVirsubnetCidrReservations(listVirsubnetCidrReservationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量迁移辅助弹性网卡
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1157,6 +1237,25 @@ export class VpcClient {
     }
 
     /**
+     * 当您的子网预留网段创建成功后，您可以通过调用该接口查询单个子网预留网段的详细信息，包括子网预留网段的名称、IP网段等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询子网预留网段
+     * @param {string} virsubnetCidrReservationId **参数解释**： 子网预留网段的资源ID。 **取值范围**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVirsubnetCidrReservation(showVirsubnetCidrReservationRequest?: ShowVirsubnetCidrReservationRequest): Promise<ShowVirsubnetCidrReservationResponse> {
+        const options = ParamCreater().showVirsubnetCidrReservation(showVirsubnetCidrReservationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新安全组
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1249,6 +1348,26 @@ export class VpcClient {
      */
     public updateTrafficMirrorSession(updateTrafficMirrorSessionRequest?: UpdateTrafficMirrorSessionRequest): Promise<UpdateTrafficMirrorSessionResponse> {
         const options = ParamCreater().updateTrafficMirrorSession(updateTrafficMirrorSessionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当您的子网预留网段创建成功后，您可以通过调用该接口更新子网预留网段的基本信息，包括子网预留网段的名称、描述信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新子网预留网段
+     * @param {string} virsubnetCidrReservationId **参数解释**： 子网预留网段的资源ID。 **取值范围**： 不涉及。
+     * @param {UpdateVirsubnetCidrReservationRequestBody} updateVirsubnetCidrReservationRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateVirsubnetCidrReservation(updateVirsubnetCidrReservationRequest?: UpdateVirsubnetCidrReservationRequest): Promise<UpdateVirsubnetCidrReservationResponse> {
+        const options = ParamCreater().updateVirsubnetCidrReservation(updateVirsubnetCidrReservationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2722,6 +2841,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 子网预留网段是子网网段范围的IP网段，此IP网段内的IP不会被子网内的实例占用。用户可以通过创建子网预留网段来预留某个IP网段，用于后续的特殊场景使用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createVirsubnetCidrReservation(createVirsubnetCidrReservationRequest?: CreateVirsubnetCidrReservationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/vpc/virsubnet-cidr-reservations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createVirsubnetCidrReservationRequest !== null && createVirsubnetCidrReservationRequest !== undefined) {
+                if (createVirsubnetCidrReservationRequest instanceof CreateVirsubnetCidrReservationRequest) {
+                    body = createVirsubnetCidrReservationRequest.body
+                } else {
+                    body = createVirsubnetCidrReservationRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除指定端口的标签信息
          * 该接口为幂等接口：删除的key不存在报404，key不能为空或者空字符串。
          * 该接口在华南-深圳上线。
@@ -2985,6 +3142,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'traffic_mirror_session_id': trafficMirrorSessionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当您已创建的子网预留网段不再使用时，您可以通过调用该接口删除子网预留网段资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteVirsubnetCidrReservation(deleteVirsubnetCidrReservationRequest?: DeleteVirsubnetCidrReservationRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/vpc/virsubnet-cidr-reservations/{virsubnet_cidr_reservation_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let virsubnetCidrReservationId;
+
+            if (deleteVirsubnetCidrReservationRequest !== null && deleteVirsubnetCidrReservationRequest !== undefined) {
+                if (deleteVirsubnetCidrReservationRequest instanceof DeleteVirsubnetCidrReservationRequest) {
+                    virsubnetCidrReservationId = deleteVirsubnetCidrReservationRequest.virsubnetCidrReservationId;
+                } else {
+                    virsubnetCidrReservationId = deleteVirsubnetCidrReservationRequest['virsubnet_cidr_reservation_id'];
+                }
+            }
+
+        
+            if (virsubnetCidrReservationId === null || virsubnetCidrReservationId === undefined) {
+            throw new RequiredError('virsubnetCidrReservationId','Required parameter virsubnetCidrReservationId was null or undefined when calling deleteVirsubnetCidrReservation.');
+            }
+
+            options.pathParams = { 'virsubnet_cidr_reservation_id': virsubnetCidrReservationId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3714,6 +3908,99 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 当您的子网预留网段创建成功后，您可以通过调用该接口查询所有子网预留网段信息，包括子网预留网段名称、IP网段等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listVirsubnetCidrReservations(listVirsubnetCidrReservationsRequest?: ListVirsubnetCidrReservationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/vpc/virsubnet-cidr-reservations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let id;
+            
+            let virsubnetId;
+            
+            let cidr;
+            
+            let ipVersion;
+            
+            let name;
+            
+            let description;
+            
+            let enterpriseProjectId;
+
+            if (listVirsubnetCidrReservationsRequest !== null && listVirsubnetCidrReservationsRequest !== undefined) {
+                if (listVirsubnetCidrReservationsRequest instanceof ListVirsubnetCidrReservationsRequest) {
+                    limit = listVirsubnetCidrReservationsRequest.limit;
+                    marker = listVirsubnetCidrReservationsRequest.marker;
+                    id = listVirsubnetCidrReservationsRequest.id;
+                    virsubnetId = listVirsubnetCidrReservationsRequest.virsubnetId;
+                    cidr = listVirsubnetCidrReservationsRequest.cidr;
+                    ipVersion = listVirsubnetCidrReservationsRequest.ipVersion;
+                    name = listVirsubnetCidrReservationsRequest.name;
+                    description = listVirsubnetCidrReservationsRequest.description;
+                    enterpriseProjectId = listVirsubnetCidrReservationsRequest.enterpriseProjectId;
+                } else {
+                    limit = listVirsubnetCidrReservationsRequest['limit'];
+                    marker = listVirsubnetCidrReservationsRequest['marker'];
+                    id = listVirsubnetCidrReservationsRequest['id'];
+                    virsubnetId = listVirsubnetCidrReservationsRequest['virsubnet_id'];
+                    cidr = listVirsubnetCidrReservationsRequest['cidr'];
+                    ipVersion = listVirsubnetCidrReservationsRequest['ip_version'];
+                    name = listVirsubnetCidrReservationsRequest['name'];
+                    description = listVirsubnetCidrReservationsRequest['description'];
+                    enterpriseProjectId = listVirsubnetCidrReservationsRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (virsubnetId !== null && virsubnetId !== undefined) {
+                localVarQueryParameter['virsubnet_id'] = virsubnetId;
+            }
+            if (cidr !== null && cidr !== undefined) {
+                localVarQueryParameter['cidr'] = cidr;
+            }
+            if (ipVersion !== null && ipVersion !== undefined) {
+                localVarQueryParameter['ip_version'] = ipVersion;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (description !== null && description !== undefined) {
+                localVarQueryParameter['description'] = description;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量迁移辅助弹性网卡
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4125,6 +4412,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 当您的子网预留网段创建成功后，您可以通过调用该接口查询单个子网预留网段的详细信息，包括子网预留网段的名称、IP网段等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVirsubnetCidrReservation(showVirsubnetCidrReservationRequest?: ShowVirsubnetCidrReservationRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/vpc/virsubnet-cidr-reservations/{virsubnet_cidr_reservation_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let virsubnetCidrReservationId;
+
+            if (showVirsubnetCidrReservationRequest !== null && showVirsubnetCidrReservationRequest !== undefined) {
+                if (showVirsubnetCidrReservationRequest instanceof ShowVirsubnetCidrReservationRequest) {
+                    virsubnetCidrReservationId = showVirsubnetCidrReservationRequest.virsubnetCidrReservationId;
+                } else {
+                    virsubnetCidrReservationId = showVirsubnetCidrReservationRequest['virsubnet_cidr_reservation_id'];
+                }
+            }
+
+        
+            if (virsubnetCidrReservationId === null || virsubnetCidrReservationId === undefined) {
+            throw new RequiredError('virsubnetCidrReservationId','Required parameter virsubnetCidrReservationId was null or undefined when calling showVirsubnetCidrReservation.');
+            }
+
+            options.pathParams = { 'virsubnet_cidr_reservation_id': virsubnetCidrReservationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新安全组
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4350,6 +4674,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'traffic_mirror_session_id': trafficMirrorSessionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当您的子网预留网段创建成功后，您可以通过调用该接口更新子网预留网段的基本信息，包括子网预留网段的名称、描述信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateVirsubnetCidrReservation(updateVirsubnetCidrReservationRequest?: UpdateVirsubnetCidrReservationRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/vpc/virsubnet-cidr-reservations/{virsubnet_cidr_reservation_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let virsubnetCidrReservationId;
+
+            if (updateVirsubnetCidrReservationRequest !== null && updateVirsubnetCidrReservationRequest !== undefined) {
+                if (updateVirsubnetCidrReservationRequest instanceof UpdateVirsubnetCidrReservationRequest) {
+                    virsubnetCidrReservationId = updateVirsubnetCidrReservationRequest.virsubnetCidrReservationId;
+                    body = updateVirsubnetCidrReservationRequest.body
+                } else {
+                    virsubnetCidrReservationId = updateVirsubnetCidrReservationRequest['virsubnet_cidr_reservation_id'];
+                    body = updateVirsubnetCidrReservationRequest['body'];
+                }
+            }
+
+        
+            if (virsubnetCidrReservationId === null || virsubnetCidrReservationId === undefined) {
+            throw new RequiredError('virsubnetCidrReservationId','Required parameter virsubnetCidrReservationId was null or undefined when calling updateVirsubnetCidrReservation.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'virsubnet_cidr_reservation_id': virsubnetCidrReservationId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

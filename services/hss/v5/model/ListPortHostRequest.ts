@@ -4,12 +4,13 @@ export class ListPortHostRequest {
     private 'enterprise_project_id'?: string;
     private 'host_name'?: string;
     private 'host_ip'?: string;
-    public port?: number;
-    public type?: string;
     public category?: string;
     public limit?: number;
     public offset?: number;
-    public constructor(port?: number) { 
+    public port?: number;
+    public type?: string;
+    public constructor(category?: string, port?: number) { 
+        this['category'] = category;
         this['port'] = port;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListPortHostRequest {
@@ -42,14 +43,6 @@ export class ListPortHostRequest {
     public get hostIp(): string | undefined {
         return this['host_ip'];
     }
-    public withPort(port: number): ListPortHostRequest {
-        this['port'] = port;
-        return this;
-    }
-    public withType(type: string): ListPortHostRequest {
-        this['type'] = type;
-        return this;
-    }
     public withCategory(category: string): ListPortHostRequest {
         this['category'] = category;
         return this;
@@ -60,6 +53,14 @@ export class ListPortHostRequest {
     }
     public withOffset(offset: number): ListPortHostRequest {
         this['offset'] = offset;
+        return this;
+    }
+    public withPort(port: number): ListPortHostRequest {
+        this['port'] = port;
+        return this;
+    }
+    public withType(type: string): ListPortHostRequest {
+        this['type'] = type;
         return this;
     }
 }

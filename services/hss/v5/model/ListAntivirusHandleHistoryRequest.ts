@@ -14,8 +14,8 @@ export class ListAntivirusHandleHistoryRequest {
     private 'asset_value'?: string;
     private 'handle_method'?: string;
     private 'user_name'?: string;
-    private 'event_type'?: number;
     private 'sort_dir'?: string;
+    private 'event_type'?: number;
     private 'sort_key'?: string;
     public constructor(offset?: number, limit?: number) { 
         this['offset'] = offset;
@@ -133,16 +133,6 @@ export class ListAntivirusHandleHistoryRequest {
     public get userName(): string | undefined {
         return this['user_name'];
     }
-    public withEventType(eventType: number): ListAntivirusHandleHistoryRequest {
-        this['event_type'] = eventType;
-        return this;
-    }
-    public set eventType(eventType: number  | undefined) {
-        this['event_type'] = eventType;
-    }
-    public get eventType(): number | undefined {
-        return this['event_type'];
-    }
     public withSortDir(sortDir: string): ListAntivirusHandleHistoryRequest {
         this['sort_dir'] = sortDir;
         return this;
@@ -152,6 +142,16 @@ export class ListAntivirusHandleHistoryRequest {
     }
     public get sortDir(): string | undefined {
         return this['sort_dir'];
+    }
+    public withEventType(eventType: number): ListAntivirusHandleHistoryRequest {
+        this['event_type'] = eventType;
+        return this;
+    }
+    public set eventType(eventType: number  | undefined) {
+        this['event_type'] = eventType;
+    }
+    public get eventType(): number | undefined {
+        return this['event_type'];
     }
     public withSortKey(sortKey: string): ListAntivirusHandleHistoryRequest {
         this['sort_key'] = sortKey;

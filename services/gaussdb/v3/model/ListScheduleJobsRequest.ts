@@ -9,6 +9,7 @@ export class ListScheduleJobsRequest {
     private 'end_time'?: string;
     private 'job_id'?: string;
     private 'job_name'?: string;
+    private 'instance_id'?: string;
     public constructor() { 
     }
     public withXLanguage(xLanguage: string): ListScheduleJobsRequest {
@@ -72,5 +73,15 @@ export class ListScheduleJobsRequest {
     }
     public get jobName(): string | undefined {
         return this['job_name'];
+    }
+    public withInstanceId(instanceId: string): ListScheduleJobsRequest {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
     }
 }

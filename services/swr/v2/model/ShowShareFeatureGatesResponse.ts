@@ -13,6 +13,7 @@ export class ShowShareFeatureGatesResponse extends SdkResponse {
     private 'enable_authorization_token'?: boolean;
     private 'enable_resource'?: boolean;
     private 'enable_list_v3'?: boolean;
+    private 'enable_image_quota'?: boolean;
     public constructor() { 
         super();
     }
@@ -125,5 +126,15 @@ export class ShowShareFeatureGatesResponse extends SdkResponse {
     }
     public get enableListV3(): boolean | undefined {
         return this['enable_list_v3'];
+    }
+    public withEnableImageQuota(enableImageQuota: boolean): ShowShareFeatureGatesResponse {
+        this['enable_image_quota'] = enableImageQuota;
+        return this;
+    }
+    public set enableImageQuota(enableImageQuota: boolean  | undefined) {
+        this['enable_image_quota'] = enableImageQuota;
+    }
+    public get enableImageQuota(): boolean | undefined {
+        return this['enable_image_quota'];
     }
 }

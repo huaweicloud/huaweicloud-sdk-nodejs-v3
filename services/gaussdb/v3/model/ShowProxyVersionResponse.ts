@@ -1,3 +1,4 @@
+import { ProxyEngineRisk } from './ProxyEngineRisk';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -5,6 +6,7 @@ export class ShowProxyVersionResponse extends SdkResponse {
     private 'current_version'?: string;
     private 'latest_version'?: string;
     private 'can_upgrade'?: boolean;
+    public risk?: ProxyEngineRisk;
     public constructor() { 
         super();
     }
@@ -37,5 +39,9 @@ export class ShowProxyVersionResponse extends SdkResponse {
     }
     public get canUpgrade(): boolean | undefined {
         return this['can_upgrade'];
+    }
+    public withRisk(risk: ProxyEngineRisk): ShowProxyVersionResponse {
+        this['risk'] = risk;
+        return this;
     }
 }

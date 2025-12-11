@@ -7,6 +7,7 @@ export class ShowGaussMySqlIncrementalBackupListRequest {
     public limit?: string;
     private 'begin_time'?: string;
     private 'end_time'?: string;
+    private 'display_offsite_backup'?: boolean;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -57,5 +58,15 @@ export class ShowGaussMySqlIncrementalBackupListRequest {
     }
     public get endTime(): string | undefined {
         return this['end_time'];
+    }
+    public withDisplayOffsiteBackup(displayOffsiteBackup: boolean): ShowGaussMySqlIncrementalBackupListRequest {
+        this['display_offsite_backup'] = displayOffsiteBackup;
+        return this;
+    }
+    public set displayOffsiteBackup(displayOffsiteBackup: boolean  | undefined) {
+        this['display_offsite_backup'] = displayOffsiteBackup;
+    }
+    public get displayOffsiteBackup(): boolean | undefined {
+        return this['display_offsite_backup'];
     }
 }

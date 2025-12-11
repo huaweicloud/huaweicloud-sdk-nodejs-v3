@@ -6,6 +6,7 @@ export class MysqlShowProxyResponseV3 {
     public proxy?: MysqlProxyV3;
     private 'master_node'?: MysqlProxyNodeV3;
     private 'readonly_nodes'?: Array<MysqlProxyNodeV3>;
+    private 'htap_nodes'?: Array<MysqlProxyNodeV3>;
     public constructor() { 
     }
     public withProxy(proxy: MysqlProxyV3): MysqlShowProxyResponseV3 {
@@ -31,5 +32,15 @@ export class MysqlShowProxyResponseV3 {
     }
     public get readonlyNodes(): Array<MysqlProxyNodeV3> | undefined {
         return this['readonly_nodes'];
+    }
+    public withHtapNodes(htapNodes: Array<MysqlProxyNodeV3>): MysqlShowProxyResponseV3 {
+        this['htap_nodes'] = htapNodes;
+        return this;
+    }
+    public set htapNodes(htapNodes: Array<MysqlProxyNodeV3>  | undefined) {
+        this['htap_nodes'] = htapNodes;
+    }
+    public get htapNodes(): Array<MysqlProxyNodeV3> | undefined {
+        return this['htap_nodes'];
     }
 }
