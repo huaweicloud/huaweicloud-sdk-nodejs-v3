@@ -4,7 +4,6 @@ export class ListEnginePropertiesEntity {
     private 'step_length'?: string;
     private 'max_queue_per_broker'?: string;
     private 'max_connection_per_broker'?: string;
-    private 'max_partition_per_broker'?: string;
     private 'max_broker'?: string;
     private 'max_storage_per_node'?: string;
     private 'max_consumer_per_broker'?: string;
@@ -44,16 +43,6 @@ export class ListEnginePropertiesEntity {
     }
     public get maxConnectionPerBroker(): string | undefined {
         return this['max_connection_per_broker'];
-    }
-    public withMaxPartitionPerBroker(maxPartitionPerBroker: string): ListEnginePropertiesEntity {
-        this['max_partition_per_broker'] = maxPartitionPerBroker;
-        return this;
-    }
-    public set maxPartitionPerBroker(maxPartitionPerBroker: string  | undefined) {
-        this['max_partition_per_broker'] = maxPartitionPerBroker;
-    }
-    public get maxPartitionPerBroker(): string | undefined {
-        return this['max_partition_per_broker'];
     }
     public withMaxBroker(maxBroker: string): ListEnginePropertiesEntity {
         this['max_broker'] = maxBroker;

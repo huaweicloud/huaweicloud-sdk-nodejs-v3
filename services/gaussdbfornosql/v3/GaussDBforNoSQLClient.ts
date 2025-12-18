@@ -81,6 +81,7 @@ import { CreateInstanceRequest } from './model/CreateInstanceRequest';
 import { CreateInstanceRequestBody } from './model/CreateInstanceRequestBody';
 import { CreateInstanceResponse } from './model/CreateInstanceResponse';
 import { DataStoreList } from './model/DataStoreList';
+import { DatabaseTable } from './model/DatabaseTable';
 import { Datastore } from './model/Datastore';
 import { DatastoreOption } from './model/DatastoreOption';
 import { DatastoreResult } from './model/DatastoreResult';
@@ -332,6 +333,7 @@ import { SaveRedisDisabledCommandsResponse } from './model/SaveRedisDisabledComm
 import { ScheduleDetailInfo } from './model/ScheduleDetailInfo';
 import { SetAutoEnlargePolicyRequest } from './model/SetAutoEnlargePolicyRequest';
 import { SetAutoEnlargePolicyResponse } from './model/SetAutoEnlargePolicyResponse';
+import { SetAutoPolicyErrorResults } from './model/SetAutoPolicyErrorResults';
 import { SetAutoPolicyRequestBody } from './model/SetAutoPolicyRequestBody';
 import { SetBackupPolicyRequest } from './model/SetBackupPolicyRequest';
 import { SetBackupPolicyRequestBody } from './model/SetBackupPolicyRequestBody';
@@ -463,6 +465,9 @@ import { UpdateInstanceConfigurationResponse } from './model/UpdateInstanceConfi
 import { UpdateInstanceConfigurationsRequest } from './model/UpdateInstanceConfigurationsRequest';
 import { UpdateInstanceConfigurationsRequestBody } from './model/UpdateInstanceConfigurationsRequestBody';
 import { UpdateInstanceConfigurationsResponse } from './model/UpdateInstanceConfigurationsResponse';
+import { UpdateInstanceLBRequestBody } from './model/UpdateInstanceLBRequestBody';
+import { UpdateInstanceLbRequest } from './model/UpdateInstanceLbRequest';
+import { UpdateInstanceLbResponse } from './model/UpdateInstanceLbResponse';
 import { UpdateInstanceNameRequest } from './model/UpdateInstanceNameRequest';
 import { UpdateInstanceNameRequestBody } from './model/UpdateInstanceNameRequestBody';
 import { UpdateInstanceNameResponse } from './model/UpdateInstanceNameResponse';
@@ -716,7 +721,7 @@ export class GaussDBforNoSQLClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建手动备份
-     * @param {string} instanceId 实例ID。
+     * @param {string} instanceId **参数解释：** 实例ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {NoSqlCreateBackupRequestBody} createBackup 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2851,14 +2856,15 @@ export class GaussDBforNoSQLClient {
     }
 
     /**
-     * 查询实例参数的修改历史
+     * 查询指定实例的参数组修改历史记录，支持分页查询，支持参数搜索。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询实例参数的修改历史
-     * @param {string} instanceId 实例id
-     * @param {number} [offset] 索引位置，偏移量。  从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询）。  取值必须为数字，不能为负数。
-     * @param {number} [limit] 查询个数上限值。   - 取值范围: 1~100。   - 不传该参数时，默认查询前100条信息。
+     * @summary 查询参数组修改历史。
+     * @param {string} instanceId **参数解释：** 实例ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [parameterName] **参数解释：** 参数名称，支持模糊查询。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [offset] **参数解释：** 索引位置，偏移量。 从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询）。 **约束限制：** 取值必须为数字，不能为负数。 **取值范围：** 非负整数。 **默认取值：** 0
+     * @param {string} [limit] **参数解释：** 查询个数上限值。 **约束限制：** 不涉及。 **取值范围：** 1~100。 **默认取值：** 100。不传该参数时，默认查询前100条信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3421,6 +3427,26 @@ export class GaussDBforNoSQLClient {
      */
     public updateInstanceConfigurations(updateInstanceConfigurationsRequest?: UpdateInstanceConfigurationsRequest): Promise<UpdateInstanceConfigurationsResponse> {
         const options = ParamCreater().updateInstanceConfigurations(updateInstanceConfigurationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改负载均衡地址。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改负载均衡地址
+     * @param {string} instanceId **参数解释：** 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {UpdateInstanceLBRequestBody} updateInstanceLBRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstanceLb(updateInstanceLbRequest?: UpdateInstanceLbRequest): Promise<UpdateInstanceLbResponse> {
+        const options = ParamCreater().updateInstanceLb(updateInstanceLbRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9104,7 +9130,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询实例参数的修改历史
+         * 查询指定实例的参数组修改历史记录，支持分页查询，支持参数搜索。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9122,6 +9148,8 @@ export const ParamCreater = function () {
             
             let instanceId;
             
+            let parameterName;
+            
             let offset;
             
             let limit;
@@ -9129,10 +9157,12 @@ export const ParamCreater = function () {
             if (showModifyHistoryRequest !== null && showModifyHistoryRequest !== undefined) {
                 if (showModifyHistoryRequest instanceof ShowModifyHistoryRequest) {
                     instanceId = showModifyHistoryRequest.instanceId;
+                    parameterName = showModifyHistoryRequest.parameterName;
                     offset = showModifyHistoryRequest.offset;
                     limit = showModifyHistoryRequest.limit;
                 } else {
                     instanceId = showModifyHistoryRequest['instance_id'];
+                    parameterName = showModifyHistoryRequest['parameter_name'];
                     offset = showModifyHistoryRequest['offset'];
                     limit = showModifyHistoryRequest['limit'];
                 }
@@ -9141,6 +9171,9 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showModifyHistory.');
+            }
+            if (parameterName !== null && parameterName !== undefined) {
+                localVarQueryParameter['parameter_name'] = parameterName;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -10380,6 +10413,52 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceConfigurations.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改负载均衡地址。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstanceLb(updateInstanceLbRequest?: UpdateInstanceLbRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/lb",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateInstanceLbRequest !== null && updateInstanceLbRequest !== undefined) {
+                if (updateInstanceLbRequest instanceof UpdateInstanceLbRequest) {
+                    instanceId = updateInstanceLbRequest.instanceId;
+                    body = updateInstanceLbRequest.body
+                } else {
+                    instanceId = updateInstanceLbRequest['instance_id'];
+                    body = updateInstanceLbRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceLb.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

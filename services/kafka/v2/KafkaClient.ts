@@ -121,6 +121,7 @@ import { KafkaMessageDiagnosisReportInfoEntity } from './model/KafkaMessageDiagn
 import { KafkaTopicPartitionResponsePartitions } from './model/KafkaTopicPartitionResponsePartitions';
 import { KafkaTopicProducerResponseProducers } from './model/KafkaTopicProducerResponseProducers';
 import { KafkaTopicQuota } from './model/KafkaTopicQuota';
+import { KafkaTopicQuotaResp } from './model/KafkaTopicQuotaResp';
 import { ListAvailableZonesRequest } from './model/ListAvailableZonesRequest';
 import { ListAvailableZonesResponse } from './model/ListAvailableZonesResponse';
 import { ListBackgroundTasksRequest } from './model/ListBackgroundTasksRequest';

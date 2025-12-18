@@ -11,8 +11,15 @@ import { ImageCacheBuildingConfig } from './model/ImageCacheBuildingConfig';
 import { ImageCacheDetail } from './model/ImageCacheDetail';
 import { ListImageCachesRequest } from './model/ListImageCachesRequest';
 import { ListImageCachesResponse } from './model/ListImageCachesResponse';
+import { ListPackageProductsRequest } from './model/ListPackageProductsRequest';
+import { ListPackageProductsResponse } from './model/ListPackageProductsResponse';
+import { PackageProductDetail } from './model/PackageProductDetail';
+import { PackageProductRequestDetail } from './model/PackageProductRequestDetail';
 import { ShowImageCacheRequest } from './model/ShowImageCacheRequest';
 import { ShowImageCacheResponse } from './model/ShowImageCacheResponse';
+import { SubscribePackageProductsRequest } from './model/SubscribePackageProductsRequest';
+import { SubscribePackageProductsRequestBody } from './model/SubscribePackageProductsRequestBody';
+import { SubscribePackageProductsResponse } from './model/SubscribePackageProductsResponse';
 
 export class CceClient {
     public static newBuilder(): ClientBuilder<CceClient> {
@@ -91,6 +98,25 @@ export class CceClient {
     }
 
     /**
+     * 查询套餐包列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询套餐包列表
+     * @param {'zh-cn' | 'en-us'} [locale] **参数解释**： 参数表示用户的语言/所在区域。根据 locale 参数，系统会返回适合该语言/区域的套餐包名称。 **约束限制：** 不涉及 **取值范围**： - zh-cn: 显示中文名称，例如：“Autopilot 通用型 1,000 核时CPU月包” - en-us: 显示英文名称，例如：“Autopilot General Computing 1,000 vCPU-hours CPU monthly package”  **默认取值：** zh-cn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPackageProducts(listPackageProductsRequest?: ListPackageProductsRequest): Promise<ListPackageProductsResponse> {
+        const options = ParamCreater().listPackageProducts(listPackageProductsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询镜像缓存详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -103,6 +129,26 @@ export class CceClient {
      */
     public showImageCache(showImageCacheRequest?: ShowImageCacheRequest): Promise<ShowImageCacheResponse> {
         const options = ParamCreater().showImageCache(showImageCacheRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 订购套餐包
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 订购套餐包
+     * @param {'application/json' | 'application/json;charset=utf-8' | 'application/x-pem-file' | 'multipart/form-data'} contentType **参数解释：** 消息体的类型（格式）。 **约束限制：** GET方法不做校验。 **取值范围：**   - application/json   - application/json;charset&#x3D;utf-8   - application/x-pem-file   - multipart/form-data（注：存在FormData参数时使用）  **默认取值：** 不涉及 
+     * @param {SubscribePackageProductsRequestBody} subscribePackageProductsRequestBody 订购套餐包请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public subscribePackageProducts(subscribePackageProductsRequest?: SubscribePackageProductsRequest): Promise<SubscribePackageProductsResponse> {
+        const options = ParamCreater().subscribePackageProducts(subscribePackageProductsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -248,6 +294,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询套餐包列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPackageProducts(listPackageProductsRequest?: ListPackageProductsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/package-products",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let locale;
+
+            if (listPackageProductsRequest !== null && listPackageProductsRequest !== undefined) {
+                if (listPackageProductsRequest instanceof ListPackageProductsRequest) {
+                    locale = listPackageProductsRequest.locale;
+                } else {
+                    locale = listPackageProductsRequest['locale'];
+                }
+            }
+
+        
+            if (locale !== null && locale !== undefined) {
+                localVarQueryParameter['locale'] = locale;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询镜像缓存详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -287,6 +370,51 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'image_cache_id': imageCacheId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 订购套餐包
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        subscribePackageProducts(subscribePackageProductsRequest?: SubscribePackageProductsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/package-products/subscribe",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+
+            if (subscribePackageProductsRequest !== null && subscribePackageProductsRequest !== undefined) {
+                if (subscribePackageProductsRequest instanceof SubscribePackageProductsRequest) {
+                    contentType = subscribePackageProductsRequest.contentType;
+                    body = subscribePackageProductsRequest.body
+                } else {
+                    contentType = subscribePackageProductsRequest['Content-Type'];
+                    body = subscribePackageProductsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -9,6 +9,7 @@ export class DccRegion {
     public static CN_NORTH_1 = new Region("cn-north-1", ["https://dcc.cn-north-1.myhuaweicloud.com"]);
     public static CN_NORTH_2 = new Region("cn-north-2", ["https://dcc.cn-north-2.myhuaweicloud.com"]);
     public static CN_NORTH_4 = new Region("cn-north-4", ["https://dcc.cn-north-4.myhuaweicloud.com"]);
+    public static EU_WEST_101 = new Region("eu-west-101", ["https://dcc.eu-west-101.myhuaweicloud.com"]);
     public static CN_SOUTH_1 = new Region("cn-south-1", ["https://dcc.cn-south-1.myhuaweicloud.com"]);
     public static CN_EAST_2 = new Region("cn-east-2", ["https://dcc.cn-east-2.myhuaweicloud.com"]);
     public static CN_EAST_3 = new Region("cn-east-3", ["https://dcc.cn-east-3.myhuaweicloud.com"]);
@@ -22,6 +23,7 @@ export class DccRegion {
         "cn-north-1":DccRegion.CN_NORTH_1,
         "cn-north-2":DccRegion.CN_NORTH_2,
         "cn-north-4":DccRegion.CN_NORTH_4,
+        "eu-west-101":DccRegion.EU_WEST_101,
         "cn-south-1":DccRegion.CN_SOUTH_1,
         "cn-east-2":DccRegion.CN_EAST_2,
         "cn-east-3":DccRegion.CN_EAST_3,

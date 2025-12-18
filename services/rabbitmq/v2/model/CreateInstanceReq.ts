@@ -5,6 +5,8 @@ import { TagEntity } from './TagEntity';
 export class CreateInstanceReq {
     public name?: string;
     public description?: string;
+    private 'disk_encrypted_enable'?: boolean;
+    private 'disk_encrypted_key'?: string;
     public engine?: CreateInstanceReqEngineEnum | string;
     private 'engine_version'?: string;
     private 'enable_acl'?: boolean;
@@ -45,6 +47,26 @@ export class CreateInstanceReq {
     public withDescription(description: string): CreateInstanceReq {
         this['description'] = description;
         return this;
+    }
+    public withDiskEncryptedEnable(diskEncryptedEnable: boolean): CreateInstanceReq {
+        this['disk_encrypted_enable'] = diskEncryptedEnable;
+        return this;
+    }
+    public set diskEncryptedEnable(diskEncryptedEnable: boolean  | undefined) {
+        this['disk_encrypted_enable'] = diskEncryptedEnable;
+    }
+    public get diskEncryptedEnable(): boolean | undefined {
+        return this['disk_encrypted_enable'];
+    }
+    public withDiskEncryptedKey(diskEncryptedKey: string): CreateInstanceReq {
+        this['disk_encrypted_key'] = diskEncryptedKey;
+        return this;
+    }
+    public set diskEncryptedKey(diskEncryptedKey: string  | undefined) {
+        this['disk_encrypted_key'] = diskEncryptedKey;
+    }
+    public get diskEncryptedKey(): string | undefined {
+        return this['disk_encrypted_key'];
     }
     public withEngine(engine: CreateInstanceReqEngineEnum | string): CreateInstanceReq {
         this['engine'] = engine;

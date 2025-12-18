@@ -5,6 +5,8 @@ export class GetBackupDownloadLinkResponseBodyFiles {
     public size?: number;
     private 'download_link'?: string;
     private 'link_expired_time'?: string;
+    private 'group_id'?: string;
+    private 'group_name'?: string;
     public constructor(name?: string, size?: number, downloadLink?: string, linkExpiredTime?: string) { 
         this['name'] = name;
         this['size'] = size;
@@ -38,5 +40,25 @@ export class GetBackupDownloadLinkResponseBodyFiles {
     }
     public get linkExpiredTime(): string | undefined {
         return this['link_expired_time'];
+    }
+    public withGroupId(groupId: string): GetBackupDownloadLinkResponseBodyFiles {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
+    }
+    public withGroupName(groupName: string): GetBackupDownloadLinkResponseBodyFiles {
+        this['group_name'] = groupName;
+        return this;
+    }
+    public set groupName(groupName: string  | undefined) {
+        this['group_name'] = groupName;
+    }
+    public get groupName(): string | undefined {
+        return this['group_name'];
     }
 }

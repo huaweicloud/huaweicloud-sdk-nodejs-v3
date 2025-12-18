@@ -2,7 +2,7 @@
 
 export class IntelligentKillSessionStatistic {
     public keyword?: string;
-    private 'raw_sql'?: string;
+    private 'raw_sql_text'?: string;
     public ids?: Array<number>;
     public count?: number;
     private 'total_time'?: number;
@@ -17,15 +17,15 @@ export class IntelligentKillSessionStatistic {
         this['keyword'] = keyword;
         return this;
     }
-    public withRawSql(rawSql: string): IntelligentKillSessionStatistic {
-        this['raw_sql'] = rawSql;
+    public withRawSqlText(rawSqlText: string): IntelligentKillSessionStatistic {
+        this['raw_sql_text'] = rawSqlText;
         return this;
     }
-    public set rawSql(rawSql: string  | undefined) {
-        this['raw_sql'] = rawSql;
+    public set rawSqlText(rawSqlText: string  | undefined) {
+        this['raw_sql_text'] = rawSqlText;
     }
-    public get rawSql(): string | undefined {
-        return this['raw_sql'];
+    public get rawSqlText(): string | undefined {
+        return this['raw_sql_text'];
     }
     public withIds(ids: Array<number>): IntelligentKillSessionStatistic {
         this['ids'] = ids;

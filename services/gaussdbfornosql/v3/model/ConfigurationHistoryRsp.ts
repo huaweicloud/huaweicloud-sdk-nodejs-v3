@@ -5,10 +5,10 @@ export class ConfigurationHistoryRsp {
     private 'old_value'?: string;
     private 'new_value'?: string;
     private 'update_result'?: string;
-    public applied?: boolean;
+    public applied?: string;
     private 'updated_at'?: string;
     private 'applied_at'?: string;
-    public constructor(parameterName?: string, oldValue?: string, newValue?: string, updateResult?: string, applied?: boolean, updatedAt?: string, appliedAt?: string) { 
+    public constructor(parameterName?: string, oldValue?: string, newValue?: string, updateResult?: string, applied?: string, updatedAt?: string, appliedAt?: string) { 
         this['parameter_name'] = parameterName;
         this['old_value'] = oldValue;
         this['new_value'] = newValue;
@@ -57,7 +57,7 @@ export class ConfigurationHistoryRsp {
     public get updateResult(): string | undefined {
         return this['update_result'];
     }
-    public withApplied(applied: boolean): ConfigurationHistoryRsp {
+    public withApplied(applied: string): ConfigurationHistoryRsp {
         this['applied'] = applied;
         return this;
     }

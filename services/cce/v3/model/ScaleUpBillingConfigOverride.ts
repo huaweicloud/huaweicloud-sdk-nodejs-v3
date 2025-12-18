@@ -4,8 +4,7 @@ import { ScaleUpExtendParam } from './ScaleUpExtendParam';
 export class ScaleUpBillingConfigOverride {
     public billingMode?: number;
     public extendParam?: ScaleUpExtendParam;
-    public constructor(billingMode?: number) { 
-        this['billingMode'] = billingMode;
+    public constructor() { 
     }
     public withBillingMode(billingMode: number): ScaleUpBillingConfigOverride {
         this['billingMode'] = billingMode;

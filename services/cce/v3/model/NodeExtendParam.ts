@@ -16,6 +16,8 @@ export class NodeExtendParam {
     private 'alpha.cce/postInstall'?: string;
     private 'alpha.cce/NodeImageID'?: string;
     public chargingMode?: number;
+    public marketType?: NodeExtendParamMarketTypeEnum | string;
+    public spotPrice?: string;
     private 'agency_name'?: string;
     public kubeReservedMem?: number;
     public systemReservedMem?: number;
@@ -113,6 +115,14 @@ export class NodeExtendParam {
         this['chargingMode'] = chargingMode;
         return this;
     }
+    public withMarketType(marketType: NodeExtendParamMarketTypeEnum | string): NodeExtendParam {
+        this['marketType'] = marketType;
+        return this;
+    }
+    public withSpotPrice(spotPrice: string): NodeExtendParam {
+        this['spotPrice'] = spotPrice;
+        return this;
+    }
     public withAgencyName(agencyName: string): NodeExtendParam {
         this['agency_name'] = agencyName;
         return this;
@@ -147,6 +157,13 @@ export class NodeExtendParam {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum NodeExtendParamMarketTypeEnum {
+    SPOT = 'spot'
+}
 /**
     * @export
     * @enum {string}

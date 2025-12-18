@@ -2,8 +2,11 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { ActionInfo } from './model/ActionInfo';
 import { AdminUserInfoReq } from './model/AdminUserInfoReq';
 import { ApiVersion } from './model/ApiVersion';
+import { ApplicableInstance } from './model/ApplicableInstance';
+import { ApplyHistory } from './model/ApplyHistory';
 import { AvailableDnInstance } from './model/AvailableDnInstance';
 import { AvailableZone } from './model/AvailableZone';
 import { BackupInfo } from './model/BackupInfo';
@@ -18,17 +21,27 @@ import { ChangeDatabaseVersionRequest } from './model/ChangeDatabaseVersionReque
 import { ChangeDatabaseVersionResponse } from './model/ChangeDatabaseVersionResponse';
 import { ChangeStrategyRequest } from './model/ChangeStrategyRequest';
 import { ChangeStrategyResponse } from './model/ChangeStrategyResponse';
+import { CheckDataNodeConnectionV0V3Request } from './model/CheckDataNodeConnectionV0V3Request';
+import { CheckDataNodeConnectionV0V3Response } from './model/CheckDataNodeConnectionV0V3Response';
 import { CheckMigrateLogicDbRequest } from './model/CheckMigrateLogicDbRequest';
 import { CheckMigrateLogicDbResponse } from './model/CheckMigrateLogicDbResponse';
 import { CheckPreliminaryResultsRequest } from './model/CheckPreliminaryResultsRequest';
 import { CheckPreliminaryResultsResponse } from './model/CheckPreliminaryResultsResponse';
+import { CheckRdsConnectionResqVO } from './model/CheckRdsConnectionResqVO';
 import { CleanMigrationRequest } from './model/CleanMigrationRequest';
 import { CleanMigrationResponse } from './model/CleanMigrationResponse';
+import { CompareParameterGroupsRequest } from './model/CompareParameterGroupsRequest';
+import { CompareParameterGroupsResponse } from './model/CompareParameterGroupsResponse';
 import { ComputeFlavorGroupsInfo } from './model/ComputeFlavorGroupsInfo';
 import { ComputeFlavors } from './model/ComputeFlavors';
+import { ConfigurationCopyReqV3 } from './model/ConfigurationCopyReqV3';
+import { ConfigurationDiffReqV3 } from './model/ConfigurationDiffReqV3';
 import { ConfigurationInfo } from './model/ConfigurationInfo';
 import { ConfigurationParameter } from './model/ConfigurationParameter';
 import { ConfigurationParameterList } from './model/ConfigurationParameterList';
+import { ConfigurationUpdateReqV3 } from './model/ConfigurationUpdateReqV3';
+import { CopyParameterGroupRequest } from './model/CopyParameterGroupRequest';
+import { CopyParameterGroupResponse } from './model/CopyParameterGroupResponse';
 import { CreateConfigurationRequest } from './model/CreateConfigurationRequest';
 import { CreateDatabaseDetail } from './model/CreateDatabaseDetail';
 import { CreateDatabaseDetailResponses } from './model/CreateDatabaseDetailResponses';
@@ -65,6 +78,8 @@ import { DataNodes } from './model/DataNodes';
 import { DatabaseDnInstances } from './model/DatabaseDnInstances';
 import { DatabaseInstabcesParam } from './model/DatabaseInstabcesParam';
 import { DatabaseVersionRequest } from './model/DatabaseVersionRequest';
+import { DdmGroupInfo } from './model/DdmGroupInfo';
+import { DdmNodeInfo } from './model/DdmNodeInfo';
 import { DeleteBackupRequest } from './model/DeleteBackupRequest';
 import { DeleteBackupResponse } from './model/DeleteBackupResponse';
 import { DeleteConfigurationRequest } from './model/DeleteConfigurationRequest';
@@ -91,6 +106,8 @@ import { EngineGroupsInfo } from './model/EngineGroupsInfo';
 import { EnlargeNodeInfo } from './model/EnlargeNodeInfo';
 import { EnlargeRequest } from './model/EnlargeRequest';
 import { ErrorResponse } from './model/ErrorResponse';
+import { EsdbCheckRdsConnectionRequestV3 } from './model/EsdbCheckRdsConnectionRequestV3';
+import { EsdbCheckRdsConnectionsRequestV3 } from './model/EsdbCheckRdsConnectionsRequestV3';
 import { ExecuteKillLogicalProcessesRequest } from './model/ExecuteKillLogicalProcessesRequest';
 import { ExecuteKillLogicalProcessesResponse } from './model/ExecuteKillLogicalProcessesResponse';
 import { ExecuteKillPhysicalProcessesRequest } from './model/ExecuteKillPhysicalProcessesRequest';
@@ -113,6 +130,7 @@ import { GroupInfo } from './model/GroupInfo';
 import { GroupNodeInfo } from './model/GroupNodeInfo';
 import { IamAccount } from './model/IamAccount';
 import { Instance } from './model/Instance';
+import { InstanceDetail } from './model/InstanceDetail';
 import { JobInfo } from './model/JobInfo';
 import { JobItem } from './model/JobItem';
 import { KillProcessesOpenRequest } from './model/KillProcessesOpenRequest';
@@ -143,10 +161,14 @@ import { ListFlavorsRequest } from './model/ListFlavorsRequest';
 import { ListFlavorsResponse } from './model/ListFlavorsResponse';
 import { ListGroupRequest } from './model/ListGroupRequest';
 import { ListGroupResponse } from './model/ListGroupResponse';
+import { ListInstancesAppliedParameterGroupV0V3Request } from './model/ListInstancesAppliedParameterGroupV0V3Request';
+import { ListInstancesAppliedParameterGroupV0V3Response } from './model/ListInstancesAppliedParameterGroupV0V3Response';
 import { ListInstancesRequest } from './model/ListInstancesRequest';
 import { ListInstancesResponse } from './model/ListInstancesResponse';
 import { ListNodesRequest } from './model/ListNodesRequest';
 import { ListNodesResponse } from './model/ListNodesResponse';
+import { ListParameterGroupApplyHistoryV0V3Request } from './model/ListParameterGroupApplyHistoryV0V3Request';
+import { ListParameterGroupApplyHistoryV0V3Response } from './model/ListParameterGroupApplyHistoryV0V3Response';
 import { ListReadWriteRatioRequest } from './model/ListReadWriteRatioRequest';
 import { ListReadWriteRatioResponse } from './model/ListReadWriteRatioResponse';
 import { ListSlowLogRequest } from './model/ListSlowLogRequest';
@@ -176,7 +198,10 @@ import { ModifyInstanceSecurityGroupReq } from './model/ModifyInstanceSecurityGr
 import { ModifyReadAndWriteStrategyReq } from './model/ModifyReadAndWriteStrategyReq';
 import { NodeInfo } from './model/NodeInfo';
 import { NodeList } from './model/NodeList';
+import { ParaGroupCopy } from './model/ParaGroupCopy';
+import { ParaGroupDiff } from './model/ParaGroupDiff';
 import { ParaGroupUpdate } from './model/ParaGroupUpdate';
+import { ParamGroupParameterDiffV3 } from './model/ParamGroupParameterDiffV3';
 import { PhysicalProcessInfo } from './model/PhysicalProcessInfo';
 import { PreCheckResult } from './model/PreCheckResult';
 import { PublicIpInfo } from './model/PublicIpInfo';
@@ -190,6 +215,8 @@ import { RelatedDn } from './model/RelatedDn';
 import { RelatedDnVO } from './model/RelatedDnVO';
 import { ResetAdministratorRequest } from './model/ResetAdministratorRequest';
 import { ResetAdministratorResponse } from './model/ResetAdministratorResponse';
+import { ResetParameterGroupRequest } from './model/ResetParameterGroupRequest';
+import { ResetParameterGroupResponse } from './model/ResetParameterGroupResponse';
 import { ResetUserPasswordReq } from './model/ResetUserPasswordReq';
 import { ResetUserPasswordRequest } from './model/ResetUserPasswordRequest';
 import { ResetUserPasswordResponse } from './model/ResetUserPasswordResponse';
@@ -231,6 +258,8 @@ import { ShowConfigurationRequest } from './model/ShowConfigurationRequest';
 import { ShowConfigurationResponse } from './model/ShowConfigurationResponse';
 import { ShowDatabaseRequest } from './model/ShowDatabaseRequest';
 import { ShowDatabaseResponse } from './model/ShowDatabaseResponse';
+import { ShowDdmDetailRequest } from './model/ShowDdmDetailRequest';
+import { ShowDdmDetailResponse } from './model/ShowDdmDetailResponse';
 import { ShowDdmJobResultRequest } from './model/ShowDdmJobResultRequest';
 import { ShowDdmJobResultResponse } from './model/ShowDdmJobResultResponse';
 import { ShowDdmNodeDetailRequest } from './model/ShowDdmNodeDetailRequest';
@@ -268,6 +297,8 @@ import { SwitchSslRequest } from './model/SwitchSslRequest';
 import { SwitchSslResponse } from './model/SwitchSslResponse';
 import { SyncDnInformationRequest } from './model/SyncDnInformationRequest';
 import { SyncDnInformationResponse } from './model/SyncDnInformationResponse';
+import { Tags } from './model/Tags';
+import { TagsInfo } from './model/TagsInfo';
 import { TargetDn4Restore } from './model/TargetDn4Restore';
 import { UnbindEipRequest } from './model/UnbindEipRequest';
 import { UnbindEipResponse } from './model/UnbindEipResponse';
@@ -2283,6 +2314,145 @@ export class DdmClient {
      */
     public validateWeakPassword(validateWeakPasswordRequest?: ValidateWeakPasswordRequest): Promise<ValidateWeakPasswordResponse> {
         const options = ParamCreater().validateWeakPassword(validateWeakPasswordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * rds连通性检查V3
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary rds连通性检查V3
+     * @param {EsdbCheckRdsConnectionsRequestV3} checkDataNodeConnectionV0V3RequestBody **参数解释**：  rds连通性检查的请求体。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkDataNodeConnectionV0V3(checkDataNodeConnectionV0V3Request?: CheckDataNodeConnectionV0V3Request): Promise<CheckDataNodeConnectionV0V3Response> {
+        const options = ParamCreater().checkDataNodeConnectionV0V3(checkDataNodeConnectionV0V3Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 比较参数组V3
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 比较参数组V3
+     * @param {ConfigurationDiffReqV3} compareParameterGroupsRequestBody **参数解释**：  比较参数组的请求体。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public compareParameterGroups(compareParameterGroupsRequest?: CompareParameterGroupsRequest): Promise<CompareParameterGroupsResponse> {
+        const options = ParamCreater().compareParameterGroups(compareParameterGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 复制参数组V3
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 复制参数组V3
+     * @param {string} configId **参数解释**：  参数组ID。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {ConfigurationCopyReqV3} copyParameterGroupRequestBody **参数解释**：  复制参数组的请求体。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public copyParameterGroup(copyParameterGroupRequest?: CopyParameterGroupRequest): Promise<CopyParameterGroupResponse> {
+        const options = ParamCreater().copyParameterGroup(copyParameterGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询可应用的实例列表V3
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询可应用的实例列表V3
+     * @param {string} configId **参数解释**：  参数组ID。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {number} [offset] **参数解释**：  分页参数: 起始值。  **约束限制**：  不涉及。  **取值范围**：  大于等于0。  **默认取值**：  默认值是0。
+     * @param {number} [limit] **参数解释**：  分页参数: 每页记录数。  **约束限制**：  不涉及。  **取值范围**：  大于0且小于等于128。  **默认取值**：  默认值是10。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstancesAppliedParameterGroupV0V3(listInstancesAppliedParameterGroupV0V3Request?: ListInstancesAppliedParameterGroupV0V3Request): Promise<ListInstancesAppliedParameterGroupV0V3Response> {
+        const options = ParamCreater().listInstancesAppliedParameterGroupV0V3(listInstancesAppliedParameterGroupV0V3Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 参数组应用记录V3
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 参数组应用记录V3
+     * @param {string} configId **参数解释**：  参数组ID。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {number} [offset] **参数解释**：  分页参数: 起始值。  **约束限制**：  不涉及。  **取值范围**：  大于等于0。  **默认取值**：  默认值是0。     
+     * @param {number} [limit] **参数解释**：  分页参数: 每页记录数。  **约束限制**：  不涉及。  **取值范围**：  大于0且小于等于128。  **默认取值**：  默认值是10。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listParameterGroupApplyHistoryV0V3(listParameterGroupApplyHistoryV0V3Request?: ListParameterGroupApplyHistoryV0V3Request): Promise<ListParameterGroupApplyHistoryV0V3Response> {
+        const options = ParamCreater().listParameterGroupApplyHistoryV0V3(listParameterGroupApplyHistoryV0V3Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新参数组V3
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新参数组V3
+     * @param {string} configId **参数解释**：  参数组ID。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {ConfigurationUpdateReqV3} resetParameterGroupRequestBody **参数解释**：  更新参数组的请求体。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resetParameterGroup(resetParameterGroupRequest?: ResetParameterGroupRequest): Promise<ResetParameterGroupResponse> {
+        const options = ParamCreater().resetParameterGroup(resetParameterGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例详情V3
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例详情V3
+     * @param {string} instanceId 实例 ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDdmDetail(showDdmDetailRequest?: ShowDdmDetailRequest): Promise<ShowDdmDetailResponse> {
+        const options = ParamCreater().showDdmDetail(showDdmDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6933,6 +7103,315 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * rds连通性检查V3
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkDataNodeConnectionV0V3(checkDataNodeConnectionV0V3Request?: CheckDataNodeConnectionV0V3Request) {
+            const options = {
+                method: "POST",
+                url: "/v3/ddm/instance/rds/connection",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (checkDataNodeConnectionV0V3Request !== null && checkDataNodeConnectionV0V3Request !== undefined) {
+                if (checkDataNodeConnectionV0V3Request instanceof CheckDataNodeConnectionV0V3Request) {
+                    body = checkDataNodeConnectionV0V3Request.body
+                } else {
+                    body = checkDataNodeConnectionV0V3Request['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 比较参数组V3
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        compareParameterGroups(compareParameterGroupsRequest?: CompareParameterGroupsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/configurations/diff",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (compareParameterGroupsRequest !== null && compareParameterGroupsRequest !== undefined) {
+                if (compareParameterGroupsRequest instanceof CompareParameterGroupsRequest) {
+                    body = compareParameterGroupsRequest.body
+                } else {
+                    body = compareParameterGroupsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 复制参数组V3
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        copyParameterGroup(copyParameterGroupRequest?: CopyParameterGroupRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/configurations/{config_id}/copy",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let configId;
+
+            if (copyParameterGroupRequest !== null && copyParameterGroupRequest !== undefined) {
+                if (copyParameterGroupRequest instanceof CopyParameterGroupRequest) {
+                    configId = copyParameterGroupRequest.configId;
+                    body = copyParameterGroupRequest.body
+                } else {
+                    configId = copyParameterGroupRequest['config_id'];
+                    body = copyParameterGroupRequest['body'];
+                }
+            }
+
+        
+            if (configId === null || configId === undefined) {
+            throw new RequiredError('configId','Required parameter configId was null or undefined when calling copyParameterGroup.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'config_id': configId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询可应用的实例列表V3
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstancesAppliedParameterGroupV0V3(listInstancesAppliedParameterGroupV0V3Request?: ListInstancesAppliedParameterGroupV0V3Request) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/configurations/{config_id}/query-instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let configId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstancesAppliedParameterGroupV0V3Request !== null && listInstancesAppliedParameterGroupV0V3Request !== undefined) {
+                if (listInstancesAppliedParameterGroupV0V3Request instanceof ListInstancesAppliedParameterGroupV0V3Request) {
+                    configId = listInstancesAppliedParameterGroupV0V3Request.configId;
+                    offset = listInstancesAppliedParameterGroupV0V3Request.offset;
+                    limit = listInstancesAppliedParameterGroupV0V3Request.limit;
+                } else {
+                    configId = listInstancesAppliedParameterGroupV0V3Request['config_id'];
+                    offset = listInstancesAppliedParameterGroupV0V3Request['offset'];
+                    limit = listInstancesAppliedParameterGroupV0V3Request['limit'];
+                }
+            }
+
+        
+            if (configId === null || configId === undefined) {
+            throw new RequiredError('configId','Required parameter configId was null or undefined when calling listInstancesAppliedParameterGroupV0V3.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'config_id': configId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 参数组应用记录V3
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listParameterGroupApplyHistoryV0V3(listParameterGroupApplyHistoryV0V3Request?: ListParameterGroupApplyHistoryV0V3Request) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/configurations/{config_id}/apply-histories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let configId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listParameterGroupApplyHistoryV0V3Request !== null && listParameterGroupApplyHistoryV0V3Request !== undefined) {
+                if (listParameterGroupApplyHistoryV0V3Request instanceof ListParameterGroupApplyHistoryV0V3Request) {
+                    configId = listParameterGroupApplyHistoryV0V3Request.configId;
+                    offset = listParameterGroupApplyHistoryV0V3Request.offset;
+                    limit = listParameterGroupApplyHistoryV0V3Request.limit;
+                } else {
+                    configId = listParameterGroupApplyHistoryV0V3Request['config_id'];
+                    offset = listParameterGroupApplyHistoryV0V3Request['offset'];
+                    limit = listParameterGroupApplyHistoryV0V3Request['limit'];
+                }
+            }
+
+        
+            if (configId === null || configId === undefined) {
+            throw new RequiredError('configId','Required parameter configId was null or undefined when calling listParameterGroupApplyHistoryV0V3.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'config_id': configId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新参数组V3
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resetParameterGroup(resetParameterGroupRequest?: ResetParameterGroupRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/configurations/{config_id}/reset",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let configId;
+
+            if (resetParameterGroupRequest !== null && resetParameterGroupRequest !== undefined) {
+                if (resetParameterGroupRequest instanceof ResetParameterGroupRequest) {
+                    configId = resetParameterGroupRequest.configId;
+                    body = resetParameterGroupRequest.body
+                } else {
+                    configId = resetParameterGroupRequest['config_id'];
+                    body = resetParameterGroupRequest['body'];
+                }
+            }
+
+        
+            if (configId === null || configId === undefined) {
+            throw new RequiredError('configId','Required parameter configId was null or undefined when calling resetParameterGroup.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'config_id': configId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例详情V3
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDdmDetail(showDdmDetailRequest?: ShowDdmDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showDdmDetailRequest !== null && showDdmDetailRequest !== undefined) {
+                if (showDdmDetailRequest instanceof ShowDdmDetailRequest) {
+                    instanceId = showDdmDetailRequest.instanceId;
+                } else {
+                    instanceId = showDdmDetailRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showDdmDetail.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

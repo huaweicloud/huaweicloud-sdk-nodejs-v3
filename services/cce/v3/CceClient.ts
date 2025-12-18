@@ -16,8 +16,11 @@ import { AddNodesToNodePool } from './model/AddNodesToNodePool';
 import { AddNodesToNodePoolList } from './model/AddNodesToNodePoolList';
 import { AddNodesToNodePoolRequest } from './model/AddNodesToNodePoolRequest';
 import { AddNodesToNodePoolResponse } from './model/AddNodesToNodePoolResponse';
+import { AddonCheckRequest } from './model/AddonCheckRequest';
+import { AddonCheckSpec } from './model/AddonCheckSpec';
 import { AddonCheckStatus } from './model/AddonCheckStatus';
 import { AddonCheckTask } from './model/AddonCheckTask';
+import { AddonInfo } from './model/AddonInfo';
 import { AddonInstance } from './model/AddonInstance';
 import { AddonInstanceRollbackRequest } from './model/AddonInstanceRollbackRequest';
 import { AddonInstanceStatus } from './model/AddonInstanceStatus';
@@ -33,6 +36,7 @@ import { AutopilotClusterEndpoints } from './model/AutopilotClusterEndpoints';
 import { AutopilotClusterExtendParam } from './model/AutopilotClusterExtendParam';
 import { AutopilotClusterInformation } from './model/AutopilotClusterInformation';
 import { AutopilotClusterInformationSpec } from './model/AutopilotClusterInformationSpec';
+import { AutopilotClusterLogConfigLogConfigs } from './model/AutopilotClusterLogConfigLogConfigs';
 import { AutopilotClusterMetadata } from './model/AutopilotClusterMetadata';
 import { AutopilotClusterMetadataForUpdate } from './model/AutopilotClusterMetadataForUpdate';
 import { AutopilotClusterSpec } from './model/AutopilotClusterSpec';
@@ -48,6 +52,8 @@ import { AutopilotResourceTag } from './model/AutopilotResourceTag';
 import { AutopilotServiceNetwork } from './model/AutopilotServiceNetwork';
 import { AwakeClusterRequest } from './model/AwakeClusterRequest';
 import { AwakeClusterResponse } from './model/AwakeClusterResponse';
+import { BatchCreateAddonPrecheckRequest } from './model/BatchCreateAddonPrecheckRequest';
+import { BatchCreateAddonPrecheckResponse } from './model/BatchCreateAddonPrecheckResponse';
 import { BatchCreateAutopilotClusterTagsRequest } from './model/BatchCreateAutopilotClusterTagsRequest';
 import { BatchCreateAutopilotClusterTagsResponse } from './model/BatchCreateAutopilotClusterTagsResponse';
 import { BatchCreateClusterTagsRequest } from './model/BatchCreateClusterTagsRequest';
@@ -164,6 +170,8 @@ import { DeleteAutopilotChartRequest } from './model/DeleteAutopilotChartRequest
 import { DeleteAutopilotChartResponse } from './model/DeleteAutopilotChartResponse';
 import { DeleteAutopilotClusterRequest } from './model/DeleteAutopilotClusterRequest';
 import { DeleteAutopilotClusterResponse } from './model/DeleteAutopilotClusterResponse';
+import { DeleteAutopilotJobRequest } from './model/DeleteAutopilotJobRequest';
+import { DeleteAutopilotJobResponse } from './model/DeleteAutopilotJobResponse';
 import { DeleteAutopilotMaintenanceWindowRequest } from './model/DeleteAutopilotMaintenanceWindowRequest';
 import { DeleteAutopilotMaintenanceWindowResponse } from './model/DeleteAutopilotMaintenanceWindowResponse';
 import { DeleteAutopilotReleaseRequest } from './model/DeleteAutopilotReleaseRequest';
@@ -197,11 +205,15 @@ import { ExtensionScaleGroupMetadata } from './model/ExtensionScaleGroupMetadata
 import { ExtensionScaleGroupSpec } from './model/ExtensionScaleGroupSpec';
 import { GetAccessPolicyRequest } from './model/GetAccessPolicyRequest';
 import { GetAccessPolicyResponse } from './model/GetAccessPolicyResponse';
+import { GetAutopilotOneJobRequest } from './model/GetAutopilotOneJobRequest';
+import { GetAutopilotOneJobResponse } from './model/GetAutopilotOneJobResponse';
 import { GetAvailableZoneResponseBody } from './model/GetAvailableZoneResponseBody';
 import { GetAvaliableZoneRequest } from './model/GetAvaliableZoneRequest';
 import { GetAvaliableZoneResponse } from './model/GetAvaliableZoneResponse';
 import { GetClusterFlavorSpecsRequest } from './model/GetClusterFlavorSpecsRequest';
 import { GetClusterFlavorSpecsResponse } from './model/GetClusterFlavorSpecsResponse';
+import { GetClusterLongAkskConfigRequest } from './model/GetClusterLongAkskConfigRequest';
+import { GetClusterLongAkskConfigResponse } from './model/GetClusterLongAkskConfigResponse';
 import { GetClusterQuotaBodyQuotas } from './model/GetClusterQuotaBodyQuotas';
 import { GetClusterQuotaRequest } from './model/GetClusterQuotaRequest';
 import { GetClusterQuotaResponse } from './model/GetClusterQuotaResponse';
@@ -209,6 +221,8 @@ import { GetCustomizeTagsRequest } from './model/GetCustomizeTagsRequest';
 import { GetCustomizeTagsResponse } from './model/GetCustomizeTagsResponse';
 import { GetLabelsRequest } from './model/GetLabelsRequest';
 import { GetLabelsResponse } from './model/GetLabelsResponse';
+import { GetLongAkskConfigRequest } from './model/GetLongAkskConfigRequest';
+import { GetLongAkskConfigResponse } from './model/GetLongAkskConfigResponse';
 import { GetResourceTagsRequest } from './model/GetResourceTagsRequest';
 import { GetResourceTagsResponse } from './model/GetResourceTagsResponse';
 import { HibernateClusterRequest } from './model/HibernateClusterRequest';
@@ -252,6 +266,8 @@ import { ListAutopilotClusterUpgradePathsRequest } from './model/ListAutopilotCl
 import { ListAutopilotClusterUpgradePathsResponse } from './model/ListAutopilotClusterUpgradePathsResponse';
 import { ListAutopilotClustersRequest } from './model/ListAutopilotClustersRequest';
 import { ListAutopilotClustersResponse } from './model/ListAutopilotClustersResponse';
+import { ListAutopilotJobsRequest } from './model/ListAutopilotJobsRequest';
+import { ListAutopilotJobsResponse } from './model/ListAutopilotJobsResponse';
 import { ListAutopilotPreCheckTasksRequest } from './model/ListAutopilotPreCheckTasksRequest';
 import { ListAutopilotPreCheckTasksResponse } from './model/ListAutopilotPreCheckTasksResponse';
 import { ListAutopilotReleasesRequest } from './model/ListAutopilotReleasesRequest';
@@ -307,7 +323,11 @@ import { MigrateNodeRequest } from './model/MigrateNodeRequest';
 import { MigrateNodeResponse } from './model/MigrateNodeResponse';
 import { MigrateNodesSpec } from './model/MigrateNodesSpec';
 import { MigrateNodesTask } from './model/MigrateNodesTask';
+import { MigrateNodesToNodePool } from './model/MigrateNodesToNodePool';
+import { MigrateNodesToNodePoolList } from './model/MigrateNodesToNodePoolList';
 import { MigrateServerConfig } from './model/MigrateServerConfig';
+import { MigrateToNodePoolRequest } from './model/MigrateToNodePoolRequest';
+import { MigrateToNodePoolResponse } from './model/MigrateToNodePoolResponse';
 import { MigrateVolumeSpec } from './model/MigrateVolumeSpec';
 import { NetworkSubnet } from './model/NetworkSubnet';
 import { NicSpec } from './model/NicSpec';
@@ -322,7 +342,7 @@ import { NodeItem } from './model/NodeItem';
 import { NodeLifecycleConfig } from './model/NodeLifecycleConfig';
 import { NodeManagement } from './model/NodeManagement';
 import { NodeMetadata } from './model/NodeMetadata';
-import { NodeMetadataOwnerReference } from './model/NodeMetadataOwnerReference';
+import { NodeMetadataOwnerReferences } from './model/NodeMetadataOwnerReferences';
 import { NodeNicSpec } from './model/NodeNicSpec';
 import { NodePool } from './model/NodePool';
 import { NodePoolCondition } from './model/NodePoolCondition';
@@ -386,6 +406,7 @@ import { PrecheckSpec } from './model/PrecheckSpec';
 import { PrecheckStatus } from './model/PrecheckStatus';
 import { PrecheckTaskMetadata } from './model/PrecheckTaskMetadata';
 import { Principal } from './model/Principal';
+import { PublicAccess } from './model/PublicAccess';
 import { QuotaResource } from './model/QuotaResource';
 import { QuotaRespQuotas } from './model/QuotaRespQuotas';
 import { QuotaRespQuotasResources } from './model/QuotaRespQuotasResources';
@@ -448,12 +469,16 @@ import { ShowAutopilotChartRequest } from './model/ShowAutopilotChartRequest';
 import { ShowAutopilotChartResponse } from './model/ShowAutopilotChartResponse';
 import { ShowAutopilotChartValuesRequest } from './model/ShowAutopilotChartValuesRequest';
 import { ShowAutopilotChartValuesResponse } from './model/ShowAutopilotChartValuesResponse';
+import { ShowAutopilotClusterConfigRequest } from './model/ShowAutopilotClusterConfigRequest';
+import { ShowAutopilotClusterConfigResponse } from './model/ShowAutopilotClusterConfigResponse';
 import { ShowAutopilotClusterEndpointsRequest } from './model/ShowAutopilotClusterEndpointsRequest';
 import { ShowAutopilotClusterEndpointsResponse } from './model/ShowAutopilotClusterEndpointsResponse';
 import { ShowAutopilotClusterRequest } from './model/ShowAutopilotClusterRequest';
 import { ShowAutopilotClusterResponse } from './model/ShowAutopilotClusterResponse';
 import { ShowAutopilotClusterUpgradeInfoRequest } from './model/ShowAutopilotClusterUpgradeInfoRequest';
 import { ShowAutopilotClusterUpgradeInfoResponse } from './model/ShowAutopilotClusterUpgradeInfoResponse';
+import { ShowAutopilotFeatureGatesRequest } from './model/ShowAutopilotFeatureGatesRequest';
+import { ShowAutopilotFeatureGatesResponse } from './model/ShowAutopilotFeatureGatesResponse';
 import { ShowAutopilotJobRequest } from './model/ShowAutopilotJobRequest';
 import { ShowAutopilotJobResponse } from './model/ShowAutopilotJobResponse';
 import { ShowAutopilotMaintenanceWindowRequest } from './model/ShowAutopilotMaintenanceWindowRequest';
@@ -569,8 +594,14 @@ import { UpdateClusterEipRequest } from './model/UpdateClusterEipRequest';
 import { UpdateClusterEipResponse } from './model/UpdateClusterEipResponse';
 import { UpdateClusterLogConfigRequest } from './model/UpdateClusterLogConfigRequest';
 import { UpdateClusterLogConfigResponse } from './model/UpdateClusterLogConfigResponse';
+import { UpdateClusterLongAKSKConfigRequestBody } from './model/UpdateClusterLongAKSKConfigRequestBody';
+import { UpdateClusterLongAkskConfigRequest } from './model/UpdateClusterLongAkskConfigRequest';
+import { UpdateClusterLongAkskConfigResponse } from './model/UpdateClusterLongAkskConfigResponse';
 import { UpdateClusterRequest } from './model/UpdateClusterRequest';
 import { UpdateClusterResponse } from './model/UpdateClusterResponse';
+import { UpdateLongAKSKConfigRequestBody } from './model/UpdateLongAKSKConfigRequestBody';
+import { UpdateLongAkskConfigRequest } from './model/UpdateLongAkskConfigRequest';
+import { UpdateLongAkskConfigResponse } from './model/UpdateLongAkskConfigResponse';
 import { UpdateNodePoolConfigurationRequest } from './model/UpdateNodePoolConfigurationRequest';
 import { UpdateNodePoolConfigurationResponse } from './model/UpdateNodePoolConfigurationResponse';
 import { UpdateNodePoolRequest } from './model/UpdateNodePoolRequest';
@@ -627,6 +658,10 @@ import { User } from './model/User';
 import { UserPassword } from './model/UserPassword';
 import { UserTag } from './model/UserTag';
 import { Users } from './model/Users';
+import { V2Job } from './model/V2Job';
+import { V2JobSpec } from './model/V2JobSpec';
+import { V2JobStatus } from './model/V2JobStatus';
+import { V2JobTypeObject } from './model/V2JobTypeObject';
 import { Versions } from './model/Versions';
 import { VirtualSpace } from './model/VirtualSpace';
 import { Volume } from './model/Volume';
@@ -709,6 +744,27 @@ export class CceClient {
      */
     public awakeCluster(awakeClusterRequest?: AwakeClusterRequest): Promise<AwakeClusterResponse> {
         const options = ParamCreater().awakeCluster(awakeClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于在指定集群下批量创建插件检查任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量创建插件检查任务
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {AddonCheckRequest} batchCreateAddonCheckRequestBody 批量创建插件检查任务的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateAddonPrecheck(batchCreateAddonPrecheckRequest?: BatchCreateAddonPrecheckRequest): Promise<BatchCreateAddonPrecheckResponse> {
+        const options = ParamCreater().batchCreateAddonPrecheck(batchCreateAddonPrecheckRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1351,6 +1407,26 @@ export class CceClient {
     }
 
     /**
+     * 该API用于获取集群longaksk的配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群LongAKSK配置
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getClusterLongAkskConfig(getClusterLongAkskConfigRequest?: GetClusterLongAkskConfigRequest): Promise<GetClusterLongAkskConfigResponse> {
+        const options = ParamCreater().getClusterLongAkskConfig(getClusterLongAkskConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于获取集群配额
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1402,6 +1478,25 @@ export class CceClient {
      */
     public getLabels(getLabelsRequest?: GetLabelsRequest): Promise<GetLabelsResponse> {
         const options = ParamCreater().getLabels(getLabelsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于获取项目LongAKSK的配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取项目LongAKSK配置
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getLongAkskConfig(getLongAkskConfigRequest?: GetLongAkskConfigRequest): Promise<GetLongAkskConfigResponse> {
+        const options = ParamCreater().getLongAkskConfig(getLongAkskConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1833,6 +1928,29 @@ export class CceClient {
      */
     public migrateNode(migrateNodeRequest?: MigrateNodeRequest): Promise<MigrateNodeResponse> {
         const options = ParamCreater().migrateNode(migrateNodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于将节点迁移到自定义节点池，仅default节点池下节点支持迁移。迁移过程节点无重置无重启，原节点密码将保留。
+     * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 节点迁移到自定义节点池。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} nodepoolId 节点池ID
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {MigrateNodesToNodePoolList} migrateNodesToNodePoolList 迁移节点的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public migrateToNodePool(migrateToNodePoolRequest?: MigrateToNodePoolRequest): Promise<MigrateToNodePoolResponse> {
+        const options = ParamCreater().migrateToNodePool(migrateToNodePoolRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2671,6 +2789,47 @@ export class CceClient {
     }
 
     /**
+     * 该API用于更新集群LongAKSK的配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新集群LongAKSK配置
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {UpdateClusterLongAKSKConfigRequestBody} updateClusterLongAKSKConfigRequestBody 更新集群Longaksk配置请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateClusterLongAkskConfig(updateClusterLongAkskConfigRequest?: UpdateClusterLongAkskConfigRequest): Promise<UpdateClusterLongAkskConfigResponse> {
+        const options = ParamCreater().updateClusterLongAkskConfig(updateClusterLongAkskConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于更新项目longaksk的配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新项目LongAKSK配置
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {UpdateLongAKSKConfigRequestBody} updateLongAKSKConfigRequestBody LongAKSK配置请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateLongAkskConfig(updateLongAkskConfigRequest?: UpdateLongAkskConfigRequest): Promise<UpdateLongAkskConfigResponse> {
+        const options = ParamCreater().updateLongAkskConfig(updateLongAkskConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于更新指定的节点。
      * &gt; - 当前仅支持更新metadata下的name字段，即节点的名字。
      * &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
@@ -2812,6 +2971,7 @@ export class CceClient {
 
     /**
      * 该API用于同步节点池中已有节点的配置
+     * &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3621,6 +3781,27 @@ export class CceClient {
     }
 
     /**
+     * 获取集群组件上报的LTS的配置信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群日志配置信息
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {'control' | 'audit' | 'system-addon'} [type] **参数解释**： 组件类型，不填写则查询全部类型。  **约束限制**： 合法取值为control，audit，system-addon  **取值范围**： - control: 控制面组件日志。 - audit: 控制面审计日志。 - system-addon: 系统插件日志。  **默认取值**： 无
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutopilotClusterConfig(showAutopilotClusterConfigRequest?: ShowAutopilotClusterConfigRequest): Promise<ShowAutopilotClusterConfigResponse> {
+        const options = ParamCreater().showAutopilotClusterConfig(showAutopilotClusterConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于通过集群ID获取集群访问的地址，包括PrivateIP(HA集群返回VIP)与PublicIP
      * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * 
@@ -3653,6 +3834,26 @@ export class CceClient {
      */
     public showAutopilotClusterUpgradeInfo(showAutopilotClusterUpgradeInfoRequest?: ShowAutopilotClusterUpgradeInfoRequest): Promise<ShowAutopilotClusterUpgradeInfoResponse> {
         const options = ParamCreater().showAutopilotClusterUpgradeInfo(showAutopilotClusterUpgradeInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于查询特性开关状态
+     * &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询特性开关状态
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutopilotFeatureGates(showAutopilotFeatureGatesRequest?: ShowAutopilotFeatureGatesRequest): Promise<ShowAutopilotFeatureGatesResponse> {
+        const options = ParamCreater().showAutopilotFeatureGates(showAutopilotFeatureGatesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4067,6 +4268,65 @@ export class CceClient {
 
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * 该API用于删除指定项目下的Job。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除Job
+     * @param {string} jobId **参数解释**： 任务ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAutopilotJob(deleteAutopilotJobRequest?: DeleteAutopilotJobRequest): Promise<DeleteAutopilotJobResponse> {
+        const options = ParamCreater().deleteAutopilotJob(deleteAutopilotJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于获取指定项目下的Job详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取Job详情
+     * @param {string} jobId **参数解释**： 任务ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getAutopilotOneJob(getAutopilotOneJobRequest?: GetAutopilotOneJobRequest): Promise<GetAutopilotOneJobResponse> {
+        const options = ParamCreater().getAutopilotOneJob(getAutopilotOneJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于获取指定项目下的所有jobs。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取Job列表
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAutopilotJobs(listAutopilotJobsRequest?: ListAutopilotJobsRequest): Promise<ListAutopilotJobsResponse> {
+        const options = ParamCreater().listAutopilotJobs(listAutopilotJobsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
@@ -4226,6 +4486,59 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于在指定集群下批量创建插件检查任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateAddonPrecheck(batchCreateAddonPrecheckRequest?: BatchCreateAddonPrecheckRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/addons/precheck",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (batchCreateAddonPrecheckRequest !== null && batchCreateAddonPrecheckRequest !== undefined) {
+                if (batchCreateAddonPrecheckRequest instanceof BatchCreateAddonPrecheckRequest) {
+                    clusterId = batchCreateAddonPrecheckRequest.clusterId;
+                    contentType = batchCreateAddonPrecheckRequest.contentType;
+                    body = batchCreateAddonPrecheckRequest.body
+                } else {
+                    clusterId = batchCreateAddonPrecheckRequest['cluster_id'];
+                    contentType = batchCreateAddonPrecheckRequest['Content-Type'];
+                    body = batchCreateAddonPrecheckRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling batchCreateAddonPrecheck.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -5755,6 +6068,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于获取集群longaksk的配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getClusterLongAkskConfig(getClusterLongAkskConfigRequest?: GetClusterLongAkskConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/longaksk/config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (getClusterLongAkskConfigRequest !== null && getClusterLongAkskConfigRequest !== undefined) {
+                if (getClusterLongAkskConfigRequest instanceof GetClusterLongAkskConfigRequest) {
+                    clusterId = getClusterLongAkskConfigRequest.clusterId;
+                    contentType = getClusterLongAkskConfigRequest.contentType;
+                } else {
+                    clusterId = getClusterLongAkskConfigRequest['cluster_id'];
+                    contentType = getClusterLongAkskConfigRequest['Content-Type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling getClusterLongAkskConfig.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于获取集群配额
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5874,6 +6231,42 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于获取项目LongAKSK的配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getLongAkskConfig(getLongAkskConfigRequest?: GetLongAkskConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v3/projects/{project_id}/longaksk/config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+
+            if (getLongAkskConfigRequest !== null && getLongAkskConfigRequest !== undefined) {
+                if (getLongAkskConfigRequest instanceof GetLongAkskConfigRequest) {
+                    contentType = getLongAkskConfigRequest.contentType;
+                } else {
+                    contentType = getLongAkskConfigRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6853,6 +7246,67 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId,'target_cluster_id': targetClusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于将节点迁移到自定义节点池，仅default节点池下节点支持迁移。迁移过程节点无重置无重启，原节点密码将保留。
+         * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        migrateToNodePool(migrateToNodePoolRequest?: MigrateToNodePoolRequest) {
+            const options = {
+                method: "PUT",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/nodepools/{nodepool_id}/nodes/migrate",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let nodepoolId;
+            
+            let contentType;
+
+            if (migrateToNodePoolRequest !== null && migrateToNodePoolRequest !== undefined) {
+                if (migrateToNodePoolRequest instanceof MigrateToNodePoolRequest) {
+                    clusterId = migrateToNodePoolRequest.clusterId;
+                    nodepoolId = migrateToNodePoolRequest.nodepoolId;
+                    contentType = migrateToNodePoolRequest.contentType;
+                    body = migrateToNodePoolRequest.body
+                } else {
+                    clusterId = migrateToNodePoolRequest['cluster_id'];
+                    nodepoolId = migrateToNodePoolRequest['nodepool_id'];
+                    contentType = migrateToNodePoolRequest['Content-Type'];
+                    body = migrateToNodePoolRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling migrateToNodePool.');
+            }
+            if (nodepoolId === null || nodepoolId === undefined) {
+            throw new RequiredError('nodepoolId','Required parameter nodepoolId was null or undefined when calling migrateToNodePool.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'nodepool_id': nodepoolId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8797,6 +9251,104 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于更新集群LongAKSK的配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateClusterLongAkskConfig(updateClusterLongAkskConfigRequest?: UpdateClusterLongAkskConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/longaksk/config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let contentType;
+
+            if (updateClusterLongAkskConfigRequest !== null && updateClusterLongAkskConfigRequest !== undefined) {
+                if (updateClusterLongAkskConfigRequest instanceof UpdateClusterLongAkskConfigRequest) {
+                    clusterId = updateClusterLongAkskConfigRequest.clusterId;
+                    contentType = updateClusterLongAkskConfigRequest.contentType;
+                    body = updateClusterLongAkskConfigRequest.body
+                } else {
+                    clusterId = updateClusterLongAkskConfigRequest['cluster_id'];
+                    contentType = updateClusterLongAkskConfigRequest['Content-Type'];
+                    body = updateClusterLongAkskConfigRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateClusterLongAkskConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于更新项目longaksk的配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateLongAkskConfig(updateLongAkskConfigRequest?: UpdateLongAkskConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/api/v3/projects/{project_id}/longaksk/config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+
+            if (updateLongAkskConfigRequest !== null && updateLongAkskConfigRequest !== undefined) {
+                if (updateLongAkskConfigRequest instanceof UpdateLongAkskConfigRequest) {
+                    contentType = updateLongAkskConfigRequest.contentType;
+                    body = updateLongAkskConfigRequest.body
+                } else {
+                    contentType = updateLongAkskConfigRequest['Content-Type'];
+                    body = updateLongAkskConfigRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于更新指定的节点。
          * &gt; - 当前仅支持更新metadata下的name字段，即节点的名字。
          * &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
@@ -9161,6 +9713,7 @@ export const ParamCreater = function () {
     
         /**
          * 该API用于同步节点池中已有节点的配置
+         * &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11034,6 +11587,58 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取集群组件上报的LTS的配置信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutopilotClusterConfig(showAutopilotClusterConfigRequest?: ShowAutopilotClusterConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3/projects/{project_id}/cluster/{cluster_id}/log-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let contentType;
+            
+            let type;
+
+            if (showAutopilotClusterConfigRequest !== null && showAutopilotClusterConfigRequest !== undefined) {
+                if (showAutopilotClusterConfigRequest instanceof ShowAutopilotClusterConfigRequest) {
+                    clusterId = showAutopilotClusterConfigRequest.clusterId;
+                    contentType = showAutopilotClusterConfigRequest.contentType;
+                    type = showAutopilotClusterConfigRequest.type;
+                } else {
+                    clusterId = showAutopilotClusterConfigRequest['cluster_id'];
+                    contentType = showAutopilotClusterConfigRequest['Content-Type'];
+                    type = showAutopilotClusterConfigRequest['type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showAutopilotClusterConfig.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于通过集群ID获取集群访问的地址，包括PrivateIP(HA集群返回VIP)与PublicIP
          * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
          * 
@@ -11111,6 +11716,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于查询特性开关状态
+         * &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutopilotFeatureGates(showAutopilotFeatureGatesRequest?: ShowAutopilotFeatureGatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v3.1/feature-gates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+
+            if (showAutopilotFeatureGatesRequest !== null && showAutopilotFeatureGatesRequest !== undefined) {
+                if (showAutopilotFeatureGatesRequest instanceof ShowAutopilotFeatureGatesRequest) {
+                    contentType = showAutopilotFeatureGatesRequest.contentType;
+                } else {
+                    contentType = showAutopilotFeatureGatesRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -12104,6 +12746,130 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
             options.data = localVarFormParams;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于删除指定项目下的Job。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAutopilotJob(deleteAutopilotJobRequest?: DeleteAutopilotJobRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/autopilot/v2/projects/{project_id}/jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let contentType;
+
+            if (deleteAutopilotJobRequest !== null && deleteAutopilotJobRequest !== undefined) {
+                if (deleteAutopilotJobRequest instanceof DeleteAutopilotJobRequest) {
+                    jobId = deleteAutopilotJobRequest.jobId;
+                    contentType = deleteAutopilotJobRequest.contentType;
+                } else {
+                    jobId = deleteAutopilotJobRequest['job_id'];
+                    contentType = deleteAutopilotJobRequest['Content-Type'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling deleteAutopilotJob.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于获取指定项目下的Job详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getAutopilotOneJob(getAutopilotOneJobRequest?: GetAutopilotOneJobRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v2/projects/{project_id}/jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let contentType;
+
+            if (getAutopilotOneJobRequest !== null && getAutopilotOneJobRequest !== undefined) {
+                if (getAutopilotOneJobRequest instanceof GetAutopilotOneJobRequest) {
+                    jobId = getAutopilotOneJobRequest.jobId;
+                    contentType = getAutopilotOneJobRequest.contentType;
+                } else {
+                    jobId = getAutopilotOneJobRequest['job_id'];
+                    contentType = getAutopilotOneJobRequest['Content-Type'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling getAutopilotOneJob.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于获取指定项目下的所有jobs。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAutopilotJobs(listAutopilotJobsRequest?: ListAutopilotJobsRequest) {
+            const options = {
+                method: "GET",
+                url: "/autopilot/v2/projects/{project_id}/jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+
+            if (listAutopilotJobsRequest !== null && listAutopilotJobsRequest !== undefined) {
+                if (listAutopilotJobsRequest instanceof ListAutopilotJobsRequest) {
+                    contentType = listAutopilotJobsRequest.contentType;
+                } else {
+                    contentType = listAutopilotJobsRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
             options.headers = localVarHeaderParameter;
             return options;
         },

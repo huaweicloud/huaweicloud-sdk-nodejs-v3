@@ -119,6 +119,7 @@ export * from './model/KafkaMessageDiagnosisReportInfoEntity';
 export * from './model/KafkaTopicPartitionResponsePartitions';
 export * from './model/KafkaTopicProducerResponseProducers';
 export * from './model/KafkaTopicQuota';
+export * from './model/KafkaTopicQuotaResp';
 export * from './model/ListAvailableZonesRequest';
 export * from './model/ListAvailableZonesResponse';
 export * from './model/ListBackgroundTasksRequest';

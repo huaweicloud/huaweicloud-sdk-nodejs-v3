@@ -2216,6 +2216,8 @@ export class EcsClient {
      *
      * @summary 查询flavor的容量
      * @param {string} flavorId 
+     * @param {string} [count] 
+     * @param {string} [regionIds] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6778,15 +6780,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let flavorId;
+            
+            let count;
+            
+            let regionIds;
 
             if (showFlavorCapacityRequest !== null && showFlavorCapacityRequest !== undefined) {
                 if (showFlavorCapacityRequest instanceof ShowFlavorCapacityRequest) {
                     flavorId = showFlavorCapacityRequest.flavorId;
+                    count = showFlavorCapacityRequest.count;
+                    regionIds = showFlavorCapacityRequest.regionIds;
                 } else {
                     flavorId = showFlavorCapacityRequest['flavor_id'];
+                    count = showFlavorCapacityRequest['count'];
+                    regionIds = showFlavorCapacityRequest['region_ids'];
                 }
             }
 
@@ -6794,7 +6804,14 @@ export const ParamCreater = function () {
             if (flavorId === null || flavorId === undefined) {
             throw new RequiredError('flavorId','Required parameter flavorId was null or undefined when calling showFlavorCapacity.');
             }
+            if (count !== null && count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+            if (regionIds !== null && regionIds !== undefined) {
+                localVarQueryParameter['region_ids'] = regionIds;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'flavor_id': flavorId, };
             options.headers = localVarHeaderParameter;
             return options;

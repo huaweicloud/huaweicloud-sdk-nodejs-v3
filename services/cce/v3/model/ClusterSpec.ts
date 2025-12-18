@@ -7,6 +7,7 @@ import { EniNetwork } from './EniNetwork';
 import { HostNetwork } from './HostNetwork';
 import { MasterSpec } from './MasterSpec';
 import { PackageConfiguration } from './PackageConfiguration';
+import { PublicAccess } from './PublicAccess';
 import { ResourceTag } from './ResourceTag';
 import { ServiceNetwork } from './ServiceNetwork';
 
@@ -27,6 +28,7 @@ export class ClusterSpec {
     public eniNetwork?: EniNetwork;
     public serviceNetwork?: ServiceNetwork;
     public authentication?: Authentication;
+    public publicAccess?: PublicAccess;
     public billingMode?: number;
     public masters?: Array<MasterSpec>;
     public kubernetesSvcIpRange?: string;
@@ -105,6 +107,10 @@ export class ClusterSpec {
     }
     public withAuthentication(authentication: Authentication): ClusterSpec {
         this['authentication'] = authentication;
+        return this;
+    }
+    public withPublicAccess(publicAccess: PublicAccess): ClusterSpec {
+        this['publicAccess'] = publicAccess;
         return this;
     }
     public withBillingMode(billingMode: number): ClusterSpec {

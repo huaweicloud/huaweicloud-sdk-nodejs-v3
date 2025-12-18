@@ -1,25 +1,20 @@
-import { FlavorResource } from './FlavorResource';
+import { AvailableResourceResp } from './AvailableResourceResp';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowAvailableResourceResponse extends SdkResponse {
-    private 'availability_zone'?: string;
-    public flavors?: Array<FlavorResource>;
+    private 'available_resource'?: Array<AvailableResourceResp>;
     public constructor() { 
         super();
     }
-    public withAvailabilityZone(availabilityZone: string): ShowAvailableResourceResponse {
-        this['availability_zone'] = availabilityZone;
+    public withAvailableResource(availableResource: Array<AvailableResourceResp>): ShowAvailableResourceResponse {
+        this['available_resource'] = availableResource;
         return this;
     }
-    public set availabilityZone(availabilityZone: string  | undefined) {
-        this['availability_zone'] = availabilityZone;
+    public set availableResource(availableResource: Array<AvailableResourceResp>  | undefined) {
+        this['available_resource'] = availableResource;
     }
-    public get availabilityZone(): string | undefined {
-        return this['availability_zone'];
-    }
-    public withFlavors(flavors: Array<FlavorResource>): ShowAvailableResourceResponse {
-        this['flavors'] = flavors;
-        return this;
+    public get availableResource(): Array<AvailableResourceResp> | undefined {
+        return this['available_resource'];
     }
 }

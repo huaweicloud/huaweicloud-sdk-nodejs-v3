@@ -6,6 +6,7 @@ export class NodePoolStatus {
     public currentNode?: number;
     public creatingNode?: number;
     public deletingNode?: number;
+    public configurationSyncedNodeCount?: number;
     public phase?: NodePoolStatusPhaseEnum | string;
     public jobId?: string;
     public conditions?: Array<NodePoolCondition>;
@@ -22,6 +23,10 @@ export class NodePoolStatus {
     }
     public withDeletingNode(deletingNode: number): NodePoolStatus {
         this['deletingNode'] = deletingNode;
+        return this;
+    }
+    public withConfigurationSyncedNodeCount(configurationSyncedNodeCount: number): NodePoolStatus {
+        this['configurationSyncedNodeCount'] = configurationSyncedNodeCount;
         return this;
     }
     public withPhase(phase: NodePoolStatusPhaseEnum | string): NodePoolStatus {

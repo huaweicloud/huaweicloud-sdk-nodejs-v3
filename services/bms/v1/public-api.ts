@@ -11,6 +11,7 @@ export * from './model/Addresses';
 export * from './model/AttachBaremetalServerVolumeRequest';
 export * from './model/AttachBaremetalServerVolumeResponse';
 export * from './model/AttachVolumeBody';
+export * from './model/AvailableResourceResp';
 export * from './model/BandWidth';
 export * from './model/BareMetalModifyPortRequest';
 export * from './model/BareMetalModifyPortRequestBody';

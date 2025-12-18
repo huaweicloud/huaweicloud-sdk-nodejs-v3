@@ -5,6 +5,9 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import { AcceptOrRejectEndpointRequest } from './model/AcceptOrRejectEndpointRequest';
 import { AcceptOrRejectEndpointRequestBody } from './model/AcceptOrRejectEndpointRequestBody';
 import { AcceptOrRejectEndpointResponse } from './model/AcceptOrRejectEndpointResponse';
+import { AddEndpointServiceServerResourceRequest } from './model/AddEndpointServiceServerResourceRequest';
+import { AddEndpointServiceServerResourceRequestBody } from './model/AddEndpointServiceServerResourceRequestBody';
+import { AddEndpointServiceServerResourceResponse } from './model/AddEndpointServiceServerResourceResponse';
 import { AddOrRemoveServicePermissionsRequest } from './model/AddOrRemoveServicePermissionsRequest';
 import { AddOrRemoveServicePermissionsRequestBody } from './model/AddOrRemoveServicePermissionsRequestBody';
 import { AddOrRemoveServicePermissionsResponse } from './model/AddOrRemoveServicePermissionsResponse';
@@ -77,6 +80,7 @@ import { ResourceTag } from './model/ResourceTag';
 import { ResourcesResponseBody } from './model/ResourcesResponseBody';
 import { RoutetableInfoError } from './model/RoutetableInfoError';
 import { RoutetableInfoErrorDetial } from './model/RoutetableInfoErrorDetial';
+import { ServerResource } from './model/ServerResource';
 import { ServiceList } from './model/ServiceList';
 import { TagList } from './model/TagList';
 import { TagValuesList } from './model/TagValuesList';
@@ -101,6 +105,9 @@ import { UpdateEndpointServiceResponse } from './model/UpdateEndpointServiceResp
 import { UpdateEndpointWhiteRequest } from './model/UpdateEndpointWhiteRequest';
 import { UpdateEndpointWhiteRequestBody } from './model/UpdateEndpointWhiteRequestBody';
 import { UpdateEndpointWhiteResponse } from './model/UpdateEndpointWhiteResponse';
+import { UpgradeEndpointRequest } from './model/UpgradeEndpointRequest';
+import { UpgradeEndpointRequestBody } from './model/UpgradeEndpointRequestBody';
+import { UpgradeEndpointResponse } from './model/UpgradeEndpointResponse';
 import { UpgradeEndpointServiceRequest } from './model/UpgradeEndpointServiceRequest';
 import { UpgradeEndpointServiceResponse } from './model/UpgradeEndpointServiceResponse';
 import { VersionObject } from './model/VersionObject';
@@ -135,6 +142,27 @@ export class VpcepClient {
      */
     public acceptOrRejectEndpoint(acceptOrRejectEndpointRequest?: AcceptOrRejectEndpointRequest): Promise<AcceptOrRejectEndpointResponse> {
         const options = ParamCreater().acceptOrRejectEndpoint(acceptOrRejectEndpointRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 添加终端节点服务后端服务资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加终端节点服务后端服务资源
+     * @param {string} vpcEndpointServiceId 终端节点服务的ID。
+     * @param {AddEndpointServiceServerResourceRequestBody} addEndpointServiceServerResourceRequestBody 终端节点服务添加后端服务资源请求结构体
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addEndpointServiceServerResource(addEndpointServiceServerResourceRequest?: AddEndpointServiceServerResourceRequest): Promise<AddEndpointServiceServerResourceResponse> {
+        const options = ParamCreater().addEndpointServiceServerResource(addEndpointServiceServerResourceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -743,6 +771,27 @@ export class VpcepClient {
     }
 
     /**
+     * 升级终端节点，由基础型升级为专业型。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 升级终端节点
+     * @param {string} vpcEndpointId 终端节点的ID。
+     * @param {UpgradeEndpointRequestBody} updateEndpointRequestBody 更新终端节点白名单接口请求体
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public upgradeEndpoint(upgradeEndpointRequest?: UpgradeEndpointRequest): Promise<UpgradeEndpointResponse> {
+        const options = ParamCreater().upgradeEndpoint(upgradeEndpointRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 为指定Endpoint Service或Endpoint批量添加或删除标签。
      *  - 一个资源上最多有10个标签。
      * 
@@ -848,6 +897,59 @@ export const ParamCreater = function () {
         
             if (vpcEndpointServiceId === null || vpcEndpointServiceId === undefined) {
             throw new RequiredError('vpcEndpointServiceId','Required parameter vpcEndpointServiceId was null or undefined when calling acceptOrRejectEndpoint.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'vpc_endpoint_service_id': vpcEndpointServiceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 添加终端节点服务后端服务资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addEndpointServiceServerResource(addEndpointServiceServerResourceRequest?: AddEndpointServiceServerResourceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/vpc-endpoint-services/{vpc_endpoint_service_id}/add-server-resources",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let vpcEndpointServiceId;
+            
+            let contentType;
+
+            if (addEndpointServiceServerResourceRequest !== null && addEndpointServiceServerResourceRequest !== undefined) {
+                if (addEndpointServiceServerResourceRequest instanceof AddEndpointServiceServerResourceRequest) {
+                    vpcEndpointServiceId = addEndpointServiceServerResourceRequest.vpcEndpointServiceId;
+                    body = addEndpointServiceServerResourceRequest.body
+                    contentType = addEndpointServiceServerResourceRequest.contentType;
+                } else {
+                    vpcEndpointServiceId = addEndpointServiceServerResourceRequest['vpc_endpoint_service_id'];
+                    body = addEndpointServiceServerResourceRequest['body'];
+                    contentType = addEndpointServiceServerResourceRequest['Content-Type'];
+                }
+            }
+
+        
+            if (vpcEndpointServiceId === null || vpcEndpointServiceId === undefined) {
+            throw new RequiredError('vpcEndpointServiceId','Required parameter vpcEndpointServiceId was null or undefined when calling addEndpointServiceServerResource.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2367,6 +2469,59 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'vpc_endpoint_service_id': vpcEndpointServiceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 升级终端节点，由基础型升级为专业型。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        upgradeEndpoint(upgradeEndpointRequest?: UpgradeEndpointRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/vpc-endpoints/{vpc_endpoint_id}/upgrade",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let vpcEndpointId;
+            
+            let contentType;
+
+            if (upgradeEndpointRequest !== null && upgradeEndpointRequest !== undefined) {
+                if (upgradeEndpointRequest instanceof UpgradeEndpointRequest) {
+                    vpcEndpointId = upgradeEndpointRequest.vpcEndpointId;
+                    body = upgradeEndpointRequest.body
+                    contentType = upgradeEndpointRequest.contentType;
+                } else {
+                    vpcEndpointId = upgradeEndpointRequest['vpc_endpoint_id'];
+                    body = upgradeEndpointRequest['body'];
+                    contentType = upgradeEndpointRequest['Content-Type'];
+                }
+            }
+
+        
+            if (vpcEndpointId === null || vpcEndpointId === undefined) {
+            throw new RequiredError('vpcEndpointId','Required parameter vpcEndpointId was null or undefined when calling upgradeEndpoint.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'vpc_endpoint_id': vpcEndpointId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

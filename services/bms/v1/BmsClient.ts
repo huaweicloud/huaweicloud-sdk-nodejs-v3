@@ -13,6 +13,7 @@ import { Addresses } from './model/Addresses';
 import { AttachBaremetalServerVolumeRequest } from './model/AttachBaremetalServerVolumeRequest';
 import { AttachBaremetalServerVolumeResponse } from './model/AttachBaremetalServerVolumeResponse';
 import { AttachVolumeBody } from './model/AttachVolumeBody';
+import { AvailableResourceResp } from './model/AvailableResourceResp';
 import { BandWidth } from './model/BandWidth';
 import { BareMetalModifyPortRequest } from './model/BareMetalModifyPortRequest';
 import { BareMetalModifyPortRequestBody } from './model/BareMetalModifyPortRequestBody';
@@ -605,11 +606,17 @@ export class BmsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询可用资源
+     * @param {Array<string>} availabilityZone 
+     * @param {Array<string>} [flavorId] 
+     * @param {Array<string>} [decProjectId] 
+     * @param {Array<string>} [checkLimit] 
+     * @param {Array<string>} [expectation] 
+     * @param {Array<string>} [resourceType] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public showAvailableResource(showAvailableResourceRequest?: ShowAvailableResourceRequest): Promise<ShowAvailableResourceResponse> {
-        const options = ParamCreater().showAvailableResource();
+        const options = ParamCreater().showAvailableResource(showAvailableResourceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1840,7 +1847,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showAvailableResource() {
+        showAvailableResource(showAvailableResourceRequest?: ShowAvailableResourceRequest) {
             const options = {
                 method: "GET",
                 url: "/v1/{project_id}/baremetalservers/available_resource",
@@ -1850,8 +1857,62 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let availabilityZone;
+            
+            let flavorId;
+            
+            let decProjectId;
+            
+            let checkLimit;
+            
+            let expectation;
+            
+            let resourceType;
 
+            if (showAvailableResourceRequest !== null && showAvailableResourceRequest !== undefined) {
+                if (showAvailableResourceRequest instanceof ShowAvailableResourceRequest) {
+                    availabilityZone = showAvailableResourceRequest.availabilityZone;
+                    flavorId = showAvailableResourceRequest.flavorId;
+                    decProjectId = showAvailableResourceRequest.decProjectId;
+                    checkLimit = showAvailableResourceRequest.checkLimit;
+                    expectation = showAvailableResourceRequest.expectation;
+                    resourceType = showAvailableResourceRequest.resourceType;
+                } else {
+                    availabilityZone = showAvailableResourceRequest['availability_zone'];
+                    flavorId = showAvailableResourceRequest['flavor_id'];
+                    decProjectId = showAvailableResourceRequest['dec_project_id'];
+                    checkLimit = showAvailableResourceRequest['check_limit'];
+                    expectation = showAvailableResourceRequest['expectation'];
+                    resourceType = showAvailableResourceRequest['resource_type'];
+                }
+            }
 
+        
+            if (availabilityZone === null || availabilityZone === undefined) {
+                throw new RequiredError('availabilityZone','Required parameter availabilityZone was null or undefined when calling showAvailableResource.');
+            }
+            if (availabilityZone !== null && availabilityZone !== undefined) {
+                localVarQueryParameter['availability_zone'] = availabilityZone;
+            }
+            if (flavorId !== null && flavorId !== undefined) {
+                localVarQueryParameter['flavor_id'] = flavorId;
+            }
+            if (decProjectId !== null && decProjectId !== undefined) {
+                localVarQueryParameter['dec_project_id'] = decProjectId;
+            }
+            if (checkLimit !== null && checkLimit !== undefined) {
+                localVarQueryParameter['check_limit'] = checkLimit;
+            }
+            if (expectation !== null && expectation !== undefined) {
+                localVarQueryParameter['expectation'] = expectation;
+            }
+            if (resourceType !== null && resourceType !== undefined) {
+                localVarQueryParameter['resource_type'] = resourceType;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

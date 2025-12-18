@@ -2,8 +2,9 @@
 
 export class ShowModifyHistoryRequest {
     private 'instance_id'?: string;
-    public offset?: number;
-    public limit?: number;
+    private 'parameter_name'?: string;
+    public offset?: string;
+    public limit?: string;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -17,11 +18,21 @@ export class ShowModifyHistoryRequest {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withOffset(offset: number): ShowModifyHistoryRequest {
+    public withParameterName(parameterName: string): ShowModifyHistoryRequest {
+        this['parameter_name'] = parameterName;
+        return this;
+    }
+    public set parameterName(parameterName: string  | undefined) {
+        this['parameter_name'] = parameterName;
+    }
+    public get parameterName(): string | undefined {
+        return this['parameter_name'];
+    }
+    public withOffset(offset: string): ShowModifyHistoryRequest {
         this['offset'] = offset;
         return this;
     }
-    public withLimit(limit: number): ShowModifyHistoryRequest {
+    public withLimit(limit: string): ShowModifyHistoryRequest {
         this['limit'] = limit;
         return this;
     }

@@ -5,6 +5,7 @@ export class ListEpsQuotasRequest {
     public offset?: number;
     public limit?: number;
     private 'enterprise_project_id'?: string;
+    private 'enterprise_project_name'?: string;
     public constructor() { 
     }
     public withXLanguage(xLanguage: ListEpsQuotasRequestXLanguageEnum | string): ListEpsQuotasRequest {
@@ -34,6 +35,16 @@ export class ListEpsQuotasRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withEnterpriseProjectName(enterpriseProjectName: string): ListEpsQuotasRequest {
+        this['enterprise_project_name'] = enterpriseProjectName;
+        return this;
+    }
+    public set enterpriseProjectName(enterpriseProjectName: string  | undefined) {
+        this['enterprise_project_name'] = enterpriseProjectName;
+    }
+    public get enterpriseProjectName(): string | undefined {
+        return this['enterprise_project_name'];
     }
 }
 
