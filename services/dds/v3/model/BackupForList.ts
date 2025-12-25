@@ -13,6 +13,12 @@ export class BackupForList {
     public status?: BackupForListStatusEnum | string;
     public size?: number;
     public description?: string;
+    private 'instance_status'?: BackupForListInstanceStatusEnum | string;
+    private 'instance_mode'?: string;
+    private 'is_instance_restoring'?: boolean;
+    private 'backup_method'?: string;
+    private 'kms_enable'?: boolean;
+    public deletable?: boolean;
     public constructor(id?: string, name?: string, instanceId?: string, instanceName?: string, datastore?: BackupDatabase, type?: string, beginTime?: string, endTime?: string, status?: string, size?: number, description?: string) { 
         this['id'] = id;
         this['name'] = name;
@@ -94,6 +100,60 @@ export class BackupForList {
         this['description'] = description;
         return this;
     }
+    public withInstanceStatus(instanceStatus: BackupForListInstanceStatusEnum | string): BackupForList {
+        this['instance_status'] = instanceStatus;
+        return this;
+    }
+    public set instanceStatus(instanceStatus: BackupForListInstanceStatusEnum | string  | undefined) {
+        this['instance_status'] = instanceStatus;
+    }
+    public get instanceStatus(): BackupForListInstanceStatusEnum | string | undefined {
+        return this['instance_status'];
+    }
+    public withInstanceMode(instanceMode: string): BackupForList {
+        this['instance_mode'] = instanceMode;
+        return this;
+    }
+    public set instanceMode(instanceMode: string  | undefined) {
+        this['instance_mode'] = instanceMode;
+    }
+    public get instanceMode(): string | undefined {
+        return this['instance_mode'];
+    }
+    public withIsInstanceRestoring(isInstanceRestoring: boolean): BackupForList {
+        this['is_instance_restoring'] = isInstanceRestoring;
+        return this;
+    }
+    public set isInstanceRestoring(isInstanceRestoring: boolean  | undefined) {
+        this['is_instance_restoring'] = isInstanceRestoring;
+    }
+    public get isInstanceRestoring(): boolean | undefined {
+        return this['is_instance_restoring'];
+    }
+    public withBackupMethod(backupMethod: string): BackupForList {
+        this['backup_method'] = backupMethod;
+        return this;
+    }
+    public set backupMethod(backupMethod: string  | undefined) {
+        this['backup_method'] = backupMethod;
+    }
+    public get backupMethod(): string | undefined {
+        return this['backup_method'];
+    }
+    public withKmsEnable(kmsEnable: boolean): BackupForList {
+        this['kms_enable'] = kmsEnable;
+        return this;
+    }
+    public set kmsEnable(kmsEnable: boolean  | undefined) {
+        this['kms_enable'] = kmsEnable;
+    }
+    public get kmsEnable(): boolean | undefined {
+        return this['kms_enable'];
+    }
+    public withDeletable(deletable: boolean): BackupForList {
+        this['deletable'] = deletable;
+        return this;
+    }
 }
 
 /**
@@ -115,4 +175,16 @@ export enum BackupForListStatusEnum {
     COMPLETED = 'COMPLETED',
     FAILED = 'FAILED',
     DELETING = 'DELETING'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BackupForListInstanceStatusEnum {
+    NORMAL = 'normal',
+    ABNORMAL = 'abnormal',
+    CREATING = 'creating',
+    FROZEN = 'frozen',
+    DATA_DISK_FULL = 'data_disk_full',
+    ENLARGEFAIL = 'enlargefail'
 }

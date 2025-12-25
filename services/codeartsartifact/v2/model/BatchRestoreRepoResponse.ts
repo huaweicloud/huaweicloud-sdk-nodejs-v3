@@ -1,14 +1,16 @@
+import { StandarBaseResponseV5 } from './StandarBaseResponseV5';
+import { TrashcanResultData } from './TrashcanResultData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class BatchRestoreRepoResponse extends SdkResponse {
-    public status?: string;
+    public status?: BatchRestoreRepoResponseStatusEnum | string;
     private 'trace_id'?: string;
-    public result?: object;
+    public result?: TrashcanResultData;
     public constructor() { 
         super();
     }
-    public withStatus(status: string): BatchRestoreRepoResponse {
+    public withStatus(status: BatchRestoreRepoResponseStatusEnum | string): BatchRestoreRepoResponse {
         this['status'] = status;
         return this;
     }
@@ -22,8 +24,17 @@ export class BatchRestoreRepoResponse extends SdkResponse {
     public get traceId(): string | undefined {
         return this['trace_id'];
     }
-    public withResult(result: object): BatchRestoreRepoResponse {
+    public withResult(result: TrashcanResultData): BatchRestoreRepoResponse {
         this['result'] = result;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BatchRestoreRepoResponseStatusEnum {
+    SUCCESS = 'success',
+    ERROR = 'error'
 }

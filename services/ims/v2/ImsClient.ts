@@ -76,6 +76,7 @@ import { GlanceListImageSchemasRequest } from './model/GlanceListImageSchemasReq
 import { GlanceListImageSchemasResponse } from './model/GlanceListImageSchemasResponse';
 import { GlanceListImagesRequest } from './model/GlanceListImagesRequest';
 import { GlanceListImagesResponse } from './model/GlanceListImagesResponse';
+import { GlancePageInfo } from './model/GlancePageInfo';
 import { GlanceShowImageListResponseBody } from './model/GlanceShowImageListResponseBody';
 import { GlanceShowImageMemberRequest } from './model/GlanceShowImageMemberRequest';
 import { GlanceShowImageMemberResponse } from './model/GlanceShowImageMemberResponse';
@@ -613,6 +614,8 @@ export class ImsClient {
      *
      * @summary 获取镜像成员列表
      * @param {string} imageId 镜像id
+     * @param {number} [limit] 查询镜像成员列表时每页的数量。
+     * @param {string} [marker] 分页标识，用于查询下一页内容。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1073,6 +1076,8 @@ export class ImsClient {
      *
      * @summary 获取镜像成员列表（OpenStack原生）
      * @param {string} imageId 镜像id
+     * @param {number} [limit] 查询镜像成员列表时每页的数量。
+     * @param {string} [marker] 分页标识，用于查询下一页内容。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2193,15 +2198,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let imageId;
+            
+            let limit;
+            
+            let marker;
 
             if (listImageMembersRequest !== null && listImageMembersRequest !== undefined) {
                 if (listImageMembersRequest instanceof ListImageMembersRequest) {
                     imageId = listImageMembersRequest.imageId;
+                    limit = listImageMembersRequest.limit;
+                    marker = listImageMembersRequest.marker;
                 } else {
                     imageId = listImageMembersRequest['image_id'];
+                    limit = listImageMembersRequest['limit'];
+                    marker = listImageMembersRequest['marker'];
                 }
             }
 
@@ -2209,7 +2222,14 @@ export const ParamCreater = function () {
             if (imageId === null || imageId === undefined) {
             throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling listImageMembers.');
             }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'image_id': imageId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3325,15 +3345,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let imageId;
+            
+            let limit;
+            
+            let marker;
 
             if (glanceListImageMembersRequest !== null && glanceListImageMembersRequest !== undefined) {
                 if (glanceListImageMembersRequest instanceof GlanceListImageMembersRequest) {
                     imageId = glanceListImageMembersRequest.imageId;
+                    limit = glanceListImageMembersRequest.limit;
+                    marker = glanceListImageMembersRequest.marker;
                 } else {
                     imageId = glanceListImageMembersRequest['image_id'];
+                    limit = glanceListImageMembersRequest['limit'];
+                    marker = glanceListImageMembersRequest['marker'];
                 }
             }
 
@@ -3341,7 +3369,14 @@ export const ParamCreater = function () {
             if (imageId === null || imageId === undefined) {
             throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceListImageMembers.');
             }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'image_id': imageId, };
             options.headers = localVarHeaderParameter;
             return options;

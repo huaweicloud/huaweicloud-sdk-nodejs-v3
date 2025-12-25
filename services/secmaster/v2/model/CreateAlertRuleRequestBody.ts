@@ -1,203 +1,144 @@
-import { AlertRuleTrigger } from './AlertRuleTrigger';
-import { Schedule } from './Schedule';
+import { IsapJobMode } from './IsapJobMode';
+import { IsapJobModeSettingDto } from './IsapJobModeSettingDto';
+import { IsapJobOutputSetting } from './IsapJobOutputSetting';
+import { JobEnvironment } from './JobEnvironment';
+import { JobStatus } from './JobStatus';
 
 
 export class CreateAlertRuleRequestBody {
-    private 'pipe_id'?: string;
-    private 'rule_name'?: string;
+    private 'alert_rule_name'?: string;
     public description?: string;
-    public query?: string;
-    private 'query_type'?: CreateAlertRuleRequestBodyQueryTypeEnum | string;
-    public status?: CreateAlertRuleRequestBodyStatusEnum | string;
-    public severity?: CreateAlertRuleRequestBodySeverityEnum | string;
-    private 'custom_properties'?: { [key: string]: string; };
-    private 'alert_type'?: { [key: string]: string; };
-    private 'event_grouping'?: boolean;
-    public suspression?: boolean;
-    public simulation?: boolean;
-    public schedule?: Schedule;
-    public triggers?: Array<AlertRuleTrigger>;
-    private 'pipe_name'?: string;
-    private 'alert_name'?: string;
-    private 'alert_description'?: string;
-    private 'alert_remediation'?: string;
-    private 'accumulated_times'?: number;
-    public constructor(pipeId?: string, ruleName?: string, query?: string, schedule?: Schedule, triggers?: Array<AlertRuleTrigger>, pipeName?: string, alertName?: string) { 
-        this['pipe_id'] = pipeId;
-        this['rule_name'] = ruleName;
-        this['query'] = query;
-        this['schedule'] = schedule;
-        this['triggers'] = triggers;
-        this['pipe_name'] = pipeName;
-        this['alert_name'] = alertName;
+    public directory?: string;
+    public script?: string;
+    public status?: JobStatus;
+    private 'job_mode'?: IsapJobMode;
+    private 'job_mode_setting'?: IsapJobModeSettingDto;
+    public environment?: JobEnvironment;
+    private 'job_output_setting'?: IsapJobOutputSetting;
+    private 'output_table_id'?: string;
+    private 'output_table_name'?: string;
+    private 'cu_quota_amount'?: number;
+    private 'output_table_ids'?: Array<string>;
+    private 'output_table_names'?: Array<string>;
+    public constructor(alertRuleName?: string, description?: string, status?: JobStatus, jobMode?: IsapJobMode, environment?: JobEnvironment, outputTableId?: string, cuQuotaAmount?: number, outputTableIds?: Array<string>, outputTableNames?: Array<string>) { 
+        this['alert_rule_name'] = alertRuleName;
+        this['description'] = description;
+        this['status'] = status;
+        this['job_mode'] = jobMode;
+        this['environment'] = environment;
+        this['output_table_id'] = outputTableId;
+        this['cu_quota_amount'] = cuQuotaAmount;
+        this['output_table_ids'] = outputTableIds;
+        this['output_table_names'] = outputTableNames;
     }
-    public withPipeId(pipeId: string): CreateAlertRuleRequestBody {
-        this['pipe_id'] = pipeId;
+    public withAlertRuleName(alertRuleName: string): CreateAlertRuleRequestBody {
+        this['alert_rule_name'] = alertRuleName;
         return this;
     }
-    public set pipeId(pipeId: string  | undefined) {
-        this['pipe_id'] = pipeId;
+    public set alertRuleName(alertRuleName: string  | undefined) {
+        this['alert_rule_name'] = alertRuleName;
     }
-    public get pipeId(): string | undefined {
-        return this['pipe_id'];
-    }
-    public withRuleName(ruleName: string): CreateAlertRuleRequestBody {
-        this['rule_name'] = ruleName;
-        return this;
-    }
-    public set ruleName(ruleName: string  | undefined) {
-        this['rule_name'] = ruleName;
-    }
-    public get ruleName(): string | undefined {
-        return this['rule_name'];
+    public get alertRuleName(): string | undefined {
+        return this['alert_rule_name'];
     }
     public withDescription(description: string): CreateAlertRuleRequestBody {
         this['description'] = description;
         return this;
     }
-    public withQuery(query: string): CreateAlertRuleRequestBody {
-        this['query'] = query;
+    public withDirectory(directory: string): CreateAlertRuleRequestBody {
+        this['directory'] = directory;
         return this;
     }
-    public withQueryType(queryType: CreateAlertRuleRequestBodyQueryTypeEnum | string): CreateAlertRuleRequestBody {
-        this['query_type'] = queryType;
+    public withScript(script: string): CreateAlertRuleRequestBody {
+        this['script'] = script;
         return this;
     }
-    public set queryType(queryType: CreateAlertRuleRequestBodyQueryTypeEnum | string  | undefined) {
-        this['query_type'] = queryType;
-    }
-    public get queryType(): CreateAlertRuleRequestBodyQueryTypeEnum | string | undefined {
-        return this['query_type'];
-    }
-    public withStatus(status: CreateAlertRuleRequestBodyStatusEnum | string): CreateAlertRuleRequestBody {
+    public withStatus(status: JobStatus): CreateAlertRuleRequestBody {
         this['status'] = status;
         return this;
     }
-    public withSeverity(severity: CreateAlertRuleRequestBodySeverityEnum | string): CreateAlertRuleRequestBody {
-        this['severity'] = severity;
+    public withJobMode(jobMode: IsapJobMode): CreateAlertRuleRequestBody {
+        this['job_mode'] = jobMode;
         return this;
     }
-    public withCustomProperties(customProperties: { [key: string]: string; }): CreateAlertRuleRequestBody {
-        this['custom_properties'] = customProperties;
+    public set jobMode(jobMode: IsapJobMode  | undefined) {
+        this['job_mode'] = jobMode;
+    }
+    public get jobMode(): IsapJobMode | undefined {
+        return this['job_mode'];
+    }
+    public withJobModeSetting(jobModeSetting: IsapJobModeSettingDto): CreateAlertRuleRequestBody {
+        this['job_mode_setting'] = jobModeSetting;
         return this;
     }
-    public set customProperties(customProperties: { [key: string]: string; }  | undefined) {
-        this['custom_properties'] = customProperties;
+    public set jobModeSetting(jobModeSetting: IsapJobModeSettingDto  | undefined) {
+        this['job_mode_setting'] = jobModeSetting;
     }
-    public get customProperties(): { [key: string]: string; } | undefined {
-        return this['custom_properties'];
+    public get jobModeSetting(): IsapJobModeSettingDto | undefined {
+        return this['job_mode_setting'];
     }
-    public withAlertType(alertType: { [key: string]: string; }): CreateAlertRuleRequestBody {
-        this['alert_type'] = alertType;
+    public withEnvironment(environment: JobEnvironment): CreateAlertRuleRequestBody {
+        this['environment'] = environment;
         return this;
     }
-    public set alertType(alertType: { [key: string]: string; }  | undefined) {
-        this['alert_type'] = alertType;
-    }
-    public get alertType(): { [key: string]: string; } | undefined {
-        return this['alert_type'];
-    }
-    public withEventGrouping(eventGrouping: boolean): CreateAlertRuleRequestBody {
-        this['event_grouping'] = eventGrouping;
+    public withJobOutputSetting(jobOutputSetting: IsapJobOutputSetting): CreateAlertRuleRequestBody {
+        this['job_output_setting'] = jobOutputSetting;
         return this;
     }
-    public set eventGrouping(eventGrouping: boolean  | undefined) {
-        this['event_grouping'] = eventGrouping;
+    public set jobOutputSetting(jobOutputSetting: IsapJobOutputSetting  | undefined) {
+        this['job_output_setting'] = jobOutputSetting;
     }
-    public get eventGrouping(): boolean | undefined {
-        return this['event_grouping'];
+    public get jobOutputSetting(): IsapJobOutputSetting | undefined {
+        return this['job_output_setting'];
     }
-    public withSuspression(suspression: boolean): CreateAlertRuleRequestBody {
-        this['suspression'] = suspression;
+    public withOutputTableId(outputTableId: string): CreateAlertRuleRequestBody {
+        this['output_table_id'] = outputTableId;
         return this;
     }
-    public withSimulation(simulation: boolean): CreateAlertRuleRequestBody {
-        this['simulation'] = simulation;
+    public set outputTableId(outputTableId: string  | undefined) {
+        this['output_table_id'] = outputTableId;
+    }
+    public get outputTableId(): string | undefined {
+        return this['output_table_id'];
+    }
+    public withOutputTableName(outputTableName: string): CreateAlertRuleRequestBody {
+        this['output_table_name'] = outputTableName;
         return this;
     }
-    public withSchedule(schedule: Schedule): CreateAlertRuleRequestBody {
-        this['schedule'] = schedule;
+    public set outputTableName(outputTableName: string  | undefined) {
+        this['output_table_name'] = outputTableName;
+    }
+    public get outputTableName(): string | undefined {
+        return this['output_table_name'];
+    }
+    public withCuQuotaAmount(cuQuotaAmount: number): CreateAlertRuleRequestBody {
+        this['cu_quota_amount'] = cuQuotaAmount;
         return this;
     }
-    public withTriggers(triggers: Array<AlertRuleTrigger>): CreateAlertRuleRequestBody {
-        this['triggers'] = triggers;
+    public set cuQuotaAmount(cuQuotaAmount: number  | undefined) {
+        this['cu_quota_amount'] = cuQuotaAmount;
+    }
+    public get cuQuotaAmount(): number | undefined {
+        return this['cu_quota_amount'];
+    }
+    public withOutputTableIds(outputTableIds: Array<string>): CreateAlertRuleRequestBody {
+        this['output_table_ids'] = outputTableIds;
         return this;
     }
-    public withPipeName(pipeName: string): CreateAlertRuleRequestBody {
-        this['pipe_name'] = pipeName;
+    public set outputTableIds(outputTableIds: Array<string>  | undefined) {
+        this['output_table_ids'] = outputTableIds;
+    }
+    public get outputTableIds(): Array<string> | undefined {
+        return this['output_table_ids'];
+    }
+    public withOutputTableNames(outputTableNames: Array<string>): CreateAlertRuleRequestBody {
+        this['output_table_names'] = outputTableNames;
         return this;
     }
-    public set pipeName(pipeName: string  | undefined) {
-        this['pipe_name'] = pipeName;
+    public set outputTableNames(outputTableNames: Array<string>  | undefined) {
+        this['output_table_names'] = outputTableNames;
     }
-    public get pipeName(): string | undefined {
-        return this['pipe_name'];
+    public get outputTableNames(): Array<string> | undefined {
+        return this['output_table_names'];
     }
-    public withAlertName(alertName: string): CreateAlertRuleRequestBody {
-        this['alert_name'] = alertName;
-        return this;
-    }
-    public set alertName(alertName: string  | undefined) {
-        this['alert_name'] = alertName;
-    }
-    public get alertName(): string | undefined {
-        return this['alert_name'];
-    }
-    public withAlertDescription(alertDescription: string): CreateAlertRuleRequestBody {
-        this['alert_description'] = alertDescription;
-        return this;
-    }
-    public set alertDescription(alertDescription: string  | undefined) {
-        this['alert_description'] = alertDescription;
-    }
-    public get alertDescription(): string | undefined {
-        return this['alert_description'];
-    }
-    public withAlertRemediation(alertRemediation: string): CreateAlertRuleRequestBody {
-        this['alert_remediation'] = alertRemediation;
-        return this;
-    }
-    public set alertRemediation(alertRemediation: string  | undefined) {
-        this['alert_remediation'] = alertRemediation;
-    }
-    public get alertRemediation(): string | undefined {
-        return this['alert_remediation'];
-    }
-    public withAccumulatedTimes(accumulatedTimes: number): CreateAlertRuleRequestBody {
-        this['accumulated_times'] = accumulatedTimes;
-        return this;
-    }
-    public set accumulatedTimes(accumulatedTimes: number  | undefined) {
-        this['accumulated_times'] = accumulatedTimes;
-    }
-    public get accumulatedTimes(): number | undefined {
-        return this['accumulated_times'];
-    }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateAlertRuleRequestBodyQueryTypeEnum {
-    SQL = 'SQL'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateAlertRuleRequestBodyStatusEnum {
-    ENABLED = 'ENABLED',
-    DISABLED = 'DISABLED'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateAlertRuleRequestBodySeverityEnum {
-    TIPS = 'TIPS',
-    LOW = 'LOW',
-    MEDIUM = 'MEDIUM',
-    HIGH = 'HIGH',
-    FATAL = 'FATAL'
 }

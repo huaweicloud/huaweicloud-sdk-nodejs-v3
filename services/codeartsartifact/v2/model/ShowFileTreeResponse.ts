@@ -1,14 +1,16 @@
+import { ShowFileTreeResult } from './ShowFileTreeResult';
+import { StandarBaseResponseV5 } from './StandarBaseResponseV5';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowFileTreeResponse extends SdkResponse {
-    public status?: string;
+    public status?: ShowFileTreeResponseStatusEnum | string;
     private 'trace_id'?: string;
-    public result?: object;
+    public result?: ShowFileTreeResult;
     public constructor() { 
         super();
     }
-    public withStatus(status: string): ShowFileTreeResponse {
+    public withStatus(status: ShowFileTreeResponseStatusEnum | string): ShowFileTreeResponse {
         this['status'] = status;
         return this;
     }
@@ -22,8 +24,17 @@ export class ShowFileTreeResponse extends SdkResponse {
     public get traceId(): string | undefined {
         return this['trace_id'];
     }
-    public withResult(result: object): ShowFileTreeResponse {
+    public withResult(result: ShowFileTreeResult): ShowFileTreeResponse {
         this['result'] = result;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowFileTreeResponseStatusEnum {
+    SUCCESS = 'success',
+    ERROR = 'error'
 }

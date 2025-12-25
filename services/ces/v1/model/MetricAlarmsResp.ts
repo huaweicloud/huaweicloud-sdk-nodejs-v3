@@ -1,4 +1,4 @@
-import { ConditionResp } from './ConditionResp';
+import { AlarmRuleConditionResp } from './AlarmRuleConditionResp';
 import { ListAlarmMetricResp } from './ListAlarmMetricResp';
 import { NotificationResp } from './NotificationResp';
 
@@ -6,12 +6,14 @@ import { NotificationResp } from './NotificationResp';
 export class MetricAlarmsResp {
     private 'alarm_name'?: string;
     private 'alarm_description'?: string;
+    private 'relation_id'?: string;
     public metric?: ListAlarmMetricResp;
-    public condition?: ConditionResp;
+    public condition?: AlarmRuleConditionResp;
     private 'alarm_enabled'?: boolean;
     private 'alarm_level'?: number;
     private 'alarm_type'?: string;
     private 'alarm_action_enabled'?: boolean;
+    private 'ignore_insufficient_data'?: boolean;
     private 'alarm_actions'?: Array<NotificationResp>;
     private 'ok_actions'?: Array<NotificationResp>;
     private 'insufficientdata_actions'?: Array<NotificationResp>;
@@ -44,11 +46,21 @@ export class MetricAlarmsResp {
     public get alarmDescription(): string | undefined {
         return this['alarm_description'];
     }
+    public withRelationId(relationId: string): MetricAlarmsResp {
+        this['relation_id'] = relationId;
+        return this;
+    }
+    public set relationId(relationId: string  | undefined) {
+        this['relation_id'] = relationId;
+    }
+    public get relationId(): string | undefined {
+        return this['relation_id'];
+    }
     public withMetric(metric: ListAlarmMetricResp): MetricAlarmsResp {
         this['metric'] = metric;
         return this;
     }
-    public withCondition(condition: ConditionResp): MetricAlarmsResp {
+    public withCondition(condition: AlarmRuleConditionResp): MetricAlarmsResp {
         this['condition'] = condition;
         return this;
     }
@@ -91,6 +103,16 @@ export class MetricAlarmsResp {
     }
     public get alarmActionEnabled(): boolean | undefined {
         return this['alarm_action_enabled'];
+    }
+    public withIgnoreInsufficientData(ignoreInsufficientData: boolean): MetricAlarmsResp {
+        this['ignore_insufficient_data'] = ignoreInsufficientData;
+        return this;
+    }
+    public set ignoreInsufficientData(ignoreInsufficientData: boolean  | undefined) {
+        this['ignore_insufficient_data'] = ignoreInsufficientData;
+    }
+    public get ignoreInsufficientData(): boolean | undefined {
+        return this['ignore_insufficient_data'];
     }
     public withAlarmActions(alarmActions: Array<NotificationResp>): MetricAlarmsResp {
         this['alarm_actions'] = alarmActions;

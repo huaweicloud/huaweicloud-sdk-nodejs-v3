@@ -3,7 +3,7 @@
 export class TenantRepositoryDto {
     public owner?: string;
     public capacity?: number;
-    public status?: number;
+    public status?: TenantRepositoryDtoStatusEnum | number;
     private 'moderation_result'?: boolean;
     private 'create_time'?: string;
     private 'member_number'?: number;
@@ -21,7 +21,7 @@ export class TenantRepositoryDto {
         this['capacity'] = capacity;
         return this;
     }
-    public withStatus(status: number): TenantRepositoryDto {
+    public withStatus(status: TenantRepositoryDtoStatusEnum | number): TenantRepositoryDto {
         this['status'] = status;
         return this;
     }
@@ -95,4 +95,16 @@ export class TenantRepositoryDto {
     public get projectId(): string | undefined {
         return this['project_id'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TenantRepositoryDtoStatusEnum {
+    NUMBER_0 = 0,
+    NUMBER_3 = 3,
+    NUMBER_4 = 4,
+    NUMBER_5 = 5,
+    NUMBER_7 = 7
 }

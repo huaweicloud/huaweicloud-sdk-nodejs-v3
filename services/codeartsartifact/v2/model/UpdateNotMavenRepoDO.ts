@@ -11,10 +11,12 @@ export class UpdateNotMavenRepoDO {
     private 'snapshot_alive_days'?: string;
     private 'max_unique_snapshots'?: string;
     private 'allow_anonymous'?: boolean;
-    public constructor(repoName?: string, format?: string, repositoryIds?: Array<string>) { 
+    private 'project_id'?: string;
+    public constructor(repoName?: string, format?: string, repositoryIds?: Array<string>, includesPattern?: string) { 
         this['repo_name'] = repoName;
         this['format'] = format;
         this['repository_ids'] = repositoryIds;
+        this['includes_pattern'] = includesPattern;
     }
     public withRepoName(repoName: string): UpdateNotMavenRepoDO {
         this['repo_name'] = repoName;
@@ -103,5 +105,15 @@ export class UpdateNotMavenRepoDO {
     }
     public get allowAnonymous(): boolean | undefined {
         return this['allow_anonymous'];
+    }
+    public withProjectId(projectId: string): UpdateNotMavenRepoDO {
+        this['project_id'] = projectId;
+        return this;
+    }
+    public set projectId(projectId: string  | undefined) {
+        this['project_id'] = projectId;
+    }
+    public get projectId(): string | undefined {
+        return this['project_id'];
     }
 }

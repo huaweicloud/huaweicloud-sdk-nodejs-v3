@@ -2,9 +2,10 @@
 
 export class EnableAlertRuleRequest {
     private 'workspace_id'?: string;
-    public body?: Array<string>;
-    public constructor(workspaceId?: string) { 
+    private 'alert_rule_id'?: string;
+    public constructor(workspaceId?: string, alertRuleId?: string) { 
         this['workspace_id'] = workspaceId;
+        this['alert_rule_id'] = alertRuleId;
     }
     public withWorkspaceId(workspaceId: string): EnableAlertRuleRequest {
         this['workspace_id'] = workspaceId;
@@ -16,8 +17,14 @@ export class EnableAlertRuleRequest {
     public get workspaceId(): string | undefined {
         return this['workspace_id'];
     }
-    public withBody(body: Array<string>): EnableAlertRuleRequest {
-        this['body'] = body;
+    public withAlertRuleId(alertRuleId: string): EnableAlertRuleRequest {
+        this['alert_rule_id'] = alertRuleId;
         return this;
+    }
+    public set alertRuleId(alertRuleId: string  | undefined) {
+        this['alert_rule_id'] = alertRuleId;
+    }
+    public get alertRuleId(): string | undefined {
+        return this['alert_rule_id'];
     }
 }

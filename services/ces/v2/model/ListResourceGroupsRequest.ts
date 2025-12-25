@@ -7,6 +7,7 @@ export class ListResourceGroupsRequest {
     public offset?: number;
     public limit?: number;
     public type?: ListResourceGroupsRequestTypeEnum | string;
+    public status?: ListResourceGroupsRequestStatusEnum | string;
     public constructor() { 
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListResourceGroupsRequest {
@@ -51,6 +52,10 @@ export class ListResourceGroupsRequest {
         this['type'] = type;
         return this;
     }
+    public withStatus(status: ListResourceGroupsRequestStatusEnum | string): ListResourceGroupsRequest {
+        this['status'] = status;
+        return this;
+    }
 }
 
 /**
@@ -63,4 +68,13 @@ export enum ListResourceGroupsRequestTypeEnum {
     MANUAL = 'Manual',
     COMB = 'COMB',
     NAME = 'NAME'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListResourceGroupsRequestStatusEnum {
+    HEALTH = 'health',
+    UNHEALTHY = 'unhealthy',
+    NO_ALARM_RULE = 'no_alarm_rule'
 }

@@ -1,14 +1,11 @@
 export * from './ModerationClient';
 
 export * from './model/AudioCreateRequest';
-export * from './model/AudioCreateResponse';
 export * from './model/AudioInputBody';
 export * from './model/AudioModerationResultDetail';
 export * from './model/AudioModerationResultRequestParams';
 export * from './model/AudioModerationResultRequestParamsData';
 export * from './model/AudioModerationResultResult';
-export * from './model/AudioStreamCreateRequest';
-export * from './model/AudioStreamCreateRequestData';
 export * from './model/BatchCheckImageSyncRequest';
 export * from './model/BatchCheckImageSyncResponse';
 export * from './model/CheckImageModerationRequest';
@@ -24,12 +21,8 @@ export * from './model/ImageDetectionResultDetail';
 export * from './model/ImgTextConfig';
 export * from './model/OCRTextDetail';
 export * from './model/QRLocationDetail';
-export * from './model/RunCloseAudioStreamModerationJobRequest';
-export * from './model/RunCloseAudioStreamModerationJobResponse';
 export * from './model/RunCreateAudioModerationJobRequest';
 export * from './model/RunCreateAudioModerationJobResponse';
-export * from './model/RunCreateAudioStreamModerationJobRequest';
-export * from './model/RunCreateAudioStreamModerationJobResponse';
 export * from './model/RunCreateVideoModerationJobRequest';
 export * from './model/RunCreateVideoModerationJobResponse';
 export * from './model/RunQueryAudioModerationJobRequest';

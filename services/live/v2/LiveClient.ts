@@ -269,7 +269,7 @@ export class LiveClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询历史推流列表接口
-     * @param {string} domain 推流域名。 
+     * @param {Array<string>} domain 推流域名列表，最多支持查询100个域名，多个域名以逗号分隔。  若查询多个域名，则返回的是多个域名合并数据。 
      * @param {string} [app] 应用名称。
      * @param {string} [stream] 流名称。
      * @param {string} [startTime] 起始时间。日期格式按照ISO8601表示法，并使用UTC时间。  格式为：YYYY-MM-DDThh:mm:ssZ。最大查询跨度1天。  若参数为空，默认查询1天数据。 
@@ -582,6 +582,7 @@ export class LiveClient {
      * @param {string} domain 推流域名。 
      * @param {string} app App名。 
      * @param {string} stream 流名。 
+     * @param {'VIDEO' | 'AUDIO'} [type] 数据类型，取值如下：  - VIDEO ：视频码率  - AUDIO ：音频码率   不填写默认查询视频码率的数据。 
      * @param {string} [startTime] 起始时间。日期格式按照ISO8601表示法，并使用UTC时间。  格式为：YYYY-MM-DDThh:mm:ssZ。最大查询跨度1天，最大查询周期1个月。  若参数为空，默认查询最近1小时数据。 
      * @param {string} [endTime] 结束时间。日期格式按照ISO8601表示法，并使用UTC时间。格式为：YYYY-MM-DDThh:mm:ssZ。  若参数为空，默认为当前时间。结束时间需大于起始时间。 
      * @param {*} [options] Override http request option.
@@ -2122,6 +2123,8 @@ export const ParamCreater = function () {
             
             let stream;
             
+            let type;
+            
             let startTime;
             
             let endTime;
@@ -2131,12 +2134,14 @@ export const ParamCreater = function () {
                     domain = listSingleStreamBitrateRequest.domain;
                     app = listSingleStreamBitrateRequest.app;
                     stream = listSingleStreamBitrateRequest.stream;
+                    type = listSingleStreamBitrateRequest.type;
                     startTime = listSingleStreamBitrateRequest.startTime;
                     endTime = listSingleStreamBitrateRequest.endTime;
                 } else {
                     domain = listSingleStreamBitrateRequest['domain'];
                     app = listSingleStreamBitrateRequest['app'];
                     stream = listSingleStreamBitrateRequest['stream'];
+                    type = listSingleStreamBitrateRequest['type'];
                     startTime = listSingleStreamBitrateRequest['start_time'];
                     endTime = listSingleStreamBitrateRequest['end_time'];
                 }
@@ -2160,6 +2165,9 @@ export const ParamCreater = function () {
             }
             if (stream !== null && stream !== undefined) {
                 localVarQueryParameter['stream'] = stream;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
             }
             if (startTime !== null && startTime !== undefined) {
                 localVarQueryParameter['start_time'] = startTime;

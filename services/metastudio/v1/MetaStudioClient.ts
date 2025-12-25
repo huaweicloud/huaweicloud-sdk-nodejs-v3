@@ -2946,7 +2946,7 @@ export class MetaStudioClient {
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
      * @param {number} [region] sis服务所在区域
-     * @param {'zh_CN' | 'en_US' | 'CN' | 'EN' | 'ESP' | 'por' | 'Arabic' | 'Thai'} [language] 智能交互语言 * zh_CN：简体中文（已下线，请使用CN） * en_US：英语（已下线，请使用EN） * CN：中文。 * EN：英文。 * ESP：西班牙语（仅海外站点支持） * por：葡萄牙语（仅海外站点支持） * Arabic：阿拉伯语（仅海外站点支持） * Thai：泰语（仅海外站点支持）
+     * @param {'zh_CN' | 'en_US' | 'CN' | 'EN' | 'ESP' | 'por' | 'Arabic' | 'Thai' | 'fr'} [language] 智能交互语言 * zh_CN：简体中文（已下线，请使用CN） * en_US：英语（已下线，请使用EN） * CN：中文。 * EN：英文。 * ESP：西班牙语（仅海外站点支持） * por：葡萄牙语（仅海外站点支持） * Arabic：阿拉伯语（仅海外站点支持） * Thai：泰语（仅海外站点支持） * fr：法语（仅海外站点支持）
      * @param {'SIS' | 'MOBVOI'} [hotWordsType] * SIS:SIS热词 * MOBVOI:奇妙问ASR热词
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4652,7 +4652,7 @@ export class MetaStudioClient {
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
-     * @param {'CN' | 'EN' | 'ESP' | 'por' | 'Arabic' | 'Thai'} [language] 智能交互语言 * CN：中文。 * EN：英文。 * ESP：西班牙语（仅海外站点支持） * por：葡萄牙语（仅海外站点支持） * Arabic：阿拉伯语（仅海外站点支持） * Thai：泰语（仅海外站点支持）
+     * @param {'CN' | 'EN' | 'ESP' | 'por' | 'Arabic' | 'Thai' | 'fr'} [language] 智能交互语言 * CN：中文。 * EN：英文。 * ESP：西班牙语（仅海外站点支持） * por：葡萄牙语（仅海外站点支持） * Arabic：阿拉伯语（仅海外站点支持） * Thai：泰语（仅海外站点支持） * fr：法语（仅海外站点支持）
      * @param {number} [pacifyWordsType] 安抚话术类型 &gt; 0:通用安抚话术, 1:基于意图匹配安抚话术
      * @param {string} [intent] 安抚话术意图
      * @param {*} [options] Override http request option.
@@ -4720,7 +4720,7 @@ export class MetaStudioClient {
      *
      * @summary 查询安抚话术功能开关
      * @param {string} robotId 应用ID。
-     * @param {'CN' | 'EN' | 'ESP' | 'por' | 'Arabic' | 'Thai'} language 智能交互语言 * CN：中文。 * EN：英文。 * ESP：西班牙语（仅海外站点支持） * por：葡萄牙语（仅海外站点支持） * Arabic：阿拉伯语（仅海外站点支持） * Thai：泰语（仅海外站点支持）
+     * @param {'CN' | 'EN' | 'ESP' | 'por' | 'Arabic' | 'Thai' | 'fr'} language 智能交互语言 * CN：中文。 * EN：英文。 * ESP：西班牙语（仅海外站点支持） * por：葡萄牙语（仅海外站点支持） * Arabic：阿拉伯语（仅海外站点支持） * Thai：泰语（仅海外站点支持） * fr：法语（仅海外站点支持）
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
@@ -4744,7 +4744,7 @@ export class MetaStudioClient {
      *
      * @summary 查询安抚话术等待触发时长
      * @param {string} robotId 应用ID。
-     * @param {'CN' | 'EN' | 'ESP' | 'por' | 'Arabic' | 'Thai'} language 智能交互语言 * CN：中文。 * EN：英文。 * ESP：西班牙语（仅海外站点支持） * por：葡萄牙语（仅海外站点支持） * Arabic：阿拉伯语（仅海外站点支持） * Thai：泰语（仅海外站点支持）
+     * @param {'CN' | 'EN' | 'ESP' | 'por' | 'Arabic' | 'Thai' | 'fr'} language 智能交互语言 * CN：中文。 * EN：英文。 * ESP：西班牙语（仅海外站点支持） * por：葡萄牙语（仅海外站点支持） * Arabic：阿拉伯语（仅海外站点支持） * Thai：泰语（仅海外站点支持） * fr：法语（仅海外站点支持）
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
@@ -6369,7 +6369,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 创建子账户（IAM用户）配额，需要先开启子账户隔离后才能配置。只有根账户可创建。
+     * 创建子账户（IAM用户）配额，需要先开启子账户隔离后才能配置。 只有根账户可创建。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -6413,7 +6413,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 删除子账户（IAM用户）配额，需要先开启子账户隔离后才能配置。只有根账户可删除。
+     * 删除子账户（IAM用户）配额，需要先开启子账户隔离后才能配置。 只有根账户可删除。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -6470,7 +6470,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 查询子账户（IAM用户）配额。只有根账户可查询。
+     * 查询子账户（IAM用户）配额。 只有根账户可查询。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -6716,7 +6716,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 设置子账户（IAM用户）配额，需要先开启子账户隔离后才能配置。只有根账户可修改。
+     * 设置子账户（IAM用户）配额，需要先开启子账户隔离后才能配置。 只有根账户可修改。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -6739,7 +6739,7 @@ export class MetaStudioClient {
     }
 
     /**
-     * 提交短任务，执行改接口后，任务会正式开始执行。
+     * 提交短任务，执行该接口后，任务会正式开始执行。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -7416,7 +7416,7 @@ export class MetaStudioClient {
      * @param {string} [createSince] 过滤创建时间&gt;&#x3D;输入时间的记录。
      * @param {string} [createUntil] 过滤创建时间&lt;&#x3D;输入时间的记录。
      * @param {string} [jobId] 任务ID。
-     * @param {string} [jobType] 任务类型。 * AUDITION:试听任务 * ASYNC_JOB：异步任务 * WEBSOCKET：websocket接口合成任务
+     * @param {string} [jobType] 任务类型。 * AUDITION：试听任务 * ASYNC_JOB：异步任务 * WEBSOCKET：websocket接口合成任务
      * @param {string} [ttsServiceEnum] tts版本。 * TTS_LLM: 530大模型（V7版本） * TTS_LLM_VC：530大模型VC版本（V7版本） * TTS_LAB：lab小模型（V5版本） * TTS_LAB_GPU：lab小模型GPU版本（V5版本） * GPU_CLONE：V4模型 * TTS_LLM_VQ：VQ模型（V10版本）
      * @param {string} [businessType] 业务类型。
      * @param {*} [options] Override http request option.
@@ -7828,7 +7828,7 @@ export class MetaStudioClient {
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 查询偏移量,若超过最大数量，则返回最后一页
      * @param {number} [limit] 查询数量
-     * @param {string} [key] 类型 租户级自定义读法全局开关:vocabulary
+     * @param {string} [key] 类型。 * 租户级自定义读法全局开关，示例vocabulary。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -8069,7 +8069,7 @@ export class MetaStudioClient {
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询。
      * @param {number} [limit] 每页显示的条目数量。
-     * @param {'CN' | 'EN' | 'ESP' | 'por' | 'Arabic' | 'Thai'} [language] 智能交互语言  * CN:中文  * EN:英文  * ESP：西班牙语（仅海外站点支持）  * por：葡萄牙语（仅海外站点支持）  * Arabic：阿拉伯语（仅海外站点支持）  * Thai：泰语（仅海外站点支持）
+     * @param {'CN' | 'EN' | 'ESP' | 'por' | 'Arabic' | 'Thai' | 'fr'} [language] 智能交互语言  * CN:中文  * EN:英文  * ESP：西班牙语（仅海外站点支持）  * por：葡萄牙语（仅海外站点支持）  * Arabic：阿拉伯语（仅海外站点支持）  * Thai：泰语（仅海外站点支持）  * fr：法语（仅海外站点支持）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -8116,7 +8116,7 @@ export class MetaStudioClient {
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。
      * @param {string} [xProjectId] 使用AK/SK方式认证时必选，携带项目ID信息。
      * @param {string} [xAppUserId] 第三方用户ID。不允许输入中文。
-     * @param {'CN' | 'EN' | 'ESP' | 'por' | 'Arabic' | 'Thai'} [language] 智能交互语言  * CN:中文  * EN:英文  * ESP：西班牙语（仅海外站点支持）  * por：葡萄牙语（仅海外站点支持）  * Arabic：阿拉伯语（仅海外站点支持）  * Thai：泰语（仅海外站点支持）
+     * @param {'CN' | 'EN' | 'ESP' | 'por' | 'Arabic' | 'Thai' | 'fr'} [language] 智能交互语言  * CN:中文  * EN:英文  * ESP：西班牙语（仅海外站点支持）  * por：葡萄牙语（仅海外站点支持）  * Arabic：阿拉伯语（仅海外站点支持）  * Thai：泰语（仅海外站点支持）  * fr：法语（仅海外站点支持）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -24427,7 +24427,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建子账户（IAM用户）配额，需要先开启子账户隔离后才能配置。只有根账户可创建。
+         * 创建子账户（IAM用户）配额，需要先开启子账户隔离后才能配置。 只有根账户可创建。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -24545,7 +24545,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除子账户（IAM用户）配额，需要先开启子账户隔离后才能配置。只有根账户可删除。
+         * 删除子账户（IAM用户）配额，需要先开启子账户隔离后才能配置。 只有根账户可删除。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -24743,7 +24743,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询子账户（IAM用户）配额。只有根账户可查询。
+         * 查询子账户（IAM用户）配额。 只有根账户可查询。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -25402,7 +25402,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 设置子账户（IAM用户）配额，需要先开启子账户隔离后才能配置。只有根账户可修改。
+         * 设置子账户（IAM用户）配额，需要先开启子账户隔离后才能配置。 只有根账户可修改。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -25469,7 +25469,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 提交短任务，执行改接口后，任务会正式开始执行。
+         * 提交短任务，执行该接口后，任务会正式开始执行。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -1,42 +1,37 @@
-import { AlertRule } from './AlertRule';
+import { JobProcessStatus } from './JobProcessStatus';
+import { JobStatus } from './JobStatus';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class EnableAlertRuleResponse extends SdkResponse {
-    private 'fail_list'?: Array<AlertRule>;
-    private 'success_list'?: Array<AlertRule>;
-    private 'X-request-id'?: string;
+    private 'alert_rule_id'?: string;
+    public status?: JobStatus;
+    private 'process_status'?: JobProcessStatus;
     public constructor() { 
         super();
     }
-    public withFailList(failList: Array<AlertRule>): EnableAlertRuleResponse {
-        this['fail_list'] = failList;
+    public withAlertRuleId(alertRuleId: string): EnableAlertRuleResponse {
+        this['alert_rule_id'] = alertRuleId;
         return this;
     }
-    public set failList(failList: Array<AlertRule>  | undefined) {
-        this['fail_list'] = failList;
+    public set alertRuleId(alertRuleId: string  | undefined) {
+        this['alert_rule_id'] = alertRuleId;
     }
-    public get failList(): Array<AlertRule> | undefined {
-        return this['fail_list'];
+    public get alertRuleId(): string | undefined {
+        return this['alert_rule_id'];
     }
-    public withSuccessList(successList: Array<AlertRule>): EnableAlertRuleResponse {
-        this['success_list'] = successList;
+    public withStatus(status: JobStatus): EnableAlertRuleResponse {
+        this['status'] = status;
         return this;
     }
-    public set successList(successList: Array<AlertRule>  | undefined) {
-        this['success_list'] = successList;
-    }
-    public get successList(): Array<AlertRule> | undefined {
-        return this['success_list'];
-    }
-    public withXRequestId(xRequestId: string): EnableAlertRuleResponse {
-        this['X-request-id'] = xRequestId;
+    public withProcessStatus(processStatus: JobProcessStatus): EnableAlertRuleResponse {
+        this['process_status'] = processStatus;
         return this;
     }
-    public set xRequestId(xRequestId: string  | undefined) {
-        this['X-request-id'] = xRequestId;
+    public set processStatus(processStatus: JobProcessStatus  | undefined) {
+        this['process_status'] = processStatus;
     }
-    public get xRequestId(): string | undefined {
-        return this['X-request-id'];
+    public get processStatus(): JobProcessStatus | undefined {
+        return this['process_status'];
     }
 }

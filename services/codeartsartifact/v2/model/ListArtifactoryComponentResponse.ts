@@ -1,14 +1,15 @@
+import { StandarBaseResponseV5 } from './StandarBaseResponseV5';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListArtifactoryComponentResponse extends SdkResponse {
-    public status?: string;
+    public status?: ListArtifactoryComponentResponseStatusEnum | string;
     private 'trace_id'?: string;
     public result?: object;
     public constructor() { 
         super();
     }
-    public withStatus(status: string): ListArtifactoryComponentResponse {
+    public withStatus(status: ListArtifactoryComponentResponseStatusEnum | string): ListArtifactoryComponentResponse {
         this['status'] = status;
         return this;
     }
@@ -26,4 +27,13 @@ export class ListArtifactoryComponentResponse extends SdkResponse {
         this['result'] = result;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListArtifactoryComponentResponseStatusEnum {
+    SUCCESS = 'success',
+    ERROR = 'error'
 }

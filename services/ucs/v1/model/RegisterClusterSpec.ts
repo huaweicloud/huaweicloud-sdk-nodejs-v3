@@ -1,4 +1,3 @@
-import { NetworkConfig } from './NetworkConfig';
 
 
 export class RegisterClusterSpec {
@@ -11,7 +10,6 @@ export class RegisterClusterSpec {
     public region?: string;
     public projectID?: string;
     public manageType?: string;
-    public network?: NetworkConfig;
     public constructor(category?: string, type?: string, provider?: string, country?: string, city?: string, manageType?: string) { 
         this['category'] = category;
         this['type'] = type;
@@ -54,10 +52,6 @@ export class RegisterClusterSpec {
     }
     public withManageType(manageType: string): RegisterClusterSpec {
         this['manageType'] = manageType;
-        return this;
-    }
-    public withNetwork(network: NetworkConfig): RegisterClusterSpec {
-        this['network'] = network;
         return this;
     }
 }

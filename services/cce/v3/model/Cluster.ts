@@ -1,6 +1,5 @@
 import { ClusterMetadata } from './ClusterMetadata';
 import { ClusterSpec } from './ClusterSpec';
-import { ClusterStatus } from './ClusterStatus';
 
 
 export class Cluster {
@@ -8,7 +7,6 @@ export class Cluster {
     public apiVersion?: string;
     public metadata?: ClusterMetadata;
     public spec?: ClusterSpec;
-    public status?: ClusterStatus;
     public constructor(kind?: string, apiVersion?: string, metadata?: ClusterMetadata, spec?: ClusterSpec) { 
         this['kind'] = kind;
         this['apiVersion'] = apiVersion;
@@ -29,10 +27,6 @@ export class Cluster {
     }
     public withSpec(spec: ClusterSpec): Cluster {
         this['spec'] = spec;
-        return this;
-    }
-    public withStatus(status: ClusterStatus): Cluster {
-        this['status'] = status;
         return this;
     }
 }

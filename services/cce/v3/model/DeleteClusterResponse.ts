@@ -1,6 +1,5 @@
 import { ClusterMetadata } from './ClusterMetadata';
 import { ClusterSpec } from './ClusterSpec';
-import { ClusterStatus } from './ClusterStatus';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -9,7 +8,6 @@ export class DeleteClusterResponse extends SdkResponse {
     public apiVersion?: string;
     public metadata?: ClusterMetadata;
     public spec?: ClusterSpec;
-    public status?: ClusterStatus;
     public constructor() { 
         super();
     }
@@ -27,10 +25,6 @@ export class DeleteClusterResponse extends SdkResponse {
     }
     public withSpec(spec: ClusterSpec): DeleteClusterResponse {
         this['spec'] = spec;
-        return this;
-    }
-    public withStatus(status: ClusterStatus): DeleteClusterResponse {
-        this['status'] = status;
         return this;
     }
 }

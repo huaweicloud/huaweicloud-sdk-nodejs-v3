@@ -8,6 +8,9 @@ export class UpdateAlarmNotificationsResponse extends SdkResponse {
     private 'ok_notifications'?: Array<NotificationResp>;
     private 'notification_begin_time'?: string;
     private 'notification_end_time'?: string;
+    private 'effective_timezone'?: string;
+    private 'notification_manner'?: UpdateAlarmNotificationsResponseNotificationMannerEnum | string;
+    private 'notification_policy_ids'?: Array<string>;
     public constructor() { 
         super();
     }
@@ -61,4 +64,44 @@ export class UpdateAlarmNotificationsResponse extends SdkResponse {
     public get notificationEndTime(): string | undefined {
         return this['notification_end_time'];
     }
+    public withEffectiveTimezone(effectiveTimezone: string): UpdateAlarmNotificationsResponse {
+        this['effective_timezone'] = effectiveTimezone;
+        return this;
+    }
+    public set effectiveTimezone(effectiveTimezone: string  | undefined) {
+        this['effective_timezone'] = effectiveTimezone;
+    }
+    public get effectiveTimezone(): string | undefined {
+        return this['effective_timezone'];
+    }
+    public withNotificationManner(notificationManner: UpdateAlarmNotificationsResponseNotificationMannerEnum | string): UpdateAlarmNotificationsResponse {
+        this['notification_manner'] = notificationManner;
+        return this;
+    }
+    public set notificationManner(notificationManner: UpdateAlarmNotificationsResponseNotificationMannerEnum | string  | undefined) {
+        this['notification_manner'] = notificationManner;
+    }
+    public get notificationManner(): UpdateAlarmNotificationsResponseNotificationMannerEnum | string | undefined {
+        return this['notification_manner'];
+    }
+    public withNotificationPolicyIds(notificationPolicyIds: Array<string>): UpdateAlarmNotificationsResponse {
+        this['notification_policy_ids'] = notificationPolicyIds;
+        return this;
+    }
+    public set notificationPolicyIds(notificationPolicyIds: Array<string>  | undefined) {
+        this['notification_policy_ids'] = notificationPolicyIds;
+    }
+    public get notificationPolicyIds(): Array<string> | undefined {
+        return this['notification_policy_ids'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateAlarmNotificationsResponseNotificationMannerEnum {
+    NOTIFICATION_GROUP = 'NOTIFICATION_GROUP',
+    TOPIC_SUBSCRIPTION = 'TOPIC_SUBSCRIPTION',
+    NOTIFICATION_POLICY = 'NOTIFICATION_POLICY'
 }

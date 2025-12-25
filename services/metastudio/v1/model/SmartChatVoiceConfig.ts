@@ -62,5 +62,6 @@ export enum SmartChatVoiceConfigLanguageEnum {
     ESP = 'ESP',
     POR = 'por',
     ARABIC = 'Arabic',
-    THAI = 'Thai'
+    THAI = 'Thai',
+    FR = 'fr'
 }

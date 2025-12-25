@@ -1,10 +1,10 @@
-import { Dimension } from './Dimension';
+import { CreateMetricDimension } from './CreateMetricDimension';
 
 
 export class CreateAlarmMetric {
     public namespace?: string;
     private 'metric_name'?: string;
-    public dimensions?: Array<Dimension>;
+    public dimensions?: Array<CreateMetricDimension>;
     private 'resource_group_id'?: string;
     public constructor(namespace?: string, metricName?: string) { 
         this['namespace'] = namespace;
@@ -24,7 +24,7 @@ export class CreateAlarmMetric {
     public get metricName(): string | undefined {
         return this['metric_name'];
     }
-    public withDimensions(dimensions: Array<Dimension>): CreateAlarmMetric {
+    public withDimensions(dimensions: Array<CreateMetricDimension>): CreateAlarmMetric {
         this['dimensions'] = dimensions;
         return this;
     }

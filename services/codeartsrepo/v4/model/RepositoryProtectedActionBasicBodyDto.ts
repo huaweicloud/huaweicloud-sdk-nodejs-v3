@@ -2,7 +2,7 @@
 
 export class RepositoryProtectedActionBasicBodyDto {
     public enable?: boolean;
-    private 'user_ids'?: Array<object>;
+    private 'user_ids'?: Array<number>;
     private 'user_team_ids'?: Array<number>;
     private 'related_role_ids'?: Array<string>;
     public constructor() { 
@@ -11,14 +11,14 @@ export class RepositoryProtectedActionBasicBodyDto {
         this['enable'] = enable;
         return this;
     }
-    public withUserIds(userIds: Array<object>): RepositoryProtectedActionBasicBodyDto {
+    public withUserIds(userIds: Array<number>): RepositoryProtectedActionBasicBodyDto {
         this['user_ids'] = userIds;
         return this;
     }
-    public set userIds(userIds: Array<object>  | undefined) {
+    public set userIds(userIds: Array<number>  | undefined) {
         this['user_ids'] = userIds;
     }
-    public get userIds(): Array<object> | undefined {
+    public get userIds(): Array<number> | undefined {
         return this['user_ids'];
     }
     public withUserTeamIds(userTeamIds: Array<number>): RepositoryProtectedActionBasicBodyDto {

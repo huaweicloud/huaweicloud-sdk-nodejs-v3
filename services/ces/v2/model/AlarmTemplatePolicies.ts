@@ -1,31 +1,29 @@
 import { HierarchicalValue } from './HierarchicalValue';
+import { Period } from './Period';
+import { SuppressDuration } from './SuppressDuration';
 
 
 export class AlarmTemplatePolicies {
     public namespace?: string;
     private 'dimension_name'?: string;
     private 'metric_name'?: string;
-    public period?: AlarmTemplatePoliciesPeriodEnum | number;
+    public period?: Period;
     public filter?: string;
     private 'comparison_operator'?: string;
     public value?: number;
     private 'hierarchical_value'?: HierarchicalValue;
     public unit?: string;
-    public count?: number;
-    private 'alarm_level'?: number;
-    private 'suppress_duration'?: AlarmTemplatePoliciesSuppressDurationEnum | number;
     private 'selected_unit'?: string;
-    public constructor(namespace?: string, dimensionName?: string, metricName?: string, period?: number, filter?: string, comparisonOperator?: string, unit?: string, count?: number, alarmLevel?: number, suppressDuration?: number) { 
+    public count?: number;
+    private 'suppress_duration'?: SuppressDuration;
+    private 'alarm_level'?: number;
+    public constructor(namespace?: string, metricName?: string, period?: Period, filter?: string, comparisonOperator?: string, count?: number) { 
         this['namespace'] = namespace;
-        this['dimension_name'] = dimensionName;
         this['metric_name'] = metricName;
         this['period'] = period;
         this['filter'] = filter;
         this['comparison_operator'] = comparisonOperator;
-        this['unit'] = unit;
         this['count'] = count;
-        this['alarm_level'] = alarmLevel;
-        this['suppress_duration'] = suppressDuration;
     }
     public withNamespace(namespace: string): AlarmTemplatePolicies {
         this['namespace'] = namespace;
@@ -51,7 +49,7 @@ export class AlarmTemplatePolicies {
     public get metricName(): string | undefined {
         return this['metric_name'];
     }
-    public withPeriod(period: AlarmTemplatePoliciesPeriodEnum | number): AlarmTemplatePolicies {
+    public withPeriod(period: Period): AlarmTemplatePolicies {
         this['period'] = period;
         return this;
     }
@@ -87,9 +85,29 @@ export class AlarmTemplatePolicies {
         this['unit'] = unit;
         return this;
     }
+    public withSelectedUnit(selectedUnit: string): AlarmTemplatePolicies {
+        this['selected_unit'] = selectedUnit;
+        return this;
+    }
+    public set selectedUnit(selectedUnit: string  | undefined) {
+        this['selected_unit'] = selectedUnit;
+    }
+    public get selectedUnit(): string | undefined {
+        return this['selected_unit'];
+    }
     public withCount(count: number): AlarmTemplatePolicies {
         this['count'] = count;
         return this;
+    }
+    public withSuppressDuration(suppressDuration: SuppressDuration): AlarmTemplatePolicies {
+        this['suppress_duration'] = suppressDuration;
+        return this;
+    }
+    public set suppressDuration(suppressDuration: SuppressDuration  | undefined) {
+        this['suppress_duration'] = suppressDuration;
+    }
+    public get suppressDuration(): SuppressDuration | undefined {
+        return this['suppress_duration'];
     }
     public withAlarmLevel(alarmLevel: number): AlarmTemplatePolicies {
         this['alarm_level'] = alarmLevel;
@@ -101,54 +119,4 @@ export class AlarmTemplatePolicies {
     public get alarmLevel(): number | undefined {
         return this['alarm_level'];
     }
-    public withSuppressDuration(suppressDuration: AlarmTemplatePoliciesSuppressDurationEnum | number): AlarmTemplatePolicies {
-        this['suppress_duration'] = suppressDuration;
-        return this;
-    }
-    public set suppressDuration(suppressDuration: AlarmTemplatePoliciesSuppressDurationEnum | number  | undefined) {
-        this['suppress_duration'] = suppressDuration;
-    }
-    public get suppressDuration(): AlarmTemplatePoliciesSuppressDurationEnum | number | undefined {
-        return this['suppress_duration'];
-    }
-    public withSelectedUnit(selectedUnit: string): AlarmTemplatePolicies {
-        this['selected_unit'] = selectedUnit;
-        return this;
-    }
-    public set selectedUnit(selectedUnit: string  | undefined) {
-        this['selected_unit'] = selectedUnit;
-    }
-    public get selectedUnit(): string | undefined {
-        return this['selected_unit'];
-    }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum AlarmTemplatePoliciesPeriodEnum {
-    NUMBER_0 = 0,
-    NUMBER_1 = 1,
-    NUMBER_300 = 300,
-    NUMBER_1200 = 1200,
-    NUMBER_3600 = 3600,
-    NUMBER_14400 = 14400,
-    NUMBER_86400 = 86400
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum AlarmTemplatePoliciesSuppressDurationEnum {
-    NUMBER_0 = 0,
-    NUMBER_300 = 300,
-    NUMBER_600 = 600,
-    NUMBER_900 = 900,
-    NUMBER_1800 = 1800,
-    NUMBER_3600 = 3600,
-    NUMBER_10800 = 10800,
-    NUMBER_21600 = 21600,
-    NUMBER_43200 = 43200,
-    NUMBER_86400 = 86400
 }

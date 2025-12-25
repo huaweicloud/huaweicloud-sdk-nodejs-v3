@@ -162,5 +162,6 @@ export enum StartSmartChatJobResponseDefaultLanguageEnum {
     ESP = 'ESP',
     POR = 'por',
     ARABIC = 'Arabic',
-    THAI = 'Thai'
+    THAI = 'Thai',
+    FR = 'fr'
 }

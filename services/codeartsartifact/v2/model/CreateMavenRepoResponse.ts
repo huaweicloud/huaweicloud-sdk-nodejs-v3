@@ -1,14 +1,16 @@
+import { CreateMavenRepoResult } from './CreateMavenRepoResult';
+import { StandarBaseResponseV5 } from './StandarBaseResponseV5';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateMavenRepoResponse extends SdkResponse {
-    public status?: string;
+    public status?: CreateMavenRepoResponseStatusEnum | string;
     private 'trace_id'?: string;
-    public result?: object;
+    public result?: CreateMavenRepoResult;
     public constructor() { 
         super();
     }
-    public withStatus(status: string): CreateMavenRepoResponse {
+    public withStatus(status: CreateMavenRepoResponseStatusEnum | string): CreateMavenRepoResponse {
         this['status'] = status;
         return this;
     }
@@ -22,8 +24,17 @@ export class CreateMavenRepoResponse extends SdkResponse {
     public get traceId(): string | undefined {
         return this['trace_id'];
     }
-    public withResult(result: object): CreateMavenRepoResponse {
+    public withResult(result: CreateMavenRepoResult): CreateMavenRepoResponse {
         this['result'] = result;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateMavenRepoResponseStatusEnum {
+    SUCCESS = 'success',
+    ERROR = 'error'
 }

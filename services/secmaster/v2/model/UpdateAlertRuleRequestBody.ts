@@ -1,130 +1,112 @@
-import { AlertRuleTrigger } from './AlertRuleTrigger';
-import { Schedule } from './Schedule';
+import { IsapJobModeSettingDto } from './IsapJobModeSettingDto';
+import { IsapJobOutputSetting } from './IsapJobOutputSetting';
+import { JobEnvironment } from './JobEnvironment';
+import { JobStatus } from './JobStatus';
 
 
 export class UpdateAlertRuleRequestBody {
-    private 'rule_name'?: string;
+    private 'alert_rule_name'?: string;
     public description?: string;
-    public query?: string;
-    private 'query_type'?: UpdateAlertRuleRequestBodyQueryTypeEnum | string;
-    public status?: UpdateAlertRuleRequestBodyStatusEnum | string;
-    public severity?: UpdateAlertRuleRequestBodySeverityEnum | string;
-    private 'custom_properties'?: { [key: string]: string; };
-    private 'alert_type'?: { [key: string]: string; };
-    private 'event_grouping'?: boolean;
-    public suppression?: boolean;
-    public simulation?: boolean;
-    public schedule?: Schedule;
-    public triggers?: Array<AlertRuleTrigger>;
+    public directory?: string;
+    public script?: string;
+    public status?: JobStatus;
+    private 'job_mode_setting'?: IsapJobModeSettingDto;
+    private 'job_output_setting'?: IsapJobOutputSetting;
+    public environment?: JobEnvironment;
+    private 'output_table_id'?: string;
+    private 'output_table_ids'?: Array<string>;
+    private 'output_table_names'?: Array<string>;
+    private 'publish_status'?: string;
     public constructor() { 
     }
-    public withRuleName(ruleName: string): UpdateAlertRuleRequestBody {
-        this['rule_name'] = ruleName;
+    public withAlertRuleName(alertRuleName: string): UpdateAlertRuleRequestBody {
+        this['alert_rule_name'] = alertRuleName;
         return this;
     }
-    public set ruleName(ruleName: string  | undefined) {
-        this['rule_name'] = ruleName;
+    public set alertRuleName(alertRuleName: string  | undefined) {
+        this['alert_rule_name'] = alertRuleName;
     }
-    public get ruleName(): string | undefined {
-        return this['rule_name'];
+    public get alertRuleName(): string | undefined {
+        return this['alert_rule_name'];
     }
     public withDescription(description: string): UpdateAlertRuleRequestBody {
         this['description'] = description;
         return this;
     }
-    public withQuery(query: string): UpdateAlertRuleRequestBody {
-        this['query'] = query;
+    public withDirectory(directory: string): UpdateAlertRuleRequestBody {
+        this['directory'] = directory;
         return this;
     }
-    public withQueryType(queryType: UpdateAlertRuleRequestBodyQueryTypeEnum | string): UpdateAlertRuleRequestBody {
-        this['query_type'] = queryType;
+    public withScript(script: string): UpdateAlertRuleRequestBody {
+        this['script'] = script;
         return this;
     }
-    public set queryType(queryType: UpdateAlertRuleRequestBodyQueryTypeEnum | string  | undefined) {
-        this['query_type'] = queryType;
-    }
-    public get queryType(): UpdateAlertRuleRequestBodyQueryTypeEnum | string | undefined {
-        return this['query_type'];
-    }
-    public withStatus(status: UpdateAlertRuleRequestBodyStatusEnum | string): UpdateAlertRuleRequestBody {
+    public withStatus(status: JobStatus): UpdateAlertRuleRequestBody {
         this['status'] = status;
         return this;
     }
-    public withSeverity(severity: UpdateAlertRuleRequestBodySeverityEnum | string): UpdateAlertRuleRequestBody {
-        this['severity'] = severity;
+    public withJobModeSetting(jobModeSetting: IsapJobModeSettingDto): UpdateAlertRuleRequestBody {
+        this['job_mode_setting'] = jobModeSetting;
         return this;
     }
-    public withCustomProperties(customProperties: { [key: string]: string; }): UpdateAlertRuleRequestBody {
-        this['custom_properties'] = customProperties;
+    public set jobModeSetting(jobModeSetting: IsapJobModeSettingDto  | undefined) {
+        this['job_mode_setting'] = jobModeSetting;
+    }
+    public get jobModeSetting(): IsapJobModeSettingDto | undefined {
+        return this['job_mode_setting'];
+    }
+    public withJobOutputSetting(jobOutputSetting: IsapJobOutputSetting): UpdateAlertRuleRequestBody {
+        this['job_output_setting'] = jobOutputSetting;
         return this;
     }
-    public set customProperties(customProperties: { [key: string]: string; }  | undefined) {
-        this['custom_properties'] = customProperties;
+    public set jobOutputSetting(jobOutputSetting: IsapJobOutputSetting  | undefined) {
+        this['job_output_setting'] = jobOutputSetting;
     }
-    public get customProperties(): { [key: string]: string; } | undefined {
-        return this['custom_properties'];
+    public get jobOutputSetting(): IsapJobOutputSetting | undefined {
+        return this['job_output_setting'];
     }
-    public withAlertType(alertType: { [key: string]: string; }): UpdateAlertRuleRequestBody {
-        this['alert_type'] = alertType;
+    public withEnvironment(environment: JobEnvironment): UpdateAlertRuleRequestBody {
+        this['environment'] = environment;
         return this;
     }
-    public set alertType(alertType: { [key: string]: string; }  | undefined) {
-        this['alert_type'] = alertType;
-    }
-    public get alertType(): { [key: string]: string; } | undefined {
-        return this['alert_type'];
-    }
-    public withEventGrouping(eventGrouping: boolean): UpdateAlertRuleRequestBody {
-        this['event_grouping'] = eventGrouping;
+    public withOutputTableId(outputTableId: string): UpdateAlertRuleRequestBody {
+        this['output_table_id'] = outputTableId;
         return this;
     }
-    public set eventGrouping(eventGrouping: boolean  | undefined) {
-        this['event_grouping'] = eventGrouping;
+    public set outputTableId(outputTableId: string  | undefined) {
+        this['output_table_id'] = outputTableId;
     }
-    public get eventGrouping(): boolean | undefined {
-        return this['event_grouping'];
+    public get outputTableId(): string | undefined {
+        return this['output_table_id'];
     }
-    public withSuppression(suppression: boolean): UpdateAlertRuleRequestBody {
-        this['suppression'] = suppression;
+    public withOutputTableIds(outputTableIds: Array<string>): UpdateAlertRuleRequestBody {
+        this['output_table_ids'] = outputTableIds;
         return this;
     }
-    public withSimulation(simulation: boolean): UpdateAlertRuleRequestBody {
-        this['simulation'] = simulation;
+    public set outputTableIds(outputTableIds: Array<string>  | undefined) {
+        this['output_table_ids'] = outputTableIds;
+    }
+    public get outputTableIds(): Array<string> | undefined {
+        return this['output_table_ids'];
+    }
+    public withOutputTableNames(outputTableNames: Array<string>): UpdateAlertRuleRequestBody {
+        this['output_table_names'] = outputTableNames;
         return this;
     }
-    public withSchedule(schedule: Schedule): UpdateAlertRuleRequestBody {
-        this['schedule'] = schedule;
+    public set outputTableNames(outputTableNames: Array<string>  | undefined) {
+        this['output_table_names'] = outputTableNames;
+    }
+    public get outputTableNames(): Array<string> | undefined {
+        return this['output_table_names'];
+    }
+    public withPublishStatus(publishStatus: string): UpdateAlertRuleRequestBody {
+        this['publish_status'] = publishStatus;
         return this;
     }
-    public withTriggers(triggers: Array<AlertRuleTrigger>): UpdateAlertRuleRequestBody {
-        this['triggers'] = triggers;
-        return this;
+    public set publishStatus(publishStatus: string  | undefined) {
+        this['publish_status'] = publishStatus;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum UpdateAlertRuleRequestBodyQueryTypeEnum {
-    SQL = 'SQL'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum UpdateAlertRuleRequestBodyStatusEnum {
-    ENABLED = 'ENABLED',
-    DISABLED = 'DISABLED'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum UpdateAlertRuleRequestBodySeverityEnum {
-    TIPS = 'TIPS',
-    LOW = 'LOW',
-    MEDIUM = 'MEDIUM',
-    HIGH = 'HIGH',
-    FATAL = 'FATAL'
+    public get publishStatus(): string | undefined {
+        return this['publish_status'];
+    }
 }

@@ -1,23 +1,13 @@
 
 
 export class ListVulScanTaskHostRequest {
-    private 'task_id'?: string;
     private 'enterprise_project_id'?: string;
     public limit?: number;
     public offset?: number;
+    private 'task_id'?: string;
     private 'scan_status'?: string;
     public constructor(taskId?: string) { 
         this['task_id'] = taskId;
-    }
-    public withTaskId(taskId: string): ListVulScanTaskHostRequest {
-        this['task_id'] = taskId;
-        return this;
-    }
-    public set taskId(taskId: string  | undefined) {
-        this['task_id'] = taskId;
-    }
-    public get taskId(): string | undefined {
-        return this['task_id'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListVulScanTaskHostRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
@@ -36,6 +26,16 @@ export class ListVulScanTaskHostRequest {
     public withOffset(offset: number): ListVulScanTaskHostRequest {
         this['offset'] = offset;
         return this;
+    }
+    public withTaskId(taskId: string): ListVulScanTaskHostRequest {
+        this['task_id'] = taskId;
+        return this;
+    }
+    public set taskId(taskId: string  | undefined) {
+        this['task_id'] = taskId;
+    }
+    public get taskId(): string | undefined {
+        return this['task_id'];
     }
     public withScanStatus(scanStatus: string): ListVulScanTaskHostRequest {
         this['scan_status'] = scanStatus;

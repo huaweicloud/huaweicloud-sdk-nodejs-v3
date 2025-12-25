@@ -1,14 +1,16 @@
+import { CreateArtifactoryResult } from './CreateArtifactoryResult';
+import { StandarBaseResponseV5 } from './StandarBaseResponseV5';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateArtifactoryResponse extends SdkResponse {
-    public status?: string;
+    public status?: CreateArtifactoryResponseStatusEnum | string;
     private 'trace_id'?: string;
-    public result?: object;
+    public result?: CreateArtifactoryResult;
     public constructor() { 
         super();
     }
-    public withStatus(status: string): CreateArtifactoryResponse {
+    public withStatus(status: CreateArtifactoryResponseStatusEnum | string): CreateArtifactoryResponse {
         this['status'] = status;
         return this;
     }
@@ -22,8 +24,17 @@ export class CreateArtifactoryResponse extends SdkResponse {
     public get traceId(): string | undefined {
         return this['trace_id'];
     }
-    public withResult(result: object): CreateArtifactoryResponse {
+    public withResult(result: CreateArtifactoryResult): CreateArtifactoryResponse {
         this['result'] = result;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateArtifactoryResponseStatusEnum {
+    SUCCESS = 'success',
+    ERROR = 'error'
 }

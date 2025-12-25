@@ -1,12 +1,13 @@
-import { Policies } from './Policies';
+import { TemplateTypeUpdate } from './TemplateTypeUpdate';
+import { UpdateAlarmTemplatePolicies } from './UpdateAlarmTemplatePolicies';
 
 
 export class UpdateAlarmTemplateRequestBody {
     private 'template_name'?: string;
-    private 'template_type'?: UpdateAlarmTemplateRequestBodyTemplateTypeEnum | number;
+    private 'template_type'?: TemplateTypeUpdate;
     private 'template_description'?: string;
-    public policies?: Array<Policies>;
-    public constructor(templateName?: string, policies?: Array<Policies>) { 
+    public policies?: Array<UpdateAlarmTemplatePolicies>;
+    public constructor(templateName?: string, policies?: Array<UpdateAlarmTemplatePolicies>) { 
         this['template_name'] = templateName;
         this['policies'] = policies;
     }
@@ -20,14 +21,14 @@ export class UpdateAlarmTemplateRequestBody {
     public get templateName(): string | undefined {
         return this['template_name'];
     }
-    public withTemplateType(templateType: UpdateAlarmTemplateRequestBodyTemplateTypeEnum | number): UpdateAlarmTemplateRequestBody {
+    public withTemplateType(templateType: TemplateTypeUpdate): UpdateAlarmTemplateRequestBody {
         this['template_type'] = templateType;
         return this;
     }
-    public set templateType(templateType: UpdateAlarmTemplateRequestBodyTemplateTypeEnum | number  | undefined) {
+    public set templateType(templateType: TemplateTypeUpdate  | undefined) {
         this['template_type'] = templateType;
     }
-    public get templateType(): UpdateAlarmTemplateRequestBodyTemplateTypeEnum | number | undefined {
+    public get templateType(): TemplateTypeUpdate | undefined {
         return this['template_type'];
     }
     public withTemplateDescription(templateDescription: string): UpdateAlarmTemplateRequestBody {
@@ -40,17 +41,8 @@ export class UpdateAlarmTemplateRequestBody {
     public get templateDescription(): string | undefined {
         return this['template_description'];
     }
-    public withPolicies(policies: Array<Policies>): UpdateAlarmTemplateRequestBody {
+    public withPolicies(policies: Array<UpdateAlarmTemplatePolicies>): UpdateAlarmTemplateRequestBody {
         this['policies'] = policies;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum UpdateAlarmTemplateRequestBodyTemplateTypeEnum {
-    NUMBER_0 = 0,
-    NUMBER_2 = 2
 }

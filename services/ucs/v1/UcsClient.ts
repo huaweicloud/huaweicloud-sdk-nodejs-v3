@@ -156,9 +156,7 @@ import { MutiWorkload } from './model/MutiWorkload';
 import { NamedAuthInfo } from './model/NamedAuthInfo';
 import { NamedCluster } from './model/NamedCluster';
 import { NamedContext } from './model/NamedContext';
-import { NetworkConfig } from './model/NetworkConfig';
 import { NodeSummary } from './model/NodeSummary';
-import { NodeUpgradeStrategy } from './model/NodeUpgradeStrategy';
 import { ObjectMeta } from './model/ObjectMeta';
 import { OnPremisesConfig } from './model/OnPremisesConfig';
 import { OnPremisesVersionInfo } from './model/OnPremisesVersionInfo';
@@ -195,7 +193,6 @@ import { ResourceSelector } from './model/ResourceSelector';
 import { ResourceSummary } from './model/ResourceSummary';
 import { RetryClusterActivationRequest } from './model/RetryClusterActivationRequest';
 import { RetryClusterActivationResponse } from './model/RetryClusterActivationResponse';
-import { RollingUpdateNodeUpgradeStrategy } from './model/RollingUpdateNodeUpgradeStrategy';
 import { Rule } from './model/Rule';
 import { RuleIDNamespaces } from './model/RuleIDNamespaces';
 import { RuleInfo } from './model/RuleInfo';
@@ -289,7 +286,6 @@ import { UpdateRuleResponse } from './model/UpdateRuleResponse';
 import { UpgradeFederationRequest } from './model/UpgradeFederationRequest';
 import { UpgradeFederationRequestBody } from './model/UpgradeFederationRequestBody';
 import { UpgradeFederationResponse } from './model/UpgradeFederationResponse';
-import { WorkerConfig } from './model/WorkerConfig';
 
 export class UcsClient {
     public static newBuilder(): ClientBuilder<UcsClient> {
@@ -727,7 +723,7 @@ export class UcsClient {
      *
      * @summary 集群加入容器舰队
      * @param {string} clusterid 集群id
-     * @param {string} [clusterGroupID] 集群加入目标容器舰队的id
+     * @param {string} clusterGroupID 集群加入目标容器舰队的id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2738,6 +2734,9 @@ export const ParamCreater = function () {
         
             if (clusterid === null || clusterid === undefined) {
             throw new RequiredError('clusterid','Required parameter clusterid was null or undefined when calling joinGroup.');
+            }
+            if (clusterGroupID === null || clusterGroupID === undefined) {
+            throw new RequiredError('clusterGroupID','Required parameter clusterGroupID was null or undefined when calling joinGroup.');
             }
             if (clusterGroupID !== undefined) { 
                 localVarFormParams.set('clusterGroupID', clusterGroupID as any);

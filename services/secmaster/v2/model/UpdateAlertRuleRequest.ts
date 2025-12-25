@@ -3,11 +3,11 @@ import { UpdateAlertRuleRequestBody } from './UpdateAlertRuleRequestBody';
 
 export class UpdateAlertRuleRequest {
     private 'workspace_id'?: string;
-    private 'rule_id'?: string;
+    private 'alert_rule_id'?: string;
     public body?: UpdateAlertRuleRequestBody;
-    public constructor(workspaceId?: string, ruleId?: string) { 
+    public constructor(workspaceId?: string, alertRuleId?: string) { 
         this['workspace_id'] = workspaceId;
-        this['rule_id'] = ruleId;
+        this['alert_rule_id'] = alertRuleId;
     }
     public withWorkspaceId(workspaceId: string): UpdateAlertRuleRequest {
         this['workspace_id'] = workspaceId;
@@ -19,15 +19,15 @@ export class UpdateAlertRuleRequest {
     public get workspaceId(): string | undefined {
         return this['workspace_id'];
     }
-    public withRuleId(ruleId: string): UpdateAlertRuleRequest {
-        this['rule_id'] = ruleId;
+    public withAlertRuleId(alertRuleId: string): UpdateAlertRuleRequest {
+        this['alert_rule_id'] = alertRuleId;
         return this;
     }
-    public set ruleId(ruleId: string  | undefined) {
-        this['rule_id'] = ruleId;
+    public set alertRuleId(alertRuleId: string  | undefined) {
+        this['alert_rule_id'] = alertRuleId;
     }
-    public get ruleId(): string | undefined {
-        return this['rule_id'];
+    public get alertRuleId(): string | undefined {
+        return this['alert_rule_id'];
     }
     public withBody(body: UpdateAlertRuleRequestBody): UpdateAlertRuleRequest {
         this['body'] = body;

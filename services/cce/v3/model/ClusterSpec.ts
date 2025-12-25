@@ -36,7 +36,6 @@ export class ClusterSpec {
     public kubeProxyMode?: ClusterSpecKubeProxyModeEnum | string;
     public az?: string;
     public extendParam?: ClusterExtendParam;
-    public supportIstio?: boolean;
     public enableMasterVolumeEncryption?: boolean;
     public enableDistMgt?: boolean;
     public deletionProtection?: boolean;
@@ -139,10 +138,6 @@ export class ClusterSpec {
     }
     public withExtendParam(extendParam: ClusterExtendParam): ClusterSpec {
         this['extendParam'] = extendParam;
-        return this;
-    }
-    public withSupportIstio(supportIstio: boolean): ClusterSpec {
-        this['supportIstio'] = supportIstio;
         return this;
     }
     public withEnableMasterVolumeEncryption(enableMasterVolumeEncryption: boolean): ClusterSpec {

@@ -1,8 +1,9 @@
+import { AssociationAlarmTemplate } from './AssociationAlarmTemplate';
 import { CombRelation } from './CombRelation';
 import { EnterpriseProjectIdAndTags } from './EnterpriseProjectIdAndTags';
 import { EpResourceStatistics } from './EpResourceStatistics';
+import { GetResourceGroupRespResourceStatistics } from './GetResourceGroupRespResourceStatistics';
 import { Instance } from './Instance';
-import { OneResourceGroupRespResourceStatistics } from './OneResourceGroupRespResourceStatistics';
 import { ResourceGroupTagRelation } from './ResourceGroupTagRelation';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -11,6 +12,7 @@ export class ShowResourceGroupResponse extends SdkResponse {
     private 'group_name'?: string;
     private 'group_id'?: string;
     private 'create_time'?: Date;
+    private 'update_time'?: Date;
     private 'enterprise_project_id'?: string;
     public type?: ShowResourceGroupResponseTypeEnum | string;
     private 'association_ep_ids'?: Array<string>;
@@ -21,10 +23,11 @@ export class ShowResourceGroupResponse extends SdkResponse {
     private 'enterprise_project_id_and_tags'?: Array<EnterpriseProjectIdAndTags>;
     public status?: ShowResourceGroupResponseStatusEnum | string;
     private 'event_status'?: ShowResourceGroupResponseEventStatusEnum | string;
-    private 'resource_statistics'?: OneResourceGroupRespResourceStatistics;
+    private 'resource_statistics'?: GetResourceGroupRespResourceStatistics;
     private 'resource_level'?: ShowResourceGroupResponseResourceLevelEnum | string;
     private 'product_names'?: string;
     private 'ep_resource_statistics'?: Array<EpResourceStatistics>;
+    private 'association_alarm_templates'?: Array<AssociationAlarmTemplate>;
     public constructor() { 
         super();
     }
@@ -57,6 +60,16 @@ export class ShowResourceGroupResponse extends SdkResponse {
     }
     public get createTime(): Date | undefined {
         return this['create_time'];
+    }
+    public withUpdateTime(updateTime: Date): ShowResourceGroupResponse {
+        this['update_time'] = updateTime;
+        return this;
+    }
+    public set updateTime(updateTime: Date  | undefined) {
+        this['update_time'] = updateTime;
+    }
+    public get updateTime(): Date | undefined {
+        return this['update_time'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ShowResourceGroupResponse {
         this['enterprise_project_id'] = enterpriseProjectId;
@@ -134,14 +147,14 @@ export class ShowResourceGroupResponse extends SdkResponse {
     public get eventStatus(): ShowResourceGroupResponseEventStatusEnum | string | undefined {
         return this['event_status'];
     }
-    public withResourceStatistics(resourceStatistics: OneResourceGroupRespResourceStatistics): ShowResourceGroupResponse {
+    public withResourceStatistics(resourceStatistics: GetResourceGroupRespResourceStatistics): ShowResourceGroupResponse {
         this['resource_statistics'] = resourceStatistics;
         return this;
     }
-    public set resourceStatistics(resourceStatistics: OneResourceGroupRespResourceStatistics  | undefined) {
+    public set resourceStatistics(resourceStatistics: GetResourceGroupRespResourceStatistics  | undefined) {
         this['resource_statistics'] = resourceStatistics;
     }
-    public get resourceStatistics(): OneResourceGroupRespResourceStatistics | undefined {
+    public get resourceStatistics(): GetResourceGroupRespResourceStatistics | undefined {
         return this['resource_statistics'];
     }
     public withResourceLevel(resourceLevel: ShowResourceGroupResponseResourceLevelEnum | string): ShowResourceGroupResponse {
@@ -173,6 +186,16 @@ export class ShowResourceGroupResponse extends SdkResponse {
     }
     public get epResourceStatistics(): Array<EpResourceStatistics> | undefined {
         return this['ep_resource_statistics'];
+    }
+    public withAssociationAlarmTemplates(associationAlarmTemplates: Array<AssociationAlarmTemplate>): ShowResourceGroupResponse {
+        this['association_alarm_templates'] = associationAlarmTemplates;
+        return this;
+    }
+    public set associationAlarmTemplates(associationAlarmTemplates: Array<AssociationAlarmTemplate>  | undefined) {
+        this['association_alarm_templates'] = associationAlarmTemplates;
+    }
+    public get associationAlarmTemplates(): Array<AssociationAlarmTemplate> | undefined {
+        return this['association_alarm_templates'];
     }
 }
 

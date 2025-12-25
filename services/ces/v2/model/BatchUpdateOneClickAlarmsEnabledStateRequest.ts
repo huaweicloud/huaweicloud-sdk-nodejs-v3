@@ -1,9 +1,9 @@
-import { BatchEnableAlarmsRequestBody } from './BatchEnableAlarmsRequestBody';
+import { BatchUpdateOneClickAlarmsEnabledStateRequestBody } from './BatchUpdateOneClickAlarmsEnabledStateRequestBody';
 
 
 export class BatchUpdateOneClickAlarmsEnabledStateRequest {
     private 'one_click_alarm_id'?: string;
-    public body?: BatchEnableAlarmsRequestBody;
+    public body?: BatchUpdateOneClickAlarmsEnabledStateRequestBody;
     public constructor(oneClickAlarmId?: string) { 
         this['one_click_alarm_id'] = oneClickAlarmId;
     }
@@ -17,7 +17,7 @@ export class BatchUpdateOneClickAlarmsEnabledStateRequest {
     public get oneClickAlarmId(): string | undefined {
         return this['one_click_alarm_id'];
     }
-    public withBody(body: BatchEnableAlarmsRequestBody): BatchUpdateOneClickAlarmsEnabledStateRequest {
+    public withBody(body: BatchUpdateOneClickAlarmsEnabledStateRequestBody): BatchUpdateOneClickAlarmsEnabledStateRequest {
         this['body'] = body;
         return this;
     }

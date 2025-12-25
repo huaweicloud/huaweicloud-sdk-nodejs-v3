@@ -2,9 +2,9 @@ import { MaskResourceType } from './MaskResourceType';
 import { MaskStatus } from './MaskStatus';
 import { MaskType } from './MaskType';
 import { PoliciesInListResp } from './PoliciesInListResp';
-import { ProductMetric } from './ProductMetric';
+import { ProductMetricResp } from './ProductMetricResp';
 import { RelationType } from './RelationType';
-import { ResourceCategory } from './ResourceCategory';
+import { ResourceCategoryResp } from './ResourceCategoryResp';
 
 
 export class ListNotificationMaskRespNotificationMasks {
@@ -14,10 +14,10 @@ export class ListNotificationMaskRespNotificationMasks {
     private 'relation_id'?: string;
     private 'resource_type'?: MaskResourceType;
     private 'metric_names'?: Array<string>;
-    private 'product_metrics'?: Array<ProductMetric>;
+    private 'product_metrics'?: Array<ProductMetricResp>;
     private 'resource_level'?: ListNotificationMaskRespNotificationMasksResourceLevelEnum | string;
     private 'product_name'?: string;
-    public resources?: Array<ResourceCategory>;
+    public resources?: Array<ResourceCategoryResp>;
     private 'mask_status'?: MaskStatus;
     private 'mask_type'?: MaskType;
     private 'create_time'?: number;
@@ -94,14 +94,14 @@ export class ListNotificationMaskRespNotificationMasks {
     public get metricNames(): Array<string> | undefined {
         return this['metric_names'];
     }
-    public withProductMetrics(productMetrics: Array<ProductMetric>): ListNotificationMaskRespNotificationMasks {
+    public withProductMetrics(productMetrics: Array<ProductMetricResp>): ListNotificationMaskRespNotificationMasks {
         this['product_metrics'] = productMetrics;
         return this;
     }
-    public set productMetrics(productMetrics: Array<ProductMetric>  | undefined) {
+    public set productMetrics(productMetrics: Array<ProductMetricResp>  | undefined) {
         this['product_metrics'] = productMetrics;
     }
-    public get productMetrics(): Array<ProductMetric> | undefined {
+    public get productMetrics(): Array<ProductMetricResp> | undefined {
         return this['product_metrics'];
     }
     public withResourceLevel(resourceLevel: ListNotificationMaskRespNotificationMasksResourceLevelEnum | string): ListNotificationMaskRespNotificationMasks {
@@ -124,7 +124,7 @@ export class ListNotificationMaskRespNotificationMasks {
     public get productName(): string | undefined {
         return this['product_name'];
     }
-    public withResources(resources: Array<ResourceCategory>): ListNotificationMaskRespNotificationMasks {
+    public withResources(resources: Array<ResourceCategoryResp>): ListNotificationMaskRespNotificationMasks {
         this['resources'] = resources;
         return this;
     }

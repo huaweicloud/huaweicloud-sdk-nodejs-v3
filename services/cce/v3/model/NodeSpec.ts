@@ -36,11 +36,10 @@ export class NodeSpec {
     public serverEnterpriseProjectID?: string;
     public partition?: string;
     public nodeNameTemplate?: NodeSpecNodeNameTemplate;
-    public constructor(flavor?: string, az?: string, rootVolume?: Volume, dataVolumes?: Array<Volume>) { 
+    public constructor(flavor?: string, az?: string, rootVolume?: Volume) { 
         this['flavor'] = flavor;
         this['az'] = az;
         this['rootVolume'] = rootVolume;
-        this['dataVolumes'] = dataVolumes;
     }
     public withFlavor(flavor: string): NodeSpec {
         this['flavor'] = flavor;

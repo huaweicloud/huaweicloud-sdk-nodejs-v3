@@ -6,7 +6,7 @@ export class IDERepoSearchDO {
     private 'page_no'?: number;
     private 'page_size'?: number;
     private 'project_id'?: string;
-    private 'in_project'?: string;
+    private 'in_project'?: boolean;
     public constructor(artifactName?: string) { 
         this['artifact_name'] = artifactName;
     }
@@ -60,14 +60,14 @@ export class IDERepoSearchDO {
     public get projectId(): string | undefined {
         return this['project_id'];
     }
-    public withInProject(inProject: string): IDERepoSearchDO {
+    public withInProject(inProject: boolean): IDERepoSearchDO {
         this['in_project'] = inProject;
         return this;
     }
-    public set inProject(inProject: string  | undefined) {
+    public set inProject(inProject: boolean  | undefined) {
         this['in_project'] = inProject;
     }
-    public get inProject(): string | undefined {
+    public get inProject(): boolean | undefined {
         return this['in_project'];
     }
 }

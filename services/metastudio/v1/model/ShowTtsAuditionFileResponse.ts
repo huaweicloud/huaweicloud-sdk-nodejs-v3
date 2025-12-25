@@ -4,6 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowTtsAuditionFileResponse extends SdkResponse {
     private 'is_file_complete'?: boolean;
+    public code?: string;
     public message?: string;
     public files?: Array<AuditionFile>;
     public constructor() { 
@@ -18,6 +19,10 @@ export class ShowTtsAuditionFileResponse extends SdkResponse {
     }
     public get isFileComplete(): boolean | undefined {
         return this['is_file_complete'];
+    }
+    public withCode(code: string): ShowTtsAuditionFileResponse {
+        this['code'] = code;
+        return this;
     }
     public withMessage(message: string): ShowTtsAuditionFileResponse {
         this['message'] = message;

@@ -4,6 +4,7 @@ import { ResourceDimension } from './ResourceDimension';
 
 export class ListNotificationMaskRequestBody {
     private 'relation_type'?: ListRelationType;
+    private 'alarm_ids'?: Array<string>;
     private 'relation_ids'?: Array<string>;
     private 'metric_name'?: string;
     private 'resource_level'?: ListNotificationMaskRequestBodyResourceLevelEnum | string;
@@ -26,6 +27,16 @@ export class ListNotificationMaskRequestBody {
     }
     public get relationType(): ListRelationType | undefined {
         return this['relation_type'];
+    }
+    public withAlarmIds(alarmIds: Array<string>): ListNotificationMaskRequestBody {
+        this['alarm_ids'] = alarmIds;
+        return this;
+    }
+    public set alarmIds(alarmIds: Array<string>  | undefined) {
+        this['alarm_ids'] = alarmIds;
+    }
+    public get alarmIds(): Array<string> | undefined {
+        return this['alarm_ids'];
     }
     public withRelationIds(relationIds: Array<string>): ListNotificationMaskRequestBody {
         this['relation_ids'] = relationIds;

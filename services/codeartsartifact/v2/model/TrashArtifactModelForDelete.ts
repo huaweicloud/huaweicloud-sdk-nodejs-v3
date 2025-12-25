@@ -2,13 +2,13 @@
 
 export class TrashArtifactModelForDelete {
     public id?: string;
-    public fomat?: string;
+    public format?: string;
     public uri?: string;
     public status?: string;
     private 'include_pattern'?: string;
-    public constructor(id?: string, fomat?: string, uri?: string, status?: string) { 
+    public constructor(id?: string, format?: string, uri?: string, status?: string) { 
         this['id'] = id;
-        this['fomat'] = fomat;
+        this['format'] = format;
         this['uri'] = uri;
         this['status'] = status;
     }
@@ -16,8 +16,8 @@ export class TrashArtifactModelForDelete {
         this['id'] = id;
         return this;
     }
-    public withFomat(fomat: string): TrashArtifactModelForDelete {
-        this['fomat'] = fomat;
+    public withFormat(format: string): TrashArtifactModelForDelete {
+        this['format'] = format;
         return this;
     }
     public withUri(uri: string): TrashArtifactModelForDelete {

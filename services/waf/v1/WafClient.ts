@@ -1209,11 +1209,11 @@ export class WafClient {
     }
 
     /**
-     * 根据Id查询机房IP情报防护规则
+     * 根据Id查询威胁情报访问控制规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 根据Id查询机房IP情报防护规则
+     * @summary 根据Id查询威胁情报访问控制规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id，响应体的id字段 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} ruleId **参数解释：** 威胁情报规则ip，从接口 “查询威胁情报规则列表”（ListIpReputationRules）获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
@@ -1697,11 +1697,11 @@ export class WafClient {
     }
 
     /**
-     * 创建IP情报规则
+     * 创建威胁情报访问控制规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建机房IP情报规则
+     * @summary 创建威胁情报访问控制规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {CreateIpReputationRuleRequestBody} createIpReputationRuleRequestBody **参数解释：** 创建地理访问控制请求体 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
@@ -2190,11 +2190,11 @@ export class WafClient {
     }
 
     /**
-     * 删除IP情报防护规则
+     * 删除威胁情报访问控制规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除机房IP情报防护规则
+     * @summary 删除威胁情报访问控制规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} ruleId **参数解释：** 机房IP情报访问控制规则id，通过\&quot;查询威胁情报规则列表\&quot;接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
@@ -4567,11 +4567,11 @@ export class WafClient {
     }
 
     /**
-     * 更新IP情报防护规则
+     * 更新威胁情报访问控制规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 更新机房IP情报防护规则
+     * @summary 更新威胁情报访问控制规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id，响应体的id字段 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} ruleId **参数解释：** 机房IP情报访问控制规则id，通过\&quot;查询威胁情报规则列表\&quot;接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
@@ -6346,7 +6346,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 根据Id查询机房IP情报防护规则
+         * 根据Id查询威胁情报访问控制规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7603,7 +7603,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建IP情报规则
+         * 创建威胁情报访问控制规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8875,7 +8875,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除IP情报防护规则
+         * 删除威胁情报访问控制规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -15630,7 +15630,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新IP情报防护规则
+         * 更新威胁情报访问控制规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

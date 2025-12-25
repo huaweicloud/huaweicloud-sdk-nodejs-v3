@@ -1,14 +1,16 @@
+import { ArtifactSearchResult } from './ArtifactSearchResult';
+import { StandarBaseResponseV5 } from './StandarBaseResponseV5';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class SearchByChecksumResponse extends SdkResponse {
-    public status?: string;
+    public status?: SearchByChecksumResponseStatusEnum | string;
     private 'trace_id'?: string;
-    public result?: object;
+    public result?: Array<ArtifactSearchResult>;
     public constructor() { 
         super();
     }
-    public withStatus(status: string): SearchByChecksumResponse {
+    public withStatus(status: SearchByChecksumResponseStatusEnum | string): SearchByChecksumResponse {
         this['status'] = status;
         return this;
     }
@@ -22,8 +24,17 @@ export class SearchByChecksumResponse extends SdkResponse {
     public get traceId(): string | undefined {
         return this['trace_id'];
     }
-    public withResult(result: object): SearchByChecksumResponse {
+    public withResult(result: Array<ArtifactSearchResult>): SearchByChecksumResponse {
         this['result'] = result;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SearchByChecksumResponseStatusEnum {
+    SUCCESS = 'success',
+    ERROR = 'error'
 }

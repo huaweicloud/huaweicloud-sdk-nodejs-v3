@@ -2,14 +2,24 @@ import { BaselineSearchRequestBody } from './BaselineSearchRequestBody';
 
 
 export class SearchBaselineRequest {
+    private 'content-type'?: string;
     private 'workspace_id'?: string;
     private 'X-Language'?: string;
-    private 'content-type'?: string;
     public body?: BaselineSearchRequestBody;
-    public constructor(workspaceId?: string, xLanguage?: string, contentType?: string) { 
+    public constructor(contentType?: string, workspaceId?: string, xLanguage?: string) { 
+        this['content-type'] = contentType;
         this['workspace_id'] = workspaceId;
         this['X-Language'] = xLanguage;
+    }
+    public withContentType(contentType: string): SearchBaselineRequest {
         this['content-type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['content-type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['content-type'];
     }
     public withWorkspaceId(workspaceId: string): SearchBaselineRequest {
         this['workspace_id'] = workspaceId;
@@ -30,16 +40,6 @@ export class SearchBaselineRequest {
     }
     public get xLanguage(): string | undefined {
         return this['X-Language'];
-    }
-    public withContentType(contentType: string): SearchBaselineRequest {
-        this['content-type'] = contentType;
-        return this;
-    }
-    public set contentType(contentType: string  | undefined) {
-        this['content-type'] = contentType;
-    }
-    public get contentType(): string | undefined {
-        return this['content-type'];
     }
     public withBody(body: BaselineSearchRequestBody): SearchBaselineRequest {
         this['body'] = body;

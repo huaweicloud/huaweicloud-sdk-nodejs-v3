@@ -3,7 +3,7 @@ import { RepositoryProtectedActionBasicBodyDto } from './RepositoryProtectedActi
 
 export class RepositoryProtectedTagActionBodyDto {
     public enable?: boolean;
-    private 'user_ids'?: Array<object>;
+    private 'user_ids'?: Array<number>;
     private 'user_team_ids'?: Array<number>;
     private 'related_role_ids'?: Array<string>;
     public action?: RepositoryProtectedTagActionBodyDtoActionEnum | string;
@@ -13,14 +13,14 @@ export class RepositoryProtectedTagActionBodyDto {
         this['enable'] = enable;
         return this;
     }
-    public withUserIds(userIds: Array<object>): RepositoryProtectedTagActionBodyDto {
+    public withUserIds(userIds: Array<number>): RepositoryProtectedTagActionBodyDto {
         this['user_ids'] = userIds;
         return this;
     }
-    public set userIds(userIds: Array<object>  | undefined) {
+    public set userIds(userIds: Array<number>  | undefined) {
         this['user_ids'] = userIds;
     }
-    public get userIds(): Array<object> | undefined {
+    public get userIds(): Array<number> | undefined {
         return this['user_ids'];
     }
     public withUserTeamIds(userTeamIds: Array<number>): RepositoryProtectedTagActionBodyDto {

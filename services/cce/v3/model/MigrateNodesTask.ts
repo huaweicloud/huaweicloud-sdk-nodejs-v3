@@ -1,12 +1,10 @@
 import { MigrateNodesSpec } from './MigrateNodesSpec';
-import { TaskStatus } from './TaskStatus';
 
 
 export class MigrateNodesTask {
     public apiVersion?: string;
     public kind?: string;
     public spec?: MigrateNodesSpec;
-    public status?: TaskStatus;
     public constructor(spec?: MigrateNodesSpec) { 
         this['spec'] = spec;
     }
@@ -20,10 +18,6 @@ export class MigrateNodesTask {
     }
     public withSpec(spec: MigrateNodesSpec): MigrateNodesTask {
         this['spec'] = spec;
-        return this;
-    }
-    public withStatus(status: TaskStatus): MigrateNodesTask {
-        this['status'] = status;
         return this;
     }
 }

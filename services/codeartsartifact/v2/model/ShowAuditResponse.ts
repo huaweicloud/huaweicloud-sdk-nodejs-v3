@@ -1,14 +1,16 @@
+import { AuditResult } from './AuditResult';
+import { StandarBaseResponseV5 } from './StandarBaseResponseV5';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowAuditResponse extends SdkResponse {
-    public status?: string;
+    public status?: ShowAuditResponseStatusEnum | string;
     private 'trace_id'?: string;
-    public result?: object;
+    public result?: AuditResult;
     public constructor() { 
         super();
     }
-    public withStatus(status: string): ShowAuditResponse {
+    public withStatus(status: ShowAuditResponseStatusEnum | string): ShowAuditResponse {
         this['status'] = status;
         return this;
     }
@@ -22,8 +24,17 @@ export class ShowAuditResponse extends SdkResponse {
     public get traceId(): string | undefined {
         return this['trace_id'];
     }
-    public withResult(result: object): ShowAuditResponse {
+    public withResult(result: AuditResult): ShowAuditResponse {
         this['result'] = result;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowAuditResponseStatusEnum {
+    SUCCESS = 'success',
+    ERROR = 'error'
 }

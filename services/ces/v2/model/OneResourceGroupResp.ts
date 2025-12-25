@@ -6,6 +6,7 @@ export class OneResourceGroupResp {
     private 'group_name'?: string;
     private 'group_id'?: string;
     private 'create_time'?: Date;
+    private 'update_time'?: Date;
     private 'enterprise_project_id'?: string;
     public type?: OneResourceGroupRespTypeEnum | string;
     public status?: OneResourceGroupRespStatusEnum | string;
@@ -13,10 +14,12 @@ export class OneResourceGroupResp {
     private 'resource_statistics'?: OneResourceGroupRespResourceStatistics;
     private 'related_ep_ids'?: Array<string>;
     private 'association_alarm_templates'?: Array<AssociationAlarmTemplate>;
-    public constructor(groupName?: string, groupId?: string, createTime?: Date, enterpriseProjectId?: string, type?: string) { 
+    private 'resource_level'?: OneResourceGroupRespResourceLevelEnum | string;
+    public constructor(groupName?: string, groupId?: string, createTime?: Date, updateTime?: Date, enterpriseProjectId?: string, type?: string) { 
         this['group_name'] = groupName;
         this['group_id'] = groupId;
         this['create_time'] = createTime;
+        this['update_time'] = updateTime;
         this['enterprise_project_id'] = enterpriseProjectId;
         this['type'] = type;
     }
@@ -49,6 +52,16 @@ export class OneResourceGroupResp {
     }
     public get createTime(): Date | undefined {
         return this['create_time'];
+    }
+    public withUpdateTime(updateTime: Date): OneResourceGroupResp {
+        this['update_time'] = updateTime;
+        return this;
+    }
+    public set updateTime(updateTime: Date  | undefined) {
+        this['update_time'] = updateTime;
+    }
+    public get updateTime(): Date | undefined {
+        return this['update_time'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): OneResourceGroupResp {
         this['enterprise_project_id'] = enterpriseProjectId;
@@ -108,6 +121,16 @@ export class OneResourceGroupResp {
     public get associationAlarmTemplates(): Array<AssociationAlarmTemplate> | undefined {
         return this['association_alarm_templates'];
     }
+    public withResourceLevel(resourceLevel: OneResourceGroupRespResourceLevelEnum | string): OneResourceGroupResp {
+        this['resource_level'] = resourceLevel;
+        return this;
+    }
+    public set resourceLevel(resourceLevel: OneResourceGroupRespResourceLevelEnum | string  | undefined) {
+        this['resource_level'] = resourceLevel;
+    }
+    public get resourceLevel(): OneResourceGroupRespResourceLevelEnum | string | undefined {
+        return this['resource_level'];
+    }
 }
 
 /**
@@ -117,9 +140,9 @@ export class OneResourceGroupResp {
 export enum OneResourceGroupRespTypeEnum {
     EPS = 'EPS',
     TAG = 'TAG',
-    NAME = 'NAME',
+    MANUAL = 'Manual',
     COMB = 'COMB',
-    MANUAL = 'Manual'
+    NAME = 'NAME'
 }
 /**
     * @export
@@ -138,4 +161,12 @@ export enum OneResourceGroupRespEventStatusEnum {
     HEALTH = 'health',
     UNHEALTHY = 'unhealthy',
     NO_ALARM_RULE = 'no_alarm_rule'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum OneResourceGroupRespResourceLevelEnum {
+    PRODUCT = 'product',
+    DIMENSION = 'dimension'
 }

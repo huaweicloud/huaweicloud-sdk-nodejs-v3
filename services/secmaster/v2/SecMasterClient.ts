@@ -2,258 +2,343 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
-import { ActionInfo } from './model/ActionInfo';
-import { ActionInstanceInfo } from './model/ActionInstanceInfo';
-import { Alert } from './model/Alert';
-import { AlertAlertType } from './model/AlertAlertType';
-import { AlertDataSource } from './model/AlertDataSource';
-import { AlertDestGeo } from './model/AlertDestGeo';
-import { AlertDetail } from './model/AlertDetail';
-import { AlertDetailDataclassRef } from './model/AlertDetailDataclassRef';
-import { AlertEnvironment } from './model/AlertEnvironment';
-import { AlertFileInfo } from './model/AlertFileInfo';
-import { AlertNetworkList } from './model/AlertNetworkList';
-import { AlertProcess } from './model/AlertProcess';
+import { AccumulatedTimes } from './model/AccumulatedTimes';
+import { AdhocQueryAnalysisField } from './model/AdhocQueryAnalysisField';
+import { AlertDescription } from './model/AlertDescription';
+import { AlertGrouping } from './model/AlertGrouping';
+import { AlertName } from './model/AlertName';
 import { AlertRemediation } from './model/AlertRemediation';
-import { AlertResourceList } from './model/AlertResourceList';
-import { AlertRule } from './model/AlertRule';
+import { AlertRuleDescription } from './model/AlertRuleDescription';
+import { AlertRuleEnvironment } from './model/AlertRuleEnvironment';
+import { AlertRuleItem } from './model/AlertRuleItem';
+import { AlertRuleJobSetting } from './model/AlertRuleJobSetting';
+import { AlertRuleName } from './model/AlertRuleName';
+import { AlertRuleProcessError } from './model/AlertRuleProcessError';
+import { AlertRuleSchedule } from './model/AlertRuleSchedule';
+import { AlertRuleScript } from './model/AlertRuleScript';
 import { AlertRuleTemplate } from './model/AlertRuleTemplate';
-import { AlertRuleTrigger } from './model/AlertRuleTrigger';
-import { AlertSrcGeo } from './model/AlertSrcGeo';
-import { AlertUserInfo } from './model/AlertUserInfo';
-import { AopWorkflowInfo } from './model/AopWorkflowInfo';
-import { ApproveOpinionDetail } from './model/ApproveOpinionDetail';
-import { ApprovePlaybookInfo } from './model/ApprovePlaybookInfo';
-import { AuditLogInfo } from './model/AuditLogInfo';
+import { AlertRuleTemplateDescription } from './model/AlertRuleTemplateDescription';
+import { AlertSeverities } from './model/AlertSeverities';
+import { AlertSuppression } from './model/AlertSuppression';
+import { AnalysisScript } from './model/AnalysisScript';
+import { AnalysisScriptParam } from './model/AnalysisScriptParam';
+import { AnalysisScriptType } from './model/AnalysisScriptType';
+import { BaselineCatalogModel } from './model/BaselineCatalogModel';
 import { BaselineSearchRequestBody } from './model/BaselineSearchRequestBody';
-import { BatchOperateAlertResult } from './model/BatchOperateAlertResult';
-import { BatchOperateDataobjectResult } from './model/BatchOperateDataobjectResult';
-import { BatchSearchMetricHitsRequest } from './model/BatchSearchMetricHitsRequest';
-import { BatchSearchMetricHitsRequestBody } from './model/BatchSearchMetricHitsRequestBody';
-import { BatchSearchMetricHitsResponse } from './model/BatchSearchMetricHitsResponse';
-import { ChangeAlertRequest } from './model/ChangeAlertRequest';
-import { ChangeAlertRequestBody } from './model/ChangeAlertRequestBody';
-import { ChangeAlertResponse } from './model/ChangeAlertResponse';
-import { ChangeIncidentRequest } from './model/ChangeIncidentRequest';
-import { ChangeIncidentRequestBody } from './model/ChangeIncidentRequestBody';
-import { ChangeIncidentResponse } from './model/ChangeIncidentResponse';
-import { ChangePlaybookInstanceRequest } from './model/ChangePlaybookInstanceRequest';
-import { ChangePlaybookInstanceResponse } from './model/ChangePlaybookInstanceResponse';
-import { ConditionInfo } from './model/ConditionInfo';
-import { ConditionItem } from './model/ConditionItem';
-import { CopyPlaybookInfo } from './model/CopyPlaybookInfo';
-import { CopyPlaybookVersionRequest } from './model/CopyPlaybookVersionRequest';
-import { CopyPlaybookVersionResponse } from './model/CopyPlaybookVersionResponse';
-import { CreateAction } from './model/CreateAction';
-import { CreateAlertRequest } from './model/CreateAlertRequest';
-import { CreateAlertRequestBody } from './model/CreateAlertRequestBody';
-import { CreateAlertResponse } from './model/CreateAlertResponse';
+import { BaselineSearchRequestBodyCondition } from './model/BaselineSearchRequestBodyCondition';
+import { BaselineSearchRequestBodyConditionConditions } from './model/BaselineSearchRequestBodyConditionConditions';
+import { BatchOperateBaselineResult } from './model/BatchOperateBaselineResult';
+import { CheckitemCatalogModel } from './model/CheckitemCatalogModel';
+import { CheckitemModel } from './model/CheckitemModel';
+import { CodeSegment } from './model/CodeSegment';
+import { CodeSegmentCode } from './model/CodeSegmentCode';
+import { CodeSegmentDescription } from './model/CodeSegmentDescription';
+import { CodeSegmentName } from './model/CodeSegmentName';
+import { ColumnDisplaySetting } from './model/ColumnDisplaySetting';
+import { CompliancePackageModel } from './model/CompliancePackageModel';
+import { CreateAdhocQueryRequest } from './model/CreateAdhocQueryRequest';
+import { CreateAdhocQueryRequestBody } from './model/CreateAdhocQueryRequestBody';
+import { CreateAdhocQueryResponse } from './model/CreateAdhocQueryResponse';
 import { CreateAlertRuleRequest } from './model/CreateAlertRuleRequest';
 import { CreateAlertRuleRequestBody } from './model/CreateAlertRuleRequestBody';
 import { CreateAlertRuleResponse } from './model/CreateAlertRuleResponse';
-import { CreateAlertRuleSimulationRequest } from './model/CreateAlertRuleSimulationRequest';
-import { CreateAlertRuleSimulationRequestBody } from './model/CreateAlertRuleSimulationRequestBody';
-import { CreateAlertRuleSimulationResponse } from './model/CreateAlertRuleSimulationResponse';
-import { CreateBatchOrderAlertsRequest } from './model/CreateBatchOrderAlertsRequest';
-import { CreateBatchOrderAlertsResponse } from './model/CreateBatchOrderAlertsResponse';
-import { CreateDataobjectRelationsRequest } from './model/CreateDataobjectRelationsRequest';
-import { CreateDataobjectRelationsRequestBody } from './model/CreateDataobjectRelationsRequestBody';
-import { CreateDataobjectRelationsResponse } from './model/CreateDataobjectRelationsResponse';
-import { CreateDataspaceRequest } from './model/CreateDataspaceRequest';
-import { CreateDataspaceRequestBody } from './model/CreateDataspaceRequestBody';
-import { CreateDataspaceResponse } from './model/CreateDataspaceResponse';
-import { CreateIncidentRequest } from './model/CreateIncidentRequest';
-import { CreateIncidentRequestBody } from './model/CreateIncidentRequestBody';
-import { CreateIncidentResponse } from './model/CreateIncidentResponse';
-import { CreateIndicatorDetail } from './model/CreateIndicatorDetail';
-import { CreateIndicatorDetailDataSource } from './model/CreateIndicatorDetailDataSource';
-import { CreateIndicatorDetailEnvironment } from './model/CreateIndicatorDetailEnvironment';
-import { CreateIndicatorDetailIndicatorType } from './model/CreateIndicatorDetailIndicatorType';
-import { CreateIndicatorRequest } from './model/CreateIndicatorRequest';
-import { CreateIndicatorResponse } from './model/CreateIndicatorResponse';
+import { CreateAnalysisScriptRequest } from './model/CreateAnalysisScriptRequest';
+import { CreateAnalysisScriptRequestBody } from './model/CreateAnalysisScriptRequestBody';
+import { CreateAnalysisScriptResponse } from './model/CreateAnalysisScriptResponse';
+import { CreateBy } from './model/CreateBy';
+import { CreateCodeSegmentRequest } from './model/CreateCodeSegmentRequest';
+import { CreateCodeSegmentRequestBody } from './model/CreateCodeSegmentRequestBody';
+import { CreateCodeSegmentResponse } from './model/CreateCodeSegmentResponse';
+import { CreateCustomizedCheckitemRequest } from './model/CreateCustomizedCheckitemRequest';
+import { CreateCustomizedCheckitemResponse } from './model/CreateCustomizedCheckitemResponse';
+import { CreateCustomizedCompliancePackageRequest } from './model/CreateCustomizedCompliancePackageRequest';
+import { CreateCustomizedCompliancePackageResponse } from './model/CreateCustomizedCompliancePackageResponse';
+import { CreateDataTransformationRequest } from './model/CreateDataTransformationRequest';
+import { CreateDataTransformationRequestBody } from './model/CreateDataTransformationRequestBody';
+import { CreateDataTransformationResponse } from './model/CreateDataTransformationResponse';
+import { CreateLayoutFieldRequest } from './model/CreateLayoutFieldRequest';
+import { CreateLayoutFieldRequestBody } from './model/CreateLayoutFieldRequestBody';
+import { CreateLayoutFieldResponse } from './model/CreateLayoutFieldResponse';
 import { CreatePipeRequest } from './model/CreatePipeRequest';
 import { CreatePipeRequestBody } from './model/CreatePipeRequestBody';
 import { CreatePipeResponse } from './model/CreatePipeResponse';
-import { CreatePlaybookActionRequest } from './model/CreatePlaybookActionRequest';
-import { CreatePlaybookActionResponse } from './model/CreatePlaybookActionResponse';
-import { CreatePlaybookApproveRequest } from './model/CreatePlaybookApproveRequest';
-import { CreatePlaybookApproveResponse } from './model/CreatePlaybookApproveResponse';
-import { CreatePlaybookInfo } from './model/CreatePlaybookInfo';
-import { CreatePlaybookRequest } from './model/CreatePlaybookRequest';
-import { CreatePlaybookResponse } from './model/CreatePlaybookResponse';
-import { CreatePlaybookRuleRequest } from './model/CreatePlaybookRuleRequest';
-import { CreatePlaybookRuleResponse } from './model/CreatePlaybookRuleResponse';
-import { CreatePlaybookVersionInfo } from './model/CreatePlaybookVersionInfo';
-import { CreatePlaybookVersionRequest } from './model/CreatePlaybookVersionRequest';
-import { CreatePlaybookVersionResponse } from './model/CreatePlaybookVersionResponse';
-import { CreatePostPaidOrderRequest } from './model/CreatePostPaidOrderRequest';
-import { CreatePostPaidOrderResponse } from './model/CreatePostPaidOrderResponse';
-import { CreateRuleInfo } from './model/CreateRuleInfo';
-import { CreateWorkspaceRequest } from './model/CreateWorkspaceRequest';
-import { CreateWorkspaceRequestBody } from './model/CreateWorkspaceRequestBody';
-import { CreateWorkspaceResponse } from './model/CreateWorkspaceResponse';
-import { CreateWorkspaceResponseBody } from './model/CreateWorkspaceResponseBody';
-import { CreateWorkspaceResponseBodyWorkspaceAgencyList } from './model/CreateWorkspaceResponseBodyWorkspaceAgencyList';
-import { DataClassRefPojo } from './model/DataClassRefPojo';
-import { DataClassResponseBody } from './model/DataClassResponseBody';
-import { DataObject } from './model/DataObject';
-import { DataObjectDetail } from './model/DataObjectDetail';
-import { DataObjectNetworkList } from './model/DataObjectNetworkList';
-import { DataclassInfoRef } from './model/DataclassInfoRef';
-import { DataobjectInfo } from './model/DataobjectInfo';
-import { DataobjectSearch } from './model/DataobjectSearch';
-import { DataobjectSearchCondition } from './model/DataobjectSearchCondition';
-import { DataobjectSearchConditionConditions } from './model/DataobjectSearchConditionConditions';
-import { DeleteAlertRequest } from './model/DeleteAlertRequest';
-import { DeleteAlertRequestBody } from './model/DeleteAlertRequestBody';
-import { DeleteAlertResponse } from './model/DeleteAlertResponse';
+import { CreateRetrieveScriptRequest } from './model/CreateRetrieveScriptRequest';
+import { CreateRetrieveScriptRequestBody } from './model/CreateRetrieveScriptRequestBody';
+import { CreateRetrieveScriptResponse } from './model/CreateRetrieveScriptResponse';
+import { CreateSqlValidationRequest } from './model/CreateSqlValidationRequest';
+import { CreateSqlValidationRequestBody } from './model/CreateSqlValidationRequestBody';
+import { CreateSqlValidationResponse } from './model/CreateSqlValidationResponse';
+import { CreateTableAnalysisRequest } from './model/CreateTableAnalysisRequest';
+import { CreateTableAnalysisResponse } from './model/CreateTableAnalysisResponse';
+import { CreateTableRequest } from './model/CreateTableRequest';
+import { CreateTableRequestBody } from './model/CreateTableRequestBody';
+import { CreateTableResponse } from './model/CreateTableResponse';
+import { CuQuotaAmount } from './model/CuQuotaAmount';
+import { CuUsage } from './model/CuUsage';
+import { DataClassification } from './model/DataClassification';
+import { DataLayering } from './model/DataLayering';
+import { DataRow } from './model/DataRow';
+import { DataTransformationDescription } from './model/DataTransformationDescription';
+import { DataTransformationItem } from './model/DataTransformationItem';
+import { DataTransformationName } from './model/DataTransformationName';
+import { DataTransformationProcessError } from './model/DataTransformationProcessError';
+import { DeleteAdhocQueryRequest } from './model/DeleteAdhocQueryRequest';
+import { DeleteAdhocQueryResponse } from './model/DeleteAdhocQueryResponse';
 import { DeleteAlertRuleRequest } from './model/DeleteAlertRuleRequest';
 import { DeleteAlertRuleResponse } from './model/DeleteAlertRuleResponse';
-import { DeleteDataobjectRelationsRequest } from './model/DeleteDataobjectRelationsRequest';
-import { DeleteDataobjectRelationsResponse } from './model/DeleteDataobjectRelationsResponse';
-import { DeleteIncidentRequest } from './model/DeleteIncidentRequest';
-import { DeleteIncidentRequestBody } from './model/DeleteIncidentRequestBody';
-import { DeleteIncidentResponse } from './model/DeleteIncidentResponse';
-import { DeleteIncidentResponseBodyData } from './model/DeleteIncidentResponseBodyData';
-import { DeleteIndicatorRequest } from './model/DeleteIndicatorRequest';
-import { DeleteIndicatorRequestBody } from './model/DeleteIndicatorRequestBody';
-import { DeleteIndicatorResponse } from './model/DeleteIndicatorResponse';
-import { DeletePlaybookActionRequest } from './model/DeletePlaybookActionRequest';
-import { DeletePlaybookActionResponse } from './model/DeletePlaybookActionResponse';
-import { DeletePlaybookRequest } from './model/DeletePlaybookRequest';
-import { DeletePlaybookResponse } from './model/DeletePlaybookResponse';
-import { DeletePlaybookRuleRequest } from './model/DeletePlaybookRuleRequest';
-import { DeletePlaybookRuleResponse } from './model/DeletePlaybookRuleResponse';
-import { DeletePlaybookVersionRequest } from './model/DeletePlaybookVersionRequest';
-import { DeletePlaybookVersionResponse } from './model/DeletePlaybookVersionResponse';
-import { DeleteWorkspaceRequest } from './model/DeleteWorkspaceRequest';
-import { DeleteWorkspaceResponse } from './model/DeleteWorkspaceResponse';
+import { DeleteAnalysisScriptRequest } from './model/DeleteAnalysisScriptRequest';
+import { DeleteAnalysisScriptResponse } from './model/DeleteAnalysisScriptResponse';
+import { DeleteCodeSegmentRequest } from './model/DeleteCodeSegmentRequest';
+import { DeleteCodeSegmentResponse } from './model/DeleteCodeSegmentResponse';
+import { DeleteCustomizedCheckitemsRequest } from './model/DeleteCustomizedCheckitemsRequest';
+import { DeleteCustomizedCheckitemsRequestBody } from './model/DeleteCustomizedCheckitemsRequestBody';
+import { DeleteCustomizedCheckitemsResponse } from './model/DeleteCustomizedCheckitemsResponse';
+import { DeleteCustomizedCompliancePackagesRequest } from './model/DeleteCustomizedCompliancePackagesRequest';
+import { DeleteCustomizedCompliancePackagesResponse } from './model/DeleteCustomizedCompliancePackagesResponse';
+import { DeleteDataTransformationRequest } from './model/DeleteDataTransformationRequest';
+import { DeleteDataTransformationResponse } from './model/DeleteDataTransformationResponse';
+import { DeleteLayoutFieldRequest } from './model/DeleteLayoutFieldRequest';
+import { DeleteLayoutFieldResponse } from './model/DeleteLayoutFieldResponse';
+import { DeletePipeRequest } from './model/DeletePipeRequest';
+import { DeletePipeResponse } from './model/DeletePipeResponse';
+import { DeleteRetrieveScriptRequest } from './model/DeleteRetrieveScriptRequest';
+import { DeleteRetrieveScriptResponse } from './model/DeleteRetrieveScriptResponse';
+import { DeleteTableRequest } from './model/DeleteTableRequest';
+import { DeleteTableResponse } from './model/DeleteTableResponse';
+import { Directory } from './model/Directory';
+import { DirectoryI18N } from './model/DirectoryI18N';
 import { DisableAlertRuleRequest } from './model/DisableAlertRuleRequest';
 import { DisableAlertRuleResponse } from './model/DisableAlertRuleResponse';
+import { DisableConsumptionV2RequestBody } from './model/DisableConsumptionV2RequestBody';
+import { DisableDataConsumptionRequest } from './model/DisableDataConsumptionRequest';
+import { DisableDataConsumptionResponse } from './model/DisableDataConsumptionResponse';
+import { DisableDataTransformationRequest } from './model/DisableDataTransformationRequest';
+import { DisableDataTransformationResponse } from './model/DisableDataTransformationResponse';
 import { EnableAlertRuleRequest } from './model/EnableAlertRuleRequest';
 import { EnableAlertRuleResponse } from './model/EnableAlertRuleResponse';
-import { FieldResponseBody } from './model/FieldResponseBody';
-import { Incident } from './model/Incident';
-import { IncidentDetail } from './model/IncidentDetail';
-import { IncidentEnvironment } from './model/IncidentEnvironment';
-import { IncidentIncidentType } from './model/IncidentIncidentType';
-import { IndicatorBatchOperateResponse } from './model/IndicatorBatchOperateResponse';
-import { IndicatorCreateRequest } from './model/IndicatorCreateRequest';
-import { IndicatorDataObjectDetail } from './model/IndicatorDataObjectDetail';
-import { IndicatorDataObjectDetailDataSource } from './model/IndicatorDataObjectDetailDataSource';
-import { IndicatorDataObjectDetailEnvironment } from './model/IndicatorDataObjectDetailEnvironment';
-import { IndicatorDataObjectDetailIndicatorType } from './model/IndicatorDataObjectDetailIndicatorType';
-import { IndicatorDetail } from './model/IndicatorDetail';
-import { IndicatorListSearchRequest } from './model/IndicatorListSearchRequest';
-import { KeyIndex } from './model/KeyIndex';
-import { ListAlertDetail } from './model/ListAlertDetail';
-import { ListAlertRsp } from './model/ListAlertRsp';
+import { EnableDataConsumptionRequest } from './model/EnableDataConsumptionRequest';
+import { EnableDataConsumptionResponse } from './model/EnableDataConsumptionResponse';
+import { EnableDataTransformationRequest } from './model/EnableDataTransformationRequest';
+import { EnableDataTransformationResponse } from './model/EnableDataTransformationResponse';
+import { EsMonitorBody } from './model/EsMonitorBody';
+import { Expression } from './model/Expression';
+import { FrequencyUnit } from './model/FrequencyUnit';
+import { IntInterval } from './model/IntInterval';
+import { IsapAlertDescription } from './model/IsapAlertDescription';
+import { IsapAlertGrouping } from './model/IsapAlertGrouping';
+import { IsapAlertName } from './model/IsapAlertName';
+import { IsapAlertRemediation } from './model/IsapAlertRemediation';
+import { IsapAlertSeverity } from './model/IsapAlertSeverity';
+import { IsapAlertSuppression } from './model/IsapAlertSuppression';
+import { IsapDataSpaceId } from './model/IsapDataSpaceId';
+import { IsapIntInterval } from './model/IsapIntInterval';
+import { IsapJobFieldNotNullPolicy } from './model/IsapJobFieldNotNullPolicy';
+import { IsapJobMode } from './model/IsapJobMode';
+import { IsapJobModeSettingDto } from './model/IsapJobModeSettingDto';
+import { IsapJobModeSettingVo } from './model/IsapJobModeSettingVo';
+import { IsapJobOutputSetting } from './model/IsapJobOutputSetting';
+import { IsapJobStartupModeEnum } from './model/IsapJobStartupModeEnum';
+import { IsapListCount } from './model/IsapListCount';
+import { IsapLongInterval } from './model/IsapLongInterval';
+import { IsapProjectId } from './model/IsapProjectId';
+import { IsapScriptName } from './model/IsapScriptName';
+import { IsapScriptTableName } from './model/IsapScriptTableName';
+import { IsapTable } from './model/IsapTable';
+import { IsapTableAlias } from './model/IsapTableAlias';
+import { IsapTableCategory } from './model/IsapTableCategory';
+import { IsapTableColumn } from './model/IsapTableColumn';
+import { IsapTableColumnDisplaySettingDto } from './model/IsapTableColumnDisplaySettingDto';
+import { IsapTableColumnDto } from './model/IsapTableColumnDto';
+import { IsapTableColumnTreeNodeTableColumnDto } from './model/IsapTableColumnTreeNodeTableColumnDto';
+import { IsapTableDisplaySettingDto } from './model/IsapTableDisplaySettingDto';
+import { IsapTableId } from './model/IsapTableId';
+import { IsapTableName } from './model/IsapTableName';
+import { IsapTableProcessError } from './model/IsapTableProcessError';
+import { IsapTableProcessStatus } from './model/IsapTableProcessStatus';
+import { IsapTableSchema } from './model/IsapTableSchema';
+import { IsapTableStorageSettingDto } from './model/IsapTableStorageSettingDto';
+import { IsapTimeStamp } from './model/IsapTimeStamp';
+import { IsapTimeUnit } from './model/IsapTimeUnit';
+import { IsapUserId } from './model/IsapUserId';
+import { IsapUuid } from './model/IsapUuid';
+import { IsapWorkspaceId } from './model/IsapWorkspaceId';
+import { JobEnvironment } from './model/JobEnvironment';
+import { JobMode } from './model/JobMode';
+import { JobProcessStatus } from './model/JobProcessStatus';
+import { JobScript } from './model/JobScript';
+import { JobStatus } from './model/JobStatus';
+import { LayoutFieldResponseBody } from './model/LayoutFieldResponseBody';
 import { ListAlertRuleMetricsRequest } from './model/ListAlertRuleMetricsRequest';
 import { ListAlertRuleMetricsResponse } from './model/ListAlertRuleMetricsResponse';
+import { ListAlertRuleTemplateMetricsRequest } from './model/ListAlertRuleTemplateMetricsRequest';
+import { ListAlertRuleTemplateMetricsResponse } from './model/ListAlertRuleTemplateMetricsResponse';
+import { ListAlertRuleTemplateMetricsResponseBodySeverity } from './model/ListAlertRuleTemplateMetricsResponseBodySeverity';
+import { ListAlertRuleTemplateMetricsResponseBodySeverityMetric } from './model/ListAlertRuleTemplateMetricsResponseBodySeverityMetric';
+import { ListAlertRuleTemplateMetricsResponseBodyStatus } from './model/ListAlertRuleTemplateMetricsResponseBodyStatus';
+import { ListAlertRuleTemplateMetricsResponseBodyStatusMetric } from './model/ListAlertRuleTemplateMetricsResponseBodyStatusMetric';
 import { ListAlertRuleTemplatesRequest } from './model/ListAlertRuleTemplatesRequest';
 import { ListAlertRuleTemplatesResponse } from './model/ListAlertRuleTemplatesResponse';
 import { ListAlertRulesRequest } from './model/ListAlertRulesRequest';
 import { ListAlertRulesResponse } from './model/ListAlertRulesResponse';
-import { ListAlertsRequest } from './model/ListAlertsRequest';
-import { ListAlertsResponse } from './model/ListAlertsResponse';
-import { ListDataclassFieldsRequest } from './model/ListDataclassFieldsRequest';
-import { ListDataclassFieldsResponse } from './model/ListDataclassFieldsResponse';
-import { ListDataclassRequest } from './model/ListDataclassRequest';
-import { ListDataclassResponse } from './model/ListDataclassResponse';
-import { ListDataobjectRelationsRequest } from './model/ListDataobjectRelationsRequest';
-import { ListDataobjectRelationsResponse } from './model/ListDataobjectRelationsResponse';
-import { ListIncidentsRequest } from './model/ListIncidentsRequest';
-import { ListIncidentsResponse } from './model/ListIncidentsResponse';
-import { ListIndicatorsRequest } from './model/ListIndicatorsRequest';
-import { ListIndicatorsResponse } from './model/ListIndicatorsResponse';
-import { ListPlaybookActionsRequest } from './model/ListPlaybookActionsRequest';
-import { ListPlaybookActionsResponse } from './model/ListPlaybookActionsResponse';
-import { ListPlaybookApprovesRequest } from './model/ListPlaybookApprovesRequest';
-import { ListPlaybookApprovesResponse } from './model/ListPlaybookApprovesResponse';
-import { ListPlaybookAuditLogsRequest } from './model/ListPlaybookAuditLogsRequest';
-import { ListPlaybookAuditLogsResponse } from './model/ListPlaybookAuditLogsResponse';
-import { ListPlaybookInstancesRequest } from './model/ListPlaybookInstancesRequest';
-import { ListPlaybookInstancesResponse } from './model/ListPlaybookInstancesResponse';
-import { ListPlaybookVersionsRequest } from './model/ListPlaybookVersionsRequest';
-import { ListPlaybookVersionsResponse } from './model/ListPlaybookVersionsResponse';
-import { ListPlaybooksRequest } from './model/ListPlaybooksRequest';
-import { ListPlaybooksResponse } from './model/ListPlaybooksResponse';
-import { ListWorkflowsRequest } from './model/ListWorkflowsRequest';
-import { ListWorkflowsResponse } from './model/ListWorkflowsResponse';
-import { ListWorkspacesRequest } from './model/ListWorkspacesRequest';
-import { ListWorkspacesResponse } from './model/ListWorkspacesResponse';
-import { MetricFormat } from './model/MetricFormat';
-import { ModifyActionInfo } from './model/ModifyActionInfo';
-import { ModifyPlaybookInfo } from './model/ModifyPlaybookInfo';
-import { ModifyPlaybookVersionInfo } from './model/ModifyPlaybookVersionInfo';
-import { ModifyRuleInfo } from './model/ModifyRuleInfo';
-import { OperationPlaybookInfo } from './model/OperationPlaybookInfo';
-import { OrderAlert } from './model/OrderAlert';
-import { OrderAlertIncidentContent } from './model/OrderAlertIncidentContent';
-import { OrderAlertIncidentContentIncidentType } from './model/OrderAlertIncidentContentIncidentType';
-import { PlaybookInfo } from './model/PlaybookInfo';
-import { PlaybookInfoRef } from './model/PlaybookInfoRef';
-import { PlaybookInstanceInfo } from './model/PlaybookInstanceInfo';
-import { PlaybookInstanceMonitorDetail } from './model/PlaybookInstanceMonitorDetail';
-import { PlaybookInstanceRunStatistics } from './model/PlaybookInstanceRunStatistics';
-import { PlaybookStatisticDetail } from './model/PlaybookStatisticDetail';
-import { PlaybookVersionInfo } from './model/PlaybookVersionInfo';
-import { PlaybookVersionListEntity } from './model/PlaybookVersionListEntity';
-import { PostPaidParam } from './model/PostPaidParam';
-import { ProductPostPaid } from './model/ProductPostPaid';
-import { RuleInfo } from './model/RuleInfo';
-import { Schedule } from './model/Schedule';
+import { ListAnalysisScriptsRequest } from './model/ListAnalysisScriptsRequest';
+import { ListAnalysisScriptsResponse } from './model/ListAnalysisScriptsResponse';
+import { ListCodeSegmentsRequest } from './model/ListCodeSegmentsRequest';
+import { ListCodeSegmentsResponse } from './model/ListCodeSegmentsResponse';
+import { ListCount } from './model/ListCount';
+import { ListDataTransformationMetricsRequest } from './model/ListDataTransformationMetricsRequest';
+import { ListDataTransformationMetricsResponse } from './model/ListDataTransformationMetricsResponse';
+import { ListDataTransformationsRequest } from './model/ListDataTransformationsRequest';
+import { ListDataTransformationsResponse } from './model/ListDataTransformationsResponse';
+import { ListDirectoriesRequest } from './model/ListDirectoriesRequest';
+import { ListDirectoriesResponse } from './model/ListDirectoriesResponse';
+import { ListLayoutFieldAllRequest } from './model/ListLayoutFieldAllRequest';
+import { ListLayoutFieldAllResponse } from './model/ListLayoutFieldAllResponse';
+import { ListPipesRequest } from './model/ListPipesRequest';
+import { ListPipesResponse } from './model/ListPipesResponse';
+import { ListRetrieveScriptsRequest } from './model/ListRetrieveScriptsRequest';
+import { ListRetrieveScriptsResponse } from './model/ListRetrieveScriptsResponse';
+import { ListTableHistogramsRequest } from './model/ListTableHistogramsRequest';
+import { ListTableHistogramsRequestBody } from './model/ListTableHistogramsRequestBody';
+import { ListTableHistogramsResponse } from './model/ListTableHistogramsResponse';
+import { ListTableLogsRequest } from './model/ListTableLogsRequest';
+import { ListTableLogsRequestBody } from './model/ListTableLogsRequestBody';
+import { ListTableLogsResponse } from './model/ListTableLogsResponse';
+import { ListTablesRequest } from './model/ListTablesRequest';
+import { ListTablesResponse } from './model/ListTablesResponse';
+import { MetricMap } from './model/MetricMap';
+import { MetricsStatus } from './model/MetricsStatus';
+import { Mode } from './model/Mode';
+import { Object1Map } from './model/Object1Map';
+import { Object2Map } from './model/Object2Map';
+import { Operator } from './model/Operator';
+import { PipeAlias } from './model/PipeAlias';
+import { PipeCategory } from './model/PipeCategory';
+import { PipeDescription } from './model/PipeDescription';
+import { PipeItem } from './model/PipeItem';
+import { PipeName } from './model/PipeName';
+import { PipeOwnerType } from './model/PipeOwnerType';
+import { PipeProcessError } from './model/PipeProcessError';
+import { PipeProcessStatus } from './model/PipeProcessStatus';
+import { PipeResource } from './model/PipeResource';
+import { PipeSchema } from './model/PipeSchema';
+import { PipeStorageSetting } from './model/PipeStorageSetting';
+import { ProcessError } from './model/ProcessError';
+import { ProcessStatus } from './model/ProcessStatus';
+import { Query } from './model/Query';
+import { QueryType } from './model/QueryType';
+import { RetrieveScript } from './model/RetrieveScript';
+import { Script } from './model/Script';
+import { ScriptCategory } from './model/ScriptCategory';
+import { ScriptDescription } from './model/ScriptDescription';
+import { ScriptDirectory } from './model/ScriptDirectory';
+import { ScriptParam } from './model/ScriptParam';
 import { SearchBaselineRequest } from './model/SearchBaselineRequest';
 import { SearchBaselineResponse } from './model/SearchBaselineResponse';
-import { ShowAlertRequest } from './model/ShowAlertRequest';
-import { ShowAlertResponse } from './model/ShowAlertResponse';
-import { ShowAlertRspMalware } from './model/ShowAlertRspMalware';
+import { SearchCheckitemsRequest } from './model/SearchCheckitemsRequest';
+import { SearchCheckitemsRequestBody } from './model/SearchCheckitemsRequestBody';
+import { SearchCheckitemsRequestBodyCondition } from './model/SearchCheckitemsRequestBodyCondition';
+import { SearchCheckitemsResponse } from './model/SearchCheckitemsResponse';
+import { SearchCompliancePackagesRequest } from './model/SearchCompliancePackagesRequest';
+import { SearchCompliancePackagesRequestBody } from './model/SearchCompliancePackagesRequestBody';
+import { SearchCompliancePackagesResponse } from './model/SearchCompliancePackagesResponse';
+import { SearchQuery } from './model/SearchQuery';
+import { SearchQueryField } from './model/SearchQueryField';
+import { SearchQueryResult } from './model/SearchQueryResult';
+import { SearchQueryResultHistogram } from './model/SearchQueryResultHistogram';
+import { SearchScriptParam } from './model/SearchScriptParam';
+import { Serverity } from './model/Serverity';
+import { ShowAdhocQueryResultResponseBodyTips } from './model/ShowAdhocQueryResultResponseBodyTips';
+import { ShowAdhocResultRequest } from './model/ShowAdhocResultRequest';
+import { ShowAdhocResultResponse } from './model/ShowAdhocResultResponse';
 import { ShowAlertRuleRequest } from './model/ShowAlertRuleRequest';
 import { ShowAlertRuleResponse } from './model/ShowAlertRuleResponse';
 import { ShowAlertRuleTemplateRequest } from './model/ShowAlertRuleTemplateRequest';
 import { ShowAlertRuleTemplateResponse } from './model/ShowAlertRuleTemplateResponse';
-import { ShowIncidentRequest } from './model/ShowIncidentRequest';
-import { ShowIncidentResponse } from './model/ShowIncidentResponse';
-import { ShowIndicatorDetailRequest } from './model/ShowIndicatorDetailRequest';
-import { ShowIndicatorDetailResponse } from './model/ShowIndicatorDetailResponse';
-import { ShowMetricResultResponseBody } from './model/ShowMetricResultResponseBody';
-import { ShowMetricResultResponseBodyResult } from './model/ShowMetricResultResponseBodyResult';
-import { ShowPlaybookInstanceRequest } from './model/ShowPlaybookInstanceRequest';
-import { ShowPlaybookInstanceResponse } from './model/ShowPlaybookInstanceResponse';
-import { ShowPlaybookMonitorsRequest } from './model/ShowPlaybookMonitorsRequest';
-import { ShowPlaybookMonitorsResponse } from './model/ShowPlaybookMonitorsResponse';
-import { ShowPlaybookRequest } from './model/ShowPlaybookRequest';
-import { ShowPlaybookResponse } from './model/ShowPlaybookResponse';
-import { ShowPlaybookRuleRequest } from './model/ShowPlaybookRuleRequest';
-import { ShowPlaybookRuleResponse } from './model/ShowPlaybookRuleResponse';
-import { ShowPlaybookStatisticsRequest } from './model/ShowPlaybookStatisticsRequest';
-import { ShowPlaybookStatisticsResponse } from './model/ShowPlaybookStatisticsResponse';
-import { ShowPlaybookTopologyRequest } from './model/ShowPlaybookTopologyRequest';
-import { ShowPlaybookTopologyResponse } from './model/ShowPlaybookTopologyResponse';
-import { ShowPlaybookVersionRequest } from './model/ShowPlaybookVersionRequest';
-import { ShowPlaybookVersionResponse } from './model/ShowPlaybookVersionResponse';
-import { ShowWorkspaceRequest } from './model/ShowWorkspaceRequest';
-import { ShowWorkspaceResponse } from './model/ShowWorkspaceResponse';
-import { ShowWorkspaceResponseBodyWorkspace } from './model/ShowWorkspaceResponseBodyWorkspace';
-import { TagInfo } from './model/TagInfo';
-import { TagsPojo } from './model/TagsPojo';
+import { ShowAnalysisScriptRequest } from './model/ShowAnalysisScriptRequest';
+import { ShowAnalysisScriptResponse } from './model/ShowAnalysisScriptResponse';
+import { ShowCheckitemDetailRequest } from './model/ShowCheckitemDetailRequest';
+import { ShowCheckitemDetailResponse } from './model/ShowCheckitemDetailResponse';
+import { ShowCodeSegmentRequest } from './model/ShowCodeSegmentRequest';
+import { ShowCodeSegmentResponse } from './model/ShowCodeSegmentResponse';
+import { ShowCompliancePackageDetailRequest } from './model/ShowCompliancePackageDetailRequest';
+import { ShowCompliancePackageDetailResponse } from './model/ShowCompliancePackageDetailResponse';
+import { ShowDataConsumptionRequest } from './model/ShowDataConsumptionRequest';
+import { ShowDataConsumptionResponse } from './model/ShowDataConsumptionResponse';
+import { ShowDataTransformationRequest } from './model/ShowDataTransformationRequest';
+import { ShowDataTransformationResponse } from './model/ShowDataTransformationResponse';
+import { ShowLayoutFieldInfoRequest } from './model/ShowLayoutFieldInfoRequest';
+import { ShowLayoutFieldInfoResponse } from './model/ShowLayoutFieldInfoResponse';
+import { ShowMonitorStatsRequest } from './model/ShowMonitorStatsRequest';
+import { ShowMonitorStatsResponse } from './model/ShowMonitorStatsResponse';
+import { ShowPipeRequest } from './model/ShowPipeRequest';
+import { ShowPipeResponse } from './model/ShowPipeResponse';
+import { ShowPulsarMonitorStatsBody } from './model/ShowPulsarMonitorStatsBody';
+import { ShowRetrieveScriptRequest } from './model/ShowRetrieveScriptRequest';
+import { ShowRetrieveScriptResponse } from './model/ShowRetrieveScriptResponse';
+import { ShowSubscriptionResourcesRequest } from './model/ShowSubscriptionResourcesRequest';
+import { ShowSubscriptionResourcesResponse } from './model/ShowSubscriptionResourcesResponse';
+import { ShowTableRequest } from './model/ShowTableRequest';
+import { ShowTableResponse } from './model/ShowTableResponse';
+import { ShowVersionRequest } from './model/ShowVersionRequest';
+import { ShowVersionResponse } from './model/ShowVersionResponse';
+import { Simulation } from './model/Simulation';
+import { SkuEnum } from './model/SkuEnum';
+import { SpecCheckitemModel } from './model/SpecCheckitemModel';
+import { SqlValiTableName } from './model/SqlValiTableName';
+import { Status } from './model/Status';
+import { StatusMetric } from './model/StatusMetric';
+import { TableAlias } from './model/TableAlias';
+import { TableCategory } from './model/TableCategory';
+import { TableColumnDisplaySetting } from './model/TableColumnDisplaySetting';
+import { TableColumnForIsapPipe } from './model/TableColumnForIsapPipe';
+import { TableDescription } from './model/TableDescription';
+import { TableDisplaySetting } from './model/TableDisplaySetting';
+import { TableEditType } from './model/TableEditType';
+import { TableFormat } from './model/TableFormat';
+import { TableItem } from './model/TableItem';
+import { TableLockStatus } from './model/TableLockStatus';
+import { TableOwnerType } from './model/TableOwnerType';
+import { TableProcessError } from './model/TableProcessError';
+import { TableProcessStatus } from './model/TableProcessStatus';
+import { TableRWType } from './model/TableRWType';
+import { TableSchemaDto } from './model/TableSchemaDto';
+import { TableStorageSetting } from './model/TableStorageSetting';
+import { TemplateName } from './model/TemplateName';
+import { Trigger } from './model/Trigger';
 import { UpdateAlertRuleRequest } from './model/UpdateAlertRuleRequest';
 import { UpdateAlertRuleRequestBody } from './model/UpdateAlertRuleRequestBody';
 import { UpdateAlertRuleResponse } from './model/UpdateAlertRuleResponse';
-import { UpdateIndicatorRequest } from './model/UpdateIndicatorRequest';
-import { UpdateIndicatorRequestBody } from './model/UpdateIndicatorRequestBody';
-import { UpdateIndicatorResponse } from './model/UpdateIndicatorResponse';
-import { UpdatePlaybookActionRequest } from './model/UpdatePlaybookActionRequest';
-import { UpdatePlaybookActionResponse } from './model/UpdatePlaybookActionResponse';
-import { UpdatePlaybookRequest } from './model/UpdatePlaybookRequest';
-import { UpdatePlaybookResponse } from './model/UpdatePlaybookResponse';
-import { UpdatePlaybookRuleRequest } from './model/UpdatePlaybookRuleRequest';
-import { UpdatePlaybookRuleResponse } from './model/UpdatePlaybookRuleResponse';
-import { UpdatePlaybookVersionRequest } from './model/UpdatePlaybookVersionRequest';
-import { UpdatePlaybookVersionResponse } from './model/UpdatePlaybookVersionResponse';
-import { UpdateWorkspaceRequest } from './model/UpdateWorkspaceRequest';
-import { UpdateWorkspaceRequestBody } from './model/UpdateWorkspaceRequestBody';
-import { UpdateWorkspaceResponse } from './model/UpdateWorkspaceResponse';
+import { UpdateAnalysisScriptRequest } from './model/UpdateAnalysisScriptRequest';
+import { UpdateAnalysisScriptRequestBody } from './model/UpdateAnalysisScriptRequestBody';
+import { UpdateAnalysisScriptResponse } from './model/UpdateAnalysisScriptResponse';
+import { UpdateBy } from './model/UpdateBy';
+import { UpdateCheckitemRequest } from './model/UpdateCheckitemRequest';
+import { UpdateCheckitemResponse } from './model/UpdateCheckitemResponse';
+import { UpdateCodeSegmentRequest } from './model/UpdateCodeSegmentRequest';
+import { UpdateCodeSegmentRequestBody } from './model/UpdateCodeSegmentRequestBody';
+import { UpdateCodeSegmentResponse } from './model/UpdateCodeSegmentResponse';
+import { UpdateCompliancePackageRequest } from './model/UpdateCompliancePackageRequest';
+import { UpdateCompliancePackageResponse } from './model/UpdateCompliancePackageResponse';
+import { UpdateDataTransformationRequest } from './model/UpdateDataTransformationRequest';
+import { UpdateDataTransformationRequestBody } from './model/UpdateDataTransformationRequestBody';
+import { UpdateDataTransformationResponse } from './model/UpdateDataTransformationResponse';
+import { UpdateLayoutFieldRequest } from './model/UpdateLayoutFieldRequest';
+import { UpdateLayoutFieldRequestBody } from './model/UpdateLayoutFieldRequestBody';
+import { UpdateLayoutFieldResponse } from './model/UpdateLayoutFieldResponse';
+import { UpdatePipeRequest } from './model/UpdatePipeRequest';
+import { UpdatePipeRequestBody } from './model/UpdatePipeRequestBody';
+import { UpdatePipeResponse } from './model/UpdatePipeResponse';
+import { UpdatePipeSchemaRequest } from './model/UpdatePipeSchemaRequest';
+import { UpdatePipeSchemaResponse } from './model/UpdatePipeSchemaResponse';
+import { UpdateRetrieveScriptRequest } from './model/UpdateRetrieveScriptRequest';
+import { UpdateRetrieveScriptRequestBody } from './model/UpdateRetrieveScriptRequestBody';
+import { UpdateRetrieveScriptResponse } from './model/UpdateRetrieveScriptResponse';
+import { UpdateTableRequest } from './model/UpdateTableRequest';
+import { UpdateTableRequestBody } from './model/UpdateTableRequestBody';
+import { UpdateTableResponse } from './model/UpdateTableResponse';
+import { UpdateTableSchemaRequest } from './model/UpdateTableSchemaRequest';
+import { UpdateTableSchemaResponse } from './model/UpdateTableSchemaResponse';
+import { UsageMetric } from './model/UsageMetric';
 
 export class SecMasterClient {
     public static newBuilder(): ClientBuilder<SecMasterClient> {
@@ -272,20 +357,18 @@ export class SecMasterClient {
 
 
     /**
-     * 批量查询指标结果
+     * 创建adhoc查询
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 批量查询指标结果
+     * @summary 创建adhoc查询
      * @param {string} workspaceId 工作空间ID
-     * @param {BatchSearchMetricHitsRequestBody} batchSearchMetricHitsRequestBody 需要查询的指标ID及参数
-     * @param {string} [timespan] 查询指标的时间范围，ISO8601格式，例如：2007-03-01T13:00:00Z/2008-05-11T15:30:00Z或2007-03-01T13:00:00Z/P1Y2M10DT2H30M或P1Y2M10DT2H30M/2008-05-11T15:30:00Z
-     * @param {boolean} [cache] 是否启用缓存，默认true, 禁用缓存 false
+     * @param {CreateAdhocQueryRequestBody} createAdhocQueryRequestBody 创建adhoc查询请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchSearchMetricHits(batchSearchMetricHitsRequest?: BatchSearchMetricHitsRequest): Promise<BatchSearchMetricHitsResponse> {
-        const options = ParamCreater().batchSearchMetricHits(batchSearchMetricHitsRequest);
+    public createAdhocQuery(createAdhocQueryRequest?: CreateAdhocQueryRequest): Promise<CreateAdhocQueryResponse> {
+        const options = ParamCreater().createAdhocQuery(createAdhocQueryRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -294,122 +377,13 @@ export class SecMasterClient {
     }
 
     /**
-     * 编辑告警，根据实际修改的属性更新，未修改的列不更新
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 更新告警
-     * @param {string} contentType 内容类型
-     * @param {string} workspaceId 工作空间id
-     * @param {string} alertId 告警ID
-     * @param {ChangeAlertRequestBody} changeAlertRequestBody 更新告警请求body体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public changeAlert(changeAlertRequest?: ChangeAlertRequest): Promise<ChangeAlertResponse> {
-        const options = ParamCreater().changeAlert(changeAlertRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 编辑事件，根据实际修改的属性更新，未修改的列不更新
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 更新事件
-     * @param {string} contentType 内容类型
-     * @param {string} workspaceId 工作空间id
-     * @param {string} incidentId 事件ID
-     * @param {ChangeIncidentRequestBody} changeIncidentRequestBody 更新事件请求body体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public changeIncident(changeIncidentRequest?: ChangeIncidentRequest): Promise<ChangeIncidentResponse> {
-        const options = ParamCreater().changeIncident(changeIncidentRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 操作剧本实例
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 操作剧本实例
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {string} instanceId 剧本实例ID
-     * @param {OperationPlaybookInfo} changePlaybookInstanceRequestBody 请求参数信息
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public changePlaybookInstance(changePlaybookInstanceRequest?: ChangePlaybookInstanceRequest): Promise<ChangePlaybookInstanceResponse> {
-        const options = ParamCreater().changePlaybookInstance(changePlaybookInstanceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 克隆剧本及版本
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 克隆剧本及版本
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {string} versionId 剧本版本ID
-     * @param {CopyPlaybookInfo} copyPlaybookVersionRequestBody 请求参数信息
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public copyPlaybookVersion(copyPlaybookVersionRequest?: CopyPlaybookVersionRequest): Promise<CopyPlaybookVersionResponse> {
-        const options = ParamCreater().copyPlaybookVersion(copyPlaybookVersionRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建告警
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建告警
-     * @param {string} contentType 内容类型
-     * @param {string} workspaceId 工作空间id
-     * @param {CreateAlertRequestBody} createAlertRequestBody 创建告警请求body体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createAlert(createAlertRequest?: CreateAlertRequest): Promise<CreateAlertResponse> {
-        const options = ParamCreater().createAlert(createAlertRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * Create alert rule
+     * 创建告警规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建告警规则
-     * @param {string} workspaceId 工作空间 ID。Workspace ID.
-     * @param {CreateAlertRuleRequestBody} createAlertRuleRequestBody CreateAlertRuleRequestBody
+     * @param {string} workspaceId 工作空间ID
+     * @param {CreateAlertRuleRequestBody} createAlertRuleRequestBody 创建告警规则片段
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -417,89 +391,24 @@ export class SecMasterClient {
         const options = ParamCreater().createAlertRule(createAlertRuleRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * Simulate alert rule
+     * 创建分析脚本
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 模拟告警规则
-     * @param {string} workspaceId 工作空间 ID。Workspace ID.
-     * @param {CreateAlertRuleSimulationRequestBody} createAlertRuleSimulationRequestBody CreateAlertRuleSimulationRequestBody
+     * @summary 创建分析脚本
+     * @param {string} workspaceId 工作空间ID
+     * @param {CreateAnalysisScriptRequestBody} createAnalysisScriptRequestBody 创建分析脚本
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createAlertRuleSimulation(createAlertRuleSimulationRequest?: CreateAlertRuleSimulationRequest): Promise<CreateAlertRuleSimulationResponse> {
-        const options = ParamCreater().createAlertRuleSimulation(createAlertRuleSimulationRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 告警转事件
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 告警转事件
-     * @param {string} contentType 内容类型
-     * @param {string} workspaceId 工作空间id
-     * @param {OrderAlert} createBatchOrderAlertsRequestBody 告警转事件请求body体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createBatchOrderAlerts(createBatchOrderAlertsRequest?: CreateBatchOrderAlertsRequest): Promise<CreateBatchOrderAlertsResponse> {
-        const options = ParamCreater().createBatchOrderAlerts(createBatchOrderAlertsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 关联Dataobject
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 关联Dataobject
-     * @param {string} contentType 内容类型
-     * @param {string} workspaceId 工作空间id
-     * @param {string} dataclassType 关联主体dataobject所属数据类，小写复数，如告警为alerts，事件为incidents
-     * @param {string} dataObjectId 关联主体dataobject的id
-     * @param {string} relatedDataclassType 被关联的dataobject所属数据类，小写复数，如告警为alerts，事件为incidents
-     * @param {CreateDataobjectRelationsRequestBody} [createDataobjectRelationsRequestBody] 关联Dataobject请求body体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createDataobjectRelations(createDataobjectRelationsRequest?: CreateDataobjectRelationsRequest): Promise<CreateDataobjectRelationsResponse> {
-        const options = ParamCreater().createDataobjectRelations(createDataobjectRelationsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建数据空间
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建数据空间
-     * @param {string} workspaceId 工作空间id
-     * @param {CreateDataspaceRequestBody} createDataspaceRequestBody create dataspace request body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createDataspace(createDataspaceRequest?: CreateDataspaceRequest): Promise<CreateDataspaceResponse> {
-        const options = ParamCreater().createDataspace(createDataspaceRequest);
+    public createAnalysisScript(createAnalysisScriptRequest?: CreateAnalysisScriptRequest): Promise<CreateAnalysisScriptResponse> {
+        const options = ParamCreater().createAnalysisScript(createAnalysisScriptRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -508,40 +417,103 @@ export class SecMasterClient {
     }
 
     /**
-     * 创建事件
+     * 创建代码片段
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建事件
-     * @param {string} contentType 内容类型
-     * @param {string} workspaceId 工作空间id
-     * @param {CreateIncidentRequestBody} createIncidentRequestBody 创建事件请求body体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createIncident(createIncidentRequest?: CreateIncidentRequest): Promise<CreateIncidentResponse> {
-        const options = ParamCreater().createIncident(createIncidentRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建威胁情报
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建威胁情报
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
+     * @summary 创建代码片段
      * @param {string} workspaceId 工作空间ID
-     * @param {IndicatorCreateRequest} createIndicatorRequestBody 创建情报请求参数
+     * @param {CreateCodeSegmentRequestBody} createCodeSegmentRequestBody 创建代码片段
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createIndicator(createIndicatorRequest?: CreateIndicatorRequest): Promise<CreateIndicatorResponse> {
-        const options = ParamCreater().createIndicator(createIndicatorRequest);
+    public createCodeSegment(createCodeSegmentRequest?: CreateCodeSegmentRequest): Promise<CreateCodeSegmentResponse> {
+        const options = ParamCreater().createCodeSegment(createCodeSegmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 新增自定义检查项
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增自定义检查项
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} workspaceId **参数解释：** 工作空间id。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} xLanguage **参数解释：** 语言，参考值：zh-cn、en-us **约束限制：** 不涉及 **取值范围：** zh-cn：中文环境 en-us：英文环境 **默认取值：** 不涉及
+     * @param {CheckitemModel} createCustomizedCheckitemRequestBody 新增自定义检查项请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCustomizedCheckitem(createCustomizedCheckitemRequest?: CreateCustomizedCheckitemRequest): Promise<CreateCustomizedCheckitemResponse> {
+        const options = ParamCreater().createCustomizedCheckitem(createCustomizedCheckitemRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 新增自定义遵从包
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增自定义遵从包
+     * @param {string} workspaceId **参数解释：** 工作空间id。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} xLanguage **参数解释：** 语言，参考值：zh-cn、en-us **约束限制：** 不涉及 **取值范围：** zh-cn：中文环境 en-us：英文环境 **默认取值：** 不涉及
+     * @param {CompliancePackageModel} createCustomizedCompliancePackageRequestBody 新增自定义遵从包请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCustomizedCompliancePackage(createCustomizedCompliancePackageRequest?: CreateCustomizedCompliancePackageRequest): Promise<CreateCustomizedCompliancePackageResponse> {
+        const options = ParamCreater().createCustomizedCompliancePackage(createCustomizedCompliancePackageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建数据加工
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建数据加工
+     * @param {string} workspaceId 工作空间ID
+     * @param {CreateDataTransformationRequestBody} createDataTransformationRequestBody 创建数据加工请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDataTransformation(createDataTransformationRequest?: CreateDataTransformationRequest): Promise<CreateDataTransformationResponse> {
+        const options = ParamCreater().createDataTransformation(createDataTransformationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建布局字段
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建布局字段
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} workspaceId **参数解释：** 工作空间id。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {CreateLayoutFieldRequestBody} createLayoutFieldRequestBody 创建字段对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createLayoutField(createLayoutFieldRequest?: CreateLayoutFieldRequest): Promise<CreateLayoutFieldResponse> {
+        const options = ParamCreater().createLayoutField(createLayoutFieldRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
@@ -550,13 +522,13 @@ export class SecMasterClient {
     }
 
     /**
-     * 创建数据管道
+     * 创建管道
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建数据管道
-     * @param {string} workspaceId 工作空间id
-     * @param {CreatePipeRequestBody} createPipeRequestBody 请求体
+     * @summary 创建管道
+     * @param {string} workspaceId 工作空间ID
+     * @param {CreatePipeRequestBody} createPipeRequestBody 创建管道请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -570,127 +542,18 @@ export class SecMasterClient {
     }
 
     /**
-     * 创建剧本
+     * 创建检索脚本
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建剧本
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
+     * @summary 创建检索脚本
      * @param {string} workspaceId 工作空间ID
-     * @param {CreatePlaybookInfo} createPlaybookRequestBody 剧本创建请求参数
+     * @param {CreateRetrieveScriptRequestBody} createRetrieveScriptRequestBody 创建检索脚本
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createPlaybook(createPlaybookRequest?: CreatePlaybookRequest): Promise<CreatePlaybookResponse> {
-        const options = ParamCreater().createPlaybook(createPlaybookRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建剧本动作
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建剧本动作
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {string} versionId 剧本版本ID
-     * @param {Array<CreateAction>} createPlaybookActionRequestBody 创建剧本版本请求
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createPlaybookAction(createPlaybookActionRequest?: CreatePlaybookActionRequest): Promise<CreatePlaybookActionResponse> {
-        const options = ParamCreater().createPlaybookAction(createPlaybookActionRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 审核剧本
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 审核剧本
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {string} versionId 版本ID
-     * @param {ApprovePlaybookInfo} [createPlaybookApproveRequestBody] 请求参数信息
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createPlaybookApprove(createPlaybookApproveRequest?: CreatePlaybookApproveRequest): Promise<CreatePlaybookApproveResponse> {
-        const options = ParamCreater().createPlaybookApprove(createPlaybookApproveRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建剧本规则
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建剧本规则
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {string} versionId 剧本版本ID
-     * @param {CreateRuleInfo} [createPlaybookRuleRequestBody] 创建剧本触发规则请求参数
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createPlaybookRule(createPlaybookRuleRequest?: CreatePlaybookRuleRequest): Promise<CreatePlaybookRuleResponse> {
-        const options = ParamCreater().createPlaybookRule(createPlaybookRuleRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建剧本版本
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建剧本版本
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {string} playbookId 剧本ID
-     * @param {CreatePlaybookVersionInfo} createPlaybookVersionRequestBody 创建剧本请求参数信息
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createPlaybookVersion(createPlaybookVersionRequest?: CreatePlaybookVersionRequest): Promise<CreatePlaybookVersionResponse> {
-        const options = ParamCreater().createPlaybookVersion(createPlaybookVersionRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 开通安全云脑按需服务
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 安全云脑按需订购
-     * @param {'zh-cn' | 'en-us'} xLanguage 用户当前语言环境 zh-cn or en-us.
-     * @param {PostPaidParam} createPostPaidOrderRequestBody 云脑按需订阅参数请求体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createPostPaidOrder(createPostPaidOrderRequest?: CreatePostPaidOrderRequest): Promise<CreatePostPaidOrderResponse> {
-        const options = ParamCreater().createPostPaidOrder(createPostPaidOrderRequest);
+    public createRetrieveScript(createRetrieveScriptRequest?: CreateRetrieveScriptRequest): Promise<CreateRetrieveScriptResponse> {
+        const options = ParamCreater().createRetrieveScript(createRetrieveScriptRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -699,18 +562,18 @@ export class SecMasterClient {
     }
 
     /**
-     * 在使用安全云脑的基线检查、告警管理、安全分析、安全编排等功能前，需要创建工作空间，它可以将资源划分为各个不同的工作场景，避免资源冗余查找不便，影响日常使用。
+     * 创建表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 新建工作空间
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {CreateWorkspaceRequestBody} createWorkspaceRequestBody 创建工作空间对象
+     * @summary 创建表
+     * @param {string} workspaceId 工作空间ID
+     * @param {CreateTableRequestBody} createTableRequestBody 创建表请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createWorkspace(createWorkspaceRequest?: CreateWorkspaceRequest): Promise<CreateWorkspaceResponse> {
-        const options = ParamCreater().createWorkspace(createWorkspaceRequest);
+    public createTable(createTableRequest?: CreateTableRequest): Promise<CreateTableResponse> {
+        const options = ParamCreater().createTable(createTableRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -719,34 +582,54 @@ export class SecMasterClient {
     }
 
     /**
-     * 删除告警
+     * 创建安全分析查询
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除告警
-     * @param {string} contentType 内容类型
-     * @param {string} workspaceId 工作空间id
-     * @param {DeleteAlertRequestBody} deleteAlertRequestBody 删除告警请求body体
+     * @summary 创建安全分析查询
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} tableId 表ID
+     * @param {ListTableLogsRequestBody} createTableAnalysisRequestBody 创建分析查询请求体 （针对索引数据表）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteAlert(deleteAlertRequest?: DeleteAlertRequest): Promise<DeleteAlertResponse> {
-        const options = ParamCreater().deleteAlert(deleteAlertRequest);
+    public createTableAnalysis(createTableAnalysisRequest?: CreateTableAnalysisRequest): Promise<CreateTableAnalysisResponse> {
+        const options = ParamCreater().createTableAnalysis(createTableAnalysisRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * Delete alert rule
+     * 关闭查询操作
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关闭查询操作
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} queryId 查询ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAdhocQuery(deleteAdhocQueryRequest?: DeleteAdhocQueryRequest): Promise<DeleteAdhocQueryResponse> {
+        const options = ParamCreater().deleteAdhocQuery(deleteAdhocQueryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除告警规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除告警规则
-     * @param {string} workspaceId 工作空间 ID。Workspace ID.
-     * @param {Array<string>} deleteAlertRuleRequestBody 告警规则ID数组
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} alertRuleId 告警规则 ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -754,177 +637,24 @@ export class SecMasterClient {
         const options = ParamCreater().deleteAlertRule(deleteAlertRuleRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * 取消关联Dataobject
+     * 删除分析脚本
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 取消关联Dataobject
-     * @param {string} contentType 内容类型
-     * @param {string} workspaceId 工作空间id
-     * @param {string} dataclassType 关联主体dataobject所属数据类，小写复数，如告警为alerts，事件为incidents
-     * @param {string} dataObjectId 关联主体dataobject的id
-     * @param {string} relatedDataclassType 被关联的dataobject所属数据类，小写复数，如告警为alerts，事件为incidents
-     * @param {CreateDataobjectRelationsRequestBody} [deleteDataobjectRelationsRequestBody] 取消关联Dataobject请求body体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteDataobjectRelations(deleteDataobjectRelationsRequest?: DeleteDataobjectRelationsRequest): Promise<DeleteDataobjectRelationsResponse> {
-        const options = ParamCreater().deleteDataobjectRelations(deleteDataobjectRelationsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除事件
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除事件
-     * @param {string} contentType 内容类型
-     * @param {string} workspaceId 工作空间id
-     * @param {DeleteIncidentRequestBody} deleteIncidentRequestBody 删除事件请求body体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteIncident(deleteIncidentRequest?: DeleteIncidentRequest): Promise<DeleteIncidentResponse> {
-        const options = ParamCreater().deleteIncident(deleteIncidentRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除威胁情报
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除威胁情报
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
+     * @summary 删除分析脚本
      * @param {string} workspaceId 工作空间ID
-     * @param {DeleteIndicatorRequestBody} deleteIndicatorRequestBody 删除威胁情报请求参数
+     * @param {string} analysisScriptId 分析脚本 ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteIndicator(deleteIndicatorRequest?: DeleteIndicatorRequest): Promise<DeleteIndicatorResponse> {
-        const options = ParamCreater().deleteIndicator(deleteIndicatorRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除剧本
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除剧本
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {string} playbookId ID of playbook
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deletePlaybook(deletePlaybookRequest?: DeletePlaybookRequest): Promise<DeletePlaybookResponse> {
-        const options = ParamCreater().deletePlaybook(deletePlaybookRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除剧本动作
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除剧本动作
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {string} versionId 剧本版本ID
-     * @param {string} actionId 剧本动作ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deletePlaybookAction(deletePlaybookActionRequest?: DeletePlaybookActionRequest): Promise<DeletePlaybookActionResponse> {
-        const options = ParamCreater().deletePlaybookAction(deletePlaybookActionRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除剧本规则
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除剧本规则
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {string} versionId 剧本版本ID
-     * @param {string} ruleId 规则ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deletePlaybookRule(deletePlaybookRuleRequest?: DeletePlaybookRuleRequest): Promise<DeletePlaybookRuleResponse> {
-        const options = ParamCreater().deletePlaybookRule(deletePlaybookRuleRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除剧本版本
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除剧本版本
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {string} versionId 剧本版本ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deletePlaybookVersion(deletePlaybookVersionRequest?: DeletePlaybookVersionRequest): Promise<DeletePlaybookVersionResponse> {
-        const options = ParamCreater().deletePlaybookVersion(deletePlaybookVersionRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除工作空间
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除工作空间
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {boolean} [permanentDelete] 是否永久删除， true or false
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteWorkspace(deleteWorkspaceRequest?: DeleteWorkspaceRequest): Promise<DeleteWorkspaceResponse> {
-        const options = ParamCreater().deleteWorkspace(deleteWorkspaceRequest);
+    public deleteAnalysisScript(deleteAnalysisScriptRequest?: DeleteAnalysisScriptRequest): Promise<DeleteAnalysisScriptResponse> {
+        const options = ParamCreater().deleteAnalysisScript(deleteAnalysisScriptRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -933,13 +663,178 @@ export class SecMasterClient {
     }
 
     /**
-     * Disable alert rule
+     * 删除代码片段
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除代码片段
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} codeSegmentId 代码片段 ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteCodeSegment(deleteCodeSegmentRequest?: DeleteCodeSegmentRequest): Promise<DeleteCodeSegmentResponse> {
+        const options = ParamCreater().deleteCodeSegment(deleteCodeSegmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除自定义检查项
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除自定义检查项
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} workspaceId **参数解释：** 工作空间id。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} xLanguage **参数解释：** 语言，参考值：zh-cn、en-us **约束限制：** 不涉及 **取值范围：** zh-cn：中文环境 en-us：英文环境 **默认取值：** 不涉及
+     * @param {DeleteCustomizedCheckitemsRequestBody} deleteCustomizedCheckitemsRequestBody 删除自定义检查项列表请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteCustomizedCheckitems(deleteCustomizedCheckitemsRequest?: DeleteCustomizedCheckitemsRequest): Promise<DeleteCustomizedCheckitemsResponse> {
+        const options = ParamCreater().deleteCustomizedCheckitems(deleteCustomizedCheckitemsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除自定义遵从包
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除自定义遵从包
+     * @param {string} workspaceId **参数解释：** 工作空间id。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} xLanguage **参数解释：** 语言，参考值：zh-cn、en-us **约束限制：** 不涉及 **取值范围：** zh-cn：中文环境 en-us：英文环境 **默认取值：** 不涉及
+     * @param {Array<string>} deleteCustomizedCompliancePackagesRequestBody 删除自定义遵从包列表请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteCustomizedCompliancePackages(deleteCustomizedCompliancePackagesRequest?: DeleteCustomizedCompliancePackagesRequest): Promise<DeleteCustomizedCompliancePackagesResponse> {
+        const options = ParamCreater().deleteCustomizedCompliancePackages(deleteCustomizedCompliancePackagesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除数据加工
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除数据加工
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} dataTransformationId 数据转换 ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDataTransformation(deleteDataTransformationRequest?: DeleteDataTransformationRequest): Promise<DeleteDataTransformationResponse> {
+        const options = ParamCreater().deleteDataTransformation(deleteDataTransformationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除布局字段
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除布局字段
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} workspaceId **参数解释：** 工作空间id。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [deleteLayoutFieldRequestBody] 字段id集合
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteLayoutField(deleteLayoutFieldRequest?: DeleteLayoutFieldRequest): Promise<DeleteLayoutFieldResponse> {
+        const options = ParamCreater().deleteLayoutField(deleteLayoutFieldRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除管道
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除管道
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} pipeId 管道ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePipe(deletePipeRequest?: DeletePipeRequest): Promise<DeletePipeResponse> {
+        const options = ParamCreater().deletePipe(deletePipeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除检索脚本
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除检索脚本
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} retrieveScriptId 检索脚本 ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteRetrieveScript(deleteRetrieveScriptRequest?: DeleteRetrieveScriptRequest): Promise<DeleteRetrieveScriptResponse> {
+        const options = ParamCreater().deleteRetrieveScript(deleteRetrieveScriptRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除表
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} tableId 表ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTable(deleteTableRequest?: DeleteTableRequest): Promise<DeleteTableResponse> {
+        const options = ParamCreater().deleteTable(deleteTableRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 停用告警规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 停用告警规则
-     * @param {string} workspaceId 工作空间 ID。Workspace ID.
-     * @param {Array<string>} disableAlertRuleRequestBody 禁用告警规则的请求
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} alertRuleId 告警规则 ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -947,19 +842,60 @@ export class SecMasterClient {
         const options = ParamCreater().disableAlertRule(disableAlertRuleRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * Enable alert rule
+     * 关闭实时消费
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关闭实时消费
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} tableId 表ID
+     * @param {DisableConsumptionV2RequestBody} disableDataConsumptionRequestBody 关闭实时消费请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disableDataConsumption(disableDataConsumptionRequest?: DisableDataConsumptionRequest): Promise<DisableDataConsumptionResponse> {
+        const options = ParamCreater().disableDataConsumption(disableDataConsumptionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 停用数据加工
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 停用数据加工
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} dataTransformationId 数据转换 ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disableDataTransformation(disableDataTransformationRequest?: DisableDataTransformationRequest): Promise<DisableDataTransformationResponse> {
+        const options = ParamCreater().disableDataTransformation(disableDataTransformationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 启用告警规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 启用告警规则
-     * @param {string} workspaceId 工作空间 ID。Workspace ID.
-     * @param {Array<string>} enableAlertRuleRequestBody 启用告警规则的请求
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} alertRuleId 告警规则 ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -967,18 +903,58 @@ export class SecMasterClient {
         const options = ParamCreater().enableAlertRule(enableAlertRuleRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * List alert rule metrics
+     * 开启实时消费
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启实时消费
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} tableId 表ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public enableDataConsumption(enableDataConsumptionRequest?: EnableDataConsumptionRequest): Promise<EnableDataConsumptionResponse> {
+        const options = ParamCreater().enableDataConsumption(enableDataConsumptionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 启用数据加工
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启用数据加工
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} dataTransformationId 数据转换 ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public enableDataTransformation(enableDataTransformationRequest?: EnableDataTransformationRequest): Promise<EnableDataTransformationResponse> {
+        const options = ParamCreater().enableDataTransformation(enableDataTransformationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 告警规则总览
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 告警规则总览
-     * @param {string} workspaceId 工作空间 ID。Workspace ID.
+     * @param {string} workspaceId 工作空间ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -986,23 +962,44 @@ export class SecMasterClient {
         const options = ParamCreater().listAlertRuleMetrics(listAlertRuleMetricsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * List alert rule templates
+     * 列出告警规则模板总览
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列出告警规则模板总览
+     * @param {string} workspaceId 工作空间ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAlertRuleTemplateMetrics(listAlertRuleTemplateMetricsRequest?: ListAlertRuleTemplateMetricsRequest): Promise<ListAlertRuleTemplateMetricsResponse> {
+        const options = ParamCreater().listAlertRuleTemplateMetrics(listAlertRuleTemplateMetricsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列出告警规则模板
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列出告警规则模板
-     * @param {string} workspaceId 工作空间 ID。Workspace ID.
-     * @param {number} offset 偏移量。Offset.
-     * @param {number} limit 条数。Limit.
-     * @param {string} [sortKey] 排序字段。Sort key
-     * @param {'asc' | 'desc'} [sortDir] 排序顺序，顺序、逆序。Sort direction, asc, desc。
-     * @param {Array<'TIPS' | 'LOW' | 'MEDIUM' | 'HIGH' | 'FATAL'>} [severity] 严重程度，提示、低危、中危、高危、致命。Severity. TIPS, LOW, MEDIUM, HIGH, FATAL
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} [templateName] 模板名称
+     * @param {'ENABLED' | 'DISABLED'} [status] **参数解释**: 状态 - ENABLED 启用 - DISABLED 禁用  **约束限制** 不涉及 **取值范围**: - ENABLED - DISABLED  **默认值** 不涉及           
+     * @param {'TIPS' | 'LOW' | 'MEDIUM' | 'HIGH' | 'FATAL'} [severity] **参数解释**: 告警等级 - TIPS 提示 - LOW 低危 - MEDIUM 中危 - HIGH 高危 - FATAL 致命  **约束限制** 不涉及 **取值范围**: - TIPS - LOW - MEDIUM - HIGH - FATAL  **默认值** 不涉及                 
+     * @param {number} [offset] **参数解释：** 偏移量 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} [limit] **参数解释：** 查询数据限制 **取值范围：** 0-1000 **默认取值：** 不涉及
+     * @param {string} [sortKey] 按照属性排序。
+     * @param {string} [sortDir] 排序顺序，支持 &#x60;ASC&#x60; 或 &#x60;DESC&#x60;。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1010,27 +1007,25 @@ export class SecMasterClient {
         const options = ParamCreater().listAlertRuleTemplates(listAlertRuleTemplatesRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * List alert rules
+     * 列出告警规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列出告警规则
-     * @param {string} workspaceId 工作空间 ID。Workspace ID.
-     * @param {number} offset 偏移量。Offset.
-     * @param {number} limit 条数。Limit.
-     * @param {string} [sortKey] 排序字段。Sort key
-     * @param {'asc' | 'desc'} [sortDir] 排序顺序，顺序、逆序。Sort direction, asc, desc。
-     * @param {string} [pipeId] 数据管道 ID。Pipe ID.
-     * @param {string} [ruleName] 告警规则名称。Alert rule name.
-     * @param {string} [ruleId] 告警规则 ID。Alert rule ID.
-     * @param {Array<'ENABLED' | 'DISABLED'>} [status] 启用状态，启用、停用。Status, enabled, disabled.
-     * @param {Array<'TIPS' | 'LOW' | 'MEDIUM' | 'HIGH' | 'FATAL'>} [severity] 严重程度，提示、低危、中危、高危、致命。Severity. TIPS, LOW, MEDIUM, HIGH, FATAL
+     * @param {string} workspaceId 工作空间ID
+     * @param {number} [offset] **参数解释：** 偏移量 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} [limit] **参数解释：** 查询数据限制 **取值范围：** 0-1000 **默认取值：** 不涉及
+     * @param {string} [sortKey] 按照属性排序。
+     * @param {string} [sortDir] 排序顺序，支持 &#x60;ASC&#x60; 或 &#x60;DESC&#x60;。
+     * @param {string} [outputTableId] 输出表 ID
+     * @param {string} [alertRuleName] 告警规则名称
+     * @param {string} [alertRuleId] 告警规则 ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1038,51 +1033,141 @@ export class SecMasterClient {
         const options = ParamCreater().listAlertRules(listAlertRulesRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * 搜索告警列表
+     * 列出分析脚本
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 搜索告警列表
-     * @param {string} contentType 内容类型
-     * @param {string} workspaceId 工作空间id
-     * @param {DataobjectSearch} [listAlertsRequestBody] List alert RequestBody
+     * @summary 列出分析脚本
+     * @param {string} workspaceId 工作空间ID
+     * @param {number} [offset] **参数解释：** 偏移量 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} [limit] **参数解释：** 查询数据限制 **取值范围：** 0-1000 **默认取值：** 不涉及
+     * @param {string} [sortKey] 按照属性排序。
+     * @param {string} [sortDir] 排序顺序，支持 &#x60;ASC&#x60; 或 &#x60;DESC&#x60;。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listAlerts(listAlertsRequest?: ListAlertsRequest): Promise<ListAlertsResponse> {
-        const options = ParamCreater().listAlerts(listAlertsRequest);
+    public listAnalysisScripts(listAnalysisScriptsRequest?: ListAnalysisScriptsRequest): Promise<ListAnalysisScriptsResponse> {
+        const options = ParamCreater().listAnalysisScripts(listAnalysisScriptsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * 查询数据类列表
+     * 列出代码片段
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询数据类列表
-     * @param {string} contentType 内容类型
-     * @param {string} workspaceId 工作空间id
-     * @param {number} [offset] 偏移量
-     * @param {number} [limit] 数据量
+     * @summary 列出代码片段
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} [codeSegmentId] 代码片段 ID
+     * @param {string} [codeSegmentName] 代码片段名称
+     * @param {number} [offset] **参数解释：** 偏移量 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} [limit] **参数解释：** 查询数据限制 **取值范围：** 0-1000 **默认取值：** 不涉及
+     * @param {string} [sortKey] 按照属性排序。
+     * @param {string} [sortDir] 排序顺序，支持 &#x60;ASC&#x60; 或 &#x60;DESC&#x60;。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCodeSegments(listCodeSegmentsRequest?: ListCodeSegmentsRequest): Promise<ListCodeSegmentsResponse> {
+        const options = ParamCreater().listCodeSegments(listCodeSegmentsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 数据加工总览
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 数据加工总览
+     * @param {string} workspaceId 工作空间ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDataTransformationMetrics(listDataTransformationMetricsRequest?: ListDataTransformationMetricsRequest): Promise<ListDataTransformationMetricsResponse> {
+        const options = ParamCreater().listDataTransformationMetrics(listDataTransformationMetricsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列出数据加工
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列出数据加工
+     * @param {string} workspaceId 工作空间ID
+     * @param {number} [offset] **参数解释：** 偏移量 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} [limit] **参数解释：** 查询数据限制 **取值范围：** 0-1000 **默认取值：** 不涉及
+     * @param {string} [outputTableId] 输出表ID
+     * @param {string} [dataTransformationName] 数据转换名称
+     * @param {string} [dataTransformationId] 数据转换 ID
+     * @param {string} [sortKey] 按照属性排序。
+     * @param {string} [sortDir] 排序顺序，支持 &#x60;ASC&#x60; 或 &#x60;DESC&#x60;。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDataTransformations(listDataTransformationsRequest?: ListDataTransformationsRequest): Promise<ListDataTransformationsResponse> {
+        const options = ParamCreater().listDataTransformations(listDataTransformationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列出目录分组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列出目录分组
+     * @param {string} workspaceId 工作空间ID
+     * @param {'TABLE' | 'PIPE' | 'RETRIEVE_SCRIPT' | 'ANALYSIS_SCRIPT' | 'DATA_TRANSFORMATION' | 'ALERT_RULE'} category **参数解释**: 目录类型 - TABLE 表 - PIPE 管道 - RETRIEVE_SCRIPT 检索脚本 - ANALYSIS_SCRIPT 分析脚本 - DATA_TRANSFORMATION 数据加工 - ALERT_RULE 告警规则  **约束限制** 不涉及 **取值范围**: - TABLE - PIPE - RETRIEVE_SCRIPT - ANALYSIS_SCRIPT - DATA_TRANSFORMATION - ALERT_RULE  **默认值** 不涉及        
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDirectories(listDirectoriesRequest?: ListDirectoriesRequest): Promise<ListDirectoriesResponse> {
+        const options = ParamCreater().listDirectories(listDirectoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询布局字段列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 全部布局字段
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} workspaceId **参数解释：** 工作空间id。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [name] 名称查询
-     * @param {string} [businessCode] 业务编码
-     * @param {string} [description] 描述
      * @param {boolean} [isBuiltIn] 是否内置
+     * @param {string} [businessCode] 数据类业务编码
+     * @param {string} [layoutId] 布局id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listDataclass(listDataclassRequest?: ListDataclassRequest): Promise<ListDataclassResponse> {
-        const options = ParamCreater().listDataclass(listDataclassRequest);
+    public listLayoutFieldAll(listLayoutFieldAllRequest?: ListLayoutFieldAllRequest): Promise<ListLayoutFieldAllResponse> {
+        const options = ParamCreater().listLayoutFieldAll(listLayoutFieldAllRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
@@ -1091,307 +1176,118 @@ export class SecMasterClient {
     }
 
     /**
-     * 查询字段列表
+     * 获取管道列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询字段列表
-     * @param {string} contentType 内容类型
-     * @param {string} workspaceId 工作空间id
-     * @param {string} dataclassId 数据类id
-     * @param {number} [offset] 偏移量
-     * @param {number} [limit] 数据量
-     * @param {string} [name] 名称查询
-     * @param {boolean} [isBuiltIn] 是否内置
-     * @param {string} [fieldCategory] 字段分类
-     * @param {boolean} [mapping] 是否展示在分类映射外的其他地方
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listDataclassFields(listDataclassFieldsRequest?: ListDataclassFieldsRequest): Promise<ListDataclassFieldsResponse> {
-        const options = ParamCreater().listDataclassFields(listDataclassFieldsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询关联Dataobject列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询关联Dataobject列表
-     * @param {string} contentType 内容类型
-     * @param {string} workspaceId 工作空间id
-     * @param {string} dataclassType 关联主体dataobject所属数据类，小写复数，如告警为alerts，事件为incidents
-     * @param {string} dataObjectId 关联主体dataobject的id
-     * @param {string} relatedDataclassType 被关联的dataobject所属数据类，小写复数，如告警为alerts，事件为incidents
-     * @param {DataobjectSearch} [listDataobjectRelationsRequestBody] 查询关联Dataobject列表请求body体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listDataobjectRelations(listDataobjectRelationsRequest?: ListDataobjectRelationsRequest): Promise<ListDataobjectRelationsResponse> {
-        const options = ParamCreater().listDataobjectRelations(listDataobjectRelationsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 搜索事件列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 搜索事件列表
-     * @param {string} contentType 内容类型
-     * @param {string} workspaceId 工作空间id
-     * @param {DataobjectSearch} [listIncidentsRequestBody] 搜索事件列表请求body体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listIncidents(listIncidentsRequest?: ListIncidentsRequest): Promise<ListIncidentsResponse> {
-        const options = ParamCreater().listIncidents(listIncidentsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询威胁情报列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询威胁情报列表
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
+     * @summary 获取管道列表
      * @param {string} workspaceId 工作空间ID
-     * @param {IndicatorListSearchRequest} listIndicatorsRequestBody 查询威胁情报列表请求参数
+     * @param {number} [offset] **参数解释：** 偏移量 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} [limit] **参数解释：** 查询数据限制 **取值范围：** 0-1000 **默认取值：** 不涉及
+     * @param {string} [sortKey] 按照属性排序。
+     * @param {string} [sortDir] 排序顺序，支持 &#x60;ASC&#x60; 或 &#x60;DESC&#x60;。
+     * @param {string} [pipeNameInQuery] 管道名称
+     * @param {string} [pipeIdInQuery] 管道ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listIndicators(listIndicatorsRequest?: ListIndicatorsRequest): Promise<ListIndicatorsResponse> {
-        const options = ParamCreater().listIndicators(listIndicatorsRequest);
+    public listPipes(listPipesRequest?: ListPipesRequest): Promise<ListPipesResponse> {
+        const options = ParamCreater().listPipes(listPipesRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * 查询剧本动作列表
+     * 列出检索脚本
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询剧本动作
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
+     * @summary 列出检索脚本
      * @param {string} workspaceId 工作空间ID
-     * @param {string} versionId 剧本版本ID
-     * @param {number} limit 分页查询参数，用于指定一次查询最多的结果数，从1开始
-     * @param {number} offset 分页查询参数。用于指定查询结果的起始位置，从0开始
+     * @param {string} [tableId] 表ID
+     * @param {string} [scriptName] 脚本名称
+     * @param {number} [offset] **参数解释：** 偏移量 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} [limit] **参数解释：** 查询数据限制 **取值范围：** 0-1000 **默认取值：** 不涉及
+     * @param {string} [sortKey] 按照属性排序。
+     * @param {string} [sortDir] 排序顺序，支持 &#x60;ASC&#x60; 或 &#x60;DESC&#x60;。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listPlaybookActions(listPlaybookActionsRequest?: ListPlaybookActionsRequest): Promise<ListPlaybookActionsResponse> {
-        const options = ParamCreater().listPlaybookActions(listPlaybookActionsRequest);
+    public listRetrieveScripts(listRetrieveScriptsRequest?: ListRetrieveScriptsRequest): Promise<ListRetrieveScriptsResponse> {
+        const options = ParamCreater().listRetrieveScripts(listRetrieveScriptsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * 查询剧本审核结果
+     * 检索表直方图
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询剧本审核结果
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
+     * @summary 检索表直方图
      * @param {string} workspaceId 工作空间ID
-     * @param {string} [resourceId] 资源ID
-     * @param {string} [approveType] 审核类型。（PLAYBOOK-剧本, AOP_WORKFLOW--流程)
+     * @param {string} tableId 表ID
+     * @param {ListTableHistogramsRequestBody} listTableHistogramsRequestBody 查询日志结果直方图（针对索引数据表）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listPlaybookApproves(listPlaybookApprovesRequest?: ListPlaybookApprovesRequest): Promise<ListPlaybookApprovesResponse> {
-        const options = ParamCreater().listPlaybookApproves(listPlaybookApprovesRequest);
+    public listTableHistograms(listTableHistogramsRequest?: ListTableHistogramsRequest): Promise<ListTableHistogramsResponse> {
+        const options = ParamCreater().listTableHistograms(listTableHistogramsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * 查询剧本实例审计日志
+     * 检索表日志
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询剧本实例审计日志
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
+     * @summary 检索表日志
      * @param {string} workspaceId 工作空间ID
-     * @param {number} offset offset
-     * @param {number} limit limit
-     * @param {string} [sortKey] sort_key
-     * @param {'asc' | 'desc'} [sortDir] sort_dir. asc, desc
-     * @param {AuditLogInfo} [listPlaybookAuditLogsRequestBody] Audit log Search
+     * @param {string} tableId 表ID
+     * @param {ListTableLogsRequestBody} listTableLogsRequestBody 日志查询请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listPlaybookAuditLogs(listPlaybookAuditLogsRequest?: ListPlaybookAuditLogsRequest): Promise<ListPlaybookAuditLogsResponse> {
-        const options = ParamCreater().listPlaybookAuditLogs(listPlaybookAuditLogsRequest);
+    public listTableLogs(listTableLogsRequest?: ListTableLogsRequest): Promise<ListTableLogsResponse> {
+        const options = ParamCreater().listTableLogs(listTableLogsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * 查询剧本实例列表
+     * 获取表列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询剧本实例列表
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
+     * @summary 获取表列表
      * @param {string} workspaceId 工作空间ID
-     * @param {number} limit 分页查询参数，用于指定一次查询最多的结果数，从1开始
-     * @param {number} offset 分页查询参数。用于指定查询结果的起始位置，从0开始
-     * @param {string} [status] 剧本实例状态. (RUNNING--运行中、FINISHED--成功、FAILED--失败、RETRYING--重试中、TERMINATING--终止中、TERMINATED--已终止)
-     * @param {string} [name] 实例名称
-     * @param {string} [playbookName] 剧本名称
-     * @param {string} [dataclassName] 数据类名称
-     * @param {string} [dataobjectName] 数据对象名称
-     * @param {string} [triggerType] 触发类型. TIMER--定时触发, EVENT--事件触发
-     * @param {string} [fromDate] 查询起始时间
-     * @param {string} [toDate] 查询结束时间
+     * @param {'STREAMING' | 'INDEX' | 'APPLICATION' | 'TENANT_BUCKET' | 'LAKE'} [category] **参数解释**: 目录类型 - STREAMING 实时流 - INDEX 索引 - APPLICATION 应用 - TENANT_BUCKET 租户桶 - LAKE 数据湖  **约束限制** 不涉及 **取值范围**: - STREAMING - INDEX - APPLICATION - TENANT_BUCKET - LAKE  **默认值** 不涉及                        
+     * @param {string} [tableId] 表id
+     * @param {string} [tableAlias] 表别名
+     * @param {string} [tableName] 表名称
+     * @param {number} [offset] **参数解释：** 偏移量 **取值范围：** 0-1000000 **默认取值：** 0
+     * @param {number} [limit] **参数解释：** 查询数据限制 **取值范围：** 0-1000 **默认取值：** 不涉及
+     * @param {string} [sortKey] 按照属性排序。
+     * @param {string} [sortDir] 排序顺序，支持 &#x60;ASC&#x60; 或 &#x60;DESC&#x60;。
+     * @param {boolean} [exists] 是否存在
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listPlaybookInstances(listPlaybookInstancesRequest?: ListPlaybookInstancesRequest): Promise<ListPlaybookInstancesResponse> {
-        const options = ParamCreater().listPlaybookInstances(listPlaybookInstancesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询剧本版本列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询剧本版本列表
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {string} playbookId 剧本ID
-     * @param {string} [status] 剧本版本状态，编辑中：EDITING  审核中：APPROVING  不通过：UNPASSED 已发布：PUBLISHED
-     * @param {number} [enabled] 启用/禁用
-     * @param {number} [versionType] 版本类型， 草稿版本：0  正式版本：1
-     * @param {number} [offset] 分页查询参数。用于指定查询结果的起始位置，从0开始
-     * @param {number} [limit] 分页查询参数，用于指定一次查询最多的结果数，从1开始
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listPlaybookVersions(listPlaybookVersionsRequest?: ListPlaybookVersionsRequest): Promise<ListPlaybookVersionsResponse> {
-        const options = ParamCreater().listPlaybookVersions(listPlaybookVersionsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询剧本列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询剧本列表
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {number} offset 分页查询参数。用于指定查询结果的起始位置，从0开始
-     * @param {number} limit 分页查询参数，用于指定一次查询最多的结果数，从1开始
-     * @param {string} [searchTxt] 搜索关键字
-     * @param {boolean} [enabled] 是否启用
-     * @param {string} [description] 剧本描述
-     * @param {string} [dataclassName] 数据类名称
-     * @param {string} [name] 剧本名称
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listPlaybooks(listPlaybooksRequest?: ListPlaybooksRequest): Promise<ListPlaybooksResponse> {
-        const options = ParamCreater().listPlaybooks(listPlaybooksRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询流程列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询流程列表
-     * @param {string} contentType 内容类型
-     * @param {string} workspaceId 工作空间id
-     * @param {number} [offset] 偏移量
-     * @param {number} [limit] 数据量
-     * @param {'asc' | 'desc'} [order] 排序顺序，asc：升序，desc：降序
-     * @param {'category' | 'create_time'} [sortby] 排序字段，create_time：创建时间，category：类型分类名称
-     * @param {boolean} [enabled] 是否启用
-     * @param {boolean} [lastVersion] 最新版本号
-     * @param {string} [name] 流程名称
-     * @param {string} [description] 流程描述
-     * @param {string} [dataclassId] 数据类ID
-     * @param {string} [dataclassName] 数据类名称
-     * @param {string} [aopType] 流程类型
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listWorkflows(listWorkflowsRequest?: ListWorkflowsRequest): Promise<ListWorkflowsResponse> {
-        const options = ParamCreater().listWorkflows(listWorkflowsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 可通过工作空间名称、工作空间描述、创建时间等条件对租户的工作空间进行筛选。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询工作空间列表
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {number} offset 偏移量 指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，
-     * @param {number} limit 每页显示个数
-     * @param {string} [regionId] 区域id
-     * @param {string} [name] 名称查询
-     * @param {string} [description] 描述查询
-     * @param {string} [viewBindId] 视图绑定的空间id
-     * @param {string} [viewBindName] 视图绑定的空间名称
-     * @param {string} [createTimeStart] 创建时间开始，例如2024-04-26T16:08:09Z+0800
-     * @param {string} [createTimeEnd] 创建时间结束，例如2024-04-2T16:08:09Z+0800
-     * @param {boolean} [isView] 是否查询视图 true or false
-     * @param {string} [ids] 工作空间id数组，英文逗号分隔
-     * @param {string} [normalProjectId] 普通项目的项目id
-     * @param {string} [enterpriseProjectId] 企业项目的项目id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listWorkspaces(listWorkspacesRequest?: ListWorkspacesRequest): Promise<ListWorkspacesResponse> {
-        const options = ParamCreater().listWorkspaces(listWorkspacesRequest);
+    public listTables(listTablesRequest?: ListTablesRequest): Promise<ListTablesResponse> {
+        const options = ParamCreater().listTables(listTablesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1405,9 +1301,9 @@ export class SecMasterClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 搜索基线检查结果列表
-     * @param {string} workspaceId 工作空间id
-     * @param {string} xLanguage 语言，参考值：zh-CN、en-US
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} workspaceId **参数解释：** 工作空间id。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} xLanguage **参数解释：** 语言，参考值：zh-cn、en-us **约束限制：** 不涉及 **取值范围：** zh-cn：中文环境 en-us：英文环境 **默认取值：** 不涉及
      * @param {BaselineSearchRequestBody} searchBaselineRequestBody 搜索基线检查结果列表请求Body体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1422,34 +1318,78 @@ export class SecMasterClient {
     }
 
     /**
-     * 获取告警详情
+     * 查询检查项列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取告警详情
-     * @param {string} contentType 内容类型
-     * @param {string} workspaceId 工作空间id
-     * @param {string} alertId 告警ID
+     * @summary 查询检查项列表
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} workspaceId **参数解释：** 工作空间id。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} xLanguage **参数解释：** 语言，参考值：zh-cn、en-us **约束限制：** 不涉及 **取值范围：** zh-cn：中文环境 en-us：英文环境 **默认取值：** 不涉及
+     * @param {SearchCheckitemsRequestBody} searchCheckitemsRequestBody 查询基线检查检查项列表请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showAlert(showAlertRequest?: ShowAlertRequest): Promise<ShowAlertResponse> {
-        const options = ParamCreater().showAlert(showAlertRequest);
+    public searchCheckitems(searchCheckitemsRequest?: SearchCheckitemsRequest): Promise<SearchCheckitemsResponse> {
+        const options = ParamCreater().searchCheckitems(searchCheckitemsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * 查看告警规则 Get alert rule
+     * 查询遵从包列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询遵从包列表
+     * @param {string} workspaceId **参数解释：** 工作空间id。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} xLanguage **参数解释：** 语言，参考值：zh-cn、en-us **约束限制：** 不涉及 **取值范围：** zh-cn：中文环境 en-us：英文环境 **默认取值：** 不涉及
+     * @param {SearchCompliancePackagesRequestBody} searchCompliancePackagesRequestBody 查询基线检查遵从包列表请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public searchCompliancePackages(searchCompliancePackagesRequest?: SearchCompliancePackagesRequest): Promise<SearchCompliancePackagesResponse> {
+        const options = ParamCreater().searchCompliancePackages(searchCompliancePackagesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取adhoc查询结果
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取adhoc查询结果
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} queryId 查询ID
+     * @param {number} batch 批次索引
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAdhocResult(showAdhocResultRequest?: ShowAdhocResultRequest): Promise<ShowAdhocResultResponse> {
+        const options = ParamCreater().showAdhocResult(showAdhocResultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看告警规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看告警规则
-     * @param {string} workspaceId 工作空间 ID。Workspace ID.
-     * @param {string} ruleId 告警规则 ID。Alert rule ID.
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} alertRuleId 告警规则 ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1457,19 +1397,19 @@ export class SecMasterClient {
         const options = ParamCreater().showAlertRule(showAlertRuleRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * List alert rule templates
+     * 查看告警规则模板
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看告警规则模板
-     * @param {string} workspaceId 工作空间 ID。Workspace ID.
-     * @param {string} templateId 告警规则模板 ID。Alert rule template ID.
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} templateId 告警规则模板Id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1477,25 +1417,24 @@ export class SecMasterClient {
         const options = ParamCreater().showAlertRuleTemplate(showAlertRuleTemplateRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * 获取事件详情
+     * 查看分析脚本
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取事件详情
-     * @param {string} contentType 内容类型
-     * @param {string} workspaceId 工作空间id
-     * @param {string} incidentId 事件ID
+     * @summary 查看分析脚本
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} analysisScriptId 分析脚本 ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showIncident(showIncidentRequest?: ShowIncidentRequest): Promise<ShowIncidentResponse> {
-        const options = ParamCreater().showIncident(showIncidentRequest);
+    public showAnalysisScript(showAnalysisScriptRequest?: ShowAnalysisScriptRequest): Promise<ShowAnalysisScriptResponse> {
+        const options = ParamCreater().showAnalysisScript(showAnalysisScriptRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1504,189 +1443,20 @@ export class SecMasterClient {
     }
 
     /**
-     * 查询威胁情报详情
+     * 查询检查项详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询威胁情报详情
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {string} indicatorId 威胁情报ID
+     * @summary 查询检查项详情
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} workspaceId **参数解释：** 工作空间id。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} xLanguage **参数解释：** 语言，参考值：zh-cn、en-us **约束限制：** 不涉及 **取值范围：** zh-cn：中文环境 en-us：英文环境 **默认取值：** 不涉及
+     * @param {string} checkitemId 检查项uuid
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showIndicatorDetail(showIndicatorDetailRequest?: ShowIndicatorDetailRequest): Promise<ShowIndicatorDetailResponse> {
-        const options = ParamCreater().showIndicatorDetail(showIndicatorDetailRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询剧本详情
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询剧本详情
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {string} playbookId ID of playbook
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showPlaybook(showPlaybookRequest?: ShowPlaybookRequest): Promise<ShowPlaybookResponse> {
-        const options = ParamCreater().showPlaybook(showPlaybookRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * Show playbook instance
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询剧本实例详情
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {string} instanceId instance _id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showPlaybookInstance(showPlaybookInstanceRequest?: ShowPlaybookInstanceRequest): Promise<ShowPlaybookInstanceResponse> {
-        const options = ParamCreater().showPlaybookInstance(showPlaybookInstanceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 剧本运行监控
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 剧本运行监控
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {string} playbookId 剧本ID
-     * @param {string} startTime 开始时间。格式ISO8601：YYYY-MM-DDTHH:mm:ss.ms+timezone。例如：2021-01-30T23:00:00Z+0800。时区信息为剧本实例产生的时区，无法解析时区的时间，默认时区填东八区。
-     * @param {'ALL:全部，VALID:有效的，DELETED:已删除'} versionQueryType 统计剧本版本类型（ALL:全部，VALID:有效的，DELETED:已删除）
-     * @param {string} endTime 结束时间。格式ISO8601：YYYY-MM-DDTHH:mm:ss.ms+timezone。例如：2021-01-30T23:00:00Z+0800。时区信息为剧本实例产生的时区，无法解析时区的时间，默认时区填东八区。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showPlaybookMonitors(showPlaybookMonitorsRequest?: ShowPlaybookMonitorsRequest): Promise<ShowPlaybookMonitorsResponse> {
-        const options = ParamCreater().showPlaybookMonitors(showPlaybookMonitorsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询剧本规则详情
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询剧本规则详情
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {string} versionId version Id value
-     * @param {string} ruleId version Id value
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showPlaybookRule(showPlaybookRuleRequest?: ShowPlaybookRuleRequest): Promise<ShowPlaybookRuleResponse> {
-        const options = ParamCreater().showPlaybookRule(showPlaybookRuleRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 剧本统计数据
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 剧本数据统计
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showPlaybookStatistics(showPlaybookStatisticsRequest?: ShowPlaybookStatisticsRequest): Promise<ShowPlaybookStatisticsResponse> {
-        const options = ParamCreater().showPlaybookStatistics(showPlaybookStatisticsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询剧本拓扑关系
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询剧本拓扑关系
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {string} instanceId 剧本实例ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showPlaybookTopology(showPlaybookTopologyRequest?: ShowPlaybookTopologyRequest): Promise<ShowPlaybookTopologyResponse> {
-        const options = ParamCreater().showPlaybookTopology(showPlaybookTopologyRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * Show playbook version version
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询剧本版本详情
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {string} versionId 剧本版本ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showPlaybookVersion(showPlaybookVersionRequest?: ShowPlaybookVersionRequest): Promise<ShowPlaybookVersionResponse> {
-        const options = ParamCreater().showPlaybookVersion(showPlaybookVersionRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询工作空间名称、描述等详情信息
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询工作空间详情
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {string} workspaceId 工作空间ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showWorkspace(showWorkspaceRequest?: ShowWorkspaceRequest): Promise<ShowWorkspaceResponse> {
-        const options = ParamCreater().showWorkspace(showWorkspaceRequest);
+    public showCheckitemDetail(showCheckitemDetailRequest?: ShowCheckitemDetailRequest): Promise<ShowCheckitemDetailResponse> {
+        const options = ParamCreater().showCheckitemDetail(showCheckitemDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1695,14 +1465,237 @@ export class SecMasterClient {
     }
 
     /**
-     * Update alert rule
+     * 查看代码片段
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看代码片段
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} codeSegmentId 代码片段 ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCodeSegment(showCodeSegmentRequest?: ShowCodeSegmentRequest): Promise<ShowCodeSegmentResponse> {
+        const options = ParamCreater().showCodeSegment(showCodeSegmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询遵从包详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询遵从包详情
+     * @param {string} compliancePackagesId 遵从包uuid
+     * @param {string} workspaceId **参数解释：** 工作空间id。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} xLanguage **参数解释：** 语言，参考值：zh-cn、en-us **约束限制：** 不涉及 **取值范围：** zh-cn：中文环境 en-us：英文环境 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCompliancePackageDetail(showCompliancePackageDetailRequest?: ShowCompliancePackageDetailRequest): Promise<ShowCompliancePackageDetailResponse> {
+        const options = ParamCreater().showCompliancePackageDetail(showCompliancePackageDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取实时消费配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取实时消费配置
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} tableId 表ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDataConsumption(showDataConsumptionRequest?: ShowDataConsumptionRequest): Promise<ShowDataConsumptionResponse> {
+        const options = ParamCreater().showDataConsumption(showDataConsumptionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看数据加工
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看数据加工
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} dataTransformationId 数据转换 ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDataTransformation(showDataTransformationRequest?: ShowDataTransformationRequest): Promise<ShowDataTransformationResponse> {
+        const options = ParamCreater().showDataTransformation(showDataTransformationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询布局字段详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 展示字段详情
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} workspaceId **参数解释：** 工作空间id。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} fieldId 字段ID
+     * @param {string} [layoutId] 布局id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLayoutFieldInfo(showLayoutFieldInfoRequest?: ShowLayoutFieldInfoRequest): Promise<ShowLayoutFieldInfoResponse> {
+        const options = ParamCreater().showLayoutFieldInfo(showLayoutFieldInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取监控统计信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取监控统计信息
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} tableId 表ID
+     * @param {ShowPulsarMonitorStatsBody} showMonitorStatsRequestBody 获取监控统计信息请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showMonitorStats(showMonitorStatsRequest?: ShowMonitorStatsRequest): Promise<ShowMonitorStatsResponse> {
+        const options = ParamCreater().showMonitorStats(showMonitorStatsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取管道详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取管道详情
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} pipeId 管道ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPipe(showPipeRequest?: ShowPipeRequest): Promise<ShowPipeResponse> {
+        const options = ParamCreater().showPipe(showPipeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看检索脚本
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看检索脚本
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} retrieveScriptId 检索脚本ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRetrieveScript(showRetrieveScriptRequest?: ShowRetrieveScriptRequest): Promise<ShowRetrieveScriptResponse> {
+        const options = ParamCreater().showRetrieveScript(showRetrieveScriptRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取订阅资源信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取订阅资源信息
+     * @param {string} workspaceId 工作空间ID
+     * @param {'FLOW_DATA_BANDWIDTH' | 'CSS_CAPACITY' | 'PAIMON_CAPACITY' | 'OBS_CAPACITY' | 'JOB_CAPACITY' | 'AD_HOC_COUNT'} sku **参数解释**: SKU信息 - FLOW_DATA_BANDWIDTH 数据流量带宽 - CSS_CAPACITY CSS 存储容量 - PAIMON_CAPACITY Paimon 存储容量 - OBS_CAPACITY OBS 存储容量 - JOB_CAPACITY 作业处理容量 - AD_HOC_COUNT 即席查询次数  **约束限制** 不涉及 **取值范围**: - FLOW_DATA_BANDWIDTH - CSS_CAPACITY - PAIMON_CAPACITY - OBS_CAPACITY - JOB_CAPACITY - AD_HOC_COUNT  **默认值** 不涉及        
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSubscriptionResources(showSubscriptionResourcesRequest?: ShowSubscriptionResourcesRequest): Promise<ShowSubscriptionResourcesResponse> {
+        const options = ParamCreater().showSubscriptionResources(showSubscriptionResourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取表详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取表详情
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} tableId 表ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTable(showTableRequest?: ShowTableRequest): Promise<ShowTableResponse> {
+        const options = ParamCreater().showTable(showTableRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取当前可用版本
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取当前可用版本
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVersion(showVersionRequest?: ShowVersionRequest): Promise<ShowVersionResponse> {
+        const options = ParamCreater().showVersion();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新告警规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新告警规则
-     * @param {string} workspaceId 工作空间 ID。Workspace ID.
-     * @param {string} ruleId 告警规则 ID。Alert rule ID.
-     * @param {UpdateAlertRuleRequestBody} updateAlertRuleRequestBody UpdateAlertRuleRequestBody
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} alertRuleId 告警规则 ID
+     * @param {UpdateAlertRuleRequestBody} updateAlertRuleRequestBody 更新告警规则请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1710,26 +1703,135 @@ export class SecMasterClient {
         const options = ParamCreater().updateAlertRule(updateAlertRuleRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * 更新威胁情报
+     * 更新分析脚本
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 更新威胁情报
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
+     * @summary 更新分析脚本
      * @param {string} workspaceId 工作空间ID
-     * @param {string} indicatorId 威胁情报ID
-     * @param {UpdateIndicatorRequestBody} updateIndicatorRequestBody 更新威胁情报请求参数
+     * @param {string} analysisScriptId 分析脚本 ID
+     * @param {UpdateAnalysisScriptRequestBody} updateAnalysisScriptRequestBody 更新分析脚本
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateIndicator(updateIndicatorRequest?: UpdateIndicatorRequest): Promise<UpdateIndicatorResponse> {
-        const options = ParamCreater().updateIndicator(updateIndicatorRequest);
+    public updateAnalysisScript(updateAnalysisScriptRequest?: UpdateAnalysisScriptRequest): Promise<UpdateAnalysisScriptResponse> {
+        const options = ParamCreater().updateAnalysisScript(updateAnalysisScriptRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新检查项
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新检查项
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} workspaceId **参数解释：** 工作空间id。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} xLanguage **参数解释：** 语言，参考值：zh-cn、en-us **约束限制：** 不涉及 **取值范围：** zh-cn：中文环境 en-us：英文环境 **默认取值：** 不涉及
+     * @param {string} checkitemId 检查项uuid
+     * @param {CheckitemModel} updateCheckitemRequestBody 更新检查项请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateCheckitem(updateCheckitemRequest?: UpdateCheckitemRequest): Promise<UpdateCheckitemResponse> {
+        const options = ParamCreater().updateCheckitem(updateCheckitemRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新代码片段
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新代码片段
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} codeSegmentId 代码片段 ID
+     * @param {UpdateCodeSegmentRequestBody} updateCodeSegmentRequestBody 更新代码片段
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateCodeSegment(updateCodeSegmentRequest?: UpdateCodeSegmentRequest): Promise<UpdateCodeSegmentResponse> {
+        const options = ParamCreater().updateCodeSegment(updateCodeSegmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新遵从包
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新遵从包
+     * @param {string} workspaceId **参数解释：** 工作空间id。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} compliancePackagesId 遵从包uuid
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} xLanguage **参数解释：** 语言，参考值：zh-cn、en-us **约束限制：** 不涉及 **取值范围：** zh-cn：中文环境 en-us：英文环境 **默认取值：** 不涉及
+     * @param {CompliancePackageModel} updateCompliancePackageRequestBody 更新基线检查遵从包请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateCompliancePackage(updateCompliancePackageRequest?: UpdateCompliancePackageRequest): Promise<UpdateCompliancePackageResponse> {
+        const options = ParamCreater().updateCompliancePackage(updateCompliancePackageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新数据加工
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新数据加工
+     * @param {string} workspaceId 工作空间ID
+     * @param {string} dataTransformationId 数据转换 ID
+     * @param {UpdateDataTransformationRequestBody} updateDataTransformationRequestBody 更新数据加工请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDataTransformation(updateDataTransformationRequest?: UpdateDataTransformationRequest): Promise<UpdateDataTransformationResponse> {
+        const options = ParamCreater().updateDataTransformation(updateDataTransformationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新布局字段
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新字段
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} workspaceId **参数解释：** 工作空间id。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} fieldId 字段ID
+     * @param {UpdateLayoutFieldRequestBody} updateLayoutFieldRequestBody 更新字段对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateLayoutField(updateLayoutFieldRequest?: UpdateLayoutFieldRequest): Promise<UpdateLayoutFieldResponse> {
+        const options = ParamCreater().updateLayoutField(updateLayoutFieldRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
@@ -1738,109 +1840,123 @@ export class SecMasterClient {
     }
 
     /**
-     * 修改剧本
+     * 更新管道
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改剧本
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
+     * @summary 更新管道
      * @param {string} workspaceId 工作空间ID
-     * @param {string} playbookId 剧本ID
-     * @param {ModifyPlaybookInfo} [updatePlaybookRequestBody] 更新剧本请求参数
+     * @param {string} pipeId 管道ID
+     * @param {UpdatePipeRequestBody} updatePipeRequestBody 更新管道
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updatePlaybook(updatePlaybookRequest?: UpdatePlaybookRequest): Promise<UpdatePlaybookResponse> {
-        const options = ParamCreater().updatePlaybook(updatePlaybookRequest);
+    public updatePipe(updatePipeRequest?: UpdatePipeRequest): Promise<UpdatePipeResponse> {
+        const options = ParamCreater().updatePipe(updatePipeRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * 更新剧本动作
+     * 更新管道结构
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 更新剧本动作
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
+     * @summary 更新管道结构
      * @param {string} workspaceId 工作空间ID
-     * @param {string} versionId 剧本版本ID
-     * @param {string} actionId 剧本动作ID
-     * @param {ModifyActionInfo} updatePlaybookActionRequestBody 更新剧本动作请求参数
+     * @param {string} pipeId 管道ID
+     * @param {PipeSchema} updatePipeSchemaRequestBody 修改管道结构
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updatePlaybookAction(updatePlaybookActionRequest?: UpdatePlaybookActionRequest): Promise<UpdatePlaybookActionResponse> {
-        const options = ParamCreater().updatePlaybookAction(updatePlaybookActionRequest);
+    public updatePipeSchema(updatePipeSchemaRequest?: UpdatePipeSchemaRequest): Promise<UpdatePipeSchemaResponse> {
+        const options = ParamCreater().updatePipeSchema(updatePipeSchemaRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * 更新剧本规则
+     * 更新检索脚本
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 更新剧本规则
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
+     * @summary 更新检索脚本
      * @param {string} workspaceId 工作空间ID
-     * @param {string} versionId 剧本版本ID
-     * @param {string} ruleId 剧本规则ID
-     * @param {ModifyRuleInfo} updatePlaybookRuleRequestBody 更新剧本规则请求参数
+     * @param {string} retrieveScriptId 检索脚本ID
+     * @param {UpdateRetrieveScriptRequestBody} updateRetrieveScriptRequestBody 更新检索脚本
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updatePlaybookRule(updatePlaybookRuleRequest?: UpdatePlaybookRuleRequest): Promise<UpdatePlaybookRuleResponse> {
-        const options = ParamCreater().updatePlaybookRule(updatePlaybookRuleRequest);
+    public updateRetrieveScript(updateRetrieveScriptRequest?: UpdateRetrieveScriptRequest): Promise<UpdateRetrieveScriptResponse> {
+        const options = ParamCreater().updateRetrieveScript(updateRetrieveScriptRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * 更新剧本版本
+     * 更改表详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 更新剧本版本
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
+     * @summary 更改表详情
      * @param {string} workspaceId 工作空间ID
-     * @param {string} versionId 剧本版本ID
-     * @param {ModifyPlaybookVersionInfo} [updatePlaybookVersionRequestBody] 更新剧本版本请求参数
+     * @param {string} tableId 表ID
+     * @param {UpdateTableRequestBody} updateTableRequestBody 更改表请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updatePlaybookVersion(updatePlaybookVersionRequest?: UpdatePlaybookVersionRequest): Promise<UpdatePlaybookVersionResponse> {
-        const options = ParamCreater().updatePlaybookVersion(updatePlaybookVersionRequest);
+    public updateTable(updateTableRequest?: UpdateTableRequest): Promise<UpdateTableResponse> {
+        const options = ParamCreater().updateTable(updateTableRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * 更新工作空间名称、描述等信息
+     * 更改表结构
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 更新工作空间
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
+     * @summary 更改表结构
      * @param {string} workspaceId 工作空间ID
-     * @param {UpdateWorkspaceRequestBody} updateWorkspaceRequestBody 更新工作空间对象
+     * @param {string} tableId 表ID
+     * @param {TableSchemaDto} updateTableSchemaRequestBody 更改表结构请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateWorkspace(updateWorkspaceRequest?: UpdateWorkspaceRequest): Promise<UpdateWorkspaceResponse> {
-        const options = ParamCreater().updateWorkspace(updateWorkspaceRequest);
+    public updateTableSchema(updateTableSchemaRequest?: UpdateTableSchemaRequest): Promise<UpdateTableSchemaResponse> {
+        const options = ParamCreater().updateTableSchema(updateTableSchemaRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建SQL校验
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建SQL校验
+     * @param {string} workspaceId 工作空间ID
+     * @param {CreateSqlValidationRequestBody} createSqlValidationRequestBody SQL语法校验
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSqlValidation(createSqlValidationRequest?: CreateSqlValidationRequest): Promise<CreateSqlValidationResponse> {
+        const options = ParamCreater().createSqlValidation(createSqlValidationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1853,75 +1969,14 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 批量查询指标结果
+         * 创建adhoc查询
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        batchSearchMetricHits(batchSearchMetricHitsRequest?: BatchSearchMetricHitsRequest) {
+        createAdhocQuery(createAdhocQueryRequest?: CreateAdhocQueryRequest) {
             const options = {
                 method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/sa/metrics/hits",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let body: any;
-            
-            let workspaceId;
-            
-            let timespan;
-            
-            let cache;
-
-            if (batchSearchMetricHitsRequest !== null && batchSearchMetricHitsRequest !== undefined) {
-                if (batchSearchMetricHitsRequest instanceof BatchSearchMetricHitsRequest) {
-                    workspaceId = batchSearchMetricHitsRequest.workspaceId;
-                    body = batchSearchMetricHitsRequest.body
-                    timespan = batchSearchMetricHitsRequest.timespan;
-                    cache = batchSearchMetricHitsRequest.cache;
-                } else {
-                    workspaceId = batchSearchMetricHitsRequest['workspace_id'];
-                    body = batchSearchMetricHitsRequest['body'];
-                    timespan = batchSearchMetricHitsRequest['timespan'];
-                    cache = batchSearchMetricHitsRequest['cache'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling batchSearchMetricHits.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (timespan !== null && timespan !== undefined) {
-                localVarQueryParameter['timespan'] = timespan;
-            }
-            if (cache !== null && cache !== undefined) {
-                localVarQueryParameter['cache'] = cache;
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'workspace_id': workspaceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 编辑告警，根据实际修改的属性更新，未修改的列不更新
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        changeAlert(changeAlertRequest?: ChangeAlertRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/alerts/{alert_id}",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/ad-hoc-queries",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -1932,271 +1987,24 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let contentType;
-            
             let workspaceId;
-            
-            let alertId;
 
-            if (changeAlertRequest !== null && changeAlertRequest !== undefined) {
-                if (changeAlertRequest instanceof ChangeAlertRequest) {
-                    contentType = changeAlertRequest.contentType;
-                    workspaceId = changeAlertRequest.workspaceId;
-                    alertId = changeAlertRequest.alertId;
-                    body = changeAlertRequest.body
+            if (createAdhocQueryRequest !== null && createAdhocQueryRequest !== undefined) {
+                if (createAdhocQueryRequest instanceof CreateAdhocQueryRequest) {
+                    workspaceId = createAdhocQueryRequest.workspaceId;
+                    body = createAdhocQueryRequest.body
                 } else {
-                    contentType = changeAlertRequest['content-type'];
-                    workspaceId = changeAlertRequest['workspace_id'];
-                    alertId = changeAlertRequest['alert_id'];
-                    body = changeAlertRequest['body'];
+                    workspaceId = createAdhocQueryRequest['workspace_id'];
+                    body = createAdhocQueryRequest['body'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling changeAlert.');
-            }
-            if (alertId === null || alertId === undefined) {
-            throw new RequiredError('alertId','Required parameter alertId was null or undefined when calling changeAlert.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createAdhocQuery.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId,'alert_id': alertId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 编辑事件，根据实际修改的属性更新，未修改的列不更新
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        changeIncident(changeIncidentRequest?: ChangeIncidentRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/incidents/{incident_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let contentType;
-            
-            let workspaceId;
-            
-            let incidentId;
-
-            if (changeIncidentRequest !== null && changeIncidentRequest !== undefined) {
-                if (changeIncidentRequest instanceof ChangeIncidentRequest) {
-                    contentType = changeIncidentRequest.contentType;
-                    workspaceId = changeIncidentRequest.workspaceId;
-                    incidentId = changeIncidentRequest.incidentId;
-                    body = changeIncidentRequest.body
-                } else {
-                    contentType = changeIncidentRequest['content-type'];
-                    workspaceId = changeIncidentRequest['workspace_id'];
-                    incidentId = changeIncidentRequest['incident_id'];
-                    body = changeIncidentRequest['body'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling changeIncident.');
-            }
-            if (incidentId === null || incidentId === undefined) {
-            throw new RequiredError('incidentId','Required parameter incidentId was null or undefined when calling changeIncident.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId,'incident_id': incidentId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 操作剧本实例
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        changePlaybookInstance(changePlaybookInstanceRequest?: ChangePlaybookInstanceRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/instances/{instance_id}/operation",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let contentType;
-            
-            let workspaceId;
-            
-            let instanceId;
-
-            if (changePlaybookInstanceRequest !== null && changePlaybookInstanceRequest !== undefined) {
-                if (changePlaybookInstanceRequest instanceof ChangePlaybookInstanceRequest) {
-                    contentType = changePlaybookInstanceRequest.contentType;
-                    workspaceId = changePlaybookInstanceRequest.workspaceId;
-                    instanceId = changePlaybookInstanceRequest.instanceId;
-                    body = changePlaybookInstanceRequest.body
-                } else {
-                    contentType = changePlaybookInstanceRequest['content-type'];
-                    workspaceId = changePlaybookInstanceRequest['workspace_id'];
-                    instanceId = changePlaybookInstanceRequest['instance_id'];
-                    body = changePlaybookInstanceRequest['body'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling changePlaybookInstance.');
-            }
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling changePlaybookInstance.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId,'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 克隆剧本及版本
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        copyPlaybookVersion(copyPlaybookVersionRequest?: CopyPlaybookVersionRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/versions/{version_id}/clone",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let contentType;
-            
-            let workspaceId;
-            
-            let versionId;
-
-            if (copyPlaybookVersionRequest !== null && copyPlaybookVersionRequest !== undefined) {
-                if (copyPlaybookVersionRequest instanceof CopyPlaybookVersionRequest) {
-                    contentType = copyPlaybookVersionRequest.contentType;
-                    workspaceId = copyPlaybookVersionRequest.workspaceId;
-                    versionId = copyPlaybookVersionRequest.versionId;
-                    body = copyPlaybookVersionRequest.body
-                } else {
-                    contentType = copyPlaybookVersionRequest['content-type'];
-                    workspaceId = copyPlaybookVersionRequest['workspace_id'];
-                    versionId = copyPlaybookVersionRequest['version_id'];
-                    body = copyPlaybookVersionRequest['body'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling copyPlaybookVersion.');
-            }
-            if (versionId === null || versionId === undefined) {
-            throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling copyPlaybookVersion.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId,'version_id': versionId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建告警
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createAlert(createAlertRequest?: CreateAlertRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/alerts",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let contentType;
-            
-            let workspaceId;
-
-            if (createAlertRequest !== null && createAlertRequest !== undefined) {
-                if (createAlertRequest instanceof CreateAlertRequest) {
-                    contentType = createAlertRequest.contentType;
-                    workspaceId = createAlertRequest.workspaceId;
-                    body = createAlertRequest.body
-                } else {
-                    contentType = createAlertRequest['content-type'];
-                    workspaceId = createAlertRequest['workspace_id'];
-                    body = createAlertRequest['body'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createAlert.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2207,14 +2015,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * Create alert rule
+         * 创建告警规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
         createAlertRule(createAlertRuleRequest?: CreateAlertRuleRequest) {
             const options = {
                 method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/siem/alert-rules",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/alert-rules",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -2253,14 +2061,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * Simulate alert rule
+         * 创建分析脚本
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        createAlertRuleSimulation(createAlertRuleSimulationRequest?: CreateAlertRuleSimulationRequest) {
+        createAnalysisScript(createAnalysisScriptRequest?: CreateAnalysisScriptRequest) {
             const options = {
                 method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/siem/alert-rules/simulation",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/analysis-scripts",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -2273,19 +2081,19 @@ export const ParamCreater = function () {
             
             let workspaceId;
 
-            if (createAlertRuleSimulationRequest !== null && createAlertRuleSimulationRequest !== undefined) {
-                if (createAlertRuleSimulationRequest instanceof CreateAlertRuleSimulationRequest) {
-                    workspaceId = createAlertRuleSimulationRequest.workspaceId;
-                    body = createAlertRuleSimulationRequest.body
+            if (createAnalysisScriptRequest !== null && createAnalysisScriptRequest !== undefined) {
+                if (createAnalysisScriptRequest instanceof CreateAnalysisScriptRequest) {
+                    workspaceId = createAnalysisScriptRequest.workspaceId;
+                    body = createAnalysisScriptRequest.body
                 } else {
-                    workspaceId = createAlertRuleSimulationRequest['workspace_id'];
-                    body = createAlertRuleSimulationRequest['body'];
+                    workspaceId = createAnalysisScriptRequest['workspace_id'];
+                    body = createAnalysisScriptRequest['body'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createAlertRuleSimulation.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createAnalysisScript.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2299,14 +2107,226 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 告警转事件
+         * 创建代码片段
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        createBatchOrderAlerts(createBatchOrderAlertsRequest?: CreateBatchOrderAlertsRequest) {
+        createCodeSegment(createCodeSegmentRequest?: CreateCodeSegmentRequest) {
             const options = {
                 method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/alerts/batch-order",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/code-segments",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspaceId;
+
+            if (createCodeSegmentRequest !== null && createCodeSegmentRequest !== undefined) {
+                if (createCodeSegmentRequest instanceof CreateCodeSegmentRequest) {
+                    workspaceId = createCodeSegmentRequest.workspaceId;
+                    body = createCodeSegmentRequest.body
+                } else {
+                    workspaceId = createCodeSegmentRequest['workspace_id'];
+                    body = createCodeSegmentRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createCodeSegment.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 新增自定义检查项
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createCustomizedCheckitem(createCustomizedCheckitemRequest?: CreateCustomizedCheckitemRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/sa/baseline/checkitems",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let workspaceId;
+            
+            let xLanguage;
+
+            if (createCustomizedCheckitemRequest !== null && createCustomizedCheckitemRequest !== undefined) {
+                if (createCustomizedCheckitemRequest instanceof CreateCustomizedCheckitemRequest) {
+                    contentType = createCustomizedCheckitemRequest.contentType;
+                    workspaceId = createCustomizedCheckitemRequest.workspaceId;
+                    xLanguage = createCustomizedCheckitemRequest.xLanguage;
+                    body = createCustomizedCheckitemRequest.body
+                } else {
+                    contentType = createCustomizedCheckitemRequest['content-type'];
+                    workspaceId = createCustomizedCheckitemRequest['workspace_id'];
+                    xLanguage = createCustomizedCheckitemRequest['X-Language'];
+                    body = createCustomizedCheckitemRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createCustomizedCheckitem.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['content-type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 新增自定义遵从包
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createCustomizedCompliancePackage(createCustomizedCompliancePackageRequest?: CreateCustomizedCompliancePackageRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/sa/baseline/compliance-packages",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspaceId;
+            
+            let contentType;
+            
+            let xLanguage;
+
+            if (createCustomizedCompliancePackageRequest !== null && createCustomizedCompliancePackageRequest !== undefined) {
+                if (createCustomizedCompliancePackageRequest instanceof CreateCustomizedCompliancePackageRequest) {
+                    workspaceId = createCustomizedCompliancePackageRequest.workspaceId;
+                    contentType = createCustomizedCompliancePackageRequest.contentType;
+                    xLanguage = createCustomizedCompliancePackageRequest.xLanguage;
+                    body = createCustomizedCompliancePackageRequest.body
+                } else {
+                    workspaceId = createCustomizedCompliancePackageRequest['workspace_id'];
+                    contentType = createCustomizedCompliancePackageRequest['content-type'];
+                    xLanguage = createCustomizedCompliancePackageRequest['X-Language'];
+                    body = createCustomizedCompliancePackageRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createCustomizedCompliancePackage.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['content-type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建数据加工
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDataTransformation(createDataTransformationRequest?: CreateDataTransformationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/data-transformations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspaceId;
+
+            if (createDataTransformationRequest !== null && createDataTransformationRequest !== undefined) {
+                if (createDataTransformationRequest instanceof CreateDataTransformationRequest) {
+                    workspaceId = createDataTransformationRequest.workspaceId;
+                    body = createDataTransformationRequest.body
+                } else {
+                    workspaceId = createDataTransformationRequest['workspace_id'];
+                    body = createDataTransformationRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createDataTransformation.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建布局字段
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createLayoutField(createLayoutFieldRequest?: CreateLayoutFieldRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/soc/layouts/fields",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -2321,21 +2341,21 @@ export const ParamCreater = function () {
             
             let workspaceId;
 
-            if (createBatchOrderAlertsRequest !== null && createBatchOrderAlertsRequest !== undefined) {
-                if (createBatchOrderAlertsRequest instanceof CreateBatchOrderAlertsRequest) {
-                    contentType = createBatchOrderAlertsRequest.contentType;
-                    workspaceId = createBatchOrderAlertsRequest.workspaceId;
-                    body = createBatchOrderAlertsRequest.body
+            if (createLayoutFieldRequest !== null && createLayoutFieldRequest !== undefined) {
+                if (createLayoutFieldRequest instanceof CreateLayoutFieldRequest) {
+                    contentType = createLayoutFieldRequest.contentType;
+                    workspaceId = createLayoutFieldRequest.workspaceId;
+                    body = createLayoutFieldRequest.body
                 } else {
-                    contentType = createBatchOrderAlertsRequest['content-type'];
-                    workspaceId = createBatchOrderAlertsRequest['workspace_id'];
-                    body = createBatchOrderAlertsRequest['body'];
+                    contentType = createLayoutFieldRequest['content-type'];
+                    workspaceId = createLayoutFieldRequest['workspace_id'];
+                    body = createLayoutFieldRequest['body'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createBatchOrderAlerts.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createLayoutField.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2352,237 +2372,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 关联Dataobject
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createDataobjectRelations(createDataobjectRelationsRequest?: CreateDataobjectRelationsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/{dataclass_type}/{data_object_id}/{related_dataclass_type}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let contentType;
-            
-            let workspaceId;
-            
-            let dataclassType;
-            
-            let dataObjectId;
-            
-            let relatedDataclassType;
-
-            if (createDataobjectRelationsRequest !== null && createDataobjectRelationsRequest !== undefined) {
-                if (createDataobjectRelationsRequest instanceof CreateDataobjectRelationsRequest) {
-                    contentType = createDataobjectRelationsRequest.contentType;
-                    workspaceId = createDataobjectRelationsRequest.workspaceId;
-                    dataclassType = createDataobjectRelationsRequest.dataclassType;
-                    dataObjectId = createDataobjectRelationsRequest.dataObjectId;
-                    relatedDataclassType = createDataobjectRelationsRequest.relatedDataclassType;
-                    body = createDataobjectRelationsRequest.body
-                } else {
-                    contentType = createDataobjectRelationsRequest['content-type'];
-                    workspaceId = createDataobjectRelationsRequest['workspace_id'];
-                    dataclassType = createDataobjectRelationsRequest['dataclass_type'];
-                    dataObjectId = createDataobjectRelationsRequest['data_object_id'];
-                    relatedDataclassType = createDataobjectRelationsRequest['related_dataclass_type'];
-                    body = createDataobjectRelationsRequest['body'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createDataobjectRelations.');
-            }
-            if (dataclassType === null || dataclassType === undefined) {
-            throw new RequiredError('dataclassType','Required parameter dataclassType was null or undefined when calling createDataobjectRelations.');
-            }
-            if (dataObjectId === null || dataObjectId === undefined) {
-            throw new RequiredError('dataObjectId','Required parameter dataObjectId was null or undefined when calling createDataobjectRelations.');
-            }
-            if (relatedDataclassType === null || relatedDataclassType === undefined) {
-            throw new RequiredError('relatedDataclassType','Required parameter relatedDataclassType was null or undefined when calling createDataobjectRelations.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId,'dataclass_type': dataclassType,'data_object_id': dataObjectId,'related_dataclass_type': relatedDataclassType, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建数据空间
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createDataspace(createDataspaceRequest?: CreateDataspaceRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/siem/dataspaces",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let workspaceId;
-
-            if (createDataspaceRequest !== null && createDataspaceRequest !== undefined) {
-                if (createDataspaceRequest instanceof CreateDataspaceRequest) {
-                    workspaceId = createDataspaceRequest.workspaceId;
-                    body = createDataspaceRequest.body
-                } else {
-                    workspaceId = createDataspaceRequest['workspace_id'];
-                    body = createDataspaceRequest['body'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createDataspace.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建事件
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createIncident(createIncidentRequest?: CreateIncidentRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/incidents",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let contentType;
-            
-            let workspaceId;
-
-            if (createIncidentRequest !== null && createIncidentRequest !== undefined) {
-                if (createIncidentRequest instanceof CreateIncidentRequest) {
-                    contentType = createIncidentRequest.contentType;
-                    workspaceId = createIncidentRequest.workspaceId;
-                    body = createIncidentRequest.body
-                } else {
-                    contentType = createIncidentRequest['content-type'];
-                    workspaceId = createIncidentRequest['workspace_id'];
-                    body = createIncidentRequest['body'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createIncident.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建威胁情报
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createIndicator(createIndicatorRequest?: CreateIndicatorRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/indicators",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let contentType;
-            
-            let workspaceId;
-
-            if (createIndicatorRequest !== null && createIndicatorRequest !== undefined) {
-                if (createIndicatorRequest instanceof CreateIndicatorRequest) {
-                    contentType = createIndicatorRequest.contentType;
-                    workspaceId = createIndicatorRequest.workspaceId;
-                    body = createIndicatorRequest.body
-                } else {
-                    contentType = createIndicatorRequest['content-type'];
-                    workspaceId = createIndicatorRequest['workspace_id'];
-                    body = createIndicatorRequest['body'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createIndicator.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建数据管道
+         * 创建管道
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
         createPipe(createPipeRequest?: CreatePipeRequest) {
             const options = {
                 method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/siem/pipes",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/pipes",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -2621,14 +2418,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建剧本
+         * 创建检索脚本
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        createPlaybook(createPlaybookRequest?: CreatePlaybookRequest) {
+        createRetrieveScript(createRetrieveScriptRequest?: CreateRetrieveScriptRequest) {
             const options = {
                 method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/retrieve-scripts",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -2639,31 +2436,24 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let contentType;
-            
             let workspaceId;
 
-            if (createPlaybookRequest !== null && createPlaybookRequest !== undefined) {
-                if (createPlaybookRequest instanceof CreatePlaybookRequest) {
-                    contentType = createPlaybookRequest.contentType;
-                    workspaceId = createPlaybookRequest.workspaceId;
-                    body = createPlaybookRequest.body
+            if (createRetrieveScriptRequest !== null && createRetrieveScriptRequest !== undefined) {
+                if (createRetrieveScriptRequest instanceof CreateRetrieveScriptRequest) {
+                    workspaceId = createRetrieveScriptRequest.workspaceId;
+                    body = createRetrieveScriptRequest.body
                 } else {
-                    contentType = createPlaybookRequest['content-type'];
-                    workspaceId = createPlaybookRequest['workspace_id'];
-                    body = createPlaybookRequest['body'];
+                    workspaceId = createRetrieveScriptRequest['workspace_id'];
+                    body = createRetrieveScriptRequest['body'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createPlaybook.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createRetrieveScript.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2674,14 +2464,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建剧本动作
+         * 创建表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        createPlaybookAction(createPlaybookActionRequest?: CreatePlaybookActionRequest) {
+        createTable(createTableRequest?: CreateTableRequest) {
             const options = {
                 method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/versions/{version_id}/actions",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/tables",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -2692,56 +2482,42 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let contentType;
-            
             let workspaceId;
-            
-            let versionId;
 
-            if (createPlaybookActionRequest !== null && createPlaybookActionRequest !== undefined) {
-                if (createPlaybookActionRequest instanceof CreatePlaybookActionRequest) {
-                    contentType = createPlaybookActionRequest.contentType;
-                    workspaceId = createPlaybookActionRequest.workspaceId;
-                    versionId = createPlaybookActionRequest.versionId;
-                    body = createPlaybookActionRequest.body
+            if (createTableRequest !== null && createTableRequest !== undefined) {
+                if (createTableRequest instanceof CreateTableRequest) {
+                    workspaceId = createTableRequest.workspaceId;
+                    body = createTableRequest.body
                 } else {
-                    contentType = createPlaybookActionRequest['content-type'];
-                    workspaceId = createPlaybookActionRequest['workspace_id'];
-                    versionId = createPlaybookActionRequest['version_id'];
-                    body = createPlaybookActionRequest['body'];
+                    workspaceId = createTableRequest['workspace_id'];
+                    body = createTableRequest['body'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createPlaybookAction.');
-            }
-            if (versionId === null || versionId === undefined) {
-            throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling createPlaybookAction.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createTable.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId,'version_id': versionId, };
+            options.pathParams = { 'workspace_id': workspaceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 审核剧本
+         * 创建安全分析查询
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        createPlaybookApprove(createPlaybookApproveRequest?: CreatePlaybookApproveRequest) {
+        createTableAnalysis(createTableAnalysisRequest?: CreateTableAnalysisRequest) {
             const options = {
                 method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/versions/{version_id}/approval",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/tables/{table_id}/analysis",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -2752,332 +2528,112 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let contentType;
-            
             let workspaceId;
             
-            let versionId;
+            let tableId;
 
-            if (createPlaybookApproveRequest !== null && createPlaybookApproveRequest !== undefined) {
-                if (createPlaybookApproveRequest instanceof CreatePlaybookApproveRequest) {
-                    contentType = createPlaybookApproveRequest.contentType;
-                    workspaceId = createPlaybookApproveRequest.workspaceId;
-                    versionId = createPlaybookApproveRequest.versionId;
-                    body = createPlaybookApproveRequest.body
+            if (createTableAnalysisRequest !== null && createTableAnalysisRequest !== undefined) {
+                if (createTableAnalysisRequest instanceof CreateTableAnalysisRequest) {
+                    workspaceId = createTableAnalysisRequest.workspaceId;
+                    tableId = createTableAnalysisRequest.tableId;
+                    body = createTableAnalysisRequest.body
                 } else {
-                    contentType = createPlaybookApproveRequest['content-type'];
-                    workspaceId = createPlaybookApproveRequest['workspace_id'];
-                    versionId = createPlaybookApproveRequest['version_id'];
-                    body = createPlaybookApproveRequest['body'];
+                    workspaceId = createTableAnalysisRequest['workspace_id'];
+                    tableId = createTableAnalysisRequest['table_id'];
+                    body = createTableAnalysisRequest['body'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createPlaybookApprove.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createTableAnalysis.');
             }
-            if (versionId === null || versionId === undefined) {
-            throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling createPlaybookApprove.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId,'version_id': versionId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建剧本规则
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createPlaybookRule(createPlaybookRuleRequest?: CreatePlaybookRuleRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/versions/{version_id}/rules",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let contentType;
-            
-            let workspaceId;
-            
-            let versionId;
-
-            if (createPlaybookRuleRequest !== null && createPlaybookRuleRequest !== undefined) {
-                if (createPlaybookRuleRequest instanceof CreatePlaybookRuleRequest) {
-                    contentType = createPlaybookRuleRequest.contentType;
-                    workspaceId = createPlaybookRuleRequest.workspaceId;
-                    versionId = createPlaybookRuleRequest.versionId;
-                    body = createPlaybookRuleRequest.body
-                } else {
-                    contentType = createPlaybookRuleRequest['content-type'];
-                    workspaceId = createPlaybookRuleRequest['workspace_id'];
-                    versionId = createPlaybookRuleRequest['version_id'];
-                    body = createPlaybookRuleRequest['body'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createPlaybookRule.');
-            }
-            if (versionId === null || versionId === undefined) {
-            throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling createPlaybookRule.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId,'version_id': versionId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建剧本版本
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createPlaybookVersion(createPlaybookVersionRequest?: CreatePlaybookVersionRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/{playbook_id}/versions",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let contentType;
-            
-            let workspaceId;
-            
-            let playbookId;
-
-            if (createPlaybookVersionRequest !== null && createPlaybookVersionRequest !== undefined) {
-                if (createPlaybookVersionRequest instanceof CreatePlaybookVersionRequest) {
-                    contentType = createPlaybookVersionRequest.contentType;
-                    workspaceId = createPlaybookVersionRequest.workspaceId;
-                    playbookId = createPlaybookVersionRequest.playbookId;
-                    body = createPlaybookVersionRequest.body
-                } else {
-                    contentType = createPlaybookVersionRequest['content-type'];
-                    workspaceId = createPlaybookVersionRequest['workspace_id'];
-                    playbookId = createPlaybookVersionRequest['playbook_id'];
-                    body = createPlaybookVersionRequest['body'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createPlaybookVersion.');
-            }
-            if (playbookId === null || playbookId === undefined) {
-            throw new RequiredError('playbookId','Required parameter playbookId was null or undefined when calling createPlaybookVersion.');
+            if (tableId === null || tableId === undefined) {
+            throw new RequiredError('tableId','Required parameter tableId was null or undefined when calling createTableAnalysis.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId,'playbook_id': playbookId, };
+            options.pathParams = { 'workspace_id': workspaceId,'table_id': tableId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 开通安全云脑按需服务
+         * 关闭查询操作
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        createPostPaidOrder(createPostPaidOrderRequest?: CreatePostPaidOrderRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/subscriptions/orders",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let xLanguage;
-
-            if (createPostPaidOrderRequest !== null && createPostPaidOrderRequest !== undefined) {
-                if (createPostPaidOrderRequest instanceof CreatePostPaidOrderRequest) {
-                    xLanguage = createPostPaidOrderRequest.xLanguage;
-                    body = createPostPaidOrderRequest.body
-                } else {
-                    xLanguage = createPostPaidOrderRequest['X-Language'];
-                    body = createPostPaidOrderRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (xLanguage !== undefined && xLanguage !== null) {
-                localVarHeaderParameter['X-Language'] = String(xLanguage);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 在使用安全云脑的基线检查、告警管理、安全分析、安全编排等功能前，需要创建工作空间，它可以将资源划分为各个不同的工作场景，避免资源冗余查找不便，影响日常使用。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createWorkspace(createWorkspaceRequest?: CreateWorkspaceRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/workspaces",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let contentType;
-
-            if (createWorkspaceRequest !== null && createWorkspaceRequest !== undefined) {
-                if (createWorkspaceRequest instanceof CreateWorkspaceRequest) {
-                    contentType = createWorkspaceRequest.contentType;
-                    body = createWorkspaceRequest.body
-                } else {
-                    contentType = createWorkspaceRequest['content-type'];
-                    body = createWorkspaceRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除告警
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteAlert(deleteAlertRequest?: DeleteAlertRequest) {
+        deleteAdhocQuery(deleteAdhocQueryRequest?: DeleteAdhocQueryRequest) {
             const options = {
                 method: "DELETE",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/alerts",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/ad-hoc-queries/{query_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
-            let body: any;
-            
-            let contentType;
             
             let workspaceId;
+            
+            let queryId;
 
-            if (deleteAlertRequest !== null && deleteAlertRequest !== undefined) {
-                if (deleteAlertRequest instanceof DeleteAlertRequest) {
-                    contentType = deleteAlertRequest.contentType;
-                    workspaceId = deleteAlertRequest.workspaceId;
-                    body = deleteAlertRequest.body
+            if (deleteAdhocQueryRequest !== null && deleteAdhocQueryRequest !== undefined) {
+                if (deleteAdhocQueryRequest instanceof DeleteAdhocQueryRequest) {
+                    workspaceId = deleteAdhocQueryRequest.workspaceId;
+                    queryId = deleteAdhocQueryRequest.queryId;
                 } else {
-                    contentType = deleteAlertRequest['content-type'];
-                    workspaceId = deleteAlertRequest['workspace_id'];
-                    body = deleteAlertRequest['body'];
+                    workspaceId = deleteAdhocQueryRequest['workspace_id'];
+                    queryId = deleteAdhocQueryRequest['query_id'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deleteAlert.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deleteAdhocQuery.');
             }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            if (queryId === null || queryId === undefined) {
+            throw new RequiredError('queryId','Required parameter queryId was null or undefined when calling deleteAdhocQuery.');
             }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId, };
+            options.pathParams = { 'workspace_id': workspaceId,'query_id': queryId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * Delete alert rule
+         * 删除告警规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteAlertRule(deleteAlertRuleRequest?: DeleteAlertRuleRequest) {
             const options = {
                 method: "DELETE",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/siem/alert-rules",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/alert-rules/{alert_rule_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
-            let body: any;
             
             let workspaceId;
+            
+            let alertRuleId;
 
             if (deleteAlertRuleRequest !== null && deleteAlertRuleRequest !== undefined) {
                 if (deleteAlertRuleRequest instanceof DeleteAlertRuleRequest) {
                     workspaceId = deleteAlertRuleRequest.workspaceId;
-                    body = deleteAlertRuleRequest.body
+                    alertRuleId = deleteAlertRuleRequest.alertRuleId;
                 } else {
                     workspaceId = deleteAlertRuleRequest['workspace_id'];
-                    body = deleteAlertRuleRequest['body'];
+                    alertRuleId = deleteAlertRuleRequest['alert_rule_id'];
                 }
             }
 
@@ -3085,26 +2641,112 @@ export const ParamCreater = function () {
             if (workspaceId === null || workspaceId === undefined) {
             throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deleteAlertRule.');
             }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            if (alertRuleId === null || alertRuleId === undefined) {
+            throw new RequiredError('alertRuleId','Required parameter alertRuleId was null or undefined when calling deleteAlertRule.');
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId, };
+            options.pathParams = { 'workspace_id': workspaceId,'alert_rule_id': alertRuleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 取消关联Dataobject
+         * 删除分析脚本
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        deleteDataobjectRelations(deleteDataobjectRelationsRequest?: DeleteDataobjectRelationsRequest) {
+        deleteAnalysisScript(deleteAnalysisScriptRequest?: DeleteAnalysisScriptRequest) {
             const options = {
                 method: "DELETE",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/{dataclass_type}/{data_object_id}/{related_dataclass_type}",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/analysis-scripts/{analysis_script_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspaceId;
+            
+            let analysisScriptId;
+
+            if (deleteAnalysisScriptRequest !== null && deleteAnalysisScriptRequest !== undefined) {
+                if (deleteAnalysisScriptRequest instanceof DeleteAnalysisScriptRequest) {
+                    workspaceId = deleteAnalysisScriptRequest.workspaceId;
+                    analysisScriptId = deleteAnalysisScriptRequest.analysisScriptId;
+                } else {
+                    workspaceId = deleteAnalysisScriptRequest['workspace_id'];
+                    analysisScriptId = deleteAnalysisScriptRequest['analysis_script_id'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deleteAnalysisScript.');
+            }
+            if (analysisScriptId === null || analysisScriptId === undefined) {
+            throw new RequiredError('analysisScriptId','Required parameter analysisScriptId was null or undefined when calling deleteAnalysisScript.');
+            }
+
+            options.pathParams = { 'workspace_id': workspaceId,'analysis_script_id': analysisScriptId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除代码片段
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteCodeSegment(deleteCodeSegmentRequest?: DeleteCodeSegmentRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/code-segments/{code_segment_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspaceId;
+            
+            let codeSegmentId;
+
+            if (deleteCodeSegmentRequest !== null && deleteCodeSegmentRequest !== undefined) {
+                if (deleteCodeSegmentRequest instanceof DeleteCodeSegmentRequest) {
+                    workspaceId = deleteCodeSegmentRequest.workspaceId;
+                    codeSegmentId = deleteCodeSegmentRequest.codeSegmentId;
+                } else {
+                    workspaceId = deleteCodeSegmentRequest['workspace_id'];
+                    codeSegmentId = deleteCodeSegmentRequest['code_segment_id'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deleteCodeSegment.');
+            }
+            if (codeSegmentId === null || codeSegmentId === undefined) {
+            throw new RequiredError('codeSegmentId','Required parameter codeSegmentId was null or undefined when calling deleteCodeSegment.');
+            }
+
+            options.pathParams = { 'workspace_id': workspaceId,'code_segment_id': codeSegmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除自定义检查项
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteCustomizedCheckitems(deleteCustomizedCheckitemsRequest?: DeleteCustomizedCheckitemsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/sa/baseline/checkitems",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3119,63 +2761,156 @@ export const ParamCreater = function () {
             
             let workspaceId;
             
-            let dataclassType;
-            
-            let dataObjectId;
-            
-            let relatedDataclassType;
+            let xLanguage;
 
-            if (deleteDataobjectRelationsRequest !== null && deleteDataobjectRelationsRequest !== undefined) {
-                if (deleteDataobjectRelationsRequest instanceof DeleteDataobjectRelationsRequest) {
-                    contentType = deleteDataobjectRelationsRequest.contentType;
-                    workspaceId = deleteDataobjectRelationsRequest.workspaceId;
-                    dataclassType = deleteDataobjectRelationsRequest.dataclassType;
-                    dataObjectId = deleteDataobjectRelationsRequest.dataObjectId;
-                    relatedDataclassType = deleteDataobjectRelationsRequest.relatedDataclassType;
-                    body = deleteDataobjectRelationsRequest.body
+            if (deleteCustomizedCheckitemsRequest !== null && deleteCustomizedCheckitemsRequest !== undefined) {
+                if (deleteCustomizedCheckitemsRequest instanceof DeleteCustomizedCheckitemsRequest) {
+                    contentType = deleteCustomizedCheckitemsRequest.contentType;
+                    workspaceId = deleteCustomizedCheckitemsRequest.workspaceId;
+                    xLanguage = deleteCustomizedCheckitemsRequest.xLanguage;
+                    body = deleteCustomizedCheckitemsRequest.body
                 } else {
-                    contentType = deleteDataobjectRelationsRequest['content-type'];
-                    workspaceId = deleteDataobjectRelationsRequest['workspace_id'];
-                    dataclassType = deleteDataobjectRelationsRequest['dataclass_type'];
-                    dataObjectId = deleteDataobjectRelationsRequest['data_object_id'];
-                    relatedDataclassType = deleteDataobjectRelationsRequest['related_dataclass_type'];
-                    body = deleteDataobjectRelationsRequest['body'];
+                    contentType = deleteCustomizedCheckitemsRequest['content-type'];
+                    workspaceId = deleteCustomizedCheckitemsRequest['workspace_id'];
+                    xLanguage = deleteCustomizedCheckitemsRequest['X-Language'];
+                    body = deleteCustomizedCheckitemsRequest['body'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deleteDataobjectRelations.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deleteCustomizedCheckitems.');
             }
-            if (dataclassType === null || dataclassType === undefined) {
-            throw new RequiredError('dataclassType','Required parameter dataclassType was null or undefined when calling deleteDataobjectRelations.');
-            }
-            if (dataObjectId === null || dataObjectId === undefined) {
-            throw new RequiredError('dataObjectId','Required parameter dataObjectId was null or undefined when calling deleteDataobjectRelations.');
-            }
-            if (relatedDataclassType === null || relatedDataclassType === undefined) {
-            throw new RequiredError('relatedDataclassType','Required parameter relatedDataclassType was null or undefined when calling deleteDataobjectRelations.');
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['content-type'] = String(contentType);
             }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId,'dataclass_type': dataclassType,'data_object_id': dataObjectId,'related_dataclass_type': relatedDataclassType, };
+            options.pathParams = { 'workspace_id': workspaceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 删除事件
+         * 删除自定义遵从包
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        deleteIncident(deleteIncidentRequest?: DeleteIncidentRequest) {
+        deleteCustomizedCompliancePackages(deleteCustomizedCompliancePackagesRequest?: DeleteCustomizedCompliancePackagesRequest) {
             const options = {
                 method: "DELETE",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/incidents",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/sa/baseline/compliance-packages",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspaceId;
+            
+            let contentType;
+            
+            let xLanguage;
+
+            if (deleteCustomizedCompliancePackagesRequest !== null && deleteCustomizedCompliancePackagesRequest !== undefined) {
+                if (deleteCustomizedCompliancePackagesRequest instanceof DeleteCustomizedCompliancePackagesRequest) {
+                    workspaceId = deleteCustomizedCompliancePackagesRequest.workspaceId;
+                    contentType = deleteCustomizedCompliancePackagesRequest.contentType;
+                    xLanguage = deleteCustomizedCompliancePackagesRequest.xLanguage;
+                    body = deleteCustomizedCompliancePackagesRequest.body
+                } else {
+                    workspaceId = deleteCustomizedCompliancePackagesRequest['workspace_id'];
+                    contentType = deleteCustomizedCompliancePackagesRequest['content-type'];
+                    xLanguage = deleteCustomizedCompliancePackagesRequest['X-Language'];
+                    body = deleteCustomizedCompliancePackagesRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deleteCustomizedCompliancePackages.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['content-type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除数据加工
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDataTransformation(deleteDataTransformationRequest?: DeleteDataTransformationRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/data-transformations/{data_transformation_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspaceId;
+            
+            let dataTransformationId;
+
+            if (deleteDataTransformationRequest !== null && deleteDataTransformationRequest !== undefined) {
+                if (deleteDataTransformationRequest instanceof DeleteDataTransformationRequest) {
+                    workspaceId = deleteDataTransformationRequest.workspaceId;
+                    dataTransformationId = deleteDataTransformationRequest.dataTransformationId;
+                } else {
+                    workspaceId = deleteDataTransformationRequest['workspace_id'];
+                    dataTransformationId = deleteDataTransformationRequest['data_transformation_id'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deleteDataTransformation.');
+            }
+            if (dataTransformationId === null || dataTransformationId === undefined) {
+            throw new RequiredError('dataTransformationId','Required parameter dataTransformationId was null or undefined when calling deleteDataTransformation.');
+            }
+
+            options.pathParams = { 'workspace_id': workspaceId,'data_transformation_id': dataTransformationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除布局字段
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteLayoutField(deleteLayoutFieldRequest?: DeleteLayoutFieldRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/soc/layouts/fields",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3190,24 +2925,21 @@ export const ParamCreater = function () {
             
             let workspaceId;
 
-            if (deleteIncidentRequest !== null && deleteIncidentRequest !== undefined) {
-                if (deleteIncidentRequest instanceof DeleteIncidentRequest) {
-                    contentType = deleteIncidentRequest.contentType;
-                    workspaceId = deleteIncidentRequest.workspaceId;
-                    body = deleteIncidentRequest.body
+            if (deleteLayoutFieldRequest !== null && deleteLayoutFieldRequest !== undefined) {
+                if (deleteLayoutFieldRequest instanceof DeleteLayoutFieldRequest) {
+                    contentType = deleteLayoutFieldRequest.contentType;
+                    workspaceId = deleteLayoutFieldRequest.workspaceId;
+                    body = deleteLayoutFieldRequest.body
                 } else {
-                    contentType = deleteIncidentRequest['content-type'];
-                    workspaceId = deleteIncidentRequest['workspace_id'];
-                    body = deleteIncidentRequest['body'];
+                    contentType = deleteLayoutFieldRequest['content-type'];
+                    workspaceId = deleteLayoutFieldRequest['workspace_id'];
+                    body = deleteLayoutFieldRequest['body'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deleteIncident.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deleteLayoutField.');
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['content-type'] = String(contentType);
@@ -3221,67 +2953,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除威胁情报
+         * 删除管道
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        deleteIndicator(deleteIndicatorRequest?: DeleteIndicatorRequest) {
+        deletePipe(deletePipeRequest?: DeletePipeRequest) {
             const options = {
                 method: "DELETE",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/indicators",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let contentType;
-            
-            let workspaceId;
-
-            if (deleteIndicatorRequest !== null && deleteIndicatorRequest !== undefined) {
-                if (deleteIndicatorRequest instanceof DeleteIndicatorRequest) {
-                    contentType = deleteIndicatorRequest.contentType;
-                    workspaceId = deleteIndicatorRequest.workspaceId;
-                    body = deleteIndicatorRequest.body
-                } else {
-                    contentType = deleteIndicatorRequest['content-type'];
-                    workspaceId = deleteIndicatorRequest['workspace_id'];
-                    body = deleteIndicatorRequest['body'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deleteIndicator.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除剧本
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deletePlaybook(deletePlaybookRequest?: DeletePlaybookRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/{playbook_id}",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/pipes/{pipe_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3290,49 +2969,42 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
-            let contentType;
-            
             let workspaceId;
             
-            let playbookId;
+            let pipeId;
 
-            if (deletePlaybookRequest !== null && deletePlaybookRequest !== undefined) {
-                if (deletePlaybookRequest instanceof DeletePlaybookRequest) {
-                    contentType = deletePlaybookRequest.contentType;
-                    workspaceId = deletePlaybookRequest.workspaceId;
-                    playbookId = deletePlaybookRequest.playbookId;
+            if (deletePipeRequest !== null && deletePipeRequest !== undefined) {
+                if (deletePipeRequest instanceof DeletePipeRequest) {
+                    workspaceId = deletePipeRequest.workspaceId;
+                    pipeId = deletePipeRequest.pipeId;
                 } else {
-                    contentType = deletePlaybookRequest['content-type'];
-                    workspaceId = deletePlaybookRequest['workspace_id'];
-                    playbookId = deletePlaybookRequest['playbook_id'];
+                    workspaceId = deletePipeRequest['workspace_id'];
+                    pipeId = deletePipeRequest['pipe_id'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deletePlaybook.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deletePipe.');
             }
-            if (playbookId === null || playbookId === undefined) {
-            throw new RequiredError('playbookId','Required parameter playbookId was null or undefined when calling deletePlaybook.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+            if (pipeId === null || pipeId === undefined) {
+            throw new RequiredError('pipeId','Required parameter pipeId was null or undefined when calling deletePipe.');
             }
 
-            options.pathParams = { 'workspace_id': workspaceId,'playbook_id': playbookId, };
+            options.pathParams = { 'workspace_id': workspaceId,'pipe_id': pipeId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 删除剧本动作
+         * 删除检索脚本
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        deletePlaybookAction(deletePlaybookActionRequest?: DeletePlaybookActionRequest) {
+        deleteRetrieveScript(deleteRetrieveScriptRequest?: DeleteRetrieveScriptRequest) {
             const options = {
                 method: "DELETE",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/versions/{version_id}/actions/{action_id}",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/retrieve-scripts/{retrieve_script_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3341,56 +3013,42 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
-            let contentType;
-            
             let workspaceId;
             
-            let versionId;
-            
-            let actionId;
+            let retrieveScriptId;
 
-            if (deletePlaybookActionRequest !== null && deletePlaybookActionRequest !== undefined) {
-                if (deletePlaybookActionRequest instanceof DeletePlaybookActionRequest) {
-                    contentType = deletePlaybookActionRequest.contentType;
-                    workspaceId = deletePlaybookActionRequest.workspaceId;
-                    versionId = deletePlaybookActionRequest.versionId;
-                    actionId = deletePlaybookActionRequest.actionId;
+            if (deleteRetrieveScriptRequest !== null && deleteRetrieveScriptRequest !== undefined) {
+                if (deleteRetrieveScriptRequest instanceof DeleteRetrieveScriptRequest) {
+                    workspaceId = deleteRetrieveScriptRequest.workspaceId;
+                    retrieveScriptId = deleteRetrieveScriptRequest.retrieveScriptId;
                 } else {
-                    contentType = deletePlaybookActionRequest['content-type'];
-                    workspaceId = deletePlaybookActionRequest['workspace_id'];
-                    versionId = deletePlaybookActionRequest['version_id'];
-                    actionId = deletePlaybookActionRequest['action_id'];
+                    workspaceId = deleteRetrieveScriptRequest['workspace_id'];
+                    retrieveScriptId = deleteRetrieveScriptRequest['retrieve_script_id'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deletePlaybookAction.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deleteRetrieveScript.');
             }
-            if (versionId === null || versionId === undefined) {
-            throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling deletePlaybookAction.');
-            }
-            if (actionId === null || actionId === undefined) {
-            throw new RequiredError('actionId','Required parameter actionId was null or undefined when calling deletePlaybookAction.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+            if (retrieveScriptId === null || retrieveScriptId === undefined) {
+            throw new RequiredError('retrieveScriptId','Required parameter retrieveScriptId was null or undefined when calling deleteRetrieveScript.');
             }
 
-            options.pathParams = { 'workspace_id': workspaceId,'version_id': versionId,'action_id': actionId, };
+            options.pathParams = { 'workspace_id': workspaceId,'retrieve_script_id': retrieveScriptId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 删除剧本规则
+         * 删除表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        deletePlaybookRule(deletePlaybookRuleRequest?: DeletePlaybookRuleRequest) {
+        deleteTable(deleteTableRequest?: DeleteTableRequest) {
             const options = {
                 method: "DELETE",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/versions/{version_id}/rules/{rule_id}",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/tables/{table_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3399,178 +3057,61 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
-            let contentType;
-            
             let workspaceId;
             
-            let versionId;
-            
-            let ruleId;
+            let tableId;
 
-            if (deletePlaybookRuleRequest !== null && deletePlaybookRuleRequest !== undefined) {
-                if (deletePlaybookRuleRequest instanceof DeletePlaybookRuleRequest) {
-                    contentType = deletePlaybookRuleRequest.contentType;
-                    workspaceId = deletePlaybookRuleRequest.workspaceId;
-                    versionId = deletePlaybookRuleRequest.versionId;
-                    ruleId = deletePlaybookRuleRequest.ruleId;
+            if (deleteTableRequest !== null && deleteTableRequest !== undefined) {
+                if (deleteTableRequest instanceof DeleteTableRequest) {
+                    workspaceId = deleteTableRequest.workspaceId;
+                    tableId = deleteTableRequest.tableId;
                 } else {
-                    contentType = deletePlaybookRuleRequest['content-type'];
-                    workspaceId = deletePlaybookRuleRequest['workspace_id'];
-                    versionId = deletePlaybookRuleRequest['version_id'];
-                    ruleId = deletePlaybookRuleRequest['rule_id'];
+                    workspaceId = deleteTableRequest['workspace_id'];
+                    tableId = deleteTableRequest['table_id'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deletePlaybookRule.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deleteTable.');
             }
-            if (versionId === null || versionId === undefined) {
-            throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling deletePlaybookRule.');
-            }
-            if (ruleId === null || ruleId === undefined) {
-            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling deletePlaybookRule.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+            if (tableId === null || tableId === undefined) {
+            throw new RequiredError('tableId','Required parameter tableId was null or undefined when calling deleteTable.');
             }
 
-            options.pathParams = { 'workspace_id': workspaceId,'version_id': versionId,'rule_id': ruleId, };
+            options.pathParams = { 'workspace_id': workspaceId,'table_id': tableId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 删除剧本版本
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deletePlaybookVersion(deletePlaybookVersionRequest?: DeletePlaybookVersionRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/versions/{version_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let contentType;
-            
-            let workspaceId;
-            
-            let versionId;
-
-            if (deletePlaybookVersionRequest !== null && deletePlaybookVersionRequest !== undefined) {
-                if (deletePlaybookVersionRequest instanceof DeletePlaybookVersionRequest) {
-                    contentType = deletePlaybookVersionRequest.contentType;
-                    workspaceId = deletePlaybookVersionRequest.workspaceId;
-                    versionId = deletePlaybookVersionRequest.versionId;
-                } else {
-                    contentType = deletePlaybookVersionRequest['content-type'];
-                    workspaceId = deletePlaybookVersionRequest['workspace_id'];
-                    versionId = deletePlaybookVersionRequest['version_id'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deletePlaybookVersion.');
-            }
-            if (versionId === null || versionId === undefined) {
-            throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling deletePlaybookVersion.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-
-            options.pathParams = { 'workspace_id': workspaceId,'version_id': versionId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除工作空间
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteWorkspace(deleteWorkspaceRequest?: DeleteWorkspaceRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v1/{project_id}/workspaces/{workspace_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let contentType;
-            
-            let workspaceId;
-            
-            let permanentDelete;
-
-            if (deleteWorkspaceRequest !== null && deleteWorkspaceRequest !== undefined) {
-                if (deleteWorkspaceRequest instanceof DeleteWorkspaceRequest) {
-                    contentType = deleteWorkspaceRequest.contentType;
-                    workspaceId = deleteWorkspaceRequest.workspaceId;
-                    permanentDelete = deleteWorkspaceRequest.permanentDelete;
-                } else {
-                    contentType = deleteWorkspaceRequest['content-type'];
-                    workspaceId = deleteWorkspaceRequest['workspace_id'];
-                    permanentDelete = deleteWorkspaceRequest['permanent_delete'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deleteWorkspace.');
-            }
-            if (permanentDelete !== null && permanentDelete !== undefined) {
-                localVarQueryParameter['permanent_delete'] = permanentDelete;
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'workspace_id': workspaceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * Disable alert rule
+         * 停用告警规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
         disableAlertRule(disableAlertRuleRequest?: DisableAlertRuleRequest) {
             const options = {
                 method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/siem/alert-rules/disable",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/alert-rules/{alert_rule_id}/disable",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
-            let body: any;
             
             let workspaceId;
+            
+            let alertRuleId;
 
             if (disableAlertRuleRequest !== null && disableAlertRuleRequest !== undefined) {
                 if (disableAlertRuleRequest instanceof DisableAlertRuleRequest) {
                     workspaceId = disableAlertRuleRequest.workspaceId;
-                    body = disableAlertRuleRequest.body
+                    alertRuleId = disableAlertRuleRequest.alertRuleId;
                 } else {
                     workspaceId = disableAlertRuleRequest['workspace_id'];
-                    body = disableAlertRuleRequest['body'];
+                    alertRuleId = disableAlertRuleRequest['alert_rule_id'];
                 }
             }
 
@@ -3578,26 +3119,24 @@ export const ParamCreater = function () {
             if (workspaceId === null || workspaceId === undefined) {
             throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling disableAlertRule.');
             }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            if (alertRuleId === null || alertRuleId === undefined) {
+            throw new RequiredError('alertRuleId','Required parameter alertRuleId was null or undefined when calling disableAlertRule.');
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId, };
+            options.pathParams = { 'workspace_id': workspaceId,'alert_rule_id': alertRuleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * Enable alert rule
+         * 关闭实时消费
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        enableAlertRule(enableAlertRuleRequest?: EnableAlertRuleRequest) {
+        disableDataConsumption(disableDataConsumptionRequest?: DisableDataConsumptionRequest) {
             const options = {
-                method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/siem/alert-rules/enable",
+                method: "DELETE",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/tables/{table_id}/consumption",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3609,20 +3148,27 @@ export const ParamCreater = function () {
             let body: any;
             
             let workspaceId;
+            
+            let tableId;
 
-            if (enableAlertRuleRequest !== null && enableAlertRuleRequest !== undefined) {
-                if (enableAlertRuleRequest instanceof EnableAlertRuleRequest) {
-                    workspaceId = enableAlertRuleRequest.workspaceId;
-                    body = enableAlertRuleRequest.body
+            if (disableDataConsumptionRequest !== null && disableDataConsumptionRequest !== undefined) {
+                if (disableDataConsumptionRequest instanceof DisableDataConsumptionRequest) {
+                    workspaceId = disableDataConsumptionRequest.workspaceId;
+                    tableId = disableDataConsumptionRequest.tableId;
+                    body = disableDataConsumptionRequest.body
                 } else {
-                    workspaceId = enableAlertRuleRequest['workspace_id'];
-                    body = enableAlertRuleRequest['body'];
+                    workspaceId = disableDataConsumptionRequest['workspace_id'];
+                    tableId = disableDataConsumptionRequest['table_id'];
+                    body = disableDataConsumptionRequest['body'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling enableAlertRule.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling disableDataConsumption.');
+            }
+            if (tableId === null || tableId === undefined) {
+            throw new RequiredError('tableId','Required parameter tableId was null or undefined when calling disableDataConsumption.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3630,20 +3176,196 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId, };
+            options.pathParams = { 'workspace_id': workspaceId,'table_id': tableId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * List alert rule metrics
+         * 停用数据加工
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disableDataTransformation(disableDataTransformationRequest?: DisableDataTransformationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/data-transformations/{data_transformation_id}/disable",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspaceId;
+            
+            let dataTransformationId;
+
+            if (disableDataTransformationRequest !== null && disableDataTransformationRequest !== undefined) {
+                if (disableDataTransformationRequest instanceof DisableDataTransformationRequest) {
+                    workspaceId = disableDataTransformationRequest.workspaceId;
+                    dataTransformationId = disableDataTransformationRequest.dataTransformationId;
+                } else {
+                    workspaceId = disableDataTransformationRequest['workspace_id'];
+                    dataTransformationId = disableDataTransformationRequest['data_transformation_id'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling disableDataTransformation.');
+            }
+            if (dataTransformationId === null || dataTransformationId === undefined) {
+            throw new RequiredError('dataTransformationId','Required parameter dataTransformationId was null or undefined when calling disableDataTransformation.');
+            }
+
+            options.pathParams = { 'workspace_id': workspaceId,'data_transformation_id': dataTransformationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 启用告警规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        enableAlertRule(enableAlertRuleRequest?: EnableAlertRuleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/alert-rules/{alert_rule_id}/enable",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspaceId;
+            
+            let alertRuleId;
+
+            if (enableAlertRuleRequest !== null && enableAlertRuleRequest !== undefined) {
+                if (enableAlertRuleRequest instanceof EnableAlertRuleRequest) {
+                    workspaceId = enableAlertRuleRequest.workspaceId;
+                    alertRuleId = enableAlertRuleRequest.alertRuleId;
+                } else {
+                    workspaceId = enableAlertRuleRequest['workspace_id'];
+                    alertRuleId = enableAlertRuleRequest['alert_rule_id'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling enableAlertRule.');
+            }
+            if (alertRuleId === null || alertRuleId === undefined) {
+            throw new RequiredError('alertRuleId','Required parameter alertRuleId was null or undefined when calling enableAlertRule.');
+            }
+
+            options.pathParams = { 'workspace_id': workspaceId,'alert_rule_id': alertRuleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启实时消费
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        enableDataConsumption(enableDataConsumptionRequest?: EnableDataConsumptionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/tables/{table_id}/consumption",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspaceId;
+            
+            let tableId;
+
+            if (enableDataConsumptionRequest !== null && enableDataConsumptionRequest !== undefined) {
+                if (enableDataConsumptionRequest instanceof EnableDataConsumptionRequest) {
+                    workspaceId = enableDataConsumptionRequest.workspaceId;
+                    tableId = enableDataConsumptionRequest.tableId;
+                } else {
+                    workspaceId = enableDataConsumptionRequest['workspace_id'];
+                    tableId = enableDataConsumptionRequest['table_id'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling enableDataConsumption.');
+            }
+            if (tableId === null || tableId === undefined) {
+            throw new RequiredError('tableId','Required parameter tableId was null or undefined when calling enableDataConsumption.');
+            }
+
+            options.pathParams = { 'workspace_id': workspaceId,'table_id': tableId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 启用数据加工
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        enableDataTransformation(enableDataTransformationRequest?: EnableDataTransformationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/data-transformations/{data_transformation_id}/enable",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspaceId;
+            
+            let dataTransformationId;
+
+            if (enableDataTransformationRequest !== null && enableDataTransformationRequest !== undefined) {
+                if (enableDataTransformationRequest instanceof EnableDataTransformationRequest) {
+                    workspaceId = enableDataTransformationRequest.workspaceId;
+                    dataTransformationId = enableDataTransformationRequest.dataTransformationId;
+                } else {
+                    workspaceId = enableDataTransformationRequest['workspace_id'];
+                    dataTransformationId = enableDataTransformationRequest['data_transformation_id'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling enableDataTransformation.');
+            }
+            if (dataTransformationId === null || dataTransformationId === undefined) {
+            throw new RequiredError('dataTransformationId','Required parameter dataTransformationId was null or undefined when calling enableDataTransformation.');
+            }
+
+            options.pathParams = { 'workspace_id': workspaceId,'data_transformation_id': dataTransformationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 告警规则总览
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
         listAlertRuleMetrics(listAlertRuleMetricsRequest?: ListAlertRuleMetricsRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/siem/alert-rules/metrics",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/alert-rules/metrics",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3673,14 +3395,51 @@ export const ParamCreater = function () {
         },
     
         /**
-         * List alert rule templates
+         * 列出告警规则模板总览
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAlertRuleTemplateMetrics(listAlertRuleTemplateMetricsRequest?: ListAlertRuleTemplateMetricsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/alert-rules/templates/metrics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspaceId;
+
+            if (listAlertRuleTemplateMetricsRequest !== null && listAlertRuleTemplateMetricsRequest !== undefined) {
+                if (listAlertRuleTemplateMetricsRequest instanceof ListAlertRuleTemplateMetricsRequest) {
+                    workspaceId = listAlertRuleTemplateMetricsRequest.workspaceId;
+                } else {
+                    workspaceId = listAlertRuleTemplateMetricsRequest['workspace_id'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listAlertRuleTemplateMetrics.');
+            }
+
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列出告警规则模板
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
         listAlertRuleTemplates(listAlertRuleTemplatesRequest?: ListAlertRuleTemplatesRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/siem/alert-rules/templates",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/alert-rules/templates",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3691,6 +3450,12 @@ export const ParamCreater = function () {
             
             let workspaceId;
             
+            let templateName;
+            
+            let status;
+            
+            let severity;
+            
             let offset;
             
             let limit;
@@ -3698,24 +3463,26 @@ export const ParamCreater = function () {
             let sortKey;
             
             let sortDir;
-            
-            let severity;
 
             if (listAlertRuleTemplatesRequest !== null && listAlertRuleTemplatesRequest !== undefined) {
                 if (listAlertRuleTemplatesRequest instanceof ListAlertRuleTemplatesRequest) {
                     workspaceId = listAlertRuleTemplatesRequest.workspaceId;
+                    templateName = listAlertRuleTemplatesRequest.templateName;
+                    status = listAlertRuleTemplatesRequest.status;
+                    severity = listAlertRuleTemplatesRequest.severity;
                     offset = listAlertRuleTemplatesRequest.offset;
                     limit = listAlertRuleTemplatesRequest.limit;
                     sortKey = listAlertRuleTemplatesRequest.sortKey;
                     sortDir = listAlertRuleTemplatesRequest.sortDir;
-                    severity = listAlertRuleTemplatesRequest.severity;
                 } else {
                     workspaceId = listAlertRuleTemplatesRequest['workspace_id'];
+                    templateName = listAlertRuleTemplatesRequest['template_name'];
+                    status = listAlertRuleTemplatesRequest['status'];
+                    severity = listAlertRuleTemplatesRequest['severity'];
                     offset = listAlertRuleTemplatesRequest['offset'];
                     limit = listAlertRuleTemplatesRequest['limit'];
                     sortKey = listAlertRuleTemplatesRequest['sort_key'];
                     sortDir = listAlertRuleTemplatesRequest['sort_dir'];
-                    severity = listAlertRuleTemplatesRequest['severity'];
                 }
             }
 
@@ -3723,14 +3490,17 @@ export const ParamCreater = function () {
             if (workspaceId === null || workspaceId === undefined) {
             throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listAlertRuleTemplates.');
             }
-            if (offset === null || offset === undefined) {
-                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listAlertRuleTemplates.');
+            if (templateName !== null && templateName !== undefined) {
+                localVarQueryParameter['template_name'] = templateName;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (severity !== null && severity !== undefined) {
+                localVarQueryParameter['severity'] = severity;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
-            }
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listAlertRuleTemplates.');
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -3741,9 +3511,6 @@ export const ParamCreater = function () {
             if (sortDir !== null && sortDir !== undefined) {
                 localVarQueryParameter['sort_dir'] = sortDir;
             }
-            if (severity !== null && severity !== undefined) {
-                localVarQueryParameter['severity'] = severity;
-            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'workspace_id': workspaceId, };
@@ -3752,14 +3519,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * List alert rules
+         * 列出告警规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
         listAlertRules(listAlertRulesRequest?: ListAlertRulesRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/siem/alert-rules",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/alert-rules",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3778,15 +3545,11 @@ export const ParamCreater = function () {
             
             let sortDir;
             
-            let pipeId;
+            let outputTableId;
             
-            let ruleName;
+            let alertRuleName;
             
-            let ruleId;
-            
-            let status;
-            
-            let severity;
+            let alertRuleId;
 
             if (listAlertRulesRequest !== null && listAlertRulesRequest !== undefined) {
                 if (listAlertRulesRequest instanceof ListAlertRulesRequest) {
@@ -3795,22 +3558,18 @@ export const ParamCreater = function () {
                     limit = listAlertRulesRequest.limit;
                     sortKey = listAlertRulesRequest.sortKey;
                     sortDir = listAlertRulesRequest.sortDir;
-                    pipeId = listAlertRulesRequest.pipeId;
-                    ruleName = listAlertRulesRequest.ruleName;
-                    ruleId = listAlertRulesRequest.ruleId;
-                    status = listAlertRulesRequest.status;
-                    severity = listAlertRulesRequest.severity;
+                    outputTableId = listAlertRulesRequest.outputTableId;
+                    alertRuleName = listAlertRulesRequest.alertRuleName;
+                    alertRuleId = listAlertRulesRequest.alertRuleId;
                 } else {
                     workspaceId = listAlertRulesRequest['workspace_id'];
                     offset = listAlertRulesRequest['offset'];
                     limit = listAlertRulesRequest['limit'];
                     sortKey = listAlertRulesRequest['sort_key'];
                     sortDir = listAlertRulesRequest['sort_dir'];
-                    pipeId = listAlertRulesRequest['pipe_id'];
-                    ruleName = listAlertRulesRequest['rule_name'];
-                    ruleId = listAlertRulesRequest['rule_id'];
-                    status = listAlertRulesRequest['status'];
-                    severity = listAlertRulesRequest['severity'];
+                    outputTableId = listAlertRulesRequest['output_table_id'];
+                    alertRuleName = listAlertRulesRequest['alert_rule_name'];
+                    alertRuleId = listAlertRulesRequest['alert_rule_id'];
                 }
             }
 
@@ -3818,14 +3577,8 @@ export const ParamCreater = function () {
             if (workspaceId === null || workspaceId === undefined) {
             throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listAlertRules.');
             }
-            if (offset === null || offset === undefined) {
-                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listAlertRules.');
-            }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
-            }
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listAlertRules.');
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -3836,20 +3589,14 @@ export const ParamCreater = function () {
             if (sortDir !== null && sortDir !== undefined) {
                 localVarQueryParameter['sort_dir'] = sortDir;
             }
-            if (pipeId !== null && pipeId !== undefined) {
-                localVarQueryParameter['pipe_id'] = pipeId;
+            if (outputTableId !== null && outputTableId !== undefined) {
+                localVarQueryParameter['output_table_id'] = outputTableId;
             }
-            if (ruleName !== null && ruleName !== undefined) {
-                localVarQueryParameter['rule_name'] = ruleName;
+            if (alertRuleName !== null && alertRuleName !== undefined) {
+                localVarQueryParameter['alert_rule_name'] = alertRuleName;
             }
-            if (ruleId !== null && ruleId !== undefined) {
-                localVarQueryParameter['rule_id'] = ruleId;
-            }
-            if (status !== null && status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-            if (severity !== null && severity !== undefined) {
-                localVarQueryParameter['severity'] = severity;
+            if (alertRuleId !== null && alertRuleId !== undefined) {
+                localVarQueryParameter['alert_rule_id'] = alertRuleId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3859,64 +3606,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 搜索告警列表
+         * 列出分析脚本
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listAlerts(listAlertsRequest?: ListAlertsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/alerts/search",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let contentType;
-            
-            let workspaceId;
-
-            if (listAlertsRequest !== null && listAlertsRequest !== undefined) {
-                if (listAlertsRequest instanceof ListAlertsRequest) {
-                    contentType = listAlertsRequest.contentType;
-                    workspaceId = listAlertsRequest.workspaceId;
-                    body = listAlertsRequest.body
-                } else {
-                    contentType = listAlertsRequest['content-type'];
-                    workspaceId = listAlertsRequest['workspace_id'];
-                    body = listAlertsRequest['body'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listAlerts.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询数据类列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listDataclass(listDataclassRequest?: ListDataclassRequest) {
+        listAnalysisScripts(listAnalysisScriptsRequest?: ListAnalysisScriptsRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/dataclasses",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/analysis-scripts",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3924,496 +3621,6 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-            
-            let contentType;
-            
-            let workspaceId;
-            
-            let offset;
-            
-            let limit;
-            
-            let name;
-            
-            let businessCode;
-            
-            let description;
-            
-            let isBuiltIn;
-
-            if (listDataclassRequest !== null && listDataclassRequest !== undefined) {
-                if (listDataclassRequest instanceof ListDataclassRequest) {
-                    contentType = listDataclassRequest.contentType;
-                    workspaceId = listDataclassRequest.workspaceId;
-                    offset = listDataclassRequest.offset;
-                    limit = listDataclassRequest.limit;
-                    name = listDataclassRequest.name;
-                    businessCode = listDataclassRequest.businessCode;
-                    description = listDataclassRequest.description;
-                    isBuiltIn = listDataclassRequest.isBuiltIn;
-                } else {
-                    contentType = listDataclassRequest['content-type'];
-                    workspaceId = listDataclassRequest['workspace_id'];
-                    offset = listDataclassRequest['offset'];
-                    limit = listDataclassRequest['limit'];
-                    name = listDataclassRequest['name'];
-                    businessCode = listDataclassRequest['business_code'];
-                    description = listDataclassRequest['description'];
-                    isBuiltIn = listDataclassRequest['is_built_in'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listDataclass.');
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (businessCode !== null && businessCode !== undefined) {
-                localVarQueryParameter['business_code'] = businessCode;
-            }
-            if (description !== null && description !== undefined) {
-                localVarQueryParameter['description'] = description;
-            }
-            if (isBuiltIn !== null && isBuiltIn !== undefined) {
-                localVarQueryParameter['is_built_in'] = isBuiltIn;
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'workspace_id': workspaceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询字段列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listDataclassFields(listDataclassFieldsRequest?: ListDataclassFieldsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/dataclasses/{dataclass_id}/fields",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let contentType;
-            
-            let workspaceId;
-            
-            let dataclassId;
-            
-            let offset;
-            
-            let limit;
-            
-            let name;
-            
-            let isBuiltIn;
-            
-            let fieldCategory;
-            
-            let mapping;
-
-            if (listDataclassFieldsRequest !== null && listDataclassFieldsRequest !== undefined) {
-                if (listDataclassFieldsRequest instanceof ListDataclassFieldsRequest) {
-                    contentType = listDataclassFieldsRequest.contentType;
-                    workspaceId = listDataclassFieldsRequest.workspaceId;
-                    dataclassId = listDataclassFieldsRequest.dataclassId;
-                    offset = listDataclassFieldsRequest.offset;
-                    limit = listDataclassFieldsRequest.limit;
-                    name = listDataclassFieldsRequest.name;
-                    isBuiltIn = listDataclassFieldsRequest.isBuiltIn;
-                    fieldCategory = listDataclassFieldsRequest.fieldCategory;
-                    mapping = listDataclassFieldsRequest.mapping;
-                } else {
-                    contentType = listDataclassFieldsRequest['content-type'];
-                    workspaceId = listDataclassFieldsRequest['workspace_id'];
-                    dataclassId = listDataclassFieldsRequest['dataclass_id'];
-                    offset = listDataclassFieldsRequest['offset'];
-                    limit = listDataclassFieldsRequest['limit'];
-                    name = listDataclassFieldsRequest['name'];
-                    isBuiltIn = listDataclassFieldsRequest['is_built_in'];
-                    fieldCategory = listDataclassFieldsRequest['field_category'];
-                    mapping = listDataclassFieldsRequest['mapping'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listDataclassFields.');
-            }
-            if (dataclassId === null || dataclassId === undefined) {
-            throw new RequiredError('dataclassId','Required parameter dataclassId was null or undefined when calling listDataclassFields.');
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (isBuiltIn !== null && isBuiltIn !== undefined) {
-                localVarQueryParameter['is_built_in'] = isBuiltIn;
-            }
-            if (fieldCategory !== null && fieldCategory !== undefined) {
-                localVarQueryParameter['field_category'] = fieldCategory;
-            }
-            if (mapping !== null && mapping !== undefined) {
-                localVarQueryParameter['mapping'] = mapping;
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'workspace_id': workspaceId,'dataclass_id': dataclassId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询关联Dataobject列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listDataobjectRelations(listDataobjectRelationsRequest?: ListDataobjectRelationsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/{dataclass_type}/{data_object_id}/{related_dataclass_type}/search",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let contentType;
-            
-            let workspaceId;
-            
-            let dataclassType;
-            
-            let dataObjectId;
-            
-            let relatedDataclassType;
-
-            if (listDataobjectRelationsRequest !== null && listDataobjectRelationsRequest !== undefined) {
-                if (listDataobjectRelationsRequest instanceof ListDataobjectRelationsRequest) {
-                    contentType = listDataobjectRelationsRequest.contentType;
-                    workspaceId = listDataobjectRelationsRequest.workspaceId;
-                    dataclassType = listDataobjectRelationsRequest.dataclassType;
-                    dataObjectId = listDataobjectRelationsRequest.dataObjectId;
-                    relatedDataclassType = listDataobjectRelationsRequest.relatedDataclassType;
-                    body = listDataobjectRelationsRequest.body
-                } else {
-                    contentType = listDataobjectRelationsRequest['content-type'];
-                    workspaceId = listDataobjectRelationsRequest['workspace_id'];
-                    dataclassType = listDataobjectRelationsRequest['dataclass_type'];
-                    dataObjectId = listDataobjectRelationsRequest['data_object_id'];
-                    relatedDataclassType = listDataobjectRelationsRequest['related_dataclass_type'];
-                    body = listDataobjectRelationsRequest['body'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listDataobjectRelations.');
-            }
-            if (dataclassType === null || dataclassType === undefined) {
-            throw new RequiredError('dataclassType','Required parameter dataclassType was null or undefined when calling listDataobjectRelations.');
-            }
-            if (dataObjectId === null || dataObjectId === undefined) {
-            throw new RequiredError('dataObjectId','Required parameter dataObjectId was null or undefined when calling listDataobjectRelations.');
-            }
-            if (relatedDataclassType === null || relatedDataclassType === undefined) {
-            throw new RequiredError('relatedDataclassType','Required parameter relatedDataclassType was null or undefined when calling listDataobjectRelations.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId,'dataclass_type': dataclassType,'data_object_id': dataObjectId,'related_dataclass_type': relatedDataclassType, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 搜索事件列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listIncidents(listIncidentsRequest?: ListIncidentsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/incidents/search",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let contentType;
-            
-            let workspaceId;
-
-            if (listIncidentsRequest !== null && listIncidentsRequest !== undefined) {
-                if (listIncidentsRequest instanceof ListIncidentsRequest) {
-                    contentType = listIncidentsRequest.contentType;
-                    workspaceId = listIncidentsRequest.workspaceId;
-                    body = listIncidentsRequest.body
-                } else {
-                    contentType = listIncidentsRequest['content-type'];
-                    workspaceId = listIncidentsRequest['workspace_id'];
-                    body = listIncidentsRequest['body'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listIncidents.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询威胁情报列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listIndicators(listIndicatorsRequest?: ListIndicatorsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/indicators/search",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let contentType;
-            
-            let workspaceId;
-
-            if (listIndicatorsRequest !== null && listIndicatorsRequest !== undefined) {
-                if (listIndicatorsRequest instanceof ListIndicatorsRequest) {
-                    contentType = listIndicatorsRequest.contentType;
-                    workspaceId = listIndicatorsRequest.workspaceId;
-                    body = listIndicatorsRequest.body
-                } else {
-                    contentType = listIndicatorsRequest['content-type'];
-                    workspaceId = listIndicatorsRequest['workspace_id'];
-                    body = listIndicatorsRequest['body'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listIndicators.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询剧本动作列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listPlaybookActions(listPlaybookActionsRequest?: ListPlaybookActionsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/versions/{version_id}/actions",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let contentType;
-            
-            let workspaceId;
-            
-            let versionId;
-            
-            let limit;
-            
-            let offset;
-
-            if (listPlaybookActionsRequest !== null && listPlaybookActionsRequest !== undefined) {
-                if (listPlaybookActionsRequest instanceof ListPlaybookActionsRequest) {
-                    contentType = listPlaybookActionsRequest.contentType;
-                    workspaceId = listPlaybookActionsRequest.workspaceId;
-                    versionId = listPlaybookActionsRequest.versionId;
-                    limit = listPlaybookActionsRequest.limit;
-                    offset = listPlaybookActionsRequest.offset;
-                } else {
-                    contentType = listPlaybookActionsRequest['content-type'];
-                    workspaceId = listPlaybookActionsRequest['workspace_id'];
-                    versionId = listPlaybookActionsRequest['version_id'];
-                    limit = listPlaybookActionsRequest['limit'];
-                    offset = listPlaybookActionsRequest['offset'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listPlaybookActions.');
-            }
-            if (versionId === null || versionId === undefined) {
-            throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling listPlaybookActions.');
-            }
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listPlaybookActions.');
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset === null || offset === undefined) {
-                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listPlaybookActions.');
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'workspace_id': workspaceId,'version_id': versionId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询剧本审核结果
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listPlaybookApproves(listPlaybookApprovesRequest?: ListPlaybookApprovesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/versions/approval",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let contentType;
-            
-            let workspaceId;
-            
-            let resourceId;
-            
-            let approveType;
-
-            if (listPlaybookApprovesRequest !== null && listPlaybookApprovesRequest !== undefined) {
-                if (listPlaybookApprovesRequest instanceof ListPlaybookApprovesRequest) {
-                    contentType = listPlaybookApprovesRequest.contentType;
-                    workspaceId = listPlaybookApprovesRequest.workspaceId;
-                    resourceId = listPlaybookApprovesRequest.resourceId;
-                    approveType = listPlaybookApprovesRequest.approveType;
-                } else {
-                    contentType = listPlaybookApprovesRequest['content-type'];
-                    workspaceId = listPlaybookApprovesRequest['workspace_id'];
-                    resourceId = listPlaybookApprovesRequest['resource_id'];
-                    approveType = listPlaybookApprovesRequest['approve_type'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listPlaybookApproves.');
-            }
-            if (resourceId !== null && resourceId !== undefined) {
-                localVarQueryParameter['resource_id'] = resourceId;
-            }
-            if (approveType !== null && approveType !== undefined) {
-                localVarQueryParameter['approve_type'] = approveType;
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'workspace_id': workspaceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询剧本实例审计日志
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listPlaybookAuditLogs(listPlaybookAuditLogsRequest?: ListPlaybookAuditLogsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/instances/auditlogs",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let body: any;
-            
-            let contentType;
             
             let workspaceId;
             
@@ -4425,38 +3632,28 @@ export const ParamCreater = function () {
             
             let sortDir;
 
-            if (listPlaybookAuditLogsRequest !== null && listPlaybookAuditLogsRequest !== undefined) {
-                if (listPlaybookAuditLogsRequest instanceof ListPlaybookAuditLogsRequest) {
-                    contentType = listPlaybookAuditLogsRequest.contentType;
-                    workspaceId = listPlaybookAuditLogsRequest.workspaceId;
-                    offset = listPlaybookAuditLogsRequest.offset;
-                    limit = listPlaybookAuditLogsRequest.limit;
-                    sortKey = listPlaybookAuditLogsRequest.sortKey;
-                    sortDir = listPlaybookAuditLogsRequest.sortDir;
-                    body = listPlaybookAuditLogsRequest.body
+            if (listAnalysisScriptsRequest !== null && listAnalysisScriptsRequest !== undefined) {
+                if (listAnalysisScriptsRequest instanceof ListAnalysisScriptsRequest) {
+                    workspaceId = listAnalysisScriptsRequest.workspaceId;
+                    offset = listAnalysisScriptsRequest.offset;
+                    limit = listAnalysisScriptsRequest.limit;
+                    sortKey = listAnalysisScriptsRequest.sortKey;
+                    sortDir = listAnalysisScriptsRequest.sortDir;
                 } else {
-                    contentType = listPlaybookAuditLogsRequest['content-type'];
-                    workspaceId = listPlaybookAuditLogsRequest['workspace_id'];
-                    offset = listPlaybookAuditLogsRequest['offset'];
-                    limit = listPlaybookAuditLogsRequest['limit'];
-                    sortKey = listPlaybookAuditLogsRequest['sort_key'];
-                    sortDir = listPlaybookAuditLogsRequest['sort_dir'];
-                    body = listPlaybookAuditLogsRequest['body'];
+                    workspaceId = listAnalysisScriptsRequest['workspace_id'];
+                    offset = listAnalysisScriptsRequest['offset'];
+                    limit = listAnalysisScriptsRequest['limit'];
+                    sortKey = listAnalysisScriptsRequest['sort_key'];
+                    sortDir = listAnalysisScriptsRequest['sort_dir'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listPlaybookAuditLogs.');
-            }
-            if (offset === null || offset === undefined) {
-                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listPlaybookAuditLogs.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listAnalysisScripts.');
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
-            }
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listPlaybookAuditLogs.');
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -4467,148 +3664,613 @@ export const ParamCreater = function () {
             if (sortDir !== null && sortDir !== undefined) {
                 localVarQueryParameter['sort_dir'] = sortDir;
             }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列出代码片段
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCodeSegments(listCodeSegmentsRequest?: ListCodeSegmentsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/code-segments",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspaceId;
+            
+            let codeSegmentId;
+            
+            let codeSegmentName;
+            
+            let offset;
+            
+            let limit;
+            
+            let sortKey;
+            
+            let sortDir;
+
+            if (listCodeSegmentsRequest !== null && listCodeSegmentsRequest !== undefined) {
+                if (listCodeSegmentsRequest instanceof ListCodeSegmentsRequest) {
+                    workspaceId = listCodeSegmentsRequest.workspaceId;
+                    codeSegmentId = listCodeSegmentsRequest.codeSegmentId;
+                    codeSegmentName = listCodeSegmentsRequest.codeSegmentName;
+                    offset = listCodeSegmentsRequest.offset;
+                    limit = listCodeSegmentsRequest.limit;
+                    sortKey = listCodeSegmentsRequest.sortKey;
+                    sortDir = listCodeSegmentsRequest.sortDir;
+                } else {
+                    workspaceId = listCodeSegmentsRequest['workspace_id'];
+                    codeSegmentId = listCodeSegmentsRequest['code_segment_id'];
+                    codeSegmentName = listCodeSegmentsRequest['code_segment_name'];
+                    offset = listCodeSegmentsRequest['offset'];
+                    limit = listCodeSegmentsRequest['limit'];
+                    sortKey = listCodeSegmentsRequest['sort_key'];
+                    sortDir = listCodeSegmentsRequest['sort_dir'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listCodeSegments.');
+            }
+            if (codeSegmentId !== null && codeSegmentId !== undefined) {
+                localVarQueryParameter['code_segment_id'] = codeSegmentId;
+            }
+            if (codeSegmentName !== null && codeSegmentName !== undefined) {
+                localVarQueryParameter['code_segment_name'] = codeSegmentName;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 数据加工总览
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDataTransformationMetrics(listDataTransformationMetricsRequest?: ListDataTransformationMetricsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/data-transformations/metrics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspaceId;
+
+            if (listDataTransformationMetricsRequest !== null && listDataTransformationMetricsRequest !== undefined) {
+                if (listDataTransformationMetricsRequest instanceof ListDataTransformationMetricsRequest) {
+                    workspaceId = listDataTransformationMetricsRequest.workspaceId;
+                } else {
+                    workspaceId = listDataTransformationMetricsRequest['workspace_id'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listDataTransformationMetrics.');
+            }
+
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列出数据加工
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDataTransformations(listDataTransformationsRequest?: ListDataTransformationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/data-transformations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspaceId;
+            
+            let offset;
+            
+            let limit;
+            
+            let outputTableId;
+            
+            let dataTransformationName;
+            
+            let dataTransformationId;
+            
+            let sortKey;
+            
+            let sortDir;
+
+            if (listDataTransformationsRequest !== null && listDataTransformationsRequest !== undefined) {
+                if (listDataTransformationsRequest instanceof ListDataTransformationsRequest) {
+                    workspaceId = listDataTransformationsRequest.workspaceId;
+                    offset = listDataTransformationsRequest.offset;
+                    limit = listDataTransformationsRequest.limit;
+                    outputTableId = listDataTransformationsRequest.outputTableId;
+                    dataTransformationName = listDataTransformationsRequest.dataTransformationName;
+                    dataTransformationId = listDataTransformationsRequest.dataTransformationId;
+                    sortKey = listDataTransformationsRequest.sortKey;
+                    sortDir = listDataTransformationsRequest.sortDir;
+                } else {
+                    workspaceId = listDataTransformationsRequest['workspace_id'];
+                    offset = listDataTransformationsRequest['offset'];
+                    limit = listDataTransformationsRequest['limit'];
+                    outputTableId = listDataTransformationsRequest['output_table_id'];
+                    dataTransformationName = listDataTransformationsRequest['data_transformation_name'];
+                    dataTransformationId = listDataTransformationsRequest['data_transformation_id'];
+                    sortKey = listDataTransformationsRequest['sort_key'];
+                    sortDir = listDataTransformationsRequest['sort_dir'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listDataTransformations.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (outputTableId !== null && outputTableId !== undefined) {
+                localVarQueryParameter['output_table_id'] = outputTableId;
+            }
+            if (dataTransformationName !== null && dataTransformationName !== undefined) {
+                localVarQueryParameter['data_transformation_name'] = dataTransformationName;
+            }
+            if (dataTransformationId !== null && dataTransformationId !== undefined) {
+                localVarQueryParameter['data_transformation_id'] = dataTransformationId;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列出目录分组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDirectories(listDirectoriesRequest?: ListDirectoriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/directories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspaceId;
+            
+            let category;
+
+            if (listDirectoriesRequest !== null && listDirectoriesRequest !== undefined) {
+                if (listDirectoriesRequest instanceof ListDirectoriesRequest) {
+                    workspaceId = listDirectoriesRequest.workspaceId;
+                    category = listDirectoriesRequest.category;
+                } else {
+                    workspaceId = listDirectoriesRequest['workspace_id'];
+                    category = listDirectoriesRequest['category'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listDirectories.');
+            }
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listDirectories.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询布局字段列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLayoutFieldAll(listLayoutFieldAllRequest?: ListLayoutFieldAllRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/soc/layouts/fields",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let workspaceId;
+            
+            let name;
+            
+            let isBuiltIn;
+            
+            let businessCode;
+            
+            let layoutId;
+
+            if (listLayoutFieldAllRequest !== null && listLayoutFieldAllRequest !== undefined) {
+                if (listLayoutFieldAllRequest instanceof ListLayoutFieldAllRequest) {
+                    contentType = listLayoutFieldAllRequest.contentType;
+                    workspaceId = listLayoutFieldAllRequest.workspaceId;
+                    name = listLayoutFieldAllRequest.name;
+                    isBuiltIn = listLayoutFieldAllRequest.isBuiltIn;
+                    businessCode = listLayoutFieldAllRequest.businessCode;
+                    layoutId = listLayoutFieldAllRequest.layoutId;
+                } else {
+                    contentType = listLayoutFieldAllRequest['content-type'];
+                    workspaceId = listLayoutFieldAllRequest['workspace_id'];
+                    name = listLayoutFieldAllRequest['name'];
+                    isBuiltIn = listLayoutFieldAllRequest['is_built_in'];
+                    businessCode = listLayoutFieldAllRequest['business_code'];
+                    layoutId = listLayoutFieldAllRequest['layout_id'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listLayoutFieldAll.');
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (isBuiltIn !== null && isBuiltIn !== undefined) {
+                localVarQueryParameter['is_built_in'] = isBuiltIn;
+            }
+            if (businessCode !== null && businessCode !== undefined) {
+                localVarQueryParameter['business_code'] = businessCode;
+            }
+            if (layoutId !== null && layoutId !== undefined) {
+                localVarQueryParameter['layout_id'] = layoutId;
+            }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['content-type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取管道列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPipes(listPipesRequest?: ListPipesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/pipes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspaceId;
+            
+            let offset;
+            
+            let limit;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let pipeNameInQuery;
+            
+            let pipeIdInQuery;
+
+            if (listPipesRequest !== null && listPipesRequest !== undefined) {
+                if (listPipesRequest instanceof ListPipesRequest) {
+                    workspaceId = listPipesRequest.workspaceId;
+                    offset = listPipesRequest.offset;
+                    limit = listPipesRequest.limit;
+                    sortKey = listPipesRequest.sortKey;
+                    sortDir = listPipesRequest.sortDir;
+                    pipeNameInQuery = listPipesRequest.pipeNameInQuery;
+                    pipeIdInQuery = listPipesRequest.pipeIdInQuery;
+                } else {
+                    workspaceId = listPipesRequest['workspace_id'];
+                    offset = listPipesRequest['offset'];
+                    limit = listPipesRequest['limit'];
+                    sortKey = listPipesRequest['sort_key'];
+                    sortDir = listPipesRequest['sort_dir'];
+                    pipeNameInQuery = listPipesRequest['pipe_name_in_query'];
+                    pipeIdInQuery = listPipesRequest['pipe_id_in_query'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listPipes.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (pipeNameInQuery !== null && pipeNameInQuery !== undefined) {
+                localVarQueryParameter['pipe_name_in_query'] = pipeNameInQuery;
+            }
+            if (pipeIdInQuery !== null && pipeIdInQuery !== undefined) {
+                localVarQueryParameter['pipe_id_in_query'] = pipeIdInQuery;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列出检索脚本
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRetrieveScripts(listRetrieveScriptsRequest?: ListRetrieveScriptsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/retrieve-scripts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspaceId;
+            
+            let tableId;
+            
+            let scriptName;
+            
+            let offset;
+            
+            let limit;
+            
+            let sortKey;
+            
+            let sortDir;
+
+            if (listRetrieveScriptsRequest !== null && listRetrieveScriptsRequest !== undefined) {
+                if (listRetrieveScriptsRequest instanceof ListRetrieveScriptsRequest) {
+                    workspaceId = listRetrieveScriptsRequest.workspaceId;
+                    tableId = listRetrieveScriptsRequest.tableId;
+                    scriptName = listRetrieveScriptsRequest.scriptName;
+                    offset = listRetrieveScriptsRequest.offset;
+                    limit = listRetrieveScriptsRequest.limit;
+                    sortKey = listRetrieveScriptsRequest.sortKey;
+                    sortDir = listRetrieveScriptsRequest.sortDir;
+                } else {
+                    workspaceId = listRetrieveScriptsRequest['workspace_id'];
+                    tableId = listRetrieveScriptsRequest['table_id'];
+                    scriptName = listRetrieveScriptsRequest['script_name'];
+                    offset = listRetrieveScriptsRequest['offset'];
+                    limit = listRetrieveScriptsRequest['limit'];
+                    sortKey = listRetrieveScriptsRequest['sort_key'];
+                    sortDir = listRetrieveScriptsRequest['sort_dir'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listRetrieveScripts.');
+            }
+            if (tableId !== null && tableId !== undefined) {
+                localVarQueryParameter['table_id'] = tableId;
+            }
+            if (scriptName !== null && scriptName !== undefined) {
+                localVarQueryParameter['script_name'] = scriptName;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 检索表直方图
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTableHistograms(listTableHistogramsRequest?: ListTableHistogramsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/tables/{table_id}/histograms",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspaceId;
+            
+            let tableId;
+
+            if (listTableHistogramsRequest !== null && listTableHistogramsRequest !== undefined) {
+                if (listTableHistogramsRequest instanceof ListTableHistogramsRequest) {
+                    workspaceId = listTableHistogramsRequest.workspaceId;
+                    tableId = listTableHistogramsRequest.tableId;
+                    body = listTableHistogramsRequest.body
+                } else {
+                    workspaceId = listTableHistogramsRequest['workspace_id'];
+                    tableId = listTableHistogramsRequest['table_id'];
+                    body = listTableHistogramsRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listTableHistograms.');
+            }
+            if (tableId === null || tableId === undefined) {
+            throw new RequiredError('tableId','Required parameter tableId was null or undefined when calling listTableHistograms.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'workspace_id': workspaceId, };
+            options.pathParams = { 'workspace_id': workspaceId,'table_id': tableId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 查询剧本实例列表
+         * 检索表日志
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listPlaybookInstances(listPlaybookInstancesRequest?: ListPlaybookInstancesRequest) {
+        listTableLogs(listTableLogsRequest?: ListTableLogsRequest) {
             const options = {
-                method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/instances",
+                method: "POST",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/tables/{table_id}/logs",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {}
+                headers: {},
+                data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let contentType;
+
+            let body: any;
             
             let workspaceId;
             
-            let limit;
-            
-            let offset;
-            
-            let status;
-            
-            let name;
-            
-            let playbookName;
-            
-            let dataclassName;
-            
-            let dataobjectName;
-            
-            let triggerType;
-            
-            let fromDate;
-            
-            let toDate;
+            let tableId;
 
-            if (listPlaybookInstancesRequest !== null && listPlaybookInstancesRequest !== undefined) {
-                if (listPlaybookInstancesRequest instanceof ListPlaybookInstancesRequest) {
-                    contentType = listPlaybookInstancesRequest.contentType;
-                    workspaceId = listPlaybookInstancesRequest.workspaceId;
-                    limit = listPlaybookInstancesRequest.limit;
-                    offset = listPlaybookInstancesRequest.offset;
-                    status = listPlaybookInstancesRequest.status;
-                    name = listPlaybookInstancesRequest.name;
-                    playbookName = listPlaybookInstancesRequest.playbookName;
-                    dataclassName = listPlaybookInstancesRequest.dataclassName;
-                    dataobjectName = listPlaybookInstancesRequest.dataobjectName;
-                    triggerType = listPlaybookInstancesRequest.triggerType;
-                    fromDate = listPlaybookInstancesRequest.fromDate;
-                    toDate = listPlaybookInstancesRequest.toDate;
+            if (listTableLogsRequest !== null && listTableLogsRequest !== undefined) {
+                if (listTableLogsRequest instanceof ListTableLogsRequest) {
+                    workspaceId = listTableLogsRequest.workspaceId;
+                    tableId = listTableLogsRequest.tableId;
+                    body = listTableLogsRequest.body
                 } else {
-                    contentType = listPlaybookInstancesRequest['content-type'];
-                    workspaceId = listPlaybookInstancesRequest['workspace_id'];
-                    limit = listPlaybookInstancesRequest['limit'];
-                    offset = listPlaybookInstancesRequest['offset'];
-                    status = listPlaybookInstancesRequest['status'];
-                    name = listPlaybookInstancesRequest['name'];
-                    playbookName = listPlaybookInstancesRequest['playbook_name'];
-                    dataclassName = listPlaybookInstancesRequest['dataclass_name'];
-                    dataobjectName = listPlaybookInstancesRequest['dataobject_name'];
-                    triggerType = listPlaybookInstancesRequest['trigger_type'];
-                    fromDate = listPlaybookInstancesRequest['from_date'];
-                    toDate = listPlaybookInstancesRequest['to_date'];
+                    workspaceId = listTableLogsRequest['workspace_id'];
+                    tableId = listTableLogsRequest['table_id'];
+                    body = listTableLogsRequest['body'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listPlaybookInstances.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listTableLogs.');
             }
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listPlaybookInstances.');
+            if (tableId === null || tableId === undefined) {
+            throw new RequiredError('tableId','Required parameter tableId was null or undefined when calling listTableLogs.');
             }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
-            if (offset === null || offset === undefined) {
-                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listPlaybookInstances.');
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (status !== null && status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (playbookName !== null && playbookName !== undefined) {
-                localVarQueryParameter['playbook_name'] = playbookName;
-            }
-            if (dataclassName !== null && dataclassName !== undefined) {
-                localVarQueryParameter['dataclass_name'] = dataclassName;
-            }
-            if (dataobjectName !== null && dataobjectName !== undefined) {
-                localVarQueryParameter['dataobject_name'] = dataobjectName;
-            }
-            if (triggerType !== null && triggerType !== undefined) {
-                localVarQueryParameter['trigger_type'] = triggerType;
-            }
-            if (fromDate !== null && fromDate !== undefined) {
-                localVarQueryParameter['from_date'] = fromDate;
-            }
-            if (toDate !== null && toDate !== undefined) {
-                localVarQueryParameter['to_date'] = toDate;
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'workspace_id': workspaceId, };
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId,'table_id': tableId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 查询剧本版本列表
+         * 获取表列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listPlaybookVersions(listPlaybookVersionsRequest?: ListPlaybookVersionsRequest) {
+        listTables(listTablesRequest?: ListTablesRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/{playbook_id}/versions",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/tables",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4617,59 +4279,67 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let contentType;
-            
             let workspaceId;
             
-            let playbookId;
+            let category;
             
-            let status;
+            let tableId;
             
-            let enabled;
+            let tableAlias;
             
-            let versionType;
+            let tableName;
             
             let offset;
             
             let limit;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let exists;
 
-            if (listPlaybookVersionsRequest !== null && listPlaybookVersionsRequest !== undefined) {
-                if (listPlaybookVersionsRequest instanceof ListPlaybookVersionsRequest) {
-                    contentType = listPlaybookVersionsRequest.contentType;
-                    workspaceId = listPlaybookVersionsRequest.workspaceId;
-                    playbookId = listPlaybookVersionsRequest.playbookId;
-                    status = listPlaybookVersionsRequest.status;
-                    enabled = listPlaybookVersionsRequest.enabled;
-                    versionType = listPlaybookVersionsRequest.versionType;
-                    offset = listPlaybookVersionsRequest.offset;
-                    limit = listPlaybookVersionsRequest.limit;
+            if (listTablesRequest !== null && listTablesRequest !== undefined) {
+                if (listTablesRequest instanceof ListTablesRequest) {
+                    workspaceId = listTablesRequest.workspaceId;
+                    category = listTablesRequest.category;
+                    tableId = listTablesRequest.tableId;
+                    tableAlias = listTablesRequest.tableAlias;
+                    tableName = listTablesRequest.tableName;
+                    offset = listTablesRequest.offset;
+                    limit = listTablesRequest.limit;
+                    sortKey = listTablesRequest.sortKey;
+                    sortDir = listTablesRequest.sortDir;
+                    exists = listTablesRequest.exists;
                 } else {
-                    contentType = listPlaybookVersionsRequest['content-type'];
-                    workspaceId = listPlaybookVersionsRequest['workspace_id'];
-                    playbookId = listPlaybookVersionsRequest['playbook_id'];
-                    status = listPlaybookVersionsRequest['status'];
-                    enabled = listPlaybookVersionsRequest['enabled'];
-                    versionType = listPlaybookVersionsRequest['version_type'];
-                    offset = listPlaybookVersionsRequest['offset'];
-                    limit = listPlaybookVersionsRequest['limit'];
+                    workspaceId = listTablesRequest['workspace_id'];
+                    category = listTablesRequest['category'];
+                    tableId = listTablesRequest['table_id'];
+                    tableAlias = listTablesRequest['table_alias'];
+                    tableName = listTablesRequest['table_name'];
+                    offset = listTablesRequest['offset'];
+                    limit = listTablesRequest['limit'];
+                    sortKey = listTablesRequest['sort_key'];
+                    sortDir = listTablesRequest['sort_dir'];
+                    exists = listTablesRequest['exists'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listPlaybookVersions.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listTables.');
             }
-            if (playbookId === null || playbookId === undefined) {
-            throw new RequiredError('playbookId','Required parameter playbookId was null or undefined when calling listPlaybookVersions.');
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
             }
-            if (status !== null && status !== undefined) {
-                localVarQueryParameter['status'] = status;
+            if (tableId !== null && tableId !== undefined) {
+                localVarQueryParameter['table_id'] = tableId;
             }
-            if (enabled !== null && enabled !== undefined) {
-                localVarQueryParameter['enabled'] = enabled;
+            if (tableAlias !== null && tableAlias !== undefined) {
+                localVarQueryParameter['table_alias'] = tableAlias;
             }
-            if (versionType !== null && versionType !== undefined) {
-                localVarQueryParameter['version_type'] = versionType;
+            if (tableName !== null && tableName !== undefined) {
+                localVarQueryParameter['table_name'] = tableName;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -4677,368 +4347,18 @@ export const ParamCreater = function () {
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
             }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'workspace_id': workspaceId,'playbook_id': playbookId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询剧本列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listPlaybooks(listPlaybooksRequest?: ListPlaybooksRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let contentType;
-            
-            let workspaceId;
-            
-            let offset;
-            
-            let limit;
-            
-            let searchTxt;
-            
-            let enabled;
-            
-            let description;
-            
-            let dataclassName;
-            
-            let name;
-
-            if (listPlaybooksRequest !== null && listPlaybooksRequest !== undefined) {
-                if (listPlaybooksRequest instanceof ListPlaybooksRequest) {
-                    contentType = listPlaybooksRequest.contentType;
-                    workspaceId = listPlaybooksRequest.workspaceId;
-                    offset = listPlaybooksRequest.offset;
-                    limit = listPlaybooksRequest.limit;
-                    searchTxt = listPlaybooksRequest.searchTxt;
-                    enabled = listPlaybooksRequest.enabled;
-                    description = listPlaybooksRequest.description;
-                    dataclassName = listPlaybooksRequest.dataclassName;
-                    name = listPlaybooksRequest.name;
-                } else {
-                    contentType = listPlaybooksRequest['content-type'];
-                    workspaceId = listPlaybooksRequest['workspace_id'];
-                    offset = listPlaybooksRequest['offset'];
-                    limit = listPlaybooksRequest['limit'];
-                    searchTxt = listPlaybooksRequest['search_txt'];
-                    enabled = listPlaybooksRequest['enabled'];
-                    description = listPlaybooksRequest['description'];
-                    dataclassName = listPlaybooksRequest['dataclass_name'];
-                    name = listPlaybooksRequest['name'];
-                }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
             }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listPlaybooks.');
-            }
-            if (offset === null || offset === undefined) {
-                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listPlaybooks.');
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listPlaybooks.');
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (searchTxt !== null && searchTxt !== undefined) {
-                localVarQueryParameter['search_txt'] = searchTxt;
-            }
-            if (enabled !== null && enabled !== undefined) {
-                localVarQueryParameter['enabled'] = enabled;
-            }
-            if (description !== null && description !== undefined) {
-                localVarQueryParameter['description'] = description;
-            }
-            if (dataclassName !== null && dataclassName !== undefined) {
-                localVarQueryParameter['dataclass_name'] = dataclassName;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+            if (exists !== null && exists !== undefined) {
+                localVarQueryParameter['exists'] = exists;
             }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'workspace_id': workspaceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询流程列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listWorkflows(listWorkflowsRequest?: ListWorkflowsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/workflows",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let contentType;
-            
-            let workspaceId;
-            
-            let offset;
-            
-            let limit;
-            
-            let order;
-            
-            let sortby;
-            
-            let enabled;
-            
-            let lastVersion;
-            
-            let name;
-            
-            let description;
-            
-            let dataclassId;
-            
-            let dataclassName;
-            
-            let aopType;
-
-            if (listWorkflowsRequest !== null && listWorkflowsRequest !== undefined) {
-                if (listWorkflowsRequest instanceof ListWorkflowsRequest) {
-                    contentType = listWorkflowsRequest.contentType;
-                    workspaceId = listWorkflowsRequest.workspaceId;
-                    offset = listWorkflowsRequest.offset;
-                    limit = listWorkflowsRequest.limit;
-                    order = listWorkflowsRequest.order;
-                    sortby = listWorkflowsRequest.sortby;
-                    enabled = listWorkflowsRequest.enabled;
-                    lastVersion = listWorkflowsRequest.lastVersion;
-                    name = listWorkflowsRequest.name;
-                    description = listWorkflowsRequest.description;
-                    dataclassId = listWorkflowsRequest.dataclassId;
-                    dataclassName = listWorkflowsRequest.dataclassName;
-                    aopType = listWorkflowsRequest.aopType;
-                } else {
-                    contentType = listWorkflowsRequest['content-type'];
-                    workspaceId = listWorkflowsRequest['workspace_id'];
-                    offset = listWorkflowsRequest['offset'];
-                    limit = listWorkflowsRequest['limit'];
-                    order = listWorkflowsRequest['order'];
-                    sortby = listWorkflowsRequest['sortby'];
-                    enabled = listWorkflowsRequest['enabled'];
-                    lastVersion = listWorkflowsRequest['last_version'];
-                    name = listWorkflowsRequest['name'];
-                    description = listWorkflowsRequest['description'];
-                    dataclassId = listWorkflowsRequest['dataclass_id'];
-                    dataclassName = listWorkflowsRequest['dataclass_name'];
-                    aopType = listWorkflowsRequest['aop_type'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listWorkflows.');
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (order !== null && order !== undefined) {
-                localVarQueryParameter['order'] = order;
-            }
-            if (sortby !== null && sortby !== undefined) {
-                localVarQueryParameter['sortby'] = sortby;
-            }
-            if (enabled !== null && enabled !== undefined) {
-                localVarQueryParameter['enabled'] = enabled;
-            }
-            if (lastVersion !== null && lastVersion !== undefined) {
-                localVarQueryParameter['last_version'] = lastVersion;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (description !== null && description !== undefined) {
-                localVarQueryParameter['description'] = description;
-            }
-            if (dataclassId !== null && dataclassId !== undefined) {
-                localVarQueryParameter['dataclass_id'] = dataclassId;
-            }
-            if (dataclassName !== null && dataclassName !== undefined) {
-                localVarQueryParameter['dataclass_name'] = dataclassName;
-            }
-            if (aopType !== null && aopType !== undefined) {
-                localVarQueryParameter['aop_type'] = aopType;
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'workspace_id': workspaceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 可通过工作空间名称、工作空间描述、创建时间等条件对租户的工作空间进行筛选。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listWorkspaces(listWorkspacesRequest?: ListWorkspacesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/workspaces",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let contentType;
-            
-            let offset;
-            
-            let limit;
-            
-            let regionId;
-            
-            let name;
-            
-            let description;
-            
-            let viewBindId;
-            
-            let viewBindName;
-            
-            let createTimeStart;
-            
-            let createTimeEnd;
-            
-            let isView;
-            
-            let ids;
-            
-            let normalProjectId;
-            
-            let enterpriseProjectId;
-
-            if (listWorkspacesRequest !== null && listWorkspacesRequest !== undefined) {
-                if (listWorkspacesRequest instanceof ListWorkspacesRequest) {
-                    contentType = listWorkspacesRequest.contentType;
-                    offset = listWorkspacesRequest.offset;
-                    limit = listWorkspacesRequest.limit;
-                    regionId = listWorkspacesRequest.regionId;
-                    name = listWorkspacesRequest.name;
-                    description = listWorkspacesRequest.description;
-                    viewBindId = listWorkspacesRequest.viewBindId;
-                    viewBindName = listWorkspacesRequest.viewBindName;
-                    createTimeStart = listWorkspacesRequest.createTimeStart;
-                    createTimeEnd = listWorkspacesRequest.createTimeEnd;
-                    isView = listWorkspacesRequest.isView;
-                    ids = listWorkspacesRequest.ids;
-                    normalProjectId = listWorkspacesRequest.normalProjectId;
-                    enterpriseProjectId = listWorkspacesRequest.enterpriseProjectId;
-                } else {
-                    contentType = listWorkspacesRequest['content-type'];
-                    offset = listWorkspacesRequest['offset'];
-                    limit = listWorkspacesRequest['limit'];
-                    regionId = listWorkspacesRequest['region_id'];
-                    name = listWorkspacesRequest['name'];
-                    description = listWorkspacesRequest['description'];
-                    viewBindId = listWorkspacesRequest['view_bind_id'];
-                    viewBindName = listWorkspacesRequest['view_bind_name'];
-                    createTimeStart = listWorkspacesRequest['create_time_start'];
-                    createTimeEnd = listWorkspacesRequest['create_time_end'];
-                    isView = listWorkspacesRequest['is_view'];
-                    ids = listWorkspacesRequest['ids'];
-                    normalProjectId = listWorkspacesRequest['normal_project_id'];
-                    enterpriseProjectId = listWorkspacesRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (offset === null || offset === undefined) {
-                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listWorkspaces.');
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listWorkspaces.');
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (regionId !== null && regionId !== undefined) {
-                localVarQueryParameter['region_id'] = regionId;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (description !== null && description !== undefined) {
-                localVarQueryParameter['description'] = description;
-            }
-            if (viewBindId !== null && viewBindId !== undefined) {
-                localVarQueryParameter['view_bind_id'] = viewBindId;
-            }
-            if (viewBindName !== null && viewBindName !== undefined) {
-                localVarQueryParameter['view_bind_name'] = viewBindName;
-            }
-            if (createTimeStart !== null && createTimeStart !== undefined) {
-                localVarQueryParameter['create_time_start'] = createTimeStart;
-            }
-            if (createTimeEnd !== null && createTimeEnd !== undefined) {
-                localVarQueryParameter['create_time_end'] = createTimeEnd;
-            }
-            if (isView !== null && isView !== undefined) {
-                localVarQueryParameter['is_view'] = isView;
-            }
-            if (ids !== null && ids !== undefined) {
-                localVarQueryParameter['ids'] = ids;
-            }
-            if (normalProjectId !== null && normalProjectId !== undefined) {
-                localVarQueryParameter['normal_project_id'] = normalProjectId;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5062,22 +4382,22 @@ export const ParamCreater = function () {
 
             let body: any;
             
+            let contentType;
+            
             let workspaceId;
             
             let xLanguage;
-            
-            let contentType;
 
             if (searchBaselineRequest !== null && searchBaselineRequest !== undefined) {
                 if (searchBaselineRequest instanceof SearchBaselineRequest) {
+                    contentType = searchBaselineRequest.contentType;
                     workspaceId = searchBaselineRequest.workspaceId;
                     xLanguage = searchBaselineRequest.xLanguage;
-                    contentType = searchBaselineRequest.contentType;
                     body = searchBaselineRequest.body
                 } else {
+                    contentType = searchBaselineRequest['content-type'];
                     workspaceId = searchBaselineRequest['workspace_id'];
                     xLanguage = searchBaselineRequest['X-Language'];
-                    contentType = searchBaselineRequest['content-type'];
                     body = searchBaselineRequest['body'];
                 }
             }
@@ -5089,11 +4409,11 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
-            if (xLanguage !== undefined && xLanguage !== null) {
-                localVarHeaderParameter['X-Language'] = String(xLanguage);
-            }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['content-type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -5104,65 +4424,189 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取告警详情
+         * 查询检查项列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showAlert(showAlertRequest?: ShowAlertRequest) {
+        searchCheckitems(searchCheckitemsRequest?: SearchCheckitemsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/sa/baseline/checkitems/search",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let workspaceId;
+            
+            let xLanguage;
+
+            if (searchCheckitemsRequest !== null && searchCheckitemsRequest !== undefined) {
+                if (searchCheckitemsRequest instanceof SearchCheckitemsRequest) {
+                    contentType = searchCheckitemsRequest.contentType;
+                    workspaceId = searchCheckitemsRequest.workspaceId;
+                    xLanguage = searchCheckitemsRequest.xLanguage;
+                    body = searchCheckitemsRequest.body
+                } else {
+                    contentType = searchCheckitemsRequest['content-type'];
+                    workspaceId = searchCheckitemsRequest['workspace_id'];
+                    xLanguage = searchCheckitemsRequest['X-Language'];
+                    body = searchCheckitemsRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling searchCheckitems.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['content-type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询遵从包列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        searchCompliancePackages(searchCompliancePackagesRequest?: SearchCompliancePackagesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/sa/baseline/compliance-packages/search",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspaceId;
+            
+            let contentType;
+            
+            let xLanguage;
+
+            if (searchCompliancePackagesRequest !== null && searchCompliancePackagesRequest !== undefined) {
+                if (searchCompliancePackagesRequest instanceof SearchCompliancePackagesRequest) {
+                    workspaceId = searchCompliancePackagesRequest.workspaceId;
+                    contentType = searchCompliancePackagesRequest.contentType;
+                    xLanguage = searchCompliancePackagesRequest.xLanguage;
+                    body = searchCompliancePackagesRequest.body
+                } else {
+                    workspaceId = searchCompliancePackagesRequest['workspace_id'];
+                    contentType = searchCompliancePackagesRequest['content-type'];
+                    xLanguage = searchCompliancePackagesRequest['X-Language'];
+                    body = searchCompliancePackagesRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling searchCompliancePackages.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['content-type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取adhoc查询结果
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAdhocResult(showAdhocResultRequest?: ShowAdhocResultRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/alerts/{alert_id}",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/ad-hoc-queries/{query_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
-            
-            let contentType;
+            const localVarQueryParameter = {} as any;
             
             let workspaceId;
             
-            let alertId;
+            let queryId;
+            
+            let batch;
 
-            if (showAlertRequest !== null && showAlertRequest !== undefined) {
-                if (showAlertRequest instanceof ShowAlertRequest) {
-                    contentType = showAlertRequest.contentType;
-                    workspaceId = showAlertRequest.workspaceId;
-                    alertId = showAlertRequest.alertId;
+            if (showAdhocResultRequest !== null && showAdhocResultRequest !== undefined) {
+                if (showAdhocResultRequest instanceof ShowAdhocResultRequest) {
+                    workspaceId = showAdhocResultRequest.workspaceId;
+                    queryId = showAdhocResultRequest.queryId;
+                    batch = showAdhocResultRequest.batch;
                 } else {
-                    contentType = showAlertRequest['content-type'];
-                    workspaceId = showAlertRequest['workspace_id'];
-                    alertId = showAlertRequest['alert_id'];
+                    workspaceId = showAdhocResultRequest['workspace_id'];
+                    queryId = showAdhocResultRequest['query_id'];
+                    batch = showAdhocResultRequest['batch'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showAlert.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showAdhocResult.');
             }
-            if (alertId === null || alertId === undefined) {
-            throw new RequiredError('alertId','Required parameter alertId was null or undefined when calling showAlert.');
+            if (queryId === null || queryId === undefined) {
+            throw new RequiredError('queryId','Required parameter queryId was null or undefined when calling showAdhocResult.');
             }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+            if (batch === null || batch === undefined) {
+                throw new RequiredError('batch','Required parameter batch was null or undefined when calling showAdhocResult.');
+            }
+            if (batch !== null && batch !== undefined) {
+                localVarQueryParameter['batch'] = batch;
             }
 
-            options.pathParams = { 'workspace_id': workspaceId,'alert_id': alertId, };
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'workspace_id': workspaceId,'query_id': queryId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 查看告警规则 Get alert rule
+         * 查看告警规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
         showAlertRule(showAlertRuleRequest?: ShowAlertRuleRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/siem/alert-rules/{rule_id}",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/alert-rules/{alert_rule_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5173,15 +4617,15 @@ export const ParamCreater = function () {
             
             let workspaceId;
             
-            let ruleId;
+            let alertRuleId;
 
             if (showAlertRuleRequest !== null && showAlertRuleRequest !== undefined) {
                 if (showAlertRuleRequest instanceof ShowAlertRuleRequest) {
                     workspaceId = showAlertRuleRequest.workspaceId;
-                    ruleId = showAlertRuleRequest.ruleId;
+                    alertRuleId = showAlertRuleRequest.alertRuleId;
                 } else {
                     workspaceId = showAlertRuleRequest['workspace_id'];
-                    ruleId = showAlertRuleRequest['rule_id'];
+                    alertRuleId = showAlertRuleRequest['alert_rule_id'];
                 }
             }
 
@@ -5189,24 +4633,24 @@ export const ParamCreater = function () {
             if (workspaceId === null || workspaceId === undefined) {
             throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showAlertRule.');
             }
-            if (ruleId === null || ruleId === undefined) {
-            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling showAlertRule.');
+            if (alertRuleId === null || alertRuleId === undefined) {
+            throw new RequiredError('alertRuleId','Required parameter alertRuleId was null or undefined when calling showAlertRule.');
             }
 
-            options.pathParams = { 'workspace_id': workspaceId,'rule_id': ruleId, };
+            options.pathParams = { 'workspace_id': workspaceId,'alert_rule_id': alertRuleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * List alert rule templates
+         * 查看告警规则模板
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
         showAlertRuleTemplate(showAlertRuleTemplateRequest?: ShowAlertRuleTemplateRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/siem/alert-rules/templates/{template_id}",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/alert-rules/templates/{template_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5243,14 +4687,58 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取事件详情
+         * 查看分析脚本
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showIncident(showIncidentRequest?: ShowIncidentRequest) {
+        showAnalysisScript(showAnalysisScriptRequest?: ShowAnalysisScriptRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/incidents/{incident_id}",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/analysis-scripts/{analysis_script_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspaceId;
+            
+            let analysisScriptId;
+
+            if (showAnalysisScriptRequest !== null && showAnalysisScriptRequest !== undefined) {
+                if (showAnalysisScriptRequest instanceof ShowAnalysisScriptRequest) {
+                    workspaceId = showAnalysisScriptRequest.workspaceId;
+                    analysisScriptId = showAnalysisScriptRequest.analysisScriptId;
+                } else {
+                    workspaceId = showAnalysisScriptRequest['workspace_id'];
+                    analysisScriptId = showAnalysisScriptRequest['analysis_script_id'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showAnalysisScript.');
+            }
+            if (analysisScriptId === null || analysisScriptId === undefined) {
+            throw new RequiredError('analysisScriptId','Required parameter analysisScriptId was null or undefined when calling showAnalysisScript.');
+            }
+
+            options.pathParams = { 'workspace_id': workspaceId,'analysis_script_id': analysisScriptId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询检查项详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCheckitemDetail(showCheckitemDetailRequest?: ShowCheckitemDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/sa/baseline/checkitems/{checkitem_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5263,45 +4751,52 @@ export const ParamCreater = function () {
             
             let workspaceId;
             
-            let incidentId;
+            let xLanguage;
+            
+            let checkitemId;
 
-            if (showIncidentRequest !== null && showIncidentRequest !== undefined) {
-                if (showIncidentRequest instanceof ShowIncidentRequest) {
-                    contentType = showIncidentRequest.contentType;
-                    workspaceId = showIncidentRequest.workspaceId;
-                    incidentId = showIncidentRequest.incidentId;
+            if (showCheckitemDetailRequest !== null && showCheckitemDetailRequest !== undefined) {
+                if (showCheckitemDetailRequest instanceof ShowCheckitemDetailRequest) {
+                    contentType = showCheckitemDetailRequest.contentType;
+                    workspaceId = showCheckitemDetailRequest.workspaceId;
+                    xLanguage = showCheckitemDetailRequest.xLanguage;
+                    checkitemId = showCheckitemDetailRequest.checkitemId;
                 } else {
-                    contentType = showIncidentRequest['content-type'];
-                    workspaceId = showIncidentRequest['workspace_id'];
-                    incidentId = showIncidentRequest['incident_id'];
+                    contentType = showCheckitemDetailRequest['content-type'];
+                    workspaceId = showCheckitemDetailRequest['workspace_id'];
+                    xLanguage = showCheckitemDetailRequest['X-Language'];
+                    checkitemId = showCheckitemDetailRequest['checkitem_id'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showIncident.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showCheckitemDetail.');
             }
-            if (incidentId === null || incidentId === undefined) {
-            throw new RequiredError('incidentId','Required parameter incidentId was null or undefined when calling showIncident.');
+            if (checkitemId === null || checkitemId === undefined) {
+            throw new RequiredError('checkitemId','Required parameter checkitemId was null or undefined when calling showCheckitemDetail.');
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['content-type'] = String(contentType);
             }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
 
-            options.pathParams = { 'workspace_id': workspaceId,'incident_id': incidentId, };
+            options.pathParams = { 'workspace_id': workspaceId,'checkitem_id': checkitemId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 查询威胁情报详情
+         * 查看代码片段
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showIndicatorDetail(showIndicatorDetailRequest?: ShowIndicatorDetailRequest) {
+        showCodeSegment(showCodeSegmentRequest?: ShowCodeSegmentRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/indicators/{indicator_id}",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/code-segments/{code_segment_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5310,49 +4805,42 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
-            let contentType;
-            
             let workspaceId;
             
-            let indicatorId;
+            let codeSegmentId;
 
-            if (showIndicatorDetailRequest !== null && showIndicatorDetailRequest !== undefined) {
-                if (showIndicatorDetailRequest instanceof ShowIndicatorDetailRequest) {
-                    contentType = showIndicatorDetailRequest.contentType;
-                    workspaceId = showIndicatorDetailRequest.workspaceId;
-                    indicatorId = showIndicatorDetailRequest.indicatorId;
+            if (showCodeSegmentRequest !== null && showCodeSegmentRequest !== undefined) {
+                if (showCodeSegmentRequest instanceof ShowCodeSegmentRequest) {
+                    workspaceId = showCodeSegmentRequest.workspaceId;
+                    codeSegmentId = showCodeSegmentRequest.codeSegmentId;
                 } else {
-                    contentType = showIndicatorDetailRequest['content-type'];
-                    workspaceId = showIndicatorDetailRequest['workspace_id'];
-                    indicatorId = showIndicatorDetailRequest['indicator_id'];
+                    workspaceId = showCodeSegmentRequest['workspace_id'];
+                    codeSegmentId = showCodeSegmentRequest['code_segment_id'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showIndicatorDetail.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showCodeSegment.');
             }
-            if (indicatorId === null || indicatorId === undefined) {
-            throw new RequiredError('indicatorId','Required parameter indicatorId was null or undefined when calling showIndicatorDetail.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+            if (codeSegmentId === null || codeSegmentId === undefined) {
+            throw new RequiredError('codeSegmentId','Required parameter codeSegmentId was null or undefined when calling showCodeSegment.');
             }
 
-            options.pathParams = { 'workspace_id': workspaceId,'indicator_id': indicatorId, };
+            options.pathParams = { 'workspace_id': workspaceId,'code_segment_id': codeSegmentId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 查询剧本详情
+         * 查询遵从包详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showPlaybook(showPlaybookRequest?: ShowPlaybookRequest) {
+        showCompliancePackageDetail(showCompliancePackageDetailRequest?: ShowCompliancePackageDetailRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/{playbook_id}",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/sa/baseline/compliance-packages/{compliance_packages_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5361,49 +4849,56 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
-            let contentType;
+            let compliancePackagesId;
             
             let workspaceId;
             
-            let playbookId;
+            let contentType;
+            
+            let xLanguage;
 
-            if (showPlaybookRequest !== null && showPlaybookRequest !== undefined) {
-                if (showPlaybookRequest instanceof ShowPlaybookRequest) {
-                    contentType = showPlaybookRequest.contentType;
-                    workspaceId = showPlaybookRequest.workspaceId;
-                    playbookId = showPlaybookRequest.playbookId;
+            if (showCompliancePackageDetailRequest !== null && showCompliancePackageDetailRequest !== undefined) {
+                if (showCompliancePackageDetailRequest instanceof ShowCompliancePackageDetailRequest) {
+                    compliancePackagesId = showCompliancePackageDetailRequest.compliancePackagesId;
+                    workspaceId = showCompliancePackageDetailRequest.workspaceId;
+                    contentType = showCompliancePackageDetailRequest.contentType;
+                    xLanguage = showCompliancePackageDetailRequest.xLanguage;
                 } else {
-                    contentType = showPlaybookRequest['content-type'];
-                    workspaceId = showPlaybookRequest['workspace_id'];
-                    playbookId = showPlaybookRequest['playbook_id'];
+                    compliancePackagesId = showCompliancePackageDetailRequest['compliance_packages_id'];
+                    workspaceId = showCompliancePackageDetailRequest['workspace_id'];
+                    contentType = showCompliancePackageDetailRequest['content-type'];
+                    xLanguage = showCompliancePackageDetailRequest['X-Language'];
                 }
             }
 
         
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showPlaybook.');
+            if (compliancePackagesId === null || compliancePackagesId === undefined) {
+            throw new RequiredError('compliancePackagesId','Required parameter compliancePackagesId was null or undefined when calling showCompliancePackageDetail.');
             }
-            if (playbookId === null || playbookId === undefined) {
-            throw new RequiredError('playbookId','Required parameter playbookId was null or undefined when calling showPlaybook.');
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showCompliancePackageDetail.');
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['content-type'] = String(contentType);
             }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
 
-            options.pathParams = { 'workspace_id': workspaceId,'playbook_id': playbookId, };
+            options.pathParams = { 'compliance_packages_id': compliancePackagesId,'workspace_id': workspaceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * Show playbook instance
+         * 获取实时消费配置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showPlaybookInstance(showPlaybookInstanceRequest?: ShowPlaybookInstanceRequest) {
+        showDataConsumption(showDataConsumptionRequest?: ShowDataConsumptionRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/instances/{instance_id}",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/tables/{table_id}/consumption",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5412,49 +4907,86 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
-            let contentType;
-            
             let workspaceId;
             
-            let instanceId;
+            let tableId;
 
-            if (showPlaybookInstanceRequest !== null && showPlaybookInstanceRequest !== undefined) {
-                if (showPlaybookInstanceRequest instanceof ShowPlaybookInstanceRequest) {
-                    contentType = showPlaybookInstanceRequest.contentType;
-                    workspaceId = showPlaybookInstanceRequest.workspaceId;
-                    instanceId = showPlaybookInstanceRequest.instanceId;
+            if (showDataConsumptionRequest !== null && showDataConsumptionRequest !== undefined) {
+                if (showDataConsumptionRequest instanceof ShowDataConsumptionRequest) {
+                    workspaceId = showDataConsumptionRequest.workspaceId;
+                    tableId = showDataConsumptionRequest.tableId;
                 } else {
-                    contentType = showPlaybookInstanceRequest['content-type'];
-                    workspaceId = showPlaybookInstanceRequest['workspace_id'];
-                    instanceId = showPlaybookInstanceRequest['instance_id'];
+                    workspaceId = showDataConsumptionRequest['workspace_id'];
+                    tableId = showDataConsumptionRequest['table_id'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showPlaybookInstance.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showDataConsumption.');
             }
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showPlaybookInstance.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+            if (tableId === null || tableId === undefined) {
+            throw new RequiredError('tableId','Required parameter tableId was null or undefined when calling showDataConsumption.');
             }
 
-            options.pathParams = { 'workspace_id': workspaceId,'instance_id': instanceId, };
+            options.pathParams = { 'workspace_id': workspaceId,'table_id': tableId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 剧本运行监控
+         * 查看数据加工
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showPlaybookMonitors(showPlaybookMonitorsRequest?: ShowPlaybookMonitorsRequest) {
+        showDataTransformation(showDataTransformationRequest?: ShowDataTransformationRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/{playbook_id}/monitor",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/data-transformations/{data_transformation_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspaceId;
+            
+            let dataTransformationId;
+
+            if (showDataTransformationRequest !== null && showDataTransformationRequest !== undefined) {
+                if (showDataTransformationRequest instanceof ShowDataTransformationRequest) {
+                    workspaceId = showDataTransformationRequest.workspaceId;
+                    dataTransformationId = showDataTransformationRequest.dataTransformationId;
+                } else {
+                    workspaceId = showDataTransformationRequest['workspace_id'];
+                    dataTransformationId = showDataTransformationRequest['data_transformation_id'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showDataTransformation.');
+            }
+            if (dataTransformationId === null || dataTransformationId === undefined) {
+            throw new RequiredError('dataTransformationId','Required parameter dataTransformationId was null or undefined when calling showDataTransformation.');
+            }
+
+            options.pathParams = { 'workspace_id': workspaceId,'data_transformation_id': dataTransformationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询布局字段详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLayoutFieldInfo(showLayoutFieldInfoRequest?: ShowLayoutFieldInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/soc/layouts/fields/{field_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5467,324 +4999,53 @@ export const ParamCreater = function () {
             
             let workspaceId;
             
-            let playbookId;
+            let fieldId;
             
-            let startTime;
-            
-            let versionQueryType;
-            
-            let endTime;
+            let layoutId;
 
-            if (showPlaybookMonitorsRequest !== null && showPlaybookMonitorsRequest !== undefined) {
-                if (showPlaybookMonitorsRequest instanceof ShowPlaybookMonitorsRequest) {
-                    contentType = showPlaybookMonitorsRequest.contentType;
-                    workspaceId = showPlaybookMonitorsRequest.workspaceId;
-                    playbookId = showPlaybookMonitorsRequest.playbookId;
-                    startTime = showPlaybookMonitorsRequest.startTime;
-                    versionQueryType = showPlaybookMonitorsRequest.versionQueryType;
-                    endTime = showPlaybookMonitorsRequest.endTime;
+            if (showLayoutFieldInfoRequest !== null && showLayoutFieldInfoRequest !== undefined) {
+                if (showLayoutFieldInfoRequest instanceof ShowLayoutFieldInfoRequest) {
+                    contentType = showLayoutFieldInfoRequest.contentType;
+                    workspaceId = showLayoutFieldInfoRequest.workspaceId;
+                    fieldId = showLayoutFieldInfoRequest.fieldId;
+                    layoutId = showLayoutFieldInfoRequest.layoutId;
                 } else {
-                    contentType = showPlaybookMonitorsRequest['content-type'];
-                    workspaceId = showPlaybookMonitorsRequest['workspace_id'];
-                    playbookId = showPlaybookMonitorsRequest['playbook_id'];
-                    startTime = showPlaybookMonitorsRequest['start_time'];
-                    versionQueryType = showPlaybookMonitorsRequest['version_query_type'];
-                    endTime = showPlaybookMonitorsRequest['end_time'];
+                    contentType = showLayoutFieldInfoRequest['content-type'];
+                    workspaceId = showLayoutFieldInfoRequest['workspace_id'];
+                    fieldId = showLayoutFieldInfoRequest['field_id'];
+                    layoutId = showLayoutFieldInfoRequest['layout_id'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showPlaybookMonitors.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showLayoutFieldInfo.');
             }
-            if (playbookId === null || playbookId === undefined) {
-            throw new RequiredError('playbookId','Required parameter playbookId was null or undefined when calling showPlaybookMonitors.');
+            if (fieldId === null || fieldId === undefined) {
+            throw new RequiredError('fieldId','Required parameter fieldId was null or undefined when calling showLayoutFieldInfo.');
             }
-            if (startTime === null || startTime === undefined) {
-                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling showPlaybookMonitors.');
-            }
-            if (startTime !== null && startTime !== undefined) {
-                localVarQueryParameter['start_time'] = startTime;
-            }
-            if (versionQueryType === null || versionQueryType === undefined) {
-                throw new RequiredError('versionQueryType','Required parameter versionQueryType was null or undefined when calling showPlaybookMonitors.');
-            }
-            if (versionQueryType !== null && versionQueryType !== undefined) {
-                localVarQueryParameter['version_query_type'] = versionQueryType;
-            }
-            if (endTime === null || endTime === undefined) {
-                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling showPlaybookMonitors.');
-            }
-            if (endTime !== null && endTime !== undefined) {
-                localVarQueryParameter['end_time'] = endTime;
+            if (layoutId !== null && layoutId !== undefined) {
+                localVarQueryParameter['layout_id'] = layoutId;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['content-type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'workspace_id': workspaceId,'playbook_id': playbookId, };
+            options.pathParams = { 'workspace_id': workspaceId,'field_id': fieldId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 查询剧本规则详情
+         * 获取监控统计信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showPlaybookRule(showPlaybookRuleRequest?: ShowPlaybookRuleRequest) {
+        showMonitorStats(showMonitorStatsRequest?: ShowMonitorStatsRequest) {
             const options = {
-                method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/versions/{version_id}/rules/{rule_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let contentType;
-            
-            let workspaceId;
-            
-            let versionId;
-            
-            let ruleId;
-
-            if (showPlaybookRuleRequest !== null && showPlaybookRuleRequest !== undefined) {
-                if (showPlaybookRuleRequest instanceof ShowPlaybookRuleRequest) {
-                    contentType = showPlaybookRuleRequest.contentType;
-                    workspaceId = showPlaybookRuleRequest.workspaceId;
-                    versionId = showPlaybookRuleRequest.versionId;
-                    ruleId = showPlaybookRuleRequest.ruleId;
-                } else {
-                    contentType = showPlaybookRuleRequest['content-type'];
-                    workspaceId = showPlaybookRuleRequest['workspace_id'];
-                    versionId = showPlaybookRuleRequest['version_id'];
-                    ruleId = showPlaybookRuleRequest['rule_id'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showPlaybookRule.');
-            }
-            if (versionId === null || versionId === undefined) {
-            throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling showPlaybookRule.');
-            }
-            if (ruleId === null || ruleId === undefined) {
-            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling showPlaybookRule.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-
-            options.pathParams = { 'workspace_id': workspaceId,'version_id': versionId,'rule_id': ruleId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 剧本统计数据
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showPlaybookStatistics(showPlaybookStatisticsRequest?: ShowPlaybookStatisticsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/statistics",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let contentType;
-            
-            let workspaceId;
-
-            if (showPlaybookStatisticsRequest !== null && showPlaybookStatisticsRequest !== undefined) {
-                if (showPlaybookStatisticsRequest instanceof ShowPlaybookStatisticsRequest) {
-                    contentType = showPlaybookStatisticsRequest.contentType;
-                    workspaceId = showPlaybookStatisticsRequest.workspaceId;
-                } else {
-                    contentType = showPlaybookStatisticsRequest['content-type'];
-                    workspaceId = showPlaybookStatisticsRequest['workspace_id'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showPlaybookStatistics.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-
-            options.pathParams = { 'workspace_id': workspaceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询剧本拓扑关系
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showPlaybookTopology(showPlaybookTopologyRequest?: ShowPlaybookTopologyRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/instances/{instance_id}/topology",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let contentType;
-            
-            let workspaceId;
-            
-            let instanceId;
-
-            if (showPlaybookTopologyRequest !== null && showPlaybookTopologyRequest !== undefined) {
-                if (showPlaybookTopologyRequest instanceof ShowPlaybookTopologyRequest) {
-                    contentType = showPlaybookTopologyRequest.contentType;
-                    workspaceId = showPlaybookTopologyRequest.workspaceId;
-                    instanceId = showPlaybookTopologyRequest.instanceId;
-                } else {
-                    contentType = showPlaybookTopologyRequest['content-type'];
-                    workspaceId = showPlaybookTopologyRequest['workspace_id'];
-                    instanceId = showPlaybookTopologyRequest['instance_id'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showPlaybookTopology.');
-            }
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showPlaybookTopology.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-
-            options.pathParams = { 'workspace_id': workspaceId,'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * Show playbook version version
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showPlaybookVersion(showPlaybookVersionRequest?: ShowPlaybookVersionRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/versions/{version_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let contentType;
-            
-            let workspaceId;
-            
-            let versionId;
-
-            if (showPlaybookVersionRequest !== null && showPlaybookVersionRequest !== undefined) {
-                if (showPlaybookVersionRequest instanceof ShowPlaybookVersionRequest) {
-                    contentType = showPlaybookVersionRequest.contentType;
-                    workspaceId = showPlaybookVersionRequest.workspaceId;
-                    versionId = showPlaybookVersionRequest.versionId;
-                } else {
-                    contentType = showPlaybookVersionRequest['content-type'];
-                    workspaceId = showPlaybookVersionRequest['workspace_id'];
-                    versionId = showPlaybookVersionRequest['version_id'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showPlaybookVersion.');
-            }
-            if (versionId === null || versionId === undefined) {
-            throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling showPlaybookVersion.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-
-            options.pathParams = { 'workspace_id': workspaceId,'version_id': versionId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询工作空间名称、描述等详情信息
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showWorkspace(showWorkspaceRequest?: ShowWorkspaceRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/workspaces/{workspace_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let contentType;
-            
-            let workspaceId;
-
-            if (showWorkspaceRequest !== null && showWorkspaceRequest !== undefined) {
-                if (showWorkspaceRequest instanceof ShowWorkspaceRequest) {
-                    contentType = showWorkspaceRequest.contentType;
-                    workspaceId = showWorkspaceRequest.workspaceId;
-                } else {
-                    contentType = showWorkspaceRequest['content-type'];
-                    workspaceId = showWorkspaceRequest['workspace_id'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showWorkspace.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-
-            options.pathParams = { 'workspace_id': workspaceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * Update alert rule
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateAlertRule(updateAlertRuleRequest?: UpdateAlertRuleRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/siem/alert-rules/{rule_id}",
+                method: "POST",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/tables/{table_id}/statistics",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5797,16 +5058,270 @@ export const ParamCreater = function () {
             
             let workspaceId;
             
-            let ruleId;
+            let tableId;
+
+            if (showMonitorStatsRequest !== null && showMonitorStatsRequest !== undefined) {
+                if (showMonitorStatsRequest instanceof ShowMonitorStatsRequest) {
+                    workspaceId = showMonitorStatsRequest.workspaceId;
+                    tableId = showMonitorStatsRequest.tableId;
+                    body = showMonitorStatsRequest.body
+                } else {
+                    workspaceId = showMonitorStatsRequest['workspace_id'];
+                    tableId = showMonitorStatsRequest['table_id'];
+                    body = showMonitorStatsRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showMonitorStats.');
+            }
+            if (tableId === null || tableId === undefined) {
+            throw new RequiredError('tableId','Required parameter tableId was null or undefined when calling showMonitorStats.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId,'table_id': tableId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取管道详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPipe(showPipeRequest?: ShowPipeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/pipes/{pipe_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspaceId;
+            
+            let pipeId;
+
+            if (showPipeRequest !== null && showPipeRequest !== undefined) {
+                if (showPipeRequest instanceof ShowPipeRequest) {
+                    workspaceId = showPipeRequest.workspaceId;
+                    pipeId = showPipeRequest.pipeId;
+                } else {
+                    workspaceId = showPipeRequest['workspace_id'];
+                    pipeId = showPipeRequest['pipe_id'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showPipe.');
+            }
+            if (pipeId === null || pipeId === undefined) {
+            throw new RequiredError('pipeId','Required parameter pipeId was null or undefined when calling showPipe.');
+            }
+
+            options.pathParams = { 'workspace_id': workspaceId,'pipe_id': pipeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看检索脚本
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRetrieveScript(showRetrieveScriptRequest?: ShowRetrieveScriptRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/retrieve-scripts/{retrieve_script_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspaceId;
+            
+            let retrieveScriptId;
+
+            if (showRetrieveScriptRequest !== null && showRetrieveScriptRequest !== undefined) {
+                if (showRetrieveScriptRequest instanceof ShowRetrieveScriptRequest) {
+                    workspaceId = showRetrieveScriptRequest.workspaceId;
+                    retrieveScriptId = showRetrieveScriptRequest.retrieveScriptId;
+                } else {
+                    workspaceId = showRetrieveScriptRequest['workspace_id'];
+                    retrieveScriptId = showRetrieveScriptRequest['retrieve_script_id'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showRetrieveScript.');
+            }
+            if (retrieveScriptId === null || retrieveScriptId === undefined) {
+            throw new RequiredError('retrieveScriptId','Required parameter retrieveScriptId was null or undefined when calling showRetrieveScript.');
+            }
+
+            options.pathParams = { 'workspace_id': workspaceId,'retrieve_script_id': retrieveScriptId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取订阅资源信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSubscriptionResources(showSubscriptionResourcesRequest?: ShowSubscriptionResourcesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/subscription/resource",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspaceId;
+            
+            let sku;
+
+            if (showSubscriptionResourcesRequest !== null && showSubscriptionResourcesRequest !== undefined) {
+                if (showSubscriptionResourcesRequest instanceof ShowSubscriptionResourcesRequest) {
+                    workspaceId = showSubscriptionResourcesRequest.workspaceId;
+                    sku = showSubscriptionResourcesRequest.sku;
+                } else {
+                    workspaceId = showSubscriptionResourcesRequest['workspace_id'];
+                    sku = showSubscriptionResourcesRequest['sku'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showSubscriptionResources.');
+            }
+            if (sku === null || sku === undefined) {
+                throw new RequiredError('sku','Required parameter sku was null or undefined when calling showSubscriptionResources.');
+            }
+            if (sku !== null && sku !== undefined) {
+                localVarQueryParameter['sku'] = sku;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取表详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTable(showTableRequest?: ShowTableRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/tables/{table_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspaceId;
+            
+            let tableId;
+
+            if (showTableRequest !== null && showTableRequest !== undefined) {
+                if (showTableRequest instanceof ShowTableRequest) {
+                    workspaceId = showTableRequest.workspaceId;
+                    tableId = showTableRequest.tableId;
+                } else {
+                    workspaceId = showTableRequest['workspace_id'];
+                    tableId = showTableRequest['table_id'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showTable.');
+            }
+            if (tableId === null || tableId === undefined) {
+            throw new RequiredError('tableId','Required parameter tableId was null or undefined when calling showTable.');
+            }
+
+            options.pathParams = { 'workspace_id': workspaceId,'table_id': tableId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取当前可用版本
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVersion() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/siem/upgradation/version",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新告警规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAlertRule(updateAlertRuleRequest?: UpdateAlertRuleRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/alert-rules/{alert_rule_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspaceId;
+            
+            let alertRuleId;
 
             if (updateAlertRuleRequest !== null && updateAlertRuleRequest !== undefined) {
                 if (updateAlertRuleRequest instanceof UpdateAlertRuleRequest) {
                     workspaceId = updateAlertRuleRequest.workspaceId;
-                    ruleId = updateAlertRuleRequest.ruleId;
+                    alertRuleId = updateAlertRuleRequest.alertRuleId;
                     body = updateAlertRuleRequest.body
                 } else {
                     workspaceId = updateAlertRuleRequest['workspace_id'];
-                    ruleId = updateAlertRuleRequest['rule_id'];
+                    alertRuleId = updateAlertRuleRequest['alert_rule_id'];
                     body = updateAlertRuleRequest['body'];
                 }
             }
@@ -5815,8 +5330,8 @@ export const ParamCreater = function () {
             if (workspaceId === null || workspaceId === undefined) {
             throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updateAlertRule.');
             }
-            if (ruleId === null || ruleId === undefined) {
-            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling updateAlertRule.');
+            if (alertRuleId === null || alertRuleId === undefined) {
+            throw new RequiredError('alertRuleId','Required parameter alertRuleId was null or undefined when calling updateAlertRule.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -5824,20 +5339,73 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId,'rule_id': ruleId, };
+            options.pathParams = { 'workspace_id': workspaceId,'alert_rule_id': alertRuleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 更新威胁情报
+         * 更新分析脚本
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        updateIndicator(updateIndicatorRequest?: UpdateIndicatorRequest) {
+        updateAnalysisScript(updateAnalysisScriptRequest?: UpdateAnalysisScriptRequest) {
             const options = {
                 method: "PUT",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/indicators/{indicator_id}",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/analysis-scripts/{analysis_script_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspaceId;
+            
+            let analysisScriptId;
+
+            if (updateAnalysisScriptRequest !== null && updateAnalysisScriptRequest !== undefined) {
+                if (updateAnalysisScriptRequest instanceof UpdateAnalysisScriptRequest) {
+                    workspaceId = updateAnalysisScriptRequest.workspaceId;
+                    analysisScriptId = updateAnalysisScriptRequest.analysisScriptId;
+                    body = updateAnalysisScriptRequest.body
+                } else {
+                    workspaceId = updateAnalysisScriptRequest['workspace_id'];
+                    analysisScriptId = updateAnalysisScriptRequest['analysis_script_id'];
+                    body = updateAnalysisScriptRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updateAnalysisScript.');
+            }
+            if (analysisScriptId === null || analysisScriptId === undefined) {
+            throw new RequiredError('analysisScriptId','Required parameter analysisScriptId was null or undefined when calling updateAnalysisScript.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId,'analysis_script_id': analysisScriptId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新检查项
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateCheckitem(updateCheckitemRequest?: UpdateCheckitemRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/sa/baseline/checkitems/{checkitem_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5852,28 +5420,268 @@ export const ParamCreater = function () {
             
             let workspaceId;
             
-            let indicatorId;
+            let xLanguage;
+            
+            let checkitemId;
 
-            if (updateIndicatorRequest !== null && updateIndicatorRequest !== undefined) {
-                if (updateIndicatorRequest instanceof UpdateIndicatorRequest) {
-                    contentType = updateIndicatorRequest.contentType;
-                    workspaceId = updateIndicatorRequest.workspaceId;
-                    indicatorId = updateIndicatorRequest.indicatorId;
-                    body = updateIndicatorRequest.body
+            if (updateCheckitemRequest !== null && updateCheckitemRequest !== undefined) {
+                if (updateCheckitemRequest instanceof UpdateCheckitemRequest) {
+                    contentType = updateCheckitemRequest.contentType;
+                    workspaceId = updateCheckitemRequest.workspaceId;
+                    xLanguage = updateCheckitemRequest.xLanguage;
+                    checkitemId = updateCheckitemRequest.checkitemId;
+                    body = updateCheckitemRequest.body
                 } else {
-                    contentType = updateIndicatorRequest['content-type'];
-                    workspaceId = updateIndicatorRequest['workspace_id'];
-                    indicatorId = updateIndicatorRequest['indicator_id'];
-                    body = updateIndicatorRequest['body'];
+                    contentType = updateCheckitemRequest['content-type'];
+                    workspaceId = updateCheckitemRequest['workspace_id'];
+                    xLanguage = updateCheckitemRequest['X-Language'];
+                    checkitemId = updateCheckitemRequest['checkitem_id'];
+                    body = updateCheckitemRequest['body'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updateIndicator.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updateCheckitem.');
             }
-            if (indicatorId === null || indicatorId === undefined) {
-            throw new RequiredError('indicatorId','Required parameter indicatorId was null or undefined when calling updateIndicator.');
+            if (checkitemId === null || checkitemId === undefined) {
+            throw new RequiredError('checkitemId','Required parameter checkitemId was null or undefined when calling updateCheckitem.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['content-type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId,'checkitem_id': checkitemId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新代码片段
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateCodeSegment(updateCodeSegmentRequest?: UpdateCodeSegmentRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/code-segments/{code_segment_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspaceId;
+            
+            let codeSegmentId;
+
+            if (updateCodeSegmentRequest !== null && updateCodeSegmentRequest !== undefined) {
+                if (updateCodeSegmentRequest instanceof UpdateCodeSegmentRequest) {
+                    workspaceId = updateCodeSegmentRequest.workspaceId;
+                    codeSegmentId = updateCodeSegmentRequest.codeSegmentId;
+                    body = updateCodeSegmentRequest.body
+                } else {
+                    workspaceId = updateCodeSegmentRequest['workspace_id'];
+                    codeSegmentId = updateCodeSegmentRequest['code_segment_id'];
+                    body = updateCodeSegmentRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updateCodeSegment.');
+            }
+            if (codeSegmentId === null || codeSegmentId === undefined) {
+            throw new RequiredError('codeSegmentId','Required parameter codeSegmentId was null or undefined when calling updateCodeSegment.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId,'code_segment_id': codeSegmentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新遵从包
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateCompliancePackage(updateCompliancePackageRequest?: UpdateCompliancePackageRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/sa/baseline/compliance-packages/{compliance_packages_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspaceId;
+            
+            let compliancePackagesId;
+            
+            let contentType;
+            
+            let xLanguage;
+
+            if (updateCompliancePackageRequest !== null && updateCompliancePackageRequest !== undefined) {
+                if (updateCompliancePackageRequest instanceof UpdateCompliancePackageRequest) {
+                    workspaceId = updateCompliancePackageRequest.workspaceId;
+                    compliancePackagesId = updateCompliancePackageRequest.compliancePackagesId;
+                    contentType = updateCompliancePackageRequest.contentType;
+                    xLanguage = updateCompliancePackageRequest.xLanguage;
+                    body = updateCompliancePackageRequest.body
+                } else {
+                    workspaceId = updateCompliancePackageRequest['workspace_id'];
+                    compliancePackagesId = updateCompliancePackageRequest['compliance_packages_id'];
+                    contentType = updateCompliancePackageRequest['content-type'];
+                    xLanguage = updateCompliancePackageRequest['X-Language'];
+                    body = updateCompliancePackageRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updateCompliancePackage.');
+            }
+            if (compliancePackagesId === null || compliancePackagesId === undefined) {
+            throw new RequiredError('compliancePackagesId','Required parameter compliancePackagesId was null or undefined when calling updateCompliancePackage.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['content-type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId,'compliance_packages_id': compliancePackagesId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新数据加工
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDataTransformation(updateDataTransformationRequest?: UpdateDataTransformationRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/data-transformations/{data_transformation_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspaceId;
+            
+            let dataTransformationId;
+
+            if (updateDataTransformationRequest !== null && updateDataTransformationRequest !== undefined) {
+                if (updateDataTransformationRequest instanceof UpdateDataTransformationRequest) {
+                    workspaceId = updateDataTransformationRequest.workspaceId;
+                    dataTransformationId = updateDataTransformationRequest.dataTransformationId;
+                    body = updateDataTransformationRequest.body
+                } else {
+                    workspaceId = updateDataTransformationRequest['workspace_id'];
+                    dataTransformationId = updateDataTransformationRequest['data_transformation_id'];
+                    body = updateDataTransformationRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updateDataTransformation.');
+            }
+            if (dataTransformationId === null || dataTransformationId === undefined) {
+            throw new RequiredError('dataTransformationId','Required parameter dataTransformationId was null or undefined when calling updateDataTransformation.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId,'data_transformation_id': dataTransformationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新布局字段
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateLayoutField(updateLayoutFieldRequest?: UpdateLayoutFieldRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/soc/layouts/fields/{field_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let workspaceId;
+            
+            let fieldId;
+
+            if (updateLayoutFieldRequest !== null && updateLayoutFieldRequest !== undefined) {
+                if (updateLayoutFieldRequest instanceof UpdateLayoutFieldRequest) {
+                    contentType = updateLayoutFieldRequest.contentType;
+                    workspaceId = updateLayoutFieldRequest.workspaceId;
+                    fieldId = updateLayoutFieldRequest.fieldId;
+                    body = updateLayoutFieldRequest.body
+                } else {
+                    contentType = updateLayoutFieldRequest['content-type'];
+                    workspaceId = updateLayoutFieldRequest['workspace_id'];
+                    fieldId = updateLayoutFieldRequest['field_id'];
+                    body = updateLayoutFieldRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updateLayoutField.');
+            }
+            if (fieldId === null || fieldId === undefined) {
+            throw new RequiredError('fieldId','Required parameter fieldId was null or undefined when calling updateLayoutField.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -5884,20 +5692,20 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId,'indicator_id': indicatorId, };
+            options.pathParams = { 'workspace_id': workspaceId,'field_id': fieldId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 修改剧本
+         * 更新管道
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        updatePlaybook(updatePlaybookRequest?: UpdatePlaybookRequest) {
+        updatePipe(updatePipeRequest?: UpdatePipeRequest) {
             const options = {
                 method: "PUT",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/{playbook_id}",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/pipes/{pipe_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5908,120 +5716,49 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let contentType;
-            
             let workspaceId;
             
-            let playbookId;
+            let pipeId;
 
-            if (updatePlaybookRequest !== null && updatePlaybookRequest !== undefined) {
-                if (updatePlaybookRequest instanceof UpdatePlaybookRequest) {
-                    contentType = updatePlaybookRequest.contentType;
-                    workspaceId = updatePlaybookRequest.workspaceId;
-                    playbookId = updatePlaybookRequest.playbookId;
-                    body = updatePlaybookRequest.body
+            if (updatePipeRequest !== null && updatePipeRequest !== undefined) {
+                if (updatePipeRequest instanceof UpdatePipeRequest) {
+                    workspaceId = updatePipeRequest.workspaceId;
+                    pipeId = updatePipeRequest.pipeId;
+                    body = updatePipeRequest.body
                 } else {
-                    contentType = updatePlaybookRequest['content-type'];
-                    workspaceId = updatePlaybookRequest['workspace_id'];
-                    playbookId = updatePlaybookRequest['playbook_id'];
-                    body = updatePlaybookRequest['body'];
+                    workspaceId = updatePipeRequest['workspace_id'];
+                    pipeId = updatePipeRequest['pipe_id'];
+                    body = updatePipeRequest['body'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updatePlaybook.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updatePipe.');
             }
-            if (playbookId === null || playbookId === undefined) {
-            throw new RequiredError('playbookId','Required parameter playbookId was null or undefined when calling updatePlaybook.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId,'playbook_id': playbookId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 更新剧本动作
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updatePlaybookAction(updatePlaybookActionRequest?: UpdatePlaybookActionRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/versions/{version_id}/actions/{action_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let contentType;
-            
-            let workspaceId;
-            
-            let versionId;
-            
-            let actionId;
-
-            if (updatePlaybookActionRequest !== null && updatePlaybookActionRequest !== undefined) {
-                if (updatePlaybookActionRequest instanceof UpdatePlaybookActionRequest) {
-                    contentType = updatePlaybookActionRequest.contentType;
-                    workspaceId = updatePlaybookActionRequest.workspaceId;
-                    versionId = updatePlaybookActionRequest.versionId;
-                    actionId = updatePlaybookActionRequest.actionId;
-                    body = updatePlaybookActionRequest.body
-                } else {
-                    contentType = updatePlaybookActionRequest['content-type'];
-                    workspaceId = updatePlaybookActionRequest['workspace_id'];
-                    versionId = updatePlaybookActionRequest['version_id'];
-                    actionId = updatePlaybookActionRequest['action_id'];
-                    body = updatePlaybookActionRequest['body'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updatePlaybookAction.');
-            }
-            if (versionId === null || versionId === undefined) {
-            throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling updatePlaybookAction.');
-            }
-            if (actionId === null || actionId === undefined) {
-            throw new RequiredError('actionId','Required parameter actionId was null or undefined when calling updatePlaybookAction.');
+            if (pipeId === null || pipeId === undefined) {
+            throw new RequiredError('pipeId','Required parameter pipeId was null or undefined when calling updatePipe.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId,'version_id': versionId,'action_id': actionId, };
+            options.pathParams = { 'workspace_id': workspaceId,'pipe_id': pipeId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 更新剧本规则
+         * 更新管道结构
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        updatePlaybookRule(updatePlaybookRuleRequest?: UpdatePlaybookRuleRequest) {
+        updatePipeSchema(updatePipeSchemaRequest?: UpdatePipeSchemaRequest) {
             const options = {
                 method: "PUT",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/versions/{version_id}/rules/{rule_id}",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/pipes/{pipe_id}/schema",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6032,63 +5769,49 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let contentType;
-            
             let workspaceId;
             
-            let versionId;
-            
-            let ruleId;
+            let pipeId;
 
-            if (updatePlaybookRuleRequest !== null && updatePlaybookRuleRequest !== undefined) {
-                if (updatePlaybookRuleRequest instanceof UpdatePlaybookRuleRequest) {
-                    contentType = updatePlaybookRuleRequest.contentType;
-                    workspaceId = updatePlaybookRuleRequest.workspaceId;
-                    versionId = updatePlaybookRuleRequest.versionId;
-                    ruleId = updatePlaybookRuleRequest.ruleId;
-                    body = updatePlaybookRuleRequest.body
+            if (updatePipeSchemaRequest !== null && updatePipeSchemaRequest !== undefined) {
+                if (updatePipeSchemaRequest instanceof UpdatePipeSchemaRequest) {
+                    workspaceId = updatePipeSchemaRequest.workspaceId;
+                    pipeId = updatePipeSchemaRequest.pipeId;
+                    body = updatePipeSchemaRequest.body
                 } else {
-                    contentType = updatePlaybookRuleRequest['content-type'];
-                    workspaceId = updatePlaybookRuleRequest['workspace_id'];
-                    versionId = updatePlaybookRuleRequest['version_id'];
-                    ruleId = updatePlaybookRuleRequest['rule_id'];
-                    body = updatePlaybookRuleRequest['body'];
+                    workspaceId = updatePipeSchemaRequest['workspace_id'];
+                    pipeId = updatePipeSchemaRequest['pipe_id'];
+                    body = updatePipeSchemaRequest['body'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updatePlaybookRule.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updatePipeSchema.');
             }
-            if (versionId === null || versionId === undefined) {
-            throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling updatePlaybookRule.');
-            }
-            if (ruleId === null || ruleId === undefined) {
-            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling updatePlaybookRule.');
+            if (pipeId === null || pipeId === undefined) {
+            throw new RequiredError('pipeId','Required parameter pipeId was null or undefined when calling updatePipeSchema.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId,'version_id': versionId,'rule_id': ruleId, };
+            options.pathParams = { 'workspace_id': workspaceId,'pipe_id': pipeId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
     
         /**
-         * 更新剧本版本
+         * 更新检索脚本
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        updatePlaybookVersion(updatePlaybookVersionRequest?: UpdatePlaybookVersionRequest) {
+        updateRetrieveScript(updateRetrieveScriptRequest?: UpdateRetrieveScriptRequest) {
             const options = {
                 method: "PUT",
-                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/playbooks/versions/{version_id}",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/retrieve-scripts/{retrieve_script_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6099,88 +5822,183 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let contentType;
-            
             let workspaceId;
             
-            let versionId;
+            let retrieveScriptId;
 
-            if (updatePlaybookVersionRequest !== null && updatePlaybookVersionRequest !== undefined) {
-                if (updatePlaybookVersionRequest instanceof UpdatePlaybookVersionRequest) {
-                    contentType = updatePlaybookVersionRequest.contentType;
-                    workspaceId = updatePlaybookVersionRequest.workspaceId;
-                    versionId = updatePlaybookVersionRequest.versionId;
-                    body = updatePlaybookVersionRequest.body
+            if (updateRetrieveScriptRequest !== null && updateRetrieveScriptRequest !== undefined) {
+                if (updateRetrieveScriptRequest instanceof UpdateRetrieveScriptRequest) {
+                    workspaceId = updateRetrieveScriptRequest.workspaceId;
+                    retrieveScriptId = updateRetrieveScriptRequest.retrieveScriptId;
+                    body = updateRetrieveScriptRequest.body
                 } else {
-                    contentType = updatePlaybookVersionRequest['content-type'];
-                    workspaceId = updatePlaybookVersionRequest['workspace_id'];
-                    versionId = updatePlaybookVersionRequest['version_id'];
-                    body = updatePlaybookVersionRequest['body'];
+                    workspaceId = updateRetrieveScriptRequest['workspace_id'];
+                    retrieveScriptId = updateRetrieveScriptRequest['retrieve_script_id'];
+                    body = updateRetrieveScriptRequest['body'];
                 }
             }
 
         
             if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updatePlaybookVersion.');
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updateRetrieveScript.');
             }
-            if (versionId === null || versionId === undefined) {
-            throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling updatePlaybookVersion.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workspace_id': workspaceId,'version_id': versionId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 更新工作空间名称、描述等信息
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateWorkspace(updateWorkspaceRequest?: UpdateWorkspaceRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1/{project_id}/workspaces/{workspace_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let contentType;
-            
-            let workspaceId;
-
-            if (updateWorkspaceRequest !== null && updateWorkspaceRequest !== undefined) {
-                if (updateWorkspaceRequest instanceof UpdateWorkspaceRequest) {
-                    contentType = updateWorkspaceRequest.contentType;
-                    workspaceId = updateWorkspaceRequest.workspaceId;
-                    body = updateWorkspaceRequest.body
-                } else {
-                    contentType = updateWorkspaceRequest['content-type'];
-                    workspaceId = updateWorkspaceRequest['workspace_id'];
-                    body = updateWorkspaceRequest['body'];
-                }
-            }
-
-        
-            if (workspaceId === null || workspaceId === undefined) {
-            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updateWorkspace.');
+            if (retrieveScriptId === null || retrieveScriptId === undefined) {
+            throw new RequiredError('retrieveScriptId','Required parameter retrieveScriptId was null or undefined when calling updateRetrieveScript.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId,'retrieve_script_id': retrieveScriptId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更改表详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateTable(updateTableRequest?: UpdateTableRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/tables/{table_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspaceId;
+            
+            let tableId;
+
+            if (updateTableRequest !== null && updateTableRequest !== undefined) {
+                if (updateTableRequest instanceof UpdateTableRequest) {
+                    workspaceId = updateTableRequest.workspaceId;
+                    tableId = updateTableRequest.tableId;
+                    body = updateTableRequest.body
+                } else {
+                    workspaceId = updateTableRequest['workspace_id'];
+                    tableId = updateTableRequest['table_id'];
+                    body = updateTableRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updateTable.');
+            }
+            if (tableId === null || tableId === undefined) {
+            throw new RequiredError('tableId','Required parameter tableId was null or undefined when calling updateTable.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId,'table_id': tableId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更改表结构
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateTableSchema(updateTableSchemaRequest?: UpdateTableSchemaRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/tables/{table_id}/schema",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspaceId;
+            
+            let tableId;
+
+            if (updateTableSchemaRequest !== null && updateTableSchemaRequest !== undefined) {
+                if (updateTableSchemaRequest instanceof UpdateTableSchemaRequest) {
+                    workspaceId = updateTableSchemaRequest.workspaceId;
+                    tableId = updateTableSchemaRequest.tableId;
+                    body = updateTableSchemaRequest.body
+                } else {
+                    workspaceId = updateTableSchemaRequest['workspace_id'];
+                    tableId = updateTableSchemaRequest['table_id'];
+                    body = updateTableSchemaRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updateTableSchema.');
+            }
+            if (tableId === null || tableId === undefined) {
+            throw new RequiredError('tableId','Required parameter tableId was null or undefined when calling updateTableSchema.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId,'table_id': tableId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建SQL校验
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSqlValidation(createSqlValidationRequest?: CreateSqlValidationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/sql/validation",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspaceId;
+
+            if (createSqlValidationRequest !== null && createSqlValidationRequest !== undefined) {
+                if (createSqlValidationRequest instanceof CreateSqlValidationRequest) {
+                    workspaceId = createSqlValidationRequest.workspaceId;
+                    body = createSqlValidationRequest.body
+                } else {
+                    workspaceId = createSqlValidationRequest['workspace_id'];
+                    body = createSqlValidationRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createSqlValidation.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

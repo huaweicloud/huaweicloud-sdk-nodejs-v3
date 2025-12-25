@@ -2,15 +2,15 @@
 
 export class ListAlertRuleTemplatesRequest {
     private 'workspace_id'?: string;
+    private 'template_name'?: string;
+    public status?: ListAlertRuleTemplatesRequestStatusEnum | string;
+    public severity?: ListAlertRuleTemplatesRequestSeverityEnum | string;
     public offset?: number;
     public limit?: number;
     private 'sort_key'?: string;
-    private 'sort_dir'?: ListAlertRuleTemplatesRequestSortDirEnum | string;
-    public severity?: Array<ListAlertRuleTemplatesRequestSeverityEnum> | Array<string>;
-    public constructor(workspaceId?: string, offset?: number, limit?: number) { 
+    private 'sort_dir'?: string;
+    public constructor(workspaceId?: string) { 
         this['workspace_id'] = workspaceId;
-        this['offset'] = offset;
-        this['limit'] = limit;
     }
     public withWorkspaceId(workspaceId: string): ListAlertRuleTemplatesRequest {
         this['workspace_id'] = workspaceId;
@@ -21,6 +21,24 @@ export class ListAlertRuleTemplatesRequest {
     }
     public get workspaceId(): string | undefined {
         return this['workspace_id'];
+    }
+    public withTemplateName(templateName: string): ListAlertRuleTemplatesRequest {
+        this['template_name'] = templateName;
+        return this;
+    }
+    public set templateName(templateName: string  | undefined) {
+        this['template_name'] = templateName;
+    }
+    public get templateName(): string | undefined {
+        return this['template_name'];
+    }
+    public withStatus(status: ListAlertRuleTemplatesRequestStatusEnum | string): ListAlertRuleTemplatesRequest {
+        this['status'] = status;
+        return this;
+    }
+    public withSeverity(severity: ListAlertRuleTemplatesRequestSeverityEnum | string): ListAlertRuleTemplatesRequest {
+        this['severity'] = severity;
+        return this;
     }
     public withOffset(offset: number): ListAlertRuleTemplatesRequest {
         this['offset'] = offset;
@@ -40,19 +58,15 @@ export class ListAlertRuleTemplatesRequest {
     public get sortKey(): string | undefined {
         return this['sort_key'];
     }
-    public withSortDir(sortDir: ListAlertRuleTemplatesRequestSortDirEnum | string): ListAlertRuleTemplatesRequest {
+    public withSortDir(sortDir: string): ListAlertRuleTemplatesRequest {
         this['sort_dir'] = sortDir;
         return this;
     }
-    public set sortDir(sortDir: ListAlertRuleTemplatesRequestSortDirEnum | string  | undefined) {
+    public set sortDir(sortDir: string  | undefined) {
         this['sort_dir'] = sortDir;
     }
-    public get sortDir(): ListAlertRuleTemplatesRequestSortDirEnum | string | undefined {
+    public get sortDir(): string | undefined {
         return this['sort_dir'];
-    }
-    public withSeverity(severity: Array<ListAlertRuleTemplatesRequestSeverityEnum> | Array<string>): ListAlertRuleTemplatesRequest {
-        this['severity'] = severity;
-        return this;
     }
 }
 
@@ -60,9 +74,9 @@ export class ListAlertRuleTemplatesRequest {
     * @export
     * @enum {string}
     */
-export enum ListAlertRuleTemplatesRequestSortDirEnum {
-    ASC = 'asc',
-    DESC = 'desc'
+export enum ListAlertRuleTemplatesRequestStatusEnum {
+    ENABLED = 'ENABLED',
+    DISABLED = 'DISABLED'
 }
 /**
     * @export

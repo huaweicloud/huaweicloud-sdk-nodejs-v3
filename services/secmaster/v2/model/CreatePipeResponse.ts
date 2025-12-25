@@ -1,33 +1,31 @@
+import { PipeCategory } from './PipeCategory';
+import { PipeOwnerType } from './PipeOwnerType';
+import { PipeProcessError } from './PipeProcessError';
+import { PipeProcessStatus } from './PipeProcessStatus';
+import { PipeResource } from './PipeResource';
+import { PipeSchema } from './PipeSchema';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreatePipeResponse extends SdkResponse {
-    private 'domain_id'?: string;
     private 'project_id'?: string;
-    private 'dataspace_id'?: string;
-    private 'dataspace_name'?: string;
+    private 'workspace_id'?: string;
     private 'pipe_id'?: string;
     private 'pipe_name'?: string;
-    private 'pipe_type'?: string;
+    private 'pipe_alias'?: string;
+    public category?: PipeCategory;
+    public directory?: string;
     public description?: string;
-    private 'storage_period'?: number;
-    public shards?: number;
-    private 'create_by'?: string;
+    private 'process_status'?: PipeProcessStatus;
+    private 'process_error'?: PipeProcessError;
+    private 'owner_type'?: PipeOwnerType;
+    public resources?: Array<PipeResource>;
+    public schema?: PipeSchema;
     private 'create_time'?: number;
-    private 'update_by'?: string;
     private 'update_time'?: number;
+    private 'delete_time'?: number;
     public constructor() { 
         super();
-    }
-    public withDomainId(domainId: string): CreatePipeResponse {
-        this['domain_id'] = domainId;
-        return this;
-    }
-    public set domainId(domainId: string  | undefined) {
-        this['domain_id'] = domainId;
-    }
-    public get domainId(): string | undefined {
-        return this['domain_id'];
     }
     public withProjectId(projectId: string): CreatePipeResponse {
         this['project_id'] = projectId;
@@ -39,25 +37,15 @@ export class CreatePipeResponse extends SdkResponse {
     public get projectId(): string | undefined {
         return this['project_id'];
     }
-    public withDataspaceId(dataspaceId: string): CreatePipeResponse {
-        this['dataspace_id'] = dataspaceId;
+    public withWorkspaceId(workspaceId: string): CreatePipeResponse {
+        this['workspace_id'] = workspaceId;
         return this;
     }
-    public set dataspaceId(dataspaceId: string  | undefined) {
-        this['dataspace_id'] = dataspaceId;
+    public set workspaceId(workspaceId: string  | undefined) {
+        this['workspace_id'] = workspaceId;
     }
-    public get dataspaceId(): string | undefined {
-        return this['dataspace_id'];
-    }
-    public withDataspaceName(dataspaceName: string): CreatePipeResponse {
-        this['dataspace_name'] = dataspaceName;
-        return this;
-    }
-    public set dataspaceName(dataspaceName: string  | undefined) {
-        this['dataspace_name'] = dataspaceName;
-    }
-    public get dataspaceName(): string | undefined {
-        return this['dataspace_name'];
+    public get workspaceId(): string | undefined {
+        return this['workspace_id'];
     }
     public withPipeId(pipeId: string): CreatePipeResponse {
         this['pipe_id'] = pipeId;
@@ -79,43 +67,65 @@ export class CreatePipeResponse extends SdkResponse {
     public get pipeName(): string | undefined {
         return this['pipe_name'];
     }
-    public withPipeType(pipeType: string): CreatePipeResponse {
-        this['pipe_type'] = pipeType;
+    public withPipeAlias(pipeAlias: string): CreatePipeResponse {
+        this['pipe_alias'] = pipeAlias;
         return this;
     }
-    public set pipeType(pipeType: string  | undefined) {
-        this['pipe_type'] = pipeType;
+    public set pipeAlias(pipeAlias: string  | undefined) {
+        this['pipe_alias'] = pipeAlias;
     }
-    public get pipeType(): string | undefined {
-        return this['pipe_type'];
+    public get pipeAlias(): string | undefined {
+        return this['pipe_alias'];
+    }
+    public withCategory(category: PipeCategory): CreatePipeResponse {
+        this['category'] = category;
+        return this;
+    }
+    public withDirectory(directory: string): CreatePipeResponse {
+        this['directory'] = directory;
+        return this;
     }
     public withDescription(description: string): CreatePipeResponse {
         this['description'] = description;
         return this;
     }
-    public withStoragePeriod(storagePeriod: number): CreatePipeResponse {
-        this['storage_period'] = storagePeriod;
+    public withProcessStatus(processStatus: PipeProcessStatus): CreatePipeResponse {
+        this['process_status'] = processStatus;
         return this;
     }
-    public set storagePeriod(storagePeriod: number  | undefined) {
-        this['storage_period'] = storagePeriod;
+    public set processStatus(processStatus: PipeProcessStatus  | undefined) {
+        this['process_status'] = processStatus;
     }
-    public get storagePeriod(): number | undefined {
-        return this['storage_period'];
+    public get processStatus(): PipeProcessStatus | undefined {
+        return this['process_status'];
     }
-    public withShards(shards: number): CreatePipeResponse {
-        this['shards'] = shards;
+    public withProcessError(processError: PipeProcessError): CreatePipeResponse {
+        this['process_error'] = processError;
         return this;
     }
-    public withCreateBy(createBy: string): CreatePipeResponse {
-        this['create_by'] = createBy;
+    public set processError(processError: PipeProcessError  | undefined) {
+        this['process_error'] = processError;
+    }
+    public get processError(): PipeProcessError | undefined {
+        return this['process_error'];
+    }
+    public withOwnerType(ownerType: PipeOwnerType): CreatePipeResponse {
+        this['owner_type'] = ownerType;
         return this;
     }
-    public set createBy(createBy: string  | undefined) {
-        this['create_by'] = createBy;
+    public set ownerType(ownerType: PipeOwnerType  | undefined) {
+        this['owner_type'] = ownerType;
     }
-    public get createBy(): string | undefined {
-        return this['create_by'];
+    public get ownerType(): PipeOwnerType | undefined {
+        return this['owner_type'];
+    }
+    public withResources(resources: Array<PipeResource>): CreatePipeResponse {
+        this['resources'] = resources;
+        return this;
+    }
+    public withSchema(schema: PipeSchema): CreatePipeResponse {
+        this['schema'] = schema;
+        return this;
     }
     public withCreateTime(createTime: number): CreatePipeResponse {
         this['create_time'] = createTime;
@@ -127,16 +137,6 @@ export class CreatePipeResponse extends SdkResponse {
     public get createTime(): number | undefined {
         return this['create_time'];
     }
-    public withUpdateBy(updateBy: string): CreatePipeResponse {
-        this['update_by'] = updateBy;
-        return this;
-    }
-    public set updateBy(updateBy: string  | undefined) {
-        this['update_by'] = updateBy;
-    }
-    public get updateBy(): string | undefined {
-        return this['update_by'];
-    }
     public withUpdateTime(updateTime: number): CreatePipeResponse {
         this['update_time'] = updateTime;
         return this;
@@ -146,5 +146,15 @@ export class CreatePipeResponse extends SdkResponse {
     }
     public get updateTime(): number | undefined {
         return this['update_time'];
+    }
+    public withDeleteTime(deleteTime: number): CreatePipeResponse {
+        this['delete_time'] = deleteTime;
+        return this;
+    }
+    public set deleteTime(deleteTime: number  | undefined) {
+        this['delete_time'] = deleteTime;
+    }
+    public get deleteTime(): number | undefined {
+        return this['delete_time'];
     }
 }

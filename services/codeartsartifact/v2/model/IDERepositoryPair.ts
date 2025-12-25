@@ -7,7 +7,9 @@ export class IDERepositoryPair {
     public description?: string;
     public snapshot?: string;
     public release?: string;
-    public constructor() { 
+    public constructor(repoName?: string, includesPattern?: string) { 
+        this['repo_name'] = repoName;
+        this['includes_pattern'] = includesPattern;
     }
     public withRepoName(repoName: string): IDERepositoryPair {
         this['repo_name'] = repoName;

@@ -5,7 +5,11 @@ export class IDETrashArtifactModel {
     public format?: string;
     public status?: string;
     public uri?: string;
-    public constructor() { 
+    public constructor(id?: string, format?: string, status?: string, uri?: string) { 
+        this['id'] = id;
+        this['format'] = format;
+        this['status'] = status;
+        this['uri'] = uri;
     }
     public withId(id: string): IDETrashArtifactModel {
         this['id'] = id;

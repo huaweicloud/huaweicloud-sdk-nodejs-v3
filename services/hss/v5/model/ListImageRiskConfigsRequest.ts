@@ -1,7 +1,6 @@
 
 
 export class ListImageRiskConfigsRequest {
-    public region?: string;
     private 'enterprise_project_id'?: string;
     private 'image_type'?: string;
     public offset?: number;
@@ -16,10 +15,6 @@ export class ListImageRiskConfigsRequest {
     private 'instance_id'?: string;
     public constructor(imageType?: string) { 
         this['image_type'] = imageType;
-    }
-    public withRegion(region: string): ListImageRiskConfigsRequest {
-        this['region'] = region;
-        return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListImageRiskConfigsRequest {
         this['enterprise_project_id'] = enterpriseProjectId;

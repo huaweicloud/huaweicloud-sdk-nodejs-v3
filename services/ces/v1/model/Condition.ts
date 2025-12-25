@@ -1,4 +1,5 @@
 import { Filter } from './Filter';
+import { SuppressDuration } from './SuppressDuration';
 
 
 export class Condition {
@@ -8,7 +9,7 @@ export class Condition {
     public period?: ConditionPeriodEnum | number;
     public unit?: string;
     public value?: number;
-    private 'suppress_duration'?: ConditionSuppressDurationEnum | number;
+    private 'suppress_duration'?: SuppressDuration;
     public constructor(comparisonOperator?: string, count?: number, filter?: Filter, period?: number, value?: number) { 
         this['comparison_operator'] = comparisonOperator;
         this['count'] = count;
@@ -46,14 +47,14 @@ export class Condition {
         this['value'] = value;
         return this;
     }
-    public withSuppressDuration(suppressDuration: ConditionSuppressDurationEnum | number): Condition {
+    public withSuppressDuration(suppressDuration: SuppressDuration): Condition {
         this['suppress_duration'] = suppressDuration;
         return this;
     }
-    public set suppressDuration(suppressDuration: ConditionSuppressDurationEnum | number  | undefined) {
+    public set suppressDuration(suppressDuration: SuppressDuration  | undefined) {
         this['suppress_duration'] = suppressDuration;
     }
-    public get suppressDuration(): ConditionSuppressDurationEnum | number | undefined {
+    public get suppressDuration(): SuppressDuration | undefined {
         return this['suppress_duration'];
     }
 }
@@ -69,21 +70,5 @@ export enum ConditionPeriodEnum {
     NUMBER_1200 = 1200,
     NUMBER_3600 = 3600,
     NUMBER_14400 = 14400,
-    NUMBER_86400 = 86400
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ConditionSuppressDurationEnum {
-    NUMBER_0 = 0,
-    NUMBER_300 = 300,
-    NUMBER_600 = 600,
-    NUMBER_900 = 900,
-    NUMBER_1800 = 1800,
-    NUMBER_3600 = 3600,
-    NUMBER_10800 = 10800,
-    NUMBER_21600 = 21600,
-    NUMBER_43200 = 43200,
     NUMBER_86400 = 86400
 }

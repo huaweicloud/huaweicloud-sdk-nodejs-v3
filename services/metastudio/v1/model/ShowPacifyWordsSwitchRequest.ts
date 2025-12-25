@@ -77,5 +77,6 @@ export enum ShowPacifyWordsSwitchRequestLanguageEnum {
     ESP = 'ESP',
     POR = 'por',
     ARABIC = 'Arabic',
-    THAI = 'Thai'
+    THAI = 'Thai',
+    FR = 'fr'
 }

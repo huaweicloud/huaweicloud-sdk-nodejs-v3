@@ -1,11 +1,10 @@
-import { AlertRule } from './AlertRule';
+import { AlertRuleItem } from './AlertRuleItem';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListAlertRulesResponse extends SdkResponse {
     public count?: number;
-    public records?: Array<AlertRule>;
-    private 'X-request-id'?: string;
+    public records?: Array<AlertRuleItem>;
     public constructor() { 
         super();
     }
@@ -13,18 +12,8 @@ export class ListAlertRulesResponse extends SdkResponse {
         this['count'] = count;
         return this;
     }
-    public withRecords(records: Array<AlertRule>): ListAlertRulesResponse {
+    public withRecords(records: Array<AlertRuleItem>): ListAlertRulesResponse {
         this['records'] = records;
         return this;
-    }
-    public withXRequestId(xRequestId: string): ListAlertRulesResponse {
-        this['X-request-id'] = xRequestId;
-        return this;
-    }
-    public set xRequestId(xRequestId: string  | undefined) {
-        this['X-request-id'] = xRequestId;
-    }
-    public get xRequestId(): string | undefined {
-        return this['X-request-id'];
     }
 }

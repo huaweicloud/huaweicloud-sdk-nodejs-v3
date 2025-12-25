@@ -107,5 +107,6 @@ export class UpdateAlarmRequestBody {
 export enum UpdateAlarmRequestBodyAlarmTypeEnum {
     EVENT_SYS = 'EVENT.SYS',
     EVENT_CUSTOM = 'EVENT.CUSTOM',
-    RESOURCE_GROUP = 'RESOURCE_GROUP'
+    RESOURCE_GROUP = 'RESOURCE_GROUP',
+    MULTI_INSTANCE = 'MULTI_INSTANCE'
 }

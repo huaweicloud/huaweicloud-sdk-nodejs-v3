@@ -4,6 +4,7 @@ export class ListSingleStreamBitrateRequest {
     public domain?: string;
     public app?: string;
     public stream?: string;
+    public type?: ListSingleStreamBitrateRequestTypeEnum | string;
     private 'start_time'?: string;
     private 'end_time'?: string;
     public constructor(domain?: string, app?: string, stream?: string) { 
@@ -21,6 +22,10 @@ export class ListSingleStreamBitrateRequest {
     }
     public withStream(stream: string): ListSingleStreamBitrateRequest {
         this['stream'] = stream;
+        return this;
+    }
+    public withType(type: ListSingleStreamBitrateRequestTypeEnum | string): ListSingleStreamBitrateRequest {
+        this['type'] = type;
         return this;
     }
     public withStartTime(startTime: string): ListSingleStreamBitrateRequest {
@@ -43,4 +48,13 @@ export class ListSingleStreamBitrateRequest {
     public get endTime(): string | undefined {
         return this['end_time'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListSingleStreamBitrateRequestTypeEnum {
+    VIDEO = 'VIDEO',
+    AUDIO = 'AUDIO'
 }

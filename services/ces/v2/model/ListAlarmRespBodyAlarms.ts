@@ -1,7 +1,7 @@
 import { AlarmTypeResp } from './AlarmTypeResp';
 import { NotificationResp } from './NotificationResp';
-import { Policy } from './Policy';
-import { ResourceTag } from './ResourceTag';
+import { PolicyResp } from './PolicyResp';
+import { ResourceTagResp } from './ResourceTagResp';
 import { ResourcesInListResp } from './ResourcesInListResp';
 
 
@@ -10,7 +10,7 @@ export class ListAlarmRespBodyAlarms {
     public name?: string;
     public description?: string;
     public namespace?: string;
-    public policies?: Array<Policy>;
+    public policies?: Array<PolicyResp>;
     public resources?: Array<ResourcesInListResp>;
     public type?: AlarmTypeResp;
     public enabled?: boolean;
@@ -24,7 +24,7 @@ export class ListAlarmRespBodyAlarms {
     private 'alarm_template_id'?: string;
     private 'product_name'?: string;
     private 'resource_level'?: ListAlarmRespBodyAlarmsResourceLevelEnum | string;
-    public tags?: Array<ResourceTag>;
+    public tags?: Array<ResourceTagResp>;
     public constructor() { 
     }
     public withAlarmId(alarmId: string): ListAlarmRespBodyAlarms {
@@ -49,7 +49,7 @@ export class ListAlarmRespBodyAlarms {
         this['namespace'] = namespace;
         return this;
     }
-    public withPolicies(policies: Array<Policy>): ListAlarmRespBodyAlarms {
+    public withPolicies(policies: Array<PolicyResp>): ListAlarmRespBodyAlarms {
         this['policies'] = policies;
         return this;
     }
@@ -165,7 +165,7 @@ export class ListAlarmRespBodyAlarms {
     public get resourceLevel(): ListAlarmRespBodyAlarmsResourceLevelEnum | string | undefined {
         return this['resource_level'];
     }
-    public withTags(tags: Array<ResourceTag>): ListAlarmRespBodyAlarms {
+    public withTags(tags: Array<ResourceTagResp>): ListAlarmRespBodyAlarms {
         this['tags'] = tags;
         return this;
     }

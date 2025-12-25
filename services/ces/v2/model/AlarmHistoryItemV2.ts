@@ -24,6 +24,7 @@ export class AlarmHistoryItemV2 {
     private 'alarm_actions'?: Array<AlarmHistoryItemV2AlarmActions>;
     private 'ok_actions'?: Array<AlarmHistoryItemV2AlarmActions>;
     private 'data_points'?: Array<DataPointInfo>;
+    private 'mask_status'?: AlarmHistoryItemV2MaskStatusEnum | string;
     public constructor() { 
     }
     public withRecordId(recordId: string): AlarmHistoryItemV2 {
@@ -170,6 +171,16 @@ export class AlarmHistoryItemV2 {
     public get dataPoints(): Array<DataPointInfo> | undefined {
         return this['data_points'];
     }
+    public withMaskStatus(maskStatus: AlarmHistoryItemV2MaskStatusEnum | string): AlarmHistoryItemV2 {
+        this['mask_status'] = maskStatus;
+        return this;
+    }
+    public set maskStatus(maskStatus: AlarmHistoryItemV2MaskStatusEnum | string  | undefined) {
+        this['mask_status'] = maskStatus;
+    }
+    public get maskStatus(): AlarmHistoryItemV2MaskStatusEnum | string | undefined {
+        return this['mask_status'];
+    }
 }
 
 /**
@@ -180,6 +191,7 @@ export enum AlarmHistoryItemV2StatusEnum {
     OK = 'ok',
     ALARM = 'alarm',
     INVALID = 'invalid',
+    INSUFFICIENT_DATA = 'insufficient_data',
     OK_MANUAL = 'ok_manual'
 }
 /**
@@ -203,4 +215,12 @@ export enum AlarmHistoryItemV2TypeEnum {
     RESOURCE_GROUP = 'RESOURCE_GROUP',
     MULTI_INSTANCE = 'MULTI_INSTANCE',
     ALL_INSTANCE = 'ALL_INSTANCE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AlarmHistoryItemV2MaskStatusEnum {
+    MASKED = 'MASKED',
+    UN_MASKED = 'UN_MASKED'
 }

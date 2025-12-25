@@ -1,14 +1,14 @@
-import { Resource } from './Resource';
+import { ResourceResp } from './ResourceResp';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListNotificationMaskResourcesResponse extends SdkResponse {
-    public resources?: Array<Resource>;
+    public resources?: Array<ResourceResp>;
     public count?: number;
     public constructor() { 
         super();
     }
-    public withResources(resources: Array<Resource>): ListNotificationMaskResourcesResponse {
+    public withResources(resources: Array<ResourceResp>): ListNotificationMaskResourcesResponse {
         this['resources'] = resources;
         return this;
     }

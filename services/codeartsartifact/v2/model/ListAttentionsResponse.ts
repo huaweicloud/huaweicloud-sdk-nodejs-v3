@@ -1,14 +1,16 @@
+import { ListAttentionPageResult } from './ListAttentionPageResult';
+import { StandarBaseResponseV5 } from './StandarBaseResponseV5';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListAttentionsResponse extends SdkResponse {
-    public status?: string;
+    public status?: ListAttentionsResponseStatusEnum | string;
     private 'trace_id'?: string;
-    public result?: object;
+    public result?: ListAttentionPageResult;
     public constructor() { 
         super();
     }
-    public withStatus(status: string): ListAttentionsResponse {
+    public withStatus(status: ListAttentionsResponseStatusEnum | string): ListAttentionsResponse {
         this['status'] = status;
         return this;
     }
@@ -22,8 +24,17 @@ export class ListAttentionsResponse extends SdkResponse {
     public get traceId(): string | undefined {
         return this['trace_id'];
     }
-    public withResult(result: object): ListAttentionsResponse {
+    public withResult(result: ListAttentionPageResult): ListAttentionsResponse {
         this['result'] = result;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAttentionsResponseStatusEnum {
+    SUCCESS = 'success',
+    ERROR = 'error'
 }

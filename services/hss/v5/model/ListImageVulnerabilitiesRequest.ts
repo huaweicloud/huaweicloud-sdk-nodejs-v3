@@ -1,11 +1,10 @@
 
 
 export class ListImageVulnerabilitiesRequest {
-    public region?: string;
     private 'enterprise_project_id'?: string;
-    private 'image_type'?: string;
     public offset?: number;
     public limit?: number;
+    private 'image_type'?: string;
     private 'image_id'?: string;
     private 'instance_id'?: string;
     public namespace?: string;
@@ -15,16 +14,13 @@ export class ListImageVulnerabilitiesRequest {
     private 'vul_id'?: string;
     private 'app_name'?: string;
     public type?: string;
+    private 'handle_status'?: string;
     public constructor(imageType?: string, imageId?: string, namespace?: string, imageName?: string, tagName?: string) { 
         this['image_type'] = imageType;
         this['image_id'] = imageId;
         this['namespace'] = namespace;
         this['image_name'] = imageName;
         this['tag_name'] = tagName;
-    }
-    public withRegion(region: string): ListImageVulnerabilitiesRequest {
-        this['region'] = region;
-        return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListImageVulnerabilitiesRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
@@ -36,6 +32,14 @@ export class ListImageVulnerabilitiesRequest {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
+    public withOffset(offset: number): ListImageVulnerabilitiesRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: number): ListImageVulnerabilitiesRequest {
+        this['limit'] = limit;
+        return this;
+    }
     public withImageType(imageType: string): ListImageVulnerabilitiesRequest {
         this['image_type'] = imageType;
         return this;
@@ -45,14 +49,6 @@ export class ListImageVulnerabilitiesRequest {
     }
     public get imageType(): string | undefined {
         return this['image_type'];
-    }
-    public withOffset(offset: number): ListImageVulnerabilitiesRequest {
-        this['offset'] = offset;
-        return this;
-    }
-    public withLimit(limit: number): ListImageVulnerabilitiesRequest {
-        this['limit'] = limit;
-        return this;
     }
     public withImageId(imageId: string): ListImageVulnerabilitiesRequest {
         this['image_id'] = imageId;
@@ -131,5 +127,15 @@ export class ListImageVulnerabilitiesRequest {
     public withType(type: string): ListImageVulnerabilitiesRequest {
         this['type'] = type;
         return this;
+    }
+    public withHandleStatus(handleStatus: string): ListImageVulnerabilitiesRequest {
+        this['handle_status'] = handleStatus;
+        return this;
+    }
+    public set handleStatus(handleStatus: string  | undefined) {
+        this['handle_status'] = handleStatus;
+    }
+    public get handleStatus(): string | undefined {
+        return this['handle_status'];
     }
 }

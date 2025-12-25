@@ -3,17 +3,25 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AdditionalInfoResp } from './model/AdditionalInfoResp';
+import { AlarmActionEnabledResp } from './model/AlarmActionEnabledResp';
 import { AlarmDescription } from './model/AlarmDescription';
 import { AlarmDescriptionResp } from './model/AlarmDescriptionResp';
+import { AlarmEnabledResp } from './model/AlarmEnabledResp';
 import { AlarmHistoryInfoResp } from './model/AlarmHistoryInfoResp';
+import { AlarmLevelResp } from './model/AlarmLevelResp';
 import { AlarmName } from './model/AlarmName';
 import { AlarmNameResp } from './model/AlarmNameResp';
+import { AlarmRuleConditionResp } from './model/AlarmRuleConditionResp';
+import { AlarmStateResp } from './model/AlarmStateResp';
 import { AlarmTemplate } from './model/AlarmTemplate';
 import { AlarmTemplateCondition } from './model/AlarmTemplateCondition';
+import { AlarmTypeResp } from './model/AlarmTypeResp';
 import { BatchListMetricDataRequest } from './model/BatchListMetricDataRequest';
 import { BatchListMetricDataRequestBody } from './model/BatchListMetricDataRequestBody';
 import { BatchListMetricDataResponse } from './model/BatchListMetricDataResponse';
 import { BatchMetricData } from './model/BatchMetricData';
+import { BatchPeriod } from './model/BatchPeriod';
+import { ComparisonOperator } from './model/ComparisonOperator';
 import { ComparisonOperatorResp } from './model/ComparisonOperatorResp';
 import { Condition } from './model/Condition';
 import { ConditionResp } from './model/ConditionResp';
@@ -27,10 +35,10 @@ import { CreateAlarmTemplateResponse } from './model/CreateAlarmTemplateResponse
 import { CreateEventsRequest } from './model/CreateEventsRequest';
 import { CreateEventsRequestBody } from './model/CreateEventsRequestBody';
 import { CreateEventsResponse } from './model/CreateEventsResponse';
-import { CreateEventsResponseBody } from './model/CreateEventsResponseBody';
 import { CreateMetricDataRequest } from './model/CreateMetricDataRequest';
 import { CreateMetricDataRequestBody } from './model/CreateMetricDataRequestBody';
 import { CreateMetricDataResponse } from './model/CreateMetricDataResponse';
+import { CreateMetricDimension } from './model/CreateMetricDimension';
 import { CreateResourceGroup } from './model/CreateResourceGroup';
 import { CreateResourceGroupRequest } from './model/CreateResourceGroupRequest';
 import { CreateResourceGroupRequestBody } from './model/CreateResourceGroupRequestBody';
@@ -44,8 +52,8 @@ import { DeleteAlarmTemplateRequest } from './model/DeleteAlarmTemplateRequest';
 import { DeleteAlarmTemplateResponse } from './model/DeleteAlarmTemplateResponse';
 import { DeleteResourceGroupRequest } from './model/DeleteResourceGroupRequest';
 import { DeleteResourceGroupResponse } from './model/DeleteResourceGroupResponse';
-import { Dimension } from './model/Dimension';
 import { DimensionResp } from './model/DimensionResp';
+import { Event } from './model/Event';
 import { EventDataInfo } from './model/EventDataInfo';
 import { EventInfo } from './model/EventInfo';
 import { EventInfoDetailResp } from './model/EventInfoDetailResp';
@@ -108,6 +116,8 @@ import { ShowQuotasResponse } from './model/ShowQuotasResponse';
 import { ShowResourceGroupRequest } from './model/ShowResourceGroupRequest';
 import { ShowResourceGroupResponse } from './model/ShowResourceGroupResponse';
 import { StatusSchema } from './model/StatusSchema';
+import { StatusSchemaResp } from './model/StatusSchemaResp';
+import { SuppressDuration } from './model/SuppressDuration';
 import { SuppressDurationResp } from './model/SuppressDurationResp';
 import { TMSKey } from './model/TMSKey';
 import { TMSValue } from './model/TMSValue';
@@ -189,7 +199,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建自定义告警模板
-     * @param {CreateAlarmTemplateRequestBody} createAlarmTemplateRequestBody 创建自定义告警模板，请求参数。
+     * @param {CreateAlarmTemplateRequestBody} createAlarmTemplateDeprecatedRequestBody 创建自定义告警模板，请求参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -203,7 +213,7 @@ export class CesClient {
     }
 
     /**
-     * 上报自定义事件。
+     * 上报自定义事件。事件的time、project_id、event_source、event_name、event_type、sub_event_type、event_state、event_level、event_user、resource_id、resource_name字段相同时，则视为同一条事件。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -222,7 +232,11 @@ export class CesClient {
     }
 
     /**
-     * 添加一条或多条指标监控数据。
+     * 添加一条或多条指标监控数据。约束与限制：
+     * 1. 单次POST请求消息体大小不能超过512KB，否则请求会被服务端拒绝。
+     * 2. POST请求发送周期应小于最小聚合周期，否则会出现聚合数据点不连续。例如：聚合周期为5分钟，发送周期为7分钟，则5分钟情况的聚合数据会出现每10分钟才出现一个点。
+     * 3. POST请求体中数据收集时间（collect_time）的值必须从当前时间的前三天到当前时间后的十分钟之内某一时间，如果不在这个范围内，则不允许插入指标数据。
+     * 4. 如果指标上报时间（即调用指标上报接口的时间）与数据收集时间（collect_time）之间的延迟超过10分钟，CES在聚合数据时会丢弃此指标数据。您只能查看近2天的原始指标数据，聚合数据中不会显示这些延迟上报的指标。例如，14:20:00调用CES接口上报数据，请求体中的collect_time字段为14:05:00，表示延迟上报了15分钟。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -246,7 +260,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建资源分组
-     * @param {CreateResourceGroupRequestBody} createResourceGroupRequestBody **参数解释** 创建资源分组，请求参数 **约束限制** 不涉及
+     * @param {CreateResourceGroupRequestBody} createResourceGroupDeprecatedRequestBody **参数解释** 创建资源分组，请求参数 **约束限制** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -284,7 +298,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除自定义告警模板
-     * @param {string} templateId 需要删除的自定义告警模板ID。
+     * @param {string} templateId **参数解释**： 自定义告警模版的ID，如：at1603330892378wkDm77y6B **约束限制**： 不涉及 **取值范围**： 以at开头，后跟字母、数字，长度最长为64 **默认取值**： 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -303,7 +317,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除资源分组
-     * @param {string} groupId 资源分组ID。
+     * @param {string} groupId **参数解释** 资源分组ID。 **约束限制** 不涉及。 **取值范围** 以\&quot;rg\&quot;开头，后面跟着22个字母或数字。 **默认取值** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -350,11 +364,11 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询自定义告警模板列表
-     * @param {string} [alarmTemplateId] 自定义告警模版的ID，如：at1603330892378wkDm77y6B。
-     * @param {string} [namespace] 自定义告警模板选择的资源类型。即命名空间，如弹性云服务器的资源命名空间为：SYS.ECS；各服务命名空间可查看：“[服务命名空间](ces_03_0059.xml)”。
-     * @param {string} [dname] 自定义告警模板选择的资源维度，如：弹性云服务器，则维度为instance_id，各资源的指标维度名称可查看：“[服务指标维度](ces_03_0059.xml)”。
-     * @param {string} [start] 分页起始位置，值为告警模版的ID，如：at1603330892378wkDm77y6B。
-     * @param {string} [limit] 单次查询的条数限制，取值范围(0,100]，默认值为100， 用于限制结果数据条数。
+     * @param {string} [alarmTemplateId] **参数解释**： 自定义告警模版的ID，如：at1603330892378wkDm77y6B **约束限制**： 不涉及 **取值范围**： 以at开头，后跟字母、数字，长度最长为64 **默认取值**： 不涉及 
+     * @param {string} [namespace] **参数解释**： 自定义告警模板选择的资源类型。即命名空间，如弹性云服务器的资源命名空间为：SYS.ECS；各服务命名空间可查看：“[服务命名空间](ces_03_0059.xml)”。 **约束限制**： 不涉及 **取值范围**： 格式为service.item；service和item必须是字符串，必须以字母开头，只能包含0-9/a-z/A-Z/_。字符串的长度必须在 3 到 32个字符之间。 **默认取值**： 不涉及 
+     * @param {string} [dname] **参数解释**： 自定义告警模板选择的资源维度，如：弹性云服务器，则维度为instance_id，各资源的指标维度名称可查看：“[服务指标维度](ces_03_0059.xml)”。 **约束限制**： 不涉及 **取值范围**： 包含0-9/a-z/A-Z/_。字符串的长度必须在 1 到 131个字符之间。 **默认取值**： 不涉及 
+     * @param {string} [start] **参数解释**： 分页起始位置，值为告警模版的ID，如：at1603330892378wkDm77y6B。 **约束限制**： 不涉及 **取值范围**： 以at开头，后跟字母、数字，长度最长为64 **默认取值**： 不涉及 
+     * @param {string} [limit] **参数解释**： 单次查询的条数限制，取值范围(0,100]，默认值为100， 用于限制结果数据条数。 **约束限制**： 不涉及 **取值范围**： 整数，最小值为1，最大值为100。 **默认取值**： 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -368,15 +382,15 @@ export class CesClient {
     }
 
     /**
-     * 查询告警规则列表，可以指定分页条件限制结果数量，可以指定排序规则。告警规则V1接口只支持配置单资源单策略规则，建议使用“[查询告警规则列表（推荐）](CreateAlarmRules.xml)”与前端功能配套使用。
+     * 查询告警规则列表，可以指定分页条件限制结果数量，可以指定排序规则。如果用本接口去查询多资源多策略的告警规则，也只能返回告警规则的某个策略，建议使用“[查询告警规则列表（推荐）](ListAlarmRules.xml)”与前端功能配套使用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询告警规则列表（V1）
      * @param {string} [start] **参数解释**： 分页起始值，内容为alarm_id **约束限制**： 不涉及。 **取值范围**： 以al开头，后跟22位字母或数字。字符长度为24 **默认取值**： 不涉及。
      * @param {number} [limit] **参数解释**： 用于限制结果数据条数。 **约束限制**： 不涉及。 **取值范围**： 取值范围(0,100] **默认取值**： 默认值为100
-     * @param {string} [order] **参数解释**： 用于标识结果排序方法，按时间戳排序。 **约束限制**： 不涉及 **取值范围**： 枚举值： - asc：升序 - desc：降序 **默认取值**： desc
-     * @param {string} [enterpriseProjectId] **参数解释**： 企业项目ID，当查询所有企业项目时，配置为：all_granted_eps。 当需要查询某个企业项目时，配置为对应的企业项目ID，请参考获“[取企业项目ID](ces_03_0061.xml)”。 **约束限制**： 不涉及。 **取值范围**： 只能包含小写字母、数字、“-”、“_”，长度为36个字符。也可取值0或all_granted_eps。0：代表默认企业项目ID，all_granted_eps：代表所有企业项目ID。 **默认取值**： all_granted_eps 
+     * @param {string} [order] **参数解释**： 用于标识结果排序方法，按创建时间排序。 **约束限制**： 不涉及 **取值范围**： 枚举值： - asc：升序 - desc：降序 **默认取值**： desc
+     * @param {string} [enterpriseProjectId] **参数解释**： 企业项目ID，当查询所有企业项目时，配置为：all_granted_eps。 当需要查询某个企业项目时，配置为对应的企业项目ID，请参考获“[获取企业项目ID](ces_03_0061.xml)”。 **约束限制**： 不涉及。 **取值范围**： 只能包含小写字母、数字、“-”、“_”，长度为36个字符。也可取值0或all_granted_eps。0：代表默认企业项目ID，all_granted_eps：代表所有企业项目ID。 **默认取值**： all_granted_eps 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -475,11 +489,11 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询所有资源分组
-     * @param {string} [groupName] 资源分组的名称；长度为1-128，只能包含0-9/a-z/A-Z/_/-或汉字；如：ResourceGroup-Test01。
-     * @param {string} [groupId] 资源分组的ID，长度为1-128，只能包含0-9/a-z/A-Z；如：rg16063743652226ew93e64p。
-     * @param {'health' | 'unhealth' | 'no_alarm_rule'} [status] 资源分组健康状态，值可为health、unhealth、no_alarm_rule；health表示健康，unhealth表示不健康，no_alarm_rule表示未配置告警规则
-     * @param {number} [start] 分页起始值，类型为integer，默认值为0。
-     * @param {number} [limit] 单次查询的条数限制，取值范围(0,100]，默认值为100， 用于限制结果数据条数。
+     * @param {string} [groupName] **参数解释** 资源分组名称。 **约束限制** 不涉及。 **取值范围** 包含字母、数字、_、-或汉字，长度为[1,128]个字符。 **默认取值** 不涉及。
+     * @param {string} [groupId] **参数解释** 资源分组ID。 **约束限制** 不涉及。 **取值范围** 以\&quot;rg\&quot;开头，后面跟着22个字母或数字。 **默认取值** 不涉及。
+     * @param {'health' | 'unhealth' | 'no_alarm_rule'} [status] **参数解释** 资源分组健康状态。 **约束限制** 不涉及。 **取值范围** - health: 表示健康 - unhealth: 表示不健康 - no_alarm_rule: 表示未配置告警规则 **默认取值** 不涉及。
+     * @param {number} [start] **参数解释** 分页起始值。 **约束限制** 不涉及。 **取值范围** 在[0,9999999]区间内。 **默认取值** 0
+     * @param {number} [limit] **参数解释** 单次查询的条数限制。 **约束限制** 不涉及。 **取值范围** 在[1,100]区间内。 **默认取值** 100
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -551,7 +565,7 @@ export class CesClient {
      * @param {number} from 查询数据起始时间，UNIX时间戳，单位毫秒。建议from的值相对于当前时间向前偏移至少1个周期。由于聚合运算的过程是将一个聚合周期范围内的数据点聚合到周期起始边界上，如果将from和to的范围设置在聚合周期内，会因为聚合未完成而造成查询数据为空，所以建议from参数相对于当前时间向前偏移至少1个周期。以5分钟聚合周期为例：假设当前时间点为10:35，10:30~10:35之间的原始数据会被聚合到10:30这个点上，所以查询5分钟数据点时from参数应为10:30或之前。云监控会根据所选择的聚合粒度向前取整from参数；如：1607146998177。
      * @param {number} to 查询数据截止时间UNIX时间戳，单位毫秒。from必须小于to；如：1607150598177。
      * @param {string} [dim1] 指标的第二层维度，目前最大支持4个维度，维度编号从0开始；维度格式为dim.1&#x3D;key,value，如mongos_instance_id,c65d39d7-185c-4616-9aca-ad65703b15f9；key为指标的维度信息，如：文档数据库服务，则第二层维度为mongos_instance_id，value为文档数据库集群实例下的mongos节点ID；各资源的指标维度名称可查看：“[服务指标维度](ces_03_0059.xml)”。
-     * @param {string} [dim2] 指标的第三层维度，目前最大支持4个维度，维度编号从0开始；维度格式为dim.2&#x3D;key,value，如mongod_primary_instance_id,5f9498e9-36f8-4317-9ea1-ebe28cba99b4；key为指标的维度信息，如：文档数据库服务，则第三层维度为mongod_primary_instance_id，value为文档数据库实例下的主节点ID；各资源的指标维度名称可查看：“[服务指标维度]ces_03_0059.xml)”。
+     * @param {string} [dim2] 指标的第三层维度，目前最大支持4个维度，维度编号从0开始；维度格式为dim.2&#x3D;key,value，如mongod_primary_instance_id,5f9498e9-36f8-4317-9ea1-ebe28cba99b4；key为指标的维度信息，如：文档数据库服务，则第三层维度为mongod_primary_instance_id，value为文档数据库实例下的主节点ID；各资源的指标维度名称可查看：“[服务指标维度](ces_03_0059.xml)”。
      * @param {string} [dim3] 指标的第四层维度，目前最大支持4个维度，维度编号从0开始；维度格式为dim.3&#x3D;key,value，如mongod_secondary_instance_id,b46fa2c7-aac6-4ae3-9337-f4ea97f885cb；key为指标的维度信息，如：文档数据库服务，则第四层维度为mongod_secondary_instance_id，value为文档数据库实例下的备节点ID；各资源的指标维度名称可查看：“[服务指标维度](ces_03_0059.xml)”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -609,6 +623,7 @@ export class CesClient {
 
     /**
      * 修改告警规则。
+     * 告警规则V1接口只支持配置单资源单策略规则，建议使用批量增加告警规则资源、批量删除告警规则资源和修改告警规则策略(全量修改)与前端功能配套使用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -653,8 +668,8 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新自定义告警模板
-     * @param {string} templateId 需要更新的自定义告警模板ID。
-     * @param {UpdateAlarmTemplateRequestBody} updateAlarmTemplateRequestBody 创建自定义告警模板，请求参数。
+     * @param {string} templateId **参数解释**： 需要更新的自定义告警模板ID，如：at1603330892378wkDm77y6B **约束限制**： 不涉及 **取值范围**： 以at开头，后跟字母、数字，长度最长为64 **默认取值**： 不涉及 
+     * @param {UpdateAlarmTemplateRequestBody} updateAlarmTemplateDeprecatedRequestBody 创建自定义告警模板，请求参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -674,7 +689,7 @@ export class CesClient {
      *
      * @summary 更新资源分组
      * @param {string} groupId **参数解释**: 资源分组ID **约束限制**: 不涉及 **取值范围**: 以rg开头，后跟22位由字母或数字组成的字符串 **默认取值**: 不涉及
-     * @param {UpdateResourceGroupRequestBody} updateResourceGroupRequestBody **参数解释**: 创建资源分组，请求参数。 **约束限制**: 不涉及
+     * @param {UpdateResourceGroupRequestBody} updateResourceGroupDeprecatedRequestBody **参数解释**: 创建资源分组，请求参数。 **约束限制**: 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -806,7 +821,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 上报自定义事件。
+         * 上报自定义事件。事件的time、project_id、event_source、event_name、event_type、sub_event_type、event_state、event_level、event_user、resource_id、resource_name字段相同时，则视为同一条事件。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -844,7 +859,11 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 添加一条或多条指标监控数据。
+         * 添加一条或多条指标监控数据。约束与限制：
+         * 1. 单次POST请求消息体大小不能超过512KB，否则请求会被服务端拒绝。
+         * 2. POST请求发送周期应小于最小聚合周期，否则会出现聚合数据点不连续。例如：聚合周期为5分钟，发送周期为7分钟，则5分钟情况的聚合数据会出现每10分钟才出现一个点。
+         * 3. POST请求体中数据收集时间（collect_time）的值必须从当前时间的前三天到当前时间后的十分钟之内某一时间，如果不在这个范围内，则不允许插入指标数据。
+         * 4. 如果指标上报时间（即调用指标上报接口的时间）与数据收集时间（collect_time）之间的延迟超过10分钟，CES在聚合数据时会丢弃此指标数据。您只能查看近2天的原始指标数据，聚合数据中不会显示这些延迟上报的指标。例如，14:20:00调用CES接口上报数据，请求体中的collect_time字段为14:05:00，表示延迟上报了15分钟。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1196,7 +1215,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询告警规则列表，可以指定分页条件限制结果数量，可以指定排序规则。告警规则V1接口只支持配置单资源单策略规则，建议使用“[查询告警规则列表（推荐）](CreateAlarmRules.xml)”与前端功能配套使用。
+         * 查询告警规则列表，可以指定分页条件限制结果数量，可以指定排序规则。如果用本接口去查询多资源多策略的告警规则，也只能返回告警规则的某个策略，建议使用“[查询告警规则列表（推荐）](ListAlarmRules.xml)”与前端功能配套使用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1949,6 +1968,7 @@ export const ParamCreater = function () {
     
         /**
          * 修改告警规则。
+         * 告警规则V1接口只支持配置单资源单策略规则，建议使用批量增加告警规则资源、批量删除告警规则资源和修改告警规则策略(全量修改)与前端功能配套使用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -28,13 +28,11 @@ export class CreateVirtualInterface {
     private 'resource_tenant_id'?: string;
     private 'enterprise_project_id'?: string;
     public tags?: Array<Tag>;
-    public constructor(type?: string, vlan?: number, bandwidth?: number, vgwId?: string, routeMode?: string, remoteEpGroup?: Array<string>) { 
+    public constructor(type?: string, vlan?: number, bandwidth?: number, routeMode?: string) { 
         this['type'] = type;
         this['vlan'] = vlan;
         this['bandwidth'] = bandwidth;
-        this['vgw_id'] = vgwId;
         this['route_mode'] = routeMode;
-        this['remote_ep_group'] = remoteEpGroup;
     }
     public withName(name: string): CreateVirtualInterface {
         this['name'] = name;

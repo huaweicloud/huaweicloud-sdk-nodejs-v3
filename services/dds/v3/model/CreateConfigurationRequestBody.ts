@@ -6,11 +6,9 @@ export class CreateConfigurationRequestBody {
     public description?: string;
     private 'parameter_values'?: { [key: string]: string; };
     public datastore?: DatastoreResult;
-    public constructor(name?: string, description?: string, parameterValues?: { [key: string]: string; }, datastore?: DatastoreResult) { 
+    private 'entity_id'?: string;
+    public constructor(name?: string) { 
         this['name'] = name;
-        this['description'] = description;
-        this['parameter_values'] = parameterValues;
-        this['datastore'] = datastore;
     }
     public withName(name: string): CreateConfigurationRequestBody {
         this['name'] = name;
@@ -33,5 +31,15 @@ export class CreateConfigurationRequestBody {
     public withDatastore(datastore: DatastoreResult): CreateConfigurationRequestBody {
         this['datastore'] = datastore;
         return this;
+    }
+    public withEntityId(entityId: string): CreateConfigurationRequestBody {
+        this['entity_id'] = entityId;
+        return this;
+    }
+    public set entityId(entityId: string  | undefined) {
+        this['entity_id'] = entityId;
+    }
+    public get entityId(): string | undefined {
+        return this['entity_id'];
     }
 }

@@ -1,11 +1,11 @@
 
 
 export class ListResourceGroupsServicesResourcesRequest {
+    public offset?: number;
+    public limit?: string;
     private 'group_id'?: string;
     public service?: string;
     private 'dim_name'?: string;
-    public limit?: string;
-    public offset?: number;
     public status?: ListResourceGroupsServicesResourcesRequestStatusEnum | string;
     private 'dim_value'?: string;
     public tag?: string;
@@ -16,6 +16,14 @@ export class ListResourceGroupsServicesResourcesRequest {
     public constructor(groupId?: string, service?: string) { 
         this['group_id'] = groupId;
         this['service'] = service;
+    }
+    public withOffset(offset: number): ListResourceGroupsServicesResourcesRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: string): ListResourceGroupsServicesResourcesRequest {
+        this['limit'] = limit;
+        return this;
     }
     public withGroupId(groupId: string): ListResourceGroupsServicesResourcesRequest {
         this['group_id'] = groupId;
@@ -40,14 +48,6 @@ export class ListResourceGroupsServicesResourcesRequest {
     }
     public get dimName(): string | undefined {
         return this['dim_name'];
-    }
-    public withLimit(limit: string): ListResourceGroupsServicesResourcesRequest {
-        this['limit'] = limit;
-        return this;
-    }
-    public withOffset(offset: number): ListResourceGroupsServicesResourcesRequest {
-        this['offset'] = offset;
-        return this;
     }
     public withStatus(status: ListResourceGroupsServicesResourcesRequestStatusEnum | string): ListResourceGroupsServicesResourcesRequest {
         this['status'] = status;

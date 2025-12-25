@@ -14,6 +14,8 @@ import { BatchDeleteInstanceReq } from './model/BatchDeleteInstanceReq';
 import { BatchDeleteInstanceRespResults } from './model/BatchDeleteInstanceRespResults';
 import { BatchDeleteInstancesRequest } from './model/BatchDeleteInstancesRequest';
 import { BatchDeleteInstancesResponse } from './model/BatchDeleteInstancesResponse';
+import { BatchDeleteRocketMqMigrationTaskRequest } from './model/BatchDeleteRocketMqMigrationTaskRequest';
+import { BatchDeleteRocketMqMigrationTaskResponse } from './model/BatchDeleteRocketMqMigrationTaskResponse';
 import { BatchDeleteTopicReq } from './model/BatchDeleteTopicReq';
 import { BatchDeleteTopicResp } from './model/BatchDeleteTopicResp';
 import { BatchUpdateConsumerGroup } from './model/BatchUpdateConsumerGroup';
@@ -58,8 +60,6 @@ import { DeleteConsumerGroupRequest } from './model/DeleteConsumerGroupRequest';
 import { DeleteConsumerGroupResponse } from './model/DeleteConsumerGroupResponse';
 import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
 import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
-import { DeleteRocketMqMigrationTaskRequest } from './model/DeleteRocketMqMigrationTaskRequest';
-import { DeleteRocketMqMigrationTaskResponse } from './model/DeleteRocketMqMigrationTaskResponse';
 import { DeleteTopicRequest } from './model/DeleteTopicRequest';
 import { DeleteTopicResponse } from './model/DeleteTopicResponse';
 import { DeleteUserRequest } from './model/DeleteUserRequest';
@@ -278,6 +278,26 @@ export class RocketMQClient {
     }
 
     /**
+     * 批量删除元数据迁移任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除元数据迁移任务
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {MetadataDeleteReq} batchDeleteRocketMqMigrationTaskRequestBody **参数解释**： 任务ID列表。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteRocketMqMigrationTask(batchDeleteRocketMqMigrationTaskRequest?: BatchDeleteRocketMqMigrationTaskRequest): Promise<BatchDeleteRocketMqMigrationTaskResponse> {
+        const options = ParamCreater().batchDeleteRocketMqMigrationTask(batchDeleteRocketMqMigrationTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量修改消费组。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -473,26 +493,6 @@ export class RocketMQClient {
      */
     public deleteInstance(deleteInstanceRequest?: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
         const options = ParamCreater().deleteInstance(deleteInstanceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除元数据迁移任务。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除元数据迁移任务
-     * @param {string} instanceId 实例ID。
-     * @param {MetadataDeleteReq} deleteRocketMqMigrationTaskRequestBody 任务ID列表。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteRocketMqMigrationTask(deleteRocketMqMigrationTaskRequest?: DeleteRocketMqMigrationTaskRequest): Promise<DeleteRocketMqMigrationTaskResponse> {
-        const options = ParamCreater().deleteRocketMqMigrationTask(deleteRocketMqMigrationTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1606,6 +1606,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量删除元数据迁移任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteRocketMqMigrationTask(batchDeleteRocketMqMigrationTaskRequest?: BatchDeleteRocketMqMigrationTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/metadata/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (batchDeleteRocketMqMigrationTaskRequest !== null && batchDeleteRocketMqMigrationTaskRequest !== undefined) {
+                if (batchDeleteRocketMqMigrationTaskRequest instanceof BatchDeleteRocketMqMigrationTaskRequest) {
+                    instanceId = batchDeleteRocketMqMigrationTaskRequest.instanceId;
+                    body = batchDeleteRocketMqMigrationTaskRequest.body
+                } else {
+                    instanceId = batchDeleteRocketMqMigrationTaskRequest['instance_id'];
+                    body = batchDeleteRocketMqMigrationTaskRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling batchDeleteRocketMqMigrationTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量修改消费组。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2085,52 +2131,6 @@ export const ParamCreater = function () {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteInstance.');
             }
 
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除元数据迁移任务。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteRocketMqMigrationTask(deleteRocketMqMigrationTaskRequest?: DeleteRocketMqMigrationTaskRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v2/{project_id}/instances/{instance_id}/metadata",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let instanceId;
-
-            if (deleteRocketMqMigrationTaskRequest !== null && deleteRocketMqMigrationTaskRequest !== undefined) {
-                if (deleteRocketMqMigrationTaskRequest instanceof DeleteRocketMqMigrationTaskRequest) {
-                    instanceId = deleteRocketMqMigrationTaskRequest.instanceId;
-                    body = deleteRocketMqMigrationTaskRequest.body
-                } else {
-                    instanceId = deleteRocketMqMigrationTaskRequest['instance_id'];
-                    body = deleteRocketMqMigrationTaskRequest['body'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteRocketMqMigrationTask.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

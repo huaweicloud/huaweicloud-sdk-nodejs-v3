@@ -123,6 +123,7 @@ import { Group } from './model/Group';
 import { GroupDescription } from './model/GroupDescription';
 import { GroupId } from './model/GroupId';
 import { GroupName } from './model/GroupName';
+import { GroupSummary } from './model/GroupSummary';
 import { Key } from './model/Key';
 import { ListAccessKeysV5Request } from './model/ListAccessKeysV5Request';
 import { ListAccessKeysV5Response } from './model/ListAccessKeysV5Response';
@@ -190,6 +191,8 @@ import { SetDefaultPolicyVersionV5Request } from './model/SetDefaultPolicyVersio
 import { SetDefaultPolicyVersionV5Response } from './model/SetDefaultPolicyVersionV5Response';
 import { ShowAccessKeyLastUsedV5Request } from './model/ShowAccessKeyLastUsedV5Request';
 import { ShowAccessKeyLastUsedV5Response } from './model/ShowAccessKeyLastUsedV5Response';
+import { ShowGroupSummaryRequest } from './model/ShowGroupSummaryRequest';
+import { ShowGroupSummaryResponse } from './model/ShowGroupSummaryResponse';
 import { ShowGroupV5Request } from './model/ShowGroupV5Request';
 import { ShowGroupV5Response } from './model/ShowGroupV5Response';
 import { ShowLoginPolicyV5Request } from './model/ShowLoginPolicyV5Request';
@@ -669,6 +672,27 @@ export class IamClient {
      */
     public removeUserFromGroupV5(removeUserFromGroupV5Request?: RemoveUserFromGroupV5Request): Promise<RemoveUserFromGroupV5Response> {
         const options = ParamCreater().removeUserFromGroupV5(removeUserFromGroupV5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于查询用户组相关属性。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户组相关属性
+     * @param {number} [limit] 每页显示的条目数量，范围为1到200条，默认为100条。
+     * @param {string} [marker] 分页标记，长度为4到400个字符，只包含字母、数字、\&quot;+\&quot;、\&quot;/\&quot;、\&quot;&#x3D;\&quot;、\&quot;-\&quot;和\&quot;_\&quot;的字符串。
+     * @param {string} [userId] IAM用户ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showGroupSummary(showGroupSummaryRequest?: ShowGroupSummaryRequest): Promise<ShowGroupSummaryResponse> {
+        const options = ParamCreater().showGroupSummary(showGroupSummaryRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2490,6 +2514,57 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于查询用户组相关属性。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showGroupSummary(showGroupSummaryRequest?: ShowGroupSummaryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/groups-summary",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let userId;
+
+            if (showGroupSummaryRequest !== null && showGroupSummaryRequest !== undefined) {
+                if (showGroupSummaryRequest instanceof ShowGroupSummaryRequest) {
+                    limit = showGroupSummaryRequest.limit;
+                    marker = showGroupSummaryRequest.marker;
+                    userId = showGroupSummaryRequest.userId;
+                } else {
+                    limit = showGroupSummaryRequest['limit'];
+                    marker = showGroupSummaryRequest['marker'];
+                    userId = showGroupSummaryRequest['user_id'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (userId !== null && userId !== undefined) {
+                localVarQueryParameter['user_id'] = userId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

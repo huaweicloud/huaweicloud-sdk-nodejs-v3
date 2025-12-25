@@ -1,14 +1,16 @@
+import { RepositoryBasicDO } from './RepositoryBasicDO';
+import { StandarBaseResponseV5 } from './StandarBaseResponseV5';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowRepositoryResponse extends SdkResponse {
-    public status?: string;
+    public status?: ShowRepositoryResponseStatusEnum | string;
     private 'trace_id'?: string;
-    public result?: object;
+    public result?: RepositoryBasicDO;
     public constructor() { 
         super();
     }
-    public withStatus(status: string): ShowRepositoryResponse {
+    public withStatus(status: ShowRepositoryResponseStatusEnum | string): ShowRepositoryResponse {
         this['status'] = status;
         return this;
     }
@@ -22,8 +24,17 @@ export class ShowRepositoryResponse extends SdkResponse {
     public get traceId(): string | undefined {
         return this['trace_id'];
     }
-    public withResult(result: object): ShowRepositoryResponse {
+    public withResult(result: RepositoryBasicDO): ShowRepositoryResponse {
         this['result'] = result;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowRepositoryResponseStatusEnum {
+    SUCCESS = 'success',
+    ERROR = 'error'
 }

@@ -74,6 +74,7 @@ import { BatchUpdateNotificationMasksResponse } from './model/BatchUpdateNotific
 import { BatchUpdateOneClickAlarmPoliciesEnabledStateRequest } from './model/BatchUpdateOneClickAlarmPoliciesEnabledStateRequest';
 import { BatchUpdateOneClickAlarmPoliciesEnabledStateResponse } from './model/BatchUpdateOneClickAlarmPoliciesEnabledStateResponse';
 import { BatchUpdateOneClickAlarmsEnabledStateRequest } from './model/BatchUpdateOneClickAlarmsEnabledStateRequest';
+import { BatchUpdateOneClickAlarmsEnabledStateRequestBody } from './model/BatchUpdateOneClickAlarmsEnabledStateRequestBody';
 import { BatchUpdateOneClickAlarmsEnabledStateResponse } from './model/BatchUpdateOneClickAlarmsEnabledStateResponse';
 import { BatchUpdateWidgetInfo } from './model/BatchUpdateWidgetInfo';
 import { BatchUpdateWidgetsRequest } from './model/BatchUpdateWidgetsRequest';
@@ -143,7 +144,8 @@ import { ExtraInfoResp } from './model/ExtraInfoResp';
 import { Filter } from './model/Filter';
 import { FilterResp } from './model/FilterResp';
 import { GetResourceGroupResources } from './model/GetResourceGroupResources';
-import { GroupID } from './model/GroupID';
+import { GetResourceGroupRespResourceStatistics } from './model/GetResourceGroupRespResourceStatistics';
+import { GroupIDResp } from './model/GroupIDResp';
 import { HierarchicalValue } from './model/HierarchicalValue';
 import { HierarchicalValueResp } from './model/HierarchicalValueResp';
 import { Instance } from './model/Instance';
@@ -214,6 +216,7 @@ import { NamespaceAllowedEmpty } from './model/NamespaceAllowedEmpty';
 import { NamespaceAllowedEmptyResp } from './model/NamespaceAllowedEmptyResp';
 import { NamespaceResp } from './model/NamespaceResp';
 import { NamespaceSchema } from './model/NamespaceSchema';
+import { NoticeTypeNotificationTemplateList } from './model/NoticeTypeNotificationTemplateList';
 import { Notification } from './model/Notification';
 import { NotificationBeginTime } from './model/NotificationBeginTime';
 import { NotificationBeginTimeResp } from './model/NotificationBeginTimeResp';
@@ -223,6 +226,7 @@ import { NotificationEndTime } from './model/NotificationEndTime';
 import { NotificationEndTimeResp } from './model/NotificationEndTimeResp';
 import { NotificationMaskCreateTime } from './model/NotificationMaskCreateTime';
 import { NotificationMaskID } from './model/NotificationMaskID';
+import { NotificationMaskIDResp } from './model/NotificationMaskIDResp';
 import { NotificationMaskUpdateTime } from './model/NotificationMaskUpdateTime';
 import { NotificationResp } from './model/NotificationResp';
 import { OneClickAlarmDescription } from './model/OneClickAlarmDescription';
@@ -239,22 +243,29 @@ import { Policies } from './model/Policies';
 import { PoliciesInListResp } from './model/PoliciesInListResp';
 import { Policy } from './model/Policy';
 import { PolicyEnabled } from './model/PolicyEnabled';
+import { PolicyResp } from './model/PolicyResp';
 import { PostAlarmsReqV2 } from './model/PostAlarmsReqV2';
 import { ProductInstance } from './model/ProductInstance';
 import { ProductMetric } from './model/ProductMetric';
+import { ProductMetricResp } from './model/ProductMetricResp';
 import { ProductResource } from './model/ProductResource';
 import { PutAlarmNotificationReq } from './model/PutAlarmNotificationReq';
 import { PutResourceGroupReq } from './model/PutResourceGroupReq';
 import { RelationID } from './model/RelationID';
+import { RelationIDResp } from './model/RelationIDResp';
 import { RelationType } from './model/RelationType';
 import { Resource } from './model/Resource';
-import { ResourceCategory } from './model/ResourceCategory';
+import { ResourceCategoryResp } from './model/ResourceCategoryResp';
 import { ResourceDimension } from './model/ResourceDimension';
+import { ResourceDimensionResp } from './model/ResourceDimensionResp';
 import { ResourceGroupID } from './model/ResourceGroupID';
 import { ResourceGroupTagRelation } from './model/ResourceGroupTagRelation';
 import { ResourceNameItem } from './model/ResourceNameItem';
 import { ResourceNamespace } from './model/ResourceNamespace';
+import { ResourceNamespaceResp } from './model/ResourceNamespaceResp';
+import { ResourceResp } from './model/ResourceResp';
 import { ResourceTag } from './model/ResourceTag';
+import { ResourceTagResp } from './model/ResourceTagResp';
 import { ResourcesInListResp } from './model/ResourcesInListResp';
 import { ResourcesReqV2 } from './model/ResourcesReqV2';
 import { RollupDimension } from './model/RollupDimension';
@@ -284,6 +295,7 @@ import { TemplateID } from './model/TemplateID';
 import { TemplateIDResp } from './model/TemplateIDResp';
 import { TemplateName } from './model/TemplateName';
 import { TemplateType } from './model/TemplateType';
+import { TemplateTypeUpdate } from './model/TemplateTypeUpdate';
 import { ThresholdInfo } from './model/ThresholdInfo';
 import { ThresholdInfoResp } from './model/ThresholdInfoResp';
 import { TimeStampResp } from './model/TimeStampResp';
@@ -297,6 +309,7 @@ import { UpdateAlarmNotificationsResponse } from './model/UpdateAlarmNotificatio
 import { UpdateAlarmRulePoliciesReqBodyV2 } from './model/UpdateAlarmRulePoliciesReqBodyV2';
 import { UpdateAlarmRulePoliciesRequest } from './model/UpdateAlarmRulePoliciesRequest';
 import { UpdateAlarmRulePoliciesResponse } from './model/UpdateAlarmRulePoliciesResponse';
+import { UpdateAlarmTemplatePolicies } from './model/UpdateAlarmTemplatePolicies';
 import { UpdateAlarmTemplateRequest } from './model/UpdateAlarmTemplateRequest';
 import { UpdateAlarmTemplateRequestBody } from './model/UpdateAlarmTemplateRequestBody';
 import { UpdateAlarmTemplateResponse } from './model/UpdateAlarmTemplateResponse';
@@ -351,8 +364,8 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量增加告警规则资源
-     * @param {string} alarmId Alarm实例ID
-     * @param {ResourcesReqV2} addAlarmRuleResourcesRequestBody 批量增加告警规则资源的请求体
+     * @param {string} alarmId **参数解释**： 告警规则ID。 **约束限制**： 不涉及。 **取值范围**： 以al开头，后跟22位的字母或数字。          **默认取值**： 不涉及。 
+     * @param {ResourcesReqV2} addAlarmRuleResourcesRequestBody **参数解释**： 批量增加告警规则资源的请求体 **约束限制**： 不涉及。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -371,7 +384,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 自定义资源分组批量增加关联资源
-     * @param {string} groupId 资源分组ID，以rg开头，后跟22位由字母或数字组成的字符串
+     * @param {string} groupId **参数解释** 资源分组ID。 **约束限制** 不涉及 **取值范围** 以\&quot;rg\&quot;开头，后面跟着22个字母或数字 **默认取值** 不涉及 
      * @param {AddResourcesReq} batchCreateResourcesRequestBody 添加资源请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -486,7 +499,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 自定义资源分组批量删除关联资源
-     * @param {string} groupId 资源分组ID，以rg开头，后跟22位由字母或数字组成的字符串
+     * @param {string} groupId **参数解释** 资源分组ID。 **约束限制** 不涉及 **取值范围** 以\&quot;rg\&quot;开头，后面跟着22个字母或数字 **默认取值** 不涉及 
      * @param {DelResourcesReq} batchDeleteResourcesRequestBody 删除资源请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -506,7 +519,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量启停告警规则
-     * @param {BatchEnableAlarmsRequestBody} batchEnableAlarmRulesRequestBody 批量启停告警规则请求体
+     * @param {BatchEnableAlarmsRequestBody} batchEnableAlarmRulesRequestBody **参数解释**： 批量启停告警规则请求体。 **约束限制**： 不涉及。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -544,7 +557,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量修改告警通知屏蔽规则的屏蔽时间
-     * @param {BatchUpdateNotificationMaskTimeRequestBody} batchUpdateNotificationMaskTimeRequestBody 批量修改告警通知屏蔽规则的屏蔽时间请求体
+     * @param {BatchUpdateNotificationMaskTimeRequestBody} batchUpdateNotificationMaskTimeRequestBody **参数解释**： 批量修改告警通知屏蔽规则的屏蔽时间请求体。 **约束限制**： 不涉及。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -563,7 +576,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量设置告警通知屏蔽规则
-     * @param {BatchUpdateNotificationMasksRequestBody} batchUpdateNotificationMasksRequestBody 批量设置通知屏蔽规则请求体
+     * @param {BatchUpdateNotificationMasksRequestBody} batchUpdateNotificationMasksRequestBody **参数解释**： 批量设置通知屏蔽规则请求体 **约束限制**： 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -582,8 +595,8 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量修改一键告警关联告警规则策略的启用状态
-     * @param {string} oneClickAlarmId 一键告警ID
-     * @param {string} alarmId 告警规则ID
+     * @param {string} oneClickAlarmId **参数解释** 一键告警ID **约束限制** 不涉及 **取值范围** 长度为1到64字符，只能包含字母数字 **默认取值** 不涉及 
+     * @param {string} alarmId **参数解释** 告警规则ID **约束限制** 不涉及 **取值范围** 以al开头，后跟22个数字或字母。 **默认取值** 不涉及 
      * @param {BatchEnableAlarmPoliciesRequestBody} batchUpdateOneClickAlarmPoliciesEnabledStateRequestBody 批量启停告警规则策略请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -604,7 +617,7 @@ export class CesClient {
      *
      * @summary 批量修改一键告警关联告警规则的启用状态
      * @param {string} oneClickAlarmId **参数解释**： 一键告警ID。 **约束限制**： 不涉及。 **取值范围**： 只能为字母或者数字，字符长度为[1,64] **默认取值**： 不涉及。 
-     * @param {BatchEnableAlarmsRequestBody} batchUpdateOneClickAlarmsEnabledStateRequestBody 批量启停告警规则请求体
+     * @param {BatchUpdateOneClickAlarmsEnabledStateRequestBody} batchUpdateOneClickAlarmsEnabledStateRequestBody 批量启停告警规则请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -642,7 +655,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建告警规则（推荐）
-     * @param {PostAlarmsReqV2} createAlarmRulesRequestBody 创建告警的请求体
+     * @param {PostAlarmsReqV2} createAlarmRulesRequestBody **参数解释**： 创建告警的请求体 **约束限制**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -757,8 +770,8 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除告警规则资源
-     * @param {string} alarmId Alarm实例ID
-     * @param {ResourcesReqV2} deleteAlarmRuleResourcesRequestBody 批量删除告警规则资源的请求体
+     * @param {string} alarmId **参数解释**： 告警规则ID。 **约束限制**： 不涉及。 **取值范围**： 以al开头，后跟22位的字母或数字。          **默认取值**： 不涉及。 
+     * @param {ResourcesReqV2} deleteAlarmRuleResourcesRequestBody **参数解释**： 批量删除告警规则资源的请求体 **约束限制**： 不涉及。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -842,17 +855,17 @@ export class CesClient {
      * @param {string} [recordId] **参数解释**： 告警记录ID。 **约束限制**： 不涉及。 **取值范围**： 以ah开头，后跟22位由字母或数字组成的字符串，字符串长度为24。 **默认取值**： 不涉及。 
      * @param {string} [name] **参数解释**： 告警规则名称。 **约束限制**： 不涉及。 **取值范围**： 最大128字符长度。 **默认取值**： 不涉及。 
      * @param {Array<'ok' | 'alarm' | 'invalid'>} [status] **参数解释**： 告警规则状态列表。告警规则状态：枚举值，ok为正常，alarm为告警，invalid为已失效。 **约束限制**： 列表长度最大为3。 
-     * @param {number} [level] **参数解释**： 告警级别。 **约束限制**： 不涉及。 **取值范围**： 枚举值，1为紧急，2为重要，3为次要，4为提示。 **默认取值**： 不涉及。 
+     * @param {number} [level] **参数解释**： 告警级别。 **约束限制**： 不涉及。 **取值范围**： 枚举值。 - 1：紧急 - 2：重要 - 3：次要 - 4：提示 **默认取值**： 不涉及。 
      * @param {string} [namespace] **参数解释**： 查询服务的命名空间，各服务命名空间请参考“[服务命名空间](ces_03_0059.xml)”。 **约束限制**： 不涉及。 **取值范围**： 格式为service.item；service和item必须是字符串，必须以字母开头，只能包含0-9/a-z/A-Z/_。字符串的长度必须在 3 到 32个字符之间。 **默认取值**： 不涉及。 
-     * @param {string} [resourceId] **参数解释**： 告警资源ID。 **约束限制**： 不涉及。 **取值范围**： 多维度情况按字母升序排列并使用逗号分隔。最大字符长度为2048。 **默认取值**： 不涉及。 
-     * @param {string} [from] **参数解释**： 查询告警记录的起始更新时间，例如：2022-02-10T10:05:46+08:00。 **约束限制**： 不涉及。 **取值范围**： 最大字符长度为64。 **默认取值**： 不涉及。 
-     * @param {string} [to] **参数解释**： 查询告警记录的截止更新时间，例如：2022-02-10T10:05:47+08:00。 **约束限制**： 不涉及。 **取值范围**： 最大字符长度为64。 **默认取值**： 不涉及。 
-     * @param {'event' | 'metric'} [alarmType] **参数解释**： 告警类型。 **约束限制**： 不涉及。 **取值范围**： 枚举值。event:查询事件类型告警，metric:查询指标类型告警。 **默认取值**： 不涉及。 
-     * @param {string} [createTimeFrom] **参数解释**： 查询告警记录的起始创建时间，例如：2022-02-10T10:05:46+08:00。 **约束限制**： 不涉及。 **取值范围**： 最大字符长度为64。 **默认取值**： 不涉及。 
-     * @param {string} [createTimeTo] **参数解释**： 查询告警记录的截止创建时间，例如：2022-02-10T10:05:47+08:00。 **约束限制**： 不涉及。 **取值范围**： 最大字符长度为64。 **默认取值**： 不涉及。 
-     * @param {number} [offset] **参数解释**： 分页偏移量。 **约束限制**： 不涉及。 **取值范围**： 整数，最小值为0，最大值为1000000000。 **默认取值**： 0 
-     * @param {number} [limit] **参数解释**： 分页偏移量。 **约束限制**： 不涉及。 **取值范围**： 整数，最小值为1，最大值为100。 **默认取值**： 100 
-     * @param {'first_alarm_time' | 'update_time' | 'alarm_level' | 'record_id'} [orderBy] **参数解释**： 按关键字排序。 **约束限制**： 不涉及。 **取值范围**： 枚举值。first_alarm_time:告警产生时间, update_time:更新时间, alarm_level:告警级别，record_id表记录主键。 **默认取值**： update_time 
+     * @param {string} [resourceId] **参数解释**： 告警资源ID。 **约束限制**： 不涉及。 **取值范围**： 多维度情况按字母升序排列并使用逗号分隔。长度为[0,2048]个字符。 **默认取值**： 不涉及。 
+     * @param {string} [from] **参数解释**： 查询告警记录的起始更新时间，例如：2022-02-10T10:05:46+08:00。 **约束限制**： 不涉及。 **取值范围**： 长度为[0,64]个字符。 **默认取值**： 不涉及。 
+     * @param {string} [to] **参数解释**： 查询告警记录的截止更新时间，例如：2022-02-10T10:05:47+08:00。 **约束限制**： 不涉及。 **取值范围**： 长度为[0,64]个字符。 **默认取值**： 不涉及。 
+     * @param {'event' | 'metric'} [alarmType] **参数解释**： 告警类型。 **约束限制**： 不涉及。 **取值范围**： 枚举值 - event: 查询事件类型告警 - metric: 查询指标类型告警。 **默认取值**： 不涉及。 
+     * @param {string} [createTimeFrom] **参数解释**： 查询告警记录的起始创建时间，例如：2022-02-10T10:05:46+08:00。 **约束限制**： 不涉及。 **取值范围**： 长度为[0,64]个字符。 **默认取值**： 不涉及。 
+     * @param {string} [createTimeTo] **参数解释**： 查询告警记录的截止创建时间，例如：2022-02-10T10:05:47+08:00。 **约束限制**： 不涉及。 **取值范围**： 长度为[0,64]个字符。 **默认取值**： 不涉及。 
+     * @param {number} [offset] **参数解释**： 分页偏移量。 **约束限制**： 不涉及。 **取值范围**： 整数，最小值为0，最大值为1000000000 **默认取值**： 0 
+     * @param {number} [limit] **参数解释**： 分页偏移量。 **约束限制**： 不涉及。 **取值范围**： 整数，最小值为1，最大值为100 **默认取值**： 100 
+     * @param {'first_alarm_time' | 'update_time' | 'alarm_level' | 'record_id'} [orderBy] **参数解释**： 按关键字排序。 **约束限制**： 不涉及。 **取值范围**： 枚举值。 - first_alarm_time: 告警产生时间 - update_time: 更新时间 - alarm_level: 告警级别 - record_id: 表记录主键 **默认取值**： update_time 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -914,12 +927,12 @@ export class CesClient {
      *
      * @summary 查询告警规则列表（推荐）
      * @param {string} [alarmId] **参数解释**： 告警规则ID。 **约束限制**： 不涉及。 **取值范围**： 以al开头，后跟22位的字母或数字。          **默认取值**： 不涉及。 
-     * @param {string} [name] **参数解释**： 告警名称。 **约束限制**： 不涉及。 **取值范围**： 只能包含0-9/a-z/A-Z/_/-或汉字，长度为[1,128]个字符。          **默认取值**： 不涉及。 
+     * @param {string} [name] **参数解释**： 告警规则名称。 **约束限制**： 不涉及。 **取值范围**： 只能包含0-9/a-z/A-Z/_/-或汉字，长度为[1,128]个字符。          **默认取值**： 不涉及。 
      * @param {string} [namespace] **参数解释**： 查询服务的命名空间，各服务命名空间请参考“[服务命名空间](ces_03_0059.xml)”。 **约束限制**： 不涉及。 **取值范围**： 格式为service.item；service和item必须是字符串，必须以字母开头，只能包含0-9/a-z/A-Z/_。字符串的长度在 0 到 32个字符之间。           **默认取值**： 不涉及。 
      * @param {string} [resourceId] **参数解释**： 告警资源ID。 **约束限制**： 不涉及。 **取值范围**： 多维度情况按字母升序排列并使用逗号分隔。 长度为[0,700]个字符。        **默认取值**： 不涉及。 
      * @param {string} [enterpriseProjectId] **参数解释**： 企业项目ID。 **约束限制**： 不涉及。 **取值范围**： 只能包含小写字母、数字、“-”、“_”，可以自定义企业项目ID，长度为36个字符。也可以为0（代表默认企业项目ID），all_granted_eps（代表所有企业项目ID）。           **默认取值**： 不涉及。 
-     * @param {string} [productName] **参数解释**： 产品层级跨维规则查询时支持产品名称查询，一般由\&quot;服务命名空间,服务首层维度名称\&quot;组成，如\&quot;SYS.ECS,instance_id\&quot;。 **约束限制**： 不涉及。 **取值范围**： 长度为[0,128]个字符。        **默认取值**： 不涉及。 
-     * @param {'product' | 'dimension'} [resourceLevel] **参数解释**： 产品层级跨维规则查询时支持规则所属类型查询，resource_level取值为product即为云产品类型，不填或者取值为dimension则为子维度类型。           **约束限制**： 不涉及。 **取值范围**： 枚举值。 - product：云产品。 - dimension：子维度。 **默认取值**： 不涉及。 
+     * @param {string} [productName] **参数解释**： 资源所属的云产品名称，一般由\&quot;服务命名空间,服务首层维度名称\&quot;组成，如\&quot;SYS.ECS,instance_id\&quot;。 **约束限制**： 不涉及。 **取值范围**： 长度为[0,128]个字符。        **默认取值**： 不涉及。 
+     * @param {'product' | 'dimension'} [resourceLevel] **参数解释**： 创建告警规则，需要指定的资源层级。resource_level取值为product即为云产品类型，不填或者取值为dimension则为子维度类型。          **约束限制**： 不涉及。 **取值范围**： 枚举值。 - product：云产品。 - dimension：子维度。 **默认取值**： 不涉及。 
      * @param {number} [offset] **参数解释**： 分页偏移量。 **约束限制**： 不涉及。 **取值范围**： [0,10000]           **默认取值**： 0 
      * @param {number} [limit] **参数解释**： 分页大小。 **约束限制**： 不涉及。 **取值范围**： [1,100]           **默认取值**： 10 
      * @param {*} [options] Override http request option.
@@ -940,9 +953,9 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询告警模板关联的告警规则列表
-     * @param {string} templateId 告警模板的ID，以at开头，后跟字母、数字，长度最长为64
-     * @param {number} [offset] 分页查询时查询的起始位置，表示从第几条数据开始，默认为0
-     * @param {number} [limit] 查询结果条数的限制值，取值范围为[1,100]，默认值为100
+     * @param {string} templateId **参数解释**： 告警模板的ID。     **约束限制**： 不涉及。 **取值范围**： 以at开头，后跟字母、数字，长度为[2,64]个字符。           **默认取值**： 不涉及。 
+     * @param {number} [offset] **参数解释**： 分页偏移量 **约束限制**： 不涉及 **取值范围**： 整数，[0,10000] **默认取值**： 0 
+     * @param {number} [limit] **参数解释**： 分页大小 **约束限制**： 不涉及 **取值范围**： 整数，[1,100] **默认取值**： 100 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -961,13 +974,13 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询告警模板列表
-     * @param {number} [offset] 分页查询时查询的起始位置，表示从第几条数据开始，默认为0
-     * @param {number} [limit] 查询结果条数的限制值，取值范围为[1,100]，默认值为100
-     * @param {string} [namespace] 查询服务的命名空间，各服务命名空间请参考“[服务命名空间](ces_03_0059.xml)”
-     * @param {string} [dimName] 资源维度，必须以字母开头，多维度用\&quot;,\&quot;分隔，只能包含0-9/a-z/A-Z/_/-，每个维度的最大长度为32
-     * @param {'system' | 'custom' | 'system_event' | 'custom_event' | 'system_custom_event'} [templateType] 模板类型(system代表默认指标模板，custom代表自定义指标模板，system_event代表默认事件模板，custom_event代表自定义事件模板，system_custom_event代表全部事件模板),不传返回全部指标模板
+     * @param {number} [offset] **参数解释**： 分页偏移量 **约束限制**： 不涉及 **取值范围**： 整数，[0,10000] **默认取值**： 0 
+     * @param {number} [limit] **参数解释**： 分页大小 **约束限制**： 不涉及 **取值范围**： 整数，[1,100] **默认取值**： 100 
+     * @param {string} [namespace] **参数解释**： 查询服务的命名空间，各服务命名空间请参考“[服务命名空间](ces_03_0059.xml)”。 **约束限制**： 不涉及。 **取值范围**： 格式为service.item；service和item必须是字符串，必须以字母开头，只能包含0-9/a-z/A-Z/_。字符串的长度必须在 3 到 32个字符之间。 **默认取值**： 不涉及。 
+     * @param {string} [dimName] **参数解释**： 资源维度名称。 **约束限制**： 不涉及。 **取值范围**： 多维度用\&quot;,\&quot;分割，只能包含0-9、a-z、A-Z、_、-、#、/、(、），每个维度的最大长度为32。字符串总长度最小为1，最大为131。 **默认取值**： 不涉及。 
+     * @param {'system' | 'custom' | 'system_event' | 'custom_event' | 'system_custom_event'} [templateType] **参数解释**： 模板类型。 **约束限制**： 不涉及。 **取值范围**： 枚举值。 - system：默认指标模板。 - custom： 自定义指标模板。    - system_event： 默认事件模板。 - custom_event： 自定义事件模板。    - system_custom_event： 全部事件模板。     **默认取值**： 不传返回全部指标模板。 
      * @param {string} [templateName] 告警模板的名称，以字母或汉字开头，可包含字母、数字、汉字、_、-，长度范围[1,128]，支持模糊匹配
-     * @param {string} [productName] （已废弃）支持按照产品名称粒度进行查询告警模板，产品名称一般由\&quot;服务命名空间,服务首层维度名称\&quot;组成，如\&quot;SYS.ECS,instance_id\&quot;
+     * @param {string} [productName] **参数解释**： 产品层级跨维规则创建时需要指明的规则产品名称，一般由\&quot;服务命名空间,服务首层维度名称\&quot;组成，如\&quot;SYS.ECS,instance_id\&quot;。 **约束限制**： 不涉及。 **取值范围**： 长度为[0,128]个字符。          **默认取值**： 不涉及。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1049,8 +1062,8 @@ export class CesClient {
      *
      * @summary 查询告警通知屏蔽资源列表
      * @param {string} notificationMaskId **参数解释**： 屏蔽规则ID。    **约束限制**： 不涉及。 **取值范围**： 只能包含字母、数字，长度为[1,64]个字符。           **默认取值**： 不涉及。 
-     * @param {number} [offset] 分页偏移量
-     * @param {number} [limit] 分页大小
+     * @param {number} [offset] **参数解释**： 分页偏移量 **约束限制**： 不涉及 **取值范围**： 整数，[0,10000] **默认取值**： 0 
+     * @param {number} [limit] **参数解释**： 分页大小 **约束限制**： 不涉及 **取值范围**： 整数，[1,100] **默认取值**： 100 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1069,11 +1082,11 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询告警通知屏蔽列表
-     * @param {ListNotificationMaskRequestBody} listNotificationMasksRequestBody 批量查询通知屏蔽规则，请求参数。
-     * @param {number} [offset] 分页偏移量
-     * @param {number} [limit] 分页大小
-     * @param {'create_time' | 'update_time'} [sortKey] 排序关键字，与sort_dir同时使用。 目前只支持create_time与update_time create_time表示按创建时间排序，update_time表示按修改时间排序
-     * @param {'ASC' | 'DESC'} [sortDir] 排序顺序，与sort_key同时使用。DESC表示降序排序；ASC表示升序排序；
+     * @param {ListNotificationMaskRequestBody} listNotificationMasksRequestBody **参数解释**： “批量查询通知屏蔽规则”的请求体。 **约束限制**： 不涉及。 
+     * @param {number} [offset] **参数解释**： 分页偏移量 **约束限制**： 不涉及 **取值范围**： 整数，[0,10000] **默认取值**： 0 
+     * @param {number} [limit] **参数解释**： 分页大小 **约束限制**： 不涉及 **取值范围**： 整数，[1,100] **默认取值**： 100 
+     * @param {'create_time' | 'update_time'} [sortKey] **参数解释**： 排序关键字，与sort_dir同时使用。 **约束限制**： 目前只支持create_time与update_time **取值范围**： - create_time：按创建时间排序 - update_time：按修改时间排序 **默认取值**： 不涉及。 
+     * @param {'ASC' | 'DESC'} [sortDir] **参数解释**： 排序顺序，与sort_key同时使用。 **约束限制**： 不涉及。 **取值范围**： - DESC：降序排序。 - ASC：升序排序。 **默认取值**： 不涉及。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1092,7 +1105,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询一键告警关联告警规则列表
-     * @param {string} oneClickAlarmId 一键告警ID
+     * @param {string} oneClickAlarmId **参数解释** 一键告警ID **约束限制** 不涉及 **取值范围** 长度为1到64字符，只能包含字母数字 **默认取值** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1129,12 +1142,13 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源分组列表
-     * @param {string} [enterpriseProjectId] 归属企业项目ID
-     * @param {string} [groupName] 资源分组名称，支持模糊查询
-     * @param {string} [groupId] 资源分组ID，以rg开头，后跟22位由字母或数字组成的字符串
-     * @param {number} [offset] 分页查询时查询的起始位置，表示从第几条数据开始，默认为0
-     * @param {number} [limit] 分页查询时每页的条目数，取值[1,100]，默认值为100
-     * @param {'EPS' | 'TAG' | 'Manual' | 'COMB' | 'NAME'} [type] 资源分组添加资源方式，取值只能为EPS（同步企业项目）,TAG（标签动态匹配）,Manual（手动添加），不传代表查询所有资源分组类型,COMB（智能添加-组合匹配）,NAME（资源名称模糊匹配）
+     * @param {string} [enterpriseProjectId] **参数解释**: 归属企业项目ID。 **约束限制**: 不涉及。 **取值范围**: 只能包含小写字母、数字、“-”、“_”，长度为36个字符。或者为0（代表默认企业项目ID），或者为all_granted_eps（代表所有企业项目ID）。 **默认取值**: 不涉及。
+     * @param {string} [groupName] **参数解释** 资源分组名称，支持模糊查询。 **约束限制** 不涉及。 **取值范围** 包含字母、数字、_、-或汉字，长度为[1,128]个字符。 **默认取值** 不涉及。
+     * @param {string} [groupId] **参数解释** 资源分组ID。 **约束限制** 不涉及。 **取值范围** 以\&quot;rg\&quot;开头，后跟22位由字母或数字组成的字符串。 **默认取值** 不涉及。
+     * @param {number} [offset] **参数解释** 分页起始值。 **约束限制** 不涉及。 **取值范围** 在[0,10000]区间内。 **默认取值** 0
+     * @param {number} [limit] **参数解释** 分页查询时每页的条目数。 **约束限制** 不涉及。 **取值范围** 在[1,100]区间内。 **默认取值** 100
+     * @param {'EPS' | 'TAG' | 'Manual' | 'COMB' | 'NAME'} [type] **参数解释** 资源分组添加资源方式，不传代表查询所有资源分组类型。 **约束限制** 不涉及。 **取值范围** - EPS: 表示匹配企业项目 - TAG: 表示匹配标签 - Manual: 表示手动添加 - COMB: 表示组合匹配 - NAME: 表示匹配实例名称 **默认取值** 不涉及。
+     * @param {'health' | 'unhealthy' | 'no_alarm_rule'} [status] **参数解释** 资源分组健康状态。 **约束限制** 不涉及。 **取值范围** - health: 表示健康 - unhealthy: 表示不健康 - no_alarm_rule: 表示未配置告警规则 **默认取值** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1153,18 +1167,18 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源分组下指定服务类别特定维度的资源列表
-     * @param {string} groupId 资源分组ID，以rg开头，后跟22位由字母或数字组成的字符串
-     * @param {string} service 服务类别，如SYS.ECS
-     * @param {string} [dimName] 资源维度信息，多个维度按字母序使用逗号分隔
-     * @param {string} [limit] 分页查询时每页的条目数，取值[1,100]，默认值为100
-     * @param {number} [offset] 分页查询时查询的起始位置，表示从第几条数据开始，默认为0
-     * @param {'health' | 'unhealthy' | 'no_alarm_rule'} [status] 按状态信息进行过滤，取值只能为health（已设置告警规则且无告警触发的资源）、unhealthy（已设置告警规则且有告警触发的资源）、no_alarm_rule（未设置告警规则的资源）
-     * @param {string} [dimValue] 资源维度值，不支持模糊匹配，但是多维度资源可以只指定一个维度值
-     * @param {string} [tag] 资源的标签信息，格式：\&quot;[key]\&quot;:\&quot;[value]\&quot;，样例参考：\&quot;ssss\&quot;:\&quot;1111\&quot;
-     * @param {string} [extendRelationId] 企业项目ID
-     * @param {string} [productName] 资源分组的云产品，一般由\&quot;服务命名空间,服务首层维度名称\&quot;组成，如\&quot;SYS.ECS,instance_id\&quot;
-     * @param {string} [resourceName] 资源名称
-     * @param {'health' | 'unhealthy' | 'no_alarm_rule'} [eventStatus] 按事件告警状态信息进行过滤，取值只能为health（已设置事件告警规则且无事件告警触发的资源）、unhealthy（已设置事件告警规则且有事件告警触发的资源）、no_alarm_rule（未设置事件告警规则的资源）
+     * @param {string} groupId **参数解释** 资源分组ID。 **约束限制** 不涉及 **取值范围** 以\&quot;rg\&quot;开头，后面跟着22个字母或数字 **默认取值** 不涉及 
+     * @param {string} service **参数解释** 服务类别，如SYS.ECS **约束限制** 不涉及 **取值范围** 格式为service.item；service和item必须是字符串，必须以字母开头，只能包含0-9/a-z/A-Z/_。字符串的长度在 [3,32]个字符之间 **默认取值** 不涉及
+     * @param {number} [offset] **参数解释**： 分页偏移量 **约束限制**： 不涉及 **取值范围**： 整数，[0,10000] **默认取值**： 0 
+     * @param {string} [limit] **参数解释**： 分页大小。 **约束限制**： 不涉及。 **取值范围**： 大小为1-100。 **默认取值**： 不涉及。 
+     * @param {string} [dimName] **参数解释**： 资源维度。 **约束限制**： 不涉及。 **取值范围**： 多维度用\&quot;,\&quot;分割，只能包含0-9、a-z、A-Z、_、-、#、/、(、），每个维度的最大长度为32。字符串总长度最小为1，最大为131。 **默认取值**： 不涉及。 
+     * @param {'health' | 'unhealthy' | 'no_alarm_rule'} [status] **参数解释** 告警规则按状态信息进行过滤。 **约束限制**： 不涉及。 **取值范围** 枚举值。 - health: 已设置告警规则且无告警触发的资源 - unhealthy: 已设置告警规则且有告警触发的资源 - no_alarm_rule: 未设置告警规则的资源 **默认取值**： 不涉及。 
+     * @param {string} [dimValue] **参数描述**： 资源维度值，不支持模糊匹配，但是多维度资源可以只指定一个维度值 **约束限制**： 不涉及。  **取值范围**： 字符串长度范围[1,1027] **默认取值**： 不涉及。 
+     * @param {string} [tag] **参数描述**： 资源的标签信息，格式：\&quot;[key]\&quot;:\&quot;[value]\&quot;，样例参考：\&quot;ssss\&quot;:\&quot;1111\&quot; **约束限制**： 不涉及。  **取值范围**： 字符串长度范围[0,500] **默认取值**： 不涉及。 
+     * @param {string} [extendRelationId] **参数解释** 企业项目ID。 **约束限制** 不涉及。 **取值范围** 由数字、字母和-组成，字符串长度范围[1,128] **默认取值** 不涉及。 
+     * @param {string} [productName] **参数解释**： 资源所属的云产品名称，一般由\&quot;服务命名空间,服务首层维度名称\&quot;组成，如\&quot;SYS.ECS,instance_id\&quot;。 **约束限制**： 不涉及。 **取值范围**： 长度为[0,128]个字符。        **默认取值**： 不涉及。 
+     * @param {string} [resourceName] **参数解释** 资源名称 **约束限制** 不涉及 **取值范围** 长度[1,128]个字符 **默认取值** 不涉及 
+     * @param {'health' | 'unhealthy' | 'no_alarm_rule'} [eventStatus] **参数解释** 按事件告警状态信息进行过滤。 **约束限制**： 不涉及。 **取值范围** 枚举值。 - health: 已设置事件告警规则且无事件告警触发的资源 - unhealthy: 已设置事件告警规则且有事件告警触发的资源 - no_alarm_rule: 未设置事件告警规则的资源 **默认取值**： 不涉及。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1183,7 +1197,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询告警模板详情
-     * @param {string} templateId 告警模板的ID，以at开头，后跟字母、数字，长度最长为64
+     * @param {string} templateId **参数解释**： 告警模板的ID。     **约束限制**： 不涉及。 **取值范围**： 以at开头，后跟字母、数字，长度为[2,64]个字符。           **默认取值**： 不涉及。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1202,7 +1216,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定资源分组详情
-     * @param {string} groupId 资源分组ID，以rg开头，后跟22位由字母或数字组成的字符串
+     * @param {string} groupId **参数解释** 资源分组ID。 **约束限制** 不涉及 **取值范围** 以\&quot;rg\&quot;开头，后面跟着22个字母或数字 **默认取值** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1280,7 +1294,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改自定义告警模板
-     * @param {string} templateId 告警模板ID
+     * @param {string} templateId **参数解释**： 告警模板的ID。 **约束限制**： 不涉及。 **取值范围**： 以at开头，后跟字母、数字，长度为[2,64]个字符。 **默认取值**： 不涉及。 
      * @param {UpdateAlarmTemplateRequestBody} updateAlarmTemplateRequestBody 修改告警模板请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1315,13 +1329,14 @@ export class CesClient {
     }
 
     /**
-     * 修改告警通知屏蔽规则
+     * 修改告警通知屏蔽规则。
+     * 不能修改通过告警规则屏蔽的告警通知，只能修改通过资源屏蔽、策略屏蔽、事件屏蔽创建的告警屏蔽。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改告警通知屏蔽规则
      * @param {string} notificationMaskId **参数解释**： 屏蔽规则ID。    **约束限制**： 不涉及。 **取值范围**： 只能包含字母、数字，长度为[1,64]个字符。           **默认取值**： 不涉及。 
-     * @param {UpdateNotificationMasksRequestBody} updateNotificationMaskRequestBody 修改通知屏蔽规则请求体
+     * @param {UpdateNotificationMasksRequestBody} updateNotificationMaskRequestBody **参数解释**： 修改通知屏蔽规则请求体 **约束限制**： 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1340,7 +1355,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量修改开启状态的一键告警关联告警规则的告警通知
-     * @param {string} oneClickAlarmId **参数解释**： 一键告警ID **约束限制**： 不涉及。 **取值范围**： 长度为[1,64]个字符。 **默认取值**： 不涉及。 
+     * @param {string} oneClickAlarmId **参数解释**： 一键告警ID **约束限制**： 不涉及。 **取值范围**： 长度为[1,64]个字符。只能包含字母和数字。 **默认取值**： 不涉及。 
      * @param {UpdateOneClickAlarmNotificationsRequestBody} updateOneClickAlarmNotificationsRequestBody 修改告警规则告警通知信息的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1360,7 +1375,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改资源分组
-     * @param {string} groupId 资源分组ID，以rg开头，后跟22位由字母或数字组成的字符串
+     * @param {string} groupId **参数解释** 资源分组ID。 **约束限制** 不涉及。 **取值范围** 以\&quot;rg\&quot;开头，后跟22位由字母或数字组成的字符串。 **默认取值** 不涉及。
      * @param {PutResourceGroupReq} updateResourceGroupRequestBody 资源分组修改请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1380,7 +1395,7 @@ export class CesClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 资源分组异步关联自定义告警模板
-     * @param {string} groupId 资源分组ID，以rg开头，后跟22位由字母或数字组成的字符串
+     * @param {string} groupId **参数解释** 资源分组ID。 **约束限制** 不涉及 **取值范围** 以\&quot;rg\&quot;开头，后面跟着22个字母或数字 **默认取值** 不涉及 
      * @param {AsyncAssociateRGAndTemplatesReq} updateResourceGroupAssociationAlarmTemplateRequestBody 资源分组异步关联告警模板请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3250,6 +3265,8 @@ export const ParamCreater = function () {
             let limit;
             
             let type;
+            
+            let status;
 
             if (listResourceGroupsRequest !== null && listResourceGroupsRequest !== undefined) {
                 if (listResourceGroupsRequest instanceof ListResourceGroupsRequest) {
@@ -3259,6 +3276,7 @@ export const ParamCreater = function () {
                     offset = listResourceGroupsRequest.offset;
                     limit = listResourceGroupsRequest.limit;
                     type = listResourceGroupsRequest.type;
+                    status = listResourceGroupsRequest.status;
                 } else {
                     enterpriseProjectId = listResourceGroupsRequest['enterprise_project_id'];
                     groupName = listResourceGroupsRequest['group_name'];
@@ -3266,6 +3284,7 @@ export const ParamCreater = function () {
                     offset = listResourceGroupsRequest['offset'];
                     limit = listResourceGroupsRequest['limit'];
                     type = listResourceGroupsRequest['type'];
+                    status = listResourceGroupsRequest['status'];
                 }
             }
 
@@ -3287,6 +3306,9 @@ export const ParamCreater = function () {
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3315,11 +3337,11 @@ export const ParamCreater = function () {
             
             let service;
             
-            let dimName;
+            let offset;
             
             let limit;
             
-            let offset;
+            let dimName;
             
             let status;
             
@@ -3339,9 +3361,9 @@ export const ParamCreater = function () {
                 if (listResourceGroupsServicesResourcesRequest instanceof ListResourceGroupsServicesResourcesRequest) {
                     groupId = listResourceGroupsServicesResourcesRequest.groupId;
                     service = listResourceGroupsServicesResourcesRequest.service;
-                    dimName = listResourceGroupsServicesResourcesRequest.dimName;
-                    limit = listResourceGroupsServicesResourcesRequest.limit;
                     offset = listResourceGroupsServicesResourcesRequest.offset;
+                    limit = listResourceGroupsServicesResourcesRequest.limit;
+                    dimName = listResourceGroupsServicesResourcesRequest.dimName;
                     status = listResourceGroupsServicesResourcesRequest.status;
                     dimValue = listResourceGroupsServicesResourcesRequest.dimValue;
                     tag = listResourceGroupsServicesResourcesRequest.tag;
@@ -3352,9 +3374,9 @@ export const ParamCreater = function () {
                 } else {
                     groupId = listResourceGroupsServicesResourcesRequest['group_id'];
                     service = listResourceGroupsServicesResourcesRequest['service'];
-                    dimName = listResourceGroupsServicesResourcesRequest['dim_name'];
-                    limit = listResourceGroupsServicesResourcesRequest['limit'];
                     offset = listResourceGroupsServicesResourcesRequest['offset'];
+                    limit = listResourceGroupsServicesResourcesRequest['limit'];
+                    dimName = listResourceGroupsServicesResourcesRequest['dim_name'];
                     status = listResourceGroupsServicesResourcesRequest['status'];
                     dimValue = listResourceGroupsServicesResourcesRequest['dim_value'];
                     tag = listResourceGroupsServicesResourcesRequest['tag'];
@@ -3372,14 +3394,14 @@ export const ParamCreater = function () {
             if (service === null || service === undefined) {
             throw new RequiredError('service','Required parameter service was null or undefined when calling listResourceGroupsServicesResources.');
             }
-            if (dimName !== null && dimName !== undefined) {
-                localVarQueryParameter['dim_name'] = dimName;
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
+            if (dimName !== null && dimName !== undefined) {
+                localVarQueryParameter['dim_name'] = dimName;
             }
             if (status !== null && status !== undefined) {
                 localVarQueryParameter['status'] = status;
@@ -3705,7 +3727,8 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改告警通知屏蔽规则
+         * 修改告警通知屏蔽规则。
+         * 不能修改通过告警规则屏蔽的告警通知，只能修改通过资源屏蔽、策略屏蔽、事件屏蔽创建的告警屏蔽。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

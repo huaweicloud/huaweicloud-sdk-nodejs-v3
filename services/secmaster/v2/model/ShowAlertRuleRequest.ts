@@ -2,10 +2,10 @@
 
 export class ShowAlertRuleRequest {
     private 'workspace_id'?: string;
-    private 'rule_id'?: string;
-    public constructor(workspaceId?: string, ruleId?: string) { 
+    private 'alert_rule_id'?: string;
+    public constructor(workspaceId?: string, alertRuleId?: string) { 
         this['workspace_id'] = workspaceId;
-        this['rule_id'] = ruleId;
+        this['alert_rule_id'] = alertRuleId;
     }
     public withWorkspaceId(workspaceId: string): ShowAlertRuleRequest {
         this['workspace_id'] = workspaceId;
@@ -17,14 +17,14 @@ export class ShowAlertRuleRequest {
     public get workspaceId(): string | undefined {
         return this['workspace_id'];
     }
-    public withRuleId(ruleId: string): ShowAlertRuleRequest {
-        this['rule_id'] = ruleId;
+    public withAlertRuleId(alertRuleId: string): ShowAlertRuleRequest {
+        this['alert_rule_id'] = alertRuleId;
         return this;
     }
-    public set ruleId(ruleId: string  | undefined) {
-        this['rule_id'] = ruleId;
+    public set alertRuleId(alertRuleId: string  | undefined) {
+        this['alert_rule_id'] = alertRuleId;
     }
-    public get ruleId(): string | undefined {
-        return this['rule_id'];
+    public get alertRuleId(): string | undefined {
+        return this['alert_rule_id'];
     }
 }

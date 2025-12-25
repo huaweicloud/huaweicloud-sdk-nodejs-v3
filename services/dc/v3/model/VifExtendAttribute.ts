@@ -8,6 +8,8 @@ export class VifExtendAttribute {
     private 'min_tx_interval'?: number;
     private 'remote_disclaim'?: number;
     private 'local_disclaim'?: number;
+    private 'ipv6_remote_disclaim'?: number;
+    private 'ipv6_local_disclaim'?: number;
     public constructor() { 
     }
     public withHaType(haType: VifExtendAttributeHaTypeEnum | string): VifExtendAttribute {
@@ -79,6 +81,26 @@ export class VifExtendAttribute {
     }
     public get localDisclaim(): number | undefined {
         return this['local_disclaim'];
+    }
+    public withIpv6RemoteDisclaim(ipv6RemoteDisclaim: number): VifExtendAttribute {
+        this['ipv6_remote_disclaim'] = ipv6RemoteDisclaim;
+        return this;
+    }
+    public set ipv6RemoteDisclaim(ipv6RemoteDisclaim: number  | undefined) {
+        this['ipv6_remote_disclaim'] = ipv6RemoteDisclaim;
+    }
+    public get ipv6RemoteDisclaim(): number | undefined {
+        return this['ipv6_remote_disclaim'];
+    }
+    public withIpv6LocalDisclaim(ipv6LocalDisclaim: number): VifExtendAttribute {
+        this['ipv6_local_disclaim'] = ipv6LocalDisclaim;
+        return this;
+    }
+    public set ipv6LocalDisclaim(ipv6LocalDisclaim: number  | undefined) {
+        this['ipv6_local_disclaim'] = ipv6LocalDisclaim;
+    }
+    public get ipv6LocalDisclaim(): number | undefined {
+        return this['ipv6_local_disclaim'];
     }
 }
 

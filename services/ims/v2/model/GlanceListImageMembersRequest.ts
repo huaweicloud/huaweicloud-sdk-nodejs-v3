@@ -2,6 +2,8 @@
 
 export class GlanceListImageMembersRequest {
     private 'image_id'?: string;
+    public limit?: number;
+    public marker?: string;
     public constructor(imageId?: string) { 
         this['image_id'] = imageId;
     }
@@ -14,5 +16,13 @@ export class GlanceListImageMembersRequest {
     }
     public get imageId(): string | undefined {
         return this['image_id'];
+    }
+    public withLimit(limit: number): GlanceListImageMembersRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): GlanceListImageMembersRequest {
+        this['marker'] = marker;
+        return this;
     }
 }

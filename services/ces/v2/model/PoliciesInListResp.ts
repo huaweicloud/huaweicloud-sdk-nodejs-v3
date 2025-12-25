@@ -1,5 +1,5 @@
-import { HierarchicalValue } from './HierarchicalValue';
-import { MetricExtraInfo } from './MetricExtraInfo';
+import { HierarchicalValueResp } from './HierarchicalValueResp';
+import { MetricExtraInfoResp } from './MetricExtraInfoResp';
 import { Period } from './Period';
 import { SuppressDuration } from './SuppressDuration';
 
@@ -7,17 +7,19 @@ import { SuppressDuration } from './SuppressDuration';
 export class PoliciesInListResp {
     private 'alarm_policy_id'?: string;
     private 'metric_name'?: string;
-    private 'extra_info'?: MetricExtraInfo;
+    private 'extra_info'?: MetricExtraInfoResp;
     public period?: Period;
     public filter?: string;
     private 'comparison_operator'?: string;
     public value?: number;
-    private 'hierarchical_value'?: HierarchicalValue;
+    private 'hierarchical_value'?: HierarchicalValueResp;
     public unit?: string;
     public count?: number;
     public type?: string;
     private 'suppress_duration'?: SuppressDuration;
     private 'alarm_level'?: number;
+    public namespace?: string;
+    private 'dimension_name'?: string;
     private 'selected_unit'?: string;
     public constructor(alarmPolicyId?: string, metricName?: string, period?: Period, filter?: string, comparisonOperator?: string, count?: number) { 
         this['alarm_policy_id'] = alarmPolicyId;
@@ -47,14 +49,14 @@ export class PoliciesInListResp {
     public get metricName(): string | undefined {
         return this['metric_name'];
     }
-    public withExtraInfo(extraInfo: MetricExtraInfo): PoliciesInListResp {
+    public withExtraInfo(extraInfo: MetricExtraInfoResp): PoliciesInListResp {
         this['extra_info'] = extraInfo;
         return this;
     }
-    public set extraInfo(extraInfo: MetricExtraInfo  | undefined) {
+    public set extraInfo(extraInfo: MetricExtraInfoResp  | undefined) {
         this['extra_info'] = extraInfo;
     }
-    public get extraInfo(): MetricExtraInfo | undefined {
+    public get extraInfo(): MetricExtraInfoResp | undefined {
         return this['extra_info'];
     }
     public withPeriod(period: Period): PoliciesInListResp {
@@ -79,14 +81,14 @@ export class PoliciesInListResp {
         this['value'] = value;
         return this;
     }
-    public withHierarchicalValue(hierarchicalValue: HierarchicalValue): PoliciesInListResp {
+    public withHierarchicalValue(hierarchicalValue: HierarchicalValueResp): PoliciesInListResp {
         this['hierarchical_value'] = hierarchicalValue;
         return this;
     }
-    public set hierarchicalValue(hierarchicalValue: HierarchicalValue  | undefined) {
+    public set hierarchicalValue(hierarchicalValue: HierarchicalValueResp  | undefined) {
         this['hierarchical_value'] = hierarchicalValue;
     }
-    public get hierarchicalValue(): HierarchicalValue | undefined {
+    public get hierarchicalValue(): HierarchicalValueResp | undefined {
         return this['hierarchical_value'];
     }
     public withUnit(unit: string): PoliciesInListResp {
@@ -120,6 +122,20 @@ export class PoliciesInListResp {
     }
     public get alarmLevel(): number | undefined {
         return this['alarm_level'];
+    }
+    public withNamespace(namespace: string): PoliciesInListResp {
+        this['namespace'] = namespace;
+        return this;
+    }
+    public withDimensionName(dimensionName: string): PoliciesInListResp {
+        this['dimension_name'] = dimensionName;
+        return this;
+    }
+    public set dimensionName(dimensionName: string  | undefined) {
+        this['dimension_name'] = dimensionName;
+    }
+    public get dimensionName(): string | undefined {
+        return this['dimension_name'];
     }
     public withSelectedUnit(selectedUnit: string): PoliciesInListResp {
         this['selected_unit'] = selectedUnit;

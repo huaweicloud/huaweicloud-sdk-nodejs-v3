@@ -21,6 +21,7 @@ export class CodeArtsRepoRegion {
     public static TR_WEST_1 = new Region("tr-west-1", ["https://codeartsrepo-ext.tr-west-1.myhuaweicloud.com"]);
     public static AF_SOUTH_1 = new Region("af-south-1", ["https://repo.af-south-1.myhuaweicloud.com"]);
     public static AF_NORTH_1 = new Region("af-north-1", ["https://repo.af-north-1.myhuaweicloud.com"]);
+    public static EU_WEST_101 = new Region("eu-west-101", ["https://codeartsrepo-ext.eu-west-101.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -38,7 +39,8 @@ export class CodeArtsRepoRegion {
         "me-east-1":CodeArtsRepoRegion.ME_EAST_1,
         "tr-west-1":CodeArtsRepoRegion.TR_WEST_1,
         "af-south-1":CodeArtsRepoRegion.AF_SOUTH_1,
-        "af-north-1":CodeArtsRepoRegion.AF_NORTH_1
+        "af-north-1":CodeArtsRepoRegion.AF_NORTH_1,
+        "eu-west-101":CodeArtsRepoRegion.EU_WEST_101
     };
   
     public static valueOf(regionId: string) {

@@ -4,6 +4,7 @@ import { NodeEIPSpec } from './NodeEIPSpec';
 import { NodeExtendParam } from './NodeExtendParam';
 import { NodeNicSpec } from './NodeNicSpec';
 import { NodeSpecNodeNameTemplate } from './NodeSpecNodeNameTemplate';
+import { PackageConfiguration } from './PackageConfiguration';
 import { Runtime } from './Runtime';
 import { Storage } from './Storage';
 import { Taint } from './Taint';
@@ -35,6 +36,7 @@ export class NodeTemplate {
     public hostnameConfig?: HostnameConfig;
     public serverEnterpriseProjectID?: string;
     public partition?: string;
+    public configurationsOverride?: Array<PackageConfiguration>;
     public nodeNameTemplate?: NodeSpecNodeNameTemplate;
     public constructor() { 
     }
@@ -128,6 +130,10 @@ export class NodeTemplate {
     }
     public withPartition(partition: string): NodeTemplate {
         this['partition'] = partition;
+        return this;
+    }
+    public withConfigurationsOverride(configurationsOverride: Array<PackageConfiguration>): NodeTemplate {
+        this['configurationsOverride'] = configurationsOverride;
         return this;
     }
     public withNodeNameTemplate(nodeNameTemplate: NodeSpecNodeNameTemplate): NodeTemplate {

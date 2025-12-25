@@ -3,6 +3,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowAsyncTtsJobResponse extends SdkResponse {
     public state?: string;
+    public code?: string;
+    public message?: string;
     private 'audio_file_url'?: string;
     private 'audio_info_file_url'?: string;
     private 'audio_srt_file_url'?: string;
@@ -12,6 +14,14 @@ export class ShowAsyncTtsJobResponse extends SdkResponse {
     }
     public withState(state: string): ShowAsyncTtsJobResponse {
         this['state'] = state;
+        return this;
+    }
+    public withCode(code: string): ShowAsyncTtsJobResponse {
+        this['code'] = code;
+        return this;
+    }
+    public withMessage(message: string): ShowAsyncTtsJobResponse {
+        this['message'] = message;
         return this;
     }
     public withAudioFileUrl(audioFileUrl: string): ShowAsyncTtsJobResponse {

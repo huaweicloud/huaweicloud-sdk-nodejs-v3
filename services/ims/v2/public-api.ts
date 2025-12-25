@@ -74,6 +74,7 @@ export * from './model/GlanceListImageSchemasRequest';
 export * from './model/GlanceListImageSchemasResponse';
 export * from './model/GlanceListImagesRequest';
 export * from './model/GlanceListImagesResponse';
+export * from './model/GlancePageInfo';
 export * from './model/GlanceShowImageListResponseBody';
 export * from './model/GlanceShowImageMemberRequest';
 export * from './model/GlanceShowImageMemberResponse';

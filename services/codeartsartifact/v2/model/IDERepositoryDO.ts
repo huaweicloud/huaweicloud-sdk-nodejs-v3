@@ -10,7 +10,10 @@ export class IDERepositoryDO {
     private 'share_right'?: string;
     private 'project_id'?: string;
     public type?: string;
-    public constructor() { 
+    public constructor(repositoryName?: string, format?: string, type?: string) { 
+        this['repository_name'] = repositoryName;
+        this['format'] = format;
+        this['type'] = type;
     }
     public withRepositoryName(repositoryName: string): IDERepositoryDO {
         this['repository_name'] = repositoryName;

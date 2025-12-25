@@ -1,3 +1,4 @@
+import { BaselineSearchRequestBodyCondition } from './BaselineSearchRequestBodyCondition';
 
 
 export class BaselineSearchRequestBody {
@@ -7,7 +8,7 @@ export class BaselineSearchRequestBody {
     public order?: string;
     private 'from_date'?: string;
     private 'to_date'?: string;
-    public condition?: object;
+    public condition?: BaselineSearchRequestBodyCondition;
     public constructor() { 
     }
     public withLimit(limit: number): BaselineSearchRequestBody {
@@ -52,7 +53,7 @@ export class BaselineSearchRequestBody {
     public get toDate(): string | undefined {
         return this['to_date'];
     }
-    public withCondition(condition: object): BaselineSearchRequestBody {
+    public withCondition(condition: BaselineSearchRequestBodyCondition): BaselineSearchRequestBody {
         this['condition'] = condition;
         return this;
     }

@@ -5,16 +5,12 @@ export class ListAlertRulesRequest {
     public offset?: number;
     public limit?: number;
     private 'sort_key'?: string;
-    private 'sort_dir'?: ListAlertRulesRequestSortDirEnum | string;
-    private 'pipe_id'?: string;
-    private 'rule_name'?: string;
-    private 'rule_id'?: string;
-    public status?: Array<ListAlertRulesRequestStatusEnum> | Array<string>;
-    public severity?: Array<ListAlertRulesRequestSeverityEnum> | Array<string>;
-    public constructor(workspaceId?: string, offset?: number, limit?: number) { 
+    private 'sort_dir'?: string;
+    private 'output_table_id'?: string;
+    private 'alert_rule_name'?: string;
+    private 'alert_rule_id'?: string;
+    public constructor(workspaceId?: string) { 
         this['workspace_id'] = workspaceId;
-        this['offset'] = offset;
-        this['limit'] = limit;
     }
     public withWorkspaceId(workspaceId: string): ListAlertRulesRequest {
         this['workspace_id'] = workspaceId;
@@ -44,80 +40,44 @@ export class ListAlertRulesRequest {
     public get sortKey(): string | undefined {
         return this['sort_key'];
     }
-    public withSortDir(sortDir: ListAlertRulesRequestSortDirEnum | string): ListAlertRulesRequest {
+    public withSortDir(sortDir: string): ListAlertRulesRequest {
         this['sort_dir'] = sortDir;
         return this;
     }
-    public set sortDir(sortDir: ListAlertRulesRequestSortDirEnum | string  | undefined) {
+    public set sortDir(sortDir: string  | undefined) {
         this['sort_dir'] = sortDir;
     }
-    public get sortDir(): ListAlertRulesRequestSortDirEnum | string | undefined {
+    public get sortDir(): string | undefined {
         return this['sort_dir'];
     }
-    public withPipeId(pipeId: string): ListAlertRulesRequest {
-        this['pipe_id'] = pipeId;
+    public withOutputTableId(outputTableId: string): ListAlertRulesRequest {
+        this['output_table_id'] = outputTableId;
         return this;
     }
-    public set pipeId(pipeId: string  | undefined) {
-        this['pipe_id'] = pipeId;
+    public set outputTableId(outputTableId: string  | undefined) {
+        this['output_table_id'] = outputTableId;
     }
-    public get pipeId(): string | undefined {
-        return this['pipe_id'];
+    public get outputTableId(): string | undefined {
+        return this['output_table_id'];
     }
-    public withRuleName(ruleName: string): ListAlertRulesRequest {
-        this['rule_name'] = ruleName;
+    public withAlertRuleName(alertRuleName: string): ListAlertRulesRequest {
+        this['alert_rule_name'] = alertRuleName;
         return this;
     }
-    public set ruleName(ruleName: string  | undefined) {
-        this['rule_name'] = ruleName;
+    public set alertRuleName(alertRuleName: string  | undefined) {
+        this['alert_rule_name'] = alertRuleName;
     }
-    public get ruleName(): string | undefined {
-        return this['rule_name'];
+    public get alertRuleName(): string | undefined {
+        return this['alert_rule_name'];
     }
-    public withRuleId(ruleId: string): ListAlertRulesRequest {
-        this['rule_id'] = ruleId;
+    public withAlertRuleId(alertRuleId: string): ListAlertRulesRequest {
+        this['alert_rule_id'] = alertRuleId;
         return this;
     }
-    public set ruleId(ruleId: string  | undefined) {
-        this['rule_id'] = ruleId;
+    public set alertRuleId(alertRuleId: string  | undefined) {
+        this['alert_rule_id'] = alertRuleId;
     }
-    public get ruleId(): string | undefined {
-        return this['rule_id'];
+    public get alertRuleId(): string | undefined {
+        return this['alert_rule_id'];
     }
-    public withStatus(status: Array<ListAlertRulesRequestStatusEnum> | Array<string>): ListAlertRulesRequest {
-        this['status'] = status;
-        return this;
-    }
-    public withSeverity(severity: Array<ListAlertRulesRequestSeverityEnum> | Array<string>): ListAlertRulesRequest {
-        this['severity'] = severity;
-        return this;
-    }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListAlertRulesRequestSortDirEnum {
-    ASC = 'asc',
-    DESC = 'desc'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListAlertRulesRequestStatusEnum {
-    ENABLED = 'ENABLED',
-    DISABLED = 'DISABLED'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListAlertRulesRequestSeverityEnum {
-    TIPS = 'TIPS',
-    LOW = 'LOW',
-    MEDIUM = 'MEDIUM',
-    HIGH = 'HIGH',
-    FATAL = 'FATAL'
 }

@@ -43,6 +43,10 @@ import { CreateSwitchoverTest } from './model/CreateSwitchoverTest';
 import { CreateSwitchoverTestRequestBody } from './model/CreateSwitchoverTestRequestBody';
 import { CreateUnbindingGeipRequestBody } from './model/CreateUnbindingGeipRequestBody';
 import { CreateVifPeer } from './model/CreateVifPeer';
+import { CreateVifPeerDetectionRequest } from './model/CreateVifPeerDetectionRequest';
+import { CreateVifPeerDetectionRequestBody } from './model/CreateVifPeerDetectionRequestBody';
+import { CreateVifPeerDetectionRequestBodyVifPeerDetection } from './model/CreateVifPeerDetectionRequestBodyVifPeerDetection';
+import { CreateVifPeerDetectionResponse } from './model/CreateVifPeerDetectionResponse';
 import { CreateVifPeerRequest } from './model/CreateVifPeerRequest';
 import { CreateVifPeerRequestBody } from './model/CreateVifPeerRequestBody';
 import { CreateVifPeerResponse } from './model/CreateVifPeerResponse';
@@ -67,6 +71,8 @@ import { DeletePeerLinkRequest } from './model/DeletePeerLinkRequest';
 import { DeletePeerLinkResponse } from './model/DeletePeerLinkResponse';
 import { DeleteResourceTagRequest } from './model/DeleteResourceTagRequest';
 import { DeleteResourceTagResponse } from './model/DeleteResourceTagResponse';
+import { DeleteVifPeerDetectionRequest } from './model/DeleteVifPeerDetectionRequest';
+import { DeleteVifPeerDetectionResponse } from './model/DeleteVifPeerDetectionResponse';
 import { DeleteVifPeerRequest } from './model/DeleteVifPeerRequest';
 import { DeleteVifPeerResponse } from './model/DeleteVifPeerResponse';
 import { DeleteVirtualGatewayRequest } from './model/DeleteVirtualGatewayRequest';
@@ -106,6 +112,8 @@ import { ListSwitchoverTestRecordsResponse } from './model/ListSwitchoverTestRec
 import { ListTagResourceInstancesRequest } from './model/ListTagResourceInstancesRequest';
 import { ListTagResourceInstancesRequestBody } from './model/ListTagResourceInstancesRequestBody';
 import { ListTagResourceInstancesResponse } from './model/ListTagResourceInstancesResponse';
+import { ListVifPeerDetectionsRequest } from './model/ListVifPeerDetectionsRequest';
+import { ListVifPeerDetectionsResponse } from './model/ListVifPeerDetectionsResponse';
 import { ListVirtualGatewaysRequest } from './model/ListVirtualGatewaysRequest';
 import { ListVirtualGatewaysResponse } from './model/ListVirtualGatewaysResponse';
 import { ListVirtualInterfacesRequest } from './model/ListVirtualInterfacesRequest';
@@ -141,6 +149,8 @@ import { ShowQuotasResponse } from './model/ShowQuotasResponse';
 import { ShowQuotasResponseBodyQuotas } from './model/ShowQuotasResponseBodyQuotas';
 import { ShowResourceTagRequest } from './model/ShowResourceTagRequest';
 import { ShowResourceTagResponse } from './model/ShowResourceTagResponse';
+import { ShowVifPeerDetectionRequest } from './model/ShowVifPeerDetectionRequest';
+import { ShowVifPeerDetectionResponse } from './model/ShowVifPeerDetectionResponse';
 import { ShowVirtualGatewayRequest } from './model/ShowVirtualGatewayRequest';
 import { ShowVirtualGatewayResponse } from './model/ShowVirtualGatewayResponse';
 import { ShowVirtualInterfaceRequest } from './model/ShowVirtualInterfaceRequest';
@@ -162,6 +172,9 @@ import { UpdateDirectConnect } from './model/UpdateDirectConnect';
 import { UpdateDirectConnectRequest } from './model/UpdateDirectConnectRequest';
 import { UpdateDirectConnectRequestBody } from './model/UpdateDirectConnectRequestBody';
 import { UpdateDirectConnectResponse } from './model/UpdateDirectConnectResponse';
+import { UpdateExtendAttributeRequest } from './model/UpdateExtendAttributeRequest';
+import { UpdateExtendAttributeRequestBody } from './model/UpdateExtendAttributeRequestBody';
+import { UpdateExtendAttributeResponse } from './model/UpdateExtendAttributeResponse';
 import { UpdateExternalPeerLinkRequestBody } from './model/UpdateExternalPeerLinkRequestBody';
 import { UpdateExternalPeerLinkRequestBodyPeerLink } from './model/UpdateExternalPeerLinkRequestBodyPeerLink';
 import { UpdateGdgwRouteTableRequest } from './model/UpdateGdgwRouteTableRequest';
@@ -192,6 +205,7 @@ import { UpdateVirtualInterfaceRequestBody } from './model/UpdateVirtualInterfac
 import { UpdateVirtualInterfaceResponse } from './model/UpdateVirtualInterfaceResponse';
 import { VifExtendAttribute } from './model/VifExtendAttribute';
 import { VifPeer } from './model/VifPeer';
+import { VifPeerDetection } from './model/VifPeerDetection';
 import { VirtualGateway } from './model/VirtualGateway';
 import { VirtualInterface } from './model/VirtualInterface';
 
@@ -1043,6 +1057,88 @@ export class DcClient {
     }
 
     /**
+     * 当您想对虚拟接口对等体的远端网关的连通性进行探测时，可以通过调用此接口创建一个虚拟接口对等体连通性探测实例来实现。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建虚拟接口对等体连通性探测实例
+     * @param {CreateVifPeerDetectionRequestBody} createVifPeerDetectionRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createVifPeerDetection(createVifPeerDetectionRequest?: CreateVifPeerDetectionRequest): Promise<CreateVifPeerDetectionResponse> {
+        const options = ParamCreater().createVifPeerDetection(createVifPeerDetectionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当您想不再保留虚拟接口对等体连通性探测实例时，您可以通过调用此接口将其删除。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除虚拟接口对等体连通性探测实例
+     * @param {string} vifPeerId 虚拟接口对等体ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteVifPeerDetection(deleteVifPeerDetectionRequest?: DeleteVifPeerDetectionRequest): Promise<DeleteVifPeerDetectionResponse> {
+        const options = ParamCreater().deleteVifPeerDetection(deleteVifPeerDetectionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当您的对虚拟接口对等体发起连通性探测后，您可以通过此接口查询多次探测的信息，包括ID、探测开始时间、探测结束时间、探测状态、丢包率等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询虚拟接口对等体连通性探测实例列表
+     * @param {string} vifPeerId 虚拟接口对等体ID
+     * @param {string} [marker] 上一页最后一条资源记录的ID，为空时为查询第一页。 使用说明：必须与limit一起使用。
+     * @param {number} [limit] 每页返回的个数。 取值范围：1~2000。
+     * @param {string} [sortKey] 排序字段。
+     * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序(asc)或降序(desc)排列，默认为asc
+     * @param {number} [offset] 分页偏移量
+     * @param {boolean} [pageReverse] 分页参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVifPeerDetections(listVifPeerDetectionsRequest?: ListVifPeerDetectionsRequest): Promise<ListVifPeerDetectionsResponse> {
+        const options = ParamCreater().listVifPeerDetections(listVifPeerDetectionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当您的对虚拟接口对等体发起连通性探测后，您可以通过此接口查询单次探测的信息，包括ID、探测开始时间、探测结束时间、探测状态、丢包率等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询虚拟接口对等体连通性探测实例
+     * @param {string} vifPeerId 虚拟接口对等体ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVifPeerDetection(showVifPeerDetectionRequest?: ShowVifPeerDetectionRequest): Promise<ShowVifPeerDetectionResponse> {
+        const options = ParamCreater().showVifPeerDetection(showVifPeerDetectionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建虚拟网关
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1306,6 +1402,26 @@ export class DcClient {
      */
     public switchoverTest(switchoverTestRequest?: SwitchoverTestRequest): Promise<SwitchoverTestResponse> {
         const options = ParamCreater().switchoverTest(switchoverTestRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 虚拟接口有bfd与nqa两种可靠性检测方式，您可以通过调用此接口修改可靠性检测的参数，例如检测报文最小发送间隔、检测报文最大发送间隔、检测周期等信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改虚拟接口可靠性检测的扩展参数
+     * @param {string} virtualInterfaceId 虚拟接口ID。
+     * @param {UpdateExtendAttributeRequestBody} updateExtendAttributeRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateExtendAttribute(updateExtendAttributeRequest?: UpdateExtendAttributeRequest): Promise<UpdateExtendAttributeResponse> {
+        const options = ParamCreater().updateExtendAttribute(updateExtendAttributeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3516,6 +3632,198 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 当您想对虚拟接口对等体的远端网关的连通性进行探测时，可以通过调用此接口创建一个虚拟接口对等体连通性探测实例来实现。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createVifPeerDetection(createVifPeerDetectionRequest?: CreateVifPeerDetectionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/dcaas/vif-peer-detections",
+                contentType: "application/json; charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createVifPeerDetectionRequest !== null && createVifPeerDetectionRequest !== undefined) {
+                if (createVifPeerDetectionRequest instanceof CreateVifPeerDetectionRequest) {
+                    body = createVifPeerDetectionRequest.body
+                } else {
+                    body = createVifPeerDetectionRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当您想不再保留虚拟接口对等体连通性探测实例时，您可以通过调用此接口将其删除。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteVifPeerDetection(deleteVifPeerDetectionRequest?: DeleteVifPeerDetectionRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/dcaas/vif-peer-detections/{vif_peer_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let vifPeerId;
+
+            if (deleteVifPeerDetectionRequest !== null && deleteVifPeerDetectionRequest !== undefined) {
+                if (deleteVifPeerDetectionRequest instanceof DeleteVifPeerDetectionRequest) {
+                    vifPeerId = deleteVifPeerDetectionRequest.vifPeerId;
+                } else {
+                    vifPeerId = deleteVifPeerDetectionRequest['vif_peer_id'];
+                }
+            }
+
+        
+            if (vifPeerId === null || vifPeerId === undefined) {
+            throw new RequiredError('vifPeerId','Required parameter vifPeerId was null or undefined when calling deleteVifPeerDetection.');
+            }
+
+            options.pathParams = { 'vif_peer_id': vifPeerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当您的对虚拟接口对等体发起连通性探测后，您可以通过此接口查询多次探测的信息，包括ID、探测开始时间、探测结束时间、探测状态、丢包率等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listVifPeerDetections(listVifPeerDetectionsRequest?: ListVifPeerDetectionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/dcaas/vif-peer-detections",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let vifPeerId;
+            
+            let marker;
+            
+            let limit;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let offset;
+            
+            let pageReverse;
+
+            if (listVifPeerDetectionsRequest !== null && listVifPeerDetectionsRequest !== undefined) {
+                if (listVifPeerDetectionsRequest instanceof ListVifPeerDetectionsRequest) {
+                    vifPeerId = listVifPeerDetectionsRequest.vifPeerId;
+                    marker = listVifPeerDetectionsRequest.marker;
+                    limit = listVifPeerDetectionsRequest.limit;
+                    sortKey = listVifPeerDetectionsRequest.sortKey;
+                    sortDir = listVifPeerDetectionsRequest.sortDir;
+                    offset = listVifPeerDetectionsRequest.offset;
+                    pageReverse = listVifPeerDetectionsRequest.pageReverse;
+                } else {
+                    vifPeerId = listVifPeerDetectionsRequest['vif_peer_id'];
+                    marker = listVifPeerDetectionsRequest['marker'];
+                    limit = listVifPeerDetectionsRequest['limit'];
+                    sortKey = listVifPeerDetectionsRequest['sort_key'];
+                    sortDir = listVifPeerDetectionsRequest['sort_dir'];
+                    offset = listVifPeerDetectionsRequest['offset'];
+                    pageReverse = listVifPeerDetectionsRequest['page_reverse'];
+                }
+            }
+
+        
+            if (vifPeerId === null || vifPeerId === undefined) {
+            throw new RequiredError('vifPeerId','Required parameter vifPeerId was null or undefined when calling listVifPeerDetections.');
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (pageReverse !== null && pageReverse !== undefined) {
+                localVarQueryParameter['page_reverse'] = pageReverse;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'vif_peer_id': vifPeerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当您的对虚拟接口对等体发起连通性探测后，您可以通过此接口查询单次探测的信息，包括ID、探测开始时间、探测结束时间、探测状态、丢包率等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVifPeerDetection(showVifPeerDetectionRequest?: ShowVifPeerDetectionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/dcaas/vif-peer-detections/{vif_peer_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let vifPeerId;
+
+            if (showVifPeerDetectionRequest !== null && showVifPeerDetectionRequest !== undefined) {
+                if (showVifPeerDetectionRequest instanceof ShowVifPeerDetectionRequest) {
+                    vifPeerId = showVifPeerDetectionRequest.vifPeerId;
+                } else {
+                    vifPeerId = showVifPeerDetectionRequest['vif_peer_id'];
+                }
+            }
+
+        
+            if (vifPeerId === null || vifPeerId === undefined) {
+            throw new RequiredError('vifPeerId','Required parameter vifPeerId was null or undefined when calling showVifPeerDetection.');
+            }
+
+            options.pathParams = { 'vif_peer_id': vifPeerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建虚拟网关
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4159,6 +4467,52 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 虚拟接口有bfd与nqa两种可靠性检测方式，您可以通过调用此接口修改可靠性检测的参数，例如检测报文最小发送间隔、检测报文最大发送间隔、检测周期等信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateExtendAttribute(updateExtendAttributeRequest?: UpdateExtendAttributeRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/dcaas/virtual-interfaces/{virtual_interface_id}/extend-attributes",
+                contentType: "application/json; charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let virtualInterfaceId;
+
+            if (updateExtendAttributeRequest !== null && updateExtendAttributeRequest !== undefined) {
+                if (updateExtendAttributeRequest instanceof UpdateExtendAttributeRequest) {
+                    virtualInterfaceId = updateExtendAttributeRequest.virtualInterfaceId;
+                    body = updateExtendAttributeRequest.body
+                } else {
+                    virtualInterfaceId = updateExtendAttributeRequest['virtual_interface_id'];
+                    body = updateExtendAttributeRequest['body'];
+                }
+            }
+
+        
+            if (virtualInterfaceId === null || virtualInterfaceId === undefined) {
+            throw new RequiredError('virtualInterfaceId','Required parameter virtualInterfaceId was null or undefined when calling updateExtendAttribute.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'virtual_interface_id': virtualInterfaceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

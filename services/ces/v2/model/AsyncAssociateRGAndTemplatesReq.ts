@@ -1,3 +1,4 @@
+import { NoticeTypeNotificationTemplateList } from './NoticeTypeNotificationTemplateList';
 import { Notification } from './Notification';
 
 
@@ -12,6 +13,7 @@ export class AsyncAssociateRGAndTemplatesReq {
     private 'enterprise_project_id'?: string;
     private 'notification_manner'?: AsyncAssociateRGAndTemplatesReqNotificationMannerEnum | string;
     private 'notification_policy_ids'?: Array<string>;
+    private 'notice_type_notification_template_list'?: Array<NoticeTypeNotificationTemplateList>;
     public constructor(templateIds?: Array<string>, notificationEnabled?: boolean) { 
         this['template_ids'] = templateIds;
         this['notification_enabled'] = notificationEnabled;
@@ -115,6 +117,16 @@ export class AsyncAssociateRGAndTemplatesReq {
     }
     public get notificationPolicyIds(): Array<string> | undefined {
         return this['notification_policy_ids'];
+    }
+    public withNoticeTypeNotificationTemplateList(noticeTypeNotificationTemplateList: Array<NoticeTypeNotificationTemplateList>): AsyncAssociateRGAndTemplatesReq {
+        this['notice_type_notification_template_list'] = noticeTypeNotificationTemplateList;
+        return this;
+    }
+    public set noticeTypeNotificationTemplateList(noticeTypeNotificationTemplateList: Array<NoticeTypeNotificationTemplateList>  | undefined) {
+        this['notice_type_notification_template_list'] = noticeTypeNotificationTemplateList;
+    }
+    public get noticeTypeNotificationTemplateList(): Array<NoticeTypeNotificationTemplateList> | undefined {
+        return this['notice_type_notification_template_list'];
     }
 }
 

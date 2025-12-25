@@ -102,5 +102,6 @@ export enum ListPacifyWordsRequestLanguageEnum {
     ESP = 'ESP',
     POR = 'por',
     ARABIC = 'Arabic',
-    THAI = 'Thai'
+    THAI = 'Thai',
+    FR = 'fr'
 }

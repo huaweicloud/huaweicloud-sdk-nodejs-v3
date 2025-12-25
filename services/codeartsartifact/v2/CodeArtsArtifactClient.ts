@@ -2,13 +2,21 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { ArtifactSearchResult } from './model/ArtifactSearchResult';
 import { AttentionDO } from './model/AttentionDO';
+import { AuditDO } from './model/AuditDO';
+import { AuditResult } from './model/AuditResult';
+import { BasePaginationResponseEntity } from './model/BasePaginationResponseEntity';
+import { BasePaginationResponseEntityV5 } from './model/BasePaginationResponseEntityV5';
+import { BasicDOV5 } from './model/BasicDOV5';
 import { BatchDeleteTrashesRequest } from './model/BatchDeleteTrashesRequest';
 import { BatchDeleteTrashesResponse } from './model/BatchDeleteTrashesResponse';
 import { BatchRestoreRepoRequest } from './model/BatchRestoreRepoRequest';
 import { BatchRestoreRepoResponse } from './model/BatchRestoreRepoResponse';
+import { CapacitySettingVO } from './model/CapacitySettingVO';
 import { CreateArtifactoryRequest } from './model/CreateArtifactoryRequest';
 import { CreateArtifactoryResponse } from './model/CreateArtifactoryResponse';
+import { CreateArtifactoryResult } from './model/CreateArtifactoryResult';
 import { CreateAttentionRequest } from './model/CreateAttentionRequest';
 import { CreateAttentionResponse } from './model/CreateAttentionResponse';
 import { CreateDockerRepositoriesRequest } from './model/CreateDockerRepositoriesRequest';
@@ -16,50 +24,131 @@ import { CreateDockerRepositoriesResponse } from './model/CreateDockerRepositori
 import { CreateDockerRepositoryDO } from './model/CreateDockerRepositoryDO';
 import { CreateMavenRepoRequest } from './model/CreateMavenRepoRequest';
 import { CreateMavenRepoResponse } from './model/CreateMavenRepoResponse';
+import { CreateMavenRepoResult } from './model/CreateMavenRepoResult';
 import { CreateNotMavenRepoDO } from './model/CreateNotMavenRepoDO';
 import { CreateProjectRelatedRepositoryRequest } from './model/CreateProjectRelatedRepositoryRequest';
 import { CreateProjectRelatedRepositoryResponse } from './model/CreateProjectRelatedRepositoryResponse';
 import { DeleteArtifactFileRequest } from './model/DeleteArtifactFileRequest';
 import { DeleteArtifactFileResponse } from './model/DeleteArtifactFileResponse';
+import { DeleteCompletelyUpdateFileStateRequest } from './model/DeleteCompletelyUpdateFileStateRequest';
+import { DeleteCompletelyUpdateFileStateResponse } from './model/DeleteCompletelyUpdateFileStateResponse';
 import { DeleteRepositoryRequest } from './model/DeleteRepositoryRequest';
 import { DeleteRepositoryResponse } from './model/DeleteRepositoryResponse';
+import { DevcloudUserDOV5 } from './model/DevcloudUserDOV5';
+import { DevcloudUserDOV5Page } from './model/DevcloudUserDOV5Page';
+import { DomainIPWhiteListModel } from './model/DomainIPWhiteListModel';
+import { DomainIPWhiteListModelPage } from './model/DomainIPWhiteListModelPage';
+import { DownloadFolderInfo } from './model/DownloadFolderInfo';
 import { IDEPrivilageProjectInfo } from './model/IDEPrivilageProjectInfo';
 import { IDERepoRevisionModel } from './model/IDERepoRevisionModel';
 import { IDERepoSearchDO } from './model/IDERepoSearchDO';
 import { IDERepositoryDO } from './model/IDERepositoryDO';
 import { IDERepositoryPair } from './model/IDERepositoryPair';
 import { IDETrashArtifactModel } from './model/IDETrashArtifactModel';
+import { LatestVersionFilesCount } from './model/LatestVersionFilesCount';
 import { ListAllRepositoriesRequest } from './model/ListAllRepositoriesRequest';
 import { ListAllRepositoriesResponse } from './model/ListAllRepositoriesResponse';
+import { ListAllRepositoriesResult } from './model/ListAllRepositoriesResult';
 import { ListArtifactoryComponentRequest } from './model/ListArtifactoryComponentRequest';
 import { ListArtifactoryComponentResponse } from './model/ListArtifactoryComponentResponse';
 import { ListArtifactoryStorageStatisticRequest } from './model/ListArtifactoryStorageStatisticRequest';
 import { ListArtifactoryStorageStatisticResponse } from './model/ListArtifactoryStorageStatisticResponse';
+import { ListAttentionPageResult } from './model/ListAttentionPageResult';
+import { ListAttentionResult } from './model/ListAttentionResult';
 import { ListAttentionsRequest } from './model/ListAttentionsRequest';
 import { ListAttentionsResponse } from './model/ListAttentionsResponse';
+import { ListCapacityMessageSettingRequest } from './model/ListCapacityMessageSettingRequest';
+import { ListCapacityMessageSettingResponse } from './model/ListCapacityMessageSettingResponse';
+import { ListChildProxyRepositoriesListRequest } from './model/ListChildProxyRepositoriesListRequest';
+import { ListChildProxyRepositoriesListResponse } from './model/ListChildProxyRepositoriesListResponse';
+import { ListDomainIpConfigRequest } from './model/ListDomainIpConfigRequest';
+import { ListDomainIpConfigResponse } from './model/ListDomainIpConfigResponse';
+import { ListFileBuildArchivesRequest } from './model/ListFileBuildArchivesRequest';
+import { ListFileBuildArchivesResponse } from './model/ListFileBuildArchivesResponse';
+import { ListFilesRequest } from './model/ListFilesRequest';
+import { ListFilesResponse } from './model/ListFilesResponse';
+import { ListLatestVersionFilesRequest } from './model/ListLatestVersionFilesRequest';
+import { ListLatestVersionFilesResponse } from './model/ListLatestVersionFilesResponse';
+import { ListMavenListRequest } from './model/ListMavenListRequest';
+import { ListMavenListResponse } from './model/ListMavenListResponse';
+import { ListMavenUserRequest } from './model/ListMavenUserRequest';
+import { ListMavenUserResponse } from './model/ListMavenUserResponse';
+import { ListNetProxyRequest } from './model/ListNetProxyRequest';
+import { ListNetProxyResponse } from './model/ListNetProxyResponse';
+import { ListProjectRolePermissionsRequest } from './model/ListProjectRolePermissionsRequest';
+import { ListProjectRolePermissionsResponse } from './model/ListProjectRolePermissionsResponse';
+import { ListProjectUsersRequest } from './model/ListProjectUsersRequest';
+import { ListProjectUsersResponse } from './model/ListProjectUsersResponse';
+import { ListSecGuardListRequest } from './model/ListSecGuardListRequest';
+import { ListSecGuardListResponse } from './model/ListSecGuardListResponse';
+import { MalwareCount } from './model/MalwareCount';
+import { MavenTabRepo } from './model/MavenTabRepo';
 import { ModifyRepositoryRequest } from './model/ModifyRepositoryRequest';
 import { ModifyRepositoryResponse } from './model/ModifyRepositoryResponse';
+import { NetProxyModelV5 } from './model/NetProxyModelV5';
+import { OpensourceCount } from './model/OpensourceCount';
+import { PageParam } from './model/PageParam';
 import { PathMap } from './model/PathMap';
 import { PrivilegesResponseResult } from './model/PrivilegesResponseResult';
+import { ProjectRolePermissionDo } from './model/ProjectRolePermissionDo';
 import { ReleaseFileVersionDo } from './model/ReleaseFileVersionDo';
+import { ReleaseStorageVOV5 } from './model/ReleaseStorageVOV5';
+import { RepoFileDOV5 } from './model/RepoFileDOV5';
+import { RepoFileDOV5Page } from './model/RepoFileDOV5Page';
+import { RepoFileQueryDTOV5 } from './model/RepoFileQueryDTOV5';
+import { RepoUserPrivilegeResult } from './model/RepoUserPrivilegeResult';
+import { RepoUserPrivilegeV5 } from './model/RepoUserPrivilegeV5';
+import { RepositoryBasicDO } from './model/RepositoryBasicDO';
+import { RepositoryBuildVO } from './model/RepositoryBuildVO';
+import { RepositoryDO } from './model/RepositoryDO';
+import { RepositoryDOV5 } from './model/RepositoryDOV5';
+import { RepositoryUserDO } from './model/RepositoryUserDO';
 import { ResetUserPasswordRequest } from './model/ResetUserPasswordRequest';
 import { ResetUserPasswordResponse } from './model/ResetUserPasswordResponse';
 import { SearchArtifactsRequest } from './model/SearchArtifactsRequest';
 import { SearchArtifactsResponse } from './model/SearchArtifactsResponse';
+import { SearchArtifactsResult } from './model/SearchArtifactsResult';
 import { SearchByChecksumRequest } from './model/SearchByChecksumRequest';
 import { SearchByChecksumResponse } from './model/SearchByChecksumResponse';
+import { SecGuardTaskCount } from './model/SecGuardTaskCount';
+import { SecGuardTaskDetail } from './model/SecGuardTaskDetail';
 import { ShowAuditRequest } from './model/ShowAuditRequest';
 import { ShowAuditResponse } from './model/ShowAuditResponse';
+import { ShowAutoDeleteJobSettingsRequest } from './model/ShowAutoDeleteJobSettingsRequest';
+import { ShowAutoDeleteJobSettingsResponse } from './model/ShowAutoDeleteJobSettingsResponse';
+import { ShowDomainReleaseRepoStorageRequest } from './model/ShowDomainReleaseRepoStorageRequest';
+import { ShowDomainReleaseRepoStorageResponse } from './model/ShowDomainReleaseRepoStorageResponse';
+import { ShowFileDetailByFullNameRequest } from './model/ShowFileDetailByFullNameRequest';
+import { ShowFileDetailByFullNameResponse } from './model/ShowFileDetailByFullNameResponse';
+import { ShowFileDetailRequest } from './model/ShowFileDetailRequest';
+import { ShowFileDetailResponse } from './model/ShowFileDetailResponse';
 import { ShowFileTreeRequest } from './model/ShowFileTreeRequest';
 import { ShowFileTreeResponse } from './model/ShowFileTreeResponse';
+import { ShowFileTreeResult } from './model/ShowFileTreeResult';
+import { ShowFileTreeResultChildren } from './model/ShowFileTreeResultChildren';
+import { ShowLatestVersionFilesCountRequest } from './model/ShowLatestVersionFilesCountRequest';
+import { ShowLatestVersionFilesCountResponse } from './model/ShowLatestVersionFilesCountResponse';
 import { ShowMavenInfoRequest } from './model/ShowMavenInfoRequest';
 import { ShowMavenInfoResponse } from './model/ShowMavenInfoResponse';
+import { ShowMultiRolesUserPermissionsRequest } from './model/ShowMultiRolesUserPermissionsRequest';
+import { ShowMultiRolesUserPermissionsResponse } from './model/ShowMultiRolesUserPermissionsResponse';
+import { ShowOpenSourceEnabledRequest } from './model/ShowOpenSourceEnabledRequest';
+import { ShowOpenSourceEnabledResponse } from './model/ShowOpenSourceEnabledResponse';
+import { ShowPackageDataDetailRequest } from './model/ShowPackageDataDetailRequest';
+import { ShowPackageDataDetailResponse } from './model/ShowPackageDataDetailResponse';
+import { ShowPackageInfoRequest } from './model/ShowPackageInfoRequest';
+import { ShowPackageInfoResponse } from './model/ShowPackageInfoResponse';
 import { ShowProjectListRequest } from './model/ShowProjectListRequest';
 import { ShowProjectListResponse } from './model/ShowProjectListResponse';
+import { ShowProjectListResult } from './model/ShowProjectListResult';
 import { ShowProjectReleaseFilesRequest } from './model/ShowProjectReleaseFilesRequest';
 import { ShowProjectReleaseFilesResponse } from './model/ShowProjectReleaseFilesResponse';
+import { ShowProjectStorageInfoRequest } from './model/ShowProjectStorageInfoRequest';
+import { ShowProjectStorageInfoResponse } from './model/ShowProjectStorageInfoResponse';
 import { ShowReleaseProjectFilesRequest } from './model/ShowReleaseProjectFilesRequest';
 import { ShowReleaseProjectFilesResponse } from './model/ShowReleaseProjectFilesResponse';
+import { ShowRepoUserInfoRequest } from './model/ShowRepoUserInfoRequest';
+import { ShowRepoUserInfoResponse } from './model/ShowRepoUserInfoResponse';
 import { ShowRepositoryInfoRequest } from './model/ShowRepositoryInfoRequest';
 import { ShowRepositoryInfoResponse } from './model/ShowRepositoryInfoResponse';
 import { ShowRepositoryRequest } from './model/ShowRepositoryRequest';
@@ -68,11 +157,19 @@ import { ShowStorageRequest } from './model/ShowStorageRequest';
 import { ShowStorageResponse } from './model/ShowStorageResponse';
 import { ShowUserPrivilegesRequest } from './model/ShowUserPrivilegesRequest';
 import { ShowUserPrivilegesResponse } from './model/ShowUserPrivilegesResponse';
+import { ShowUserTicketRequest } from './model/ShowUserTicketRequest';
+import { ShowUserTicketResponse } from './model/ShowUserTicketResponse';
+import { StandarBaseResponseV5 } from './model/StandarBaseResponseV5';
 import { StandardResponseResult } from './model/StandardResponseResult';
+import { StorageInfoDOV5 } from './model/StorageInfoDOV5';
+import { StorageMap } from './model/StorageMap';
+import { StorageStatisticDO } from './model/StorageStatisticDO';
 import { TrashArtifactModelForDelete } from './model/TrashArtifactModelForDelete';
+import { TrashcanResultData } from './model/TrashcanResultData';
 import { UpdateArtifactoryRequest } from './model/UpdateArtifactoryRequest';
 import { UpdateArtifactoryResponse } from './model/UpdateArtifactoryResponse';
 import { UpdateNotMavenRepoDO } from './model/UpdateNotMavenRepoDO';
+import { VersionViewVoV5 } from './model/VersionViewVoV5';
 
 export class CodeArtsArtifactClient {
     public static newBuilder(): ClientBuilder<CodeArtsArtifactClient> {
@@ -243,6 +340,25 @@ export class CodeArtsArtifactClient {
     }
 
     /**
+     * 根据文件ID彻底删除文件或文件夹，删除后不能恢复，支持批量删除。可使用该接口清理不再需要的文件或文件夹以释放存储空间。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 彻底删除文件/文件夹
+     * @param {Array<string>} [deleteCompletelyUpdateFileStateRequestBody] 删除文件id列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteCompletelyUpdateFileState(deleteCompletelyUpdateFileStateRequest?: DeleteCompletelyUpdateFileStateRequest): Promise<DeleteCompletelyUpdateFileStateResponse> {
+        const options = ParamCreater().deleteCompletelyUpdateFileState(deleteCompletelyUpdateFileStateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除仓库到回收站
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -358,6 +474,252 @@ export class CodeArtsArtifactClient {
     }
 
     /**
+     * 查询租户容量消息通知设置，包含容量阈值和是否启用邮件通知等信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询租户容量消息通知设置信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCapacityMessageSetting(listCapacityMessageSettingRequest?: ListCapacityMessageSettingRequest): Promise<ListCapacityMessageSettingResponse> {
+        const options = ParamCreater().listCapacityMessageSetting();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据仓库ID获取指定聚合仓的仓库代理列表，包含仓库状态、类型、地址和访问路径白名单等信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取聚合仓下的仓库代理列表
+     * @param {string} repoId **参数解释**: 仓库id，格式为{region}_{domainId}_{format}_{sequence}。可以从私有依赖库首页-&gt;仓库概览-&gt;仓库地址 url 中获取，最后两个\&quot;/\&quot;中间的字符串即为仓库id。 **约束限制**: 不涉及。 **取值范围**: 根据仓库id格式中region, domainId需要为有效值，format有效值为:npm|go|pypi|rpm|composer|maven|debian|conan|nuget|docker2|cocoapods|ohpm|generic|helm|conda, sequence取值根据套餐不同有不同上限值。 **默认取值**: 不涉及。
+     * @param {string} [type] **参数解释**: type。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listChildProxyRepositoriesList(listChildProxyRepositoriesListRequest?: ListChildProxyRepositoriesListRequest): Promise<ListChildProxyRepositoriesListResponse> {
+        const options = ParamCreater().listChildProxyRepositoriesList(listChildProxyRepositoriesListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询租户级IP白名单列表。在IP白名单的IP才能访问制品仓库，未配置IP白名单时，默认所有IP都可访问。该功能可用于保障制品仓库的安全，对访问IP进行严格控制。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询租户级IP白名单
+     * @param {number} [pageNo] **参数解释**: 分页查询的页数。 **约束限制**: 不涉及。 **取值范围**: 最小值1，最大值2147483647。 **默认取值**: 1
+     * @param {number} [pageSize] **参数解释**: 分页查询的每页数据量。 **约束限制**: 不涉及。 **取值范围**: 最小值1，最大值100。 **默认取值**: 10
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDomainIpConfig(listDomainIpConfigRequest?: ListDomainIpConfigRequest): Promise<ListDomainIpConfigResponse> {
+        const options = ParamCreater().listDomainIpConfig(listDomainIpConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当归档包数量庞大时，分页查询构建归档包列表，包含文件名、文件大小、下载地址、MD5校验和、构建地址、构建代码分支等信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 分页查询构建归档包列表
+     * @param {string} [parentId] 父节点id
+     * @param {string} [buildId] 构建id
+     * @param {string} [buildNo] 构建序号
+     * @param {number} [pageNo] 页数
+     * @param {number} [pageSize] 每页数据量
+     * @param {string} [repoBranch] codehub仓库分支
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFileBuildArchives(listFileBuildArchivesRequest?: ListFileBuildArchivesRequest): Promise<ListFileBuildArchivesResponse> {
+        const options = ParamCreater().listFileBuildArchives(listFileBuildArchivesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当项目或文件数量庞大时，分页查询项目或文件列表。可根据文件名、文件状态和文件的发布状态等参数进行过滤，从而快速找到所需文件，包含文件名、文件大小和下载地址等信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询文件/项目列表
+     * @param {RepoFileQueryDTOV5} listFilesRequestBody **参数解释**： 查询参数。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFiles(listFilesRequest?: ListFilesRequest): Promise<ListFilesResponse> {
+        const options = ParamCreater().listFiles(listFilesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当项目文件数量庞大时，通过该接口可以分页查询项目下所有文件的最新版本，包含文件名、文件大小、文件状态和发布状态等信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询项目下所有文件的最新版本
+     * @param {string} [name] **参数解释**： name。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [sortBy] **参数解释**： sort_by。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [sortDir] **参数解释**： sort_dir。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**： offset。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [limit] **参数解释**： limit。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLatestVersionFiles(listLatestVersionFilesRequest?: ListLatestVersionFilesRequest): Promise<ListLatestVersionFilesResponse> {
+        const options = ParamCreater().listLatestVersionFiles(listLatestVersionFilesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Maven仓库列表，包含仓库状态、类型、地址和访问路径白名单等信息。支持根据项目ID和仓库ID等参数进行过滤。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Maven仓库列表
+     * @param {boolean} [_default] **参数解释**: 是否返回默认仓库。 **约束限制**: 不涉及。 **取值范围**: true or false。 **默认取值**: false。
+     * @param {string} [policy] **参数解释**: 仓库类型：snapshot 或 release。 **约束限制**: 不涉及。 **取值范围**: snapshot or releases。 **默认取值**: 不涉及。
+     * @param {string} [repoIds] **参数解释**: 仓库id，多个仓库id用英文逗号间隔。仓库id格式为{region}_{domainId}_{format}_{sequence}。可以从私有依赖库首页-&gt;仓库概览-&gt;仓库地址 url 中获取，最后两个\&quot;/\&quot;中间的字符串即为仓库id。 **约束限制**: 不涉及。 **取值范围**: 最大长度512。 **默认取值**: 不涉及。
+     * @param {string} [access] **参数解释**: 权限过滤设置，允许过滤读(r)和读写(rw)权限。 **约束限制**: 不涉及。 **取值范围**: r or rw。 **默认取值**: r。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listMavenList(listMavenListRequest?: ListMavenListRequest): Promise<ListMavenListResponse> {
+        const options = ParamCreater().listMavenList(listMavenListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分页查询私有库用户列表，包含用户名和用户是否启用等信息。可根据用户名进行过滤。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询私有库用户列表
+     * @param {string} [userName] **参数解释**: 用户名。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 不涉及。
+     * @param {number} [pageNo] **参数解释**: 分页查询的页数。 **约束限制**: 不涉及。 **取值范围**: 最小值1，最大值2147483647。 **默认取值**: 1
+     * @param {number} [pageSize] **参数解释**: 分页查询的每页数据量。 **约束限制**: 不涉及。 **取值范围**: 最小值1，最大值100。 **默认取值**: 10
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listMavenUser(listMavenUserRequest?: ListMavenUserRequest): Promise<ListMavenUserResponse> {
+        const options = ParamCreater().listMavenUser(listMavenUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询网络代理列表，返回代理源的访问地址及认证信息等，用于代理外部公开的制品资源。通过网络代理，开发人员可以安全、高效地访问所需的外部资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询网络代理列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listNetProxy(listNetProxyRequest?: ListNetProxyRequest): Promise<ListNetProxyResponse> {
+        const options = ParamCreater().listNetProxy();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看项目的角色权限设置，包含上传下载、创建文件夹、清空或者还原回收站和更改软件包状态等设置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看项目的角色权限设置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProjectRolePermissions(listProjectRolePermissionsRequest?: ListProjectRolePermissionsRequest): Promise<ListProjectRolePermissionsResponse> {
+        const options = ParamCreater().listProjectRolePermissions();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当项目中的用户数量较多时，分页查询指定项目下的用户列表，包含用户名和角色等信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询项目下的用户
+     * @param {string} repoId **参数解释**: 仓库id。可在私有库仓库**概览**界面查看。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 无。
+     * @param {string} [scene] **参数解释**: scene。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 无。
+     * @param {number} [pageNo] **参数解释**: 分页查询的页数。 **约束限制**: 不涉及。 **取值范围**: 最小值1，最大值2147483647。 **默认取值**: 1
+     * @param {number} [pageSize] **参数解释**: 分页查询的每页数据量。 **约束限制**: 不涉及。 **取值范围**: 最小值1，最大值100。 **默认取值**: 10
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProjectUsers(listProjectUsersRequest?: ListProjectUsersRequest): Promise<ListProjectUsersResponse> {
+        const options = ParamCreater().listProjectUsers(listProjectUsersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分页查询制品安全扫描任务列表，包含扫描制品数量、漏洞数量、病毒文件数量和恶意代码文件数量等信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询制品安全扫描任务列表
+     * @param {number} [date] **参数解释**: 查询多少天内的任务。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 1。
+     * @param {number} [pageNo] **参数解释**: 分页查询的页数。 **约束限制**: 不涉及。 **取值范围**: 最小值1，最大值2147483647。 **默认取值**: 1
+     * @param {number} [pageSize] **参数解释**: 分页查询的每页数据量。 **约束限制**: 不涉及。 **取值范围**: 最小值1，最大值100。 **默认取值**: 10
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecGuardList(listSecGuardListRequest?: ListSecGuardListRequest): Promise<ListSecGuardListResponse> {
+        const options = ParamCreater().listSecGuardList(listSecGuardListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 编辑仓库
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -463,6 +825,80 @@ export class CodeArtsArtifactClient {
     }
 
     /**
+     * 查询项目自动删除任务设置，包含文件的过期自动删除时间及删除规则。自动删除任务可以自动执行文件清理任务，减少管理员的工作负担，确保存储资源的有效利用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询项目自动删除任务设置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutoDeleteJobSettings(showAutoDeleteJobSettingsRequest?: ShowAutoDeleteJobSettingsRequest): Promise<ShowAutoDeleteJobSettingsResponse> {
+        const options = ParamCreater().showAutoDeleteJobSettings();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询租户发布库存储容量，包含已使用存储容量、最大存储容量、套餐类型和仓库数量等信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询租户发布库存储容量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDomainReleaseRepoStorage(showDomainReleaseRepoStorageRequest?: ShowDomainReleaseRepoStorageRequest): Promise<ShowDomainReleaseRepoStorageResponse> {
+        const options = ParamCreater().showDomainReleaseRepoStorage();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 在日常数据管理工作中，根据文件ID查询指定文件详情，包含文件名、文件大小、下载地址、校验和、文件状态和发布状态等信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据文件ID查询文件详情
+     * @param {string} id **参数解释**： 文件id。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFileDetail(showFileDetailRequest?: ShowFileDetailRequest): Promise<ShowFileDetailResponse> {
+        const options = ParamCreater().showFileDetail(showFileDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 在日常数据管理工作中，根据文件完整路径查询指定文件详情，包含文件名、文件大小、下载地址、校验和、文件状态和发布状态等信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据文件完整路径查询文件详情
+     * @param {string} fileName **参数解释**： 文件名。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFileDetailByFullName(showFileDetailByFullNameRequest?: ShowFileDetailByFullNameRequest): Promise<ShowFileDetailByFullNameResponse> {
+        const options = ParamCreater().showFileDetailByFullName(showFileDetailByFullNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询仓库文件夹目录
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -486,6 +922,25 @@ export class CodeArtsArtifactClient {
     }
 
     /**
+     * 查询项目下所有文件的数量，该接口会识别所有文件的最新版本，从而提供准确的文件数量统计。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询项目下所有文件的数量
+     * @param {string} [name] **参数解释**： 文件名。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLatestVersionFilesCount(showLatestVersionFilesCountRequest?: ShowLatestVersionFilesCountRequest): Promise<ShowLatestVersionFilesCountResponse> {
+        const options = ParamCreater().showLatestVersionFilesCount(showLatestVersionFilesCountRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询租户Maven仓库列表和账号密码，支持跨租户
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -500,6 +955,78 @@ export class CodeArtsArtifactClient {
      */
     public showMavenInfo(showMavenInfoRequest?: ShowMavenInfoRequest): Promise<ShowMavenInfoResponse> {
         const options = ParamCreater().showMavenInfo(showMavenInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询多角色用户权限，包含上传下载、创建文件夹、清空或者还原回收站和更改软件包状态等权限信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询多角色用户权限
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showMultiRolesUserPermissions(showMultiRolesUserPermissionsRequest?: ShowMultiRolesUserPermissionsRequest): Promise<ShowMultiRolesUserPermissionsResponse> {
+        const options = ParamCreater().showMultiRolesUserPermissions();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询中心仓是否启用，用于确定当前局点是否具备中心仓功能，从而确保业务流程的顺利进行。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询中心仓是否启用
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showOpenSourceEnabled(showOpenSourceEnabledRequest?: ShowOpenSourceEnabledRequest): Promise<ShowOpenSourceEnabledResponse> {
+        const options = ParamCreater().showOpenSourceEnabled();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取当前用户的套餐信息，包含总存储容量和已使用存储容量等信息，以便合理规划资源使用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取当前用户的套餐信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPackageDataDetail(showPackageDataDetailRequest?: ShowPackageDataDetailRequest): Promise<ShowPackageDataDetailResponse> {
+        const options = ParamCreater().showPackageDataDetail();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取当前用户的套餐状态，包含套餐扩展包的容量和流量规格，如资源类型、套餐状态、剩余天数等信息，帮助用户高效管理云资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取当前用户的套餐状态
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPackageInfo(showPackageInfoRequest?: ShowPackageInfoRequest): Promise<ShowPackageInfoResponse> {
+        const options = ParamCreater().showPackageInfo();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -547,6 +1074,25 @@ export class CodeArtsArtifactClient {
     }
 
     /**
+     * 查询项目下的制品存储容量，包含已使用存储容量和文件数量等信息。在项目管理中，可以使用该接口监控项目下的制品存储情况，以确保资源的有效利用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询项目下的制品存储容量信息
+     * @param {string} [parentId] **参数解释**： parent_id。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProjectStorageInfo(showProjectStorageInfoRequest?: ShowProjectStorageInfoRequest): Promise<ShowProjectStorageInfoResponse> {
+        const options = ParamCreater().showProjectStorageInfo(showProjectStorageInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取项目下文件版本信息列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -560,6 +1106,24 @@ export class CodeArtsArtifactClient {
      */
     public showReleaseProjectFiles(showReleaseProjectFilesRequest?: ShowReleaseProjectFilesRequest): Promise<ShowReleaseProjectFilesResponse> {
         const options = ParamCreater().showReleaseProjectFiles(showReleaseProjectFilesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 在自动化构建场景，用户可调用该接口查询租户私有依赖库的账号密码，以便进行后续的上传下载操作。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询租户私有依赖库的账号密码
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRepoUserInfo(showRepoUserInfoRequest?: ShowRepoUserInfoRequest): Promise<ShowRepoUserInfoResponse> {
+        const options = ParamCreater().showRepoUserInfo();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -638,6 +1202,24 @@ export class CodeArtsArtifactClient {
      */
     public showUserPrivileges(showUserPrivilegesRequest?: ShowUserPrivilegesRequest): Promise<ShowUserPrivilegesResponse> {
         const options = ParamCreater().showUserPrivileges();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询用户凭证，该凭证为IDC用户下载制品时使用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户凭证
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showUserTicket(showUserTicketRequest?: ShowUserTicketRequest): Promise<ShowUserTicketResponse> {
+        const options = ParamCreater().showUserTicket();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -962,6 +1544,41 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据文件ID彻底删除文件或文件夹，删除后不能恢复，支持批量删除。可使用该接口清理不再需要的文件或文件夹以释放存储空间。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteCompletelyUpdateFileState(deleteCompletelyUpdateFileStateRequest?: DeleteCompletelyUpdateFileStateRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/devreposerver/v5/files/compeletion",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deleteCompletelyUpdateFileStateRequest !== null && deleteCompletelyUpdateFileStateRequest !== undefined) {
+                if (deleteCompletelyUpdateFileStateRequest instanceof DeleteCompletelyUpdateFileStateRequest) {
+                    body = deleteCompletelyUpdateFileStateRequest.body
+                } else {
+                    body = deleteCompletelyUpdateFileStateRequest['body'];
+                }
+            }
+
+        
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
@@ -1305,6 +1922,556 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询租户容量消息通知设置，包含容量阈值和是否启用邮件通知等信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCapacityMessageSetting() {
+            const options = {
+                method: "GET",
+                url: "/devreposerver/v5/capacity-notice/settings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据仓库ID获取指定聚合仓的仓库代理列表，包含仓库状态、类型、地址和访问路径白名单等信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listChildProxyRepositoriesList(listChildProxyRepositoriesListRequest?: ListChildProxyRepositoriesListRequest) {
+            const options = {
+                method: "GET",
+                url: "/cloudartifact/v5/repositories/proxy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repoId;
+            
+            let type;
+
+            if (listChildProxyRepositoriesListRequest !== null && listChildProxyRepositoriesListRequest !== undefined) {
+                if (listChildProxyRepositoriesListRequest instanceof ListChildProxyRepositoriesListRequest) {
+                    repoId = listChildProxyRepositoriesListRequest.repoId;
+                    type = listChildProxyRepositoriesListRequest.type;
+                } else {
+                    repoId = listChildProxyRepositoriesListRequest['repo_id'];
+                    type = listChildProxyRepositoriesListRequest['type'];
+                }
+            }
+
+        
+            if (repoId === null || repoId === undefined) {
+                throw new RequiredError('repoId','Required parameter repoId was null or undefined when calling listChildProxyRepositoriesList.');
+            }
+            if (repoId !== null && repoId !== undefined) {
+                localVarQueryParameter['repo_id'] = repoId;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户级IP白名单列表。在IP白名单的IP才能访问制品仓库，未配置IP白名单时，默认所有IP都可访问。该功能可用于保障制品仓库的安全，对访问IP进行严格控制。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDomainIpConfig(listDomainIpConfigRequest?: ListDomainIpConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/cloudartifact/v5/domain/ipconfig",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let pageNo;
+            
+            let pageSize;
+
+            if (listDomainIpConfigRequest !== null && listDomainIpConfigRequest !== undefined) {
+                if (listDomainIpConfigRequest instanceof ListDomainIpConfigRequest) {
+                    pageNo = listDomainIpConfigRequest.pageNo;
+                    pageSize = listDomainIpConfigRequest.pageSize;
+                } else {
+                    pageNo = listDomainIpConfigRequest['page_no'];
+                    pageSize = listDomainIpConfigRequest['page_size'];
+                }
+            }
+
+        
+            if (pageNo !== null && pageNo !== undefined) {
+                localVarQueryParameter['page_no'] = pageNo;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当归档包数量庞大时，分页查询构建归档包列表，包含文件名、文件大小、下载地址、MD5校验和、构建地址、构建代码分支等信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFileBuildArchives(listFileBuildArchivesRequest?: ListFileBuildArchivesRequest) {
+            const options = {
+                method: "GET",
+                url: "/devreposerver/v5/files/archives",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let parentId;
+            
+            let buildId;
+            
+            let buildNo;
+            
+            let pageNo;
+            
+            let pageSize;
+            
+            let repoBranch;
+
+            if (listFileBuildArchivesRequest !== null && listFileBuildArchivesRequest !== undefined) {
+                if (listFileBuildArchivesRequest instanceof ListFileBuildArchivesRequest) {
+                    parentId = listFileBuildArchivesRequest.parentId;
+                    buildId = listFileBuildArchivesRequest.buildId;
+                    buildNo = listFileBuildArchivesRequest.buildNo;
+                    pageNo = listFileBuildArchivesRequest.pageNo;
+                    pageSize = listFileBuildArchivesRequest.pageSize;
+                    repoBranch = listFileBuildArchivesRequest.repoBranch;
+                } else {
+                    parentId = listFileBuildArchivesRequest['parent_id'];
+                    buildId = listFileBuildArchivesRequest['build_id'];
+                    buildNo = listFileBuildArchivesRequest['build_no'];
+                    pageNo = listFileBuildArchivesRequest['page_no'];
+                    pageSize = listFileBuildArchivesRequest['page_size'];
+                    repoBranch = listFileBuildArchivesRequest['repo_branch'];
+                }
+            }
+
+        
+            if (parentId !== null && parentId !== undefined) {
+                localVarQueryParameter['parent_id'] = parentId;
+            }
+            if (buildId !== null && buildId !== undefined) {
+                localVarQueryParameter['build_id'] = buildId;
+            }
+            if (buildNo !== null && buildNo !== undefined) {
+                localVarQueryParameter['build_no'] = buildNo;
+            }
+            if (pageNo !== null && pageNo !== undefined) {
+                localVarQueryParameter['page_no'] = pageNo;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (repoBranch !== null && repoBranch !== undefined) {
+                localVarQueryParameter['repo_branch'] = repoBranch;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当项目或文件数量庞大时，分页查询项目或文件列表。可根据文件名、文件状态和文件的发布状态等参数进行过滤，从而快速找到所需文件，包含文件名、文件大小和下载地址等信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFiles(listFilesRequest?: ListFilesRequest) {
+            const options = {
+                method: "POST",
+                url: "/devreposerver/v5/files/list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (listFilesRequest !== null && listFilesRequest !== undefined) {
+                if (listFilesRequest instanceof ListFilesRequest) {
+                    body = listFilesRequest.body
+                } else {
+                    body = listFilesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当项目文件数量庞大时，通过该接口可以分页查询项目下所有文件的最新版本，包含文件名、文件大小、文件状态和发布状态等信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLatestVersionFiles(listLatestVersionFilesRequest?: ListLatestVersionFilesRequest) {
+            const options = {
+                method: "GET",
+                url: "/devreposerver/v5/{project_id}/files/version",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let name;
+            
+            let sortBy;
+            
+            let sortDir;
+            
+            let offset;
+            
+            let limit;
+
+            if (listLatestVersionFilesRequest !== null && listLatestVersionFilesRequest !== undefined) {
+                if (listLatestVersionFilesRequest instanceof ListLatestVersionFilesRequest) {
+                    name = listLatestVersionFilesRequest.name;
+                    sortBy = listLatestVersionFilesRequest.sortBy;
+                    sortDir = listLatestVersionFilesRequest.sortDir;
+                    offset = listLatestVersionFilesRequest.offset;
+                    limit = listLatestVersionFilesRequest.limit;
+                } else {
+                    name = listLatestVersionFilesRequest['name'];
+                    sortBy = listLatestVersionFilesRequest['sort_by'];
+                    sortDir = listLatestVersionFilesRequest['sort_dir'];
+                    offset = listLatestVersionFilesRequest['offset'];
+                    limit = listLatestVersionFilesRequest['limit'];
+                }
+            }
+
+        
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (sortBy !== null && sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Maven仓库列表，包含仓库状态、类型、地址和访问路径白名单等信息。支持根据项目ID和仓库ID等参数进行过滤。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listMavenList(listMavenListRequest?: ListMavenListRequest) {
+            const options = {
+                method: "GET",
+                url: "/cloudartifact/v5/maven/list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let _default;
+            
+            let policy;
+            
+            let repoIds;
+            
+            let access;
+
+            if (listMavenListRequest !== null && listMavenListRequest !== undefined) {
+                if (listMavenListRequest instanceof ListMavenListRequest) {
+                    _default = listMavenListRequest._default;
+                    policy = listMavenListRequest.policy;
+                    repoIds = listMavenListRequest.repoIds;
+                    access = listMavenListRequest.access;
+                } else {
+                    _default = listMavenListRequest['default'];
+                    policy = listMavenListRequest['policy'];
+                    repoIds = listMavenListRequest['repo_ids'];
+                    access = listMavenListRequest['access'];
+                }
+            }
+
+        
+            if (_default !== null && _default !== undefined) {
+                localVarQueryParameter['default'] = _default;
+            }
+            if (policy !== null && policy !== undefined) {
+                localVarQueryParameter['policy'] = policy;
+            }
+            if (repoIds !== null && repoIds !== undefined) {
+                localVarQueryParameter['repo_ids'] = repoIds;
+            }
+            if (access !== null && access !== undefined) {
+                localVarQueryParameter['access'] = access;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分页查询私有库用户列表，包含用户名和用户是否启用等信息。可根据用户名进行过滤。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listMavenUser(listMavenUserRequest?: ListMavenUserRequest) {
+            const options = {
+                method: "GET",
+                url: "/cloudartifact/v5/repositories/users",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let userName;
+            
+            let pageNo;
+            
+            let pageSize;
+
+            if (listMavenUserRequest !== null && listMavenUserRequest !== undefined) {
+                if (listMavenUserRequest instanceof ListMavenUserRequest) {
+                    userName = listMavenUserRequest.userName;
+                    pageNo = listMavenUserRequest.pageNo;
+                    pageSize = listMavenUserRequest.pageSize;
+                } else {
+                    userName = listMavenUserRequest['user_name'];
+                    pageNo = listMavenUserRequest['page_no'];
+                    pageSize = listMavenUserRequest['page_size'];
+                }
+            }
+
+        
+            if (userName !== null && userName !== undefined) {
+                localVarQueryParameter['user_name'] = userName;
+            }
+            if (pageNo !== null && pageNo !== undefined) {
+                localVarQueryParameter['page_no'] = pageNo;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询网络代理列表，返回代理源的访问地址及认证信息等，用于代理外部公开的制品资源。通过网络代理，开发人员可以安全、高效地访问所需的外部资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listNetProxy() {
+            const options = {
+                method: "GET",
+                url: "/cloudartifact/v5/tree/net/proxy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看项目的角色权限设置，包含上传下载、创建文件夹、清空或者还原回收站和更改软件包状态等设置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProjectRolePermissions() {
+            const options = {
+                method: "GET",
+                url: "/devreposerver/v5/project-role/permissions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当项目中的用户数量较多时，分页查询指定项目下的用户列表，包含用户名和角色等信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProjectUsers(listProjectUsersRequest?: ListProjectUsersRequest) {
+            const options = {
+                method: "GET",
+                url: "/cloudartifact/v5/projects/{project_id}/users",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repoId;
+            
+            let scene;
+            
+            let pageNo;
+            
+            let pageSize;
+
+            if (listProjectUsersRequest !== null && listProjectUsersRequest !== undefined) {
+                if (listProjectUsersRequest instanceof ListProjectUsersRequest) {
+                    repoId = listProjectUsersRequest.repoId;
+                    scene = listProjectUsersRequest.scene;
+                    pageNo = listProjectUsersRequest.pageNo;
+                    pageSize = listProjectUsersRequest.pageSize;
+                } else {
+                    repoId = listProjectUsersRequest['repo_id'];
+                    scene = listProjectUsersRequest['scene'];
+                    pageNo = listProjectUsersRequest['page_no'];
+                    pageSize = listProjectUsersRequest['page_size'];
+                }
+            }
+
+        
+            if (repoId === null || repoId === undefined) {
+                throw new RequiredError('repoId','Required parameter repoId was null or undefined when calling listProjectUsers.');
+            }
+            if (repoId !== null && repoId !== undefined) {
+                localVarQueryParameter['repo_id'] = repoId;
+            }
+            if (scene !== null && scene !== undefined) {
+                localVarQueryParameter['scene'] = scene;
+            }
+            if (pageNo !== null && pageNo !== undefined) {
+                localVarQueryParameter['page_no'] = pageNo;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分页查询制品安全扫描任务列表，包含扫描制品数量、漏洞数量、病毒文件数量和恶意代码文件数量等信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecGuardList(listSecGuardListRequest?: ListSecGuardListRequest) {
+            const options = {
+                method: "GET",
+                url: "/cloudartifact/v5/sec-guard/task/list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let date;
+            
+            let pageNo;
+            
+            let pageSize;
+
+            if (listSecGuardListRequest !== null && listSecGuardListRequest !== undefined) {
+                if (listSecGuardListRequest instanceof ListSecGuardListRequest) {
+                    date = listSecGuardListRequest.date;
+                    pageNo = listSecGuardListRequest.pageNo;
+                    pageSize = listSecGuardListRequest.pageSize;
+                } else {
+                    date = listSecGuardListRequest['date'];
+                    pageNo = listSecGuardListRequest['page_no'];
+                    pageSize = listSecGuardListRequest['page_size'];
+                }
+            }
+
+        
+            if (date !== null && date !== undefined) {
+                localVarQueryParameter['date'] = date;
+            }
+            if (pageNo !== null && pageNo !== undefined) {
+                localVarQueryParameter['page_no'] = pageNo;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 编辑仓库
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1558,6 +2725,125 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询项目自动删除任务设置，包含文件的过期自动删除时间及删除规则。自动删除任务可以自动执行文件清理任务，减少管理员的工作负担，确保存储资源的有效利用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutoDeleteJobSettings() {
+            const options = {
+                method: "GET",
+                url: "/devreposerver/v5/release/{project_id}/auto-deletion/settings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户发布库存储容量，包含已使用存储容量、最大存储容量、套餐类型和仓库数量等信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDomainReleaseRepoStorage() {
+            const options = {
+                method: "GET",
+                url: "/devreposerver/v5/storage",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 在日常数据管理工作中，根据文件ID查询指定文件详情，包含文件名、文件大小、下载地址、校验和、文件状态和发布状态等信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFileDetail(showFileDetailRequest?: ShowFileDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/devreposerver/v5/files/{id}/info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (showFileDetailRequest !== null && showFileDetailRequest !== undefined) {
+                if (showFileDetailRequest instanceof ShowFileDetailRequest) {
+                    id = showFileDetailRequest.id;
+                } else {
+                    id = showFileDetailRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling showFileDetail.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 在日常数据管理工作中，根据文件完整路径查询指定文件详情，包含文件名、文件大小、下载地址、校验和、文件状态和发布状态等信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFileDetailByFullName(showFileDetailByFullNameRequest?: ShowFileDetailByFullNameRequest) {
+            const options = {
+                method: "GET",
+                url: "/devreposerver/v5/files/info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let fileName;
+
+            if (showFileDetailByFullNameRequest !== null && showFileDetailByFullNameRequest !== undefined) {
+                if (showFileDetailByFullNameRequest instanceof ShowFileDetailByFullNameRequest) {
+                    fileName = showFileDetailByFullNameRequest.fileName;
+                } else {
+                    fileName = showFileDetailByFullNameRequest['file_name'];
+                }
+            }
+
+        
+            if (fileName === null || fileName === undefined) {
+                throw new RequiredError('fileName','Required parameter fileName was null or undefined when calling showFileDetailByFullName.');
+            }
+            if (fileName !== null && fileName !== undefined) {
+                localVarQueryParameter['file_name'] = fileName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询仓库文件夹目录
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1627,6 +2913,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询项目下所有文件的数量，该接口会识别所有文件的最新版本，从而提供准确的文件数量统计。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLatestVersionFilesCount(showLatestVersionFilesCountRequest?: ShowLatestVersionFilesCountRequest) {
+            const options = {
+                method: "GET",
+                url: "/devreposerver/v5/{project_id}/files/version/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let name;
+
+            if (showLatestVersionFilesCountRequest !== null && showLatestVersionFilesCountRequest !== undefined) {
+                if (showLatestVersionFilesCountRequest instanceof ShowLatestVersionFilesCountRequest) {
+                    name = showLatestVersionFilesCountRequest.name;
+                } else {
+                    name = showLatestVersionFilesCountRequest['name'];
+                }
+            }
+
+        
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询租户Maven仓库列表和账号密码，支持跨租户
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1680,6 +3003,90 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询多角色用户权限，包含上传下载、创建文件夹、清空或者还原回收站和更改软件包状态等权限信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showMultiRolesUserPermissions() {
+            const options = {
+                method: "GET",
+                url: "/devreposerver/v5/user/permissions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询中心仓是否启用，用于确定当前局点是否具备中心仓功能，从而确保业务流程的顺利进行。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showOpenSourceEnabled() {
+            const options = {
+                method: "GET",
+                url: "/cloudartifact/v5/opensource/enabled",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取当前用户的套餐信息，包含总存储容量和已使用存储容量等信息，以便合理规划资源使用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPackageDataDetail() {
+            const options = {
+                method: "GET",
+                url: "/devreposerver/v5/data/package",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取当前用户的套餐状态，包含套餐扩展包的容量和流量规格，如资源类型、套餐状态、剩余天数等信息，帮助用户高效管理云资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPackageInfo() {
+            const options = {
+                method: "GET",
+                url: "/devreposerver/v5/data/package/info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1760,6 +3167,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询项目下的制品存储容量，包含已使用存储容量和文件数量等信息。在项目管理中，可以使用该接口监控项目下的制品存储情况，以确保资源的有效利用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProjectStorageInfo(showProjectStorageInfoRequest?: ShowProjectStorageInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/devreposerver/v5/{project_id}/storage",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let parentId;
+
+            if (showProjectStorageInfoRequest !== null && showProjectStorageInfoRequest !== undefined) {
+                if (showProjectStorageInfoRequest instanceof ShowProjectStorageInfoRequest) {
+                    parentId = showProjectStorageInfoRequest.parentId;
+                } else {
+                    parentId = showProjectStorageInfoRequest['parent_id'];
+                }
+            }
+
+        
+            if (parentId !== null && parentId !== undefined) {
+                localVarQueryParameter['parent_id'] = parentId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取项目下文件版本信息列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1809,6 +3253,27 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 在自动化构建场景，用户可调用该接口查询租户私有依赖库的账号密码，以便进行后续的上传下载操作。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRepoUserInfo() {
+            const options = {
+                method: "GET",
+                url: "/cloudartifact/v5/repositories/user/info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1955,6 +3420,27 @@ export const ParamCreater = function () {
             const options = {
                 method: "GET",
                 url: "/cloudartifact/v3/user/{project_id}/privileges",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用户凭证，该凭证为IDC用户下载制品时使用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showUserTicket() {
+            const options = {
+                method: "GET",
+                url: "/cloudartifact/v5/ticket",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},

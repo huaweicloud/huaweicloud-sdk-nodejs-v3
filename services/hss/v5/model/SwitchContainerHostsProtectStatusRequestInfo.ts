@@ -7,10 +7,9 @@ export class SwitchContainerHostsProtectStatusRequestInfo {
     private 'resource_id'?: string;
     private 'host_id_list'?: Array<string>;
     public tags?: Array<TagInfo>;
-    public constructor(version?: string, chargingMode?: string, resourceId?: string, hostIdList?: Array<string>) { 
+    public constructor(version?: string, chargingMode?: string, hostIdList?: Array<string>) { 
         this['version'] = version;
         this['charging_mode'] = chargingMode;
-        this['resource_id'] = resourceId;
         this['host_id_list'] = hostIdList;
     }
     public withVersion(version: SwitchContainerHostsProtectStatusRequestInfoVersionEnum | string): SwitchContainerHostsProtectStatusRequestInfo {

@@ -17,6 +17,9 @@ export class CreatePhotoDigitalHumanVideoReq {
     private 'background_music_config'?: BackgroundMusicConfig;
     private 'review_config'?: ReviewConfig;
     private 'callback_config'?: CallBackConfig;
+    private 'id_card_image1'?: string;
+    private 'id_card_image2'?: string;
+    private 'authorize_use_human_image'?: boolean;
     public constructor(humanImage?: string, shootScripts?: Array<ShootScriptItem>, outputAssetConfig?: OutputAssetConfig) { 
         this['human_image'] = humanImage;
         this['shoot_scripts'] = shootScripts;
@@ -111,5 +114,35 @@ export class CreatePhotoDigitalHumanVideoReq {
     }
     public get callbackConfig(): CallBackConfig | undefined {
         return this['callback_config'];
+    }
+    public withIdCardImage1(idCardImage1: string): CreatePhotoDigitalHumanVideoReq {
+        this['id_card_image1'] = idCardImage1;
+        return this;
+    }
+    public set idCardImage1(idCardImage1: string  | undefined) {
+        this['id_card_image1'] = idCardImage1;
+    }
+    public get idCardImage1(): string | undefined {
+        return this['id_card_image1'];
+    }
+    public withIdCardImage2(idCardImage2: string): CreatePhotoDigitalHumanVideoReq {
+        this['id_card_image2'] = idCardImage2;
+        return this;
+    }
+    public set idCardImage2(idCardImage2: string  | undefined) {
+        this['id_card_image2'] = idCardImage2;
+    }
+    public get idCardImage2(): string | undefined {
+        return this['id_card_image2'];
+    }
+    public withAuthorizeUseHumanImage(authorizeUseHumanImage: boolean): CreatePhotoDigitalHumanVideoReq {
+        this['authorize_use_human_image'] = authorizeUseHumanImage;
+        return this;
+    }
+    public set authorizeUseHumanImage(authorizeUseHumanImage: boolean  | undefined) {
+        this['authorize_use_human_image'] = authorizeUseHumanImage;
+    }
+    public get authorizeUseHumanImage(): boolean | undefined {
+        return this['authorize_use_human_image'];
     }
 }

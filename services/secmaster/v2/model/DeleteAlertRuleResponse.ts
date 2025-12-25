@@ -1,47 +1,42 @@
-import { AlertRule } from './AlertRule';
+import { JobProcessStatus } from './JobProcessStatus';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class DeleteAlertRuleResponse extends SdkResponse {
-    public deleted?: boolean;
-    private 'fail_list'?: Array<AlertRule>;
-    private 'success_list'?: Array<AlertRule>;
-    private 'X-request-id'?: string;
+    private 'alert_rule_id'?: string;
+    private 'delete_time'?: number;
+    private 'process_status'?: JobProcessStatus;
     public constructor() { 
         super();
     }
-    public withDeleted(deleted: boolean): DeleteAlertRuleResponse {
-        this['deleted'] = deleted;
+    public withAlertRuleId(alertRuleId: string): DeleteAlertRuleResponse {
+        this['alert_rule_id'] = alertRuleId;
         return this;
     }
-    public withFailList(failList: Array<AlertRule>): DeleteAlertRuleResponse {
-        this['fail_list'] = failList;
+    public set alertRuleId(alertRuleId: string  | undefined) {
+        this['alert_rule_id'] = alertRuleId;
+    }
+    public get alertRuleId(): string | undefined {
+        return this['alert_rule_id'];
+    }
+    public withDeleteTime(deleteTime: number): DeleteAlertRuleResponse {
+        this['delete_time'] = deleteTime;
         return this;
     }
-    public set failList(failList: Array<AlertRule>  | undefined) {
-        this['fail_list'] = failList;
+    public set deleteTime(deleteTime: number  | undefined) {
+        this['delete_time'] = deleteTime;
     }
-    public get failList(): Array<AlertRule> | undefined {
-        return this['fail_list'];
+    public get deleteTime(): number | undefined {
+        return this['delete_time'];
     }
-    public withSuccessList(successList: Array<AlertRule>): DeleteAlertRuleResponse {
-        this['success_list'] = successList;
+    public withProcessStatus(processStatus: JobProcessStatus): DeleteAlertRuleResponse {
+        this['process_status'] = processStatus;
         return this;
     }
-    public set successList(successList: Array<AlertRule>  | undefined) {
-        this['success_list'] = successList;
+    public set processStatus(processStatus: JobProcessStatus  | undefined) {
+        this['process_status'] = processStatus;
     }
-    public get successList(): Array<AlertRule> | undefined {
-        return this['success_list'];
-    }
-    public withXRequestId(xRequestId: string): DeleteAlertRuleResponse {
-        this['X-request-id'] = xRequestId;
-        return this;
-    }
-    public set xRequestId(xRequestId: string  | undefined) {
-        this['X-request-id'] = xRequestId;
-    }
-    public get xRequestId(): string | undefined {
-        return this['X-request-id'];
+    public get processStatus(): JobProcessStatus | undefined {
+        return this['process_status'];
     }
 }

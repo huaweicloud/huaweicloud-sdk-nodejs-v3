@@ -1,14 +1,16 @@
+import { SearchArtifactsResult } from './SearchArtifactsResult';
+import { StandarBaseResponseV5 } from './StandarBaseResponseV5';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class SearchArtifactsResponse extends SdkResponse {
-    public status?: string;
+    public status?: SearchArtifactsResponseStatusEnum | string;
     private 'trace_id'?: string;
-    public result?: object;
+    public result?: SearchArtifactsResult;
     public constructor() { 
         super();
     }
-    public withStatus(status: string): SearchArtifactsResponse {
+    public withStatus(status: SearchArtifactsResponseStatusEnum | string): SearchArtifactsResponse {
         this['status'] = status;
         return this;
     }
@@ -22,8 +24,17 @@ export class SearchArtifactsResponse extends SdkResponse {
     public get traceId(): string | undefined {
         return this['trace_id'];
     }
-    public withResult(result: object): SearchArtifactsResponse {
+    public withResult(result: SearchArtifactsResult): SearchArtifactsResponse {
         this['result'] = result;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SearchArtifactsResponseStatusEnum {
+    SUCCESS = 'success',
+    ERROR = 'error'
 }

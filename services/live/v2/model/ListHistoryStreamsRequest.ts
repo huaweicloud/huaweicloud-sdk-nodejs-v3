@@ -1,17 +1,17 @@
 
 
 export class ListHistoryStreamsRequest {
-    public domain?: string;
+    public domain?: Array<string>;
     public app?: string;
     public stream?: string;
     private 'start_time'?: string;
     private 'end_time'?: string;
     public offset?: number;
     public limit?: number;
-    public constructor(domain?: string) { 
+    public constructor(domain?: Array<string>) { 
         this['domain'] = domain;
     }
-    public withDomain(domain: string): ListHistoryStreamsRequest {
+    public withDomain(domain: Array<string>): ListHistoryStreamsRequest {
         this['domain'] = domain;
         return this;
     }

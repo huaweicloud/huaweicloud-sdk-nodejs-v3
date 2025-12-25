@@ -7,7 +7,7 @@ export class SearchBaselineResponse extends SdkResponse {
     public size?: number;
     public page?: number;
     public success?: boolean;
-    public data?: Array<string>;
+    public data?: Array<object>;
     public constructor() { 
         super();
     }
@@ -31,7 +31,7 @@ export class SearchBaselineResponse extends SdkResponse {
         this['success'] = success;
         return this;
     }
-    public withData(data: Array<string>): SearchBaselineResponse {
+    public withData(data: Array<object>): SearchBaselineResponse {
         this['data'] = data;
         return this;
     }

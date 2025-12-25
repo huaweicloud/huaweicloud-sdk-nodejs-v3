@@ -1,59 +1,167 @@
-import { AlertRuleTrigger } from './AlertRuleTrigger';
-import { Schedule } from './Schedule';
+import { AlertRuleJobSetting } from './AlertRuleJobSetting';
+import { AlertRuleProcessError } from './AlertRuleProcessError';
+import { IsapJobMode } from './IsapJobMode';
+import { IsapJobModeSettingVo } from './IsapJobModeSettingVo';
+import { JobEnvironment } from './JobEnvironment';
+import { JobProcessStatus } from './JobProcessStatus';
+import { JobStatus } from './JobStatus';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowAlertRuleResponse extends SdkResponse {
-    private 'rule_id'?: string;
-    private 'pipe_id'?: string;
-    private 'pipe_name'?: string;
+    private 'alert_rule_id'?: string;
+    private 'alert_rule_name'?: string;
+    public script?: string;
+    public status?: JobStatus;
+    public directory?: string;
+    public description?: string;
+    private 'job_mode'?: IsapJobMode;
+    private 'job_mode_setting'?: IsapJobModeSettingVo;
+    private 'job_output_setting'?: AlertRuleJobSetting;
+    private 'process_status'?: JobProcessStatus;
+    private 'process_error'?: AlertRuleProcessError;
+    public environment?: JobEnvironment;
+    private 'output_table_id'?: string;
+    private 'output_table_name'?: string;
+    private 'output_table_ids'?: Array<string>;
+    private 'output_table_names'?: Array<string>;
     private 'create_by'?: string;
     private 'create_time'?: number;
     private 'update_by'?: string;
     private 'update_time'?: number;
     private 'delete_time'?: number;
-    private 'rule_name'?: string;
-    public query?: string;
-    private 'query_type'?: ShowAlertRuleResponseQueryTypeEnum | string;
-    public status?: ShowAlertRuleResponseStatusEnum | string;
-    public severity?: ShowAlertRuleResponseSeverityEnum | string;
-    private 'custom_properties'?: { [key: string]: string; };
-    private 'event_grouping'?: boolean;
-    public schedule?: Schedule;
-    public triggers?: Array<AlertRuleTrigger>;
-    private 'X-request-id'?: string;
     public constructor() { 
         super();
     }
-    public withRuleId(ruleId: string): ShowAlertRuleResponse {
-        this['rule_id'] = ruleId;
+    public withAlertRuleId(alertRuleId: string): ShowAlertRuleResponse {
+        this['alert_rule_id'] = alertRuleId;
         return this;
     }
-    public set ruleId(ruleId: string  | undefined) {
-        this['rule_id'] = ruleId;
+    public set alertRuleId(alertRuleId: string  | undefined) {
+        this['alert_rule_id'] = alertRuleId;
     }
-    public get ruleId(): string | undefined {
-        return this['rule_id'];
+    public get alertRuleId(): string | undefined {
+        return this['alert_rule_id'];
     }
-    public withPipeId(pipeId: string): ShowAlertRuleResponse {
-        this['pipe_id'] = pipeId;
+    public withAlertRuleName(alertRuleName: string): ShowAlertRuleResponse {
+        this['alert_rule_name'] = alertRuleName;
         return this;
     }
-    public set pipeId(pipeId: string  | undefined) {
-        this['pipe_id'] = pipeId;
+    public set alertRuleName(alertRuleName: string  | undefined) {
+        this['alert_rule_name'] = alertRuleName;
     }
-    public get pipeId(): string | undefined {
-        return this['pipe_id'];
+    public get alertRuleName(): string | undefined {
+        return this['alert_rule_name'];
     }
-    public withPipeName(pipeName: string): ShowAlertRuleResponse {
-        this['pipe_name'] = pipeName;
+    public withScript(script: string): ShowAlertRuleResponse {
+        this['script'] = script;
         return this;
     }
-    public set pipeName(pipeName: string  | undefined) {
-        this['pipe_name'] = pipeName;
+    public withStatus(status: JobStatus): ShowAlertRuleResponse {
+        this['status'] = status;
+        return this;
     }
-    public get pipeName(): string | undefined {
-        return this['pipe_name'];
+    public withDirectory(directory: string): ShowAlertRuleResponse {
+        this['directory'] = directory;
+        return this;
+    }
+    public withDescription(description: string): ShowAlertRuleResponse {
+        this['description'] = description;
+        return this;
+    }
+    public withJobMode(jobMode: IsapJobMode): ShowAlertRuleResponse {
+        this['job_mode'] = jobMode;
+        return this;
+    }
+    public set jobMode(jobMode: IsapJobMode  | undefined) {
+        this['job_mode'] = jobMode;
+    }
+    public get jobMode(): IsapJobMode | undefined {
+        return this['job_mode'];
+    }
+    public withJobModeSetting(jobModeSetting: IsapJobModeSettingVo): ShowAlertRuleResponse {
+        this['job_mode_setting'] = jobModeSetting;
+        return this;
+    }
+    public set jobModeSetting(jobModeSetting: IsapJobModeSettingVo  | undefined) {
+        this['job_mode_setting'] = jobModeSetting;
+    }
+    public get jobModeSetting(): IsapJobModeSettingVo | undefined {
+        return this['job_mode_setting'];
+    }
+    public withJobOutputSetting(jobOutputSetting: AlertRuleJobSetting): ShowAlertRuleResponse {
+        this['job_output_setting'] = jobOutputSetting;
+        return this;
+    }
+    public set jobOutputSetting(jobOutputSetting: AlertRuleJobSetting  | undefined) {
+        this['job_output_setting'] = jobOutputSetting;
+    }
+    public get jobOutputSetting(): AlertRuleJobSetting | undefined {
+        return this['job_output_setting'];
+    }
+    public withProcessStatus(processStatus: JobProcessStatus): ShowAlertRuleResponse {
+        this['process_status'] = processStatus;
+        return this;
+    }
+    public set processStatus(processStatus: JobProcessStatus  | undefined) {
+        this['process_status'] = processStatus;
+    }
+    public get processStatus(): JobProcessStatus | undefined {
+        return this['process_status'];
+    }
+    public withProcessError(processError: AlertRuleProcessError): ShowAlertRuleResponse {
+        this['process_error'] = processError;
+        return this;
+    }
+    public set processError(processError: AlertRuleProcessError  | undefined) {
+        this['process_error'] = processError;
+    }
+    public get processError(): AlertRuleProcessError | undefined {
+        return this['process_error'];
+    }
+    public withEnvironment(environment: JobEnvironment): ShowAlertRuleResponse {
+        this['environment'] = environment;
+        return this;
+    }
+    public withOutputTableId(outputTableId: string): ShowAlertRuleResponse {
+        this['output_table_id'] = outputTableId;
+        return this;
+    }
+    public set outputTableId(outputTableId: string  | undefined) {
+        this['output_table_id'] = outputTableId;
+    }
+    public get outputTableId(): string | undefined {
+        return this['output_table_id'];
+    }
+    public withOutputTableName(outputTableName: string): ShowAlertRuleResponse {
+        this['output_table_name'] = outputTableName;
+        return this;
+    }
+    public set outputTableName(outputTableName: string  | undefined) {
+        this['output_table_name'] = outputTableName;
+    }
+    public get outputTableName(): string | undefined {
+        return this['output_table_name'];
+    }
+    public withOutputTableIds(outputTableIds: Array<string>): ShowAlertRuleResponse {
+        this['output_table_ids'] = outputTableIds;
+        return this;
+    }
+    public set outputTableIds(outputTableIds: Array<string>  | undefined) {
+        this['output_table_ids'] = outputTableIds;
+    }
+    public get outputTableIds(): Array<string> | undefined {
+        return this['output_table_ids'];
+    }
+    public withOutputTableNames(outputTableNames: Array<string>): ShowAlertRuleResponse {
+        this['output_table_names'] = outputTableNames;
+        return this;
+    }
+    public set outputTableNames(outputTableNames: Array<string>  | undefined) {
+        this['output_table_names'] = outputTableNames;
+    }
+    public get outputTableNames(): Array<string> | undefined {
+        return this['output_table_names'];
     }
     public withCreateBy(createBy: string): ShowAlertRuleResponse {
         this['create_by'] = createBy;
@@ -105,101 +213,4 @@ export class ShowAlertRuleResponse extends SdkResponse {
     public get deleteTime(): number | undefined {
         return this['delete_time'];
     }
-    public withRuleName(ruleName: string): ShowAlertRuleResponse {
-        this['rule_name'] = ruleName;
-        return this;
-    }
-    public set ruleName(ruleName: string  | undefined) {
-        this['rule_name'] = ruleName;
-    }
-    public get ruleName(): string | undefined {
-        return this['rule_name'];
-    }
-    public withQuery(query: string): ShowAlertRuleResponse {
-        this['query'] = query;
-        return this;
-    }
-    public withQueryType(queryType: ShowAlertRuleResponseQueryTypeEnum | string): ShowAlertRuleResponse {
-        this['query_type'] = queryType;
-        return this;
-    }
-    public set queryType(queryType: ShowAlertRuleResponseQueryTypeEnum | string  | undefined) {
-        this['query_type'] = queryType;
-    }
-    public get queryType(): ShowAlertRuleResponseQueryTypeEnum | string | undefined {
-        return this['query_type'];
-    }
-    public withStatus(status: ShowAlertRuleResponseStatusEnum | string): ShowAlertRuleResponse {
-        this['status'] = status;
-        return this;
-    }
-    public withSeverity(severity: ShowAlertRuleResponseSeverityEnum | string): ShowAlertRuleResponse {
-        this['severity'] = severity;
-        return this;
-    }
-    public withCustomProperties(customProperties: { [key: string]: string; }): ShowAlertRuleResponse {
-        this['custom_properties'] = customProperties;
-        return this;
-    }
-    public set customProperties(customProperties: { [key: string]: string; }  | undefined) {
-        this['custom_properties'] = customProperties;
-    }
-    public get customProperties(): { [key: string]: string; } | undefined {
-        return this['custom_properties'];
-    }
-    public withEventGrouping(eventGrouping: boolean): ShowAlertRuleResponse {
-        this['event_grouping'] = eventGrouping;
-        return this;
-    }
-    public set eventGrouping(eventGrouping: boolean  | undefined) {
-        this['event_grouping'] = eventGrouping;
-    }
-    public get eventGrouping(): boolean | undefined {
-        return this['event_grouping'];
-    }
-    public withSchedule(schedule: Schedule): ShowAlertRuleResponse {
-        this['schedule'] = schedule;
-        return this;
-    }
-    public withTriggers(triggers: Array<AlertRuleTrigger>): ShowAlertRuleResponse {
-        this['triggers'] = triggers;
-        return this;
-    }
-    public withXRequestId(xRequestId: string): ShowAlertRuleResponse {
-        this['X-request-id'] = xRequestId;
-        return this;
-    }
-    public set xRequestId(xRequestId: string  | undefined) {
-        this['X-request-id'] = xRequestId;
-    }
-    public get xRequestId(): string | undefined {
-        return this['X-request-id'];
-    }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ShowAlertRuleResponseQueryTypeEnum {
-    SQL = 'SQL'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ShowAlertRuleResponseStatusEnum {
-    ENABLED = 'ENABLED',
-    DISABLED = 'DISABLED'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ShowAlertRuleResponseSeverityEnum {
-    TIPS = 'TIPS',
-    LOW = 'LOW',
-    MEDIUM = 'MEDIUM',
-    HIGH = 'HIGH',
-    FATAL = 'FATAL'
 }

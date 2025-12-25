@@ -11,6 +11,7 @@ export class NodeExtendParam {
     public isAutoPay?: string;
     private 'DockerLVMConfigOverride'?: string;
     public dockerBaseSize?: number;
+    public containerBaseSize?: number;
     public publicKey?: string;
     private 'alpha.cce/preInstall'?: string;
     private 'alpha.cce/postInstall'?: string;
@@ -21,6 +22,12 @@ export class NodeExtendParam {
     private 'agency_name'?: string;
     public kubeReservedMem?: number;
     public systemReservedMem?: number;
+    public kubeReservedCpu?: number;
+    public systemReservedCpu?: number;
+    public kubeReservedPid?: number;
+    public systemReservedPid?: number;
+    public kubeReservedStorage?: number;
+    public systemReservedStorage?: number;
     private 'init-node-password'?: string;
     public securityReinforcementType?: NodeExtendParamSecurityReinforcementTypeEnum | string;
     public constructor() { 
@@ -75,6 +82,10 @@ export class NodeExtendParam {
     }
     public withDockerBaseSize(dockerBaseSize: number): NodeExtendParam {
         this['dockerBaseSize'] = dockerBaseSize;
+        return this;
+    }
+    public withContainerBaseSize(containerBaseSize: number): NodeExtendParam {
+        this['containerBaseSize'] = containerBaseSize;
         return this;
     }
     public withPublicKey(publicKey: string): NodeExtendParam {
@@ -139,6 +150,30 @@ export class NodeExtendParam {
     }
     public withSystemReservedMem(systemReservedMem: number): NodeExtendParam {
         this['systemReservedMem'] = systemReservedMem;
+        return this;
+    }
+    public withKubeReservedCpu(kubeReservedCpu: number): NodeExtendParam {
+        this['kubeReservedCpu'] = kubeReservedCpu;
+        return this;
+    }
+    public withSystemReservedCpu(systemReservedCpu: number): NodeExtendParam {
+        this['systemReservedCpu'] = systemReservedCpu;
+        return this;
+    }
+    public withKubeReservedPid(kubeReservedPid: number): NodeExtendParam {
+        this['kubeReservedPid'] = kubeReservedPid;
+        return this;
+    }
+    public withSystemReservedPid(systemReservedPid: number): NodeExtendParam {
+        this['systemReservedPid'] = systemReservedPid;
+        return this;
+    }
+    public withKubeReservedStorage(kubeReservedStorage: number): NodeExtendParam {
+        this['kubeReservedStorage'] = kubeReservedStorage;
+        return this;
+    }
+    public withSystemReservedStorage(systemReservedStorage: number): NodeExtendParam {
+        this['systemReservedStorage'] = systemReservedStorage;
         return this;
     }
     public withInitNodePassword(initNodePassword: string): NodeExtendParam {
