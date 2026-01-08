@@ -6,6 +6,7 @@ export class ListUserUsageMetricRequest {
     public username?: string;
     private 'usage_min_hours'?: number;
     private 'usage_max_hours'?: number;
+    private 'enterprise_project_id'?: string;
     private 'sort_field'?: string;
     private 'sort_type'?: string;
     public offset?: number;
@@ -57,6 +58,16 @@ export class ListUserUsageMetricRequest {
     }
     public get usageMaxHours(): number | undefined {
         return this['usage_max_hours'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListUserUsageMetricRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
     public withSortField(sortField: string): ListUserUsageMetricRequest {
         this['sort_field'] = sortField;

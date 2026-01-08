@@ -23,5 +23,6 @@ export class CreateDesktopPoolAuthorizedObjectsRequestBody {
     */
 export enum CreateDesktopPoolAuthorizedObjectsRequestBodyActionEnum {
     ADD = 'ADD',
-    REMOVE = 'REMOVE'
+    REMOVE = 'REMOVE',
+    CHANGE_PRIVILEGE = 'CHANGE_PRIVILEGE'
 }

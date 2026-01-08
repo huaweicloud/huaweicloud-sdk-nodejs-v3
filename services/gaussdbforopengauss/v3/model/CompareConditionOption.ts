@@ -6,7 +6,8 @@ export class CompareConditionOption {
     public min?: number;
     public max?: number;
     public value?: number;
-    public constructor() { 
+    public constructor(name?: string) { 
+        this['name'] = name;
     }
     public withName(name: string): CompareConditionOption {
         this['name'] = name;

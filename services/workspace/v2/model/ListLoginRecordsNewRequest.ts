@@ -10,6 +10,7 @@ export class ListLoginRecordsNewRequest {
     public limit?: number;
     private 'min_network_rtt'?: number;
     private 'max_network_rtt'?: number;
+    private 'enterprise_project_id'?: string;
     public constructor() { 
     }
     public withStartTime(startTime: string): ListLoginRecordsNewRequest {
@@ -89,5 +90,15 @@ export class ListLoginRecordsNewRequest {
     }
     public get maxNetworkRtt(): number | undefined {
         return this['max_network_rtt'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListLoginRecordsNewRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
 }

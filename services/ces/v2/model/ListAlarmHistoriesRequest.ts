@@ -16,6 +16,7 @@ export class ListAlarmHistoriesRequest {
     public offset?: number;
     public limit?: number;
     private 'order_by'?: ListAlarmHistoriesRequestOrderByEnum | string;
+    private 'mask_status'?: string;
     public constructor() { 
     }
     public withAlarmId(alarmId: Array<string>): ListAlarmHistoriesRequest {
@@ -120,6 +121,16 @@ export class ListAlarmHistoriesRequest {
     public get orderBy(): ListAlarmHistoriesRequestOrderByEnum | string | undefined {
         return this['order_by'];
     }
+    public withMaskStatus(maskStatus: string): ListAlarmHistoriesRequest {
+        this['mask_status'] = maskStatus;
+        return this;
+    }
+    public set maskStatus(maskStatus: string  | undefined) {
+        this['mask_status'] = maskStatus;
+    }
+    public get maskStatus(): string | undefined {
+        return this['mask_status'];
+    }
 }
 
 /**
@@ -129,7 +140,9 @@ export class ListAlarmHistoriesRequest {
 export enum ListAlarmHistoriesRequestStatusEnum {
     OK = 'ok',
     ALARM = 'alarm',
-    INVALID = 'invalid'
+    INVALID = 'invalid',
+    INSUFFICIENT_DATA = 'insufficient_data',
+    OK_MANUAL = 'ok_manual'
 }
 /**
     * @export

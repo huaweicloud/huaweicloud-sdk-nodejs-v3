@@ -3,6 +3,7 @@
 export class AgenciesPermissionInfo {
     private 'system_permission_display_names'?: Array<string>;
     private 'wanted_system_permission_display_names'?: Array<string>;
+    private 'should_have_system_permission_display_names'?: Array<string>;
     public constructor() { 
     }
     public withSystemPermissionDisplayNames(systemPermissionDisplayNames: Array<string>): AgenciesPermissionInfo {
@@ -24,5 +25,15 @@ export class AgenciesPermissionInfo {
     }
     public get wantedSystemPermissionDisplayNames(): Array<string> | undefined {
         return this['wanted_system_permission_display_names'];
+    }
+    public withShouldHaveSystemPermissionDisplayNames(shouldHaveSystemPermissionDisplayNames: Array<string>): AgenciesPermissionInfo {
+        this['should_have_system_permission_display_names'] = shouldHaveSystemPermissionDisplayNames;
+        return this;
+    }
+    public set shouldHaveSystemPermissionDisplayNames(shouldHaveSystemPermissionDisplayNames: Array<string>  | undefined) {
+        this['should_have_system_permission_display_names'] = shouldHaveSystemPermissionDisplayNames;
+    }
+    public get shouldHaveSystemPermissionDisplayNames(): Array<string> | undefined {
+        return this['should_have_system_permission_display_names'];
     }
 }

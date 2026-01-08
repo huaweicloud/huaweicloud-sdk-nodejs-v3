@@ -9,6 +9,7 @@ export class Product {
     private 'cpu_desc'?: string;
     public memory?: string;
     private 'is_gpu'?: boolean;
+    public vram?: string;
     private 'system_disk_type'?: string;
     private 'system_disk_size'?: string;
     private 'data_disk_size'?: string;
@@ -83,6 +84,10 @@ export class Product {
     }
     public get isGpu(): boolean | undefined {
         return this['is_gpu'];
+    }
+    public withVram(vram: string): Product {
+        this['vram'] = vram;
+        return this;
     }
     public withSystemDiskType(systemDiskType: string): Product {
         this['system_disk_type'] = systemDiskType;

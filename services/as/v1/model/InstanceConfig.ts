@@ -1,3 +1,4 @@
+import { CpuOptions } from './CpuOptions';
 import { DiskInfo } from './DiskInfo';
 import { PersonalityInfo } from './PersonalityInfo';
 import { PublicIp } from './PublicIp';
@@ -21,6 +22,7 @@ export class InstanceConfig {
     private 'dedicated_host_id'?: string;
     private 'multi_flavor_priority_policy'?: InstanceConfigMultiFlavorPriorityPolicyEnum | string;
     private 'market_type'?: InstanceConfigMarketTypeEnum | string;
+    private 'cpu_options'?: CpuOptions;
     public constructor() { 
     }
     public withInstanceId(instanceId: string): InstanceConfig {
@@ -136,6 +138,16 @@ export class InstanceConfig {
     }
     public get marketType(): InstanceConfigMarketTypeEnum | string | undefined {
         return this['market_type'];
+    }
+    public withCpuOptions(cpuOptions: CpuOptions): InstanceConfig {
+        this['cpu_options'] = cpuOptions;
+        return this;
+    }
+    public set cpuOptions(cpuOptions: CpuOptions  | undefined) {
+        this['cpu_options'] = cpuOptions;
+    }
+    public get cpuOptions(): CpuOptions | undefined {
+        return this['cpu_options'];
     }
 }
 

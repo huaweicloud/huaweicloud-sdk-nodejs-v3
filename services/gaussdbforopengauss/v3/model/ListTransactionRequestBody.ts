@@ -1,4 +1,4 @@
-import { ListTransactionRequestBodyTransactionQueryOption } from './ListTransactionRequestBodyTransactionQueryOption';
+import { ListTransactionRequestBodyTransactionQueryInfo } from './ListTransactionRequestBodyTransactionQueryInfo';
 
 
 export class ListTransactionRequestBody {
@@ -6,7 +6,7 @@ export class ListTransactionRequestBody {
     private 'component_id'?: string;
     public limit?: number;
     public offset?: number;
-    private 'transaction_query_option'?: ListTransactionRequestBodyTransactionQueryOption;
+    private 'transaction_query_info'?: ListTransactionRequestBodyTransactionQueryInfo;
     public constructor(nodeId?: string, componentId?: string) { 
         this['node_id'] = nodeId;
         this['component_id'] = componentId;
@@ -39,14 +39,14 @@ export class ListTransactionRequestBody {
         this['offset'] = offset;
         return this;
     }
-    public withTransactionQueryOption(transactionQueryOption: ListTransactionRequestBodyTransactionQueryOption): ListTransactionRequestBody {
-        this['transaction_query_option'] = transactionQueryOption;
+    public withTransactionQueryInfo(transactionQueryInfo: ListTransactionRequestBodyTransactionQueryInfo): ListTransactionRequestBody {
+        this['transaction_query_info'] = transactionQueryInfo;
         return this;
     }
-    public set transactionQueryOption(transactionQueryOption: ListTransactionRequestBodyTransactionQueryOption  | undefined) {
-        this['transaction_query_option'] = transactionQueryOption;
+    public set transactionQueryInfo(transactionQueryInfo: ListTransactionRequestBodyTransactionQueryInfo  | undefined) {
+        this['transaction_query_info'] = transactionQueryInfo;
     }
-    public get transactionQueryOption(): ListTransactionRequestBodyTransactionQueryOption | undefined {
-        return this['transaction_query_option'];
+    public get transactionQueryInfo(): ListTransactionRequestBodyTransactionQueryInfo | undefined {
+        return this['transaction_query_info'];
     }
 }

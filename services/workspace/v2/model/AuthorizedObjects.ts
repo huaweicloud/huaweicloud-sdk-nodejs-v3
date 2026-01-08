@@ -4,6 +4,7 @@ export class AuthorizedObjects {
     private 'object_type'?: AuthorizedObjectsObjectTypeEnum | string;
     private 'object_id'?: string;
     private 'object_name'?: string;
+    public domain?: string;
     private 'user_group'?: string;
     private 'created_at'?: string;
     public constructor(objectType?: string, objectId?: string, objectName?: string, userGroup?: string) { 
@@ -41,6 +42,10 @@ export class AuthorizedObjects {
     }
     public get objectName(): string | undefined {
         return this['object_name'];
+    }
+    public withDomain(domain: string): AuthorizedObjects {
+        this['domain'] = domain;
+        return this;
     }
     public withUserGroup(userGroup: string): AuthorizedObjects {
         this['user_group'] = userGroup;

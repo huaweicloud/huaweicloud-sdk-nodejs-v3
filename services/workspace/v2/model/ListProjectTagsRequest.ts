@@ -4,6 +4,7 @@ export class ListProjectTagsRequest {
     public offset?: number;
     public limit?: number;
     public key?: string;
+    public value?: string;
     public constructor() { 
     }
     public withOffset(offset: number): ListProjectTagsRequest {
@@ -16,6 +17,10 @@ export class ListProjectTagsRequest {
     }
     public withKey(key: string): ListProjectTagsRequest {
         this['key'] = key;
+        return this;
+    }
+    public withValue(value: string): ListProjectTagsRequest {
+        this['value'] = value;
         return this;
     }
 }

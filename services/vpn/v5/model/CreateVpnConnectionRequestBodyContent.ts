@@ -15,7 +15,6 @@ export class CreateVpnConnectionRequestBodyContent {
     private 'tunnel_peer_address'?: string;
     private 'enable_nqa'?: boolean;
     private 'enable_hub'?: boolean;
-    private 'enable_health_check'?: boolean;
     public psk?: string;
     private 'policy_rules'?: Array<PolicyRule>;
     public ikepolicy?: IkePolicy;
@@ -116,16 +115,6 @@ export class CreateVpnConnectionRequestBodyContent {
     }
     public get enableHub(): boolean | undefined {
         return this['enable_hub'];
-    }
-    public withEnableHealthCheck(enableHealthCheck: boolean): CreateVpnConnectionRequestBodyContent {
-        this['enable_health_check'] = enableHealthCheck;
-        return this;
-    }
-    public set enableHealthCheck(enableHealthCheck: boolean  | undefined) {
-        this['enable_health_check'] = enableHealthCheck;
-    }
-    public get enableHealthCheck(): boolean | undefined {
-        return this['enable_health_check'];
     }
     public withPsk(psk: string): CreateVpnConnectionRequestBodyContent {
         this['psk'] = psk;

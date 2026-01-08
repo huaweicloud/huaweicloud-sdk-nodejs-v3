@@ -3,18 +3,18 @@ import { RedistributionParameterResult } from './RedistributionParameterResult';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowRedistributionParametersResponse extends SdkResponse {
-    private 'redistribution_parameters'?: Array<RedistributionParameterResult>;
+    private 'expansion_parameters'?: Array<RedistributionParameterResult>;
     public constructor() { 
         super();
     }
-    public withRedistributionParameters(redistributionParameters: Array<RedistributionParameterResult>): ShowRedistributionParametersResponse {
-        this['redistribution_parameters'] = redistributionParameters;
+    public withExpansionParameters(expansionParameters: Array<RedistributionParameterResult>): ShowRedistributionParametersResponse {
+        this['expansion_parameters'] = expansionParameters;
         return this;
     }
-    public set redistributionParameters(redistributionParameters: Array<RedistributionParameterResult>  | undefined) {
-        this['redistribution_parameters'] = redistributionParameters;
+    public set expansionParameters(expansionParameters: Array<RedistributionParameterResult>  | undefined) {
+        this['expansion_parameters'] = expansionParameters;
     }
-    public get redistributionParameters(): Array<RedistributionParameterResult> | undefined {
-        return this['redistribution_parameters'];
+    public get expansionParameters(): Array<RedistributionParameterResult> | undefined {
+        return this['expansion_parameters'];
     }
 }

@@ -8,7 +8,7 @@ export class Submission {
     public isStopingIncrement?: string;
     private 'is-execute-auto'?: boolean;
     private 'last-update-date'?: number;
-    private 'last-udpate-user'?: string;
+    private 'last-update-user'?: string;
     public isDeleteJob?: boolean;
     private 'creation-user'?: string;
     private 'creation-date'?: number;
@@ -22,13 +22,13 @@ export class Submission {
     public status?: string;
     private 'error-details'?: string;
     private 'error-summary'?: string;
-    public constructor(isIncrementing?: boolean, jobName?: string, isStopingIncrement?: string, isExecuteAuto?: boolean, lastUpdateDate?: number, lastUdpateUser?: string, isDeleteJob?: boolean, creationUser?: string, creationDate?: number, externalId?: string, progress?: number, status?: string) { 
+    public constructor(isIncrementing?: boolean, jobName?: string, isStopingIncrement?: string, isExecuteAuto?: boolean, lastUpdateDate?: number, lastUpdateUser?: string, isDeleteJob?: boolean, creationUser?: string, creationDate?: number, externalId?: string, progress?: number, status?: string) { 
         this['isIncrementing'] = isIncrementing;
         this['job-name'] = jobName;
         this['isStopingIncrement'] = isStopingIncrement;
         this['is-execute-auto'] = isExecuteAuto;
         this['last-update-date'] = lastUpdateDate;
-        this['last-udpate-user'] = lastUdpateUser;
+        this['last-update-user'] = lastUpdateUser;
         this['isDeleteJob'] = isDeleteJob;
         this['creation-user'] = creationUser;
         this['creation-date'] = creationDate;
@@ -78,15 +78,15 @@ export class Submission {
     public get lastUpdateDate(): number | undefined {
         return this['last-update-date'];
     }
-    public withLastUdpateUser(lastUdpateUser: string): Submission {
-        this['last-udpate-user'] = lastUdpateUser;
+    public withLastUpdateUser(lastUpdateUser: string): Submission {
+        this['last-update-user'] = lastUpdateUser;
         return this;
     }
-    public set lastUdpateUser(lastUdpateUser: string  | undefined) {
-        this['last-udpate-user'] = lastUdpateUser;
+    public set lastUpdateUser(lastUpdateUser: string  | undefined) {
+        this['last-update-user'] = lastUpdateUser;
     }
-    public get lastUdpateUser(): string | undefined {
-        return this['last-udpate-user'];
+    public get lastUpdateUser(): string | undefined {
+        return this['last-update-user'];
     }
     public withIsDeleteJob(isDeleteJob: boolean): Submission {
         this['isDeleteJob'] = isDeleteJob;

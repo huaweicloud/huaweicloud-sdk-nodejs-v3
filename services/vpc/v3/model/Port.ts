@@ -1,8 +1,8 @@
 import { AllowedAddressPair } from './AllowedAddressPair';
 import { BindingVifDetails } from './BindingVifDetails';
-import { ExtraDhcpOpt } from './ExtraDhcpOpt';
+import { PortExtraDhcpOpt } from './PortExtraDhcpOpt';
 import { PrivateIpInfo } from './PrivateIpInfo';
-import { ResourceTag } from './ResourceTag';
+import { ResponseTag } from './ResponseTag';
 
 
 export class Port {
@@ -37,12 +37,12 @@ export class Port {
     public scope?: string;
     private 'zone_id'?: string;
     private 'binding:migration_info'?: object;
-    private 'extra_dhcp_opts'?: Array<ExtraDhcpOpt>;
+    private 'extra_dhcp_opts'?: Array<PortExtraDhcpOpt>;
     private 'position_type'?: string;
     private 'instance_info'?: object;
-    public tags?: Array<ResourceTag>;
+    public tags?: Array<ResponseTag>;
     private 'allowed_address_pairs'?: Array<AllowedAddressPair>;
-    public constructor(adminStateUp?: boolean, bindingHostId?: string, bindingProfile?: object, bindingVifDetails?: BindingVifDetails, bindingVifType?: string, bindingVnicType?: string, createdAt?: Date, updatedAt?: Date, description?: string, deviceId?: string, deviceOwner?: string, ecsFlavor?: string, id?: string, instanceId?: string, instanceType?: string, macAddress?: string, name?: string, portSecurityEnabled?: boolean, privateIps?: Array<PrivateIpInfo>, projectId?: string, securityGroups?: Array<string>, status?: string, tenantId?: string, virsubnetId?: string, vpcId?: string, vpcTenantId?: string, vtepIp?: string, enableEfi?: boolean, scope?: string, zoneId?: string, bindingMigrationInfo?: object, extraDhcpOpts?: Array<ExtraDhcpOpt>, positionType?: string, instanceInfo?: object, tags?: Array<ResourceTag>, allowedAddressPairs?: Array<AllowedAddressPair>) { 
+    public constructor(adminStateUp?: boolean, bindingHostId?: string, bindingProfile?: object, bindingVifDetails?: BindingVifDetails, bindingVifType?: string, bindingVnicType?: string, createdAt?: Date, updatedAt?: Date, description?: string, deviceId?: string, deviceOwner?: string, ecsFlavor?: string, id?: string, instanceId?: string, instanceType?: string, macAddress?: string, name?: string, portSecurityEnabled?: boolean, privateIps?: Array<PrivateIpInfo>, projectId?: string, securityGroups?: Array<string>, status?: string, tenantId?: string, virsubnetId?: string, vpcId?: string, vpcTenantId?: string, vtepIp?: string, enableEfi?: boolean, scope?: string, zoneId?: string, bindingMigrationInfo?: object, extraDhcpOpts?: Array<PortExtraDhcpOpt>, positionType?: string, instanceInfo?: object, tags?: Array<ResponseTag>, allowedAddressPairs?: Array<AllowedAddressPair>) { 
         this['admin_state_up'] = adminStateUp;
         this['binding:host_id'] = bindingHostId;
         this['binding:profile'] = bindingProfile;
@@ -360,14 +360,14 @@ export class Port {
     public get bindingMigrationInfo(): object | undefined {
         return this['binding:migration_info'];
     }
-    public withExtraDhcpOpts(extraDhcpOpts: Array<ExtraDhcpOpt>): Port {
+    public withExtraDhcpOpts(extraDhcpOpts: Array<PortExtraDhcpOpt>): Port {
         this['extra_dhcp_opts'] = extraDhcpOpts;
         return this;
     }
-    public set extraDhcpOpts(extraDhcpOpts: Array<ExtraDhcpOpt>  | undefined) {
+    public set extraDhcpOpts(extraDhcpOpts: Array<PortExtraDhcpOpt>  | undefined) {
         this['extra_dhcp_opts'] = extraDhcpOpts;
     }
-    public get extraDhcpOpts(): Array<ExtraDhcpOpt> | undefined {
+    public get extraDhcpOpts(): Array<PortExtraDhcpOpt> | undefined {
         return this['extra_dhcp_opts'];
     }
     public withPositionType(positionType: string): Port {
@@ -390,7 +390,7 @@ export class Port {
     public get instanceInfo(): object | undefined {
         return this['instance_info'];
     }
-    public withTags(tags: Array<ResourceTag>): Port {
+    public withTags(tags: Array<ResponseTag>): Port {
         this['tags'] = tags;
         return this;
     }

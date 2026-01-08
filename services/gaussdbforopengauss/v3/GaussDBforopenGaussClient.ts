@@ -8,6 +8,7 @@ import { AddHbaConfsResponse } from './model/AddHbaConfsResponse';
 import { AddInstanceTagsRequest } from './model/AddInstanceTagsRequest';
 import { AddInstanceTagsResponse } from './model/AddInstanceTagsResponse';
 import { AddTagsRequestBody } from './model/AddTagsRequestBody';
+import { AfterHbaConfOption } from './model/AfterHbaConfOption';
 import { AgencyRoleResult } from './model/AgencyRoleResult';
 import { AlarmHistoryRecordResult } from './model/AlarmHistoryRecordResult';
 import { AlarmLevelStatisticsResult } from './model/AlarmLevelStatisticsResult';
@@ -27,7 +28,7 @@ import { BackupInfo } from './model/BackupInfo';
 import { BackupNodeInfoResult } from './model/BackupNodeInfoResult';
 import { BackupPolicy } from './model/BackupPolicy';
 import { BackupPolicyErrorResponse } from './model/BackupPolicyErrorResponse';
-import { BackupPolicyInfo } from './model/BackupPolicyInfo';
+import { BackupPolicyInfoOption } from './model/BackupPolicyInfoOption';
 import { Backups } from './model/Backups';
 import { BackupsResult } from './model/BackupsResult';
 import { BaseOpsKeyViewRequestBody } from './model/BaseOpsKeyViewRequestBody';
@@ -35,11 +36,13 @@ import { BatchDeleteInstanceTagRequest } from './model/BatchDeleteInstanceTagReq
 import { BatchDeleteInstanceTagRequestBody } from './model/BatchDeleteInstanceTagRequestBody';
 import { BatchDeleteInstanceTagResponse } from './model/BatchDeleteInstanceTagResponse';
 import { BatchSetBackupPolicyFailedRecordResult } from './model/BatchSetBackupPolicyFailedRecordResult';
+import { BatchSetBackupPolicyOption } from './model/BatchSetBackupPolicyOption';
 import { BatchSetBackupPolicyRequest } from './model/BatchSetBackupPolicyRequest';
 import { BatchSetBackupPolicyRequestBody } from './model/BatchSetBackupPolicyRequestBody';
 import { BatchSetBackupPolicyResponse } from './model/BatchSetBackupPolicyResponse';
 import { BatchShowUpgradeCandidateVersionsRequest } from './model/BatchShowUpgradeCandidateVersionsRequest';
 import { BatchShowUpgradeCandidateVersionsResponse } from './model/BatchShowUpgradeCandidateVersionsResponse';
+import { BeforeHbaConfOption } from './model/BeforeHbaConfOption';
 import { BindEIPRequestBody } from './model/BindEIPRequestBody';
 import { BindLtsConfigRequest } from './model/BindLtsConfigRequest';
 import { BindLtsConfigRequestBody } from './model/BindLtsConfigRequestBody';
@@ -477,9 +480,9 @@ import { ListTopTableVolumesRequest } from './model/ListTopTableVolumesRequest';
 import { ListTopTableVolumesResponse } from './model/ListTopTableVolumesResponse';
 import { ListTransactionRequest } from './model/ListTransactionRequest';
 import { ListTransactionRequestBody } from './model/ListTransactionRequestBody';
-import { ListTransactionRequestBodyTransactionQueryOption } from './model/ListTransactionRequestBodyTransactionQueryOption';
+import { ListTransactionRequestBodyTransactionQueryInfo } from './model/ListTransactionRequestBodyTransactionQueryInfo';
 import { ListTransactionResponse } from './model/ListTransactionResponse';
-import { ListTransactionResponseBodyRowsInfo } from './model/ListTransactionResponseBodyRowsInfo';
+import { ListTransactionResponseBodyRows } from './model/ListTransactionResponseBodyRows';
 import { ListVolume } from './model/ListVolume';
 import { ListWaitEventRequest } from './model/ListWaitEventRequest';
 import { ListWaitEventRequestBody } from './model/ListWaitEventRequestBody';
@@ -5381,7 +5384,7 @@ export class GaussDBforopenGaussClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询asp采集结果
+     * @summary 查询ASP采集结果
      * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
      * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**: - zh-cn  - en-us  **默认取值**: en-us
      * @param {number} [offset] **参数解释**: 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询。 **约束限制**: 不涉及。 **取值范围**: [0，2^31-1] **默认取值**: 默认为0（偏移0条数据，表示从第一条数据开始查询）。

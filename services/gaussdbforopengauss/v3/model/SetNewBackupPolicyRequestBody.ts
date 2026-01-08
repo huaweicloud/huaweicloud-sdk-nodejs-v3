@@ -1,19 +1,19 @@
-import { BackupPolicyInfo } from './BackupPolicyInfo';
+import { BackupPolicyInfoOption } from './BackupPolicyInfoOption';
 
 
 export class SetNewBackupPolicyRequestBody {
-    private 'backup_policy'?: BackupPolicyInfo;
-    public constructor(backupPolicy?: BackupPolicyInfo) { 
+    private 'backup_policy'?: BackupPolicyInfoOption;
+    public constructor(backupPolicy?: BackupPolicyInfoOption) { 
         this['backup_policy'] = backupPolicy;
     }
-    public withBackupPolicy(backupPolicy: BackupPolicyInfo): SetNewBackupPolicyRequestBody {
+    public withBackupPolicy(backupPolicy: BackupPolicyInfoOption): SetNewBackupPolicyRequestBody {
         this['backup_policy'] = backupPolicy;
         return this;
     }
-    public set backupPolicy(backupPolicy: BackupPolicyInfo  | undefined) {
+    public set backupPolicy(backupPolicy: BackupPolicyInfoOption  | undefined) {
         this['backup_policy'] = backupPolicy;
     }
-    public get backupPolicy(): BackupPolicyInfo | undefined {
+    public get backupPolicy(): BackupPolicyInfoOption | undefined {
         return this['backup_policy'];
     }
 }

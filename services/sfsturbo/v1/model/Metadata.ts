@@ -6,6 +6,8 @@ export class Metadata {
     private 'dedicated_storage_id'?: string;
     private 'expand_type'?: string;
     private 'hpc_bw'?: string;
+    private 'auto_create_security_group_rules'?: MetadataAutoCreateSecurityGroupRulesEnum | string;
+    private 'vault_id'?: string;
     public constructor() { 
     }
     public withCryptKeyId(cryptKeyId: string): Metadata {
@@ -58,4 +60,33 @@ export class Metadata {
     public get hpcBw(): string | undefined {
         return this['hpc_bw'];
     }
+    public withAutoCreateSecurityGroupRules(autoCreateSecurityGroupRules: MetadataAutoCreateSecurityGroupRulesEnum | string): Metadata {
+        this['auto_create_security_group_rules'] = autoCreateSecurityGroupRules;
+        return this;
+    }
+    public set autoCreateSecurityGroupRules(autoCreateSecurityGroupRules: MetadataAutoCreateSecurityGroupRulesEnum | string  | undefined) {
+        this['auto_create_security_group_rules'] = autoCreateSecurityGroupRules;
+    }
+    public get autoCreateSecurityGroupRules(): MetadataAutoCreateSecurityGroupRulesEnum | string | undefined {
+        return this['auto_create_security_group_rules'];
+    }
+    public withVaultId(vaultId: string): Metadata {
+        this['vault_id'] = vaultId;
+        return this;
+    }
+    public set vaultId(vaultId: string  | undefined) {
+        this['vault_id'] = vaultId;
+    }
+    public get vaultId(): string | undefined {
+        return this['vault_id'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum MetadataAutoCreateSecurityGroupRulesEnum {
+    TRUE = 'true',
+    FALSE = 'false'
 }

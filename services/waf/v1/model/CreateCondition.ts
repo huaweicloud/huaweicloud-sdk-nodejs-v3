@@ -6,6 +6,7 @@ export class CreateCondition {
     private 'logic_operation'?: string;
     private 'check_all_indexes_logic'?: number;
     public index?: string;
+    private 'value_list_id'?: string;
     public constructor(category?: string, contents?: Array<string>, logicOperation?: string) { 
         this['category'] = category;
         this['contents'] = contents;
@@ -42,5 +43,15 @@ export class CreateCondition {
     public withIndex(index: string): CreateCondition {
         this['index'] = index;
         return this;
+    }
+    public withValueListId(valueListId: string): CreateCondition {
+        this['value_list_id'] = valueListId;
+        return this;
+    }
+    public set valueListId(valueListId: string  | undefined) {
+        this['value_list_id'] = valueListId;
+    }
+    public get valueListId(): string | undefined {
+        return this['value_list_id'];
     }
 }

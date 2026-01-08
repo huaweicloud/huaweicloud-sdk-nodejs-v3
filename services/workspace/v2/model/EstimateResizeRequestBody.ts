@@ -5,6 +5,7 @@ export class EstimateResizeRequestBody {
     private 'desktop_pool_id'?: string;
     private 'desktop_ids'?: Array<string>;
     private 'promotion_plan_id'?: string;
+    private 'handle_type'?: string;
     public constructor() { 
     }
     public withDesktopPoolId(desktopPoolId: string): EstimateResizeRequestBody {
@@ -36,5 +37,15 @@ export class EstimateResizeRequestBody {
     }
     public get promotionPlanId(): string | undefined {
         return this['promotion_plan_id'];
+    }
+    public withHandleType(handleType: string): EstimateResizeRequestBody {
+        this['handle_type'] = handleType;
+        return this;
+    }
+    public set handleType(handleType: string  | undefined) {
+        this['handle_type'] = handleType;
+    }
+    public get handleType(): string | undefined {
+        return this['handle_type'];
     }
 }

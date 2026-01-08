@@ -44,6 +44,7 @@ import { CloseWarmPoolNewRequest } from './model/CloseWarmPoolNewRequest';
 import { CloseWarmPoolNewResponse } from './model/CloseWarmPoolNewResponse';
 import { CloseWarmPoolRequest } from './model/CloseWarmPoolRequest';
 import { CloseWarmPoolResponse } from './model/CloseWarmPoolResponse';
+import { CpuOptions } from './model/CpuOptions';
 import { CreateGroupScheduledTaskRequest } from './model/CreateGroupScheduledTaskRequest';
 import { CreateGroupScheduledTaskResponse } from './model/CreateGroupScheduledTaskResponse';
 import { CreateLifeCycleHookOption } from './model/CreateLifeCycleHookOption';

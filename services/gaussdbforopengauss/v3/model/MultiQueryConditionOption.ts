@@ -5,7 +5,10 @@ export class MultiQueryConditionOption {
     public condition?: MultiQueryConditionOptionConditionEnum | string;
     private 'is_fuzzy'?: boolean;
     public values?: Array<string>;
-    public constructor() { 
+    public constructor(name?: string, condition?: string, values?: Array<string>) { 
+        this['name'] = name;
+        this['condition'] = condition;
+        this['values'] = values;
     }
     public withName(name: string): MultiQueryConditionOption {
         this['name'] = name;

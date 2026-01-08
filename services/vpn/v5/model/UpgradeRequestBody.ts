@@ -2,7 +2,8 @@
 
 export class UpgradeRequestBody {
     public action?: UpgradeRequestBodyActionEnum | string;
-    public constructor() { 
+    public constructor(action?: string) { 
+        this['action'] = action;
     }
     public withAction(action: UpgradeRequestBodyActionEnum | string): UpgradeRequestBody {
         this['action'] = action;

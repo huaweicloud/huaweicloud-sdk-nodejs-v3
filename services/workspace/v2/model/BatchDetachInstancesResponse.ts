@@ -5,6 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class BatchDetachInstancesResponse extends SdkResponse {
     private 'failed_operation_list'?: Array<VmOperateResult>;
     private 'job_id'?: string;
+    private 'success_job_ids'?: Array<string>;
     public constructor() { 
         super();
     }
@@ -27,5 +28,15 @@ export class BatchDetachInstancesResponse extends SdkResponse {
     }
     public get jobId(): string | undefined {
         return this['job_id'];
+    }
+    public withSuccessJobIds(successJobIds: Array<string>): BatchDetachInstancesResponse {
+        this['success_job_ids'] = successJobIds;
+        return this;
+    }
+    public set successJobIds(successJobIds: Array<string>  | undefined) {
+        this['success_job_ids'] = successJobIds;
+    }
+    public get successJobIds(): Array<string> | undefined {
+        return this['success_job_ids'];
     }
 }

@@ -7,6 +7,7 @@ export class ListDesktopsDetailRequest {
     private 'sort_field'?: ListDesktopsDetailRequestSortFieldEnum | string;
     private 'sort_type'?: ListDesktopsDetailRequestSortTypeEnum | string;
     private 'computer_name'?: string;
+    private 'computer_names'?: Array<string>;
     private 'desktop_ip'?: string;
     public offset?: number;
     public limit?: number;
@@ -78,6 +79,16 @@ export class ListDesktopsDetailRequest {
     }
     public get computerName(): string | undefined {
         return this['computer_name'];
+    }
+    public withComputerNames(computerNames: Array<string>): ListDesktopsDetailRequest {
+        this['computer_names'] = computerNames;
+        return this;
+    }
+    public set computerNames(computerNames: Array<string>  | undefined) {
+        this['computer_names'] = computerNames;
+    }
+    public get computerNames(): Array<string> | undefined {
+        return this['computer_names'];
     }
     public withDesktopIp(desktopIp: string): ListDesktopsDetailRequest {
         this['desktop_ip'] = desktopIp;

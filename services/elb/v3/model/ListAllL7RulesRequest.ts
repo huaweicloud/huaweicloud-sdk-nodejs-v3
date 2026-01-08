@@ -1,0 +1,96 @@
+
+
+export class ListAllL7RulesRequest {
+    public limit?: number;
+    public marker?: string;
+    private 'page_reverse'?: boolean;
+    public id?: Array<string>;
+    private 'compare_type'?: Array<string>;
+    private 'provisioning_status'?: Array<string>;
+    public invert?: boolean;
+    private 'admin_state_up'?: boolean;
+    public value?: Array<string>;
+    public key?: Array<string>;
+    public type?: Array<string>;
+    private 'enterprise_project_id'?: Array<string>;
+    public constructor() { 
+    }
+    public withLimit(limit: number): ListAllL7RulesRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListAllL7RulesRequest {
+        this['marker'] = marker;
+        return this;
+    }
+    public withPageReverse(pageReverse: boolean): ListAllL7RulesRequest {
+        this['page_reverse'] = pageReverse;
+        return this;
+    }
+    public set pageReverse(pageReverse: boolean  | undefined) {
+        this['page_reverse'] = pageReverse;
+    }
+    public get pageReverse(): boolean | undefined {
+        return this['page_reverse'];
+    }
+    public withId(id: Array<string>): ListAllL7RulesRequest {
+        this['id'] = id;
+        return this;
+    }
+    public withCompareType(compareType: Array<string>): ListAllL7RulesRequest {
+        this['compare_type'] = compareType;
+        return this;
+    }
+    public set compareType(compareType: Array<string>  | undefined) {
+        this['compare_type'] = compareType;
+    }
+    public get compareType(): Array<string> | undefined {
+        return this['compare_type'];
+    }
+    public withProvisioningStatus(provisioningStatus: Array<string>): ListAllL7RulesRequest {
+        this['provisioning_status'] = provisioningStatus;
+        return this;
+    }
+    public set provisioningStatus(provisioningStatus: Array<string>  | undefined) {
+        this['provisioning_status'] = provisioningStatus;
+    }
+    public get provisioningStatus(): Array<string> | undefined {
+        return this['provisioning_status'];
+    }
+    public withInvert(invert: boolean): ListAllL7RulesRequest {
+        this['invert'] = invert;
+        return this;
+    }
+    public withAdminStateUp(adminStateUp: boolean): ListAllL7RulesRequest {
+        this['admin_state_up'] = adminStateUp;
+        return this;
+    }
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
+        this['admin_state_up'] = adminStateUp;
+    }
+    public get adminStateUp(): boolean | undefined {
+        return this['admin_state_up'];
+    }
+    public withValue(value: Array<string>): ListAllL7RulesRequest {
+        this['value'] = value;
+        return this;
+    }
+    public withKey(key: Array<string>): ListAllL7RulesRequest {
+        this['key'] = key;
+        return this;
+    }
+    public withType(type: Array<string>): ListAllL7RulesRequest {
+        this['type'] = type;
+        return this;
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: Array<string>): ListAllL7RulesRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: Array<string>  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): Array<string> | undefined {
+        return this['enterprise_project_id'];
+    }
+}

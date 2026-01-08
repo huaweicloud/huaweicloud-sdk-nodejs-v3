@@ -22,6 +22,8 @@ export class GaussDBRegion {
     public static AF_SOUTH_1 = new Region("af-south-1", ["https://gaussdb-mysql.af-south-1.myhuaweicloud.com"]);
     public static CN_SOUTH_4 = new Region("cn-south-4", ["https://gaussdb.cn-south-4.myhuaweicloud.com"]);
     public static CN_NORTH_11 = new Region("cn-north-11", ["https://gaussdbformysql.cn-north-11.myhuaweicloud.com"]);
+    public static CN_EAST_5 = new Region("cn-east-5", ["https://gaussdb-mysql.cn-east-5.myhuaweicloud.com"]);
+    public static LA_NORTH_2 = new Region("la-north-2", ["https://gaussdb-mysql.la-north-2.myhuaweicloud.com"]);
     public static ME_EAST_1 = new Region("me-east-1", ["https://gaussdbformysql.me-east-1.myhuaweicloud.com"]);
     
 
@@ -42,6 +44,8 @@ export class GaussDBRegion {
         "af-south-1":GaussDBRegion.AF_SOUTH_1,
         "cn-south-4":GaussDBRegion.CN_SOUTH_4,
         "cn-north-11":GaussDBRegion.CN_NORTH_11,
+        "cn-east-5":GaussDBRegion.CN_EAST_5,
+        "la-north-2":GaussDBRegion.LA_NORTH_2,
         "me-east-1":GaussDBRegion.ME_EAST_1
     };
   

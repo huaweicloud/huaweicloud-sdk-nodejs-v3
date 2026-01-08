@@ -193,8 +193,6 @@ import { CreateDataspaceResponse } from './model/CreateDataspaceResponse';
 import { CreateDictionaryRequest } from './model/CreateDictionaryRequest';
 import { CreateDpeClassifyRequestBody } from './model/CreateDpeClassifyRequestBody';
 import { CreateDpeMappingRequestBody } from './model/CreateDpeMappingRequestBody';
-import { CreateGenericActionRequest } from './model/CreateGenericActionRequest';
-import { CreateGenericActionResponse } from './model/CreateGenericActionResponse';
 import { CreateIncidentRequest } from './model/CreateIncidentRequest';
 import { CreateIncidentRequestBody } from './model/CreateIncidentRequestBody';
 import { CreateIncidentResponse } from './model/CreateIncidentResponse';
@@ -470,7 +468,6 @@ import { FieldResponseBody } from './model/FieldResponseBody';
 import { FileConfiguration } from './model/FileConfiguration';
 import { FileType } from './model/FileType';
 import { FilterConnectionType } from './model/FilterConnectionType';
-import { GenericActionRequestBody } from './model/GenericActionRequestBody';
 import { GovernanceUser } from './model/GovernanceUser';
 import { Group } from './model/Group';
 import { GroupDto } from './model/GroupDto';
@@ -1960,26 +1957,6 @@ export class SecMasterClient {
      */
     public createDataspace(createDataspaceRequest?: CreateDataspaceRequest): Promise<CreateDataspaceResponse> {
         const options = ParamCreater().createDataspace(createDataspaceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 根据type字段执行不同的agent-action，例如回答质量人工反馈。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary agent-action接口
-     * @param {string} contentType application/json;charset&#x3D;UTF-8
-     * @param {GenericActionRequestBody} createGenericActionRequestBody agent通用行为请求体，通过\&#39;type\&#39;字段标识具体行为类型和对应的\&#39;parameter\&#39;内容
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createGenericAction(createGenericActionRequest?: CreateGenericActionRequest): Promise<CreateGenericActionResponse> {
-        const options = ParamCreater().createGenericAction(createGenericActionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9847,51 +9824,6 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'workspace_id': workspaceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 根据type字段执行不同的agent-action，例如回答质量人工反馈。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createGenericAction(createGenericActionRequest?: CreateGenericActionRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/security-llm-conductor/agent/actions",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let contentType;
-
-            if (createGenericActionRequest !== null && createGenericActionRequest !== undefined) {
-                if (createGenericActionRequest instanceof CreateGenericActionRequest) {
-                    contentType = createGenericActionRequest.contentType;
-                    body = createGenericActionRequest.body
-                } else {
-                    contentType = createGenericActionRequest['content-type'];
-                    body = createGenericActionRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

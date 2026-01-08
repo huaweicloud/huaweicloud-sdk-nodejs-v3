@@ -1,10 +1,10 @@
-import { BackupPolicyInfo } from './BackupPolicyInfo';
+import { BatchSetBackupPolicyOption } from './BatchSetBackupPolicyOption';
 
 
 export class BatchSetBackupPolicyRequestBody {
     private 'instance_ids'?: Array<string>;
-    private 'backup_policy'?: BackupPolicyInfo;
-    public constructor(instanceIds?: Array<string>, backupPolicy?: BackupPolicyInfo) { 
+    private 'backup_policy'?: BatchSetBackupPolicyOption;
+    public constructor(instanceIds?: Array<string>, backupPolicy?: BatchSetBackupPolicyOption) { 
         this['instance_ids'] = instanceIds;
         this['backup_policy'] = backupPolicy;
     }
@@ -18,14 +18,14 @@ export class BatchSetBackupPolicyRequestBody {
     public get instanceIds(): Array<string> | undefined {
         return this['instance_ids'];
     }
-    public withBackupPolicy(backupPolicy: BackupPolicyInfo): BatchSetBackupPolicyRequestBody {
+    public withBackupPolicy(backupPolicy: BatchSetBackupPolicyOption): BatchSetBackupPolicyRequestBody {
         this['backup_policy'] = backupPolicy;
         return this;
     }
-    public set backupPolicy(backupPolicy: BackupPolicyInfo  | undefined) {
+    public set backupPolicy(backupPolicy: BatchSetBackupPolicyOption  | undefined) {
         this['backup_policy'] = backupPolicy;
     }
-    public get backupPolicy(): BackupPolicyInfo | undefined {
+    public get backupPolicy(): BatchSetBackupPolicyOption | undefined {
         return this['backup_policy'];
     }
 }

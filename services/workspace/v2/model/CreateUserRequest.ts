@@ -14,6 +14,7 @@ export class CreateUserRequest {
     private 'alias_name'?: string;
     private 'enterprise_project_id'?: string;
     private 'user_info_map'?: string;
+    public domain?: string;
     public constructor(userName?: string) { 
         this['user_name'] = userName;
     }
@@ -134,6 +135,10 @@ export class CreateUserRequest {
     }
     public get userInfoMap(): string | undefined {
         return this['user_info_map'];
+    }
+    public withDomain(domain: string): CreateUserRequest {
+        this['domain'] = domain;
+        return this;
     }
 }
 

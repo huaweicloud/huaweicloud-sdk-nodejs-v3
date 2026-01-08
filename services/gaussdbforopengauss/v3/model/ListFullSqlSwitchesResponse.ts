@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListFullSqlSwitchesResponse extends SdkResponse {
     private 'total_count'?: number;
-    private 'full_sql_switchs'?: Array<FullSqlSwitchResult>;
+    private 'full_sql_switches'?: Array<FullSqlSwitchResult>;
     private 'allowed_sql_types'?: Array<SqlTypeRangeConfigResult>;
     public constructor() { 
         super();
@@ -20,15 +20,15 @@ export class ListFullSqlSwitchesResponse extends SdkResponse {
     public get totalCount(): number | undefined {
         return this['total_count'];
     }
-    public withFullSqlSwitchs(fullSqlSwitchs: Array<FullSqlSwitchResult>): ListFullSqlSwitchesResponse {
-        this['full_sql_switchs'] = fullSqlSwitchs;
+    public withFullSqlSwitches(fullSqlSwitches: Array<FullSqlSwitchResult>): ListFullSqlSwitchesResponse {
+        this['full_sql_switches'] = fullSqlSwitches;
         return this;
     }
-    public set fullSqlSwitchs(fullSqlSwitchs: Array<FullSqlSwitchResult>  | undefined) {
-        this['full_sql_switchs'] = fullSqlSwitchs;
+    public set fullSqlSwitches(fullSqlSwitches: Array<FullSqlSwitchResult>  | undefined) {
+        this['full_sql_switches'] = fullSqlSwitches;
     }
-    public get fullSqlSwitchs(): Array<FullSqlSwitchResult> | undefined {
-        return this['full_sql_switchs'];
+    public get fullSqlSwitches(): Array<FullSqlSwitchResult> | undefined {
+        return this['full_sql_switches'];
     }
     public withAllowedSqlTypes(allowedSqlTypes: Array<SqlTypeRangeConfigResult>): ListFullSqlSwitchesResponse {
         this['allowed_sql_types'] = allowedSqlTypes;

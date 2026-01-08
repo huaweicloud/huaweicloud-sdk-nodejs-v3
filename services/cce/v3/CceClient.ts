@@ -562,6 +562,7 @@ import { SyncNodeResp } from './model/SyncNodeResp';
 import { SyncNodeResponse } from './model/SyncNodeResponse';
 import { SyncNodesResp } from './model/SyncNodesResp';
 import { Taint } from './model/Taint';
+import { TaskStatus } from './model/TaskStatus';
 import { TaskType } from './model/TaskType';
 import { Templatespec } from './model/Templatespec';
 import { UnlockNodeScaledownRequestBody } from './model/UnlockNodeScaledownRequestBody';

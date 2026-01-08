@@ -10,6 +10,7 @@ export class ShowEventItemDetailResp {
     private 'event_level'?: ShowEventItemDetailRespEventLevelEnum | string;
     private 'event_user'?: string;
     private 'event_type'?: string;
+    private 'sub_event_type'?: ShowEventItemDetailRespSubEventTypeEnum | string;
     public dimensions?: Array<MetricsDimensionResp>;
     public constructor() { 
     }
@@ -87,6 +88,16 @@ export class ShowEventItemDetailResp {
     public get eventType(): string | undefined {
         return this['event_type'];
     }
+    public withSubEventType(subEventType: ShowEventItemDetailRespSubEventTypeEnum | string): ShowEventItemDetailResp {
+        this['sub_event_type'] = subEventType;
+        return this;
+    }
+    public set subEventType(subEventType: ShowEventItemDetailRespSubEventTypeEnum | string  | undefined) {
+        this['sub_event_type'] = subEventType;
+    }
+    public get subEventType(): ShowEventItemDetailRespSubEventTypeEnum | string | undefined {
+        return this['sub_event_type'];
+    }
     public withDimensions(dimensions: Array<MetricsDimensionResp>): ShowEventItemDetailResp {
         this['dimensions'] = dimensions;
         return this;
@@ -111,4 +122,13 @@ export enum ShowEventItemDetailRespEventLevelEnum {
     MAJOR = 'Major',
     MINOR = 'Minor',
     INFO = 'Info'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowEventItemDetailRespSubEventTypeEnum {
+    SUB_EVENT_OPS = 'SUB_EVENT.OPS',
+    SUB_EVENT_PLAN = 'SUB_EVENT.PLAN',
+    SUB_EVENT_CUSTOM = 'SUB_EVENT.CUSTOM'
 }

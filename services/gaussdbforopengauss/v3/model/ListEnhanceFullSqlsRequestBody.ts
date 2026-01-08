@@ -3,6 +3,7 @@ import { MultiQueryConditionOption } from './MultiQueryConditionOption';
 
 
 export class ListEnhanceFullSqlsRequestBody {
+    private 'node_id'?: string;
     public limit?: number;
     private 'begin_time'?: string;
     private 'end_time'?: string;
@@ -24,6 +25,16 @@ export class ListEnhanceFullSqlsRequestBody {
     public constructor(beginTime?: string, endTime?: string) { 
         this['begin_time'] = beginTime;
         this['end_time'] = endTime;
+    }
+    public withNodeId(nodeId: string): ListEnhanceFullSqlsRequestBody {
+        this['node_id'] = nodeId;
+        return this;
+    }
+    public set nodeId(nodeId: string  | undefined) {
+        this['node_id'] = nodeId;
+    }
+    public get nodeId(): string | undefined {
+        return this['node_id'];
     }
     public withLimit(limit: number): ListEnhanceFullSqlsRequestBody {
         this['limit'] = limit;

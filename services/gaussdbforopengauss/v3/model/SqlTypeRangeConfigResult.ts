@@ -1,28 +1,27 @@
 
 
 export class SqlTypeRangeConfigResult {
-    private 'is_open'?: boolean;
-    private 'begin_time'?: string;
+    public category?: string;
+    public prefixes?: string;
+    private 'is_preset'?: boolean;
     public constructor() { 
     }
-    public withIsOpen(isOpen: boolean): SqlTypeRangeConfigResult {
-        this['is_open'] = isOpen;
+    public withCategory(category: string): SqlTypeRangeConfigResult {
+        this['category'] = category;
         return this;
     }
-    public set isOpen(isOpen: boolean  | undefined) {
-        this['is_open'] = isOpen;
-    }
-    public get isOpen(): boolean | undefined {
-        return this['is_open'];
-    }
-    public withBeginTime(beginTime: string): SqlTypeRangeConfigResult {
-        this['begin_time'] = beginTime;
+    public withPrefixes(prefixes: string): SqlTypeRangeConfigResult {
+        this['prefixes'] = prefixes;
         return this;
     }
-    public set beginTime(beginTime: string  | undefined) {
-        this['begin_time'] = beginTime;
+    public withIsPreset(isPreset: boolean): SqlTypeRangeConfigResult {
+        this['is_preset'] = isPreset;
+        return this;
     }
-    public get beginTime(): string | undefined {
-        return this['begin_time'];
+    public set isPreset(isPreset: boolean  | undefined) {
+        this['is_preset'] = isPreset;
+    }
+    public get isPreset(): boolean | undefined {
+        return this['is_preset'];
     }
 }

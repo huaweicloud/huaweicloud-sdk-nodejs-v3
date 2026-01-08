@@ -14,6 +14,7 @@ export class BackupForList {
     public size?: number;
     public datastore?: BackupDatastore;
     private 'associated_with_ddm'?: boolean;
+    private 'min_data_volume_capacity_for_restore'?: number;
     public constructor(id?: string, instanceId?: string, name?: string, beginTime?: string, endTime?: string, status?: string, type?: string, size?: number, datastore?: BackupDatastore) { 
         this['id'] = id;
         this['instance_id'] = instanceId;
@@ -92,6 +93,16 @@ export class BackupForList {
     }
     public get associatedWithDdm(): boolean | undefined {
         return this['associated_with_ddm'];
+    }
+    public withMinDataVolumeCapacityForRestore(minDataVolumeCapacityForRestore: number): BackupForList {
+        this['min_data_volume_capacity_for_restore'] = minDataVolumeCapacityForRestore;
+        return this;
+    }
+    public set minDataVolumeCapacityForRestore(minDataVolumeCapacityForRestore: number  | undefined) {
+        this['min_data_volume_capacity_for_restore'] = minDataVolumeCapacityForRestore;
+    }
+    public get minDataVolumeCapacityForRestore(): number | undefined {
+        return this['min_data_volume_capacity_for_restore'];
     }
 }
 

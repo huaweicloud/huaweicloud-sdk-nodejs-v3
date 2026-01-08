@@ -6,6 +6,7 @@ export class ResizeDesktopReq {
     private 'product_id'?: string;
     public mode?: string;
     private 'auto_placement'?: string;
+    private 'desktop_pool_id'?: string;
     public constructor(desktops?: Array<ResizeDesktopData>, productId?: string, mode?: string) { 
         this['desktops'] = desktops;
         this['product_id'] = productId;
@@ -38,5 +39,15 @@ export class ResizeDesktopReq {
     }
     public get autoPlacement(): string | undefined {
         return this['auto_placement'];
+    }
+    public withDesktopPoolId(desktopPoolId: string): ResizeDesktopReq {
+        this['desktop_pool_id'] = desktopPoolId;
+        return this;
+    }
+    public set desktopPoolId(desktopPoolId: string  | undefined) {
+        this['desktop_pool_id'] = desktopPoolId;
+    }
+    public get desktopPoolId(): string | undefined {
+        return this['desktop_pool_id'];
     }
 }

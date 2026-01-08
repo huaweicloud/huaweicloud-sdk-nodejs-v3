@@ -22,6 +22,7 @@ export class CertificateInfo {
     public source?: string;
     private 'protection_status'?: CertificateInfoProtectionStatusEnum | string;
     private 'protection_reason'?: string;
+    private 'enterprise_project_id'?: string;
     public constructor(adminStateUp?: boolean, certificate?: string, description?: string, domain?: string, id?: string, name?: string, privateKey?: string, type?: string, createdAt?: string, updatedAt?: string, expireTime?: string, projectId?: string) { 
         this['admin_state_up'] = adminStateUp;
         this['certificate'] = certificate;
@@ -197,6 +198,16 @@ export class CertificateInfo {
     }
     public get protectionReason(): string | undefined {
         return this['protection_reason'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): CertificateInfo {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
 }
 

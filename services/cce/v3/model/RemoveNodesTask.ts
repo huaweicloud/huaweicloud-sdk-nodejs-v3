@@ -1,10 +1,12 @@
 import { RemoveNodesSpec } from './RemoveNodesSpec';
+import { TaskStatus } from './TaskStatus';
 
 
 export class RemoveNodesTask {
     public apiVersion?: string;
     public kind?: string;
     public spec?: RemoveNodesSpec;
+    public status?: TaskStatus;
     public constructor(spec?: RemoveNodesSpec) { 
         this['spec'] = spec;
     }
@@ -18,6 +20,10 @@ export class RemoveNodesTask {
     }
     public withSpec(spec: RemoveNodesSpec): RemoveNodesTask {
         this['spec'] = spec;
+        return this;
+    }
+    public withStatus(status: TaskStatus): RemoveNodesTask {
+        this['status'] = status;
         return this;
     }
 }

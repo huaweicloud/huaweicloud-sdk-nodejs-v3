@@ -9,7 +9,7 @@ export class ListSqlLimitTaskResponseResult {
     public databases?: string;
     private 'key_words'?: string;
     public status?: string;
-    private 'instance_id'?: object;
+    private 'instance_id'?: string;
     private 'rule_name'?: string;
     private 'parallel_size'?: number;
     private 'start_time'?: string;
@@ -86,14 +86,14 @@ export class ListSqlLimitTaskResponseResult {
         this['status'] = status;
         return this;
     }
-    public withInstanceId(instanceId: object): ListSqlLimitTaskResponseResult {
+    public withInstanceId(instanceId: string): ListSqlLimitTaskResponseResult {
         this['instance_id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: object  | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['instance_id'] = instanceId;
     }
-    public get instanceId(): object | undefined {
+    public get instanceId(): string | undefined {
         return this['instance_id'];
     }
     public withRuleName(ruleName: string): ListSqlLimitTaskResponseResult {

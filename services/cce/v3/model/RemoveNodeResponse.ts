@@ -1,4 +1,5 @@
 import { RemoveNodesSpec } from './RemoveNodesSpec';
+import { TaskStatus } from './TaskStatus';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -6,6 +7,7 @@ export class RemoveNodeResponse extends SdkResponse {
     public apiVersion?: string;
     public kind?: string;
     public spec?: RemoveNodesSpec;
+    public status?: TaskStatus;
     public constructor() { 
         super();
     }
@@ -19,6 +21,10 @@ export class RemoveNodeResponse extends SdkResponse {
     }
     public withSpec(spec: RemoveNodesSpec): RemoveNodeResponse {
         this['spec'] = spec;
+        return this;
+    }
+    public withStatus(status: TaskStatus): RemoveNodeResponse {
+        this['status'] = status;
         return this;
     }
 }

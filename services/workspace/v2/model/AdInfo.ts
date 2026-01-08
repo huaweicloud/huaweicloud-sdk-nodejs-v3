@@ -14,6 +14,8 @@ export class AdInfo {
     private 'delete_computer_object'?: string;
     private 'use_ldaps'?: boolean;
     private 'tls_config'?: TlsConfig;
+    private 'cba_enabled'?: boolean;
+    private 'certificate_id'?: string;
     public constructor() { 
     }
     public withDomainType(domainType: AdInfoDomainTypeEnum | string): AdInfo {
@@ -135,6 +137,26 @@ export class AdInfo {
     }
     public get tlsConfig(): TlsConfig | undefined {
         return this['tls_config'];
+    }
+    public withCbaEnabled(cbaEnabled: boolean): AdInfo {
+        this['cba_enabled'] = cbaEnabled;
+        return this;
+    }
+    public set cbaEnabled(cbaEnabled: boolean  | undefined) {
+        this['cba_enabled'] = cbaEnabled;
+    }
+    public get cbaEnabled(): boolean | undefined {
+        return this['cba_enabled'];
+    }
+    public withCertificateId(certificateId: string): AdInfo {
+        this['certificate_id'] = certificateId;
+        return this;
+    }
+    public set certificateId(certificateId: string  | undefined) {
+        this['certificate_id'] = certificateId;
+    }
+    public get certificateId(): string | undefined {
+        return this['certificate_id'];
     }
 }
 

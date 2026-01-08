@@ -22,6 +22,8 @@ export class User {
     private 'group_names'?: Array<string>;
     private 'enterprise_project_id'?: string;
     private 'user_info_map'?: string;
+    public domain?: string;
+    private 'certificate_status'?: boolean;
     public constructor() { 
     }
     public withId(id: string): User {
@@ -203,6 +205,20 @@ export class User {
     }
     public get userInfoMap(): string | undefined {
         return this['user_info_map'];
+    }
+    public withDomain(domain: string): User {
+        this['domain'] = domain;
+        return this;
+    }
+    public withCertificateStatus(certificateStatus: boolean): User {
+        this['certificate_status'] = certificateStatus;
+        return this;
+    }
+    public set certificateStatus(certificateStatus: boolean  | undefined) {
+        this['certificate_status'] = certificateStatus;
+    }
+    public get certificateStatus(): boolean | undefined {
+        return this['certificate_status'];
     }
 }
 

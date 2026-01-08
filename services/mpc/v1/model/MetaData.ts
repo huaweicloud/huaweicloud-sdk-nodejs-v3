@@ -7,6 +7,7 @@ export class MetaData {
     private 'duration_ms'?: number;
     public duration?: number;
     public format?: string;
+    public md5?: string;
     public bitrate?: number;
     public video?: Array<VideoInfo>;
     public audio?: Array<AudioInfo>;
@@ -32,6 +33,10 @@ export class MetaData {
     }
     public withFormat(format: string): MetaData {
         this['format'] = format;
+        return this;
+    }
+    public withMd5(md5: string): MetaData {
+        this['md5'] = md5;
         return this;
     }
     public withBitrate(bitrate: number): MetaData {

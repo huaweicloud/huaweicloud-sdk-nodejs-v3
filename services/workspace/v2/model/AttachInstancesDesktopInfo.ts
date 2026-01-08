@@ -4,6 +4,7 @@ import { AttachInstancesUserInfo } from './AttachInstancesUserInfo';
 export class AttachInstancesDesktopInfo {
     private 'desktop_id'?: string;
     private 'user_name'?: string;
+    private 'user_id'?: string;
     private 'user_email'?: string;
     private 'user_group'?: string;
     private 'computer_name'?: string;
@@ -30,6 +31,16 @@ export class AttachInstancesDesktopInfo {
     }
     public get userName(): string | undefined {
         return this['user_name'];
+    }
+    public withUserId(userId: string): AttachInstancesDesktopInfo {
+        this['user_id'] = userId;
+        return this;
+    }
+    public set userId(userId: string  | undefined) {
+        this['user_id'] = userId;
+    }
+    public get userId(): string | undefined {
+        return this['user_id'];
     }
     public withUserEmail(userEmail: string): AttachInstancesDesktopInfo {
         this['user_email'] = userEmail;

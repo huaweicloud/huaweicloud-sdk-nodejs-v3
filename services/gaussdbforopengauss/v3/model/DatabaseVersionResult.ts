@@ -4,9 +4,7 @@ import { DbHotfixInfoResult } from './DbHotfixInfoResult';
 export class DatabaseVersionResult {
     private 'software_version'?: string;
     public hotfixes?: Array<DbHotfixInfoResult>;
-    public constructor(softwareVersion?: string, hotfixes?: Array<DbHotfixInfoResult>) { 
-        this['software_version'] = softwareVersion;
-        this['hotfixes'] = hotfixes;
+    public constructor() { 
     }
     public withSoftwareVersion(softwareVersion: string): DatabaseVersionResult {
         this['software_version'] = softwareVersion;

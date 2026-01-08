@@ -20,10 +20,13 @@ export class SimpleDesktopInfo {
     private 'in_maintenance_mode'?: boolean;
     private 'share_resource_sku'?: string;
     private 'desktop_type'?: string;
+    private 'desktop_detail_type'?: string;
     private 'subnet_id'?: string;
     private 'bill_resource_id'?: string;
     public status?: string;
     private 'task_status'?: string;
+    private 'availability_zone'?: string;
+    private 'connect_status'?: string;
     public constructor() { 
     }
     public withDomainId(domainId: string): SimpleDesktopInfo {
@@ -178,6 +181,16 @@ export class SimpleDesktopInfo {
     public get desktopType(): string | undefined {
         return this['desktop_type'];
     }
+    public withDesktopDetailType(desktopDetailType: string): SimpleDesktopInfo {
+        this['desktop_detail_type'] = desktopDetailType;
+        return this;
+    }
+    public set desktopDetailType(desktopDetailType: string  | undefined) {
+        this['desktop_detail_type'] = desktopDetailType;
+    }
+    public get desktopDetailType(): string | undefined {
+        return this['desktop_detail_type'];
+    }
     public withSubnetId(subnetId: string): SimpleDesktopInfo {
         this['subnet_id'] = subnetId;
         return this;
@@ -211,5 +224,25 @@ export class SimpleDesktopInfo {
     }
     public get taskStatus(): string | undefined {
         return this['task_status'];
+    }
+    public withAvailabilityZone(availabilityZone: string): SimpleDesktopInfo {
+        this['availability_zone'] = availabilityZone;
+        return this;
+    }
+    public set availabilityZone(availabilityZone: string  | undefined) {
+        this['availability_zone'] = availabilityZone;
+    }
+    public get availabilityZone(): string | undefined {
+        return this['availability_zone'];
+    }
+    public withConnectStatus(connectStatus: string): SimpleDesktopInfo {
+        this['connect_status'] = connectStatus;
+        return this;
+    }
+    public set connectStatus(connectStatus: string  | undefined) {
+        this['connect_status'] = connectStatus;
+    }
+    public get connectStatus(): string | undefined {
+        return this['connect_status'];
     }
 }

@@ -7,6 +7,8 @@ export class TextWatermark {
     public referpos?: string;
     private 'timeline_start'?: string;
     private 'timeline_duration'?: string;
+    private 'random_time_min'?: string;
+    private 'random_time_max'?: string;
     private 'font_name'?: string;
     private 'font_size'?: number;
     private 'font_color'?: string;
@@ -44,6 +46,26 @@ export class TextWatermark {
     }
     public get timelineDuration(): string | undefined {
         return this['timeline_duration'];
+    }
+    public withRandomTimeMin(randomTimeMin: string): TextWatermark {
+        this['random_time_min'] = randomTimeMin;
+        return this;
+    }
+    public set randomTimeMin(randomTimeMin: string  | undefined) {
+        this['random_time_min'] = randomTimeMin;
+    }
+    public get randomTimeMin(): string | undefined {
+        return this['random_time_min'];
+    }
+    public withRandomTimeMax(randomTimeMax: string): TextWatermark {
+        this['random_time_max'] = randomTimeMax;
+        return this;
+    }
+    public set randomTimeMax(randomTimeMax: string  | undefined) {
+        this['random_time_max'] = randomTimeMax;
+    }
+    public get randomTimeMax(): string | undefined {
+        return this['random_time_max'];
     }
     public withFontName(fontName: string): TextWatermark {
         this['font_name'] = fontName;

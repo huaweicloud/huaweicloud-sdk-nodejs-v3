@@ -9,6 +9,7 @@ export class SecurityPolicy {
     public listeners?: Array<ListenerRef>;
     public protocols?: Array<string>;
     public ciphers?: Array<string>;
+    private 'enterprise_project_id'?: string;
     private 'created_at'?: string;
     private 'updated_at'?: string;
     public constructor(id?: string, projectId?: string, name?: string, description?: string, listeners?: Array<ListenerRef>, protocols?: Array<string>, ciphers?: Array<string>, createdAt?: string, updatedAt?: string) { 
@@ -55,6 +56,16 @@ export class SecurityPolicy {
     public withCiphers(ciphers: Array<string>): SecurityPolicy {
         this['ciphers'] = ciphers;
         return this;
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): SecurityPolicy {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
     public withCreatedAt(createdAt: string): SecurityPolicy {
         this['created_at'] = createdAt;

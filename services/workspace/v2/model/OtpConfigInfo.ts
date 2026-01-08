@@ -1,9 +1,11 @@
+import { ApplyObjects } from './ApplyObjects';
 import { ApplyRuleInfo } from './ApplyRuleInfo';
 import { AuthServerAccessMode } from './AuthServerAccessMode';
 import { ReceiveModeEnum } from './ReceiveModeEnum';
 
 
 export class OtpConfigInfo {
+    public id?: string;
     public enable?: boolean;
     private 'receive_mode'?: ReceiveModeEnum;
     private 'auth_url'?: string;
@@ -12,7 +14,12 @@ export class OtpConfigInfo {
     private 'auth_server_access_mode'?: AuthServerAccessMode;
     private 'cert_content'?: string;
     private 'apply_rule'?: ApplyRuleInfo;
+    private 'apply_objects'?: Array<ApplyObjects>;
     public constructor() { 
+    }
+    public withId(id: string): OtpConfigInfo {
+        this['id'] = id;
+        return this;
     }
     public withEnable(enable: boolean): OtpConfigInfo {
         this['enable'] = enable;
@@ -87,5 +94,15 @@ export class OtpConfigInfo {
     }
     public get applyRule(): ApplyRuleInfo | undefined {
         return this['apply_rule'];
+    }
+    public withApplyObjects(applyObjects: Array<ApplyObjects>): OtpConfigInfo {
+        this['apply_objects'] = applyObjects;
+        return this;
+    }
+    public set applyObjects(applyObjects: Array<ApplyObjects>  | undefined) {
+        this['apply_objects'] = applyObjects;
+    }
+    public get applyObjects(): Array<ApplyObjects> | undefined {
+        return this['apply_objects'];
     }
 }

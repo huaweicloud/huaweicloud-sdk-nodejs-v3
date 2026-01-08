@@ -12,6 +12,7 @@ export class ImageInfo {
     private 'min_disk'?: number;
     private 'product_code'?: string;
     private 'created_at'?: string;
+    private 'kms_id'?: string;
     public constructor() { 
     }
     public withId(id: string): ImageInfo {
@@ -105,5 +106,15 @@ export class ImageInfo {
     }
     public get createdAt(): string | undefined {
         return this['created_at'];
+    }
+    public withKmsId(kmsId: string): ImageInfo {
+        this['kms_id'] = kmsId;
+        return this;
+    }
+    public set kmsId(kmsId: string  | undefined) {
+        this['kms_id'] = kmsId;
+    }
+    public get kmsId(): string | undefined {
+        return this['kms_id'];
     }
 }

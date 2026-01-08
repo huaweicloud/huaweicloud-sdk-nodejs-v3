@@ -1,3 +1,4 @@
+import { ResourceConfig } from './ResourceConfig';
 
 
 export class FlinkJobConfig {
@@ -37,6 +38,8 @@ export class FlinkJobConfig {
     private 'operator_config'?: string;
     private 'static_estimator_config'?: string;
     private 'real_cu_number'?: number;
+    private 'resource_config'?: ResourceConfig;
+    private 'resource_config_version'?: string;
     public constructor() { 
     }
     public withCheckpointEnabled(checkpointEnabled: boolean): FlinkJobConfig {
@@ -380,6 +383,26 @@ export class FlinkJobConfig {
     }
     public get realCuNumber(): number | undefined {
         return this['real_cu_number'];
+    }
+    public withResourceConfig(resourceConfig: ResourceConfig): FlinkJobConfig {
+        this['resource_config'] = resourceConfig;
+        return this;
+    }
+    public set resourceConfig(resourceConfig: ResourceConfig  | undefined) {
+        this['resource_config'] = resourceConfig;
+    }
+    public get resourceConfig(): ResourceConfig | undefined {
+        return this['resource_config'];
+    }
+    public withResourceConfigVersion(resourceConfigVersion: string): FlinkJobConfig {
+        this['resource_config_version'] = resourceConfigVersion;
+        return this;
+    }
+    public set resourceConfigVersion(resourceConfigVersion: string  | undefined) {
+        this['resource_config_version'] = resourceConfigVersion;
+    }
+    public get resourceConfigVersion(): string | undefined {
+        return this['resource_config_version'];
     }
 }
 

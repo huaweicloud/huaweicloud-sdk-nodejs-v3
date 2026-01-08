@@ -1,4 +1,6 @@
 import { I18nLanguage } from './I18nLanguage';
+import { Iops } from './Iops';
+import { Throughput } from './Throughput';
 
 
 export class VolumeProductInfo {
@@ -10,6 +12,8 @@ export class VolumeProductInfo {
     private 'domain_ids'?: Array<string>;
     public name?: Array<I18nLanguage>;
     public status?: string;
+    public iops?: Iops;
+    public throughput?: Throughput;
     public constructor() { 
     }
     public withResourceSpecCode(resourceSpecCode: string): VolumeProductInfo {
@@ -78,6 +82,14 @@ export class VolumeProductInfo {
     }
     public withStatus(status: string): VolumeProductInfo {
         this['status'] = status;
+        return this;
+    }
+    public withIops(iops: Iops): VolumeProductInfo {
+        this['iops'] = iops;
+        return this;
+    }
+    public withThroughput(throughput: Throughput): VolumeProductInfo {
+        this['throughput'] = throughput;
         return this;
     }
 }

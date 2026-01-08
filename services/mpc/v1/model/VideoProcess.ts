@@ -6,6 +6,7 @@ export class VideoProcess {
     private 'hls_storage_type'?: VideoProcessHlsStorageTypeEnum | string;
     public rotate?: number;
     public adaptation?: VideoProcessAdaptationEnum | string;
+    private 'fill_type'?: string;
     public upsample?: number;
     private 'hls_segment_type'?: VideoProcessHlsSegmentTypeEnum | string;
     public constructor() { 
@@ -47,6 +48,16 @@ export class VideoProcess {
     public withAdaptation(adaptation: VideoProcessAdaptationEnum | string): VideoProcess {
         this['adaptation'] = adaptation;
         return this;
+    }
+    public withFillType(fillType: string): VideoProcess {
+        this['fill_type'] = fillType;
+        return this;
+    }
+    public set fillType(fillType: string  | undefined) {
+        this['fill_type'] = fillType;
+    }
+    public get fillType(): string | undefined {
+        return this['fill_type'];
     }
     public withUpsample(upsample: number): VideoProcess {
         this['upsample'] = upsample;

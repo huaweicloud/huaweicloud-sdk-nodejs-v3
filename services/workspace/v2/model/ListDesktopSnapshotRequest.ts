@@ -2,8 +2,11 @@
 
 export class ListDesktopSnapshotRequest {
     private 'desktop_id'?: string;
+    private 'desktop_ids'?: Array<string>;
     private 'desktop_name'?: string;
+    private 'desktop_names'?: Array<string>;
     private 'snapshot_name'?: string;
+    private 'snapshot_names'?: Array<string>;
     private 'disk_type'?: ListDesktopSnapshotRequestDiskTypeEnum | string;
     private 'create_type'?: ListDesktopSnapshotRequestCreateTypeEnum | string;
     public status?: string;
@@ -23,6 +26,16 @@ export class ListDesktopSnapshotRequest {
     public get desktopId(): string | undefined {
         return this['desktop_id'];
     }
+    public withDesktopIds(desktopIds: Array<string>): ListDesktopSnapshotRequest {
+        this['desktop_ids'] = desktopIds;
+        return this;
+    }
+    public set desktopIds(desktopIds: Array<string>  | undefined) {
+        this['desktop_ids'] = desktopIds;
+    }
+    public get desktopIds(): Array<string> | undefined {
+        return this['desktop_ids'];
+    }
     public withDesktopName(desktopName: string): ListDesktopSnapshotRequest {
         this['desktop_name'] = desktopName;
         return this;
@@ -33,6 +46,16 @@ export class ListDesktopSnapshotRequest {
     public get desktopName(): string | undefined {
         return this['desktop_name'];
     }
+    public withDesktopNames(desktopNames: Array<string>): ListDesktopSnapshotRequest {
+        this['desktop_names'] = desktopNames;
+        return this;
+    }
+    public set desktopNames(desktopNames: Array<string>  | undefined) {
+        this['desktop_names'] = desktopNames;
+    }
+    public get desktopNames(): Array<string> | undefined {
+        return this['desktop_names'];
+    }
     public withSnapshotName(snapshotName: string): ListDesktopSnapshotRequest {
         this['snapshot_name'] = snapshotName;
         return this;
@@ -42,6 +65,16 @@ export class ListDesktopSnapshotRequest {
     }
     public get snapshotName(): string | undefined {
         return this['snapshot_name'];
+    }
+    public withSnapshotNames(snapshotNames: Array<string>): ListDesktopSnapshotRequest {
+        this['snapshot_names'] = snapshotNames;
+        return this;
+    }
+    public set snapshotNames(snapshotNames: Array<string>  | undefined) {
+        this['snapshot_names'] = snapshotNames;
+    }
+    public get snapshotNames(): Array<string> | undefined {
+        return this['snapshot_names'];
     }
     public withDiskType(diskType: ListDesktopSnapshotRequestDiskTypeEnum | string): ListDesktopSnapshotRequest {
         this['disk_type'] = diskType;

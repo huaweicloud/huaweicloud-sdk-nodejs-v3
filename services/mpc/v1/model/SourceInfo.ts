@@ -8,6 +8,7 @@ export class SourceInfo {
     public format?: string;
     public size?: number;
     private 'manifest_name'?: string;
+    public md5?: string;
     private 'video_info'?: VideoInfo;
     private 'audio_info'?: Array<AudioInfo>;
     public constructor() { 
@@ -43,6 +44,10 @@ export class SourceInfo {
     }
     public get manifestName(): string | undefined {
         return this['manifest_name'];
+    }
+    public withMd5(md5: string): SourceInfo {
+        this['md5'] = md5;
+        return this;
     }
     public withVideoInfo(videoInfo: VideoInfo): SourceInfo {
         this['video_info'] = videoInfo;

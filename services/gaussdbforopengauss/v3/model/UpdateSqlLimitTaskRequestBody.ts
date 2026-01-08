@@ -10,8 +10,7 @@ export class UpdateSqlLimitTaskRequestBody {
     private 'memory_utilization'?: number;
     public databases?: string;
     private 'node_id'?: string;
-    public constructor(parallelSize?: number, taskName?: string, nodeId?: string) { 
-        this['parallel_size'] = parallelSize;
+    public constructor(taskName?: string, nodeId?: string) { 
         this['task_name'] = taskName;
         this['node_id'] = nodeId;
     }

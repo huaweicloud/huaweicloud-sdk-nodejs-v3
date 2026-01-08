@@ -37,6 +37,7 @@ export class SFSTurboRegion {
     public static AF_NORTH_1 = new Region("af-north-1", ["https://sfs-turbo.af-north-1.myhuaweicloud.com"]);
     public static CN_NORTH_12 = new Region("cn-north-12", ["https://sfs-turbo.cn-north-12.myhuaweicloud.com"]);
     public static CN_SOUTHWEST_3 = new Region("cn-southwest-3", ["https://sfs-turbo.cn-southwest-3.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://sfs-turbo.ap-southeast-5.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -70,7 +71,8 @@ export class SFSTurboRegion {
         "cn-north-11":SFSTurboRegion.CN_NORTH_11,
         "af-north-1":SFSTurboRegion.AF_NORTH_1,
         "cn-north-12":SFSTurboRegion.CN_NORTH_12,
-        "cn-southwest-3":SFSTurboRegion.CN_SOUTHWEST_3
+        "cn-southwest-3":SFSTurboRegion.CN_SOUTHWEST_3,
+        "ap-southeast-5":SFSTurboRegion.AP_SOUTHEAST_5
     };
   
     public static valueOf(regionId: string) {

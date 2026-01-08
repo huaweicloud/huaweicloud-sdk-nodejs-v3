@@ -4,6 +4,8 @@ export class VolumeAddInfo {
     public id?: string;
     public type?: string;
     public size?: number;
+    public iops?: number;
+    public throughput?: number;
     public constructor(type?: string, size?: number) { 
         this['type'] = type;
         this['size'] = size;
@@ -18,6 +20,14 @@ export class VolumeAddInfo {
     }
     public withSize(size: number): VolumeAddInfo {
         this['size'] = size;
+        return this;
+    }
+    public withIops(iops: number): VolumeAddInfo {
+        this['iops'] = iops;
+        return this;
+    }
+    public withThroughput(throughput: number): VolumeAddInfo {
+        this['throughput'] = throughput;
         return this;
     }
 }

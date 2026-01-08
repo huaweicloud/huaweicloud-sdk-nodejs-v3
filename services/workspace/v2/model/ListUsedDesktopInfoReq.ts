@@ -6,6 +6,7 @@ export class ListUsedDesktopInfoReq {
     private 'end_time'?: string;
     private 'group_by_type'?: ListUsedDesktopInfoReqGroupByTypeEnum | string;
     private 'desktop_username'?: string;
+    private 'desktop_user_domain'?: string;
     public offset?: number;
     public limit?: number;
     public constructor() { 
@@ -59,6 +60,16 @@ export class ListUsedDesktopInfoReq {
     }
     public get desktopUsername(): string | undefined {
         return this['desktop_username'];
+    }
+    public withDesktopUserDomain(desktopUserDomain: string): ListUsedDesktopInfoReq {
+        this['desktop_user_domain'] = desktopUserDomain;
+        return this;
+    }
+    public set desktopUserDomain(desktopUserDomain: string  | undefined) {
+        this['desktop_user_domain'] = desktopUserDomain;
+    }
+    public get desktopUserDomain(): string | undefined {
+        return this['desktop_user_domain'];
     }
     public withOffset(offset: number): ListUsedDesktopInfoReq {
         this['offset'] = offset;

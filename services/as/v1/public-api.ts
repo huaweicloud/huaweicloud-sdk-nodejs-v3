@@ -42,6 +42,7 @@ export * from './model/CloseWarmPoolNewRequest';
 export * from './model/CloseWarmPoolNewResponse';
 export * from './model/CloseWarmPoolRequest';
 export * from './model/CloseWarmPoolResponse';
+export * from './model/CpuOptions';
 export * from './model/CreateGroupScheduledTaskRequest';
 export * from './model/CreateGroupScheduledTaskResponse';
 export * from './model/CreateLifeCycleHookOption';

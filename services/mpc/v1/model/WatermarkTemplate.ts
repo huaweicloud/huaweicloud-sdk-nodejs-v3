@@ -7,6 +7,8 @@ export class WatermarkTemplate {
     public referpos?: string;
     private 'timeline_start'?: string;
     private 'timeline_duration'?: string;
+    private 'random_time_min'?: string;
+    private 'random_time_max'?: string;
     private 'image_process'?: string;
     public width?: string;
     public height?: string;
@@ -47,6 +49,26 @@ export class WatermarkTemplate {
     }
     public get timelineDuration(): string | undefined {
         return this['timeline_duration'];
+    }
+    public withRandomTimeMin(randomTimeMin: string): WatermarkTemplate {
+        this['random_time_min'] = randomTimeMin;
+        return this;
+    }
+    public set randomTimeMin(randomTimeMin: string  | undefined) {
+        this['random_time_min'] = randomTimeMin;
+    }
+    public get randomTimeMin(): string | undefined {
+        return this['random_time_min'];
+    }
+    public withRandomTimeMax(randomTimeMax: string): WatermarkTemplate {
+        this['random_time_max'] = randomTimeMax;
+        return this;
+    }
+    public set randomTimeMax(randomTimeMax: string  | undefined) {
+        this['random_time_max'] = randomTimeMax;
+    }
+    public get randomTimeMax(): string | undefined {
+        return this['random_time_max'];
     }
     public withImageProcess(imageProcess: string): WatermarkTemplate {
         this['image_process'] = imageProcess;

@@ -559,6 +559,7 @@ export * from './model/SyncNodeResp';
 export * from './model/SyncNodeResponse';
 export * from './model/SyncNodesResp';
 export * from './model/Taint';
+export * from './model/TaskStatus';
 export * from './model/TaskType';
 export * from './model/Templatespec';
 export * from './model/UnlockNodeScaledownRequestBody';

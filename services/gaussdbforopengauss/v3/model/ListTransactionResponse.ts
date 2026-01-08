@@ -1,10 +1,10 @@
-import { ListTransactionResponseBodyRowsInfo } from './ListTransactionResponseBodyRowsInfo';
+import { ListTransactionResponseBodyRows } from './ListTransactionResponseBodyRows';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListTransactionResponse extends SdkResponse {
     public total?: number;
-    private 'rows_info'?: Array<ListTransactionResponseBodyRowsInfo>;
+    public rows?: Array<ListTransactionResponseBodyRows>;
     public constructor() { 
         super();
     }
@@ -12,14 +12,8 @@ export class ListTransactionResponse extends SdkResponse {
         this['total'] = total;
         return this;
     }
-    public withRowsInfo(rowsInfo: Array<ListTransactionResponseBodyRowsInfo>): ListTransactionResponse {
-        this['rows_info'] = rowsInfo;
+    public withRows(rows: Array<ListTransactionResponseBodyRows>): ListTransactionResponse {
+        this['rows'] = rows;
         return this;
-    }
-    public set rowsInfo(rowsInfo: Array<ListTransactionResponseBodyRowsInfo>  | undefined) {
-        this['rows_info'] = rowsInfo;
-    }
-    public get rowsInfo(): Array<ListTransactionResponseBodyRowsInfo> | undefined {
-        return this['rows_info'];
     }
 }

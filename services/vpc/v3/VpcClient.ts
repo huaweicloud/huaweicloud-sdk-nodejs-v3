@@ -20,6 +20,7 @@ import { AddVpcExtendCidrRequest } from './model/AddVpcExtendCidrRequest';
 import { AddVpcExtendCidrRequestBody } from './model/AddVpcExtendCidrRequestBody';
 import { AddVpcExtendCidrResponse } from './model/AddVpcExtendCidrResponse';
 import { AddressGroup } from './model/AddressGroup';
+import { AddressGroupDependency } from './model/AddressGroupDependency';
 import { AllowedAddressPair } from './model/AllowedAddressPair';
 import { AssociateSubnetFirewallRequest } from './model/AssociateSubnetFirewallRequest';
 import { AssociateSubnetFirewallRequestBody } from './model/AssociateSubnetFirewallRequestBody';
@@ -145,10 +146,10 @@ import { DeleteVirsubnetCidrReservationRequest } from './model/DeleteVirsubnetCi
 import { DeleteVirsubnetCidrReservationResponse } from './model/DeleteVirsubnetCidrReservationResponse';
 import { DeleteVpcRequest } from './model/DeleteVpcRequest';
 import { DeleteVpcResponse } from './model/DeleteVpcResponse';
+import { Dependency } from './model/Dependency';
 import { DisassociateSubnetFirewallRequest } from './model/DisassociateSubnetFirewallRequest';
 import { DisassociateSubnetFirewallRequestBody } from './model/DisassociateSubnetFirewallRequestBody';
 import { DisassociateSubnetFirewallResponse } from './model/DisassociateSubnetFirewallResponse';
-import { ExtraDhcpOpt } from './model/ExtraDhcpOpt';
 import { FirewallAssociation } from './model/FirewallAssociation';
 import { FirewallDetail } from './model/FirewallDetail';
 import { FirewallInsertRuleItemOption } from './model/FirewallInsertRuleItemOption';
@@ -163,6 +164,8 @@ import { IpExtraSetOption } from './model/IpExtraSetOption';
 import { IpExtraSetRespOption } from './model/IpExtraSetRespOption';
 import { ListAddressGroupRequest } from './model/ListAddressGroupRequest';
 import { ListAddressGroupResponse } from './model/ListAddressGroupResponse';
+import { ListAddressGroupsDependencyRequest } from './model/ListAddressGroupsDependencyRequest';
+import { ListAddressGroupsDependencyResponse } from './model/ListAddressGroupsDependencyResponse';
 import { ListClouddcnSubnetsCountFilterTagsRequest } from './model/ListClouddcnSubnetsCountFilterTagsRequest';
 import { ListClouddcnSubnetsCountFilterTagsResponse } from './model/ListClouddcnSubnetsCountFilterTagsResponse';
 import { ListClouddcnSubnetsFilterTagsRequest } from './model/ListClouddcnSubnetsFilterTagsRequest';
@@ -184,6 +187,8 @@ import { ListPortTagsResponse } from './model/ListPortTagsResponse';
 import { ListPortsByTagsRequest } from './model/ListPortsByTagsRequest';
 import { ListPortsByTagsRequestBody } from './model/ListPortsByTagsRequestBody';
 import { ListPortsByTagsResponse } from './model/ListPortsByTagsResponse';
+import { ListPortsRequest } from './model/ListPortsRequest';
+import { ListPortsResponse } from './model/ListPortsResponse';
 import { ListResourceResp } from './model/ListResourceResp';
 import { ListResourcesByTagsRequestBody } from './model/ListResourcesByTagsRequestBody';
 import { ListSecurityGroupRulesRequest } from './model/ListSecurityGroupRulesRequest';
@@ -201,6 +206,8 @@ import { ListTrafficMirrorSessionsRequest } from './model/ListTrafficMirrorSessi
 import { ListTrafficMirrorSessionsResponse } from './model/ListTrafficMirrorSessionsResponse';
 import { ListVirsubnetCidrReservationsRequest } from './model/ListVirsubnetCidrReservationsRequest';
 import { ListVirsubnetCidrReservationsResponse } from './model/ListVirsubnetCidrReservationsResponse';
+import { ListVirsubnetsRequest } from './model/ListVirsubnetsRequest';
+import { ListVirsubnetsResponse } from './model/ListVirsubnetsResponse';
 import { ListVpcsRequest } from './model/ListVpcsRequest';
 import { ListVpcsResponse } from './model/ListVpcsResponse';
 import { Match } from './model/Match';
@@ -210,6 +217,7 @@ import { MigrateSubNetworkInterfaceRequestBody } from './model/MigrateSubNetwork
 import { MigrateSubNetworkInterfaceResponse } from './model/MigrateSubNetworkInterfaceResponse';
 import { PageInfo } from './model/PageInfo';
 import { Port } from './model/Port';
+import { PortExtraDhcpOpt } from './model/PortExtraDhcpOpt';
 import { PrivateIpInfo } from './model/PrivateIpInfo';
 import { RemoveExtendCidrOption } from './model/RemoveExtendCidrOption';
 import { RemoveFirewallRulesRequest } from './model/RemoveFirewallRulesRequest';
@@ -227,6 +235,7 @@ import { RemoveVpcExtendCidrRequestBody } from './model/RemoveVpcExtendCidrReque
 import { RemoveVpcExtendCidrResponse } from './model/RemoveVpcExtendCidrResponse';
 import { ResourceTag } from './model/ResourceTag';
 import { ResourceTags } from './model/ResourceTags';
+import { ResponseTag } from './model/ResponseTag';
 import { SecurityGroup } from './model/SecurityGroup';
 import { SecurityGroupInfo } from './model/SecurityGroupInfo';
 import { SecurityGroupRule } from './model/SecurityGroupRule';
@@ -240,8 +249,12 @@ import { ShowFirewallRequest } from './model/ShowFirewallRequest';
 import { ShowFirewallResponse } from './model/ShowFirewallResponse';
 import { ShowFirewallTagsRequest } from './model/ShowFirewallTagsRequest';
 import { ShowFirewallTagsResponse } from './model/ShowFirewallTagsResponse';
+import { ShowPortRequest } from './model/ShowPortRequest';
+import { ShowPortResponse } from './model/ShowPortResponse';
 import { ShowPortTagsRequest } from './model/ShowPortTagsRequest';
 import { ShowPortTagsResponse } from './model/ShowPortTagsResponse';
+import { ShowQuotaRequest } from './model/ShowQuotaRequest';
+import { ShowQuotaResponse } from './model/ShowQuotaResponse';
 import { ShowSecurityGroupRequest } from './model/ShowSecurityGroupRequest';
 import { ShowSecurityGroupResponse } from './model/ShowSecurityGroupResponse';
 import { ShowSecurityGroupRuleRequest } from './model/ShowSecurityGroupRuleRequest';
@@ -258,9 +271,13 @@ import { ShowTrafficMirrorSessionRequest } from './model/ShowTrafficMirrorSessio
 import { ShowTrafficMirrorSessionResponse } from './model/ShowTrafficMirrorSessionResponse';
 import { ShowVirsubnetCidrReservationRequest } from './model/ShowVirsubnetCidrReservationRequest';
 import { ShowVirsubnetCidrReservationResponse } from './model/ShowVirsubnetCidrReservationResponse';
+import { ShowVirsubnetRequest } from './model/ShowVirsubnetRequest';
+import { ShowVirsubnetResponse } from './model/ShowVirsubnetResponse';
 import { ShowVpcRequest } from './model/ShowVpcRequest';
 import { ShowVpcResponse } from './model/ShowVpcResponse';
 import { SubNetworkInterface } from './model/SubNetworkInterface';
+import { SubnetCidr } from './model/SubnetCidr';
+import { SubnetExtraDhcpOpt } from './model/SubnetExtraDhcpOpt';
 import { SysTag } from './model/SysTag';
 import { Tag } from './model/Tag';
 import { TagEntity } from './model/TagEntity';
@@ -311,8 +328,10 @@ import { UpdateVpcOption } from './model/UpdateVpcOption';
 import { UpdateVpcRequest } from './model/UpdateVpcRequest';
 import { UpdateVpcRequestBody } from './model/UpdateVpcRequestBody';
 import { UpdateVpcResponse } from './model/UpdateVpcResponse';
+import { Virsubnet } from './model/Virsubnet';
 import { VirsubnetCidrReservation } from './model/VirsubnetCidrReservation';
 import { Vpc } from './model/Vpc';
+import { VpcQuotas } from './model/VpcQuotas';
 
 export class VpcClient {
     public static newBuilder(): ClientBuilder<VpcClient> {
@@ -373,7 +392,6 @@ export class VpcClient {
     /**
      * 为指定的端口批量添加标签。
      * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
-     * 该接口在华南-深圳上线。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -434,7 +452,6 @@ export class VpcClient {
     /**
      * 为指定的端口资源实例批量删除标签。
      * 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
-     * 该接口在华南-深圳上线。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -455,7 +472,6 @@ export class VpcClient {
 
     /**
      * 使用标签过滤查询端口实例数量。
-     * 该接口在华南-深圳上线。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -474,9 +490,8 @@ export class VpcClient {
     }
 
     /**
-     * 给指定端口资源实例增加标签信息
+     * 给指定端口资源实例增加标签信息。
      * 此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
-     * 该接口在华南-深圳上线。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -629,9 +644,8 @@ export class VpcClient {
     }
 
     /**
-     * 删除指定端口的标签信息
+     * 删除指定端口的标签信息。
      * 该接口为幂等接口：删除的key不存在报404，key不能为空或者空字符串。
-     * 该接口在华南-深圳上线。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -785,7 +799,6 @@ export class VpcClient {
 
     /**
      * 查询租户在指定Project中实例类型的所有资源标签集合。
-     * 该接口在华南-深圳上线。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -805,8 +818,42 @@ export class VpcClient {
     }
 
     /**
+     * 当您的端口创建成功后，您可以通过调用该接口查询所有端口信息，包括端口ID、IP地址、所属云服务实例等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询端口列表
+     * @param {Array<string>} [id] **参数解释**： 端口的资源ID。 **取值范围**： 带“-”的标准UUID格式。
+     * @param {Array<string>} [name] **参数解释**： 端口的名称。 **取值范围**： 默认为空，最大长度不超过255。
+     * @param {boolean} [adminStateUp] **参数解释**： 端口的管理状态。 **取值范围**： true，false，默认值true。
+     * @param {string} [status] **参数解释**： 端口的状态。 **取值范围**： - ACTIVE：端口处- 于活动状态，可以正常进行网络通信。 - BUILD：端口正在创建或配置中。 - DOWN：端口处于非活动状态，不能进行网络通信。Hana 硬直通虚拟机端口状态总为DOWN。
+     * @param {Array<string>} [virsubnetId] **参数解释**： 端口所在的虚拟子网ID。 **取值范围**： 带“-”的标准UUID格式。
+     * @param {Array<string>} [deviceId] **参数解释**： 端口所属的设备ID。 **取值范围**： 带“-”的标准UUID格式。
+     * @param {Array<string>} [macAddress] **参数解释**： 端口的MAC地址。 **取值范围**： 不涉及
+     * @param {Array<string>} [deviceOwner] **参数解释**： 端口所属的设备名称。 **取值范围**： - network:dhcp, 表示DHCP服务 - network:router_interface_distributed, 表示子网网关地址 - compute:xxx, 表示云服务器网卡私有IP地址，其中XXX对应具体的可用区名称，例如compute:aa-bb-cc表示私有IP地址被可用区aa-bb-cc内的云服务器使用 - neutron:VIP_PORT, 表示虚拟IP地址 - neutron:LOADBALANCERV2, 表示共享型ELB - neutron:LOADBALANCERV3, 表示独享型ELB - network:endpoint_interface, 表示VPC终端节点 - network:nat_gateway, 表示NAT网关 - network:ucmp, 表示UCMP端口，为企业路由器服务所用
+     * @param {string} [deviceOwnerPrefixlike] **参数解释**： 端口所属的设备名称前缀。 **取值范围**： - network：过滤出device_owner前缀是network的端口，如DHCP端口。 - compute：过滤出device_owner前缀是compute的端口，如云服务器网卡。 - neutron：过滤出device_owner前缀是compute的端口，如虚拟IP地址。
+     * @param {Array<string>} [description] **参数解释**： 端口的描述信息。 **取值范围**： 0-255个字符，不能包含“&lt;”和“&gt;”。
+     * @param {Array<string>} [bindingHostId] **参数解释**： 端口所在的主机ID。 **取值范围**： 不涉及。
+     * @param {Array<string>} [privateIps] **参数解释**： 端口的私有IP地址。 **取值范围**： - private_ips&#x3D;ip_address&#x3D;{ip_address}，其中{ip_address}填IP地址，如192.168.21.22。 - private_ips&#x3D;subnet_cidr_id&#x3D;{subnet_id}，其中{subnet_id}填IPv4子网或IPv6子网的ID，如011fc878-5521-4654-a1ad-f5b0b5820302。
+     * @param {Array<string>} [securityGroups] **参数解释**： 端口绑定的安全组列表。 **取值范围**： 不涉及。
+     * @param {Array<string>} [vpcId] **参数解释**： 端口所在的VPC的ID。 **取值范围**： 带“-”的标准UUID格式。
+     * @param {Array<string>} [allowedAddressPairs] **参数解释**： 端口的IP/Mac对列表。 **取值范围**： - allowed_address_pairs&#x3D;ip_address&#x3D;{ip_address}，其中{ip_address}填IP地址，如192.168.21.22。 - allowed_address_pairs&#x3D;mac_address&#x3D;{mac_address}，其中{mac_address}填MAC地址，如fa:16:3e:b1:da:62。
+     * @param {string} [instanceId] **参数解释**： 端口所属的云服务实例ID，例如RDS实例ID。 **取值范围**： 不涉及。
+     * @param {string} [instanceType] **参数解释**： 端口所属的云服务实例类型，例如“RDS”。 **取值范围**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPorts(listPortsRequest?: ListPortsRequest): Promise<ListPortsResponse> {
+        const options = ParamCreater().listPorts(listPortsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 使用标签过滤查询端口。
-     * 该接口在华南-深圳上线。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1026,6 +1073,33 @@ export class VpcClient {
     }
 
     /**
+     * 当您的子网创建成功后，您可以通过调用该接口查询所有子网信息，包括子网的名称、ID等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询虚拟子网列表
+     * @param {number} [limit] **参数解释**： 每页返回的资源个数。 **取值范围**： 0~2000。
+     * @param {string} [marker] **参数解释**： 分页查询起始的资源ID，为空时查询第一页。 **取值范围**： 子网的资源ID。
+     * @param {Array<string>} [id] **参数解释**： 子网的资源ID，填写后按照ID进行过滤，支持传入多个ID过滤。 **取值范围**： 不涉及。
+     * @param {Array<string>} [name] **参数解释**： 子网的名称，填写后按照名称进行过滤，支持传入多个名称过滤。 **取值范围**： 不涉及。
+     * @param {Array<string>} [vpcId] **参数解释**： 子网所在VPC的资源ID，填写后按照VPC资源ID进行过滤，支持传入多个ID过滤。 **取值范围**： 不涉及。
+     * @param {string} [status] **参数解释**： 子网的状态，填写后按照状态进行过滤，只支持传入单个状态过滤。 **取值范围**： - ACTIVE：表示子网已挂载到VPC上。 - UNKNOWN：表示子网还未挂载到VPC上。 - ERROR：表示子网状态故障。
+     * @param {Array<string>} [scope] **参数解释**： 子网的作用域，填写后按照作用域进行过滤，支持传入多个作用域过滤。 **取值范围**： - center：表示作用域为中心。 - {publicBorderGroup}：表示作用域为具体的公网边界组。公网边界组限制子网的可用区范围，可关联多个边缘可用区。
+     * @param {Array<string>} [zoneId] **参数解释**： 子网的可用区ID，填写后按照可用区ID进行过滤，支持传入多个可用区ID过滤。 **取值范围**： 不涉及
+     * @param {Array<string>} [description] **参数解释**： 子网的描述信息，填写后按照描述信息进行过滤，支持传入多个描述信息过滤。 **取值范围**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVirsubnets(listVirsubnetsRequest?: ListVirsubnetsRequest): Promise<ListVirsubnetsResponse> {
+        const options = ParamCreater().listVirsubnets(listVirsubnetsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量迁移辅助弹性网卡
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1085,8 +1159,26 @@ export class VpcClient {
     }
 
     /**
+     * 当您的端口创建成功后，您可以通过调用该接口查询单个端口的详细信息，包括端口ID、IP地址、所属云服务实例等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询端口详情
+     * @param {string} portId **参数解释**： 端口的资源ID，可以是弹性网卡的资源ID。 **取值范围**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPort(showPortRequest?: ShowPortRequest): Promise<ShowPortResponse> {
+        const options = ParamCreater().showPort(showPortRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询指定端口的标签信息。
-     * 该接口在华南-深圳上线。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1097,6 +1189,24 @@ export class VpcClient {
      */
     public showPortTags(showPortTagsRequest?: ShowPortTagsRequest): Promise<ShowPortTagsResponse> {
         const options = ParamCreater().showPortTags(showPortTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 您可以通过此接口查询VPC服务相关资源的配额，包括安全组配额、安全组规则配额等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询配额
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showQuota(showQuotaRequest?: ShowQuotaRequest): Promise<ShowQuotaResponse> {
+        const options = ParamCreater().showQuota();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1229,6 +1339,25 @@ export class VpcClient {
      */
     public showTrafficMirrorSession(showTrafficMirrorSessionRequest?: ShowTrafficMirrorSessionRequest): Promise<ShowTrafficMirrorSessionResponse> {
         const options = ParamCreater().showTrafficMirrorSession(showTrafficMirrorSessionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当您的子网创建成功后，您可以通过调用该接口查询单个子网的详细信息，包括子网的名称、ID、状态等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询虚拟子网详情
+     * @param {string} virsubnetId **参数解释**： 子网的资源ID。 **取值范围**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVirsubnet(showVirsubnetRequest?: ShowVirsubnetRequest): Promise<ShowVirsubnetResponse> {
+        const options = ParamCreater().showVirsubnet(showVirsubnetRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2078,6 +2207,26 @@ export class VpcClient {
     }
 
     /**
+     * 当您的IP地址组被网络ACL和安全组资源关联时，您可以通过调用该接口查询IP地址组关联的网络ACL或安全组的资源ID和名称。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询IP地址组的关联资源
+     * @param {string} [id] **参数解释**： 用IP地址组的资源ID过滤。 **取值范围**： 不涉及。
+     * @param {string} [enterpriseProjectId] **参数解释**： 用IP地址组所属的企业项目ID过滤。 **取值范围**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAddressGroupsDependency(listAddressGroupsDependencyRequest?: ListAddressGroupsDependencyRequest): Promise<ListAddressGroupsDependencyResponse> {
+        const options = ParamCreater().listAddressGroupsDependency(listAddressGroupsDependencyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询地址组详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2357,7 +2506,6 @@ export const ParamCreater = function () {
         /**
          * 为指定的端口批量添加标签。
          * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
-         * 该接口在华南-深圳上线。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2486,7 +2634,6 @@ export const ParamCreater = function () {
         /**
          * 为指定的端口资源实例批量删除标签。
          * 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
-         * 该接口在华南-深圳上线。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2530,7 +2677,6 @@ export const ParamCreater = function () {
     
         /**
          * 使用标签过滤查询端口实例数量。
-         * 该接口在华南-深圳上线。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2565,9 +2711,8 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 给指定端口资源实例增加标签信息
+         * 给指定端口资源实例增加标签信息。
          * 此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
-         * 该接口在华南-深圳上线。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2879,9 +3024,8 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除指定端口的标签信息
+         * 删除指定端口的标签信息。
          * 该接口为幂等接口：删除的key不存在报404，key不能为空或者空字符串。
-         * 该接口在华南-深圳上线。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3185,7 +3329,6 @@ export const ParamCreater = function () {
     
         /**
          * 查询租户在指定Project中实例类型的所有资源标签集合。
-         * 该接口在华南-深圳上线。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3229,8 +3372,156 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 当您的端口创建成功后，您可以通过调用该接口查询所有端口信息，包括端口ID、IP地址、所属云服务实例等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPorts(listPortsRequest?: ListPortsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/ports",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let id;
+            
+            let name;
+            
+            let adminStateUp;
+            
+            let status;
+            
+            let virsubnetId;
+            
+            let deviceId;
+            
+            let macAddress;
+            
+            let deviceOwner;
+            
+            let deviceOwnerPrefixlike;
+            
+            let description;
+            
+            let bindingHostId;
+            
+            let privateIps;
+            
+            let securityGroups;
+            
+            let vpcId;
+            
+            let allowedAddressPairs;
+            
+            let instanceId;
+            
+            let instanceType;
+
+            if (listPortsRequest !== null && listPortsRequest !== undefined) {
+                if (listPortsRequest instanceof ListPortsRequest) {
+                    id = listPortsRequest.id;
+                    name = listPortsRequest.name;
+                    adminStateUp = listPortsRequest.adminStateUp;
+                    status = listPortsRequest.status;
+                    virsubnetId = listPortsRequest.virsubnetId;
+                    deviceId = listPortsRequest.deviceId;
+                    macAddress = listPortsRequest.macAddress;
+                    deviceOwner = listPortsRequest.deviceOwner;
+                    deviceOwnerPrefixlike = listPortsRequest.deviceOwnerPrefixlike;
+                    description = listPortsRequest.description;
+                    bindingHostId = listPortsRequest.bindingHostId;
+                    privateIps = listPortsRequest.privateIps;
+                    securityGroups = listPortsRequest.securityGroups;
+                    vpcId = listPortsRequest.vpcId;
+                    allowedAddressPairs = listPortsRequest.allowedAddressPairs;
+                    instanceId = listPortsRequest.instanceId;
+                    instanceType = listPortsRequest.instanceType;
+                } else {
+                    id = listPortsRequest['id'];
+                    name = listPortsRequest['name'];
+                    adminStateUp = listPortsRequest['admin_state_up'];
+                    status = listPortsRequest['status'];
+                    virsubnetId = listPortsRequest['virsubnet_id'];
+                    deviceId = listPortsRequest['device_id'];
+                    macAddress = listPortsRequest['mac_address'];
+                    deviceOwner = listPortsRequest['device_owner'];
+                    deviceOwnerPrefixlike = listPortsRequest['device_owner_prefixlike'];
+                    description = listPortsRequest['description'];
+                    bindingHostId = listPortsRequest['binding:host_id'];
+                    privateIps = listPortsRequest['private_ips'];
+                    securityGroups = listPortsRequest['security_groups'];
+                    vpcId = listPortsRequest['vpc_id'];
+                    allowedAddressPairs = listPortsRequest['allowed_address_pairs'];
+                    instanceId = listPortsRequest['instance_id'];
+                    instanceType = listPortsRequest['instance_type'];
+                }
+            }
+
+        
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (adminStateUp !== null && adminStateUp !== undefined) {
+                localVarQueryParameter['admin_state_up'] = adminStateUp;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (virsubnetId !== null && virsubnetId !== undefined) {
+                localVarQueryParameter['virsubnet_id'] = virsubnetId;
+            }
+            if (deviceId !== null && deviceId !== undefined) {
+                localVarQueryParameter['device_id'] = deviceId;
+            }
+            if (macAddress !== null && macAddress !== undefined) {
+                localVarQueryParameter['mac_address'] = macAddress;
+            }
+            if (deviceOwner !== null && deviceOwner !== undefined) {
+                localVarQueryParameter['device_owner'] = deviceOwner;
+            }
+            if (deviceOwnerPrefixlike !== null && deviceOwnerPrefixlike !== undefined) {
+                localVarQueryParameter['device_owner_prefixlike'] = deviceOwnerPrefixlike;
+            }
+            if (description !== null && description !== undefined) {
+                localVarQueryParameter['description'] = description;
+            }
+            if (bindingHostId !== null && bindingHostId !== undefined) {
+                localVarQueryParameter['binding:host_id'] = bindingHostId;
+            }
+            if (privateIps !== null && privateIps !== undefined) {
+                localVarQueryParameter['private_ips'] = privateIps;
+            }
+            if (securityGroups !== null && securityGroups !== undefined) {
+                localVarQueryParameter['security_groups'] = securityGroups;
+            }
+            if (vpcId !== null && vpcId !== undefined) {
+                localVarQueryParameter['vpc_id'] = vpcId;
+            }
+            if (allowedAddressPairs !== null && allowedAddressPairs !== undefined) {
+                localVarQueryParameter['allowed_address_pairs'] = allowedAddressPairs;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (instanceType !== null && instanceType !== undefined) {
+                localVarQueryParameter['instance_type'] = instanceType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 使用标签过滤查询端口。
-         * 该接口在华南-深圳上线。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4001,6 +4292,99 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 当您的子网创建成功后，您可以通过调用该接口查询所有子网信息，包括子网的名称、ID等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listVirsubnets(listVirsubnetsRequest?: ListVirsubnetsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/vpc/virsubnets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let id;
+            
+            let name;
+            
+            let vpcId;
+            
+            let status;
+            
+            let scope;
+            
+            let zoneId;
+            
+            let description;
+
+            if (listVirsubnetsRequest !== null && listVirsubnetsRequest !== undefined) {
+                if (listVirsubnetsRequest instanceof ListVirsubnetsRequest) {
+                    limit = listVirsubnetsRequest.limit;
+                    marker = listVirsubnetsRequest.marker;
+                    id = listVirsubnetsRequest.id;
+                    name = listVirsubnetsRequest.name;
+                    vpcId = listVirsubnetsRequest.vpcId;
+                    status = listVirsubnetsRequest.status;
+                    scope = listVirsubnetsRequest.scope;
+                    zoneId = listVirsubnetsRequest.zoneId;
+                    description = listVirsubnetsRequest.description;
+                } else {
+                    limit = listVirsubnetsRequest['limit'];
+                    marker = listVirsubnetsRequest['marker'];
+                    id = listVirsubnetsRequest['id'];
+                    name = listVirsubnetsRequest['name'];
+                    vpcId = listVirsubnetsRequest['vpc_id'];
+                    status = listVirsubnetsRequest['status'];
+                    scope = listVirsubnetsRequest['scope'];
+                    zoneId = listVirsubnetsRequest['zone_id'];
+                    description = listVirsubnetsRequest['description'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (vpcId !== null && vpcId !== undefined) {
+                localVarQueryParameter['vpc_id'] = vpcId;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (scope !== null && scope !== undefined) {
+                localVarQueryParameter['scope'] = scope;
+            }
+            if (zoneId !== null && zoneId !== undefined) {
+                localVarQueryParameter['zone_id'] = zoneId;
+            }
+            if (description !== null && description !== undefined) {
+                localVarQueryParameter['description'] = description;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量迁移辅助弹性网卡
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4131,8 +4515,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 当您的端口创建成功后，您可以通过调用该接口查询单个端口的详细信息，包括端口ID、IP地址、所属云服务实例等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPort(showPortRequest?: ShowPortRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/ports/{port_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let portId;
+
+            if (showPortRequest !== null && showPortRequest !== undefined) {
+                if (showPortRequest instanceof ShowPortRequest) {
+                    portId = showPortRequest.portId;
+                } else {
+                    portId = showPortRequest['port_id'];
+                }
+            }
+
+        
+            if (portId === null || portId === undefined) {
+            throw new RequiredError('portId','Required parameter portId was null or undefined when calling showPort.');
+            }
+
+            options.pathParams = { 'port_id': portId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询指定端口的标签信息。
-         * 该接口在华南-深圳上线。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4164,6 +4584,27 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'port_id': portId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 您可以通过此接口查询VPC服务相关资源的配额，包括安全组配额、安全组规则配额等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showQuota() {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/vpc/quotas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4407,6 +4848,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'traffic_mirror_session_id': trafficMirrorSessionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当您的子网创建成功后，您可以通过调用该接口查询单个子网的详细信息，包括子网的名称、ID、状态等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVirsubnet(showVirsubnetRequest?: ShowVirsubnetRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/vpc/virsubnets/{virsubnet_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let virsubnetId;
+
+            if (showVirsubnetRequest !== null && showVirsubnetRequest !== undefined) {
+                if (showVirsubnetRequest instanceof ShowVirsubnetRequest) {
+                    virsubnetId = showVirsubnetRequest.virsubnetId;
+                } else {
+                    virsubnetId = showVirsubnetRequest['virsubnet_id'];
+                }
+            }
+
+        
+            if (virsubnetId === null || virsubnetId === undefined) {
+            throw new RequiredError('virsubnetId','Required parameter virsubnetId was null or undefined when calling showVirsubnet.');
+            }
+
+            options.pathParams = { 'virsubnet_id': virsubnetId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6258,6 +6736,50 @@ export const ParamCreater = function () {
             }
             if (description !== null && description !== undefined) {
                 localVarQueryParameter['description'] = description;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当您的IP地址组被网络ACL和安全组资源关联时，您可以通过调用该接口查询IP地址组关联的网络ACL或安全组的资源ID和名称。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAddressGroupsDependency(listAddressGroupsDependencyRequest?: ListAddressGroupsDependencyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/vpc/list-address-groups-dependency",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let id;
+            
+            let enterpriseProjectId;
+
+            if (listAddressGroupsDependencyRequest !== null && listAddressGroupsDependencyRequest !== undefined) {
+                if (listAddressGroupsDependencyRequest instanceof ListAddressGroupsDependencyRequest) {
+                    id = listAddressGroupsDependencyRequest.id;
+                    enterpriseProjectId = listAddressGroupsDependencyRequest.enterpriseProjectId;
+                } else {
+                    id = listAddressGroupsDependencyRequest['id'];
+                    enterpriseProjectId = listAddressGroupsDependencyRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;

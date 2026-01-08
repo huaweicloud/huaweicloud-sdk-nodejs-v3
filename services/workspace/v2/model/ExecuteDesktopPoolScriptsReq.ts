@@ -4,6 +4,7 @@ export class ExecuteDesktopPoolScriptsReq {
     private 'script_ids'?: Array<string>;
     private 'gray_count'?: number;
     private 'gray_desktop_ids'?: Array<string>;
+    private 'desktop_ids'?: Array<string>;
     private 'gray_fail_threshold'?: number;
     private 'pre_start'?: string;
     private 'post_finish'?: string;
@@ -41,6 +42,16 @@ export class ExecuteDesktopPoolScriptsReq {
     }
     public get grayDesktopIds(): Array<string> | undefined {
         return this['gray_desktop_ids'];
+    }
+    public withDesktopIds(desktopIds: Array<string>): ExecuteDesktopPoolScriptsReq {
+        this['desktop_ids'] = desktopIds;
+        return this;
+    }
+    public set desktopIds(desktopIds: Array<string>  | undefined) {
+        this['desktop_ids'] = desktopIds;
+    }
+    public get desktopIds(): Array<string> | undefined {
+        return this['desktop_ids'];
     }
     public withGrayFailThreshold(grayFailThreshold: number): ExecuteDesktopPoolScriptsReq {
         this['gray_fail_threshold'] = grayFailThreshold;

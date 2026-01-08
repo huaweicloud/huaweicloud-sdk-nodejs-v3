@@ -15,7 +15,6 @@ export class ListPrivateDnatsRequest {
     public protocol?: Array<string>;
     private 'internal_service_port'?: Array<string>;
     private 'transit_service_port'?: Array<string>;
-    private 'transit_ip_address'?: Array<string>;
     public constructor() { 
     }
     public withLimit(limit: number): ListPrivateDnatsRequest {
@@ -121,15 +120,5 @@ export class ListPrivateDnatsRequest {
     }
     public get transitServicePort(): Array<string> | undefined {
         return this['transit_service_port'];
-    }
-    public withTransitIpAddress(transitIpAddress: Array<string>): ListPrivateDnatsRequest {
-        this['transit_ip_address'] = transitIpAddress;
-        return this;
-    }
-    public set transitIpAddress(transitIpAddress: Array<string>  | undefined) {
-        this['transit_ip_address'] = transitIpAddress;
-    }
-    public get transitIpAddress(): Array<string> | undefined {
-        return this['transit_ip_address'];
     }
 }

@@ -1,3 +1,4 @@
+import { CpuOptions } from './CpuOptions';
 import { DiskResult } from './DiskResult';
 import { PersonalityResult } from './PersonalityResult';
 import { PublicipResult } from './PublicipResult';
@@ -24,6 +25,7 @@ export class InstanceConfigResult {
     private 'dedicated_host_id'?: string;
     private 'market_type'?: string;
     private 'multi_flavor_priority_policy'?: string;
+    private 'cpu_options'?: CpuOptions;
     public constructor() { 
     }
     public withFlavorRef(flavorRef: string): InstanceConfigResult {
@@ -163,5 +165,15 @@ export class InstanceConfigResult {
     }
     public get multiFlavorPriorityPolicy(): string | undefined {
         return this['multi_flavor_priority_policy'];
+    }
+    public withCpuOptions(cpuOptions: CpuOptions): InstanceConfigResult {
+        this['cpu_options'] = cpuOptions;
+        return this;
+    }
+    public set cpuOptions(cpuOptions: CpuOptions  | undefined) {
+        this['cpu_options'] = cpuOptions;
+    }
+    public get cpuOptions(): CpuOptions | undefined {
+        return this['cpu_options'];
     }
 }

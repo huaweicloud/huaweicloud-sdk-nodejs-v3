@@ -15,7 +15,7 @@ export class StartJobSubmission {
     public isStopingIncrement?: string;
     private 'is-execute-auto'?: boolean;
     private 'last-update-date'?: number;
-    private 'last-udpate-user'?: string;
+    private 'last-update-user'?: string;
     public isDeleteJob?: boolean;
     public constructor(jobName?: string, creationUser?: string, creationDate?: number, progress?: number, status?: string) { 
         this['job-name'] = jobName;
@@ -140,15 +140,15 @@ export class StartJobSubmission {
     public get lastUpdateDate(): number | undefined {
         return this['last-update-date'];
     }
-    public withLastUdpateUser(lastUdpateUser: string): StartJobSubmission {
-        this['last-udpate-user'] = lastUdpateUser;
+    public withLastUpdateUser(lastUpdateUser: string): StartJobSubmission {
+        this['last-update-user'] = lastUpdateUser;
         return this;
     }
-    public set lastUdpateUser(lastUdpateUser: string  | undefined) {
-        this['last-udpate-user'] = lastUdpateUser;
+    public set lastUpdateUser(lastUpdateUser: string  | undefined) {
+        this['last-update-user'] = lastUpdateUser;
     }
-    public get lastUdpateUser(): string | undefined {
-        return this['last-udpate-user'];
+    public get lastUpdateUser(): string | undefined {
+        return this['last-update-user'];
     }
     public withIsDeleteJob(isDeleteJob: boolean): StartJobSubmission {
         this['isDeleteJob'] = isDeleteJob;

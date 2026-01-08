@@ -28,6 +28,15 @@ export class VpnRegion {
     public static CN_EAST_5 = new Region("cn-east-5", ["https://vpn.cn-east-5.myhuaweicloud.com"]);
     public static AF_SOUTH_1 = new Region("af-south-1", ["https://vpn.af-south-1.myhuaweicloud.com"]);
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://vpn.ru-moscow-1.myhuaweicloud.com"]);
+    public static CN_SOUTH_4 = new Region("cn-south-4", ["https://vpn.cn-south-4.myhuaweicloud.com"]);
+    public static CN_NORTH_12 = new Region("cn-north-12", ["https://vpn.cn-north-12.myhuaweicloud.com"]);
+    public static CN_EAST_4 = new Region("cn-east-4", ["https://vpn.cn-east-4.myhuaweicloud.com"]);
+    public static CN_SOUTHWEST_3 = new Region("cn-southwest-3", ["https://vpn.cn-southwest-3.myhuaweicloud.com"]);
+    public static CN_SOUTH_2 = new Region("cn-south-2", ["https://vpn.cn-south-2.myhuaweicloud.com"]);
+    public static CN_NORTH_2 = new Region("cn-north-2", ["https://vpn.cn-north-2.myhuaweicloud.com"]);
+    public static CN_NORTH_11 = new Region("cn-north-11", ["https://vpn.cn-north-11.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://vpn.ap-southeast-5.myhuaweicloud.com"]);
+    public static AF_NORTH_1 = new Region("af-north-1", ["https://vpn.af-north-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -52,7 +61,16 @@ export class VpnRegion {
         "me-east-1":VpnRegion.ME_EAST_1,
         "cn-east-5":VpnRegion.CN_EAST_5,
         "af-south-1":VpnRegion.AF_SOUTH_1,
-        "ru-moscow-1":VpnRegion.RU_MOSCOW_1
+        "ru-moscow-1":VpnRegion.RU_MOSCOW_1,
+        "cn-south-4":VpnRegion.CN_SOUTH_4,
+        "cn-north-12":VpnRegion.CN_NORTH_12,
+        "cn-east-4":VpnRegion.CN_EAST_4,
+        "cn-southwest-3":VpnRegion.CN_SOUTHWEST_3,
+        "cn-south-2":VpnRegion.CN_SOUTH_2,
+        "cn-north-2":VpnRegion.CN_NORTH_2,
+        "cn-north-11":VpnRegion.CN_NORTH_11,
+        "ap-southeast-5":VpnRegion.AP_SOUTHEAST_5,
+        "af-north-1":VpnRegion.AF_NORTH_1
     };
   
     public static valueOf(regionId: string) {

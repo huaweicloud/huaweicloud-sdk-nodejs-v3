@@ -3,6 +3,7 @@
 export class ListDesktopsStatisticsRequest {
     private 'desktop_type'?: Array<string>;
     private 'statistics_type'?: Array<ListDesktopsStatisticsRequestStatisticsTypeEnum> | Array<string>;
+    private 'desktop_pool_ids'?: Array<string>;
     public constructor() { 
     }
     public withDesktopType(desktopType: Array<string>): ListDesktopsStatisticsRequest {
@@ -24,6 +25,16 @@ export class ListDesktopsStatisticsRequest {
     }
     public get statisticsType(): Array<ListDesktopsStatisticsRequestStatisticsTypeEnum> | Array<string> | undefined {
         return this['statistics_type'];
+    }
+    public withDesktopPoolIds(desktopPoolIds: Array<string>): ListDesktopsStatisticsRequest {
+        this['desktop_pool_ids'] = desktopPoolIds;
+        return this;
+    }
+    public set desktopPoolIds(desktopPoolIds: Array<string>  | undefined) {
+        this['desktop_pool_ids'] = desktopPoolIds;
+    }
+    public get desktopPoolIds(): Array<string> | undefined {
+        return this['desktop_pool_ids'];
     }
 }
 

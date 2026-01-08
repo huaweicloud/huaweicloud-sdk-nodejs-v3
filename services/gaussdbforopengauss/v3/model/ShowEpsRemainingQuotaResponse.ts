@@ -3,21 +3,21 @@ import { EpsRemainingQuotaResult } from './EpsRemainingQuotaResult';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowEpsRemainingQuotaResponse extends SdkResponse {
-    private 'eps_quota_remaining'?: Array<EpsRemainingQuotaResult>;
+    private 'eps_remaining_quotas'?: Array<EpsRemainingQuotaResult>;
     private 'job_id'?: string;
     private 'total_count'?: number;
     public constructor() { 
         super();
     }
-    public withEpsQuotaRemaining(epsQuotaRemaining: Array<EpsRemainingQuotaResult>): ShowEpsRemainingQuotaResponse {
-        this['eps_quota_remaining'] = epsQuotaRemaining;
+    public withEpsRemainingQuotas(epsRemainingQuotas: Array<EpsRemainingQuotaResult>): ShowEpsRemainingQuotaResponse {
+        this['eps_remaining_quotas'] = epsRemainingQuotas;
         return this;
     }
-    public set epsQuotaRemaining(epsQuotaRemaining: Array<EpsRemainingQuotaResult>  | undefined) {
-        this['eps_quota_remaining'] = epsQuotaRemaining;
+    public set epsRemainingQuotas(epsRemainingQuotas: Array<EpsRemainingQuotaResult>  | undefined) {
+        this['eps_remaining_quotas'] = epsRemainingQuotas;
     }
-    public get epsQuotaRemaining(): Array<EpsRemainingQuotaResult> | undefined {
-        return this['eps_quota_remaining'];
+    public get epsRemainingQuotas(): Array<EpsRemainingQuotaResult> | undefined {
+        return this['eps_remaining_quotas'];
     }
     public withJobId(jobId: string): ShowEpsRemainingQuotaResponse {
         this['job_id'] = jobId;

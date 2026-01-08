@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListWaitEventResponse extends SdkResponse {
     public total?: number;
-    public rows?: WaitEventResult;
+    public rows?: Array<WaitEventResult>;
     public constructor() { 
         super();
     }
@@ -12,7 +12,7 @@ export class ListWaitEventResponse extends SdkResponse {
         this['total'] = total;
         return this;
     }
-    public withRows(rows: WaitEventResult): ListWaitEventResponse {
+    public withRows(rows: Array<WaitEventResult>): ListWaitEventResponse {
         this['rows'] = rows;
         return this;
     }

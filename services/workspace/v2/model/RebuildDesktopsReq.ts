@@ -9,6 +9,7 @@ export class RebuildDesktopsReq {
     public message?: string;
     private 'order_id'?: string;
     private 'enterprise_project_id'?: string;
+    private 'handle_type'?: string;
     public constructor(desktopIds?: Array<string>, imageType?: string, imageId?: string) { 
         this['desktop_ids'] = desktopIds;
         this['image_type'] = imageType;
@@ -87,5 +88,15 @@ export class RebuildDesktopsReq {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withHandleType(handleType: string): RebuildDesktopsReq {
+        this['handle_type'] = handleType;
+        return this;
+    }
+    public set handleType(handleType: string  | undefined) {
+        this['handle_type'] = handleType;
+    }
+    public get handleType(): string | undefined {
+        return this['handle_type'];
     }
 }

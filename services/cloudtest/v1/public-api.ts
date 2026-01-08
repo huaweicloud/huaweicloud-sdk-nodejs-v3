@@ -191,6 +191,8 @@ export * from './model/DnsMappingNode';
 export * from './model/DomainVisibleServiceVo';
 export * from './model/DownloadAssetTemplateRequest';
 export * from './model/DownloadAssetTemplateResponse';
+export * from './model/DownloadStepImageNewRequest';
+export * from './model/DownloadStepImageNewResponse';
 export * from './model/ElementResourceChangeExternalVo';
 export * from './model/Environment';
 export * from './model/ErrorCaseInfoBean';

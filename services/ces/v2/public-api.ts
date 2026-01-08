@@ -234,6 +234,7 @@ export * from './model/OneClickAlarmIDResp';
 export * from './model/OneClickAlarmPolicy';
 export * from './model/OneResourceGroupResp';
 export * from './model/OneResourceGroupRespResourceStatistics';
+export * from './model/OriginValueResp';
 export * from './model/OverwriteResultResp';
 export * from './model/Period';
 export * from './model/PeriodResp';

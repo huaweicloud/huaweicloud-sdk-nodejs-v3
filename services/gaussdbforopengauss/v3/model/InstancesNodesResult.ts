@@ -3,6 +3,7 @@
 export class InstancesNodesResult {
     public id?: string;
     public name?: string;
+    public role?: string;
     private 'component_ids'?: Array<string>;
     public constructor() { 
     }
@@ -12,6 +13,10 @@ export class InstancesNodesResult {
     }
     public withName(name: string): InstancesNodesResult {
         this['name'] = name;
+        return this;
+    }
+    public withRole(role: string): InstancesNodesResult {
+        this['role'] = role;
         return this;
     }
     public withComponentIds(componentIds: Array<string>): InstancesNodesResult {

@@ -1,3 +1,4 @@
+import { ApplyObject } from './ApplyObject';
 import { ScheduledTaskConfig } from './ScheduledTaskConfig';
 
 
@@ -15,7 +16,16 @@ export class CreateScheduledTasksReq {
     private 'gray_fail_threshold'?: number;
     private 'life_cycle_type'?: string;
     private 'time_zone'?: string;
-    public constructor() { 
+    private 'task_type'?: CreateScheduledTasksReqTaskTypeEnum | string;
+    private 'task_name'?: string;
+    private 'force_execute'?: boolean;
+    public description?: string;
+    private 'extra_params'?: string;
+    private 'apply_objects'?: Array<ApplyObject>;
+    private 'wait_time'?: number;
+    public constructor(taskType?: string, taskName?: string) { 
+        this['task_type'] = taskType;
+        this['task_name'] = taskName;
     }
     public withScheduledType(scheduledType: CreateScheduledTasksReqScheduledTypeEnum | string): CreateScheduledTasksReq {
         this['scheduled_type'] = scheduledType;
@@ -147,6 +157,70 @@ export class CreateScheduledTasksReq {
     public get timeZone(): string | undefined {
         return this['time_zone'];
     }
+    public withTaskType(taskType: CreateScheduledTasksReqTaskTypeEnum | string): CreateScheduledTasksReq {
+        this['task_type'] = taskType;
+        return this;
+    }
+    public set taskType(taskType: CreateScheduledTasksReqTaskTypeEnum | string  | undefined) {
+        this['task_type'] = taskType;
+    }
+    public get taskType(): CreateScheduledTasksReqTaskTypeEnum | string | undefined {
+        return this['task_type'];
+    }
+    public withTaskName(taskName: string): CreateScheduledTasksReq {
+        this['task_name'] = taskName;
+        return this;
+    }
+    public set taskName(taskName: string  | undefined) {
+        this['task_name'] = taskName;
+    }
+    public get taskName(): string | undefined {
+        return this['task_name'];
+    }
+    public withForceExecute(forceExecute: boolean): CreateScheduledTasksReq {
+        this['force_execute'] = forceExecute;
+        return this;
+    }
+    public set forceExecute(forceExecute: boolean  | undefined) {
+        this['force_execute'] = forceExecute;
+    }
+    public get forceExecute(): boolean | undefined {
+        return this['force_execute'];
+    }
+    public withDescription(description: string): CreateScheduledTasksReq {
+        this['description'] = description;
+        return this;
+    }
+    public withExtraParams(extraParams: string): CreateScheduledTasksReq {
+        this['extra_params'] = extraParams;
+        return this;
+    }
+    public set extraParams(extraParams: string  | undefined) {
+        this['extra_params'] = extraParams;
+    }
+    public get extraParams(): string | undefined {
+        return this['extra_params'];
+    }
+    public withApplyObjects(applyObjects: Array<ApplyObject>): CreateScheduledTasksReq {
+        this['apply_objects'] = applyObjects;
+        return this;
+    }
+    public set applyObjects(applyObjects: Array<ApplyObject>  | undefined) {
+        this['apply_objects'] = applyObjects;
+    }
+    public get applyObjects(): Array<ApplyObject> | undefined {
+        return this['apply_objects'];
+    }
+    public withWaitTime(waitTime: number): CreateScheduledTasksReq {
+        this['wait_time'] = waitTime;
+        return this;
+    }
+    public set waitTime(waitTime: number  | undefined) {
+        this['wait_time'] = waitTime;
+    }
+    public get waitTime(): number | undefined {
+        return this['wait_time'];
+    }
 }
 
 /**
@@ -159,4 +233,17 @@ export enum CreateScheduledTasksReqScheduledTypeEnum {
     WEEK = 'WEEK',
     MONTH = 'MONTH',
     LIFE_CYCLE = 'LIFE_CYCLE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateScheduledTasksReqTaskTypeEnum {
+    START = 'START',
+    STOP = 'STOP',
+    REBOOT = 'REBOOT',
+    HIBERNATE = 'HIBERNATE',
+    REBUILD = 'REBUILD',
+    EXECUTE_SCRIPT = 'EXECUTE_SCRIPT',
+    CREATE_SNAPSHOT = 'CREATE_SNAPSHOT'
 }

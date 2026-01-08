@@ -3,6 +3,7 @@
 export class UserInGroup {
     public id?: string;
     private 'user_name'?: string;
+    public domain?: string;
     private 'user_email'?: string;
     private 'user_phone'?: string;
     private 'total_desktops'?: number;
@@ -23,6 +24,10 @@ export class UserInGroup {
     }
     public get userName(): string | undefined {
         return this['user_name'];
+    }
+    public withDomain(domain: string): UserInGroup {
+        this['domain'] = domain;
+        return this;
     }
     public withUserEmail(userEmail: string): UserInGroup {
         this['user_email'] = userEmail;

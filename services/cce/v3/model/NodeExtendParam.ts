@@ -30,6 +30,7 @@ export class NodeExtendParam {
     public systemReservedStorage?: number;
     private 'init-node-password'?: string;
     public securityReinforcementType?: NodeExtendParamSecurityReinforcementTypeEnum | string;
+    public serverMetadataHttpTokens?: string;
     public constructor() { 
     }
     public withEcsPerformancetype(ecsPerformancetype: string): NodeExtendParam {
@@ -188,6 +189,10 @@ export class NodeExtendParam {
     }
     public withSecurityReinforcementType(securityReinforcementType: NodeExtendParamSecurityReinforcementTypeEnum | string): NodeExtendParam {
         this['securityReinforcementType'] = securityReinforcementType;
+        return this;
+    }
+    public withServerMetadataHttpTokens(serverMetadataHttpTokens: string): NodeExtendParam {
+        this['serverMetadataHttpTokens'] = serverMetadataHttpTokens;
         return this;
     }
 }

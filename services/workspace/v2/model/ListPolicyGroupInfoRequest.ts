@@ -5,6 +5,7 @@ export class ListPolicyGroupInfoRequest {
     public offset?: number;
     private 'policy_group_id'?: string;
     private 'policy_group_name'?: string;
+    private 'policy_group_names'?: Array<string>;
     public priority?: number;
     private 'update_time'?: string;
     public description?: string;
@@ -37,6 +38,16 @@ export class ListPolicyGroupInfoRequest {
     }
     public get policyGroupName(): string | undefined {
         return this['policy_group_name'];
+    }
+    public withPolicyGroupNames(policyGroupNames: Array<string>): ListPolicyGroupInfoRequest {
+        this['policy_group_names'] = policyGroupNames;
+        return this;
+    }
+    public set policyGroupNames(policyGroupNames: Array<string>  | undefined) {
+        this['policy_group_names'] = policyGroupNames;
+    }
+    public get policyGroupNames(): Array<string> | undefined {
+        return this['policy_group_names'];
     }
     public withPriority(priority: number): ListPolicyGroupInfoRequest {
         this['priority'] = priority;

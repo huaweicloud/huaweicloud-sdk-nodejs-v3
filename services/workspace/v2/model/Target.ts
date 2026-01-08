@@ -49,5 +49,6 @@ export enum TargetTargetTypeEnum {
     CLIENTIP = 'CLIENTIP',
     OU = 'OU',
     USERGROUP = 'USERGROUP',
-    ALL = 'ALL'
+    ALL = 'ALL',
+    DESKTOP_TAG = 'DESKTOP_TAG'
 }

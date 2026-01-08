@@ -6,8 +6,9 @@ export class RebuildDesktopPoolReq {
     private 'os_type'?: string;
     private 'delay_time'?: number;
     public message?: string;
-    private 'order_id'?: string;
     private 'is_fix'?: boolean;
+    private 'handle_type'?: string;
+    private 'desktop_ids'?: Array<string>;
     public constructor(imageId?: string) { 
         this['image_id'] = imageId;
     }
@@ -55,16 +56,6 @@ export class RebuildDesktopPoolReq {
         this['message'] = message;
         return this;
     }
-    public withOrderId(orderId: string): RebuildDesktopPoolReq {
-        this['order_id'] = orderId;
-        return this;
-    }
-    public set orderId(orderId: string  | undefined) {
-        this['order_id'] = orderId;
-    }
-    public get orderId(): string | undefined {
-        return this['order_id'];
-    }
     public withIsFix(isFix: boolean): RebuildDesktopPoolReq {
         this['is_fix'] = isFix;
         return this;
@@ -74,5 +65,25 @@ export class RebuildDesktopPoolReq {
     }
     public get isFix(): boolean | undefined {
         return this['is_fix'];
+    }
+    public withHandleType(handleType: string): RebuildDesktopPoolReq {
+        this['handle_type'] = handleType;
+        return this;
+    }
+    public set handleType(handleType: string  | undefined) {
+        this['handle_type'] = handleType;
+    }
+    public get handleType(): string | undefined {
+        return this['handle_type'];
+    }
+    public withDesktopIds(desktopIds: Array<string>): RebuildDesktopPoolReq {
+        this['desktop_ids'] = desktopIds;
+        return this;
+    }
+    public set desktopIds(desktopIds: Array<string>  | undefined) {
+        this['desktop_ids'] = desktopIds;
+    }
+    public get desktopIds(): Array<string> | undefined {
+        return this['desktop_ids'];
     }
 }

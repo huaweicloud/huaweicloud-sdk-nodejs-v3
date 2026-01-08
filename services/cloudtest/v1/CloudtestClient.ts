@@ -194,6 +194,8 @@ import { DnsMappingNode } from './model/DnsMappingNode';
 import { DomainVisibleServiceVo } from './model/DomainVisibleServiceVo';
 import { DownloadAssetTemplateRequest } from './model/DownloadAssetTemplateRequest';
 import { DownloadAssetTemplateResponse } from './model/DownloadAssetTemplateResponse';
+import { DownloadStepImageNewRequest } from './model/DownloadStepImageNewRequest';
+import { DownloadStepImageNewResponse } from './model/DownloadStepImageNewResponse';
 import { ElementResourceChangeExternalVo } from './model/ElementResourceChangeExternalVo';
 import { Environment } from './model/Environment';
 import { ErrorCaseInfoBean } from './model/ErrorCaseInfoBean';
@@ -1321,6 +1323,29 @@ export class CloudtestClient {
      */
     public deleteTestReportCustomDetailByUri(deleteTestReportCustomDetailByUriRequest?: DeleteTestReportCustomDetailByUriRequest): Promise<DeleteTestReportCustomDetailByUriResponse> {
         const options = ParamCreater().deleteTestReportCustomDetailByUri(deleteTestReportCustomDetailByUriRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 下载图片
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下载图片
+     * @param {string} projectId 项目id
+     * @param {string} parent 父级目录名称
+     * @param {string} sub 子级目录名称
+     * @param {string} fileName 文件名
+     * @param {string} fileType 文件类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadStepImageNew(downloadStepImageNewRequest?: DownloadStepImageNewRequest): Promise<DownloadStepImageNewResponse> {
+        const options = ParamCreater().downloadStepImageNew(downloadStepImageNewRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5680,6 +5705,71 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'project_id': projectId,'version_uri': versionUri,'report_uri': reportUri,'custom_info_uri': customInfoUri, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 下载图片
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadStepImageNew(downloadStepImageNewRequest?: DownloadStepImageNewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/{project_id}/image/{parent}/{sub}/{file_name}/{file_type}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectId;
+            
+            let parent;
+            
+            let sub;
+            
+            let fileName;
+            
+            let fileType;
+
+            if (downloadStepImageNewRequest !== null && downloadStepImageNewRequest !== undefined) {
+                if (downloadStepImageNewRequest instanceof DownloadStepImageNewRequest) {
+                    projectId = downloadStepImageNewRequest.projectId;
+                    parent = downloadStepImageNewRequest.parent;
+                    sub = downloadStepImageNewRequest.sub;
+                    fileName = downloadStepImageNewRequest.fileName;
+                    fileType = downloadStepImageNewRequest.fileType;
+                } else {
+                    projectId = downloadStepImageNewRequest['project_id'];
+                    parent = downloadStepImageNewRequest['parent'];
+                    sub = downloadStepImageNewRequest['sub'];
+                    fileName = downloadStepImageNewRequest['file_name'];
+                    fileType = downloadStepImageNewRequest['file_type'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling downloadStepImageNew.');
+            }
+            if (parent === null || parent === undefined) {
+            throw new RequiredError('parent','Required parameter parent was null or undefined when calling downloadStepImageNew.');
+            }
+            if (sub === null || sub === undefined) {
+            throw new RequiredError('sub','Required parameter sub was null or undefined when calling downloadStepImageNew.');
+            }
+            if (fileName === null || fileName === undefined) {
+            throw new RequiredError('fileName','Required parameter fileName was null or undefined when calling downloadStepImageNew.');
+            }
+            if (fileType === null || fileType === undefined) {
+            throw new RequiredError('fileType','Required parameter fileType was null or undefined when calling downloadStepImageNew.');
+            }
+
+            options.pathParams = { 'project_id': projectId,'parent': parent,'sub': sub,'file_name': fileName,'file_type': fileType, };
             options.headers = localVarHeaderParameter;
             return options;
         },

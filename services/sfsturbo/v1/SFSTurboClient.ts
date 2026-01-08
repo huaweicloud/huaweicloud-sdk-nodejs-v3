@@ -109,6 +109,7 @@ import { OneFsTaskResp } from './model/OneFsTaskResp';
 import { OneHpcCacheTaskInfoResp } from './model/OneHpcCacheTaskInfoResp';
 import { OnePermRuleRequestInfo } from './model/OnePermRuleRequestInfo';
 import { OnePermRuleResponseInfo } from './model/OnePermRuleResponseInfo';
+import { QuotaResource } from './model/QuotaResource';
 import { ReqConfigHpcCacheBackend } from './model/ReqConfigHpcCacheBackend';
 import { ReqUpdateHpcCacheData } from './model/ReqUpdateHpcCacheData';
 import { ReqUpdateHpcCacheInfo } from './model/ReqUpdateHpcCacheInfo';
@@ -155,6 +156,9 @@ import { ShowLdapConfigRequest } from './model/ShowLdapConfigRequest';
 import { ShowLdapConfigResponse } from './model/ShowLdapConfigResponse';
 import { ShowPermRuleRequest } from './model/ShowPermRuleRequest';
 import { ShowPermRuleResponse } from './model/ShowPermRuleResponse';
+import { ShowQuotaRequest } from './model/ShowQuotaRequest';
+import { ShowQuotaResource } from './model/ShowQuotaResource';
+import { ShowQuotaResponse } from './model/ShowQuotaResponse';
 import { ShowShareRequest } from './model/ShowShareRequest';
 import { ShowShareResponse } from './model/ShowShareResponse';
 import { ShowSharedTagsRequest } from './model/ShowSharedTagsRequest';
@@ -1107,6 +1111,24 @@ export class SFSTurboClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询租户配额
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询租户配额
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showQuota(showQuotaRequest?: ShowQuotaRequest): Promise<ShowQuotaResponse> {
+        const options = ParamCreater().showQuota();
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3375,6 +3397,27 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'share_id': shareId,'rule_id': ruleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户配额
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showQuota() {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/sfs-turbo/quotas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

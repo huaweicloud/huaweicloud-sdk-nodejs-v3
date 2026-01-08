@@ -5,10 +5,12 @@ import { AvParameters } from './AvParameters';
 import { Crop } from './Crop';
 import { Encryption } from './Encryption';
 import { FileMetaData } from './FileMetaData';
+import { ImageSprite } from './ImageSprite';
 import { MultiAudio } from './MultiAudio';
 import { ObsObjInfo } from './ObsObjInfo';
 import { Subtitle } from './Subtitle';
 import { Thumbnail } from './Thumbnail';
+import { TransIdTemplate } from './TransIdTemplate';
 import { VideoProcess } from './VideoProcess';
 import { WatermarkRequest } from './WatermarkRequest';
 
@@ -17,12 +19,16 @@ export class CreateTranscodingReq {
     public input?: ObsObjInfo;
     public output?: ObsObjInfo;
     private 'trans_template_id'?: Array<number>;
+    private 'trans_template_list'?: Array<TransIdTemplate>;
     private 'av_parameters'?: Array<AvParameters>;
     private 'additional_manifests'?: Array<AdditionalManifests>;
     private 'output_filenames'?: Array<string>;
     private 'user_data'?: string;
     public watermarks?: Array<WatermarkRequest>;
     public thumbnail?: Thumbnail;
+    public thumbnails?: Array<Thumbnail>;
+    private 'image_sprites'?: Array<ImageSprite>;
+    private 'pipeline_id'?: string;
     public priority?: number;
     public subtitle?: Subtitle;
     public encryption?: Encryption;
@@ -52,6 +58,16 @@ export class CreateTranscodingReq {
     }
     public get transTemplateId(): Array<number> | undefined {
         return this['trans_template_id'];
+    }
+    public withTransTemplateList(transTemplateList: Array<TransIdTemplate>): CreateTranscodingReq {
+        this['trans_template_list'] = transTemplateList;
+        return this;
+    }
+    public set transTemplateList(transTemplateList: Array<TransIdTemplate>  | undefined) {
+        this['trans_template_list'] = transTemplateList;
+    }
+    public get transTemplateList(): Array<TransIdTemplate> | undefined {
+        return this['trans_template_list'];
     }
     public withAvParameters(avParameters: Array<AvParameters>): CreateTranscodingReq {
         this['av_parameters'] = avParameters;
@@ -100,6 +116,30 @@ export class CreateTranscodingReq {
     public withThumbnail(thumbnail: Thumbnail): CreateTranscodingReq {
         this['thumbnail'] = thumbnail;
         return this;
+    }
+    public withThumbnails(thumbnails: Array<Thumbnail>): CreateTranscodingReq {
+        this['thumbnails'] = thumbnails;
+        return this;
+    }
+    public withImageSprites(imageSprites: Array<ImageSprite>): CreateTranscodingReq {
+        this['image_sprites'] = imageSprites;
+        return this;
+    }
+    public set imageSprites(imageSprites: Array<ImageSprite>  | undefined) {
+        this['image_sprites'] = imageSprites;
+    }
+    public get imageSprites(): Array<ImageSprite> | undefined {
+        return this['image_sprites'];
+    }
+    public withPipelineId(pipelineId: string): CreateTranscodingReq {
+        this['pipeline_id'] = pipelineId;
+        return this;
+    }
+    public set pipelineId(pipelineId: string  | undefined) {
+        this['pipeline_id'] = pipelineId;
+    }
+    public get pipelineId(): string | undefined {
+        return this['pipeline_id'];
     }
     public withPriority(priority: number): CreateTranscodingReq {
         this['priority'] = priority;

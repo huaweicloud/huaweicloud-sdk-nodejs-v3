@@ -29,6 +29,7 @@ export class CreateDesktopReq {
     private 'desktop_name_policy_id'?: string;
     private 'hour_package_product_id'?: string;
     private 'hour_package_offering_id'?: string;
+    private 'if_mount_old_desktop_disk'?: boolean;
     public constructor(desktopType?: string, productId?: string, imageType?: string, imageId?: string, rootVolume?: Volume) { 
         this['desktop_type'] = desktopType;
         this['product_id'] = productId;
@@ -215,6 +216,16 @@ export class CreateDesktopReq {
     }
     public get hourPackageOfferingId(): string | undefined {
         return this['hour_package_offering_id'];
+    }
+    public withIfMountOldDesktopDisk(ifMountOldDesktopDisk: boolean): CreateDesktopReq {
+        this['if_mount_old_desktop_disk'] = ifMountOldDesktopDisk;
+        return this;
+    }
+    public set ifMountOldDesktopDisk(ifMountOldDesktopDisk: boolean  | undefined) {
+        this['if_mount_old_desktop_disk'] = ifMountOldDesktopDisk;
+    }
+    public get ifMountOldDesktopDisk(): boolean | undefined {
+        return this['if_mount_old_desktop_disk'];
     }
 }
 

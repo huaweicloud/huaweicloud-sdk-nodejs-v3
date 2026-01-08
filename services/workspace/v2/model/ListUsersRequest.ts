@@ -2,6 +2,7 @@
 
 export class ListUsersRequest {
     private 'user_name'?: string;
+    private 'user_names'?: Array<string>;
     public limit?: string;
     public offset?: string;
     public description?: string;
@@ -11,6 +12,7 @@ export class ListUsersRequest {
     private 'share_space_desktops'?: boolean;
     private 'is_query_total_desktops'?: boolean;
     private 'enterprise_project_id'?: string;
+    public domain?: string;
     public constructor() { 
     }
     public withUserName(userName: string): ListUsersRequest {
@@ -22,6 +24,16 @@ export class ListUsersRequest {
     }
     public get userName(): string | undefined {
         return this['user_name'];
+    }
+    public withUserNames(userNames: Array<string>): ListUsersRequest {
+        this['user_names'] = userNames;
+        return this;
+    }
+    public set userNames(userNames: Array<string>  | undefined) {
+        this['user_names'] = userNames;
+    }
+    public get userNames(): Array<string> | undefined {
+        return this['user_names'];
     }
     public withLimit(limit: string): ListUsersRequest {
         this['limit'] = limit;
@@ -94,5 +106,9 @@ export class ListUsersRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withDomain(domain: string): ListUsersRequest {
+        this['domain'] = domain;
+        return this;
     }
 }

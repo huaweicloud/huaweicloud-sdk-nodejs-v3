@@ -2,6 +2,8 @@
 
 export class ThumbnailPara {
     public type?: ThumbnailParaTypeEnum | string;
+    public amount?: number;
+    public threshold?: number;
     public time?: number;
     private 'start_time'?: number;
     public duration?: number;
@@ -16,6 +18,14 @@ export class ThumbnailPara {
     }
     public withType(type: ThumbnailParaTypeEnum | string): ThumbnailPara {
         this['type'] = type;
+        return this;
+    }
+    public withAmount(amount: number): ThumbnailPara {
+        this['amount'] = amount;
+        return this;
+    }
+    public withThreshold(threshold: number): ThumbnailPara {
+        this['threshold'] = threshold;
         return this;
     }
     public withTime(time: number): ThumbnailPara {

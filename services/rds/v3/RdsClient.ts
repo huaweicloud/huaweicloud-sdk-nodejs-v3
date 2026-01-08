@@ -935,6 +935,9 @@ import { UpdateStatisticsResponse } from './model/UpdateStatisticsResponse';
 import { UpdateTdeStatusRequest } from './model/UpdateTdeStatusRequest';
 import { UpdateTdeStatusRequestBody } from './model/UpdateTdeStatusRequestBody';
 import { UpdateTdeStatusResponse } from './model/UpdateTdeStatusResponse';
+import { UpdateTimeZoneRequest } from './model/UpdateTimeZoneRequest';
+import { UpdateTimeZoneRequestBody } from './model/UpdateTimeZoneRequestBody';
+import { UpdateTimeZoneResponse } from './model/UpdateTimeZoneResponse';
 import { UpdateToPeriodRequest } from './model/UpdateToPeriodRequest';
 import { UpdateToPeriodResponse } from './model/UpdateToPeriodResponse';
 import { UpgradeDbMajorVersionPreCheckRequest } from './model/UpgradeDbMajorVersionPreCheckRequest';
@@ -4735,6 +4738,27 @@ export class RdsClient {
      */
     public updateTdeStatus(updateTdeStatusRequest?: UpdateTdeStatusRequest): Promise<UpdateTdeStatusResponse> {
         const options = ParamCreater().updateTdeStatus(updateTdeStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改时区
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改时区
+     * @param {string} instanceId 实例ID。
+     * @param {UpdateTimeZoneRequestBody} updateTimeZoneRequestBody 请求体。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTimeZone(updateTimeZoneRequest?: UpdateTimeZoneRequest): Promise<UpdateTimeZoneResponse> {
+        const options = ParamCreater().updateTimeZone(updateTimeZoneRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -16715,6 +16739,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateTdeStatus.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改时区
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateTimeZone(updateTimeZoneRequest?: UpdateTimeZoneRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/timezone/modify",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (updateTimeZoneRequest !== null && updateTimeZoneRequest !== undefined) {
+                if (updateTimeZoneRequest instanceof UpdateTimeZoneRequest) {
+                    instanceId = updateTimeZoneRequest.instanceId;
+                    body = updateTimeZoneRequest.body
+                    xLanguage = updateTimeZoneRequest.xLanguage;
+                } else {
+                    instanceId = updateTimeZoneRequest['instance_id'];
+                    body = updateTimeZoneRequest['body'];
+                    xLanguage = updateTimeZoneRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateTimeZone.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

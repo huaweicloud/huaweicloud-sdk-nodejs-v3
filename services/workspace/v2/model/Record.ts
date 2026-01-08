@@ -22,6 +22,7 @@ export class Record {
     private 'e2e_rtt'?: number;
     private 'source_ip'?: string;
     private 'public_ip'?: string;
+    private 'enterprise_project_id'?: string;
     public constructor() { 
     }
     public withTenantId(tenantId: string): Record {
@@ -221,5 +222,15 @@ export class Record {
     }
     public get publicIp(): string | undefined {
         return this['public_ip'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): Record {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
 }

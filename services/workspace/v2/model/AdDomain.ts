@@ -2,6 +2,7 @@ import { TlsConfig } from './TlsConfig';
 
 
 export class AdDomain {
+    public id?: string;
     private 'domain_type'?: AdDomainDomainTypeEnum | string;
     private 'domain_name'?: string;
     private 'domain_admin_account'?: string;
@@ -15,8 +16,14 @@ export class AdDomain {
     private 'delete_computer_object'?: number;
     private 'use_ldaps'?: boolean;
     private 'tls_config'?: TlsConfig;
+    private 'cba_enabled'?: boolean;
+    private 'certificate_id'?: string;
     public constructor(domainType?: string) { 
         this['domain_type'] = domainType;
+    }
+    public withId(id: string): AdDomain {
+        this['id'] = id;
+        return this;
     }
     public withDomainType(domainType: AdDomainDomainTypeEnum | string): AdDomain {
         this['domain_type'] = domainType;
@@ -147,6 +154,26 @@ export class AdDomain {
     }
     public get tlsConfig(): TlsConfig | undefined {
         return this['tls_config'];
+    }
+    public withCbaEnabled(cbaEnabled: boolean): AdDomain {
+        this['cba_enabled'] = cbaEnabled;
+        return this;
+    }
+    public set cbaEnabled(cbaEnabled: boolean  | undefined) {
+        this['cba_enabled'] = cbaEnabled;
+    }
+    public get cbaEnabled(): boolean | undefined {
+        return this['cba_enabled'];
+    }
+    public withCertificateId(certificateId: string): AdDomain {
+        this['certificate_id'] = certificateId;
+        return this;
+    }
+    public set certificateId(certificateId: string  | undefined) {
+        this['certificate_id'] = certificateId;
+    }
+    public get certificateId(): string | undefined {
+        return this['certificate_id'];
     }
 }
 

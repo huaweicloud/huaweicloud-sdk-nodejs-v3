@@ -1,6 +1,7 @@
 import { AutoscalePolicy } from './AutoscalePolicy';
 import { ProductInfo } from './ProductInfo';
 import { SecurityGroupInfo } from './SecurityGroupInfo';
+import { Tag } from './Tag';
 import { VolumeInfo } from './VolumeInfo';
 
 
@@ -15,6 +16,7 @@ export class SimpleDesktopPoolInfo {
     private 'desktop_used'?: number;
     private 'availability_zone'?: string;
     private 'subnet_id'?: string;
+    private 'subnet_ids'?: Array<string>;
     public product?: ProductInfo;
     private 'image_id'?: string;
     private 'image_name'?: string;
@@ -32,6 +34,9 @@ export class SimpleDesktopPoolInfo {
     private 'enterprise_project_id'?: string;
     private 'in_maintenance_mode'?: boolean;
     private 'desktop_name_policy_id'?: string;
+    public tags?: Array<Tag>;
+    private 'ou_name'?: string;
+    private 'vpc_id'?: string;
     public constructor() { 
     }
     public withId(id: string): SimpleDesktopPoolInfo {
@@ -109,6 +114,16 @@ export class SimpleDesktopPoolInfo {
     }
     public get subnetId(): string | undefined {
         return this['subnet_id'];
+    }
+    public withSubnetIds(subnetIds: Array<string>): SimpleDesktopPoolInfo {
+        this['subnet_ids'] = subnetIds;
+        return this;
+    }
+    public set subnetIds(subnetIds: Array<string>  | undefined) {
+        this['subnet_ids'] = subnetIds;
+    }
+    public get subnetIds(): Array<string> | undefined {
+        return this['subnet_ids'];
     }
     public withProduct(product: ProductInfo): SimpleDesktopPoolInfo {
         this['product'] = product;
@@ -267,5 +282,29 @@ export class SimpleDesktopPoolInfo {
     }
     public get desktopNamePolicyId(): string | undefined {
         return this['desktop_name_policy_id'];
+    }
+    public withTags(tags: Array<Tag>): SimpleDesktopPoolInfo {
+        this['tags'] = tags;
+        return this;
+    }
+    public withOuName(ouName: string): SimpleDesktopPoolInfo {
+        this['ou_name'] = ouName;
+        return this;
+    }
+    public set ouName(ouName: string  | undefined) {
+        this['ou_name'] = ouName;
+    }
+    public get ouName(): string | undefined {
+        return this['ou_name'];
+    }
+    public withVpcId(vpcId: string): SimpleDesktopPoolInfo {
+        this['vpc_id'] = vpcId;
+        return this;
+    }
+    public set vpcId(vpcId: string  | undefined) {
+        this['vpc_id'] = vpcId;
+    }
+    public get vpcId(): string | undefined {
+        return this['vpc_id'];
     }
 }

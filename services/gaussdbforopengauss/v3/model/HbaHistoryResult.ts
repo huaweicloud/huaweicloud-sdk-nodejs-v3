@@ -2,12 +2,17 @@ import { HbaConfResult } from './HbaConfResult';
 
 
 export class HbaHistoryResult {
+    public id?: string;
     public status?: string;
     public time?: Date;
     private 'fail_reason'?: string;
     private 'before_confs'?: Array<HbaConfResult>;
     private 'after_confs'?: Array<HbaConfResult>;
     public constructor() { 
+    }
+    public withId(id: string): HbaHistoryResult {
+        this['id'] = id;
+        return this;
     }
     public withStatus(status: string): HbaHistoryResult {
         this['status'] = status;

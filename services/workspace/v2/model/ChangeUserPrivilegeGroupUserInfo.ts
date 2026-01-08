@@ -2,6 +2,7 @@
 
 export class ChangeUserPrivilegeGroupUserInfo {
     private 'user_name'?: string;
+    public domain?: string;
     private 'user_privilege_group'?: string;
     public type?: ChangeUserPrivilegeGroupUserInfoTypeEnum | string;
     public constructor(userName?: string, type?: string) { 
@@ -17,6 +18,10 @@ export class ChangeUserPrivilegeGroupUserInfo {
     }
     public get userName(): string | undefined {
         return this['user_name'];
+    }
+    public withDomain(domain: string): ChangeUserPrivilegeGroupUserInfo {
+        this['domain'] = domain;
+        return this;
     }
     public withUserPrivilegeGroup(userPrivilegeGroup: string): ChangeUserPrivilegeGroupUserInfo {
         this['user_privilege_group'] = userPrivilegeGroup;

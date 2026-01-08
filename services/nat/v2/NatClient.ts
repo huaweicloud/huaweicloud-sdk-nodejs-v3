@@ -338,7 +338,7 @@ export class NatClient {
      * @param {Array<string>} [virsubnetProjectId] 中转子网的子网所属项目的ID
      * @param {Array<string>} [vpcId] 中转子网的子网所属的VPC的ID
      * @param {Array<string>} [virsubnetId] 中转子网的子网ID
-     * @param {Array<string>} [status] 中转子网状态。 取值范围： ACTIVE： 当前资源状态正常。 INACTIVE： 不可用。
+     * @param {Array<string>} [status] 中转子网状态。 取值范围： - ACTIVE： 当前资源状态正常。 - INACTIVE： 不可用。
      * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：1~2000。 默认值：2000
      * @param {string} [marker] 功能说明：分页查询起始的资源ID，为空时查询第一页。 值从上一次查询的PageInfo中的next_marker或者previous_marker中获取
      * @param {boolean} [pageReverse] 是否查询前一页
@@ -554,11 +554,11 @@ export class NatClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询DNAT规则列表
-     * @param {boolean} [adminStateUp] 解冻/冻结状态。 取值范围： \&quot;true\&quot;：解冻 \&quot;false\&quot;：冻结
+     * @param {boolean} [adminStateUp] 解冻/冻结状态。 取值范围：  - true: 解冻 - false: 冻结
      * @param {number} [externalServicePort] Floatingip对外提供服务的端口号。 取值范围：0~65535。
      * @param {string} [floatingIpAddress] 弹性公网的IP地址。
      * @param {string} [globalEipAddress] 全域弹性公网的IP地址。
-     * @param {Array<'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'EIP_FREEZED' | 'INACTIVE'>} [status] DNAT规则的状态。 取值为:  ACTIVE: 可用 PENDING_CREATE: 创建中 PENDING_UPDATE: 更新中 PENDING_DELETE: 删除中 EIP_FREEZED: EIP冻结 INACTIVE: 不可用
+     * @param {Array<'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'EIP_FREEZED' | 'INACTIVE'>} [status] DNAT规则的状态。 取值为:  - ACTIVE: 可用 - PENDING_CREATE: 创建中 - PENDING_UPDATE: 更新中 - PENDING_DELETE: 删除中 - EIP_FREEZED: EIP冻结 - INACTIVE: 不可用
      * @param {string} [floatingIpId] 弹性公网IP的id。
      * @param {string} [globalEipId] 全域弹性公网IP的id。
      * @param {number} [internalServicePort] 虚拟机或者裸机对外提供服务的协议端口号。 取值范围：0~65535。
@@ -598,12 +598,11 @@ export class NatClient {
      * @param {Array<string>} [gatewayId] 私网NAT网关实例的ID。
      * @param {Array<string>} [transitIpId] 中转IP的ID。
      * @param {Array<string>} [networkInterfaceId] 计算实例、ELBV2、ELBV3、VIP等资源的端口ID。
-     * @param {Array<string>} [type] DNAT规则后端的类型。 取值：     COMPUTE：后端为计算实例。     VIP：后端为VIP的实例。     ELB：后端为ELBv2的实例。     ELBv3：后端为ELBv3的实例。     CUSTOMIZE：后端为自定义IP。
+     * @param {Array<string>} [type] DNAT规则后端的类型。 取值： - COMPUTE：后端为计算实例。 - VIP：后端为VIP的实例。 - ELB：后端为ELBv2的实例。 - ELBv3：后端为ELBv3的实例。 - CUSTOMIZE：后端为自定义IP。
      * @param {Array<string>} [privateIpAddress] 后端资源（计算实例、ELBV2、ELBV3、VIP等）的私网IP地址。
      * @param {Array<string>} [protocol] DNAT规则协议类型， 目前支持TCP/tcp/Tcp/tCp/tcP/TCp/tCP/TcP、 UDP/udp/Udp/uDp/udP/UDp/uDP/UdP、 ANY/any/Any/aNy/anY/ANy/aNY/AnY。 分别对应协议号6、17、0。
      * @param {Array<string>} [internalServicePort] 后端实例的端口号（计算实例、ELBV2、ELBV3、VIP等)。
      * @param {Array<string>} [transitServicePort] 中转IP的端口号。
-     * @param {Array<string>} [transitIpAddress] 中转IP的地址。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -821,7 +820,7 @@ export class NatClient {
     /**
      * - 为指定公网NAT网关实例批量添加或删除标签。 
      * - 标签管理服务需要使用该接口批量管理实例的标签。 
-     * - 一个资源上最多有10个标签。
+     * - 一个资源上最多有20个标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -882,7 +881,7 @@ export class NatClient {
     }
 
     /**
-     * - 添加公网NAT网关资源标签。一个资源上最多有10个标签。
+     * - 添加公网NAT网关资源标签。一个资源上最多有20个标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1091,9 +1090,9 @@ export class NatClient {
      * @param {string} [description] 公网NAT网关实例的描述，长度范围小于等于255个字符，不能包含“&lt;”和“&gt;”。
      * @param {Date} [createdAt] 公网NAT网关实例的创建时间，遵循UTC时间，格式是yyyy-mm-ddThh:mm:ssZ。
      * @param {string} [name] 公网NAT网关实例的名字，长度限制为64。 公网NAT网关实例的名字仅支持数字、字母、_（下划线）、-（中划线）、中文
-     * @param {Array<'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'INACTIVE'>} [status] 公网NAT网关实例的状态。 取值为:  ACTIVE: 可用 PENDING_CREATE: 创建中 PENDING_UPDATE: 更新中 PENDING_DELETE: 删除中 INACTIVE: 不可用
-     * @param {Array<'1' | '2' | '3' | '4' | '5'>} [spec] 公网NAT网关实例的规格。 取值为： \&quot;1\&quot;：小型，SNAT最大连接数10000 \&quot;2\&quot;：中型，SNAT最大连接数50000 \&quot;3\&quot;：大型，SNAT最大连接数200000 \&quot;4\&quot;：超大型，SNAT最大连接数1000000 “5”：企业型，SNAT最大连接数10000000 
-     * @param {boolean} [adminStateUp] 解冻/冻结状态。 取值范围： \&quot;true\&quot;：解冻 \&quot;false\&quot;：冻结
+     * @param {Array<'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'INACTIVE'>} [status] 公网NAT网关实例的状态。 取值为:  - ACTIVE: 可用 - PENDING_CREATE: 创建中 - PENDING_UPDATE: 更新中 - PENDING_DELETE: 删除中 - INACTIVE: 不可用
+     * @param {Array<'1' | '2' | '3' | '4' | '5'>} [spec] 公网NAT网关实例的规格。 取值为： - 1：小型，SNAT最大连接数10000 - 2：中型，SNAT最大连接数50000 - 3：大型，SNAT最大连接数200000 - 4：超大型，SNAT最大连接数1000000 - 5：企业型，SNAT最大连接数10000000 
+     * @param {boolean} [adminStateUp] 解冻/冻结状态。 取值范围：  - true: 解冻 - false: 冻结
      * @param {string} [internalNetworkId] 公网NAT网关下行口（DVR的下一跳）所属的network id。
      * @param {string} [routerId] VPC的id。
      * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：1~2000。 默认值：2000。
@@ -1143,8 +1142,8 @@ export class NatClient {
      * @param {Array<string>} [id] 私网NAT网关实例的ID。
      * @param {Array<string>} [name] 私网NAT网关实例的名字。
      * @param {Array<string>} [description] 私网NAT网关实例的描述。长度范围小于等于255个字符，不能包含“&lt;”和“&gt;”。
-     * @param {Array<'Small' | 'Medium' | 'Large' | 'Extra-large' | 'Extra-xlarge'>} [spec] 私网NAT网关实例的规格。 取值为： \&quot;Small\&quot;：小型 \&quot;Medium\&quot;：中型 \&quot;Large\&quot;：大型 \&quot;Extra-large\&quot;：超大型 \&quot;Extra-xlarge\&quot;：企业型
-     * @param {Array<'ACTIVE' | 'FROZEN' | 'INACTIVE'>} [status] 私网NAT网关实例的状态。 取值为： \&quot;ACTIVE\&quot;：正常运行 \&quot;FROZEN\&quot;：冻结 \&quot;INACTIVE\&quot;：不可用
+     * @param {Array<'Small' | 'Medium' | 'Large' | 'Extra-large' | 'Extra-xlarge'>} [spec] 私网NAT网关实例的规格。 取值为： - Small：小型 - Medium：中型 - Large：大型 - Extra-large：超大型 - Extra-xlarge：企业型
+     * @param {Array<'ACTIVE' | 'FROZEN' | 'INACTIVE'>} [status] 私网NAT网关实例的状态。 取值为： - ACTIVE：正常运行 - FROZEN：冻结 - INACTIVE：不可用
      * @param {Array<string>} [vpcId] 私网NAT网关实例所属VPC的ID。
      * @param {Array<string>} [virsubnetId] 私网NAT网关实例所属子网的ID。
      * @param {Array<string>} [enterpriseProjectId] 企业项目ID。创建私网NAT网关实例时，关联的企业项目ID。
@@ -1504,7 +1503,7 @@ export class NatClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询SNAT规则列表
-     * @param {boolean} [adminStateUp] 解冻/冻结状态。 取值范围： \&quot;true\&quot;：解冻 \&quot;false\&quot;：冻结
+     * @param {boolean} [adminStateUp] 解冻/冻结状态。 取值范围：  - true: 解冻 - false: 冻结
      * @param {string} [cidr] 可以是网段或者主机格式，与network_id参数二选一。 Source_type&#x3D;0时，cidr必须是vpc子网网段的子集(不能相等）; Source_type&#x3D;1时，cidr必须指定专线侧网段。
      * @param {number} [limit] 功能说明：每页返回的个数。 取值范围：1~2000。 默认值：2000。
      * @param {string} [floatingIpAddress] 功能说明：弹性公网IP，多个弹性公网IP使用逗号分隔。 取值范围：最大长度1024字节。
@@ -1516,8 +1515,8 @@ export class NatClient {
      * @param {Date} [createdAt] SNAT规则的创建时间，格式是yyyy-mm-dd hh:mm:ss.SSSSSS。
      * @param {Array<string>} [natGatewayId] 公网NAT网关实例的ID。
      * @param {string} [networkId] 规则使用的网络id。与cidr参数二选一。
-     * @param {number} [sourceType] 0：VPC侧，可以指定network_id 或者cidr 1：专线侧，只能指定cidr 不输入默认为0（VPC）
-     * @param {'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'EIP_FREEZED' | 'INACTIVE'} [status] SNAT规则的状态。 取值为:  ACTIVE: 可用 PENDING_CREATE: 创建中 PENDING_UPDATE: 更新中 PENDING_DELETE: 删除中 EIP_FREEZED: EIP冻结 INACTIVE: 不可用
+     * @param {number} [sourceType] 资源类型。 取值范围： - 0：VPC侧，可以指定network_id 或者cidr - 1：专线侧，只能指定cidr 不输入默认为0（VPC）
+     * @param {'ACTIVE' | 'PENDING_CREATE' | 'PENDING_UPDATE' | 'PENDING_DELETE' | 'EIP_FREEZED' | 'INACTIVE'} [status] SNAT规则的状态。 取值为:  - ACTIVE: 可用 - PENDING_CREATE: 创建中 - PENDING_UPDATE: 更新中 - PENDING_DELETE: 删除中 - EIP_FREEZED: EIP冻结 - INACTIVE: 不可用
      * @param {string} [marker] 分页查询的起始资源ID，表示从指定资源的下一条记录开始查询。 - 若不传入marker和limit参数，查询结果返回第一页全部资源记录（默认2000条）。 - 若不传入marker参数，limit为10，查询结果返回第1~10条资源记录。 - 若marker为第10条记录的资源ID，limit为10，查询结果返回第11~20条资源记录。 - 若marker为第10条记录的资源ID，不传入limit参数，查询结果返回第11条及之后的资源记录（默认2000条）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2529,8 +2528,6 @@ export const ParamCreater = function () {
             let internalServicePort;
             
             let transitServicePort;
-            
-            let transitIpAddress;
 
             if (listPrivateDnatsRequest !== null && listPrivateDnatsRequest !== undefined) {
                 if (listPrivateDnatsRequest instanceof ListPrivateDnatsRequest) {
@@ -2548,7 +2545,6 @@ export const ParamCreater = function () {
                     protocol = listPrivateDnatsRequest.protocol;
                     internalServicePort = listPrivateDnatsRequest.internalServicePort;
                     transitServicePort = listPrivateDnatsRequest.transitServicePort;
-                    transitIpAddress = listPrivateDnatsRequest.transitIpAddress;
                 } else {
                     limit = listPrivateDnatsRequest['limit'];
                     marker = listPrivateDnatsRequest['marker'];
@@ -2564,7 +2560,6 @@ export const ParamCreater = function () {
                     protocol = listPrivateDnatsRequest['protocol'];
                     internalServicePort = listPrivateDnatsRequest['internal_service_port'];
                     transitServicePort = listPrivateDnatsRequest['transit_service_port'];
-                    transitIpAddress = listPrivateDnatsRequest['transit_ip_address'];
                 }
             }
 
@@ -2610,9 +2605,6 @@ export const ParamCreater = function () {
             }
             if (transitServicePort !== null && transitServicePort !== undefined) {
                 localVarQueryParameter['transit_service_port'] = transitServicePort;
-            }
-            if (transitIpAddress !== null && transitIpAddress !== undefined) {
-                localVarQueryParameter['transit_ip_address'] = transitIpAddress;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3029,7 +3021,7 @@ export const ParamCreater = function () {
         /**
          * - 为指定公网NAT网关实例批量添加或删除标签。 
          * - 标签管理服务需要使用该接口批量管理实例的标签。 
-         * - 一个资源上最多有10个标签。
+         * - 一个资源上最多有20个标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3161,7 +3153,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * - 添加公网NAT网关资源标签。一个资源上最多有10个标签。
+         * - 添加公网NAT网关资源标签。一个资源上最多有20个标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

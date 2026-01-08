@@ -1,3 +1,4 @@
+import { InconsistentTypeEnum } from './InconsistentTypeEnum';
 import { PoolDesktopsDetailInfo } from './PoolDesktopsDetailInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -7,6 +8,7 @@ export class ListPoolDesktopsDetailResponse extends SdkResponse {
     private 'total_count'?: number;
     private 'on_demand_desktops_num'?: number;
     private 'period_desktops_num'?: number;
+    private 'inconsistent_type'?: InconsistentTypeEnum;
     public constructor() { 
         super();
     }
@@ -49,5 +51,15 @@ export class ListPoolDesktopsDetailResponse extends SdkResponse {
     }
     public get periodDesktopsNum(): number | undefined {
         return this['period_desktops_num'];
+    }
+    public withInconsistentType(inconsistentType: InconsistentTypeEnum): ListPoolDesktopsDetailResponse {
+        this['inconsistent_type'] = inconsistentType;
+        return this;
+    }
+    public set inconsistentType(inconsistentType: InconsistentTypeEnum  | undefined) {
+        this['inconsistent_type'] = inconsistentType;
+    }
+    public get inconsistentType(): InconsistentTypeEnum | undefined {
+        return this['inconsistent_type'];
     }
 }

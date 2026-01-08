@@ -943,11 +943,11 @@ export class CdnClient {
     }
 
     /**
-     * 查询 TOP Path明细
+     * 查询TOP100 Path访问明细
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询 TOP Path明细
+     * @summary 查询TOP100 Path访问明细
      * @param {number} startTime 查询起始时间戳，只能传0点毫秒时间戳
      * @param {number} endTime 查询结束时间戳，只能传0点毫秒时间戳
      * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
@@ -1382,11 +1382,11 @@ export class CdnClient {
     }
 
     /**
-     * CDN查询域名的国家统计数据
+     * CDN查询域名国家统计数据明细
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary CDN查询域名的国家统计数据
+     * @summary CDN查询域名国家统计数据明细
      * @param {string} action 动作名称，可选summary、detail。 - summary：查询汇总数据 - detail：查询数据详情。
      * @param {number} startTime 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下： - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
      * @param {number} endTime 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下： - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00) - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
@@ -3521,7 +3521,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询 TOP Path明细
+         * 查询TOP100 Path访问明细
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4686,7 +4686,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * CDN查询域名的国家统计数据
+         * CDN查询域名国家统计数据明细
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

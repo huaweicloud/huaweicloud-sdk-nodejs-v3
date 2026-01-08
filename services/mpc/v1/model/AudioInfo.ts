@@ -6,6 +6,8 @@ export class AudioInfo {
     public channels?: number;
     public bitrate?: number;
     private 'bitrate_bps'?: number;
+    public duration?: string;
+    private 'duration_ms'?: string;
     public constructor() { 
     }
     public withCodec(codec: string): AudioInfo {
@@ -33,5 +35,19 @@ export class AudioInfo {
     }
     public get bitrateBps(): number | undefined {
         return this['bitrate_bps'];
+    }
+    public withDuration(duration: string): AudioInfo {
+        this['duration'] = duration;
+        return this;
+    }
+    public withDurationMs(durationMs: string): AudioInfo {
+        this['duration_ms'] = durationMs;
+        return this;
+    }
+    public set durationMs(durationMs: string  | undefined) {
+        this['duration_ms'] = durationMs;
+    }
+    public get durationMs(): string | undefined {
+        return this['duration_ms'];
     }
 }

@@ -10,7 +10,9 @@ export class ListSqlLimitTaskRequestBody {
     public limit?: number;
     private 'sql_id'?: string;
     private 'node_ids'?: Array<string>;
-    public constructor() { 
+    public constructor(offset?: number, limit?: number) { 
+        this['offset'] = offset;
+        this['limit'] = limit;
     }
     public withTaskScope(taskScope: string): ListSqlLimitTaskRequestBody {
         this['task_scope'] = taskScope;
