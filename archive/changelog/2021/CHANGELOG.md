@@ -1,0 +1,700 @@
+# 3.0.27-beta 2021-12-25
+
+### HuaweiCloud SDK DevStar
+
+- _Features_
+  - Support the following interfaces:
+    - `ShowApplicationV3`
+    - `UpdateApplication`
+    - `ShowApplicationDependentResources`
+    - `DeleteApplicationV4`
+    - `ShowApplicationResDeleteStatus`
+    - `ListApplicationsV6`
+    - `ShowDeploymentJobs`
+    - `CreateDeploymentJobs`
+    - `ShowPipelineLastStatusV2`
+    - `ListPipelineTemplates`
+    - `StartPipeline`
+    - `ListProjectsV4`
+    - `ShowRepositoryStatisticalDataV2`
+    - `CheckRepositoryDuplicateName`
+    - `ShowApplicationReleaseRepositories`
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `dependents` to the interface `ShowTemplateV3`
+  - Add the response parameters `dependents`, `dependent_services` to the interface `ListTemplatesV2`
+  - Add the response parameter `show_type` to the interface `ShowJobDetail`
+
+### HuaweiCloud SDK ECS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the response parameter `updated_at` from the interface `NovaListServerActions`
+
+# 3.0.26-beta 2021-12-17
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - Support the interface `ShowVersion`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK OCR
+
+- _Features_
+  - Support the following interfaces:
+    - `RecognizeThailandIdcard`
+    - `RecognizeMyanmarIdcard`
+    - `RecognizeMyanmarDriverLicense`
+    - `RecognizeChileIdCard`
+    - `RecognizeThailandLicensePlate`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+# 3.0.25-beta 2021-12-10
+
+### HuaweiCloud SDK FRS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the response parameters `landmark`, `gender`, `yaw_angle`, `roll_angle`, `pitch_angle`, `headpose`, `smile`, `skin`, `ethnic` from the interface `DetectFaceByFile`
+  - Remove the response parameters `landmark`, `gender`, `yaw_angle`, `roll_angle`, `pitch_angle`, `headpose`, `smile`, `skin`, `ethnic` from the interface `DetectFaceByUrl`
+  - Remove the response parameters `landmark`, `gender`, `yaw_angle`, `roll_angle`, `pitch_angle`, `headpose`, `smile`, `skin`, `ethnic` from the interface `DetectFaceByBase64`
+
+# 3.0.24-beta 2021-11-29
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `cidrs` to the interface `ShowCluster`.
+
+### HuaweiCloud SDK EVS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the interface `CinderExportToImage`.
+
+### HuaweiCloud SDK ECS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `os:scheduler_hints` to the interfaces `NovaShowServer` and `NovaListServersDetails`.
+
+### HuaweiCloud SDK FunctionGraph
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `ListVersionAliases` to the interface `ListVersionAliases`.
+  - Update the request parameter `name` to required of the interfaces  `CreateDependency` and `UpdateDependency`.
+  - Update the request parameters `name` and `content` to required of the interface `CreateEvent`.
+
+# 3.0.23-beta 2021-11-25
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `platformVersion` to the interface `ShowCluster`.
+  - Add the enumeration values `RollingBack` and `RollbackFailed` to the request parameter `status` of the interface `ListClusters`.
+
+### HuaweiCloud SDK EIP
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request and response parameter `alias` to the interfaces `CreatePrePaidPublicip` and `CreatePublicip`.
+  - Add the response parameter `alias` to the interfaces `ShowPublicip` and `UpdatePublicip`.
+
+### HuaweiCloud SDK OCR
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the response parameter `extracted_data` of the interface `RecognizeHandwriting`.
+
+# 3.0.22-beta 2021-11-12
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `customSan` to the interface `UpdateNode`.
+
+### HuaweiCloud SDK OCR
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `confidence` to the interface `RecognizeGeneralTable`.
+
+### HuaweiCloud SDK VPC
+
+- _Features_
+  - Support interfaces(V3): `AddVpcExtendCidr`,`RemoveVpcExtendCidr`,`ListVpcs`,`ShowVpc`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+# 3.0.21-beta 2021-10-25
+
+### HuaweiCloud SDK EIP
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `bandwidth_type` to the interface `CreateSharedBandwidth`.
+
+### HuaweiCloud SDK FRS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `single` to the interfaces `AddFacesByFile`, `AddFacesByBase64` and `AddFacesByUrl`.
+
+### HuaweiCloud SDK IMS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameters `current_task`, `image_name` and `process_percent` to the interface `ShowJob`.
+
+### HuaweiCloud SDK IoTDA
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `status` to the interface `ListDevices`.
+  - Add the request parameter `file_path` to the interface `CreateRuleAction`.
+
+### HuaweiCloud SDK OCR
+
+- _Features_
+  - Support the interfaces `RecognizeInsurancePolicy`, `RecognizeFinancialStatement` and `RecognizeQualificationCertificate`.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+# 3.0.20-beta 2021-10-19
+
+### HuaweiCloud SDK EIP
+
+- _Features_
+  - Support the following interfaces:
+    - `ListCommonPools`
+    - `ListPublicBorderGroups`
+    - `ListPublicipPool`
+    - `ShowPublicipPool`
+    - `ListShareBandwidthTypes`
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `allow_share_bandwidth_type_any` to the interface `ListPublicips`.
+  - Modify the type of the request parameter `limit` of the interface `NeutronListFloatingIps`.
+  - Modify the name of the request body of the interface `NeutronUpdateFloatingIp`: `floatingip` -> `NeutronUpdateFloatingIpRequestBody`
+  - Add the response parameter `allow_share_bandwidth_types` to the interface `ShowPublicip`.
+
+# 3.0.19-beta 2021-10-11
+
+### HuaweiCloud SDK ECS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Set the request parameter `reverse_binding` to `optional` of the interface `DisassociateServerVirtualIp`.
+
+### HuaweiCloud SDK FRS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Modify the optional value to `2,4,6,7,8,11,12,13,21` of the request parameter `attributes` of the interfaces `DetectFaceByFile`,`DetectFaceByBase64` and `DetectFaceByUrl`.
+
+# 3.0.18-beta 2021-09-29
+
+### HuaweiCloud SDK ECS
+
+- _Features_
+  - Support the following interfaces:
+    - `ListServerTags`
+    - `BatchAttachSharableVolumes`
+    - `ShowServerAutoRecovery`
+    - `BatchResetServersPassword`
+    - `ReinstallServerWithoutCloudInit`
+    - `ChangeServerOsWithoutCloudInit`
+    - `BatchUpdateServersName`
+    - `ShowServerPassword`
+    - `AssociateServerVirtualIp`
+    - `MigrateServer`
+    - `ShowServerBlockDevice`
+    - `DisassociateServerVirtualIp`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+# 3.0.17-beta 2021-09-26
+
+### HuaweiCloud SDK FunctionGraph
+
+- _Features_
+  - Support the service `FunctionGraph`.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+# 3.0.16-beta 2021-09-24
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - Support the interface `ShowQuotas`.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK IVS
+
+- _Features_
+  - Support the service `Identity Verification Solution`.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+# 3.0.15-beta 2021-09-16
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `platformVersion` to the interface `ShowCluster`.
+
+### HuaweiCloud SDK IMS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the optional request parameter `__support_amd` to the interface `CreateDataImage`.
+  - Add the response parameter `__support_amd` to the interface `ListImages`.
+
+### HuaweiCloud SDK OCR
+
+- _Features_
+  - Support the interface `RecognizeInvoiceVerification`.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+# 3.0.14-beta 2021-09-10
+
+### HuaweiCloud SDK Core
+
+- _Features_
+    - Support Region Management
+- _Bug Fix_
+    - None
+- _Change_
+    - None
+
+### HuaweiCloud SDK CCE
+- _Features_
+  - Support the interfaces `AddNode` and `ResetNode`.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK EVS
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Set the request parameter `size` of the interface `CreateVolume` to `required`.
+
+
+# 3.0.13-beta 2021-08-25
+
+### HuaweiCloud SDK ECS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the following response parameters to the interface `ListServerInterfaces`:
+    - `delete_on_termination`
+    - `driver_mode`
+    - `min_rate`
+    - `multiqueue_num`
+    - `pci_address`
+  - Add the response parameters `cpu_options` and `hypervisor` to the interface `ListServersDetails`.
+
+### HuaweiCloud SDK EIP
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request and response parameter `public_border_group` to the interface `BatchCreateSharedBandwidths`.
+  - Add the response parameter `public_border_group` to the interface `AddPublicipsIntoSharedBandwidth`.
+
+# 3.0.12-beta 2021-08-10
+
+### HuaweiCloud SDK EIP
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Modify the name of the response parameter of the interfaces `ListBandwidths` and `ShowPublicip`: `publicip_border_group` -> `public_border_group`
+
+### HuaweiCloud SDK EVS
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `server_id` to the interface `ListVolumes`.
+
+### HuaweiCloud SDK IAM
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the response parameter `order_id` from the interface `CreateDeployment`.
+
+### HuaweiCloud SDK IMS
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Modify the request parameter `value` of the interface `UpdateImage` as a required parameter.
+
+### HuaweiCloud SDK VPC
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `enable_dhcp` to the interface `NeutronListSubnets`.
+  - Add the response parameter `security_groups_links` to the interface `NeutronListSecurityGroups`.
+
+# 3.0.11-beta 2021-7-30
+
+### HuaweiCloud SDK IMS
+
+- _Features_
+    - None
+- _Bug Fix_
+    - [Issue 40](https://github.com/huaweicloud/huaweicloud-sdk-java-v3/issues/40): Fix the issue that the type of the response parameter `__lazyloading` is incorrectly defined.
+- _Change_
+    - None
+
+# 3.0.10-beta 2021-07-09
+
+### HuaweiCloud SDK Core
+- _feature_
+  - None
+- _Bug Fix_
+  - The response level is incorrect.
+- _Change_
+  - Optimize exception information.
+  
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - Support the interfaces `RemoveNode`,`MigrateNode`.
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `tobedeleted` to the interface `DeleteCluster`.
+
+### HuaweiCloud SDK EIP
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `publicip_border_group` to the interfaces `CreateSharedBandwidth`,`ListBandwidths`.
+
+### HuaweiCloud SDK IMS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameters `__root_origin`,`checksum`,`size` to the interfaces `GlanceCreateImageMetadata`.
+  - Remove the request parameters `deleted`, `deleted_at` of the interface `GlanceAddImageMember`, and add the following request parameters:
+    - `__lazyloading`
+    - `__os_feature_list`
+    - `__root_origin`
+    - `__sequence_num`
+    - `__support_agent_list`
+    - `__system__cmkid`
+    - `active_at`
+    - `hw_vif_multiqueue_enabled`
+    - `max_ram`
+    - `__image_location`
+    - `__is_config_init`
+    - `__account_code`
+
+### HuaweiCloud SDK IoTDA
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameters `edge_node_ids`, `last_update_time` to the interface `ListRules`.
+
+# 3.0.9-beta 2021-06-29
+
+### HuaweiCloud SDK Core
+- _feature_
+  - Support multipart/form-data
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK ECS
+
+- _Features_
+    - None
+- _Bug Fix_
+    - Solve the issue of abnormal parsing result when using interface `NovaShowKeypair` to obtain the secret key.
+- _Change_
+    - None
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+    - None
+- _Bug Fix_
+    - [Issue 20](https://github.com/huaweicloud/huaweicloud-sdk-go-v3/issues/20): Fix the issue that the type of `extendParam`
+      is defined incorrectly.
+    - [Issue 22](https://github.com/huaweicloud/huaweicloud-sdk-go-v3/issues/22): Modify the optional value of response parameter `status` of interface `ListAddonInstances`.
+- _Change_
+    - Add the request parameter `tobedeleted` to the interface `DeleteCluster`.
+    - Add a request parameter `storage` to interfaces `CreateNodePool`,`ShowNodePool`,`UpdateNodePool`,`DeleteNodePool`.
+
+### HuaweiCloud SDK IoTDA
+
+- _Features_
+  - Support more interfaces:
+      - `UploadBatchTaskFile`
+      - `ListComplexQueryDevice`
+  - Remove interfaces:
+        - `ListSubscriptions`
+        - `CreateSubscription`
+        - `UpdateSubscription`
+        - `ShowSubscription`
+        - `DeleteSubscription`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK IAM
+
+- _Features_
+    - None
+- _Bug Fix_
+    - None
+- _Change_
+    - Add the parameter `access_mode` to interface `CreateUsers`.
+    - Change the parameter `authentication_code` of interface `DeleteBindingDevice` from required to optional.
+    - Add optional values to request parameter `type` of the interface `ShowDomainQuota`:
+        - `assigment_group_mp`
+        - `assigment_agency_mp`
+        - `assigment_group_ep`
+        - `assigment_user_ep`
+    - Add request parameters`permission_type`,`display_name`,`catalog`,`type` of interface `KeystoneListPermissions`.
+
+# 3.0.8-beta 2021-04-15
+
+### HuaweiCloud SDK Core
+
+- _Features_
+  - None
+- _Bug Fix_
+  - Optimize the log.
+  - Upgrade the `axios` version to solve security problem.
+- _Change_
+  - None
+
+### HuaweiCloud SDK ECS
+
+- _Features_
+  - Support `Elastic Cloud Server` service.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - Support `Cloud Container Engine` service.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK EVS
+
+- _Features_
+  - Support `Elastic Volume Service`.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK VPC
+
+- _Features_
+  - Support `Virtual Private Cloud` service.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK EIP
+
+- _Features_
+  - Support `Elastic IP` service.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+# 3.0.7-beta 2021-03-15
+
+### HuaweiCloud SDK Core
+
+- _Features_
+    - None
+- _Bug Fix_
+    - Fix the problem of path loss when sending requests.
+- _Change_
+    - None
+
+### HuaweiCloud SDK IAM
+
+- _Features_
+    - Support more interfaces:
+        - `KeystoneShowIdentityProvider`
+        - `KeystoneCreateIdentityProvider`
+        - `KeystoneUpdateIdentityProvider`
+        - `KeystoneDeleteIdentityProvider`
+        - `CreateTokenWithIdToken`
+- _Bug Fix_
+    - None
+- _Change_
+    - Do not support interface `CreateUnscopeTokenByIdpInitiated` anymore.
+
+### HuaweiCloud SDK IoTDA
+
+- _Features_
+    - Support `IoT Device Access` service.
+- _Bug Fix_
+    - None
+- _Change_
+    - None
+
+# 3.0.6-beta 2021-02-27
+
+### HuaweiCloud SDK Core
+
+- _Features_
+    - None
+- _Bug Fix_
+    - None
+- _Change_
+    - Optimize the description of `README` and the format of `CHANGELOG`.
+
+### HuaweiCloud SDK IAM
+
+- _Features_
+    - None
+- _Bug Fix_
+    - Correct property from `pwd_stength` to `pwd_strength` in class `KeystoneUserResult`.
+- _Change_
+    - None
+
+# 3.0.5-beta 2021-01-30
+
+### HuaweiCloud SDK IAM
+
+- _Features_
+    - Support Identity and Access Management.
+- _Bug Fix_
+    - None
+- _Change_
+    - None
+
