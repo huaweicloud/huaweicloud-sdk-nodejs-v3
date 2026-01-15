@@ -1,3 +1,4 @@
+import { EncryptType } from './EncryptType';
 import { EstimateChangeImageRequestBody } from './EstimateChangeImageRequestBody';
 
 
@@ -5,12 +6,14 @@ export class CreateChangeImageOrderRequestBody {
     private 'desktop_pool_id'?: string;
     private 'desktop_ids'?: Array<string>;
     private 'promotion_plan_id'?: string;
-    private 'handle_type'?: string;
+    private 'handle_type'?: CreateChangeImageOrderRequestBodyHandleTypeEnum | string;
     private 'image_spec_code'?: string;
     private 'image_id'?: string;
     private 'image_type'?: string;
     private 'delay_time'?: number;
     public message?: string;
+    private 'encrypt_type'?: EncryptType;
+    private 'kms_id'?: string;
     public constructor() { 
     }
     public withDesktopPoolId(desktopPoolId: string): CreateChangeImageOrderRequestBody {
@@ -43,14 +46,14 @@ export class CreateChangeImageOrderRequestBody {
     public get promotionPlanId(): string | undefined {
         return this['promotion_plan_id'];
     }
-    public withHandleType(handleType: string): CreateChangeImageOrderRequestBody {
+    public withHandleType(handleType: CreateChangeImageOrderRequestBodyHandleTypeEnum | string): CreateChangeImageOrderRequestBody {
         this['handle_type'] = handleType;
         return this;
     }
-    public set handleType(handleType: string  | undefined) {
+    public set handleType(handleType: CreateChangeImageOrderRequestBodyHandleTypeEnum | string  | undefined) {
         this['handle_type'] = handleType;
     }
-    public get handleType(): string | undefined {
+    public get handleType(): CreateChangeImageOrderRequestBodyHandleTypeEnum | string | undefined {
         return this['handle_type'];
     }
     public withImageSpecCode(imageSpecCode: string): CreateChangeImageOrderRequestBody {
@@ -97,4 +100,34 @@ export class CreateChangeImageOrderRequestBody {
         this['message'] = message;
         return this;
     }
+    public withEncryptType(encryptType: EncryptType): CreateChangeImageOrderRequestBody {
+        this['encrypt_type'] = encryptType;
+        return this;
+    }
+    public set encryptType(encryptType: EncryptType  | undefined) {
+        this['encrypt_type'] = encryptType;
+    }
+    public get encryptType(): EncryptType | undefined {
+        return this['encrypt_type'];
+    }
+    public withKmsId(kmsId: string): CreateChangeImageOrderRequestBody {
+        this['kms_id'] = kmsId;
+        return this;
+    }
+    public set kmsId(kmsId: string  | undefined) {
+        this['kms_id'] = kmsId;
+    }
+    public get kmsId(): string | undefined {
+        return this['kms_id'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateChangeImageOrderRequestBodyHandleTypeEnum {
+    ONLY_FOR_EXPAND = 'ONLY_FOR_EXPAND',
+    FOR_EXPAND_AND_IDLE = 'FOR_EXPAND_AND_IDLE',
+    FOR_EXPAND_AND_ALL = 'FOR_EXPAND_AND_ALL'
 }

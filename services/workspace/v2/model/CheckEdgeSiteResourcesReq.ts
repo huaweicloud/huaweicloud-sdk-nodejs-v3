@@ -1,11 +1,11 @@
-import { Volume } from './Volume';
+import { CheckEdgeSiteResourcesVolume } from './CheckEdgeSiteResourcesVolume';
 
 
 export class CheckEdgeSiteResourcesReq {
     private 'availability_zone_id'?: string;
     private 'flavor_id'?: string;
     private 'resource_counts'?: number;
-    public volumes?: Array<Volume>;
+    public volumes?: Array<CheckEdgeSiteResourcesVolume>;
     public constructor(availabilityZoneId?: string) { 
         this['availability_zone_id'] = availabilityZoneId;
     }
@@ -39,7 +39,7 @@ export class CheckEdgeSiteResourcesReq {
     public get resourceCounts(): number | undefined {
         return this['resource_counts'];
     }
-    public withVolumes(volumes: Array<Volume>): CheckEdgeSiteResourcesReq {
+    public withVolumes(volumes: Array<CheckEdgeSiteResourcesVolume>): CheckEdgeSiteResourcesReq {
         this['volumes'] = volumes;
         return this;
     }

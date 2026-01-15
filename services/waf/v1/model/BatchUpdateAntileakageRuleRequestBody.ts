@@ -9,10 +9,11 @@ export class BatchUpdateAntileakageRuleRequestBody {
     public action?: LeakageListInfoAction;
     public description?: string;
     private 'policy_rule_ids'?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>;
-    public constructor(url?: string, category?: string, contents?: Array<string>) { 
+    public constructor(url?: string, category?: string, contents?: Array<string>, policyRuleIds?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>) { 
         this['url'] = url;
         this['category'] = category;
         this['contents'] = contents;
+        this['policy_rule_ids'] = policyRuleIds;
     }
     public withUrl(url: string): BatchUpdateAntileakageRuleRequestBody {
         this['url'] = url;

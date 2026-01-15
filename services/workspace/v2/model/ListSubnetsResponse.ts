@@ -1,14 +1,14 @@
-import { SubnetInfo } from './SubnetInfo';
+import { SingleSubnetInfo } from './SingleSubnetInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListSubnetsResponse extends SdkResponse {
-    public subnets?: Array<SubnetInfo>;
+    public subnets?: Array<SingleSubnetInfo>;
     private 'subnet_size'?: number;
     public constructor() { 
         super();
     }
-    public withSubnets(subnets: Array<SubnetInfo>): ListSubnetsResponse {
+    public withSubnets(subnets: Array<SingleSubnetInfo>): ListSubnetsResponse {
         this['subnets'] = subnets;
         return this;
     }

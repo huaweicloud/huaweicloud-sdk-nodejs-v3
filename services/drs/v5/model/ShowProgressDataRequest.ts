@@ -6,6 +6,7 @@ export class ShowProgressDataRequest {
     public offset?: number;
     public limit?: number;
     public type?: string;
+    private 'search_name'?: string;
     public constructor(jobId?: string, type?: string) { 
         this['job_id'] = jobId;
         this['type'] = type;
@@ -41,6 +42,16 @@ export class ShowProgressDataRequest {
     public withType(type: string): ShowProgressDataRequest {
         this['type'] = type;
         return this;
+    }
+    public withSearchName(searchName: string): ShowProgressDataRequest {
+        this['search_name'] = searchName;
+        return this;
+    }
+    public set searchName(searchName: string  | undefined) {
+        this['search_name'] = searchName;
+    }
+    public get searchName(): string | undefined {
+        return this['search_name'];
     }
 }
 

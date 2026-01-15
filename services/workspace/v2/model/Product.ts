@@ -2,7 +2,6 @@
 
 export class Product {
     private 'product_id'?: string;
-    private 'flavor_id'?: string;
     public type?: string;
     public architecture?: string;
     public cpu?: string;
@@ -38,16 +37,6 @@ export class Product {
     }
     public get productId(): string | undefined {
         return this['product_id'];
-    }
-    public withFlavorId(flavorId: string): Product {
-        this['flavor_id'] = flavorId;
-        return this;
-    }
-    public set flavorId(flavorId: string  | undefined) {
-        this['flavor_id'] = flavorId;
-    }
-    public get flavorId(): string | undefined {
-        return this['flavor_id'];
     }
     public withType(type: string): Product {
         this['type'] = type;

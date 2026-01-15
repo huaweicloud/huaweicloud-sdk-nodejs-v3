@@ -1,15 +1,19 @@
 
 
 export class ListMetricsRequest {
+    public dim?: string;
     private 'start_time'?: string;
     private 'end_time'?: string;
-    public dim?: string;
     private 'metric_names'?: Array<string>;
     public period?: ListMetricsRequestPeriodEnum | string;
     public constructor(startTime?: string, endTime?: string, metricNames?: Array<string>) { 
         this['start_time'] = startTime;
         this['end_time'] = endTime;
         this['metric_names'] = metricNames;
+    }
+    public withDim(dim: string): ListMetricsRequest {
+        this['dim'] = dim;
+        return this;
     }
     public withStartTime(startTime: string): ListMetricsRequest {
         this['start_time'] = startTime;
@@ -30,10 +34,6 @@ export class ListMetricsRequest {
     }
     public get endTime(): string | undefined {
         return this['end_time'];
-    }
-    public withDim(dim: string): ListMetricsRequest {
-        this['dim'] = dim;
-        return this;
     }
     public withMetricNames(metricNames: Array<string>): ListMetricsRequest {
         this['metric_names'] = metricNames;

@@ -10,6 +10,7 @@ export class ExportUserConnectionNewRequest {
     private 'min_e2e_rtt'?: number;
     private 'max_e2e_rtt'?: number;
     private 'enterprise_project_id'?: string;
+    private 'public_ip'?: string;
     public constructor() { 
     }
     public withStartTime(startTime: string): ExportUserConnectionNewRequest {
@@ -95,5 +96,15 @@ export class ExportUserConnectionNewRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withPublicIp(publicIp: string): ExportUserConnectionNewRequest {
+        this['public_ip'] = publicIp;
+        return this;
+    }
+    public set publicIp(publicIp: string  | undefined) {
+        this['public_ip'] = publicIp;
+    }
+    public get publicIp(): string | undefined {
+        return this['public_ip'];
     }
 }

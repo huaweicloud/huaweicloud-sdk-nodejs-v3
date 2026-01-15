@@ -4,6 +4,9 @@ export class BindingVifDetails {
     private 'primary_interface'?: boolean;
     private 'port_filter'?: boolean;
     private 'ovs_hybrid_plug'?: boolean;
+    private 'vlan_id'?: string;
+    private 'parent_id'?: string;
+    private 'parent_device_id'?: string;
     public constructor() { 
     }
     public withPrimaryInterface(primaryInterface: boolean): BindingVifDetails {
@@ -35,5 +38,35 @@ export class BindingVifDetails {
     }
     public get ovsHybridPlug(): boolean | undefined {
         return this['ovs_hybrid_plug'];
+    }
+    public withVlanId(vlanId: string): BindingVifDetails {
+        this['vlan_id'] = vlanId;
+        return this;
+    }
+    public set vlanId(vlanId: string  | undefined) {
+        this['vlan_id'] = vlanId;
+    }
+    public get vlanId(): string | undefined {
+        return this['vlan_id'];
+    }
+    public withParentId(parentId: string): BindingVifDetails {
+        this['parent_id'] = parentId;
+        return this;
+    }
+    public set parentId(parentId: string  | undefined) {
+        this['parent_id'] = parentId;
+    }
+    public get parentId(): string | undefined {
+        return this['parent_id'];
+    }
+    public withParentDeviceId(parentDeviceId: string): BindingVifDetails {
+        this['parent_device_id'] = parentDeviceId;
+        return this;
+    }
+    public set parentDeviceId(parentDeviceId: string  | undefined) {
+        this['parent_device_id'] = parentDeviceId;
+    }
+    public get parentDeviceId(): string | undefined {
+        return this['parent_device_id'];
     }
 }

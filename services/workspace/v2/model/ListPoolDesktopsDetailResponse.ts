@@ -8,6 +8,10 @@ export class ListPoolDesktopsDetailResponse extends SdkResponse {
     private 'total_count'?: number;
     private 'on_demand_desktops_num'?: number;
     private 'period_desktops_num'?: number;
+    private 'on_demand_free_image_desktops_num'?: number;
+    private 'on_demand_charge_image_desktops_num'?: number;
+    private 'period_free_image_desktops_num'?: number;
+    private 'period_charge_image_desktops_num'?: number;
     private 'inconsistent_type'?: InconsistentTypeEnum;
     public constructor() { 
         super();
@@ -51,6 +55,46 @@ export class ListPoolDesktopsDetailResponse extends SdkResponse {
     }
     public get periodDesktopsNum(): number | undefined {
         return this['period_desktops_num'];
+    }
+    public withOnDemandFreeImageDesktopsNum(onDemandFreeImageDesktopsNum: number): ListPoolDesktopsDetailResponse {
+        this['on_demand_free_image_desktops_num'] = onDemandFreeImageDesktopsNum;
+        return this;
+    }
+    public set onDemandFreeImageDesktopsNum(onDemandFreeImageDesktopsNum: number  | undefined) {
+        this['on_demand_free_image_desktops_num'] = onDemandFreeImageDesktopsNum;
+    }
+    public get onDemandFreeImageDesktopsNum(): number | undefined {
+        return this['on_demand_free_image_desktops_num'];
+    }
+    public withOnDemandChargeImageDesktopsNum(onDemandChargeImageDesktopsNum: number): ListPoolDesktopsDetailResponse {
+        this['on_demand_charge_image_desktops_num'] = onDemandChargeImageDesktopsNum;
+        return this;
+    }
+    public set onDemandChargeImageDesktopsNum(onDemandChargeImageDesktopsNum: number  | undefined) {
+        this['on_demand_charge_image_desktops_num'] = onDemandChargeImageDesktopsNum;
+    }
+    public get onDemandChargeImageDesktopsNum(): number | undefined {
+        return this['on_demand_charge_image_desktops_num'];
+    }
+    public withPeriodFreeImageDesktopsNum(periodFreeImageDesktopsNum: number): ListPoolDesktopsDetailResponse {
+        this['period_free_image_desktops_num'] = periodFreeImageDesktopsNum;
+        return this;
+    }
+    public set periodFreeImageDesktopsNum(periodFreeImageDesktopsNum: number  | undefined) {
+        this['period_free_image_desktops_num'] = periodFreeImageDesktopsNum;
+    }
+    public get periodFreeImageDesktopsNum(): number | undefined {
+        return this['period_free_image_desktops_num'];
+    }
+    public withPeriodChargeImageDesktopsNum(periodChargeImageDesktopsNum: number): ListPoolDesktopsDetailResponse {
+        this['period_charge_image_desktops_num'] = periodChargeImageDesktopsNum;
+        return this;
+    }
+    public set periodChargeImageDesktopsNum(periodChargeImageDesktopsNum: number  | undefined) {
+        this['period_charge_image_desktops_num'] = periodChargeImageDesktopsNum;
+    }
+    public get periodChargeImageDesktopsNum(): number | undefined {
+        return this['period_charge_image_desktops_num'];
     }
     public withInconsistentType(inconsistentType: InconsistentTypeEnum): ListPoolDesktopsDetailResponse {
         this['inconsistent_type'] = inconsistentType;

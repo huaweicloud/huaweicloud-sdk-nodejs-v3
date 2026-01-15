@@ -1,9 +1,12 @@
+import { EncryptType } from './EncryptType';
 
 
 export class RebuildDesktopsReq {
     private 'desktop_ids'?: Array<string>;
     private 'image_type'?: string;
     private 'image_id'?: string;
+    private 'encrypt_type'?: EncryptType;
+    private 'kms_id'?: string;
     private 'os_type'?: string;
     private 'delay_time'?: number;
     public message?: string;
@@ -44,6 +47,26 @@ export class RebuildDesktopsReq {
     }
     public get imageId(): string | undefined {
         return this['image_id'];
+    }
+    public withEncryptType(encryptType: EncryptType): RebuildDesktopsReq {
+        this['encrypt_type'] = encryptType;
+        return this;
+    }
+    public set encryptType(encryptType: EncryptType  | undefined) {
+        this['encrypt_type'] = encryptType;
+    }
+    public get encryptType(): EncryptType | undefined {
+        return this['encrypt_type'];
+    }
+    public withKmsId(kmsId: string): RebuildDesktopsReq {
+        this['kms_id'] = kmsId;
+        return this;
+    }
+    public set kmsId(kmsId: string  | undefined) {
+        this['kms_id'] = kmsId;
+    }
+    public get kmsId(): string | undefined {
+        return this['kms_id'];
     }
     public withOsType(osType: string): RebuildDesktopsReq {
         this['os_type'] = osType;

@@ -1,3 +1,4 @@
+import { EncryptType } from './EncryptType';
 
 
 export class RebuildDesktopPoolReq {
@@ -7,7 +8,9 @@ export class RebuildDesktopPoolReq {
     private 'delay_time'?: number;
     public message?: string;
     private 'is_fix'?: boolean;
-    private 'handle_type'?: string;
+    private 'handle_type'?: RebuildDesktopPoolReqHandleTypeEnum | string;
+    private 'encrypt_type'?: EncryptType;
+    private 'kms_id'?: string;
     private 'desktop_ids'?: Array<string>;
     public constructor(imageId?: string) { 
         this['image_id'] = imageId;
@@ -66,15 +69,35 @@ export class RebuildDesktopPoolReq {
     public get isFix(): boolean | undefined {
         return this['is_fix'];
     }
-    public withHandleType(handleType: string): RebuildDesktopPoolReq {
+    public withHandleType(handleType: RebuildDesktopPoolReqHandleTypeEnum | string): RebuildDesktopPoolReq {
         this['handle_type'] = handleType;
         return this;
     }
-    public set handleType(handleType: string  | undefined) {
+    public set handleType(handleType: RebuildDesktopPoolReqHandleTypeEnum | string  | undefined) {
         this['handle_type'] = handleType;
     }
-    public get handleType(): string | undefined {
+    public get handleType(): RebuildDesktopPoolReqHandleTypeEnum | string | undefined {
         return this['handle_type'];
+    }
+    public withEncryptType(encryptType: EncryptType): RebuildDesktopPoolReq {
+        this['encrypt_type'] = encryptType;
+        return this;
+    }
+    public set encryptType(encryptType: EncryptType  | undefined) {
+        this['encrypt_type'] = encryptType;
+    }
+    public get encryptType(): EncryptType | undefined {
+        return this['encrypt_type'];
+    }
+    public withKmsId(kmsId: string): RebuildDesktopPoolReq {
+        this['kms_id'] = kmsId;
+        return this;
+    }
+    public set kmsId(kmsId: string  | undefined) {
+        this['kms_id'] = kmsId;
+    }
+    public get kmsId(): string | undefined {
+        return this['kms_id'];
     }
     public withDesktopIds(desktopIds: Array<string>): RebuildDesktopPoolReq {
         this['desktop_ids'] = desktopIds;
@@ -86,4 +109,14 @@ export class RebuildDesktopPoolReq {
     public get desktopIds(): Array<string> | undefined {
         return this['desktop_ids'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RebuildDesktopPoolReqHandleTypeEnum {
+    ONLY_FOR_EXPAND = 'ONLY_FOR_EXPAND',
+    FOR_EXPAND_AND_IDLE = 'FOR_EXPAND_AND_IDLE',
+    FOR_EXPAND_AND_ALL = 'FOR_EXPAND_AND_ALL'
 }

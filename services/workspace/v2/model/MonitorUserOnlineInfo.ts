@@ -4,6 +4,7 @@ import { BaseResponse } from './BaseResponse';
 export class MonitorUserOnlineInfo {
     private 'error_code'?: string;
     private 'error_msg'?: string;
+    private 'error_detail'?: string;
     private 'encoded_authorization_message'?: string;
     private 'connection_setup_time'?: string;
     private 'connection_end_time'?: string;
@@ -28,6 +29,16 @@ export class MonitorUserOnlineInfo {
     }
     public get errorMsg(): string | undefined {
         return this['error_msg'];
+    }
+    public withErrorDetail(errorDetail: string): MonitorUserOnlineInfo {
+        this['error_detail'] = errorDetail;
+        return this;
+    }
+    public set errorDetail(errorDetail: string  | undefined) {
+        this['error_detail'] = errorDetail;
+    }
+    public get errorDetail(): string | undefined {
+        return this['error_detail'];
     }
     public withEncodedAuthorizationMessage(encodedAuthorizationMessage: string): MonitorUserOnlineInfo {
         this['encoded_authorization_message'] = encodedAuthorizationMessage;

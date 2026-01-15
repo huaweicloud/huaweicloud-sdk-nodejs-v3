@@ -1,6 +1,6 @@
 
 
-export class AuditInsanceRiskCount {
+export class AuditInstanceRiskCount {
     public count?: number;
     private 'db_id'?: string;
     private 'db_ip'?: string;
@@ -9,11 +9,11 @@ export class AuditInsanceRiskCount {
     private 'instance_name'?: string;
     public constructor() { 
     }
-    public withCount(count: number): AuditInsanceRiskCount {
+    public withCount(count: number): AuditInstanceRiskCount {
         this['count'] = count;
         return this;
     }
-    public withDbId(dbId: string): AuditInsanceRiskCount {
+    public withDbId(dbId: string): AuditInstanceRiskCount {
         this['db_id'] = dbId;
         return this;
     }
@@ -23,7 +23,7 @@ export class AuditInsanceRiskCount {
     public get dbId(): string | undefined {
         return this['db_id'];
     }
-    public withDbIp(dbIp: string): AuditInsanceRiskCount {
+    public withDbIp(dbIp: string): AuditInstanceRiskCount {
         this['db_ip'] = dbIp;
         return this;
     }
@@ -33,7 +33,7 @@ export class AuditInsanceRiskCount {
     public get dbIp(): string | undefined {
         return this['db_ip'];
     }
-    public withDbName(dbName: string): AuditInsanceRiskCount {
+    public withDbName(dbName: string): AuditInstanceRiskCount {
         this['db_name'] = dbName;
         return this;
     }
@@ -43,7 +43,7 @@ export class AuditInsanceRiskCount {
     public get dbName(): string | undefined {
         return this['db_name'];
     }
-    public withInstanceId(instanceId: string): AuditInsanceRiskCount {
+    public withInstanceId(instanceId: string): AuditInstanceRiskCount {
         this['instance_id'] = instanceId;
         return this;
     }
@@ -53,7 +53,7 @@ export class AuditInsanceRiskCount {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withInstanceName(instanceName: string): AuditInsanceRiskCount {
+    public withInstanceName(instanceName: string): AuditInstanceRiskCount {
         this['instance_name'] = instanceName;
         return this;
     }

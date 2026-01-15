@@ -10,6 +10,7 @@ export class VolumeDetail {
     public id?: string;
     private 'volume_id'?: string;
     private 'bill_resource_id'?: string;
+    private 'desktop_pool_disk_id'?: string;
     private 'create_time'?: string;
     private 'display_name'?: string;
     private 'resource_spec_code'?: string;
@@ -70,6 +71,16 @@ export class VolumeDetail {
     }
     public get billResourceId(): string | undefined {
         return this['bill_resource_id'];
+    }
+    public withDesktopPoolDiskId(desktopPoolDiskId: string): VolumeDetail {
+        this['desktop_pool_disk_id'] = desktopPoolDiskId;
+        return this;
+    }
+    public set desktopPoolDiskId(desktopPoolDiskId: string  | undefined) {
+        this['desktop_pool_disk_id'] = desktopPoolDiskId;
+    }
+    public get desktopPoolDiskId(): string | undefined {
+        return this['desktop_pool_disk_id'];
     }
     public withCreateTime(createTime: string): VolumeDetail {
         this['create_time'] = createTime;

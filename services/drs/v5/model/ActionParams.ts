@@ -15,6 +15,7 @@ export class ActionParams {
     private 'compare_task_param'?: CompareTaskParams;
     private 'is_sync_re_edit'?: boolean;
     private 'is_only_init_task'?: boolean;
+    private 'is_auto_create_compare'?: boolean;
     private 'force_delete'?: boolean;
     private 'public_ip_config'?: PublicIpConfig;
     private 'replay_config'?: ReplayConfigInfo;
@@ -94,6 +95,16 @@ export class ActionParams {
     }
     public get isOnlyInitTask(): boolean | undefined {
         return this['is_only_init_task'];
+    }
+    public withIsAutoCreateCompare(isAutoCreateCompare: boolean): ActionParams {
+        this['is_auto_create_compare'] = isAutoCreateCompare;
+        return this;
+    }
+    public set isAutoCreateCompare(isAutoCreateCompare: boolean  | undefined) {
+        this['is_auto_create_compare'] = isAutoCreateCompare;
+    }
+    public get isAutoCreateCompare(): boolean | undefined {
+        return this['is_auto_create_compare'];
     }
     public withForceDelete(forceDelete: boolean): ActionParams {
         this['force_delete'] = forceDelete;

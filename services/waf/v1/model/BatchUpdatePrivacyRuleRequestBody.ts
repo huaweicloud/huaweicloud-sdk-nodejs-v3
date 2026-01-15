@@ -7,10 +7,11 @@ export class BatchUpdatePrivacyRuleRequestBody {
     public index?: string;
     public description?: string;
     private 'policy_rule_ids'?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>;
-    public constructor(url?: string, category?: string, index?: string) { 
+    public constructor(url?: string, category?: string, index?: string, policyRuleIds?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>) { 
         this['url'] = url;
         this['category'] = category;
         this['index'] = index;
+        this['policy_rule_ids'] = policyRuleIds;
     }
     public withUrl(url: string): BatchUpdatePrivacyRuleRequestBody {
         this['url'] = url;

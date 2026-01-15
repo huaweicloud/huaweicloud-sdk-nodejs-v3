@@ -8,11 +8,13 @@ export class ScheduledTask {
     private 'life_cycle_type'?: string;
     private 'last_status'?: string;
     private 'next_execution_time'?: string;
+    private 'expire_time'?: string;
     public enable?: boolean;
     public description?: string;
     public priority?: number;
     private 'time_zone'?: string;
     private 'wait_time'?: number;
+    private 'extra_params'?: string;
     public constructor() { 
     }
     public withId(id: string): ScheduledTask {
@@ -79,6 +81,16 @@ export class ScheduledTask {
     public get nextExecutionTime(): string | undefined {
         return this['next_execution_time'];
     }
+    public withExpireTime(expireTime: string): ScheduledTask {
+        this['expire_time'] = expireTime;
+        return this;
+    }
+    public set expireTime(expireTime: string  | undefined) {
+        this['expire_time'] = expireTime;
+    }
+    public get expireTime(): string | undefined {
+        return this['expire_time'];
+    }
     public withEnable(enable: boolean): ScheduledTask {
         this['enable'] = enable;
         return this;
@@ -110,5 +122,15 @@ export class ScheduledTask {
     }
     public get waitTime(): number | undefined {
         return this['wait_time'];
+    }
+    public withExtraParams(extraParams: string): ScheduledTask {
+        this['extra_params'] = extraParams;
+        return this;
+    }
+    public set extraParams(extraParams: string  | undefined) {
+        this['extra_params'] = extraParams;
+    }
+    public get extraParams(): string | undefined {
+        return this['extra_params'];
     }
 }

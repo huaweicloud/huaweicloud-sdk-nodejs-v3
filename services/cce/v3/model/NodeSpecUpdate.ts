@@ -22,6 +22,7 @@ export class NodeSpecUpdate {
     public taints?: Array<Taint>;
     public waitPostInstallFinish?: boolean;
     public k8sTags?: { [key: string]: string; };
+    public ecsGroupId?: string;
     public userTags?: Array<UserTag>;
     public nodeNameTemplate?: NodeSpecUpdateNodeNameTemplate;
     public initializedConditions?: Array<string>;
@@ -73,6 +74,10 @@ export class NodeSpecUpdate {
     }
     public withK8sTags(k8sTags: { [key: string]: string; }): NodeSpecUpdate {
         this['k8sTags'] = k8sTags;
+        return this;
+    }
+    public withEcsGroupId(ecsGroupId: string): NodeSpecUpdate {
+        this['ecsGroupId'] = ecsGroupId;
         return this;
     }
     public withUserTags(userTags: Array<UserTag>): NodeSpecUpdate {

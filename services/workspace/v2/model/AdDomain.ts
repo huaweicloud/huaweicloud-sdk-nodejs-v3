@@ -1,3 +1,4 @@
+import { DomainController } from './DomainController';
 import { TlsConfig } from './TlsConfig';
 
 
@@ -18,6 +19,7 @@ export class AdDomain {
     private 'tls_config'?: TlsConfig;
     private 'cba_enabled'?: boolean;
     private 'certificate_id'?: string;
+    private 'domain_controllers'?: Array<DomainController>;
     public constructor(domainType?: string) { 
         this['domain_type'] = domainType;
     }
@@ -174,6 +176,16 @@ export class AdDomain {
     }
     public get certificateId(): string | undefined {
         return this['certificate_id'];
+    }
+    public withDomainControllers(domainControllers: Array<DomainController>): AdDomain {
+        this['domain_controllers'] = domainControllers;
+        return this;
+    }
+    public set domainControllers(domainControllers: Array<DomainController>  | undefined) {
+        this['domain_controllers'] = domainControllers;
+    }
+    public get domainControllers(): Array<DomainController> | undefined {
+        return this['domain_controllers'];
     }
 }
 

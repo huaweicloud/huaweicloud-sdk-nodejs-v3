@@ -25,8 +25,8 @@ import { AlarmLogResponseAlarmLog } from './model/AlarmLogResponseAlarmLog';
 import { AlarmLogResponseNewAlarmLog } from './model/AlarmLogResponseNewAlarmLog';
 import { AuditAgentRequest } from './model/AuditAgentRequest';
 import { AuditAgentRespoonseAgents } from './model/AuditAgentRespoonseAgents';
-import { AuditInsanceRiskCount } from './model/AuditInsanceRiskCount';
 import { AuditInstanceListBean } from './model/AuditInstanceListBean';
+import { AuditInstanceRiskCount } from './model/AuditInstanceRiskCount';
 import { AuditScopeRequestNew } from './model/AuditScopeRequestNew';
 import { AuditScopeSwitchRequestNew } from './model/AuditScopeSwitchRequestNew';
 import { AuditSqlRequest } from './model/AuditSqlRequest';
@@ -436,12 +436,12 @@ import { TimeRangeBean } from './model/TimeRangeBean';
 import { TimezoneRequest } from './model/TimezoneRequest';
 import { TrafficInfo } from './model/TrafficInfo';
 import { TrendStatusResponse } from './model/TrendStatusResponse';
-import { UnSupportAuditInfo } from './model/UnSupportAuditInfo';
-import { UnSupportAuditInfoResponse } from './model/UnSupportAuditInfoResponse';
 import { UnbindDbEncryptEipRequest } from './model/UnbindDbEncryptEipRequest';
 import { UnbindDbEncryptEipResponse } from './model/UnbindDbEncryptEipResponse';
 import { UnbindDbOmEipRequest } from './model/UnbindDbOmEipRequest';
 import { UnbindDbOmEipResponse } from './model/UnbindDbOmEipResponse';
+import { UnsupportedAuditInfo } from './model/UnsupportedAuditInfo';
+import { UnsupportedAuditInfoResponse } from './model/UnsupportedAuditInfoResponse';
 import { UpdateAuditBean } from './model/UpdateAuditBean';
 import { UpdateAuditInstanceNewRequest } from './model/UpdateAuditInstanceNewRequest';
 import { UpdateAuditInstanceNewResponse } from './model/UpdateAuditInstanceNewResponse';
@@ -652,11 +652,11 @@ export class DbssClient {
     }
 
     /**
-     * 绑定数据库加密实例的eip
+     * 绑定数据库加密实例的EIP
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 绑定数据库加密实例的eip
+     * @summary 绑定数据库加密实例的EIP
      * @param {string} instanceId **参数解释**： 实例ID。可通过查询实例列表接口ID字段获取 **约束限制**： 不涉及 **取值范围**： 以查询实例列表接口值为准，字符长度32-64。 **默认取值**： 不涉及 
      * @param {BindEIPRequest} bindDbEncryptEipRequestBody 绑定数据库加密实例eip请求体
      * @param {*} [options] Override http request option.
@@ -672,11 +672,11 @@ export class DbssClient {
     }
 
     /**
-     * 绑定数据库运维实例的eip
+     * 绑定数据库运维实例的EIP
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 绑定数据库运维实例的eip
+     * @summary 绑定数据库运维实例的EIP
      * @param {string} instanceId **参数解释**： 实例ID。可通过查询实例列表接口ID字段获取 **约束限制**： 不涉及 **取值范围**： 以查询实例列表接口值为准，字符长度32-64。 **默认取值**： 不涉及 
      * @param {BindEIPRequest} bindDbOmEipRequestBody 绑定数据库运维实例EIP请求体
      * @param {*} [options] Override http request option.
@@ -951,7 +951,7 @@ export class DbssClient {
     }
 
     /**
-     * 按需方式购买数据库加密实例
+     * 按包周期方式购买数据库加密实例
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1612,7 +1612,7 @@ export class DbssClient {
      *
      * @summary 查询审计实例列表
      * @param {string} [offset] **参数解释**： 分页偏移量，从第一条数据偏移offset条数据后开始查询 **约束限制**： 仅支持大于等于0的整数 **取值范围**： 大于等于0 **默认取值**： 默认值为0 
-     * @param {string} [limit] **参数解释**： 每页查询记录数。 **约束限制**： 仅支持大于0的整数 **取值范围**： 大于0小于等于10000 **默认取值**： 默认值为100 
+     * @param {string} [limit] **参数解释**： 每页查询记录数。 **约束限制**： 仅支持大于0的整数 **取值范围**： 大于0小于等于1000 **默认取值**： 默认值为100 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1753,6 +1753,8 @@ export class DbssClient {
      * @param {string} [name] 风险名称
      * @param {string} [riskLevels] **参数解释**： 风险级别 **约束限制**： 以取值范围为准 **取值范围**： - LOW：低风险 - MEDIUM：中风险 - HIGH：高风险 - NO_RISK：无风险 **默认取值**： 不涉及 
      * @param {boolean} [supportDbClassifyRule] **参数解释**： 实例前端是否支持按数据库类型展示风险规则 **约束限制**： 以取值范围为准 **取值范围**： - true: 支持 - false: 不支持 **默认取值**： false: 不支持 
+     * @param {string} [offset] **参数解释**： 分页偏移量，从第一条数据偏移offset条数据后开始查询 **约束限制**： 仅支持大于等于0的整数 **取值范围**： 大于等于0 **默认取值**： 默认值为0 
+     * @param {string} [limit] **参数解释**： 每页查询记录数。 **约束限制**： 仅支持大于0的整数 **取值范围**： 大于0小于等于1000 **默认取值**： 默认值为100 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1794,7 +1796,7 @@ export class DbssClient {
      * @summary 查询审计范围策略列表
      * @param {string} instanceId **参数解释**： 实例ID。可通过查询实例列表接口ID字段获取 **约束限制**： 不涉及 **取值范围**： 以查询实例列表接口值为准，字符长度32-64。 **默认取值**： 不涉及 
      * @param {string} [offset] **参数解释**： 分页偏移量，从第一条数据偏移offset条数据后开始查询 **约束限制**： 仅支持大于等于0的整数 **取值范围**： 大于等于0 **默认取值**： 默认值为0 
-     * @param {string} [limit] **参数解释**： 每页查询记录数。 **约束限制**： 仅支持大于0的整数 **取值范围**： 大于0小于等于10000 **默认取值**： 默认值为100 
+     * @param {string} [limit] **参数解释**： 每页查询记录数。 **约束限制**： 仅支持大于0的整数 **取值范围**： 大于0小于等于1000 **默认取值**： 默认值为100 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1836,7 +1838,7 @@ export class DbssClient {
      * @summary 查询隐私数据脱敏规则
      * @param {string} instanceId **参数解释**： 实例ID。可通过查询实例列表接口ID字段获取 **约束限制**： 不涉及 **取值范围**： 以查询实例列表接口值为准，字符长度32-64。 **默认取值**： 不涉及 
      * @param {string} [offset] **参数解释**： 分页偏移量，从第一条数据偏移offset条数据后开始查询 **约束限制**： 仅支持大于等于0的整数 **取值范围**： 大于等于0 **默认取值**： 默认值为0 
-     * @param {string} [limit] **参数解释**： 每页查询记录数。 **约束限制**： 仅支持大于0的整数 **取值范围**： 大于0小于等于10000 **默认取值**： 默认值为100 
+     * @param {string} [limit] **参数解释**： 每页查询记录数。 **约束限制**： 仅支持大于0的整数 **取值范围**： 大于0小于等于1000 **默认取值**： 默认值为100 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2045,7 +2047,7 @@ export class DbssClient {
      * @summary 查询RDS数据库列表
      * @param {'MYSQL' | 'ORACLE' | 'POSTGRESQL' | 'SQLSERVER' | 'DAMENG' | 'TAURUS' | 'DWS' | 'KINGBASE' | 'MARIADB' | 'GAUSSDBOPENGAUSS'} dbType **参数解释**： 数据库类型 **约束限制**： 区分大小写，只能传递取值范围内的值 **取值范围**：   - MYSQL: Mysql   - ORACLE: Oracle   - POSTGRESQL: PostgreSQL   - SQLSERVER: SQL Server   - DAMENG: DAMENG   - TAURUS: TaurusDB   - DWS: GaussDB DWS   - KINGBASE: KINGBASE   - MARIADB: MariaDB   - GAUSSDBOPENGAUSS: GaussDB/openGauss **默认取值**： 不涉及 
      * @param {string} [offset] **参数解释**： 分页偏移量，从第一条数据偏移offset条数据后开始查询 **约束限制**： 仅支持大于等于0的整数 **取值范围**： 大于等于0 **默认取值**： 默认值为0 
-     * @param {string} [limit] **参数解释**： 每页查询记录数。 **约束限制**： 仅支持大于0的整数 **取值范围**： 大于0小于等于10000 **默认取值**： 默认值为100 
+     * @param {string} [limit] **参数解释**： 每页查询记录数。 **约束限制**： 仅支持大于0的整数 **取值范围**： 大于0小于等于100 **默认取值**： 默认值为100 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3072,11 +3074,11 @@ export class DbssClient {
     }
 
     /**
-     * 解绑数据库加密实例的eip
+     * 解绑数据库加密实例的EIP
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 解绑数据库加密实例的eip
+     * @summary 解绑数据库加密实例的EIP
      * @param {string} instanceId **参数解释**： 实例ID。可通过查询实例列表接口ID字段获取 **约束限制**： 不涉及 **取值范围**： 以查询实例列表接口值为准，字符长度32-64。 **默认取值**： 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3091,11 +3093,11 @@ export class DbssClient {
     }
 
     /**
-     * 解绑数据库运维实例的eip
+     * 解绑数据库运维实例的EIP
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 解绑数据库运维实例的eip
+     * @summary 解绑数据库运维实例的EIP
      * @param {string} instanceId **参数解释**： 实例ID。可通过查询实例列表接口ID字段获取 **约束限制**： 不涉及 **取值范围**： 以查询实例列表接口值为准，字符长度32-64。 **默认取值**： 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3235,7 +3237,7 @@ export class DbssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新租户审计信息汇总任务状态
-     * @param {string} busiType **参数解释**： 业务类型。 **约束限制**： 区分大小写，以取值范围为准 **取值范围**： - risk: 风险  - audit: 审计实例 **默认取值**： 不涉及
+     * @param {string} busiType **参数解释**： 业务类型。 **约束限制**： 区分大小写，以取值范围为准 **取值范围**： - risk：风险  - audit：审计实例 **默认取值**： 不涉及
      * @param {AuditSummaryStatusRequest} updateAuditTaskStatusRequestBody 请求参数对象
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3578,7 +3580,7 @@ export class DbssClient {
      * @summary 查询白名单列表
      * @param {string} instanceId **参数解释**： 实例ID。可通过查询实例列表接口ID字段获取 **约束限制**： 不涉及 **取值范围**： 以查询实例列表接口值为准，字符长度32-64。 **默认取值**： 不涉及 
      * @param {number} [offset] **参数解释**： 分页偏移量，从第一条数据偏移offset条数据后开始查询 **约束限制**： 仅支持大于等于0的整数 **取值范围**： 大于等于0 **默认取值**： 默认值为0 
-     * @param {number} [limit] **参数解释**： 每页查询记录数。 **约束限制**： 仅支持大于0的整数 **取值范围**： 大于0小于等于10000 **默认取值**： 默认值为100 
+     * @param {number} [limit] **参数解释**： 每页查询记录数。 **约束限制**： 仅支持大于等于10的整数 **取值范围**： 大于等于10小于等于100 **默认取值**： 默认值为100 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3679,7 +3681,7 @@ export class DbssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加资源标签
-     * @param {'auditInstance'} resourceType **参数解释**：  资源类型。 **约束限制**： 不涉及 **取值范围**：  - auditInstance: 审计  **默认取值**： 不涉及 
+     * @param {'auditInstance'} resourceType **参数解释**：  资源类型。 **约束限制**： 不涉及 **取值范围**：  - auditInstance：审计  **默认取值**： 不涉及 
      * @param {string} resourceId **参数解释**：  资源ID。可在查询实例列表接口的resource_id字段获取。 **约束限制**： 不涉及 **取值范围**： 以查询实例列表接口获取值为准，字符长度32-64。 **默认取值**： 不涉及 
      * @param {ResourceTagRequest} batchAddResourceTagRequestBody 添加Tag请求Body体
      * @param {*} [options] Override http request option.
@@ -3700,7 +3702,7 @@ export class DbssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除资源标签
-     * @param {'auditInstance'} resourceType **参数解释**：  资源类型。 **约束限制**： 不涉及 **取值范围**：  - auditInstance: 审计  **默认取值**： 不涉及 
+     * @param {'auditInstance'} resourceType **参数解释**：  资源类型。 **约束限制**： 不涉及 **取值范围**：  - auditInstance：审计  **默认取值**： 不涉及 
      * @param {string} resourceId **参数解释**：  资源ID。可在查询实例列表接口的resource_id字段获取。 **约束限制**： 不涉及 **取值范围**： 以查询实例列表接口获取值为准，字符长度32-64。 **默认取值**： 不涉及 
      * @param {ResourceTagDeleteRequest} batchDeleteResourceTagRequestBody 添加Tag请求Body体
      * @param {*} [options] Override http request option.
@@ -3721,7 +3723,7 @@ export class DbssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 根据标签查询资源实例数量
-     * @param {'auditInstance'} resourceType **参数解释**：  资源类型。 **约束限制**： 不涉及 **取值范围**：  - auditInstance: 审计  **默认取值**： 不涉及 
+     * @param {'auditInstance'} resourceType **参数解释**：  资源类型。 **约束限制**： 不涉及 **取值范围**：  - auditInstance：审计  **默认取值**： 不涉及 
      * @param {ResourceInstanceTagRequest} countResourceInstanceByTagRequestBody Tag请求Body体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3741,7 +3743,7 @@ export class DbssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取实例标签
-     * @param {string} resourceType **参数解释**：  资源类型。 **约束限制**： 不涉及 **取值范围**：  - auditInstance: 审计 **默认取值**： 不涉及 
+     * @param {string} resourceType **参数解释**：  资源类型。 **约束限制**： 不涉及 **取值范围**：  - auditInstance：审计 **默认取值**： 不涉及 
      * @param {string} resourceId **参数解释**：  资源ID。可在查询实例列表接口的resource_id字段获取。 **约束限制**： 不涉及 **取值范围**： 以查询实例列表接口获取值为准，字符长度32-64。 **默认取值**： 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3761,7 +3763,7 @@ export class DbssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询项目标签
-     * @param {'auditInstance'} resourceType **参数解释**：  资源类型。 **约束限制**： 不涉及 **取值范围**：  - auditInstance: 审计  **默认取值**： 不涉及 
+     * @param {'auditInstance'} resourceType **参数解释**：  资源类型。 **约束限制**： 不涉及 **取值范围**：  - auditInstance：审计  **默认取值**： 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3780,7 +3782,7 @@ export class DbssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 根据标签查询资源实例列表
-     * @param {'auditInstance'} resourceType **参数解释**：  资源类型。 **约束限制**： 不涉及 **取值范围**：  - auditInstance: 审计  **默认取值**： 不涉及 
+     * @param {'auditInstance'} resourceType **参数解释**：  资源类型。 **约束限制**： 不涉及 **取值范围**：  - auditInstance：审计  **默认取值**： 不涉及 
      * @param {ResourceInstanceTagRequest} listResourceInstanceByTagRequestBody Tag请求Body体
      * @param {string} [limit] **参数解释**： 每页查询记录数。 **约束限制**： 仅支持大于0的整数 **取值范围**： 大于0小于等于10000 **默认取值**： 默认值为1000 
      * @param {string} [offset] **参数解释**： 分页偏移量，从第一条数据偏移offset条数据后开始查询 **约束限制**： 仅支持大于等于0的整数 **取值范围**： 大于等于0 **默认取值**： 默认值为0 
@@ -4169,7 +4171,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 绑定数据库加密实例的eip
+         * 绑定数据库加密实例的EIP
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4215,7 +4217,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 绑定数据库运维实例的eip
+         * 绑定数据库运维实例的EIP
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4850,7 +4852,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 按需方式购买数据库加密实例
+         * 按包周期方式购买数据库加密实例
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6609,6 +6611,10 @@ export const ParamCreater = function () {
             let riskLevels;
             
             let supportDbClassifyRule;
+            
+            let offset;
+            
+            let limit;
 
             if (listAuditRuleRisksNewRequest !== null && listAuditRuleRisksNewRequest !== undefined) {
                 if (listAuditRuleRisksNewRequest instanceof ListAuditRuleRisksNewRequest) {
@@ -6616,11 +6622,15 @@ export const ParamCreater = function () {
                     name = listAuditRuleRisksNewRequest.name;
                     riskLevels = listAuditRuleRisksNewRequest.riskLevels;
                     supportDbClassifyRule = listAuditRuleRisksNewRequest.supportDbClassifyRule;
+                    offset = listAuditRuleRisksNewRequest.offset;
+                    limit = listAuditRuleRisksNewRequest.limit;
                 } else {
                     instanceId = listAuditRuleRisksNewRequest['instance_id'];
                     name = listAuditRuleRisksNewRequest['name'];
                     riskLevels = listAuditRuleRisksNewRequest['risk_levels'];
                     supportDbClassifyRule = listAuditRuleRisksNewRequest['support_db_classify_rule'];
+                    offset = listAuditRuleRisksNewRequest['offset'];
+                    limit = listAuditRuleRisksNewRequest['limit'];
                 }
             }
 
@@ -6636,6 +6646,12 @@ export const ParamCreater = function () {
             }
             if (supportDbClassifyRule !== null && supportDbClassifyRule !== undefined) {
                 localVarQueryParameter['support_db_classify_rule'] = supportDbClassifyRule;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -9313,7 +9329,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 解绑数据库加密实例的eip
+         * 解绑数据库加密实例的EIP
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9350,7 +9366,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 解绑数据库运维实例的eip
+         * 解绑数据库运维实例的EIP
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

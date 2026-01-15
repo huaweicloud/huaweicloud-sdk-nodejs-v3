@@ -10,6 +10,7 @@ export class ListNatGatewaysRequest {
     public spec?: Array<string>;
     private 'router_id'?: string;
     public limit?: number;
+    public offset?: number;
     public constructor() { 
     }
     public withId(id: string): ListNatGatewaysRequest {
@@ -64,6 +65,10 @@ export class ListNatGatewaysRequest {
     }
     public withLimit(limit: number): ListNatGatewaysRequest {
         this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListNatGatewaysRequest {
+        this['offset'] = offset;
         return this;
     }
 }

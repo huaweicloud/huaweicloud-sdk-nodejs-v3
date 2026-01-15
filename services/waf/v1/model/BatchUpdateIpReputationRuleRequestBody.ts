@@ -4,24 +4,20 @@ import { PolicyRuleIdRequestBodyPolicyRuleIds } from './PolicyRuleIdRequestBodyP
 
 export class BatchUpdateIpReputationRuleRequestBody {
     public name?: string;
-    public policyname?: string;
     public description?: string;
     public action?: BatchUpdateIpReputationRuleRequestBodyAction;
     public type?: string;
     public tags?: Array<string>;
     private 'policy_rule_ids'?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>;
-    public constructor(name?: string, action?: BatchUpdateIpReputationRuleRequestBodyAction, type?: string, tags?: Array<string>) { 
+    public constructor(name?: string, action?: BatchUpdateIpReputationRuleRequestBodyAction, type?: string, tags?: Array<string>, policyRuleIds?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>) { 
         this['name'] = name;
         this['action'] = action;
         this['type'] = type;
         this['tags'] = tags;
+        this['policy_rule_ids'] = policyRuleIds;
     }
     public withName(name: string): BatchUpdateIpReputationRuleRequestBody {
         this['name'] = name;
-        return this;
-    }
-    public withPolicyname(policyname: string): BatchUpdateIpReputationRuleRequestBody {
-        this['policyname'] = policyname;
         return this;
     }
     public withDescription(description: string): BatchUpdateIpReputationRuleRequestBody {

@@ -1,6 +1,6 @@
 import { AuthorizedObjects } from './AuthorizedObjects';
 import { AutoscalePolicy } from './AutoscalePolicy';
-import { SecurityGroup } from './SecurityGroup';
+import { SecurityGroupIdInfo } from './SecurityGroupIdInfo';
 import { Tag } from './Tag';
 import { VolumeInfo } from './VolumeInfo';
 
@@ -19,7 +19,7 @@ export class CreateDesktopPoolReq {
     private 'data_volumes'?: Array<VolumeInfo>;
     private 'vpc_id'?: string;
     private 'subnet_ids'?: Array<string>;
-    private 'security_groups'?: Array<SecurityGroup>;
+    private 'security_groups'?: Array<SecurityGroupIdInfo>;
     private 'authorized_objects'?: Array<AuthorizedObjects>;
     private 'ou_name'?: string;
     public tags?: Array<Tag>;
@@ -144,14 +144,14 @@ export class CreateDesktopPoolReq {
     public get subnetIds(): Array<string> | undefined {
         return this['subnet_ids'];
     }
-    public withSecurityGroups(securityGroups: Array<SecurityGroup>): CreateDesktopPoolReq {
+    public withSecurityGroups(securityGroups: Array<SecurityGroupIdInfo>): CreateDesktopPoolReq {
         this['security_groups'] = securityGroups;
         return this;
     }
-    public set securityGroups(securityGroups: Array<SecurityGroup>  | undefined) {
+    public set securityGroups(securityGroups: Array<SecurityGroupIdInfo>  | undefined) {
         this['security_groups'] = securityGroups;
     }
-    public get securityGroups(): Array<SecurityGroup> | undefined {
+    public get securityGroups(): Array<SecurityGroupIdInfo> | undefined {
         return this['security_groups'];
     }
     public withAuthorizedObjects(authorizedObjects: Array<AuthorizedObjects>): CreateDesktopPoolReq {

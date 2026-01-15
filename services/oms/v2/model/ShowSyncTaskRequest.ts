@@ -2,8 +2,8 @@
 
 export class ShowSyncTaskRequest {
     private 'sync_task_id'?: string;
-    private 'query_time'?: string;
-    public constructor(syncTaskId?: string, queryTime?: string) { 
+    private 'query_time'?: number;
+    public constructor(syncTaskId?: string, queryTime?: number) { 
         this['sync_task_id'] = syncTaskId;
         this['query_time'] = queryTime;
     }
@@ -17,14 +17,14 @@ export class ShowSyncTaskRequest {
     public get syncTaskId(): string | undefined {
         return this['sync_task_id'];
     }
-    public withQueryTime(queryTime: string): ShowSyncTaskRequest {
+    public withQueryTime(queryTime: number): ShowSyncTaskRequest {
         this['query_time'] = queryTime;
         return this;
     }
-    public set queryTime(queryTime: string  | undefined) {
+    public set queryTime(queryTime: number  | undefined) {
         this['query_time'] = queryTime;
     }
-    public get queryTime(): string | undefined {
+    public get queryTime(): number | undefined {
         return this['query_time'];
     }
 }

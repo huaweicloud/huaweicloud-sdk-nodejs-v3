@@ -5,7 +5,7 @@ export class CreateResizeOrderRequestBody {
     private 'desktop_pool_id'?: string;
     private 'desktop_ids'?: Array<string>;
     private 'promotion_plan_id'?: string;
-    private 'handle_type'?: string;
+    private 'handle_type'?: CreateResizeOrderRequestBodyHandleTypeEnum | string;
     private 'product_id'?: string;
     public mode?: string;
     public constructor() { 
@@ -40,14 +40,14 @@ export class CreateResizeOrderRequestBody {
     public get promotionPlanId(): string | undefined {
         return this['promotion_plan_id'];
     }
-    public withHandleType(handleType: string): CreateResizeOrderRequestBody {
+    public withHandleType(handleType: CreateResizeOrderRequestBodyHandleTypeEnum | string): CreateResizeOrderRequestBody {
         this['handle_type'] = handleType;
         return this;
     }
-    public set handleType(handleType: string  | undefined) {
+    public set handleType(handleType: CreateResizeOrderRequestBodyHandleTypeEnum | string  | undefined) {
         this['handle_type'] = handleType;
     }
-    public get handleType(): string | undefined {
+    public get handleType(): CreateResizeOrderRequestBodyHandleTypeEnum | string | undefined {
         return this['handle_type'];
     }
     public withProductId(productId: string): CreateResizeOrderRequestBody {
@@ -64,4 +64,14 @@ export class CreateResizeOrderRequestBody {
         this['mode'] = mode;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateResizeOrderRequestBodyHandleTypeEnum {
+    ONLY_FOR_EXPAND = 'ONLY_FOR_EXPAND',
+    FOR_EXPAND_AND_IDLE = 'FOR_EXPAND_AND_IDLE',
+    FOR_EXPAND_AND_ALL = 'FOR_EXPAND_AND_ALL'
 }

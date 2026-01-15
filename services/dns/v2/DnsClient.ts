@@ -178,6 +178,9 @@ import { ListEndpointVpcsRequest } from './model/ListEndpointVpcsRequest';
 import { ListEndpointVpcsResponse } from './model/ListEndpointVpcsResponse';
 import { ListEndpointsRequest } from './model/ListEndpointsRequest';
 import { ListEndpointsResponse } from './model/ListEndpointsResponse';
+import { ListInstancesRequest } from './model/ListInstancesRequest';
+import { ListInstancesRequestBody } from './model/ListInstancesRequestBody';
+import { ListInstancesResponse } from './model/ListInstancesResponse';
 import { ListLineGroupsRequest } from './model/ListLineGroupsRequest';
 import { ListLineGroupsResponse } from './model/ListLineGroupsResponse';
 import { ListNameServersRequest } from './model/ListNameServersRequest';
@@ -230,6 +233,7 @@ import { QueryRecordSetWithLineAndTagsResp } from './model/QueryRecordSetWithLin
 import { QueryRecordSetWithLineResp } from './model/QueryRecordSetWithLineResp';
 import { RecordInfo } from './model/RecordInfo';
 import { RecordsetData } from './model/RecordsetData';
+import { ResolutionInstances } from './model/ResolutionInstances';
 import { ResolverQueryLogConfig } from './model/ResolverQueryLogConfig';
 import { ResolverRuleParam } from './model/ResolverRuleParam';
 import { ResourceItem } from './model/ResourceItem';
@@ -239,6 +243,7 @@ import { RestorePtrReq } from './model/RestorePtrReq';
 import { Router } from './model/Router';
 import { RouterForRule } from './model/RouterForRule';
 import { RouterWithStatus } from './model/RouterWithStatus';
+import { RsetResolutionInstances } from './model/RsetResolutionInstances';
 import { SetPrivateZoneProxyPatternRequest } from './model/SetPrivateZoneProxyPatternRequest';
 import { SetPrivateZoneProxyPatternRequestBody } from './model/SetPrivateZoneProxyPatternRequestBody';
 import { SetPrivateZoneProxyPatternResponse } from './model/SetPrivateZoneProxyPatternResponse';
@@ -342,8 +347,10 @@ import { UpdateZoneStatusRequestBody } from './model/UpdateZoneStatusRequestBody
 import { ValuesItem } from './model/ValuesItem';
 import { VersionItem } from './model/VersionItem';
 import { Vpc } from './model/Vpc';
+import { VpcResolutionInstances } from './model/VpcResolutionInstances';
 import { VpcsData } from './model/VpcsData';
 import { ZoneData } from './model/ZoneData';
+import { ZoneResolutionInstances } from './model/ZoneResolutionInstances';
 
 export class DnsClient {
     public static newBuilder(): ClientBuilder<DnsClient> {
@@ -513,7 +520,7 @@ export class DnsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 为指定实例批量添加或删除标签
-     * @param {string} resourceType 资源的类型：DNS-public_zone，DNS-private_zone，DNS-public_recordset，DNS-private_recordset，DNS-ptr_record。
+     * @param {string} resourceType **参数解释：** 资源的类型。 **约束限制：** 不涉及。 **取值范围：** - DNS-public_zone：公网域名 - DNS-private_zone：内网域名 - DNS-public_recordset：公网记录集 - DNS-private_recordset：内网记录集 - DNS-ptr_record：反向解析  **默认取值：** 不涉及。
      * @param {string} resourceId 资源ID。
      * @param {BatchHandTags} [batchHandTags] 
      * @param {*} [options] Override http request option.
@@ -929,7 +936,7 @@ export class DnsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 为指定实例添加标签
-     * @param {string} resourceType 资源的类型：DNS-public_zone，DNS-private_zone，DNS-public_recordset，DNS-private_recordset，DNS-ptr_record。
+     * @param {string} resourceType **参数解释：** 资源的类型。 **约束限制：** 不涉及。 **取值范围：** - DNS-public_zone：公网域名 - DNS-private_zone：内网域名 - DNS-public_recordset：公网记录集 - DNS-private_recordset：内网记录集 - DNS-ptr_record：反向解析  **默认取值：** 不涉及。
      * @param {string} resourceId 资源ID。
      * @param {CreateTagReq} [createTagReq] 
      * @param {*} [options] Override http request option.
@@ -1086,7 +1093,7 @@ export class DnsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除资源标签
-     * @param {string} resourceType 资源的类型：DNS-public_zone，DNS-private_zone，DNS-public_recordset，DNS-private_recordset，DNS-ptr_record。  
+     * @param {string} resourceType **参数解释：** 资源的类型。 **约束限制：** 不涉及。 **取值范围：** - DNS-public_zone：公网域名 - DNS-private_zone：内网域名 - DNS-public_recordset：公网记录集 - DNS-private_recordset：内网记录集 - DNS-ptr_record：反向解析  **默认取值：** 不涉及。
      * @param {string} resourceId 资源ID。
      * @param {string} key 标签key。  标签key不能为空或者空字符串。
      * @param {*} [options] Override http request option.
@@ -1233,7 +1240,7 @@ export class DnsClient {
      * @param {number} [limit] 分页查询时配置每页返回的资源个数。 当查询详细信息时：取值范围：0~100取值一般为10，20，50默认为100。 当查询概要信息时：取值范围：0~3000默认为3000。
      * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当设置marker不为空时，以marker为分页起始标识，offset不生效。
      * @param {boolean} [showDetail] 是否查询详细信息。  取值范围：  true：是，查询详细信息。 false：否，不查询详细信息。 默认为true。
-     * @param {string} [status] 资源状态。
+     * @param {string} [status] **参数解释：** 资源状态。 **约束限制：** 不涉及。 **取值范围：** - ACTIVE：正常 - PENDING_CREATE：创建中 - PENDING_UPDATE：更新中 - PENDING_DELETE：删除中 - PENDING_FREEZE：冻结中 - FREEZE：冻结 - ERROR：失败  **默认取值：** 不涉及。
      * @param {string} [ip] IP地址范围。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1303,6 +1310,25 @@ export class DnsClient {
      */
     public listEndpoints(listEndpointsRequest?: ListEndpointsRequest): Promise<ListEndpointsResponse> {
         const options = ParamCreater().listEndpoints(listEndpointsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量查询DNS解析量统计相关的资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量查询DNS解析量统计相关的资源
+     * @param {ListInstancesRequestBody} listInstancesRequestBody 查询DNS资源请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstances(listInstancesRequest?: ListInstancesRequest): Promise<ListInstancesResponse> {
+        const options = ParamCreater().listInstances(listInstancesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1468,7 +1494,7 @@ export class DnsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 使用标签查询资源实例
-     * @param {string} resourceType 资源的类型：DNS-public_zone，DNS-private_zone，DNS-public_recordset，DNS-private_recordset，DNS-ptr_record。
+     * @param {string} resourceType **参数解释：** 资源的类型。 **约束限制：** 不涉及。 **取值范围：** - DNS-public_zone：公网域名 - DNS-private_zone：内网域名 - DNS-public_recordset：公网记录集 - DNS-private_recordset：内网记录集 - DNS-ptr_record：反向解析  **默认取值：** 不涉及。
      * @param {ListTagReq} [listTagReq] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1488,7 +1514,7 @@ export class DnsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定实例类型的所有标签集合
-     * @param {string} resourceType 资源的类型：DNS-public_zone，DNS-private_zone，DNS-public_recordset，DNS-private_recordset，DNS-ptr_record。
+     * @param {string} resourceType **参数解释：** 资源的类型。 **约束限制：** 不涉及。 **取值范围：** - DNS-public_zone：公网域名 - DNS-private_zone：内网域名 - DNS-public_recordset：公网记录集 - DNS-private_recordset：内网记录集 - DNS-ptr_record：反向解析  **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1597,7 +1623,7 @@ export class DnsClient {
      * @summary 查询公网域名的域名诊断
      * @param {string} zoneId **参数解释：** 域名ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} domainName 待诊断记录集的名称。
-     * @param {string} [type] 待诊断记录集的类型。 取值范围：CNAME、TXT、MX。
+     * @param {string} [type] **参数解释：** 待诊断记录集的类型。 **取值范围：** - MX：指定域名对应的邮件服务器。 - CNAME：将域名解析到另一域名，或者多个域名映射到同一域名上。 - TXT：用于对域名进行标识和说明。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1817,7 +1843,7 @@ export class DnsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定实例的标签信息
-     * @param {string} resourceType 资源的类型：DNS-public_zone，DNS-private_zone，DNS-public_recordset，DNS-private_recordset，DNS-ptr_record。
+     * @param {string} resourceType **参数解释：** 资源的类型。 **约束限制：** 不涉及。 **取值范围：** - DNS-public_zone：公网域名 - DNS-private_zone：内网域名 - DNS-public_recordset：公网记录集 - DNS-private_recordset：内网记录集 - DNS-ptr_record：反向解析  **默认取值：** 不涉及。
      * @param {string} resourceId 资源ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2225,7 +2251,7 @@ export class DnsClient {
      * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当设置marker不为空时，以marker为分页起始标识，offset不生效。
      * @param {string} [enterpriseProjectId] 反向解析关联的企业项目ID，长度不超过36个字符。
      * @param {string} [tags] 资源标签。  取值格式：key1,value1|key2,value2  多个标签之间用“|”分开，每个标签的键值用英文逗号“,”相隔。
-     * @param {string} [status] 资源状态。
+     * @param {string} [status] **参数解释：** 资源状态。 **约束限制：** 不涉及。 **取值范围：** - ACTIVE：正常 - PENDING_CREATE：创建中 - PENDING_UPDATE：更新中 - PENDING_DELETE：删除中 - PENDING_FREEZE：冻结中 - FREEZE：冻结 - ILLEGAL：违规冻结 - POLICE：公安冻结 - ERROR：失败  **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2251,7 +2277,7 @@ export class DnsClient {
      * @param {number} [offset] **参数解释：** 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。 **约束限制：** 当设置marker不为空时，以marker为分页起始标识，offset不生效。 **取值范围：** 0~2147483647。 **默认取值：** 0
      * @param {string} [tags] **参数解释：** 记录集的标签，包括标签键和标签值。 取值格式：key1,value1|key2,value2。 **约束限制：** - 多个标签之间用“|”分开，每个标签的键值用英文逗号“,”相隔。 - 多个标签之间为“与”的关系。 - 搜索模式为精确搜索。如果资源标签值value是以&amp;ast;开头时，则按照&amp;ast;后面的值全模糊匹配。  **取值范围：** 最多可以查询20个标签。 **默认取值：** 不涉及。
      * @param {string} [status] **参数解释：** 记录集状态。 **约束限制：** 不涉及。 **取值范围：** - ACTIVE：正常 - PENDING_CREATE：创建中 - PENDING_UPDATE：更新中 - PENDING_DELETE：删除中 - PENDING_FREEZE：冻结中 - FREEZE：冻结 - ILLEGAL：违规冻结 - POLICE：公安冻结 - PENDING_DISABLE：暂停中 - DISABLE：暂停 - ERROR：失败  **默认取值：** 不涉及。
-     * @param {string} [type] **参数解释：** 记录集的类型。 **约束限制：** 不涉及。 **取值范围：** - 公网域名的记录类型: A、AAAA、MX、CNAME、TXT、SRV、NS、SOA、CAA。 - 内网域名的记录类型: A、AAAA、MX、CNAME、TXT、PTR、SRV、NS、SOA。  **默认取值：** 不涉及。
+     * @param {string} [type] **参数解释：** 记录集的类型。 **约束限制：** 不涉及。 **取值范围：** - A：将域名解析到指定的IPv4地址。 - AAAA：将域名解析到指定的IPv6地址。 - MX：指定域名对应的邮件服务器。 - CNAME：将域名解析到另一域名，或者多个域名映射到同一域名上。 - TXT：用于对域名进行标识和说明。 - SRV：用于记录某台服务器对外提供了哪些服务。 - NS：指定域名的权威DNS服务器。 - SOA：提供域名的基本信息和权威服务器的详细信息。 - CAA：指定为域名颁发HTTPS证书的授权CA机构，仅支持公网域名解析。 - PTR：指定IP地址反向解析记录，仅支持内网域名解析。  **默认取值：** 不涉及。
      * @param {string} [name] **参数解释：** 待查询的记录集的域名中包含此name。 搜索模式默认为模糊搜索。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [id] **参数解释：** 待查询的记录集ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [records] **参数解释：** 待查询的记录集的值。 搜索模式默认为模糊搜索。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
@@ -2282,7 +2308,7 @@ export class DnsClient {
      * @param {number} [offset] **参数解释：** 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。 **约束限制：** 当设置marker不为空时，以marker为分页起始标识，offset不生效。 **取值范围：** 0~2147483647。 **默认取值：** 0
      * @param {string} [tags] **参数解释：** 记录集的标签，包括标签键和标签值。 取值格式：key1,value1|key2,value2。 **约束限制：** - 多个标签之间用“|”分开，每个标签的键值用英文逗号“,”相隔。 - 多个标签之间为“与”的关系。 - 搜索模式为精确搜索。如果资源标签值value是以&amp;ast;开头时，则按照&amp;ast;后面的值全模糊匹配。  **取值范围：** 最多可以查询20个标签。 **默认取值：** 不涉及。
      * @param {string} [status] **参数解释：** 记录集状态。 **约束限制：** 不涉及。 **取值范围：** - ACTIVE：正常 - PENDING_CREATE：创建中 - PENDING_UPDATE：更新中 - PENDING_DELETE：删除中 - PENDING_FREEZE：冻结中 - FREEZE：冻结 - ILLEGAL：违规冻结 - POLICE：公安冻结 - PENDING_DISABLE：暂停中 - DISABLE：暂停 - ERROR：失败  **默认取值：** 不涉及。
-     * @param {string} [type] **参数解释：** 记录集的类型。 **约束限制：** 不涉及。 **取值范围：** - 公网域名的记录类型: A、AAAA、MX、CNAME、TXT、SRV、NS、SOA、CAA。 - 内网域名的记录类型: A、AAAA、MX、CNAME、TXT、PTR、SRV、NS、SOA。  **默认取值：** 不涉及。
+     * @param {string} [type] **参数解释：** 记录集的类型。 **约束限制：** 不涉及。 **取值范围：** - A：将域名解析到指定的IPv4地址。 - AAAA：将域名解析到指定的IPv6地址。 - MX：指定域名对应的邮件服务器。 - CNAME：将域名解析到另一域名，或者多个域名映射到同一域名上。 - TXT：用于对域名进行标识和说明。 - SRV：用于记录某台服务器对外提供了哪些服务。 - NS：指定域名的权威DNS服务器。 - SOA：提供域名的基本信息和权威服务器的详细信息。 - CAA：指定为域名颁发HTTPS证书的授权CA机构，仅支持公网域名解析。 - PTR：指定IP地址反向解析记录，仅支持内网域名解析。  **默认取值：** 不涉及。
      * @param {string} [name] **参数解释：** 待查询的记录集的域名中包含此name。 搜索模式默认为模糊搜索。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [id] **参数解释：** 待查询的记录集ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [sortKey] **参数解释：** 查询结果中记录集列表的排序字段。 **约束限制：** 不涉及。 **取值范围：** - name：记录集名称 - type：记录集类型  **默认取值：** 默认值为空，表示不排序。
@@ -2593,7 +2619,7 @@ export class DnsClient {
      * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。 取值范围：0~2147483647 默认值为0。 当设置marker不为空时，以marker为分页起始标识，offset不生效。
      * @param {string} [enterpriseProjectId] 反向解析关联的企业项目ID，长度不超过36个字符。
      * @param {string} [tags] 资源标签。 取值格式：key1,value1|key2,value2 多个标签之间用“|”分开，每个标签的键值用英文逗号“,”相隔。
-     * @param {string} [status] 资源状态。
+     * @param {string} [status] **参数解释：** 资源状态。 **约束限制：** 不涉及。 **取值范围：** - ACTIVE：正常 - PENDING_CREATE：创建中 - PENDING_UPDATE：更新中 - PENDING_DELETE：删除中 - PENDING_FREEZE：冻结中 - FREEZE：冻结 - ILLEGAL：违规冻结 - POLICE：公安冻结 - ERROR：失败  **默认取值：** 不涉及。
      * @param {string} [resourceType] 弹性公网IP类型。  取值范围： publicip：弹性公网IP（EIP）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2642,7 +2668,7 @@ export class DnsClient {
      * @param {string} [lineId] **参数解释：** 解析线路ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [tags] **参数解释：** 记录集的标签，包括标签键和标签值。 取值格式：key1,value1|key2,value2。 **约束限制：** - 多个标签之间用“|”分开，每个标签的键值用英文逗号“,”相隔。 - 多个标签之间为“与”的关系。 - 搜索模式为精确搜索。如果资源标签值value是以&amp;ast;开头时，则按照&amp;ast;后面的值全模糊匹配。  **取值范围：** 最多可以查询20个标签。 **默认取值：** 不涉及。
      * @param {string} [status] **参数解释：** 记录集状态。 **约束限制：** 不涉及。 **取值范围：** - ACTIVE：正常 - PENDING_CREATE：创建中 - PENDING_UPDATE：更新中 - PENDING_DELETE：删除中 - PENDING_FREEZE：冻结中 - FREEZE：冻结 - ILLEGAL：违规冻结 - POLICE：公安冻结 - PENDING_DISABLE：暂停中 - DISABLE：暂停 - ERROR：失败  **默认取值：** 不涉及。
-     * @param {string} [type] **参数解释：** 记录集的类型。 **约束限制：** 不涉及。 **取值范围：** - 公网域名的记录类型: A、AAAA、MX、CNAME、TXT、SRV、NS、SOA、CAA。 - 内网域名的记录类型: A、AAAA、MX、CNAME、TXT、PTR、SRV、NS、SOA。  **默认取值：** 不涉及。
+     * @param {string} [type] **参数解释：** 记录集的类型。 **约束限制：** 不涉及。 **取值范围：** - A：将域名解析到指定的IPv4地址。 - AAAA：将域名解析到指定的IPv6地址。 - MX：指定域名对应的邮件服务器。 - CNAME：将域名解析到另一域名，或者多个域名映射到同一域名上。 - TXT：用于对域名进行标识和说明。 - SRV：用于记录某台服务器对外提供了哪些服务。 - NS：指定域名的权威DNS服务器。 - SOA：提供域名的基本信息和权威服务器的详细信息。 - CAA：指定为域名颁发HTTPS证书的授权CA机构，仅支持公网域名解析。 - PTR：指定IP地址反向解析记录，仅支持内网域名解析。  **默认取值：** 不涉及。
      * @param {string} [name] **参数解释：** 待查询的记录集的域名中包含此name。 搜索模式默认为模糊搜索。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [id] **参数解释：** 待查询的记录集ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [records] **参数解释：** 待查询的记录集的值。 搜索模式默认为模糊搜索。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
@@ -2756,7 +2782,7 @@ export class DnsClient {
      * @param {string} [lineId] **参数解释：** 解析线路ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [tags] **参数解释：** 记录集的标签，包括标签键和标签值。 取值格式：key1,value1|key2,value2。 **约束限制：** - 多个标签之间用“|”分开，每个标签的键值用英文逗号“,”相隔。 - 多个标签之间为“与”的关系。 - 搜索模式为精确搜索。如果资源标签值value是以&amp;ast;开头时，则按照&amp;ast;后面的值全模糊匹配。  **取值范围：** 最多可以查询20个标签。 **默认取值：** 不涉及。
      * @param {string} [status] **参数解释：** 记录集状态。 **约束限制：** 不涉及。 **取值范围：** - ACTIVE：正常 - PENDING_CREATE：创建中 - PENDING_UPDATE：更新中 - PENDING_DELETE：删除中 - PENDING_FREEZE：冻结中 - FREEZE：冻结 - ILLEGAL：违规冻结 - POLICE：公安冻结 - PENDING_DISABLE：暂停中 - DISABLE：暂停 - ERROR：失败  **默认取值：** 不涉及。
-     * @param {string} [type] **参数解释：** 记录集的类型。 **约束限制：** 不涉及。 **取值范围：** - 公网域名的记录类型: A、AAAA、MX、CNAME、TXT、SRV、NS、SOA、CAA。 - 内网域名的记录类型: A、AAAA、MX、CNAME、TXT、PTR、SRV、NS、SOA。  **默认取值：** 不涉及。
+     * @param {string} [type] **参数解释：** 记录集的类型。 **约束限制：** 不涉及。 **取值范围：** - A：将域名解析到指定的IPv4地址。 - AAAA：将域名解析到指定的IPv6地址。 - MX：指定域名对应的邮件服务器。 - CNAME：将域名解析到另一域名，或者多个域名映射到同一域名上。 - TXT：用于对域名进行标识和说明。 - SRV：用于记录某台服务器对外提供了哪些服务。 - NS：指定域名的权威DNS服务器。 - SOA：提供域名的基本信息和权威服务器的详细信息。 - CAA：指定为域名颁发HTTPS证书的授权CA机构，仅支持公网域名解析。 - PTR：指定IP地址反向解析记录，仅支持内网域名解析。  **默认取值：** 不涉及。
      * @param {string} [name] **参数解释：** 待查询的记录集的域名中包含此name。 搜索模式默认为模糊搜索。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [id] **参数解释：** 待查询的记录集ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [sortKey] **参数解释：** 查询结果中记录集列表的排序字段。 **约束限制：** 不涉及。 **取值范围：** - name：记录集名称 - type：记录集类型 - created_at：创建时间 - updated_at：更新时间  **默认取值：** created_at
@@ -4791,6 +4817,44 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量查询DNS解析量统计相关的资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstances(listInstancesRequest?: ListInstancesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.1/batch-query-instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (listInstancesRequest !== null && listInstancesRequest !== undefined) {
+                if (listInstancesRequest instanceof ListInstancesRequest) {
+                    body = listInstancesRequest.body
+                } else {
+                    body = listInstancesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

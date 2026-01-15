@@ -5,6 +5,7 @@ export class PoliciesPeripheralsDeviceRedirectionPrinterRedirectionOptions {
     private 'print_data_compression_mode'?: boolean;
     private 'sync_client_default_printer_enable'?: boolean;
     private 'universal_printer_driver'?: string;
+    private 'network_redirect_printer_enable'?: boolean;
     public constructor() { 
     }
     public withMobilePrinterEnable(mobilePrinterEnable: boolean): PoliciesPeripheralsDeviceRedirectionPrinterRedirectionOptions {
@@ -46,5 +47,15 @@ export class PoliciesPeripheralsDeviceRedirectionPrinterRedirectionOptions {
     }
     public get universalPrinterDriver(): string | undefined {
         return this['universal_printer_driver'];
+    }
+    public withNetworkRedirectPrinterEnable(networkRedirectPrinterEnable: boolean): PoliciesPeripheralsDeviceRedirectionPrinterRedirectionOptions {
+        this['network_redirect_printer_enable'] = networkRedirectPrinterEnable;
+        return this;
+    }
+    public set networkRedirectPrinterEnable(networkRedirectPrinterEnable: boolean  | undefined) {
+        this['network_redirect_printer_enable'] = networkRedirectPrinterEnable;
+    }
+    public get networkRedirectPrinterEnable(): boolean | undefined {
+        return this['network_redirect_printer_enable'];
     }
 }

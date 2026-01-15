@@ -1,6 +1,6 @@
 import { DatabaseRiskStatisticsDto } from './DatabaseRiskStatisticsDto';
 import { RuleRiskStatisticsDto } from './RuleRiskStatisticsDto';
-import { UnSupportAuditInfoResponse } from './UnSupportAuditInfoResponse';
+import { UnsupportedAuditInfoResponse } from './UnsupportedAuditInfoResponse';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -11,7 +11,7 @@ export class ShowAuditStatisticsResponse extends SdkResponse {
     private 'medium_risk_total'?: number;
     private 'project_id'?: string;
     private 'rule_risk_statistics'?: Array<RuleRiskStatisticsDto>;
-    private 'unsupported_audit_infos'?: UnSupportAuditInfoResponse;
+    private 'unsupported_audit_infos'?: UnsupportedAuditInfoResponse;
     private 'update_time'?: number;
     public constructor() { 
         super();
@@ -76,14 +76,14 @@ export class ShowAuditStatisticsResponse extends SdkResponse {
     public get ruleRiskStatistics(): Array<RuleRiskStatisticsDto> | undefined {
         return this['rule_risk_statistics'];
     }
-    public withUnsupportedAuditInfos(unsupportedAuditInfos: UnSupportAuditInfoResponse): ShowAuditStatisticsResponse {
+    public withUnsupportedAuditInfos(unsupportedAuditInfos: UnsupportedAuditInfoResponse): ShowAuditStatisticsResponse {
         this['unsupported_audit_infos'] = unsupportedAuditInfos;
         return this;
     }
-    public set unsupportedAuditInfos(unsupportedAuditInfos: UnSupportAuditInfoResponse  | undefined) {
+    public set unsupportedAuditInfos(unsupportedAuditInfos: UnsupportedAuditInfoResponse  | undefined) {
         this['unsupported_audit_infos'] = unsupportedAuditInfos;
     }
-    public get unsupportedAuditInfos(): UnSupportAuditInfoResponse | undefined {
+    public get unsupportedAuditInfos(): UnsupportedAuditInfoResponse | undefined {
         return this['unsupported_audit_infos'];
     }
     public withUpdateTime(updateTime: number): ShowAuditStatisticsResponse {

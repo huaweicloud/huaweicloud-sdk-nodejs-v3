@@ -2,7 +2,6 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
-import { AIOpsRiskInfo } from './model/AIOpsRiskInfo';
 import { Actions } from './model/Actions';
 import { AddFavoriteReq } from './model/AddFavoriteReq';
 import { AddFavoriteReqTemplate } from './model/AddFavoriteReqTemplate';
@@ -11,6 +10,10 @@ import { AddFavoriteResponse } from './model/AddFavoriteResponse';
 import { AddIndependentNodeRequest } from './model/AddIndependentNodeRequest';
 import { AddIndependentNodeResponse } from './model/AddIndependentNodeResponse';
 import { AddressAndPorts } from './model/AddressAndPorts';
+import { AiOps } from './model/AiOps';
+import { AiOpsDetector } from './model/AiOpsDetector';
+import { AiOpsRiskObject } from './model/AiOpsRiskObject';
+import { AiOpsSetting } from './model/AiOpsSetting';
 import { BackupRsp } from './model/BackupRsp';
 import { BatchAddOrDeleteTagOnClusterReq } from './model/BatchAddOrDeleteTagOnClusterReq';
 import { BindPublicReq } from './model/BindPublicReq';
@@ -27,6 +30,8 @@ import { ChangeModeResponse } from './model/ChangeModeResponse';
 import { ChangeSecurityGroupReq } from './model/ChangeSecurityGroupReq';
 import { ChangeSecurityGroupRequest } from './model/ChangeSecurityGroupRequest';
 import { ChangeSecurityGroupResponse } from './model/ChangeSecurityGroupResponse';
+import { CloseAiOpsSettingRequest } from './model/CloseAiOpsSettingRequest';
+import { CloseAiOpsSettingResponse } from './model/CloseAiOpsSettingResponse';
 import { CloseKibanaPublicReq } from './model/CloseKibanaPublicReq';
 import { ClusterChangeMainSubnet } from './model/ClusterChangeMainSubnet';
 import { ClusterDetailDatastore } from './model/ClusterDetailDatastore';
@@ -126,8 +131,6 @@ import { KibanaElbWhiteListResp } from './model/KibanaElbWhiteListResp';
 import { ListActionsRequest } from './model/ListActionsRequest';
 import { ListActionsResponse } from './model/ListActionsResponse';
 import { ListAiOpsRequest } from './model/ListAiOpsRequest';
-import { ListAiOpsRequestBodyAiopsList } from './model/ListAiOpsRequestBodyAiopsList';
-import { ListAiOpsRequestBodySummary } from './model/ListAiOpsRequestBodySummary';
 import { ListAiOpsResponse } from './model/ListAiOpsResponse';
 import { ListCertsRequest } from './model/ListCertsRequest';
 import { ListCertsResponse } from './model/ListCertsResponse';
@@ -198,6 +201,10 @@ import { RoleExtendReq } from './model/RoleExtendReq';
 import { RouteRespsResource } from './model/RouteRespsResource';
 import { SetRDSBackupCnfReq } from './model/SetRDSBackupCnfReq';
 import { Setting } from './model/Setting';
+import { ShowAiOpsDetectorRequest } from './model/ShowAiOpsDetectorRequest';
+import { ShowAiOpsDetectorResponse } from './model/ShowAiOpsDetectorResponse';
+import { ShowAiOpsSettingRequest } from './model/ShowAiOpsSettingRequest';
+import { ShowAiOpsSettingResponse } from './model/ShowAiOpsSettingResponse';
 import { ShowAllTagsTagsResp } from './model/ShowAllTagsTagsResp';
 import { ShowAutoCreatePolicyRequest } from './model/ShowAutoCreatePolicyRequest';
 import { ShowAutoCreatePolicyResponse } from './model/ShowAutoCreatePolicyResponse';
@@ -281,11 +288,14 @@ import { StopSnapshotRequest } from './model/StopSnapshotRequest';
 import { StopSnapshotResponse } from './model/StopSnapshotResponse';
 import { StopVpecpRequest } from './model/StopVpecpRequest';
 import { StopVpecpResponse } from './model/StopVpecpResponse';
+import { SummaryInfo } from './model/SummaryInfo';
 import { SystemTemplates } from './model/SystemTemplates';
 import { Tag } from './model/Tag';
 import { TagReq } from './model/TagReq';
 import { UnBindPublicReq } from './model/UnBindPublicReq';
 import { UnBindPublicReqEipReq } from './model/UnBindPublicReqEipReq';
+import { UpdateAiOpsSettingRequest } from './model/UpdateAiOpsSettingRequest';
+import { UpdateAiOpsSettingResponse } from './model/UpdateAiOpsSettingResponse';
 import { UpdateAlterKibanaRequest } from './model/UpdateAlterKibanaRequest';
 import { UpdateAlterKibanaResponse } from './model/UpdateAlterKibanaResponse';
 import { UpdateAzByInstanceTypeReq } from './model/UpdateAzByInstanceTypeReq';
@@ -460,6 +470,25 @@ export class CssClient {
     }
 
     /**
+     * CSS服务提供智能运维功能的定时检测，支持每日定时检测集群的潜在风险。此接口用于关闭智能运维定时检测。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关闭智能运维定时检测
+     * @param {string} clusterId **参数解释**： 指定查询的集群ID。获取方法请参见[获取集群ID](css_03_0101.xml)。 **约束限制**： 不涉及 **取值范围**： 集群ID。 **默认取值**： 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public closeAiOpsSetting(closeAiOpsSettingRequest?: CloseAiOpsSettingRequest): Promise<CloseAiOpsSettingResponse> {
+        const options = ParamCreater().closeAiOpsSetting(closeAiOpsSettingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 当CSS预置委托不存在时，自动创建委托并赋予CSS依赖的权限。
      * 当CSS预置委托存在时，去除依赖的高风险权限，设置为最小化权限。
      * 
@@ -485,8 +514,8 @@ export class CssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建一次集群检测任务
-     * @param {string} clusterId 指定待操作的集群ID。
-     * @param {CreateAiOpsRequestBody} createAiOpsRequestBody 
+     * @param {string} clusterId **参数解释**： 指定操作的集群ID。获取方法请参见[获取集群ID](css_03_0101.xml)。 **约束限制**： 不涉及 **取值范围**： 集群ID。 **默认取值**： 不涉及
+     * @param {CreateAiOpsRequestBody} createAiOpsRequestBody 检测类型及范围设置
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -664,7 +693,7 @@ export class CssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除一个检测任务记录
-     * @param {string} clusterId 指定待删除的集群ID。
+     * @param {string} clusterId **参数解释**： 指定删除的集群ID。获取方法请参见[获取集群ID](css_03_0101.xml)。 **约束限制**： 不涉及 **取值范围**： 集群ID。 **默认取值**： 不涉及
      * @param {string} aiopsId 指定检测任务ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -798,14 +827,15 @@ export class CssClient {
     }
 
     /**
-     * 该接口用于获取智能运维任务列表及详情。
+     * CSS服务提供智能运维功能，支持检测集群潜在风险。检测任务完成后，可以查看集群存在的风险项详情，根据风险建议及时处理集群存在的风险。此接口用于获取智能运维任务列表及详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取智能运维任务列表及详情
-     * @param {string} clusterId 指定待查询的集群ID。
-     * @param {number} [limit] 分页参数，列表当前分页的数量限制。
-     * @param {number} [offset] 偏移量。 偏移量为一个大于0小于终端节点服务总个数的整数， 表示从偏移量后面的终端节点服务开始查询。
+     * @param {string} clusterId **参数解释**： 指定查询的集群ID。获取方法请参见[获取集群ID](css_03_0101.xml)。 **约束限制**： 不涉及 **取值范围**： 集群ID。 **默认取值**： 不涉及
+     * @param {number} [limit] **参数解释**： 分页参数，列表当前分页的数量限制。默认值为10，即一次查询10个任务信息。 **约束限制**： 不涉及 **取值范围**： 1-1000 **默认取值**： 10
+     * @param {number} [offset] **参数解释**： 偏移量，表示从偏移量后面的计数开始查询。 **约束限制**： 不涉及 **取值范围**： 0-1000 **默认取值**： 0
+     * @param {string} [report] **参数解释**： 获取当前最新一份报告或历史报告 **约束限制**： 不涉及 **取值范围**： - current   仅获取当前最新一次检测报告 - history   仅获取当前历史检测报告  **默认取值**： 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -982,7 +1012,7 @@ export class CssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取智能运维告警可用的SMN主题
-     * @param {string} domainId 指定待查询的集群ID。
+     * @param {string} domainId 域账号ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1128,6 +1158,44 @@ export class CssClient {
      */
     public retryUpgradeTask(retryUpgradeTaskRequest?: RetryUpgradeTaskRequest): Promise<RetryUpgradeTaskResponse> {
         const options = ParamCreater().retryUpgradeTask(retryUpgradeTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * CSS服务提供智能运维功能，支持检测集群潜在风险。此接口用于获取智能运维的检测项。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看智能运维检测项
+     * @param {string} clusterId **参数解释**： 指定查询的集群ID。获取方法请参见[获取集群ID](css_03_0101.xml)。 **约束限制**： 不涉及 **取值范围**： 集群ID。 **默认取值**： 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAiOpsDetector(showAiOpsDetectorRequest?: ShowAiOpsDetectorRequest): Promise<ShowAiOpsDetectorResponse> {
+        const options = ParamCreater().showAiOpsDetector(showAiOpsDetectorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * CSS服务提供智能运维功能的定时检测，支持每日定时检测集群的潜在风险。此接口用于获取智能运维定时检测设置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看智能运维定时检测设置
+     * @param {string} clusterId **参数解释**： 指定查询的集群ID。获取方法请参见[获取集群ID](css_03_0101.xml)。 **约束限制**： 不涉及 **取值范围**： 集群ID。 **默认取值**： 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAiOpsSetting(showAiOpsSettingRequest?: ShowAiOpsSettingRequest): Promise<ShowAiOpsSettingResponse> {
+        const options = ParamCreater().showAiOpsSetting(showAiOpsSettingRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1585,6 +1653,26 @@ export class CssClient {
      */
     public stopVpecp(stopVpecpRequest?: StopVpecpRequest): Promise<StopVpecpResponse> {
         const options = ParamCreater().stopVpecp(stopVpecpRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * CSS服务提供智能运维功能的定时检测，支持每日定时检测集群的潜在风险。此接口用于设置智能运维定时检测。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新智能运维定时检测设置
+     * @param {string} clusterId **参数解释**： 指定查询的集群ID。获取方法请参见[获取集群ID](css_03_0101.xml)。 **约束限制**： 不涉及 **取值范围**： 集群ID。 **默认取值**： 不涉及
+     * @param {AiOpsSetting} changeAiOpsSetting 智能运维自动检测设置，设置每日自动进行智能检测。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAiOpsSetting(updateAiOpsSettingRequest?: UpdateAiOpsSettingRequest): Promise<UpdateAiOpsSettingResponse> {
+        const options = ParamCreater().updateAiOpsSetting(updateAiOpsSettingRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2767,6 +2855,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * CSS服务提供智能运维功能的定时检测，支持每日定时检测集群的潜在风险。此接口用于关闭智能运维定时检测。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        closeAiOpsSetting(closeAiOpsSettingRequest?: CloseAiOpsSettingRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/ai-ops/close",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (closeAiOpsSettingRequest !== null && closeAiOpsSettingRequest !== undefined) {
+                if (closeAiOpsSettingRequest instanceof CloseAiOpsSettingRequest) {
+                    clusterId = closeAiOpsSettingRequest.clusterId;
+                } else {
+                    clusterId = closeAiOpsSettingRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling closeAiOpsSetting.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 当CSS预置委托不存在时，自动创建委托并赋予CSS依赖的权限。
          * 当CSS预置委托存在时，去除依赖的高风险权限，设置为最小化权限。
          * 
@@ -3486,7 +3611,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于获取智能运维任务列表及详情。
+         * CSS服务提供智能运维功能，支持检测集群潜在风险。检测任务完成后，可以查看集群存在的风险项详情，根据风险建议及时处理集群存在的风险。此接口用于获取智能运维任务列表及详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3507,16 +3632,20 @@ export const ParamCreater = function () {
             let limit;
             
             let offset;
+            
+            let report;
 
             if (listAiOpsRequest !== null && listAiOpsRequest !== undefined) {
                 if (listAiOpsRequest instanceof ListAiOpsRequest) {
                     clusterId = listAiOpsRequest.clusterId;
                     limit = listAiOpsRequest.limit;
                     offset = listAiOpsRequest.offset;
+                    report = listAiOpsRequest.report;
                 } else {
                     clusterId = listAiOpsRequest['cluster_id'];
                     limit = listAiOpsRequest['limit'];
                     offset = listAiOpsRequest['offset'];
+                    report = listAiOpsRequest['report'];
                 }
             }
 
@@ -3529,6 +3658,9 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (report !== null && report !== undefined) {
+                localVarQueryParameter['report'] = report;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4215,6 +4347,80 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId,'action_id': actionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * CSS服务提供智能运维功能，支持检测集群潜在风险。此接口用于获取智能运维的检测项。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAiOpsDetector(showAiOpsDetectorRequest?: ShowAiOpsDetectorRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/ai-ops/detector",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (showAiOpsDetectorRequest !== null && showAiOpsDetectorRequest !== undefined) {
+                if (showAiOpsDetectorRequest instanceof ShowAiOpsDetectorRequest) {
+                    clusterId = showAiOpsDetectorRequest.clusterId;
+                } else {
+                    clusterId = showAiOpsDetectorRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showAiOpsDetector.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * CSS服务提供智能运维功能的定时检测，支持每日定时检测集群的潜在风险。此接口用于获取智能运维定时检测设置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAiOpsSetting(showAiOpsSettingRequest?: ShowAiOpsSettingRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/ai-ops/setting",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (showAiOpsSettingRequest !== null && showAiOpsSettingRequest !== undefined) {
+                if (showAiOpsSettingRequest instanceof ShowAiOpsSettingRequest) {
+                    clusterId = showAiOpsSettingRequest.clusterId;
+                } else {
+                    clusterId = showAiOpsSettingRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showAiOpsSetting.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5169,6 +5375,52 @@ export const ParamCreater = function () {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling stopVpecp.');
             }
 
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * CSS服务提供智能运维功能的定时检测，支持每日定时检测集群的潜在风险。此接口用于设置智能运维定时检测。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAiOpsSetting(updateAiOpsSettingRequest?: UpdateAiOpsSettingRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/clusters/{cluster_id}/ai-ops/setting",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (updateAiOpsSettingRequest !== null && updateAiOpsSettingRequest !== undefined) {
+                if (updateAiOpsSettingRequest instanceof UpdateAiOpsSettingRequest) {
+                    clusterId = updateAiOpsSettingRequest.clusterId;
+                    body = updateAiOpsSettingRequest.body
+                } else {
+                    clusterId = updateAiOpsSettingRequest['cluster_id'];
+                    body = updateAiOpsSettingRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateAiOpsSetting.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;

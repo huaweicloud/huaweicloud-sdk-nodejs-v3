@@ -60,6 +60,7 @@ export class JobDetailResp {
     private 'repair_progress_info'?: JobDetailRespRepairProgressInfo;
     private 'repair_detail_info'?: QueryRepairDetailResp;
     private 'repair_export_status'?: string;
+    private 'job_kernel_direction'?: JobDetailRespJobKernelDirectionEnum | string;
     public constructor() { 
     }
     public withId(id: string): JobDetailResp {
@@ -376,6 +377,16 @@ export class JobDetailResp {
     public get repairExportStatus(): string | undefined {
         return this['repair_export_status'];
     }
+    public withJobKernelDirection(jobKernelDirection: JobDetailRespJobKernelDirectionEnum | string): JobDetailResp {
+        this['job_kernel_direction'] = jobKernelDirection;
+        return this;
+    }
+    public set jobKernelDirection(jobKernelDirection: JobDetailRespJobKernelDirectionEnum | string  | undefined) {
+        this['job_kernel_direction'] = jobKernelDirection;
+    }
+    public get jobKernelDirection(): JobDetailRespJobKernelDirectionEnum | string | undefined {
+        return this['job_kernel_direction'];
+    }
 }
 
 /**
@@ -420,4 +431,12 @@ export enum JobDetailRespStatusEnum {
 export enum JobDetailRespIsWritableEnum {
     PENDING = 'pending',
     SUCCESS = 'success'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum JobDetailRespJobKernelDirectionEnum {
+    UP = 'up',
+    DOWN = 'down'
 }

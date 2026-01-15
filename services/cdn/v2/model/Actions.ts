@@ -15,12 +15,12 @@ export class Actions {
     private 'origin_request_header'?: Array<OriginRequestHeader>;
     private 'http_response_header'?: Array<HttpResponseHeader>;
     private 'access_control'?: AccessControl;
-    private 'request_limit_rules'?: RequestLimitRulesEngine;
+    private 'request_limit_rule'?: RequestLimitRulesEngine;
     private 'origin_request_url_rewrite'?: OriginRequestUrlRewriteEngine;
     private 'cache_rule'?: CacheRulesEngine;
     private 'request_url_rewrite'?: RequestUrlRewriteEngine;
     private 'browser_cache_rule'?: BrowserCacheRulesEngine;
-    private 'error_code_cache'?: ErrorCodeCacheEngine;
+    private 'error_code_cache'?: Array<ErrorCodeCacheEngine>;
     public constructor() { 
     }
     public withFlexibleOrigin(flexibleOrigin: Array<FlexibleOriginsEngine>): Actions {
@@ -63,15 +63,15 @@ export class Actions {
     public get accessControl(): AccessControl | undefined {
         return this['access_control'];
     }
-    public withRequestLimitRules(requestLimitRules: RequestLimitRulesEngine): Actions {
-        this['request_limit_rules'] = requestLimitRules;
+    public withRequestLimitRule(requestLimitRule: RequestLimitRulesEngine): Actions {
+        this['request_limit_rule'] = requestLimitRule;
         return this;
     }
-    public set requestLimitRules(requestLimitRules: RequestLimitRulesEngine  | undefined) {
-        this['request_limit_rules'] = requestLimitRules;
+    public set requestLimitRule(requestLimitRule: RequestLimitRulesEngine  | undefined) {
+        this['request_limit_rule'] = requestLimitRule;
     }
-    public get requestLimitRules(): RequestLimitRulesEngine | undefined {
-        return this['request_limit_rules'];
+    public get requestLimitRule(): RequestLimitRulesEngine | undefined {
+        return this['request_limit_rule'];
     }
     public withOriginRequestUrlRewrite(originRequestUrlRewrite: OriginRequestUrlRewriteEngine): Actions {
         this['origin_request_url_rewrite'] = originRequestUrlRewrite;
@@ -113,14 +113,14 @@ export class Actions {
     public get browserCacheRule(): BrowserCacheRulesEngine | undefined {
         return this['browser_cache_rule'];
     }
-    public withErrorCodeCache(errorCodeCache: ErrorCodeCacheEngine): Actions {
+    public withErrorCodeCache(errorCodeCache: Array<ErrorCodeCacheEngine>): Actions {
         this['error_code_cache'] = errorCodeCache;
         return this;
     }
-    public set errorCodeCache(errorCodeCache: ErrorCodeCacheEngine  | undefined) {
+    public set errorCodeCache(errorCodeCache: Array<ErrorCodeCacheEngine>  | undefined) {
         this['error_code_cache'] = errorCodeCache;
     }
-    public get errorCodeCache(): ErrorCodeCacheEngine | undefined {
+    public get errorCodeCache(): Array<ErrorCodeCacheEngine> | undefined {
         return this['error_code_cache'];
     }
 }

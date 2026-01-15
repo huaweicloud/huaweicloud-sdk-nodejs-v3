@@ -5,6 +5,8 @@ export class ListAuditRuleRisksNewRequest {
     public name?: string;
     private 'risk_levels'?: string;
     private 'support_db_classify_rule'?: boolean;
+    public offset?: string;
+    public limit?: string;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -41,5 +43,13 @@ export class ListAuditRuleRisksNewRequest {
     }
     public get supportDbClassifyRule(): boolean | undefined {
         return this['support_db_classify_rule'];
+    }
+    public withOffset(offset: string): ListAuditRuleRisksNewRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: string): ListAuditRuleRisksNewRequest {
+        this['limit'] = limit;
+        return this;
     }
 }

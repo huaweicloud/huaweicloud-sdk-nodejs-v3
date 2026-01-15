@@ -27,6 +27,7 @@ export class SimpleDesktopInfo {
     private 'task_status'?: string;
     private 'availability_zone'?: string;
     private 'connect_status'?: string;
+    private 'pool_id'?: string;
     public constructor() { 
     }
     public withDomainId(domainId: string): SimpleDesktopInfo {
@@ -244,5 +245,15 @@ export class SimpleDesktopInfo {
     }
     public get connectStatus(): string | undefined {
         return this['connect_status'];
+    }
+    public withPoolId(poolId: string): SimpleDesktopInfo {
+        this['pool_id'] = poolId;
+        return this;
+    }
+    public set poolId(poolId: string  | undefined) {
+        this['pool_id'] = poolId;
+    }
+    public get poolId(): string | undefined {
+        return this['pool_id'];
     }
 }

@@ -13,6 +13,8 @@ export class ScheduledTasksRecords {
     private 'time_zone'?: string;
     private 'execute_task_id'?: string;
     private 'execute_object_type'?: string;
+    private 'expire_time'?: string;
+    private 'extra_params'?: string;
     public constructor() { 
     }
     public withId(id: string): ScheduledTasksRecords {
@@ -122,5 +124,25 @@ export class ScheduledTasksRecords {
     }
     public get executeObjectType(): string | undefined {
         return this['execute_object_type'];
+    }
+    public withExpireTime(expireTime: string): ScheduledTasksRecords {
+        this['expire_time'] = expireTime;
+        return this;
+    }
+    public set expireTime(expireTime: string  | undefined) {
+        this['expire_time'] = expireTime;
+    }
+    public get expireTime(): string | undefined {
+        return this['expire_time'];
+    }
+    public withExtraParams(extraParams: string): ScheduledTasksRecords {
+        this['extra_params'] = extraParams;
+        return this;
+    }
+    public set extraParams(extraParams: string  | undefined) {
+        this['extra_params'] = extraParams;
+    }
+    public get extraParams(): string | undefined {
+        return this['extra_params'];
     }
 }

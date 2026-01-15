@@ -1,7 +1,7 @@
 import { SoldOutInfo } from './SoldOutInfo';
 
 
-export class AvailabilityZoneInfo {
+export class AvailabilityZone {
     private 'availability_zone'?: string;
     private 'display_name'?: string;
     public i18n?: { [key: string]: string; };
@@ -11,7 +11,7 @@ export class AvailabilityZoneInfo {
     private 'default_availability_zone'?: boolean;
     public constructor() { 
     }
-    public withAvailabilityZone(availabilityZone: string): AvailabilityZoneInfo {
+    public withAvailabilityZone(availabilityZone: string): AvailabilityZone {
         this['availability_zone'] = availabilityZone;
         return this;
     }
@@ -21,7 +21,7 @@ export class AvailabilityZoneInfo {
     public get availabilityZone(): string | undefined {
         return this['availability_zone'];
     }
-    public withDisplayName(displayName: string): AvailabilityZoneInfo {
+    public withDisplayName(displayName: string): AvailabilityZone {
         this['display_name'] = displayName;
         return this;
     }
@@ -31,11 +31,11 @@ export class AvailabilityZoneInfo {
     public get displayName(): string | undefined {
         return this['display_name'];
     }
-    public withI18n(i18n: { [key: string]: string; }): AvailabilityZoneInfo {
+    public withI18n(i18n: { [key: string]: string; }): AvailabilityZone {
         this['i18n'] = i18n;
         return this;
     }
-    public withSoldOut(soldOut: SoldOutInfo): AvailabilityZoneInfo {
+    public withSoldOut(soldOut: SoldOutInfo): AvailabilityZone {
         this['sold_out'] = soldOut;
         return this;
     }
@@ -45,7 +45,7 @@ export class AvailabilityZoneInfo {
     public get soldOut(): SoldOutInfo | undefined {
         return this['sold_out'];
     }
-    public withProductIds(productIds: Array<string>): AvailabilityZoneInfo {
+    public withProductIds(productIds: Array<string>): AvailabilityZone {
         this['product_ids'] = productIds;
         return this;
     }
@@ -55,11 +55,11 @@ export class AvailabilityZoneInfo {
     public get productIds(): Array<string> | undefined {
         return this['product_ids'];
     }
-    public withVisible(visible: boolean): AvailabilityZoneInfo {
+    public withVisible(visible: boolean): AvailabilityZone {
         this['visible'] = visible;
         return this;
     }
-    public withDefaultAvailabilityZone(defaultAvailabilityZone: boolean): AvailabilityZoneInfo {
+    public withDefaultAvailabilityZone(defaultAvailabilityZone: boolean): AvailabilityZone {
         this['default_availability_zone'] = defaultAvailabilityZone;
         return this;
     }

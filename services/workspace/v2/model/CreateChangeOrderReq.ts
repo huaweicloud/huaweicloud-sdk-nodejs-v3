@@ -5,6 +5,7 @@ export class CreateChangeOrderReq {
     public type?: string;
     private 'period_type'?: number;
     private 'period_num'?: number;
+    private 'is_auto_renew'?: number;
     private 'resize_product_id'?: string;
     private 'expand_volume_id'?: string;
     private 'expand_new_size'?: number;
@@ -38,6 +39,16 @@ export class CreateChangeOrderReq {
     }
     public get periodNum(): number | undefined {
         return this['period_num'];
+    }
+    public withIsAutoRenew(isAutoRenew: number): CreateChangeOrderReq {
+        this['is_auto_renew'] = isAutoRenew;
+        return this;
+    }
+    public set isAutoRenew(isAutoRenew: number  | undefined) {
+        this['is_auto_renew'] = isAutoRenew;
+    }
+    public get isAutoRenew(): number | undefined {
+        return this['is_auto_renew'];
     }
     public withResizeProductId(resizeProductId: string): CreateChangeOrderReq {
         this['resize_product_id'] = resizeProductId;

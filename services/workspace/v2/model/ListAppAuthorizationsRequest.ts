@@ -6,6 +6,7 @@ export class ListAppAuthorizationsRequest {
     private 'app_id'?: string;
     public name?: string;
     private 'target_type'?: string;
+    private 'assign_type'?: string;
     public constructor(appId?: string) { 
         this['app_id'] = appId;
     }
@@ -40,5 +41,15 @@ export class ListAppAuthorizationsRequest {
     }
     public get targetType(): string | undefined {
         return this['target_type'];
+    }
+    public withAssignType(assignType: string): ListAppAuthorizationsRequest {
+        this['assign_type'] = assignType;
+        return this;
+    }
+    public set assignType(assignType: string  | undefined) {
+        this['assign_type'] = assignType;
+    }
+    public get assignType(): string | undefined {
+        return this['assign_type'];
     }
 }

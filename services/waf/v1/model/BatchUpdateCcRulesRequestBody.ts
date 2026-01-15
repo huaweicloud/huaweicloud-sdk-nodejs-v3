@@ -21,13 +21,14 @@ export class BatchUpdateCcRulesRequestBody {
     private 'region_aggregation'?: boolean;
     public description?: string;
     private 'policy_rule_ids'?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>;
-    public constructor(mode?: number, conditions?: Array<CcCondition>, action?: CreateCcRuleRequestBodyAction, tagType?: string, limitNum?: number, limitPeriod?: number) { 
+    public constructor(mode?: number, conditions?: Array<CcCondition>, action?: CreateCcRuleRequestBodyAction, tagType?: string, limitNum?: number, limitPeriod?: number, policyRuleIds?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>) { 
         this['mode'] = mode;
         this['conditions'] = conditions;
         this['action'] = action;
         this['tag_type'] = tagType;
         this['limit_num'] = limitNum;
         this['limit_period'] = limitPeriod;
+        this['policy_rule_ids'] = policyRuleIds;
     }
     public withName(name: string): BatchUpdateCcRulesRequestBody {
         this['name'] = name;

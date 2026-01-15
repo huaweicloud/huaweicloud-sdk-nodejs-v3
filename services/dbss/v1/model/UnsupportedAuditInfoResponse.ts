@@ -1,22 +1,22 @@
-import { UnSupportAuditInfo } from './UnSupportAuditInfo';
+import { UnsupportedAuditInfo } from './UnsupportedAuditInfo';
 
 
-export class UnSupportAuditInfoResponse {
-    private 'audit_infos'?: Array<UnSupportAuditInfo>;
+export class UnsupportedAuditInfoResponse {
+    private 'audit_infos'?: Array<UnsupportedAuditInfo>;
     private 'support_version'?: string;
     public constructor() { 
     }
-    public withAuditInfos(auditInfos: Array<UnSupportAuditInfo>): UnSupportAuditInfoResponse {
+    public withAuditInfos(auditInfos: Array<UnsupportedAuditInfo>): UnsupportedAuditInfoResponse {
         this['audit_infos'] = auditInfos;
         return this;
     }
-    public set auditInfos(auditInfos: Array<UnSupportAuditInfo>  | undefined) {
+    public set auditInfos(auditInfos: Array<UnsupportedAuditInfo>  | undefined) {
         this['audit_infos'] = auditInfos;
     }
-    public get auditInfos(): Array<UnSupportAuditInfo> | undefined {
+    public get auditInfos(): Array<UnsupportedAuditInfo> | undefined {
         return this['audit_infos'];
     }
-    public withSupportVersion(supportVersion: string): UnSupportAuditInfoResponse {
+    public withSupportVersion(supportVersion: string): UnsupportedAuditInfoResponse {
         this['support_version'] = supportVersion;
         return this;
     }

@@ -4,11 +4,9 @@ import { DistinguishedName } from './DistinguishedName';
 export class SubCertData {
     private 'distinguished_name'?: DistinguishedName;
     private 'key_algorithm'?: string;
-    private 'signature_algorithm'?: string;
-    public constructor(distinguishedName?: DistinguishedName, keyAlgorithm?: string, signatureAlgorithm?: string) { 
+    public constructor(distinguishedName?: DistinguishedName, keyAlgorithm?: string) { 
         this['distinguished_name'] = distinguishedName;
         this['key_algorithm'] = keyAlgorithm;
-        this['signature_algorithm'] = signatureAlgorithm;
     }
     public withDistinguishedName(distinguishedName: DistinguishedName): SubCertData {
         this['distinguished_name'] = distinguishedName;
@@ -29,15 +27,5 @@ export class SubCertData {
     }
     public get keyAlgorithm(): string | undefined {
         return this['key_algorithm'];
-    }
-    public withSignatureAlgorithm(signatureAlgorithm: string): SubCertData {
-        this['signature_algorithm'] = signatureAlgorithm;
-        return this;
-    }
-    public set signatureAlgorithm(signatureAlgorithm: string  | undefined) {
-        this['signature_algorithm'] = signatureAlgorithm;
-    }
-    public get signatureAlgorithm(): string | undefined {
-        return this['signature_algorithm'];
     }
 }

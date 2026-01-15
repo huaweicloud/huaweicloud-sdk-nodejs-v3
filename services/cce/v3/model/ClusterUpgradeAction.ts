@@ -9,6 +9,7 @@ export class ClusterUpgradeAction {
     public nodePoolOrder?: { [key: string]: number; };
     public strategy?: UpgradeStrategy;
     public targetVersion?: string;
+    public isOnlyUpgrade?: boolean;
     public constructor(strategy?: UpgradeStrategy, targetVersion?: string) { 
         this['strategy'] = strategy;
         this['targetVersion'] = targetVersion;
@@ -31,6 +32,10 @@ export class ClusterUpgradeAction {
     }
     public withTargetVersion(targetVersion: string): ClusterUpgradeAction {
         this['targetVersion'] = targetVersion;
+        return this;
+    }
+    public withIsOnlyUpgrade(isOnlyUpgrade: boolean): ClusterUpgradeAction {
+        this['isOnlyUpgrade'] = isOnlyUpgrade;
         return this;
     }
 }

@@ -1,9 +1,9 @@
-import { AuditInsanceRiskCount } from './AuditInsanceRiskCount';
+import { AuditInstanceRiskCount } from './AuditInstanceRiskCount';
 
 
 export class RuleRiskStatisticsDto {
     public count?: number;
-    private 'instance_risk_count'?: Array<AuditInsanceRiskCount>;
+    private 'instance_risk_count'?: Array<AuditInstanceRiskCount>;
     private 'rule_name'?: string;
     public constructor() { 
     }
@@ -11,14 +11,14 @@ export class RuleRiskStatisticsDto {
         this['count'] = count;
         return this;
     }
-    public withInstanceRiskCount(instanceRiskCount: Array<AuditInsanceRiskCount>): RuleRiskStatisticsDto {
+    public withInstanceRiskCount(instanceRiskCount: Array<AuditInstanceRiskCount>): RuleRiskStatisticsDto {
         this['instance_risk_count'] = instanceRiskCount;
         return this;
     }
-    public set instanceRiskCount(instanceRiskCount: Array<AuditInsanceRiskCount>  | undefined) {
+    public set instanceRiskCount(instanceRiskCount: Array<AuditInstanceRiskCount>  | undefined) {
         this['instance_risk_count'] = instanceRiskCount;
     }
-    public get instanceRiskCount(): Array<AuditInsanceRiskCount> | undefined {
+    public get instanceRiskCount(): Array<AuditInstanceRiskCount> | undefined {
         return this['instance_risk_count'];
     }
     public withRuleName(ruleName: string): RuleRiskStatisticsDto {

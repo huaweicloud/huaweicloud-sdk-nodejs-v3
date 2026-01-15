@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowDomainTemplateResponse extends SdkResponse {
     public total?: number;
-    public temlates?: Array<TemplateItem>;
+    public templates?: Array<TemplateItem>;
     public constructor() { 
         super();
     }
@@ -12,8 +12,8 @@ export class ShowDomainTemplateResponse extends SdkResponse {
         this['total'] = total;
         return this;
     }
-    public withTemlates(temlates: Array<TemplateItem>): ShowDomainTemplateResponse {
-        this['temlates'] = temlates;
+    public withTemplates(templates: Array<TemplateItem>): ShowDomainTemplateResponse {
+        this['templates'] = templates;
         return this;
     }
 }

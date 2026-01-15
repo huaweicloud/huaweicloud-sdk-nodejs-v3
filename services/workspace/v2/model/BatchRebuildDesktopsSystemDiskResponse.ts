@@ -5,6 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class BatchRebuildDesktopsSystemDiskResponse extends SdkResponse {
     private 'error_code'?: string;
     private 'error_msg'?: string;
+    private 'error_detail'?: string;
     private 'encoded_authorization_message'?: string;
     private 'job_id'?: string;
     public constructor() { 
@@ -29,6 +30,16 @@ export class BatchRebuildDesktopsSystemDiskResponse extends SdkResponse {
     }
     public get errorMsg(): string | undefined {
         return this['error_msg'];
+    }
+    public withErrorDetail(errorDetail: string): BatchRebuildDesktopsSystemDiskResponse {
+        this['error_detail'] = errorDetail;
+        return this;
+    }
+    public set errorDetail(errorDetail: string  | undefined) {
+        this['error_detail'] = errorDetail;
+    }
+    public get errorDetail(): string | undefined {
+        return this['error_detail'];
     }
     public withEncodedAuthorizationMessage(encodedAuthorizationMessage: string): BatchRebuildDesktopsSystemDiskResponse {
         this['encoded_authorization_message'] = encodedAuthorizationMessage;

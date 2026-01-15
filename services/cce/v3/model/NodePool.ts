@@ -1,5 +1,6 @@
 import { NodePoolMetadata } from './NodePoolMetadata';
 import { NodePoolSpec } from './NodePoolSpec';
+import { NodePoolStatus } from './NodePoolStatus';
 
 
 export class NodePool {
@@ -7,6 +8,7 @@ export class NodePool {
     public apiVersion?: string;
     public metadata?: NodePoolMetadata;
     public spec?: NodePoolSpec;
+    public status?: NodePoolStatus;
     public constructor(kind?: string, apiVersion?: string, metadata?: NodePoolMetadata, spec?: NodePoolSpec) { 
         this['kind'] = kind;
         this['apiVersion'] = apiVersion;
@@ -27,6 +29,10 @@ export class NodePool {
     }
     public withSpec(spec: NodePoolSpec): NodePool {
         this['spec'] = spec;
+        return this;
+    }
+    public withStatus(status: NodePoolStatus): NodePool {
+        this['status'] = status;
         return this;
     }
 }

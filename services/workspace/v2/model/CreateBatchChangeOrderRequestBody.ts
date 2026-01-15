@@ -8,6 +8,7 @@ import { EstimateExtendVolumeRequestBody } from './EstimateExtendVolumeRequestBo
 
 export class CreateBatchChangeOrderRequestBody {
     public type?: CreateBatchChangeOrderRequestBodyTypeEnum | string;
+    private 'agency_urn'?: string;
     private 'add_volume_param'?: EstimateAddVolumeRequestBody;
     private 'extend_volume_param'?: EstimateExtendVolumeRequestBody;
     private 'resize_param'?: CreateResizeOrderRequestBody;
@@ -19,6 +20,16 @@ export class CreateBatchChangeOrderRequestBody {
     public withType(type: CreateBatchChangeOrderRequestBodyTypeEnum | string): CreateBatchChangeOrderRequestBody {
         this['type'] = type;
         return this;
+    }
+    public withAgencyUrn(agencyUrn: string): CreateBatchChangeOrderRequestBody {
+        this['agency_urn'] = agencyUrn;
+        return this;
+    }
+    public set agencyUrn(agencyUrn: string  | undefined) {
+        this['agency_urn'] = agencyUrn;
+    }
+    public get agencyUrn(): string | undefined {
+        return this['agency_urn'];
     }
     public withAddVolumeParam(addVolumeParam: EstimateAddVolumeRequestBody): CreateBatchChangeOrderRequestBody {
         this['add_volume_param'] = addVolumeParam;

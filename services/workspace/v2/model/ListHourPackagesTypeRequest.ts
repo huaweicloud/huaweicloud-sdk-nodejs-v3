@@ -3,6 +3,8 @@
 export class ListHourPackagesTypeRequest {
     private 'desktop_resource_spec_code'?: string;
     private 'resource_spec_code'?: string;
+    public limit?: number;
+    public offset?: number;
     public constructor() { 
     }
     public withDesktopResourceSpecCode(desktopResourceSpecCode: string): ListHourPackagesTypeRequest {
@@ -24,5 +26,13 @@ export class ListHourPackagesTypeRequest {
     }
     public get resourceSpecCode(): string | undefined {
         return this['resource_spec_code'];
+    }
+    public withLimit(limit: number): ListHourPackagesTypeRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListHourPackagesTypeRequest {
+        this['offset'] = offset;
+        return this;
     }
 }

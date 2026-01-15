@@ -1,4 +1,5 @@
 import { AttachInstancesDesktopInfo } from './AttachInstancesDesktopInfo';
+import { EncryptType } from './EncryptType';
 
 
 export class AttachInstancesReq {
@@ -6,6 +7,8 @@ export class AttachInstancesReq {
     private 'image_type'?: string;
     private 'image_id'?: string;
     private 'desktop_name_policy_id'?: string;
+    private 'encrypt_type'?: EncryptType;
+    private 'kms_id'?: string;
     public constructor() { 
     }
     public withDesktops(desktops: Array<AttachInstancesDesktopInfo>): AttachInstancesReq {
@@ -41,5 +44,25 @@ export class AttachInstancesReq {
     }
     public get desktopNamePolicyId(): string | undefined {
         return this['desktop_name_policy_id'];
+    }
+    public withEncryptType(encryptType: EncryptType): AttachInstancesReq {
+        this['encrypt_type'] = encryptType;
+        return this;
+    }
+    public set encryptType(encryptType: EncryptType  | undefined) {
+        this['encrypt_type'] = encryptType;
+    }
+    public get encryptType(): EncryptType | undefined {
+        return this['encrypt_type'];
+    }
+    public withKmsId(kmsId: string): AttachInstancesReq {
+        this['kms_id'] = kmsId;
+        return this;
+    }
+    public set kmsId(kmsId: string  | undefined) {
+        this['kms_id'] = kmsId;
+    }
+    public get kmsId(): string | undefined {
+        return this['kms_id'];
     }
 }

@@ -14,6 +14,7 @@ export class ShowJobDetailRequest {
     private 'source_db_name'?: string;
     private 'target_db_name'?: string;
     private 'compare_detail_type'?: ShowJobDetailRequestCompareDetailTypeEnum | string;
+    private 'log_level'?: string;
     public constructor(jobId?: string, type?: string) { 
         this['job_id'] = jobId;
         this['type'] = type;
@@ -129,6 +130,16 @@ export class ShowJobDetailRequest {
     }
     public get compareDetailType(): ShowJobDetailRequestCompareDetailTypeEnum | string | undefined {
         return this['compare_detail_type'];
+    }
+    public withLogLevel(logLevel: string): ShowJobDetailRequest {
+        this['log_level'] = logLevel;
+        return this;
+    }
+    public set logLevel(logLevel: string  | undefined) {
+        this['log_level'] = logLevel;
+    }
+    public get logLevel(): string | undefined {
+        return this['log_level'];
     }
 }
 

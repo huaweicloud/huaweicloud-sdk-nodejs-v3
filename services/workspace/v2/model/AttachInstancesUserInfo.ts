@@ -6,7 +6,9 @@ export class AttachInstancesUserInfo {
     public domain?: string;
     private 'user_group'?: string;
     public type?: AttachInstancesUserInfoTypeEnum | string;
-    public constructor() { 
+    public constructor(userName?: string, userGroup?: string) { 
+        this['user_name'] = userName;
+        this['user_group'] = userGroup;
     }
     public withUserId(userId: string): AttachInstancesUserInfo {
         this['user_id'] = userId;

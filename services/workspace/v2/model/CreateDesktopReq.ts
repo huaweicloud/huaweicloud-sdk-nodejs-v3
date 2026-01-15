@@ -2,7 +2,7 @@ import { ApplySharedVpcDedicatedParam } from './ApplySharedVpcDedicatedParam';
 import { Desktop } from './Desktop';
 import { Eip } from './Eip';
 import { Nic } from './Nic';
-import { SecurityGroup } from './SecurityGroup';
+import { SecurityGroupIdInfo } from './SecurityGroupIdInfo';
 import { Tag } from './Tag';
 import { Volume } from './Volume';
 
@@ -11,12 +11,13 @@ export class CreateDesktopReq {
     private 'desktop_type'?: CreateDesktopReqDesktopTypeEnum | string;
     private 'availability_zone'?: string;
     private 'product_id'?: string;
+    private 'buy_type'?: string;
     private 'image_type'?: string;
     private 'image_id'?: string;
     private 'root_volume'?: Volume;
     private 'data_volumes'?: Array<Volume>;
     public nics?: Array<Nic>;
-    private 'security_groups'?: Array<SecurityGroup>;
+    private 'security_groups'?: Array<SecurityGroupIdInfo>;
     public desktops?: Array<Desktop>;
     private 'desktop_name'?: string;
     private 'desktop_ips'?: Array<string>;
@@ -67,6 +68,16 @@ export class CreateDesktopReq {
     public get productId(): string | undefined {
         return this['product_id'];
     }
+    public withBuyType(buyType: string): CreateDesktopReq {
+        this['buy_type'] = buyType;
+        return this;
+    }
+    public set buyType(buyType: string  | undefined) {
+        this['buy_type'] = buyType;
+    }
+    public get buyType(): string | undefined {
+        return this['buy_type'];
+    }
     public withImageType(imageType: string): CreateDesktopReq {
         this['image_type'] = imageType;
         return this;
@@ -111,14 +122,14 @@ export class CreateDesktopReq {
         this['nics'] = nics;
         return this;
     }
-    public withSecurityGroups(securityGroups: Array<SecurityGroup>): CreateDesktopReq {
+    public withSecurityGroups(securityGroups: Array<SecurityGroupIdInfo>): CreateDesktopReq {
         this['security_groups'] = securityGroups;
         return this;
     }
-    public set securityGroups(securityGroups: Array<SecurityGroup>  | undefined) {
+    public set securityGroups(securityGroups: Array<SecurityGroupIdInfo>  | undefined) {
         this['security_groups'] = securityGroups;
     }
-    public get securityGroups(): Array<SecurityGroup> | undefined {
+    public get securityGroups(): Array<SecurityGroupIdInfo> | undefined {
         return this['security_groups'];
     }
     public withDesktops(desktops: Array<Desktop>): CreateDesktopReq {

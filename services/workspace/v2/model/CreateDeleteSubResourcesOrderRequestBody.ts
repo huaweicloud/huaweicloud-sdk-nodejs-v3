@@ -5,7 +5,7 @@ export class CreateDeleteSubResourcesOrderRequestBody {
     private 'desktop_pool_id'?: string;
     private 'desktop_ids'?: Array<string>;
     private 'promotion_plan_id'?: string;
-    private 'handle_type'?: string;
+    private 'handle_type'?: CreateDeleteSubResourcesOrderRequestBodyHandleTypeEnum | string;
     public constructor() { 
     }
     public withDesktopPoolId(desktopPoolId: string): CreateDeleteSubResourcesOrderRequestBody {
@@ -38,14 +38,24 @@ export class CreateDeleteSubResourcesOrderRequestBody {
     public get promotionPlanId(): string | undefined {
         return this['promotion_plan_id'];
     }
-    public withHandleType(handleType: string): CreateDeleteSubResourcesOrderRequestBody {
+    public withHandleType(handleType: CreateDeleteSubResourcesOrderRequestBodyHandleTypeEnum | string): CreateDeleteSubResourcesOrderRequestBody {
         this['handle_type'] = handleType;
         return this;
     }
-    public set handleType(handleType: string  | undefined) {
+    public set handleType(handleType: CreateDeleteSubResourcesOrderRequestBodyHandleTypeEnum | string  | undefined) {
         this['handle_type'] = handleType;
     }
-    public get handleType(): string | undefined {
+    public get handleType(): CreateDeleteSubResourcesOrderRequestBodyHandleTypeEnum | string | undefined {
         return this['handle_type'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateDeleteSubResourcesOrderRequestBodyHandleTypeEnum {
+    ONLY_FOR_EXPAND = 'ONLY_FOR_EXPAND',
+    FOR_EXPAND_AND_IDLE = 'FOR_EXPAND_AND_IDLE',
+    FOR_EXPAND_AND_ALL = 'FOR_EXPAND_AND_ALL'
 }

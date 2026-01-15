@@ -14,6 +14,8 @@ export class ShowSupportObjectTypeResponse extends SdkResponse {
     private 'previous_select'?: string;
     private 'import_level'?: string;
     private 'is_import_cloumn'?: boolean;
+    private 'import_mapping_type'?: string;
+    private 'is_import_unique_key'?: boolean;
     public constructor() { 
         super();
     }
@@ -136,5 +138,25 @@ export class ShowSupportObjectTypeResponse extends SdkResponse {
     }
     public get isImportCloumn(): boolean | undefined {
         return this['is_import_cloumn'];
+    }
+    public withImportMappingType(importMappingType: string): ShowSupportObjectTypeResponse {
+        this['import_mapping_type'] = importMappingType;
+        return this;
+    }
+    public set importMappingType(importMappingType: string  | undefined) {
+        this['import_mapping_type'] = importMappingType;
+    }
+    public get importMappingType(): string | undefined {
+        return this['import_mapping_type'];
+    }
+    public withIsImportUniqueKey(isImportUniqueKey: boolean): ShowSupportObjectTypeResponse {
+        this['is_import_unique_key'] = isImportUniqueKey;
+        return this;
+    }
+    public set isImportUniqueKey(isImportUniqueKey: boolean  | undefined) {
+        this['is_import_unique_key'] = isImportUniqueKey;
+    }
+    public get isImportUniqueKey(): boolean | undefined {
+        return this['is_import_unique_key'];
     }
 }

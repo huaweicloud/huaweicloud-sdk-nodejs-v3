@@ -1,10 +1,10 @@
-import { User } from './User';
+import { SubscribeUserInfo } from './SubscribeUserInfo';
 
 
 export class SubscribeUserSharerReq {
     private 'user_sharer_sku'?: string;
-    public users?: Array<User>;
-    public constructor(userSharerSku?: string, users?: Array<User>) { 
+    public users?: Array<SubscribeUserInfo>;
+    public constructor(userSharerSku?: string, users?: Array<SubscribeUserInfo>) { 
         this['user_sharer_sku'] = userSharerSku;
         this['users'] = users;
     }
@@ -18,7 +18,7 @@ export class SubscribeUserSharerReq {
     public get userSharerSku(): string | undefined {
         return this['user_sharer_sku'];
     }
-    public withUsers(users: Array<User>): SubscribeUserSharerReq {
+    public withUsers(users: Array<SubscribeUserInfo>): SubscribeUserSharerReq {
         this['users'] = users;
         return this;
     }

@@ -181,6 +181,7 @@ export class EpsClient {
      * @param {'desc' | 'asc'} [sortDir] 降序或升序,默认为“desc” 。desc表示降序 。asc 表示升序
      * @param {'created_at' | 'updated_at'} [sortKey] 返回结果按该关键字排序（支持updated_at等关键字，默认为“created_at”）
      * @param {number} [status] 企业项目状态。 1--启用，2--停用
+     * @param {'prod' | 'poc'} [type] 查询项目类型。 - prod-商用项目 - poc-测试项目
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -634,6 +635,8 @@ export const ParamCreater = function () {
             let sortKey;
             
             let status;
+            
+            let type;
 
             if (listEnterpriseProjectRequest !== null && listEnterpriseProjectRequest !== undefined) {
                 if (listEnterpriseProjectRequest instanceof ListEnterpriseProjectRequest) {
@@ -644,6 +647,7 @@ export const ParamCreater = function () {
                     sortDir = listEnterpriseProjectRequest.sortDir;
                     sortKey = listEnterpriseProjectRequest.sortKey;
                     status = listEnterpriseProjectRequest.status;
+                    type = listEnterpriseProjectRequest.type;
                 } else {
                     id = listEnterpriseProjectRequest['id'];
                     limit = listEnterpriseProjectRequest['limit'];
@@ -652,6 +656,7 @@ export const ParamCreater = function () {
                     sortDir = listEnterpriseProjectRequest['sort_dir'];
                     sortKey = listEnterpriseProjectRequest['sort_key'];
                     status = listEnterpriseProjectRequest['status'];
+                    type = listEnterpriseProjectRequest['type'];
                 }
             }
 
@@ -676,6 +681,9 @@ export const ParamCreater = function () {
             }
             if (status !== null && status !== undefined) {
                 localVarQueryParameter['status'] = status;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
             }
 
             options.queryParams = localVarQueryParameter;

@@ -4,6 +4,8 @@ export class ListWksEdgeSitesRequest {
     public name?: string;
     private 'availability_zone_id'?: string;
     public status?: string;
+    public limit?: number;
+    public offset?: number;
     public constructor() { 
     }
     public withName(name: string): ListWksEdgeSitesRequest {
@@ -22,6 +24,14 @@ export class ListWksEdgeSitesRequest {
     }
     public withStatus(status: string): ListWksEdgeSitesRequest {
         this['status'] = status;
+        return this;
+    }
+    public withLimit(limit: number): ListWksEdgeSitesRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListWksEdgeSitesRequest {
+        this['offset'] = offset;
         return this;
     }
 }

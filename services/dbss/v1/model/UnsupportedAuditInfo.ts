@@ -1,11 +1,11 @@
 
 
-export class UnSupportAuditInfo {
+export class UnsupportedAuditInfo {
     private 'audit_version'?: string;
     private 'server_name'?: string;
     public constructor() { 
     }
-    public withAuditVersion(auditVersion: string): UnSupportAuditInfo {
+    public withAuditVersion(auditVersion: string): UnsupportedAuditInfo {
         this['audit_version'] = auditVersion;
         return this;
     }
@@ -15,7 +15,7 @@ export class UnSupportAuditInfo {
     public get auditVersion(): string | undefined {
         return this['audit_version'];
     }
-    public withServerName(serverName: string): UnSupportAuditInfo {
+    public withServerName(serverName: string): UnsupportedAuditInfo {
         this['server_name'] = serverName;
         return this;
     }

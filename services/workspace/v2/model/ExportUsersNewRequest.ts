@@ -1,11 +1,11 @@
-import { ExportUsersV3Req } from './ExportUsersV3Req';
+import { ExportUsersNewReq } from './ExportUsersNewReq';
 
 
 export class ExportUsersNewRequest {
-    public body?: ExportUsersV3Req;
+    public body?: ExportUsersNewReq;
     public constructor() { 
     }
-    public withBody(body: ExportUsersV3Req): ExportUsersNewRequest {
+    public withBody(body: ExportUsersNewReq): ExportUsersNewRequest {
         this['body'] = body;
         return this;
     }

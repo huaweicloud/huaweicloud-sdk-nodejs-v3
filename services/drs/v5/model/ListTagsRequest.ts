@@ -38,7 +38,8 @@ export enum ListTagsRequestResourceTypeEnum {
     CLOUDDATAGUARD = 'cloudDataGuard',
     SUBSCRIPTION = 'subscription',
     BACKUPMIGRATION = 'backupMigration',
-    REPLAY = 'replay'
+    REPLAY = 'replay',
+    VERIFY = 'verify'
 }
 /**
     * @export

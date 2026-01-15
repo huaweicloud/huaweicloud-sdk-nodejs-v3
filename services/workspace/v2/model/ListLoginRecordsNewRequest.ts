@@ -6,11 +6,12 @@ export class ListLoginRecordsNewRequest {
     private 'user_name'?: string;
     private 'computer_name'?: string;
     private 'terminal_type'?: string;
+    private 'enterprise_project_id'?: string;
+    private 'public_ip'?: string;
     public offset?: number;
     public limit?: number;
     private 'min_network_rtt'?: number;
     private 'max_network_rtt'?: number;
-    private 'enterprise_project_id'?: string;
     public constructor() { 
     }
     public withStartTime(startTime: string): ListLoginRecordsNewRequest {
@@ -63,6 +64,26 @@ export class ListLoginRecordsNewRequest {
     public get terminalType(): string | undefined {
         return this['terminal_type'];
     }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListLoginRecordsNewRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
+    }
+    public withPublicIp(publicIp: string): ListLoginRecordsNewRequest {
+        this['public_ip'] = publicIp;
+        return this;
+    }
+    public set publicIp(publicIp: string  | undefined) {
+        this['public_ip'] = publicIp;
+    }
+    public get publicIp(): string | undefined {
+        return this['public_ip'];
+    }
     public withOffset(offset: number): ListLoginRecordsNewRequest {
         this['offset'] = offset;
         return this;
@@ -90,15 +111,5 @@ export class ListLoginRecordsNewRequest {
     }
     public get maxNetworkRtt(): number | undefined {
         return this['max_network_rtt'];
-    }
-    public withEnterpriseProjectId(enterpriseProjectId: string): ListLoginRecordsNewRequest {
-        this['enterprise_project_id'] = enterpriseProjectId;
-        return this;
-    }
-    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
-        this['enterprise_project_id'] = enterpriseProjectId;
-    }
-    public get enterpriseProjectId(): string | undefined {
-        return this['enterprise_project_id'];
     }
 }

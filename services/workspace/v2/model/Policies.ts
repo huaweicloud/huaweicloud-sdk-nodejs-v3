@@ -1,5 +1,6 @@
 import { PoliciesAudio } from './PoliciesAudio';
 import { PoliciesClient } from './PoliciesClient';
+import { PoliciesCloudStorage } from './PoliciesCloudStorage';
 import { PoliciesCustom } from './PoliciesCustom';
 import { PoliciesDisplay } from './PoliciesDisplay';
 import { PoliciesFileAndClipboard } from './PoliciesFileAndClipboard';
@@ -8,6 +9,7 @@ import { PoliciesPeripherals } from './PoliciesPeripherals';
 import { PoliciesPersonalizedDataMgmt } from './PoliciesPersonalizedDataMgmt';
 import { PoliciesRecordAudit } from './PoliciesRecordAudit';
 import { PoliciesSeamless } from './PoliciesSeamless';
+import { PoliciesUserProfile } from './PoliciesUserProfile';
 import { Session } from './Session';
 import { VirtualChannel } from './VirtualChannel';
 import { Watermark } from './Watermark';
@@ -27,6 +29,8 @@ export class Policies {
     private 'personalized_data_mgmt'?: PoliciesPersonalizedDataMgmt;
     public custom?: PoliciesCustom;
     private 'record_audit'?: PoliciesRecordAudit;
+    private 'cloud_storage'?: PoliciesCloudStorage;
+    private 'user_profile'?: PoliciesUserProfile;
     public constructor() { 
     }
     public withPeripherals(peripherals: PoliciesPeripherals): Policies {
@@ -110,5 +114,25 @@ export class Policies {
     }
     public get recordAudit(): PoliciesRecordAudit | undefined {
         return this['record_audit'];
+    }
+    public withCloudStorage(cloudStorage: PoliciesCloudStorage): Policies {
+        this['cloud_storage'] = cloudStorage;
+        return this;
+    }
+    public set cloudStorage(cloudStorage: PoliciesCloudStorage  | undefined) {
+        this['cloud_storage'] = cloudStorage;
+    }
+    public get cloudStorage(): PoliciesCloudStorage | undefined {
+        return this['cloud_storage'];
+    }
+    public withUserProfile(userProfile: PoliciesUserProfile): Policies {
+        this['user_profile'] = userProfile;
+        return this;
+    }
+    public set userProfile(userProfile: PoliciesUserProfile  | undefined) {
+        this['user_profile'] = userProfile;
+    }
+    public get userProfile(): PoliciesUserProfile | undefined {
+        return this['user_profile'];
     }
 }

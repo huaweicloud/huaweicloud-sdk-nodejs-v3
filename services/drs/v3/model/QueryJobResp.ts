@@ -73,6 +73,7 @@ export class QueryJobResp {
     private 'bind_public_ip_state'?: string;
     public children?: Array<FailedToBindEipChildInfo>;
     private 'is_open_fast_clean'?: boolean;
+    private 'job_kernel_direction'?: QueryJobRespJobKernelDirectionEnum | string;
     public constructor() { 
     }
     public withId(id: string): QueryJobResp {
@@ -643,6 +644,16 @@ export class QueryJobResp {
     public get isOpenFastClean(): boolean | undefined {
         return this['is_open_fast_clean'];
     }
+    public withJobKernelDirection(jobKernelDirection: QueryJobRespJobKernelDirectionEnum | string): QueryJobResp {
+        this['job_kernel_direction'] = jobKernelDirection;
+        return this;
+    }
+    public set jobKernelDirection(jobKernelDirection: QueryJobRespJobKernelDirectionEnum | string  | undefined) {
+        this['job_kernel_direction'] = jobKernelDirection;
+    }
+    public get jobKernelDirection(): QueryJobRespJobKernelDirectionEnum | string | undefined {
+        return this['job_kernel_direction'];
+    }
 }
 
 /**
@@ -742,4 +753,12 @@ export enum QueryJobRespOriginalJobDirectionEnum {
     UP = 'up',
     DOWN = 'down',
     NON_DBS = 'non-dbs'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum QueryJobRespJobKernelDirectionEnum {
+    UP = 'up',
+    DOWN = 'down'
 }

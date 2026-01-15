@@ -8,6 +8,7 @@ export class DesktopToImageReq {
     private 'execute_sysprep'?: boolean;
     private 'image_tags'?: Array<TagKeyValue>;
     private 'enterprise_project_id'?: string;
+    private 'is_clear_data'?: boolean;
     private 'max_ram'?: string;
     private 'min_ram'?: string;
     public constructor(imageName?: string, desktopId?: string) { 
@@ -73,6 +74,16 @@ export class DesktopToImageReq {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withIsClearData(isClearData: boolean): DesktopToImageReq {
+        this['is_clear_data'] = isClearData;
+        return this;
+    }
+    public set isClearData(isClearData: boolean  | undefined) {
+        this['is_clear_data'] = isClearData;
+    }
+    public get isClearData(): boolean | undefined {
+        return this['is_clear_data'];
     }
     public withMaxRam(maxRam: string): DesktopToImageReq {
         this['max_ram'] = maxRam;

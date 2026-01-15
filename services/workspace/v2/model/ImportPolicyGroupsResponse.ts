@@ -6,6 +6,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ImportPolicyGroupsResponse extends SdkResponse {
     private 'error_code'?: string;
     private 'error_msg'?: string;
+    private 'error_detail'?: string;
     private 'encoded_authorization_message'?: string;
     private 'policy_group_name_list'?: Array<PolicyGroupNameInfo>;
     private 'failed_policy_group_name_list'?: Array<PolicyGroupNameInfo>;
@@ -31,6 +32,16 @@ export class ImportPolicyGroupsResponse extends SdkResponse {
     }
     public get errorMsg(): string | undefined {
         return this['error_msg'];
+    }
+    public withErrorDetail(errorDetail: string): ImportPolicyGroupsResponse {
+        this['error_detail'] = errorDetail;
+        return this;
+    }
+    public set errorDetail(errorDetail: string  | undefined) {
+        this['error_detail'] = errorDetail;
+    }
+    public get errorDetail(): string | undefined {
+        return this['error_detail'];
     }
     public withEncodedAuthorizationMessage(encodedAuthorizationMessage: string): ImportPolicyGroupsResponse {
         this['encoded_authorization_message'] = encodedAuthorizationMessage;

@@ -1,6 +1,6 @@
 
 
-export class ExportUsersV3Req {
+export class ExportUsersNewReq {
     private 'user_name'?: string;
     public description?: string;
     private 'active_type'?: string;
@@ -8,7 +8,7 @@ export class ExportUsersV3Req {
     private 'enterprise_project_id'?: string;
     public constructor() { 
     }
-    public withUserName(userName: string): ExportUsersV3Req {
+    public withUserName(userName: string): ExportUsersNewReq {
         this['user_name'] = userName;
         return this;
     }
@@ -18,11 +18,11 @@ export class ExportUsersV3Req {
     public get userName(): string | undefined {
         return this['user_name'];
     }
-    public withDescription(description: string): ExportUsersV3Req {
+    public withDescription(description: string): ExportUsersNewReq {
         this['description'] = description;
         return this;
     }
-    public withActiveType(activeType: string): ExportUsersV3Req {
+    public withActiveType(activeType: string): ExportUsersNewReq {
         this['active_type'] = activeType;
         return this;
     }
@@ -32,11 +32,11 @@ export class ExportUsersV3Req {
     public get activeType(): string | undefined {
         return this['active_type'];
     }
-    public withLanguage(language: string): ExportUsersV3Req {
+    public withLanguage(language: string): ExportUsersNewReq {
         this['language'] = language;
         return this;
     }
-    public withEnterpriseProjectId(enterpriseProjectId: string): ExportUsersV3Req {
+    public withEnterpriseProjectId(enterpriseProjectId: string): ExportUsersNewReq {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }

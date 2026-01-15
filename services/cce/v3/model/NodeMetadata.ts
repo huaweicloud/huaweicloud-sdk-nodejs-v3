@@ -4,6 +4,7 @@ import { NodeMetadataOwnerReferences } from './NodeMetadataOwnerReferences';
 export class NodeMetadata {
     public name?: string;
     public uid?: string;
+    public labels?: { [key: string]: string; };
     public annotations?: { [key: string]: string; };
     public creationTimestamp?: string;
     public updateTimestamp?: string;
@@ -16,6 +17,10 @@ export class NodeMetadata {
     }
     public withUid(uid: string): NodeMetadata {
         this['uid'] = uid;
+        return this;
+    }
+    public withLabels(labels: { [key: string]: string; }): NodeMetadata {
+        this['labels'] = labels;
         return this;
     }
     public withAnnotations(annotations: { [key: string]: string; }): NodeMetadata {

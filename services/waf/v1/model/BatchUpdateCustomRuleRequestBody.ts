@@ -4,9 +4,7 @@ import { PolicyRuleIdRequestBodyPolicyRuleIds } from './PolicyRuleIdRequestBodyP
 
 
 export class BatchUpdateCustomRuleRequestBody {
-    public id?: string;
     public name?: string;
-    public policyid?: string;
     public description?: string;
     public status?: number;
     public conditions?: Array<CustomRuleConditions>;
@@ -18,18 +16,11 @@ export class BatchUpdateCustomRuleRequestBody {
     public terminal?: number;
     public producer?: number;
     private 'policy_rule_ids'?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>;
-    public constructor() { 
-    }
-    public withId(id: string): BatchUpdateCustomRuleRequestBody {
-        this['id'] = id;
-        return this;
+    public constructor(policyRuleIds?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>) { 
+        this['policy_rule_ids'] = policyRuleIds;
     }
     public withName(name: string): BatchUpdateCustomRuleRequestBody {
         this['name'] = name;
-        return this;
-    }
-    public withPolicyid(policyid: string): BatchUpdateCustomRuleRequestBody {
-        this['policyid'] = policyid;
         return this;
     }
     public withDescription(description: string): BatchUpdateCustomRuleRequestBody {

@@ -1,6 +1,6 @@
 import { AutoscalePolicy } from './AutoscalePolicy';
 import { DesktopPoolVolumeInfo } from './DesktopPoolVolumeInfo';
-import { SecurityGroup } from './SecurityGroup';
+import { SecurityGroupIdInfo } from './SecurityGroupIdInfo';
 import { Tag } from './Tag';
 
 
@@ -19,7 +19,7 @@ export class UpdateDesktopPoolAttributesReq {
     private 'data_volumes'?: Array<DesktopPoolVolumeInfo>;
     private 'vpc_id'?: string;
     private 'subnet_ids'?: Array<string>;
-    private 'security_groups'?: Array<SecurityGroup>;
+    private 'security_groups'?: Array<SecurityGroupIdInfo>;
     private 'enterprise_project_id'?: string;
     public constructor() { 
     }
@@ -145,14 +145,14 @@ export class UpdateDesktopPoolAttributesReq {
     public get subnetIds(): Array<string> | undefined {
         return this['subnet_ids'];
     }
-    public withSecurityGroups(securityGroups: Array<SecurityGroup>): UpdateDesktopPoolAttributesReq {
+    public withSecurityGroups(securityGroups: Array<SecurityGroupIdInfo>): UpdateDesktopPoolAttributesReq {
         this['security_groups'] = securityGroups;
         return this;
     }
-    public set securityGroups(securityGroups: Array<SecurityGroup>  | undefined) {
+    public set securityGroups(securityGroups: Array<SecurityGroupIdInfo>  | undefined) {
         this['security_groups'] = securityGroups;
     }
-    public get securityGroups(): Array<SecurityGroup> | undefined {
+    public get securityGroups(): Array<SecurityGroupIdInfo> | undefined {
         return this['security_groups'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): UpdateDesktopPoolAttributesReq {

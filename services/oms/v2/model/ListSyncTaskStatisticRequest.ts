@@ -3,9 +3,9 @@
 export class ListSyncTaskStatisticRequest {
     private 'sync_task_id'?: string;
     private 'data_type'?: ListSyncTaskStatisticRequestDataTypeEnum | string;
-    private 'start_time'?: string;
-    private 'end_time'?: string;
-    public constructor(syncTaskId?: string, dataType?: string, startTime?: string, endTime?: string) { 
+    private 'start_time'?: number;
+    private 'end_time'?: number;
+    public constructor(syncTaskId?: string, dataType?: string, startTime?: number, endTime?: number) { 
         this['sync_task_id'] = syncTaskId;
         this['data_type'] = dataType;
         this['start_time'] = startTime;
@@ -31,24 +31,24 @@ export class ListSyncTaskStatisticRequest {
     public get dataType(): ListSyncTaskStatisticRequestDataTypeEnum | string | undefined {
         return this['data_type'];
     }
-    public withStartTime(startTime: string): ListSyncTaskStatisticRequest {
+    public withStartTime(startTime: number): ListSyncTaskStatisticRequest {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string  | undefined) {
+    public set startTime(startTime: number  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime(): string | undefined {
+    public get startTime(): number | undefined {
         return this['start_time'];
     }
-    public withEndTime(endTime: string): ListSyncTaskStatisticRequest {
+    public withEndTime(endTime: number): ListSyncTaskStatisticRequest {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string  | undefined) {
+    public set endTime(endTime: number  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime(): string | undefined {
+    public get endTime(): number | undefined {
         return this['end_time'];
     }
 }

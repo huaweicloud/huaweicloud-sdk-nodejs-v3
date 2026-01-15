@@ -11,9 +11,10 @@ export class BatchUpdateWhiteBlackIpRuleRequestBody {
     public start?: number;
     public terminal?: number;
     private 'policy_rule_ids'?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>;
-    public constructor(name?: string, white?: number) { 
+    public constructor(name?: string, white?: number, policyRuleIds?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>) { 
         this['name'] = name;
         this['white'] = white;
+        this['policy_rule_ids'] = policyRuleIds;
     }
     public withName(name: string): BatchUpdateWhiteBlackIpRuleRequestBody {
         this['name'] = name;

@@ -11,11 +11,12 @@ export class BatchUpdateIgnoreRuleRequestBody {
     public advanced?: IgnoreAdvanced;
     public description?: string;
     private 'policy_rule_ids'?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>;
-    public constructor(domain?: Array<string>, conditions?: Array<CreateCondition>, mode?: number, rule?: string) { 
+    public constructor(domain?: Array<string>, conditions?: Array<CreateCondition>, mode?: number, rule?: string, policyRuleIds?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>) { 
         this['domain'] = domain;
         this['conditions'] = conditions;
         this['mode'] = mode;
         this['rule'] = rule;
+        this['policy_rule_ids'] = policyRuleIds;
     }
     public withDomain(domain: Array<string>): BatchUpdateIgnoreRuleRequestBody {
         this['domain'] = domain;

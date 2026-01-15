@@ -1,10 +1,10 @@
-import { AdDomain } from './AdDomain';
 import { ApplySharedVpcDedicatedParam } from './ApplySharedVpcDedicatedParam';
+import { ApplyWorkspaceAdDomain } from './ApplyWorkspaceAdDomain';
 import { Subnet } from './Subnet';
 
 
 export class ApplyWorkspaceReq {
-    private 'ad_domains'?: AdDomain;
+    private 'ad_domains'?: ApplyWorkspaceAdDomain;
     private 'enterprise_id'?: string;
     private 'vpc_id'?: string;
     private 'subnet_ids'?: Array<Subnet>;
@@ -13,17 +13,17 @@ export class ApplyWorkspaceReq {
     private 'apply_shared_vpc_dedicated_param'?: ApplySharedVpcDedicatedParam;
     private 'dedicated_subnets'?: string;
     private 'is_send_email'?: boolean;
-    public constructor(adDomains?: AdDomain) { 
+    public constructor(adDomains?: ApplyWorkspaceAdDomain) { 
         this['ad_domains'] = adDomains;
     }
-    public withAdDomains(adDomains: AdDomain): ApplyWorkspaceReq {
+    public withAdDomains(adDomains: ApplyWorkspaceAdDomain): ApplyWorkspaceReq {
         this['ad_domains'] = adDomains;
         return this;
     }
-    public set adDomains(adDomains: AdDomain  | undefined) {
+    public set adDomains(adDomains: ApplyWorkspaceAdDomain  | undefined) {
         this['ad_domains'] = adDomains;
     }
-    public get adDomains(): AdDomain | undefined {
+    public get adDomains(): ApplyWorkspaceAdDomain | undefined {
         return this['ad_domains'];
     }
     public withEnterpriseId(enterpriseId: string): ApplyWorkspaceReq {

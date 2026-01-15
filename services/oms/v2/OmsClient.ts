@@ -313,8 +313,8 @@ export class OmsClient {
      * @summary 查询指定ID的同步任务统计数据
      * @param {string} syncTaskId 同步任务ID。
      * @param {'REQUEST' | 'SUCCESS' | 'FAILURE' | 'SKIP' | 'SIZE'} dataType 统计数据类型： 多类型查询用‘,’分隔； REQUEST：接收同步请求对象数 SUCCESS：同步成功对象数 FAILURE：同步失败对象数 SKIP：同步跳过对象数 SIZE：同步成功对象容量(Byte)
-     * @param {string} startTime 查询开始时间
-     * @param {string} endTime 查询结束时间
+     * @param {number} startTime 查询开始时间
+     * @param {number} endTime 查询结束时间
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -531,7 +531,7 @@ export class OmsClient {
      *
      * @summary 查询指定ID的同步任务详情
      * @param {string} syncTaskId 同步任务ID。
-     * @param {string} queryTime 查询同步任务详情的时间（毫秒），依据该值返回所在月份的统计数据。
+     * @param {number} queryTime 查询同步任务详情的时间（毫秒），依据该值返回所在月份的统计数据。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

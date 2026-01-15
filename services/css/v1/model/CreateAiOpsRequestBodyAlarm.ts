@@ -3,9 +3,7 @@
 export class CreateAiOpsRequestBodyAlarm {
     public level?: string;
     private 'smn_topic'?: string;
-    public constructor(level?: string, smnTopic?: string) { 
-        this['level'] = level;
-        this['smn_topic'] = smnTopic;
+    public constructor() { 
     }
     public withLevel(level: string): CreateAiOpsRequestBodyAlarm {
         this['level'] = level;

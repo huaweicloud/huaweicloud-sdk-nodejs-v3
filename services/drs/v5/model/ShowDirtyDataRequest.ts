@@ -7,6 +7,8 @@ export class ShowDirtyDataRequest {
     private 'end_time'?: string;
     public offset?: number;
     public limit?: number;
+    private 'anonymize_mode'?: boolean;
+    private 'task_mode'?: string;
     public constructor(jobId?: string) { 
         this['job_id'] = jobId;
     }
@@ -57,6 +59,26 @@ export class ShowDirtyDataRequest {
     public withLimit(limit: number): ShowDirtyDataRequest {
         this['limit'] = limit;
         return this;
+    }
+    public withAnonymizeMode(anonymizeMode: boolean): ShowDirtyDataRequest {
+        this['anonymize_mode'] = anonymizeMode;
+        return this;
+    }
+    public set anonymizeMode(anonymizeMode: boolean  | undefined) {
+        this['anonymize_mode'] = anonymizeMode;
+    }
+    public get anonymizeMode(): boolean | undefined {
+        return this['anonymize_mode'];
+    }
+    public withTaskMode(taskMode: string): ShowDirtyDataRequest {
+        this['task_mode'] = taskMode;
+        return this;
+    }
+    public set taskMode(taskMode: string  | undefined) {
+        this['task_mode'] = taskMode;
+    }
+    public get taskMode(): string | undefined {
+        return this['task_mode'];
     }
 }
 

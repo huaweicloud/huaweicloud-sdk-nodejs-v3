@@ -8,6 +8,7 @@ export class ListEnterpriseProjectRequest {
     private 'sort_dir'?: ListEnterpriseProjectRequestSortDirEnum | string;
     private 'sort_key'?: ListEnterpriseProjectRequestSortKeyEnum | string;
     public status?: number;
+    public type?: ListEnterpriseProjectRequestTypeEnum | string;
     public constructor() { 
     }
     public withId(id: string): ListEnterpriseProjectRequest {
@@ -50,6 +51,10 @@ export class ListEnterpriseProjectRequest {
         this['status'] = status;
         return this;
     }
+    public withType(type: ListEnterpriseProjectRequestTypeEnum | string): ListEnterpriseProjectRequest {
+        this['type'] = type;
+        return this;
+    }
 }
 
 /**
@@ -67,4 +72,12 @@ export enum ListEnterpriseProjectRequestSortDirEnum {
 export enum ListEnterpriseProjectRequestSortKeyEnum {
     CREATED_AT = 'created_at',
     UPDATED_AT = 'updated_at'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListEnterpriseProjectRequestTypeEnum {
+    PROD = 'prod',
+    POC = 'poc'
 }

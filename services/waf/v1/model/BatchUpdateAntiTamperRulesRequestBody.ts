@@ -2,6 +2,7 @@ import { PolicyRuleIdRequestBodyPolicyRuleIds } from './PolicyRuleIdRequestBodyP
 
 
 export class BatchUpdateAntiTamperRulesRequestBody {
+    public name?: string;
     public hostname?: string;
     public url?: string;
     public description?: string;
@@ -10,6 +11,10 @@ export class BatchUpdateAntiTamperRulesRequestBody {
         this['hostname'] = hostname;
         this['url'] = url;
         this['policy_rule_ids'] = policyRuleIds;
+    }
+    public withName(name: string): BatchUpdateAntiTamperRulesRequestBody {
+        this['name'] = name;
+        return this;
     }
     public withHostname(hostname: string): BatchUpdateAntiTamperRulesRequestBody {
         this['hostname'] = hostname;
