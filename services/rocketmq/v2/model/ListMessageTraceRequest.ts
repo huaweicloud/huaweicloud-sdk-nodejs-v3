@@ -1,7 +1,7 @@
 
 
 export class ListMessageTraceRequest {
-    public engine?: ListMessageTraceRequestEngineEnum | string;
+    public engine?: string;
     private 'instance_id'?: string;
     private 'msg_id'?: string;
     public limit?: number;
@@ -11,7 +11,7 @@ export class ListMessageTraceRequest {
         this['instance_id'] = instanceId;
         this['msg_id'] = msgId;
     }
-    public withEngine(engine: ListMessageTraceRequestEngineEnum | string): ListMessageTraceRequest {
+    public withEngine(engine: string): ListMessageTraceRequest {
         this['engine'] = engine;
         return this;
     }
@@ -43,12 +43,4 @@ export class ListMessageTraceRequest {
         this['offset'] = offset;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListMessageTraceRequestEngineEnum {
-    RELIABILITY = 'reliability'
 }

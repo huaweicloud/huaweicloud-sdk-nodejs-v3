@@ -6,6 +6,7 @@ export class RuleAclListResponseDTOData {
     public limit?: number;
     public total?: number;
     private 'object_id'?: string;
+    private 'up_rules_count'?: number;
     public records?: Array<RuleAclListResponseDTODataRecords>;
     public constructor() { 
     }
@@ -30,6 +31,16 @@ export class RuleAclListResponseDTOData {
     }
     public get objectId(): string | undefined {
         return this['object_id'];
+    }
+    public withUpRulesCount(upRulesCount: number): RuleAclListResponseDTOData {
+        this['up_rules_count'] = upRulesCount;
+        return this;
+    }
+    public set upRulesCount(upRulesCount: number  | undefined) {
+        this['up_rules_count'] = upRulesCount;
+    }
+    public get upRulesCount(): number | undefined {
+        return this['up_rules_count'];
     }
     public withRecords(records: Array<RuleAclListResponseDTODataRecords>): RuleAclListResponseDTOData {
         this['records'] = records;

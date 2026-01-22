@@ -14,6 +14,7 @@ export class ShowShareFeatureGatesResponse extends SdkResponse {
     private 'enable_resource'?: boolean;
     private 'enable_list_v3'?: boolean;
     private 'enable_image_quota'?: boolean;
+    private 'enable_customize_validity_period'?: boolean;
     public constructor() { 
         super();
     }
@@ -136,5 +137,15 @@ export class ShowShareFeatureGatesResponse extends SdkResponse {
     }
     public get enableImageQuota(): boolean | undefined {
         return this['enable_image_quota'];
+    }
+    public withEnableCustomizeValidityPeriod(enableCustomizeValidityPeriod: boolean): ShowShareFeatureGatesResponse {
+        this['enable_customize_validity_period'] = enableCustomizeValidityPeriod;
+        return this;
+    }
+    public set enableCustomizeValidityPeriod(enableCustomizeValidityPeriod: boolean  | undefined) {
+        this['enable_customize_validity_period'] = enableCustomizeValidityPeriod;
+    }
+    public get enableCustomizeValidityPeriod(): boolean | undefined {
+        return this['enable_customize_validity_period'];
     }
 }

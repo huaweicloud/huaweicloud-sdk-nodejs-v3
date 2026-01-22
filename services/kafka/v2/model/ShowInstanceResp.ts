@@ -61,7 +61,8 @@ export class ShowInstanceResp {
     private 'public_bandwidth'?: number;
     private 'enable_log_collection'?: boolean;
     private 'new_auth_cert'?: boolean;
-    private 'cross_vpc_info'?: string;
+    private 'cross_vpc_info'?: object;
+    private 'public_cross_vpc_info'?: object;
     private 'ipv6_enable'?: boolean;
     private 'ipv6_connect_addresses'?: Array<string>;
     private 'connector_enable'?: boolean;
@@ -629,15 +630,25 @@ export class ShowInstanceResp {
     public get newAuthCert(): boolean | undefined {
         return this['new_auth_cert'];
     }
-    public withCrossVpcInfo(crossVpcInfo: string): ShowInstanceResp {
+    public withCrossVpcInfo(crossVpcInfo: object): ShowInstanceResp {
         this['cross_vpc_info'] = crossVpcInfo;
         return this;
     }
-    public set crossVpcInfo(crossVpcInfo: string  | undefined) {
+    public set crossVpcInfo(crossVpcInfo: object  | undefined) {
         this['cross_vpc_info'] = crossVpcInfo;
     }
-    public get crossVpcInfo(): string | undefined {
+    public get crossVpcInfo(): object | undefined {
         return this['cross_vpc_info'];
+    }
+    public withPublicCrossVpcInfo(publicCrossVpcInfo: object): ShowInstanceResp {
+        this['public_cross_vpc_info'] = publicCrossVpcInfo;
+        return this;
+    }
+    public set publicCrossVpcInfo(publicCrossVpcInfo: object  | undefined) {
+        this['public_cross_vpc_info'] = publicCrossVpcInfo;
+    }
+    public get publicCrossVpcInfo(): object | undefined {
+        return this['public_cross_vpc_info'];
     }
     public withIpv6Enable(ipv6Enable: boolean): ShowInstanceResp {
         this['ipv6_enable'] = ipv6Enable;

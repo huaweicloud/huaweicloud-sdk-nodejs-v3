@@ -2,12 +2,12 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class SwitchAutoProtectStatusResponse extends SdkResponse {
-    public data?: string;
+    public body?: object;
     public constructor() { 
         super();
     }
-    public withData(data: string): SwitchAutoProtectStatusResponse {
-        this['data'] = data;
+    public withBody(body: object): SwitchAutoProtectStatusResponse {
+        this['body'] = body;
         return this;
     }
 }

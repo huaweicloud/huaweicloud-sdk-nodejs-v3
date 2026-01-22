@@ -3,7 +3,7 @@
 export class ShowEngineInstanceExtendProductInfoRequest {
     public engine?: ShowEngineInstanceExtendProductInfoRequestEngineEnum | string;
     private 'instance_id'?: string;
-    public type?: ShowEngineInstanceExtendProductInfoRequestTypeEnum | string;
+    public type?: string;
     public constructor(engine?: string, instanceId?: string) { 
         this['engine'] = engine;
         this['instance_id'] = instanceId;
@@ -22,7 +22,7 @@ export class ShowEngineInstanceExtendProductInfoRequest {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withType(type: ShowEngineInstanceExtendProductInfoRequestTypeEnum | string): ShowEngineInstanceExtendProductInfoRequest {
+    public withType(type: string): ShowEngineInstanceExtendProductInfoRequest {
         this['type'] = type;
         return this;
     }
@@ -34,14 +34,4 @@ export class ShowEngineInstanceExtendProductInfoRequest {
     */
 export enum ShowEngineInstanceExtendProductInfoRequestEngineEnum {
     RABBITMQ = 'rabbitmq'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ShowEngineInstanceExtendProductInfoRequestTypeEnum {
-    ADVANCED = 'advanced',
-    PLATINUM = 'platinum',
-    DEC = 'dec',
-    EXP = 'exp'
 }

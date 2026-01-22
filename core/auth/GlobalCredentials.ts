@@ -19,66 +19,21 @@
  * under the License.
  */
 
-import { ICredential, isJsonContentType } from "./ICredential";
-import { IHttpRequest } from "../http/IHttpRequest";
-import { AKSKSigner, RequiredError } from "./AKSKSigner";
-import { HttpRequestBuilder } from "../http/IHttpRequestBuilder";
-import { HcClient } from "../HcClient";
-import { IamService } from "../internal/services/iam.service";
-import { AuthCache } from "../internal/services/authcache";
+import { HcClient } from '../HcClient';
+import { IamService } from '../internal/services/iam.service';
+import { BaseCredentials } from './BaseCredentials';
 
-export class GlobalCredentials implements ICredential {
-    ak?: string;
-    sk?: string;
-    securityToken: string | undefined;
+export class GlobalCredentials extends BaseCredentials {
     domainId: string | undefined;
-    iamEndpoint?: string;
 
     constructor(data: Partial<GlobalCredentials> = {}) {
-        this.ak = data?.ak;
-        this.sk = data?.sk;
-        this.securityToken = data?.securityToken;
+        super(data);
         this.domainId = data?.domainId;
-        this.iamEndpoint = data?.iamEndpoint;
     }
 
-    public withAk(ak: string | undefined): GlobalCredentials {
-        this.ak = ak;
-        return this;
-    }
-
-    public withSk(sk: string | undefined): GlobalCredentials {
-        this.sk = sk;
-        return this;
-    }
-
-    public withDomainId(domainId: string | undefined): GlobalCredentials {
+    public withDomainId(domainId: string | undefined): this {
         this.domainId = domainId;
         return this;
-    }
-
-    public withSecurityToken(securityToken: string | undefined): GlobalCredentials {
-        this.securityToken = securityToken;
-        return this;
-    }
-
-    public withIamEndpoint(iamEndpoint: string) {
-        this.iamEndpoint = iamEndpoint;
-        return this;
-    }
-
-    public getAk(): string {
-        if (!this.ak) {
-            throw new RequiredError('AK cannot be empty or undefined.');
-        }
-
-        return this.ak;
-    }
-    public getSk(): string {
-        if (!this.sk) {
-            throw new RequiredError('SK cannot be empty or undefined.');
-        }
-        return this.sk;
     }
 
     public setDomainId(value: string) {
@@ -92,73 +47,20 @@ export class GlobalCredentials implements ICredential {
         }
         return pathParams;
     }
-    public async processAuthRequest(httpRequest: IHttpRequest): Promise<IHttpRequest> {
-        if (!this.ak) {
-            throw new RequiredError('AK cannot be empty or undefined.');
-        }
 
-        if (!this.sk) {
-            throw new RequiredError('SK cannot be empty or undefined.');
-        }
-
-        const builder = new HttpRequestBuilder()
-            .addPathParams(this.getPathParams());
-
-        // 替换所有的path参数
-        let url = httpRequest.url;
-        if (this.domainId) {
-            url = parsePath(url, this.getPathParams());
-            builder.withUrl(url)
-                .addHeaders("X-Domain-Id", this.domainId);
-        }
-        builder.withEndpoint(`${httpRequest.endpoint}${url}`);
-
-        if (this.securityToken) {
-            builder.addHeaders("X-Security-Token", this.securityToken);
-        }
-
-        if (!isJsonContentType(httpRequest.headers)) {
-            builder.addHeaders("X-Sdk-Content-Sha256", "UNSIGNED-PAYLOAD");
-        }
-
-        builder.addAllHeaders(httpRequest.headers);
-        Object.assign(httpRequest, builder.build());
-        const headers = AKSKSigner.sign(httpRequest, this);
-
-        builder.addAllHeaders(headers);
-
-        return Object.assign(httpRequest, builder.build());
+    public getAuthHeaderName(): string {
+        return 'X-Domain-Id';
     }
 
-    public async processAuthParams(hcClient: HcClient): Promise<this> {
-        if (this.domainId) {
-            return this;
-        }
-
-        const authCacheInstance = AuthCache.instance();
-        const akWithName = this.getAk();
-        if (authCacheInstance.getCache(akWithName)) {
-            this.domainId = authCacheInstance.getCache(akWithName);
-            return this;
-        }
-
-        const domainId = await new IamService(hcClient, this.iamEndpoint).getDomainId();
-        authCacheInstance.putCache(akWithName, domainId);
-        this.domainId = domainId;
-
-        return this;
-    }
-}
-
-function parsePath(path: string | undefined, params: Record<string, any>): string {
-    if (!path || !params) {
-        return path || "";
+    public getAuthParamName(): string {
+        return 'domain_id';
     }
 
-    const replacePathParam = (parsedPath: string, [param, value]: [string, any]): string => {
-        const encodedValue = encodeURIComponent(value);
-        return parsedPath.replace(new RegExp(`{${param}}`, "g"), encodedValue);
-    };
+    protected getAuthParamFromIam(hcClient: HcClient, _region?: string): Promise<string> {
+        return new IamService(hcClient, this.iamEndpoint).getDomainId();
+    }
 
-    return Object.entries(params).reduce(replacePathParam, path);
+    protected setAuthParam(value: string): void {
+        this.domainId = value;
+    }
 }

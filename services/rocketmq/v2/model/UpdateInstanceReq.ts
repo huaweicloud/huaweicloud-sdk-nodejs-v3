@@ -7,6 +7,7 @@ export class UpdateInstanceReq {
     private 'enable_acl'?: boolean;
     private 'enable_publicip'?: boolean;
     private 'publicip_id'?: string;
+    private 'enterprise_project_id'?: string;
     public constructor() { 
     }
     public withName(name: string): UpdateInstanceReq {
@@ -56,5 +57,15 @@ export class UpdateInstanceReq {
     }
     public get publicipId(): string | undefined {
         return this['publicip_id'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): UpdateInstanceReq {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
 }

@@ -3690,7 +3690,7 @@ export class WorkspaceClient {
      * @summary 查询用户所关联的桌面池列表
      * @param {Array<string>} [userIds] 待查询的用户id列表
      * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
-     * @param {number} [limit] 用于分页查询，返回桌面数量限制。取值范围0-100，默认值是10。
+     * @param {number} [limit] 用于分页查询，返回桌面数量限制。取值范围0-10，默认值是10。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

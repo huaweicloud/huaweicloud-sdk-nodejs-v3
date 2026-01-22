@@ -24,13 +24,13 @@ import url from 'url';
 import { IHttpRequest } from '../http/IHttpRequest';
 import * as _ from 'lodash';
 import { HKDF } from './HKDF';
-import { BasicCredentials } from './BasicCredentials';
+import { BaseCredentials } from './BaseCredentials';
 import { AKSKSigner } from './AKSKSigner';
 
 export class DerivedAKSKSigner extends AKSKSigner {
     private static V_11_HMAC_SHA_256 = 'V11-HMAC-SHA256';
   
-    public static sign(request: IHttpRequest, credential: BasicCredentials) {      
+    public static sign(request: IHttpRequest, credential: BaseCredentials) {      
         const authenticationHeaders = {};
         let dateTimeStamp = request.headers[this.HeaderXDate];
         if (dateTimeStamp) {
@@ -58,7 +58,7 @@ export class DerivedAKSKSigner extends AKSKSigner {
             delete current_headers['content-type'];
         }
         Object.assign(allHeaders, current_headers, authenticationHeaders);
-        const canonicalURI = this.CanonicalURI(parsedUrl.pathname);
+        const canonicalURI = this.CanonicalURI(parsedUrl.pathname ?? '');
         const canonicalQueryString = this.CanonicalQueryString(request);
 
         const sortedKeys = _.sortBy(Object.keys(allHeaders), (x: string) => {

@@ -40,7 +40,7 @@ export class AuthProjectResult {
         this['domain_id'] = domainId;
         this['name'] = name;
     }
-    public withIsDomain(isDomain: boolean): AuthProjectResult {
+    public withIsDomain(isDomain: boolean): this {
         this['is_domain'] = isDomain;
         return this;
     }
@@ -50,23 +50,23 @@ export class AuthProjectResult {
     public get isDomain() {
         return this['is_domain'];
     }
-    public withDescription(description: string): AuthProjectResult {
+    public withDescription(description: string): this {
         this['description'] = description;
         return this;
     }
-    public withLinks(links: LinksSelf): AuthProjectResult {
+    public withLinks(links: LinksSelf): this {
         this['links'] = links;
         return this;
     }
-    public withEnabled(enabled: boolean): AuthProjectResult {
+    public withEnabled(enabled: boolean): this {
         this['enabled'] = enabled;
         return this;
     }
-    public withId(id: string): AuthProjectResult {
+    public withId(id: string): this {
         this['id'] = id;
         return this;
     }
-    public withParentId(parentId: string): AuthProjectResult {
+    public withParentId(parentId: string): this {
         this['parent_id'] = parentId;
         return this;
     }
@@ -76,7 +76,7 @@ export class AuthProjectResult {
     public get parentId() {
         return this['parent_id'];
     }
-    public withDomainId(domainId: string): AuthProjectResult {
+    public withDomainId(domainId: string): this {
         this['domain_id'] = domainId;
         return this;
     }
@@ -86,7 +86,7 @@ export class AuthProjectResult {
     public get domainId() {
         return this['domain_id'];
     }
-    public withName(name: string): AuthProjectResult {
+    public withName(name: string): this {
         this['name'] = name;
         return this;
     }

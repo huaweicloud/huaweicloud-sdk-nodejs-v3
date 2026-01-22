@@ -15,6 +15,7 @@ export class ShowClusterDetailResponse extends SdkResponse {
     public updated?: string;
     public name?: string;
     public publicIp?: string;
+    public snapshotPolicy?: object;
     public created?: string;
     public id?: string;
     public status?: string;
@@ -71,6 +72,10 @@ export class ShowClusterDetailResponse extends SdkResponse {
     }
     public withPublicIp(publicIp: string): ShowClusterDetailResponse {
         this['publicIp'] = publicIp;
+        return this;
+    }
+    public withSnapshotPolicy(snapshotPolicy: object): ShowClusterDetailResponse {
+        this['snapshotPolicy'] = snapshotPolicy;
         return this;
     }
     public withCreated(created: string): ShowClusterDetailResponse {

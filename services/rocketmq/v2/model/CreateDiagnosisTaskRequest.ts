@@ -1,10 +1,10 @@
-import { DiagnosisRep } from './DiagnosisRep';
+import { DiagnosisReq } from './DiagnosisReq';
 
 
 export class CreateDiagnosisTaskRequest {
     public engine?: string;
     private 'instance_id'?: string;
-    public body?: DiagnosisRep;
+    public body?: DiagnosisReq;
     public constructor(engine?: string, instanceId?: string) { 
         this['engine'] = engine;
         this['instance_id'] = instanceId;
@@ -23,7 +23,7 @@ export class CreateDiagnosisTaskRequest {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withBody(body: DiagnosisRep): CreateDiagnosisTaskRequest {
+    public withBody(body: DiagnosisReq): CreateDiagnosisTaskRequest {
         this['body'] = body;
         return this;
     }

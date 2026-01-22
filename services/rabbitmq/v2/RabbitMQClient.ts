@@ -4,6 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AMQPUser } from './model/AMQPUser';
 import { AMQPUserPerm } from './model/AMQPUserPerm';
+import { AlterAutoVolumeExpandConfig } from './model/AlterAutoVolumeExpandConfig';
 import { BatchCreateOrDeleteRabbitMqTagRequest } from './model/BatchCreateOrDeleteRabbitMqTagRequest';
 import { BatchCreateOrDeleteRabbitMqTagResponse } from './model/BatchCreateOrDeleteRabbitMqTagResponse';
 import { BatchCreateOrDeleteTagReq } from './model/BatchCreateOrDeleteTagReq';
@@ -18,6 +19,7 @@ import { BatchRestartOrDeleteInstanceReq } from './model/BatchRestartOrDeleteIns
 import { BatchRestartOrDeleteInstanceRespResults } from './model/BatchRestartOrDeleteInstanceRespResults';
 import { BatchRestartOrDeleteInstancesRequest } from './model/BatchRestartOrDeleteInstancesRequest';
 import { BatchRestartOrDeleteInstancesResponse } from './model/BatchRestartOrDeleteInstancesResponse';
+import { BatchResumeInstanceReq } from './model/BatchResumeInstanceReq';
 import { BindingsDetails } from './model/BindingsDetails';
 import { BssParam } from './model/BssParam';
 import { ChannelDetails } from './model/ChannelDetails';
@@ -49,9 +51,15 @@ import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
 import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
 import { DeleteQueueInfoRequest } from './model/DeleteQueueInfoRequest';
 import { DeleteQueueInfoResponse } from './model/DeleteQueueInfoResponse';
+import { DeleteScheduledTaskRequest } from './model/DeleteScheduledTaskRequest';
+import { DeleteScheduledTaskResponse } from './model/DeleteScheduledTaskResponse';
 import { DeleteUserRequest } from './model/DeleteUserRequest';
 import { DeleteUserResponse } from './model/DeleteUserResponse';
+import { EnableDnsRequest } from './model/EnableDnsRequest';
+import { EnableDnsResponse } from './model/EnableDnsResponse';
 import { ExchangeDetails } from './model/ExchangeDetails';
+import { InstanceRecycleInfo } from './model/InstanceRecycleInfo';
+import { InstanceResumeResult } from './model/InstanceResumeResult';
 import { ListAvailableZonesRequest } from './model/ListAvailableZonesRequest';
 import { ListAvailableZonesRespAvailableZones } from './model/ListAvailableZonesRespAvailableZones';
 import { ListAvailableZonesResponse } from './model/ListAvailableZonesResponse';
@@ -60,6 +68,9 @@ import { ListBackgroundTasksRespTasks } from './model/ListBackgroundTasksRespTas
 import { ListBackgroundTasksResponse } from './model/ListBackgroundTasksResponse';
 import { ListBindingsRequest } from './model/ListBindingsRequest';
 import { ListBindingsResponse } from './model/ListBindingsResponse';
+import { ListConfigFeatures } from './model/ListConfigFeatures';
+import { ListConfigFeaturesRequest } from './model/ListConfigFeaturesRequest';
+import { ListConfigFeaturesResponse } from './model/ListConfigFeaturesResponse';
 import { ListEngineIosEntity } from './model/ListEngineIosEntity';
 import { ListEngineProductsEntity } from './model/ListEngineProductsEntity';
 import { ListEngineProductsRequest } from './model/ListEngineProductsRequest';
@@ -73,17 +84,26 @@ import { ListPluginsRequest } from './model/ListPluginsRequest';
 import { ListPluginsResponse } from './model/ListPluginsResponse';
 import { ListProductsRequest } from './model/ListProductsRequest';
 import { ListProductsRespDetail } from './model/ListProductsRespDetail';
+import { ListProductsRespDetail1 } from './model/ListProductsRespDetail1';
 import { ListProductsRespHourly } from './model/ListProductsRespHourly';
 import { ListProductsRespIo } from './model/ListProductsRespIo';
+import { ListProductsRespIo1 } from './model/ListProductsRespIo1';
+import { ListProductsRespMonthly } from './model/ListProductsRespMonthly';
 import { ListProductsRespValues } from './model/ListProductsRespValues';
+import { ListProductsRespValues1 } from './model/ListProductsRespValues1';
 import { ListProductsResponse } from './model/ListProductsResponse';
 import { ListQueuesRequest } from './model/ListQueuesRequest';
 import { ListQueuesResponse } from './model/ListQueuesResponse';
+import { ListScheduledTasksRequest } from './model/ListScheduledTasksRequest';
+import { ListScheduledTasksResponse } from './model/ListScheduledTasksResponse';
 import { ListUserRequest } from './model/ListUserRequest';
 import { ListUserResponse } from './model/ListUserResponse';
 import { ListVhostsRequest } from './model/ListVhostsRequest';
 import { ListVhostsResponse } from './model/ListVhostsResponse';
 import { MaintainWindowsEntity } from './model/MaintainWindowsEntity';
+import { ModifyRecyclePolicyReq } from './model/ModifyRecyclePolicyReq';
+import { ModifyRecyclePolicyRequest } from './model/ModifyRecyclePolicyRequest';
+import { ModifyRecyclePolicyResponse } from './model/ModifyRecyclePolicyResponse';
 import { PluginEntity } from './model/PluginEntity';
 import { QueueArguments } from './model/QueueArguments';
 import { QueueDetails } from './model/QueueDetails';
@@ -102,6 +122,9 @@ import { ResizeEngineInstanceResponse } from './model/ResizeEngineInstanceRespon
 import { ResizeInstanceReq } from './model/ResizeInstanceReq';
 import { ResizeInstanceRequest } from './model/ResizeInstanceRequest';
 import { ResizeInstanceResponse } from './model/ResizeInstanceResponse';
+import { RestoreRecycleInstanceRequest } from './model/RestoreRecycleInstanceRequest';
+import { RestoreRecycleInstanceResponse } from './model/RestoreRecycleInstanceResponse';
+import { ScheduledTaskEntity } from './model/ScheduledTaskEntity';
 import { ShowBackgroundTaskRequest } from './model/ShowBackgroundTaskRequest';
 import { ShowBackgroundTaskResponse } from './model/ShowBackgroundTaskResponse';
 import { ShowCesHierarchyRequest } from './model/ShowCesHierarchyRequest';
@@ -117,8 +140,10 @@ import { ShowCeshierarchyRespVhosts } from './model/ShowCeshierarchyRespVhosts';
 import { ShowEngineInstanceExtendProductInfoRequest } from './model/ShowEngineInstanceExtendProductInfoRequest';
 import { ShowEngineInstanceExtendProductInfoResponse } from './model/ShowEngineInstanceExtendProductInfoResponse';
 import { ShowInstanceExtendProductInfoRequest } from './model/ShowInstanceExtendProductInfoRequest';
+import { ShowInstanceExtendProductInfoRespDetail } from './model/ShowInstanceExtendProductInfoRespDetail';
 import { ShowInstanceExtendProductInfoRespHourly } from './model/ShowInstanceExtendProductInfoRespHourly';
-import { ShowInstanceExtendProductInfoRespMonthly } from './model/ShowInstanceExtendProductInfoRespMonthly';
+import { ShowInstanceExtendProductInfoRespIo } from './model/ShowInstanceExtendProductInfoRespIo';
+import { ShowInstanceExtendProductInfoRespValues } from './model/ShowInstanceExtendProductInfoRespValues';
 import { ShowInstanceExtendProductInfoResponse } from './model/ShowInstanceExtendProductInfoResponse';
 import { ShowInstanceRequest } from './model/ShowInstanceRequest';
 import { ShowInstanceResp } from './model/ShowInstanceResp';
@@ -135,7 +160,11 @@ import { ShowRabbitMqProjectTagsRequest } from './model/ShowRabbitMqProjectTagsR
 import { ShowRabbitMqProjectTagsResponse } from './model/ShowRabbitMqProjectTagsResponse';
 import { ShowRabbitMqTagsRequest } from './model/ShowRabbitMqTagsRequest';
 import { ShowRabbitMqTagsResponse } from './model/ShowRabbitMqTagsResponse';
+import { ShowRecycleInstancesRequest } from './model/ShowRecycleInstancesRequest';
+import { ShowRecycleInstancesResponse } from './model/ShowRecycleInstancesResponse';
 import { ShowVhostDetailResp } from './model/ShowVhostDetailResp';
+import { ShowVolumeExpandConfigRequest } from './model/ShowVolumeExpandConfigRequest';
+import { ShowVolumeExpandConfigResponse } from './model/ShowVolumeExpandConfigResponse';
 import { TagEntity } from './model/TagEntity';
 import { TagMultyValueEntity } from './model/TagMultyValueEntity';
 import { UpdateInstanceReq } from './model/UpdateInstanceReq';
@@ -144,8 +173,12 @@ import { UpdateInstanceResponse } from './model/UpdateInstanceResponse';
 import { UpdatePluginsReq } from './model/UpdatePluginsReq';
 import { UpdatePluginsRequest } from './model/UpdatePluginsRequest';
 import { UpdatePluginsResponse } from './model/UpdatePluginsResponse';
+import { UpdateScheduledTaskRequest } from './model/UpdateScheduledTaskRequest';
+import { UpdateScheduledTaskResponse } from './model/UpdateScheduledTaskResponse';
 import { UpdateUserRequest } from './model/UpdateUserRequest';
 import { UpdateUserResponse } from './model/UpdateUserResponse';
+import { UpdateVolumeExpansionConfigRequest } from './model/UpdateVolumeExpansionConfigRequest';
+import { UpdateVolumeExpansionConfigResponse } from './model/UpdateVolumeExpansionConfigResponse';
 
 export class RabbitMQClient {
     public static newBuilder(): ClientBuilder<RabbitMQClient> {
@@ -224,12 +257,12 @@ export class RabbitMQClient {
     }
 
     /**
-     * 创建实例[，该接口支持创建按需[和包周期](tag:hws,hws_eu,hws_hk,ctc,cmcc)计费方式的实例](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,hk_tm,cmcc,sbc)。
+     * 创建实例[，该接口支持创建按需[和包周期](tag:hws,hws_eu,hws_hk,ctc,cmcc,ax)计费方式的实例](tag:hws,hws_eu,hws_hk,ctc,g42,hk_g42,tm,hk_tm,cmcc,sbc,ax,hk_sbc)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建实例
-     * @param {'rabbitmq'} engine 消息引擎。
+     * @param {'rabbitmq'} engine **参数解释**： 消息引擎。 **约束限制**： 不涉及。 **取值范围**： rabbitmq：RabbitMQ引擎。 **默认取值**： 不涉及。
      * @param {CreateInstanceReq} createPostPaidInstanceByEngineRequestBody 请求消息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -303,6 +336,26 @@ export class RabbitMQClient {
     }
 
     /**
+     * 删除定时任务管理中的指定记录
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除定时任务管理中的指定记录
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} taskId **参数解释**： 定时任务ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteScheduledTask(deleteScheduledTaskRequest?: DeleteScheduledTaskRequest): Promise<DeleteScheduledTaskResponse> {
+        const options = ParamCreater().deleteScheduledTask(deleteScheduledTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除用户（仅AMQP版本支持）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -315,6 +368,25 @@ export class RabbitMQClient {
      */
     public deleteUser(deleteUserRequest?: DeleteUserRequest): Promise<DeleteUserResponse> {
         const options = ParamCreater().deleteUser(deleteUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启RabbitMQ实例域名访问功能后，客户端可以通过域名连接RabbitMQ实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启RabbitMQ实例域名访问能力
+     * @param {string} instanceId 实例ID，从[查询所有实例列表](ListInstancesDetails.xml)获取实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public enableDns(enableDnsRequest?: EnableDnsRequest): Promise<EnableDnsResponse> {
+        const options = ParamCreater().enableDns(enableDnsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -347,7 +419,7 @@ export class RabbitMQClient {
      *
      * @summary 查询实例的后台任务列表
      * @param {string} instanceId 实例ID。
-     * @param {number} [start] 开启查询的任务编号。
+     * @param {number} [offset] 开启查询的任务编号。
      * @param {number} [limit] 查询的任务个数。
      * @param {string} [beginTime] 查询任务的最小时间，格式为YYYYMMDDHHmmss。
      * @param {string} [endTime] 查询任务的最大时间，格式为YYYYMMDDHHmmss。
@@ -364,13 +436,31 @@ export class RabbitMQClient {
     }
 
     /**
+     * 查询特性开关列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询特性开关列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listConfigFeatures(listConfigFeaturesRequest?: ListConfigFeaturesRequest): Promise<ListConfigFeaturesResponse> {
+        const options = ParamCreater().listConfigFeatures();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询产品规格列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询产品规格列表
-     * @param {'rabbitmq'} engine 消息引擎的类型。
-     * @param {string} [productId] 产品ID。
+     * @param {'rabbitmq'} engine **参数解释**： 消息引擎的类型。 **约束限制**： 不涉及。 **取值范围**： rabbitmq：RabbitMQ引擎。 **默认取值**： 不涉及。
+     * @param {string} [productId] **参数解释**： 产品ID。 **约束限制**： 不涉及。 **取值范围**： - c6.2u4g.single：对应规格rabbitmq.2u4g.single。 - c6.4u8g.single：对应规格rabbitmq.4u8g.single。 - c6.8u16g.single：对应规格rabbitmq.8u16g.single。 - c6.16u32g.single：对应规格rabbitmq.16u32g.single。 - c6.24u48g.single：对应规格rabbitmq.24u48g.single。 - c6.2u4g.cluster：对应规格rabbitmq.2u4g.cluster。 - c6.4u8g.cluster：对应规格rabbitmq.4u8g.cluster。 - c6.8u16g.cluster：对应规格rabbitmq.8u16g.cluster。 - c6.12u24g.cluster：对应规格rabbitmq.12u24g.cluster。 - c6.16u32g.cluster：对应规格rabbitmq.16u32g.cluster。 - c6.24u48g.cluster：对应规格rabbitmq.24u48g.cluster。 - c6.32u64g.cluster：对应规格rabbitmq.32u64g.cluster。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -390,9 +480,9 @@ export class RabbitMQClient {
      *
      * @summary 查询所有实例列表
      * @param {'rabbitmq'} engine **参数解释**： 引擎类型：rabbitmq。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {string} [name] **参数解释**： 实例名称。获取方式：登录RabbitMQ控制台，在RabbitMQ实例详情页面查找实例名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {string} [instanceId] **参数解释**： 实例ID。获取方法如下：登录RabbitMQ控制台，在RabbitMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] **参数解释**： 实例状态，[详细状态说明请参考[实例状态说明](rabbitmq-api-180514012.xml)](tag:hws,hws_eu,hws_hk,cmcc,ctc,sbc,hk_sbc,g42,hk_g42,tm,hk_tm)[详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)](tag:hcs)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [name] **参数解释**： 实例名称。获取方式：调用“查询所有实例列表”接口，从响应体中获取实例名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [instanceId] **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] **参数解释**： 实例状态，[详细状态说明请参考[实例状态说明](rabbitmq-api-180514012.xml)](tag:hws,hws_eu,hws_hk,cmcc,ctc,sbc,hk_sbc,g42,hk_g42,tm,hk_tm,ax)[详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)](tag:hcs)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {'true' | 'false'} [includeFailure] **参数解释**： 是否返回创建失败的实例数。 **约束限制**： 不涉及。 **取值范围**： - true：返回创建失败的实例数。 - false：不返回创建失败的实例数。  **默认取值**： 不涉及。
      * @param {'true' | 'false'} [exactMatchName] **参数解释**： 是否按照实例名称进行精确匹配查询。 **约束限制**： 不涉及。 **取值范围**： - true：按照实例名称进行精确匹配查询。 - false：按照模糊匹配实例名称查询。  **默认取值**： false
      * @param {string} [enterpriseProjectId] **参数解释**： 企业项目ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
@@ -435,7 +525,7 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询产品规格列表
-     * @param {'rabbitmq'} [engine] 消息引擎的类型。当前只支持rabbitmq。
+     * @param {'rabbitmq'} [engine] **参数解释**： 消息引擎的类型。 **约束限制**： 不涉及。 **取值范围**： rabbitmq：RabbitMQ引擎。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -449,19 +539,61 @@ export class RabbitMQClient {
     }
 
     /**
+     * 查询实例的定时任务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例的定时任务列表
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [start] **参数解释**： 开启查询的定时任务编号。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [limit] **参数解释**： 查询的定时任务个数。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [beginTime] **参数解释**： 查询定时任务的最小时间，格式为YYYYMMDDHHmmss。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [endTime] **参数解释**： 查询定时任务的最大时间，格式为YYYYMMDDHHmmss。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listScheduledTasks(listScheduledTasksRequest?: ListScheduledTasksRequest): Promise<ListScheduledTasksResponse> {
+        const options = ParamCreater().listScheduledTasks(listScheduledTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询用户列表（仅AMQP版本支持）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询用户列表
-     * @param {string} instanceId 实例ID。
-     * @param {string} [offset] 分页查询偏移量，表示从此偏移量开始查询，offset大于等于0，默认从0开始查询。
-     * @param {string} [limit] 分页查询单页数量，取值范围0~50，默认查询10条。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [offset] **参数解释**： 分页查询偏移量。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0。
+     * @param {string} [limit] **参数解释**： 分页查询单页数量。 **约束限制**： 不涉及。 **取值范围**： 0~50。 **默认取值**： 10。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listUser(listUserRequest?: ListUserRequest): Promise<ListUserResponse> {
         const options = ParamCreater().listUser(listUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新回收站策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新回收站策略
+     * @param {ModifyRecyclePolicyReq} [modifyRecyclePolicyReq] **参数解释**： 更新回收站策略请求体 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyRecyclePolicy(modifyRecyclePolicyRequest?: ModifyRecyclePolicyRequest): Promise<ModifyRecyclePolicyResponse> {
+        const options = ParamCreater().modifyRecyclePolicy(modifyRecyclePolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -492,7 +624,7 @@ export class RabbitMQClient {
     /**
      * 实例规格变更。
      * 
-     * [**当前通过调用API，只支持按需实例进行实例规格变更。**](tag:hws,hws_hk,ctc,cmcc,hws_eu)
+     * [**当前通过调用API，只支持按需实例进行实例规格变更。**](tag:hws,hws_hk,ctc,cmcc,hws_eu,ax)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -535,6 +667,25 @@ export class RabbitMQClient {
     }
 
     /**
+     * 恢复回收站实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 恢复回收站实例
+     * @param {BatchResumeInstanceReq} [batchResumeInstanceReq] **参数解释**： 恢复回收站实例请求体 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public restoreRecycleInstance(restoreRecycleInstanceRequest?: RestoreRecycleInstanceRequest): Promise<RestoreRecycleInstanceResponse> {
+        const options = ParamCreater().restoreRecycleInstance(restoreRecycleInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询后台任务管理中的指定记录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -560,7 +711,7 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询实例在CES的监控层级关系
-     * @param {string} instanceId 实例ID。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -581,7 +732,7 @@ export class RabbitMQClient {
      * @summary 查询新规格可扩容规格列表
      * @param {'rabbitmq'} engine 消息引擎的类型。支持的类型为rabbitmq。
      * @param {string} instanceId 实例ID。
-     * @param {'advanced' | 'platinum' | 'dec' | 'exp'} [type] 产品的类型。   - advanced：专享版   - platinum：铂金版   - dec：专属云版   - exp：体验版
+     * @param {string} [type] **参数解释**： 产品的类型。 **约束限制**： 不涉及。 **取值范围**： advanced：专享版 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -600,7 +751,7 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定实例
-     * @param {string} instanceId 实例ID。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -678,8 +829,9 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询RabbitMQ产品规格核数
-     * @param {string} instanceId 实例ID。
-     * @param {string} productId 产品ID。
+     * @param {string} productId **参数解释**： 产品ID。 **约束限制**： 不涉及。 **取值范围**： - c6.2u4g.single：对应规格rabbitmq.2u4g.single。 - c6.4u8g.single：对应规格rabbitmq.4u8g.single。 - c6.8u16g.single：对应规格rabbitmq.8u16g.single。 - c6.16u32g.single：对应规格rabbitmq.16u32g.single。 - c6.24u48g.single：对应规格rabbitmq.24u48g.single。 - c6.2u4g.cluster：对应规格rabbitmq.2u4g.cluster。 - c6.4u8g.cluster：对应规格rabbitmq.4u8g.cluster。 - c6.8u16g.cluster：对应规格rabbitmq.8u16g.cluster。 - c6.12u24g.cluster：对应规格rabbitmq.12u24g.cluster。 - c6.16u32g.cluster：对应规格rabbitmq.16u32g.cluster。 - c6.24u48g.cluster：对应规格rabbitmq.24u48g.cluster。 - c6.32u64g.cluster：对应规格rabbitmq.32u64g.cluster。 **默认取值**： 不涉及。
+     * @param {string} brokerNum **参数解释**： broker数量。 **约束限制**： 不涉及。 **取值范围**： - 1 - 3 - 5 - 7 **默认取值**： 不涉及。
+     * @param {string} [instanceId] **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。实例ID非必填项，只有填写实例ID响应体才会返回total_extend_storage_space。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -730,6 +882,43 @@ export class RabbitMQClient {
     }
 
     /**
+     * 查询回收站实例列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询回收站实例列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRecycleInstances(showRecycleInstancesRequest?: ShowRecycleInstancesRequest): Promise<ShowRecycleInstancesResponse> {
+        const options = ParamCreater().showRecycleInstances();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询磁盘自动扩容配置，包括磁盘自动扩容是否开启，以及开启后的扩容阈值、扩容步长、扩容上限信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询磁盘自动扩容配置
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVolumeExpandConfig(showVolumeExpandConfigRequest?: ShowVolumeExpandConfigRequest): Promise<ShowVolumeExpandConfigResponse> {
+        const options = ParamCreater().showVolumeExpandConfig(showVolumeExpandConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改实例的名称和描述信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -770,6 +959,28 @@ export class RabbitMQClient {
     }
 
     /**
+     * 修改定时任务管理中的指定记录
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改定时任务管理中的指定记录
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} taskId **参数解释**： 定时任务ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [executeAt] **参数解释**： 修改定时任务的执行时间。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [status] **参数解释**： 修改定时任务状态。 **约束限制**： 不涉及。 **取值范围**： - CANCELLED。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateScheduledTask(updateScheduledTaskRequest?: UpdateScheduledTaskRequest): Promise<UpdateScheduledTaskResponse> {
+        const options = ParamCreater().updateScheduledTask(updateScheduledTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改用户参数（仅AMQP版本支持）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -791,13 +1002,33 @@ export class RabbitMQClient {
     }
 
     /**
+     * 该接口用于修改磁盘自动扩容配置，包含磁盘自动扩容是否开启、扩容阈值、扩容步长，以及扩容上限的配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改磁盘自动扩容配置
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {AlterAutoVolumeExpandConfig} updateVolumeExpansionConfigRequestBody **参数解释**： 自动磁盘扩容配置 **约束限制**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateVolumeExpansionConfig(updateVolumeExpansionConfigRequest?: UpdateVolumeExpansionConfigRequest): Promise<UpdateVolumeExpansionConfigResponse> {
+        const options = ParamCreater().updateVolumeExpansionConfig(updateVolumeExpansionConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 添加绑定。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加绑定
      * @param {string} instanceId 实例ID
-     * @param {string} vhost Vhost名称
+     * @param {string} vhost vhost名称，名称中包含/时，需要将/替换为__F_SLASH__，否则会调用失败。例如：Vhost名称为/test，入参值为__F_SLASH__test。
      * @param {string} exchange Exchange名称
      * @param {CreateBindingBody} createBindingRequestBody 创建绑定
      * @param {*} [options] Override http request option.
@@ -819,9 +1050,9 @@ export class RabbitMQClient {
      *
      * @summary 删除绑定
      * @param {string} instanceId 实例ID
-     * @param {string} vhost Vhost名称
+     * @param {string} vhost vhost名称，名称中包含/时，需要将/替换为__F_SLASH__，否则会调用失败。例如：Vhost名称为/test，入参值为__F_SLASH__test。
      * @param {string} exchange Exchange名称
-     * @param {string} destinationType 绑定目标端类型，Exchange或Queue。[（AMQP版本只支持Queue绑定类型）](tag:hws,hws_hk)
+     * @param {string} destinationType **参数解释**： 绑定目标端类型。 **约束限制**： [不涉及。](tag:sbc,cmcc,tm,hk_tm,ax,hk_sbc)[AMQP版本只支持绑定Queue。](tag:hws,hws_hk,hws_eu) **取值范围**： - Exchange：交换机。 - Queue：队列。 **默认取值**： 不涉及。
      * @param {string} destination 绑定的目标端名称
      * @param {string} propertiesKey 绑定路由键，经过URL转译后routing_key，可通过调用[查询Exchange绑定列表](ListBindings.xml)或者[查询指定Queue详情](ShowQueueDetails.xml)接口的响应信息获取。
      * @param {*} [options] Override http request option.
@@ -843,7 +1074,7 @@ export class RabbitMQClient {
      *
      * @summary 查询Exchange绑定信息列表
      * @param {string} instanceId 实例ID
-     * @param {string} vhost Vhost名称
+     * @param {string} vhost vhost名称，名称中包含/时，需要将/替换为__F_SLASH__，否则会调用失败。例如：Vhost名称为/test，入参值为__F_SLASH__test。
      * @param {string} exchange Exchange名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -864,7 +1095,7 @@ export class RabbitMQClient {
      *
      * @summary 批量删除指定Exchange
      * @param {string} instanceId 实例ID
-     * @param {string} vhost Vhost名称
+     * @param {string} vhost vhost名称，名称中包含/时，需要将/替换为__F_SLASH__，否则会调用失败。例如：Vhost名称为/test，入参值为__F_SLASH__test。
      * @param {BatchDeleteBody} batchDeleteExchangesRequestBody 需要删除的Exchange名称列表
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -885,7 +1116,7 @@ export class RabbitMQClient {
      *
      * @summary 创建Exchange
      * @param {string} instanceId 实例ID
-     * @param {string} vhost Vhost名称
+     * @param {string} vhost vhost名称，名称中包含/时，需要将/替换为__F_SLASH__，否则会调用失败。例如：Vhost名称为/test，入参值为__F_SLASH__test。
      * @param {CreateExchangeBody} createExchangeRequestBody 创建Exchange
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -906,7 +1137,7 @@ export class RabbitMQClient {
      *
      * @summary 查询Exchange列表
      * @param {string} instanceId 实例ID
-     * @param {string} vhost 所属Vhost名称
+     * @param {string} vhost vhost名称，名称中包含/时，需要将/替换为__F_SLASH__，否则会调用失败。例如：Vhost名称为/test，入参值为__F_SLASH__test。
      * @param {number} [offset] 分页查询偏移量，表示从此偏移量开始查询，offset大于等于0，默认从0开始查询。
      * @param {number} [limit] 分页查询单页数量，取值范围0~50，默认查询10条。
      * @param {*} [options] Override http request option.
@@ -928,7 +1159,7 @@ export class RabbitMQClient {
      *
      * @summary 批量删除指定Queue
      * @param {string} instanceId 实例ID
-     * @param {string} vhost Vhost名称
+     * @param {string} vhost vhost名称，名称中包含/时，需要将/替换为__F_SLASH__，否则会调用失败。例如：Vhost名称为/test，入参值为__F_SLASH__test。
      * @param {BatchDeleteBody} batchDeleteQueuesRequestBody 待删除Queue的名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -949,7 +1180,7 @@ export class RabbitMQClient {
      *
      * @summary 创建Queue
      * @param {string} instanceId 实例ID
-     * @param {string} vhost Vhost名称
+     * @param {string} vhost vhost名称，名称中包含/时，需要将/替换为__F_SLASH__，否则会调用失败。例如：Vhost名称为/test，入参值为__F_SLASH__test。
      * @param {CreateQueueBody} createQueueRequestBody 创建Queue参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -970,7 +1201,7 @@ export class RabbitMQClient {
      *
      * @summary 清空Queue消息
      * @param {string} instanceId 实例ID
-     * @param {string} vhost Vhost名称
+     * @param {string} vhost vhost名称，名称中包含/时，需要将/替换为__F_SLASH__，否则会调用失败。例如：Vhost名称为/test，入参值为__F_SLASH__test。
      * @param {string} queue Queue名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -990,10 +1221,10 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询所属Vhost下Queue的列表
-     * @param {string} instanceId 实例ID
-     * @param {string} vhost Vhost名称
-     * @param {number} [offset] 分页查询偏移量，表示从此偏移量开始查询，offset大于等于0，默认从0开始查询。
-     * @param {number} [limit] 分页查询单页数量，取值范围0~50，默认查询10条。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} vhost **参数解释**：  Vhost名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**：  分页查询偏移量，表示从此偏移量开始查询。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0。
+     * @param {number} [limit] **参数解释**： 分页查询单页数量。 **约束限制**： 不涉及。 **取值范围**： 0~50。 **默认取值**： 10。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1012,9 +1243,9 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定Queue详情
-     * @param {string} instanceId 实例ID
-     * @param {string} vhost 所属Vhost名称
-     * @param {string} queue Queue名称
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} vhost **参数解释**：  Vhost名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} queue **参数解释**：  分页查询偏移量，表示从此偏移量开始查询。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1054,7 +1285,7 @@ export class RabbitMQClient {
      *
      * @summary 创建Vhost
      * @param {string} instanceId 实例ID
-     * @param {CreateVhostBody} createVhostRequestBody Vhost名称
+     * @param {CreateVhostBody} createVhostRequestBody vhost名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1073,7 +1304,7 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询Vhost列表
-     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：登录RabbitMQ控制台，在RabbitMQ实例详情页面查找实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {number} [offset] **参数解释**： 分页查询偏移量，表示从此偏移量开始查询。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0。
      * @param {number} [limit] **参数解释**： 分页查询单页数量。 **约束限制**： 不涉及。 **取值范围**： 0~50。 **默认取值**： 10。
      * @param {*} [options] Override http request option.
@@ -1217,7 +1448,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建实例[，该接口支持创建按需[和包周期](tag:hws,hws_eu,hws_hk,ctc,cmcc)计费方式的实例](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,hk_tm,cmcc,sbc)。
+         * 创建实例[，该接口支持创建按需[和包周期](tag:hws,hws_eu,hws_hk,ctc,cmcc,ax)计费方式的实例](tag:hws,hws_eu,hws_hk,ctc,g42,hk_g42,tm,hk_tm,cmcc,sbc,ax,hk_sbc)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1390,6 +1621,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除定时任务管理中的指定记录
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteScheduledTask(deleteScheduledTaskRequest?: DeleteScheduledTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/scheduled-tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let taskId;
+
+            if (deleteScheduledTaskRequest !== null && deleteScheduledTaskRequest !== undefined) {
+                if (deleteScheduledTaskRequest instanceof DeleteScheduledTaskRequest) {
+                    instanceId = deleteScheduledTaskRequest.instanceId;
+                    taskId = deleteScheduledTaskRequest.taskId;
+                } else {
+                    instanceId = deleteScheduledTaskRequest['instance_id'];
+                    taskId = deleteScheduledTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteScheduledTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling deleteScheduledTask.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除用户（仅AMQP版本支持）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1434,6 +1709,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 开启RabbitMQ实例域名访问功能后，客户端可以通过域名连接RabbitMQ实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        enableDns(enableDnsRequest?: EnableDnsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/rabbitmq/instances/{instance_id}/dns",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (enableDnsRequest !== null && enableDnsRequest !== undefined) {
+                if (enableDnsRequest instanceof EnableDnsRequest) {
+                    instanceId = enableDnsRequest.instanceId;
+                } else {
+                    instanceId = enableDnsRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling enableDns.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 在创建实例时，需要配置实例所在的可用区ID，可通过该接口查询可用区的ID。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1473,7 +1785,7 @@ export const ParamCreater = function () {
             
             let instanceId;
             
-            let start;
+            let offset;
             
             let limit;
             
@@ -1484,13 +1796,13 @@ export const ParamCreater = function () {
             if (listBackgroundTasksRequest !== null && listBackgroundTasksRequest !== undefined) {
                 if (listBackgroundTasksRequest instanceof ListBackgroundTasksRequest) {
                     instanceId = listBackgroundTasksRequest.instanceId;
-                    start = listBackgroundTasksRequest.start;
+                    offset = listBackgroundTasksRequest.offset;
                     limit = listBackgroundTasksRequest.limit;
                     beginTime = listBackgroundTasksRequest.beginTime;
                     endTime = listBackgroundTasksRequest.endTime;
                 } else {
                     instanceId = listBackgroundTasksRequest['instance_id'];
-                    start = listBackgroundTasksRequest['start'];
+                    offset = listBackgroundTasksRequest['offset'];
                     limit = listBackgroundTasksRequest['limit'];
                     beginTime = listBackgroundTasksRequest['begin_time'];
                     endTime = listBackgroundTasksRequest['end_time'];
@@ -1501,8 +1813,8 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listBackgroundTasks.');
             }
-            if (start !== null && start !== undefined) {
-                localVarQueryParameter['start'] = start;
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -1516,6 +1828,27 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询特性开关列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listConfigFeatures() {
+            const options = {
+                method: "GET",
+                url: "/v2/config/features",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1736,6 +2069,72 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例的定时任务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listScheduledTasks(listScheduledTasksRequest?: ListScheduledTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/scheduled-tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let start;
+            
+            let limit;
+            
+            let beginTime;
+            
+            let endTime;
+
+            if (listScheduledTasksRequest !== null && listScheduledTasksRequest !== undefined) {
+                if (listScheduledTasksRequest instanceof ListScheduledTasksRequest) {
+                    instanceId = listScheduledTasksRequest.instanceId;
+                    start = listScheduledTasksRequest.start;
+                    limit = listScheduledTasksRequest.limit;
+                    beginTime = listScheduledTasksRequest.beginTime;
+                    endTime = listScheduledTasksRequest.endTime;
+                } else {
+                    instanceId = listScheduledTasksRequest['instance_id'];
+                    start = listScheduledTasksRequest['start'];
+                    limit = listScheduledTasksRequest['limit'];
+                    beginTime = listScheduledTasksRequest['begin_time'];
+                    endTime = listScheduledTasksRequest['end_time'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listScheduledTasks.');
+            }
+            if (start !== null && start !== undefined) {
+                localVarQueryParameter['start'] = start;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (beginTime !== null && beginTime !== undefined) {
+                localVarQueryParameter['begin_time'] = beginTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询用户列表（仅AMQP版本支持）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1783,6 +2182,41 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新回收站策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyRecyclePolicy(modifyRecyclePolicyRequest?: ModifyRecyclePolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/recycle",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (modifyRecyclePolicyRequest !== null && modifyRecyclePolicyRequest !== undefined) {
+                if (modifyRecyclePolicyRequest instanceof ModifyRecyclePolicyRequest) {
+                    body = modifyRecyclePolicyRequest.body
+                } else {
+                    body = modifyRecyclePolicyRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1836,7 +2270,7 @@ export const ParamCreater = function () {
         /**
          * 实例规格变更。
          * 
-         * [**当前通过调用API，只支持按需实例进行实例规格变更。**](tag:hws,hws_hk,ctc,cmcc,hws_eu)
+         * [**当前通过调用API，只支持按需实例进行实例规格变更。**](tag:hws,hws_hk,ctc,cmcc,hws_eu,ax)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1932,6 +2366,41 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 恢复回收站实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        restoreRecycleInstance(restoreRecycleInstanceRequest?: RestoreRecycleInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/recycle",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (restoreRecycleInstanceRequest !== null && restoreRecycleInstanceRequest !== undefined) {
+                if (restoreRecycleInstanceRequest instanceof RestoreRecycleInstanceRequest) {
+                    body = restoreRecycleInstanceRequest.body
+                } else {
+                    body = restoreRecycleInstanceRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2225,32 +2694,39 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let instanceId;
-            
             let productId;
+            
+            let brokerNum;
+            
+            let instanceId;
 
             if (showRabbitMqProductCoresRequest !== null && showRabbitMqProductCoresRequest !== undefined) {
                 if (showRabbitMqProductCoresRequest instanceof ShowRabbitMqProductCoresRequest) {
-                    instanceId = showRabbitMqProductCoresRequest.instanceId;
                     productId = showRabbitMqProductCoresRequest.productId;
+                    brokerNum = showRabbitMqProductCoresRequest.brokerNum;
+                    instanceId = showRabbitMqProductCoresRequest.instanceId;
                 } else {
-                    instanceId = showRabbitMqProductCoresRequest['instance_id'];
                     productId = showRabbitMqProductCoresRequest['product_id'];
+                    brokerNum = showRabbitMqProductCoresRequest['broker_num'];
+                    instanceId = showRabbitMqProductCoresRequest['instance_id'];
                 }
             }
 
         
-            if (instanceId === null || instanceId === undefined) {
-                throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showRabbitMqProductCores.');
-            }
-            if (instanceId !== null && instanceId !== undefined) {
-                localVarQueryParameter['instance_id'] = instanceId;
-            }
             if (productId === null || productId === undefined) {
                 throw new RequiredError('productId','Required parameter productId was null or undefined when calling showRabbitMqProductCores.');
             }
             if (productId !== null && productId !== undefined) {
                 localVarQueryParameter['product_id'] = productId;
+            }
+            if (brokerNum === null || brokerNum === undefined) {
+                throw new RequiredError('brokerNum','Required parameter brokerNum was null or undefined when calling showRabbitMqProductCores.');
+            }
+            if (brokerNum !== null && brokerNum !== undefined) {
+                localVarQueryParameter['broker_num'] = brokerNum;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2309,6 +2785,64 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showRabbitMqTags.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询回收站实例列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRecycleInstances() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/recycle",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询磁盘自动扩容配置，包括磁盘自动扩容是否开启，以及开启后的扩容阈值、扩容步长、扩容上限信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVolumeExpandConfig(showVolumeExpandConfigRequest?: ShowVolumeExpandConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/auto-volume-expand",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showVolumeExpandConfigRequest !== null && showVolumeExpandConfigRequest !== undefined) {
+                if (showVolumeExpandConfigRequest instanceof ShowVolumeExpandConfigRequest) {
+                    instanceId = showVolumeExpandConfigRequest.instanceId;
+                } else {
+                    instanceId = showVolumeExpandConfigRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showVolumeExpandConfig.');
             }
 
             options.pathParams = { 'instance_id': instanceId, };
@@ -2409,6 +2943,65 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改定时任务管理中的指定记录
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateScheduledTask(updateScheduledTaskRequest?: UpdateScheduledTaskRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/scheduled-tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let taskId;
+            
+            let executeAt;
+            
+            let status;
+
+            if (updateScheduledTaskRequest !== null && updateScheduledTaskRequest !== undefined) {
+                if (updateScheduledTaskRequest instanceof UpdateScheduledTaskRequest) {
+                    instanceId = updateScheduledTaskRequest.instanceId;
+                    taskId = updateScheduledTaskRequest.taskId;
+                    executeAt = updateScheduledTaskRequest.executeAt;
+                    status = updateScheduledTaskRequest.status;
+                } else {
+                    instanceId = updateScheduledTaskRequest['instance_id'];
+                    taskId = updateScheduledTaskRequest['task_id'];
+                    executeAt = updateScheduledTaskRequest['execute_at'];
+                    status = updateScheduledTaskRequest['status'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateScheduledTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling updateScheduledTask.');
+            }
+            if (executeAt !== null && executeAt !== undefined) {
+                localVarQueryParameter['execute_at'] = executeAt;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改用户参数（仅AMQP版本支持）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2457,6 +3050,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'user_name': userName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于修改磁盘自动扩容配置，包含磁盘自动扩容是否开启、扩容阈值、扩容步长，以及扩容上限的配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateVolumeExpansionConfig(updateVolumeExpansionConfigRequest?: UpdateVolumeExpansionConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/auto-volume-expand",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateVolumeExpansionConfigRequest !== null && updateVolumeExpansionConfigRequest !== undefined) {
+                if (updateVolumeExpansionConfigRequest instanceof UpdateVolumeExpansionConfigRequest) {
+                    instanceId = updateVolumeExpansionConfigRequest.instanceId;
+                    body = updateVolumeExpansionConfigRequest.body
+                } else {
+                    instanceId = updateVolumeExpansionConfigRequest['instance_id'];
+                    body = updateVolumeExpansionConfigRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateVolumeExpansionConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

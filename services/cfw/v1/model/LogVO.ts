@@ -14,7 +14,7 @@ export class LogVO {
     private 'src_ip'?: string;
     private 'src_port'?: number;
     private 'start_time'?: number;
-    private 'dst_region_id'?: object;
+    private 'dst_region_id'?: string;
     private 'dst_region_name'?: string;
     private 'dst_province_id'?: string;
     private 'dst_province_name'?: string;
@@ -154,14 +154,14 @@ export class LogVO {
     public get startTime(): number | undefined {
         return this['start_time'];
     }
-    public withDstRegionId(dstRegionId: object): LogVO {
+    public withDstRegionId(dstRegionId: string): LogVO {
         this['dst_region_id'] = dstRegionId;
         return this;
     }
-    public set dstRegionId(dstRegionId: object  | undefined) {
+    public set dstRegionId(dstRegionId: string  | undefined) {
         this['dst_region_id'] = dstRegionId;
     }
-    public get dstRegionId(): object | undefined {
+    public get dstRegionId(): string | undefined {
         return this['dst_region_id'];
     }
     public withDstRegionName(dstRegionName: string): LogVO {

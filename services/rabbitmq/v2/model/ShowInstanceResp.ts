@@ -53,6 +53,8 @@ export class ShowInstanceResp {
     private 'ipv6_enable'?: boolean;
     private 'ipv6_connect_addresses'?: Array<string>;
     public tags?: Array<TagEntity>;
+    private 'service_type'?: string;
+    private 'storage_type'?: string;
     public constructor() { 
     }
     public withAccessUser(accessUser: string): ShowInstanceResp {
@@ -516,6 +518,26 @@ export class ShowInstanceResp {
     public withTags(tags: Array<TagEntity>): ShowInstanceResp {
         this['tags'] = tags;
         return this;
+    }
+    public withServiceType(serviceType: string): ShowInstanceResp {
+        this['service_type'] = serviceType;
+        return this;
+    }
+    public set serviceType(serviceType: string  | undefined) {
+        this['service_type'] = serviceType;
+    }
+    public get serviceType(): string | undefined {
+        return this['service_type'];
+    }
+    public withStorageType(storageType: string): ShowInstanceResp {
+        this['storage_type'] = storageType;
+        return this;
+    }
+    public set storageType(storageType: string  | undefined) {
+        this['storage_type'] = storageType;
+    }
+    public get storageType(): string | undefined {
+        return this['storage_type'];
     }
 }
 

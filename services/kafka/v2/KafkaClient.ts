@@ -64,6 +64,9 @@ import { CreateKafkaUserClientQuotaTaskResponse } from './model/CreateKafkaUserC
 import { CreateMessageDiagnosisTaskReq } from './model/CreateMessageDiagnosisTaskReq';
 import { CreateMessageDiagnosisTaskRequest } from './model/CreateMessageDiagnosisTaskRequest';
 import { CreateMessageDiagnosisTaskResponse } from './model/CreateMessageDiagnosisTaskResponse';
+import { CreatePartitionReq } from './model/CreatePartitionReq';
+import { CreatePartitionRequest } from './model/CreatePartitionRequest';
+import { CreatePartitionResponse } from './model/CreatePartitionResponse';
 import { CreatePostPaidInstanceReq } from './model/CreatePostPaidInstanceReq';
 import { CreatePostPaidInstanceRequest } from './model/CreatePostPaidInstanceRequest';
 import { CreatePostPaidInstanceResponse } from './model/CreatePostPaidInstanceResponse';
@@ -82,6 +85,8 @@ import { DeleteConsumerGroupOffsetsRequest } from './model/DeleteConsumerGroupOf
 import { DeleteConsumerGroupOffsetsRequestBody } from './model/DeleteConsumerGroupOffsetsRequestBody';
 import { DeleteConsumerGroupOffsetsResponse } from './model/DeleteConsumerGroupOffsetsResponse';
 import { DeleteConsumerGroupOffsetsResponseEntity } from './model/DeleteConsumerGroupOffsetsResponseEntity';
+import { DeleteGroupRequest } from './model/DeleteGroupRequest';
+import { DeleteGroupResponse } from './model/DeleteGroupResponse';
 import { DeleteInstanceConsumerGroupRequest } from './model/DeleteInstanceConsumerGroupRequest';
 import { DeleteInstanceConsumerGroupResponse } from './model/DeleteInstanceConsumerGroupResponse';
 import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
@@ -89,6 +94,8 @@ import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
 import { DeleteKafkaMessageRequest } from './model/DeleteKafkaMessageRequest';
 import { DeleteKafkaMessageRequestBody } from './model/DeleteKafkaMessageRequestBody';
 import { DeleteKafkaMessageResponse } from './model/DeleteKafkaMessageResponse';
+import { DeleteKafkaTopicMessagesRequest } from './model/DeleteKafkaTopicMessagesRequest';
+import { DeleteKafkaTopicMessagesResponse } from './model/DeleteKafkaTopicMessagesResponse';
 import { DeleteKafkaTopicQuotaRequest } from './model/DeleteKafkaTopicQuotaRequest';
 import { DeleteKafkaTopicQuotaResponse } from './model/DeleteKafkaTopicQuotaResponse';
 import { DeleteKafkaUserClientQuotaTaskReq } from './model/DeleteKafkaUserClientQuotaTaskReq';
@@ -96,11 +103,11 @@ import { DeleteKafkaUserClientQuotaTaskRequest } from './model/DeleteKafkaUserCl
 import { DeleteKafkaUserClientQuotaTaskResponse } from './model/DeleteKafkaUserClientQuotaTaskResponse';
 import { DeleteScheduledTaskRequest } from './model/DeleteScheduledTaskRequest';
 import { DeleteScheduledTaskResponse } from './model/DeleteScheduledTaskResponse';
-import { DeleteUserRequest } from './model/DeleteUserRequest';
-import { DeleteUserResponse } from './model/DeleteUserResponse';
 import { DescribeGroupsRespGroup } from './model/DescribeGroupsRespGroup';
 import { DiskusageEntity } from './model/DiskusageEntity';
 import { DiskusageTopicEntity } from './model/DiskusageTopicEntity';
+import { EnableDnsRequest } from './model/EnableDnsRequest';
+import { EnableDnsResponse } from './model/EnableDnsResponse';
 import { ExtendProductInfoEntity } from './model/ExtendProductInfoEntity';
 import { ExtendProductIosEntity } from './model/ExtendProductIosEntity';
 import { ExtendProductPropertiesEntity } from './model/ExtendProductPropertiesEntity';
@@ -121,7 +128,6 @@ import { KafkaMessageDiagnosisReportInfoEntity } from './model/KafkaMessageDiagn
 import { KafkaTopicPartitionResponsePartitions } from './model/KafkaTopicPartitionResponsePartitions';
 import { KafkaTopicProducerResponseProducers } from './model/KafkaTopicProducerResponseProducers';
 import { KafkaTopicQuota } from './model/KafkaTopicQuota';
-import { KafkaTopicQuotaResp } from './model/KafkaTopicQuotaResp';
 import { ListAvailableZonesRequest } from './model/ListAvailableZonesRequest';
 import { ListAvailableZonesResponse } from './model/ListAvailableZonesResponse';
 import { ListBackgroundTasksRequest } from './model/ListBackgroundTasksRequest';
@@ -216,8 +222,6 @@ import { ResetMessageOffsetWithEngineResponse } from './model/ResetMessageOffset
 import { ResetPasswordReq } from './model/ResetPasswordReq';
 import { ResetPasswordRequest } from './model/ResetPasswordRequest';
 import { ResetPasswordResponse } from './model/ResetPasswordResponse';
-import { ResetReplicaReq } from './model/ResetReplicaReq';
-import { ResetReplicaReqPartitions } from './model/ResetReplicaReqPartitions';
 import { ResetUserPasswordReq } from './model/ResetUserPasswordReq';
 import { ResetUserPasswrodRequest } from './model/ResetUserPasswrodRequest';
 import { ResetUserPasswrodResponse } from './model/ResetUserPasswrodResponse';
@@ -276,6 +280,8 @@ import { ShowDiagnosisPreCheckRequest } from './model/ShowDiagnosisPreCheckReque
 import { ShowDiagnosisPreCheckResponse } from './model/ShowDiagnosisPreCheckResponse';
 import { ShowEngineInstanceExtendProductInfoRequest } from './model/ShowEngineInstanceExtendProductInfoRequest';
 import { ShowEngineInstanceExtendProductInfoResponse } from './model/ShowEngineInstanceExtendProductInfoResponse';
+import { ShowGroupRequest } from './model/ShowGroupRequest';
+import { ShowGroupResponse } from './model/ShowGroupResponse';
 import { ShowGroupsRequest } from './model/ShowGroupsRequest';
 import { ShowGroupsRespGroup } from './model/ShowGroupsRespGroup';
 import { ShowGroupsRespGroupAssignment } from './model/ShowGroupsRespGroupAssignment';
@@ -314,7 +320,6 @@ import { ShowKafkaRebalanceLogRequest } from './model/ShowKafkaRebalanceLogReque
 import { ShowKafkaRebalanceLogResponse } from './model/ShowKafkaRebalanceLogResponse';
 import { ShowKafkaScalePreCheckInfoRequest } from './model/ShowKafkaScalePreCheckInfoRequest';
 import { ShowKafkaScalePreCheckInfoResponse } from './model/ShowKafkaScalePreCheckInfoResponse';
-import { ShowKafkaScalePreCheckInfoResponseBody } from './model/ShowKafkaScalePreCheckInfoResponseBody';
 import { ShowKafkaTagsRequest } from './model/ShowKafkaTagsRequest';
 import { ShowKafkaTagsResponse } from './model/ShowKafkaTagsResponse';
 import { ShowKafkaTopicDetailRequest } from './model/ShowKafkaTopicDetailRequest';
@@ -400,8 +405,6 @@ import { UpdateScheduledTaskResponse } from './model/UpdateScheduledTaskResponse
 import { UpdateTopicAccessPolicyReq } from './model/UpdateTopicAccessPolicyReq';
 import { UpdateTopicAccessPolicyRequest } from './model/UpdateTopicAccessPolicyRequest';
 import { UpdateTopicAccessPolicyResponse } from './model/UpdateTopicAccessPolicyResponse';
-import { UpdateTopicReplicaRequest } from './model/UpdateTopicReplicaRequest';
-import { UpdateTopicReplicaResponse } from './model/UpdateTopicReplicaResponse';
 import { UpdateUserReq } from './model/UpdateUserReq';
 import { UpdateVolumeExpansionConfigRequest } from './model/UpdateVolumeExpansionConfigRequest';
 import { UpdateVolumeExpansionConfigResponse } from './model/UpdateVolumeExpansionConfigResponse';
@@ -754,6 +757,27 @@ export class KafkaClient {
     }
 
     /**
+     * 新增Kafka实例指定Topic分区。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增Kafka实例指定Topic分区
+     * @param {string} instanceId 实例ID。
+     * @param {string} topic Topic名称。
+     * @param {CreatePartitionReq} createPartitionRequestBody 请求消息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPartition(createPartitionRequest?: CreatePartitionRequest): Promise<CreatePartitionResponse> {
+        const options = ParamCreater().createPartition(createPartitionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建按需计费类型的Kafka实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -855,7 +879,29 @@ export class KafkaClient {
     }
 
     /**
+     * kafka实例删除指定消费组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary kafka实例删除指定消费组
+     * @param {string} instanceId 实例ID。
+     * @param {string} group 消费组ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteGroup(deleteGroupRequest?: DeleteGroupRequest): Promise<DeleteGroupResponse> {
+        const options = ParamCreater().deleteGroup(deleteGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除指定的实例，释放该实例的所有资源。
+     * 
+     * [注意：调用本接口删除的实例将被彻底删除，不会进入回收站，且删除后不可恢复。若您需要删除的实例进入回收站，请使用[批量重启或删除实例](BatchRestartOrDeleteInstances.xml)。](tag:hws,hws_hk,cmcc,ctc,sbc,hk_sbc,tm,hk_tm,srg)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -908,6 +954,27 @@ export class KafkaClient {
      */
     public deleteKafkaMessage(deleteKafkaMessageRequest?: DeleteKafkaMessageRequest): Promise<DeleteKafkaMessageResponse> {
         const options = ParamCreater().deleteKafkaMessage(deleteKafkaMessageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除Kafka消息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除Kafka消息
+     * @param {string} instanceId 实例ID。
+     * @param {string} topic Topic名称。
+     * @param {DeleteKafkaMessageRequestBody} deleteKafkaMessageRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteKafkaTopicMessages(deleteKafkaTopicMessagesRequest?: DeleteKafkaTopicMessagesRequest): Promise<DeleteKafkaTopicMessagesResponse> {
+        const options = ParamCreater().deleteKafkaTopicMessages(deleteKafkaTopicMessagesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -976,18 +1043,17 @@ export class KafkaClient {
     }
 
     /**
-     * 删除指定用户。
+     * 开启Kafka实例域名访问后，客户端可以通过域名连接Kafka实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除指定用户
-     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {string} userName **参数解释**： 用户名。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @summary 开启Kafka实例域名访问能力
+     * @param {string} instanceId 实例ID，从[查询所有实例列表](ListInstances.xml)获取实例ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteUser(deleteUserRequest?: DeleteUserRequest): Promise<DeleteUserResponse> {
-        const options = ParamCreater().deleteUser(deleteUserRequest);
+    public enableDns(enableDnsRequest?: EnableDnsRequest): Promise<EnableDnsResponse> {
+        const options = ParamCreater().enableDns(enableDnsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1061,7 +1127,7 @@ export class KafkaClient {
      *
      * @summary 查询产品规格列表
      * @param {'kafka'} engine **参数解释**： 消息引擎的类型。 **约束限制**： 不涉及。 **取值范围**： kafka **默认取值**： 不涉及。
-     * @param {string} [productId] **参数解释**： 产品ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [productId] **参数解释**： 产品ID。 **约束限制**： 不涉及。 **取值范围**： [- s6.2u4g.single.small：对应规格kafka.2u4g.single.small。](tag:ax,dt,hws,hws_eu,hws_hk,srg) [- c6.2u4g.single：对应规格kafka.2u4g.single。](tag:ax,dt,hws,hws_eu,hws_hk,srg) [- s6.2u4g.cluster.small：对应规格kafka.2u4g.cluster.small。](tag:ax,dt,hws,hws_eu,hws_hk,srg) - c6.2u4g.cluster：对应规格kafka.2u4g.cluster。 - c6.4u8g.cluster：对应规格kafka.4u8g.cluster。 - c6.8u16g.cluster：对应规格kafka.8u16g.cluster。 - c6.12u24g.cluster：对应规格kafka.12u24g.cluster。 - c6.16u32g.cluster：对应规格kafka.16u32g.cluster。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1129,7 +1195,7 @@ export class KafkaClient {
      * @param {string} engine 消息引擎。
      * @param {string} instanceId 实例ID。
      * @param {string} group 消费组名称。
-     * @param {string} [topic] topic名称。
+     * @param {string} topic topic名称。查询消费组消息位点时必填项。
      * @param {string} [partition] 分区名称。
      * @param {string} [offset] 偏移值。
      * @param {string} [limit] 最大值。
@@ -1734,7 +1800,7 @@ export class KafkaClient {
      *
      * @summary 查询后台任务中的指定实例的变更进度
      * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {string} taskId **参数解释**： 任务ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} taskId **参数解释**： 任务ID。 **约束限制**： 仅Kafka扩容时支持查询进度。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1847,13 +1913,33 @@ export class KafkaClient {
     }
 
     /**
+     * 查询指定消费组信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定消费组信息
+     * @param {string} instanceId 实例ID。
+     * @param {string} group 消费组ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showGroup(showGroupRequest?: ShowGroupRequest): Promise<ShowGroupResponse> {
+        const options = ParamCreater().showGroup(showGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询消费组信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询消费组信息
      * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {string} group **参数解释**： 消费组名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。          
+     * @param {string} group **参数解释**： 消费组名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1872,7 +1958,7 @@ export class KafkaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定实例
-     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。 
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1926,8 +2012,9 @@ export class KafkaClient {
     }
 
     /**
-     * 查询消息的偏移量和消息内容。
-     * 先根据时间戳查询消息的偏移量，再根据偏移量查询消息内容。
+     * Kafka实例支持两种消息查询方式，具体查询范围及结果如下：
+     * - 按创建时间查询：若已知消息的创建时间段，可通过该方式查询，将返回消息列表及对应偏移量，但不包含消息具体内容。
+     * - 按偏移量查询：若已知目标消息所属Topic的分区及具体偏移量，可通过该方式查询，将返回消息列表及完整的消息内容。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1935,13 +2022,13 @@ export class KafkaClient {
      * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} topic **参数解释**： Topic名称。 **约束限制**： Topic名称必须以字母开头且只支持大小写字母、中横线、下划线以及数字。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {boolean} [asc] **参数解释**： 是否按照时间排序。 **约束限制**： 不涉及。 **取值范围**： - true：按照时间排序。 - false：不按照时间排序。 **默认取值**： 不涉及。
-     * @param {string} [startTime] **参数解释**： 开始时间。  Unix毫秒时间戳。  **约束限制**： 查询消息偏移量时，为必选参数。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {string} [endTime] **参数解释**： 结束时间。  Unix毫秒时间戳。  **约束限制**： 查询消息偏移量时，为必选参数。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [startTime] **参数解释**： 开始时间。  Unix毫秒时间戳。  **约束限制**： 按创建时间查询时，为必选参数。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [endTime] **参数解释**： 结束时间。  Unix毫秒时间戳。  **约束限制**： 按创建时间查询时，为必选参数。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} [limit] **参数解释**： 每一页显示的消息数量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} [offset] **参数解释**： 页数。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {boolean} [download] **参数解释**： 是否下载消息到本地。 **约束限制**： 不涉及。 **取值范围**： - true：下载。 - false：不下载。 **默认取值**： 不涉及。
-     * @param {string} [messageOffset] **参数解释**： 消息偏移量。 **约束限制**： 查询消息内容时，为必选参数。  若start_time、end_time参数不为空，该参数无效。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {string} [partition] **参数解释**： 分区。 **约束限制**： 查询消息内容时，为必选参数。  若start_time、end_time参数不为空，该参数无效。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [messageOffset] **参数解释**： 消息偏移量。 **约束限制**： 按偏移量查询时，为必选参数。  若start_time、end_time参数不为空，该参数无效。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [partition] **参数解释**： 分区。 **约束限制**： 按偏移量查询时，为必选参数。  若start_time、end_time参数不为空，该参数无效。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} [keyword] **参数解释**： 设置查询消息的关键词。 **约束限制**： 不涉及。 **取值范围**： 0~50字符。 **默认取值**： 不涉及。
      * @param {string} [key] **参数解释**： 设置消息的KEY，查询结果为包含KEY的所有消息。 **约束限制**： 由于查询资源和性能限制，最大搜索10000条消息且所有消息总大小不超过200MB，最多返回包含KEY的前10条消息。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} [include] **参数解释**： 设置消息正文中包含的关键词，查询结果为包含此关键词的消息。 **约束限制**： 多个关键字用%2C隔开，%2C是“,”的URL编码形式。 **取值范围**： include与exclude的关键词总数不得超过20个。 **默认取值**： 不涉及。
@@ -2044,9 +2131,9 @@ export class KafkaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询Kafka产品规格核数
-     * @param {string} instanceId 实例ID。
      * @param {string} productId **参数解释**： 产品ID。 **约束限制**： 不涉及。 **取值范围**： - s6.2u4g.single.small：规格kafka.2u4g.single.small的产品ID。 - c6.2u4g.single：规格kafka.2u4g.single的产品ID。 [- s6.2u4g.cluster.small：规格kafka.2u4g.cluster.small的产品ID。](tag:hws,hws_hk,hws_eu,dt,ax) - c6.2u4g.cluster：规格kafka.2u4g.cluster的产品ID。 - c6.4u8g.cluster：规格kafka.4u8g.cluster的产品ID。 - c6.8u16g.cluster：规格kafka.8u16g.cluster的产品ID。 - c6.12u24g.cluster：规格kafka.12u24g.cluster的产品ID。 - c6.16u32g.cluster：规格kafka.16u32g.cluster的产品ID。  **默认取值**： 不涉及。
      * @param {string} brokerNum **参数解释**： broker数量。 **约束限制**： 不涉及。 **取值范围**： - Kafka实例规格为kafka.2u4g.single.small时，代理数建议取值范围1。 - Kafka实例规格为kafka.2u4g.single时，代理数建议取值范围1。 [- Kafka实例规格为kafka.2u4g.cluster.small时，代理数取值范围3-30。](tag:hws,hws_hk,hws_eu,dt,ax) - Kafka实例规格为kafka.2u4g.cluster时，代理数取值范围3-30。 - Kafka实例规格为kafka.4u8g.cluster时，代理数取值范围3-30。 - Kafka实例规格为kafka.8u16g.cluster时，代理数取值范围3-50。 - Kafka实例规格为kafka.12u24g.cluster时，代理数取值范围3-50。 - Kafka实例规格为kafka.16u32g.cluster时，代理数取值范围3-50。 **默认取值**： 不涉及。
+     * @param {string} [instanceId] **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。实例ID非必填项，只有填写实例ID响应体才会返回total_extend_storage_space。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2713,27 +2800,6 @@ export class KafkaClient {
     }
 
     /**
-     * 修改Kafka实例Topic分区的副本。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 修改Kafka实例Topic分区的副本
-     * @param {string} instanceId 实例ID。
-     * @param {string} topic Topic名称。
-     * @param {ResetReplicaReq} updateTopicReplicaRequestBody 请求消息。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateTopicReplica(updateTopicReplicaRequest?: UpdateTopicReplicaRequest): Promise<UpdateTopicReplicaResponse> {
-        const options = ParamCreater().updateTopicReplica(updateTopicReplicaRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 该接口用于修改磁盘自动扩容配置，包含磁盘自动扩容是否开启、扩容阈值、扩容步长，以及扩容上限的配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2995,11 +3061,11 @@ export class KafkaClient {
     }
 
     /**
-     * 查询开启Smart Connector功能所需要使用的资源的情况
+     * 查询开启Smart Connect功能所需要使用的资源的情况
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询开启Smart Connector功能所需资源信息
+     * @summary 查询开启Smart Connect功能所需资源信息
      * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3774,6 +3840,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 新增Kafka实例指定Topic分区。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPartition(createPartitionRequest?: CreatePartitionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/management/topics/{topic}/partitions-reassignment",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let topic;
+
+            if (createPartitionRequest !== null && createPartitionRequest !== undefined) {
+                if (createPartitionRequest instanceof CreatePartitionRequest) {
+                    instanceId = createPartitionRequest.instanceId;
+                    topic = createPartitionRequest.topic;
+                    body = createPartitionRequest.body
+                } else {
+                    instanceId = createPartitionRequest['instance_id'];
+                    topic = createPartitionRequest['topic'];
+                    body = createPartitionRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createPartition.');
+            }
+            if (topic === null || topic === undefined) {
+            throw new RequiredError('topic','Required parameter topic was null or undefined when calling createPartition.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'topic': topic, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建按需计费类型的Kafka实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3995,7 +4114,53 @@ export const ParamCreater = function () {
         },
     
         /**
+         * kafka实例删除指定消费组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteGroup(deleteGroupRequest?: DeleteGroupRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/instances/{instance_id}/groups/{group}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let group;
+
+            if (deleteGroupRequest !== null && deleteGroupRequest !== undefined) {
+                if (deleteGroupRequest instanceof DeleteGroupRequest) {
+                    instanceId = deleteGroupRequest.instanceId;
+                    group = deleteGroupRequest.group;
+                } else {
+                    instanceId = deleteGroupRequest['instance_id'];
+                    group = deleteGroupRequest['group'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteGroup.');
+            }
+            if (group === null || group === undefined) {
+            throw new RequiredError('group','Required parameter group was null or undefined when calling deleteGroup.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'group': group, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除指定的实例，释放该实例的所有资源。
+         * 
+         * [注意：调用本接口删除的实例将被彻底删除，不会进入回收站，且删除后不可恢复。若您需要删除的实例进入回收站，请使用[批量重启或删除实例](BatchRestartOrDeleteInstances.xml)。](tag:hws,hws_hk,cmcc,ctc,sbc,hk_sbc,tm,hk_tm,srg)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4123,6 +4288,59 @@ export const ParamCreater = function () {
             }
             if (topic === null || topic === undefined) {
             throw new RequiredError('topic','Required parameter topic was null or undefined when calling deleteKafkaMessage.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'topic': topic, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除Kafka消息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteKafkaTopicMessages(deleteKafkaTopicMessagesRequest?: DeleteKafkaTopicMessagesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/kafka/instances/{instance_id}/topics/{topic}/messages/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let topic;
+
+            if (deleteKafkaTopicMessagesRequest !== null && deleteKafkaTopicMessagesRequest !== undefined) {
+                if (deleteKafkaTopicMessagesRequest instanceof DeleteKafkaTopicMessagesRequest) {
+                    instanceId = deleteKafkaTopicMessagesRequest.instanceId;
+                    topic = deleteKafkaTopicMessagesRequest.topic;
+                    body = deleteKafkaTopicMessagesRequest.body
+                } else {
+                    instanceId = deleteKafkaTopicMessagesRequest['instance_id'];
+                    topic = deleteKafkaTopicMessagesRequest['topic'];
+                    body = deleteKafkaTopicMessagesRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteKafkaTopicMessages.');
+            }
+            if (topic === null || topic === undefined) {
+            throw new RequiredError('topic','Required parameter topic was null or undefined when calling deleteKafkaTopicMessages.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -4272,14 +4490,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除指定用户。
+         * 开启Kafka实例域名访问后，客户端可以通过域名连接Kafka实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        deleteUser(deleteUserRequest?: DeleteUserRequest) {
+        enableDns(enableDnsRequest?: EnableDnsRequest) {
             const options = {
-                method: "DELETE",
-                url: "/v2/{project_id}/instances/{instance_id}/users/{user_name}",
+                method: "POST",
+                url: "/v2/{project_id}/kafka/instances/{instance_id}/dns",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4289,28 +4507,21 @@ export const ParamCreater = function () {
 
             
             let instanceId;
-            
-            let userName;
 
-            if (deleteUserRequest !== null && deleteUserRequest !== undefined) {
-                if (deleteUserRequest instanceof DeleteUserRequest) {
-                    instanceId = deleteUserRequest.instanceId;
-                    userName = deleteUserRequest.userName;
+            if (enableDnsRequest !== null && enableDnsRequest !== undefined) {
+                if (enableDnsRequest instanceof EnableDnsRequest) {
+                    instanceId = enableDnsRequest.instanceId;
                 } else {
-                    instanceId = deleteUserRequest['instance_id'];
-                    userName = deleteUserRequest['user_name'];
+                    instanceId = enableDnsRequest['instance_id'];
                 }
             }
 
         
             if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteUser.');
-            }
-            if (userName === null || userName === undefined) {
-            throw new RequiredError('userName','Required parameter userName was null or undefined when calling deleteUser.');
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling enableDns.');
             }
 
-            options.pathParams = { 'instance_id': instanceId,'user_name': userName, };
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4659,6 +4870,9 @@ export const ParamCreater = function () {
             }
             if (group === null || group === undefined) {
             throw new RequiredError('group','Required parameter group was null or undefined when calling listInstanceConsumerGroupMessageOffset.');
+            }
+            if (topic === null || topic === undefined) {
+                throw new RequiredError('topic','Required parameter topic was null or undefined when calling listInstanceConsumerGroupMessageOffset.');
             }
             if (topic !== null && topic !== undefined) {
                 localVarQueryParameter['topic'] = topic;
@@ -6385,6 +6599,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询指定消费组信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showGroup(showGroupRequest?: ShowGroupRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/groups/{group}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let group;
+
+            if (showGroupRequest !== null && showGroupRequest !== undefined) {
+                if (showGroupRequest instanceof ShowGroupRequest) {
+                    instanceId = showGroupRequest.instanceId;
+                    group = showGroupRequest.group;
+                } else {
+                    instanceId = showGroupRequest['instance_id'];
+                    group = showGroupRequest['group'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showGroup.');
+            }
+            if (group === null || group === undefined) {
+            throw new RequiredError('group','Required parameter group was null or undefined when calling showGroup.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'group': group, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询消费组信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6561,8 +6819,9 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询消息的偏移量和消息内容。
-         * 先根据时间戳查询消息的偏移量，再根据偏移量查询消息内容。
+         * Kafka实例支持两种消息查询方式，具体查询范围及结果如下：
+         * - 按创建时间查询：若已知消息的创建时间段，可通过该方式查询，将返回消息列表及对应偏移量，但不包含消息具体内容。
+         * - 按偏移量查询：若已知目标消息所属Topic的分区及具体偏移量，可通过该方式查询，将返回消息列表及完整的消息内容。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6878,31 +7137,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let instanceId;
-            
             let productId;
             
             let brokerNum;
+            
+            let instanceId;
 
             if (showKafkaProductCoresRequest !== null && showKafkaProductCoresRequest !== undefined) {
                 if (showKafkaProductCoresRequest instanceof ShowKafkaProductCoresRequest) {
-                    instanceId = showKafkaProductCoresRequest.instanceId;
                     productId = showKafkaProductCoresRequest.productId;
                     brokerNum = showKafkaProductCoresRequest.brokerNum;
+                    instanceId = showKafkaProductCoresRequest.instanceId;
                 } else {
-                    instanceId = showKafkaProductCoresRequest['instance_id'];
                     productId = showKafkaProductCoresRequest['product_id'];
                     brokerNum = showKafkaProductCoresRequest['broker_num'];
+                    instanceId = showKafkaProductCoresRequest['instance_id'];
                 }
             }
 
         
-            if (instanceId === null || instanceId === undefined) {
-                throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showKafkaProductCores.');
-            }
-            if (instanceId !== null && instanceId !== undefined) {
-                localVarQueryParameter['instance_id'] = instanceId;
-            }
             if (productId === null || productId === undefined) {
                 throw new RequiredError('productId','Required parameter productId was null or undefined when calling showKafkaProductCores.');
             }
@@ -6914,6 +7167,9 @@ export const ParamCreater = function () {
             }
             if (brokerNum !== null && brokerNum !== undefined) {
                 localVarQueryParameter['broker_num'] = brokerNum;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -8399,59 +8655,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改Kafka实例Topic分区的副本。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateTopicReplica(updateTopicReplicaRequest?: UpdateTopicReplicaRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/instances/{instance_id}/management/topics/{topic}/replicas-reassignment",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let instanceId;
-            
-            let topic;
-
-            if (updateTopicReplicaRequest !== null && updateTopicReplicaRequest !== undefined) {
-                if (updateTopicReplicaRequest instanceof UpdateTopicReplicaRequest) {
-                    instanceId = updateTopicReplicaRequest.instanceId;
-                    topic = updateTopicReplicaRequest.topic;
-                    body = updateTopicReplicaRequest.body
-                } else {
-                    instanceId = updateTopicReplicaRequest['instance_id'];
-                    topic = updateTopicReplicaRequest['topic'];
-                    body = updateTopicReplicaRequest['body'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateTopicReplica.');
-            }
-            if (topic === null || topic === undefined) {
-            throw new RequiredError('topic','Required parameter topic was null or undefined when calling updateTopicReplica.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'instance_id': instanceId,'topic': topic, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 该接口用于修改磁盘自动扩容配置，包含磁盘自动扩容是否开启、扩容阈值、扩容步长，以及扩容上限的配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9021,7 +9224,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询开启Smart Connector功能所需要使用的资源的情况
+         * 查询开启Smart Connect功能所需要使用的资源的情况
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

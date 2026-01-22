@@ -6,10 +6,11 @@ export class InstanceDetail {
     public engine?: string;
     public status?: string;
     public description?: string;
-    public type?: InstanceDetailTypeEnum | string;
+    public type?: string;
     public specification?: string;
     private 'engine_version'?: string;
     private 'instance_id'?: string;
+    private 'arch_type'?: string;
     private 'charging_mode'?: number;
     private 'vpc_id'?: string;
     private 'vpc_name'?: string;
@@ -64,8 +65,11 @@ export class InstanceDetail {
     private 'produce_portion'?: number;
     private 'consume_portion'?: number;
     private 'dr_enable'?: boolean;
+    private 'quota_address'?: string;
+    private 'max_msg_process_tps'?: number;
     private 'config_ssl_need_restart_process'?: boolean;
     private 'tls_mode'?: string;
+    private 'enable_elastic_tps'?: boolean;
     public constructor() { 
     }
     public withName(name: string): InstanceDetail {
@@ -84,7 +88,7 @@ export class InstanceDetail {
         this['description'] = description;
         return this;
     }
-    public withType(type: InstanceDetailTypeEnum | string): InstanceDetail {
+    public withType(type: string): InstanceDetail {
         this['type'] = type;
         return this;
     }
@@ -111,6 +115,16 @@ export class InstanceDetail {
     }
     public get instanceId(): string | undefined {
         return this['instance_id'];
+    }
+    public withArchType(archType: string): InstanceDetail {
+        this['arch_type'] = archType;
+        return this;
+    }
+    public set archType(archType: string  | undefined) {
+        this['arch_type'] = archType;
+    }
+    public get archType(): string | undefined {
+        return this['arch_type'];
     }
     public withChargingMode(chargingMode: number): InstanceDetail {
         this['charging_mode'] = chargingMode;
@@ -646,6 +660,26 @@ export class InstanceDetail {
     public get drEnable(): boolean | undefined {
         return this['dr_enable'];
     }
+    public withQuotaAddress(quotaAddress: string): InstanceDetail {
+        this['quota_address'] = quotaAddress;
+        return this;
+    }
+    public set quotaAddress(quotaAddress: string  | undefined) {
+        this['quota_address'] = quotaAddress;
+    }
+    public get quotaAddress(): string | undefined {
+        return this['quota_address'];
+    }
+    public withMaxMsgProcessTps(maxMsgProcessTps: number): InstanceDetail {
+        this['max_msg_process_tps'] = maxMsgProcessTps;
+        return this;
+    }
+    public set maxMsgProcessTps(maxMsgProcessTps: number  | undefined) {
+        this['max_msg_process_tps'] = maxMsgProcessTps;
+    }
+    public get maxMsgProcessTps(): number | undefined {
+        return this['max_msg_process_tps'];
+    }
     public withConfigSslNeedRestartProcess(configSslNeedRestartProcess: boolean): InstanceDetail {
         this['config_ssl_need_restart_process'] = configSslNeedRestartProcess;
         return this;
@@ -666,13 +700,14 @@ export class InstanceDetail {
     public get tlsMode(): string | undefined {
         return this['tls_mode'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum InstanceDetailTypeEnum {
-    SINGLE = 'single',
-    CLUSTER = 'cluster'
+    public withEnableElasticTps(enableElasticTps: boolean): InstanceDetail {
+        this['enable_elastic_tps'] = enableElasticTps;
+        return this;
+    }
+    public set enableElasticTps(enableElasticTps: boolean  | undefined) {
+        this['enable_elastic_tps'] = enableElasticTps;
+    }
+    public get enableElasticTps(): boolean | undefined {
+        return this['enable_elastic_tps'];
+    }
 }

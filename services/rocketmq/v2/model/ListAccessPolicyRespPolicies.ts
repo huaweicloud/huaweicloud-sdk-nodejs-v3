@@ -2,7 +2,6 @@
 
 export class ListAccessPolicyRespPolicies {
     private 'access_key'?: string;
-    private 'secret_key'?: string;
     private 'white_remote_address'?: string;
     public admin?: boolean;
     public perm?: string;
@@ -17,16 +16,6 @@ export class ListAccessPolicyRespPolicies {
     }
     public get accessKey(): string | undefined {
         return this['access_key'];
-    }
-    public withSecretKey(secretKey: string): ListAccessPolicyRespPolicies {
-        this['secret_key'] = secretKey;
-        return this;
-    }
-    public set secretKey(secretKey: string  | undefined) {
-        this['secret_key'] = secretKey;
-    }
-    public get secretKey(): string | undefined {
-        return this['secret_key'];
     }
     public withWhiteRemoteAddress(whiteRemoteAddress: string): ListAccessPolicyRespPolicies {
         this['white_remote_address'] = whiteRemoteAddress;

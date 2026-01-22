@@ -4,21 +4,23 @@ import { BssParam } from './BssParam';
 export class CreateInstanceByEngineReq {
     public name?: string;
     public description?: string;
-    public engine?: CreateInstanceByEngineReqEngineEnum | string;
-    private 'engine_version'?: CreateInstanceByEngineReqEngineVersionEnum | string;
+    public engine?: string;
+    private 'engine_version'?: string;
     private 'storage_space'?: number;
     private 'vpc_id'?: string;
     private 'subnet_id'?: string;
     private 'security_group_id'?: string;
     private 'available_zones'?: Array<string>;
-    private 'product_id'?: CreateInstanceByEngineReqProductIdEnum | string;
+    private 'product_id'?: string;
     private 'ssl_enable'?: boolean;
-    private 'storage_spec_code'?: CreateInstanceByEngineReqStorageSpecCodeEnum | string;
+    private 'storage_spec_code'?: string;
     private 'enterprise_project_id'?: string;
     private 'enable_acl'?: boolean;
     private 'ipv6_enable'?: boolean;
     private 'proxy_enable'?: boolean;
     private 'enable_publicip'?: boolean;
+    private 'disk_encrypted_enable'?: boolean;
+    private 'disk_encrypted_key'?: string;
     private 'publicip_id'?: string;
     private 'broker_num'?: number;
     private 'arch_type'?: string;
@@ -45,18 +47,18 @@ export class CreateInstanceByEngineReq {
         this['description'] = description;
         return this;
     }
-    public withEngine(engine: CreateInstanceByEngineReqEngineEnum | string): CreateInstanceByEngineReq {
+    public withEngine(engine: string): CreateInstanceByEngineReq {
         this['engine'] = engine;
         return this;
     }
-    public withEngineVersion(engineVersion: CreateInstanceByEngineReqEngineVersionEnum | string): CreateInstanceByEngineReq {
+    public withEngineVersion(engineVersion: string): CreateInstanceByEngineReq {
         this['engine_version'] = engineVersion;
         return this;
     }
-    public set engineVersion(engineVersion: CreateInstanceByEngineReqEngineVersionEnum | string  | undefined) {
+    public set engineVersion(engineVersion: string  | undefined) {
         this['engine_version'] = engineVersion;
     }
-    public get engineVersion(): CreateInstanceByEngineReqEngineVersionEnum | string | undefined {
+    public get engineVersion(): string | undefined {
         return this['engine_version'];
     }
     public withStorageSpace(storageSpace: number): CreateInstanceByEngineReq {
@@ -109,14 +111,14 @@ export class CreateInstanceByEngineReq {
     public get availableZones(): Array<string> | undefined {
         return this['available_zones'];
     }
-    public withProductId(productId: CreateInstanceByEngineReqProductIdEnum | string): CreateInstanceByEngineReq {
+    public withProductId(productId: string): CreateInstanceByEngineReq {
         this['product_id'] = productId;
         return this;
     }
-    public set productId(productId: CreateInstanceByEngineReqProductIdEnum | string  | undefined) {
+    public set productId(productId: string  | undefined) {
         this['product_id'] = productId;
     }
-    public get productId(): CreateInstanceByEngineReqProductIdEnum | string | undefined {
+    public get productId(): string | undefined {
         return this['product_id'];
     }
     public withSslEnable(sslEnable: boolean): CreateInstanceByEngineReq {
@@ -129,14 +131,14 @@ export class CreateInstanceByEngineReq {
     public get sslEnable(): boolean | undefined {
         return this['ssl_enable'];
     }
-    public withStorageSpecCode(storageSpecCode: CreateInstanceByEngineReqStorageSpecCodeEnum | string): CreateInstanceByEngineReq {
+    public withStorageSpecCode(storageSpecCode: string): CreateInstanceByEngineReq {
         this['storage_spec_code'] = storageSpecCode;
         return this;
     }
-    public set storageSpecCode(storageSpecCode: CreateInstanceByEngineReqStorageSpecCodeEnum | string  | undefined) {
+    public set storageSpecCode(storageSpecCode: string  | undefined) {
         this['storage_spec_code'] = storageSpecCode;
     }
-    public get storageSpecCode(): CreateInstanceByEngineReqStorageSpecCodeEnum | string | undefined {
+    public get storageSpecCode(): string | undefined {
         return this['storage_spec_code'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): CreateInstanceByEngineReq {
@@ -189,6 +191,26 @@ export class CreateInstanceByEngineReq {
     public get enablePublicip(): boolean | undefined {
         return this['enable_publicip'];
     }
+    public withDiskEncryptedEnable(diskEncryptedEnable: boolean): CreateInstanceByEngineReq {
+        this['disk_encrypted_enable'] = diskEncryptedEnable;
+        return this;
+    }
+    public set diskEncryptedEnable(diskEncryptedEnable: boolean  | undefined) {
+        this['disk_encrypted_enable'] = diskEncryptedEnable;
+    }
+    public get diskEncryptedEnable(): boolean | undefined {
+        return this['disk_encrypted_enable'];
+    }
+    public withDiskEncryptedKey(diskEncryptedKey: string): CreateInstanceByEngineReq {
+        this['disk_encrypted_key'] = diskEncryptedKey;
+        return this;
+    }
+    public set diskEncryptedKey(diskEncryptedKey: string  | undefined) {
+        this['disk_encrypted_key'] = diskEncryptedKey;
+    }
+    public get diskEncryptedKey(): string | undefined {
+        return this['disk_encrypted_key'];
+    }
     public withPublicipId(publicipId: string): CreateInstanceByEngineReq {
         this['publicip_id'] = publicipId;
         return this;
@@ -239,45 +261,4 @@ export class CreateInstanceByEngineReq {
     public get bssParam(): BssParam | undefined {
         return this['bss_param'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateInstanceByEngineReqEngineEnum {
-    RELIABILITY = 'reliability'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateInstanceByEngineReqEngineVersionEnum {
-    E_4_8_0_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TMDT_5_X_TAGHCS = '[4.8.0](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,dt)[5.x](tag:hcs)'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateInstanceByEngineReqProductIdEnum {
-    C6_4U8G_CLUSTER_SMALL_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TMDT_C6_2U8G_SINGLE_X86_TAGHCS = '[c6.4u8g.cluster.small](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,dt)[c6.2u8g.single.x86](tag:hcs)',
-    C6_4U8G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TMDT_C6_4U16G_CLUSTER_X86_TAGHCSFCS = '[c6.4u8g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,dt)[c6.4u16g.cluster.x86](tag:hcs,fcs)',
-    C6_8U16G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TMDT_C6_8U32G_CLUSTER_X86_TAGHCSFCS = '[c6.8u16g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,dt)[c6.8u32g.cluster.x86](tag:hcs,fcs)',
-    C6_12U24G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TMDT_C6_16U64G_CLUSTER_X86_TAGHCSFCS = '[c6.12u24g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,dt)[c6.16u64g.cluster.x86](tag:hcs,fcs)',
-    C6_16U32G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TMDT_C6_32U128G_CLUSTER_X86_TAGHCSFCS = '[c6.16u32g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,dt)[c6.32u128g.cluster.x86](tag:hcs,fcs)',
-    C6_2U8G_CLUSTER_X86_TAGFCS = '[c6.2u8g.cluster.x86](tag:fcs)',
-    C6_2U8G_CLUSTER_ARM_TAGFCS = '[c6.2u8g.cluster.arm](tag:fcs)',
-    C6_2U8G_SINGLE_ARM_TAGHCS = '[c6.2u8g.single.arm](tag:hcs)',
-    C6_4U16G_CLUSTER_ARM_TAGHCSFCS = '[c6.4u16g.cluster.arm](tag:hcs,fcs)',
-    C6_8U32G_CLUSTER_ARM_TAGHCSFCS = '[c6.8u32g.cluster.arm](tag:hcs,fcs)',
-    C6_16U64G_CLUSTER_ARM_TAGHCSFCS = '[c6.16u64g.cluster.arm](tag:hcs,fcs)',
-    C6_32U128G_CLUSTER_ARM_TAGHCSFCS = '[c6.32u128g.cluster.arm](tag:hcs,fcs)'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateInstanceByEngineReqStorageSpecCodeEnum {
-    DMS_PHYSICAL_STORAGE_HIGH_V2 = 'dms.physical.storage.high.v2',
-    DMS_PHYSICAL_STORAGE_ULTRA_V2 = 'dms.physical.storage.ultra.v2'
 }

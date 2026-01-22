@@ -3,21 +3,23 @@
 export class CreatePostPaidInstanceReq {
     public name?: string;
     public description?: string;
-    public engine?: CreatePostPaidInstanceReqEngineEnum | string;
-    private 'engine_version'?: CreatePostPaidInstanceReqEngineVersionEnum | string;
+    public engine?: string;
+    private 'engine_version'?: string;
     private 'storage_space'?: number;
     private 'vpc_id'?: string;
     private 'subnet_id'?: string;
     private 'security_group_id'?: string;
     private 'available_zones'?: Array<string>;
-    private 'product_id'?: CreatePostPaidInstanceReqProductIdEnum | string;
+    private 'product_id'?: string;
     private 'ssl_enable'?: boolean;
-    private 'storage_spec_code'?: CreatePostPaidInstanceReqStorageSpecCodeEnum | string;
+    private 'storage_spec_code'?: string;
     private 'enterprise_project_id'?: string;
     private 'enable_acl'?: boolean;
     private 'ipv6_enable'?: boolean;
     private 'proxy_enable'?: boolean;
     private 'enable_publicip'?: boolean;
+    private 'disk_encrypted_enable'?: boolean;
+    private 'disk_encrypted_key'?: string;
     private 'publicip_id'?: string;
     private 'broker_num'?: number;
     private 'arch_type'?: string;
@@ -43,18 +45,18 @@ export class CreatePostPaidInstanceReq {
         this['description'] = description;
         return this;
     }
-    public withEngine(engine: CreatePostPaidInstanceReqEngineEnum | string): CreatePostPaidInstanceReq {
+    public withEngine(engine: string): CreatePostPaidInstanceReq {
         this['engine'] = engine;
         return this;
     }
-    public withEngineVersion(engineVersion: CreatePostPaidInstanceReqEngineVersionEnum | string): CreatePostPaidInstanceReq {
+    public withEngineVersion(engineVersion: string): CreatePostPaidInstanceReq {
         this['engine_version'] = engineVersion;
         return this;
     }
-    public set engineVersion(engineVersion: CreatePostPaidInstanceReqEngineVersionEnum | string  | undefined) {
+    public set engineVersion(engineVersion: string  | undefined) {
         this['engine_version'] = engineVersion;
     }
-    public get engineVersion(): CreatePostPaidInstanceReqEngineVersionEnum | string | undefined {
+    public get engineVersion(): string | undefined {
         return this['engine_version'];
     }
     public withStorageSpace(storageSpace: number): CreatePostPaidInstanceReq {
@@ -107,14 +109,14 @@ export class CreatePostPaidInstanceReq {
     public get availableZones(): Array<string> | undefined {
         return this['available_zones'];
     }
-    public withProductId(productId: CreatePostPaidInstanceReqProductIdEnum | string): CreatePostPaidInstanceReq {
+    public withProductId(productId: string): CreatePostPaidInstanceReq {
         this['product_id'] = productId;
         return this;
     }
-    public set productId(productId: CreatePostPaidInstanceReqProductIdEnum | string  | undefined) {
+    public set productId(productId: string  | undefined) {
         this['product_id'] = productId;
     }
-    public get productId(): CreatePostPaidInstanceReqProductIdEnum | string | undefined {
+    public get productId(): string | undefined {
         return this['product_id'];
     }
     public withSslEnable(sslEnable: boolean): CreatePostPaidInstanceReq {
@@ -127,14 +129,14 @@ export class CreatePostPaidInstanceReq {
     public get sslEnable(): boolean | undefined {
         return this['ssl_enable'];
     }
-    public withStorageSpecCode(storageSpecCode: CreatePostPaidInstanceReqStorageSpecCodeEnum | string): CreatePostPaidInstanceReq {
+    public withStorageSpecCode(storageSpecCode: string): CreatePostPaidInstanceReq {
         this['storage_spec_code'] = storageSpecCode;
         return this;
     }
-    public set storageSpecCode(storageSpecCode: CreatePostPaidInstanceReqStorageSpecCodeEnum | string  | undefined) {
+    public set storageSpecCode(storageSpecCode: string  | undefined) {
         this['storage_spec_code'] = storageSpecCode;
     }
-    public get storageSpecCode(): CreatePostPaidInstanceReqStorageSpecCodeEnum | string | undefined {
+    public get storageSpecCode(): string | undefined {
         return this['storage_spec_code'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): CreatePostPaidInstanceReq {
@@ -187,6 +189,26 @@ export class CreatePostPaidInstanceReq {
     public get enablePublicip(): boolean | undefined {
         return this['enable_publicip'];
     }
+    public withDiskEncryptedEnable(diskEncryptedEnable: boolean): CreatePostPaidInstanceReq {
+        this['disk_encrypted_enable'] = diskEncryptedEnable;
+        return this;
+    }
+    public set diskEncryptedEnable(diskEncryptedEnable: boolean  | undefined) {
+        this['disk_encrypted_enable'] = diskEncryptedEnable;
+    }
+    public get diskEncryptedEnable(): boolean | undefined {
+        return this['disk_encrypted_enable'];
+    }
+    public withDiskEncryptedKey(diskEncryptedKey: string): CreatePostPaidInstanceReq {
+        this['disk_encrypted_key'] = diskEncryptedKey;
+        return this;
+    }
+    public set diskEncryptedKey(diskEncryptedKey: string  | undefined) {
+        this['disk_encrypted_key'] = diskEncryptedKey;
+    }
+    public get diskEncryptedKey(): string | undefined {
+        return this['disk_encrypted_key'];
+    }
     public withPublicipId(publicipId: string): CreatePostPaidInstanceReq {
         this['publicip_id'] = publicipId;
         return this;
@@ -227,43 +249,4 @@ export class CreatePostPaidInstanceReq {
     public get tlsMode(): string | undefined {
         return this['tls_mode'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreatePostPaidInstanceReqEngineEnum {
-    RELIABILITY = 'reliability'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreatePostPaidInstanceReqEngineVersionEnum {
-    E_4_8_0_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TMDT_5_X_TAGHCS = '[4.8.0](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,dt)[5.x](tag:hcs)'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreatePostPaidInstanceReqProductIdEnum {
-    C6_4U8G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TMDT_C6_4U16G_CLUSTER_X86_TAGHCSFCS = '[c6.4u8g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,dt)[c6.4u16g.cluster.x86](tag:hcs,fcs)',
-    C6_8U16G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TMDT_C6_8U32G_CLUSTER_X86_TAGHCSFCS = '[c6.8u16g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,dt)[c6.8u32g.cluster.x86](tag:hcs,fcs)',
-    C6_12U24G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TMDT_C6_16U64G_CLUSTER_X86_TAGHCSFCS = '[c6.12u24g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,dt)[c6.16u64g.cluster.x86](tag:hcs,fcs)',
-    C6_16U32G_CLUSTER_TAGHWSHWS_EUHWS_HKOCBHWS_OCBCTCG42HK_G42TMSBCHK_SBCHK_TMDT_C6_32U128G_CLUSTER_X86_TAGHCSFCS = '[c6.16u32g.cluster](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,dt)[c6.32u128g.cluster.x86](tag:hcs,fcs)',
-    C6_2U8G_CLUSTER_X86_TAGFCS = '[c6.2u8g.cluster.x86](tag:fcs)',
-    C6_2U8G_CLUSTER_ARM_TAGFCS = '[c6.2u8g.cluster.arm](tag:fcs)',
-    C6_4U16G_CLUSTER_ARM_TAGHCSFCS = '[c6.4u16g.cluster.arm](tag:hcs,fcs)',
-    C6_8U32G_CLUSTER_ARM_TAGHCSFCS = '[c6.8u32g.cluster.arm](tag:hcs,fcs)',
-    C6_16U64G_CLUSTER_ARM_TAGHCSFCS = '[c6.16u64g.cluster.arm](tag:hcs,fcs)',
-    C6_32U128G_CLUSTER_ARM_TAGHCSFCS = '[c6.32u128g.cluster.arm](tag:hcs,fcs)'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreatePostPaidInstanceReqStorageSpecCodeEnum {
-    DMS_PHYSICAL_STORAGE_HIGH_V2 = 'dms.physical.storage.high.v2',
-    DMS_PHYSICAL_STORAGE_ULTRA_V2 = 'dms.physical.storage.ultra.v2'
 }

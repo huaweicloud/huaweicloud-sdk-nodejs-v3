@@ -22,5 +22,6 @@ export class CreateInstanceByEngineRequest {
     * @enum {string}
     */
 export enum CreateInstanceByEngineRequestEngineEnum {
+    ROCKETMQ = 'rocketmq',
     RELIABILITY = 'reliability'
 }

@@ -7,7 +7,7 @@ export class ShowInstanceResponse extends SdkResponse {
     public engine?: string;
     public status?: string;
     public description?: string;
-    public type?: ShowInstanceResponseTypeEnum | string;
+    public type?: string;
     public specification?: string;
     private 'engine_version'?: string;
     private 'instance_id'?: string;
@@ -66,8 +66,13 @@ export class ShowInstanceResponse extends SdkResponse {
     private 'produce_portion'?: number;
     private 'consume_portion'?: number;
     private 'dr_enable'?: boolean;
+    private 'quota_address'?: string;
+    private 'max_msg_process_tps'?: number;
     private 'config_ssl_need_restart_process'?: boolean;
     private 'tls_mode'?: string;
+    private 'arch_type'?: string;
+    private 'enable_elastic_tps'?: boolean;
+    private 'auto_volume_expand_enable'?: boolean;
     public constructor() { 
         super();
     }
@@ -87,7 +92,7 @@ export class ShowInstanceResponse extends SdkResponse {
         this['description'] = description;
         return this;
     }
-    public withType(type: ShowInstanceResponseTypeEnum | string): ShowInstanceResponse {
+    public withType(type: string): ShowInstanceResponse {
         this['type'] = type;
         return this;
     }
@@ -659,6 +664,26 @@ export class ShowInstanceResponse extends SdkResponse {
     public get drEnable(): boolean | undefined {
         return this['dr_enable'];
     }
+    public withQuotaAddress(quotaAddress: string): ShowInstanceResponse {
+        this['quota_address'] = quotaAddress;
+        return this;
+    }
+    public set quotaAddress(quotaAddress: string  | undefined) {
+        this['quota_address'] = quotaAddress;
+    }
+    public get quotaAddress(): string | undefined {
+        return this['quota_address'];
+    }
+    public withMaxMsgProcessTps(maxMsgProcessTps: number): ShowInstanceResponse {
+        this['max_msg_process_tps'] = maxMsgProcessTps;
+        return this;
+    }
+    public set maxMsgProcessTps(maxMsgProcessTps: number  | undefined) {
+        this['max_msg_process_tps'] = maxMsgProcessTps;
+    }
+    public get maxMsgProcessTps(): number | undefined {
+        return this['max_msg_process_tps'];
+    }
     public withConfigSslNeedRestartProcess(configSslNeedRestartProcess: boolean): ShowInstanceResponse {
         this['config_ssl_need_restart_process'] = configSslNeedRestartProcess;
         return this;
@@ -679,13 +704,34 @@ export class ShowInstanceResponse extends SdkResponse {
     public get tlsMode(): string | undefined {
         return this['tls_mode'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ShowInstanceResponseTypeEnum {
-    SINGLE = 'single',
-    CLUSTER = 'cluster'
+    public withArchType(archType: string): ShowInstanceResponse {
+        this['arch_type'] = archType;
+        return this;
+    }
+    public set archType(archType: string  | undefined) {
+        this['arch_type'] = archType;
+    }
+    public get archType(): string | undefined {
+        return this['arch_type'];
+    }
+    public withEnableElasticTps(enableElasticTps: boolean): ShowInstanceResponse {
+        this['enable_elastic_tps'] = enableElasticTps;
+        return this;
+    }
+    public set enableElasticTps(enableElasticTps: boolean  | undefined) {
+        this['enable_elastic_tps'] = enableElasticTps;
+    }
+    public get enableElasticTps(): boolean | undefined {
+        return this['enable_elastic_tps'];
+    }
+    public withAutoVolumeExpandEnable(autoVolumeExpandEnable: boolean): ShowInstanceResponse {
+        this['auto_volume_expand_enable'] = autoVolumeExpandEnable;
+        return this;
+    }
+    public set autoVolumeExpandEnable(autoVolumeExpandEnable: boolean  | undefined) {
+        this['auto_volume_expand_enable'] = autoVolumeExpandEnable;
+    }
+    public get autoVolumeExpandEnable(): boolean | undefined {
+        return this['auto_volume_expand_enable'];
+    }
 }

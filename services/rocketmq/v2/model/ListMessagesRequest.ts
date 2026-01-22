@@ -1,12 +1,12 @@
 
 
 export class ListMessagesRequest {
-    public engine?: ListMessagesRequestEngineEnum | string;
+    public engine?: string;
     private 'instance_id'?: string;
     public topic?: string;
     public queue?: string;
-    public limit?: string;
-    public offset?: string;
+    public limit?: number;
+    public offset?: number;
     public key?: string;
     private 'start_time'?: string;
     private 'end_time'?: string;
@@ -16,7 +16,7 @@ export class ListMessagesRequest {
         this['instance_id'] = instanceId;
         this['topic'] = topic;
     }
-    public withEngine(engine: ListMessagesRequestEngineEnum | string): ListMessagesRequest {
+    public withEngine(engine: string): ListMessagesRequest {
         this['engine'] = engine;
         return this;
     }
@@ -38,11 +38,11 @@ export class ListMessagesRequest {
         this['queue'] = queue;
         return this;
     }
-    public withLimit(limit: string): ListMessagesRequest {
+    public withLimit(limit: number): ListMessagesRequest {
         this['limit'] = limit;
         return this;
     }
-    public withOffset(offset: string): ListMessagesRequest {
+    public withOffset(offset: number): ListMessagesRequest {
         this['offset'] = offset;
         return this;
     }
@@ -80,12 +80,4 @@ export class ListMessagesRequest {
     public get msgId(): string | undefined {
         return this['msg_id'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListMessagesRequestEngineEnum {
-    RELIABILITY = 'reliability'
 }

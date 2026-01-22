@@ -7,8 +7,8 @@ import { MigrationRocketMqTopicConfig } from './MigrationRocketMqTopicConfig';
 
 
 export class CreateRocketMqMigrationTaskReq {
-    public topicConfigTable?: { [key: string]: MigrationRocketMqTopicConfig; };
-    public subscriptionGroupTable?: { [key: string]: MigrationRocketMqSubscriptionGroup; };
+    private 'topic_config_table'?: { [key: string]: MigrationRocketMqTopicConfig; };
+    private 'subscription_group_table'?: { [key: string]: MigrationRocketMqSubscriptionGroup; };
     public vhosts?: Array<MigrationRabbitVhostMetadata>;
     public queues?: Array<MigrationRabbitQueueMetadata>;
     public exchanges?: Array<MigrationRabbitExchangeMetadata>;
@@ -16,12 +16,24 @@ export class CreateRocketMqMigrationTaskReq {
     public constructor() { 
     }
     public withTopicConfigTable(topicConfigTable: { [key: string]: MigrationRocketMqTopicConfig; }): CreateRocketMqMigrationTaskReq {
-        this['topicConfigTable'] = topicConfigTable;
+        this['topic_config_table'] = topicConfigTable;
         return this;
     }
+    public set topicConfigTable(topicConfigTable: { [key: string]: MigrationRocketMqTopicConfig; }  | undefined) {
+        this['topic_config_table'] = topicConfigTable;
+    }
+    public get topicConfigTable(): { [key: string]: MigrationRocketMqTopicConfig; } | undefined {
+        return this['topic_config_table'];
+    }
     public withSubscriptionGroupTable(subscriptionGroupTable: { [key: string]: MigrationRocketMqSubscriptionGroup; }): CreateRocketMqMigrationTaskReq {
-        this['subscriptionGroupTable'] = subscriptionGroupTable;
+        this['subscription_group_table'] = subscriptionGroupTable;
         return this;
+    }
+    public set subscriptionGroupTable(subscriptionGroupTable: { [key: string]: MigrationRocketMqSubscriptionGroup; }  | undefined) {
+        this['subscription_group_table'] = subscriptionGroupTable;
+    }
+    public get subscriptionGroupTable(): { [key: string]: MigrationRocketMqSubscriptionGroup; } | undefined {
+        return this['subscription_group_table'];
     }
     public withVhosts(vhosts: Array<MigrationRabbitVhostMetadata>): CreateRocketMqMigrationTaskReq {
         this['vhosts'] = vhosts;

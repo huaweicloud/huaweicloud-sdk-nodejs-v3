@@ -3,7 +3,7 @@
 export class ModifyKafkaPublicIPAccessSwitchReq {
     private 'eip_address'?: string;
     private 'public_boundwidth'?: number;
-    public publicIpId?: string;
+    private 'publicip_id'?: string;
     public constructor() { 
     }
     public withEipAddress(eipAddress: string): ModifyKafkaPublicIPAccessSwitchReq {
@@ -26,8 +26,14 @@ export class ModifyKafkaPublicIPAccessSwitchReq {
     public get publicBoundwidth(): number | undefined {
         return this['public_boundwidth'];
     }
-    public withPublicIpId(publicIpId: string): ModifyKafkaPublicIPAccessSwitchReq {
-        this['publicIpId'] = publicIpId;
+    public withPublicipId(publicipId: string): ModifyKafkaPublicIPAccessSwitchReq {
+        this['publicip_id'] = publicipId;
         return this;
+    }
+    public set publicipId(publicipId: string  | undefined) {
+        this['publicip_id'] = publicipId;
+    }
+    public get publicipId(): string | undefined {
+        return this['publicip_id'];
     }
 }

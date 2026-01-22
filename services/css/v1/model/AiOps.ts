@@ -9,6 +9,7 @@ export class AiOps {
     public name?: string;
     public desc?: string;
     public status?: number;
+    private 'create_time'?: string;
     public summary?: SummaryInfo;
     private 'task_risks'?: Array<AiOpsRiskObject>;
     public constructor() { 
@@ -48,6 +49,16 @@ export class AiOps {
     public withStatus(status: number): AiOps {
         this['status'] = status;
         return this;
+    }
+    public withCreateTime(createTime: string): AiOps {
+        this['create_time'] = createTime;
+        return this;
+    }
+    public set createTime(createTime: string  | undefined) {
+        this['create_time'] = createTime;
+    }
+    public get createTime(): string | undefined {
+        return this['create_time'];
     }
     public withSummary(summary: SummaryInfo): AiOps {
         this['summary'] = summary;

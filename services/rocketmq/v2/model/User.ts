@@ -11,7 +11,8 @@ export class User {
     private 'default_group_perm'?: UserDefaultGroupPermEnum | string;
     private 'topic_perms'?: Array<UserTopicPerms>;
     private 'group_perms'?: Array<UserGroupPerms>;
-    public constructor() { 
+    public constructor(secretKey?: string) { 
+        this['secret_key'] = secretKey;
     }
     public withAccessKey(accessKey: string): User {
         this['access_key'] = accessKey;

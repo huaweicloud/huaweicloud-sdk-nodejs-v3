@@ -3,6 +3,7 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { Accessory } from './model/Accessory';
+import { AccessoryListAccessories } from './model/AccessoryListAccessories';
 import { AddDomainNameRequest } from './model/AddDomainNameRequest';
 import { AddDomainNameRequestBody } from './model/AddDomainNameRequestBody';
 import { AddDomainNameResponse } from './model/AddDomainNameResponse';
@@ -250,6 +251,10 @@ import { ListNamespacesRequest } from './model/ListNamespacesRequest';
 import { ListNamespacesResponse } from './model/ListNamespacesResponse';
 import { ListQuotasRequest } from './model/ListQuotasRequest';
 import { ListQuotasResponse } from './model/ListQuotasResponse';
+import { ListReferencesRequest } from './model/ListReferencesRequest';
+import { ListReferencesResponse } from './model/ListReferencesResponse';
+import { ListRepoAccessoriesRequest } from './model/ListRepoAccessoriesRequest';
+import { ListRepoAccessoriesResponse } from './model/ListRepoAccessoriesResponse';
 import { ListRepoDetailsRequest } from './model/ListRepoDetailsRequest';
 import { ListRepoDetailsResponse } from './model/ListRepoDetailsResponse';
 import { ListRepoDomainsRequest } from './model/ListRepoDomainsRequest';
@@ -700,6 +705,7 @@ export class SwrClient {
      * @summary 生成临时登录指令
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
      * @param {string} [projectname] 项目名称，缺省值默认为区域名称，例如：cn-north-1。 
+     * @param {number} [durationSeconds] 自定义临时凭证有效期，单位秒，取值范围15min-24h
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1004,6 +1010,54 @@ export class SwrClient {
      */
     public listQuotas(listQuotasRequest?: ListQuotasRequest): Promise<ListQuotasResponse> {
         const options = ParamCreater().listQuotas(listQuotasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取签名镜像关联的被签名镜像版本列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取签名镜像关联的被签名镜像版本列表
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
+     * @param {string} namespace 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
+     * @param {string} repository 镜像仓库名称
+     * @param {string} tag 签名镜像的版本号
+     * @param {number} [limit] 返回条数。如果不传该参数默认返回10条记录，最大支持10条记录
+     * @param {string} [marker] 分页查询时的起始标记，接口的返回值next_marker为下一次查询的起始标记
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listReferences(listReferencesRequest?: ListReferencesRequest): Promise<ListReferencesResponse> {
+        const options = ParamCreater().listReferences(listReferencesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取共享仓的镜像的附件列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询镜像的附件列表
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
+     * @param {string} namespace 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
+     * @param {string} repository 镜像仓库名称
+     * @param {string} tag 镜像版本
+     * @param {number} [limit] 返回条数。如果不传该参数默认返回10条记录，最大支持100条记录
+     * @param {number} [offset] 起始索引,默认值为0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRepoAccessories(listRepoAccessoriesRequest?: ListRepoAccessoriesRequest): Promise<ListRepoAccessoriesResponse> {
+        const options = ParamCreater().listRepoAccessories(listRepoAccessoriesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2686,6 +2740,7 @@ export class SwrClient {
      * @param {string} instanceId 企业仓库实例ID
      * @param {number} [offset] 起始索引，默认为0。**注意：offset和limit参数需要配套使用。**
      * @param {number} [limit] 返回条数，默认为100，最大值为100。**注意：offset和limit参数需要配套使用。**
+     * @param {boolean} [selfOnly] 值为false的时候，拥有te_admin角色的用户可以查询实例下所有的长期登录凭证，默认情况下只查询自己创建的长期登录凭证
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4490,20 +4545,27 @@ export const ParamCreater = function () {
             let contentType;
             
             let projectname;
+            
+            let durationSeconds;
 
             if (createSecretRequest !== null && createSecretRequest !== undefined) {
                 if (createSecretRequest instanceof CreateSecretRequest) {
                     contentType = createSecretRequest.contentType;
                     projectname = createSecretRequest.projectname;
+                    durationSeconds = createSecretRequest.durationSeconds;
                 } else {
                     contentType = createSecretRequest['Content-Type'];
                     projectname = createSecretRequest['projectname'];
+                    durationSeconds = createSecretRequest['duration_seconds'];
                 }
             }
 
         
             if (projectname !== null && projectname !== undefined) {
                 localVarQueryParameter['projectname'] = projectname;
+            }
+            if (durationSeconds !== null && durationSeconds !== undefined) {
+                localVarQueryParameter['duration_seconds'] = durationSeconds;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -5268,6 +5330,152 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取签名镜像关联的被签名镜像版本列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listReferences(listReferencesRequest?: ListReferencesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/manage/namespaces/{namespace}/repos/{repository}/{tag}/references",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let namespace;
+            
+            let repository;
+            
+            let tag;
+            
+            let limit;
+            
+            let marker;
+
+            if (listReferencesRequest !== null && listReferencesRequest !== undefined) {
+                if (listReferencesRequest instanceof ListReferencesRequest) {
+                    contentType = listReferencesRequest.contentType;
+                    namespace = listReferencesRequest.namespace;
+                    repository = listReferencesRequest.repository;
+                    tag = listReferencesRequest.tag;
+                    limit = listReferencesRequest.limit;
+                    marker = listReferencesRequest.marker;
+                } else {
+                    contentType = listReferencesRequest['Content-Type'];
+                    namespace = listReferencesRequest['namespace'];
+                    repository = listReferencesRequest['repository'];
+                    tag = listReferencesRequest['tag'];
+                    limit = listReferencesRequest['limit'];
+                    marker = listReferencesRequest['marker'];
+                }
+            }
+
+        
+            if (namespace === null || namespace === undefined) {
+            throw new RequiredError('namespace','Required parameter namespace was null or undefined when calling listReferences.');
+            }
+            if (repository === null || repository === undefined) {
+            throw new RequiredError('repository','Required parameter repository was null or undefined when calling listReferences.');
+            }
+            if (tag === null || tag === undefined) {
+            throw new RequiredError('tag','Required parameter tag was null or undefined when calling listReferences.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'namespace': namespace,'repository': repository,'tag': tag, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取共享仓的镜像的附件列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRepoAccessories(listRepoAccessoriesRequest?: ListRepoAccessoriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/manage/namespaces/{namespace}/repos/{repository}/{tag}/accessories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let namespace;
+            
+            let repository;
+            
+            let tag;
+            
+            let limit;
+            
+            let offset;
+
+            if (listRepoAccessoriesRequest !== null && listRepoAccessoriesRequest !== undefined) {
+                if (listRepoAccessoriesRequest instanceof ListRepoAccessoriesRequest) {
+                    contentType = listRepoAccessoriesRequest.contentType;
+                    namespace = listRepoAccessoriesRequest.namespace;
+                    repository = listRepoAccessoriesRequest.repository;
+                    tag = listRepoAccessoriesRequest.tag;
+                    limit = listRepoAccessoriesRequest.limit;
+                    offset = listRepoAccessoriesRequest.offset;
+                } else {
+                    contentType = listRepoAccessoriesRequest['Content-Type'];
+                    namespace = listRepoAccessoriesRequest['namespace'];
+                    repository = listRepoAccessoriesRequest['repository'];
+                    tag = listRepoAccessoriesRequest['tag'];
+                    limit = listRepoAccessoriesRequest['limit'];
+                    offset = listRepoAccessoriesRequest['offset'];
+                }
+            }
+
+        
+            if (namespace === null || namespace === undefined) {
+            throw new RequiredError('namespace','Required parameter namespace was null or undefined when calling listRepoAccessories.');
+            }
+            if (repository === null || repository === undefined) {
+            throw new RequiredError('repository','Required parameter repository was null or undefined when calling listRepoAccessories.');
+            }
+            if (tag === null || tag === undefined) {
+            throw new RequiredError('tag','Required parameter tag was null or undefined when calling listRepoAccessories.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'namespace': namespace,'repository': repository,'tag': tag, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -9508,16 +9716,20 @@ export const ParamCreater = function () {
             let offset;
             
             let limit;
+            
+            let selfOnly;
 
             if (listInstanceLtCredentialsRequest !== null && listInstanceLtCredentialsRequest !== undefined) {
                 if (listInstanceLtCredentialsRequest instanceof ListInstanceLtCredentialsRequest) {
                     instanceId = listInstanceLtCredentialsRequest.instanceId;
                     offset = listInstanceLtCredentialsRequest.offset;
                     limit = listInstanceLtCredentialsRequest.limit;
+                    selfOnly = listInstanceLtCredentialsRequest.selfOnly;
                 } else {
                     instanceId = listInstanceLtCredentialsRequest['instance_id'];
                     offset = listInstanceLtCredentialsRequest['offset'];
                     limit = listInstanceLtCredentialsRequest['limit'];
+                    selfOnly = listInstanceLtCredentialsRequest['self_only'];
                 }
             }
 
@@ -9530,6 +9742,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (selfOnly !== null && selfOnly !== undefined) {
+                localVarQueryParameter['self_only'] = selfOnly;
             }
 
             options.queryParams = localVarQueryParameter;

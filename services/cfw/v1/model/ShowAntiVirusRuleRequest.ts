@@ -3,14 +3,13 @@
 export class ShowAntiVirusRuleRequest {
     private 'project_id'?: string;
     private 'object_id'?: string;
-    private 'engine_type'?: number;
     public limit?: number;
     public offset?: number;
     private 'enterprise_project_id'?: string;
-    public constructor(projectId?: string, objectId?: string, engineType?: number, limit?: number, offset?: number) { 
+    private 'engine_type'?: number;
+    public constructor(projectId?: string, objectId?: string, limit?: number, offset?: number) { 
         this['project_id'] = projectId;
         this['object_id'] = objectId;
-        this['engine_type'] = engineType;
         this['limit'] = limit;
         this['offset'] = offset;
     }
@@ -34,16 +33,6 @@ export class ShowAntiVirusRuleRequest {
     public get objectId(): string | undefined {
         return this['object_id'];
     }
-    public withEngineType(engineType: number): ShowAntiVirusRuleRequest {
-        this['engine_type'] = engineType;
-        return this;
-    }
-    public set engineType(engineType: number  | undefined) {
-        this['engine_type'] = engineType;
-    }
-    public get engineType(): number | undefined {
-        return this['engine_type'];
-    }
     public withLimit(limit: number): ShowAntiVirusRuleRequest {
         this['limit'] = limit;
         return this;
@@ -61,5 +50,15 @@ export class ShowAntiVirusRuleRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withEngineType(engineType: number): ShowAntiVirusRuleRequest {
+        this['engine_type'] = engineType;
+        return this;
+    }
+    public set engineType(engineType: number  | undefined) {
+        this['engine_type'] = engineType;
+    }
+    public get engineType(): number | undefined {
+        return this['engine_type'];
     }
 }

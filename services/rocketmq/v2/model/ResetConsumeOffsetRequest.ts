@@ -2,16 +2,16 @@ import { ResetConsumeOffsetReq } from './ResetConsumeOffsetReq';
 
 
 export class ResetConsumeOffsetRequest {
-    public engine?: ResetConsumeOffsetRequestEngineEnum | string;
+    public engine?: string;
     private 'instance_id'?: string;
-    private 'group_id'?: string;
+    public group?: string;
     public body?: ResetConsumeOffsetReq;
-    public constructor(engine?: string, instanceId?: string, groupId?: string) { 
+    public constructor(engine?: string, instanceId?: string, group?: string) { 
         this['engine'] = engine;
         this['instance_id'] = instanceId;
-        this['group_id'] = groupId;
+        this['group'] = group;
     }
-    public withEngine(engine: ResetConsumeOffsetRequestEngineEnum | string): ResetConsumeOffsetRequest {
+    public withEngine(engine: string): ResetConsumeOffsetRequest {
         this['engine'] = engine;
         return this;
     }
@@ -25,26 +25,12 @@ export class ResetConsumeOffsetRequest {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withGroupId(groupId: string): ResetConsumeOffsetRequest {
-        this['group_id'] = groupId;
+    public withGroup(group: string): ResetConsumeOffsetRequest {
+        this['group'] = group;
         return this;
-    }
-    public set groupId(groupId: string  | undefined) {
-        this['group_id'] = groupId;
-    }
-    public get groupId(): string | undefined {
-        return this['group_id'];
     }
     public withBody(body: ResetConsumeOffsetReq): ResetConsumeOffsetRequest {
         this['body'] = body;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ResetConsumeOffsetRequestEngineEnum {
-    RELIABILITY = 'reliability'
 }

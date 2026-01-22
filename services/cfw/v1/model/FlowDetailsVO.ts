@@ -7,6 +7,8 @@ export class FlowDetailsVO {
     private 'device_name'?: string;
     public item?: string;
     private 'last_time'?: number;
+    private 'agg_start_time'?: number;
+    private 'agg_end_time'?: number;
     public ports?: Array<ItemVO>;
     public region?: string;
     private 'request_byte'?: number;
@@ -55,6 +57,26 @@ export class FlowDetailsVO {
     }
     public get lastTime(): number | undefined {
         return this['last_time'];
+    }
+    public withAggStartTime(aggStartTime: number): FlowDetailsVO {
+        this['agg_start_time'] = aggStartTime;
+        return this;
+    }
+    public set aggStartTime(aggStartTime: number  | undefined) {
+        this['agg_start_time'] = aggStartTime;
+    }
+    public get aggStartTime(): number | undefined {
+        return this['agg_start_time'];
+    }
+    public withAggEndTime(aggEndTime: number): FlowDetailsVO {
+        this['agg_end_time'] = aggEndTime;
+        return this;
+    }
+    public set aggEndTime(aggEndTime: number  | undefined) {
+        this['agg_end_time'] = aggEndTime;
+    }
+    public get aggEndTime(): number | undefined {
+        return this['agg_end_time'];
     }
     public withPorts(ports: Array<ItemVO>): FlowDetailsVO {
         this['ports'] = ports;

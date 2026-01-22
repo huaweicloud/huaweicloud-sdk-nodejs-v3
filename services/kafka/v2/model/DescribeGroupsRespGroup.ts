@@ -2,7 +2,7 @@
 
 export class DescribeGroupsRespGroup {
     public state?: string;
-    public createdAt?: object;
+    public createdAt?: number;
     private 'group_id'?: string;
     private 'coordinator_id'?: number;
     private 'assignment_strategy'?: string;
@@ -13,7 +13,7 @@ export class DescribeGroupsRespGroup {
         this['state'] = state;
         return this;
     }
-    public withCreatedAt(createdAt: object): DescribeGroupsRespGroup {
+    public withCreatedAt(createdAt: number): DescribeGroupsRespGroup {
         this['createdAt'] = createdAt;
         return this;
     }

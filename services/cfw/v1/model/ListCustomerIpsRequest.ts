@@ -15,8 +15,7 @@ export class ListCustomerIpsRequest {
     public limit?: number;
     public offset?: number;
     private 'project_id'?: string;
-    public constructor(objectId?: string, fwInstanceId?: string, limit?: number, offset?: number, projectId?: string) { 
-        this['object_id'] = objectId;
+    public constructor(fwInstanceId?: string, limit?: number, offset?: number, projectId?: string) { 
         this['fw_instance_id'] = fwInstanceId;
         this['limit'] = limit;
         this['offset'] = offset;

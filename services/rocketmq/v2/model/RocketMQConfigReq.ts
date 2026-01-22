@@ -3,7 +3,9 @@
 export class RocketMQConfigReq {
     public name?: RocketMQConfigReqNameEnum | string;
     public value?: string;
-    public constructor() { 
+    public constructor(name?: string, value?: string) { 
+        this['name'] = name;
+        this['value'] = value;
     }
     public withName(name: RocketMQConfigReqNameEnum | string): RocketMQConfigReq {
         this['name'] = name;

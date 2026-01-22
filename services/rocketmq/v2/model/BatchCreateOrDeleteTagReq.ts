@@ -4,7 +4,9 @@ import { TagEntity } from './TagEntity';
 export class BatchCreateOrDeleteTagReq {
     public action?: BatchCreateOrDeleteTagReqActionEnum | string;
     public tags?: Array<TagEntity>;
-    public constructor() { 
+    public constructor(action?: string, tags?: Array<TagEntity>) { 
+        this['action'] = action;
+        this['tags'] = tags;
     }
     public withAction(action: BatchCreateOrDeleteTagReqActionEnum | string): BatchCreateOrDeleteTagReq {
         this['action'] = action;

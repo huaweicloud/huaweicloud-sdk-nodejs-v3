@@ -28,7 +28,6 @@ export class CreateTranscodingReq {
     public thumbnail?: Thumbnail;
     public thumbnails?: Array<Thumbnail>;
     private 'image_sprites'?: Array<ImageSprite>;
-    private 'pipeline_id'?: string;
     public priority?: number;
     public subtitle?: Subtitle;
     public encryption?: Encryption;
@@ -130,16 +129,6 @@ export class CreateTranscodingReq {
     }
     public get imageSprites(): Array<ImageSprite> | undefined {
         return this['image_sprites'];
-    }
-    public withPipelineId(pipelineId: string): CreateTranscodingReq {
-        this['pipeline_id'] = pipelineId;
-        return this;
-    }
-    public set pipelineId(pipelineId: string  | undefined) {
-        this['pipeline_id'] = pipelineId;
-    }
-    public get pipelineId(): string | undefined {
-        return this['pipeline_id'];
     }
     public withPriority(priority: number): CreateTranscodingReq {
         this['priority'] = priority;

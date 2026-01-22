@@ -1,10 +1,6 @@
 
 
 export class CountGlobalEipSegmentRequest {
-    public limit?: number;
-    public offset?: number;
-    public marker?: string;
-    private 'page_reverse'?: boolean;
     public fields?: Array<CountGlobalEipSegmentRequestFieldsEnum> | Array<string>;
     public id?: Array<string>;
     private 'internet_bandwidth_id'?: Array<string>;
@@ -28,28 +24,6 @@ export class CountGlobalEipSegmentRequest {
     private 'enterprise_project_id'?: Array<string>;
     public tags?: Array<string>;
     public constructor() { 
-    }
-    public withLimit(limit: number): CountGlobalEipSegmentRequest {
-        this['limit'] = limit;
-        return this;
-    }
-    public withOffset(offset: number): CountGlobalEipSegmentRequest {
-        this['offset'] = offset;
-        return this;
-    }
-    public withMarker(marker: string): CountGlobalEipSegmentRequest {
-        this['marker'] = marker;
-        return this;
-    }
-    public withPageReverse(pageReverse: boolean): CountGlobalEipSegmentRequest {
-        this['page_reverse'] = pageReverse;
-        return this;
-    }
-    public set pageReverse(pageReverse: boolean  | undefined) {
-        this['page_reverse'] = pageReverse;
-    }
-    public get pageReverse(): boolean | undefined {
-        return this['page_reverse'];
     }
     public withFields(fields: Array<CountGlobalEipSegmentRequestFieldsEnum> | Array<string>): CountGlobalEipSegmentRequest {
         this['fields'] = fields;

@@ -7,7 +7,8 @@ export class BatchUpdateConsumerGroup {
     public enabled?: boolean;
     private 'consume_orderly'?: boolean;
     private 'group_desc'?: string;
-    public constructor() { 
+    public constructor(name?: string) { 
+        this['name'] = name;
     }
     public withName(name: string): BatchUpdateConsumerGroup {
         this['name'] = name;

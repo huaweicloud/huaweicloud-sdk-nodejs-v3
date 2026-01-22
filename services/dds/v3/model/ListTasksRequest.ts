@@ -4,6 +4,7 @@ export class ListTasksRequest {
     private 'start_time'?: string;
     private 'end_time'?: string;
     public status?: string;
+    public id?: string;
     public name?: string;
     public offset?: number;
     public limit?: number;
@@ -33,6 +34,10 @@ export class ListTasksRequest {
     }
     public withStatus(status: string): ListTasksRequest {
         this['status'] = status;
+        return this;
+    }
+    public withId(id: string): ListTasksRequest {
+        this['id'] = id;
         return this;
     }
     public withName(name: string): ListTasksRequest {

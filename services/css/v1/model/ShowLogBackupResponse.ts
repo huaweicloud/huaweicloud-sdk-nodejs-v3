@@ -5,6 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowLogBackupResponse extends SdkResponse {
     public logList?: Array<LogList>;
     public type?: string;
+    public completed?: boolean;
     public constructor() { 
         super();
     }
@@ -14,6 +15,10 @@ export class ShowLogBackupResponse extends SdkResponse {
     }
     public withType(type: string): ShowLogBackupResponse {
         this['type'] = type;
+        return this;
+    }
+    public withCompleted(completed: boolean): ShowLogBackupResponse {
+        this['completed'] = completed;
         return this;
     }
 }

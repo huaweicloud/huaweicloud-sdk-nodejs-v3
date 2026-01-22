@@ -5,8 +5,6 @@ import { TagEntity } from './TagEntity';
 export class CreateInstanceReq {
     public name?: string;
     public description?: string;
-    private 'disk_encrypted_enable'?: boolean;
-    private 'disk_encrypted_key'?: string;
     public engine?: CreateInstanceReqEngineEnum | string;
     private 'engine_version'?: string;
     private 'enable_acl'?: boolean;
@@ -47,26 +45,6 @@ export class CreateInstanceReq {
     public withDescription(description: string): CreateInstanceReq {
         this['description'] = description;
         return this;
-    }
-    public withDiskEncryptedEnable(diskEncryptedEnable: boolean): CreateInstanceReq {
-        this['disk_encrypted_enable'] = diskEncryptedEnable;
-        return this;
-    }
-    public set diskEncryptedEnable(diskEncryptedEnable: boolean  | undefined) {
-        this['disk_encrypted_enable'] = diskEncryptedEnable;
-    }
-    public get diskEncryptedEnable(): boolean | undefined {
-        return this['disk_encrypted_enable'];
-    }
-    public withDiskEncryptedKey(diskEncryptedKey: string): CreateInstanceReq {
-        this['disk_encrypted_key'] = diskEncryptedKey;
-        return this;
-    }
-    public set diskEncryptedKey(diskEncryptedKey: string  | undefined) {
-        this['disk_encrypted_key'] = diskEncryptedKey;
-    }
-    public get diskEncryptedKey(): string | undefined {
-        return this['disk_encrypted_key'];
     }
     public withEngine(engine: CreateInstanceReqEngineEnum | string): CreateInstanceReq {
         this['engine'] = engine;
@@ -286,6 +264,6 @@ export enum CreateInstanceReqBrokerNumEnum {
 export enum CreateInstanceReqStorageSpecCodeEnum {
     DMS_PHYSICAL_STORAGE_HIGH_V2 = 'dms.physical.storage.high.v2',
     DMS_PHYSICAL_STORAGE_ULTRA_V2 = 'dms.physical.storage.ultra.v2',
-    DMS_PHYSICAL_STORAGE_HIGH_DSS_V2 = 'dms.physical.storage.high.dss.v2',
-    DMS_PHYSICAL_STORAGE_ULTRA_DSS_V2 = 'dms.physical.storage.ultra.dss.v2'
+    DMS_PHYSICAL_STORAGE_GENERAL_TAGHWSHWS_HKDTAX = '[dms.physical.storage.general](tag:hws,hws_hk,dt,ax)',
+    DMS_PHYSICAL_STORAGE_EXTREME_TAGHWSHWS_HKDTAX = '[dms.physical.storage.extreme](tag:hws,hws_hk,dt,ax)'
 }

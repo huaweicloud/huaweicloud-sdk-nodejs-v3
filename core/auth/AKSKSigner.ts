@@ -19,12 +19,12 @@
  * under the License.
  */
 
-import * as crypto from "crypto";
+import * as crypto from 'crypto';
 import moment from 'moment';
-import url from "url";
-import { IHttpRequest } from "../http/IHttpRequest";
-import * as _ from "lodash";
-import { ICredential } from "./ICredential";
+import url from 'url';
+import { IHttpRequest } from '../http/IHttpRequest';
+import * as _ from 'lodash';
+import { ICredential } from './ICredential';
 
 export class AKSKSigner {
     protected static EMPTY_BODY_SHA256 = 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855';
@@ -177,7 +177,7 @@ export class AKSKSigner {
     }
 
     protected static CanonicalQueryString(r: any) {
-        const keys = Object.keys(r.queryParams);
+        const keys = Object.keys(r.queryParams ?? '');
         keys.sort();
         const a = [];
         for (let i = 0; i < keys.length; i++) {

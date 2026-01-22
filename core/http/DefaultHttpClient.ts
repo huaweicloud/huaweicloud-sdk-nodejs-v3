@@ -90,7 +90,7 @@ export class DefaultHttpClient implements HttpClient {
         }
 
         const axiosInstance = axios.create(axiosRequestConfig);
-        axiosInstance.interceptors.request.use((request: AxiosRequestConfig) => {
+        axiosInstance.interceptors.request.use((request) => {
             const { url, method, data, headers } = request;
             this._logger.debug(`Request: ${method!.toUpperCase()} ${url} ${JSON.stringify(headers)} ${JSON.stringify(data)}`);
             return request;
@@ -129,19 +129,21 @@ export class DefaultHttpClient implements HttpClient {
                     // Backup URL
                     const backupUrl = this.endpoints[1];
                     // Set the baseURL of the request to the backup URL
-                    error.config.baseURL = backupUrl;
-                    error.config.headers['host'] = error.config.baseURL.replace(/^https?:\/\/(.*?)\/?$/, '$1');
-                    reSigner(error.config, this.credentials, this.httpRequest);
-                    try {
-                        // Send the request again
-                        const response = await axiosInstance.request(error.config);
-                        // If the request succeeds, reverse the order of the 'endpoints' array
-                        this.endpoints = this.endpoints.reverse();
+                    if (error.config) {
+                        error.config.baseURL = backupUrl;
+                        error.config.headers['host'] = error.config.baseURL.replace(/^https?:\/\/(.*?)\/?$/, '$1');
+                        reSigner(error.config, this.credentials, this.httpRequest);
+                        try {
+                            // Send the request again
+                            const response = await axiosInstance.request(error.config);
+                            // If the request succeeds, reverse the order of the 'endpoints' array
+                            this.endpoints = this.endpoints.reverse();
 
-                        return response;
-                    } catch (err) {
-                        // If the request fails, reject the entire request
-                        return Promise.reject(err);
+                            return response;
+                        } catch (err) {
+                            // If the request fails, reject the entire request
+                            return Promise.reject(err);
+                        }
                     }
                 }
                 // If the error code is not 'ECONNABORTED' or 'ECONNREFUSED', pass the error down
@@ -189,7 +191,11 @@ export class DefaultHttpClient implements HttpClient {
 
         if (headers['content-type'] === 'multipart/form-data') {
             const { 'content-type': contentType } = data.getHeaders();
-            requestParams.headers = { ...requestParams.headers, 'content-type': contentType };
+            if (requestParams.headers) {
+                requestParams.headers = { 
+                    ...requestParams.headers, 
+                    'content-type': contentType} as any;
+            }
         }
         // set axios config baseURL
         const primaryUrl = this.endpoints[0];
@@ -219,7 +225,7 @@ export class DefaultHttpClient implements HttpClient {
 
     private _formatExceptionResponse(error: AxiosError): ExceptionResponse {
         const transformedResponse: ExceptionResponse = {
-            data: error.response ? error.response.data : undefined,
+            data: error.response ? error.response.data as any : undefined,
             status: error.response ? error.response.status : undefined,
             headers: error.response ? error.response.headers : undefined,
             message: error.message || error.code,

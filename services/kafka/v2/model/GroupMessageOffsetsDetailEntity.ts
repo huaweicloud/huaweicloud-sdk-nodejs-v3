@@ -3,7 +3,9 @@
 export class GroupMessageOffsetsDetailEntity {
     public partition?: string;
     private 'message_current_offset'?: string;
+    public topic?: string;
     private 'message_log_start_offset'?: number;
+    public lag?: number;
     private 'message_log_end_offset'?: number;
     private 'consumer_id'?: string;
     public host?: string;
@@ -24,6 +26,10 @@ export class GroupMessageOffsetsDetailEntity {
     public get messageCurrentOffset(): string | undefined {
         return this['message_current_offset'];
     }
+    public withTopic(topic: string): GroupMessageOffsetsDetailEntity {
+        this['topic'] = topic;
+        return this;
+    }
     public withMessageLogStartOffset(messageLogStartOffset: number): GroupMessageOffsetsDetailEntity {
         this['message_log_start_offset'] = messageLogStartOffset;
         return this;
@@ -33,6 +39,10 @@ export class GroupMessageOffsetsDetailEntity {
     }
     public get messageLogStartOffset(): number | undefined {
         return this['message_log_start_offset'];
+    }
+    public withLag(lag: number): GroupMessageOffsetsDetailEntity {
+        this['lag'] = lag;
+        return this;
     }
     public withMessageLogEndOffset(messageLogEndOffset: number): GroupMessageOffsetsDetailEntity {
         this['message_log_end_offset'] = messageLogEndOffset;

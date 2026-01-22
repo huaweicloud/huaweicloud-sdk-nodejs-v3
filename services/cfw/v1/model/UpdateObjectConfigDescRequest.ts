@@ -1,9 +1,9 @@
-import { ObjectInfoDto } from './ObjectInfoDto';
+import { UpdateObjectConfigDesc } from './UpdateObjectConfigDesc';
 
 
 export class UpdateObjectConfigDescRequest {
     private 'project_id'?: string;
-    public body?: ObjectInfoDto;
+    public body?: UpdateObjectConfigDesc;
     public constructor(projectId?: string) { 
         this['project_id'] = projectId;
     }
@@ -17,7 +17,7 @@ export class UpdateObjectConfigDescRequest {
     public get projectId(): string | undefined {
         return this['project_id'];
     }
-    public withBody(body: ObjectInfoDto): UpdateObjectConfigDescRequest {
+    public withBody(body: UpdateObjectConfigDesc): UpdateObjectConfigDescRequest {
         this['body'] = body;
         return this;
     }

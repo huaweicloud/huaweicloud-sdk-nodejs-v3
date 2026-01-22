@@ -618,7 +618,7 @@ export class GeipClient {
      * @param {Array<'asc' | 'desc'>} [sortDir] 排序的方向，倒序或者正序
      * @param {Array<string>} [id] 
      * @param {Array<4 | 6>} [ipVersion] 
-     * @param {Array<number>} [mask] 
+     * @param {number} [mask] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -991,10 +991,6 @@ export class GeipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询全域弹性公网IP段个数
-     * @param {number} [limit] 每页条数
-     * @param {number} [offset] 分页起始点
-     * @param {string} [marker] 分页起始点
-     * @param {boolean} [pageReverse] 翻页方向
      * @param {Array<'count'>} [fields] 
      * @param {Array<string>} [id] 
      * @param {Array<string>} [internetBandwidthId] 
@@ -3522,14 +3518,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let limit;
-            
-            let offset;
-            
-            let marker;
-            
-            let pageReverse;
-            
             let fields;
             
             let id;
@@ -3576,10 +3564,6 @@ export const ParamCreater = function () {
 
             if (countGlobalEipSegmentRequest !== null && countGlobalEipSegmentRequest !== undefined) {
                 if (countGlobalEipSegmentRequest instanceof CountGlobalEipSegmentRequest) {
-                    limit = countGlobalEipSegmentRequest.limit;
-                    offset = countGlobalEipSegmentRequest.offset;
-                    marker = countGlobalEipSegmentRequest.marker;
-                    pageReverse = countGlobalEipSegmentRequest.pageReverse;
                     fields = countGlobalEipSegmentRequest.fields;
                     id = countGlobalEipSegmentRequest.id;
                     internetBandwidthId = countGlobalEipSegmentRequest.internetBandwidthId;
@@ -3603,10 +3587,6 @@ export const ParamCreater = function () {
                     enterpriseProjectId = countGlobalEipSegmentRequest.enterpriseProjectId;
                     tags = countGlobalEipSegmentRequest.tags;
                 } else {
-                    limit = countGlobalEipSegmentRequest['limit'];
-                    offset = countGlobalEipSegmentRequest['offset'];
-                    marker = countGlobalEipSegmentRequest['marker'];
-                    pageReverse = countGlobalEipSegmentRequest['page_reverse'];
                     fields = countGlobalEipSegmentRequest['fields'];
                     id = countGlobalEipSegmentRequest['id'];
                     internetBandwidthId = countGlobalEipSegmentRequest['internet_bandwidth_id'];
@@ -3633,18 +3613,6 @@ export const ParamCreater = function () {
             }
 
         
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (marker !== null && marker !== undefined) {
-                localVarQueryParameter['marker'] = marker;
-            }
-            if (pageReverse !== null && pageReverse !== undefined) {
-                localVarQueryParameter['page_reverse'] = pageReverse;
-            }
             if (fields !== null && fields !== undefined) {
                 localVarQueryParameter['fields'] = fields;
             }

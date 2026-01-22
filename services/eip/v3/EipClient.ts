@@ -76,6 +76,7 @@ import { NexthopDict } from './model/NexthopDict';
 import { PageInfoDict } from './model/PageInfoDict';
 import { PageInfoOption } from './model/PageInfoOption';
 import { ProfileInfo } from './model/ProfileInfo';
+import { PublicPoolType } from './model/PublicPoolType';
 import { PublicipBandwidthInfo } from './model/PublicipBandwidthInfo';
 import { PublicipInfoResponseBody } from './model/PublicipInfoResponseBody';
 import { PublicipInstanceResp } from './model/PublicipInstanceResp';
@@ -88,6 +89,8 @@ import { ShowInternalVpcIgwRequest } from './model/ShowInternalVpcIgwRequest';
 import { ShowInternalVpcIgwResponse } from './model/ShowInternalVpcIgwResponse';
 import { ShowPublicipPoolRequest } from './model/ShowPublicipPoolRequest';
 import { ShowPublicipPoolResponse } from './model/ShowPublicipPoolResponse';
+import { ShowPublicipPoolTypesRequest } from './model/ShowPublicipPoolTypesRequest';
+import { ShowPublicipPoolTypesResponse } from './model/ShowPublicipPoolTypesResponse';
 import { ShowPublicipRequest } from './model/ShowPublicipRequest';
 import { ShowPublicipResponse } from './model/ShowPublicipResponse';
 import { ShowTenantDict } from './model/ShowTenantDict';
@@ -329,6 +332,36 @@ export class EipClient {
      */
     public showPublicipPool(showPublicipPoolRequest?: ShowPublicipPoolRequest): Promise<ShowPublicipPoolResponse> {
         const options = ParamCreater().showPublicipPool(showPublicipPoolRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询公网IP池类型。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询公网IP池类型
+     * @param {string} [marker] - 功能说明：分页查询起始的资源ID，为空时为查询第一页
+     * @param {number} [limit] - 功能说明：每页返回的资源个数 - 取值范围：1~2000
+     * @param {string} [fields] - 功能说明：查询字段，形式为“fields&#x3D;id&amp;fields&#x3D;name&amp;...” - 支持字段：id/name/size/used/project_id/status/billing_info/created_at/updated_at/type/shared/is_common/description/tags/enterprise_project_id/allow_share_bandwidth_types/public_border_group
+     * @param {string} [sortKey] - 功能说明：排序字段，形式为“sort_key&#x3D;id&amp;sort_dir&#x3D;asc” - 支持字段：id/name/created_at/updated_at/public_border_group
+     * @param {string} [sortDir] - 功能说明：排序方向 - 取值范围：   - asc 顺序   - desc 倒序
+     * @param {string} [id] - 功能说明：根据id过滤
+     * @param {string} [name] - 功能说明：根据name过滤
+     * @param {number} [size] - 功能说明：根据size过滤
+     * @param {string} [status] - 功能说明：根据status过滤
+     * @param {string} [type] - 功能说明：根据type过滤
+     * @param {string} [description] - 功能说明：根据description过滤
+     * @param {string} [publicBorderGroup] - 功能说明：根据public_border_group过滤
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPublicipPoolTypes(showPublicipPoolTypesRequest?: ShowPublicipPoolTypesRequest): Promise<ShowPublicipPoolTypesResponse> {
+        const options = ParamCreater().showPublicipPoolTypes(showPublicipPoolTypesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1504,6 +1537,120 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'publicip_pool_id': publicipPoolId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询公网IP池类型。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPublicipPoolTypes(showPublicipPoolTypesRequest?: ShowPublicipPoolTypesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/eip/publicip-pool-types",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let marker;
+            
+            let limit;
+            
+            let fields;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let id;
+            
+            let name;
+            
+            let size;
+            
+            let status;
+            
+            let type;
+            
+            let description;
+            
+            let publicBorderGroup;
+
+            if (showPublicipPoolTypesRequest !== null && showPublicipPoolTypesRequest !== undefined) {
+                if (showPublicipPoolTypesRequest instanceof ShowPublicipPoolTypesRequest) {
+                    marker = showPublicipPoolTypesRequest.marker;
+                    limit = showPublicipPoolTypesRequest.limit;
+                    fields = showPublicipPoolTypesRequest.fields;
+                    sortKey = showPublicipPoolTypesRequest.sortKey;
+                    sortDir = showPublicipPoolTypesRequest.sortDir;
+                    id = showPublicipPoolTypesRequest.id;
+                    name = showPublicipPoolTypesRequest.name;
+                    size = showPublicipPoolTypesRequest.size;
+                    status = showPublicipPoolTypesRequest.status;
+                    type = showPublicipPoolTypesRequest.type;
+                    description = showPublicipPoolTypesRequest.description;
+                    publicBorderGroup = showPublicipPoolTypesRequest.publicBorderGroup;
+                } else {
+                    marker = showPublicipPoolTypesRequest['marker'];
+                    limit = showPublicipPoolTypesRequest['limit'];
+                    fields = showPublicipPoolTypesRequest['fields'];
+                    sortKey = showPublicipPoolTypesRequest['sort_key'];
+                    sortDir = showPublicipPoolTypesRequest['sort_dir'];
+                    id = showPublicipPoolTypesRequest['id'];
+                    name = showPublicipPoolTypesRequest['name'];
+                    size = showPublicipPoolTypesRequest['size'];
+                    status = showPublicipPoolTypesRequest['status'];
+                    type = showPublicipPoolTypesRequest['type'];
+                    description = showPublicipPoolTypesRequest['description'];
+                    publicBorderGroup = showPublicipPoolTypesRequest['public_border_group'];
+                }
+            }
+
+        
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (size !== null && size !== undefined) {
+                localVarQueryParameter['size'] = size;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (description !== null && description !== undefined) {
+                localVarQueryParameter['description'] = description;
+            }
+            if (publicBorderGroup !== null && publicBorderGroup !== undefined) {
+                localVarQueryParameter['public_border_group'] = publicBorderGroup;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

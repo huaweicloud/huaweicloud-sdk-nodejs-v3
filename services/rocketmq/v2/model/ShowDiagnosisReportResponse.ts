@@ -1,3 +1,5 @@
+import { DiagnosisNodeReportEntity } from './DiagnosisNodeReportEntity';
+import { SubscriptionEntity } from './SubscriptionEntity';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -6,14 +8,16 @@ export class ShowDiagnosisReportResponse extends SdkResponse {
     private 'group_name'?: string;
     private 'consumer_nums'?: number;
     public status?: string;
-    private 'creat_at'?: number;
+    private 'created_at'?: number;
     private 'abnormal_item_sum'?: number;
     private 'faulted_node_sum'?: number;
     public online?: boolean;
     private 'message_accumulation'?: number;
     private 'subscription_consistency'?: boolean;
-    public subscriptions?: Array<string>;
-    private 'diagnosis_node_report_list'?: Array<string>;
+    private 'duplicate_client_id'?: boolean;
+    private 'different_consumer_type'?: boolean;
+    public subscriptions?: Array<SubscriptionEntity>;
+    private 'diagnosis_node_report_list'?: Array<DiagnosisNodeReportEntity>;
     public constructor() { 
         super();
     }
@@ -51,15 +55,15 @@ export class ShowDiagnosisReportResponse extends SdkResponse {
         this['status'] = status;
         return this;
     }
-    public withCreatAt(creatAt: number): ShowDiagnosisReportResponse {
-        this['creat_at'] = creatAt;
+    public withCreatedAt(createdAt: number): ShowDiagnosisReportResponse {
+        this['created_at'] = createdAt;
         return this;
     }
-    public set creatAt(creatAt: number  | undefined) {
-        this['creat_at'] = creatAt;
+    public set createdAt(createdAt: number  | undefined) {
+        this['created_at'] = createdAt;
     }
-    public get creatAt(): number | undefined {
-        return this['creat_at'];
+    public get createdAt(): number | undefined {
+        return this['created_at'];
     }
     public withAbnormalItemSum(abnormalItemSum: number): ShowDiagnosisReportResponse {
         this['abnormal_item_sum'] = abnormalItemSum;
@@ -105,18 +109,38 @@ export class ShowDiagnosisReportResponse extends SdkResponse {
     public get subscriptionConsistency(): boolean | undefined {
         return this['subscription_consistency'];
     }
-    public withSubscriptions(subscriptions: Array<string>): ShowDiagnosisReportResponse {
+    public withDuplicateClientId(duplicateClientId: boolean): ShowDiagnosisReportResponse {
+        this['duplicate_client_id'] = duplicateClientId;
+        return this;
+    }
+    public set duplicateClientId(duplicateClientId: boolean  | undefined) {
+        this['duplicate_client_id'] = duplicateClientId;
+    }
+    public get duplicateClientId(): boolean | undefined {
+        return this['duplicate_client_id'];
+    }
+    public withDifferentConsumerType(differentConsumerType: boolean): ShowDiagnosisReportResponse {
+        this['different_consumer_type'] = differentConsumerType;
+        return this;
+    }
+    public set differentConsumerType(differentConsumerType: boolean  | undefined) {
+        this['different_consumer_type'] = differentConsumerType;
+    }
+    public get differentConsumerType(): boolean | undefined {
+        return this['different_consumer_type'];
+    }
+    public withSubscriptions(subscriptions: Array<SubscriptionEntity>): ShowDiagnosisReportResponse {
         this['subscriptions'] = subscriptions;
         return this;
     }
-    public withDiagnosisNodeReportList(diagnosisNodeReportList: Array<string>): ShowDiagnosisReportResponse {
+    public withDiagnosisNodeReportList(diagnosisNodeReportList: Array<DiagnosisNodeReportEntity>): ShowDiagnosisReportResponse {
         this['diagnosis_node_report_list'] = diagnosisNodeReportList;
         return this;
     }
-    public set diagnosisNodeReportList(diagnosisNodeReportList: Array<string>  | undefined) {
+    public set diagnosisNodeReportList(diagnosisNodeReportList: Array<DiagnosisNodeReportEntity>  | undefined) {
         this['diagnosis_node_report_list'] = diagnosisNodeReportList;
     }
-    public get diagnosisNodeReportList(): Array<string> | undefined {
+    public get diagnosisNodeReportList(): Array<DiagnosisNodeReportEntity> | undefined {
         return this['diagnosis_node_report_list'];
     }
 }

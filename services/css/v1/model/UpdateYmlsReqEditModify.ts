@@ -2,8 +2,7 @@
 
 export class UpdateYmlsReqEditModify {
     private 'elasticsearch.yml'?: object;
-    public constructor(elasticsearchYml?: object) { 
-        this['elasticsearch.yml'] = elasticsearchYml;
+    public constructor() { 
     }
     public withElasticsearchYml(elasticsearchYml: object): UpdateYmlsReqEditModify {
         this['elasticsearch.yml'] = elasticsearchYml;

@@ -2,7 +2,7 @@
 
 export class ListBackgroundTasksRequest {
     private 'instance_id'?: string;
-    public start?: number;
+    public offset?: number;
     public limit?: number;
     private 'begin_time'?: string;
     private 'end_time'?: string;
@@ -19,8 +19,8 @@ export class ListBackgroundTasksRequest {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withStart(start: number): ListBackgroundTasksRequest {
-        this['start'] = start;
+    public withOffset(offset: number): ListBackgroundTasksRequest {
+        this['offset'] = offset;
         return this;
     }
     public withLimit(limit: number): ListBackgroundTasksRequest {

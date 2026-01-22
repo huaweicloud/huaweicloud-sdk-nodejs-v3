@@ -1,10 +1,10 @@
-import { ListAvailableZonesRespAvailableZones } from './ListAvailableZonesRespAvailableZones';
+import { ListAvailableZonesElements } from './ListAvailableZonesElements';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListAvailableZonesResponse extends SdkResponse {
     private 'region_id'?: string;
-    private 'available_zones'?: Array<ListAvailableZonesRespAvailableZones>;
+    private 'available_zones'?: Array<ListAvailableZonesElements>;
     public constructor() { 
         super();
     }
@@ -18,14 +18,14 @@ export class ListAvailableZonesResponse extends SdkResponse {
     public get regionId(): string | undefined {
         return this['region_id'];
     }
-    public withAvailableZones(availableZones: Array<ListAvailableZonesRespAvailableZones>): ListAvailableZonesResponse {
+    public withAvailableZones(availableZones: Array<ListAvailableZonesElements>): ListAvailableZonesResponse {
         this['available_zones'] = availableZones;
         return this;
     }
-    public set availableZones(availableZones: Array<ListAvailableZonesRespAvailableZones>  | undefined) {
+    public set availableZones(availableZones: Array<ListAvailableZonesElements>  | undefined) {
         this['available_zones'] = availableZones;
     }
-    public get availableZones(): Array<ListAvailableZonesRespAvailableZones> | undefined {
+    public get availableZones(): Array<ListAvailableZonesElements> | undefined {
         return this['available_zones'];
     }
 }

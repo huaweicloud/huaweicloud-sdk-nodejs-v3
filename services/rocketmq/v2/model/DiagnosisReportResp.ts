@@ -5,7 +5,7 @@ export class DiagnosisReportResp {
     private 'group_name'?: string;
     private 'consumer_nums'?: number;
     public status?: string;
-    private 'creat_at'?: number;
+    private 'created_at'?: string;
     private 'abnormal_item_sum'?: number;
     private 'faulted_node_sum'?: number;
     public constructor() { 
@@ -44,15 +44,15 @@ export class DiagnosisReportResp {
         this['status'] = status;
         return this;
     }
-    public withCreatAt(creatAt: number): DiagnosisReportResp {
-        this['creat_at'] = creatAt;
+    public withCreatedAt(createdAt: string): DiagnosisReportResp {
+        this['created_at'] = createdAt;
         return this;
     }
-    public set creatAt(creatAt: number  | undefined) {
-        this['creat_at'] = creatAt;
+    public set createdAt(createdAt: string  | undefined) {
+        this['created_at'] = createdAt;
     }
-    public get creatAt(): number | undefined {
-        return this['creat_at'];
+    public get createdAt(): string | undefined {
+        return this['created_at'];
     }
     public withAbnormalItemSum(abnormalItemSum: number): DiagnosisReportResp {
         this['abnormal_item_sum'] = abnormalItemSum;

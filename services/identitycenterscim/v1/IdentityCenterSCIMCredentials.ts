@@ -3,7 +3,7 @@ import { IHttpRequest } from '@huaweicloud/huaweicloud-sdk-core/http/IHttpReques
 import { ICredential } from '@huaweicloud/huaweicloud-sdk-core/auth/ICredential';
 
 export class IdentityCenterSCIMCredentials implements ICredential {
-  public async processAuthRequest(httpRequest: IHttpRequest): Promise<IHttpRequest> {
+  public async processAuthRequest(hcClient: HcClient, httpRequest: IHttpRequest): Promise<IHttpRequest> {
     return Object.assign(httpRequest);
   }
 

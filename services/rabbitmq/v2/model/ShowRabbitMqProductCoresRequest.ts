@@ -3,9 +3,10 @@
 export class ShowRabbitMqProductCoresRequest {
     private 'instance_id'?: string;
     private 'product_id'?: string;
-    public constructor(instanceId?: string, productId?: string) { 
-        this['instance_id'] = instanceId;
+    private 'broker_num'?: string;
+    public constructor(productId?: string, brokerNum?: string) { 
         this['product_id'] = productId;
+        this['broker_num'] = brokerNum;
     }
     public withInstanceId(instanceId: string): ShowRabbitMqProductCoresRequest {
         this['instance_id'] = instanceId;
@@ -26,5 +27,15 @@ export class ShowRabbitMqProductCoresRequest {
     }
     public get productId(): string | undefined {
         return this['product_id'];
+    }
+    public withBrokerNum(brokerNum: string): ShowRabbitMqProductCoresRequest {
+        this['broker_num'] = brokerNum;
+        return this;
+    }
+    public set brokerNum(brokerNum: string  | undefined) {
+        this['broker_num'] = brokerNum;
+    }
+    public get brokerNum(): string | undefined {
+        return this['broker_num'];
     }
 }

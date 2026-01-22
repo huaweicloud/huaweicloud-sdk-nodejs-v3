@@ -4,11 +4,16 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListLogsJobResponse extends SdkResponse {
     public clusterLogRecord?: Array<ClusterLogRecord>;
+    public totalSize?: number;
     public constructor() { 
         super();
     }
     public withClusterLogRecord(clusterLogRecord: Array<ClusterLogRecord>): ListLogsJobResponse {
         this['clusterLogRecord'] = clusterLogRecord;
+        return this;
+    }
+    public withTotalSize(totalSize: number): ListLogsJobResponse {
+        this['totalSize'] = totalSize;
         return this;
     }
 }

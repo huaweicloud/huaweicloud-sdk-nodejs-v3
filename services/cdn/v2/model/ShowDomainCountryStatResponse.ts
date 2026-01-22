@@ -6,6 +6,7 @@ export class ShowDomainCountryStatResponse extends SdkResponse {
     private 'start_time'?: number;
     private 'end_time'?: number;
     private 'stat_type'?: string;
+    public result?: { [key: string]: object; };
     public constructor() { 
         super();
     }
@@ -42,5 +43,9 @@ export class ShowDomainCountryStatResponse extends SdkResponse {
     }
     public get statType(): string | undefined {
         return this['stat_type'];
+    }
+    public withResult(result: { [key: string]: object; }): ShowDomainCountryStatResponse {
+        this['result'] = result;
+        return this;
     }
 }

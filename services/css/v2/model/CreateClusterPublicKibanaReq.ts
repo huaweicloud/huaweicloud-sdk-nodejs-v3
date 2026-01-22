@@ -4,9 +4,8 @@ import { CreateClusterPublicKibanaElbWhiteList } from './CreateClusterPublicKiba
 export class CreateClusterPublicKibanaReq {
     public eipSize?: number;
     public elbWhiteList?: CreateClusterPublicKibanaElbWhiteList;
-    public constructor(eipSize?: number, elbWhiteList?: CreateClusterPublicKibanaElbWhiteList) { 
+    public constructor(eipSize?: number) { 
         this['eipSize'] = eipSize;
-        this['elbWhiteList'] = elbWhiteList;
     }
     public withEipSize(eipSize: number): CreateClusterPublicKibanaReq {
         this['eipSize'] = eipSize;

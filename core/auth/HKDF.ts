@@ -32,12 +32,12 @@ export class HKDF {
 
   private static DERIVATION_KEY_LENGTH = 32;
 
-  private static HMAC_ALGORITHM = this.HMAC_SHA256;
+  private static HMAC_ALGORITHM = HKDF.HMAC_SHA256;
 
-  private static ALGORITHM_HASH_LENGTH = this.getHashLen(this.HMAC_ALGORITHM);
+  private static ALGORITHM_HASH_LENGTH = HKDF.getHashLen(HKDF.HMAC_ALGORITHM);
 
   private static EXPAND_CEIL = Math.ceil(
-    this.DERIVATION_KEY_LENGTH / this.ALGORITHM_HASH_LENGTH
+    HKDF.DERIVATION_KEY_LENGTH / HKDF.ALGORITHM_HASH_LENGTH
   );
 
   public static getDerKeySHA256(
@@ -49,22 +49,22 @@ export class HKDF {
       return null;
     }
     try {
-      const tmpKey = this.extract(
-        this.stringToBinary(secretKey),
-        this.stringToBinary(accessKey),
+      const tmpKey = HKDF.extract(
+        HKDF.stringToBinary(secretKey),
+        HKDF.stringToBinary(accessKey),
         HKDF.HMAC_ALGORITHM
       );
-      const derSecretKey = this.expand(
+      const derSecretKey = HKDF.expand(
         tmpKey,
-        this.stringToBinary(info),
+        HKDF.stringToBinary(info),
         HKDF.HMAC_ALGORITHM,
-        this.DERIVATION_KEY_LENGTH,
-        this.EXPAND_CEIL
+        HKDF.DERIVATION_KEY_LENGTH,
+        HKDF.EXPAND_CEIL
       );
       if (!derSecretKey) {
         return null;
       }
-      return this.toHex(derSecretKey);
+      return HKDF.toHex(derSecretKey);
     } catch (e) {
       throw new SdkException(`Failed to derive AK ${accessKey} with info ${info}`);
     }
@@ -81,9 +81,9 @@ export class HKDF {
   ): Buffer {
     let saltTemp = salt;
     if (salt === null || salt.length === 0) {
-      saltTemp = Buffer.alloc(this.getHashLen(hmacAlgorithm));
+      saltTemp = Buffer.alloc(HKDF.getHashLen(hmacAlgorithm));
     }
-    return this.hmacSHA256(ikm, saltTemp, hmacAlgorithm);
+    return HKDF.hmacSHA256(ikm, saltTemp, hmacAlgorithm);
   }
 
   private static expand(
@@ -93,13 +93,13 @@ export class HKDF {
     okmLength: number,
     ceil: number
   ): null | Buffer {
-    let rawResult;
+    let rawResult: Buffer = Buffer.alloc(0);
     if (ceil === 1) {
-      rawResult = this.expandFirst(prk, info, hmacAlgorithm);
+      rawResult = HKDF.expandFirst(prk, info, hmacAlgorithm);
     } else {
       let temp = Buffer.alloc(0);
       for (let i = 1; i <= ceil; ++i) {
-        temp = this.expandOnce(prk, info, temp, i, hmacAlgorithm);
+        temp = HKDF.expandOnce(prk, info, temp, i, hmacAlgorithm);
         rawResult = Buffer.concat(
           [rawResult, temp],
           rawResult.length + temp.length
@@ -123,7 +123,7 @@ export class HKDF {
     let result = Buffer.alloc(info.length + 1);
     info.copy(result);
     result.writeUInt8(0x01, result.length - 1);
-    return this.hmacSHA256(result, prk, hmacAlgorithm);
+    return HKDF.hmacSHA256(result, prk, hmacAlgorithm);
   }
 
   private static expandOnce(
@@ -135,7 +135,7 @@ export class HKDF {
   ): Buffer {
     let result = Buffer.concat([preTemp, info], preTemp.length + info.length);
     result.writeUInt8(i, result.length);
-    return this.hmacSHA256(result, prk, hmacAlgorithm);
+    return HKDF.hmacSHA256(result, prk, hmacAlgorithm);
   }
 
   private static getHashLen(hmacAlgorithm: string): number {
@@ -152,8 +152,8 @@ export class HKDF {
     str: Buffer,
     key: Buffer,
     hmacAlgorithm: string
-  ) => {
-    return this.hexStringToBinary(
+  ): Buffer => {
+    return HKDF.hexStringToBinary(
       crypto
         .createHmac(hmacAlgorithm, key)
         .update(str)

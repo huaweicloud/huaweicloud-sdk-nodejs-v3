@@ -8,10 +8,11 @@ export class ListInstanceConsumerGroupMessageOffsetRequest {
     public partition?: string;
     public offset?: string;
     public limit?: string;
-    public constructor(engine?: string, instanceId?: string, group?: string) { 
+    public constructor(engine?: string, instanceId?: string, group?: string, topic?: string) { 
         this['engine'] = engine;
         this['instance_id'] = instanceId;
         this['group'] = group;
+        this['topic'] = topic;
     }
     public withEngine(engine: string): ListInstanceConsumerGroupMessageOffsetRequest {
         this['engine'] = engine;

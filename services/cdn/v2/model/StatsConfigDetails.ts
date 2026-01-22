@@ -6,7 +6,6 @@ export class StatsConfigDetails {
     private 'resource_type'?: string;
     private 'resource_name'?: string;
     private 'config_info'?: ConfigInfo;
-    private 'expired_time'?: number;
     public constructor() { 
     }
     public withConfigType(configType: number): StatsConfigDetails {
@@ -48,15 +47,5 @@ export class StatsConfigDetails {
     }
     public get configInfo(): ConfigInfo | undefined {
         return this['config_info'];
-    }
-    public withExpiredTime(expiredTime: number): StatsConfigDetails {
-        this['expired_time'] = expiredTime;
-        return this;
-    }
-    public set expiredTime(expiredTime: number  | undefined) {
-        this['expired_time'] = expiredTime;
-    }
-    public get expiredTime(): number | undefined {
-        return this['expired_time'];
     }
 }

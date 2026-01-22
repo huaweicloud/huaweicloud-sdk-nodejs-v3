@@ -31,7 +31,7 @@ export class SMSApiCredentials implements ICredential {
     return this.sk;
   }
 
-  public async processAuthRequest(httpRequest: IHttpRequest): Promise<IHttpRequest> {
+  public async processAuthRequest(hcClient: HcClient, httpRequest: IHttpRequest): Promise<IHttpRequest> {
     if (!this.ak) {
       throw new RequiredError('AK cannot be empty or undefined.');
     }

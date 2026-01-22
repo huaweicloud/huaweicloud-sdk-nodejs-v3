@@ -10,10 +10,12 @@ export class CreateClusterBackupStrategyBody {
     public agency?: string;
     public maxSnapshotBytesPerSeconds?: string;
     public maxRestoreBytesPerSeconds?: string;
-    public constructor(period?: string, prefix?: string, keepday?: number) { 
+    public constructor(period?: string, prefix?: string, keepday?: number, bucket?: string, basePath?: string) { 
         this['period'] = period;
         this['prefix'] = prefix;
         this['keepday'] = keepday;
+        this['bucket'] = bucket;
+        this['basePath'] = basePath;
     }
     public withPeriod(period: string): CreateClusterBackupStrategyBody {
         this['period'] = period;

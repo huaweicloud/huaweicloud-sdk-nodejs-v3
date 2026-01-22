@@ -5,10 +5,10 @@ import { TagsVO } from './TagsVO';
 
 export class RuleAclListResponseDTODataRecords {
     private 'rule_id'?: string;
+    private 'order_id'?: number;
     public applications?: Array<string>;
     private 'address_type'?: number;
     public name?: string;
-    private 'order_id'?: number;
     public direction?: RuleAclListResponseDTODataRecordsDirectionEnum | number;
     private 'action_type'?: number;
     public status?: number;
@@ -23,6 +23,7 @@ export class RuleAclListResponseDTODataRecords {
     public service?: RuleServiceDtoForResponse;
     public type?: RuleAclListResponseDTODataRecordsTypeEnum | number;
     private 'created_date'?: string;
+    private 'modified_date'?: string;
     private 'last_open_time'?: string;
     public tag?: TagsVO;
     public constructor() { 
@@ -36,6 +37,16 @@ export class RuleAclListResponseDTODataRecords {
     }
     public get ruleId(): string | undefined {
         return this['rule_id'];
+    }
+    public withOrderId(orderId: number): RuleAclListResponseDTODataRecords {
+        this['order_id'] = orderId;
+        return this;
+    }
+    public set orderId(orderId: number  | undefined) {
+        this['order_id'] = orderId;
+    }
+    public get orderId(): number | undefined {
+        return this['order_id'];
     }
     public withApplications(applications: Array<string>): RuleAclListResponseDTODataRecords {
         this['applications'] = applications;
@@ -54,16 +65,6 @@ export class RuleAclListResponseDTODataRecords {
     public withName(name: string): RuleAclListResponseDTODataRecords {
         this['name'] = name;
         return this;
-    }
-    public withOrderId(orderId: number): RuleAclListResponseDTODataRecords {
-        this['order_id'] = orderId;
-        return this;
-    }
-    public set orderId(orderId: number  | undefined) {
-        this['order_id'] = orderId;
-    }
-    public get orderId(): number | undefined {
-        return this['order_id'];
     }
     public withDirection(direction: RuleAclListResponseDTODataRecordsDirectionEnum | number): RuleAclListResponseDTODataRecords {
         this['direction'] = direction;
@@ -162,6 +163,16 @@ export class RuleAclListResponseDTODataRecords {
     }
     public get createdDate(): string | undefined {
         return this['created_date'];
+    }
+    public withModifiedDate(modifiedDate: string): RuleAclListResponseDTODataRecords {
+        this['modified_date'] = modifiedDate;
+        return this;
+    }
+    public set modifiedDate(modifiedDate: string  | undefined) {
+        this['modified_date'] = modifiedDate;
+    }
+    public get modifiedDate(): string | undefined {
+        return this['modified_date'];
     }
     public withLastOpenTime(lastOpenTime: string): RuleAclListResponseDTODataRecords {
         this['last_open_time'] = lastOpenTime;

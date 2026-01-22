@@ -1,4 +1,4 @@
-import { UserGroupPerms } from './UserGroupPerms';
+import { UserRespGroupPerms } from './UserRespGroupPerms';
 import { UserTopicPerms } from './UserTopicPerms';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -11,7 +11,7 @@ export class UpdateUserResponse extends SdkResponse {
     private 'default_topic_perm'?: UpdateUserResponseDefaultTopicPermEnum | string;
     private 'default_group_perm'?: UpdateUserResponseDefaultGroupPermEnum | string;
     private 'topic_perms'?: Array<UserTopicPerms>;
-    private 'group_perms'?: Array<UserGroupPerms>;
+    private 'group_perms'?: Array<UserRespGroupPerms>;
     public constructor() { 
         super();
     }
@@ -79,14 +79,14 @@ export class UpdateUserResponse extends SdkResponse {
     public get topicPerms(): Array<UserTopicPerms> | undefined {
         return this['topic_perms'];
     }
-    public withGroupPerms(groupPerms: Array<UserGroupPerms>): UpdateUserResponse {
+    public withGroupPerms(groupPerms: Array<UserRespGroupPerms>): UpdateUserResponse {
         this['group_perms'] = groupPerms;
         return this;
     }
-    public set groupPerms(groupPerms: Array<UserGroupPerms>  | undefined) {
+    public set groupPerms(groupPerms: Array<UserRespGroupPerms>  | undefined) {
         this['group_perms'] = groupPerms;
     }
-    public get groupPerms(): Array<UserGroupPerms> | undefined {
+    public get groupPerms(): Array<UserRespGroupPerms> | undefined {
         return this['group_perms'];
     }
 }

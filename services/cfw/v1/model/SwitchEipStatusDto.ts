@@ -4,7 +4,10 @@ export class SwitchEipStatusDto {
     private 'fw_instance_id'?: string;
     private 'object_id'?: string;
     public status?: number;
-    public constructor() { 
+    public constructor(fwInstanceId?: string, objectId?: string, status?: number) { 
+        this['fw_instance_id'] = fwInstanceId;
+        this['object_id'] = objectId;
+        this['status'] = status;
     }
     public withFwInstanceId(fwInstanceId: string): SwitchEipStatusDto {
         this['fw_instance_id'] = fwInstanceId;

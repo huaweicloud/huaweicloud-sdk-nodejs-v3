@@ -4,13 +4,17 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListResourceTagsResponse extends SdkResponse {
     public data?: string;
-    private 'sys_tags'?: Array<ResourceTag>;
     public tags?: Array<ResourceTag>;
+    private 'sys_tags'?: Array<ResourceTag>;
     public constructor() { 
         super();
     }
     public withData(data: string): ListResourceTagsResponse {
         this['data'] = data;
+        return this;
+    }
+    public withTags(tags: Array<ResourceTag>): ListResourceTagsResponse {
+        this['tags'] = tags;
         return this;
     }
     public withSysTags(sysTags: Array<ResourceTag>): ListResourceTagsResponse {
@@ -22,9 +26,5 @@ export class ListResourceTagsResponse extends SdkResponse {
     }
     public get sysTags(): Array<ResourceTag> | undefined {
         return this['sys_tags'];
-    }
-    public withTags(tags: Array<ResourceTag>): ListResourceTagsResponse {
-        this['tags'] = tags;
-        return this;
     }
 }

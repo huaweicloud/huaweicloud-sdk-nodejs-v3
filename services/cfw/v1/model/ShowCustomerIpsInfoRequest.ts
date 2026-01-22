@@ -5,9 +5,8 @@ export class ShowCustomerIpsInfoRequest {
     private 'object_id'?: string;
     private 'fw_instance_id'?: string;
     private 'project_id'?: string;
-    public constructor(ipsCfwId?: string, objectId?: string, fwInstanceId?: string, projectId?: string) { 
+    public constructor(ipsCfwId?: string, fwInstanceId?: string, projectId?: string) { 
         this['ips_cfw_id'] = ipsCfwId;
-        this['object_id'] = objectId;
         this['fw_instance_id'] = fwInstanceId;
         this['project_id'] = projectId;
     }

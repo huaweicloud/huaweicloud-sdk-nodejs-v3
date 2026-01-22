@@ -4,8 +4,7 @@ export class ShowKafkaProductCoresRequest {
     private 'instance_id'?: string;
     private 'product_id'?: string;
     private 'broker_num'?: string;
-    public constructor(instanceId?: string, productId?: string, brokerNum?: string) { 
-        this['instance_id'] = instanceId;
+    public constructor(productId?: string, brokerNum?: string) { 
         this['product_id'] = productId;
         this['broker_num'] = brokerNum;
     }

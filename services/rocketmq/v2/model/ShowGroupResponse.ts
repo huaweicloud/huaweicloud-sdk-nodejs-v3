@@ -7,10 +7,10 @@ export class ShowGroupResponse extends SdkResponse {
     public brokers?: Array<string>;
     public name?: string;
     private 'group_desc'?: string;
+    private 'created_at'?: number;
     private 'retry_max_time'?: number;
-    private 'app_id'?: string;
-    private 'app_name'?: string;
     public permissions?: Array<string>;
+    private 'consume_orderly'?: boolean;
     public constructor() { 
         super();
     }
@@ -40,6 +40,16 @@ export class ShowGroupResponse extends SdkResponse {
     public get groupDesc(): string | undefined {
         return this['group_desc'];
     }
+    public withCreatedAt(createdAt: number): ShowGroupResponse {
+        this['created_at'] = createdAt;
+        return this;
+    }
+    public set createdAt(createdAt: number  | undefined) {
+        this['created_at'] = createdAt;
+    }
+    public get createdAt(): number | undefined {
+        return this['created_at'];
+    }
     public withRetryMaxTime(retryMaxTime: number): ShowGroupResponse {
         this['retry_max_time'] = retryMaxTime;
         return this;
@@ -50,28 +60,18 @@ export class ShowGroupResponse extends SdkResponse {
     public get retryMaxTime(): number | undefined {
         return this['retry_max_time'];
     }
-    public withAppId(appId: string): ShowGroupResponse {
-        this['app_id'] = appId;
-        return this;
-    }
-    public set appId(appId: string  | undefined) {
-        this['app_id'] = appId;
-    }
-    public get appId(): string | undefined {
-        return this['app_id'];
-    }
-    public withAppName(appName: string): ShowGroupResponse {
-        this['app_name'] = appName;
-        return this;
-    }
-    public set appName(appName: string  | undefined) {
-        this['app_name'] = appName;
-    }
-    public get appName(): string | undefined {
-        return this['app_name'];
-    }
     public withPermissions(permissions: Array<string>): ShowGroupResponse {
         this['permissions'] = permissions;
         return this;
+    }
+    public withConsumeOrderly(consumeOrderly: boolean): ShowGroupResponse {
+        this['consume_orderly'] = consumeOrderly;
+        return this;
+    }
+    public set consumeOrderly(consumeOrderly: boolean  | undefined) {
+        this['consume_orderly'] = consumeOrderly;
+    }
+    public get consumeOrderly(): boolean | undefined {
+        return this['consume_orderly'];
     }
 }

@@ -4,7 +4,8 @@ import { AddAddressItemsInfoDtoAddressItems } from './AddAddressItemsInfoDtoAddr
 export class AddAddressItemsInfoDto {
     private 'set_id'?: string;
     private 'address_items'?: Array<AddAddressItemsInfoDtoAddressItems>;
-    public constructor() { 
+    public constructor(setId?: string) { 
+        this['set_id'] = setId;
     }
     public withSetId(setId: string): AddAddressItemsInfoDto {
         this['set_id'] = setId;

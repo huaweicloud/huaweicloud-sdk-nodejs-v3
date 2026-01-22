@@ -72,4 +72,14 @@ export class SignerUtil {
             }
         }
     }
+
+    static renameKey<T>(obj: any, oldKey: string, newKey: string): T {
+        if (obj !== null && typeof obj === 'object') {
+          return Object.keys(obj).reduce((acc, key) => {
+            acc[key === oldKey ? newKey : key] = obj[key];
+            return acc;
+          }, {} as any);
+        }
+        return obj;
+      }
 }

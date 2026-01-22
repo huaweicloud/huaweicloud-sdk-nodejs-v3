@@ -108,6 +108,7 @@ the [CHANGELOG.md](https://github.com/huaweicloud/huaweicloud-sdk-nodejs-v3/blob
 * [2. Credentials Configuration](#2-credentials-configuration-top)
     * [2.1  Use Permanent AK&SK](#21-use-permanent-aksk-top)
     * [2.2  Use Temporary AK&SK](#22-use-temporary-aksk-top)
+    * [2.3  Use IdpId&IdTokenFile](#23-use-idpididtokenfile-top)
 * [3. Client Initialization](#3-client-initialization-top)
     * [3.1  Initialize client with specified Endpoint](#31-initialize-the-serviceclient-with-specified-endpoint-top)
     * [3.2 User Agent](#32-user-agent-top)
@@ -202,6 +203,34 @@ const globalCredentials = new GlobalCredentials()
     .withSk(sk)
     .withSecurityToken(securityToken)
     .withDomainId(domainId)
+```
+
+#### 2.3 Use IdpId&IdTokenFile [:top:](#user-manual-top)
+
+Obtain a federated identity authentication token using an OpenID Connect ID token, refer to the [Obtaining a Token with an OpenID Connect ID Token](https://support.huaweicloud.com/intl/en-us/api-iam/iam_13_0605.html)
+
+**Parameter description**:
+
+- `IdpId` Identity provider ID.
+- `IdTokenFile` Id token file path. Id token is constructed by the enterprise IdP to carry the identity information of federated users.
+- `projectId` is the ID of your project depending on your region which you want to operate.
+- `domainId` is the account ID of Huawei Cloud.
+
+``` javascript
+import { BasicCredentials } from "@huaweicloud/huaweicloud-sdk-core/auth/BasicCredentials";
+import { GlobalCredentials } from "@huaweicloud/huaweicloud-sdk-core/auth/GlobalCredentials";
+
+// Region级服务
+const basicCredentials = new BasicCredentials()
+    .withIdpId(idpId)
+    .withIdTokenFile(idTokenFile)
+    .withProjectId(projectId)
+
+// Global级服务
+const globalCredentials = new GlobalCredentials()
+    .withIdpId(idpId)
+    .withIdTokenFile(idTokenFile)
+    .withDomainId(domainId);
 ```
 
 ### 3. Client Initialization [:top:](#user-manual-top)

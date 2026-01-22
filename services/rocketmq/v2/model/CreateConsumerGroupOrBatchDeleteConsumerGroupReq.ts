@@ -3,7 +3,7 @@ import { CreateOrUpdateConsumerGroup } from './CreateOrUpdateConsumerGroup';
 
 
 export class CreateConsumerGroupOrBatchDeleteConsumerGroupReq {
-    public groups?: Array<string>;
+    private 'job_id'?: string;
     public name?: string;
     public brokers?: Array<string>;
     public broadcast?: boolean;
@@ -13,9 +13,15 @@ export class CreateConsumerGroupOrBatchDeleteConsumerGroupReq {
     private 'group_desc'?: string;
     public constructor() { 
     }
-    public withGroups(groups: Array<string>): CreateConsumerGroupOrBatchDeleteConsumerGroupReq {
-        this['groups'] = groups;
+    public withJobId(jobId: string): CreateConsumerGroupOrBatchDeleteConsumerGroupReq {
+        this['job_id'] = jobId;
         return this;
+    }
+    public set jobId(jobId: string  | undefined) {
+        this['job_id'] = jobId;
+    }
+    public get jobId(): string | undefined {
+        return this['job_id'];
     }
     public withName(name: string): CreateConsumerGroupOrBatchDeleteConsumerGroupReq {
         this['name'] = name;

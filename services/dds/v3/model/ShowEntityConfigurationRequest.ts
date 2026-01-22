@@ -1,11 +1,23 @@
 
 
 export class ShowEntityConfigurationRequest {
+    private 'Content-Type'?: string;
     private 'instance_id'?: string;
     private 'entity_id'?: string;
-    public constructor(instanceId?: string, entityId?: string) { 
+    public constructor(contentType?: string, instanceId?: string, entityId?: string) { 
+        this['Content-Type'] = contentType;
         this['instance_id'] = instanceId;
         this['entity_id'] = entityId;
+    }
+    public withContentType(contentType: string): ShowEntityConfigurationRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
     public withInstanceId(instanceId: string): ShowEntityConfigurationRequest {
         this['instance_id'] = instanceId;

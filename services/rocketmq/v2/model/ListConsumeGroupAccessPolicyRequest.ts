@@ -1,17 +1,17 @@
 
 
 export class ListConsumeGroupAccessPolicyRequest {
-    public engine?: ListConsumeGroupAccessPolicyRequestEngineEnum | string;
+    public engine?: string;
     private 'instance_id'?: string;
-    private 'group_id'?: string;
-    public offset?: string;
-    public limit?: string;
-    public constructor(engine?: string, instanceId?: string, groupId?: string) { 
+    public group?: string;
+    public offset?: number;
+    public limit?: number;
+    public constructor(engine?: string, instanceId?: string, group?: string) { 
         this['engine'] = engine;
         this['instance_id'] = instanceId;
-        this['group_id'] = groupId;
+        this['group'] = group;
     }
-    public withEngine(engine: ListConsumeGroupAccessPolicyRequestEngineEnum | string): ListConsumeGroupAccessPolicyRequest {
+    public withEngine(engine: string): ListConsumeGroupAccessPolicyRequest {
         this['engine'] = engine;
         return this;
     }
@@ -25,30 +25,16 @@ export class ListConsumeGroupAccessPolicyRequest {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withGroupId(groupId: string): ListConsumeGroupAccessPolicyRequest {
-        this['group_id'] = groupId;
+    public withGroup(group: string): ListConsumeGroupAccessPolicyRequest {
+        this['group'] = group;
         return this;
     }
-    public set groupId(groupId: string  | undefined) {
-        this['group_id'] = groupId;
-    }
-    public get groupId(): string | undefined {
-        return this['group_id'];
-    }
-    public withOffset(offset: string): ListConsumeGroupAccessPolicyRequest {
+    public withOffset(offset: number): ListConsumeGroupAccessPolicyRequest {
         this['offset'] = offset;
         return this;
     }
-    public withLimit(limit: string): ListConsumeGroupAccessPolicyRequest {
+    public withLimit(limit: number): ListConsumeGroupAccessPolicyRequest {
         this['limit'] = limit;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListConsumeGroupAccessPolicyRequestEngineEnum {
-    RELIABILITY = 'reliability'
 }

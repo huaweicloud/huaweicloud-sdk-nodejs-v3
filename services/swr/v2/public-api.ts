@@ -1,6 +1,7 @@
 export * from './SwrClient';
 
 export * from './model/Accessory';
+export * from './model/AccessoryListAccessories';
 export * from './model/AddDomainNameRequest';
 export * from './model/AddDomainNameRequestBody';
 export * from './model/AddDomainNameResponse';
@@ -248,6 +249,10 @@ export * from './model/ListNamespacesRequest';
 export * from './model/ListNamespacesResponse';
 export * from './model/ListQuotasRequest';
 export * from './model/ListQuotasResponse';
+export * from './model/ListReferencesRequest';
+export * from './model/ListReferencesResponse';
+export * from './model/ListRepoAccessoriesRequest';
+export * from './model/ListRepoAccessoriesResponse';
 export * from './model/ListRepoDetailsRequest';
 export * from './model/ListRepoDetailsResponse';
 export * from './model/ListRepoDomainsRequest';

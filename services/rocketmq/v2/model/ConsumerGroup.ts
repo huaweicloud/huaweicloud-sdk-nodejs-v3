@@ -7,9 +7,10 @@ export class ConsumerGroup {
     public name?: string;
     private 'group_desc'?: string;
     private 'retry_max_time'?: number;
-    public createdAt?: number;
+    private 'created_at'?: number;
     public permissions?: Array<string>;
     private 'consume_orderly'?: boolean;
+    private 'group_online'?: boolean;
     public constructor() { 
     }
     public withEnabled(enabled: boolean): ConsumerGroup {
@@ -49,8 +50,14 @@ export class ConsumerGroup {
         return this['retry_max_time'];
     }
     public withCreatedAt(createdAt: number): ConsumerGroup {
-        this['createdAt'] = createdAt;
+        this['created_at'] = createdAt;
         return this;
+    }
+    public set createdAt(createdAt: number  | undefined) {
+        this['created_at'] = createdAt;
+    }
+    public get createdAt(): number | undefined {
+        return this['created_at'];
     }
     public withPermissions(permissions: Array<string>): ConsumerGroup {
         this['permissions'] = permissions;
@@ -65,5 +72,15 @@ export class ConsumerGroup {
     }
     public get consumeOrderly(): boolean | undefined {
         return this['consume_orderly'];
+    }
+    public withGroupOnline(groupOnline: boolean): ConsumerGroup {
+        this['group_online'] = groupOnline;
+        return this;
+    }
+    public set groupOnline(groupOnline: boolean  | undefined) {
+        this['group_online'] = groupOnline;
+    }
+    public get groupOnline(): boolean | undefined {
+        return this['group_online'];
     }
 }

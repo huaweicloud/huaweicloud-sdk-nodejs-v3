@@ -2,14 +2,14 @@ import { DeadletterResendReq } from './DeadletterResendReq';
 
 
 export class SendDlqMessageRequest {
-    public engine?: SendDlqMessageRequestEngineEnum | string;
+    public engine?: string;
     private 'instance_id'?: string;
     public body?: DeadletterResendReq;
     public constructor(engine?: string, instanceId?: string) { 
         this['engine'] = engine;
         this['instance_id'] = instanceId;
     }
-    public withEngine(engine: SendDlqMessageRequestEngineEnum | string): SendDlqMessageRequest {
+    public withEngine(engine: string): SendDlqMessageRequest {
         this['engine'] = engine;
         return this;
     }
@@ -27,12 +27,4 @@ export class SendDlqMessageRequest {
         this['body'] = body;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum SendDlqMessageRequestEngineEnum {
-    RELIABILITY = 'reliability'
 }

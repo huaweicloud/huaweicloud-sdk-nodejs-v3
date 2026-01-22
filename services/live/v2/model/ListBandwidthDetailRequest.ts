@@ -12,6 +12,7 @@ export class ListBandwidthDetailRequest {
     private 'start_time'?: string;
     private 'end_time'?: string;
     private 'service_type'?: ListBandwidthDetailRequestServiceTypeEnum | string;
+    private 'ip_type'?: ListBandwidthDetailRequestIpTypeEnum | string;
     public constructor() { 
     }
     public withPlayDomains(playDomains: Array<string>): ListBandwidthDetailRequest {
@@ -82,6 +83,16 @@ export class ListBandwidthDetailRequest {
     public get serviceType(): ListBandwidthDetailRequestServiceTypeEnum | string | undefined {
         return this['service_type'];
     }
+    public withIpType(ipType: ListBandwidthDetailRequestIpTypeEnum | string): ListBandwidthDetailRequest {
+        this['ip_type'] = ipType;
+        return this;
+    }
+    public set ipType(ipType: ListBandwidthDetailRequestIpTypeEnum | string  | undefined) {
+        this['ip_type'] = ipType;
+    }
+    public get ipType(): ListBandwidthDetailRequestIpTypeEnum | string | undefined {
+        return this['ip_type'];
+    }
 }
 
 /**
@@ -109,4 +120,12 @@ export enum ListBandwidthDetailRequestServiceTypeEnum {
     LIVE = 'Live',
     LLL = 'LLL',
     ALL = 'ALL'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListBandwidthDetailRequestIpTypeEnum {
+    V4 = 'v4',
+    V6 = 'v6'
 }

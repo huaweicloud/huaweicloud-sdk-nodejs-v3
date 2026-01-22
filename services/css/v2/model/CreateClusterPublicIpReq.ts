@@ -7,9 +7,8 @@ export class CreateClusterPublicIpReq {
     public elbWhiteListReq?: CreateClusterElbWhiteList;
     public publicBindType?: string;
     public eipId?: string;
-    public constructor(eip?: CreateClusterPublicEip, elbWhiteListReq?: CreateClusterElbWhiteList, publicBindType?: string) { 
+    public constructor(eip?: CreateClusterPublicEip, publicBindType?: string) { 
         this['eip'] = eip;
-        this['elbWhiteListReq'] = elbWhiteListReq;
         this['publicBindType'] = publicBindType;
     }
     public withEip(eip: CreateClusterPublicEip): CreateClusterPublicIpReq {

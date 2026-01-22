@@ -8,6 +8,7 @@ import {
 } from "@huaweicloud/huaweicloud-sdk-core/http/DefaultHttpClient";
 import { HttpRequestBuilder } from "@huaweicloud/huaweicloud-sdk-core/http/IHttpRequestBuilder";
 import { ICredential } from "@huaweicloud/huaweicloud-sdk-core/auth/ICredential";
+import { HcClient } from '@huaweicloud/huaweicloud-sdk-core/HcClient';
 
 export class MeetingCredentials implements ICredential {
   token?: string;
@@ -21,7 +22,7 @@ export class MeetingCredentials implements ICredential {
   public processAuthParams: () => Promise<ICredential>;
 
   public async processAuthRequest(
-    httpRequest: IHttpRequest
+    hcClient: HcClient, httpRequest: IHttpRequest
   ): Promise<IHttpRequest> {
     if (!this.userName || !this.userPassword) {
       throw new RequiredError("Input your user name and password");

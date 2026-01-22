@@ -4,6 +4,7 @@ export class BatchDeleteInstanceReq {
     public instances?: Array<string>;
     public action?: BatchDeleteInstanceReqActionEnum | string;
     private 'all_failure'?: BatchDeleteInstanceReqAllFailureEnum | string;
+    private 'force_delete'?: boolean;
     public constructor(action?: string) { 
         this['action'] = action;
     }
@@ -24,6 +25,16 @@ export class BatchDeleteInstanceReq {
     }
     public get allFailure(): BatchDeleteInstanceReqAllFailureEnum | string | undefined {
         return this['all_failure'];
+    }
+    public withForceDelete(forceDelete: boolean): BatchDeleteInstanceReq {
+        this['force_delete'] = forceDelete;
+        return this;
+    }
+    public set forceDelete(forceDelete: boolean  | undefined) {
+        this['force_delete'] = forceDelete;
+    }
+    public get forceDelete(): boolean | undefined {
+        return this['force_delete'];
     }
 }
 

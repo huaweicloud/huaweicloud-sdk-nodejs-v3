@@ -5,9 +5,8 @@ export class StartKibanaPublicReq {
     private 'eip_size'?: number;
     private 'elb_white_list'?: StartKibanaPublicReqElbWhitelist;
     private 'is_auto_pay'?: number;
-    public constructor(eipSize?: number, elbWhiteList?: StartKibanaPublicReqElbWhitelist) { 
+    public constructor(eipSize?: number) { 
         this['eip_size'] = eipSize;
-        this['elb_white_list'] = elbWhiteList;
     }
     public withEipSize(eipSize: number): StartKibanaPublicReq {
         this['eip_size'] = eipSize;

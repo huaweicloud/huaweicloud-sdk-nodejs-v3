@@ -120,6 +120,7 @@ ts-node ./index.ts
 * [2. 认证信息配置](#2-认证信息配置-top)
     * [2.1 使用永久 AK 和 SK](#21-使用永久-ak-和-sk-top)
     * [2.2 使用临时 AK 和 SK](#22-使用临时-ak-和-sk-top)
+    * [2.3 使用 IdpId 和 IdTokenFile](#23-使用-idpid-和-idtokenfile-top)
 * [3. 客户端初始化](#3-客户端初始化-top)
     * [3.1 指定云服务 Endpoint 方式](#31-指定云服务-endpoint-方式-top)
     * [3.2 用户代理](#32-用户代理-top)
@@ -213,7 +214,33 @@ const globalCredentials = new GlobalCredentials()
     .withSecurityToken(securityToken)
     .withDomainId(domainId);
 ```
+#### 2.3 使用 IdpId 和 IdTokenFile [:top:](#用户手册-top)
 
+通过OpenID Connect ID token方式获取联邦认证token, 可参考文档：[获取联邦认证token(OpenID Connect ID token方式)](https://support.huaweicloud.com/api-iam/iam_13_0605.html)
+
+**认证参数说明**：
+
+- `IdpId` 身份提供商ID
+- `IdTokenFile` 存放id_token的文件路径，id_token由企业IdP构建，携带联邦用户身份信息
+- `projectId` 云服务所在项目 ID ，根据你想操作的项目所属区域选择对应的项目 ID
+- `domainId` 华为云账号 ID
+
+``` javascript
+import { BasicCredentials } from "@huaweicloud/huaweicloud-sdk-core/auth/BasicCredentials";
+import { GlobalCredentials } from "@huaweicloud/huaweicloud-sdk-core/auth/GlobalCredentials";
+
+// Region级服务
+const basicCredentials = new BasicCredentials()
+    .withIdpId(idpId)
+    .withIdTokenFile(idTokenFile)
+    .withProjectId(projectId)
+
+// Global级服务
+const globalCredentials = new GlobalCredentials()
+    .withIdpId(idpId)
+    .withIdTokenFile(idTokenFile)
+    .withDomainId(domainId);
+```
 ### 3. 客户端初始化 [:top:](#用户手册-top)
 
 #### 3.1 指定云服务 Endpoint 方式 [:top:](#用户手册-top)

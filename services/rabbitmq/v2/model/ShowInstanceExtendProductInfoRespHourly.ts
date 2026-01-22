@@ -1,10 +1,10 @@
-import { ListProductsRespValues } from './ListProductsRespValues';
+import { ShowInstanceExtendProductInfoRespValues } from './ShowInstanceExtendProductInfoRespValues';
 
 
 export class ShowInstanceExtendProductInfoRespHourly {
     public name?: string;
     public version?: string;
-    public values?: Array<ListProductsRespValues>;
+    public values?: Array<ShowInstanceExtendProductInfoRespValues>;
     public constructor() { 
     }
     public withName(name: string): ShowInstanceExtendProductInfoRespHourly {
@@ -15,7 +15,7 @@ export class ShowInstanceExtendProductInfoRespHourly {
         this['version'] = version;
         return this;
     }
-    public withValues(values: Array<ListProductsRespValues>): ShowInstanceExtendProductInfoRespHourly {
+    public withValues(values: Array<ShowInstanceExtendProductInfoRespValues>): ShowInstanceExtendProductInfoRespHourly {
         this['values'] = values;
         return this;
     }

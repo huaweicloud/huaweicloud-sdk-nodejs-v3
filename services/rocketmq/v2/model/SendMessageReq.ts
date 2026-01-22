@@ -5,7 +5,9 @@ export class SendMessageReq {
     public topic?: string;
     public body?: string;
     private 'property_list'?: Array<SendMessageProperties>;
-    public constructor() { 
+    public constructor(topic?: string, body?: string) { 
+        this['topic'] = topic;
+        this['body'] = body;
     }
     public withTopic(topic: string): SendMessageReq {
         this['topic'] = topic;

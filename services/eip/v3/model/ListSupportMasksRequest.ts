@@ -10,7 +10,7 @@ export class ListSupportMasksRequest {
     private 'sort_dir'?: Array<ListSupportMasksRequestSortDirEnum> | Array<string>;
     public id?: Array<string>;
     private 'ip_version'?: Array<ListSupportMasksRequestIpVersionEnum> | Array<number>;
-    public mask?: Array<number>;
+    public mask?: number;
     public constructor() { 
     }
     public withLimit(limit: number): ListSupportMasksRequest {
@@ -73,7 +73,7 @@ export class ListSupportMasksRequest {
     public get ipVersion(): Array<ListSupportMasksRequestIpVersionEnum> | Array<number> | undefined {
         return this['ip_version'];
     }
-    public withMask(mask: Array<number>): ListSupportMasksRequest {
+    public withMask(mask: number): ListSupportMasksRequest {
         this['mask'] = mask;
         return this;
     }

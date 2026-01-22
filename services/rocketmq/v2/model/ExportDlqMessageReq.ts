@@ -4,7 +4,9 @@ export class ExportDlqMessageReq {
     public topic?: string;
     private 'msg_id_list'?: Array<string>;
     private 'uniq_key_list'?: Array<string>;
-    public constructor() { 
+    public constructor(topic?: string, msgIdList?: Array<string>) { 
+        this['topic'] = topic;
+        this['msg_id_list'] = msgIdList;
     }
     public withTopic(topic: string): ExportDlqMessageReq {
         this['topic'] = topic;

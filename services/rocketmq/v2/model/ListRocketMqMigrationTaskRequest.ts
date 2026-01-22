@@ -4,8 +4,8 @@ export class ListRocketMqMigrationTaskRequest {
     private 'instance_id'?: string;
     public id?: string;
     public type?: ListRocketMqMigrationTaskRequestTypeEnum | string;
-    public offset?: string;
-    public limit?: string;
+    public offset?: number;
+    public limit?: number;
     public name?: string;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
@@ -28,11 +28,11 @@ export class ListRocketMqMigrationTaskRequest {
         this['type'] = type;
         return this;
     }
-    public withOffset(offset: string): ListRocketMqMigrationTaskRequest {
+    public withOffset(offset: number): ListRocketMqMigrationTaskRequest {
         this['offset'] = offset;
         return this;
     }
-    public withLimit(limit: string): ListRocketMqMigrationTaskRequest {
+    public withLimit(limit: number): ListRocketMqMigrationTaskRequest {
         this['limit'] = limit;
         return this;
     }

@@ -147,6 +147,7 @@ export class LiveClient {
      * @param {string} [startTime] 起始时间。日期格式按照ISO8601表示法，并使用UTC时间。  格式为：YYYY-MM-DDThh:mm:ssZ。最大查询跨度31天，最大查询周期一年。  若参数为空，默认查询7天数据。 
      * @param {string} [endTime] 结束时间。日期格式按照ISO8601表示法，并使用UTC时间。  格式为：YYYY-MM-DDThh:mm:ssZ。  若参数为空，默认为当前时间。结束时间需大于起始时间。 
      * @param {'Live' | 'LLL' | 'ALL'} [serviceType] 服务类型： - Live：直播 - LLL：超低时延直播 - ALL：默认所有直播 
+     * @param {'v4' | 'v6'} [ipType] ip类型，取值如下：  - v4 ：ipv4协议  - v6 ：ipv6协议   不填写默认查询所有ip类型的数据   该参数只对2026-01-30后的数据生效。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -846,6 +847,8 @@ export const ParamCreater = function () {
             let endTime;
             
             let serviceType;
+            
+            let ipType;
 
             if (listBandwidthDetailRequest !== null && listBandwidthDetailRequest !== undefined) {
                 if (listBandwidthDetailRequest instanceof ListBandwidthDetailRequest) {
@@ -860,6 +863,7 @@ export const ParamCreater = function () {
                     startTime = listBandwidthDetailRequest.startTime;
                     endTime = listBandwidthDetailRequest.endTime;
                     serviceType = listBandwidthDetailRequest.serviceType;
+                    ipType = listBandwidthDetailRequest.ipType;
                 } else {
                     playDomains = listBandwidthDetailRequest['play_domains'];
                     app = listBandwidthDetailRequest['app'];
@@ -872,6 +876,7 @@ export const ParamCreater = function () {
                     startTime = listBandwidthDetailRequest['start_time'];
                     endTime = listBandwidthDetailRequest['end_time'];
                     serviceType = listBandwidthDetailRequest['service_type'];
+                    ipType = listBandwidthDetailRequest['ip_type'];
                 }
             }
 
@@ -908,6 +913,9 @@ export const ParamCreater = function () {
             }
             if (serviceType !== null && serviceType !== undefined) {
                 localVarQueryParameter['service_type'] = serviceType;
+            }
+            if (ipType !== null && ipType !== undefined) {
+                localVarQueryParameter['ip_type'] = ipType;
             }
 
             options.queryParams = localVarQueryParameter;

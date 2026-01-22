@@ -203,7 +203,9 @@ export enum ListMessageTraceRespTraceTraceTypeEnum {
     PUB = 'Pub',
     SUBBEFORE = 'SubBefore',
     SUBAFTER = 'SubAfter',
-    ENDTRANSACTION = 'EndTransaction'
+    ENDTRANSACTION = 'EndTransaction',
+    RECEIVE = 'Receive',
+    ACK = 'Ack'
 }
 /**
     * @export
@@ -213,7 +215,8 @@ export enum ListMessageTraceRespTraceMsgTypeEnum {
     NORMAL_MSG = 'Normal_Msg',
     TRANS_MSG_HALF = 'Trans_Msg_Half',
     TRANS_MSG_COMMIT = 'Trans_msg_Commit',
-    DELAY_MSG = 'Delay_Msg'
+    DELAY_MSG = 'Delay_Msg',
+    ORDER_MSG = 'Order_Msg'
 }
 /**
     * @export

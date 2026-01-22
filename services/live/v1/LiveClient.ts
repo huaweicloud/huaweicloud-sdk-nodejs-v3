@@ -12,10 +12,14 @@ import { BatchShowIpBelongsRequest } from './model/BatchShowIpBelongsRequest';
 import { BatchShowIpBelongsResponse } from './model/BatchShowIpBelongsResponse';
 import { CallbackUrl } from './model/CallbackUrl';
 import { CdnIp } from './model/CdnIp';
+import { CertInfoResp } from './model/CertInfoResp';
 import { CesDimsItem } from './model/CesDimsItem';
 import { CesDimsItemDisplay } from './model/CesDimsItemDisplay';
 import { CesDimsItemDisplayId } from './model/CesDimsItemDisplayId';
 import { CesQueryRespQuery } from './model/CesQueryRespQuery';
+import { CheckDomainVerificationInfo } from './model/CheckDomainVerificationInfo';
+import { CheckDomainVerificationRequest } from './model/CheckDomainVerificationRequest';
+import { CheckDomainVerificationResponse } from './model/CheckDomainVerificationResponse';
 import { CreateDomainMappingRequest } from './model/CreateDomainMappingRequest';
 import { CreateDomainMappingResponse } from './model/CreateDomainMappingResponse';
 import { CreateDomainRequest } from './model/CreateDomainRequest';
@@ -32,6 +36,8 @@ import { CreateOttChannelInfoReq } from './model/CreateOttChannelInfoReq';
 import { CreateOttChannelInfoReqRecordSettings } from './model/CreateOttChannelInfoReqRecordSettings';
 import { CreateOttChannelInfoRequest } from './model/CreateOttChannelInfoRequest';
 import { CreateOttChannelInfoResponse } from './model/CreateOttChannelInfoResponse';
+import { CreatePullTaskRequest } from './model/CreatePullTaskRequest';
+import { CreatePullTaskResponse } from './model/CreatePullTaskResponse';
 import { CreateRecordCallbackConfigRequest } from './model/CreateRecordCallbackConfigRequest';
 import { CreateRecordCallbackConfigResponse } from './model/CreateRecordCallbackConfigResponse';
 import { CreateRecordIndexRequest } from './model/CreateRecordIndexRequest';
@@ -77,6 +83,8 @@ import { DeleteOttChannelInfoRequest } from './model/DeleteOttChannelInfoRequest
 import { DeleteOttChannelInfoResponse } from './model/DeleteOttChannelInfoResponse';
 import { DeletePublishTemplateRequest } from './model/DeletePublishTemplateRequest';
 import { DeletePublishTemplateResponse } from './model/DeletePublishTemplateResponse';
+import { DeletePullTaskRequest } from './model/DeletePullTaskRequest';
+import { DeletePullTaskResponse } from './model/DeletePullTaskResponse';
 import { DeleteRecordCallbackConfigRequest } from './model/DeleteRecordCallbackConfigRequest';
 import { DeleteRecordCallbackConfigResponse } from './model/DeleteRecordCallbackConfigResponse';
 import { DeleteRecordRuleRequest } from './model/DeleteRecordRuleRequest';
@@ -150,6 +158,8 @@ import { ListOttChannelInfoRequest } from './model/ListOttChannelInfoRequest';
 import { ListOttChannelInfoResponse } from './model/ListOttChannelInfoResponse';
 import { ListPublishTemplateRequest } from './model/ListPublishTemplateRequest';
 import { ListPublishTemplateResponse } from './model/ListPublishTemplateResponse';
+import { ListPullTasksRequest } from './model/ListPullTasksRequest';
+import { ListPullTasksResponse } from './model/ListPullTasksResponse';
 import { ListRecordCallbackConfigsRequest } from './model/ListRecordCallbackConfigsRequest';
 import { ListRecordCallbackConfigsResponse } from './model/ListRecordCallbackConfigsResponse';
 import { ListRecordContentsRequest } from './model/ListRecordContentsRequest';
@@ -168,6 +178,8 @@ import { ListWatermarkTemplateRequest } from './model/ListWatermarkTemplateReque
 import { ListWatermarkTemplateResponse } from './model/ListWatermarkTemplateResponse';
 import { LiveDomainCreateReq } from './model/LiveDomainCreateReq';
 import { LiveDomainModifyReq } from './model/LiveDomainModifyReq';
+import { LivePullStreamTask } from './model/LivePullStreamTask';
+import { LivePullTaskInfo } from './model/LivePullTaskInfo';
 import { LiveRequestArgs } from './model/LiveRequestArgs';
 import { LiveSnapshotConfig } from './model/LiveSnapshotConfig';
 import { LogInfo } from './model/LogInfo';
@@ -186,6 +198,7 @@ import { ModifyHarvestTaskRequest } from './model/ModifyHarvestTaskRequest';
 import { ModifyHarvestTaskRequestBody } from './model/ModifyHarvestTaskRequestBody';
 import { ModifyHarvestTaskResponse } from './model/ModifyHarvestTaskResponse';
 import { ModifyHlsConfig } from './model/ModifyHlsConfig';
+import { ModifyLivePullStreamTask } from './model/ModifyLivePullStreamTask';
 import { ModifyOttChannelEncoderSettings } from './model/ModifyOttChannelEncoderSettings';
 import { ModifyOttChannelEncoderSettingsEncoderSettings } from './model/ModifyOttChannelEncoderSettingsEncoderSettings';
 import { ModifyOttChannelEndPointsReq } from './model/ModifyOttChannelEndPointsReq';
@@ -207,6 +220,8 @@ import { ModifyOttChannelRecordSettings } from './model/ModifyOttChannelRecordSe
 import { ModifyOttChannelRecordSettingsRecordSettings } from './model/ModifyOttChannelRecordSettingsRecordSettings';
 import { ModifyOttChannelState } from './model/ModifyOttChannelState';
 import { ModifyPullSourcesConfig } from './model/ModifyPullSourcesConfig';
+import { ModifyPullTaskRequest } from './model/ModifyPullTaskRequest';
+import { ModifyPullTaskResponse } from './model/ModifyPullTaskResponse';
 import { ModifyWatermarkRule } from './model/ModifyWatermarkRule';
 import { MssPackageItem } from './model/MssPackageItem';
 import { ObsAuthorityConfigV2 } from './model/ObsAuthorityConfigV2';
@@ -235,6 +250,8 @@ import { SecondarySourcesInfo } from './model/SecondarySourcesInfo';
 import { SetRefererChainInfo } from './model/SetRefererChainInfo';
 import { SetRefererChainRequest } from './model/SetRefererChainRequest';
 import { SetRefererChainResponse } from './model/SetRefererChainResponse';
+import { ShowCertificateInfoRequest } from './model/ShowCertificateInfoRequest';
+import { ShowCertificateInfoResponse } from './model/ShowCertificateInfoResponse';
 import { ShowChannelStatisticReq } from './model/ShowChannelStatisticReq';
 import { ShowChannelStatisticRequest } from './model/ShowChannelStatisticRequest';
 import { ShowChannelStatisticResponse } from './model/ShowChannelStatisticResponse';
@@ -244,6 +261,8 @@ import { ShowDomainKeyChainRequest } from './model/ShowDomainKeyChainRequest';
 import { ShowDomainKeyChainResponse } from './model/ShowDomainKeyChainResponse';
 import { ShowDomainRequest } from './model/ShowDomainRequest';
 import { ShowDomainResponse } from './model/ShowDomainResponse';
+import { ShowDomainVerificationRequest } from './model/ShowDomainVerificationRequest';
+import { ShowDomainVerificationResponse } from './model/ShowDomainVerificationResponse';
 import { ShowFlowDetailRequest } from './model/ShowFlowDetailRequest';
 import { ShowFlowDetailResponse } from './model/ShowFlowDetailResponse';
 import { ShowOutputInfoRequest } from './model/ShowOutputInfoRequest';
@@ -356,6 +375,25 @@ export class LiveClient {
     }
 
     /**
+     * 域名归属权认证，确保创建的域名对应的主域名有归属权。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 域名归属权认证
+     * @param {CheckDomainVerificationInfo} checkDomainVerificationRequestBody 域名归属权验证信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkDomainVerification(checkDomainVerificationRequest?: CheckDomainVerificationRequest): Promise<CheckDomainVerificationResponse> {
+        const options = ParamCreater().checkDomainVerification(checkDomainVerificationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 可单独创建直播播放域名或推流域名，每个租户最多可配置64条域名记录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -425,6 +463,25 @@ export class LiveClient {
      */
     public createFlows(createFlowsRequest?: CreateFlowsRequest): Promise<CreateFlowsResponse> {
         const options = ParamCreater().createFlows(createFlowsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据租户指定的拉流源以及拉流任务信息创建直播拉流转推任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建直播拉流转推任务
+     * @param {LivePullStreamTask} createPullTaskRequestBody 拉流转推任务配置信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPullTask(createPullTaskRequest?: CreatePullTaskRequest): Promise<CreatePullTaskResponse> {
+        const options = ParamCreater().createPullTask(createPullTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -750,6 +807,26 @@ export class LiveClient {
      */
     public deletePublishTemplate(deletePublishTemplateRequest?: DeletePublishTemplateRequest): Promise<DeletePublishTemplateResponse> {
         const options = ParamCreater().deletePublishTemplate(deletePublishTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 停止并删除直播拉流转推任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除直播拉流转推任务
+     * @param {string} taskId 任务id
+     * @param {string} [region] 任务执行区域
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePullTask(deletePullTaskRequest?: DeletePullTaskRequest): Promise<DeletePullTaskResponse> {
+        const options = ParamCreater().deletePullTask(deletePullTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1095,6 +1172,28 @@ export class LiveClient {
     }
 
     /**
+     * 查询直播拉流转推任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询直播拉流转推任务
+     * @param {string} [region] 任务所在区域
+     * @param {number} [offset] 偏移量
+     * @param {number} [limit] 每页记录数
+     * @param {string} [taskId] 任务id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPullTasks(listPullTasksRequest?: ListPullTasksRequest): Promise<ListPullTasksResponse> {
+        const options = ParamCreater().listPullTasks(listPullTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询录制回调配置列表接口。通过指定条件，查询满足条件的配置列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1365,6 +1464,25 @@ export class LiveClient {
     }
 
     /**
+     * 修改直播拉流转推任务，仅当source_type为PullVodPushLive的任务生效
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改直播拉流转推任务
+     * @param {ModifyLivePullStreamTask} modifyPullTaskRequestBody 转推任务配置信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyPullTask(modifyPullTaskRequest?: ModifyPullTaskRequest): Promise<ModifyPullTaskResponse> {
+        const options = ParamCreater().modifyPullTask(modifyPullTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 对单条流的实时录制控制接口。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1435,6 +1553,25 @@ export class LiveClient {
      */
     public showDomainKeyChain(showDomainKeyChainRequest?: ShowDomainKeyChainRequest): Promise<ShowDomainKeyChainResponse> {
         const options = ParamCreater().showDomainKeyChain(showDomainKeyChainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询域名归属权验证信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询域名归属权验证信息
+     * @param {string} domain 直播域名
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDomainVerification(showDomainVerificationRequest?: ShowDomainVerificationRequest): Promise<ShowDomainVerificationResponse> {
+        const options = ParamCreater().showDomainVerification(showDomainVerificationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1990,6 +2127,27 @@ export class LiveClient {
     }
 
     /**
+     * 根据项目ID、域名等信息查询HTTPS证书信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询HTTPS证书信息
+     * @param {string} [playDomain] 播放域名
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询
+     * @param {number} [limit] 每页显示的条目数量，取值范围[1,100]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCertificateInfo(showCertificateInfoRequest?: ShowCertificateInfoRequest): Promise<ShowCertificateInfoResponse> {
+        const options = ParamCreater().showCertificateInfo(showCertificateInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询指定域名的https证书配置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2423,6 +2581,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 域名归属权认证，确保创建的域名对应的主域名有归属权。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkDomainVerification(checkDomainVerificationRequest?: CheckDomainVerificationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/domain/verification",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (checkDomainVerificationRequest !== null && checkDomainVerificationRequest !== undefined) {
+                if (checkDomainVerificationRequest instanceof CheckDomainVerificationRequest) {
+                    body = checkDomainVerificationRequest.body
+                } else {
+                    body = checkDomainVerificationRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 可单独创建直播播放域名或推流域名，每个租户最多可配置64条域名记录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2579,6 +2775,44 @@ export const ParamCreater = function () {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据租户指定的拉流源以及拉流任务信息创建直播拉流转推任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPullTask(createPullTaskRequest?: CreatePullTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/pull/stream/task",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createPullTaskRequest !== null && createPullTaskRequest !== undefined) {
+                if (createPullTaskRequest instanceof CreatePullTaskRequest) {
+                    body = createPullTaskRequest.body
+                } else {
+                    body = createPullTaskRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
@@ -3256,6 +3490,53 @@ export const ParamCreater = function () {
             }
             if (domain !== null && domain !== undefined) {
                 localVarQueryParameter['domain'] = domain;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 停止并删除直播拉流转推任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePullTask(deletePullTaskRequest?: DeletePullTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/pull/stream/task",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let taskId;
+            
+            let region;
+
+            if (deletePullTaskRequest !== null && deletePullTaskRequest !== undefined) {
+                if (deletePullTaskRequest instanceof DeletePullTaskRequest) {
+                    taskId = deletePullTaskRequest.taskId;
+                    region = deletePullTaskRequest.region;
+                } else {
+                    taskId = deletePullTaskRequest['task_id'];
+                    region = deletePullTaskRequest['region'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+                throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling deletePullTask.');
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
+            }
+            if (region !== null && region !== undefined) {
+                localVarQueryParameter['region'] = region;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4019,6 +4300,64 @@ export const ParamCreater = function () {
             }
             if (domain !== null && domain !== undefined) {
                 localVarQueryParameter['domain'] = domain;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询直播拉流转推任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPullTasks(listPullTasksRequest?: ListPullTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/pull/stream/task",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let region;
+            
+            let offset;
+            
+            let limit;
+            
+            let taskId;
+
+            if (listPullTasksRequest !== null && listPullTasksRequest !== undefined) {
+                if (listPullTasksRequest instanceof ListPullTasksRequest) {
+                    region = listPullTasksRequest.region;
+                    offset = listPullTasksRequest.offset;
+                    limit = listPullTasksRequest.limit;
+                    taskId = listPullTasksRequest.taskId;
+                } else {
+                    region = listPullTasksRequest['region'];
+                    offset = listPullTasksRequest['offset'];
+                    limit = listPullTasksRequest['limit'];
+                    taskId = listPullTasksRequest['task_id'];
+                }
+            }
+
+        
+            if (region !== null && region !== undefined) {
+                localVarQueryParameter['region'] = region;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4799,6 +5138,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改直播拉流转推任务，仅当source_type为PullVodPushLive的任务生效
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyPullTask(modifyPullTaskRequest?: ModifyPullTaskRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/pull/stream/task",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (modifyPullTaskRequest !== null && modifyPullTaskRequest !== undefined) {
+                if (modifyPullTaskRequest instanceof ModifyPullTaskRequest) {
+                    body = modifyPullTaskRequest.body
+                } else {
+                    body = modifyPullTaskRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 对单条流的实时录制控制接口。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4959,6 +5336,46 @@ export const ParamCreater = function () {
         
             if (domain === null || domain === undefined) {
                 throw new RequiredError('domain','Required parameter domain was null or undefined when calling showDomainKeyChain.');
+            }
+            if (domain !== null && domain !== undefined) {
+                localVarQueryParameter['domain'] = domain;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询域名归属权验证信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDomainVerification(showDomainVerificationRequest?: ShowDomainVerificationRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/domain/verification",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domain;
+
+            if (showDomainVerificationRequest !== null && showDomainVerificationRequest !== undefined) {
+                if (showDomainVerificationRequest instanceof ShowDomainVerificationRequest) {
+                    domain = showDomainVerificationRequest.domain;
+                } else {
+                    domain = showDomainVerificationRequest['domain'];
+                }
+            }
+
+        
+            if (domain === null || domain === undefined) {
+                throw new RequiredError('domain','Required parameter domain was null or undefined when calling showDomainVerification.');
             }
             if (domain !== null && domain !== undefined) {
                 localVarQueryParameter['domain'] = domain;
@@ -6139,6 +6556,57 @@ export const ParamCreater = function () {
             }
             if (domain !== null && domain !== undefined) {
                 localVarQueryParameter['domain'] = domain;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据项目ID、域名等信息查询HTTPS证书信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCertificateInfo(showCertificateInfoRequest?: ShowCertificateInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/certificates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let playDomain;
+            
+            let offset;
+            
+            let limit;
+
+            if (showCertificateInfoRequest !== null && showCertificateInfoRequest !== undefined) {
+                if (showCertificateInfoRequest instanceof ShowCertificateInfoRequest) {
+                    playDomain = showCertificateInfoRequest.playDomain;
+                    offset = showCertificateInfoRequest.offset;
+                    limit = showCertificateInfoRequest.limit;
+                } else {
+                    playDomain = showCertificateInfoRequest['play_domain'];
+                    offset = showCertificateInfoRequest['offset'];
+                    limit = showCertificateInfoRequest['limit'];
+                }
+            }
+
+        
+            if (playDomain !== null && playDomain !== undefined) {
+                localVarQueryParameter['play_domain'] = playDomain;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
 
             options.queryParams = localVarQueryParameter;

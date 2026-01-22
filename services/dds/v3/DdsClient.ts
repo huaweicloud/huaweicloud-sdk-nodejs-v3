@@ -865,12 +865,12 @@ export class DdsClient {
     }
 
     /**
-     * 删除参数模板。
+     * 删除指定参数模板。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除参数模板
-     * @param {string} configId 参数模板ID。
+     * @param {string} configId **参数解释：** 参数模板ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1146,9 +1146,9 @@ export class DdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询可应用的实例
-     * @param {string} configId 参数模板ID。
-     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
-     * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100。
+     * @param {string} configId **参数解释：** 参数模板ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {number} [offset] **参数解释：** 索引位置，偏移量。 **约束限制：** 必须为整数数字。 **取值范围：** &gt;&#x3D;0。 **默认取值：** 0。偏移0条数据，表示从第一条数据开始查询。
+     * @param {number} [limit] **参数解释：** 查询记录数。 **约束限制：** 正整数。 **取值范围：** 1~100。 **默认取值：** 100。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1249,8 +1249,8 @@ export class DdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询备份列表
-     * @param {string} [instanceId] **参数解释：** 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。如果instance_id以“”起始，表示按照“”后面的值模糊匹配，否则，按照实际填写的instance_id精确匹配查询。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
-     * @param {string} [backupId] **参数解释：** 备份ID。如果backup_id以“”起始，表示按照“”后面的值模糊匹配，否则，按照实际填写的backup_id精确匹配查询。 **约束限制：** 当该字段传入的备份ID归属为自动增量备份时，实例ID必传，且实例ID必须为精确匹配。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [instanceId] **参数解释：** 实例ID，可以调用“查询实例列表和详情-QueryingInstancesandDetails”接口获取。如果未申请实例，可以调用“创建实例-CreatingaDBInstance”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [backupId] **参数解释：** 备份ID。 **约束限制：** 当该字段传入的备份ID归属为自动增量备份时，实例ID必传。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {'Auto' | 'Manual' | 'Incremental'} [backupType] **参数解释：** 备份类型。 **约束限制：** 当该字段取值为“Incremental”时，实例ID必传。 **取值范围：** - 取值为“Auto”，表示自动全量备份。 - 取值为“Manual”，表示手动全量备份。 - 取值为“Incremental”，表示自动增量备份。 - 当该字段未传入值时，默认只查询所有的全量备份，包括自动全备备份和手动全量备份。当该字段取值为“Incremental”时，实例ID必传。  **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 索引位置偏移量，表示从指定project ID下最新的备份创建时间开始，按时间的先后顺序偏移offset条数据后查询对应的备份信息。 **约束限制：** 不涉及。 **取值范围：** 大于或等于0。 **默认取值：** 0，表示从最新的备份创建时间对应的备份开始查询。
      * @param {number} [limit] **参数解释：** 查询备份个数上限值。 **约束限制：** 不涉及。 **取值范围：** 1~100。 **默认取值：** 100。不传该参数时，默认查询前100条备份信息。
@@ -1281,8 +1281,8 @@ export class DdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取参数模板列表
-     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
-     * @param {number} [limit] 每页显示的数量，默认是100。
+     * @param {number} [offset] **参数解释：** 索引位置，偏移量。 **约束限制：** 必须为数字。 **取值范围：** 不能为负数。 **默认取值：** 0。偏移0条数据，表示从第一条数据开始查询。
+     * @param {number} [limit] **参数解释：** 每页显示的数量。 **约束限制：** 不涉及。 **取值范围：** 1~100。 **默认取值：** 100。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1554,12 +1554,12 @@ export class DdsClient {
     }
 
     /**
-     * 查询数据库慢日志信息。
+     * 查询数据库慢日志信息，支持关键字、数据库表名等搜索功能。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询数据库慢日志
-     * @param {string} instanceId 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。
+     * @param {string} instanceId **参数解释：** 实例ID，可以调用“查询实例列表和详情-QueryingInstancesandDetails”接口获取。如果未申请实例，可以调用“创建实例-CreatingaDBInstance”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {ListLtsSlowLogsRequestBody} listLtsSlowLogsRequestBody： 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1803,6 +1803,7 @@ export class DdsClient {
      * @param {string} startTime 查询开始时间，格式为“yyyy-mm-ddThh:mm:ssZ”。 其中，T指某个时间的开始，Z指时区偏移量
      * @param {string} endTime 查询结束时间，格式为“yyyy-mm-ddThh:mm:ssZ”，且大于查询开始时间，时间跨度不超过30天。 其中，T指某个时间的开始，Z指时区偏移量。
      * @param {string} [status] 任务状态： 取值为“Running”为执行中； 取值为“Completed”为完成； 取值为“Failed” 为失败。
+     * @param {string} [id] 任务ID。
      * @param {string} [name] 任务名称。对应取值如下： - \&quot;CreateMongoDB\&quot;：创建集群实例 - \&quot;CreateMongoDBReplica\&quot;：创建副本集实例 - \&quot;CreateMongoDBReplicaSingle\&quot;：创建单节点实例 - \&quot;EnlargeMongoDBVolume\&quot;：磁盘扩容 - \&quot;ResizeMongoDBInstance\&quot;：社区版实例规格变更 - \&quot;ResizeDfvMongoDBInstance\&quot;：社区增强版实例规格变更 - \&quot;EnlargeMongoDBGroup\&quot;：添加节点 - \&quot;ReplicaSetEnlargeNode\&quot;：副本集添加备节点 - \&quot;AddReadonlyNode\&quot;：添加只读节点 - \&quot;RestartInstance\&quot;：重启集群实例 - \&quot;RestartGroup\&quot;：重启集群节点组 - \&quot;RestartNode\&quot;：重启集群节点 - \&quot;RestartReplicaSetInstance\&quot;：重启副本集实例 - \&quot;RestartReplicaSingleInstance\&quot;：重启单节点实例 - \&quot;SwitchPrimary\&quot;：主备切换 - \&quot;ModifyIp\&quot;：修改内网地址 - \&quot;ModifySecurityGroup\&quot;：修改安全组 - \&quot;ModifyPort\&quot;：修改数据库端口 - \&quot;BindPublicIP\&quot;：绑定弹性IP - \&quot;UnbindPublicIP\&quot;：解绑弹性IP - \&quot;SwitchInstanceSSL\&quot;：切换SSL - \&quot;AzMigrate\&quot;：迁移可用区 - \&quot;CreateIp\&quot;：显示shard/config IP - \&quot;ModifyOpLogSize\&quot;：修改oplog大小 - \&quot;RestoreMongoDB\&quot;：集群恢复到新实例 - \&quot;RestoreMongoDB_Replica\&quot;：副本集恢复到新实例 - \&quot;RestoreMongoDB_Replica_Single\&quot;：单节点恢复到新实例 - \&quot;RestoreMongoDB_Replica_PITR\&quot;：副本集恢复到指定时间点 - \&quot;MongodbSnapshotBackup\&quot;：创建物理备份 - \&quot;MongodbSnapshotEBackup\&quot;：创建快照备份 - \&quot;MongodbRestoreData2CurrentInstance\&quot;：备份恢复到当前实例 - \&quot;MongodbRestoreData2NewInstance\&quot;：备份恢复到新实例 - \&quot;MongodbPitr2CurrentInstance\&quot;：备份恢复到当前实例指定时间点 - \&quot;MongodbPitr2NewInstance\&quot;：备份恢复到新实例指定时间点 - \&quot;MongodbRecycleBackup\&quot;：备份回收 - \&quot;MongodbRestoreTable\&quot;：库表级时间点恢复 - \&quot;UpgradeDatabaseVersion\&quot;：升级数据库补丁
      * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
      * @param {number} [limit] 查询记录数。默认为100，不能为负数，最小值为1，最大值为100。
@@ -2258,9 +2259,9 @@ export class DdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询参数模板修改历史
-     * @param {string} configId 参数模板ID。
-     * @param {number} [offset] 索引位置，偏移量。  从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询）。 取值必须为数字，不能为负数。
-     * @param {number} [limit] 查询个数上限值。 - 取值范围: 1~100。 - 不传该参数时，默认查询前100条信息。
+     * @param {string} configId **参数解释：** 参数模板ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {number} [offset] **参数解释：** 索引位置，偏移量。 **约束限制：** 从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询）。 取值必须为数字，不能为负数。 **取值范围：** 不涉及。 **默认取值：** 0。
+     * @param {number} [limit] **参数解释：** 查询个数上限值。 **约束限制：** 不传该参数时，默认查询前100条信息。 **取值范围：** 1~100。 **默认取值：** 100。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2274,12 +2275,12 @@ export class DdsClient {
     }
 
     /**
-     * 获取参数模板的详情。
+     * 获取指定参数模板的参数信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取参数模板的详情
-     * @param {string} configId 参数模板ID。
+     * @param {string} configId **参数解释：** 参数模板ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2333,12 +2334,13 @@ export class DdsClient {
     }
 
     /**
-     * 获取指定实例的参数，可以是实例，组，节点的参数模板。
+     * 获取指定实例的参数信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定实例的参数信息
-     * @param {string} instanceId 实例ID。
+     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json，如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
+     * @param {string} instanceId 实例ID，可以调用“查询实例列表和详情-QueryingInstancesandDetails”接口获取。如果未申请实例，可以调用“创建实例-CreatingaDBInstance”接口创建。
      * @param {string} entityId - 实例ID或组ID或节点ID。可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。 - 当获取的实例类型是集群，如果获取的是shard组或者config组的参数模板，传值为组ID。如果获取的是mongos节点的参数模板，传值为节点ID。 - 当获取的实例类型是副本集或单节点，传值为实例ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2758,7 +2760,7 @@ export class DdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改参数模板
-     * @param {string} configId 参数模板ID。
+     * @param {string} configId **参数解释：** 参数模板ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {UpdateConfigurationParameterRequestBody} updateConfigurationParameterRequestBody 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2778,7 +2780,7 @@ export class DdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改指定实例的参数
-     * @param {string} instanceId 实例ID。
+     * @param {string} instanceId **参数解释：** 实例ID，可以调用“查询实例列表和详情-QueryingInstancesandDetails”接口获取。如果未申请实例，可以调用“创建实例-CreatingaDBInstance”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {UpdateConfigurationParameterResult} updateConfigurationParameterResult 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2939,7 +2941,7 @@ export class DdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 数据库补丁升级
-     * @param {string} instanceId **参数解释：** 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} instanceId **参数解释：** 实例ID，可以调用“查询实例列表和详情-QueryingInstancesandDetails”接口获取。如果未申请实例，可以调用“创建实例-CreatingaDBInstance”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {UpgradeDatabaseVersionRequestBody} upgradeDatabaseVersionRequestBody 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3973,7 +3975,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除参数模板。
+         * 删除指定参数模板。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5657,7 +5659,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询数据库慢日志信息。
+         * 查询数据库慢日志信息，支持关键字、数据库表名等搜索功能。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6326,6 +6328,8 @@ export const ParamCreater = function () {
             
             let status;
             
+            let id;
+            
             let name;
             
             let offset;
@@ -6337,6 +6341,7 @@ export const ParamCreater = function () {
                     startTime = listTasksRequest.startTime;
                     endTime = listTasksRequest.endTime;
                     status = listTasksRequest.status;
+                    id = listTasksRequest.id;
                     name = listTasksRequest.name;
                     offset = listTasksRequest.offset;
                     limit = listTasksRequest.limit;
@@ -6344,6 +6349,7 @@ export const ParamCreater = function () {
                     startTime = listTasksRequest['start_time'];
                     endTime = listTasksRequest['end_time'];
                     status = listTasksRequest['status'];
+                    id = listTasksRequest['id'];
                     name = listTasksRequest['name'];
                     offset = listTasksRequest['offset'];
                     limit = listTasksRequest['limit'];
@@ -6365,6 +6371,9 @@ export const ParamCreater = function () {
             }
             if (status !== null && status !== undefined) {
                 localVarQueryParameter['status'] = status;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
             }
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;
@@ -7390,7 +7399,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取参数模板的详情。
+         * 获取指定参数模板的参数信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7516,7 +7525,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取指定实例的参数，可以是实例，组，节点的参数模板。
+         * 获取指定实例的参数信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7532,15 +7541,19 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
+            let contentType;
+            
             let instanceId;
             
             let entityId;
 
             if (showEntityConfigurationRequest !== null && showEntityConfigurationRequest !== undefined) {
                 if (showEntityConfigurationRequest instanceof ShowEntityConfigurationRequest) {
+                    contentType = showEntityConfigurationRequest.contentType;
                     instanceId = showEntityConfigurationRequest.instanceId;
                     entityId = showEntityConfigurationRequest.entityId;
                 } else {
+                    contentType = showEntityConfigurationRequest['Content-Type'];
                     instanceId = showEntityConfigurationRequest['instance_id'];
                     entityId = showEntityConfigurationRequest['entity_id'];
                 }
@@ -7555,6 +7568,9 @@ export const ParamCreater = function () {
             }
             if (entityId !== null && entityId !== undefined) {
                 localVarQueryParameter['entity_id'] = entityId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;

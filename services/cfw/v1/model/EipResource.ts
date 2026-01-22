@@ -17,6 +17,7 @@ export class EipResource {
     public tags?: string;
     private 'domain_id'?: string;
     private 'fw_domain_id'?: string;
+    private 'bypass_status'?: number;
     public constructor() { 
     }
     public withId(id: string): EipResource {
@@ -160,6 +161,16 @@ export class EipResource {
     }
     public get fwDomainId(): string | undefined {
         return this['fw_domain_id'];
+    }
+    public withBypassStatus(bypassStatus: number): EipResource {
+        this['bypass_status'] = bypassStatus;
+        return this;
+    }
+    public set bypassStatus(bypassStatus: number  | undefined) {
+        this['bypass_status'] = bypassStatus;
+    }
+    public get bypassStatus(): number | undefined {
+        return this['bypass_status'];
     }
 }
 

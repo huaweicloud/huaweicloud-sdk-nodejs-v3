@@ -5,7 +5,6 @@ export class SetStatsConfigBody {
     private 'resource_type'?: string;
     private 'resource_name'?: string;
     private 'config_info'?: object;
-    private 'expired_time'?: number;
     public constructor(resourceType?: string, resourceName?: string, configInfo?: object) { 
         this['resource_type'] = resourceType;
         this['resource_name'] = resourceName;
@@ -50,15 +49,5 @@ export class SetStatsConfigBody {
     }
     public get configInfo(): object | undefined {
         return this['config_info'];
-    }
-    public withExpiredTime(expiredTime: number): SetStatsConfigBody {
-        this['expired_time'] = expiredTime;
-        return this;
-    }
-    public set expiredTime(expiredTime: number  | undefined) {
-        this['expired_time'] = expiredTime;
-    }
-    public get expiredTime(): number | undefined {
-        return this['expired_time'];
     }
 }

@@ -3,7 +3,8 @@ import { RocketMQConfigReq } from './RocketMQConfigReq';
 
 export class ModifyConfigReq {
     private 'rocketmq_configs'?: Array<RocketMQConfigReq>;
-    public constructor() { 
+    public constructor(rocketmqConfigs?: Array<RocketMQConfigReq>) { 
+        this['rocketmq_configs'] = rocketmqConfigs;
     }
     public withRocketmqConfigs(rocketmqConfigs: Array<RocketMQConfigReq>): ModifyConfigReq {
         this['rocketmq_configs'] = rocketmqConfigs;

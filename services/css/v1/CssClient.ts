@@ -106,6 +106,7 @@ import { DeleteSnapshotResponse } from './model/DeleteSnapshotResponse';
 import { DeleteTemplateReq } from './model/DeleteTemplateReq';
 import { DeleteTemplateRequest } from './model/DeleteTemplateRequest';
 import { DeleteTemplateResponse } from './model/DeleteTemplateResponse';
+import { DiskType } from './model/DiskType';
 import { DownloadCertRequest } from './model/DownloadCertRequest';
 import { DownloadCertResponse } from './model/DownloadCertResponse';
 import { ElbWhiteListResp } from './model/ElbWhiteListResp';
@@ -140,6 +141,8 @@ import { ListClustersTagsRequest } from './model/ListClustersTagsRequest';
 import { ListClustersTagsResponse } from './model/ListClustersTagsResponse';
 import { ListConfsRequest } from './model/ListConfsRequest';
 import { ListConfsResponse } from './model/ListConfsResponse';
+import { ListDiskTypeRequest } from './model/ListDiskTypeRequest';
+import { ListDiskTypeResponse } from './model/ListDiskTypeResponse';
 import { ListElbCertsRequest } from './model/ListElbCertsRequest';
 import { ListElbCertsResponse } from './model/ListElbCertsResponse';
 import { ListElbsRequest } from './model/ListElbsRequest';
@@ -881,6 +884,24 @@ export class CssClient {
      */
     public listClustersTags(listClustersTagsRequest?: ListClustersTagsRequest): Promise<ListClustersTagsResponse> {
         const options = ParamCreater().listClustersTags(listClustersTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取各可用区支持的磁盘类型。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举磁盘类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDiskType(listDiskTypeRequest?: ListDiskTypeRequest): Promise<ListDiskTypeResponse> {
+        const options = ParamCreater().listDiskType();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3753,6 +3774,27 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取各可用区支持的磁盘类型。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDiskType() {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/disktypes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

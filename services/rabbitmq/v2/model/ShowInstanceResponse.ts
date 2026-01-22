@@ -54,6 +54,8 @@ export class ShowInstanceResponse extends SdkResponse {
     private 'ipv6_enable'?: boolean;
     private 'ipv6_connect_addresses'?: Array<string>;
     public tags?: Array<TagEntity>;
+    private 'service_type'?: string;
+    private 'storage_type'?: string;
     public constructor() { 
         super();
     }
@@ -518,6 +520,26 @@ export class ShowInstanceResponse extends SdkResponse {
     public withTags(tags: Array<TagEntity>): ShowInstanceResponse {
         this['tags'] = tags;
         return this;
+    }
+    public withServiceType(serviceType: string): ShowInstanceResponse {
+        this['service_type'] = serviceType;
+        return this;
+    }
+    public set serviceType(serviceType: string  | undefined) {
+        this['service_type'] = serviceType;
+    }
+    public get serviceType(): string | undefined {
+        return this['service_type'];
+    }
+    public withStorageType(storageType: string): ShowInstanceResponse {
+        this['storage_type'] = storageType;
+        return this;
+    }
+    public set storageType(storageType: string  | undefined) {
+        this['storage_type'] = storageType;
+    }
+    public get storageType(): string | undefined {
+        return this['storage_type'];
     }
 }
 

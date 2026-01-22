@@ -1,3 +1,5 @@
+import { IOSEntity } from './IOSEntity';
+import { ProductEntityProperties } from './ProductEntityProperties';
 
 
 export class ProductEntity {
@@ -6,12 +8,10 @@ export class ProductEntity {
     private 'ecs_flavor_id'?: string;
     private 'billing_code'?: string;
     private 'arch_types'?: Array<string>;
-    private 'charging_mode'?: object;
-    public ios?: object;
-    private 'support_features'?: object;
-    public properties?: object;
-    private 'available_zones'?: Array<string>;
-    private 'unavailable_zones'?: Array<string>;
+    private 'charging_mode'?: Array<string>;
+    public ios?: Array<IOSEntity>;
+    private 'support_features'?: Array<string>;
+    public properties?: ProductEntityProperties;
     private 'qingtian_incompatible'?: boolean;
     public constructor() { 
     }
@@ -59,53 +59,33 @@ export class ProductEntity {
     public get archTypes(): Array<string> | undefined {
         return this['arch_types'];
     }
-    public withChargingMode(chargingMode: object): ProductEntity {
+    public withChargingMode(chargingMode: Array<string>): ProductEntity {
         this['charging_mode'] = chargingMode;
         return this;
     }
-    public set chargingMode(chargingMode: object  | undefined) {
+    public set chargingMode(chargingMode: Array<string>  | undefined) {
         this['charging_mode'] = chargingMode;
     }
-    public get chargingMode(): object | undefined {
+    public get chargingMode(): Array<string> | undefined {
         return this['charging_mode'];
     }
-    public withIos(ios: object): ProductEntity {
+    public withIos(ios: Array<IOSEntity>): ProductEntity {
         this['ios'] = ios;
         return this;
     }
-    public withSupportFeatures(supportFeatures: object): ProductEntity {
+    public withSupportFeatures(supportFeatures: Array<string>): ProductEntity {
         this['support_features'] = supportFeatures;
         return this;
     }
-    public set supportFeatures(supportFeatures: object  | undefined) {
+    public set supportFeatures(supportFeatures: Array<string>  | undefined) {
         this['support_features'] = supportFeatures;
     }
-    public get supportFeatures(): object | undefined {
+    public get supportFeatures(): Array<string> | undefined {
         return this['support_features'];
     }
-    public withProperties(properties: object): ProductEntity {
+    public withProperties(properties: ProductEntityProperties): ProductEntity {
         this['properties'] = properties;
         return this;
-    }
-    public withAvailableZones(availableZones: Array<string>): ProductEntity {
-        this['available_zones'] = availableZones;
-        return this;
-    }
-    public set availableZones(availableZones: Array<string>  | undefined) {
-        this['available_zones'] = availableZones;
-    }
-    public get availableZones(): Array<string> | undefined {
-        return this['available_zones'];
-    }
-    public withUnavailableZones(unavailableZones: Array<string>): ProductEntity {
-        this['unavailable_zones'] = unavailableZones;
-        return this;
-    }
-    public set unavailableZones(unavailableZones: Array<string>  | undefined) {
-        this['unavailable_zones'] = unavailableZones;
-    }
-    public get unavailableZones(): Array<string> | undefined {
-        return this['unavailable_zones'];
     }
     public withQingtianIncompatible(qingtianIncompatible: boolean): ProductEntity {
         this['qingtian_incompatible'] = qingtianIncompatible;
