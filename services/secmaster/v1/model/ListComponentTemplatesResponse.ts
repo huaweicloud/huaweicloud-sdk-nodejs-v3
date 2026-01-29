@@ -1,4 +1,5 @@
 import { ComponentSoarRsp } from './ComponentSoarRsp';
+import { TemplateInfo } from './TemplateInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -10,6 +11,7 @@ export class ListComponentTemplatesResponse extends SdkResponse {
     public message?: string;
     public success?: boolean;
     private 'request_id'?: string;
+    public data?: Array<TemplateInfo>;
     public constructor() { 
         super();
     }
@@ -46,5 +48,9 @@ export class ListComponentTemplatesResponse extends SdkResponse {
     }
     public get requestId(): string | undefined {
         return this['request_id'];
+    }
+    public withData(data: Array<TemplateInfo>): ListComponentTemplatesResponse {
+        this['data'] = data;
+        return this;
     }
 }

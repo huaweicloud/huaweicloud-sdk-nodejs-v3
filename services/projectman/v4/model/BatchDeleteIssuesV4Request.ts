@@ -1,9 +1,9 @@
-import { BatchDelelteIssuesRequestV4 } from './BatchDelelteIssuesRequestV4';
+import { BatchDeleteIssuesRequestV4 } from './BatchDeleteIssuesRequestV4';
 
 
 export class BatchDeleteIssuesV4Request {
     private 'project_id'?: string;
-    public body?: BatchDelelteIssuesRequestV4;
+    public body?: BatchDeleteIssuesRequestV4;
     public constructor(projectId?: string) { 
         this['project_id'] = projectId;
     }
@@ -17,7 +17,7 @@ export class BatchDeleteIssuesV4Request {
     public get projectId(): string | undefined {
         return this['project_id'];
     }
-    public withBody(body: BatchDelelteIssuesRequestV4): BatchDeleteIssuesV4Request {
+    public withBody(body: BatchDeleteIssuesRequestV4): BatchDeleteIssuesV4Request {
         this['body'] = body;
         return this;
     }

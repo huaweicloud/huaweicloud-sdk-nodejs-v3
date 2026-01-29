@@ -15,7 +15,6 @@ export * from './model/CommandParam';
 export * from './model/ConfigBody';
 export * from './model/ConfigurationRequestBody';
 export * from './model/ConsistencyResult';
-export * from './model/ConsistencyResultRequestBodyResultList';
 export * from './model/CreateMigprojectRequest';
 export * from './model/CreateMigprojectResponse';
 export * from './model/CreatePrivacyAgreementsRequest';

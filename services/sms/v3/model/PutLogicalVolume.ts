@@ -4,8 +4,7 @@ export class PutLogicalVolume {
     public id?: string;
     private 'need_migration'?: boolean;
     private 'adjust_size'?: number;
-    public constructor(id?: string) { 
-        this['id'] = id;
+    public constructor() { 
     }
     public withId(id: string): PutLogicalVolume {
         this['id'] = id;

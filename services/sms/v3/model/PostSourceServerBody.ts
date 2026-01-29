@@ -7,6 +7,7 @@ import { VolumeGroups } from './VolumeGroups';
 export class PostSourceServerBody {
     public id?: string;
     public ip?: string;
+    public ipv6?: string;
     public name?: string;
     public hostname?: string;
     private 'os_type'?: PostSourceServerBodyOsTypeEnum | string;
@@ -25,7 +26,7 @@ export class PostSourceServerBody {
     private 'driver_files'?: boolean;
     private 'system_services'?: boolean;
     private 'account_rights'?: boolean;
-    private 'boot_loader'?: PostSourceServerBodyBootLoaderEnum | string;
+    private 'boot_loader'?: string;
     private 'system_dir'?: string;
     private 'volume_groups'?: Array<VolumeGroups>;
     private 'agent_version'?: string;
@@ -33,11 +34,16 @@ export class PostSourceServerBody {
     private 'migration_cycle'?: PostSourceServerBodyMigrationCycleEnum | string;
     public state?: PostSourceServerBodyStateEnum | string;
     private 'oem_system'?: boolean;
-    private 'start_type'?: PostSourceServerBodyStartTypeEnum | string;
+    private 'start_type'?: string;
     private 'io_read_wait'?: number;
     private 'has_tc'?: boolean;
     public platform?: PostSourceServerBodyPlatformEnum | string;
-    public constructor() { 
+    public constructor(name?: string, osType?: string, osVersion?: string, networks?: Array<NetWork>, agentVersion?: string) { 
+        this['name'] = name;
+        this['os_type'] = osType;
+        this['os_version'] = osVersion;
+        this['networks'] = networks;
+        this['agent_version'] = agentVersion;
     }
     public withId(id: string): PostSourceServerBody {
         this['id'] = id;
@@ -45,6 +51,10 @@ export class PostSourceServerBody {
     }
     public withIp(ip: string): PostSourceServerBody {
         this['ip'] = ip;
+        return this;
+    }
+    public withIpv6(ipv6: string): PostSourceServerBody {
+        this['ipv6'] = ipv6;
         return this;
     }
     public withName(name: string): PostSourceServerBody {
@@ -185,14 +195,14 @@ export class PostSourceServerBody {
     public get accountRights(): boolean | undefined {
         return this['account_rights'];
     }
-    public withBootLoader(bootLoader: PostSourceServerBodyBootLoaderEnum | string): PostSourceServerBody {
+    public withBootLoader(bootLoader: string): PostSourceServerBody {
         this['boot_loader'] = bootLoader;
         return this;
     }
-    public set bootLoader(bootLoader: PostSourceServerBodyBootLoaderEnum | string  | undefined) {
+    public set bootLoader(bootLoader: string  | undefined) {
         this['boot_loader'] = bootLoader;
     }
-    public get bootLoader(): PostSourceServerBodyBootLoaderEnum | string | undefined {
+    public get bootLoader(): string | undefined {
         return this['boot_loader'];
     }
     public withSystemDir(systemDir: string): PostSourceServerBody {
@@ -259,14 +269,14 @@ export class PostSourceServerBody {
     public get oemSystem(): boolean | undefined {
         return this['oem_system'];
     }
-    public withStartType(startType: PostSourceServerBodyStartTypeEnum | string): PostSourceServerBody {
+    public withStartType(startType: string): PostSourceServerBody {
         this['start_type'] = startType;
         return this;
     }
-    public set startType(startType: PostSourceServerBodyStartTypeEnum | string  | undefined) {
+    public set startType(startType: string  | undefined) {
         this['start_type'] = startType;
     }
-    public get startType(): PostSourceServerBodyStartTypeEnum | string | undefined {
+    public get startType(): string | undefined {
         return this['start_type'];
     }
     public withIoReadWait(ioReadWait: number): PostSourceServerBody {
@@ -315,14 +325,6 @@ export enum PostSourceServerBodyFirmwareEnum {
     * @export
     * @enum {string}
     */
-export enum PostSourceServerBodyBootLoaderEnum {
-    GRUB = 'GRUB',
-    LILO = 'LILO'
-}
-/**
-    * @export
-    * @enum {string}
-    */
 export enum PostSourceServerBodyMigrationCycleEnum {
     CUTOVERING = 'cutovering',
     CUTOVERED = 'cutovered',
@@ -360,15 +362,6 @@ export enum PostSourceServerBodyStateEnum {
     * @export
     * @enum {string}
     */
-export enum PostSourceServerBodyStartTypeEnum {
-    MANUAL = 'MANUAL',
-    MGC = 'MGC',
-    Empty = ''
-}
-/**
-    * @export
-    * @enum {string}
-    */
 export enum PostSourceServerBodyPlatformEnum {
     HW = 'hw',
     ALI = 'ali',
@@ -378,5 +371,6 @@ export enum PostSourceServerBodyPlatformEnum {
     TENCENT = 'tencent',
     VMWARE = 'vmware',
     HYPERV = 'hyperv',
-    OTHER = 'other'
+    OTHER = 'other',
+    DEFAULT = 'default'
 }

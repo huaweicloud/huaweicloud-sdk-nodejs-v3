@@ -2,7 +2,6 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowMigprojectResponse extends SdkResponse {
-    public id?: string;
     public name?: string;
     public description?: string;
     public isdefault?: boolean;
@@ -17,10 +16,6 @@ export class ShowMigprojectResponse extends SdkResponse {
     private 'start_network_check'?: boolean;
     public constructor() { 
         super();
-    }
-    public withId(id: string): ShowMigprojectResponse {
-        this['id'] = id;
-        return this;
     }
     public withName(name: string): ShowMigprojectResponse {
         this['name'] = name;

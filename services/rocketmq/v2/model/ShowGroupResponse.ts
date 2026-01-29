@@ -11,6 +11,7 @@ export class ShowGroupResponse extends SdkResponse {
     private 'retry_max_time'?: number;
     public permissions?: Array<string>;
     private 'consume_orderly'?: boolean;
+    private 'group_online'?: boolean;
     public constructor() { 
         super();
     }
@@ -73,5 +74,15 @@ export class ShowGroupResponse extends SdkResponse {
     }
     public get consumeOrderly(): boolean | undefined {
         return this['consume_orderly'];
+    }
+    public withGroupOnline(groupOnline: boolean): ShowGroupResponse {
+        this['group_online'] = groupOnline;
+        return this;
+    }
+    public set groupOnline(groupOnline: boolean  | undefined) {
+        this['group_online'] = groupOnline;
+    }
+    public get groupOnline(): boolean | undefined {
+        return this['group_online'];
     }
 }

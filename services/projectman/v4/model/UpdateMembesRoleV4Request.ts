@@ -1,9 +1,9 @@
-import { UpdateMembesRoleV4RequestBody } from './UpdateMembesRoleV4RequestBody';
+import { UpdateMembersRoleV4RequestBody } from './UpdateMembersRoleV4RequestBody';
 
 
 export class UpdateMembesRoleV4Request {
     private 'project_id'?: string;
-    public body?: UpdateMembesRoleV4RequestBody;
+    public body?: UpdateMembersRoleV4RequestBody;
     public constructor(projectId?: string) { 
         this['project_id'] = projectId;
     }
@@ -17,7 +17,7 @@ export class UpdateMembesRoleV4Request {
     public get projectId(): string | undefined {
         return this['project_id'];
     }
-    public withBody(body: UpdateMembesRoleV4RequestBody): UpdateMembesRoleV4Request {
+    public withBody(body: UpdateMembersRoleV4RequestBody): UpdateMembesRoleV4Request {
         this['body'] = body;
         return this;
     }

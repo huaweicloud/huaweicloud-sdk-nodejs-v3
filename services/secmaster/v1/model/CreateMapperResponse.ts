@@ -1,11 +1,11 @@
-import { DpeMappingDetail } from './DpeMappingDetail';
+import { CreateDpeMappingRequestBody } from './CreateDpeMappingRequestBody';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateMapperResponse extends SdkResponse {
     public code?: string;
     public message?: string;
-    public data?: DpeMappingDetail;
+    public data?: CreateDpeMappingRequestBody;
     public constructor() { 
         super();
     }
@@ -17,7 +17,7 @@ export class CreateMapperResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
-    public withData(data: DpeMappingDetail): CreateMapperResponse {
+    public withData(data: CreateDpeMappingRequestBody): CreateMapperResponse {
         this['data'] = data;
         return this;
     }

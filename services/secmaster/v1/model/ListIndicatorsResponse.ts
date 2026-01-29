@@ -6,6 +6,8 @@ export class ListIndicatorsResponse extends SdkResponse {
     public code?: string;
     public message?: string;
     public total?: number;
+    public size?: number;
+    public page?: number;
     public data?: Array<IndicatorDetail>;
     private 'X-request-id'?: string;
     public constructor() { 
@@ -21,6 +23,14 @@ export class ListIndicatorsResponse extends SdkResponse {
     }
     public withTotal(total: number): ListIndicatorsResponse {
         this['total'] = total;
+        return this;
+    }
+    public withSize(size: number): ListIndicatorsResponse {
+        this['size'] = size;
+        return this;
+    }
+    public withPage(page: number): ListIndicatorsResponse {
+        this['page'] = page;
         return this;
     }
     public withData(data: Array<IndicatorDetail>): ListIndicatorsResponse {

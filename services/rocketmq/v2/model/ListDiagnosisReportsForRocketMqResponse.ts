@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListDiagnosisReportsForRocketMqResponse extends SdkResponse {
     private 'diagnosis_report_list'?: Array<DiagnosisReportResp>;
-    private 'total_num'?: object;
+    private 'total_num'?: number;
     public constructor() { 
         super();
     }
@@ -18,14 +18,14 @@ export class ListDiagnosisReportsForRocketMqResponse extends SdkResponse {
     public get diagnosisReportList(): Array<DiagnosisReportResp> | undefined {
         return this['diagnosis_report_list'];
     }
-    public withTotalNum(totalNum: object): ListDiagnosisReportsForRocketMqResponse {
+    public withTotalNum(totalNum: number): ListDiagnosisReportsForRocketMqResponse {
         this['total_num'] = totalNum;
         return this;
     }
-    public set totalNum(totalNum: object  | undefined) {
+    public set totalNum(totalNum: number  | undefined) {
         this['total_num'] = totalNum;
     }
-    public get totalNum(): object | undefined {
+    public get totalNum(): number | undefined {
         return this['total_num'];
     }
 }

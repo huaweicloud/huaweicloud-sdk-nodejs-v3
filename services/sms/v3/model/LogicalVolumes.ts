@@ -12,14 +12,7 @@ export class LogicalVolumes {
     public size?: number;
     private 'used_size'?: number;
     private 'free_size'?: number;
-    public constructor(fileSystem?: string, inodeSize?: number, mountPoint?: string, name?: string, size?: number, usedSize?: number, freeSize?: number) { 
-        this['file_system'] = fileSystem;
-        this['inode_size'] = inodeSize;
-        this['mount_point'] = mountPoint;
-        this['name'] = name;
-        this['size'] = size;
-        this['used_size'] = usedSize;
-        this['free_size'] = freeSize;
+    public constructor() { 
     }
     public withBlockCount(blockCount: number): LogicalVolumes {
         this['block_count'] = blockCount;

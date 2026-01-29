@@ -184,6 +184,7 @@ import { LiveRequestArgs } from './model/LiveRequestArgs';
 import { LiveSnapshotConfig } from './model/LiveSnapshotConfig';
 import { LogInfo } from './model/LogInfo';
 import { MP4RecordConfig } from './model/MP4RecordConfig';
+import { ManifestSelection } from './model/ManifestSelection';
 import { ModifyDelayConfig } from './model/ModifyDelayConfig';
 import { ModifyFlowOutputRequest } from './model/ModifyFlowOutputRequest';
 import { ModifyFlowOutputResponse } from './model/ModifyFlowOutputResponse';

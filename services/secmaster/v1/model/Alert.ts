@@ -36,7 +36,7 @@ export class Alert {
     public remediation?: AlertRemediation;
     private 'verification_state'?: AlertVerificationStateEnum | string;
     private 'handle_status'?: AlertHandleStatusEnum | string;
-    public sla?: number;
+    public sla?: string;
     private 'update_time'?: string;
     private 'close_time'?: string;
     private 'ipdrr_phase'?: AlertIpdrrPhaseEnum | string;
@@ -238,7 +238,7 @@ export class Alert {
     public get handleStatus(): AlertHandleStatusEnum | string | undefined {
         return this['handle_status'];
     }
-    public withSla(sla: number): Alert {
+    public withSla(sla: string): Alert {
         this['sla'] = sla;
         return this;
     }

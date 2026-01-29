@@ -8,6 +8,8 @@ export class SCTE35InfoItem {
     private 'segmentation_type'?: SCTE35InfoItemSegmentationTypeEnum | string;
     private 'base64_data'?: string;
     private 'raw_splice'?: string;
+    private 'region_type'?: SCTE35InfoItemRegionTypeEnum | string;
+    public region?: string;
     public constructor(type?: string, eventId?: number, startDate?: number, duration?: number, segmentationType?: string, base64Data?: string, rawSplice?: string) { 
         this['type'] = type;
         this['event_id'] = eventId;
@@ -75,6 +77,20 @@ export class SCTE35InfoItem {
     public get rawSplice(): string | undefined {
         return this['raw_splice'];
     }
+    public withRegionType(regionType: SCTE35InfoItemRegionTypeEnum | string): SCTE35InfoItem {
+        this['region_type'] = regionType;
+        return this;
+    }
+    public set regionType(regionType: SCTE35InfoItemRegionTypeEnum | string  | undefined) {
+        this['region_type'] = regionType;
+    }
+    public get regionType(): SCTE35InfoItemRegionTypeEnum | string | undefined {
+        return this['region_type'];
+    }
+    public withRegion(region: string): SCTE35InfoItem {
+        this['region'] = region;
+        return this;
+    }
 }
 
 /**
@@ -99,4 +115,12 @@ export enum SCTE35InfoItemSegmentationTypeEnum {
     PROVIDERPLACEMENTOPPORTUNITYEND = 'ProviderPlacementOpportunityEnd',
     DISTRIBUTORPLACEMENTOPPORTUNITYSTART = 'DistributorPlacementOpportunityStart',
     DISTRIBUTORPLACEMENTOPPORTUNITYEND = 'DistributorPlacementOpportunityEnd'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SCTE35InfoItemRegionTypeEnum {
+    MASTER = 'master',
+    SLAVE = 'slave'
 }

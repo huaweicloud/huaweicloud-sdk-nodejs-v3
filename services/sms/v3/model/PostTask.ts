@@ -17,6 +17,7 @@ export class PostTask {
     private 'project_id'?: string;
     public priority?: number;
     private 'vm_template_id'?: string;
+    private 'clonevm_template_id'?: string;
     private 'use_public_ip'?: boolean;
     private 'use_ipv6'?: boolean;
     public syncing?: boolean;
@@ -26,10 +27,9 @@ export class PostTask {
     private 'over_speed_threshold'?: number;
     private 'is_need_consistency_check'?: boolean;
     private 'need_migration_test'?: boolean;
-    public constructor(name?: string, type?: string, osType?: string, sourceServer?: SourceServerByTask, targetServer?: TargetServerByTask, regionName?: string, regionId?: string, projectName?: string, projectId?: string) { 
+    public constructor(name?: string, type?: string, sourceServer?: SourceServerByTask, targetServer?: TargetServerByTask, regionName?: string, regionId?: string, projectName?: string, projectId?: string) { 
         this['name'] = name;
         this['type'] = type;
-        this['os_type'] = osType;
         this['source_server'] = sourceServer;
         this['target_server'] = targetServer;
         this['region_name'] = regionName;
@@ -158,6 +158,16 @@ export class PostTask {
     }
     public get vmTemplateId(): string | undefined {
         return this['vm_template_id'];
+    }
+    public withClonevmTemplateId(clonevmTemplateId: string): PostTask {
+        this['clonevm_template_id'] = clonevmTemplateId;
+        return this;
+    }
+    public set clonevmTemplateId(clonevmTemplateId: string  | undefined) {
+        this['clonevm_template_id'] = clonevmTemplateId;
+    }
+    public get clonevmTemplateId(): string | undefined {
+        return this['clonevm_template_id'];
     }
     public withUsePublicIp(usePublicIp: boolean): PostTask {
         this['use_public_ip'] = usePublicIp;

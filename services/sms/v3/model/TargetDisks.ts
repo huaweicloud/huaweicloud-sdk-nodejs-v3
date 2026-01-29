@@ -8,11 +8,7 @@ export class TargetDisks {
     private 'physical_volumes'?: Array<PhysicalVolumes>;
     public size?: number;
     private 'used_size'?: number;
-    public constructor(name?: string, physicalVolumes?: Array<PhysicalVolumes>, size?: number, usedSize?: number) { 
-        this['name'] = name;
-        this['physical_volumes'] = physicalVolumes;
-        this['size'] = size;
-        this['used_size'] = usedSize;
+    public constructor() { 
     }
     public withDeviceUse(deviceUse: TargetDisksDeviceUseEnum | string): TargetDisks {
         this['device_use'] = deviceUse;

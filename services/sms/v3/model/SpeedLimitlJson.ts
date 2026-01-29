@@ -5,10 +5,9 @@ export class SpeedLimitlJson {
     public end?: string;
     public speed?: number;
     private 'over_speed_threshold'?: number;
-    public constructor(start?: string, end?: string, speed?: number) { 
+    public constructor(start?: string, end?: string) { 
         this['start'] = start;
         this['end'] = end;
-        this['speed'] = speed;
     }
     public withStart(start: string): SpeedLimitlJson {
         this['start'] = start;

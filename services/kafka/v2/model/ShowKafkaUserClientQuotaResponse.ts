@@ -1,14 +1,14 @@
-import { Quota } from './Quota';
+import { QuotaResp } from './QuotaResp';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowKafkaUserClientQuotaResponse extends SdkResponse {
-    public quotas?: Array<Quota>;
+    public quotas?: Array<QuotaResp>;
     public count?: number;
     public constructor() { 
         super();
     }
-    public withQuotas(quotas: Array<Quota>): ShowKafkaUserClientQuotaResponse {
+    public withQuotas(quotas: Array<QuotaResp>): ShowKafkaUserClientQuotaResponse {
         this['quotas'] = quotas;
         return this;
     }

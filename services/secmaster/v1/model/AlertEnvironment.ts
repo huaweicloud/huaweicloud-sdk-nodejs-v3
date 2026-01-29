@@ -4,7 +4,6 @@ export class AlertEnvironment {
     private 'vendor_type'?: string;
     private 'domain_id'?: string;
     private 'region_id'?: string;
-    private 'cross_workspace_id'?: string;
     private 'project_id'?: string;
     public constructor() { 
     }
@@ -37,16 +36,6 @@ export class AlertEnvironment {
     }
     public get regionId(): string | undefined {
         return this['region_id'];
-    }
-    public withCrossWorkspaceId(crossWorkspaceId: string): AlertEnvironment {
-        this['cross_workspace_id'] = crossWorkspaceId;
-        return this;
-    }
-    public set crossWorkspaceId(crossWorkspaceId: string  | undefined) {
-        this['cross_workspace_id'] = crossWorkspaceId;
-    }
-    public get crossWorkspaceId(): string | undefined {
-        return this['cross_workspace_id'];
     }
     public withProjectId(projectId: string): AlertEnvironment {
         this['project_id'] = projectId;

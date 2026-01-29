@@ -1,7 +1,6 @@
 import { CreateIndicatorDetailDataSource } from './CreateIndicatorDetailDataSource';
 import { CreateIndicatorDetailEnvironment } from './CreateIndicatorDetailEnvironment';
 import { CreateIndicatorDetailIndicatorType } from './CreateIndicatorDetailIndicatorType';
-import { DataClassRefPojo } from './DataClassRefPojo';
 
 
 export class CreateIndicatorDetail {
@@ -19,10 +18,8 @@ export class CreateIndicatorDetail {
     public id?: string;
     private 'indicator_type'?: CreateIndicatorDetailIndicatorType;
     public name?: string;
-    private 'dataclass_id'?: string;
     private 'workspace_id'?: string;
     private 'project_id'?: string;
-    public dataclass?: DataClassRefPojo;
     private 'create_time'?: string;
     private 'update_time'?: string;
     public constructor(dataSource?: CreateIndicatorDetailDataSource, verdict?: string, value?: string, granularMarking?: string, environment?: CreateIndicatorDetailEnvironment, defanged?: boolean, firstReportTime?: string, indicatorType?: CreateIndicatorDetailIndicatorType, name?: string, workspaceId?: string) { 
@@ -123,16 +120,6 @@ export class CreateIndicatorDetail {
         this['name'] = name;
         return this;
     }
-    public withDataclassId(dataclassId: string): CreateIndicatorDetail {
-        this['dataclass_id'] = dataclassId;
-        return this;
-    }
-    public set dataclassId(dataclassId: string  | undefined) {
-        this['dataclass_id'] = dataclassId;
-    }
-    public get dataclassId(): string | undefined {
-        return this['dataclass_id'];
-    }
     public withWorkspaceId(workspaceId: string): CreateIndicatorDetail {
         this['workspace_id'] = workspaceId;
         return this;
@@ -152,10 +139,6 @@ export class CreateIndicatorDetail {
     }
     public get projectId(): string | undefined {
         return this['project_id'];
-    }
-    public withDataclass(dataclass: DataClassRefPojo): CreateIndicatorDetail {
-        this['dataclass'] = dataclass;
-        return this;
     }
     public withCreateTime(createTime: string): CreateIndicatorDetail {
         this['create_time'] = createTime;

@@ -6,8 +6,7 @@ export class PutVolumeGroups {
     public id?: string;
     private 'need_migration'?: boolean;
     private 'adjust_size'?: number;
-    public constructor(id?: string) { 
-        this['id'] = id;
+    public constructor() { 
     }
     public withLogicalVolumes(logicalVolumes: Array<PutLogicalVolume>): PutVolumeGroups {
         this['logical_volumes'] = logicalVolumes;

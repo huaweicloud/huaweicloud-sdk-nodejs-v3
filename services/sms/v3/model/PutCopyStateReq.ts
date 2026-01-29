@@ -3,7 +3,9 @@
 export class PutCopyStateReq {
     public copystate?: PutCopyStateReqCopystateEnum | string;
     public migrationcycle?: PutCopyStateReqMigrationcycleEnum | string;
-    public constructor() { 
+    public constructor(copystate?: string, migrationcycle?: string) { 
+        this['copystate'] = copystate;
+        this['migrationcycle'] = migrationcycle;
     }
     public withCopystate(copystate: PutCopyStateReqCopystateEnum | string): PutCopyStateReq {
         this['copystate'] = copystate;
@@ -22,7 +24,7 @@ export class PutCopyStateReq {
 export enum PutCopyStateReqCopystateEnum {
     UNAVAILABLE = 'unavailable',
     WAITING = 'waiting',
-    INITIALIZE = 'initialize',
+    INIT = 'init',
     REPLICATE = 'replicate',
     SYNCING = 'syncing',
     STOPPING = 'stopping',
@@ -33,6 +35,7 @@ export enum PutCopyStateReqCopystateEnum {
     CLEARED = 'cleared',
     CLEARFAILED = 'clearfailed',
     PREMIGREADY = 'premigready',
+    PREMIGING = 'premiging',
     PREMIGED = 'premiged',
     PREMIGFAILED = 'premigfailed',
     CLONING = 'cloning',
@@ -45,6 +48,10 @@ export enum PutCopyStateReqCopystateEnum {
     * @enum {string}
     */
 export enum PutCopyStateReqMigrationcycleEnum {
+    NO_READY = 'no_ready',
+    READY_FOR_TEST = 'ready_for_test',
+    TESTING = 'testing',
+    TESTED = 'tested',
     CUTOVERING = 'cutovering',
     CUTOVERED = 'cutovered',
     CHECKING = 'checking',

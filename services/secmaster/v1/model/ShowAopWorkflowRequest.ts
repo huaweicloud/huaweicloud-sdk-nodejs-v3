@@ -1,23 +1,23 @@
 
 
 export class ShowAopWorkflowRequest {
-    private 'content-type'?: string;
+    private 'Content-Type'?: string;
     private 'workspace_id'?: string;
     private 'workflow_id'?: string;
     public constructor(contentType?: string, workspaceId?: string, workflowId?: string) { 
-        this['content-type'] = contentType;
+        this['Content-Type'] = contentType;
         this['workspace_id'] = workspaceId;
         this['workflow_id'] = workflowId;
     }
     public withContentType(contentType: string): ShowAopWorkflowRequest {
-        this['content-type'] = contentType;
+        this['Content-Type'] = contentType;
         return this;
     }
     public set contentType(contentType: string  | undefined) {
-        this['content-type'] = contentType;
+        this['Content-Type'] = contentType;
     }
     public get contentType(): string | undefined {
-        return this['content-type'];
+        return this['Content-Type'];
     }
     public withWorkspaceId(workspaceId: string): ShowAopWorkflowRequest {
         this['workspace_id'] = workspaceId;

@@ -10,7 +10,8 @@ export class DpeMappingDetail {
     private 'dataclass_id'?: string;
     private 'dataclass_name'?: string;
     private 'mapper_type_id'?: string;
-    private 'dpe_info'?: DpeInfo;
+    private 'mapping_id'?: string;
+    private 'mapping_info'?: DpeInfo;
     private 'create_time'?: string;
     private 'creator_id'?: string;
     private 'creator_name'?: string;
@@ -78,15 +79,25 @@ export class DpeMappingDetail {
     public get mapperTypeId(): string | undefined {
         return this['mapper_type_id'];
     }
-    public withDpeInfo(dpeInfo: DpeInfo): DpeMappingDetail {
-        this['dpe_info'] = dpeInfo;
+    public withMappingId(mappingId: string): DpeMappingDetail {
+        this['mapping_id'] = mappingId;
         return this;
     }
-    public set dpeInfo(dpeInfo: DpeInfo  | undefined) {
-        this['dpe_info'] = dpeInfo;
+    public set mappingId(mappingId: string  | undefined) {
+        this['mapping_id'] = mappingId;
     }
-    public get dpeInfo(): DpeInfo | undefined {
-        return this['dpe_info'];
+    public get mappingId(): string | undefined {
+        return this['mapping_id'];
+    }
+    public withMappingInfo(mappingInfo: DpeInfo): DpeMappingDetail {
+        this['mapping_info'] = mappingInfo;
+        return this;
+    }
+    public set mappingInfo(mappingInfo: DpeInfo  | undefined) {
+        this['mapping_info'] = mappingInfo;
+    }
+    public get mappingInfo(): DpeInfo | undefined {
+        return this['mapping_info'];
     }
     public withCreateTime(createTime: string): DpeMappingDetail {
         this['create_time'] = createTime;

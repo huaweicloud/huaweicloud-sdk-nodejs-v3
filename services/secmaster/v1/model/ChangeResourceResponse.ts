@@ -1,20 +1,24 @@
-import { ResourceDetail } from './ResourceDetail';
+import { ChangeResourceRequestBody } from './ChangeResourceRequestBody';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ChangeResourceResponse extends SdkResponse {
-    private 'data_object'?: ResourceDetail;
+    public code?: string;
+    public message?: string;
+    public data?: ChangeResourceRequestBody;
     public constructor() { 
         super();
     }
-    public withDataObject(dataObject: ResourceDetail): ChangeResourceResponse {
-        this['data_object'] = dataObject;
+    public withCode(code: string): ChangeResourceResponse {
+        this['code'] = code;
         return this;
     }
-    public set dataObject(dataObject: ResourceDetail  | undefined) {
-        this['data_object'] = dataObject;
+    public withMessage(message: string): ChangeResourceResponse {
+        this['message'] = message;
+        return this;
     }
-    public get dataObject(): ResourceDetail | undefined {
-        return this['data_object'];
+    public withData(data: ChangeResourceRequestBody): ChangeResourceResponse {
+        this['data'] = data;
+        return this;
     }
 }

@@ -7,13 +7,7 @@ export class BtrfsSubvolumn {
     private 'parent_id'?: string;
     private 'subvol_name'?: string;
     private 'subvol_mount_path'?: string;
-    public constructor(uuid?: string, isSnapshot?: string, subvolId?: string, parentId?: string, subvolName?: string, subvolMountPath?: string) { 
-        this['uuid'] = uuid;
-        this['is_snapshot'] = isSnapshot;
-        this['subvol_id'] = subvolId;
-        this['parent_id'] = parentId;
-        this['subvol_name'] = subvolName;
-        this['subvol_mount_path'] = subvolMountPath;
+    public constructor() { 
     }
     public withUuid(uuid: string): BtrfsSubvolumn {
         this['uuid'] = uuid;

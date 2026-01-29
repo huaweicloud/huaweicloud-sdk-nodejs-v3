@@ -4,7 +4,7 @@ export class BindingVifDetails {
     private 'primary_interface'?: boolean;
     private 'port_filter'?: boolean;
     private 'ovs_hybrid_plug'?: boolean;
-    private 'vlan_id'?: string;
+    private 'vlan_id'?: number;
     private 'parent_id'?: string;
     private 'parent_device_id'?: string;
     public constructor() { 
@@ -39,14 +39,14 @@ export class BindingVifDetails {
     public get ovsHybridPlug(): boolean | undefined {
         return this['ovs_hybrid_plug'];
     }
-    public withVlanId(vlanId: string): BindingVifDetails {
+    public withVlanId(vlanId: number): BindingVifDetails {
         this['vlan_id'] = vlanId;
         return this;
     }
-    public set vlanId(vlanId: string  | undefined) {
+    public set vlanId(vlanId: number  | undefined) {
         this['vlan_id'] = vlanId;
     }
-    public get vlanId(): string | undefined {
+    public get vlanId(): number | undefined {
         return this['vlan_id'];
     }
     public withParentId(parentId: string): BindingVifDetails {

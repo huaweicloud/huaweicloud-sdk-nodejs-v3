@@ -1,7 +1,6 @@
 
 
 export class MigProject {
-    public id?: string;
     public name?: string;
     public description?: string;
     public isdefault?: boolean;
@@ -14,17 +13,7 @@ export class MigProject {
     private 'enterprise_project'?: string;
     public syncing?: boolean;
     private 'start_network_check'?: boolean;
-    public constructor(name?: string, region?: string, usePublicIp?: boolean, existServer?: boolean, type?: string, syncing?: boolean) { 
-        this['name'] = name;
-        this['region'] = region;
-        this['use_public_ip'] = usePublicIp;
-        this['exist_server'] = existServer;
-        this['type'] = type;
-        this['syncing'] = syncing;
-    }
-    public withId(id: string): MigProject {
-        this['id'] = id;
-        return this;
+    public constructor() { 
     }
     public withName(name: string): MigProject {
         this['name'] = name;

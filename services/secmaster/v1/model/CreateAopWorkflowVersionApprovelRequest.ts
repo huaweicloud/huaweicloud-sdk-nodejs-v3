@@ -2,24 +2,24 @@ import { CreateAopWorkflowVersionApprovelInfo } from './CreateAopWorkflowVersion
 
 
 export class CreateAopWorkflowVersionApprovelRequest {
-    private 'content-type'?: string;
+    private 'Content-Type'?: string;
     private 'workspace_id'?: string;
     private 'version_id'?: string;
     public body?: CreateAopWorkflowVersionApprovelInfo;
     public constructor(contentType?: string, workspaceId?: string, versionId?: string) { 
-        this['content-type'] = contentType;
+        this['Content-Type'] = contentType;
         this['workspace_id'] = workspaceId;
         this['version_id'] = versionId;
     }
     public withContentType(contentType: string): CreateAopWorkflowVersionApprovelRequest {
-        this['content-type'] = contentType;
+        this['Content-Type'] = contentType;
         return this;
     }
     public set contentType(contentType: string  | undefined) {
-        this['content-type'] = contentType;
+        this['Content-Type'] = contentType;
     }
     public get contentType(): string | undefined {
-        return this['content-type'];
+        return this['Content-Type'];
     }
     public withWorkspaceId(workspaceId: string): CreateAopWorkflowVersionApprovelRequest {
         this['workspace_id'] = workspaceId;

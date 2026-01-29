@@ -1,7 +1,7 @@
 
 
 export class ListAopWorkflowInstanceRequest {
-    private 'content-type'?: string;
+    private 'Content-Type'?: string;
     private 'workspace_id'?: string;
     public offset?: number;
     public limit?: number;
@@ -19,18 +19,18 @@ export class ListAopWorkflowInstanceRequest {
     public status?: string;
     private 'trigger_type'?: string;
     public constructor(contentType?: string, workspaceId?: string) { 
-        this['content-type'] = contentType;
+        this['Content-Type'] = contentType;
         this['workspace_id'] = workspaceId;
     }
     public withContentType(contentType: string): ListAopWorkflowInstanceRequest {
-        this['content-type'] = contentType;
+        this['Content-Type'] = contentType;
         return this;
     }
     public set contentType(contentType: string  | undefined) {
-        this['content-type'] = contentType;
+        this['Content-Type'] = contentType;
     }
     public get contentType(): string | undefined {
-        return this['content-type'];
+        return this['Content-Type'];
     }
     public withWorkspaceId(workspaceId: string): ListAopWorkflowInstanceRequest {
         this['workspace_id'] = workspaceId;

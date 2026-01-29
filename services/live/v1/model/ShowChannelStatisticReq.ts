@@ -7,6 +7,7 @@ export class ShowChannelStatisticReq {
     public id?: string;
     public type?: ShowChannelStatisticReqTypeEnum | string;
     public scte35?: SCTE35StatisticReq;
+    private 'region_type'?: ShowChannelStatisticReqRegionTypeEnum | string;
     public constructor(domain?: string, appName?: string, id?: string, type?: string) { 
         this['domain'] = domain;
         this['app_name'] = appName;
@@ -39,6 +40,16 @@ export class ShowChannelStatisticReq {
         this['scte35'] = scte35;
         return this;
     }
+    public withRegionType(regionType: ShowChannelStatisticReqRegionTypeEnum | string): ShowChannelStatisticReq {
+        this['region_type'] = regionType;
+        return this;
+    }
+    public set regionType(regionType: ShowChannelStatisticReqRegionTypeEnum | string  | undefined) {
+        this['region_type'] = regionType;
+    }
+    public get regionType(): ShowChannelStatisticReqRegionTypeEnum | string | undefined {
+        return this['region_type'];
+    }
 }
 
 /**
@@ -47,4 +58,13 @@ export class ShowChannelStatisticReq {
     */
 export enum ShowChannelStatisticReqTypeEnum {
     SCTE35 = 'scte35'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowChannelStatisticReqRegionTypeEnum {
+    MASTER = 'master',
+    SLAVE = 'slave',
+    ALL = 'all'
 }

@@ -13,8 +13,6 @@ import { BatchDeleteDiagnosisRecordsForRocketMqResponse } from './model/BatchDel
 import { BatchDeleteDiagnosisRecordsRequest } from './model/BatchDeleteDiagnosisRecordsRequest';
 import { BatchDeleteDiagnosisRecordsResponse } from './model/BatchDeleteDiagnosisRecordsResponse';
 import { BatchDeleteDiagnosisReportReq } from './model/BatchDeleteDiagnosisReportReq';
-import { BatchDeleteDiagnosisReportRequest } from './model/BatchDeleteDiagnosisReportRequest';
-import { BatchDeleteDiagnosisReportResponse } from './model/BatchDeleteDiagnosisReportResponse';
 import { BatchDeleteInstanceReq } from './model/BatchDeleteInstanceReq';
 import { BatchDeleteInstanceRespResults } from './model/BatchDeleteInstanceRespResults';
 import { BatchDeleteInstancesRequest } from './model/BatchDeleteInstancesRequest';
@@ -23,9 +21,6 @@ import { BatchDeleteRocketMqMigrationTaskRequest } from './model/BatchDeleteRock
 import { BatchDeleteRocketMqMigrationTaskResponse } from './model/BatchDeleteRocketMqMigrationTaskResponse';
 import { BatchDeleteTopicReq } from './model/BatchDeleteTopicReq';
 import { BatchDeleteTopicResp } from './model/BatchDeleteTopicResp';
-import { BatchResetConsumeOffsetReq } from './model/BatchResetConsumeOffsetReq';
-import { BatchResetRocketMqMessageOffsetsRequest } from './model/BatchResetRocketMqMessageOffsetsRequest';
-import { BatchResetRocketMqMessageOffsetsResponse } from './model/BatchResetRocketMqMessageOffsetsResponse';
 import { BatchResumeInstanceReq } from './model/BatchResumeInstanceReq';
 import { BatchUpdateConsumerGroup } from './model/BatchUpdateConsumerGroup';
 import { BatchUpdateConsumerGroupReq } from './model/BatchUpdateConsumerGroupReq';
@@ -74,8 +69,6 @@ import { DeleteConsumerGroupRequest } from './model/DeleteConsumerGroupRequest';
 import { DeleteConsumerGroupResponse } from './model/DeleteConsumerGroupResponse';
 import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
 import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
-import { DeleteRocketMqMigrationTaskRequest } from './model/DeleteRocketMqMigrationTaskRequest';
-import { DeleteRocketMqMigrationTaskResponse } from './model/DeleteRocketMqMigrationTaskResponse';
 import { DeleteScheduledTaskRequest } from './model/DeleteScheduledTaskRequest';
 import { DeleteScheduledTaskResponse } from './model/DeleteScheduledTaskResponse';
 import { DeleteTopicRequest } from './model/DeleteTopicRequest';
@@ -87,9 +80,6 @@ import { DiagnosisReportResp } from './model/DiagnosisReportResp';
 import { DiagnosisReq } from './model/DiagnosisReq';
 import { EnableDnsRequest } from './model/EnableDnsRequest';
 import { EnableDnsResponse } from './model/EnableDnsResponse';
-import { ExportDlqMessageReq } from './model/ExportDlqMessageReq';
-import { ExportDlqMessageRequest } from './model/ExportDlqMessageRequest';
-import { ExportDlqMessageResponse } from './model/ExportDlqMessageResponse';
 import { IOSEntity } from './model/IOSEntity';
 import { InstanceDetail } from './model/InstanceDetail';
 import { InstanceRecycleInfo } from './model/InstanceRecycleInfo';
@@ -253,8 +243,6 @@ import { ShowTopicStatusRequest } from './model/ShowTopicStatusRequest';
 import { ShowTopicStatusRespBrokers } from './model/ShowTopicStatusRespBrokers';
 import { ShowTopicStatusRespQueues } from './model/ShowTopicStatusRespQueues';
 import { ShowTopicStatusResponse } from './model/ShowTopicStatusResponse';
-import { ShowUpgradeInstanceVersionRequest } from './model/ShowUpgradeInstanceVersionRequest';
-import { ShowUpgradeInstanceVersionResponse } from './model/ShowUpgradeInstanceVersionResponse';
 import { ShowUserRequest } from './model/ShowUserRequest';
 import { ShowUserResponse } from './model/ShowUserResponse';
 import { ShowVolumeExpandConfigRequest } from './model/ShowVolumeExpandConfigRequest';
@@ -372,27 +360,6 @@ export class RocketMQClient {
     }
 
     /**
-     * 批量删除实例诊断记录。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 批量删除实例诊断记录
-     * @param {string} engine **参数解释**： 引擎。 **约束限制**： 不涉及。 **取值范围**： - rocketmq：RocketMQ消息引擎。 - reliability：RocketMQ消息引擎别称。 **默认取值**： 不涉及。
-     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {BatchDeleteDiagnosisReportReq} batchDeleteDiagnosisReportRequestBody **参数解释**： 批量删除诊断报告请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public batchDeleteDiagnosisReport(batchDeleteDiagnosisReportRequest?: BatchDeleteDiagnosisReportRequest): Promise<BatchDeleteDiagnosisReportResponse> {
-        const options = ParamCreater().batchDeleteDiagnosisReport(batchDeleteDiagnosisReportRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 批量删除实例。**实例删除后，实例中原有的数据将被删除，且没有备份，请谨慎操作。**
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -424,26 +391,6 @@ export class RocketMQClient {
      */
     public batchDeleteRocketMqMigrationTask(batchDeleteRocketMqMigrationTaskRequest?: BatchDeleteRocketMqMigrationTaskRequest): Promise<BatchDeleteRocketMqMigrationTaskResponse> {
         const options = ParamCreater().batchDeleteRocketMqMigrationTask(batchDeleteRocketMqMigrationTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 批量重置消费进度。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 批量重置消费进度
-     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {BatchResetConsumeOffsetReq} batchResetRocketMqMessageOffsetsRequestBody **参数解释**： 请求消息。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public batchResetRocketMqMessageOffsets(batchResetRocketMqMessageOffsetsRequest?: BatchResetRocketMqMessageOffsetsRequest): Promise<BatchResetRocketMqMessageOffsetsResponse> {
-        const options = ParamCreater().batchResetRocketMqMessageOffsets(batchResetRocketMqMessageOffsetsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -694,26 +641,6 @@ export class RocketMQClient {
     }
 
     /**
-     * 删除元数据迁移任务。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除元数据迁移任务
-     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {MetadataDeleteReq} deleteRocketMqMigrationTaskRequestBody **参数解释**： 任务ID列表。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteRocketMqMigrationTask(deleteRocketMqMigrationTaskRequest?: DeleteRocketMqMigrationTaskRequest): Promise<DeleteRocketMqMigrationTaskResponse> {
-        const options = ParamCreater().deleteRocketMqMigrationTask(deleteRocketMqMigrationTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 删除定时任务管理中的指定记录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -765,26 +692,6 @@ export class RocketMQClient {
      */
     public enableDns(enableDnsRequest?: EnableDnsRequest): Promise<EnableDnsResponse> {
         const options = ParamCreater().enableDns(enableDnsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 导出死信消息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 导出死信消息
-     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {ExportDlqMessageReq} exportDlqMessageRequestBody **参数解释**： 请求消息。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public exportDlqMessage(exportDlqMessageRequest?: ExportDlqMessageRequest): Promise<ExportDlqMessageResponse> {
-        const options = ParamCreater().exportDlqMessage(exportDlqMessageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1512,7 +1419,7 @@ export class RocketMQClient {
     }
 
     /**
-     * 查询消费组内消费者列表
+     * 查询消费组内消费者列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1829,7 +1736,7 @@ export class RocketMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询RocketMQ产品规格核数
-     * @param {string} productId **参数解释**： 产品ID。[x86环境后缀为.x86，arm环境为.arm。single表示单机，cluster表示集群。](tag:hcs,fcs,hcs_oemout)  **约束限制**： 不涉及。  **取值范围**： [当“type”为“single.basic”选择单机规格；当“type”为“cluster.basic”选择集群规格。](tag:dt) [- c6.2u8g.cluster.x86或c6.2u8g.cluster.arm：单个代理最大分区数50，单个代理最大消费组数100](tag:fcs) [- c6.4u8g.cluster.small：单个代理最大Topic数2000，单个代理最大消费组数2000](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,cmcc,ax,srg) [- c6.4u8g.cluster：单个代理最大Topic数4000，单个代理最大消费组数4000](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,cmcc,ax,srg) [- c6.4u16g.cluster.x86或c6.4u16g.cluster.arm：单个代理最大分区数100，单个代理最大消费组数200](tag:hcs,fcs,hcs_oemout) [- c6.8u16g.cluster：单个代理最大Topic数8000，单个代理最大消费组数8000](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,cmcc,ax,srg) [- c6.8u32g.cluster.x86或c6.8u32g.cluster.arm：单个代理最大Topic数200，单个代理最大消费组数400](tag:hcs,fcs,hcs_oemout) [- c6.12u24g.cluster：单个代理最大Topic数12000，单个代理最大消费组数12000](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,cmcc,ax,srg) [- c6.16u64g.cluster.x86或c6.16u64g.cluster.arm：单个代理最大Topic数300，单个代理最大消费组数600](tag:hcs,fcs,hcs_oemout) [- c6.16u32g.cluster：单个代理最大Topic数16000，单个代理最大消费组数16000](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,cmcc,ax,srg) [- c6.32u128g.cluster.x86或c6.32u128g.cluster.arm：单个代理最大Topic数400，单个代理最大消费组数800](tag:hcs,fcs,hcs_oemout) [- rocketmq.b1.large.1：RocketMQ 5.x 基础版单机规格，实例TPS 500](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,dt,ax,srg) [- rocketmq.b2.large.4：RocketMQ 5.x 基础版集群规格，实例TPS 2000](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,dt,ax,srg) [- rocketmq.b2.large.8：RocketMQ 5.x 基础版集群规格，实例TPS 4000](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,dt,ax,srg) [- rocketmq.b2.large.12：RocketMQ 5.x 基础版集群规格，实例TPS 6000](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,dt,ax,srg) [- rocketmq.p1.large.1：RocketMQ 5.x 专业版单机规格，实例TPS 500](tag:hws,hws_eu,hws_hk,ctc,srg) [- rocketmq.p2.large.8：RocketMQ 5.x 专业版集群规格，实例TPS 4000](tag:hws,hws_eu,hws_hk,ctc,srg) [- rocketmq.p2.large.12：RocketMQ 5.x 专业版集群规格，实例TPS 6000](tag:hws,hws_eu,hws_hk,ctc,srg) [- rocketmq.p2.large.20：RocketMQ 5.x 专业版集群规格，实例TPS 10000](tag:hws,hws_eu,hws_hk,ctc,srg) [- rocketmq.p2.large.40：RocketMQ 5.x 专业版集群规格，实例TPS 20000](tag:hws,hws_eu,hws_hk,ctc,srg) [- rocketmq.p2.large.100：RocketMQ 5.x 专业版集群规格，实例TPS 50000](tag:hws,hws_eu,hws_hk,ctc,srg) [- rocketmq.p2.large.150：RocketMQ 5.x 专业版集群规格，实例TPS 75000](tag:hws,hws_eu,hws_hk,ctc,srg) [- rocketmq.p2.large.200：RocketMQ 5.x 专业版集群规格，实例TPS 100000](tag:hws,hws_eu,hws_hk,ctc,srg) [- rocketmq.p2.large.300：RocketMQ 5.x 专业版集群规格，实例TPS 150000](tag:hws,hws_eu,hws_hk,ctc,srg)  **默认取值**： 不涉及。
+     * @param {string} productId **参数解释**： 产品ID。[x86环境后缀为.x86，arm环境为.arm。single表示单机，cluster表示集群。](tag:hcs,fcs,hcs_oemout)  **约束限制**： 不涉及。  **取值范围**： [当“type”为“single.basic”选择单机规格；当“type”为“cluster.basic”选择集群规格。](tag:dt) [- c6.2u8g.cluster.x86或c6.2u8g.cluster.arm：单个代理最大分区数50，单个代理最大消费组数100](tag:fcs) [- c6.4u8g.cluster.small：单个代理最大Topic数2000，单个代理最大消费组数2000](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,cmcc,ax,srg) [- c6.4u8g.cluster：单个代理最大Topic数4000，单个代理最大消费组数4000](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,cmcc,ax,srg) [- c6.4u16g.cluster.x86或c6.4u16g.cluster.arm：单个代理最大分区数100，单个代理最大消费组数200](tag:hcs,fcs,hcs_oemout) [- c6.8u16g.cluster：单个代理最大Topic数8000，单个代理最大消费组数8000](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,cmcc,ax,srg) [- c6.8u32g.cluster.x86或c6.8u32g.cluster.arm：单个代理最大Topic数200，单个代理最大消费组数400](tag:hcs,fcs,hcs_oemout) [- c6.12u24g.cluster：单个代理最大Topic数12000，单个代理最大消费组数12000](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,cmcc,ax,srg) [- c6.16u64g.cluster.x86或c6.16u64g.cluster.arm：单个代理最大Topic数300，单个代理最大消费组数600](tag:hcs,fcs,hcs_oemout) [- c6.16u32g.cluster：单个代理最大Topic数16000，单个代理最大消费组数16000](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,cmcc,ax,srg) [- c6.32u128g.cluster.x86或c6.32u128g.cluster.arm：单个代理最大Topic数400，单个代理最大消费组数800](tag:hcs,fcs,hcs_oemout) [- rocketmq.b1.large.1：RocketMQ 5.x 基础版单机规格，实例TPS 500](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,dt,srg) [- rocketmq.b2.large.4：RocketMQ 5.x 基础版集群规格，实例TPS 2000](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,dt,srg) [- rocketmq.b2.large.8：RocketMQ 5.x 基础版集群规格，实例TPS 4000](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,dt,srg) [- rocketmq.b2.large.12：RocketMQ 5.x 基础版集群规格，实例TPS 6000](tag:hws,hws_eu,hws_hk,ocb,hws_ocb,ctc,g42,hk_g42,tm,sbc,hk_sbc,hk_tm,dt,srg) [- rocketmq.p1.large.1：RocketMQ 5.x 专业版单机规格，实例TPS 500](tag:hws,hws_eu,hws_hk,ctc,srg) [- rocketmq.p2.large.8：RocketMQ 5.x 专业版集群规格，实例TPS 4000](tag:hws,hws_eu,hws_hk,ctc,srg) [- rocketmq.p2.large.12：RocketMQ 5.x 专业版集群规格，实例TPS 6000](tag:hws,hws_eu,hws_hk,ctc,srg) [- rocketmq.p2.large.20：RocketMQ 5.x 专业版集群规格，实例TPS 10000](tag:hws,hws_eu,hws_hk,ctc,srg) [- rocketmq.p2.large.40：RocketMQ 5.x 专业版集群规格，实例TPS 20000](tag:hws,hws_eu,hws_hk,ctc,srg) [- rocketmq.p2.large.100：RocketMQ 5.x 专业版集群规格，实例TPS 50000](tag:hws,hws_eu,hws_hk,ctc,srg) [- rocketmq.p2.large.150：RocketMQ 5.x 专业版集群规格，实例TPS 75000](tag:hws,hws_eu,hws_hk,ctc,srg) [- rocketmq.p2.large.200：RocketMQ 5.x 专业版集群规格，实例TPS 100000](tag:hws,hws_eu,hws_hk,ctc,srg) [- rocketmq.p2.large.300：RocketMQ 5.x 专业版集群规格，实例TPS 150000](tag:hws,hws_eu,hws_hk,ctc,srg)  **默认取值**： 不涉及。
      * @param {string} brokerNum **参数解释**： Broker数量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 1。
      * @param {string} [instanceId] **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。实例ID非必填项，只有填写实例ID响应体才会返回total_extend_storage_space。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
@@ -1897,25 +1804,6 @@ export class RocketMQClient {
      */
     public showRocketmqTags(showRocketmqTagsRequest?: ShowRocketmqTagsRequest): Promise<ShowRocketmqTagsResponse> {
         const options = ParamCreater().showRocketmqTags(showRocketmqTagsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询RocketMQ实例版本信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询RocketMQ实例版本信息
-     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showUpgradeInstanceVersion(showUpgradeInstanceVersionRequest?: ShowUpgradeInstanceVersionRequest): Promise<ShowUpgradeInstanceVersionResponse> {
-        const options = ParamCreater().showUpgradeInstanceVersion(showUpgradeInstanceVersionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2422,59 +2310,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量删除实例诊断记录。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        batchDeleteDiagnosisReport(batchDeleteDiagnosisReportRequest?: BatchDeleteDiagnosisReportRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v2/{engine}/{project_id}/instances/{instance_id}/diagnosis",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let engine;
-            
-            let instanceId;
-
-            if (batchDeleteDiagnosisReportRequest !== null && batchDeleteDiagnosisReportRequest !== undefined) {
-                if (batchDeleteDiagnosisReportRequest instanceof BatchDeleteDiagnosisReportRequest) {
-                    engine = batchDeleteDiagnosisReportRequest.engine;
-                    instanceId = batchDeleteDiagnosisReportRequest.instanceId;
-                    body = batchDeleteDiagnosisReportRequest.body
-                } else {
-                    engine = batchDeleteDiagnosisReportRequest['engine'];
-                    instanceId = batchDeleteDiagnosisReportRequest['instance_id'];
-                    body = batchDeleteDiagnosisReportRequest['body'];
-                }
-            }
-
-        
-            if (engine === null || engine === undefined) {
-            throw new RequiredError('engine','Required parameter engine was null or undefined when calling batchDeleteDiagnosisReport.');
-            }
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling batchDeleteDiagnosisReport.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'engine': engine,'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 批量删除实例。**实例删除后，实例中原有的数据将被删除，且没有备份，请谨慎操作。**
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2546,52 +2381,6 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling batchDeleteRocketMqMigrationTask.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 批量重置消费进度。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        batchResetRocketMqMessageOffsets(batchResetRocketMqMessageOffsetsRequest?: BatchResetRocketMqMessageOffsetsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/rocketmq/instances/{instance_id}/groups/reset-message-offset",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let instanceId;
-
-            if (batchResetRocketMqMessageOffsetsRequest !== null && batchResetRocketMqMessageOffsetsRequest !== undefined) {
-                if (batchResetRocketMqMessageOffsetsRequest instanceof BatchResetRocketMqMessageOffsetsRequest) {
-                    instanceId = batchResetRocketMqMessageOffsetsRequest.instanceId;
-                    body = batchResetRocketMqMessageOffsetsRequest.body
-                } else {
-                    instanceId = batchResetRocketMqMessageOffsetsRequest['instance_id'];
-                    body = batchResetRocketMqMessageOffsetsRequest['body'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling batchResetRocketMqMessageOffsets.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3174,52 +2963,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除元数据迁移任务。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteRocketMqMigrationTask(deleteRocketMqMigrationTaskRequest?: DeleteRocketMqMigrationTaskRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v2/{project_id}/instances/{instance_id}/metadata",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let instanceId;
-
-            if (deleteRocketMqMigrationTaskRequest !== null && deleteRocketMqMigrationTaskRequest !== undefined) {
-                if (deleteRocketMqMigrationTaskRequest instanceof DeleteRocketMqMigrationTaskRequest) {
-                    instanceId = deleteRocketMqMigrationTaskRequest.instanceId;
-                    body = deleteRocketMqMigrationTaskRequest.body
-                } else {
-                    instanceId = deleteRocketMqMigrationTaskRequest['instance_id'];
-                    body = deleteRocketMqMigrationTaskRequest['body'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteRocketMqMigrationTask.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 删除定时任务管理中的指定记录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3339,52 +3082,6 @@ export const ParamCreater = function () {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling enableDns.');
             }
 
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 导出死信消息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        exportDlqMessage(exportDlqMessageRequest?: ExportDlqMessageRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/instances/{instance_id}/messages/export",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let instanceId;
-
-            if (exportDlqMessageRequest !== null && exportDlqMessageRequest !== undefined) {
-                if (exportDlqMessageRequest instanceof ExportDlqMessageRequest) {
-                    instanceId = exportDlqMessageRequest.instanceId;
-                    body = exportDlqMessageRequest.body
-                } else {
-                    instanceId = exportDlqMessageRequest['instance_id'];
-                    body = exportDlqMessageRequest['body'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling exportDlqMessage.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -5253,7 +4950,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询消费组内消费者列表
+         * 查询消费组内消费者列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6179,43 +5876,6 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询RocketMQ实例版本信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showUpgradeInstanceVersion(showUpgradeInstanceVersionRequest?: ShowUpgradeInstanceVersionRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/rocketmq/instances/{instance_id}/upgrade",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let instanceId;
-
-            if (showUpgradeInstanceVersionRequest !== null && showUpgradeInstanceVersionRequest !== undefined) {
-                if (showUpgradeInstanceVersionRequest instanceof ShowUpgradeInstanceVersionRequest) {
-                    instanceId = showUpgradeInstanceVersionRequest.instanceId;
-                } else {
-                    instanceId = showUpgradeInstanceVersionRequest['instance_id'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showUpgradeInstanceVersion.');
-            }
-
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

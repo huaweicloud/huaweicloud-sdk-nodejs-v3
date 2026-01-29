@@ -7,6 +7,7 @@ import { ActionInfo } from './model/ActionInfo';
 import { ActionInstanceInfo } from './model/ActionInstanceInfo';
 import { Alert } from './model/Alert';
 import { AlertAlertType } from './model/AlertAlertType';
+import { AlertConfig } from './model/AlertConfig';
 import { AlertDataSource } from './model/AlertDataSource';
 import { AlertDestGeo } from './model/AlertDestGeo';
 import { AlertDetail } from './model/AlertDetail';
@@ -28,6 +29,7 @@ import { AlterResourceTagsInBatchesRequestBody } from './model/AlterResourceTags
 import { AnalysisField } from './model/AnalysisField';
 import { AnalysisResults } from './model/AnalysisResults';
 import { AopInstanceEventData } from './model/AopInstanceEventData';
+import { AopInstanceUpdateDataPojo } from './model/AopInstanceUpdateDataPojo';
 import { AopWorkflowInfo } from './model/AopWorkflowInfo';
 import { AopWorkflowVersionInfo } from './model/AopWorkflowVersionInfo';
 import { AopworkflowInstanceDetail } from './model/AopworkflowInstanceDetail';
@@ -97,15 +99,20 @@ import { Code } from './model/Code';
 import { CollectorNode } from './model/CollectorNode';
 import { CommonDataObjectExportRequest } from './model/CommonDataObjectExportRequest';
 import { CommonDataObjectImportResponseData } from './model/CommonDataObjectImportResponseData';
+import { ComponentActionInfo } from './model/ComponentActionInfo';
+import { ComponentActionVersionInfo } from './model/ComponentActionVersionInfo';
 import { ComponentConfiguration } from './model/ComponentConfiguration';
 import { ComponentConfigurationInfo } from './model/ComponentConfigurationInfo';
 import { ComponentConfigurationParam } from './model/ComponentConfigurationParam';
 import { ComponentConfigurationParamVo } from './model/ComponentConfigurationParamVo';
 import { ComponentDetailInfo } from './model/ComponentDetailInfo';
 import { ComponentId } from './model/ComponentId';
+import { ComponentInfo } from './model/ComponentInfo';
+import { ComponentInfoOperationHistory } from './model/ComponentInfoOperationHistory';
 import { ComponentName } from './model/ComponentName';
 import { ComponentSoarBaseRsp } from './model/ComponentSoarBaseRsp';
 import { ComponentSoarRsp } from './model/ComponentSoarRsp';
+import { ComponentVersionInfo } from './model/ComponentVersionInfo';
 import { ConditionInfo } from './model/ConditionInfo';
 import { ConditionItem } from './model/ConditionItem';
 import { ConfigInfo } from './model/ConfigInfo';
@@ -135,6 +142,7 @@ import { CreateAlertRuleResponse } from './model/CreateAlertRuleResponse';
 import { CreateAlertRuleSimulationRequest } from './model/CreateAlertRuleSimulationRequest';
 import { CreateAlertRuleSimulationRequestBody } from './model/CreateAlertRuleSimulationRequestBody';
 import { CreateAlertRuleSimulationResponse } from './model/CreateAlertRuleSimulationResponse';
+import { CreateAnalysisRequestBody } from './model/CreateAnalysisRequestBody';
 import { CreateAopWorkflowInfo } from './model/CreateAopWorkflowInfo';
 import { CreateAopWorkflowRequest } from './model/CreateAopWorkflowRequest';
 import { CreateAopWorkflowResponse } from './model/CreateAopWorkflowResponse';
@@ -255,6 +263,8 @@ import { CreateRetryPolicyRequestBodyDataObjectDefensePolicyList } from './model
 import { CreateRetryPolicyRequestBodyDataObjectPolicyType } from './model/CreateRetryPolicyRequestBodyDataObjectPolicyType';
 import { CreateRetryPolicyResponse } from './model/CreateRetryPolicyResponse';
 import { CreateRuleInfo } from './model/CreateRuleInfo';
+import { CreateSearchAnalysisRequest } from './model/CreateSearchAnalysisRequest';
+import { CreateSearchAnalysisResponse } from './model/CreateSearchAnalysisResponse';
 import { CreateSearchConditionRequest } from './model/CreateSearchConditionRequest';
 import { CreateSearchConditionRequestBody } from './model/CreateSearchConditionRequestBody';
 import { CreateSearchConditionResponse } from './model/CreateSearchConditionResponse';
@@ -269,6 +279,8 @@ import { CreateShipperDelegateAuthRequestBody } from './model/CreateShipperDeleg
 import { CreateShipperDelegateAuthResponse } from './model/CreateShipperDelegateAuthResponse';
 import { CreateShipperRequest } from './model/CreateShipperRequest';
 import { CreateShipperResponse } from './model/CreateShipperResponse';
+import { CreateSubscriptionOrderRequest } from './model/CreateSubscriptionOrderRequest';
+import { CreateSubscriptionOrderResponse } from './model/CreateSubscriptionOrderResponse';
 import { CreateTemplateReq } from './model/CreateTemplateReq';
 import { CreateTime } from './model/CreateTime';
 import { CreateWorkflowInstanceRequest } from './model/CreateWorkflowInstanceRequest';
@@ -292,6 +304,7 @@ import { DataObjectDeleteForm } from './model/DataObjectDeleteForm';
 import { DataObjectDetail } from './model/DataObjectDetail';
 import { DataObjectRefInfo } from './model/DataObjectRefInfo';
 import { DataclassInfoRef } from './model/DataclassInfoRef';
+import { DataclassName } from './model/DataclassName';
 import { DataobjectRef } from './model/DataobjectRef';
 import { DataobjectSearch } from './model/DataobjectSearch';
 import { DataobjectSearchCondition } from './model/DataobjectSearchCondition';
@@ -313,6 +326,8 @@ import { DeleteAopWorkflowVersionRequest } from './model/DeleteAopWorkflowVersio
 import { DeleteAopWorkflowVersionResponse } from './model/DeleteAopWorkflowVersionResponse';
 import { DeleteCatalogueRequest } from './model/DeleteCatalogueRequest';
 import { DeleteCatalogueResponse } from './model/DeleteCatalogueResponse';
+import { DeleteClassifierRequest } from './model/DeleteClassifierRequest';
+import { DeleteClassifierResponse } from './model/DeleteClassifierResponse';
 import { DeleteCollectorChannelGroupRequest } from './model/DeleteCollectorChannelGroupRequest';
 import { DeleteCollectorChannelGroupResponse } from './model/DeleteCollectorChannelGroupResponse';
 import { DeleteCollectorChannelRequest } from './model/DeleteCollectorChannelRequest';
@@ -394,6 +409,8 @@ import { DeleteShipperRequestBody } from './model/DeleteShipperRequestBody';
 import { DeleteShipperResponse } from './model/DeleteShipperResponse';
 import { DeleteSingleMapperRequest } from './model/DeleteSingleMapperRequest';
 import { DeleteSingleMapperResponse } from './model/DeleteSingleMapperResponse';
+import { DeleteSubscriptionOrderRequest } from './model/DeleteSubscriptionOrderRequest';
+import { DeleteSubscriptionOrderResponse } from './model/DeleteSubscriptionOrderResponse';
 import { DeleteTagsRequest } from './model/DeleteTagsRequest';
 import { DeleteTagsResponse } from './model/DeleteTagsResponse';
 import { DeleteWorkspaceRequest } from './model/DeleteWorkspaceRequest';
@@ -420,12 +437,10 @@ import { DownloadVulnerabilityTemplateResponse } from './model/DownloadVulnerabi
 import { DpeClassifyCreate } from './model/DpeClassifyCreate';
 import { DpeClassifyDetail } from './model/DpeClassifyDetail';
 import { DpeClassifyItemDetail } from './model/DpeClassifyItemDetail';
-import { DpeCompareFunctionDetail } from './model/DpeCompareFunctionDetail';
 import { DpeInfo } from './model/DpeInfo';
 import { DpeMappingContent } from './model/DpeMappingContent';
 import { DpeMappingDetail } from './model/DpeMappingDetail';
 import { DpeMappingFieldDetail } from './model/DpeMappingFieldDetail';
-import { DpeOperateFunctionDetail } from './model/DpeOperateFunctionDetail';
 import { EmailInfo } from './model/EmailInfo';
 import { EmailStatusInfo } from './model/EmailStatusInfo';
 import { EnableAlertRuleRequest } from './model/EnableAlertRuleRequest';
@@ -434,6 +449,9 @@ import { EnableConsumptionRequestBody } from './model/EnableConsumptionRequestBo
 import { EnableDataclassTypeRequest } from './model/EnableDataclassTypeRequest';
 import { EnableDataclassTypeRequestBody } from './model/EnableDataclassTypeRequestBody';
 import { EnableDataclassTypeResponse } from './model/EnableDataclassTypeResponse';
+import { ExecuteLayoutRequest } from './model/ExecuteLayoutRequest';
+import { ExecuteLayoutRequestBody } from './model/ExecuteLayoutRequestBody';
+import { ExecuteLayoutResponse } from './model/ExecuteLayoutResponse';
 import { ExecuteReportActionInfo } from './model/ExecuteReportActionInfo';
 import { ExecuteReportActionRequest } from './model/ExecuteReportActionRequest';
 import { ExecuteReportActionResponse } from './model/ExecuteReportActionResponse';
@@ -454,7 +472,6 @@ import { ExportIndicatorsRequest } from './model/ExportIndicatorsRequest';
 import { ExportIndicatorsRequestBody } from './model/ExportIndicatorsRequestBody';
 import { ExportIndicatorsResponse } from './model/ExportIndicatorsResponse';
 import { ExportParserDto } from './model/ExportParserDto';
-import { ExportParserResponseDto } from './model/ExportParserResponseDto';
 import { ExportPlaybook } from './model/ExportPlaybook';
 import { ExportPlaybookRequest } from './model/ExportPlaybookRequest';
 import { ExportPlaybookResponse } from './model/ExportPlaybookResponse';
@@ -539,6 +556,7 @@ import { Incident } from './model/Incident';
 import { IncidentDetail } from './model/IncidentDetail';
 import { IncidentEnvironment } from './model/IncidentEnvironment';
 import { IncidentIncidentType } from './model/IncidentIncidentType';
+import { IncidentResourceList } from './model/IncidentResourceList';
 import { Index } from './model/Index';
 import { IndicatorBatchOperateResponse } from './model/IndicatorBatchOperateResponse';
 import { IndicatorCreateRequest } from './model/IndicatorCreateRequest';
@@ -579,6 +597,7 @@ import { LayoutSearch } from './model/LayoutSearch';
 import { LayoutUpdateRequestPojo } from './model/LayoutUpdateRequestPojo';
 import { ListAlertDetail } from './model/ListAlertDetail';
 import { ListAlertRsp } from './model/ListAlertRsp';
+import { ListAlertRspEnvironment } from './model/ListAlertRspEnvironment';
 import { ListAlertRuleMetricsRequest } from './model/ListAlertRuleMetricsRequest';
 import { ListAlertRuleMetricsResponse } from './model/ListAlertRuleMetricsResponse';
 import { ListAlertRuleTemplateMetricsRequest } from './model/ListAlertRuleTemplateMetricsRequest';
@@ -730,8 +749,14 @@ import { ListShipperAuthorizationsRequest } from './model/ListShipperAuthorizati
 import { ListShipperAuthorizationsResponse } from './model/ListShipperAuthorizationsResponse';
 import { ListShippersRequest } from './model/ListShippersRequest';
 import { ListShippersResponse } from './model/ListShippersResponse';
+import { ListSubscriptionGlobalOrderRequest } from './model/ListSubscriptionGlobalOrderRequest';
+import { ListSubscriptionGlobalOrderResponse } from './model/ListSubscriptionGlobalOrderResponse';
+import { ListSubscriptionOrderRequest } from './model/ListSubscriptionOrderRequest';
+import { ListSubscriptionOrderResponse } from './model/ListSubscriptionOrderResponse';
 import { ListSubscriptionProductRequest } from './model/ListSubscriptionProductRequest';
 import { ListSubscriptionProductResponse } from './model/ListSubscriptionProductResponse';
+import { ListTasksRequest } from './model/ListTasksRequest';
+import { ListTasksResponse } from './model/ListTasksResponse';
 import { ListVpcEndpointServiceRequest } from './model/ListVpcEndpointServiceRequest';
 import { ListVpcEndpointServiceResponse } from './model/ListVpcEndpointServiceResponse';
 import { ListVulnerabilitiesRequest } from './model/ListVulnerabilitiesRequest';
@@ -748,7 +773,6 @@ import { LtsRquestVo } from './model/LtsRquestVo';
 import { MappingCode } from './model/MappingCode';
 import { MappingId } from './model/MappingId';
 import { MappingMessage } from './model/MappingMessage';
-import { MappingTotal } from './model/MappingTotal';
 import { MarginInfo } from './model/MarginInfo';
 import { Match } from './model/Match';
 import { Message } from './model/Message';
@@ -764,6 +788,7 @@ import { ModifyAopWorkflowVersionInfo } from './model/ModifyAopWorkflowVersionIn
 import { ModifyPlaybookInfo } from './model/ModifyPlaybookInfo';
 import { ModifyPlaybookVersionInfo } from './model/ModifyPlaybookVersionInfo';
 import { ModifyRuleInfo } from './model/ModifyRuleInfo';
+import { ModifyTaskInfo } from './model/ModifyTaskInfo';
 import { ModuleCreateRequestPojo } from './model/ModuleCreateRequestPojo';
 import { ModuleDetailInfo } from './model/ModuleDetailInfo';
 import { ModuleFieldVo } from './model/ModuleFieldVo';
@@ -794,9 +819,10 @@ import { OperationPlaybookInfo } from './model/OperationPlaybookInfo';
 import { OrderAlert } from './model/OrderAlert';
 import { OrderAlertIncidentContent } from './model/OrderAlertIncidentContent';
 import { OrderAlertIncidentContentIncidentType } from './model/OrderAlertIncidentContentIncidentType';
+import { OrderConfig } from './model/OrderConfig';
+import { OrderInfoReq } from './model/OrderInfoReq';
 import { Organization } from './model/Organization';
 import { PageConfigPx } from './model/PageConfigPx';
-import { Params } from './model/Params';
 import { Parser } from './model/Parser';
 import { ParserTemplate } from './model/ParserTemplate';
 import { PauseShipperRequest } from './model/PauseShipperRequest';
@@ -811,6 +837,7 @@ import { PlaybookStatisticDetail } from './model/PlaybookStatisticDetail';
 import { PlaybookVersionInfo } from './model/PlaybookVersionInfo';
 import { PlaybookVersionListEntity } from './model/PlaybookVersionListEntity';
 import { PlaybookcontextRef } from './model/PlaybookcontextRef';
+import { Product } from './model/Product';
 import { ProductRspBasic } from './model/ProductRspBasic';
 import { ProductRspLargeScreen } from './model/ProductRspLargeScreen';
 import { ProductRspLogAnalysis } from './model/ProductRspLogAnalysis';
@@ -836,6 +863,7 @@ import { ResourceDto } from './model/ResourceDto';
 import { ResourceEnvironment } from './model/ResourceEnvironment';
 import { ResourceInfo } from './model/ResourceInfo';
 import { ResourceTag } from './model/ResourceTag';
+import { ResourceUsage } from './model/ResourceUsage';
 import { Restriction } from './model/Restriction';
 import { Result } from './model/Result';
 import { ResumeShipperRequest } from './model/ResumeShipperRequest';
@@ -930,8 +958,6 @@ import { ShowMetricMetaDataResponse } from './model/ShowMetricMetaDataResponse';
 import { ShowMetricResultResponseBody } from './model/ShowMetricResultResponseBody';
 import { ShowMetricResultResponseBodyResult } from './model/ShowMetricResultResponseBodyResult';
 import { ShowMetricStatsRequestBody } from './model/ShowMetricStatsRequestBody';
-import { ShowModuleExportVo } from './model/ShowModuleExportVo';
-import { ShowModuleFieldExportVo } from './model/ShowModuleFieldExportVo';
 import { ShowModuleRequest } from './model/ShowModuleRequest';
 import { ShowModuleResponse } from './model/ShowModuleResponse';
 import { ShowModuleVo } from './model/ShowModuleVo';
@@ -982,23 +1008,35 @@ import { ShowShipperResponse } from './model/ShowShipperResponse';
 import { ShowShipperResponseBodyData } from './model/ShowShipperResponseBodyData';
 import { ShowShipperResponseBodyDataShipperDestination } from './model/ShowShipperResponseBodyDataShipperDestination';
 import { ShowShipperResponseBodyDataShipperSource } from './model/ShowShipperResponseBodyDataShipperSource';
+import { ShowTaskRequest } from './model/ShowTaskRequest';
+import { ShowTaskResponse } from './model/ShowTaskResponse';
 import { ShowTemplateFields } from './model/ShowTemplateFields';
 import { ShowVulnerabilityRequest } from './model/ShowVulnerabilityRequest';
 import { ShowVulnerabilityResponse } from './model/ShowVulnerabilityResponse';
 import { ShowWorkspaceRequest } from './model/ShowWorkspaceRequest';
 import { ShowWorkspaceResponse } from './model/ShowWorkspaceResponse';
 import { ShowWorkspaceResponseBodyWorkspace } from './model/ShowWorkspaceResponseBodyWorkspace';
+import { SmnSubscription } from './model/SmnSubscription';
 import { SoarBaseRsp } from './model/SoarBaseRsp';
 import { SoarRsp } from './model/SoarRsp';
 import { StorageSetting } from './model/StorageSetting';
 import { SubnetID } from './model/SubnetID';
+import { SubscriptionGlobalResource } from './model/SubscriptionGlobalResource';
+import { SubscriptionResource } from './model/SubscriptionResource';
+import { SubscriptionResourceInfo } from './model/SubscriptionResourceInfo';
+import { SubscriptionTag } from './model/SubscriptionTag';
+import { SubscriptionTagInfo } from './model/SubscriptionTagInfo';
 import { Success } from './model/Success';
 import { Tag } from './model/Tag';
+import { TagInfo } from './model/TagInfo';
 import { TagsPojo } from './model/TagsPojo';
+import { TaskCommentInfo } from './model/TaskCommentInfo';
+import { TaskInfo } from './model/TaskInfo';
 import { TemplateField } from './model/TemplateField';
 import { TemplateInfo } from './model/TemplateInfo';
 import { TopologyNodeInfo } from './model/TopologyNodeInfo';
 import { Total } from './model/Total';
+import { UnsubscribeParam } from './model/UnsubscribeParam';
 import { UpdateAlertRuleRequest } from './model/UpdateAlertRuleRequest';
 import { UpdateAlertRuleRequestBody } from './model/UpdateAlertRuleRequestBody';
 import { UpdateAlertRuleResponse } from './model/UpdateAlertRuleResponse';
@@ -1039,6 +1077,8 @@ import { UpdateLayoutRequest } from './model/UpdateLayoutRequest';
 import { UpdateLayoutResponse } from './model/UpdateLayoutResponse';
 import { UpdateLayoutWizardsRequest } from './model/UpdateLayoutWizardsRequest';
 import { UpdateLayoutWizardsResponse } from './model/UpdateLayoutWizardsResponse';
+import { UpdateMapperRequest } from './model/UpdateMapperRequest';
+import { UpdateMapperResponse } from './model/UpdateMapperResponse';
 import { UpdateMappingInfoStatusRequest } from './model/UpdateMappingInfoStatusRequest';
 import { UpdateMappingInfoStatusResponse } from './model/UpdateMappingInfoStatusResponse';
 import { UpdateMetricsRequest } from './model/UpdateMetricsRequest';
@@ -1047,6 +1087,7 @@ import { UpdateModuleRequest } from './model/UpdateModuleRequest';
 import { UpdateModuleResponse } from './model/UpdateModuleResponse';
 import { UpdateNodeRequest } from './model/UpdateNodeRequest';
 import { UpdateNodeResponse } from './model/UpdateNodeResponse';
+import { UpdateOrderInfoReq } from './model/UpdateOrderInfoReq';
 import { UpdatePipeIndexRequest } from './model/UpdatePipeIndexRequest';
 import { UpdatePipeIndexResponse } from './model/UpdatePipeIndexResponse';
 import { UpdatePipeRequest } from './model/UpdatePipeRequest';
@@ -1060,6 +1101,7 @@ import { UpdatePlaybookRuleRequest } from './model/UpdatePlaybookRuleRequest';
 import { UpdatePlaybookRuleResponse } from './model/UpdatePlaybookRuleResponse';
 import { UpdatePlaybookVersionRequest } from './model/UpdatePlaybookVersionRequest';
 import { UpdatePlaybookVersionResponse } from './model/UpdatePlaybookVersionResponse';
+import { UpdateProduct } from './model/UpdateProduct';
 import { UpdateRecipientsEmailStatusRequest } from './model/UpdateRecipientsEmailStatusRequest';
 import { UpdateRecipientsEmailStatusResponse } from './model/UpdateRecipientsEmailStatusResponse';
 import { UpdateRecipientsStatusRequestBody } from './model/UpdateRecipientsStatusRequestBody';
@@ -1070,21 +1112,29 @@ import { UpdateReportResponse } from './model/UpdateReportResponse';
 import { UpdateSearchConditionRequest } from './model/UpdateSearchConditionRequest';
 import { UpdateSearchConditionRequestBody } from './model/UpdateSearchConditionRequestBody';
 import { UpdateSearchConditionResponse } from './model/UpdateSearchConditionResponse';
+import { UpdateSubscriptionOrderRequest } from './model/UpdateSubscriptionOrderRequest';
+import { UpdateSubscriptionOrderResponse } from './model/UpdateSubscriptionOrderResponse';
 import { UpdateTagValueRequest } from './model/UpdateTagValueRequest';
 import { UpdateTagValueRequestBody } from './model/UpdateTagValueRequestBody';
 import { UpdateTagValueResponse } from './model/UpdateTagValueResponse';
+import { UpdateTaskRequest } from './model/UpdateTaskRequest';
+import { UpdateTaskResponse } from './model/UpdateTaskResponse';
 import { UpdateTime } from './model/UpdateTime';
 import { UpdateVpcEndpointServiceRequest } from './model/UpdateVpcEndpointServiceRequest';
 import { UpdateVpcEndpointServiceRequestBody } from './model/UpdateVpcEndpointServiceRequestBody';
 import { UpdateVpcEndpointServiceResponse } from './model/UpdateVpcEndpointServiceResponse';
 import { UpdateVpcepServiceInfo } from './model/UpdateVpcepServiceInfo';
+import { UpdateWorkflowInstanceRequest } from './model/UpdateWorkflowInstanceRequest';
+import { UpdateWorkflowInstanceResponse } from './model/UpdateWorkflowInstanceResponse';
 import { UpdateWorkspaceRequest } from './model/UpdateWorkspaceRequest';
 import { UpdateWorkspaceRequestBody } from './model/UpdateWorkspaceRequestBody';
 import { UpdateWorkspaceResponse } from './model/UpdateWorkspaceResponse';
+import { UpdateWorkspaceResponseBodyWorkspaceAgencyList } from './model/UpdateWorkspaceResponseBodyWorkspaceAgencyList';
 import { UploadAttachmentInfo } from './model/UploadAttachmentInfo';
 import { UploadAttachmentRequest } from './model/UploadAttachmentRequest';
 import { UploadAttachmentRequestBody } from './model/UploadAttachmentRequestBody';
 import { UploadAttachmentResponse } from './model/UploadAttachmentResponse';
+import { UsageThreshold } from './model/UsageThreshold';
 import { ValidateAopWorkflowVersionRequest } from './model/ValidateAopWorkflowVersionRequest';
 import { ValidateAopWorkflowVersionResponse } from './model/ValidateAopWorkflowVersionResponse';
 import { VpcEndpointAddress } from './model/VpcEndpointAddress';
@@ -1186,7 +1236,7 @@ export class SecMasterClient {
      * @param {string} workspaceId 工作空间ID
      * @param {BatchSearchMetricHitsRequestBody} batchSearchMetricHitsRequestBody 需要查询的指标ID及参数
      * @param {string} [timespan] 查询指标的时间范围，ISO8601格式，例如：2007-03-01T13:00:00Z/2008-05-11T15:30:00Z或2007-03-01T13:00:00Z/P1Y2M10DT2H30M或P1Y2M10DT2H30M/2008-05-11T15:30:00Z
-     * @param {boolean} [cache] 是否启用缓存，默认true, 禁用缓存 false
+     * @param {boolean} [cache] 是否启用缓存，默认true，禁用缓存 false
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2370,6 +2420,26 @@ export class SecMasterClient {
     }
 
     /**
+     * 执行分析
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 执行分析
+     * @param {string} workspaceId 工作空间ID
+     * @param {CreateAnalysisRequestBody} createSearchAnalysisRequestBody 执行分析请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSearchAnalysis(createSearchAnalysisRequest?: CreateSearchAnalysisRequest): Promise<CreateSearchAnalysisResponse> {
+        const options = ParamCreater().createSearchAnalysis(createSearchAnalysisRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建检索条件
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2443,6 +2513,26 @@ export class SecMasterClient {
      */
     public createShipperDelegateAuth(createShipperDelegateAuthRequest?: CreateShipperDelegateAuthRequest): Promise<CreateShipperDelegateAuthResponse> {
         const options = ParamCreater().createShipperDelegateAuth(createShipperDelegateAuthRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 安全云脑开通与配置接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开通或配置安全云脑订阅
+     * @param {'zh-cn' | 'en-us'} xLanguage 用户当前语言环境 zh-cn or en-us.
+     * @param {OrderInfoReq} createSubscriptionOrderRequestBody 云脑订阅参数请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSubscriptionOrder(createSubscriptionOrderRequest?: CreateSubscriptionOrderRequest): Promise<CreateSubscriptionOrderResponse> {
+        const options = ParamCreater().createSubscriptionOrder(createSubscriptionOrderRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2613,6 +2703,27 @@ export class SecMasterClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除分类
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除分类
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} workspaceId **参数解释**: 工作空间ID **取值范围**: 不涉及
+     * @param {string} classifierId 分类映射id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteClassifier(deleteClassifierRequest?: DeleteClassifierRequest): Promise<DeleteClassifierResponse> {
+        const options = ParamCreater().deleteClassifier(deleteClassifierRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3062,7 +3173,7 @@ export class SecMasterClient {
      * @summary 删除评论
      * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
      * @param {string} workspaceId **参数解释：** 工作空间id。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {DeleteNoteRequestBody} deleteNotesRequestBody 删除的评论警ID列表
+     * @param {DeleteNoteRequestBody} deleteNotesRequestBody 删除的评论ID列表
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3328,6 +3439,26 @@ export class SecMasterClient {
     }
 
     /**
+     * 安全云脑退订服务接口，目前仅支持按需场景
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 取消订阅资源
+     * @param {string} xLanguage 用户当前语言环境
+     * @param {UnsubscribeParam} deleteSubscriptionOrderRequestBody 云脑退订参数请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSubscriptionOrder(deleteSubscriptionOrderRequest?: DeleteSubscriptionOrderRequest): Promise<DeleteSubscriptionOrderResponse> {
+        const options = ParamCreater().deleteSubscriptionOrder(deleteSubscriptionOrderRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 为指定实例批量删除标签
      * 标签管理服务需要使用该接口批量管理实例的标签。
      * 
@@ -3550,6 +3681,29 @@ export class SecMasterClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 操作布局
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 操作布局
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} workspaceId **参数解释：** 工作空间id。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} action 对布局的操作 VERIFY 校验导入布局压缩包文件 IMPORT  导入布局压缩包文件 EXPORT 导出布局文件
+     * @param {string} [ids] 操作布局的id列表
+     * @param {any} [uploadFile] 上传的文件
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeLayout(executeLayoutRequest?: ExecuteLayoutRequest): Promise<ExecuteLayoutResponse> {
+        const options = ParamCreater().executeLayout(executeLayoutRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -4635,7 +4789,7 @@ export class SecMasterClient {
      *
      * @summary 获取字典信息
      * @param {string} xLanguage 用户当前语言环境
-     * @param {string} [scene] 字典使用场景, 告警为ALERT, 等级云为QUAD_CLOUD
+     * @param {string} [scene] 字典使用场景，告警为ALERT，等级云为QUAD_CLOUD
      * @param {string} [level] 仅QUAD_CLOUD场景使用[S1, S2, S3, S4]
      * @param {string} [scope] 该字典作用域
      * @param {string} [dictKey] 字典key
@@ -4764,7 +4918,7 @@ export class SecMasterClient {
     }
 
     /**
-     * 列出所有与数据对象
+     * 列出所有数据对象
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -5567,6 +5721,47 @@ export class SecMasterClient {
     }
 
     /**
+     * 查询已购资源清单
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询已购资源清单
+     * @param {string} xLanguage 用户当前语言环境， zh-cn简体中文，en-us英文环境
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSubscriptionGlobalOrder(listSubscriptionGlobalOrderRequest?: ListSubscriptionGlobalOrderRequest): Promise<ListSubscriptionGlobalOrderResponse> {
+        const options = ParamCreater().listSubscriptionGlobalOrder(listSubscriptionGlobalOrderRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询租户版本信息，注意：目前其中参数purchase、usage、smn互斥，同时只能有一个请求参数被命中，优先级为：smn &gt; usage &gt; purchase
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询租户订阅资源
+     * @param {string} xLanguage 用户当前语言环境
+     * @param {number} [offset] smn订阅偏移量
+     * @param {number} [limit] smn订阅返回数量
+     * @param {'DEFAULT' | 'PURCHASE' | 'SMN' | 'USAGE' | 'RESOURCE_LIST'} [page] 订单资源详情信息枚举，DEFAULT:默认缺省值，获取开通的资源列表，不包含套餐包；PURCHASE：在DEFAULT基础上返回租户名下ECS数量；RESOURCE_LIST在DEFAULT基础上返回套餐包列表；USAGE：返回资源用量信息；SMN：返回已订阅的smn topic列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSubscriptionOrder(listSubscriptionOrderRequest?: ListSubscriptionOrderRequest): Promise<ListSubscriptionOrderResponse> {
+        const options = ParamCreater().listSubscriptionOrder(listSubscriptionOrderRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询当前站点SecMaster支持的商品清单
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5578,6 +5773,37 @@ export class SecMasterClient {
      */
     public listSubscriptionProduct(listSubscriptionProductRequest?: ListSubscriptionProductRequest): Promise<ListSubscriptionProductResponse> {
         const options = ParamCreater().listSubscriptionProduct(listSubscriptionProductRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询待办列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询待办列表
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} workspaceId **参数解释**: 工作空间ID **取值范围**: 不涉及
+     * @param {number} [offset] **参数解释**: 待办请求的偏移量 **约束限制**: 不涉及         **取值范围**: 0-9999 **默认值**:  0
+     * @param {number} [limit] **参数解释**: 待办分页大小 **约束限制**: 不涉及         **取值范围**: 1-100 **默认值**:  10
+     * @param {string} [sortKey] **参数解释**: 待办的排序字段 - create_time 按照创建时间排序 - update_time 按照更新时间排序  **约束限制**: 不涉及         **取值范围**: - create_time - update_time  **默认值**:  create_time
+     * @param {string} [sortDir] **参数解释**: 待办的排序方式 - ASC 按照升序排序 - DESC 按照降序排序  **约束限制**: 不涉及         **取值范围**: - ASC - DESC  **默认值**:  DESC
+     * @param {string} [note] **参数解释**: 待办的备注 **约束限制**: 不涉及         **取值范围**: 不涉及 **默认值**:  不涉及
+     * @param {string} [name] **参数解释**: 待办的任务名称 **约束限制**: 不涉及         **取值范围**: 不涉及 **默认值**:  不涉及
+     * @param {'WORKFLOWPUBLISH' | 'WORKFLOWNODEAPPROVE' | 'PLAYBOOKPUBLISH' | 'PLAYBOOKNODEAPPROVE'} [businessType] **参数解释**: 待办的业务类型 - WORKFLOWPUBLISH 流程发布 - WORKFLOWNODEAPPROVE 流程节点审核 - PLAYBOOKPUBLISH 剧本发布 - PLAYBOOKNODEAPPROVE 剧本节点审核  **约束限制**: 不涉及         **取值范围**: - WORKFLOWPUBLISH - WORKFLOWNODEAPPROVE - PLAYBOOKPUBLISH - PLAYBOOKNODEAPPROVE  **默认值**:  不涉及
+     * @param {string} [creatorName] **参数解释**: 待办的创建人 **约束限制**: 不涉及         **取值范围**: 不涉及 **默认值**:  不涉及
+     * @param {'my_todo' | 'all_handled'} [queryType] **参数解释**: 待办的分类 - my_todo 待处理的待办 - all_handled 已处理的待办   **约束限制**: 不涉及         **取值范围**: - my_todo - all_handled   **默认值**:  my_todo
+     * @param {string} [fromDate] **参数解释**: 起始时间，格式是 \&quot;yyyy-MM-dd\&#39;T\&#39;HH:mm:ss.SSS\&#39;Z\&#39;Z\&quot; **约束限制**: 不涉及         **取值范围**: 不涉及 **默认值**:  不涉及
+     * @param {string} [toDate] **参数解释**: 的截止时间，格式是 \&quot;yyyy-MM-dd\&#39;T\&#39;HH:mm:ss.SSS\&#39;Z\&#39;Z\&quot; **约束限制**: 不涉及         **取值范围**: 不涉及 **默认值**:  不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTasks(listTasksRequest?: ListTasksRequest): Promise<ListTasksResponse> {
+        const options = ParamCreater().listTasks(listTasksRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6924,6 +7150,27 @@ export class SecMasterClient {
     }
 
     /**
+     * 查询待办的详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询待办的详情
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} workspaceId **参数解释**: 工作空间ID **取值范围**: 不涉及
+     * @param {string} taskId **参数解释**: 待办任务的ID **取值范围**: 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTask(showTaskRequest?: ShowTaskRequest): Promise<ShowTaskResponse> {
+        const options = ParamCreater().showTask(showTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取漏洞详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -7329,6 +7576,28 @@ export class SecMasterClient {
     }
 
     /**
+     * 修改单个映射
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改单个映射
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} workspaceId **参数解释**: 工作空间ID **取值范围**: 不涉及
+     * @param {string} mapperId 分类id
+     * @param {CreateDpeMappingRequestBody} [updateMapperRequestBody] 需修改映射
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateMapper(updateMapperRequest?: UpdateMapperRequest): Promise<UpdateMapperResponse> {
+        const options = ParamCreater().updateMapper(updateMapperRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修分类映射启用禁用状态
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -7611,6 +7880,26 @@ export class SecMasterClient {
     }
 
     /**
+     * 更新订购资源
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新订购资源
+     * @param {string} xLanguage 用户当前语言环境
+     * @param {UpdateOrderInfoReq} updateSubscriptionOrderRequestBody 云脑计费资源变更参数请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSubscriptionOrder(updateSubscriptionOrderRequest?: UpdateSubscriptionOrderRequest): Promise<UpdateSubscriptionOrderResponse> {
+        const options = ParamCreater().updateSubscriptionOrder(updateSubscriptionOrderRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新标签值
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -7634,6 +7923,28 @@ export class SecMasterClient {
     }
 
     /**
+     * 更新待办的信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新待办的信息
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} workspaceId **参数解释**: 工作空间ID **取值范围**: 不涉及
+     * @param {string} taskId **参数解释**: 待办任务的ID **取值范围**: 不涉及
+     * @param {ModifyTaskInfo} [updateTaskRequestBody] Update task
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTask(updateTaskRequest?: UpdateTaskRequest): Promise<UpdateTaskResponse> {
+        const options = ParamCreater().updateTask(updateTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新VPC终端节点服务
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -7648,6 +7959,28 @@ export class SecMasterClient {
      */
     public updateVpcEndpointService(updateVpcEndpointServiceRequest?: UpdateVpcEndpointServiceRequest): Promise<UpdateVpcEndpointServiceResponse> {
         const options = ParamCreater().updateVpcEndpointService(updateVpcEndpointServiceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新流程实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新流程实例
+     * @param {string} contentType **参数解释：** 内容类型 - application/json;charset&#x3D;UTF-8    普通API请求的类型  **约束限制：** 不涉及 **取值范围：** - application/json;charset&#x3D;UTF-8  **默认取值：** 不涉及
+     * @param {string} workspaceId **参数解释**: 工作空间ID **取值范围**: 不涉及
+     * @param {string} instanceId 实例ID
+     * @param {AopInstanceUpdateDataPojo} [updateWorkflowInstanceRequestBody] 更新流程实例的请求
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateWorkflowInstance(updateWorkflowInstanceRequest?: UpdateWorkflowInstanceRequest): Promise<UpdateWorkflowInstanceResponse> {
+        const options = ParamCreater().updateWorkflowInstance(updateWorkflowInstanceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7683,7 +8016,7 @@ export class SecMasterClient {
      *
      * @summary 上传附件
      * @param {string} workspaceId **参数解释**: 工作空间ID **取值范围**: 不涉及
-     * @param {any} uploadFile 导入的流程文件
+     * @param {any} uploadFile 上传的附件
      * @param {string} [fileType] 固定枚举，当前仅支持user_task/用户任务
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -8439,7 +8772,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/workspaces/{workspace_id}/soc/mappings/{mapping_id}/clone",
-                contentType: "application/json",
+                contentType: "application/json;charset=utf-8",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -8462,7 +8795,7 @@ export const ParamCreater = function () {
                     workspaceId = copyMappingRequest.workspaceId;
                     body = copyMappingRequest.body
                 } else {
-                    contentType = copyMappingRequest['content-type'];
+                    contentType = copyMappingRequest['Content-Type'];
                     mappingId = copyMappingRequest['mapping_id'];
                     workspaceId = copyMappingRequest['workspace_id'];
                     body = copyMappingRequest['body'];
@@ -8477,9 +8810,9 @@ export const ParamCreater = function () {
             throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling copyMapping.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'mapping_id': mappingId,'workspace_id': workspaceId, };
@@ -8774,7 +9107,7 @@ export const ParamCreater = function () {
                     workspaceId = createAopWorkflowRequest.workspaceId;
                     body = createAopWorkflowRequest.body
                 } else {
-                    contentType = createAopWorkflowRequest['content-type'];
+                    contentType = createAopWorkflowRequest['Content-Type'];
                     workspaceId = createAopWorkflowRequest['workspace_id'];
                     body = createAopWorkflowRequest['body'];
                 }
@@ -8785,7 +9118,7 @@ export const ParamCreater = function () {
             throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createAopWorkflow.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -8827,7 +9160,7 @@ export const ParamCreater = function () {
                     workflowId = createAopWorkflowVersionRequest.workflowId;
                     body = createAopWorkflowVersionRequest.body
                 } else {
-                    contentType = createAopWorkflowVersionRequest['content-type'];
+                    contentType = createAopWorkflowVersionRequest['Content-Type'];
                     workspaceId = createAopWorkflowVersionRequest['workspace_id'];
                     workflowId = createAopWorkflowVersionRequest['workflow_id'];
                     body = createAopWorkflowVersionRequest['body'];
@@ -8842,7 +9175,7 @@ export const ParamCreater = function () {
             throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling createAopWorkflowVersion.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -8884,7 +9217,7 @@ export const ParamCreater = function () {
                     versionId = createAopWorkflowVersionApprovelRequest.versionId;
                     body = createAopWorkflowVersionApprovelRequest.body
                 } else {
-                    contentType = createAopWorkflowVersionApprovelRequest['content-type'];
+                    contentType = createAopWorkflowVersionApprovelRequest['Content-Type'];
                     workspaceId = createAopWorkflowVersionApprovelRequest['workspace_id'];
                     versionId = createAopWorkflowVersionApprovelRequest['version_id'];
                     body = createAopWorkflowVersionApprovelRequest['body'];
@@ -8899,7 +9232,7 @@ export const ParamCreater = function () {
             throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling createAopWorkflowVersionApprovel.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -9021,7 +9354,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/workspaces/{workspace_id}/soc/mappings/classifiers",
-                contentType: "application/json",
+                contentType: "application/json;charset=utf-8",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -9041,7 +9374,7 @@ export const ParamCreater = function () {
                     workspaceId = createClassifierRequest.workspaceId;
                     body = createClassifierRequest.body
                 } else {
-                    contentType = createClassifierRequest['content-type'];
+                    contentType = createClassifierRequest['Content-Type'];
                     workspaceId = createClassifierRequest['workspace_id'];
                     body = createClassifierRequest['body'];
                 }
@@ -9052,9 +9385,9 @@ export const ParamCreater = function () {
             throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createClassifier.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'workspace_id': workspaceId, };
@@ -10056,7 +10389,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/workspaces/{workspace_id}/soc/mappings/mappers",
-                contentType: "application/json",
+                contentType: "application/json;charset=utf-8",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -10076,7 +10409,7 @@ export const ParamCreater = function () {
                     workspaceId = createMapperRequest.workspaceId;
                     body = createMapperRequest.body
                 } else {
-                    contentType = createMapperRequest['content-type'];
+                    contentType = createMapperRequest['Content-Type'];
                     workspaceId = createMapperRequest['workspace_id'];
                     body = createMapperRequest['body'];
                 }
@@ -10087,9 +10420,9 @@ export const ParamCreater = function () {
             throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createMapper.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'workspace_id': workspaceId, };
@@ -10648,7 +10981,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/workspaces/{workspace_id}/soc/mappings/preprocess-rules",
-                contentType: "application/json",
+                contentType: "application/json;charset=utf-8",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -10668,7 +11001,7 @@ export const ParamCreater = function () {
                     workspaceId = createPreProcessRulesRequest.workspaceId;
                     body = createPreProcessRulesRequest.body
                 } else {
-                    contentType = createPreProcessRulesRequest['content-type'];
+                    contentType = createPreProcessRulesRequest['Content-Type'];
                     workspaceId = createPreProcessRulesRequest['workspace_id'];
                     body = createPreProcessRulesRequest['body'];
                 }
@@ -10679,9 +11012,9 @@ export const ParamCreater = function () {
             throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createPreProcessRules.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'workspace_id': workspaceId, };
@@ -10861,6 +11194,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 执行分析
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSearchAnalysis(createSearchAnalysisRequest?: CreateSearchAnalysisRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/workspaces/{workspace_id}/siem/search/analysis",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspaceId;
+
+            if (createSearchAnalysisRequest !== null && createSearchAnalysisRequest !== undefined) {
+                if (createSearchAnalysisRequest instanceof CreateSearchAnalysisRequest) {
+                    workspaceId = createSearchAnalysisRequest.workspaceId;
+                    body = createSearchAnalysisRequest.body
+                } else {
+                    workspaceId = createSearchAnalysisRequest['workspace_id'];
+                    body = createSearchAnalysisRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createSearchAnalysis.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'workspace_id': workspaceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -11057,6 +11436,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 安全云脑开通与配置接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSubscriptionOrder(createSubscriptionOrderRequest?: CreateSubscriptionOrderRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/subscriptions/orders",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (createSubscriptionOrderRequest !== null && createSubscriptionOrderRequest !== undefined) {
+                if (createSubscriptionOrderRequest instanceof CreateSubscriptionOrderRequest) {
+                    xLanguage = createSubscriptionOrderRequest.xLanguage;
+                    body = createSubscriptionOrderRequest.body
+                } else {
+                    xLanguage = createSubscriptionOrderRequest['X-Language'];
+                    body = createSubscriptionOrderRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建流程实例
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11088,7 +11512,7 @@ export const ParamCreater = function () {
                     workflowId = createWorkflowInstanceRequest.workflowId;
                     body = createWorkflowInstanceRequest.body
                 } else {
-                    contentType = createWorkflowInstanceRequest['content-type'];
+                    contentType = createWorkflowInstanceRequest['Content-Type'];
                     workspaceId = createWorkflowInstanceRequest['workspace_id'];
                     workflowId = createWorkflowInstanceRequest['workflow_id'];
                     body = createWorkflowInstanceRequest['body'];
@@ -11103,7 +11527,7 @@ export const ParamCreater = function () {
             throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling createWorkflowInstance.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -11339,7 +11763,7 @@ export const ParamCreater = function () {
                     workspaceId = deleteAopWorkflowRequest.workspaceId;
                     workflowId = deleteAopWorkflowRequest.workflowId;
                 } else {
-                    contentType = deleteAopWorkflowRequest['content-type'];
+                    contentType = deleteAopWorkflowRequest['Content-Type'];
                     workspaceId = deleteAopWorkflowRequest['workspace_id'];
                     workflowId = deleteAopWorkflowRequest['workflow_id'];
                 }
@@ -11353,7 +11777,7 @@ export const ParamCreater = function () {
             throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling deleteAopWorkflow.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'workspace_id': workspaceId,'workflow_id': workflowId, };
@@ -11390,7 +11814,7 @@ export const ParamCreater = function () {
                     workspaceId = deleteAopWorkflowVersionRequest.workspaceId;
                     versionId = deleteAopWorkflowVersionRequest.versionId;
                 } else {
-                    contentType = deleteAopWorkflowVersionRequest['content-type'];
+                    contentType = deleteAopWorkflowVersionRequest['Content-Type'];
                     workspaceId = deleteAopWorkflowVersionRequest['workspace_id'];
                     versionId = deleteAopWorkflowVersionRequest['version_id'];
                 }
@@ -11404,7 +11828,7 @@ export const ParamCreater = function () {
             throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling deleteAopWorkflowVersion.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'workspace_id': workspaceId,'version_id': versionId, };
@@ -11458,6 +11882,57 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除分类
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteClassifier(deleteClassifierRequest?: DeleteClassifierRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/mappings/classifiers/{classifier_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+            
+            let workspaceId;
+            
+            let classifierId;
+
+            if (deleteClassifierRequest !== null && deleteClassifierRequest !== undefined) {
+                if (deleteClassifierRequest instanceof DeleteClassifierRequest) {
+                    contentType = deleteClassifierRequest.contentType;
+                    workspaceId = deleteClassifierRequest.workspaceId;
+                    classifierId = deleteClassifierRequest.classifierId;
+                } else {
+                    contentType = deleteClassifierRequest['Content-Type'];
+                    workspaceId = deleteClassifierRequest['workspace_id'];
+                    classifierId = deleteClassifierRequest['classifier_id'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deleteClassifier.');
+            }
+            if (classifierId === null || classifierId === undefined) {
+            throw new RequiredError('classifierId','Required parameter classifierId was null or undefined when calling deleteClassifier.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'workspace_id': workspaceId,'classifier_id': classifierId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -12346,7 +12821,7 @@ export const ParamCreater = function () {
                     mappingId = deleteMappingInfoRequest.mappingId;
                     workspaceId = deleteMappingInfoRequest.workspaceId;
                 } else {
-                    contentType = deleteMappingInfoRequest['content-type'];
+                    contentType = deleteMappingInfoRequest['Content-Type'];
                     mappingId = deleteMappingInfoRequest['mapping_id'];
                     workspaceId = deleteMappingInfoRequest['workspace_id'];
                 }
@@ -12360,7 +12835,7 @@ export const ParamCreater = function () {
             throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling deleteMappingInfo.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'mapping_id': mappingId,'workspace_id': workspaceId, };
@@ -13162,7 +13637,7 @@ export const ParamCreater = function () {
                     workspaceId = deleteSingleMapperRequest.workspaceId;
                     mapperId = deleteSingleMapperRequest.mapperId;
                 } else {
-                    contentType = deleteSingleMapperRequest['content-type'];
+                    contentType = deleteSingleMapperRequest['Content-Type'];
                     workspaceId = deleteSingleMapperRequest['workspace_id'];
                     mapperId = deleteSingleMapperRequest['mapper_id'];
                 }
@@ -13176,10 +13651,55 @@ export const ParamCreater = function () {
             throw new RequiredError('mapperId','Required parameter mapperId was null or undefined when calling deleteSingleMapper.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'workspace_id': workspaceId,'mapper_id': mapperId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 安全云脑退订服务接口，目前仅支持按需场景
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSubscriptionOrder(deleteSubscriptionOrderRequest?: DeleteSubscriptionOrderRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/subscriptions/orders",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (deleteSubscriptionOrderRequest !== null && deleteSubscriptionOrderRequest !== undefined) {
+                if (deleteSubscriptionOrderRequest instanceof DeleteSubscriptionOrderRequest) {
+                    xLanguage = deleteSubscriptionOrderRequest.xLanguage;
+                    body = deleteSubscriptionOrderRequest.body
+                } else {
+                    xLanguage = deleteSubscriptionOrderRequest['X-Language'];
+                    body = deleteSubscriptionOrderRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -13722,6 +14242,78 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 操作布局
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeLayout(executeLayoutRequest?: ExecuteLayoutRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/layouts/action",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            const localVarFormParams = new FormData();
+            
+            let contentType;
+            
+            let workspaceId;
+            let action;
+            
+            let ids;
+            
+            let uploadFile;
+            
+
+            if (executeLayoutRequest !== null && executeLayoutRequest !== undefined) {
+                if (executeLayoutRequest instanceof ExecuteLayoutRequest) {
+                    contentType = executeLayoutRequest.contentType;
+                    workspaceId = executeLayoutRequest.workspaceId;
+                    action = executeLayoutRequest.body?.action;
+                    ids = executeLayoutRequest.body?.ids;
+                    uploadFile = executeLayoutRequest.body?.uploadFile;
+                } else {
+                    contentType = executeLayoutRequest['content-type'];
+                    workspaceId = executeLayoutRequest['workspace_id'];
+                    action = executeLayoutRequest['body']['action'];
+                    ids = executeLayoutRequest['body']['ids'];
+                    uploadFile = executeLayoutRequest['body']['uploadFile'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling executeLayout.');
+            }
+            if (action === null || action === undefined) {
+            throw new RequiredError('action','Required parameter action was null or undefined when calling executeLayout.');
+            }
+            if (action !== undefined) { 
+                localVarFormParams.append('action', action as any);
+            }
+            if (ids !== undefined) { 
+                localVarFormParams.append('ids', ids as any);
+            }
+            if (uploadFile !== undefined) { 
+                localVarFormParams.append('uploadFile', uploadFile as any);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['content-type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 操作安全报告
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -13856,7 +14448,7 @@ export const ParamCreater = function () {
                     workspaceId = exportAopworkflowRequest.workspaceId;
                     body = exportAopworkflowRequest.body
                 } else {
-                    contentType = exportAopworkflowRequest['content-type'];
+                    contentType = exportAopworkflowRequest['Content-Type'];
                     workspaceId = exportAopworkflowRequest['workspace_id'];
                     body = exportAopworkflowRequest['body'];
                 }
@@ -13867,7 +14459,7 @@ export const ParamCreater = function () {
             throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling exportAopworkflow.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -15270,7 +15862,7 @@ export const ParamCreater = function () {
                     status = listAopWorkflowInstanceRequest.status;
                     triggerType = listAopWorkflowInstanceRequest.triggerType;
                 } else {
-                    contentType = listAopWorkflowInstanceRequest['content-type'];
+                    contentType = listAopWorkflowInstanceRequest['Content-Type'];
                     workspaceId = listAopWorkflowInstanceRequest['workspace_id'];
                     offset = listAopWorkflowInstanceRequest['offset'];
                     limit = listAopWorkflowInstanceRequest['limit'];
@@ -15340,7 +15932,7 @@ export const ParamCreater = function () {
                 localVarQueryParameter['trigger_type'] = triggerType;
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -15381,7 +15973,7 @@ export const ParamCreater = function () {
                     workflowId = listAopWorkflowVersionsRequest.workflowId;
                     status = listAopWorkflowVersionsRequest.status;
                 } else {
-                    contentType = listAopWorkflowVersionsRequest['content-type'];
+                    contentType = listAopWorkflowVersionsRequest['Content-Type'];
                     workspaceId = listAopWorkflowVersionsRequest['workspace_id'];
                     workflowId = listAopWorkflowVersionsRequest['workflow_id'];
                     status = listAopWorkflowVersionsRequest['status'];
@@ -15399,7 +15991,7 @@ export const ParamCreater = function () {
                 localVarQueryParameter['status'] = status;
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -17194,7 +17786,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 列出所有与数据对象
+         * 列出所有数据对象
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -19493,6 +20085,100 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询已购资源清单
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSubscriptionGlobalOrder(listSubscriptionGlobalOrderRequest?: ListSubscriptionGlobalOrderRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/subscriptions/orders",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let xLanguage;
+
+            if (listSubscriptionGlobalOrderRequest !== null && listSubscriptionGlobalOrderRequest !== undefined) {
+                if (listSubscriptionGlobalOrderRequest instanceof ListSubscriptionGlobalOrderRequest) {
+                    xLanguage = listSubscriptionGlobalOrderRequest.xLanguage;
+                } else {
+                    xLanguage = listSubscriptionGlobalOrderRequest['X-Language'];
+                }
+            }
+
+        
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户版本信息，注意：目前其中参数purchase、usage、smn互斥，同时只能有一个请求参数被命中，优先级为：smn &gt; usage &gt; purchase
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSubscriptionOrder(listSubscriptionOrderRequest?: ListSubscriptionOrderRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/subscriptions/orders",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+            
+            let page;
+
+            if (listSubscriptionOrderRequest !== null && listSubscriptionOrderRequest !== undefined) {
+                if (listSubscriptionOrderRequest instanceof ListSubscriptionOrderRequest) {
+                    xLanguage = listSubscriptionOrderRequest.xLanguage;
+                    offset = listSubscriptionOrderRequest.offset;
+                    limit = listSubscriptionOrderRequest.limit;
+                    page = listSubscriptionOrderRequest.page;
+                } else {
+                    xLanguage = listSubscriptionOrderRequest['X-Language'];
+                    offset = listSubscriptionOrderRequest['offset'];
+                    limit = listSubscriptionOrderRequest['limit'];
+                    page = listSubscriptionOrderRequest['page'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询当前站点SecMaster支持的商品清单
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -19524,6 +20210,128 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询待办列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTasks(listTasksRequest?: ListTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let workspaceId;
+            
+            let offset;
+            
+            let limit;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let note;
+            
+            let name;
+            
+            let businessType;
+            
+            let creatorName;
+            
+            let queryType;
+            
+            let fromDate;
+            
+            let toDate;
+
+            if (listTasksRequest !== null && listTasksRequest !== undefined) {
+                if (listTasksRequest instanceof ListTasksRequest) {
+                    contentType = listTasksRequest.contentType;
+                    workspaceId = listTasksRequest.workspaceId;
+                    offset = listTasksRequest.offset;
+                    limit = listTasksRequest.limit;
+                    sortKey = listTasksRequest.sortKey;
+                    sortDir = listTasksRequest.sortDir;
+                    note = listTasksRequest.note;
+                    name = listTasksRequest.name;
+                    businessType = listTasksRequest.businessType;
+                    creatorName = listTasksRequest.creatorName;
+                    queryType = listTasksRequest.queryType;
+                    fromDate = listTasksRequest.fromDate;
+                    toDate = listTasksRequest.toDate;
+                } else {
+                    contentType = listTasksRequest['Content-Type'];
+                    workspaceId = listTasksRequest['workspace_id'];
+                    offset = listTasksRequest['offset'];
+                    limit = listTasksRequest['limit'];
+                    sortKey = listTasksRequest['sort_key'];
+                    sortDir = listTasksRequest['sort_dir'];
+                    note = listTasksRequest['note'];
+                    name = listTasksRequest['name'];
+                    businessType = listTasksRequest['business_type'];
+                    creatorName = listTasksRequest['creator_name'];
+                    queryType = listTasksRequest['query_type'];
+                    fromDate = listTasksRequest['from_date'];
+                    toDate = listTasksRequest['to_date'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling listTasks.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (note !== null && note !== undefined) {
+                localVarQueryParameter['note'] = note;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (businessType !== null && businessType !== undefined) {
+                localVarQueryParameter['business_type'] = businessType;
+            }
+            if (creatorName !== null && creatorName !== undefined) {
+                localVarQueryParameter['creator_name'] = creatorName;
+            }
+            if (queryType !== null && queryType !== undefined) {
+                localVarQueryParameter['query_type'] = queryType;
+            }
+            if (fromDate !== null && fromDate !== undefined) {
+                localVarQueryParameter['from_date'] = fromDate;
+            }
+            if (toDate !== null && toDate !== undefined) {
+                localVarQueryParameter['to_date'] = toDate;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'workspace_id': workspaceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -19664,7 +20472,7 @@ export const ParamCreater = function () {
                     dataclassName = listWorkflowsRequest.dataclassName;
                     aopType = listWorkflowsRequest.aopType;
                 } else {
-                    contentType = listWorkflowsRequest['content-type'];
+                    contentType = listWorkflowsRequest['Content-Type'];
                     workspaceId = listWorkflowsRequest['workspace_id'];
                     offset = listWorkflowsRequest['offset'];
                     limit = listWorkflowsRequest['limit'];
@@ -19714,7 +20522,7 @@ export const ParamCreater = function () {
                 localVarQueryParameter['aop_type'] = aopType;
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -20387,7 +21195,7 @@ export const ParamCreater = function () {
                     workspaceId = showAopWorkflowRequest.workspaceId;
                     workflowId = showAopWorkflowRequest.workflowId;
                 } else {
-                    contentType = showAopWorkflowRequest['content-type'];
+                    contentType = showAopWorkflowRequest['Content-Type'];
                     workspaceId = showAopWorkflowRequest['workspace_id'];
                     workflowId = showAopWorkflowRequest['workflow_id'];
                 }
@@ -20401,7 +21209,7 @@ export const ParamCreater = function () {
             throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling showAopWorkflow.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'workspace_id': workspaceId,'workflow_id': workflowId, };
@@ -20441,7 +21249,7 @@ export const ParamCreater = function () {
                     instanceId = showAopWorkflowInstanceRequest.instanceId;
                     showTopology = showAopWorkflowInstanceRequest.showTopology;
                 } else {
-                    contentType = showAopWorkflowInstanceRequest['content-type'];
+                    contentType = showAopWorkflowInstanceRequest['Content-Type'];
                     workspaceId = showAopWorkflowInstanceRequest['workspace_id'];
                     instanceId = showAopWorkflowInstanceRequest['instance_id'];
                     showTopology = showAopWorkflowInstanceRequest['show_topology'];
@@ -20459,7 +21267,7 @@ export const ParamCreater = function () {
                 localVarQueryParameter['show_topology'] = showTopology;
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -20497,7 +21305,7 @@ export const ParamCreater = function () {
                     workspaceId = showAopWorkflowVersionRequest.workspaceId;
                     versionId = showAopWorkflowVersionRequest.versionId;
                 } else {
-                    contentType = showAopWorkflowVersionRequest['content-type'];
+                    contentType = showAopWorkflowVersionRequest['Content-Type'];
                     workspaceId = showAopWorkflowVersionRequest['workspace_id'];
                     versionId = showAopWorkflowVersionRequest['version_id'];
                 }
@@ -20511,7 +21319,7 @@ export const ParamCreater = function () {
             throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling showAopWorkflowVersion.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'workspace_id': workspaceId,'version_id': versionId, };
@@ -20592,7 +21400,7 @@ export const ParamCreater = function () {
                     workspaceId = showClassifierInfoRequest.workspaceId;
                     classifierId = showClassifierInfoRequest.classifierId;
                 } else {
-                    contentType = showClassifierInfoRequest['content-type'];
+                    contentType = showClassifierInfoRequest['Content-Type'];
                     workspaceId = showClassifierInfoRequest['workspace_id'];
                     classifierId = showClassifierInfoRequest['classifier_id'];
                 }
@@ -20606,7 +21414,7 @@ export const ParamCreater = function () {
             throw new RequiredError('classifierId','Required parameter classifierId was null or undefined when calling showClassifierInfo.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'workspace_id': workspaceId,'classifier_id': classifierId, };
@@ -21605,7 +22413,7 @@ export const ParamCreater = function () {
                     workspaceId = showMapperDetailRequest.workspaceId;
                     mapperId = showMapperDetailRequest.mapperId;
                 } else {
-                    contentType = showMapperDetailRequest['content-type'];
+                    contentType = showMapperDetailRequest['Content-Type'];
                     workspaceId = showMapperDetailRequest['workspace_id'];
                     mapperId = showMapperDetailRequest['mapper_id'];
                 }
@@ -21619,7 +22427,7 @@ export const ParamCreater = function () {
             throw new RequiredError('mapperId','Required parameter mapperId was null or undefined when calling showMapperDetail.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'workspace_id': workspaceId,'mapper_id': mapperId, };
@@ -21636,7 +22444,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/workspaces/{workspace_id}/soc/mappings/mappers/search",
-                contentType: "application/json",
+                contentType: "application/json;charset=utf-8",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -21656,7 +22464,7 @@ export const ParamCreater = function () {
                     workspaceId = showMapperListRequest.workspaceId;
                     body = showMapperListRequest.body
                 } else {
-                    contentType = showMapperListRequest['content-type'];
+                    contentType = showMapperListRequest['Content-Type'];
                     workspaceId = showMapperListRequest['workspace_id'];
                     body = showMapperListRequest['body'];
                 }
@@ -21667,9 +22475,9 @@ export const ParamCreater = function () {
             throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showMapperList.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'workspace_id': workspaceId, };
@@ -21703,7 +22511,7 @@ export const ParamCreater = function () {
                     contentType = showMappingFunctionRequest.contentType;
                     workspaceId = showMappingFunctionRequest.workspaceId;
                 } else {
-                    contentType = showMappingFunctionRequest['content-type'];
+                    contentType = showMappingFunctionRequest['Content-Type'];
                     workspaceId = showMappingFunctionRequest['workspace_id'];
                 }
             }
@@ -21713,7 +22521,7 @@ export const ParamCreater = function () {
             throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showMappingFunction.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.pathParams = { 'workspace_id': workspaceId, };
@@ -21730,7 +22538,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/workspaces/{workspace_id}/soc/mappings/search",
-                contentType: "application/json",
+                contentType: "application/json;charset=utf-8",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -21750,7 +22558,7 @@ export const ParamCreater = function () {
                     workspaceId = showMappingInfoListRequest.workspaceId;
                     body = showMappingInfoListRequest.body
                 } else {
-                    contentType = showMappingInfoListRequest['content-type'];
+                    contentType = showMappingInfoListRequest['Content-Type'];
                     workspaceId = showMappingInfoListRequest['workspace_id'];
                     body = showMappingInfoListRequest['body'];
                 }
@@ -21761,9 +22569,9 @@ export const ParamCreater = function () {
             throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showMappingInfoList.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'workspace_id': workspaceId, };
@@ -22527,7 +23335,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/{project_id}/workspaces/{workspace_id}/soc/mappings/preprocess-rules/search",
-                contentType: "application/json",
+                contentType: "application/json;charset=utf-8",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -22547,7 +23355,7 @@ export const ParamCreater = function () {
                     workspaceId = showPreProcessRulesListRequest.workspaceId;
                     body = showPreProcessRulesListRequest.body
                 } else {
-                    contentType = showPreProcessRulesListRequest['content-type'];
+                    contentType = showPreProcessRulesListRequest['Content-Type'];
                     workspaceId = showPreProcessRulesListRequest['workspace_id'];
                     body = showPreProcessRulesListRequest['body'];
                 }
@@ -22558,9 +23366,9 @@ export const ParamCreater = function () {
             throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showPreProcessRulesList.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'workspace_id': workspaceId, };
@@ -22873,6 +23681,57 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询待办的详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTask(showTaskRequest?: ShowTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+            
+            let workspaceId;
+            
+            let taskId;
+
+            if (showTaskRequest !== null && showTaskRequest !== undefined) {
+                if (showTaskRequest instanceof ShowTaskRequest) {
+                    contentType = showTaskRequest.contentType;
+                    workspaceId = showTaskRequest.workspaceId;
+                    taskId = showTaskRequest.taskId;
+                } else {
+                    contentType = showTaskRequest['Content-Type'];
+                    workspaceId = showTaskRequest['workspace_id'];
+                    taskId = showTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling showTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showTask.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'workspace_id': workspaceId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取漏洞详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -23045,7 +23904,7 @@ export const ParamCreater = function () {
                     workflowId = updateAopWorkflowRequest.workflowId;
                     body = updateAopWorkflowRequest.body
                 } else {
-                    contentType = updateAopWorkflowRequest['content-type'];
+                    contentType = updateAopWorkflowRequest['Content-Type'];
                     workspaceId = updateAopWorkflowRequest['workspace_id'];
                     workflowId = updateAopWorkflowRequest['workflow_id'];
                     body = updateAopWorkflowRequest['body'];
@@ -23060,7 +23919,7 @@ export const ParamCreater = function () {
             throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling updateAopWorkflow.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -23102,7 +23961,7 @@ export const ParamCreater = function () {
                     versionId = updateAopWorkflowVersionRequest.versionId;
                     body = updateAopWorkflowVersionRequest.body
                 } else {
-                    contentType = updateAopWorkflowVersionRequest['content-type'];
+                    contentType = updateAopWorkflowVersionRequest['Content-Type'];
                     workspaceId = updateAopWorkflowVersionRequest['workspace_id'];
                     versionId = updateAopWorkflowVersionRequest['version_id'];
                     body = updateAopWorkflowVersionRequest['body'];
@@ -23117,7 +23976,7 @@ export const ParamCreater = function () {
             throw new RequiredError('versionId','Required parameter versionId was null or undefined when calling updateAopWorkflowVersion.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -23193,7 +24052,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "PUT",
                 url: "/v1/{project_id}/workspaces/{workspace_id}/soc/mappings/classifiers/{classifier_id}",
-                contentType: "application/json",
+                contentType: "application/json;charset=utf-8",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -23216,7 +24075,7 @@ export const ParamCreater = function () {
                     classifierId = updateClassifierRequest.classifierId;
                     body = updateClassifierRequest.body
                 } else {
-                    contentType = updateClassifierRequest['content-type'];
+                    contentType = updateClassifierRequest['Content-Type'];
                     workspaceId = updateClassifierRequest['workspace_id'];
                     classifierId = updateClassifierRequest['classifier_id'];
                     body = updateClassifierRequest['body'];
@@ -23231,9 +24090,9 @@ export const ParamCreater = function () {
             throw new RequiredError('classifierId','Required parameter classifierId was null or undefined when calling updateClassifier.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'workspace_id': workspaceId,'classifier_id': classifierId, };
@@ -23899,6 +24758,63 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改单个映射
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateMapper(updateMapperRequest?: UpdateMapperRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/mappings/mappers/{mapper_id}",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let workspaceId;
+            
+            let mapperId;
+
+            if (updateMapperRequest !== null && updateMapperRequest !== undefined) {
+                if (updateMapperRequest instanceof UpdateMapperRequest) {
+                    contentType = updateMapperRequest.contentType;
+                    workspaceId = updateMapperRequest.workspaceId;
+                    mapperId = updateMapperRequest.mapperId;
+                    body = updateMapperRequest.body
+                } else {
+                    contentType = updateMapperRequest['Content-Type'];
+                    workspaceId = updateMapperRequest['workspace_id'];
+                    mapperId = updateMapperRequest['mapper_id'];
+                    body = updateMapperRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updateMapper.');
+            }
+            if (mapperId === null || mapperId === undefined) {
+            throw new RequiredError('mapperId','Required parameter mapperId was null or undefined when calling updateMapper.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId,'mapper_id': mapperId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修分类映射启用禁用状态
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -23907,7 +24823,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "PUT",
                 url: "/v1/{project_id}/workspaces/{workspace_id}/soc/mappings/{mapping_id}/status",
-                contentType: "application/json",
+                contentType: "application/json;charset=utf-8",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -23930,7 +24846,7 @@ export const ParamCreater = function () {
                     mappingId = updateMappingInfoStatusRequest.mappingId;
                     body = updateMappingInfoStatusRequest.body
                 } else {
-                    contentType = updateMappingInfoStatusRequest['content-type'];
+                    contentType = updateMappingInfoStatusRequest['Content-Type'];
                     workspaceId = updateMappingInfoStatusRequest['workspace_id'];
                     mappingId = updateMappingInfoStatusRequest['mapping_id'];
                     body = updateMappingInfoStatusRequest['body'];
@@ -23945,9 +24861,9 @@ export const ParamCreater = function () {
             throw new RequiredError('mappingId','Required parameter mappingId was null or undefined when calling updateMappingInfoStatus.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'workspace_id': workspaceId,'mapping_id': mappingId, };
@@ -24642,6 +25558,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 更新订购资源
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSubscriptionOrder(updateSubscriptionOrderRequest?: UpdateSubscriptionOrderRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/subscriptions/orders",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (updateSubscriptionOrderRequest !== null && updateSubscriptionOrderRequest !== undefined) {
+                if (updateSubscriptionOrderRequest instanceof UpdateSubscriptionOrderRequest) {
+                    xLanguage = updateSubscriptionOrderRequest.xLanguage;
+                    body = updateSubscriptionOrderRequest.body
+                } else {
+                    xLanguage = updateSubscriptionOrderRequest['X-Language'];
+                    body = updateSubscriptionOrderRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新标签值
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -24709,6 +25670,63 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 更新待办的信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateTask(updateTaskRequest?: UpdateTaskRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let workspaceId;
+            
+            let taskId;
+
+            if (updateTaskRequest !== null && updateTaskRequest !== undefined) {
+                if (updateTaskRequest instanceof UpdateTaskRequest) {
+                    contentType = updateTaskRequest.contentType;
+                    workspaceId = updateTaskRequest.workspaceId;
+                    taskId = updateTaskRequest.taskId;
+                    body = updateTaskRequest.body
+                } else {
+                    contentType = updateTaskRequest['Content-Type'];
+                    workspaceId = updateTaskRequest['workspace_id'];
+                    taskId = updateTaskRequest['task_id'];
+                    body = updateTaskRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updateTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling updateTask.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新VPC终端节点服务
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -24765,6 +25783,63 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新流程实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateWorkflowInstance(updateWorkflowInstanceRequest?: UpdateWorkflowInstanceRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/workspaces/{workspace_id}/soc/workflows/instances/{instance_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let workspaceId;
+            
+            let instanceId;
+
+            if (updateWorkflowInstanceRequest !== null && updateWorkflowInstanceRequest !== undefined) {
+                if (updateWorkflowInstanceRequest instanceof UpdateWorkflowInstanceRequest) {
+                    contentType = updateWorkflowInstanceRequest.contentType;
+                    workspaceId = updateWorkflowInstanceRequest.workspaceId;
+                    instanceId = updateWorkflowInstanceRequest.instanceId;
+                    body = updateWorkflowInstanceRequest.body
+                } else {
+                    contentType = updateWorkflowInstanceRequest['Content-Type'];
+                    workspaceId = updateWorkflowInstanceRequest['workspace_id'];
+                    instanceId = updateWorkflowInstanceRequest['instance_id'];
+                    body = updateWorkflowInstanceRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updateWorkflowInstance.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateWorkflowInstance.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId,'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -24909,7 +25984,7 @@ export const ParamCreater = function () {
                     workspaceId = validateAopWorkflowVersionRequest.workspaceId;
                     body = validateAopWorkflowVersionRequest.body
                 } else {
-                    contentType = validateAopWorkflowVersionRequest['content-type'];
+                    contentType = validateAopWorkflowVersionRequest['Content-Type'];
                     workspaceId = validateAopWorkflowVersionRequest['workspace_id'];
                     body = validateAopWorkflowVersionRequest['body'];
                 }
@@ -24920,7 +25995,7 @@ export const ParamCreater = function () {
             throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling validateAopWorkflowVersion.');
             }
             if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['content-type'] = String(contentType);
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

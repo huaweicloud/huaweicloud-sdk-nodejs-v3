@@ -3,43 +3,38 @@ import { PhysicalVolume } from './PhysicalVolume';
 
 export class ServerDisk {
     public name?: string;
-    private 'partition_style'?: ServerDiskPartitionStyleEnum | string;
-    private 'device_use'?: ServerDiskDeviceUseEnum | string;
+    private 'partition_style'?: string;
+    private 'device_use'?: string;
     public size?: number;
     private 'used_size'?: number;
     private 'physical_volumes'?: Array<PhysicalVolume>;
     private 'os_disk'?: boolean;
     private 'relation_name'?: string;
     private 'inode_size'?: number;
-    public constructor(name?: string, deviceUse?: string, size?: number, usedSize?: number, physicalVolumes?: Array<PhysicalVolume>) { 
-        this['name'] = name;
-        this['device_use'] = deviceUse;
-        this['size'] = size;
-        this['used_size'] = usedSize;
-        this['physical_volumes'] = physicalVolumes;
+    public constructor() { 
     }
     public withName(name: string): ServerDisk {
         this['name'] = name;
         return this;
     }
-    public withPartitionStyle(partitionStyle: ServerDiskPartitionStyleEnum | string): ServerDisk {
+    public withPartitionStyle(partitionStyle: string): ServerDisk {
         this['partition_style'] = partitionStyle;
         return this;
     }
-    public set partitionStyle(partitionStyle: ServerDiskPartitionStyleEnum | string  | undefined) {
+    public set partitionStyle(partitionStyle: string  | undefined) {
         this['partition_style'] = partitionStyle;
     }
-    public get partitionStyle(): ServerDiskPartitionStyleEnum | string | undefined {
+    public get partitionStyle(): string | undefined {
         return this['partition_style'];
     }
-    public withDeviceUse(deviceUse: ServerDiskDeviceUseEnum | string): ServerDisk {
+    public withDeviceUse(deviceUse: string): ServerDisk {
         this['device_use'] = deviceUse;
         return this;
     }
-    public set deviceUse(deviceUse: ServerDiskDeviceUseEnum | string  | undefined) {
+    public set deviceUse(deviceUse: string  | undefined) {
         this['device_use'] = deviceUse;
     }
-    public get deviceUse(): ServerDiskDeviceUseEnum | string | undefined {
+    public get deviceUse(): string | undefined {
         return this['device_use'];
     }
     public withSize(size: number): ServerDisk {
@@ -96,21 +91,4 @@ export class ServerDisk {
     public get inodeSize(): number | undefined {
         return this['inode_size'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ServerDiskPartitionStyleEnum {
-    MBR = 'MBR',
-    GPT = 'GPT'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ServerDiskDeviceUseEnum {
-    BOOT = 'BOOT',
-    OS = 'OS'
 }

@@ -11,6 +11,7 @@ export class FlowSource {
     public protocol?: FlowSourceProtocolEnum | string;
     public name?: string;
     public decryption?: FlowSourceDecryption;
+    private 'health_status'?: FlowSourceHealthStatusEnum | string;
     public constructor(protocol?: string, name?: string) { 
         this['protocol'] = protocol;
         this['name'] = name;
@@ -81,6 +82,16 @@ export class FlowSource {
         this['decryption'] = decryption;
         return this;
     }
+    public withHealthStatus(healthStatus: FlowSourceHealthStatusEnum | string): FlowSource {
+        this['health_status'] = healthStatus;
+        return this;
+    }
+    public set healthStatus(healthStatus: FlowSourceHealthStatusEnum | string  | undefined) {
+        this['health_status'] = healthStatus;
+    }
+    public get healthStatus(): FlowSourceHealthStatusEnum | string | undefined {
+        return this['health_status'];
+    }
 }
 
 /**
@@ -90,4 +101,12 @@ export class FlowSource {
 export enum FlowSourceProtocolEnum {
     SRT_CALLER = 'srt-caller',
     SRT_LISTENER = 'srt-listener'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum FlowSourceHealthStatusEnum {
+    CONNECTED = 'CONNECTED',
+    DISCONNECTED = 'DISCONNECTED'
 }

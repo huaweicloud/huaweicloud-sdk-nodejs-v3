@@ -6,8 +6,8 @@ export class ListDataobjectsResponse extends SdkResponse {
     public code?: string;
     public message?: string;
     public total?: number;
-    public limit?: number;
-    public offset?: number;
+    public size?: number;
+    public page?: number;
     public success?: boolean;
     public data?: Array<DataObjectDetail>;
     public constructor() { 
@@ -25,12 +25,12 @@ export class ListDataobjectsResponse extends SdkResponse {
         this['total'] = total;
         return this;
     }
-    public withLimit(limit: number): ListDataobjectsResponse {
-        this['limit'] = limit;
+    public withSize(size: number): ListDataobjectsResponse {
+        this['size'] = size;
         return this;
     }
-    public withOffset(offset: number): ListDataobjectsResponse {
-        this['offset'] = offset;
+    public withPage(page: number): ListDataobjectsResponse {
+        this['page'] = page;
         return this;
     }
     public withSuccess(success: boolean): ListDataobjectsResponse {

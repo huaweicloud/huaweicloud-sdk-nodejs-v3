@@ -26,6 +26,7 @@ export class CreateDataclassTypeResponse extends SdkResponse {
     private 'create_time'?: string;
     private 'update_time'?: string;
     private 'dataclass_business_code'?: string;
+    private 'sub_count'?: number;
     public constructor() { 
         super();
     }
@@ -232,5 +233,15 @@ export class CreateDataclassTypeResponse extends SdkResponse {
     }
     public get dataclassBusinessCode(): string | undefined {
         return this['dataclass_business_code'];
+    }
+    public withSubCount(subCount: number): CreateDataclassTypeResponse {
+        this['sub_count'] = subCount;
+        return this;
+    }
+    public set subCount(subCount: number  | undefined) {
+        this['sub_count'] = subCount;
+    }
+    public get subCount(): number | undefined {
+        return this['sub_count'];
     }
 }

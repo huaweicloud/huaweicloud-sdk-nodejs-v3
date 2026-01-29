@@ -6,6 +6,7 @@ export class ListTemplatesRequest {
     public region?: string;
     public limit?: number;
     public offset?: number;
+    public id?: string;
     public constructor() { 
     }
     public withName(name: string): ListTemplatesRequest {
@@ -32,6 +33,10 @@ export class ListTemplatesRequest {
     }
     public withOffset(offset: number): ListTemplatesRequest {
         this['offset'] = offset;
+        return this;
+    }
+    public withId(id: string): ListTemplatesRequest {
+        this['id'] = id;
         return this;
     }
 }

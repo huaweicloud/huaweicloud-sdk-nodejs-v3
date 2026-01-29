@@ -33,8 +33,6 @@ import { CreateExchangeResponse } from './model/CreateExchangeResponse';
 import { CreateInstanceReq } from './model/CreateInstanceReq';
 import { CreatePostPaidInstanceByEngineRequest } from './model/CreatePostPaidInstanceByEngineRequest';
 import { CreatePostPaidInstanceByEngineResponse } from './model/CreatePostPaidInstanceByEngineResponse';
-import { CreatePostPaidInstanceRequest } from './model/CreatePostPaidInstanceRequest';
-import { CreatePostPaidInstanceResponse } from './model/CreatePostPaidInstanceResponse';
 import { CreateQueueBody } from './model/CreateQueueBody';
 import { CreateQueueRequest } from './model/CreateQueueRequest';
 import { CreateQueueResponse } from './model/CreateQueueResponse';
@@ -119,9 +117,6 @@ import { ResetPasswordResponse } from './model/ResetPasswordResponse';
 import { ResizeEngineInstanceReq } from './model/ResizeEngineInstanceReq';
 import { ResizeEngineInstanceRequest } from './model/ResizeEngineInstanceRequest';
 import { ResizeEngineInstanceResponse } from './model/ResizeEngineInstanceResponse';
-import { ResizeInstanceReq } from './model/ResizeInstanceReq';
-import { ResizeInstanceRequest } from './model/ResizeInstanceRequest';
-import { ResizeInstanceResponse } from './model/ResizeInstanceResponse';
 import { RestoreRecycleInstanceRequest } from './model/RestoreRecycleInstanceRequest';
 import { RestoreRecycleInstanceResponse } from './model/RestoreRecycleInstanceResponse';
 import { ScheduledTaskEntity } from './model/ScheduledTaskEntity';
@@ -139,12 +134,6 @@ import { ShowCeshierarchyRespQueues } from './model/ShowCeshierarchyRespQueues';
 import { ShowCeshierarchyRespVhosts } from './model/ShowCeshierarchyRespVhosts';
 import { ShowEngineInstanceExtendProductInfoRequest } from './model/ShowEngineInstanceExtendProductInfoRequest';
 import { ShowEngineInstanceExtendProductInfoResponse } from './model/ShowEngineInstanceExtendProductInfoResponse';
-import { ShowInstanceExtendProductInfoRequest } from './model/ShowInstanceExtendProductInfoRequest';
-import { ShowInstanceExtendProductInfoRespDetail } from './model/ShowInstanceExtendProductInfoRespDetail';
-import { ShowInstanceExtendProductInfoRespHourly } from './model/ShowInstanceExtendProductInfoRespHourly';
-import { ShowInstanceExtendProductInfoRespIo } from './model/ShowInstanceExtendProductInfoRespIo';
-import { ShowInstanceExtendProductInfoRespValues } from './model/ShowInstanceExtendProductInfoRespValues';
-import { ShowInstanceExtendProductInfoResponse } from './model/ShowInstanceExtendProductInfoResponse';
 import { ShowInstanceRequest } from './model/ShowInstanceRequest';
 import { ShowInstanceResp } from './model/ShowInstanceResp';
 import { ShowInstanceResponse } from './model/ShowInstanceResponse';
@@ -238,25 +227,6 @@ export class RabbitMQClient {
     }
 
     /**
-     * 创建实例，该接口创建的实例为按需计费的方式。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建实例(按需)
-     * @param {CreateInstanceReq} createPostPaidInstanceRequestBody 请求消息。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createPostPaidInstance(createPostPaidInstanceRequest?: CreatePostPaidInstanceRequest): Promise<CreatePostPaidInstanceResponse> {
-        const options = ParamCreater().createPostPaidInstance(createPostPaidInstanceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 创建实例[，该接口支持创建按需[和包周期](tag:hws,hws_eu,hws_hk,ctc,cmcc,ax)计费方式的实例](tag:hws,hws_eu,hws_hk,ctc,g42,hk_g42,tm,hk_tm,cmcc,sbc,ax,hk_sbc)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -341,7 +311,7 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除定时任务管理中的指定记录
-     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用[查询所有实例列表](ListInstancesDetails.xml)接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} taskId **参数解释**： 定时任务ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -480,9 +450,9 @@ export class RabbitMQClient {
      *
      * @summary 查询所有实例列表
      * @param {'rabbitmq'} engine **参数解释**： 引擎类型：rabbitmq。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {string} [name] **参数解释**： 实例名称。获取方式：调用“查询所有实例列表”接口，从响应体中获取实例名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {string} [instanceId] **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] **参数解释**： 实例状态，[详细状态说明请参考[实例状态说明](rabbitmq-api-180514012.xml)](tag:hws,hws_eu,hws_hk,cmcc,ctc,sbc,hk_sbc,g42,hk_g42,tm,hk_tm,ax)[详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)](tag:hcs)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [name] **参数解释**： 实例名称。获取方式：调用[查询所有实例列表](ListInstancesDetails.xml)接口，从响应体中获取实例名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [instanceId] **参数解释**： 实例ID。获取方法如下：调用[查询所有实例列表](ListInstancesDetails.xml)接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {'CREATING' | 'RUNNING' | 'RESTARTING' | 'DELETING' | 'ERROR' | 'CREATEFAILED' | 'FREEZING' | 'FROZEN' | 'EXTENDING' | 'SHRINKING' | 'EXTENDEDFAILED' | 'CONFIGURING' | 'ROLLBACK' | 'ROLLBACKFAILED' | 'VOLUMETYPECHANGING'} [status] **参数解释**： 实例状态，[详细状态说明请参考[实例状态说明](rabbitmq-api-180514012.xml)](tag:hws,hws_eu,hws_hk,cmcc,ctc,sbc,hk_sbc,g42,hk_g42,tm,hk_tm,ax,dt)[详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)](tag:hcs)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {'true' | 'false'} [includeFailure] **参数解释**： 是否返回创建失败的实例数。 **约束限制**： 不涉及。 **取值范围**： - true：返回创建失败的实例数。 - false：不返回创建失败的实例数。  **默认取值**： 不涉及。
      * @param {'true' | 'false'} [exactMatchName] **参数解释**： 是否按照实例名称进行精确匹配查询。 **约束限制**： 不涉及。 **取值范围**： - true：按照实例名称进行精确匹配查询。 - false：按照模糊匹配实例名称查询。  **默认取值**： false
      * @param {string} [enterpriseProjectId] **参数解释**： 企业项目ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
@@ -544,7 +514,7 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询实例的定时任务列表
-     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用[查询所有实例列表](ListInstancesDetails.xml)接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} [start] **参数解释**： 开启查询的定时任务编号。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} [limit] **参数解释**： 查询的定时任务个数。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} [beginTime] **参数解释**： 查询定时任务的最小时间，格式为YYYYMMDDHHmmss。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
@@ -567,7 +537,7 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询用户列表
-     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用[查询所有实例列表](ListInstancesDetails.xml)接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} [offset] **参数解释**： 分页查询偏移量。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0。
      * @param {string} [limit] **参数解释**： 分页查询单页数量。 **约束限制**： 不涉及。 **取值范围**： 0~50。 **默认取值**： 10。
      * @param {*} [options] Override http request option.
@@ -645,28 +615,6 @@ export class RabbitMQClient {
     }
 
     /**
-     * 实例规格变更。
-     * 
-     * [**当前通过调用API，只支持按需实例进行实例规格变更。**](tag:hws,hws_hk,ctc,cmcc,hws_eu)
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 实例规格变更
-     * @param {string} instanceId 实例ID。
-     * @param {ResizeInstanceReq} resizeInstanceRequestBody 请求消息。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public resizeInstance(resizeInstanceRequest?: ResizeInstanceRequest): Promise<ResizeInstanceResponse> {
-        const options = ParamCreater().resizeInstance(resizeInstanceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 恢复回收站实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -711,7 +659,7 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询实例在CES的监控层级关系
-     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用[查询所有实例列表](ListInstancesDetails.xml)接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -751,35 +699,12 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定实例
-     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用[查询所有实例列表](ListInstancesDetails.xml)接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public showInstance(showInstanceRequest?: ShowInstanceRequest): Promise<ShowInstanceResponse> {
         const options = ParamCreater().showInstance(showInstanceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询可扩容规格列表。
-     * 
-     * RabbtiMQ只支持只增加节点数的扩容方式。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询可扩容规格列表
-     * @param {string} instanceId 实例ID。
-     * @param {'advanced' | 'platinum' | 'dec' | 'exp'} type 产品的类型。   - advanced：专享版
-     * @param {'rabbitmq'} engine 消息引擎的类型。支持的类型为rabbitmq。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showInstanceExtendProductInfo(showInstanceExtendProductInfoRequest?: ShowInstanceExtendProductInfoRequest): Promise<ShowInstanceExtendProductInfoResponse> {
-        const options = ParamCreater().showInstanceExtendProductInfo(showInstanceExtendProductInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -831,7 +756,7 @@ export class RabbitMQClient {
      * @summary 查询RabbitMQ产品规格核数
      * @param {string} productId **参数解释**： 产品ID。 **约束限制**： 不涉及。 **取值范围**： - c6.2u4g.single：对应规格rabbitmq.2u4g.single。 - c6.4u8g.single：对应规格rabbitmq.4u8g.single。 - c6.8u16g.single：对应规格rabbitmq.8u16g.single。 - c6.16u32g.single：对应规格rabbitmq.16u32g.single。 - c6.24u48g.single：对应规格rabbitmq.24u48g.single。 - c6.2u4g.cluster：对应规格rabbitmq.2u4g.cluster。 - c6.4u8g.cluster：对应规格rabbitmq.4u8g.cluster。 - c6.8u16g.cluster：对应规格rabbitmq.8u16g.cluster。 - c6.12u24g.cluster：对应规格rabbitmq.12u24g.cluster。 - c6.16u32g.cluster：对应规格rabbitmq.16u32g.cluster。 - c6.24u48g.cluster：对应规格rabbitmq.24u48g.cluster。 - c6.32u64g.cluster：对应规格rabbitmq.32u64g.cluster。 **默认取值**： 不涉及。
      * @param {string} brokerNum **参数解释**： broker数量。 **约束限制**： 不涉及。 **取值范围**： - 1 - 3 - 5 - 7 **默认取值**： 不涉及。
-     * @param {string} [instanceId] **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。实例ID非必填项，只有填写实例ID响应体才会返回total_extend_storage_space。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [instanceId] **参数解释**： 实例ID。获取方法如下：调用[查询所有实例列表](ListInstancesDetails.xml)接口，从响应体中获取实例ID。实例ID非必填项，只有填写实例ID响应体才会返回total_extend_storage_space。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -905,7 +830,7 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询磁盘自动扩容配置
-     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用[查询所有实例列表](ListInstancesDetails.xml)接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -964,7 +889,7 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改定时任务管理中的指定记录
-     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用[查询所有实例列表](ListInstancesDetails.xml)接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} taskId **参数解释**： 定时任务ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} [executeAt] **参数解释**： 修改定时任务的执行时间。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} [status] **参数解释**： 修改定时任务状态。 **约束限制**： 不涉及。 **取值范围**： - CANCELLED。 **默认取值**： 不涉及。
@@ -1007,7 +932,7 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改磁盘自动扩容配置
-     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用[查询所有实例列表](ListInstancesDetails.xml)接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {AlterAutoVolumeExpandConfig} updateVolumeExpansionConfigRequestBody **参数解释**： 自动磁盘扩容配置 **约束限制**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1052,7 +977,7 @@ export class RabbitMQClient {
      * @param {string} instanceId 实例ID
      * @param {string} vhost vhost名称，名称中包含/时，需要将/替换为__F_SLASH__，否则会调用失败。例如：Vhost名称为/test，入参值为__F_SLASH__test。
      * @param {string} exchange Exchange名称
-     * @param {string} destinationType **参数解释**： 绑定目标端类型。 **约束限制**： [不涉及。](tag:sbc,cmcc,tm,hk_tm,ax,hk_sbc)[AMQP版本只支持绑定Queue。](tag:hws,hws_hk,hws_eu) **取值范围**： - Exchange：交换机。 - Queue：队列。 **默认取值**： 不涉及。
+     * @param {string} destinationType **参数解释**： 绑定目标端类型。 **约束限制**： [不涉及。](tag:sbc,cmcc,tm,hk_tm,ax,hk_sbc,dt)[AMQP版本只支持绑定Queue。](tag:hws,hws_hk,hws_eu) **取值范围**： - Exchange：交换机。 - Queue：队列。 **默认取值**： 不涉及。
      * @param {string} destination 绑定的目标端名称
      * @param {string} propertiesKey 绑定路由键，经过URL转译后routing_key，可通过调用[查询Exchange绑定列表](ListBindings.xml)或者[查询指定Queue详情](ShowQueueDetails.xml)接口的响应信息获取。
      * @param {*} [options] Override http request option.
@@ -1221,7 +1146,7 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询所属Vhost下Queue的列表
-     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用[查询所有实例列表](ListInstancesDetails.xml)接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} vhost **参数解释**：  Vhost名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {number} [offset] **参数解释**：  分页查询偏移量，表示从此偏移量开始查询。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0。
      * @param {number} [limit] **参数解释**： 分页查询单页数量。 **约束限制**： 不涉及。 **取值范围**： 0~50。 **默认取值**： 10。
@@ -1243,7 +1168,7 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定Queue详情
-     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用[查询所有实例列表](ListInstancesDetails.xml)接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} vhost **参数解释**：  Vhost名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} queue **参数解释**：  分页查询偏移量，表示从此偏移量开始查询。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0。
      * @param {*} [options] Override http request option.
@@ -1304,7 +1229,7 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询Vhost列表
-     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用[查询所有实例列表](ListInstancesDetails.xml)接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {number} [offset] **参数解释**： 分页查询偏移量，表示从此偏移量开始查询。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0。
      * @param {number} [limit] **参数解释**： 分页查询单页数量。 **约束限制**： 不涉及。 **取值范围**： 0~50。 **默认取值**： 10。
      * @param {*} [options] Override http request option.
@@ -1395,44 +1320,6 @@ export const ParamCreater = function () {
                     body = batchRestartOrDeleteInstancesRequest.body
                 } else {
                     body = batchRestartOrDeleteInstancesRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建实例，该接口创建的实例为按需计费的方式。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createPostPaidInstance(createPostPaidInstanceRequest?: CreatePostPaidInstanceRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/instances",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createPostPaidInstanceRequest !== null && createPostPaidInstanceRequest !== undefined) {
-                if (createPostPaidInstanceRequest instanceof CreatePostPaidInstanceRequest) {
-                    body = createPostPaidInstanceRequest.body
-                } else {
-                    body = createPostPaidInstanceRequest['body'];
                 }
             }
 
@@ -2323,54 +2210,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 实例规格变更。
-         * 
-         * [**当前通过调用API，只支持按需实例进行实例规格变更。**](tag:hws,hws_hk,ctc,cmcc,hws_eu)
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        resizeInstance(resizeInstanceRequest?: ResizeInstanceRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/instances/{instance_id}/extend",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let instanceId;
-
-            if (resizeInstanceRequest !== null && resizeInstanceRequest !== undefined) {
-                if (resizeInstanceRequest instanceof ResizeInstanceRequest) {
-                    instanceId = resizeInstanceRequest.instanceId;
-                    body = resizeInstanceRequest.body
-                } else {
-                    instanceId = resizeInstanceRequest['instance_id'];
-                    body = resizeInstanceRequest['body'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling resizeInstance.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 恢复回收站实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2570,66 +2409,6 @@ export const ParamCreater = function () {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstance.');
             }
 
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询可扩容规格列表。
-         * 
-         * RabbtiMQ只支持只增加节点数的扩容方式。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showInstanceExtendProductInfo(showInstanceExtendProductInfoRequest?: ShowInstanceExtendProductInfoRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/instances/{instance_id}/extend",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let instanceId;
-            
-            let type;
-            
-            let engine;
-
-            if (showInstanceExtendProductInfoRequest !== null && showInstanceExtendProductInfoRequest !== undefined) {
-                if (showInstanceExtendProductInfoRequest instanceof ShowInstanceExtendProductInfoRequest) {
-                    instanceId = showInstanceExtendProductInfoRequest.instanceId;
-                    type = showInstanceExtendProductInfoRequest.type;
-                    engine = showInstanceExtendProductInfoRequest.engine;
-                } else {
-                    instanceId = showInstanceExtendProductInfoRequest['instance_id'];
-                    type = showInstanceExtendProductInfoRequest['type'];
-                    engine = showInstanceExtendProductInfoRequest['engine'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceExtendProductInfo.');
-            }
-            if (type === null || type === undefined) {
-                throw new RequiredError('type','Required parameter type was null or undefined when calling showInstanceExtendProductInfo.');
-            }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-            if (engine === null || engine === undefined) {
-                throw new RequiredError('engine','Required parameter engine was null or undefined when calling showInstanceExtendProductInfo.');
-            }
-            if (engine !== null && engine !== undefined) {
-                localVarQueryParameter['engine'] = engine;
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

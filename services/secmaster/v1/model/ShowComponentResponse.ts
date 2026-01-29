@@ -1,3 +1,4 @@
+import { ComponentInfo } from './ComponentInfo';
 import { ComponentSoarBaseRsp } from './ComponentSoarBaseRsp';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -7,6 +8,7 @@ export class ShowComponentResponse extends SdkResponse {
     public message?: string;
     public success?: boolean;
     private 'request_id'?: string;
+    public data?: ComponentInfo;
     public constructor(code?: string) { 
         super();
         this['code'] = code;
@@ -32,5 +34,9 @@ export class ShowComponentResponse extends SdkResponse {
     }
     public get requestId(): string | undefined {
         return this['request_id'];
+    }
+    public withData(data: ComponentInfo): ShowComponentResponse {
+        this['data'] = data;
+        return this;
     }
 }

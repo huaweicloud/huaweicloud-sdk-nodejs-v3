@@ -1,6 +1,5 @@
 import { AlertAlertType } from './AlertAlertType';
 import { AlertDataSource } from './AlertDataSource';
-import { AlertEnvironment } from './AlertEnvironment';
 import { AlertFileInfo } from './AlertFileInfo';
 import { AlertMalware } from './AlertMalware';
 import { AlertNetworkList } from './AlertNetworkList';
@@ -8,6 +7,7 @@ import { AlertProcess } from './AlertProcess';
 import { AlertRemediation } from './AlertRemediation';
 import { AlertResourceList } from './AlertResourceList';
 import { AlertUserInfo } from './AlertUserInfo';
+import { ListAlertRspEnvironment } from './ListAlertRspEnvironment';
 
 
 export class ListAlertRsp {
@@ -17,7 +17,7 @@ export class ListAlertRsp {
     private 'region_id'?: string;
     private 'workspace_id'?: string;
     public labels?: string;
-    public environment?: AlertEnvironment;
+    public environment?: ListAlertRspEnvironment;
     private 'data_source'?: AlertDataSource;
     private 'first_observed_time'?: string;
     private 'last_observed_time'?: string;
@@ -103,7 +103,7 @@ export class ListAlertRsp {
         this['labels'] = labels;
         return this;
     }
-    public withEnvironment(environment: AlertEnvironment): ListAlertRsp {
+    public withEnvironment(environment: ListAlertRspEnvironment): ListAlertRsp {
         this['environment'] = environment;
         return this;
     }

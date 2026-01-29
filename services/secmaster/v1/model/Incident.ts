@@ -4,10 +4,10 @@ import { AlertMalware } from './AlertMalware';
 import { AlertNetworkList } from './AlertNetworkList';
 import { AlertProcess } from './AlertProcess';
 import { AlertRemediation } from './AlertRemediation';
-import { AlertResourceList } from './AlertResourceList';
 import { AlertUserInfo } from './AlertUserInfo';
 import { IncidentEnvironment } from './IncidentEnvironment';
 import { IncidentIncidentType } from './IncidentIncidentType';
+import { IncidentResourceList } from './IncidentResourceList';
 
 
 export class Incident {
@@ -32,11 +32,11 @@ export class Incident {
     public criticality?: number;
     private 'incident_type'?: IncidentIncidentType;
     private 'network_list'?: Array<AlertNetworkList>;
-    private 'resource_list'?: Array<AlertResourceList>;
+    private 'resource_list'?: Array<IncidentResourceList>;
     public remediation?: AlertRemediation;
     private 'verification_state'?: IncidentVerificationStateEnum | string;
     private 'handle_status'?: IncidentHandleStatusEnum | string;
-    public sla?: number;
+    public sla?: string;
     private 'update_time'?: string;
     private 'close_time'?: string;
     private 'ipdrr_phase'?: IncidentIpdrrPhaseEnum | string;
@@ -204,14 +204,14 @@ export class Incident {
     public get networkList(): Array<AlertNetworkList> | undefined {
         return this['network_list'];
     }
-    public withResourceList(resourceList: Array<AlertResourceList>): Incident {
+    public withResourceList(resourceList: Array<IncidentResourceList>): Incident {
         this['resource_list'] = resourceList;
         return this;
     }
-    public set resourceList(resourceList: Array<AlertResourceList>  | undefined) {
+    public set resourceList(resourceList: Array<IncidentResourceList>  | undefined) {
         this['resource_list'] = resourceList;
     }
-    public get resourceList(): Array<AlertResourceList> | undefined {
+    public get resourceList(): Array<IncidentResourceList> | undefined {
         return this['resource_list'];
     }
     public withRemediation(remediation: AlertRemediation): Incident {
@@ -238,7 +238,7 @@ export class Incident {
     public get handleStatus(): IncidentHandleStatusEnum | string | undefined {
         return this['handle_status'];
     }
-    public withSla(sla: number): Incident {
+    public withSla(sla: string): Incident {
         this['sla'] = sla;
         return this;
     }

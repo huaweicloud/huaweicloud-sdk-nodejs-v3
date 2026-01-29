@@ -2,24 +2,24 @@ import { CreateDpeClassifyRequestBody } from './CreateDpeClassifyRequestBody';
 
 
 export class UpdateClassifierRequest {
-    private 'content-type'?: string;
+    private 'Content-Type'?: string;
     private 'workspace_id'?: string;
     private 'classifier_id'?: string;
     public body?: CreateDpeClassifyRequestBody;
     public constructor(contentType?: string, workspaceId?: string, classifierId?: string) { 
-        this['content-type'] = contentType;
+        this['Content-Type'] = contentType;
         this['workspace_id'] = workspaceId;
         this['classifier_id'] = classifierId;
     }
     public withContentType(contentType: string): UpdateClassifierRequest {
-        this['content-type'] = contentType;
+        this['Content-Type'] = contentType;
         return this;
     }
     public set contentType(contentType: string  | undefined) {
-        this['content-type'] = contentType;
+        this['Content-Type'] = contentType;
     }
     public get contentType(): string | undefined {
-        return this['content-type'];
+        return this['Content-Type'];
     }
     public withWorkspaceId(workspaceId: string): UpdateClassifierRequest {
         this['workspace_id'] = workspaceId;

@@ -17,7 +17,6 @@ import { CommandParam } from './model/CommandParam';
 import { ConfigBody } from './model/ConfigBody';
 import { ConfigurationRequestBody } from './model/ConfigurationRequestBody';
 import { ConsistencyResult } from './model/ConsistencyResult';
-import { ConsistencyResultRequestBodyResultList } from './model/ConsistencyResultRequestBodyResultList';
 import { CreateMigprojectRequest } from './model/CreateMigprojectRequest';
 import { CreateMigprojectResponse } from './model/CreateMigprojectResponse';
 import { CreatePrivacyAgreementsRequest } from './model/CreatePrivacyAgreementsRequest';
@@ -432,7 +431,7 @@ export class SmsClient {
      *
      * @summary 批量获取一致性校验结果
      * @param {BatchGetConsistencyResultReq} exportConsistencyResultsRequestBody 一致性校验结果请求体
-     * @param {string} [xLanguage] 中英文选择
+     * @param {string} [xLanguage] 中英文选择。当前仅支持英文。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -453,7 +452,6 @@ export class SmsClient {
      * @summary 查询待迁移源端的所有错误
      * @param {number} offset 偏移量
      * @param {number} [limit] 每一页记录的错误数量
-     * @param {string} [migproject] 需要查询的迁移项目ID，添加此字段将只查询对应ID下的迁移任务报错信息
      * @param {string} [enterpriseProjectId] 需要查询的企业项目ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -497,6 +495,7 @@ export class SmsClient {
      * @param {string} [name] 源端服务器名称
      * @param {string} [id] 源端服务器ID
      * @param {string} [ip] 源端服务器IP地址
+     * @param {string} [ipv6] 源端服务器IPV6地址，优先使用IP进行查询
      * @param {string} [migproject] 迁移项目ID，填写该参数将查询迁移项目下的所有虚拟机
      * @param {number} [limit] 每一页记录的源端服务器数量，0表示用默认值 200
      * @param {number} [offset] 偏移量，默认值0
@@ -504,6 +503,7 @@ export class SmsClient {
      * @param {boolean} [connected] 查询失去连接的源端
      * @param {string} [enterpriseProjectId] 需要查询的企业项目ID
      * @param {boolean} [isConsistencyResultExist] 是否存在一致性校验结果
+     * @param {string} [vmId] 平台的克隆服务器id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -552,6 +552,7 @@ export class SmsClient {
      * @param {string} [region] Region ID
      * @param {number} [limit] 分页大小，不传值默认为50
      * @param {number} [offset] 偏移量，不传值默认为0
+     * @param {string} [id] 模板id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -872,6 +873,7 @@ export class SmsClient {
 
     /**
      * 更新任务对应源端复制状态。
+     * 在以下情况下不校验请求参数且更新不会生效：“迁移服务器”列表中“实时状态”一栏为“校验失败”、“暂停中”、“已暂停”、“删除中”、“迁移已完成”、“资源清理中”、“资源清理失败”时。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -911,6 +913,7 @@ export class SmsClient {
 
     /**
      * 更新服务器的磁盘信息，此接口会把服务器原有磁盘信息清空，然后更新成新磁盘信息。
+     * 接口仅在“待设置目的端”才能生效，开始迁移后更改磁盘信息不生效。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1051,7 +1054,7 @@ export class SmsClient {
     }
 
     /**
-     * 管理迁移任务，包括启动任务，暂停任务，同步任务，日志上传，回滚失败迁移任务，删除快照资源。
+     * 管理迁移任务，包括启动任务，暂停任务，同步任务，日志上传，删除快照资源等。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1151,7 +1154,7 @@ export class SmsClient {
     }
 
     /**
-     * 查询主机迁移服务的API版本信息。
+     * 查询主机迁移服务的API版本信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1174,7 +1177,7 @@ export class SmsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询主机迁移服务指定API版本信息
-     * @param {string} version 版本信息
+     * @param {string} version 版本信息，如v3
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1735,20 +1738,16 @@ export const ParamCreater = function () {
             
             let limit;
             
-            let migproject;
-            
             let enterpriseProjectId;
 
             if (listErrorServersRequest !== null && listErrorServersRequest !== undefined) {
                 if (listErrorServersRequest instanceof ListErrorServersRequest) {
                     offset = listErrorServersRequest.offset;
                     limit = listErrorServersRequest.limit;
-                    migproject = listErrorServersRequest.migproject;
                     enterpriseProjectId = listErrorServersRequest.enterpriseProjectId;
                 } else {
                     offset = listErrorServersRequest['offset'];
                     limit = listErrorServersRequest['limit'];
-                    migproject = listErrorServersRequest['migproject'];
                     enterpriseProjectId = listErrorServersRequest['enterprise_project_id'];
                 }
             }
@@ -1762,9 +1761,6 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
-            }
-            if (migproject !== null && migproject !== undefined) {
-                localVarQueryParameter['migproject'] = migproject;
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
@@ -1844,6 +1840,8 @@ export const ParamCreater = function () {
             
             let ip;
             
+            let ipv6;
+            
             let migproject;
             
             let limit;
@@ -1857,6 +1855,8 @@ export const ParamCreater = function () {
             let enterpriseProjectId;
             
             let isConsistencyResultExist;
+            
+            let vmId;
 
             if (listServersRequest !== null && listServersRequest !== undefined) {
                 if (listServersRequest instanceof ListServersRequest) {
@@ -1864,6 +1864,7 @@ export const ParamCreater = function () {
                     name = listServersRequest.name;
                     id = listServersRequest.id;
                     ip = listServersRequest.ip;
+                    ipv6 = listServersRequest.ipv6;
                     migproject = listServersRequest.migproject;
                     limit = listServersRequest.limit;
                     offset = listServersRequest.offset;
@@ -1871,11 +1872,13 @@ export const ParamCreater = function () {
                     connected = listServersRequest.connected;
                     enterpriseProjectId = listServersRequest.enterpriseProjectId;
                     isConsistencyResultExist = listServersRequest.isConsistencyResultExist;
+                    vmId = listServersRequest.vmId;
                 } else {
                     state = listServersRequest['state'];
                     name = listServersRequest['name'];
                     id = listServersRequest['id'];
                     ip = listServersRequest['ip'];
+                    ipv6 = listServersRequest['ipv6'];
                     migproject = listServersRequest['migproject'];
                     limit = listServersRequest['limit'];
                     offset = listServersRequest['offset'];
@@ -1883,6 +1886,7 @@ export const ParamCreater = function () {
                     connected = listServersRequest['connected'];
                     enterpriseProjectId = listServersRequest['enterprise_project_id'];
                     isConsistencyResultExist = listServersRequest['is_consistency_result_exist'];
+                    vmId = listServersRequest['vm_id'];
                 }
             }
 
@@ -1898,6 +1902,9 @@ export const ParamCreater = function () {
             }
             if (ip !== null && ip !== undefined) {
                 localVarQueryParameter['ip'] = ip;
+            }
+            if (ipv6 !== null && ipv6 !== undefined) {
+                localVarQueryParameter['ipv6'] = ipv6;
             }
             if (migproject !== null && migproject !== undefined) {
                 localVarQueryParameter['migproject'] = migproject;
@@ -1919,6 +1926,9 @@ export const ParamCreater = function () {
             }
             if (isConsistencyResultExist !== null && isConsistencyResultExist !== undefined) {
                 localVarQueryParameter['is_consistency_result_exist'] = isConsistencyResultExist;
+            }
+            if (vmId !== null && vmId !== undefined) {
+                localVarQueryParameter['vm_id'] = vmId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2031,6 +2041,8 @@ export const ParamCreater = function () {
             let limit;
             
             let offset;
+            
+            let id;
 
             if (listTemplatesRequest !== null && listTemplatesRequest !== undefined) {
                 if (listTemplatesRequest instanceof ListTemplatesRequest) {
@@ -2039,12 +2051,14 @@ export const ParamCreater = function () {
                     region = listTemplatesRequest.region;
                     limit = listTemplatesRequest.limit;
                     offset = listTemplatesRequest.offset;
+                    id = listTemplatesRequest.id;
                 } else {
                     name = listTemplatesRequest['name'];
                     availabilityZone = listTemplatesRequest['availability_zone'];
                     region = listTemplatesRequest['region'];
                     limit = listTemplatesRequest['limit'];
                     offset = listTemplatesRequest['offset'];
+                    id = listTemplatesRequest['id'];
                 }
             }
 
@@ -2063,6 +2077,9 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2667,6 +2684,7 @@ export const ParamCreater = function () {
     
         /**
          * 更新任务对应源端复制状态。
+         * 在以下情况下不校验请求参数且更新不会生效：“迁移服务器”列表中“实时状态”一栏为“校验失败”、“暂停中”、“已暂停”、“删除中”、“迁移已完成”、“资源清理中”、“资源清理失败”时。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2750,6 +2768,7 @@ export const ParamCreater = function () {
     
         /**
          * 更新服务器的磁盘信息，此接口会把服务器原有磁盘信息清空，然后更新成新磁盘信息。
+         * 接口仅在“待设置目的端”才能生效，开始迁移后更改磁盘信息不生效。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3060,7 +3079,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 管理迁移任务，包括启动任务，暂停任务，同步任务，日志上传，回滚失败迁移任务，删除快照资源。
+         * 管理迁移任务，包括启动任务，暂停任务，同步任务，日志上传，删除快照资源等。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3281,7 +3300,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询主机迁移服务的API版本信息。
+         * 查询主机迁移服务的API版本信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

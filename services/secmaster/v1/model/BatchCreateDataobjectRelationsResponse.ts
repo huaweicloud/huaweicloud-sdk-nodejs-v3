@@ -6,9 +6,6 @@ export class BatchCreateDataobjectRelationsResponse extends SdkResponse {
     public code?: string;
     public message?: string;
     private 'request_id'?: string;
-    public total?: number;
-    public limit?: number;
-    public offset?: number;
     public success?: boolean;
     public data?: BatchOperateDataobjectResult;
     public constructor() { 
@@ -31,18 +28,6 @@ export class BatchCreateDataobjectRelationsResponse extends SdkResponse {
     }
     public get requestId(): string | undefined {
         return this['request_id'];
-    }
-    public withTotal(total: number): BatchCreateDataobjectRelationsResponse {
-        this['total'] = total;
-        return this;
-    }
-    public withLimit(limit: number): BatchCreateDataobjectRelationsResponse {
-        this['limit'] = limit;
-        return this;
-    }
-    public withOffset(offset: number): BatchCreateDataobjectRelationsResponse {
-        this['offset'] = offset;
-        return this;
     }
     public withSuccess(success: boolean): BatchCreateDataobjectRelationsResponse {
         this['success'] = success;

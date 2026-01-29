@@ -1,23 +1,23 @@
 
 
 export class ShowMapperDetailRequest {
-    private 'content-type'?: string;
+    private 'Content-Type'?: string;
     private 'workspace_id'?: string;
     private 'mapper_id'?: string;
     public constructor(contentType?: string, workspaceId?: string, mapperId?: string) { 
-        this['content-type'] = contentType;
+        this['Content-Type'] = contentType;
         this['workspace_id'] = workspaceId;
         this['mapper_id'] = mapperId;
     }
     public withContentType(contentType: string): ShowMapperDetailRequest {
-        this['content-type'] = contentType;
+        this['Content-Type'] = contentType;
         return this;
     }
     public set contentType(contentType: string  | undefined) {
-        this['content-type'] = contentType;
+        this['Content-Type'] = contentType;
     }
     public get contentType(): string | undefined {
-        return this['content-type'];
+        return this['Content-Type'];
     }
     public withWorkspaceId(workspaceId: string): ShowMapperDetailRequest {
         this['workspace_id'] = workspaceId;

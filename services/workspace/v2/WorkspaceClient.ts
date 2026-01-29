@@ -104,7 +104,7 @@ import { AutoDisconnectOrLogoutControlOptions } from './model/AutoDisconnectOrLo
 import { AutoInstallAppReq } from './model/AutoInstallAppReq';
 import { AutoLockOptions } from './model/AutoLockOptions';
 import { AutoscalePolicy } from './model/AutoscalePolicy';
-import { AvailabilityZone } from './model/AvailabilityZone';
+import { AvailabilityZoneInfo } from './model/AvailabilityZoneInfo';
 import { AzInfo } from './model/AzInfo';
 import { BackupInfo } from './model/BackupInfo';
 import { BaseError } from './model/BaseError';
@@ -6794,7 +6794,7 @@ export class WorkspaceClient {
      *
      * @summary 查询云应用接入统计数据
      * @param {string} startTime 查询起始时间，格式为：UTC格式，例如\&quot;2022-05-11T11:45:42Z。\&quot;
-     * @param {string} endTime 查询截至时间，格式为：UTC格式，例如\&quot;2022-05-11T11:45:42Z。\&quot;
+     * @param {string} endTime 查询截止时间，格式为：UTC格式，例如\&quot;2022-05-11T11:45:42Z。\&quot;
      * @param {string} [username] 用户名(模糊匹配)。
      * @param {string} [sortField] 按照指标进行排序 * &#x60;access_failed_count&#x60; -  按照接入失败数排序 * &#x60;last_access_failed_time&#x60; -  按照最近接入失败时间排序
      * @param {string} [sortType] 按照指标进行排序的方向;需配合sort_field一起使用 * &#x60;DESC&#x60; - 降序返回数据 * &#x60;ASC&#x60; -  升序返回数据
@@ -6824,7 +6824,7 @@ export class WorkspaceClient {
      *
      * @summary 查询桌面使用情况统计数据
      * @param {string} startTime 查询起始时间(0时区) 云服务每天凌晨02:00进行聚合运算前一天00:00:00~23:59:59的使用时长,并将周期范围内的数据聚合到周期边界上 跨天的记录会按照统计周期进行计算 假设一天内桌面登录多次，09:00~12:00,13:00~21:00,22:00~01:00(次日): 则当天的累计使用时长数据会被汇聚到23:59:59这个点;总使用时长为 3hours(09:00~12:00)+8hours(13:00~21:00)+2hours(22:00~00:00) 如果查询的from-to不足一个周期内，可能造成查询到数据为空；
-     * @param {string} endTime 查询截至时间(0时区)。
+     * @param {string} endTime 查询截止时间(0时区)。
      * @param {string} [resourceName] 资源名称(模糊匹配)。
      * @param {number} [minIdleDays] 最小空闲天数。
      * @param {number} [maxIdleDays] 最大空闲天数 min_idle_days、max_idle_days都非空时,max_idle_days必须大于等于min_idle_days否则可能查询不到数据
@@ -7044,7 +7044,7 @@ export class WorkspaceClient {
      *
      * @summary 查询用户使用统计数据
      * @param {string} startTime 查询起始时间(0时区)。
-     * @param {string} endTime 查询截至时间(0时区)。
+     * @param {string} endTime 查询截止时间(0时区)。
      * @param {string} [username] 用户名(模糊匹配)。
      * @param {number} [usageMinHours] 使用时长最小值。
      * @param {number} [usageMaxHours] 使用时长最大值 usage_min_hours和usage_max_hours同时存在时,usage_max_hours必须大于等于usage_min_hours
@@ -7137,7 +7137,7 @@ export class WorkspaceClient {
      *
      * @summary 导出桌面使用统计数据
      * @param {string} startTime 查询起始时间(0时区) 云服务每天凌晨02:00进行聚合运算前一天00:00:00~23:59:59的使用时长,并将周期范围内的数据聚合到周期边界上 跨天的记录会按照统计周期进行计算 假设一天内桌面登录多次，09:00~12:00,13:00~21:00,22:00~01:00(次日): 则当天的累计使用时长数据会被汇聚到23:59:59这个点;总使用时长为 3hours(09:00~12:00)+8hours(13:00~21:00)+2hours(22:00~00:00) 如果查询的from-to不足一个周期内，可能造成查询到数据为空；
-     * @param {string} endTime 查询截至时间(0时区)。
+     * @param {string} endTime 查询截止时间(0时区)。
      * @param {string} [resourceName] 资源名称(模糊匹配)。
      * @param {number} [minIdleDays] 最小空闲天数。
      * @param {number} [maxIdleDays] 最大空闲天数 min_idle_days、max_idle_days都非空时,max_idle_days必须大于等于min_idle_days否则可能查询不到数据
@@ -7166,7 +7166,7 @@ export class WorkspaceClient {
      *
      * @summary 导出用户使用统计数据
      * @param {string} startTime 查询起始时间(0时区)。
-     * @param {string} endTime 查询截至时间(0时区)。
+     * @param {string} endTime 查询截止时间(0时区)。
      * @param {string} [username] 用户名(模糊匹配)。
      * @param {number} [usageMinHours] 使用时长最小值。
      * @param {number} [usageMaxHours] 使用时长最大值 usage_min_hours和usage_max_hours同时存在时,usage_max_hours必须大于等于usage_min_hours

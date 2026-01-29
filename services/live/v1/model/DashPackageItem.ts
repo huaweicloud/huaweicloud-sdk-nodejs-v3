@@ -1,10 +1,12 @@
 import { Encryption } from './Encryption';
 import { HttpHeader } from './HttpHeader';
+import { ManifestSelection } from './ManifestSelection';
 import { PackageRequestArgs } from './PackageRequestArgs';
 import { StreamSelectionItem } from './StreamSelectionItem';
 
 
 export class DashPackageItem {
+    public id?: string;
     public url?: string;
     private 'stream_selection'?: Array<StreamSelectionItem>;
     private 'segment_duration_seconds'?: number;
@@ -25,8 +27,13 @@ export class DashPackageItem {
     private 'origin_domain_slave'?: string;
     private 'manifest_name'?: string;
     private 'slave_url'?: string;
+    private 'manifest_selection'?: ManifestSelection;
     public constructor(segmentDurationSeconds?: number) { 
         this['segment_duration_seconds'] = segmentDurationSeconds;
+    }
+    public withId(id: string): DashPackageItem {
+        this['id'] = id;
+        return this;
     }
     public withUrl(url: string): DashPackageItem {
         this['url'] = url;
@@ -209,6 +216,16 @@ export class DashPackageItem {
     }
     public get slaveUrl(): string | undefined {
         return this['slave_url'];
+    }
+    public withManifestSelection(manifestSelection: ManifestSelection): DashPackageItem {
+        this['manifest_selection'] = manifestSelection;
+        return this;
+    }
+    public set manifestSelection(manifestSelection: ManifestSelection  | undefined) {
+        this['manifest_selection'] = manifestSelection;
+    }
+    public get manifestSelection(): ManifestSelection | undefined {
+        return this['manifest_selection'];
     }
 }
 

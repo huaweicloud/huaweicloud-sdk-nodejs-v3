@@ -6,9 +6,6 @@ export class CreateDataobjectRelationResponse extends SdkResponse {
     public code?: string;
     public message?: string;
     private 'request_id'?: string;
-    public total?: number;
-    public limit?: number;
-    public offset?: number;
     public success?: boolean;
     public data?: BatchOperateDataobjectResult;
     private 'X-request-id'?: string;
@@ -32,18 +29,6 @@ export class CreateDataobjectRelationResponse extends SdkResponse {
     }
     public get requestId(): string | undefined {
         return this['request_id'];
-    }
-    public withTotal(total: number): CreateDataobjectRelationResponse {
-        this['total'] = total;
-        return this;
-    }
-    public withLimit(limit: number): CreateDataobjectRelationResponse {
-        this['limit'] = limit;
-        return this;
-    }
-    public withOffset(offset: number): CreateDataobjectRelationResponse {
-        this['offset'] = offset;
-        return this;
     }
     public withSuccess(success: boolean): CreateDataobjectRelationResponse {
         this['success'] = success;

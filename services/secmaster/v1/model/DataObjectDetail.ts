@@ -3,7 +3,7 @@ import { AlertDetailDataclassRef } from './AlertDetailDataclassRef';
 
 export class DataObjectDetail {
     private 'create_time'?: string;
-    public dataobject?: object;
+    private 'data_object'?: object;
     private 'dataclass_ref'?: AlertDetailDataclassRef;
     private 'format_version'?: number;
     public id?: string;
@@ -23,9 +23,15 @@ export class DataObjectDetail {
     public get createTime(): string | undefined {
         return this['create_time'];
     }
-    public withDataobject(dataobject: object): DataObjectDetail {
-        this['dataobject'] = dataobject;
+    public withDataObject(dataObject: object): DataObjectDetail {
+        this['data_object'] = dataObject;
         return this;
+    }
+    public set dataObject(dataObject: object  | undefined) {
+        this['data_object'] = dataObject;
+    }
+    public get dataObject(): object | undefined {
+        return this['data_object'];
     }
     public withDataclassRef(dataclassRef: AlertDetailDataclassRef): DataObjectDetail {
         this['dataclass_ref'] = dataclassRef;

@@ -12,6 +12,7 @@ import { AddIssueWorkHoursResponseBodyAddedWorkHours } from './model/AddIssueWor
 import { AddMemberRequestV4 } from './model/AddMemberRequestV4';
 import { AddMemberV4Request } from './model/AddMemberV4Request';
 import { AddMemberV4Response } from './model/AddMemberV4Response';
+import { AlmStatus } from './model/AlmStatus';
 import { AssociateIssueDetail } from './model/AssociateIssueDetail';
 import { AssociatedTestCase } from './model/AssociatedTestCase';
 import { AttachWikiDetail } from './model/AttachWikiDetail';
@@ -22,7 +23,7 @@ import { BatchAddMembersV4Request } from './model/BatchAddMembersV4Request';
 import { BatchAddMembersV4RequestBody } from './model/BatchAddMembersV4RequestBody';
 import { BatchAddMembersV4Response } from './model/BatchAddMembersV4Response';
 import { BatchAssociatedIssue } from './model/BatchAssociatedIssue';
-import { BatchDelelteIssuesRequestV4 } from './model/BatchDelelteIssuesRequestV4';
+import { BatchDeleteIssuesRequestV4 } from './model/BatchDeleteIssuesRequestV4';
 import { BatchDeleteIssuesV4Request } from './model/BatchDeleteIssuesV4Request';
 import { BatchDeleteIssuesV4Response } from './model/BatchDeleteIssuesV4Response';
 import { BatchDeleteIterationsV4Request } from './model/BatchDeleteIterationsV4Request';
@@ -84,6 +85,8 @@ import { CustomFeildRecord } from './model/CustomFeildRecord';
 import { CustomField } from './model/CustomField';
 import { DeleteAttachmentRequest } from './model/DeleteAttachmentRequest';
 import { DeleteAttachmentResponse } from './model/DeleteAttachmentResponse';
+import { DeleteIpdImageInIssueRequest } from './model/DeleteIpdImageInIssueRequest';
+import { DeleteIpdImageInIssueResponse } from './model/DeleteIpdImageInIssueResponse';
 import { DeleteIssueV4Request } from './model/DeleteIssueV4Request';
 import { DeleteIssueV4Response } from './model/DeleteIssueV4Response';
 import { DeleteIterationV4Request } from './model/DeleteIterationV4Request';
@@ -95,12 +98,16 @@ import { DeleteProjectV4Response } from './model/DeleteProjectV4Response';
 import { DeleteScrumPlanInProjectRequest } from './model/DeleteScrumPlanInProjectRequest';
 import { DeleteScrumPlanInProjectResponse } from './model/DeleteScrumPlanInProjectResponse';
 import { DemandStatisticResponseV4 } from './model/DemandStatisticResponseV4';
+import { DomainVO } from './model/DomainVO';
 import { DownloadAttachmentRequest } from './model/DownloadAttachmentRequest';
 import { DownloadAttachmentResponse } from './model/DownloadAttachmentResponse';
 import { DownloadImageFileRequest } from './model/DownloadImageFileRequest';
 import { DownloadImageFileResponse } from './model/DownloadImageFileResponse';
+import { DownloadIpdImageInIssueRequest } from './model/DownloadIpdImageInIssueRequest';
+import { DownloadIpdImageInIssueResponse } from './model/DownloadIpdImageInIssueResponse';
 import { DownloadIpdIssueAttachmentRequest } from './model/DownloadIpdIssueAttachmentRequest';
 import { DownloadIpdIssueAttachmentResponse } from './model/DownloadIpdIssueAttachmentResponse';
+import { FieldCodeValuePair } from './model/FieldCodeValuePair';
 import { FieldVO } from './model/FieldVO';
 import { GetProjectInfoV4ResultProject } from './model/GetProjectInfoV4ResultProject';
 import { GetProjectInfoV4ResultProjectCreator } from './model/GetProjectInfoV4ResultProjectCreator';
@@ -117,6 +124,7 @@ import { IssueCustomField } from './model/IssueCustomField';
 import { IssueDetailCustomField } from './model/IssueDetailCustomField';
 import { IssueDetailResponseV4Env } from './model/IssueDetailResponseV4Env';
 import { IssueDetailResponseV4StoryPoint } from './model/IssueDetailResponseV4StoryPoint';
+import { IssueEntity } from './model/IssueEntity';
 import { IssueItemSfV4 } from './model/IssueItemSfV4';
 import { IssueItemSfV4Domain } from './model/IssueItemSfV4Domain';
 import { IssueItemSfV4Iteration } from './model/IssueItemSfV4Iteration';
@@ -126,6 +134,7 @@ import { IssueItemSfV4Severity } from './model/IssueItemSfV4Severity';
 import { IssueItemSfV4Status } from './model/IssueItemSfV4Status';
 import { IssueItemSfV4StoryPoint } from './model/IssueItemSfV4StoryPoint';
 import { IssueItemSfV4Tracker } from './model/IssueItemSfV4Tracker';
+import { IssueListResult } from './model/IssueListResult';
 import { IssueOrder } from './model/IssueOrder';
 import { IssueProjectResponseV4 } from './model/IssueProjectResponseV4';
 import { IssueRecordV4 } from './model/IssueRecordV4';
@@ -137,9 +146,11 @@ import { IssueResponseV4Order } from './model/IssueResponseV4Order';
 import { IssueStatus } from './model/IssueStatus';
 import { IssueStatusResponseV4 } from './model/IssueStatusResponseV4';
 import { IssueUser } from './model/IssueUser';
+import { IssueVO } from './model/IssueVO';
 import { IterationHistory } from './model/IterationHistory';
 import { IterationHistoryDetails } from './model/IterationHistoryDetails';
 import { IterationHistoryOperator } from './model/IterationHistoryOperator';
+import { LabelEntity } from './model/LabelEntity';
 import { ListAssociatedIssuesRequest } from './model/ListAssociatedIssuesRequest';
 import { ListAssociatedIssuesResponse } from './model/ListAssociatedIssuesResponse';
 import { ListAssociatedTestCasesRequest } from './model/ListAssociatedTestCasesRequest';
@@ -226,8 +237,10 @@ import { MetricRequestV2DividendCustomFields } from './model/MetricRequestV2Divi
 import { ModuleOwner } from './model/ModuleOwner';
 import { NewCustomField } from './model/NewCustomField';
 import { OptionEntity } from './model/OptionEntity';
+import { OptionVO } from './model/OptionVO';
 import { PageInfoVO } from './model/PageInfoVO';
 import { PageVO } from './model/PageVO';
+import { PlanVO } from './model/PlanVO';
 import { ProjectChildModule } from './model/ProjectChildModule';
 import { ProjectModule } from './model/ProjectModule';
 import { RemoveProjectRequest } from './model/RemoveProjectRequest';
@@ -294,8 +307,8 @@ import { UpdateIssueV4Response } from './model/UpdateIssueV4Response';
 import { UpdateIterationRequestV4 } from './model/UpdateIterationRequestV4';
 import { UpdateIterationV4Request } from './model/UpdateIterationV4Request';
 import { UpdateIterationV4Response } from './model/UpdateIterationV4Response';
+import { UpdateMembersRoleV4RequestBody } from './model/UpdateMembersRoleV4RequestBody';
 import { UpdateMembesRoleV4Request } from './model/UpdateMembesRoleV4Request';
-import { UpdateMembesRoleV4RequestBody } from './model/UpdateMembesRoleV4RequestBody';
 import { UpdateMembesRoleV4Response } from './model/UpdateMembesRoleV4Response';
 import { UpdateNickNameV4Request } from './model/UpdateNickNameV4Request';
 import { UpdateNickNameV4Response } from './model/UpdateNickNameV4Response';
@@ -313,14 +326,19 @@ import { UpdateUserNickNameRequestV4 } from './model/UpdateUserNickNameRequestV4
 import { UploadAttachmentsRequest } from './model/UploadAttachmentsRequest';
 import { UploadAttachmentsRequestBody } from './model/UploadAttachmentsRequestBody';
 import { UploadAttachmentsResponse } from './model/UploadAttachmentsResponse';
+import { UploadIpdImageInIssueRequest } from './model/UploadIpdImageInIssueRequest';
+import { UploadIpdImageInIssueRequestBody } from './model/UploadIpdImageInIssueRequestBody';
+import { UploadIpdImageInIssueResponse } from './model/UploadIpdImageInIssueResponse';
 import { UploadIssueImgRequest } from './model/UploadIssueImgRequest';
 import { UploadIssueImgRequestBody } from './model/UploadIssueImgRequestBody';
 import { UploadIssueImgResponse } from './model/UploadIssueImgResponse';
 import { UserEntity } from './model/UserEntity';
 import { UserRequest } from './model/UserRequest';
 import { UserStatusStatistic } from './model/UserStatusStatistic';
+import { UserVO } from './model/UserVO';
 import { WorkHoursType } from './model/WorkHoursType';
 import { WorkItemFlowRequestBody } from './model/WorkItemFlowRequestBody';
+import { WorkItemLabelVO } from './model/WorkItemLabelVO';
 import { WorkItemStatusFlowVo } from './model/WorkItemStatusFlowVo';
 import { WorkTableIssuseListResponseBodyDomain } from './model/WorkTableIssuseListResponseBodyDomain';
 import { WorkTableIssuseListResponseBodyIssueList } from './model/WorkTableIssuseListResponseBodyIssueList';
@@ -869,7 +887,7 @@ export class ProjectManClient {
      *
      * @summary 更新成员在项目中的角色
      * @param {string} projectId devcloud项目的32位id
-     * @param {UpdateMembesRoleV4RequestBody} updateMembesRoleV4RequestBody 请求参数
+     * @param {UpdateMembersRoleV4RequestBody} updateMembersRoleV4RequestBody 请求参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -955,6 +973,48 @@ export class ProjectManClient {
      */
     public createIpdProjectIssueAttachment(createIpdProjectIssueAttachmentRequest?: CreateIpdProjectIssueAttachmentRequest): Promise<CreateIpdProjectIssueAttachmentResponse> {
         const options = ParamCreater().createIpdProjectIssueAttachment(createIpdProjectIssueAttachmentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除工作项描述中的图片
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除工作项描述中的图片
+     * @param {string} projectId 项目Id
+     * @param {string} issueId 图片绑定的工作项id
+     * @param {string} fileName 工作项描述中的图片名称,如f401ab8826b1426285910e6c5da80d07.png
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteIpdImageInIssue(deleteIpdImageInIssueRequest?: DeleteIpdImageInIssueRequest): Promise<DeleteIpdImageInIssueResponse> {
+        const options = ParamCreater().deleteIpdImageInIssue(deleteIpdImageInIssueRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 下载工作项描述中的图片
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下载工作项描述中的图片
+     * @param {string} projectId 项目Id
+     * @param {string} issueId 图片绑定的工作项id
+     * @param {string} fileName 工作项描述中的图片名称,如f401ab8826b1426285910e6c5da80d07.png
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadIpdImageInIssue(downloadIpdImageInIssueRequest?: DownloadIpdImageInIssueRequest): Promise<DownloadIpdImageInIssueResponse> {
+        const options = ParamCreater().downloadIpdImageInIssue(downloadIpdImageInIssueRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1111,6 +1171,27 @@ export class ProjectManClient {
     }
 
     /**
+     * 上传图片并更新到工作项描述中
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 上传图片到工作项描述中
+     * @param {string} projectId 
+     * @param {string} issueId 工作项Id
+     * @param {any} file 上传的图片内容，当前支持jpg,jpeg,png,gif,bmp,tiff,svg格式的图片
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public uploadIpdImageInIssue(uploadIpdImageInIssueRequest?: UploadIpdImageInIssueRequest): Promise<UploadIpdImageInIssueResponse> {
+        const options = ParamCreater().uploadIpdImageInIssue(uploadIpdImageInIssueRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据ID下载工作项附件
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1259,7 +1340,7 @@ export class ProjectManClient {
      *
      * @summary 批量删除工作项
      * @param {string} projectId devcloud项目的32位id
-     * @param {BatchDelelteIssuesRequestV4} batchDeleteIssuesV4RequestBody 批量删除的工作项ids
+     * @param {BatchDeleteIssuesRequestV4} batchDeleteIssuesV4RequestBody 批量删除的工作项ids
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3607,6 +3688,122 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除工作项描述中的图片
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteIpdImageInIssue(deleteIpdImageInIssueRequest?: DeleteIpdImageInIssueRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/ipdprojectservice/projects/{project_id}/images",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let issueId;
+            
+            let fileName;
+
+            if (deleteIpdImageInIssueRequest !== null && deleteIpdImageInIssueRequest !== undefined) {
+                if (deleteIpdImageInIssueRequest instanceof DeleteIpdImageInIssueRequest) {
+                    projectId = deleteIpdImageInIssueRequest.projectId;
+                    issueId = deleteIpdImageInIssueRequest.issueId;
+                    fileName = deleteIpdImageInIssueRequest.fileName;
+                } else {
+                    projectId = deleteIpdImageInIssueRequest['project_id'];
+                    issueId = deleteIpdImageInIssueRequest['issue_id'];
+                    fileName = deleteIpdImageInIssueRequest['file_name'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling deleteIpdImageInIssue.');
+            }
+            if (issueId === null || issueId === undefined) {
+                throw new RequiredError('issueId','Required parameter issueId was null or undefined when calling deleteIpdImageInIssue.');
+            }
+            if (issueId !== null && issueId !== undefined) {
+                localVarQueryParameter['issue_id'] = issueId;
+            }
+            if (fileName === null || fileName === undefined) {
+                throw new RequiredError('fileName','Required parameter fileName was null or undefined when calling deleteIpdImageInIssue.');
+            }
+            if (fileName !== null && fileName !== undefined) {
+                localVarQueryParameter['file_name'] = fileName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 下载工作项描述中的图片
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadIpdImageInIssue(downloadIpdImageInIssueRequest?: DownloadIpdImageInIssueRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/ipdprojectservice/projects/{project_id}/images",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let issueId;
+            
+            let fileName;
+
+            if (downloadIpdImageInIssueRequest !== null && downloadIpdImageInIssueRequest !== undefined) {
+                if (downloadIpdImageInIssueRequest instanceof DownloadIpdImageInIssueRequest) {
+                    projectId = downloadIpdImageInIssueRequest.projectId;
+                    issueId = downloadIpdImageInIssueRequest.issueId;
+                    fileName = downloadIpdImageInIssueRequest.fileName;
+                } else {
+                    projectId = downloadIpdImageInIssueRequest['project_id'];
+                    issueId = downloadIpdImageInIssueRequest['issue_id'];
+                    fileName = downloadIpdImageInIssueRequest['file_name'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling downloadIpdImageInIssue.');
+            }
+            if (issueId === null || issueId === undefined) {
+                throw new RequiredError('issueId','Required parameter issueId was null or undefined when calling downloadIpdImageInIssue.');
+            }
+            if (issueId !== null && issueId !== undefined) {
+                localVarQueryParameter['issue_id'] = issueId;
+            }
+            if (fileName === null || fileName === undefined) {
+                throw new RequiredError('fileName','Required parameter fileName was null or undefined when calling downloadIpdImageInIssue.');
+            }
+            if (fileName !== null && fileName !== undefined) {
+                localVarQueryParameter['file_name'] = fileName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询Ipd项目的工作项列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3989,6 +4186,68 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 上传图片并更新到工作项描述中
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        uploadIpdImageInIssue(uploadIpdImageInIssueRequest?: UploadIpdImageInIssueRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/ipdprojectservice/projects/{project_id}/images",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new FormData();
+            
+            let projectId;
+            
+            let issueId;
+            let file;
+            
+
+            if (uploadIpdImageInIssueRequest !== null && uploadIpdImageInIssueRequest !== undefined) {
+                if (uploadIpdImageInIssueRequest instanceof UploadIpdImageInIssueRequest) {
+                    projectId = uploadIpdImageInIssueRequest.projectId;
+                    issueId = uploadIpdImageInIssueRequest.issueId;
+                    file = uploadIpdImageInIssueRequest.body?.file;
+                } else {
+                    projectId = uploadIpdImageInIssueRequest['project_id'];
+                    issueId = uploadIpdImageInIssueRequest['issue_id'];
+                    file = uploadIpdImageInIssueRequest['body']['file'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling uploadIpdImageInIssue.');
+            }
+            if (issueId === null || issueId === undefined) {
+                throw new RequiredError('issueId','Required parameter issueId was null or undefined when calling uploadIpdImageInIssue.');
+            }
+            if (issueId !== null && issueId !== undefined) {
+                localVarQueryParameter['issue_id'] = issueId;
+            }
+            if (file === null || file === undefined) {
+            throw new RequiredError('file','Required parameter file was null or undefined when calling uploadIpdImageInIssue.');
+            }
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;

@@ -4,9 +4,7 @@ export class VpcObject {
     public id?: string;
     public name?: string;
     public cidr?: string;
-    public constructor(id?: string, name?: string) { 
-        this['id'] = id;
-        this['name'] = name;
+    public constructor() { 
     }
     public withId(id: string): VpcObject {
         this['id'] = id;

@@ -6,8 +6,8 @@ export class ListIncidentsResponse extends SdkResponse {
     public code?: string;
     public message?: string;
     public total?: number;
-    public limit?: number;
-    public offset?: number;
+    public size?: number;
+    public page?: number;
     public success?: boolean;
     public data?: Array<IncidentDetail>;
     private 'X-request-id'?: string;
@@ -26,12 +26,12 @@ export class ListIncidentsResponse extends SdkResponse {
         this['total'] = total;
         return this;
     }
-    public withLimit(limit: number): ListIncidentsResponse {
-        this['limit'] = limit;
+    public withSize(size: number): ListIncidentsResponse {
+        this['size'] = size;
         return this;
     }
-    public withOffset(offset: number): ListIncidentsResponse {
-        this['offset'] = offset;
+    public withPage(page: number): ListIncidentsResponse {
+        this['page'] = page;
         return this;
     }
     public withSuccess(success: boolean): ListIncidentsResponse {

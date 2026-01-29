@@ -4,6 +4,8 @@ import { DpeClassifyCreate } from './DpeClassifyCreate';
 export class CreateDpeClassifyRequestBody {
     public id?: string;
     public name?: string;
+    private 'project_id'?: object;
+    private 'workspace_id'?: object;
     private 'dataclass_id'?: string;
     private 'data_source'?: string;
     public description?: string;
@@ -23,6 +25,26 @@ export class CreateDpeClassifyRequestBody {
     public withName(name: string): CreateDpeClassifyRequestBody {
         this['name'] = name;
         return this;
+    }
+    public withProjectId(projectId: object): CreateDpeClassifyRequestBody {
+        this['project_id'] = projectId;
+        return this;
+    }
+    public set projectId(projectId: object  | undefined) {
+        this['project_id'] = projectId;
+    }
+    public get projectId(): object | undefined {
+        return this['project_id'];
+    }
+    public withWorkspaceId(workspaceId: object): CreateDpeClassifyRequestBody {
+        this['workspace_id'] = workspaceId;
+        return this;
+    }
+    public set workspaceId(workspaceId: object  | undefined) {
+        this['workspace_id'] = workspaceId;
+    }
+    public get workspaceId(): object | undefined {
+        return this['workspace_id'];
     }
     public withDataclassId(dataclassId: string): CreateDpeClassifyRequestBody {
         this['dataclass_id'] = dataclassId;

@@ -33,11 +33,7 @@ export class TargetServer {
     private 'image_disk_id'?: string;
     private 'snapshot_ids'?: string;
     private 'cutovered_snapshot_ids'?: string;
-    public constructor(ip?: string, name?: string, osType?: string, disks?: Array<TargetDisk>) { 
-        this['ip'] = ip;
-        this['name'] = name;
-        this['os_type'] = osType;
-        this['disks'] = disks;
+    public constructor() { 
     }
     public withId(id: string): TargetServer {
         this['id'] = id;

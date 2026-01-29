@@ -9,9 +9,13 @@ export class ShowPreProcessRulesListResponseBodyData {
     private 'mapper_id'?: string;
     private 'mapper_type_id'?: string;
     public action?: ShowPreProcessRulesListResponseBodyDataActionEnum | string;
+    private 'creator_id'?: string;
+    private 'creator_name'?: string;
     public expression?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
+    private 'modifier_id'?: string;
+    private 'modifier_name'?: string;
     public constructor() { 
     }
     public withId(id: string): ShowPreProcessRulesListResponseBodyData {
@@ -76,6 +80,26 @@ export class ShowPreProcessRulesListResponseBodyData {
         this['action'] = action;
         return this;
     }
+    public withCreatorId(creatorId: string): ShowPreProcessRulesListResponseBodyData {
+        this['creator_id'] = creatorId;
+        return this;
+    }
+    public set creatorId(creatorId: string  | undefined) {
+        this['creator_id'] = creatorId;
+    }
+    public get creatorId(): string | undefined {
+        return this['creator_id'];
+    }
+    public withCreatorName(creatorName: string): ShowPreProcessRulesListResponseBodyData {
+        this['creator_name'] = creatorName;
+        return this;
+    }
+    public set creatorName(creatorName: string  | undefined) {
+        this['creator_name'] = creatorName;
+    }
+    public get creatorName(): string | undefined {
+        return this['creator_name'];
+    }
     public withExpression(expression: string): ShowPreProcessRulesListResponseBodyData {
         this['expression'] = expression;
         return this;
@@ -99,6 +123,26 @@ export class ShowPreProcessRulesListResponseBodyData {
     }
     public get updateTime(): string | undefined {
         return this['update_time'];
+    }
+    public withModifierId(modifierId: string): ShowPreProcessRulesListResponseBodyData {
+        this['modifier_id'] = modifierId;
+        return this;
+    }
+    public set modifierId(modifierId: string  | undefined) {
+        this['modifier_id'] = modifierId;
+    }
+    public get modifierId(): string | undefined {
+        return this['modifier_id'];
+    }
+    public withModifierName(modifierName: string): ShowPreProcessRulesListResponseBodyData {
+        this['modifier_name'] = modifierName;
+        return this;
+    }
+    public set modifierName(modifierName: string  | undefined) {
+        this['modifier_name'] = modifierName;
+    }
+    public get modifierName(): string | undefined {
+        return this['modifier_name'];
     }
 }
 

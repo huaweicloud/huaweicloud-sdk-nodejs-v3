@@ -1,21 +1,20 @@
-import { ConsistencyResultRequestBodyResultList } from './ConsistencyResultRequestBodyResultList';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowConsistencyResultResponse extends SdkResponse {
-    private 'result_list'?: Array<ConsistencyResultRequestBodyResultList>;
+    private 'result_list'?: Array<string>;
     private 'task_id'?: string;
     public constructor() { 
         super();
     }
-    public withResultList(resultList: Array<ConsistencyResultRequestBodyResultList>): ShowConsistencyResultResponse {
+    public withResultList(resultList: Array<string>): ShowConsistencyResultResponse {
         this['result_list'] = resultList;
         return this;
     }
-    public set resultList(resultList: Array<ConsistencyResultRequestBodyResultList>  | undefined) {
+    public set resultList(resultList: Array<string>  | undefined) {
         this['result_list'] = resultList;
     }
-    public get resultList(): Array<ConsistencyResultRequestBodyResultList> | undefined {
+    public get resultList(): Array<string> | undefined {
         return this['result_list'];
     }
     public withTaskId(taskId: string): ShowConsistencyResultResponse {

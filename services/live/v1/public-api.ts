@@ -182,6 +182,7 @@ export * from './model/LiveRequestArgs';
 export * from './model/LiveSnapshotConfig';
 export * from './model/LogInfo';
 export * from './model/MP4RecordConfig';
+export * from './model/ManifestSelection';
 export * from './model/ModifyDelayConfig';
 export * from './model/ModifyFlowOutputRequest';
 export * from './model/ModifyFlowOutputResponse';

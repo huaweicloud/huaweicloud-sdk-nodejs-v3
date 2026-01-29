@@ -1,4 +1,4 @@
-import { CreateWorkspaceResponseBodyWorkspaceAgencyList } from './CreateWorkspaceResponseBodyWorkspaceAgencyList';
+import { UpdateWorkspaceResponseBodyWorkspaceAgencyList } from './UpdateWorkspaceResponseBodyWorkspaceAgencyList';
 
 
 export class ShowWorkspaceResponseBodyWorkspace {
@@ -21,7 +21,7 @@ export class ShowWorkspaceResponseBodyWorkspace {
     private 'region_id'?: string;
     private 'view_bind_id'?: string;
     private 'view_bind_name'?: string;
-    private 'workspace_agency_list'?: Array<CreateWorkspaceResponseBodyWorkspaceAgencyList>;
+    private 'workspace_agency_list'?: Array<UpdateWorkspaceResponseBodyWorkspaceAgencyList>;
     public constructor() { 
     }
     public withId(id: string): ShowWorkspaceResponseBodyWorkspace {
@@ -196,14 +196,14 @@ export class ShowWorkspaceResponseBodyWorkspace {
     public get viewBindName(): string | undefined {
         return this['view_bind_name'];
     }
-    public withWorkspaceAgencyList(workspaceAgencyList: Array<CreateWorkspaceResponseBodyWorkspaceAgencyList>): ShowWorkspaceResponseBodyWorkspace {
+    public withWorkspaceAgencyList(workspaceAgencyList: Array<UpdateWorkspaceResponseBodyWorkspaceAgencyList>): ShowWorkspaceResponseBodyWorkspace {
         this['workspace_agency_list'] = workspaceAgencyList;
         return this;
     }
-    public set workspaceAgencyList(workspaceAgencyList: Array<CreateWorkspaceResponseBodyWorkspaceAgencyList>  | undefined) {
+    public set workspaceAgencyList(workspaceAgencyList: Array<UpdateWorkspaceResponseBodyWorkspaceAgencyList>  | undefined) {
         this['workspace_agency_list'] = workspaceAgencyList;
     }
-    public get workspaceAgencyList(): Array<CreateWorkspaceResponseBodyWorkspaceAgencyList> | undefined {
+    public get workspaceAgencyList(): Array<UpdateWorkspaceResponseBodyWorkspaceAgencyList> | undefined {
         return this['workspace_agency_list'];
     }
 }

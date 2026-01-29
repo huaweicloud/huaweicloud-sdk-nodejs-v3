@@ -6,8 +6,8 @@ export class ListDataobjectRelationsResponse extends SdkResponse {
     public code?: string;
     public message?: string;
     public total?: number;
-    public limit?: number;
-    public offset?: number;
+    public size?: number;
+    public page?: number;
     public success?: boolean;
     public data?: Array<DataObjectDetail>;
     private 'X-request-id'?: string;
@@ -26,12 +26,12 @@ export class ListDataobjectRelationsResponse extends SdkResponse {
         this['total'] = total;
         return this;
     }
-    public withLimit(limit: number): ListDataobjectRelationsResponse {
-        this['limit'] = limit;
+    public withSize(size: number): ListDataobjectRelationsResponse {
+        this['size'] = size;
         return this;
     }
-    public withOffset(offset: number): ListDataobjectRelationsResponse {
-        this['offset'] = offset;
+    public withPage(page: number): ListDataobjectRelationsResponse {
+        this['page'] = page;
         return this;
     }
     public withSuccess(success: boolean): ListDataobjectRelationsResponse {

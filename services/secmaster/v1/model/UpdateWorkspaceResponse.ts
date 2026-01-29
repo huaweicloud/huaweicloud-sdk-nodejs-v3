@@ -1,4 +1,4 @@
-import { CreateWorkspaceResponseBodyWorkspaceAgencyList } from './CreateWorkspaceResponseBodyWorkspaceAgencyList';
+import { UpdateWorkspaceResponseBodyWorkspaceAgencyList } from './UpdateWorkspaceResponseBodyWorkspaceAgencyList';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -22,7 +22,7 @@ export class UpdateWorkspaceResponse extends SdkResponse {
     private 'region_id'?: string;
     private 'view_bind_id'?: string;
     private 'view_bind_name'?: string;
-    private 'workspace_agency_list'?: Array<CreateWorkspaceResponseBodyWorkspaceAgencyList>;
+    private 'workspace_agency_list'?: Array<UpdateWorkspaceResponseBodyWorkspaceAgencyList>;
     public constructor() { 
         super();
     }
@@ -198,14 +198,14 @@ export class UpdateWorkspaceResponse extends SdkResponse {
     public get viewBindName(): string | undefined {
         return this['view_bind_name'];
     }
-    public withWorkspaceAgencyList(workspaceAgencyList: Array<CreateWorkspaceResponseBodyWorkspaceAgencyList>): UpdateWorkspaceResponse {
+    public withWorkspaceAgencyList(workspaceAgencyList: Array<UpdateWorkspaceResponseBodyWorkspaceAgencyList>): UpdateWorkspaceResponse {
         this['workspace_agency_list'] = workspaceAgencyList;
         return this;
     }
-    public set workspaceAgencyList(workspaceAgencyList: Array<CreateWorkspaceResponseBodyWorkspaceAgencyList>  | undefined) {
+    public set workspaceAgencyList(workspaceAgencyList: Array<UpdateWorkspaceResponseBodyWorkspaceAgencyList>  | undefined) {
         this['workspace_agency_list'] = workspaceAgencyList;
     }
-    public get workspaceAgencyList(): Array<CreateWorkspaceResponseBodyWorkspaceAgencyList> | undefined {
+    public get workspaceAgencyList(): Array<UpdateWorkspaceResponseBodyWorkspaceAgencyList> | undefined {
         return this['workspace_agency_list'];
     }
 }

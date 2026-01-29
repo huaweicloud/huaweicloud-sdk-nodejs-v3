@@ -10,7 +10,7 @@ export class AlertResourceList {
     private 'project_id'?: string;
     private 'ep_id'?: string;
     private 'ep_name'?: string;
-    public tags?: string;
+    public tags?: object;
     public constructor() { 
     }
     public withId(id: string): AlertResourceList {
@@ -79,7 +79,7 @@ export class AlertResourceList {
     public get epName(): string | undefined {
         return this['ep_name'];
     }
-    public withTags(tags: string): AlertResourceList {
+    public withTags(tags: object): AlertResourceList {
         this['tags'] = tags;
         return this;
     }

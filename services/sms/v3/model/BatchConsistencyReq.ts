@@ -4,10 +4,7 @@ export class BatchConsistencyReq {
     private 'task_id'?: string;
     private 'source_id'?: string;
     private 'source_name'?: string;
-    public constructor(taskId?: string, sourceId?: string, sourceName?: string) { 
-        this['task_id'] = taskId;
-        this['source_id'] = sourceId;
-        this['source_name'] = sourceName;
+    public constructor() { 
     }
     public withTaskId(taskId: string): BatchConsistencyReq {
         this['task_id'] = taskId;

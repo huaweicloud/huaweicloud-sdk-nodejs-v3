@@ -101,7 +101,7 @@ export * from './model/AutoDisconnectOrLogoutControlOptions';
 export * from './model/AutoInstallAppReq';
 export * from './model/AutoLockOptions';
 export * from './model/AutoscalePolicy';
-export * from './model/AvailabilityZone';
+export * from './model/AvailabilityZoneInfo';
 export * from './model/AzInfo';
 export * from './model/BackupInfo';
 export * from './model/BaseError';

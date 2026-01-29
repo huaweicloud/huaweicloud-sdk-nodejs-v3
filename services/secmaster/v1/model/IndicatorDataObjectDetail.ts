@@ -22,6 +22,8 @@ export class IndicatorDataObjectDetail {
     public verdict?: string;
     private 'workspace_id'?: string;
     public confidence?: number;
+    public labels?: string;
+    public defanged?: boolean;
     public constructor() { 
     }
     public withIndicatorType(indicatorType: IndicatorDataObjectDetailIndicatorType): IndicatorDataObjectDetail {
@@ -154,6 +156,14 @@ export class IndicatorDataObjectDetail {
     }
     public withConfidence(confidence: number): IndicatorDataObjectDetail {
         this['confidence'] = confidence;
+        return this;
+    }
+    public withLabels(labels: string): IndicatorDataObjectDetail {
+        this['labels'] = labels;
+        return this;
+    }
+    public withDefanged(defanged: boolean): IndicatorDataObjectDetail {
+        this['defanged'] = defanged;
         return this;
     }
 }

@@ -1,9 +1,10 @@
+import { IssueListResult } from './IssueListResult';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListIpdProjectIssuesResponse extends SdkResponse {
     public message?: string;
-    public result?: object;
+    public result?: IssueListResult;
     public status?: string;
     public constructor() { 
         super();
@@ -12,7 +13,7 @@ export class ListIpdProjectIssuesResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
-    public withResult(result: object): ListIpdProjectIssuesResponse {
+    public withResult(result: IssueListResult): ListIpdProjectIssuesResponse {
         this['result'] = result;
         return this;
     }

@@ -11,6 +11,8 @@ export class DpeInfo {
     public status?: string;
     private 'complete_degree'?: string;
     private 'instance_num'?: string;
+    private 'built_in'?: string;
+    private 'data_source'?: string;
     public description?: string;
     private 'update_time'?: string;
     private 'create_time'?: string;
@@ -101,6 +103,26 @@ export class DpeInfo {
     }
     public get instanceNum(): string | undefined {
         return this['instance_num'];
+    }
+    public withBuiltIn(builtIn: string): DpeInfo {
+        this['built_in'] = builtIn;
+        return this;
+    }
+    public set builtIn(builtIn: string  | undefined) {
+        this['built_in'] = builtIn;
+    }
+    public get builtIn(): string | undefined {
+        return this['built_in'];
+    }
+    public withDataSource(dataSource: string): DpeInfo {
+        this['data_source'] = dataSource;
+        return this;
+    }
+    public set dataSource(dataSource: string  | undefined) {
+        this['data_source'] = dataSource;
+    }
+    public get dataSource(): string | undefined {
+        return this['data_source'];
     }
     public withDescription(description: string): DpeInfo {
         this['description'] = description;

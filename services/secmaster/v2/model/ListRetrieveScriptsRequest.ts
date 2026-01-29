@@ -3,8 +3,8 @@
 export class ListRetrieveScriptsRequest {
     private 'workspace_id'?: string;
     private 'table_id'?: string;
-    private 'script_name'?: string;
     public offset?: number;
+    private 'script_name'?: string;
     public limit?: number;
     private 'sort_key'?: string;
     private 'sort_dir'?: string;
@@ -31,6 +31,10 @@ export class ListRetrieveScriptsRequest {
     public get tableId(): string | undefined {
         return this['table_id'];
     }
+    public withOffset(offset: number): ListRetrieveScriptsRequest {
+        this['offset'] = offset;
+        return this;
+    }
     public withScriptName(scriptName: string): ListRetrieveScriptsRequest {
         this['script_name'] = scriptName;
         return this;
@@ -40,10 +44,6 @@ export class ListRetrieveScriptsRequest {
     }
     public get scriptName(): string | undefined {
         return this['script_name'];
-    }
-    public withOffset(offset: number): ListRetrieveScriptsRequest {
-        this['offset'] = offset;
-        return this;
     }
     public withLimit(limit: number): ListRetrieveScriptsRequest {
         this['limit'] = limit;

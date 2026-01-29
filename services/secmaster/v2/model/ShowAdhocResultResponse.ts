@@ -5,7 +5,7 @@ import { ShowAdhocQueryResultResponseBodyTips } from './ShowAdhocQueryResultResp
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowAdhocResultResponse extends SdkResponse {
-    public batch?: object;
+    public batch?: number;
     public schema?: Array<AdhocQueryAnalysisField>;
     public datarows?: Array<Array<object>>;
     private 'datarows_upsert'?: Array<Array<DataRow>>;
@@ -17,7 +17,7 @@ export class ShowAdhocResultResponse extends SdkResponse {
     public constructor() { 
         super();
     }
-    public withBatch(batch: object): ShowAdhocResultResponse {
+    public withBatch(batch: number): ShowAdhocResultResponse {
         this['batch'] = batch;
         return this;
     }

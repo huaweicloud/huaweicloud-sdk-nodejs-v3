@@ -9,8 +9,7 @@ export class TargetServerByTask {
     public name?: string;
     private 'vm_id'?: string;
     private 'volume_groups'?: Array<VolumeGroups>;
-    public constructor(disks?: Array<TargetDisks>, name?: string, vmId?: string) { 
-        this['disks'] = disks;
+    public constructor(name?: string, vmId?: string) { 
         this['name'] = name;
         this['vm_id'] = vmId;
     }

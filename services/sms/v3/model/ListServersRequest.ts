@@ -5,6 +5,7 @@ export class ListServersRequest {
     public name?: string;
     public id?: string;
     public ip?: string;
+    public ipv6?: string;
     public migproject?: string;
     public limit?: number;
     public offset?: number;
@@ -12,6 +13,7 @@ export class ListServersRequest {
     public connected?: boolean;
     private 'enterprise_project_id'?: string;
     private 'is_consistency_result_exist'?: boolean;
+    private 'vm_id'?: string;
     public constructor() { 
     }
     public withState(state: ListServersRequestStateEnum | string): ListServersRequest {
@@ -28,6 +30,10 @@ export class ListServersRequest {
     }
     public withIp(ip: string): ListServersRequest {
         this['ip'] = ip;
+        return this;
+    }
+    public withIpv6(ipv6: string): ListServersRequest {
+        this['ipv6'] = ipv6;
         return this;
     }
     public withMigproject(migproject: string): ListServersRequest {
@@ -75,6 +81,16 @@ export class ListServersRequest {
     }
     public get isConsistencyResultExist(): boolean | undefined {
         return this['is_consistency_result_exist'];
+    }
+    public withVmId(vmId: string): ListServersRequest {
+        this['vm_id'] = vmId;
+        return this;
+    }
+    public set vmId(vmId: string  | undefined) {
+        this['vm_id'] = vmId;
+    }
+    public get vmId(): string | undefined {
+        return this['vm_id'];
     }
 }
 

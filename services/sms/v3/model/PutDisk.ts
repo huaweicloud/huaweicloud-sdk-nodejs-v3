@@ -6,9 +6,7 @@ export class PutDisk {
     public id?: string;
     private 'adjust_size'?: number;
     private 'physical_volumes'?: Array<PutVolume>;
-    public constructor(id?: string, adjustSize?: number) { 
-        this['id'] = id;
-        this['adjust_size'] = adjustSize;
+    public constructor() { 
     }
     public withNeedMigration(needMigration: boolean): PutDisk {
         this['need_migration'] = needMigration;

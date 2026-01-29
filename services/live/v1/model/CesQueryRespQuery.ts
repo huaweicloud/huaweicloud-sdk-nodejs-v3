@@ -9,7 +9,8 @@ export class CesQueryRespQuery {
     private 'medialive_package'?: CesDimsItem;
     private 'medialive_connect'?: CesDimsItem;
     private 'medialive_tailor'?: CesDimsItem;
-    public constructor(medialiveMpc?: CesDimsItem, pipeline?: CesDimsItem, audio?: CesDimsItem, medialiveCdn?: CesDimsItem, medialivePackage?: CesDimsItem, medialiveConnect?: CesDimsItem, medialiveTailor?: CesDimsItem) { 
+    public region?: CesDimsItem;
+    public constructor(medialiveMpc?: CesDimsItem, pipeline?: CesDimsItem, audio?: CesDimsItem, medialiveCdn?: CesDimsItem, medialivePackage?: CesDimsItem, medialiveConnect?: CesDimsItem, medialiveTailor?: CesDimsItem, region?: CesDimsItem) { 
         this['medialive_mpc'] = medialiveMpc;
         this['pipeline'] = pipeline;
         this['audio'] = audio;
@@ -17,6 +18,7 @@ export class CesQueryRespQuery {
         this['medialive_package'] = medialivePackage;
         this['medialive_connect'] = medialiveConnect;
         this['medialive_tailor'] = medialiveTailor;
+        this['region'] = region;
     }
     public withMedialiveMpc(medialiveMpc: CesDimsItem): CesQueryRespQuery {
         this['medialive_mpc'] = medialiveMpc;
@@ -75,5 +77,9 @@ export class CesQueryRespQuery {
     }
     public get medialiveTailor(): CesDimsItem | undefined {
         return this['medialive_tailor'];
+    }
+    public withRegion(region: CesDimsItem): CesQueryRespQuery {
+        this['region'] = region;
+        return this;
     }
 }

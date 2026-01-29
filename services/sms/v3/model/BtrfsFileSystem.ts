@@ -18,23 +18,7 @@ export class BtrfsFileSystem {
     private 'default_subvol_name'?: string;
     private 'default_subvol_mountpath'?: string;
     public subvolumn?: Array<BtrfsSubvolumn>;
-    public constructor(name?: string, label?: string, uuid?: string, device?: string, size?: number, nodesize?: number, sectorsize?: number, dataProfile?: string, systemProfile?: string, metadataProfile?: string, globalReserve1?: string, gVolUsedSize?: number, defaultSubvolid?: string, defaultSubvolName?: string, defaultSubvolMountpath?: string, subvolumn?: Array<BtrfsSubvolumn>) { 
-        this['name'] = name;
-        this['label'] = label;
-        this['uuid'] = uuid;
-        this['device'] = device;
-        this['size'] = size;
-        this['nodesize'] = nodesize;
-        this['sectorsize'] = sectorsize;
-        this['data_profile'] = dataProfile;
-        this['system_profile'] = systemProfile;
-        this['metadata_profile'] = metadataProfile;
-        this['global_reserve1'] = globalReserve1;
-        this['g_vol_used_size'] = gVolUsedSize;
-        this['default_subvolid'] = defaultSubvolid;
-        this['default_subvol_name'] = defaultSubvolName;
-        this['default_subvol_mountpath'] = defaultSubvolMountpath;
-        this['subvolumn'] = subvolumn;
+    public constructor() { 
     }
     public withName(name: string): BtrfsFileSystem {
         this['name'] = name;

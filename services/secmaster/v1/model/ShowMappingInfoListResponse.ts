@@ -5,9 +5,9 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowMappingInfoListResponse extends SdkResponse {
     public code?: string;
     public message?: string;
+    public size?: number;
+    public page?: number;
     public total?: number;
-    public offset?: number;
-    public limit?: number;
     public data?: Array<DpeInfo>;
     public constructor() { 
         super();
@@ -20,16 +20,16 @@ export class ShowMappingInfoListResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
+    public withSize(size: number): ShowMappingInfoListResponse {
+        this['size'] = size;
+        return this;
+    }
+    public withPage(page: number): ShowMappingInfoListResponse {
+        this['page'] = page;
+        return this;
+    }
     public withTotal(total: number): ShowMappingInfoListResponse {
         this['total'] = total;
-        return this;
-    }
-    public withOffset(offset: number): ShowMappingInfoListResponse {
-        this['offset'] = offset;
-        return this;
-    }
-    public withLimit(limit: number): ShowMappingInfoListResponse {
-        this['limit'] = limit;
         return this;
     }
     public withData(data: Array<DpeInfo>): ShowMappingInfoListResponse {

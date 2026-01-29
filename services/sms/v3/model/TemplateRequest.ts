@@ -12,21 +12,18 @@ export class TemplateRequest {
     public projectid?: string;
     private 'target_server_name'?: string;
     private 'availability_zone'?: string;
-    public volumetype?: TemplateRequestVolumetypeEnum | string;
+    public volumetype?: string;
     public flavor?: string;
     public vpc?: VpcObject;
     public nics?: Array<Nics>;
     private 'security_groups'?: Array<SgObject>;
     public publicip?: PublicIp;
     public disk?: Array<TemplateDisk>;
-    private 'data_volume_type'?: TemplateRequestDataVolumeTypeEnum | string;
+    private 'data_volume_type'?: string;
     private 'target_password'?: string;
     private 'image_id'?: string;
-    public constructor(name?: string, isTemplate?: boolean, region?: string, projectid?: string) { 
+    public constructor(name?: string) { 
         this['name'] = name;
-        this['is_template'] = isTemplate;
-        this['region'] = region;
-        this['projectid'] = projectid;
     }
     public withName(name: string): TemplateRequest {
         this['name'] = name;
@@ -70,7 +67,7 @@ export class TemplateRequest {
     public get availabilityZone(): string | undefined {
         return this['availability_zone'];
     }
-    public withVolumetype(volumetype: TemplateRequestVolumetypeEnum | string): TemplateRequest {
+    public withVolumetype(volumetype: string): TemplateRequest {
         this['volumetype'] = volumetype;
         return this;
     }
@@ -104,14 +101,14 @@ export class TemplateRequest {
         this['disk'] = disk;
         return this;
     }
-    public withDataVolumeType(dataVolumeType: TemplateRequestDataVolumeTypeEnum | string): TemplateRequest {
+    public withDataVolumeType(dataVolumeType: string): TemplateRequest {
         this['data_volume_type'] = dataVolumeType;
         return this;
     }
-    public set dataVolumeType(dataVolumeType: TemplateRequestDataVolumeTypeEnum | string  | undefined) {
+    public set dataVolumeType(dataVolumeType: string  | undefined) {
         this['data_volume_type'] = dataVolumeType;
     }
-    public get dataVolumeType(): TemplateRequestDataVolumeTypeEnum | string | undefined {
+    public get dataVolumeType(): string | undefined {
         return this['data_volume_type'];
     }
     public withTargetPassword(targetPassword: string): TemplateRequest {
@@ -134,23 +131,4 @@ export class TemplateRequest {
     public get imageId(): string | undefined {
         return this['image_id'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum TemplateRequestVolumetypeEnum {
-    SAS = 'SAS',
-    SSD = 'SSD',
-    SATA = 'SATA'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum TemplateRequestDataVolumeTypeEnum {
-    SAS = 'SAS',
-    SSD = 'SSD',
-    SATA = 'SATA'
 }

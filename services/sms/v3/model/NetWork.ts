@@ -9,11 +9,7 @@ export class NetWork {
     public mtu?: number;
     public mac?: string;
     public id?: string;
-    public constructor(name?: string, ip?: string, netmask?: string, gateway?: string, mac?: string) { 
-        this['name'] = name;
-        this['ip'] = ip;
-        this['netmask'] = netmask;
-        this['gateway'] = gateway;
+    public constructor(mac?: string) { 
         this['mac'] = mac;
     }
     public withName(name: string): NetWork {

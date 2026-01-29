@@ -81,6 +81,8 @@ import { ListProjectUsersRequest } from './model/ListProjectUsersRequest';
 import { ListProjectUsersResponse } from './model/ListProjectUsersResponse';
 import { ListSecGuardListRequest } from './model/ListSecGuardListRequest';
 import { ListSecGuardListResponse } from './model/ListSecGuardListResponse';
+import { ListUserPrivilegesRequest } from './model/ListUserPrivilegesRequest';
+import { ListUserPrivilegesResponse } from './model/ListUserPrivilegesResponse';
 import { MalwareCount } from './model/MalwareCount';
 import { MavenTabRepo } from './model/MavenTabRepo';
 import { ModifyRepositoryRequest } from './model/ModifyRepositoryRequest';
@@ -89,7 +91,11 @@ import { NetProxyModelV5 } from './model/NetProxyModelV5';
 import { OpensourceCount } from './model/OpensourceCount';
 import { PageParam } from './model/PageParam';
 import { PathMap } from './model/PathMap';
+import { Privilege } from './model/Privilege';
+import { PrivilegeParam } from './model/PrivilegeParam';
+import { PrivilegeProjectInfoV5 } from './model/PrivilegeProjectInfoV5';
 import { PrivilegesResponseResult } from './model/PrivilegesResponseResult';
+import { PrivilegesResponseV5Result } from './model/PrivilegesResponseV5Result';
 import { ProjectRolePermissionDo } from './model/ProjectRolePermissionDo';
 import { ReleaseFileVersionDo } from './model/ReleaseFileVersionDo';
 import { ReleaseStorageVOV5 } from './model/ReleaseStorageVOV5';
@@ -105,6 +111,8 @@ import { RepositoryDOV5 } from './model/RepositoryDOV5';
 import { RepositoryUserDO } from './model/RepositoryUserDO';
 import { ResetUserPasswordRequest } from './model/ResetUserPasswordRequest';
 import { ResetUserPasswordResponse } from './model/ResetUserPasswordResponse';
+import { ResultCount } from './model/ResultCount';
+import { RolePrivilegeV5 } from './model/RolePrivilegeV5';
 import { SearchArtifactsRequest } from './model/SearchArtifactsRequest';
 import { SearchArtifactsResponse } from './model/SearchArtifactsResponse';
 import { SearchArtifactsResult } from './model/SearchArtifactsResult';
@@ -141,10 +149,14 @@ import { ShowPackageInfoResponse } from './model/ShowPackageInfoResponse';
 import { ShowProjectListRequest } from './model/ShowProjectListRequest';
 import { ShowProjectListResponse } from './model/ShowProjectListResponse';
 import { ShowProjectListResult } from './model/ShowProjectListResult';
+import { ShowProjectRelatedRepositoryRequest } from './model/ShowProjectRelatedRepositoryRequest';
+import { ShowProjectRelatedRepositoryResponse } from './model/ShowProjectRelatedRepositoryResponse';
 import { ShowProjectReleaseFilesRequest } from './model/ShowProjectReleaseFilesRequest';
 import { ShowProjectReleaseFilesResponse } from './model/ShowProjectReleaseFilesResponse';
 import { ShowProjectStorageInfoRequest } from './model/ShowProjectStorageInfoRequest';
 import { ShowProjectStorageInfoResponse } from './model/ShowProjectStorageInfoResponse';
+import { ShowProjectVersionsCountRequest } from './model/ShowProjectVersionsCountRequest';
+import { ShowProjectVersionsCountResponse } from './model/ShowProjectVersionsCountResponse';
 import { ShowReleaseProjectFilesRequest } from './model/ShowReleaseProjectFilesRequest';
 import { ShowReleaseProjectFilesResponse } from './model/ShowReleaseProjectFilesResponse';
 import { ShowRepoUserInfoRequest } from './model/ShowRepoUserInfoRequest';
@@ -153,12 +165,16 @@ import { ShowRepositoryInfoRequest } from './model/ShowRepositoryInfoRequest';
 import { ShowRepositoryInfoResponse } from './model/ShowRepositoryInfoResponse';
 import { ShowRepositoryRequest } from './model/ShowRepositoryRequest';
 import { ShowRepositoryResponse } from './model/ShowRepositoryResponse';
+import { ShowRepositoryRolesPrivilegeRequest } from './model/ShowRepositoryRolesPrivilegeRequest';
+import { ShowRepositoryRolesPrivilegeResponse } from './model/ShowRepositoryRolesPrivilegeResponse';
 import { ShowStorageRequest } from './model/ShowStorageRequest';
 import { ShowStorageResponse } from './model/ShowStorageResponse';
 import { ShowUserPrivilegesRequest } from './model/ShowUserPrivilegesRequest';
 import { ShowUserPrivilegesResponse } from './model/ShowUserPrivilegesResponse';
 import { ShowUserTicketRequest } from './model/ShowUserTicketRequest';
 import { ShowUserTicketResponse } from './model/ShowUserTicketResponse';
+import { ShowVersionListRequest } from './model/ShowVersionListRequest';
+import { ShowVersionListResponse } from './model/ShowVersionListResponse';
 import { StandarBaseResponseV5 } from './model/StandarBaseResponseV5';
 import { StandardResponseResult } from './model/StandardResponseResult';
 import { StorageInfoDOV5 } from './model/StorageInfoDOV5';
@@ -169,6 +185,9 @@ import { TrashcanResultData } from './model/TrashcanResultData';
 import { UpdateArtifactoryRequest } from './model/UpdateArtifactoryRequest';
 import { UpdateArtifactoryResponse } from './model/UpdateArtifactoryResponse';
 import { UpdateNotMavenRepoDO } from './model/UpdateNotMavenRepoDO';
+import { UpdateRepoRolesPrivilegeRequest } from './model/UpdateRepoRolesPrivilegeRequest';
+import { UpdateRepoRolesPrivilegeResponse } from './model/UpdateRepoRolesPrivilegeResponse';
+import { VersionListViewV5 } from './model/VersionListViewV5';
 import { VersionViewVoV5 } from './model/VersionViewVoV5';
 
 export class CodeArtsArtifactClient {
@@ -720,6 +739,24 @@ export class CodeArtsArtifactClient {
     }
 
     /**
+     * 查询用户在项目下的角色及权限，如创建仓库、编辑仓库、上传、下载、导入和导出等权限。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户权限
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listUserPrivileges(listUserPrivilegesRequest?: ListUserPrivilegesRequest): Promise<ListUserPrivilegesResponse> {
+        const options = ParamCreater().listUserPrivileges();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 编辑仓库
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1053,6 +1090,28 @@ export class CodeArtsArtifactClient {
     }
 
     /**
+     * 调用该接口可以快速查询项目列表信息，包含仓库和项目的关联关系，以便于仓库的管理和协作。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询项目列表
+     * @param {string} [searchName] **参数解释**： 项目名称，支持模糊查询。 **约束限制**： 不涉及。 **取值范围**： 最大200个字符。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**： 分页查询的起始位置。 **约束限制**： 不涉及。 **取值范围**： 0-2147483647 **默认取值**： 0
+     * @param {number} [limit] **参数解释**： 分页查询每页的数据量。 **约束限制**： 不涉及。 **取值范围**： 1-2147483647 **默认取值**： 10
+     * @param {string} [repoId] **参数解释**： 仓库ID，格式为{region}\\_{domainId}\\_{format}_{sequence}。可以从“私有依赖库首页 &gt; 仓库概览 &gt; 仓库地址url”中获取，最后两个“/”中间的字符串即为仓库ID。如仓库地址：https://devrepo.devcloud.abcde.abc.xyz.com/artgalaxy/abcde_09d2ca2f5080d5b60f51c00ae5bad0a0_maven_2_50/，其中abcde_09d2ca2f5080d5b60f51c00ae5bad0a0_maven_2_50即为仓库ID。 **约束限制**： 不涉及。 **取值范围**： 仓库ID格式中的format支持以下值： - npm - go - pypi - rpm - composer - maven - debian - conan - nuget - docker2 - cocoapods **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProjectRelatedRepository(showProjectRelatedRepositoryRequest?: ShowProjectRelatedRepositoryRequest): Promise<ShowProjectRelatedRepositoryResponse> {
+        const options = ParamCreater().showProjectRelatedRepository(showProjectRelatedRepositoryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取项目下文件版本信息列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1085,6 +1144,25 @@ export class CodeArtsArtifactClient {
      */
     public showProjectStorageInfo(showProjectStorageInfoRequest?: ShowProjectStorageInfoRequest): Promise<ShowProjectStorageInfoResponse> {
         const options = ParamCreater().showProjectStorageInfo(showProjectStorageInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当发布库版本众多时，用户可根据项目ID查询对应发布库的版本数量，以便于管理和跟踪不同版本的发布情况。该接口支持通过版本名称过滤。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询项目下的版本数量
+     * @param {string} [buildVersion] **参数解释**： 发布库版本的名称。 **约束限制**： 不涉及。 **取值范围**： 英文字母、数字、特殊字符支持中划线、下划线和英文句号，长度为1-128个字符。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProjectVersionsCount(showProjectVersionsCountRequest?: ShowProjectVersionsCountRequest): Promise<ShowProjectVersionsCountResponse> {
+        const options = ParamCreater().showProjectVersionsCount(showProjectVersionsCountRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1172,6 +1250,26 @@ export class CodeArtsArtifactClient {
     }
 
     /**
+     * 根据仓库ID查询指定仓库的权限，包含各角色对该仓库的权限信息。当用户需要指定仓库的指定权限时，可调用该接口查看需要授权的角色。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询仓库权限
+     * @param {string} repoId **参数解释**: 仓库id。可在私有库仓库**概览**界面查看。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 无。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言类型。 **约束限制**: 不涉及。 **取值范围**: 可选值：zh-cn,en-us。 **默认取值**: zh-cn。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRepositoryRolesPrivilege(showRepositoryRolesPrivilegeRequest?: ShowRepositoryRolesPrivilegeRequest): Promise<ShowRepositoryRolesPrivilegeResponse> {
+        const options = ParamCreater().showRepositoryRolesPrivilege(showRepositoryRolesPrivilegeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 仓库用量查询
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1228,6 +1326,27 @@ export class CodeArtsArtifactClient {
     }
 
     /**
+     * 当发布库版本众多时，用户可根据项目ID分页查询对应发布库下的版本列表。该接口支持版本名称的模糊搜索。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询发布库版本列表
+     * @param {string} [buildVersion] **参数解释**： 表示发布库版本的名称。 **约束限制**： 不涉及。 **取值范围**： 英文字母、数字、特殊字符支持中划线、下划线和英文句号，长度为1-128个字符。 **默认取值**： 不涉及。
+     * @param {number} [offset] **参数解释**： 分页查询的起始位置。 **约束限制**： 不涉及。 **取值范围**： 0-10000000 **默认取值**： 0
+     * @param {number} [limit] **参数解释**： 分页查询每页的数据量。 **约束限制**： 不涉及。 **取值范围**： 1-100 **默认取值**： 10
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVersionList(showVersionListRequest?: ShowVersionListRequest): Promise<ShowVersionListResponse> {
+        const options = ParamCreater().showVersionList(showVersionListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 编辑非maven仓库信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1239,6 +1358,26 @@ export class CodeArtsArtifactClient {
      */
     public updateArtifactory(updateArtifactoryRequest?: UpdateArtifactoryRequest): Promise<UpdateArtifactoryResponse> {
         const options = ParamCreater().updateArtifactory(updateArtifactoryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据角色ID更新指定角色的权限，如创建仓库、编辑仓库、上传、下载、导入和导出等权限，实现权限的集中管理和自动化分配。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新角色权限
+     * @param {string} roleId **参数解释**: 角色id。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 无。
+     * @param {RolePrivilegeV5} updateRepoRolesPrivilegeRequestBody **参数解释**: 权限信息。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 无。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRepoRolesPrivilege(updateRepoRolesPrivilegeRequest?: UpdateRepoRolesPrivilegeRequest): Promise<UpdateRepoRolesPrivilegeResponse> {
+        const options = ParamCreater().updateRepoRolesPrivilege(updateRepoRolesPrivilegeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2472,6 +2611,27 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询用户在项目下的角色及权限，如创建仓库、编辑仓库、上传、下载、导入和导出等权限。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listUserPrivileges() {
+            const options = {
+                method: "GET",
+                url: "/v5/user/{project_id}/privileges",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 编辑仓库
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3113,6 +3273,64 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 调用该接口可以快速查询项目列表信息，包含仓库和项目的关联关系，以便于仓库的管理和协作。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProjectRelatedRepository(showProjectRelatedRepositoryRequest?: ShowProjectRelatedRepositoryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/maven/project/repository",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let searchName;
+            
+            let offset;
+            
+            let limit;
+            
+            let repoId;
+
+            if (showProjectRelatedRepositoryRequest !== null && showProjectRelatedRepositoryRequest !== undefined) {
+                if (showProjectRelatedRepositoryRequest instanceof ShowProjectRelatedRepositoryRequest) {
+                    searchName = showProjectRelatedRepositoryRequest.searchName;
+                    offset = showProjectRelatedRepositoryRequest.offset;
+                    limit = showProjectRelatedRepositoryRequest.limit;
+                    repoId = showProjectRelatedRepositoryRequest.repoId;
+                } else {
+                    searchName = showProjectRelatedRepositoryRequest['search_name'];
+                    offset = showProjectRelatedRepositoryRequest['offset'];
+                    limit = showProjectRelatedRepositoryRequest['limit'];
+                    repoId = showProjectRelatedRepositoryRequest['repo_id'];
+                }
+            }
+
+        
+            if (searchName !== null && searchName !== undefined) {
+                localVarQueryParameter['search_name'] = searchName;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (repoId !== null && repoId !== undefined) {
+                localVarQueryParameter['repo_id'] = repoId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取项目下文件版本信息列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3196,6 +3414,43 @@ export const ParamCreater = function () {
         
             if (parentId !== null && parentId !== undefined) {
                 localVarQueryParameter['parent_id'] = parentId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当发布库版本众多时，用户可根据项目ID查询对应发布库的版本数量，以便于管理和跟踪不同版本的发布情况。该接口支持通过版本名称过滤。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProjectVersionsCount(showProjectVersionsCountRequest?: ShowProjectVersionsCountRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/versions/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let buildVersion;
+
+            if (showProjectVersionsCountRequest !== null && showProjectVersionsCountRequest !== undefined) {
+                if (showProjectVersionsCountRequest instanceof ShowProjectVersionsCountRequest) {
+                    buildVersion = showProjectVersionsCountRequest.buildVersion;
+                } else {
+                    buildVersion = showProjectVersionsCountRequest['build_version'];
+                }
+            }
+
+        
+            if (buildVersion !== null && buildVersion !== undefined) {
+                localVarQueryParameter['build_version'] = buildVersion;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3368,6 +3623,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据仓库ID查询指定仓库的权限，包含各角色对该仓库的权限信息。当用户需要指定仓库的指定权限时，可调用该接口查看需要授权的角色。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRepositoryRolesPrivilege(showRepositoryRolesPrivilegeRequest?: ShowRepositoryRolesPrivilegeRequest) {
+            const options = {
+                method: "GET",
+                url: "/cloudartifact/v5/repositories/{project_id}/{repo_id}/privileges",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let repoId;
+            
+            let xLanguage;
+
+            if (showRepositoryRolesPrivilegeRequest !== null && showRepositoryRolesPrivilegeRequest !== undefined) {
+                if (showRepositoryRolesPrivilegeRequest instanceof ShowRepositoryRolesPrivilegeRequest) {
+                    repoId = showRepositoryRolesPrivilegeRequest.repoId;
+                    xLanguage = showRepositoryRolesPrivilegeRequest.xLanguage;
+                } else {
+                    repoId = showRepositoryRolesPrivilegeRequest['repo_id'];
+                    xLanguage = showRepositoryRolesPrivilegeRequest['x-language'];
+                }
+            }
+
+        
+            if (repoId === null || repoId === undefined) {
+            throw new RequiredError('repoId','Required parameter repoId was null or undefined when calling showRepositoryRolesPrivilege.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['x-language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'repo_id': repoId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 仓库用量查询
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3454,6 +3753,57 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 当发布库版本众多时，用户可根据项目ID分页查询对应发布库下的版本列表。该接口支持版本名称的模糊搜索。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVersionList(showVersionListRequest?: ShowVersionListRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/versions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let buildVersion;
+            
+            let offset;
+            
+            let limit;
+
+            if (showVersionListRequest !== null && showVersionListRequest !== undefined) {
+                if (showVersionListRequest instanceof ShowVersionListRequest) {
+                    buildVersion = showVersionListRequest.buildVersion;
+                    offset = showVersionListRequest.offset;
+                    limit = showVersionListRequest.limit;
+                } else {
+                    buildVersion = showVersionListRequest['build_version'];
+                    offset = showVersionListRequest['offset'];
+                    limit = showVersionListRequest['limit'];
+                }
+            }
+
+        
+            if (buildVersion !== null && buildVersion !== undefined) {
+                localVarQueryParameter['build_version'] = buildVersion;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 编辑非maven仓库信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3487,6 +3837,52 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据角色ID更新指定角色的权限，如创建仓库、编辑仓库、上传、下载、导入和导出等权限，实现权限的集中管理和自动化分配。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateRepoRolesPrivilege(updateRepoRolesPrivilegeRequest?: UpdateRepoRolesPrivilegeRequest) {
+            const options = {
+                method: "PUT",
+                url: "/cloudartifact/v5/repositories/{role_id}/privileges",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let roleId;
+
+            if (updateRepoRolesPrivilegeRequest !== null && updateRepoRolesPrivilegeRequest !== undefined) {
+                if (updateRepoRolesPrivilegeRequest instanceof UpdateRepoRolesPrivilegeRequest) {
+                    roleId = updateRepoRolesPrivilegeRequest.roleId;
+                    body = updateRepoRolesPrivilegeRequest.body
+                } else {
+                    roleId = updateRepoRolesPrivilegeRequest['role_id'];
+                    body = updateRepoRolesPrivilegeRequest['body'];
+                }
+            }
+
+        
+            if (roleId === null || roleId === undefined) {
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling updateRepoRolesPrivilege.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'role_id': roleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

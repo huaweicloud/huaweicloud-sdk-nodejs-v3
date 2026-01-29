@@ -5,6 +5,8 @@ export class IndicatorDataObjectDetailDataSource {
     private 'domain_id'?: string;
     private 'project_id'?: string;
     private 'region_id'?: string;
+    private 'product_name'?: string;
+    private 'product_feature'?: string;
     public constructor() { 
     }
     public withSourceType(sourceType: number): IndicatorDataObjectDetailDataSource {
@@ -46,5 +48,25 @@ export class IndicatorDataObjectDetailDataSource {
     }
     public get regionId(): string | undefined {
         return this['region_id'];
+    }
+    public withProductName(productName: string): IndicatorDataObjectDetailDataSource {
+        this['product_name'] = productName;
+        return this;
+    }
+    public set productName(productName: string  | undefined) {
+        this['product_name'] = productName;
+    }
+    public get productName(): string | undefined {
+        return this['product_name'];
+    }
+    public withProductFeature(productFeature: string): IndicatorDataObjectDetailDataSource {
+        this['product_feature'] = productFeature;
+        return this;
+    }
+    public set productFeature(productFeature: string  | undefined) {
+        this['product_feature'] = productFeature;
+    }
+    public get productFeature(): string | undefined {
+        return this['product_feature'];
     }
 }

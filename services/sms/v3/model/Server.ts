@@ -25,10 +25,7 @@ export class Server {
     private 'boot_loader'?: ServerBootLoaderEnum | string;
     private 'system_dir'?: string;
     private 'volume_groups'?: Array<VolumeGroups>;
-    public constructor(ip?: string, name?: string, osType?: string) { 
-        this['ip'] = ip;
-        this['name'] = name;
-        this['os_type'] = osType;
+    public constructor() { 
     }
     public withId(id: string): Server {
         this['id'] = id;

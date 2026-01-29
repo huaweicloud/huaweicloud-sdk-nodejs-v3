@@ -8,8 +8,8 @@ export class ShowPreProcessRulesListRequestBody {
     private 'end_time'?: Date;
     public offset?: number;
     public limit?: number;
-    public constructor(name?: string, offset?: number, limit?: number) { 
-        this['name'] = name;
+    public constructor(mappingId?: string, offset?: number, limit?: number) { 
+        this['mapping_id'] = mappingId;
         this['offset'] = offset;
         this['limit'] = limit;
     }

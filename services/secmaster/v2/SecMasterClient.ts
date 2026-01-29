@@ -36,6 +36,7 @@ import { CodeSegmentDescription } from './model/CodeSegmentDescription';
 import { CodeSegmentName } from './model/CodeSegmentName';
 import { ColumnDisplaySetting } from './model/ColumnDisplaySetting';
 import { CompliancePackageModel } from './model/CompliancePackageModel';
+import { ConfigInfo } from './model/ConfigInfo';
 import { CreateAdhocQueryRequest } from './model/CreateAdhocQueryRequest';
 import { CreateAdhocQueryRequestBody } from './model/CreateAdhocQueryRequestBody';
 import { CreateAdhocQueryResponse } from './model/CreateAdhocQueryResponse';
@@ -49,6 +50,9 @@ import { CreateBy } from './model/CreateBy';
 import { CreateCodeSegmentRequest } from './model/CreateCodeSegmentRequest';
 import { CreateCodeSegmentRequestBody } from './model/CreateCodeSegmentRequestBody';
 import { CreateCodeSegmentResponse } from './model/CreateCodeSegmentResponse';
+import { CreateCollectConfigRequest } from './model/CreateCollectConfigRequest';
+import { CreateCollectConfigResponse } from './model/CreateCollectConfigResponse';
+import { CreateCollectConfigV2RequestBody } from './model/CreateCollectConfigV2RequestBody';
 import { CreateCustomizedCheckitemRequest } from './model/CreateCustomizedCheckitemRequest';
 import { CreateCustomizedCheckitemResponse } from './model/CreateCustomizedCheckitemResponse';
 import { CreateCustomizedCompliancePackageRequest } from './model/CreateCustomizedCompliancePackageRequest';
@@ -65,6 +69,9 @@ import { CreatePipeResponse } from './model/CreatePipeResponse';
 import { CreateRetrieveScriptRequest } from './model/CreateRetrieveScriptRequest';
 import { CreateRetrieveScriptRequestBody } from './model/CreateRetrieveScriptRequestBody';
 import { CreateRetrieveScriptResponse } from './model/CreateRetrieveScriptResponse';
+import { CreateSqlRenderRequest } from './model/CreateSqlRenderRequest';
+import { CreateSqlRenderRequestBody } from './model/CreateSqlRenderRequestBody';
+import { CreateSqlRenderResponse } from './model/CreateSqlRenderResponse';
 import { CreateSqlValidationRequest } from './model/CreateSqlValidationRequest';
 import { CreateSqlValidationRequestBody } from './model/CreateSqlValidationRequestBody';
 import { CreateSqlValidationResponse } from './model/CreateSqlValidationResponse';
@@ -82,6 +89,8 @@ import { DataTransformationDescription } from './model/DataTransformationDescrip
 import { DataTransformationItem } from './model/DataTransformationItem';
 import { DataTransformationName } from './model/DataTransformationName';
 import { DataTransformationProcessError } from './model/DataTransformationProcessError';
+import { DatasetInfo } from './model/DatasetInfo';
+import { DatasetInfoReference } from './model/DatasetInfoReference';
 import { DeleteAdhocQueryRequest } from './model/DeleteAdhocQueryRequest';
 import { DeleteAdhocQueryResponse } from './model/DeleteAdhocQueryResponse';
 import { DeleteAlertRuleRequest } from './model/DeleteAlertRuleRequest';
@@ -124,6 +133,7 @@ import { EsMonitorBody } from './model/EsMonitorBody';
 import { Expression } from './model/Expression';
 import { FrequencyUnit } from './model/FrequencyUnit';
 import { IntInterval } from './model/IntInterval';
+import { InterActiveParams } from './model/InterActiveParams';
 import { IsapAlertDescription } from './model/IsapAlertDescription';
 import { IsapAlertGrouping } from './model/IsapAlertGrouping';
 import { IsapAlertName } from './model/IsapAlertName';
@@ -184,6 +194,17 @@ import { ListAnalysisScriptsRequest } from './model/ListAnalysisScriptsRequest';
 import { ListAnalysisScriptsResponse } from './model/ListAnalysisScriptsResponse';
 import { ListCodeSegmentsRequest } from './model/ListCodeSegmentsRequest';
 import { ListCodeSegmentsResponse } from './model/ListCodeSegmentsResponse';
+import { ListCollectConfigRequest } from './model/ListCollectConfigRequest';
+import { ListCollectConfigResponse } from './model/ListCollectConfigResponse';
+import { ListCollectConfigResponseBodyAccounts } from './model/ListCollectConfigResponseBodyAccounts';
+import { ListCollectConfigResponseBodyAllVendors } from './model/ListCollectConfigResponseBodyAllVendors';
+import { ListCollectConfigResponseBodyCofingStatistics } from './model/ListCollectConfigResponseBodyCofingStatistics';
+import { ListCollectConfigResponseBodyCsvcList } from './model/ListCollectConfigResponseBodyCsvcList';
+import { ListCollectConfigResponseBodyDataList } from './model/ListCollectConfigResponseBodyDataList';
+import { ListCollectConfigResponseBodyDatasets } from './model/ListCollectConfigResponseBodyDatasets';
+import { ListCollectConfigResponseBodyReference } from './model/ListCollectConfigResponseBodyReference';
+import { ListCollectConfigResponseBodySourceList } from './model/ListCollectConfigResponseBodySourceList';
+import { ListCollectConfigResponseBodyTarget } from './model/ListCollectConfigResponseBodyTarget';
 import { ListCount } from './model/ListCount';
 import { ListDataTransformationMetricsRequest } from './model/ListDataTransformationMetricsRequest';
 import { ListDataTransformationMetricsResponse } from './model/ListDataTransformationMetricsResponse';
@@ -205,6 +226,11 @@ import { ListTableLogsRequestBody } from './model/ListTableLogsRequestBody';
 import { ListTableLogsResponse } from './model/ListTableLogsResponse';
 import { ListTablesRequest } from './model/ListTablesRequest';
 import { ListTablesResponse } from './model/ListTablesResponse';
+import { LtsResponseVo } from './model/LtsResponseVo';
+import { LtsResponseVoLogTypes } from './model/LtsResponseVoLogTypes';
+import { LtsResponseVoLtsInfos } from './model/LtsResponseVoLtsInfos';
+import { LtsResponseVoStreams } from './model/LtsResponseVoStreams';
+import { LtsRquestVo } from './model/LtsRquestVo';
 import { MetricMap } from './model/MetricMap';
 import { MetricsStatus } from './model/MetricsStatus';
 import { Mode } from './model/Mode';
@@ -437,6 +463,26 @@ export class SecMasterClient {
     }
 
     /**
+     * 保存云服务采集配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 保存云服务采集配置
+     * @param {CreateCollectConfigV2RequestBody} createCollectConfigRequestBody CreateCollectConfigRequestBody detail
+     * @param {string} [regionId] 区域ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCollectConfig(createCollectConfigRequest?: CreateCollectConfigRequest): Promise<CreateCollectConfigResponse> {
+        const options = ParamCreater().createCollectConfig(createCollectConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 新增自定义检查项
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -554,6 +600,26 @@ export class SecMasterClient {
      */
     public createRetrieveScript(createRetrieveScriptRequest?: CreateRetrieveScriptRequest): Promise<CreateRetrieveScriptResponse> {
         const options = ParamCreater().createRetrieveScript(createRetrieveScriptRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Adhoc sql参数渲染
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary Adhoc sql参数渲染
+     * @param {string} workspaceId 工作空间ID
+     * @param {CreateSqlRenderRequestBody} createSqlRenderRequestBody 创建sql参数渲染请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSqlRender(createSqlRenderRequest?: CreateSqlRenderRequest): Promise<CreateSqlRenderResponse> {
+        const options = ParamCreater().createSqlRender(createSqlRenderRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -994,8 +1060,8 @@ export class SecMasterClient {
      * @summary 列出告警规则模板
      * @param {string} workspaceId 工作空间ID
      * @param {string} [templateName] 模板名称
-     * @param {'ENABLED' | 'DISABLED'} [status] **参数解释**: 状态 - ENABLED 启用 - DISABLED 禁用  **约束限制** 不涉及 **取值范围**: - ENABLED - DISABLED  **默认值** 不涉及           
-     * @param {'TIPS' | 'LOW' | 'MEDIUM' | 'HIGH' | 'FATAL'} [severity] **参数解释**: 告警等级 - TIPS 提示 - LOW 低危 - MEDIUM 中危 - HIGH 高危 - FATAL 致命  **约束限制** 不涉及 **取值范围**: - TIPS - LOW - MEDIUM - HIGH - FATAL  **默认值** 不涉及                 
+     * @param {'ENABLED' | 'DISABLED'} [status] **参数解释**: 状态 - ENABLED 启用 - DISABLED 禁用  **约束限制** 不涉及 **取值范围**: - ENABLED - DISABLED  **默认值** 不涉及
+     * @param {'TIPS' | 'LOW' | 'MEDIUM' | 'HIGH' | 'FATAL'} [severity] **参数解释**: 告警等级 - TIPS 提示 - LOW 低危 - MEDIUM 中危 - HIGH 高危 - FATAL 致命  **约束限制** 不涉及 **取值范围**: - TIPS - LOW - MEDIUM - HIGH - FATAL  **默认值** 不涉及
      * @param {number} [offset] **参数解释：** 偏移量 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {number} [limit] **参数解释：** 查询数据限制 **取值范围：** 0-1000 **默认取值：** 不涉及
      * @param {string} [sortKey] 按照属性排序。
@@ -1087,6 +1153,32 @@ export class SecMasterClient {
     }
 
     /**
+     * 获取云服务采集配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取云服务采集配置
+     * @param {string} [regionId] 区域ID
+     * @param {number} [offset] 第几页
+     * @param {number} [limit] 每页数量
+     * @param {string} [sortKey] 排序字段
+     * @param {string} [sortDir] 排序顺序
+     * @param {string} [csvc] 云服务
+     * @param {string} [domainId] 账号ID
+     * @param {boolean} [queryStatistics] 是否查询云服务接入指标， 默认为 True
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCollectConfig(listCollectConfigRequest?: ListCollectConfigRequest): Promise<ListCollectConfigResponse> {
+        const options = ParamCreater().listCollectConfig(listCollectConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 数据加工总览
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1138,7 +1230,7 @@ export class SecMasterClient {
      *
      * @summary 列出目录分组
      * @param {string} workspaceId 工作空间ID
-     * @param {'TABLE' | 'PIPE' | 'RETRIEVE_SCRIPT' | 'ANALYSIS_SCRIPT' | 'DATA_TRANSFORMATION' | 'ALERT_RULE'} category **参数解释**: 目录类型 - TABLE 表 - PIPE 管道 - RETRIEVE_SCRIPT 检索脚本 - ANALYSIS_SCRIPT 分析脚本 - DATA_TRANSFORMATION 数据加工 - ALERT_RULE 告警规则  **约束限制** 不涉及 **取值范围**: - TABLE - PIPE - RETRIEVE_SCRIPT - ANALYSIS_SCRIPT - DATA_TRANSFORMATION - ALERT_RULE  **默认值** 不涉及        
+     * @param {'TABLE' | 'PIPE' | 'RETRIEVE_SCRIPT' | 'ANALYSIS_SCRIPT' | 'DATA_TRANSFORMATION' | 'ALERT_RULE'} category **参数解释**: 目录类型 - TABLE 表 - PIPE 管道 - RETRIEVE_SCRIPT 检索脚本 - ANALYSIS_SCRIPT 分析脚本 - DATA_TRANSFORMATION 数据加工 - ALERT_RULE 告警规则  **约束限制** 不涉及 **取值范围**: - TABLE - PIPE - RETRIEVE_SCRIPT - ANALYSIS_SCRIPT - DATA_TRANSFORMATION - ALERT_RULE  **默认值** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1208,8 +1300,8 @@ export class SecMasterClient {
      * @summary 列出检索脚本
      * @param {string} workspaceId 工作空间ID
      * @param {string} [tableId] 表ID
-     * @param {string} [scriptName] 脚本名称
      * @param {number} [offset] **参数解释：** 偏移量 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [scriptName] 脚本名称
      * @param {number} [limit] **参数解释：** 查询数据限制 **取值范围：** 0-1000 **默认取值：** 不涉及
      * @param {string} [sortKey] 按照属性排序。
      * @param {string} [sortDir] 排序顺序，支持 &#x60;ASC&#x60; 或 &#x60;DESC&#x60;。
@@ -1274,7 +1366,7 @@ export class SecMasterClient {
      *
      * @summary 获取表列表
      * @param {string} workspaceId 工作空间ID
-     * @param {'STREAMING' | 'INDEX' | 'APPLICATION' | 'TENANT_BUCKET' | 'LAKE'} [category] **参数解释**: 目录类型 - STREAMING 实时流 - INDEX 索引 - APPLICATION 应用 - TENANT_BUCKET 租户桶 - LAKE 数据湖  **约束限制** 不涉及 **取值范围**: - STREAMING - INDEX - APPLICATION - TENANT_BUCKET - LAKE  **默认值** 不涉及                        
+     * @param {'STREAMING' | 'INDEX' | 'APPLICATION' | 'TENANT_BUCKET' | 'LAKE'} [category] **参数解释**: 目录类型 - STREAMING 实时流 - INDEX 索引 - APPLICATION 应用 - TENANT_BUCKET 租户桶 - LAKE 数据湖  **约束限制** 不涉及 **取值范围**: - STREAMING - INDEX - APPLICATION - TENANT_BUCKET - LAKE  **默认值** 不涉及
      * @param {string} [tableId] 表id
      * @param {string} [tableAlias] 表别名
      * @param {string} [tableName] 表名称
@@ -1636,7 +1728,7 @@ export class SecMasterClient {
      *
      * @summary 获取订阅资源信息
      * @param {string} workspaceId 工作空间ID
-     * @param {'FLOW_DATA_BANDWIDTH' | 'CSS_CAPACITY' | 'PAIMON_CAPACITY' | 'OBS_CAPACITY' | 'JOB_CAPACITY' | 'AD_HOC_COUNT'} sku **参数解释**: SKU信息 - FLOW_DATA_BANDWIDTH 数据流量带宽 - CSS_CAPACITY CSS 存储容量 - PAIMON_CAPACITY Paimon 存储容量 - OBS_CAPACITY OBS 存储容量 - JOB_CAPACITY 作业处理容量 - AD_HOC_COUNT 即席查询次数  **约束限制** 不涉及 **取值范围**: - FLOW_DATA_BANDWIDTH - CSS_CAPACITY - PAIMON_CAPACITY - OBS_CAPACITY - JOB_CAPACITY - AD_HOC_COUNT  **默认值** 不涉及        
+     * @param {'FLOW_DATA_BANDWIDTH' | 'CSS_CAPACITY' | 'PAIMON_CAPACITY' | 'OBS_CAPACITY' | 'JOB_CAPACITY' | 'AD_HOC_COUNT'} sku **参数解释**: SKU信息 - FLOW_DATA_BANDWIDTH 数据流量带宽 - CSS_CAPACITY CSS 存储容量 - PAIMON_CAPACITY Paimon 存储容量 - OBS_CAPACITY OBS 存储容量 - JOB_CAPACITY 作业处理容量 - AD_HOC_COUNT 即席查询次数  **约束限制** 不涉及 **取值范围**: - FLOW_DATA_BANDWIDTH - CSS_CAPACITY - PAIMON_CAPACITY - OBS_CAPACITY - JOB_CAPACITY - AD_HOC_COUNT  **默认值** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2153,6 +2245,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 保存云服务采集配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createCollectConfig(createCollectConfigRequest?: CreateCollectConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/collector/cloudlogs/config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let regionId;
+
+            if (createCollectConfigRequest !== null && createCollectConfigRequest !== undefined) {
+                if (createCollectConfigRequest instanceof CreateCollectConfigRequest) {
+                    body = createCollectConfigRequest.body
+                    regionId = createCollectConfigRequest.regionId;
+                } else {
+                    body = createCollectConfigRequest['body'];
+                    regionId = createCollectConfigRequest['region_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 新增自定义检查项
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2451,6 +2589,52 @@ export const ParamCreater = function () {
         
             if (workspaceId === null || workspaceId === undefined) {
             throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createRetrieveScript.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Adhoc sql参数渲染
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSqlRender(createSqlRenderRequest?: CreateSqlRenderRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/workspaces/{workspace_id}/siem/ad-hoc-queries/sql-render",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspaceId;
+
+            if (createSqlRenderRequest !== null && createSqlRenderRequest !== undefined) {
+                if (createSqlRenderRequest instanceof CreateSqlRenderRequest) {
+                    workspaceId = createSqlRenderRequest.workspaceId;
+                    body = createSqlRenderRequest.body
+                } else {
+                    workspaceId = createSqlRenderRequest['workspace_id'];
+                    body = createSqlRenderRequest['body'];
+                }
+            }
+
+        
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling createSqlRender.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3752,6 +3936,92 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取云服务采集配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCollectConfig(listCollectConfigRequest?: ListCollectConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/collector/cloudlogs/config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let regionId;
+            
+            let offset;
+            
+            let limit;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let csvc;
+            
+            let domainId;
+            
+            let queryStatistics;
+
+            if (listCollectConfigRequest !== null && listCollectConfigRequest !== undefined) {
+                if (listCollectConfigRequest instanceof ListCollectConfigRequest) {
+                    regionId = listCollectConfigRequest.regionId;
+                    offset = listCollectConfigRequest.offset;
+                    limit = listCollectConfigRequest.limit;
+                    sortKey = listCollectConfigRequest.sortKey;
+                    sortDir = listCollectConfigRequest.sortDir;
+                    csvc = listCollectConfigRequest.csvc;
+                    domainId = listCollectConfigRequest.domainId;
+                    queryStatistics = listCollectConfigRequest.queryStatistics;
+                } else {
+                    regionId = listCollectConfigRequest['region_id'];
+                    offset = listCollectConfigRequest['offset'];
+                    limit = listCollectConfigRequest['limit'];
+                    sortKey = listCollectConfigRequest['sort_key'];
+                    sortDir = listCollectConfigRequest['sort_dir'];
+                    csvc = listCollectConfigRequest['csvc'];
+                    domainId = listCollectConfigRequest['domain_id'];
+                    queryStatistics = listCollectConfigRequest['query_statistics'];
+                }
+            }
+
+        
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (csvc !== null && csvc !== undefined) {
+                localVarQueryParameter['csvc'] = csvc;
+            }
+            if (domainId !== null && domainId !== undefined) {
+                localVarQueryParameter['domain_id'] = domainId;
+            }
+            if (queryStatistics !== null && queryStatistics !== undefined) {
+                localVarQueryParameter['query_statistics'] = queryStatistics;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 数据加工总览
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4097,9 +4367,9 @@ export const ParamCreater = function () {
             
             let tableId;
             
-            let scriptName;
-            
             let offset;
+            
+            let scriptName;
             
             let limit;
             
@@ -4111,16 +4381,16 @@ export const ParamCreater = function () {
                 if (listRetrieveScriptsRequest instanceof ListRetrieveScriptsRequest) {
                     workspaceId = listRetrieveScriptsRequest.workspaceId;
                     tableId = listRetrieveScriptsRequest.tableId;
-                    scriptName = listRetrieveScriptsRequest.scriptName;
                     offset = listRetrieveScriptsRequest.offset;
+                    scriptName = listRetrieveScriptsRequest.scriptName;
                     limit = listRetrieveScriptsRequest.limit;
                     sortKey = listRetrieveScriptsRequest.sortKey;
                     sortDir = listRetrieveScriptsRequest.sortDir;
                 } else {
                     workspaceId = listRetrieveScriptsRequest['workspace_id'];
                     tableId = listRetrieveScriptsRequest['table_id'];
-                    scriptName = listRetrieveScriptsRequest['script_name'];
                     offset = listRetrieveScriptsRequest['offset'];
+                    scriptName = listRetrieveScriptsRequest['script_name'];
                     limit = listRetrieveScriptsRequest['limit'];
                     sortKey = listRetrieveScriptsRequest['sort_key'];
                     sortDir = listRetrieveScriptsRequest['sort_dir'];
@@ -4134,11 +4404,11 @@ export const ParamCreater = function () {
             if (tableId !== null && tableId !== undefined) {
                 localVarQueryParameter['table_id'] = tableId;
             }
-            if (scriptName !== null && scriptName !== undefined) {
-                localVarQueryParameter['script_name'] = scriptName;
-            }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (scriptName !== null && scriptName !== undefined) {
+                localVarQueryParameter['script_name'] = scriptName;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;

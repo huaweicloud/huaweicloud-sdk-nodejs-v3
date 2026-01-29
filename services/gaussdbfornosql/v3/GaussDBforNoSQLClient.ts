@@ -2564,6 +2564,8 @@ export class GaussDBforNoSQLClient {
      * @param {string} configId 参数模板id
      * @param {number} [offset] 索引位置，偏移量。  从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询）。  取值必须为数字，不能为负数。
      * @param {number} [limit] 查询个数上限值。   - 取值范围: 1~100。   - 不传该参数时，默认查询前100条信息。
+     * @param {string} [instanceName] **参数解释：** 实例名称，支持模糊搜索。 **约束限制：** 不涉及。 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [instanceId] **参数解释：** 实例ID，支持模糊搜索。 **约束限制：** 不涉及。 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3420,7 +3422,7 @@ export class GaussDBforNoSQLClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改指定实例的参数
-     * @param {string} instanceId 实例ID。
+     * @param {string} instanceId **参数解释：** 实例ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {UpdateInstanceConfigurationsRequestBody} updateInstanceConfigurationsRequestBody 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -8473,16 +8475,24 @@ export const ParamCreater = function () {
             let offset;
             
             let limit;
+            
+            let instanceName;
+            
+            let instanceId;
 
             if (showApplicableInstancesRequest !== null && showApplicableInstancesRequest !== undefined) {
                 if (showApplicableInstancesRequest instanceof ShowApplicableInstancesRequest) {
                     configId = showApplicableInstancesRequest.configId;
                     offset = showApplicableInstancesRequest.offset;
                     limit = showApplicableInstancesRequest.limit;
+                    instanceName = showApplicableInstancesRequest.instanceName;
+                    instanceId = showApplicableInstancesRequest.instanceId;
                 } else {
                     configId = showApplicableInstancesRequest['config_id'];
                     offset = showApplicableInstancesRequest['offset'];
                     limit = showApplicableInstancesRequest['limit'];
+                    instanceName = showApplicableInstancesRequest['instance_name'];
+                    instanceId = showApplicableInstancesRequest['instance_id'];
                 }
             }
 
@@ -8495,6 +8505,12 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (instanceName !== null && instanceName !== undefined) {
+                localVarQueryParameter['instance_name'] = instanceName;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
             }
 
             options.queryParams = localVarQueryParameter;

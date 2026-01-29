@@ -3,7 +3,6 @@
 export class ListErrorServersRequest {
     public limit?: number;
     public offset?: number;
-    public migproject?: string;
     private 'enterprise_project_id'?: string;
     public constructor(offset?: number) { 
         this['offset'] = offset;
@@ -14,10 +13,6 @@ export class ListErrorServersRequest {
     }
     public withOffset(offset: number): ListErrorServersRequest {
         this['offset'] = offset;
-        return this;
-    }
-    public withMigproject(migproject: string): ListErrorServersRequest {
-        this['migproject'] = migproject;
         return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListErrorServersRequest {
