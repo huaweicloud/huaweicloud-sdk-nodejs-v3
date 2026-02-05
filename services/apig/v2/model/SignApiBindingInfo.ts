@@ -8,7 +8,7 @@ export class SignApiBindingInfo {
     private 'binding_time'?: Date;
     private 'env_id'?: string;
     private 'env_name'?: string;
-    private 'api_type'?: number;
+    private 'api_type'?: SignApiBindingInfoApiTypeEnum | number;
     private 'api_name'?: string;
     public id?: string;
     private 'api_remark'?: string;
@@ -81,14 +81,14 @@ export class SignApiBindingInfo {
     public get envName(): string | undefined {
         return this['env_name'];
     }
-    public withApiType(apiType: number): SignApiBindingInfo {
+    public withApiType(apiType: SignApiBindingInfoApiTypeEnum | number): SignApiBindingInfo {
         this['api_type'] = apiType;
         return this;
     }
-    public set apiType(apiType: number  | undefined) {
+    public set apiType(apiType: SignApiBindingInfoApiTypeEnum | number  | undefined) {
         this['api_type'] = apiType;
     }
-    public get apiType(): number | undefined {
+    public get apiType(): SignApiBindingInfoApiTypeEnum | number | undefined {
         return this['api_type'];
     }
     public withApiName(apiName: string): SignApiBindingInfo {
@@ -181,6 +181,14 @@ export class SignApiBindingInfo {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SignApiBindingInfoApiTypeEnum {
+    NUMBER_1 = 1,
+    NUMBER_2 = 2
+}
 /**
     * @export
     * @enum {string}

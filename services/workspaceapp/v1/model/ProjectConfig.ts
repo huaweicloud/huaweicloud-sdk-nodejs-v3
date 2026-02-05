@@ -5,6 +5,7 @@ export class ProjectConfig {
     private 'project_config_name'?: string;
     private 'storage_quota'?: number;
     private 'is_relevance'?: boolean;
+    private 'cluster_group_id'?: string;
     private 'create_time'?: Date;
     public constructor() { 
     }
@@ -47,6 +48,16 @@ export class ProjectConfig {
     }
     public get isRelevance(): boolean | undefined {
         return this['is_relevance'];
+    }
+    public withClusterGroupId(clusterGroupId: string): ProjectConfig {
+        this['cluster_group_id'] = clusterGroupId;
+        return this;
+    }
+    public set clusterGroupId(clusterGroupId: string  | undefined) {
+        this['cluster_group_id'] = clusterGroupId;
+    }
+    public get clusterGroupId(): string | undefined {
+        return this['cluster_group_id'];
     }
     public withCreateTime(createTime: Date): ProjectConfig {
         this['create_time'] = createTime;

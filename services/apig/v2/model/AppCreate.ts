@@ -5,6 +5,8 @@ export class AppCreate {
     public remark?: string;
     private 'app_key'?: string;
     private 'app_secret'?: string;
+    private 'related_domain_id'?: string;
+    private 'related_project_id'?: string;
     public constructor(name?: string) { 
         this['name'] = name;
     }
@@ -35,5 +37,25 @@ export class AppCreate {
     }
     public get appSecret(): string | undefined {
         return this['app_secret'];
+    }
+    public withRelatedDomainId(relatedDomainId: string): AppCreate {
+        this['related_domain_id'] = relatedDomainId;
+        return this;
+    }
+    public set relatedDomainId(relatedDomainId: string  | undefined) {
+        this['related_domain_id'] = relatedDomainId;
+    }
+    public get relatedDomainId(): string | undefined {
+        return this['related_domain_id'];
+    }
+    public withRelatedProjectId(relatedProjectId: string): AppCreate {
+        this['related_project_id'] = relatedProjectId;
+        return this;
+    }
+    public set relatedProjectId(relatedProjectId: string  | undefined) {
+        this['related_project_id'] = relatedProjectId;
+    }
+    public get relatedProjectId(): string | undefined {
+        return this['related_project_id'];
     }
 }

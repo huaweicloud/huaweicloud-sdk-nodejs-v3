@@ -5,10 +5,8 @@ export class UpdateProduct {
     private 'resource_spec_code'?: string;
     private 'resource_size'?: number;
     private 'resource_id'?: string;
-    public constructor(resourceType?: string, resourceSpecCode?: string, resourceSize?: number, resourceId?: string) { 
-        this['resource_type'] = resourceType;
+    public constructor(resourceSpecCode?: string, resourceId?: string) { 
         this['resource_spec_code'] = resourceSpecCode;
-        this['resource_size'] = resourceSize;
         this['resource_id'] = resourceId;
     }
     public withResourceType(resourceType: string): UpdateProduct {

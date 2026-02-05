@@ -1,3 +1,4 @@
+import { ScalingPolicyByResource } from './ScalingPolicyByResource';
 import { ScalingPolicyBySession } from './ScalingPolicyBySession';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -7,6 +8,7 @@ export class CreateOrUpdateScalingPolicyResponse extends SdkResponse {
     private 'max_scaling_amount'?: number;
     private 'single_expansion_count'?: number;
     private 'scaling_policy_by_session'?: ScalingPolicyBySession;
+    private 'scaling_policy_by_resource'?: ScalingPolicyByResource;
     public constructor() { 
         super();
     }
@@ -43,5 +45,15 @@ export class CreateOrUpdateScalingPolicyResponse extends SdkResponse {
     }
     public get scalingPolicyBySession(): ScalingPolicyBySession | undefined {
         return this['scaling_policy_by_session'];
+    }
+    public withScalingPolicyByResource(scalingPolicyByResource: ScalingPolicyByResource): CreateOrUpdateScalingPolicyResponse {
+        this['scaling_policy_by_resource'] = scalingPolicyByResource;
+        return this;
+    }
+    public set scalingPolicyByResource(scalingPolicyByResource: ScalingPolicyByResource  | undefined) {
+        this['scaling_policy_by_resource'] = scalingPolicyByResource;
+    }
+    public get scalingPolicyByResource(): ScalingPolicyByResource | undefined {
+        return this['scaling_policy_by_resource'];
     }
 }

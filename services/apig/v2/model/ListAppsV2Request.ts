@@ -6,10 +6,12 @@ export class ListAppsV2Request {
     public limit?: number;
     public id?: string;
     public name?: string;
-    public status?: number;
+    public status?: ListAppsV2RequestStatusEnum | number;
     private 'app_key'?: string;
     public creator?: string;
     private 'precise_search'?: string;
+    private 'related_domain_id'?: string;
+    private 'related_project_id'?: string;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -39,7 +41,7 @@ export class ListAppsV2Request {
         this['name'] = name;
         return this;
     }
-    public withStatus(status: number): ListAppsV2Request {
+    public withStatus(status: ListAppsV2RequestStatusEnum | number): ListAppsV2Request {
         this['status'] = status;
         return this;
     }
@@ -67,4 +69,32 @@ export class ListAppsV2Request {
     public get preciseSearch(): string | undefined {
         return this['precise_search'];
     }
+    public withRelatedDomainId(relatedDomainId: string): ListAppsV2Request {
+        this['related_domain_id'] = relatedDomainId;
+        return this;
+    }
+    public set relatedDomainId(relatedDomainId: string  | undefined) {
+        this['related_domain_id'] = relatedDomainId;
+    }
+    public get relatedDomainId(): string | undefined {
+        return this['related_domain_id'];
+    }
+    public withRelatedProjectId(relatedProjectId: string): ListAppsV2Request {
+        this['related_project_id'] = relatedProjectId;
+        return this;
+    }
+    public set relatedProjectId(relatedProjectId: string  | undefined) {
+        this['related_project_id'] = relatedProjectId;
+    }
+    public get relatedProjectId(): string | undefined {
+        return this['related_project_id'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAppsV2RequestStatusEnum {
+    NUMBER_1 = 1
 }

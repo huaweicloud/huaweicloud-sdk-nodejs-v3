@@ -1,4 +1,5 @@
 import { BackendApiBase } from './BackendApiBase';
+import { MemberGroupUrlInfo } from './MemberGroupUrlInfo';
 import { VpcInfo } from './VpcInfo';
 
 
@@ -14,16 +15,14 @@ export class BackendApi {
     private 'enable_client_ssl'?: boolean;
     private 'retry_count'?: string;
     private 'enable_sm_channel'?: boolean;
+    private 'member_group_url_infos'?: Array<MemberGroupUrlInfo>;
     public id?: string;
     public status?: number;
     private 'register_time'?: Date;
     private 'update_time'?: Date;
     private 'vpc_channel_info'?: VpcInfo;
     private 'vpc_channel_status'?: number;
-    public constructor(reqProtocol?: string, reqMethod?: string, reqUri?: string, timeout?: number) { 
-        this['req_protocol'] = reqProtocol;
-        this['req_method'] = reqMethod;
-        this['req_uri'] = reqUri;
+    public constructor(timeout?: number) { 
         this['timeout'] = timeout;
     }
     public withAuthorizerId(authorizerId: string): BackendApi {
@@ -117,6 +116,16 @@ export class BackendApi {
     }
     public get enableSmChannel(): boolean | undefined {
         return this['enable_sm_channel'];
+    }
+    public withMemberGroupUrlInfos(memberGroupUrlInfos: Array<MemberGroupUrlInfo>): BackendApi {
+        this['member_group_url_infos'] = memberGroupUrlInfos;
+        return this;
+    }
+    public set memberGroupUrlInfos(memberGroupUrlInfos: Array<MemberGroupUrlInfo>  | undefined) {
+        this['member_group_url_infos'] = memberGroupUrlInfos;
+    }
+    public get memberGroupUrlInfos(): Array<MemberGroupUrlInfo> | undefined {
+        return this['member_group_url_infos'];
     }
     public withId(id: string): BackendApi {
         this['id'] = id;

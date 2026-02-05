@@ -1,17 +1,22 @@
 
 
 export class ConfigurationUpdateReqV3 {
-    private 'update_para'?: object;
-    public constructor() { 
+    public description?: string;
+    public values?: { [key: string]: string; };
+    public name?: string;
+    public constructor(values?: { [key: string]: string; }) { 
+        this['values'] = values;
     }
-    public withUpdatePara(updatePara: object): ConfigurationUpdateReqV3 {
-        this['update_para'] = updatePara;
+    public withDescription(description: string): ConfigurationUpdateReqV3 {
+        this['description'] = description;
         return this;
     }
-    public set updatePara(updatePara: object  | undefined) {
-        this['update_para'] = updatePara;
+    public withValues(values: { [key: string]: string; }): ConfigurationUpdateReqV3 {
+        this['values'] = values;
+        return this;
     }
-    public get updatePara(): object | undefined {
-        return this['update_para'];
+    public withName(name: string): ConfigurationUpdateReqV3 {
+        this['name'] = name;
+        return this;
     }
 }

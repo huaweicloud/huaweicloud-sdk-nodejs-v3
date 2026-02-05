@@ -4,7 +4,8 @@ export class SslInfo {
     private 'ssl_id'?: string;
     private 'ssl_name'?: string;
     private 'algorithm_type'?: SslInfoAlgorithmTypeEnum | string;
-    public type?: SslInfoTypeEnum | string;
+    public type?: number;
+    private 'is_has_trusted_root_ca'?: boolean;
     public constructor() { 
     }
     public withSslId(sslId: string): SslInfo {
@@ -37,9 +38,19 @@ export class SslInfo {
     public get algorithmType(): SslInfoAlgorithmTypeEnum | string | undefined {
         return this['algorithm_type'];
     }
-    public withType(type: SslInfoTypeEnum | string): SslInfo {
+    public withType(type: number): SslInfo {
         this['type'] = type;
         return this;
+    }
+    public withIsHasTrustedRootCa(isHasTrustedRootCa: boolean): SslInfo {
+        this['is_has_trusted_root_ca'] = isHasTrustedRootCa;
+        return this;
+    }
+    public set isHasTrustedRootCa(isHasTrustedRootCa: boolean  | undefined) {
+        this['is_has_trusted_root_ca'] = isHasTrustedRootCa;
+    }
+    public get isHasTrustedRootCa(): boolean | undefined {
+        return this['is_has_trusted_root_ca'];
     }
 }
 
@@ -51,12 +62,4 @@ export enum SslInfoAlgorithmTypeEnum {
     RSA = 'RSA',
     ECC = 'ECC',
     SM2 = 'SM2'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum SslInfoTypeEnum {
-    INSTANCE = 'instance',
-    GLOBAL = 'global'
 }

@@ -1,18 +1,30 @@
-import { ParaGroupDiff } from './ParaGroupDiff';
 
 
 export class ConfigurationDiffReqV3 {
-    private 'diff_para'?: ParaGroupDiff;
-    public constructor() { 
+    private 'source_id'?: string;
+    private 'target_id'?: string;
+    public constructor(sourceId?: string, targetId?: string) { 
+        this['source_id'] = sourceId;
+        this['target_id'] = targetId;
     }
-    public withDiffPara(diffPara: ParaGroupDiff): ConfigurationDiffReqV3 {
-        this['diff_para'] = diffPara;
+    public withSourceId(sourceId: string): ConfigurationDiffReqV3 {
+        this['source_id'] = sourceId;
         return this;
     }
-    public set diffPara(diffPara: ParaGroupDiff  | undefined) {
-        this['diff_para'] = diffPara;
+    public set sourceId(sourceId: string  | undefined) {
+        this['source_id'] = sourceId;
     }
-    public get diffPara(): ParaGroupDiff | undefined {
-        return this['diff_para'];
+    public get sourceId(): string | undefined {
+        return this['source_id'];
+    }
+    public withTargetId(targetId: string): ConfigurationDiffReqV3 {
+        this['target_id'] = targetId;
+        return this;
+    }
+    public set targetId(targetId: string  | undefined) {
+        this['target_id'] = targetId;
+    }
+    public get targetId(): string | undefined {
+        return this['target_id'];
     }
 }

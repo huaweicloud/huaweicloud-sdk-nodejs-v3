@@ -3,7 +3,6 @@
 export class CreateSecretRequest {
     private 'Content-Type'?: CreateSecretRequestContentTypeEnum | string;
     public projectname?: string;
-    private 'duration_seconds'?: number;
     public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
     }
@@ -20,16 +19,6 @@ export class CreateSecretRequest {
     public withProjectname(projectname: string): CreateSecretRequest {
         this['projectname'] = projectname;
         return this;
-    }
-    public withDurationSeconds(durationSeconds: number): CreateSecretRequest {
-        this['duration_seconds'] = durationSeconds;
-        return this;
-    }
-    public set durationSeconds(durationSeconds: number  | undefined) {
-        this['duration_seconds'] = durationSeconds;
-    }
-    public get durationSeconds(): number | undefined {
-        return this['duration_seconds'];
     }
 }
 

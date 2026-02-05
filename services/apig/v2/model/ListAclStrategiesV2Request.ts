@@ -6,7 +6,7 @@ export class ListAclStrategiesV2Request {
     public limit?: number;
     public id?: string;
     public name?: string;
-    private 'acl_type'?: string;
+    private 'acl_type'?: ListAclStrategiesV2RequestAclTypeEnum | string;
     private 'entity_type'?: string;
     private 'precise_search'?: string;
     public constructor(instanceId?: string) { 
@@ -38,14 +38,14 @@ export class ListAclStrategiesV2Request {
         this['name'] = name;
         return this;
     }
-    public withAclType(aclType: string): ListAclStrategiesV2Request {
+    public withAclType(aclType: ListAclStrategiesV2RequestAclTypeEnum | string): ListAclStrategiesV2Request {
         this['acl_type'] = aclType;
         return this;
     }
-    public set aclType(aclType: string  | undefined) {
+    public set aclType(aclType: ListAclStrategiesV2RequestAclTypeEnum | string  | undefined) {
         this['acl_type'] = aclType;
     }
-    public get aclType(): string | undefined {
+    public get aclType(): ListAclStrategiesV2RequestAclTypeEnum | string | undefined {
         return this['acl_type'];
     }
     public withEntityType(entityType: string): ListAclStrategiesV2Request {
@@ -68,4 +68,13 @@ export class ListAclStrategiesV2Request {
     public get preciseSearch(): string | undefined {
         return this['precise_search'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListAclStrategiesV2RequestAclTypeEnum {
+    PERMIT = 'PERMIT',
+    DENY = 'DENY'
 }

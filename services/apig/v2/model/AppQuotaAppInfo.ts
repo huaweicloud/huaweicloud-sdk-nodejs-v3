@@ -5,6 +5,8 @@ export class AppQuotaAppInfo {
     public name?: string;
     public status?: number;
     private 'app_key'?: string;
+    private 'related_domain_id'?: string;
+    private 'related_project_id'?: string;
     public remark?: string;
     private 'register_time'?: Date;
     private 'update_time'?: Date;
@@ -40,6 +42,26 @@ export class AppQuotaAppInfo {
     }
     public get appKey(): string | undefined {
         return this['app_key'];
+    }
+    public withRelatedDomainId(relatedDomainId: string): AppQuotaAppInfo {
+        this['related_domain_id'] = relatedDomainId;
+        return this;
+    }
+    public set relatedDomainId(relatedDomainId: string  | undefined) {
+        this['related_domain_id'] = relatedDomainId;
+    }
+    public get relatedDomainId(): string | undefined {
+        return this['related_domain_id'];
+    }
+    public withRelatedProjectId(relatedProjectId: string): AppQuotaAppInfo {
+        this['related_project_id'] = relatedProjectId;
+        return this;
+    }
+    public set relatedProjectId(relatedProjectId: string  | undefined) {
+        this['related_project_id'] = relatedProjectId;
+    }
+    public get relatedProjectId(): string | undefined {
+        return this['related_project_id'];
     }
     public withRemark(remark: string): AppQuotaAppInfo {
         this['remark'] = remark;

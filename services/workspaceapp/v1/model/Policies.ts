@@ -10,6 +10,7 @@ import { PoliciesKeyboardMouse } from './PoliciesKeyboardMouse';
 import { PoliciesPeripherals } from './PoliciesPeripherals';
 import { PoliciesUrlRedirection } from './PoliciesUrlRedirection';
 import { PoliciesUserProfile } from './PoliciesUserProfile';
+import { PoliciesUserProfileManagement } from './PoliciesUserProfileManagement';
 import { Session } from './Session';
 import { VirtualChannel } from './VirtualChannel';
 
@@ -29,6 +30,7 @@ export class Policies {
     private 'user_profile'?: PoliciesUserProfile;
     private 'url_redirection'?: PoliciesUrlRedirection;
     private 'folder_redirection'?: PoliciesFolderRedirection;
+    private 'user_profile_management'?: PoliciesUserProfileManagement;
     public constructor() { 
     }
     public withPeripherals(peripherals: PoliciesPeripherals): Policies {
@@ -128,5 +130,15 @@ export class Policies {
     }
     public get folderRedirection(): PoliciesFolderRedirection | undefined {
         return this['folder_redirection'];
+    }
+    public withUserProfileManagement(userProfileManagement: PoliciesUserProfileManagement): Policies {
+        this['user_profile_management'] = userProfileManagement;
+        return this;
+    }
+    public set userProfileManagement(userProfileManagement: PoliciesUserProfileManagement  | undefined) {
+        this['user_profile_management'] = userProfileManagement;
+    }
+    public get userProfileManagement(): PoliciesUserProfileManagement | undefined {
+        return this['user_profile_management'];
     }
 }

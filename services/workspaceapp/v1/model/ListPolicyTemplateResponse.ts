@@ -1,11 +1,11 @@
 import { PageResp } from './PageResp';
-import { PolicyGroup } from './PolicyGroup';
+import { PolicyGroupForTemplate } from './PolicyGroupForTemplate';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListPolicyTemplateResponse extends SdkResponse {
     public count?: number;
-    public items?: Array<PolicyGroup>;
+    public items?: Array<PolicyGroupForTemplate>;
     public constructor() { 
         super();
     }
@@ -13,7 +13,7 @@ export class ListPolicyTemplateResponse extends SdkResponse {
         this['count'] = count;
         return this;
     }
-    public withItems(items: Array<PolicyGroup>): ListPolicyTemplateResponse {
+    public withItems(items: Array<PolicyGroupForTemplate>): ListPolicyTemplateResponse {
         this['items'] = items;
         return this;
     }

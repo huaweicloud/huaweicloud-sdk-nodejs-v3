@@ -2,6 +2,7 @@ import { ApiPolicyHttpBase } from './ApiPolicyHttpBase';
 import { ApiPolicyRespBase } from './ApiPolicyRespBase';
 import { BackendParam } from './BackendParam';
 import { CoditionResp } from './CoditionResp';
+import { MemberGroupUrlInfo } from './MemberGroupUrlInfo';
 import { VpcInfo } from './VpcInfo';
 
 
@@ -19,15 +20,13 @@ export class ApiPolicyHttpResp {
     public timeout?: number;
     private 'retry_count'?: string;
     private 'enable_sm_channel'?: boolean;
+    private 'member_group_url_infos'?: Array<MemberGroupUrlInfo>;
     private 'vpc_channel_info'?: VpcInfo;
-    private 'vpc_channel_status'?: number;
-    public constructor(effectMode?: string, name?: string, conditions?: Array<CoditionResp>, reqProtocol?: string, reqMethod?: string, reqUri?: string) { 
+    private 'vpc_channel_status'?: ApiPolicyHttpRespVpcChannelStatusEnum | number;
+    public constructor(effectMode?: string, name?: string, conditions?: Array<CoditionResp>) { 
         this['effect_mode'] = effectMode;
         this['name'] = name;
         this['conditions'] = conditions;
-        this['req_protocol'] = reqProtocol;
-        this['req_method'] = reqMethod;
-        this['req_uri'] = reqUri;
     }
     public withId(id: string): ApiPolicyHttpResp {
         this['id'] = id;
@@ -135,6 +134,16 @@ export class ApiPolicyHttpResp {
     public get enableSmChannel(): boolean | undefined {
         return this['enable_sm_channel'];
     }
+    public withMemberGroupUrlInfos(memberGroupUrlInfos: Array<MemberGroupUrlInfo>): ApiPolicyHttpResp {
+        this['member_group_url_infos'] = memberGroupUrlInfos;
+        return this;
+    }
+    public set memberGroupUrlInfos(memberGroupUrlInfos: Array<MemberGroupUrlInfo>  | undefined) {
+        this['member_group_url_infos'] = memberGroupUrlInfos;
+    }
+    public get memberGroupUrlInfos(): Array<MemberGroupUrlInfo> | undefined {
+        return this['member_group_url_infos'];
+    }
     public withVpcChannelInfo(vpcChannelInfo: VpcInfo): ApiPolicyHttpResp {
         this['vpc_channel_info'] = vpcChannelInfo;
         return this;
@@ -145,14 +154,14 @@ export class ApiPolicyHttpResp {
     public get vpcChannelInfo(): VpcInfo | undefined {
         return this['vpc_channel_info'];
     }
-    public withVpcChannelStatus(vpcChannelStatus: number): ApiPolicyHttpResp {
+    public withVpcChannelStatus(vpcChannelStatus: ApiPolicyHttpRespVpcChannelStatusEnum | number): ApiPolicyHttpResp {
         this['vpc_channel_status'] = vpcChannelStatus;
         return this;
     }
-    public set vpcChannelStatus(vpcChannelStatus: number  | undefined) {
+    public set vpcChannelStatus(vpcChannelStatus: ApiPolicyHttpRespVpcChannelStatusEnum | number  | undefined) {
         this['vpc_channel_status'] = vpcChannelStatus;
     }
-    public get vpcChannelStatus(): number | undefined {
+    public get vpcChannelStatus(): ApiPolicyHttpRespVpcChannelStatusEnum | number | undefined {
         return this['vpc_channel_status'];
     }
 }
@@ -188,4 +197,14 @@ export enum ApiPolicyHttpRespReqMethodEnum {
     PATCH = 'PATCH',
     OPTIONS = 'OPTIONS',
     ANY = 'ANY'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiPolicyHttpRespVpcChannelStatusEnum {
+    NUMBER_1 = 1,
+    NUMBER_2 = 2,
+    NUMBER_3 = 3,
+    NUMBER_4 = 4
 }

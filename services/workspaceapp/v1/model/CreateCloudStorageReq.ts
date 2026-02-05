@@ -1,18 +1,19 @@
+import { ProjectConfigClusterGroupIdEntity } from './ProjectConfigClusterGroupIdEntity';
 
 
 export class CreateCloudStorageReq {
-    private 'project_config_ids'?: Array<string>;
-    public constructor(projectConfigIds?: Array<string>) { 
-        this['project_config_ids'] = projectConfigIds;
+    private 'project_config_cluster_group_id_list'?: Array<ProjectConfigClusterGroupIdEntity>;
+    public constructor(projectConfigClusterGroupIdList?: Array<ProjectConfigClusterGroupIdEntity>) { 
+        this['project_config_cluster_group_id_list'] = projectConfigClusterGroupIdList;
     }
-    public withProjectConfigIds(projectConfigIds: Array<string>): CreateCloudStorageReq {
-        this['project_config_ids'] = projectConfigIds;
+    public withProjectConfigClusterGroupIdList(projectConfigClusterGroupIdList: Array<ProjectConfigClusterGroupIdEntity>): CreateCloudStorageReq {
+        this['project_config_cluster_group_id_list'] = projectConfigClusterGroupIdList;
         return this;
     }
-    public set projectConfigIds(projectConfigIds: Array<string>  | undefined) {
-        this['project_config_ids'] = projectConfigIds;
+    public set projectConfigClusterGroupIdList(projectConfigClusterGroupIdList: Array<ProjectConfigClusterGroupIdEntity>  | undefined) {
+        this['project_config_cluster_group_id_list'] = projectConfigClusterGroupIdList;
     }
-    public get projectConfigIds(): Array<string> | undefined {
-        return this['project_config_ids'];
+    public get projectConfigClusterGroupIdList(): Array<ProjectConfigClusterGroupIdEntity> | undefined {
+        return this['project_config_cluster_group_id_list'];
     }
 }

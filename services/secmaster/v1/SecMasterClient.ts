@@ -540,6 +540,7 @@ import { ImportIncidentsResponseBodyData } from './model/ImportIncidentsResponse
 import { ImportIndicatorsRequest } from './model/ImportIndicatorsRequest';
 import { ImportIndicatorsRequestBody } from './model/ImportIndicatorsRequestBody';
 import { ImportIndicatorsResponse } from './model/ImportIndicatorsResponse';
+import { ImportIndicatorsResponseBodyData } from './model/ImportIndicatorsResponseBodyData';
 import { ImportParserVo } from './model/ImportParserVo';
 import { ImportPlaybookRequest } from './model/ImportPlaybookRequest';
 import { ImportPlaybookRequestBody } from './model/ImportPlaybookRequestBody';
@@ -557,7 +558,6 @@ import { IncidentDetail } from './model/IncidentDetail';
 import { IncidentEnvironment } from './model/IncidentEnvironment';
 import { IncidentIncidentType } from './model/IncidentIncidentType';
 import { IncidentResourceList } from './model/IncidentResourceList';
-import { Index } from './model/Index';
 import { IndicatorBatchOperateResponse } from './model/IndicatorBatchOperateResponse';
 import { IndicatorCreateRequest } from './model/IndicatorCreateRequest';
 import { IndicatorDataObjectDetail } from './model/IndicatorDataObjectDetail';
@@ -628,7 +628,7 @@ import { ListCollectConfigRequest } from './model/ListCollectConfigRequest';
 import { ListCollectConfigResponse } from './model/ListCollectConfigResponse';
 import { ListCollectConfigResponseBodyAccounts } from './model/ListCollectConfigResponseBodyAccounts';
 import { ListCollectConfigResponseBodyAllVendors } from './model/ListCollectConfigResponseBodyAllVendors';
-import { ListCollectConfigResponseBodyCofingStatistics } from './model/ListCollectConfigResponseBodyCofingStatistics';
+import { ListCollectConfigResponseBodyConfigStatistics } from './model/ListCollectConfigResponseBodyConfigStatistics';
 import { ListCollectConfigResponseBodyCsvcList } from './model/ListCollectConfigResponseBodyCsvcList';
 import { ListCollectConfigResponseBodyDataList } from './model/ListCollectConfigResponseBodyDataList';
 import { ListCollectConfigResponseBodyDatasets } from './model/ListCollectConfigResponseBodyDatasets';
@@ -7713,7 +7713,7 @@ export class SecMasterClient {
      * @summary 修改索引
      * @param {string} workspaceId 工作空间ID
      * @param {string} pipeId 管道ID
-     * @param {Index} updatePipeIndexRequestBody 修改索引请求体
+     * @param {UpdateIndexRequestBody} updatePipeIndexRequestBody 修改索引请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -7880,11 +7880,11 @@ export class SecMasterClient {
     }
 
     /**
-     * 更新订购资源
+     * 更新订阅资源
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 更新订购资源
+     * @summary 更新订阅资源
      * @param {string} xLanguage 用户当前语言环境
      * @param {UpdateOrderInfoReq} updateSubscriptionOrderRequestBody 云脑计费资源变更参数请求体
      * @param {*} [options] Override http request option.
@@ -25558,7 +25558,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新订购资源
+         * 更新订阅资源
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

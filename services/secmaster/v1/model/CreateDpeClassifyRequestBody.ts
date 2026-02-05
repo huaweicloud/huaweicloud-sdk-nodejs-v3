@@ -1,3 +1,4 @@
+import { CreateDpeMappingRequestBody } from './CreateDpeMappingRequestBody';
 import { DpeClassifyCreate } from './DpeClassifyCreate';
 
 
@@ -10,6 +11,7 @@ export class CreateDpeClassifyRequestBody {
     private 'data_source'?: string;
     public description?: string;
     public classifier?: DpeClassifyCreate;
+    public mapper?: CreateDpeMappingRequestBody;
     public constructor(id?: string, name?: string, dataclassId?: string, dataSource?: string, description?: string, classifier?: DpeClassifyCreate) { 
         this['id'] = id;
         this['name'] = name;
@@ -72,6 +74,10 @@ export class CreateDpeClassifyRequestBody {
     }
     public withClassifier(classifier: DpeClassifyCreate): CreateDpeClassifyRequestBody {
         this['classifier'] = classifier;
+        return this;
+    }
+    public withMapper(mapper: CreateDpeMappingRequestBody): CreateDpeClassifyRequestBody {
+        this['mapper'] = mapper;
         return this;
     }
 }

@@ -1,10 +1,10 @@
-import { Index } from './Index';
+import { UpdateIndexRequestBody } from './UpdateIndexRequestBody';
 
 
 export class UpdatePipeIndexRequest {
     private 'workspace_id'?: string;
     private 'pipe_id'?: string;
-    public body?: Index;
+    public body?: UpdateIndexRequestBody;
     public constructor(workspaceId?: string, pipeId?: string) { 
         this['workspace_id'] = workspaceId;
         this['pipe_id'] = pipeId;
@@ -29,7 +29,7 @@ export class UpdatePipeIndexRequest {
     public get pipeId(): string | undefined {
         return this['pipe_id'];
     }
-    public withBody(body: Index): UpdatePipeIndexRequest {
+    public withBody(body: UpdateIndexRequestBody): UpdatePipeIndexRequest {
         this['body'] = body;
         return this;
     }

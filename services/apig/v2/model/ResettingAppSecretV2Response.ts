@@ -9,6 +9,8 @@ export class ResettingAppSecretV2Response extends SdkResponse {
     public creator?: ResettingAppSecretV2ResponseCreatorEnum | string;
     private 'update_time'?: Date;
     private 'app_key'?: string;
+    private 'related_domain_id'?: string;
+    private 'related_project_id'?: string;
     private 'app_secret'?: string;
     private 'register_time'?: Date;
     public status?: ResettingAppSecretV2ResponseStatusEnum | number;
@@ -52,6 +54,26 @@ export class ResettingAppSecretV2Response extends SdkResponse {
     }
     public get appKey(): string | undefined {
         return this['app_key'];
+    }
+    public withRelatedDomainId(relatedDomainId: string): ResettingAppSecretV2Response {
+        this['related_domain_id'] = relatedDomainId;
+        return this;
+    }
+    public set relatedDomainId(relatedDomainId: string  | undefined) {
+        this['related_domain_id'] = relatedDomainId;
+    }
+    public get relatedDomainId(): string | undefined {
+        return this['related_domain_id'];
+    }
+    public withRelatedProjectId(relatedProjectId: string): ResettingAppSecretV2Response {
+        this['related_project_id'] = relatedProjectId;
+        return this;
+    }
+    public set relatedProjectId(relatedProjectId: string  | undefined) {
+        this['related_project_id'] = relatedProjectId;
+    }
+    public get relatedProjectId(): string | undefined {
+        return this['related_project_id'];
     }
     public withAppSecret(appSecret: string): ResettingAppSecretV2Response {
         this['app_secret'] = appSecret;
@@ -119,6 +141,5 @@ export enum ResettingAppSecretV2ResponseStatusEnum {
     * @enum {string}
     */
 export enum ResettingAppSecretV2ResponseAppTypeEnum {
-    APIG = 'apig',
-    ROMA = 'roma'
+    APIG = 'apig'
 }

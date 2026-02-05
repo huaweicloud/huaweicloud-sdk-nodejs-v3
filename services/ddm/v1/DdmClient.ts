@@ -12,6 +12,9 @@ import { AvailableZone } from './model/AvailableZone';
 import { BackupInfo } from './model/BackupInfo';
 import { BatchDeleteNodesRequest } from './model/BatchDeleteNodesRequest';
 import { BatchDeleteNodesResponse } from './model/BatchDeleteNodesResponse';
+import { BatchModifyReadAndWriteStrategyRequest } from './model/BatchModifyReadAndWriteStrategyRequest';
+import { BatchModifyReadWriteStrategyRequest } from './model/BatchModifyReadWriteStrategyRequest';
+import { BatchModifyReadWriteStrategyResponse } from './model/BatchModifyReadWriteStrategyResponse';
 import { BindEipOpenRequest } from './model/BindEipOpenRequest';
 import { BindEipRequest } from './model/BindEipRequest';
 import { BindEipResponse } from './model/BindEipResponse';
@@ -21,8 +24,8 @@ import { ChangeDatabaseVersionRequest } from './model/ChangeDatabaseVersionReque
 import { ChangeDatabaseVersionResponse } from './model/ChangeDatabaseVersionResponse';
 import { ChangeStrategyRequest } from './model/ChangeStrategyRequest';
 import { ChangeStrategyResponse } from './model/ChangeStrategyResponse';
-import { CheckDataNodeConnectionV0V3Request } from './model/CheckDataNodeConnectionV0V3Request';
-import { CheckDataNodeConnectionV0V3Response } from './model/CheckDataNodeConnectionV0V3Response';
+import { CheckDataNodeConnectionRequest } from './model/CheckDataNodeConnectionRequest';
+import { CheckDataNodeConnectionResponse } from './model/CheckDataNodeConnectionResponse';
 import { CheckMigrateLogicDbRequest } from './model/CheckMigrateLogicDbRequest';
 import { CheckMigrateLogicDbResponse } from './model/CheckMigrateLogicDbResponse';
 import { CheckPreliminaryResultsRequest } from './model/CheckPreliminaryResultsRequest';
@@ -34,14 +37,15 @@ import { CompareParameterGroupsRequest } from './model/CompareParameterGroupsReq
 import { CompareParameterGroupsResponse } from './model/CompareParameterGroupsResponse';
 import { ComputeFlavorGroupsInfo } from './model/ComputeFlavorGroupsInfo';
 import { ComputeFlavors } from './model/ComputeFlavors';
+import { ConfigSqlBlacklistReqV3VO } from './model/ConfigSqlBlacklistReqV3VO';
 import { ConfigurationCopyReqV3 } from './model/ConfigurationCopyReqV3';
 import { ConfigurationDiffReqV3 } from './model/ConfigurationDiffReqV3';
 import { ConfigurationInfo } from './model/ConfigurationInfo';
 import { ConfigurationParameter } from './model/ConfigurationParameter';
 import { ConfigurationParameterList } from './model/ConfigurationParameterList';
 import { ConfigurationUpdateReqV3 } from './model/ConfigurationUpdateReqV3';
-import { CopyParameterGroupRequest } from './model/CopyParameterGroupRequest';
-import { CopyParameterGroupResponse } from './model/CopyParameterGroupResponse';
+import { CopyConfigurationRequest } from './model/CopyConfigurationRequest';
+import { CopyConfigurationResponse } from './model/CopyConfigurationResponse';
 import { CreateConfigurationRequest } from './model/CreateConfigurationRequest';
 import { CreateDatabaseDetail } from './model/CreateDatabaseDetail';
 import { CreateDatabaseDetailResponses } from './model/CreateDatabaseDetailResponses';
@@ -70,6 +74,7 @@ import { CreateUsersInfo } from './model/CreateUsersInfo';
 import { CreateUsersReq } from './model/CreateUsersReq';
 import { CreateUsersRequest } from './model/CreateUsersRequest';
 import { CreateUsersResponse } from './model/CreateUsersResponse';
+import { CustomerInstanceVO } from './model/CustomerInstanceVO';
 import { DDMInstance4Restore } from './model/DDMInstance4Restore';
 import { DNInstance } from './model/DNInstance';
 import { DataNode } from './model/DataNode';
@@ -101,6 +106,8 @@ import { DeleteUserResponse } from './model/DeleteUserResponse';
 import { DnInstanceInfo } from './model/DnInstanceInfo';
 import { DownloadSchemaMetadataRequest } from './model/DownloadSchemaMetadataRequest';
 import { DownloadSchemaMetadataResponse } from './model/DownloadSchemaMetadataResponse';
+import { ESDBSlowSqlTemplateItem } from './model/ESDBSlowSqlTemplateItem';
+import { ElbIpGroupOpsReq } from './model/ElbIpGroupOpsReq';
 import { EngineGroupInfo } from './model/EngineGroupInfo';
 import { EngineGroupsInfo } from './model/EngineGroupsInfo';
 import { EnlargeNodeInfo } from './model/EnlargeNodeInfo';
@@ -131,6 +138,7 @@ import { GroupNodeInfo } from './model/GroupNodeInfo';
 import { IamAccount } from './model/IamAccount';
 import { Instance } from './model/Instance';
 import { InstanceDetail } from './model/InstanceDetail';
+import { IpGroupItem } from './model/IpGroupItem';
 import { JobInfo } from './model/JobInfo';
 import { JobItem } from './model/JobItem';
 import { KillProcessesOpenRequest } from './model/KillProcessesOpenRequest';
@@ -145,6 +153,8 @@ import { ListAvailableRdsRequest } from './model/ListAvailableRdsRequest';
 import { ListAvailableRdsResponse } from './model/ListAvailableRdsResponse';
 import { ListBackupsRequest } from './model/ListBackupsRequest';
 import { ListBackupsResponse } from './model/ListBackupsResponse';
+import { ListConfigurationApplyHistoriesRequest } from './model/ListConfigurationApplyHistoriesRequest';
+import { ListConfigurationApplyHistoriesResponse } from './model/ListConfigurationApplyHistoriesResponse';
 import { ListDatabaseAvailableVersionsRequest } from './model/ListDatabaseAvailableVersionsRequest';
 import { ListDatabaseAvailableVersionsResponse } from './model/ListDatabaseAvailableVersionsResponse';
 import { ListDatabasesRequest } from './model/ListDatabasesRequest';
@@ -155,26 +165,30 @@ import { ListDdmEnginesRequest } from './model/ListDdmEnginesRequest';
 import { ListDdmEnginesResponse } from './model/ListDdmEnginesResponse';
 import { ListDdmFlavorsRequest } from './model/ListDdmFlavorsRequest';
 import { ListDdmFlavorsResponse } from './model/ListDdmFlavorsResponse';
+import { ListDdmsRequest } from './model/ListDdmsRequest';
+import { ListDdmsResponse } from './model/ListDdmsResponse';
 import { ListEnginesRequest } from './model/ListEnginesRequest';
 import { ListEnginesResponse } from './model/ListEnginesResponse';
 import { ListFlavorsRequest } from './model/ListFlavorsRequest';
 import { ListFlavorsResponse } from './model/ListFlavorsResponse';
 import { ListGroupRequest } from './model/ListGroupRequest';
 import { ListGroupResponse } from './model/ListGroupResponse';
-import { ListInstancesAppliedParameterGroupV0V3Request } from './model/ListInstancesAppliedParameterGroupV0V3Request';
-import { ListInstancesAppliedParameterGroupV0V3Response } from './model/ListInstancesAppliedParameterGroupV0V3Response';
+import { ListInstancesConfigurationsRequest } from './model/ListInstancesConfigurationsRequest';
+import { ListInstancesConfigurationsResponse } from './model/ListInstancesConfigurationsResponse';
 import { ListInstancesRequest } from './model/ListInstancesRequest';
 import { ListInstancesResponse } from './model/ListInstancesResponse';
 import { ListNodesRequest } from './model/ListNodesRequest';
 import { ListNodesResponse } from './model/ListNodesResponse';
-import { ListParameterGroupApplyHistoryV0V3Request } from './model/ListParameterGroupApplyHistoryV0V3Request';
-import { ListParameterGroupApplyHistoryV0V3Response } from './model/ListParameterGroupApplyHistoryV0V3Response';
 import { ListReadWriteRatioRequest } from './model/ListReadWriteRatioRequest';
 import { ListReadWriteRatioResponse } from './model/ListReadWriteRatioResponse';
+import { ListSlowLogAnalysisRequest } from './model/ListSlowLogAnalysisRequest';
+import { ListSlowLogAnalysisResponse } from './model/ListSlowLogAnalysisResponse';
 import { ListSlowLogRequest } from './model/ListSlowLogRequest';
 import { ListSlowLogResponse } from './model/ListSlowLogResponse';
 import { ListSlowLogsRequest } from './model/ListSlowLogsRequest';
 import { ListSlowLogsResponse } from './model/ListSlowLogsResponse';
+import { ListSqlBlackRequest } from './model/ListSqlBlackRequest';
+import { ListSqlBlackResponse } from './model/ListSqlBlackResponse';
 import { ListTasksRequest } from './model/ListTasksRequest';
 import { ListTasksResponse } from './model/ListTasksResponse';
 import { ListUsersRequest } from './model/ListUsersRequest';
@@ -196,10 +210,10 @@ import { ModifyElbVipOpenReq } from './model/ModifyElbVipOpenReq';
 import { ModifyInstanceNameReq } from './model/ModifyInstanceNameReq';
 import { ModifyInstanceSecurityGroupReq } from './model/ModifyInstanceSecurityGroupReq';
 import { ModifyReadAndWriteStrategyReq } from './model/ModifyReadAndWriteStrategyReq';
+import { ModifySqlBlackListRequest } from './model/ModifySqlBlackListRequest';
+import { ModifySqlBlackListResponse } from './model/ModifySqlBlackListResponse';
 import { NodeInfo } from './model/NodeInfo';
 import { NodeList } from './model/NodeList';
-import { ParaGroupCopy } from './model/ParaGroupCopy';
-import { ParaGroupDiff } from './model/ParaGroupDiff';
 import { ParaGroupUpdate } from './model/ParaGroupUpdate';
 import { ParamGroupParameterDiffV3 } from './model/ParamGroupParameterDiffV3';
 import { PhysicalProcessInfo } from './model/PhysicalProcessInfo';
@@ -271,8 +285,12 @@ import { ShowInstanceParamRequest } from './model/ShowInstanceParamRequest';
 import { ShowInstanceParamResponse } from './model/ShowInstanceParamResponse';
 import { ShowInstanceRequest } from './model/ShowInstanceRequest';
 import { ShowInstanceResponse } from './model/ShowInstanceResponse';
+import { ShowIpGroupRequest } from './model/ShowIpGroupRequest';
+import { ShowIpGroupResponse } from './model/ShowIpGroupResponse';
 import { ShowLogicalProcessesRequest } from './model/ShowLogicalProcessesRequest';
 import { ShowLogicalProcessesResponse } from './model/ShowLogicalProcessesResponse';
+import { ShowMigrationLogRequest } from './model/ShowMigrationLogRequest';
+import { ShowMigrationLogResponse } from './model/ShowMigrationLogResponse';
 import { ShowNodeRequest } from './model/ShowNodeRequest';
 import { ShowNodeResponse } from './model/ShowNodeResponse';
 import { ShowPhysicalProcessesRequest } from './model/ShowPhysicalProcessesRequest';
@@ -290,6 +308,8 @@ import { ShrinkInstanceNodesResponse } from './model/ShrinkInstanceNodesResponse
 import { SlowLogList } from './model/SlowLogList';
 import { SlowLogs } from './model/SlowLogs';
 import { SupportAzsInfo } from './model/SupportAzsInfo';
+import { SwitchIpGroupRequest } from './model/SwitchIpGroupRequest';
+import { SwitchIpGroupResponse } from './model/SwitchIpGroupResponse';
 import { SwitchRouteRequest } from './model/SwitchRouteRequest';
 import { SwitchRouteResponse } from './model/SwitchRouteResponse';
 import { SwitchSslOpenRequest } from './model/SwitchSslOpenRequest';
@@ -298,8 +318,8 @@ import { SwitchSslResponse } from './model/SwitchSslResponse';
 import { SyncDnInformationRequest } from './model/SyncDnInformationRequest';
 import { SyncDnInformationResponse } from './model/SyncDnInformationResponse';
 import { Tags } from './model/Tags';
-import { TagsInfo } from './model/TagsInfo';
 import { TargetDn4Restore } from './model/TargetDn4Restore';
+import { TaskLogsVO } from './model/TaskLogsVO';
 import { UnbindEipRequest } from './model/UnbindEipRequest';
 import { UnbindEipResponse } from './model/UnbindEipResponse';
 import { UpdateDatabaseInfoRequest } from './model/UpdateDatabaseInfoRequest';
@@ -1215,6 +1235,26 @@ export class DdmClient {
     }
 
     /**
+     * 查询实例列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例列表
+     * @param {number} [offset] **参数解释**：  分页参数: 起始值。  **约束限制**：  不涉及。  **取值范围**：  大于等于0。  **默认取值**：  默认值是0。
+     * @param {number} [limit] **参数解释**：  分页参数: 每页记录数。  **约束限制**：  不涉及。  **取值范围**：  大于0且小于等于128。  **默认取值**：  默认值是10。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDdms(listDdmsRequest?: ListDdmsRequest): Promise<ListDdmsResponse> {
+        const options = ParamCreater().listDdms(listDdmsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询DDM引擎信息详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1356,6 +1396,30 @@ export class DdmClient {
      */
     public listSlowLog(listSlowLogRequest?: ListSlowLogRequest): Promise<ListSlowLogResponse> {
         const options = ParamCreater().listSlowLog(listSlowLogRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询慢日志V3
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询慢日志
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {number} startDate **参数解释**：  开始时间。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {number} endDate **参数解释**：  结束时间。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {number} [offset] **参数解释**：  分页参数: 起始值。  **约束限制**：  不涉及。  **取值范围**：  大于等于0。  **默认取值**：  默认值是0。
+     * @param {number} [limit] **参数解释**：  分页参数: 每页记录数。  **约束限制**：  不涉及。  **取值范围**：  大于0且小于等于128。  **默认取值**：  默认值是10。
+     * @param {string} [order] **参数解释**：  排序。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSlowLogAnalysis(listSlowLogAnalysisRequest?: ListSlowLogAnalysisRequest): Promise<ListSlowLogAnalysisResponse> {
+        const options = ParamCreater().listSlowLogAnalysis(listSlowLogAnalysisRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1915,6 +1979,26 @@ export class DdmClient {
     }
 
     /**
+     * 查询访问控制组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询访问控制组
+     * @param {string} groupId **参数解释**：  组ID，此参数是组的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成。  **默认取值**：  不涉及。
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showIpGroup(showIpGroupRequest?: ShowIpGroupRequest): Promise<ShowIpGroupResponse> {
+        const options = ParamCreater().showIpGroup(showIpGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询逻辑会话列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1929,6 +2013,28 @@ export class DdmClient {
      */
     public showLogicalProcesses(showLogicalProcessesRequest?: ShowLogicalProcessesRequest): Promise<ShowLogicalProcessesResponse> {
         const options = ParamCreater().showLogicalProcesses(showLogicalProcessesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询分片变更的日志
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询分片变更的日志
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} taskId **参数解释**：  分片变更任务 ID。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成。  **默认取值**：  不涉及。
+     * @param {number} [offset] **参数解释**：  分页参数: 起始值。  **约束限制**：  不涉及。  **取值范围**：  大于等于0。  **默认取值**：  默认值是0。
+     * @param {number} [limit] **参数解释**：  分页参数: 每页记录数。  **约束限制**：  不涉及。  **取值范围**：  大于0且小于等于128。  **默认取值**：  默认值是10。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showMigrationLog(showMigrationLogRequest?: ShowMigrationLogRequest): Promise<ShowMigrationLogResponse> {
+        const options = ParamCreater().showMigrationLog(showMigrationLogRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2055,6 +2161,27 @@ export class DdmClient {
      */
     public shrinkInstanceNodes(shrinkInstanceNodesRequest?: ShrinkInstanceNodesRequest): Promise<ShrinkInstanceNodesResponse> {
         const options = ParamCreater().shrinkInstanceNodes(shrinkInstanceNodesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建访问控制组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建访问控制组
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} groupId **参数解释**：  组ID，此参数是组的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成。  **默认取值**：  不涉及。
+     * @param {ElbIpGroupOpsReq} switchIpGroupRequestBody **参数解释**：  创建访问控制组的请求体。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchIpGroup(switchIpGroupRequest?: SwitchIpGroupRequest): Promise<SwitchIpGroupResponse> {
+        const options = ParamCreater().switchIpGroup(switchIpGroupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2327,12 +2454,13 @@ export class DdmClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary rds连通性检查V3
-     * @param {EsdbCheckRdsConnectionsRequestV3} checkDataNodeConnectionV0V3RequestBody **参数解释**：  rds连通性检查的请求体。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {EsdbCheckRdsConnectionsRequestV3} checkDataNodeConnectionRequestBody **参数解释**：  rds连通性检查的请求体。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public checkDataNodeConnectionV0V3(checkDataNodeConnectionV0V3Request?: CheckDataNodeConnectionV0V3Request): Promise<CheckDataNodeConnectionV0V3Response> {
-        const options = ParamCreater().checkDataNodeConnectionV0V3(checkDataNodeConnectionV0V3Request);
+    public checkDataNodeConnection(checkDataNodeConnectionRequest?: CheckDataNodeConnectionRequest): Promise<CheckDataNodeConnectionResponse> {
+        const options = ParamCreater().checkDataNodeConnection(checkDataNodeConnectionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2365,13 +2493,34 @@ export class DdmClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 复制参数组V3
-     * @param {string} configId **参数解释**：  参数组ID。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，长度为36个字符。  **默认取值**：  不涉及。
-     * @param {ConfigurationCopyReqV3} copyParameterGroupRequestBody **参数解释**：  复制参数组的请求体。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {string} configId **参数解释**：  参数组ID。不能使用默认参数组进行复制  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {ConfigurationCopyReqV3} copyConfigurationRequestBody **参数解释**：  复制参数组的请求体。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public copyParameterGroup(copyParameterGroupRequest?: CopyParameterGroupRequest): Promise<CopyParameterGroupResponse> {
-        const options = ParamCreater().copyParameterGroup(copyParameterGroupRequest);
+    public copyConfiguration(copyConfigurationRequest?: CopyConfigurationRequest): Promise<CopyConfigurationResponse> {
+        const options = ParamCreater().copyConfiguration(copyConfigurationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 参数组应用记录V3
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 参数组应用记录V3
+     * @param {string} configId **参数解释**：  参数组ID。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {number} [offset] **参数解释**：  分页参数: 起始值。  **约束限制**：  不涉及。  **取值范围**：  大于等于0。  **默认取值**：  默认值是0。
+     * @param {number} [limit] **参数解释**：  分页参数: 每页记录数。  **约束限制**：  不涉及。  **取值范围**：  大于0且小于等于128。  **默认取值**：  默认值是10。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listConfigurationApplyHistories(listConfigurationApplyHistoriesRequest?: ListConfigurationApplyHistoriesRequest): Promise<ListConfigurationApplyHistoriesResponse> {
+        const options = ParamCreater().listConfigurationApplyHistories(listConfigurationApplyHistoriesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2391,29 +2540,8 @@ export class DdmClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listInstancesAppliedParameterGroupV0V3(listInstancesAppliedParameterGroupV0V3Request?: ListInstancesAppliedParameterGroupV0V3Request): Promise<ListInstancesAppliedParameterGroupV0V3Response> {
-        const options = ParamCreater().listInstancesAppliedParameterGroupV0V3(listInstancesAppliedParameterGroupV0V3Request);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 参数组应用记录V3
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 参数组应用记录V3
-     * @param {string} configId **参数解释**：  参数组ID。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，长度为36个字符。  **默认取值**：  不涉及。
-     * @param {number} [offset] **参数解释**：  分页参数: 起始值。  **约束限制**：  不涉及。  **取值范围**：  大于等于0。  **默认取值**：  默认值是0。     
-     * @param {number} [limit] **参数解释**：  分页参数: 每页记录数。  **约束限制**：  不涉及。  **取值范围**：  大于0且小于等于128。  **默认取值**：  默认值是10。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listParameterGroupApplyHistoryV0V3(listParameterGroupApplyHistoryV0V3Request?: ListParameterGroupApplyHistoryV0V3Request): Promise<ListParameterGroupApplyHistoryV0V3Response> {
-        const options = ParamCreater().listParameterGroupApplyHistoryV0V3(listParameterGroupApplyHistoryV0V3Request);
+    public listInstancesConfigurations(listInstancesConfigurationsRequest?: ListInstancesConfigurationsRequest): Promise<ListInstancesConfigurationsResponse> {
+        const options = ParamCreater().listInstancesConfigurations(listInstancesConfigurationsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2447,12 +2575,73 @@ export class DdmClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询实例详情V3
-     * @param {string} instanceId 实例 ID。
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public showDdmDetail(showDdmDetailRequest?: ShowDdmDetailRequest): Promise<ShowDdmDetailResponse> {
         const options = ParamCreater().showDdmDetail(showDdmDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量设置读策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量设置读策略V3
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {BatchModifyReadAndWriteStrategyRequest} batchModifyReadWriteStrategyRequestBody **参数解释**：  批量设置读策略的请求体。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchModifyReadWriteStrategy(batchModifyReadWriteStrategyRequest?: BatchModifyReadWriteStrategyRequest): Promise<BatchModifyReadWriteStrategyResponse> {
+        const options = ParamCreater().batchModifyReadWriteStrategy(batchModifyReadWriteStrategyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改sql黑名单V3
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改sql黑名单
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} logicDbName **参数解释**：  逻辑库名称。  **约束限制**：  不涉及  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {ConfigSqlBlacklistReqV3VO} modifySqlBlackListRequestBody **参数解释**：  修改sql黑名单的请求体。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifySqlBlackList(modifySqlBlackListRequest?: ModifySqlBlackListRequest): Promise<ModifySqlBlackListResponse> {
+        const options = ParamCreater().modifySqlBlackList(modifySqlBlackListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询sql黑名单
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询sql黑名单V3
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} logicDbName **参数解释**：  逻辑库名称。  **约束限制**：  不涉及  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSqlBlack(listSqlBlackRequest?: ListSqlBlackRequest): Promise<ListSqlBlackResponse> {
+        const options = ParamCreater().listSqlBlack(listSqlBlackRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4437,6 +4626,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDdms(listDdmsRequest?: ListDdmsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+
+            if (listDdmsRequest !== null && listDdmsRequest !== undefined) {
+                if (listDdmsRequest instanceof ListDdmsRequest) {
+                    offset = listDdmsRequest.offset;
+                    limit = listDdmsRequest.limit;
+                } else {
+                    offset = listDdmsRequest['offset'];
+                    limit = listDdmsRequest['limit'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询DDM引擎信息详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4830,6 +5063,85 @@ export const ParamCreater = function () {
             }
             if (endDate !== null && endDate !== undefined) {
                 localVarQueryParameter['endDate'] = endDate;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询慢日志V3
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSlowLogAnalysis(listSlowLogAnalysisRequest?: ListSlowLogAnalysisRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/slow-log-analysis",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let startDate;
+            
+            let endDate;
+            
+            let offset;
+            
+            let limit;
+            
+            let order;
+
+            if (listSlowLogAnalysisRequest !== null && listSlowLogAnalysisRequest !== undefined) {
+                if (listSlowLogAnalysisRequest instanceof ListSlowLogAnalysisRequest) {
+                    instanceId = listSlowLogAnalysisRequest.instanceId;
+                    startDate = listSlowLogAnalysisRequest.startDate;
+                    endDate = listSlowLogAnalysisRequest.endDate;
+                    offset = listSlowLogAnalysisRequest.offset;
+                    limit = listSlowLogAnalysisRequest.limit;
+                    order = listSlowLogAnalysisRequest.order;
+                } else {
+                    instanceId = listSlowLogAnalysisRequest['instance_id'];
+                    startDate = listSlowLogAnalysisRequest['start_date'];
+                    endDate = listSlowLogAnalysisRequest['end_date'];
+                    offset = listSlowLogAnalysisRequest['offset'];
+                    limit = listSlowLogAnalysisRequest['limit'];
+                    order = listSlowLogAnalysisRequest['order'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listSlowLogAnalysis.');
+            }
+            if (startDate === null || startDate === undefined) {
+                throw new RequiredError('startDate','Required parameter startDate was null or undefined when calling listSlowLogAnalysis.');
+            }
+            if (startDate !== null && startDate !== undefined) {
+                localVarQueryParameter['start_date'] = startDate;
+            }
+            if (endDate === null || endDate === undefined) {
+                throw new RequiredError('endDate','Required parameter endDate was null or undefined when calling listSlowLogAnalysis.');
+            }
+            if (endDate !== null && endDate !== undefined) {
+                localVarQueryParameter['end_date'] = endDate;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (order !== null && order !== undefined) {
+                localVarQueryParameter['order'] = order;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -6146,6 +6458,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询访问控制组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showIpGroup(showIpGroupRequest?: ShowIpGroupRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/groups/{group_id}/acls",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let groupId;
+            
+            let instanceId;
+
+            if (showIpGroupRequest !== null && showIpGroupRequest !== undefined) {
+                if (showIpGroupRequest instanceof ShowIpGroupRequest) {
+                    groupId = showIpGroupRequest.groupId;
+                    instanceId = showIpGroupRequest.instanceId;
+                } else {
+                    groupId = showIpGroupRequest['group_id'];
+                    instanceId = showIpGroupRequest['instance_id'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling showIpGroup.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showIpGroup.');
+            }
+
+            options.pathParams = { 'group_id': groupId,'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询逻辑会话列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6200,6 +6556,65 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询分片变更的日志
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showMigrationLog(showMigrationLogRequest?: ShowMigrationLogRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instance/{instance_id}/task/{task_id}/run-logs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let taskId;
+            
+            let offset;
+            
+            let limit;
+
+            if (showMigrationLogRequest !== null && showMigrationLogRequest !== undefined) {
+                if (showMigrationLogRequest instanceof ShowMigrationLogRequest) {
+                    instanceId = showMigrationLogRequest.instanceId;
+                    taskId = showMigrationLogRequest.taskId;
+                    offset = showMigrationLogRequest.offset;
+                    limit = showMigrationLogRequest.limit;
+                } else {
+                    instanceId = showMigrationLogRequest['instance_id'];
+                    taskId = showMigrationLogRequest['task_id'];
+                    offset = showMigrationLogRequest['offset'];
+                    limit = showMigrationLogRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showMigrationLog.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showMigrationLog.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6521,6 +6936,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建访问控制组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchIpGroup(switchIpGroupRequest?: SwitchIpGroupRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/groups/{group_id}/acls",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let groupId;
+
+            if (switchIpGroupRequest !== null && switchIpGroupRequest !== undefined) {
+                if (switchIpGroupRequest instanceof SwitchIpGroupRequest) {
+                    instanceId = switchIpGroupRequest.instanceId;
+                    groupId = switchIpGroupRequest.groupId;
+                    body = switchIpGroupRequest.body
+                } else {
+                    instanceId = switchIpGroupRequest['instance_id'];
+                    groupId = switchIpGroupRequest['group_id'];
+                    body = switchIpGroupRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchIpGroup.');
+            }
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling switchIpGroup.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'group_id': groupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7112,10 +7580,10 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        checkDataNodeConnectionV0V3(checkDataNodeConnectionV0V3Request?: CheckDataNodeConnectionV0V3Request) {
+        checkDataNodeConnection(checkDataNodeConnectionRequest?: CheckDataNodeConnectionRequest) {
             const options = {
                 method: "POST",
-                url: "/v3/ddm/instance/rds/connection",
+                url: "/v3/{project_id}/instance/{instance_id}/rds/connection",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -7125,22 +7593,30 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let instanceId;
 
-            if (checkDataNodeConnectionV0V3Request !== null && checkDataNodeConnectionV0V3Request !== undefined) {
-                if (checkDataNodeConnectionV0V3Request instanceof CheckDataNodeConnectionV0V3Request) {
-                    body = checkDataNodeConnectionV0V3Request.body
+            if (checkDataNodeConnectionRequest !== null && checkDataNodeConnectionRequest !== undefined) {
+                if (checkDataNodeConnectionRequest instanceof CheckDataNodeConnectionRequest) {
+                    instanceId = checkDataNodeConnectionRequest.instanceId;
+                    body = checkDataNodeConnectionRequest.body
                 } else {
-                    body = checkDataNodeConnectionV0V3Request['body'];
+                    instanceId = checkDataNodeConnectionRequest['instance_id'];
+                    body = checkDataNodeConnectionRequest['body'];
                 }
             }
 
         
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling checkDataNodeConnection.');
+            }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7188,7 +7664,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        copyParameterGroup(copyParameterGroupRequest?: CopyParameterGroupRequest) {
+        copyConfiguration(copyConfigurationRequest?: CopyConfigurationRequest) {
             const options = {
                 method: "POST",
                 url: "/v3/{project_id}/configurations/{config_id}/copy",
@@ -7204,19 +7680,19 @@ export const ParamCreater = function () {
             
             let configId;
 
-            if (copyParameterGroupRequest !== null && copyParameterGroupRequest !== undefined) {
-                if (copyParameterGroupRequest instanceof CopyParameterGroupRequest) {
-                    configId = copyParameterGroupRequest.configId;
-                    body = copyParameterGroupRequest.body
+            if (copyConfigurationRequest !== null && copyConfigurationRequest !== undefined) {
+                if (copyConfigurationRequest instanceof CopyConfigurationRequest) {
+                    configId = copyConfigurationRequest.configId;
+                    body = copyConfigurationRequest.body
                 } else {
-                    configId = copyParameterGroupRequest['config_id'];
-                    body = copyParameterGroupRequest['body'];
+                    configId = copyConfigurationRequest['config_id'];
+                    body = copyConfigurationRequest['body'];
                 }
             }
 
         
             if (configId === null || configId === undefined) {
-            throw new RequiredError('configId','Required parameter configId was null or undefined when calling copyParameterGroup.');
+            throw new RequiredError('configId','Required parameter configId was null or undefined when calling copyConfiguration.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7230,63 +7706,11 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询可应用的实例列表V3
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listInstancesAppliedParameterGroupV0V3(listInstancesAppliedParameterGroupV0V3Request?: ListInstancesAppliedParameterGroupV0V3Request) {
-            const options = {
-                method: "GET",
-                url: "/v3/{project_id}/configurations/{config_id}/query-instances",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let configId;
-            
-            let offset;
-            
-            let limit;
-
-            if (listInstancesAppliedParameterGroupV0V3Request !== null && listInstancesAppliedParameterGroupV0V3Request !== undefined) {
-                if (listInstancesAppliedParameterGroupV0V3Request instanceof ListInstancesAppliedParameterGroupV0V3Request) {
-                    configId = listInstancesAppliedParameterGroupV0V3Request.configId;
-                    offset = listInstancesAppliedParameterGroupV0V3Request.offset;
-                    limit = listInstancesAppliedParameterGroupV0V3Request.limit;
-                } else {
-                    configId = listInstancesAppliedParameterGroupV0V3Request['config_id'];
-                    offset = listInstancesAppliedParameterGroupV0V3Request['offset'];
-                    limit = listInstancesAppliedParameterGroupV0V3Request['limit'];
-                }
-            }
-
-        
-            if (configId === null || configId === undefined) {
-            throw new RequiredError('configId','Required parameter configId was null or undefined when calling listInstancesAppliedParameterGroupV0V3.');
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'config_id': configId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 参数组应用记录V3
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listParameterGroupApplyHistoryV0V3(listParameterGroupApplyHistoryV0V3Request?: ListParameterGroupApplyHistoryV0V3Request) {
+        listConfigurationApplyHistories(listConfigurationApplyHistoriesRequest?: ListConfigurationApplyHistoriesRequest) {
             const options = {
                 method: "GET",
                 url: "/v3/{project_id}/configurations/{config_id}/apply-histories",
@@ -7304,21 +7728,73 @@ export const ParamCreater = function () {
             
             let limit;
 
-            if (listParameterGroupApplyHistoryV0V3Request !== null && listParameterGroupApplyHistoryV0V3Request !== undefined) {
-                if (listParameterGroupApplyHistoryV0V3Request instanceof ListParameterGroupApplyHistoryV0V3Request) {
-                    configId = listParameterGroupApplyHistoryV0V3Request.configId;
-                    offset = listParameterGroupApplyHistoryV0V3Request.offset;
-                    limit = listParameterGroupApplyHistoryV0V3Request.limit;
+            if (listConfigurationApplyHistoriesRequest !== null && listConfigurationApplyHistoriesRequest !== undefined) {
+                if (listConfigurationApplyHistoriesRequest instanceof ListConfigurationApplyHistoriesRequest) {
+                    configId = listConfigurationApplyHistoriesRequest.configId;
+                    offset = listConfigurationApplyHistoriesRequest.offset;
+                    limit = listConfigurationApplyHistoriesRequest.limit;
                 } else {
-                    configId = listParameterGroupApplyHistoryV0V3Request['config_id'];
-                    offset = listParameterGroupApplyHistoryV0V3Request['offset'];
-                    limit = listParameterGroupApplyHistoryV0V3Request['limit'];
+                    configId = listConfigurationApplyHistoriesRequest['config_id'];
+                    offset = listConfigurationApplyHistoriesRequest['offset'];
+                    limit = listConfigurationApplyHistoriesRequest['limit'];
                 }
             }
 
         
             if (configId === null || configId === undefined) {
-            throw new RequiredError('configId','Required parameter configId was null or undefined when calling listParameterGroupApplyHistoryV0V3.');
+            throw new RequiredError('configId','Required parameter configId was null or undefined when calling listConfigurationApplyHistories.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'config_id': configId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询可应用的实例列表V3
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstancesConfigurations(listInstancesConfigurationsRequest?: ListInstancesConfigurationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/configurations/{config_id}/query-instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let configId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstancesConfigurationsRequest !== null && listInstancesConfigurationsRequest !== undefined) {
+                if (listInstancesConfigurationsRequest instanceof ListInstancesConfigurationsRequest) {
+                    configId = listInstancesConfigurationsRequest.configId;
+                    offset = listInstancesConfigurationsRequest.offset;
+                    limit = listInstancesConfigurationsRequest.limit;
+                } else {
+                    configId = listInstancesConfigurationsRequest['config_id'];
+                    offset = listInstancesConfigurationsRequest['offset'];
+                    limit = listInstancesConfigurationsRequest['limit'];
+                }
+            }
+
+        
+            if (configId === null || configId === undefined) {
+            throw new RequiredError('configId','Required parameter configId was null or undefined when calling listInstancesConfigurations.');
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -7341,7 +7817,7 @@ export const ParamCreater = function () {
         resetParameterGroup(resetParameterGroupRequest?: ResetParameterGroupRequest) {
             const options = {
                 method: "PUT",
-                url: "/v3/{project_id}/configurations/{config_id}/reset",
+                url: "/v3/{project_id}/configurations/{config_id}",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -7412,6 +7888,149 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量设置读策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchModifyReadWriteStrategy(batchModifyReadWriteStrategyRequest?: BatchModifyReadWriteStrategyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/action/batch-modify-read-write-strategy",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (batchModifyReadWriteStrategyRequest !== null && batchModifyReadWriteStrategyRequest !== undefined) {
+                if (batchModifyReadWriteStrategyRequest instanceof BatchModifyReadWriteStrategyRequest) {
+                    instanceId = batchModifyReadWriteStrategyRequest.instanceId;
+                    body = batchModifyReadWriteStrategyRequest.body
+                } else {
+                    instanceId = batchModifyReadWriteStrategyRequest['instance_id'];
+                    body = batchModifyReadWriteStrategyRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling batchModifyReadWriteStrategy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改sql黑名单V3
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifySqlBlackList(modifySqlBlackListRequest?: ModifySqlBlackListRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/databases/{logic_db_name}/sql-black-list",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let logicDbName;
+
+            if (modifySqlBlackListRequest !== null && modifySqlBlackListRequest !== undefined) {
+                if (modifySqlBlackListRequest instanceof ModifySqlBlackListRequest) {
+                    instanceId = modifySqlBlackListRequest.instanceId;
+                    logicDbName = modifySqlBlackListRequest.logicDbName;
+                    body = modifySqlBlackListRequest.body
+                } else {
+                    instanceId = modifySqlBlackListRequest['instance_id'];
+                    logicDbName = modifySqlBlackListRequest['logic_db_name'];
+                    body = modifySqlBlackListRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling modifySqlBlackList.');
+            }
+            if (logicDbName === null || logicDbName === undefined) {
+            throw new RequiredError('logicDbName','Required parameter logicDbName was null or undefined when calling modifySqlBlackList.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'logic_db_name': logicDbName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询sql黑名单
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSqlBlack(listSqlBlackRequest?: ListSqlBlackRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/databases/{logic_db_name}/sql-black-list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let logicDbName;
+
+            if (listSqlBlackRequest !== null && listSqlBlackRequest !== undefined) {
+                if (listSqlBlackRequest instanceof ListSqlBlackRequest) {
+                    instanceId = listSqlBlackRequest.instanceId;
+                    logicDbName = listSqlBlackRequest.logicDbName;
+                } else {
+                    instanceId = listSqlBlackRequest['instance_id'];
+                    logicDbName = listSqlBlackRequest['logic_db_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listSqlBlack.');
+            }
+            if (logicDbName === null || logicDbName === undefined) {
+            throw new RequiredError('logicDbName','Required parameter logicDbName was null or undefined when calling listSqlBlack.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'logic_db_name': logicDbName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

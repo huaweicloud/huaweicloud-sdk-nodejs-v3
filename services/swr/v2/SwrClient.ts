@@ -705,7 +705,6 @@ export class SwrClient {
      * @summary 生成临时登录指令
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
      * @param {string} [projectname] 项目名称，缺省值默认为区域名称，例如：cn-north-1。 
-     * @param {number} [durationSeconds] 自定义临时凭证有效期，单位秒，取值范围15min-24h
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4545,27 +4544,20 @@ export const ParamCreater = function () {
             let contentType;
             
             let projectname;
-            
-            let durationSeconds;
 
             if (createSecretRequest !== null && createSecretRequest !== undefined) {
                 if (createSecretRequest instanceof CreateSecretRequest) {
                     contentType = createSecretRequest.contentType;
                     projectname = createSecretRequest.projectname;
-                    durationSeconds = createSecretRequest.durationSeconds;
                 } else {
                     contentType = createSecretRequest['Content-Type'];
                     projectname = createSecretRequest['projectname'];
-                    durationSeconds = createSecretRequest['duration_seconds'];
                 }
             }
 
         
             if (projectname !== null && projectname !== undefined) {
                 localVarQueryParameter['projectname'] = projectname;
-            }
-            if (durationSeconds !== null && durationSeconds !== undefined) {
-                localVarQueryParameter['duration_seconds'] = durationSeconds;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);

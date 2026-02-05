@@ -24,6 +24,8 @@ import { AddIngressEipV2Request } from './model/AddIngressEipV2Request';
 import { AddIngressEipV2Response } from './model/AddIngressEipV2Response';
 import { AddingBackendInstancesV2Request } from './model/AddingBackendInstancesV2Request';
 import { AddingBackendInstancesV2Response } from './model/AddingBackendInstancesV2Response';
+import { AiApiKeyBaseInfo } from './model/AiApiKeyBaseInfo';
+import { AiApiKeyCreate } from './model/AiApiKeyCreate';
 import { ApiAclCreate } from './model/ApiAclCreate';
 import { ApiAclInfoWithBindNum } from './model/ApiAclInfoWithBindNum';
 import { ApiActionInfo } from './model/ApiActionInfo';
@@ -158,6 +160,8 @@ import { Config } from './model/Config';
 import { ConnectionActionReq } from './model/ConnectionActionReq';
 import { CreateAclStrategyV2Request } from './model/CreateAclStrategyV2Request';
 import { CreateAclStrategyV2Response } from './model/CreateAclStrategyV2Response';
+import { CreateAiApiKeyRequest } from './model/CreateAiApiKeyRequest';
+import { CreateAiApiKeyResponse } from './model/CreateAiApiKeyResponse';
 import { CreateAnAppV2Request } from './model/CreateAnAppV2Request';
 import { CreateAnAppV2Response } from './model/CreateAnAppV2Response';
 import { CreateApiAclBindingV2Request } from './model/CreateApiAclBindingV2Request';
@@ -215,6 +219,8 @@ import { DebugApiV2Request } from './model/DebugApiV2Request';
 import { DebugApiV2Response } from './model/DebugApiV2Response';
 import { DeleteAclV2Request } from './model/DeleteAclV2Request';
 import { DeleteAclV2Response } from './model/DeleteAclV2Response';
+import { DeleteAiApiKeyRequest } from './model/DeleteAiApiKeyRequest';
+import { DeleteAiApiKeyResponse } from './model/DeleteAiApiKeyResponse';
 import { DeleteApiAclBindingV2Request } from './model/DeleteApiAclBindingV2Request';
 import { DeleteApiAclBindingV2Response } from './model/DeleteApiAclBindingV2Response';
 import { DeleteApiByVersionIdV2Request } from './model/DeleteApiByVersionIdV2Request';
@@ -324,6 +330,8 @@ import { ListAclPolicyBindedToApiV2Request } from './model/ListAclPolicyBindedTo
 import { ListAclPolicyBindedToApiV2Response } from './model/ListAclPolicyBindedToApiV2Response';
 import { ListAclStrategiesV2Request } from './model/ListAclStrategiesV2Request';
 import { ListAclStrategiesV2Response } from './model/ListAclStrategiesV2Response';
+import { ListAiApiKeysRequest } from './model/ListAiApiKeysRequest';
+import { ListAiApiKeysResponse } from './model/ListAiApiKeysResponse';
 import { ListApiAttachablePluginsRequest } from './model/ListApiAttachablePluginsRequest';
 import { ListApiAttachablePluginsResponse } from './model/ListApiAttachablePluginsResponse';
 import { ListApiAttachedPluginsRequest } from './model/ListApiAttachedPluginsRequest';
@@ -449,6 +457,7 @@ import { MemberBase } from './model/MemberBase';
 import { MemberGroupCreate } from './model/MemberGroupCreate';
 import { MemberGroupCreateBatch } from './model/MemberGroupCreateBatch';
 import { MemberGroupInfo } from './model/MemberGroupInfo';
+import { MemberGroupUrlInfo } from './model/MemberGroupUrlInfo';
 import { MemberInfo } from './model/MemberInfo';
 import { MembersBatchEnableOrDisable } from './model/MembersBatchEnableOrDisable';
 import { MetricData } from './model/MetricData';
@@ -515,6 +524,8 @@ import { ShowAsyncTaskResultRequest } from './model/ShowAsyncTaskResultRequest';
 import { ShowAsyncTaskResultResponse } from './model/ShowAsyncTaskResultResponse';
 import { ShowDetailsOfAclPolicyV2Request } from './model/ShowDetailsOfAclPolicyV2Request';
 import { ShowDetailsOfAclPolicyV2Response } from './model/ShowDetailsOfAclPolicyV2Response';
+import { ShowDetailsOfAiApiKeyRequest } from './model/ShowDetailsOfAiApiKeyRequest';
+import { ShowDetailsOfAiApiKeyResponse } from './model/ShowDetailsOfAiApiKeyResponse';
 import { ShowDetailsOfApiGroupV2Request } from './model/ShowDetailsOfApiGroupV2Request';
 import { ShowDetailsOfApiGroupV2Response } from './model/ShowDetailsOfApiGroupV2Response';
 import { ShowDetailsOfApiV2Request } from './model/ShowDetailsOfApiV2Request';
@@ -963,12 +974,33 @@ export class ApigClient {
      *
      * @summary 校验APP
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
+     * @param {string} appId 凭据编号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public checkAppV2(checkAppV2Request?: CheckAppV2Request): Promise<CheckAppV2Response> {
         const options = ParamCreater().checkAppV2(checkAppV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建AIAPIKey，适用于AI场景下的API Key认证。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建AIAPIKey
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appId 凭据编号
+     * @param {AiApiKeyCreate} [createAiApiKeyRequestBody] 创建AIAPIKey的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAiApiKey(createAiApiKeyRequest?: CreateAiApiKeyRequest): Promise<CreateAiApiKeyResponse> {
+        const options = ParamCreater().createAiApiKey(createAiApiKeyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1004,7 +1036,7 @@ export class ApigClient {
      *
      * @summary 自动生成APP Code
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
+     * @param {string} appId 凭据编号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1024,7 +1056,7 @@ export class ApigClient {
      *
      * @summary 创建APP Code
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
+     * @param {string} appId 凭据编号
      * @param {AppCodeCreate} createAppCodeV2RequestBody 创建APP Code的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1371,13 +1403,34 @@ export class ApigClient {
     }
 
     /**
+     * 删除AIAPIKey。删除后，将无法使用该AIAPIKey进行认证。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除AIAPIKey
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appId 凭据编号
+     * @param {string} aiApiKeyId AIAPIKey编号。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAiApiKey(deleteAiApiKeyRequest?: DeleteAiApiKeyRequest): Promise<DeleteAiApiKeyResponse> {
+        const options = ParamCreater().deleteAiApiKey(deleteAiApiKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除凭据的访问控制信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除APP的访问控制
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
+     * @param {string} appId 凭据编号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1397,7 +1450,7 @@ export class ApigClient {
      *
      * @summary 删除APP Code
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
+     * @param {string} appId 凭据编号
      * @param {string} appCodeId APP Code编号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1439,7 +1492,7 @@ export class ApigClient {
      *
      * @summary 删除APP
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
+     * @param {string} appId 凭据编号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1772,7 +1825,7 @@ export class ApigClient {
      * @summary 解除凭据配额和凭据的绑定
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} appQuotaId 凭据配额编号
-     * @param {string} appId 应用编号
+     * @param {string} appId 凭据编号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1916,6 +1969,28 @@ export class ApigClient {
     }
 
     /**
+     * 查询AIAPIKey列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询AIAPIKey列表
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appId 凭据编号
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
+     * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAiApiKeys(listAiApiKeysRequest?: ListAiApiKeysRequest): Promise<ListAiApiKeysResponse> {
+        const options = ParamCreater().listAiApiKeys(listAiApiKeysRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询可绑定当前API的插件信息。
      * - 支持分页返回
      * - 支持插件名称模糊查询
@@ -2016,7 +2091,7 @@ export class ApigClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看签名密钥绑定的API列表
+     * @summary 查询签名密钥绑定的API列表
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} signId 签名密钥编号
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
@@ -2043,7 +2118,7 @@ export class ApigClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看签名密钥未绑定的API列表
+     * @summary 查询签名密钥未绑定的API列表
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} signId 签名密钥编号
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
@@ -2072,7 +2147,7 @@ export class ApigClient {
      *
      * @summary 查询APP Code列表
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
+     * @param {string} appId 凭据编号
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
      * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
      * @param {*} [options] Override http request option.
@@ -2139,7 +2214,7 @@ export class ApigClient {
      * @param {string} appQuotaId 凭据配额编号
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
      * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
-     * @param {string} [appName] 凭据名称
+     * @param {string} [appName] APP凭据名称。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2185,10 +2260,12 @@ export class ApigClient {
      * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
      * @param {string} [id] APP编号
      * @param {string} [name] APP名称
-     * @param {number} [status] APP状态
-     * @param {string} [appKey] APP的KEY
-     * @param {string} [creator] APP的创建者。 - USER：用户自行创建 - MARKET：[云商店分配](tag:hws)[暂未使用](tag:cmcc,ctc,DT,g42,hk_g42,hk_sbc,hk_tm,hws_eu,hws_ocb,OCB,sbc,tm,hws_hk)
+     * @param {1} [status] APP状态。 - 1：有效 
+     * @param {string} [appKey] APP凭据的key。
+     * @param {string} [creator] APP的创建者。 - USER：用户自行创建 - MARKET：[云商店分配](tag:hws)[暂未使用](tag:cmcc,ctc,DT,g42,hk_g42,hk_sbc,hk_tm,hws_eu,hws_ocb,OCB,sbc,tm,hws_hk,srg,ax)
      * @param {string} [preciseSearch] 指定需要精确匹配查找的参数名称，目前仅支持name
+     * @param {string} [relatedDomainId] 凭据关联的账号ID。
+     * @param {string} [relatedProjectId] 凭据关联的项目ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2202,11 +2279,11 @@ export class ApigClient {
     }
 
     /**
-     * 查看可用区信息
+     * 查询可用区信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看可用区信息
+     * @summary 查询可用区信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2230,7 +2307,7 @@ export class ApigClient {
      * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
      * @param {string} [id] 编号
      * @param {string} [name] 名称
-     * @param {string} [type] 类型
+     * @param {'FRONTEND' | 'BACKEND'} [type] 自定义认证类型。 - FRONTEND：前端 - BACKEND：后端 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2383,13 +2460,13 @@ export class ApigClient {
     }
 
     /**
-     * 查看实例特性列表。注意：实例不支持以下特性的需要联系技术支持升级实例版本。
+     * 查询实例特性列表。注意：实例不支持以下特性的需要联系技术支持升级实例版本。
      * 
      * 支持配置的特性列表及特性配置示例请参考本手册中的“附录 &gt; 实例支持的APIG特性”章节。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看实例特性列表
+     * @summary 查询实例特性列表
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
      * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
@@ -2627,11 +2704,11 @@ export class ApigClient {
     }
 
     /**
-     * 查看编排规则列表
+     * 查询编排规则列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看编排规则列表
+     * @summary 查询编排规则列表
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
      * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
@@ -2747,7 +2824,7 @@ export class ApigClient {
     }
 
     /**
-     * 查询某个实例的租户配置列表，用户可以通过此接口查看各类型资源配置及使用情况。
+     * 查询某个实例的租户配置列表，用户可以通过此接口查询各类型资源配置及使用情况。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2814,7 +2891,7 @@ export class ApigClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看API绑定的签名密钥列表
+     * @summary 查询API绑定的签名密钥列表
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} apiId API的编号
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
@@ -2859,11 +2936,11 @@ export class ApigClient {
     }
 
     /**
-     * 查看给流控策略设置的特殊配置。
+     * 查询给流控策略设置的特殊配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看特殊设置列表
+     * @summary 查询特殊设置列表
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} throttleId 流控策略的编号
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
@@ -2884,11 +2961,11 @@ export class ApigClient {
     }
 
     /**
-     * 查询标签列表
+     * 查询API的标签列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询标签列表
+     * @summary 查询API的标签列表
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
      * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
@@ -2968,7 +3045,7 @@ export class ApigClient {
      *
      * @summary 重置密钥
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
+     * @param {string} appId 凭据编号
      * @param {AppResetCreate} resettingAppSecretV2RequestBody 重置密钥的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2983,13 +3060,13 @@ export class ApigClient {
     }
 
     /**
-     * 查看指定凭据关联的凭据配额。
+     * 查询指定凭据关联的凭据配额。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询凭据关联的凭据配额
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
+     * @param {string} appId 凭据编号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3043,13 +3120,34 @@ export class ApigClient {
     }
 
     /**
-     * 查看APP的访问控制详情。
+     * 查看AIAPIKey详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看APP的访问控制详情
+     * @summary 查看AIAPIKey详情
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
+     * @param {string} appId 凭据编号
+     * @param {string} aiApiKeyId AIAPIKey编号。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDetailsOfAiApiKey(showDetailsOfAiApiKeyRequest?: ShowDetailsOfAiApiKeyRequest): Promise<ShowDetailsOfAiApiKeyResponse> {
+        const options = ParamCreater().showDetailsOfAiApiKey(showDetailsOfAiApiKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询APP的访问控制详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询APP的访问控制详情
+     * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
+     * @param {string} appId 凭据编号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3067,9 +3165,9 @@ export class ApigClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看APP Code详情
+     * @summary 查询APP Code详情
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
+     * @param {string} appId 凭据编号
      * @param {string} appCodeId APP Code编号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3084,13 +3182,13 @@ export class ApigClient {
     }
 
     /**
-     * 查看指定APP的详细信息。
+     * 查询指定APP的详细信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看APP详情
+     * @summary 查询APP详情
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
+     * @param {string} appId 凭据编号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3104,11 +3202,11 @@ export class ApigClient {
     }
 
     /**
-     * 查看自定义认证详情
+     * 查询自定义认证详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看自定义认证详情
+     * @summary 查询自定义认证详情
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} authorizerId 自定义认证的编号
      * @param {*} [options] Override http request option.
@@ -3124,11 +3222,11 @@ export class ApigClient {
     }
 
     /**
-     * 查看域名下绑定的证书详情。
+     * 查询域名下绑定的证书详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看域名证书
+     * @summary 查询域名证书
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} groupId 分组的编号
      * @param {string} domainId 域名的编号
@@ -3146,11 +3244,11 @@ export class ApigClient {
     }
 
     /**
-     * 查看指定的环境变量的详情。
+     * 查询指定的环境变量的详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看变量详情
+     * @summary 查询变量详情
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} envVariableId 环境变量的编号
      * @param {*} [options] Override http request option.
@@ -3166,11 +3264,11 @@ export class ApigClient {
     }
 
     /**
-     * 查看分组下指定错误类型的自定义响应
+     * 查询分组下指定错误类型的自定义响应
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看分组下指定错误类型的自定义响应
+     * @summary 查询分组下指定错误类型的自定义响应
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} groupId 分组的编号
      * @param {string} responseId 响应编号
@@ -3209,11 +3307,11 @@ export class ApigClient {
     }
 
     /**
-     * 查看专享版实例创建进度
+     * 查询专享版实例创建进度
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看专享版实例创建进度
+     * @summary 查询专享版实例创建进度
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3228,11 +3326,11 @@ export class ApigClient {
     }
 
     /**
-     * 查看专享版实例详情
+     * 查询专享版实例详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看专享版实例详情
+     * @summary 查询专享版实例详情
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3267,11 +3365,11 @@ export class ApigClient {
     }
 
     /**
-     * 查看指定流控策略的详细信息。
+     * 查询指定流控策略的详细信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看流控策略详情
+     * @summary 查询流控策略详情
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} throttleId 流控策略的编号
      * @param {*} [options] Override http request option.
@@ -3326,11 +3424,11 @@ export class ApigClient {
     }
 
     /**
-     * 查看实例约束信息
+     * 查询实例约束信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看实例约束信息
+     * @summary 查询实例约束信息
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3351,7 +3449,7 @@ export class ApigClient {
      *
      * @summary 设置APP的访问控制
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
+     * @param {string} appId 凭据编号
      * @param {AppAclCreate} updateAppAclRequestBody 修改APP访问控制的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3387,13 +3485,13 @@ export class ApigClient {
     }
 
     /**
-     * 修改指定APP的信息。其中可修改的属性为：name、remark，当支持用户自定义key和secret的开关开启时，app_key和app_secret也支持修改，其它属性不可修改。
+     * 修改指定APP的信息。其中可修改的属性为：name、remark、related_domain_id、related_project_id，当支持用户自定义key和secret的开关开启时，app_key和app_secret也支持修改，其它属性不可修改。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改APP
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {string} appId 应用编号
+     * @param {string} appId 凭据编号
      * @param {AppCreate} updateAppV2RequestBody 修改APP的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3794,13 +3892,13 @@ export class ApigClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看ACL策略列表
+     * @summary 查询ACL策略列表
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
      * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
      * @param {string} [id] ACL策略编号。
      * @param {string} [name] ACL策略名称。
-     * @param {string} [aclType] 类型 - PERMIT (白名单类型) - DENY (黑名单类型)
+     * @param {'PERMIT' | 'DENY'} [aclType] 类型。 - PERMIT：白名单类型 - DENY：黑名单类型 
      * @param {string} [entityType] 作用的对象类型： - IP - DOMAIN
      * @param {string} [preciseSearch] 指定需要精确匹配查找的参数名称，目前仅支持name
      * @param {*} [options] Override http request option.
@@ -3820,7 +3918,7 @@ export class ApigClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看ACL策略详情
+     * @summary 查询ACL策略详情
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} aclId ACL策略的编号
      * @param {*} [options] Override http request option.
@@ -4188,7 +4286,7 @@ export class ApigClient {
     }
 
     /**
-     * 查看指定的API在指定的环境上的运行时定义，默认查询RELEASE环境上的运行时定义。
+     * 查询指定的API在指定的环境上的运行时定义，默认查询RELEASE环境上的运行时定义。
      * 
      * API的定义分为临时定义和运行时定义，分别代表如下含义：
      * - 临时定义：API在编辑中的定义，表示用户最后一次编辑后的API的状态
@@ -4219,7 +4317,7 @@ export class ApigClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看版本详情
+     * @summary 查询版本详情
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} versionId API版本的编号
      * @param {*} [options] Override http request option.
@@ -4263,7 +4361,7 @@ export class ApigClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看流控策略绑定的API列表
+     * @summary 查询流控策略绑定的API列表
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} throttleId 流控策略编号
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
@@ -4289,7 +4387,7 @@ export class ApigClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看流控策略未绑定的API列表
+     * @summary 查询流控策略未绑定的API列表
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} throttleId 流控策略编号
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
@@ -4312,7 +4410,7 @@ export class ApigClient {
     }
 
     /**
-     * 查看API列表，返回API详细信息、发布信息等，但不能查看到后端服务信息和API请求参数信息
+     * 查询API列表，返回API详细信息、发布信息等，但不能查询到后端服务信息和API请求参数信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4326,9 +4424,9 @@ export class ApigClient {
      * @param {string} [reqProtocol] 请求协议
      * @param {string} [reqMethod] 请求方法
      * @param {string} [reqUri] 请求路径
-     * @param {string} [authType] 授权类型
+     * @param {'NONE' | 'APP' | 'IAM' | 'AUTHORIZER'} [authType] 授权类型。 - NONE：无认证 - APP：APP认证 - IAM：IAM认证 - AUTHORIZER：自定义认证 
      * @param {string} [envId] 发布的环境编号
-     * @param {number} [type] API类型
+     * @param {1 | 2} [type] API类型。 - 1：公有API - 2：私有API 
      * @param {string} [preciseSearch] 指定需要精确匹配查找的参数名称，目前仅支持name、req_uri
      * @param {string} [vpcChannelName] 负载通道名称
      * @param {string} [returnDataMode] 指定API详情中需要包含的额外返回结果，多个参数之间使用“,”隔开，当brief和其他include参数共同使用时，brief不生效。 目前仅支持brief，include_group，include_group_backend。 brief：默认值，不包含额外信息。 include_group：返回结果中包含api_group_info。 include_group_backend：返回结果中包含backend_api。
@@ -4350,7 +4448,7 @@ export class ApigClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看API绑定的流控策略列表
+     * @summary 查询API绑定的流控策略列表
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} apiId API编号
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
@@ -4391,7 +4489,7 @@ export class ApigClient {
     }
 
     /**
-     * 查看指定的API的详细信息。
+     * 查询指定的API的详细信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4516,11 +4614,11 @@ export class ApigClient {
     }
 
     /**
-     * 查看API绑定的ACL策略列表
+     * 查询API绑定的ACL策略列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看API绑定的ACL策略列表
+     * @summary 查询API绑定的ACL策略列表
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} apiId API编号
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
@@ -4542,11 +4640,11 @@ export class ApigClient {
     }
 
     /**
-     * 查看ACL策略绑定的API列表
+     * 查询ACL策略绑定的API列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看ACL策略绑定的API列表
+     * @summary 查询ACL策略绑定的API列表
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} aclId ACL编号
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
@@ -4569,11 +4667,11 @@ export class ApigClient {
     }
 
     /**
-     * 查看ACL策略未绑定的API列表，需要API已发布
+     * 查询ACL策略未绑定的API列表，需要API已发布
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看ACL策略未绑定的API列表
+     * @summary 查询ACL策略未绑定的API列表
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} aclId ACL策略编号
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
@@ -4640,7 +4738,7 @@ export class ApigClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看APP已绑定的API列表
+     * @summary 查询APP已绑定的API列表
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} appId 应用编号
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
@@ -4668,7 +4766,7 @@ export class ApigClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看APP未绑定的API列表
+     * @summary 查询APP未绑定的API列表
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} appId 应用id
      * @param {string} envId 环境id
@@ -4695,7 +4793,7 @@ export class ApigClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看API已绑定的APP列表
+     * @summary 查询API已绑定的APP列表
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
      * @param {number} [limit] 每页显示的条目数量，条目数量小于等于0时，自动转换为20，条目数量大于500时，自动转换为500
@@ -4743,13 +4841,13 @@ export class ApigClient {
      *
      * @summary 导入API
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
-     * @param {any} fileName 导入Api的请求体，json或yaml格式的文件
-     * @param {boolean} [isCreateGroup] 是否创建新分组
-     * @param {string} [groupId] API分组编号，当is_create_group&#x3D;false时为必填
-     * @param {string} [extendMode] 扩展信息导入模式 - merge：当扩展信息定义冲突时，merge保留原有扩展信息 - override：当扩展信息定义冲突时，override会覆盖原有扩展信息
-     * @param {boolean} [simpleMode] 是否开启简易导入模式
-     * @param {boolean} [mockMode] 是否开启Mock后端
-     * @param {string} [apiMode] 导入模式 - merge：当API信息定义冲突时，merge保留原有API信息 - override：当API信息定义冲突时，override会覆盖原有API信息
+     * @param {any} fileName 导入Api的请求体，json或yaml或yml格式的文件。
+     * @param {boolean} [isCreateGroup] 是否创建新分组。
+     * @param {string} [groupId] API分组编号，当is_create_group&#x3D;false时为必填。
+     * @param {string} [extendMode] 扩展信息导入模式 - merge：当扩展信息定义冲突时，merge保留原有扩展信息 - override：当扩展信息定义冲突时，override会覆盖原有扩展信息 
+     * @param {boolean} [simpleMode] 是否开启简易导入模式。
+     * @param {boolean} [mockMode] 是否开启Mock后端。
+     * @param {string} [apiMode] 导入模式 - merge：当API信息定义冲突时，merge保留原有API信息 - override：当API信息定义冲突时，override会覆盖原有API信息 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4918,8 +5016,8 @@ export class ApigClient {
      * @param {string} [name] 证书名称
      * @param {string} [commonName] 证书域名
      * @param {string} [signatureAlgorithm] 证书签名算法
-     * @param {'instance' | 'global'} [type] 证书可见范围
-     * @param {'RSA' | 'ECC' | 'SM2'} [algorithmType] 证书算法类型： - RSA。 - ECC。 - SM2。
+     * @param {'instance' | 'global'} [type] 证书类型。 - instance：实例证书 - global：全局证书 
+     * @param {'RSA' | 'ECC' | 'SM2'} [algorithmType] 证书算法类型。 - RSA - ECC - SM2 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4933,11 +5031,11 @@ export class ApigClient {
     }
 
     /**
-     * 查看证书详情。
+     * 查询证书详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看证书详情
+     * @summary 查询证书详情
      * @param {string} certificateId 证书的编号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5151,11 +5249,11 @@ export class ApigClient {
     }
 
     /**
-     * 查看指定VPC通道的后端实例列表。
+     * 查询指定VPC通道的后端实例列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看后端实例列表
+     * @summary 查询后端实例列表
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} vpcChannelId VPC通道的编号
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
@@ -5202,7 +5300,7 @@ export class ApigClient {
     }
 
     /**
-     * 查看VPC通道列表
+     * 查询VPC通道列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -5232,11 +5330,11 @@ export class ApigClient {
     }
 
     /**
-     * 查看指定的VPC通道后端服务器组详情
+     * 查询指定的VPC通道后端服务器组详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看VPC通道后端服务器组详情
+     * @summary 查询VPC通道后端服务器组详情
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} vpcChannelId VPC通道的编号
      * @param {string} memberGroupId VPC通道后端服务器组编号
@@ -5253,11 +5351,11 @@ export class ApigClient {
     }
 
     /**
-     * 查看指定的VPC通道详情
+     * 查询指定的VPC通道详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看VPC通道详情
+     * @summary 查询VPC通道详情
      * @param {string} instanceId 实例ID，在API网关控制台的“实例信息”中获取。
      * @param {string} vpcChannelId VPC通道的编号
      * @param {*} [options] Override http request option.
@@ -6065,6 +6163,56 @@ export const ParamCreater = function () {
             throw new RequiredError('appId','Required parameter appId was null or undefined when calling checkAppV2.');
             }
 
+            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建AIAPIKey，适用于AI场景下的API Key认证。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAiApiKey(createAiApiKeyRequest?: CreateAiApiKeyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}/ai-api-keys",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let appId;
+
+            if (createAiApiKeyRequest !== null && createAiApiKeyRequest !== undefined) {
+                if (createAiApiKeyRequest instanceof CreateAiApiKeyRequest) {
+                    instanceId = createAiApiKeyRequest.instanceId;
+                    appId = createAiApiKeyRequest.appId;
+                    body = createAiApiKeyRequest.body
+                } else {
+                    instanceId = createAiApiKeyRequest['instance_id'];
+                    appId = createAiApiKeyRequest['app_id'];
+                    body = createAiApiKeyRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createAiApiKey.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling createAiApiKey.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -6930,6 +7078,57 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'throttle_id': throttleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除AIAPIKey。删除后，将无法使用该AIAPIKey进行认证。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAiApiKey(deleteAiApiKeyRequest?: DeleteAiApiKeyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}/ai-api-keys/{ai_api_key_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let appId;
+            
+            let aiApiKeyId;
+
+            if (deleteAiApiKeyRequest !== null && deleteAiApiKeyRequest !== undefined) {
+                if (deleteAiApiKeyRequest instanceof DeleteAiApiKeyRequest) {
+                    instanceId = deleteAiApiKeyRequest.instanceId;
+                    appId = deleteAiApiKeyRequest.appId;
+                    aiApiKeyId = deleteAiApiKeyRequest.aiApiKeyId;
+                } else {
+                    instanceId = deleteAiApiKeyRequest['instance_id'];
+                    appId = deleteAiApiKeyRequest['app_id'];
+                    aiApiKeyId = deleteAiApiKeyRequest['ai_api_key_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteAiApiKey.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling deleteAiApiKey.');
+            }
+            if (aiApiKeyId === null || aiApiKeyId === undefined) {
+            throw new RequiredError('aiApiKeyId','Required parameter aiApiKeyId was null or undefined when calling deleteAiApiKey.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'app_id': appId,'ai_api_key_id': aiApiKeyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8224,6 +8423,65 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询AIAPIKey列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAiApiKeys(listAiApiKeysRequest?: ListAiApiKeysRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}/ai-api-keys",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let appId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listAiApiKeysRequest !== null && listAiApiKeysRequest !== undefined) {
+                if (listAiApiKeysRequest instanceof ListAiApiKeysRequest) {
+                    instanceId = listAiApiKeysRequest.instanceId;
+                    appId = listAiApiKeysRequest.appId;
+                    offset = listAiApiKeysRequest.offset;
+                    limit = listAiApiKeysRequest.limit;
+                } else {
+                    instanceId = listAiApiKeysRequest['instance_id'];
+                    appId = listAiApiKeysRequest['app_id'];
+                    offset = listAiApiKeysRequest['offset'];
+                    limit = listAiApiKeysRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listAiApiKeys.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling listAiApiKeys.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'app_id': appId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询可绑定当前API的插件信息。
          * - 支持分页返回
          * - 支持插件名称模糊查询
@@ -8998,6 +9256,10 @@ export const ParamCreater = function () {
             let creator;
             
             let preciseSearch;
+            
+            let relatedDomainId;
+            
+            let relatedProjectId;
 
             if (listAppsV2Request !== null && listAppsV2Request !== undefined) {
                 if (listAppsV2Request instanceof ListAppsV2Request) {
@@ -9010,6 +9272,8 @@ export const ParamCreater = function () {
                     appKey = listAppsV2Request.appKey;
                     creator = listAppsV2Request.creator;
                     preciseSearch = listAppsV2Request.preciseSearch;
+                    relatedDomainId = listAppsV2Request.relatedDomainId;
+                    relatedProjectId = listAppsV2Request.relatedProjectId;
                 } else {
                     instanceId = listAppsV2Request['instance_id'];
                     offset = listAppsV2Request['offset'];
@@ -9020,6 +9284,8 @@ export const ParamCreater = function () {
                     appKey = listAppsV2Request['app_key'];
                     creator = listAppsV2Request['creator'];
                     preciseSearch = listAppsV2Request['precise_search'];
+                    relatedDomainId = listAppsV2Request['related_domain_id'];
+                    relatedProjectId = listAppsV2Request['related_project_id'];
                 }
             }
 
@@ -9051,6 +9317,12 @@ export const ParamCreater = function () {
             if (preciseSearch !== null && preciseSearch !== undefined) {
                 localVarQueryParameter['precise_search'] = preciseSearch;
             }
+            if (relatedDomainId !== null && relatedDomainId !== undefined) {
+                localVarQueryParameter['related_domain_id'] = relatedDomainId;
+            }
+            if (relatedProjectId !== null && relatedProjectId !== undefined) {
+                localVarQueryParameter['related_project_id'] = relatedProjectId;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
@@ -9059,7 +9331,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看可用区信息
+         * 查询可用区信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9559,7 +9831,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看实例特性列表。注意：实例不支持以下特性的需要联系技术支持升级实例版本。
+         * 查询实例特性列表。注意：实例不支持以下特性的需要联系技术支持升级实例版本。
          * 
          * 支持配置的特性列表及特性配置示例请参考本手册中的“附录 &gt; 实例支持的APIG特性”章节。
          * 
@@ -10205,7 +10477,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看编排规则列表
+         * 查询编排规则列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10596,7 +10868,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询某个实例的租户配置列表，用户可以通过此接口查看各类型资源配置及使用情况。
+         * 查询某个实例的租户配置列表，用户可以通过此接口查询各类型资源配置及使用情况。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10898,7 +11170,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看给流控策略设置的特殊配置。
+         * 查询给流控策略设置的特殊配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10978,7 +11250,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询标签列表
+         * 查询API的标签列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11194,7 +11466,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看指定凭据关联的凭据配额。
+         * 查询指定凭据关联的凭据配额。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11326,7 +11598,58 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看APP的访问控制详情。
+         * 查看AIAPIKey详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDetailsOfAiApiKey(showDetailsOfAiApiKeyRequest?: ShowDetailsOfAiApiKeyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/apigw/instances/{instance_id}/apps/{app_id}/ai-api-keys/{ai_api_key_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let appId;
+            
+            let aiApiKeyId;
+
+            if (showDetailsOfAiApiKeyRequest !== null && showDetailsOfAiApiKeyRequest !== undefined) {
+                if (showDetailsOfAiApiKeyRequest instanceof ShowDetailsOfAiApiKeyRequest) {
+                    instanceId = showDetailsOfAiApiKeyRequest.instanceId;
+                    appId = showDetailsOfAiApiKeyRequest.appId;
+                    aiApiKeyId = showDetailsOfAiApiKeyRequest.aiApiKeyId;
+                } else {
+                    instanceId = showDetailsOfAiApiKeyRequest['instance_id'];
+                    appId = showDetailsOfAiApiKeyRequest['app_id'];
+                    aiApiKeyId = showDetailsOfAiApiKeyRequest['ai_api_key_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showDetailsOfAiApiKey.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling showDetailsOfAiApiKey.');
+            }
+            if (aiApiKeyId === null || aiApiKeyId === undefined) {
+            throw new RequiredError('aiApiKeyId','Required parameter aiApiKeyId was null or undefined when calling showDetailsOfAiApiKey.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'app_id': appId,'ai_api_key_id': aiApiKeyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询APP的访问控制详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11421,7 +11744,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看指定APP的详细信息。
+         * 查询指定APP的详细信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11465,7 +11788,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看自定义认证详情
+         * 查询自定义认证详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11509,7 +11832,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看域名下绑定的证书详情。
+         * 查询域名下绑定的证书详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11567,7 +11890,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看指定的环境变量的详情。
+         * 查询指定的环境变量的详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11611,7 +11934,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看分组下指定错误类型的自定义响应
+         * 查询分组下指定错误类型的自定义响应
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11720,7 +12043,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看专享版实例创建进度
+         * 查询专享版实例创建进度
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11757,7 +12080,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看专享版实例详情
+         * 查询专享版实例详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11838,7 +12161,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看指定流控策略的详细信息。
+         * 查询指定流控策略的详细信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11964,7 +12287,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看实例约束信息
+         * 查询实例约束信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12107,7 +12430,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改指定APP的信息。其中可修改的属性为：name、remark，当支持用户自定义key和secret的开关开启时，app_key和app_secret也支持修改，其它属性不可修改。
+         * 修改指定APP的信息。其中可修改的属性为：name、remark、related_domain_id、related_project_id，当支持用户自定义key和secret的开关开启时，app_key和app_secret也支持修改，其它属性不可修改。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14072,7 +14395,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看指定的API在指定的环境上的运行时定义，默认查询RELEASE环境上的运行时定义。
+         * 查询指定的API在指定的环境上的运行时定义，默认查询RELEASE环境上的运行时定义。
          * 
          * API的定义分为临时定义和运行时定义，分别代表如下含义：
          * - 临时定义：API在编辑中的定义，表示用户最后一次编辑后的API的状态
@@ -14434,7 +14757,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看API列表，返回API详细信息、发布信息等，但不能查看到后端服务信息和API请求参数信息
+         * 查询API列表，返回API详细信息、发布信息等，但不能查询到后端服务信息和API请求参数信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -14704,7 +15027,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看指定的API的详细信息。
+         * 查询指定的API的详细信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -15003,7 +15326,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看API绑定的ACL策略列表
+         * 查询API绑定的ACL策略列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -15093,7 +15416,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看ACL策略绑定的API列表
+         * 查询ACL策略绑定的API列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -15190,7 +15513,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看ACL策略未绑定的API列表，需要API已发布
+         * 查询ACL策略未绑定的API列表，需要API已发布
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16243,7 +16566,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看证书详情。
+         * 查询证书详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16743,7 +17066,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看指定VPC通道的后端实例列表。
+         * 查询指定VPC通道的后端实例列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16910,7 +17233,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看VPC通道列表
+         * 查询VPC通道列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17025,7 +17348,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看指定的VPC通道后端服务器组详情
+         * 查询指定的VPC通道后端服务器组详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17076,7 +17399,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看指定的VPC通道详情
+         * 查询指定的VPC通道详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -1,4 +1,3 @@
-import { SslInfo } from './SslInfo';
 import { UrlDomainBaseInfo } from './UrlDomainBaseInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -14,7 +13,9 @@ export class AssociateCertificateV2Response extends SdkResponse {
     private 'ingress_https_port'?: number;
     private 'ssl_name'?: string;
     private 'ssl_id'?: string;
-    private 'ssl_infos'?: Array<SslInfo>;
+    private 'instance_id'?: string;
+    private 'api_group_id'?: string;
+    private 'api_group_name'?: string;
     public constructor(urlDomain?: string, id?: string, status?: number, minSslVersion?: string, sslName?: string, sslId?: string) { 
         super();
         this['url_domain'] = urlDomain;
@@ -112,15 +113,35 @@ export class AssociateCertificateV2Response extends SdkResponse {
     public get sslId(): string | undefined {
         return this['ssl_id'];
     }
-    public withSslInfos(sslInfos: Array<SslInfo>): AssociateCertificateV2Response {
-        this['ssl_infos'] = sslInfos;
+    public withInstanceId(instanceId: string): AssociateCertificateV2Response {
+        this['instance_id'] = instanceId;
         return this;
     }
-    public set sslInfos(sslInfos: Array<SslInfo>  | undefined) {
-        this['ssl_infos'] = sslInfos;
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
     }
-    public get sslInfos(): Array<SslInfo> | undefined {
-        return this['ssl_infos'];
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
+    }
+    public withApiGroupId(apiGroupId: string): AssociateCertificateV2Response {
+        this['api_group_id'] = apiGroupId;
+        return this;
+    }
+    public set apiGroupId(apiGroupId: string  | undefined) {
+        this['api_group_id'] = apiGroupId;
+    }
+    public get apiGroupId(): string | undefined {
+        return this['api_group_id'];
+    }
+    public withApiGroupName(apiGroupName: string): AssociateCertificateV2Response {
+        this['api_group_name'] = apiGroupName;
+        return this;
+    }
+    public set apiGroupName(apiGroupName: string  | undefined) {
+        this['api_group_name'] = apiGroupName;
+    }
+    public get apiGroupName(): string | undefined {
+        return this['api_group_name'];
     }
 }
 

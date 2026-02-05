@@ -2,7 +2,7 @@
 
 export class ApiAclInfoWithBindNum {
     private 'acl_name'?: string;
-    private 'acl_type'?: string;
+    private 'acl_type'?: ApiAclInfoWithBindNumAclTypeEnum | string;
     private 'acl_value'?: string;
     private 'bind_num'?: number;
     private 'entity_type'?: string;
@@ -20,14 +20,14 @@ export class ApiAclInfoWithBindNum {
     public get aclName(): string | undefined {
         return this['acl_name'];
     }
-    public withAclType(aclType: string): ApiAclInfoWithBindNum {
+    public withAclType(aclType: ApiAclInfoWithBindNumAclTypeEnum | string): ApiAclInfoWithBindNum {
         this['acl_type'] = aclType;
         return this;
     }
-    public set aclType(aclType: string  | undefined) {
+    public set aclType(aclType: ApiAclInfoWithBindNumAclTypeEnum | string  | undefined) {
         this['acl_type'] = aclType;
     }
-    public get aclType(): string | undefined {
+    public get aclType(): ApiAclInfoWithBindNumAclTypeEnum | string | undefined {
         return this['acl_type'];
     }
     public withAclValue(aclValue: string): ApiAclInfoWithBindNum {
@@ -74,4 +74,13 @@ export class ApiAclInfoWithBindNum {
     public get updateTime(): Date | undefined {
         return this['update_time'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiAclInfoWithBindNumAclTypeEnum {
+    PERMIT = 'PERMIT',
+    DENY = 'DENY'
 }

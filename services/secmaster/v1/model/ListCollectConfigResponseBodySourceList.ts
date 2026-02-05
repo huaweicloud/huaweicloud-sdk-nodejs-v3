@@ -2,7 +2,7 @@
 
 export class ListCollectConfigResponseBodySourceList {
     private 'csvc_display'?: string;
-    private 'csvc_hzzelp'?: string;
+    private 'csvc_help'?: string;
     public link?: string;
     private 'source_display'?: string;
     private 'source_help'?: string;
@@ -18,15 +18,15 @@ export class ListCollectConfigResponseBodySourceList {
     public get csvcDisplay(): string | undefined {
         return this['csvc_display'];
     }
-    public withCsvcHzzelp(csvcHzzelp: string): ListCollectConfigResponseBodySourceList {
-        this['csvc_hzzelp'] = csvcHzzelp;
+    public withCsvcHelp(csvcHelp: string): ListCollectConfigResponseBodySourceList {
+        this['csvc_help'] = csvcHelp;
         return this;
     }
-    public set csvcHzzelp(csvcHzzelp: string  | undefined) {
-        this['csvc_hzzelp'] = csvcHzzelp;
+    public set csvcHelp(csvcHelp: string  | undefined) {
+        this['csvc_help'] = csvcHelp;
     }
-    public get csvcHzzelp(): string | undefined {
-        return this['csvc_hzzelp'];
+    public get csvcHelp(): string | undefined {
+        return this['csvc_help'];
     }
     public withLink(link: string): ListCollectConfigResponseBodySourceList {
         this['link'] = link;

@@ -1,14 +1,14 @@
 
 
 export class ApiForThrottle {
-    private 'auth_type'?: string;
+    private 'auth_type'?: ApiForThrottleAuthTypeEnum | string;
     private 'group_name'?: string;
     private 'publish_id'?: string;
     private 'throttle_apply_id'?: string;
     private 'apply_time'?: Date;
     public remark?: string;
     private 'run_env_id'?: string;
-    public type?: number;
+    public type?: ApiForThrottleTypeEnum | number;
     private 'throttle_name'?: string;
     private 'req_uri'?: string;
     private 'run_env_name'?: string;
@@ -19,14 +19,14 @@ export class ApiForThrottle {
     public tags?: Array<string>;
     public constructor() { 
     }
-    public withAuthType(authType: string): ApiForThrottle {
+    public withAuthType(authType: ApiForThrottleAuthTypeEnum | string): ApiForThrottle {
         this['auth_type'] = authType;
         return this;
     }
-    public set authType(authType: string  | undefined) {
+    public set authType(authType: ApiForThrottleAuthTypeEnum | string  | undefined) {
         this['auth_type'] = authType;
     }
-    public get authType(): string | undefined {
+    public get authType(): ApiForThrottleAuthTypeEnum | string | undefined {
         return this['auth_type'];
     }
     public withGroupName(groupName: string): ApiForThrottle {
@@ -83,7 +83,7 @@ export class ApiForThrottle {
     public get runEnvId(): string | undefined {
         return this['run_env_id'];
     }
-    public withType(type: number): ApiForThrottle {
+    public withType(type: ApiForThrottleTypeEnum | number): ApiForThrottle {
         this['type'] = type;
         return this;
     }
@@ -151,6 +151,24 @@ export class ApiForThrottle {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiForThrottleAuthTypeEnum {
+    NONE = 'NONE',
+    APP = 'APP',
+    IAM = 'IAM',
+    AUTHORIZER = 'AUTHORIZER'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiForThrottleTypeEnum {
+    NUMBER_1 = 1,
+    NUMBER_2 = 2
+}
 /**
     * @export
     * @enum {string}

@@ -6,7 +6,7 @@ export class ListCustomAuthorizersV2Request {
     public limit?: number;
     public id?: string;
     public name?: string;
-    public type?: string;
+    public type?: ListCustomAuthorizersV2RequestTypeEnum | string;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -36,8 +36,17 @@ export class ListCustomAuthorizersV2Request {
         this['name'] = name;
         return this;
     }
-    public withType(type: string): ListCustomAuthorizersV2Request {
+    public withType(type: ListCustomAuthorizersV2RequestTypeEnum | string): ListCustomAuthorizersV2Request {
         this['type'] = type;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListCustomAuthorizersV2RequestTypeEnum {
+    FRONTEND = 'FRONTEND',
+    BACKEND = 'BACKEND'
 }

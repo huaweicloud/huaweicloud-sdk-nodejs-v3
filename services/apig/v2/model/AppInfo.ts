@@ -8,6 +8,8 @@ export class AppInfo {
     public creator?: AppInfoCreatorEnum | string;
     private 'update_time'?: Date;
     private 'app_key'?: string;
+    private 'related_domain_id'?: string;
+    private 'related_project_id'?: string;
     private 'app_secret'?: string;
     private 'register_time'?: Date;
     public status?: AppInfoStatusEnum | number;
@@ -50,6 +52,26 @@ export class AppInfo {
     }
     public get appKey(): string | undefined {
         return this['app_key'];
+    }
+    public withRelatedDomainId(relatedDomainId: string): AppInfo {
+        this['related_domain_id'] = relatedDomainId;
+        return this;
+    }
+    public set relatedDomainId(relatedDomainId: string  | undefined) {
+        this['related_domain_id'] = relatedDomainId;
+    }
+    public get relatedDomainId(): string | undefined {
+        return this['related_domain_id'];
+    }
+    public withRelatedProjectId(relatedProjectId: string): AppInfo {
+        this['related_project_id'] = relatedProjectId;
+        return this;
+    }
+    public set relatedProjectId(relatedProjectId: string  | undefined) {
+        this['related_project_id'] = relatedProjectId;
+    }
+    public get relatedProjectId(): string | undefined {
+        return this['related_project_id'];
     }
     public withAppSecret(appSecret: string): AppInfo {
         this['app_secret'] = appSecret;
@@ -117,6 +139,5 @@ export enum AppInfoStatusEnum {
     * @enum {string}
     */
 export enum AppInfoAppTypeEnum {
-    APIG = 'apig',
-    ROMA = 'roma'
+    APIG = 'apig'
 }

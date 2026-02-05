@@ -2,7 +2,7 @@ import { ApiOutline } from './ApiOutline';
 
 
 export class ApiForSign {
-    private 'auth_type'?: string;
+    private 'auth_type'?: ApiForSignAuthTypeEnum | string;
     private 'run_env_name'?: string;
     private 'group_name'?: string;
     private 'publish_id'?: string;
@@ -13,19 +13,19 @@ export class ApiForSign {
     public id?: string;
     private 'req_uri'?: string;
     public tags?: Array<string>;
-    public type?: number;
+    public type?: ApiForSignTypeEnum | number;
     private 'signature_name'?: string;
     private 'req_method'?: ApiForSignReqMethodEnum | string;
     public constructor() { 
     }
-    public withAuthType(authType: string): ApiForSign {
+    public withAuthType(authType: ApiForSignAuthTypeEnum | string): ApiForSign {
         this['auth_type'] = authType;
         return this;
     }
-    public set authType(authType: string  | undefined) {
+    public set authType(authType: ApiForSignAuthTypeEnum | string  | undefined) {
         this['auth_type'] = authType;
     }
-    public get authType(): string | undefined {
+    public get authType(): ApiForSignAuthTypeEnum | string | undefined {
         return this['auth_type'];
     }
     public withRunEnvName(runEnvName: string): ApiForSign {
@@ -104,7 +104,7 @@ export class ApiForSign {
         this['tags'] = tags;
         return this;
     }
-    public withType(type: number): ApiForSign {
+    public withType(type: ApiForSignTypeEnum | number): ApiForSign {
         this['type'] = type;
         return this;
     }
@@ -130,6 +130,24 @@ export class ApiForSign {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiForSignAuthTypeEnum {
+    NONE = 'NONE',
+    APP = 'APP',
+    IAM = 'IAM',
+    AUTHORIZER = 'AUTHORIZER'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiForSignTypeEnum {
+    NUMBER_1 = 1,
+    NUMBER_2 = 2
+}
 /**
     * @export
     * @enum {string}

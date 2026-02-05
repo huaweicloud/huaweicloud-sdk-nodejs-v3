@@ -4,6 +4,7 @@ export class CloudStorage {
     public id?: string;
     public name?: string;
     private 'project_config_id'?: string;
+    private 'cluster_group_id'?: string;
     private 'create_time'?: Date;
     private 'user_claim_count'?: number;
     private 'share_claim_count'?: number;
@@ -26,6 +27,16 @@ export class CloudStorage {
     }
     public get projectConfigId(): string | undefined {
         return this['project_config_id'];
+    }
+    public withClusterGroupId(clusterGroupId: string): CloudStorage {
+        this['cluster_group_id'] = clusterGroupId;
+        return this;
+    }
+    public set clusterGroupId(clusterGroupId: string  | undefined) {
+        this['cluster_group_id'] = clusterGroupId;
+    }
+    public get clusterGroupId(): string | undefined {
+        return this['cluster_group_id'];
     }
     public withCreateTime(createTime: Date): CloudStorage {
         this['create_time'] = createTime;

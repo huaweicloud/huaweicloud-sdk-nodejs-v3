@@ -6,7 +6,7 @@ export class ApiAuthInfo {
     private 'api_id'?: string;
     private 'api_name'?: string;
     private 'group_name'?: string;
-    private 'api_type'?: number;
+    private 'api_type'?: ApiAuthInfoApiTypeEnum | number;
     private 'api_remark'?: string;
     private 'env_id'?: string;
     private 'auth_role'?: string;
@@ -61,14 +61,14 @@ export class ApiAuthInfo {
     public get groupName(): string | undefined {
         return this['group_name'];
     }
-    public withApiType(apiType: number): ApiAuthInfo {
+    public withApiType(apiType: ApiAuthInfoApiTypeEnum | number): ApiAuthInfo {
         this['api_type'] = apiType;
         return this;
     }
-    public set apiType(apiType: number  | undefined) {
+    public set apiType(apiType: ApiAuthInfoApiTypeEnum | number  | undefined) {
         this['api_type'] = apiType;
     }
-    public get apiType(): number | undefined {
+    public get apiType(): ApiAuthInfoApiTypeEnum | number | undefined {
         return this['api_type'];
     }
     public withApiRemark(apiRemark: string): ApiAuthInfo {
@@ -247,6 +247,14 @@ export class ApiAuthInfo {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiAuthInfoApiTypeEnum {
+    NUMBER_1 = 1,
+    NUMBER_2 = 2
+}
 /**
     * @export
     * @enum {string}

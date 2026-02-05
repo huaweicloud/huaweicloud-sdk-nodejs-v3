@@ -3,8 +3,7 @@
 export class ScalingPolicyBySession {
     private 'session_usage_threshold'?: number;
     private 'shrink_after_session_idle_minutes'?: number;
-    public constructor(sessionUsageThreshold?: number, shrinkAfterSessionIdleMinutes?: number) { 
-        this['session_usage_threshold'] = sessionUsageThreshold;
+    public constructor(shrinkAfterSessionIdleMinutes?: number) { 
         this['shrink_after_session_idle_minutes'] = shrinkAfterSessionIdleMinutes;
     }
     public withSessionUsageThreshold(sessionUsageThreshold: number): ScalingPolicyBySession {

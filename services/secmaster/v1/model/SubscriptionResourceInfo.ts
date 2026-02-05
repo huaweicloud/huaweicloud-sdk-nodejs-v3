@@ -11,6 +11,7 @@ export class SubscriptionResourceInfo {
     private 'resource_status'?: number;
     private 'order_id'?: string;
     private 'charging_mode'?: SubscriptionResourceInfoChargingModeEnum | string;
+    private 'to_period'?: boolean;
     private 'tag_list'?: Array<TagInfo>;
     public constructor() { 
     }
@@ -103,6 +104,16 @@ export class SubscriptionResourceInfo {
     }
     public get chargingMode(): SubscriptionResourceInfoChargingModeEnum | string | undefined {
         return this['charging_mode'];
+    }
+    public withToPeriod(toPeriod: boolean): SubscriptionResourceInfo {
+        this['to_period'] = toPeriod;
+        return this;
+    }
+    public set toPeriod(toPeriod: boolean  | undefined) {
+        this['to_period'] = toPeriod;
+    }
+    public get toPeriod(): boolean | undefined {
+        return this['to_period'];
     }
     public withTagList(tagList: Array<TagInfo>): SubscriptionResourceInfo {
         this['tag_list'] = tagList;

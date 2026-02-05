@@ -14,7 +14,6 @@ export class CreateInstanceRequestBody {
     private 'obs_encrypt'?: boolean;
     private 'encrypt_type'?: CreateInstanceRequestBodyEncryptTypeEnum | string;
     private 'obs_bucket_name'?: string;
-    private 'obs_enc_kms_key_id'?: string;
     public constructor(name?: string, spec?: string, vpcId?: string, subnetId?: string, projectId?: string, chargeMode?: string, enterpriseProjectId?: string) { 
         this['name'] = name;
         this['spec'] = spec;
@@ -125,16 +124,6 @@ export class CreateInstanceRequestBody {
     }
     public get obsBucketName(): string | undefined {
         return this['obs_bucket_name'];
-    }
-    public withObsEncKmsKeyId(obsEncKmsKeyId: string): CreateInstanceRequestBody {
-        this['obs_enc_kms_key_id'] = obsEncKmsKeyId;
-        return this;
-    }
-    public set obsEncKmsKeyId(obsEncKmsKeyId: string  | undefined) {
-        this['obs_enc_kms_key_id'] = obsEncKmsKeyId;
-    }
-    public get obsEncKmsKeyId(): string | undefined {
-        return this['obs_enc_kms_key_id'];
     }
 }
 

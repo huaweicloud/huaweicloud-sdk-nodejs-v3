@@ -1,7 +1,7 @@
 
 
 export class ApiOutline {
-    private 'auth_type'?: string;
+    private 'auth_type'?: ApiOutlineAuthTypeEnum | string;
     private 'run_env_name'?: string;
     private 'group_name'?: string;
     private 'publish_id'?: string;
@@ -14,14 +14,14 @@ export class ApiOutline {
     public tags?: Array<string>;
     public constructor() { 
     }
-    public withAuthType(authType: string): ApiOutline {
+    public withAuthType(authType: ApiOutlineAuthTypeEnum | string): ApiOutline {
         this['auth_type'] = authType;
         return this;
     }
-    public set authType(authType: string  | undefined) {
+    public set authType(authType: ApiOutlineAuthTypeEnum | string  | undefined) {
         this['auth_type'] = authType;
     }
-    public get authType(): string | undefined {
+    public get authType(): ApiOutlineAuthTypeEnum | string | undefined {
         return this['auth_type'];
     }
     public withRunEnvName(runEnvName: string): ApiOutline {
@@ -100,4 +100,15 @@ export class ApiOutline {
         this['tags'] = tags;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiOutlineAuthTypeEnum {
+    NONE = 'NONE',
+    APP = 'APP',
+    IAM = 'IAM',
+    AUTHORIZER = 'AUTHORIZER'
 }

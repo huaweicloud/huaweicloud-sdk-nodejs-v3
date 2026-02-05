@@ -8,6 +8,8 @@ export class AppInfoWithBindNum {
     public creator?: AppInfoWithBindNumCreatorEnum | string;
     private 'update_time'?: Date;
     private 'app_key'?: string;
+    private 'related_domain_id'?: string;
+    private 'related_project_id'?: string;
     private 'app_secret'?: string;
     private 'register_time'?: Date;
     public status?: AppInfoWithBindNumStatusEnum | number;
@@ -51,6 +53,26 @@ export class AppInfoWithBindNum {
     }
     public get appKey(): string | undefined {
         return this['app_key'];
+    }
+    public withRelatedDomainId(relatedDomainId: string): AppInfoWithBindNum {
+        this['related_domain_id'] = relatedDomainId;
+        return this;
+    }
+    public set relatedDomainId(relatedDomainId: string  | undefined) {
+        this['related_domain_id'] = relatedDomainId;
+    }
+    public get relatedDomainId(): string | undefined {
+        return this['related_domain_id'];
+    }
+    public withRelatedProjectId(relatedProjectId: string): AppInfoWithBindNum {
+        this['related_project_id'] = relatedProjectId;
+        return this;
+    }
+    public set relatedProjectId(relatedProjectId: string  | undefined) {
+        this['related_project_id'] = relatedProjectId;
+    }
+    public get relatedProjectId(): string | undefined {
+        return this['related_project_id'];
     }
     public withAppSecret(appSecret: string): AppInfoWithBindNum {
         this['app_secret'] = appSecret;
@@ -128,6 +150,5 @@ export enum AppInfoWithBindNumStatusEnum {
     * @enum {string}
     */
 export enum AppInfoWithBindNumAppTypeEnum {
-    APIG = 'apig',
-    ROMA = 'roma'
+    APIG = 'apig'
 }

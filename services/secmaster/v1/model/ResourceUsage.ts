@@ -4,7 +4,7 @@ export class ResourceUsage {
     public unit?: ResourceUsageUnitEnum | string;
     private 'resource_type_name'?: string;
     private 'source_resource_spec_code'?: string;
-    private 'resource_spec_code'?: object;
+    private 'resource_spec_code'?: string;
     private 'source_type'?: string;
     private 'used_percent'?: number;
     public quota?: number;
@@ -36,14 +36,14 @@ export class ResourceUsage {
     public get sourceResourceSpecCode(): string | undefined {
         return this['source_resource_spec_code'];
     }
-    public withResourceSpecCode(resourceSpecCode: object): ResourceUsage {
+    public withResourceSpecCode(resourceSpecCode: string): ResourceUsage {
         this['resource_spec_code'] = resourceSpecCode;
         return this;
     }
-    public set resourceSpecCode(resourceSpecCode: object  | undefined) {
+    public set resourceSpecCode(resourceSpecCode: string  | undefined) {
         this['resource_spec_code'] = resourceSpecCode;
     }
-    public get resourceSpecCode(): object | undefined {
+    public get resourceSpecCode(): string | undefined {
         return this['resource_spec_code'];
     }
     public withSourceType(sourceType: string): ResourceUsage {

@@ -4,6 +4,7 @@ export class CreateServerImageReq {
     public name?: string;
     public description?: string;
     private 'enterprise_project_id'?: string;
+    private 'execute_sysprep'?: boolean;
     public constructor(name?: string) { 
         this['name'] = name;
     }
@@ -24,5 +25,15 @@ export class CreateServerImageReq {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withExecuteSysprep(executeSysprep: boolean): CreateServerImageReq {
+        this['execute_sysprep'] = executeSysprep;
+        return this;
+    }
+    public set executeSysprep(executeSysprep: boolean  | undefined) {
+        this['execute_sysprep'] = executeSysprep;
+    }
+    public get executeSysprep(): boolean | undefined {
+        return this['execute_sysprep'];
     }
 }

@@ -198,7 +198,7 @@ import { ListCollectConfigRequest } from './model/ListCollectConfigRequest';
 import { ListCollectConfigResponse } from './model/ListCollectConfigResponse';
 import { ListCollectConfigResponseBodyAccounts } from './model/ListCollectConfigResponseBodyAccounts';
 import { ListCollectConfigResponseBodyAllVendors } from './model/ListCollectConfigResponseBodyAllVendors';
-import { ListCollectConfigResponseBodyCofingStatistics } from './model/ListCollectConfigResponseBodyCofingStatistics';
+import { ListCollectConfigResponseBodyConfigStatistics } from './model/ListCollectConfigResponseBodyConfigStatistics';
 import { ListCollectConfigResponseBodyCsvcList } from './model/ListCollectConfigResponseBodyCsvcList';
 import { ListCollectConfigResponseBodyDataList } from './model/ListCollectConfigResponseBodyDataList';
 import { ListCollectConfigResponseBodyDatasets } from './model/ListCollectConfigResponseBodyDatasets';

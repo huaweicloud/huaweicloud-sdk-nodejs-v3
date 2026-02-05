@@ -1,6 +1,5 @@
 import { ActionInfo } from './ActionInfo';
 import { DdmGroupInfo } from './DdmGroupInfo';
-import { TagsInfo } from './TagsInfo';
 
 
 export class InstanceDetail {
@@ -33,7 +32,7 @@ export class InstanceDetail {
     private 'only_default_group'?: boolean;
     public groups?: Array<DdmGroupInfo>;
     private 'extend_map'?: { [key: string]: string; };
-    private 'tags_info'?: Array<TagsInfo>;
+    private 'tags_info'?: object;
     private 'admin_user_name'?: string;
     private 'eip_binding_info'?: object;
     private 'enable_ssl'?: number;
@@ -281,14 +280,14 @@ export class InstanceDetail {
     public get extendMap(): { [key: string]: string; } | undefined {
         return this['extend_map'];
     }
-    public withTagsInfo(tagsInfo: Array<TagsInfo>): InstanceDetail {
+    public withTagsInfo(tagsInfo: object): InstanceDetail {
         this['tags_info'] = tagsInfo;
         return this;
     }
-    public set tagsInfo(tagsInfo: Array<TagsInfo>  | undefined) {
+    public set tagsInfo(tagsInfo: object  | undefined) {
         this['tags_info'] = tagsInfo;
     }
-    public get tagsInfo(): Array<TagsInfo> | undefined {
+    public get tagsInfo(): object | undefined {
         return this['tags_info'];
     }
     public withAdminUserName(adminUserName: string): InstanceDetail {

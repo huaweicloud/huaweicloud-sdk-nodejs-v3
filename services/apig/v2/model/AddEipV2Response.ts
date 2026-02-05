@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class AddEipV2Response extends SdkResponse {
     private 'eip_id'?: string;
     private 'eip_address'?: string;
-    private 'eip_status'?: string;
+    private 'eip_status'?: AddEipV2ResponseEipStatusEnum | string;
     private 'eip_ipv6_address'?: string;
     public constructor() { 
         super();
@@ -29,14 +29,14 @@ export class AddEipV2Response extends SdkResponse {
     public get eipAddress(): string | undefined {
         return this['eip_address'];
     }
-    public withEipStatus(eipStatus: string): AddEipV2Response {
+    public withEipStatus(eipStatus: AddEipV2ResponseEipStatusEnum | string): AddEipV2Response {
         this['eip_status'] = eipStatus;
         return this;
     }
-    public set eipStatus(eipStatus: string  | undefined) {
+    public set eipStatus(eipStatus: AddEipV2ResponseEipStatusEnum | string  | undefined) {
         this['eip_status'] = eipStatus;
     }
-    public get eipStatus(): string | undefined {
+    public get eipStatus(): AddEipV2ResponseEipStatusEnum | string | undefined {
         return this['eip_status'];
     }
     public withEipIpv6Address(eipIpv6Address: string): AddEipV2Response {
@@ -49,4 +49,24 @@ export class AddEipV2Response extends SdkResponse {
     public get eipIpv6Address(): string | undefined {
         return this['eip_ipv6_address'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AddEipV2ResponseEipStatusEnum {
+    FREEZED = 'FREEZED',
+    BIND_ERROR = 'BIND_ERROR',
+    BINDING = 'BINDING',
+    PENDING_DELETE = 'PENDING_DELETE',
+    PENDING_CREATE = 'PENDING_CREATE',
+    NOTIFYING = 'NOTIFYING',
+    NOTIFY_DELETE = 'NOTIFY_DELETE',
+    PENDING_UPDATE = 'PENDING_UPDATE',
+    DOWN = 'DOWN',
+    ACTIVE = 'ACTIVE',
+    ELB = 'ELB',
+    VPN = 'VPN',
+    ERROR = 'ERROR'
 }

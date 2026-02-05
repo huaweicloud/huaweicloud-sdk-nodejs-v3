@@ -1,3 +1,4 @@
+import { ScalingPolicyByResource } from './ScalingPolicyByResource';
 import { ScalingPolicyBySession } from './ScalingPolicyBySession';
 
 
@@ -6,6 +7,7 @@ export class ScalingPolicy {
     private 'max_scaling_amount'?: number;
     private 'single_expansion_count'?: number;
     private 'scaling_policy_by_session'?: ScalingPolicyBySession;
+    private 'scaling_policy_by_resource'?: ScalingPolicyByResource;
     public constructor(maxScalingAmount?: number, singleExpansionCount?: number, scalingPolicyBySession?: ScalingPolicyBySession) { 
         this['max_scaling_amount'] = maxScalingAmount;
         this['single_expansion_count'] = singleExpansionCount;
@@ -44,5 +46,15 @@ export class ScalingPolicy {
     }
     public get scalingPolicyBySession(): ScalingPolicyBySession | undefined {
         return this['scaling_policy_by_session'];
+    }
+    public withScalingPolicyByResource(scalingPolicyByResource: ScalingPolicyByResource): ScalingPolicy {
+        this['scaling_policy_by_resource'] = scalingPolicyByResource;
+        return this;
+    }
+    public set scalingPolicyByResource(scalingPolicyByResource: ScalingPolicyByResource  | undefined) {
+        this['scaling_policy_by_resource'] = scalingPolicyByResource;
+    }
+    public get scalingPolicyByResource(): ScalingPolicyByResource | undefined {
+        return this['scaling_policy_by_resource'];
     }
 }

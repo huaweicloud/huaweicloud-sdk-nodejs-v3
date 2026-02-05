@@ -9,7 +9,7 @@ export class DpeClassifyCreate {
     private 'dataclass_id'?: string;
     private 'dataclass_name'?: string;
     private 'mapping_id'?: string;
-    private 'direct_classifier'?: object;
+    private 'direct_classifier'?: string;
     private 'direct_classifier_type_id'?: string;
     private 'create_time'?: string;
     private 'creator_id'?: string;
@@ -75,14 +75,14 @@ export class DpeClassifyCreate {
     public get mappingId(): string | undefined {
         return this['mapping_id'];
     }
-    public withDirectClassifier(directClassifier: object): DpeClassifyCreate {
+    public withDirectClassifier(directClassifier: string): DpeClassifyCreate {
         this['direct_classifier'] = directClassifier;
         return this;
     }
-    public set directClassifier(directClassifier: object  | undefined) {
+    public set directClassifier(directClassifier: string  | undefined) {
         this['direct_classifier'] = directClassifier;
     }
-    public get directClassifier(): object | undefined {
+    public get directClassifier(): string | undefined {
         return this['direct_classifier'];
     }
     public withDirectClassifierTypeId(directClassifierTypeId: string): DpeClassifyCreate {

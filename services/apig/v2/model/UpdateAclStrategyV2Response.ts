@@ -3,7 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateAclStrategyV2Response extends SdkResponse {
     private 'acl_name'?: string;
-    private 'acl_type'?: string;
+    private 'acl_type'?: UpdateAclStrategyV2ResponseAclTypeEnum | string;
     private 'acl_value'?: string;
     private 'entity_type'?: string;
     public id?: string;
@@ -21,14 +21,14 @@ export class UpdateAclStrategyV2Response extends SdkResponse {
     public get aclName(): string | undefined {
         return this['acl_name'];
     }
-    public withAclType(aclType: string): UpdateAclStrategyV2Response {
+    public withAclType(aclType: UpdateAclStrategyV2ResponseAclTypeEnum | string): UpdateAclStrategyV2Response {
         this['acl_type'] = aclType;
         return this;
     }
-    public set aclType(aclType: string  | undefined) {
+    public set aclType(aclType: UpdateAclStrategyV2ResponseAclTypeEnum | string  | undefined) {
         this['acl_type'] = aclType;
     }
-    public get aclType(): string | undefined {
+    public get aclType(): UpdateAclStrategyV2ResponseAclTypeEnum | string | undefined {
         return this['acl_type'];
     }
     public withAclValue(aclValue: string): UpdateAclStrategyV2Response {
@@ -65,4 +65,13 @@ export class UpdateAclStrategyV2Response extends SdkResponse {
     public get updateTime(): Date | undefined {
         return this['update_time'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateAclStrategyV2ResponseAclTypeEnum {
+    PERMIT = 'PERMIT',
+    DENY = 'DENY'
 }

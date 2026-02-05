@@ -10,9 +10,9 @@ export class ListApisV2Request {
     private 'req_protocol'?: string;
     private 'req_method'?: string;
     private 'req_uri'?: string;
-    private 'auth_type'?: string;
+    private 'auth_type'?: ListApisV2RequestAuthTypeEnum | string;
     private 'env_id'?: string;
-    public type?: number;
+    public type?: ListApisV2RequestTypeEnum | number;
     private 'precise_search'?: string;
     private 'vpc_channel_name'?: string;
     private 'return_data_mode'?: string;
@@ -86,14 +86,14 @@ export class ListApisV2Request {
     public get reqUri(): string | undefined {
         return this['req_uri'];
     }
-    public withAuthType(authType: string): ListApisV2Request {
+    public withAuthType(authType: ListApisV2RequestAuthTypeEnum | string): ListApisV2Request {
         this['auth_type'] = authType;
         return this;
     }
-    public set authType(authType: string  | undefined) {
+    public set authType(authType: ListApisV2RequestAuthTypeEnum | string  | undefined) {
         this['auth_type'] = authType;
     }
-    public get authType(): string | undefined {
+    public get authType(): ListApisV2RequestAuthTypeEnum | string | undefined {
         return this['auth_type'];
     }
     public withEnvId(envId: string): ListApisV2Request {
@@ -106,7 +106,7 @@ export class ListApisV2Request {
     public get envId(): string | undefined {
         return this['env_id'];
     }
-    public withType(type: number): ListApisV2Request {
+    public withType(type: ListApisV2RequestTypeEnum | number): ListApisV2Request {
         this['type'] = type;
         return this;
     }
@@ -144,4 +144,23 @@ export class ListApisV2Request {
         this['tags'] = tags;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListApisV2RequestAuthTypeEnum {
+    NONE = 'NONE',
+    APP = 'APP',
+    IAM = 'IAM',
+    AUTHORIZER = 'AUTHORIZER'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListApisV2RequestTypeEnum {
+    NUMBER_1 = 1,
+    NUMBER_2 = 2
 }

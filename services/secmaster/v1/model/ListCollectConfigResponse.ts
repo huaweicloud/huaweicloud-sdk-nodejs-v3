@@ -1,6 +1,6 @@
 import { DatasetInfo } from './DatasetInfo';
 import { ListCollectConfigResponseBodyAllVendors } from './ListCollectConfigResponseBodyAllVendors';
-import { ListCollectConfigResponseBodyCofingStatistics } from './ListCollectConfigResponseBodyCofingStatistics';
+import { ListCollectConfigResponseBodyConfigStatistics } from './ListCollectConfigResponseBodyConfigStatistics';
 import { ListCollectConfigResponseBodyDataList } from './ListCollectConfigResponseBodyDataList';
 import { LtsResponseVo } from './LtsResponseVo';
 
@@ -8,7 +8,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListCollectConfigResponse extends SdkResponse {
     private 'all_vendors'?: Array<ListCollectConfigResponseBodyAllVendors>;
-    private 'cofing_statistics'?: ListCollectConfigResponseBodyCofingStatistics;
+    private 'config_statistics'?: ListCollectConfigResponseBodyConfigStatistics;
     private 'data_list'?: Array<ListCollectConfigResponseBodyDataList>;
     public datasets?: Array<DatasetInfo>;
     private 'dataspace_id'?: string;
@@ -31,15 +31,15 @@ export class ListCollectConfigResponse extends SdkResponse {
     public get allVendors(): Array<ListCollectConfigResponseBodyAllVendors> | undefined {
         return this['all_vendors'];
     }
-    public withCofingStatistics(cofingStatistics: ListCollectConfigResponseBodyCofingStatistics): ListCollectConfigResponse {
-        this['cofing_statistics'] = cofingStatistics;
+    public withConfigStatistics(configStatistics: ListCollectConfigResponseBodyConfigStatistics): ListCollectConfigResponse {
+        this['config_statistics'] = configStatistics;
         return this;
     }
-    public set cofingStatistics(cofingStatistics: ListCollectConfigResponseBodyCofingStatistics  | undefined) {
-        this['cofing_statistics'] = cofingStatistics;
+    public set configStatistics(configStatistics: ListCollectConfigResponseBodyConfigStatistics  | undefined) {
+        this['config_statistics'] = configStatistics;
     }
-    public get cofingStatistics(): ListCollectConfigResponseBodyCofingStatistics | undefined {
-        return this['cofing_statistics'];
+    public get configStatistics(): ListCollectConfigResponseBodyConfigStatistics | undefined {
+        return this['config_statistics'];
     }
     public withDataList(dataList: Array<ListCollectConfigResponseBodyDataList>): ListCollectConfigResponse {
         this['data_list'] = dataList;

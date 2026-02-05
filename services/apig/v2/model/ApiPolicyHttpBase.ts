@@ -1,3 +1,4 @@
+import { MemberGroupUrlInfo } from './MemberGroupUrlInfo';
 
 
 export class ApiPolicyHttpBase {
@@ -8,10 +9,8 @@ export class ApiPolicyHttpBase {
     public timeout?: number;
     private 'retry_count'?: string;
     private 'enable_sm_channel'?: boolean;
-    public constructor(reqProtocol?: string, reqMethod?: string, reqUri?: string) { 
-        this['req_protocol'] = reqProtocol;
-        this['req_method'] = reqMethod;
-        this['req_uri'] = reqUri;
+    private 'member_group_url_infos'?: Array<MemberGroupUrlInfo>;
+    public constructor() { 
     }
     public withUrlDomain(urlDomain: string): ApiPolicyHttpBase {
         this['url_domain'] = urlDomain;
@@ -76,6 +75,16 @@ export class ApiPolicyHttpBase {
     }
     public get enableSmChannel(): boolean | undefined {
         return this['enable_sm_channel'];
+    }
+    public withMemberGroupUrlInfos(memberGroupUrlInfos: Array<MemberGroupUrlInfo>): ApiPolicyHttpBase {
+        this['member_group_url_infos'] = memberGroupUrlInfos;
+        return this;
+    }
+    public set memberGroupUrlInfos(memberGroupUrlInfos: Array<MemberGroupUrlInfo>  | undefined) {
+        this['member_group_url_infos'] = memberGroupUrlInfos;
+    }
+    public get memberGroupUrlInfos(): Array<MemberGroupUrlInfo> | undefined {
+        return this['member_group_url_infos'];
     }
 }
 

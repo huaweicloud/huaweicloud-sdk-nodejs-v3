@@ -5,14 +5,14 @@ export class UnbindApiForAcl {
     public name?: string;
     private 'group_id'?: string;
     private 'group_name'?: string;
-    public type?: number;
+    public type?: UnbindApiForAclTypeEnum | number;
     public remark?: string;
     private 'run_env_name'?: string;
     private 'run_env_id'?: string;
     private 'publish_id'?: string;
     private 'acl_name'?: string;
     private 'req_uri'?: string;
-    private 'auth_type'?: string;
+    private 'auth_type'?: UnbindApiForAclAuthTypeEnum | string;
     private 'req_method'?: UnbindApiForAclReqMethodEnum | string;
     public tags?: Array<string>;
     public constructor() { 
@@ -45,7 +45,7 @@ export class UnbindApiForAcl {
     public get groupName(): string | undefined {
         return this['group_name'];
     }
-    public withType(type: number): UnbindApiForAcl {
+    public withType(type: UnbindApiForAclTypeEnum | number): UnbindApiForAcl {
         this['type'] = type;
         return this;
     }
@@ -103,14 +103,14 @@ export class UnbindApiForAcl {
     public get reqUri(): string | undefined {
         return this['req_uri'];
     }
-    public withAuthType(authType: string): UnbindApiForAcl {
+    public withAuthType(authType: UnbindApiForAclAuthTypeEnum | string): UnbindApiForAcl {
         this['auth_type'] = authType;
         return this;
     }
-    public set authType(authType: string  | undefined) {
+    public set authType(authType: UnbindApiForAclAuthTypeEnum | string  | undefined) {
         this['auth_type'] = authType;
     }
-    public get authType(): string | undefined {
+    public get authType(): UnbindApiForAclAuthTypeEnum | string | undefined {
         return this['auth_type'];
     }
     public withReqMethod(reqMethod: UnbindApiForAclReqMethodEnum | string): UnbindApiForAcl {
@@ -129,6 +129,24 @@ export class UnbindApiForAcl {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UnbindApiForAclTypeEnum {
+    NUMBER_1 = 1,
+    NUMBER_2 = 2
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UnbindApiForAclAuthTypeEnum {
+    NONE = 'NONE',
+    APP = 'APP',
+    IAM = 'IAM',
+    AUTHORIZER = 'AUTHORIZER'
+}
 /**
     * @export
     * @enum {string}

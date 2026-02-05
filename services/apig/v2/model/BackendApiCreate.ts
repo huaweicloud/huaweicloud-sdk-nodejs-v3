@@ -1,5 +1,6 @@
 import { ApiBackendVpcReq } from './ApiBackendVpcReq';
 import { BackendApiBaseInfo } from './BackendApiBaseInfo';
+import { MemberGroupUrlInfo } from './MemberGroupUrlInfo';
 
 
 export class BackendApiCreate {
@@ -14,12 +15,10 @@ export class BackendApiCreate {
     private 'enable_client_ssl'?: boolean;
     private 'retry_count'?: string;
     private 'enable_sm_channel'?: boolean;
+    private 'member_group_url_infos'?: Array<MemberGroupUrlInfo>;
     private 'vpc_channel_info'?: ApiBackendVpcReq;
     private 'vpc_channel_status'?: BackendApiCreateVpcChannelStatusEnum | number;
-    public constructor(reqProtocol?: string, reqMethod?: string, reqUri?: string, timeout?: number) { 
-        this['req_protocol'] = reqProtocol;
-        this['req_method'] = reqMethod;
-        this['req_uri'] = reqUri;
+    public constructor(timeout?: number) { 
         this['timeout'] = timeout;
     }
     public withAuthorizerId(authorizerId: string): BackendApiCreate {
@@ -114,6 +113,16 @@ export class BackendApiCreate {
     public get enableSmChannel(): boolean | undefined {
         return this['enable_sm_channel'];
     }
+    public withMemberGroupUrlInfos(memberGroupUrlInfos: Array<MemberGroupUrlInfo>): BackendApiCreate {
+        this['member_group_url_infos'] = memberGroupUrlInfos;
+        return this;
+    }
+    public set memberGroupUrlInfos(memberGroupUrlInfos: Array<MemberGroupUrlInfo>  | undefined) {
+        this['member_group_url_infos'] = memberGroupUrlInfos;
+    }
+    public get memberGroupUrlInfos(): Array<MemberGroupUrlInfo> | undefined {
+        return this['member_group_url_infos'];
+    }
     public withVpcChannelInfo(vpcChannelInfo: ApiBackendVpcReq): BackendApiCreate {
         this['vpc_channel_info'] = vpcChannelInfo;
         return this;
@@ -166,5 +175,7 @@ export enum BackendApiCreateReqMethodEnum {
     */
 export enum BackendApiCreateVpcChannelStatusEnum {
     NUMBER_1 = 1,
-    NUMBER_2 = 2
+    NUMBER_2 = 2,
+    NUMBER_3 = 3,
+    NUMBER_4 = 4
 }

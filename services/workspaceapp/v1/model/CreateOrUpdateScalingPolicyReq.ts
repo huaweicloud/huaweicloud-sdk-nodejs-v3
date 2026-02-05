@@ -1,4 +1,5 @@
 import { ScalingPolicy } from './ScalingPolicy';
+import { ScalingPolicyByResource } from './ScalingPolicyByResource';
 import { ScalingPolicyBySession } from './ScalingPolicyBySession';
 
 
@@ -7,6 +8,7 @@ export class CreateOrUpdateScalingPolicyReq {
     private 'max_scaling_amount'?: number;
     private 'single_expansion_count'?: number;
     private 'scaling_policy_by_session'?: ScalingPolicyBySession;
+    private 'scaling_policy_by_resource'?: ScalingPolicyByResource;
     private 'server_group_id'?: string;
     public constructor(maxScalingAmount?: number, singleExpansionCount?: number, scalingPolicyBySession?: ScalingPolicyBySession, serverGroupId?: string) { 
         this['max_scaling_amount'] = maxScalingAmount;
@@ -47,6 +49,16 @@ export class CreateOrUpdateScalingPolicyReq {
     }
     public get scalingPolicyBySession(): ScalingPolicyBySession | undefined {
         return this['scaling_policy_by_session'];
+    }
+    public withScalingPolicyByResource(scalingPolicyByResource: ScalingPolicyByResource): CreateOrUpdateScalingPolicyReq {
+        this['scaling_policy_by_resource'] = scalingPolicyByResource;
+        return this;
+    }
+    public set scalingPolicyByResource(scalingPolicyByResource: ScalingPolicyByResource  | undefined) {
+        this['scaling_policy_by_resource'] = scalingPolicyByResource;
+    }
+    public get scalingPolicyByResource(): ScalingPolicyByResource | undefined {
+        return this['scaling_policy_by_resource'];
     }
     public withServerGroupId(serverGroupId: string): CreateOrUpdateScalingPolicyReq {
         this['server_group_id'] = serverGroupId;

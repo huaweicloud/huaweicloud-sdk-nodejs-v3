@@ -196,7 +196,7 @@ export * from './model/ListCollectConfigRequest';
 export * from './model/ListCollectConfigResponse';
 export * from './model/ListCollectConfigResponseBodyAccounts';
 export * from './model/ListCollectConfigResponseBodyAllVendors';
-export * from './model/ListCollectConfigResponseBodyCofingStatistics';
+export * from './model/ListCollectConfigResponseBodyConfigStatistics';
 export * from './model/ListCollectConfigResponseBodyCsvcList';
 export * from './model/ListCollectConfigResponseBodyDataList';
 export * from './model/ListCollectConfigResponseBodyDatasets';

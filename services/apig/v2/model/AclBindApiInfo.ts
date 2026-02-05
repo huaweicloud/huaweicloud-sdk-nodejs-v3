@@ -3,7 +3,7 @@
 export class AclBindApiInfo {
     private 'api_id'?: string;
     private 'api_name'?: string;
-    private 'api_type'?: number;
+    private 'api_type'?: AclBindApiInfoApiTypeEnum | number;
     private 'api_remark'?: string;
     private 'env_id'?: string;
     private 'env_name'?: string;
@@ -35,14 +35,14 @@ export class AclBindApiInfo {
     public get apiName(): string | undefined {
         return this['api_name'];
     }
-    public withApiType(apiType: number): AclBindApiInfo {
+    public withApiType(apiType: AclBindApiInfoApiTypeEnum | number): AclBindApiInfo {
         this['api_type'] = apiType;
         return this;
     }
-    public set apiType(apiType: number  | undefined) {
+    public set apiType(apiType: AclBindApiInfoApiTypeEnum | number  | undefined) {
         this['api_type'] = apiType;
     }
-    public get apiType(): number | undefined {
+    public get apiType(): AclBindApiInfoApiTypeEnum | number | undefined {
         return this['api_type'];
     }
     public withApiRemark(apiRemark: string): AclBindApiInfo {
@@ -131,6 +131,14 @@ export class AclBindApiInfo {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AclBindApiInfoApiTypeEnum {
+    NUMBER_1 = 1,
+    NUMBER_2 = 2
+}
 /**
     * @export
     * @enum {string}

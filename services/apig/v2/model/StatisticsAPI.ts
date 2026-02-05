@@ -26,7 +26,7 @@ export class StatisticsAPI {
     public provider?: string;
     private 'req_time'?: Date;
     private 'register_time'?: Date;
-    public status?: number;
+    public status?: StatisticsAPIStatusEnum | number;
     public constructor() { 
     }
     public withMaxLatency(maxLatency: number): StatisticsAPI {
@@ -217,7 +217,7 @@ export class StatisticsAPI {
     public get registerTime(): Date | undefined {
         return this['register_time'];
     }
-    public withStatus(status: number): StatisticsAPI {
+    public withStatus(status: StatisticsAPIStatusEnum | number): StatisticsAPI {
         this['status'] = status;
         return this;
     }
@@ -231,4 +231,11 @@ export enum StatisticsAPICycleEnum {
     MINUTE = 'MINUTE',
     HOUR = 'HOUR',
     DAY = 'DAY'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum StatisticsAPIStatusEnum {
+    NUMBER_1 = 1
 }

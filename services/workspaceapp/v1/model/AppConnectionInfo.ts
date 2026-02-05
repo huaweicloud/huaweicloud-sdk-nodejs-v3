@@ -3,6 +3,7 @@
 export class AppConnectionInfo {
     public id?: string;
     public sid?: string;
+    private 'app_id'?: string;
     private 'machine_name'?: string;
     private 'user_name'?: string;
     private 'app_group_name'?: string;
@@ -38,6 +39,16 @@ export class AppConnectionInfo {
     public withSid(sid: string): AppConnectionInfo {
         this['sid'] = sid;
         return this;
+    }
+    public withAppId(appId: string): AppConnectionInfo {
+        this['app_id'] = appId;
+        return this;
+    }
+    public set appId(appId: string  | undefined) {
+        this['app_id'] = appId;
+    }
+    public get appId(): string | undefined {
+        return this['app_id'];
     }
     public withMachineName(machineName: string): AppConnectionInfo {
         this['machine_name'] = machineName;

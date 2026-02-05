@@ -191,6 +191,9 @@ import { DelayRestoreDatabase } from './model/DelayRestoreDatabase';
 import { DelayRestoreSchema } from './model/DelayRestoreSchema';
 import { DelayRestoreTable } from './model/DelayRestoreTable';
 import { DeleteBackupResult } from './model/DeleteBackupResult';
+import { DeleteBackupSelectionRequest } from './model/DeleteBackupSelectionRequest';
+import { DeleteBackupSelectionRequestBody } from './model/DeleteBackupSelectionRequestBody';
+import { DeleteBackupSelectionResponse } from './model/DeleteBackupSelectionResponse';
 import { DeleteConfigurationRequest } from './model/DeleteConfigurationRequest';
 import { DeleteConfigurationResponse } from './model/DeleteConfigurationResponse';
 import { DeleteDatabaseRequest } from './model/DeleteDatabaseRequest';
@@ -1543,6 +1546,27 @@ export class RdsClient {
      */
     public createXelLogDownload(createXelLogDownloadRequest?: CreateXelLogDownloadRequest): Promise<CreateXelLogDownloadResponse> {
         const options = ParamCreater().createXelLogDownload(createXelLogDownloadRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除实例时选择是否删除或保留自动备份。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除实例选择是否保留自动备份
+     * @param {string} instanceId 实例ID
+     * @param {DeleteBackupSelectionRequestBody} deleteBackupSelectionRequestBody 是否删除或保留自动备份请求体。
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteBackupSelection(deleteBackupSelectionRequest?: DeleteBackupSelectionRequest): Promise<DeleteBackupSelectionResponse> {
+        const options = ParamCreater().deleteBackupSelection(deleteBackupSelectionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8591,6 +8615,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createXelLogDownload.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除实例时选择是否删除或保留自动备份。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteBackupSelection(deleteBackupSelectionRequest?: DeleteBackupSelectionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/delete-selection",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (deleteBackupSelectionRequest !== null && deleteBackupSelectionRequest !== undefined) {
+                if (deleteBackupSelectionRequest instanceof DeleteBackupSelectionRequest) {
+                    instanceId = deleteBackupSelectionRequest.instanceId;
+                    body = deleteBackupSelectionRequest.body
+                    xLanguage = deleteBackupSelectionRequest.xLanguage;
+                } else {
+                    instanceId = deleteBackupSelectionRequest['instance_id'];
+                    body = deleteBackupSelectionRequest['body'];
+                    xLanguage = deleteBackupSelectionRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteBackupSelection.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

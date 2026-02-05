@@ -9,12 +9,7 @@ export class BaselineCatalogModel {
     public parent?: string;
     private 'is_leaf'?: boolean;
     private 'check_items'?: Array<CheckitemCatalogModel>;
-    public constructor(uuid?: string, serialNumber?: number, levelNumber?: number, root?: string, parent?: string) { 
-        this['uuid'] = uuid;
-        this['serial_number'] = serialNumber;
-        this['level_number'] = levelNumber;
-        this['root'] = root;
-        this['parent'] = parent;
+    public constructor() { 
     }
     public withUuid(uuid: string): BaselineCatalogModel {
         this['uuid'] = uuid;

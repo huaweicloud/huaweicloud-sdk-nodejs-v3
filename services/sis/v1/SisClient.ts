@@ -9,11 +9,20 @@ import { CollectTranscriberJobResponse } from './model/CollectTranscriberJobResp
 import { Config } from './model/Config';
 import { CreateVocabularyRequest } from './model/CreateVocabularyRequest';
 import { CreateVocabularyResponse } from './model/CreateVocabularyResponse';
+import { CreateVoiceRequest } from './model/CreateVoiceRequest';
+import { CreateVoiceResponse } from './model/CreateVoiceResponse';
 import { CustomResult } from './model/CustomResult';
 import { DeleteVocabularyRequest } from './model/DeleteVocabularyRequest';
 import { DeleteVocabularyResponse } from './model/DeleteVocabularyResponse';
 import { FlashResult } from './model/FlashResult';
 import { FlashScoreResult } from './model/FlashScoreResult';
+import { GenerateSpeechRequest } from './model/GenerateSpeechRequest';
+import { GenerateSpeechRequestBody } from './model/GenerateSpeechRequestBody';
+import { GenerateSpeechRequestBodyConfig } from './model/GenerateSpeechRequestBodyConfig';
+import { GenerateSpeechResponse } from './model/GenerateSpeechResponse';
+import { GenerateSpeechRspResult } from './model/GenerateSpeechRspResult';
+import { ListVoicesRequest } from './model/ListVoicesRequest';
+import { ListVoicesResponse } from './model/ListVoicesResponse';
 import { PostCreateVocabReq } from './model/PostCreateVocabReq';
 import { PostCustomTTSReq } from './model/PostCustomTTSReq';
 import { PostShortAudioReq } from './model/PostShortAudioReq';
@@ -25,6 +34,9 @@ import { RecognizeFlashAsrRequest } from './model/RecognizeFlashAsrRequest';
 import { RecognizeFlashAsrResponse } from './model/RecognizeFlashAsrResponse';
 import { RecognizeShortAudioRequest } from './model/RecognizeShortAudioRequest';
 import { RecognizeShortAudioResponse } from './model/RecognizeShortAudioResponse';
+import { RegisterVoiceReq } from './model/RegisterVoiceReq';
+import { RegisterVoiceReqConfig } from './model/RegisterVoiceReqConfig';
+import { RegisterVoiceResponseBodyResult } from './model/RegisterVoiceResponseBodyResult';
 import { Result } from './model/Result';
 import { RunTtsRequest } from './model/RunTtsRequest';
 import { RunTtsResponse } from './model/RunTtsResponse';
@@ -41,6 +53,8 @@ import { TtsConfig } from './model/TtsConfig';
 import { UpdateVocabularyRequest } from './model/UpdateVocabularyRequest';
 import { UpdateVocabularyResponse } from './model/UpdateVocabularyResponse';
 import { VocabInfo } from './model/VocabInfo';
+import { VoiceListResult } from './model/VoiceListResult';
+import { VoiceListResultVoices } from './model/VoiceListResultVoices';
 import { WordInfo } from './model/WordInfo';
 
 export class SisClient {
@@ -98,6 +112,25 @@ export class SisClient {
     }
 
     /**
+     * 客户上传一段录音，并指定voice_name，在系统中注册声音。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 注册接口
+     * @param {RegisterVoiceReq} createVoiceRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createVoice(createVoiceRequest?: CreateVoiceRequest): Promise<CreateVoiceResponse> {
+        const options = ParamCreater().createVoice(createVoiceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 通过热词表id删除热词表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -109,6 +142,45 @@ export class SisClient {
      */
     public deleteVocabulary(deleteVocabularyRequest?: DeleteVocabularyRequest): Promise<DeleteVocabularyResponse> {
         const options = ParamCreater().deleteVocabulary(deleteVocabularyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用户指定一个声色名称，并指定对应的文本，合成对应的复刻的声音
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 合成接口
+     * @param {GenerateSpeechRequestBody} generateSpeechRequestBody 声色复刻请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public generateSpeech(generateSpeechRequest?: GenerateSpeechRequest): Promise<GenerateSpeechResponse> {
+        const options = ParamCreater().generateSpeech(generateSpeechRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询已注册的声音列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询接口
+     * @param {number} limit 查询已注册的声音列表，每页查询显示的条目数量，默认：10
+     * @param {string} offset 查询已注册的声音列表，页码偏移量，表示从此页码偏移量开始查询，offset大于等于0， 默认：0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVoices(listVoicesRequest?: ListVoicesRequest): Promise<ListVoicesResponse> {
+        const options = ParamCreater().listVoices(listVoicesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -351,6 +423,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 客户上传一段录音，并指定voice_name，在系统中注册声音。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createVoice(createVoiceRequest?: CreateVoiceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/vcs/voices",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createVoiceRequest !== null && createVoiceRequest !== undefined) {
+                if (createVoiceRequest instanceof CreateVoiceRequest) {
+                    body = createVoiceRequest.body
+                } else {
+                    body = createVoiceRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 通过热词表id删除热词表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -383,6 +493,94 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'vocabulary_id': vocabularyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用户指定一个声色名称，并指定对应的文本，合成对应的复刻的声音
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        generateSpeech(generateSpeechRequest?: GenerateSpeechRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/vcs/voices/clone",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (generateSpeechRequest !== null && generateSpeechRequest !== undefined) {
+                if (generateSpeechRequest instanceof GenerateSpeechRequest) {
+                    body = generateSpeechRequest.body
+                } else {
+                    body = generateSpeechRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询已注册的声音列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listVoices(listVoicesRequest?: ListVoicesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/vcs/voices",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+
+            if (listVoicesRequest !== null && listVoicesRequest !== undefined) {
+                if (listVoicesRequest instanceof ListVoicesRequest) {
+                    limit = listVoicesRequest.limit;
+                    offset = listVoicesRequest.offset;
+                } else {
+                    limit = listVoicesRequest['limit'];
+                    offset = listVoicesRequest['offset'];
+                }
+            }
+
+        
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listVoices.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listVoices.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

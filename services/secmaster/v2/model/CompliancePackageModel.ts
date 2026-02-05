@@ -15,10 +15,9 @@ export class CompliancePackageModel {
     public type?: number;
     private 'check_items_num'?: number;
     private 'has_auto_check_items'?: boolean;
-    public constructor(uuid?: string, name?: string, description?: string, state?: number) { 
+    public constructor(uuid?: string, name?: string, state?: number) { 
         this['uuid'] = uuid;
         this['name'] = name;
-        this['description'] = description;
         this['state'] = state;
     }
     public withUuid(uuid: string): CompliancePackageModel {

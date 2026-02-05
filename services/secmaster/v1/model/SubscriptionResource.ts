@@ -9,8 +9,10 @@ export class SubscriptionResource {
     private 'cloud_service'?: string;
     private 'resource_type'?: string;
     private 'resource_spec_code'?: string;
-    private 'create_time'?: string;
-    private 'expire_time'?: string;
+    private 'to_period'?: boolean;
+    private 'create_time'?: number;
+    private 'update_time'?: number;
+    private 'expire_time'?: number;
     private 'resource_status'?: number;
     private 'order_id'?: string;
     private 'charging_mode'?: SubscriptionResourceChargingModeEnum | string;
@@ -78,24 +80,44 @@ export class SubscriptionResource {
     public get resourceSpecCode(): string | undefined {
         return this['resource_spec_code'];
     }
-    public withCreateTime(createTime: string): SubscriptionResource {
+    public withToPeriod(toPeriod: boolean): SubscriptionResource {
+        this['to_period'] = toPeriod;
+        return this;
+    }
+    public set toPeriod(toPeriod: boolean  | undefined) {
+        this['to_period'] = toPeriod;
+    }
+    public get toPeriod(): boolean | undefined {
+        return this['to_period'];
+    }
+    public withCreateTime(createTime: number): SubscriptionResource {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string  | undefined) {
+    public set createTime(createTime: number  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime(): string | undefined {
+    public get createTime(): number | undefined {
         return this['create_time'];
     }
-    public withExpireTime(expireTime: string): SubscriptionResource {
+    public withUpdateTime(updateTime: number): SubscriptionResource {
+        this['update_time'] = updateTime;
+        return this;
+    }
+    public set updateTime(updateTime: number  | undefined) {
+        this['update_time'] = updateTime;
+    }
+    public get updateTime(): number | undefined {
+        return this['update_time'];
+    }
+    public withExpireTime(expireTime: number): SubscriptionResource {
         this['expire_time'] = expireTime;
         return this;
     }
-    public set expireTime(expireTime: string  | undefined) {
+    public set expireTime(expireTime: number  | undefined) {
         this['expire_time'] = expireTime;
     }
-    public get expireTime(): string | undefined {
+    public get expireTime(): number | undefined {
         return this['expire_time'];
     }
     public withResourceStatus(resourceStatus: number): SubscriptionResource {

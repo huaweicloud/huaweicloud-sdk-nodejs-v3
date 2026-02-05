@@ -3,6 +3,7 @@ import { ApiConditionBase } from './ApiConditionBase';
 import { ApiPolicyHttpBase } from './ApiPolicyHttpBase';
 import { ApiPolicyReqBase } from './ApiPolicyReqBase';
 import { BackendParamBase } from './BackendParamBase';
+import { MemberGroupUrlInfo } from './MemberGroupUrlInfo';
 
 
 export class ApiPolicyHttpCreate {
@@ -13,6 +14,7 @@ export class ApiPolicyHttpCreate {
     public timeout?: number;
     private 'retry_count'?: string;
     private 'enable_sm_channel'?: boolean;
+    private 'member_group_url_infos'?: Array<MemberGroupUrlInfo>;
     private 'effect_mode'?: ApiPolicyHttpCreateEffectModeEnum | string;
     public name?: string;
     private 'backend_params'?: Array<BackendParamBase>;
@@ -20,10 +22,7 @@ export class ApiPolicyHttpCreate {
     private 'authorizer_id'?: string;
     private 'vpc_channel_info'?: ApiBackendVpcReq;
     private 'vpc_channel_status'?: ApiPolicyHttpCreateVpcChannelStatusEnum | number;
-    public constructor(reqProtocol?: string, reqMethod?: string, reqUri?: string, effectMode?: string, name?: string, conditions?: Array<ApiConditionBase>) { 
-        this['req_protocol'] = reqProtocol;
-        this['req_method'] = reqMethod;
-        this['req_uri'] = reqUri;
+    public constructor(effectMode?: string, name?: string, conditions?: Array<ApiConditionBase>) { 
         this['effect_mode'] = effectMode;
         this['name'] = name;
         this['conditions'] = conditions;
@@ -91,6 +90,16 @@ export class ApiPolicyHttpCreate {
     }
     public get enableSmChannel(): boolean | undefined {
         return this['enable_sm_channel'];
+    }
+    public withMemberGroupUrlInfos(memberGroupUrlInfos: Array<MemberGroupUrlInfo>): ApiPolicyHttpCreate {
+        this['member_group_url_infos'] = memberGroupUrlInfos;
+        return this;
+    }
+    public set memberGroupUrlInfos(memberGroupUrlInfos: Array<MemberGroupUrlInfo>  | undefined) {
+        this['member_group_url_infos'] = memberGroupUrlInfos;
+    }
+    public get memberGroupUrlInfos(): Array<MemberGroupUrlInfo> | undefined {
+        return this['member_group_url_infos'];
     }
     public withEffectMode(effectMode: ApiPolicyHttpCreateEffectModeEnum | string): ApiPolicyHttpCreate {
         this['effect_mode'] = effectMode;
@@ -190,5 +199,7 @@ export enum ApiPolicyHttpCreateEffectModeEnum {
     */
 export enum ApiPolicyHttpCreateVpcChannelStatusEnum {
     NUMBER_1 = 1,
-    NUMBER_2 = 2
+    NUMBER_2 = 2,
+    NUMBER_3 = 3,
+    NUMBER_4 = 4
 }

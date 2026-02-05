@@ -1,28 +1,28 @@
 
 
 export class ApplicableInstance {
-    private 'entity_id'?: string;
-    private 'config_id'?: string;
+    private 'instance_id'?: string;
+    private 'instance_name'?: string;
     public constructor() { 
     }
-    public withEntityId(entityId: string): ApplicableInstance {
-        this['entity_id'] = entityId;
+    public withInstanceId(instanceId: string): ApplicableInstance {
+        this['instance_id'] = instanceId;
         return this;
     }
-    public set entityId(entityId: string  | undefined) {
-        this['entity_id'] = entityId;
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
     }
-    public get entityId(): string | undefined {
-        return this['entity_id'];
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
     }
-    public withConfigId(configId: string): ApplicableInstance {
-        this['config_id'] = configId;
+    public withInstanceName(instanceName: string): ApplicableInstance {
+        this['instance_name'] = instanceName;
         return this;
     }
-    public set configId(configId: string  | undefined) {
-        this['config_id'] = configId;
+    public set instanceName(instanceName: string  | undefined) {
+        this['instance_name'] = instanceName;
     }
-    public get configId(): string | undefined {
-        return this['config_id'];
+    public get instanceName(): string | undefined {
+        return this['instance_name'];
     }
 }
