@@ -91,11 +91,27 @@ const client = VpcClient.newBuilder()
 
 ```
 
+- 添加/修改`tsconfig.json`配置文件
+
+``` json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "NodeNext",
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*"]
+}
+ 
+```
+
 - 示例调试
 
 ``` bash
 # 添加依赖
 npm install -g ts-node typescript
+npm install -D @types/node
+npm install uuid@9.0.0
 
 # 运行
 ts-node ./index.ts

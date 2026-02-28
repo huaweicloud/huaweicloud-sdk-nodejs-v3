@@ -79,11 +79,27 @@ const client = VpcClient.newBuilder()
 })();
 ```
 
+- Add/Modify the `tsconfig.json` configuration file
+
+``` json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "NodeNext",
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*"]
+}
+ 
+```
+
 - Debug the example above
 
 ``` bash
 # Add npm dependencies
 npm install -g ts-node typescript
+npm install -D @types/node
+npm install uuid@9.0.0
 
 # Run the command
 ts-node ./index.ts
