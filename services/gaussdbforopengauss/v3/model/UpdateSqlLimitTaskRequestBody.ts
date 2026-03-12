@@ -10,8 +10,7 @@ export class UpdateSqlLimitTaskRequestBody {
     private 'memory_utilization'?: number;
     public databases?: string;
     private 'node_id'?: string;
-    public constructor(taskName?: string, nodeId?: string) { 
-        this['task_name'] = taskName;
+    public constructor(nodeId?: string) { 
         this['node_id'] = nodeId;
     }
     public withStartTime(startTime: string): UpdateSqlLimitTaskRequestBody {

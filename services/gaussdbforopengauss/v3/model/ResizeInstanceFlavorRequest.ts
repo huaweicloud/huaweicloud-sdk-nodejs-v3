@@ -1,10 +1,10 @@
-import { OpenGaussResizeRequest } from './OpenGaussResizeRequest';
+import { OpenGaussResizeRequestBody } from './OpenGaussResizeRequestBody';
 
 
 export class ResizeInstanceFlavorRequest {
     private 'X-Language'?: string;
     private 'instance_id'?: string;
-    public body?: OpenGaussResizeRequest;
+    public body?: OpenGaussResizeRequestBody;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -28,7 +28,7 @@ export class ResizeInstanceFlavorRequest {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withBody(body: OpenGaussResizeRequest): ResizeInstanceFlavorRequest {
+    public withBody(body: OpenGaussResizeRequestBody): ResizeInstanceFlavorRequest {
         this['body'] = body;
         return this;
     }

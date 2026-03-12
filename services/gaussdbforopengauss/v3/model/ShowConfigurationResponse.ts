@@ -1,4 +1,3 @@
-import { BackupNodeInfoResult } from './BackupNodeInfoResult';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -11,7 +10,6 @@ export class ShowConfigurationResponse extends SdkResponse {
     private 'default_backup_media_type'?: string;
     private 'default_backup_method'?: string;
     private 'backup_parallel_degree'?: number;
-    private 'backup_node_info'?: BackupNodeInfoResult;
     public constructor() { 
         super();
     }
@@ -94,15 +92,5 @@ export class ShowConfigurationResponse extends SdkResponse {
     }
     public get backupParallelDegree(): number | undefined {
         return this['backup_parallel_degree'];
-    }
-    public withBackupNodeInfo(backupNodeInfo: BackupNodeInfoResult): ShowConfigurationResponse {
-        this['backup_node_info'] = backupNodeInfo;
-        return this;
-    }
-    public set backupNodeInfo(backupNodeInfo: BackupNodeInfoResult  | undefined) {
-        this['backup_node_info'] = backupNodeInfo;
-    }
-    public get backupNodeInfo(): BackupNodeInfoResult | undefined {
-        return this['backup_node_info'];
     }
 }

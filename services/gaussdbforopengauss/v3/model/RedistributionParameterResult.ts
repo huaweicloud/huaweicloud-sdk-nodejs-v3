@@ -5,7 +5,7 @@ export class RedistributionParameterResult {
     public value?: string;
     private 'restart_required'?: boolean;
     private 'value_range'?: string;
-    public type?: object;
+    public type?: string;
     public description?: string;
     public constructor() { 
     }
@@ -37,7 +37,7 @@ export class RedistributionParameterResult {
     public get valueRange(): string | undefined {
         return this['value_range'];
     }
-    public withType(type: object): RedistributionParameterResult {
+    public withType(type: string): RedistributionParameterResult {
         this['type'] = type;
         return this;
     }

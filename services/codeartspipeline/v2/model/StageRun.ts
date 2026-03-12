@@ -16,6 +16,7 @@ export class StageRun {
     public status?: string;
     private 'start_time'?: number;
     private 'end_time'?: number;
+    private 'pause_time'?: number;
     public pre?: Array<StepRun>;
     public post?: Array<StepRun>;
     public jobs?: Array<JobRun>;
@@ -102,6 +103,16 @@ export class StageRun {
     }
     public get endTime(): number | undefined {
         return this['end_time'];
+    }
+    public withPauseTime(pauseTime: number): StageRun {
+        this['pause_time'] = pauseTime;
+        return this;
+    }
+    public set pauseTime(pauseTime: number  | undefined) {
+        this['pause_time'] = pauseTime;
+    }
+    public get pauseTime(): number | undefined {
+        return this['pause_time'];
     }
     public withPre(pre: Array<StepRun>): StageRun {
         this['pre'] = pre;

@@ -1,5 +1,6 @@
 import { CustomPolicy } from './CustomPolicy';
 import { PolicyFilterDefinition } from './PolicyFilterDefinition';
+import { PolicyFilterDefinitionV2 } from './PolicyFilterDefinitionV2';
 import { PolicyParameterValue } from './PolicyParameterValue';
 import { ResourceTag } from './ResourceTag';
 
@@ -10,6 +11,7 @@ export class PolicyAssignmentRequestBody {
     public description?: string;
     public period?: PolicyAssignmentRequestBodyPeriodEnum | string;
     private 'policy_filter'?: PolicyFilterDefinition;
+    private 'policy_filter_v2'?: PolicyFilterDefinitionV2;
     private 'custom_policy'?: CustomPolicy;
     private 'policy_definition_id'?: string;
     public parameters?: { [key: string]: PolicyParameterValue; };
@@ -48,6 +50,16 @@ export class PolicyAssignmentRequestBody {
     }
     public get policyFilter(): PolicyFilterDefinition | undefined {
         return this['policy_filter'];
+    }
+    public withPolicyFilterV2(policyFilterV2: PolicyFilterDefinitionV2): PolicyAssignmentRequestBody {
+        this['policy_filter_v2'] = policyFilterV2;
+        return this;
+    }
+    public set policyFilterV2(policyFilterV2: PolicyFilterDefinitionV2  | undefined) {
+        this['policy_filter_v2'] = policyFilterV2;
+    }
+    public get policyFilterV2(): PolicyFilterDefinitionV2 | undefined {
+        return this['policy_filter_v2'];
     }
     public withCustomPolicy(customPolicy: CustomPolicy): PolicyAssignmentRequestBody {
         this['custom_policy'] = customPolicy;

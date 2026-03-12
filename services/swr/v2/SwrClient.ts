@@ -164,11 +164,14 @@ import { ImageRetention } from './model/ImageRetention';
 import { ImageTag } from './model/ImageTag';
 import { ImmutableRule } from './model/ImmutableRule';
 import { Instance } from './model/Instance';
+import { InstanceRepository } from './model/InstanceRepository';
 import { InternalEndpoint } from './model/InternalEndpoint';
 import { IpInfo } from './model/IpInfo';
 import { Job } from './model/Job';
 import { JobDetail } from './model/JobDetail';
 import { Link } from './model/Link';
+import { ListAllInstanceRepositoriesRequest } from './model/ListAllInstanceRepositoriesRequest';
+import { ListAllInstanceRepositoriesResponse } from './model/ListAllInstanceRepositoriesResponse';
 import { ListApiVersionsRequest } from './model/ListApiVersionsRequest';
 import { ListApiVersionsResponse } from './model/ListApiVersionsResponse';
 import { ListAuditLogsRequest } from './model/ListAuditLogsRequest';
@@ -285,6 +288,7 @@ import { ListTriggersDetailsResponse } from './model/ListTriggersDetailsResponse
 import { Namespace } from './model/Namespace';
 import { NamespaceMetadata } from './model/NamespaceMetadata';
 import { NativeReportSummary } from './model/NativeReportSummary';
+import { PageInfo } from './model/PageInfo';
 import { ProjectTag } from './model/ProjectTag';
 import { RegionInfo } from './model/RegionInfo';
 import { Registry } from './model/Registry';
@@ -2464,6 +2468,27 @@ export class SwrClient {
      */
     public executeInstanceSignPolicy(executeInstanceSignPolicyRequest?: ExecuteInstanceSignPolicyRequest): Promise<ExecuteInstanceSignPolicyResponse> {
         const options = ParamCreater().executeInstanceSignPolicy(executeInstanceSignPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取当前项目下所有企业仓库实例的仓库列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取当前项目下所有企业仓库实例的仓库列表
+     * @param {string} [marker] 分页查询时的查询标记，使用上一次接口调用返回的next_marker值，默认值从第一条数据查询。**注意：marker和limit参数需要配套使用。**
+     * @param {number} [limit] 条目数量，用于分页查询，默认值为100，最大值为100
+     * @param {string} [name] 仓库名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAllInstanceRepositories(listAllInstanceRepositoriesRequest?: ListAllInstanceRepositoriesRequest): Promise<ListAllInstanceRepositoriesResponse> {
+        const options = ParamCreater().listAllInstanceRepositories(listAllInstanceRepositoriesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9020,6 +9045,57 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取当前项目下所有企业仓库实例的仓库列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAllInstanceRepositories(listAllInstanceRepositoriesRequest?: ListAllInstanceRepositoriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/repositories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let marker;
+            
+            let limit;
+            
+            let name;
+
+            if (listAllInstanceRepositoriesRequest !== null && listAllInstanceRepositoriesRequest !== undefined) {
+                if (listAllInstanceRepositoriesRequest instanceof ListAllInstanceRepositoriesRequest) {
+                    marker = listAllInstanceRepositoriesRequest.marker;
+                    limit = listAllInstanceRepositoriesRequest.limit;
+                    name = listAllInstanceRepositoriesRequest.name;
+                } else {
+                    marker = listAllInstanceRepositoriesRequest['marker'];
+                    limit = listAllInstanceRepositoriesRequest['limit'];
+                    name = listAllInstanceRepositoriesRequest['name'];
+                }
+            }
+
+        
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

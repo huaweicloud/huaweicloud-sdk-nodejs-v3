@@ -87,6 +87,9 @@ import { DeleteTemplateGroupCollectionRequest } from './model/DeleteTemplateGrou
 import { DeleteTemplateGroupCollectionResponse } from './model/DeleteTemplateGroupCollectionResponse';
 import { DeleteTemplateGroupRequest } from './model/DeleteTemplateGroupRequest';
 import { DeleteTemplateGroupResponse } from './model/DeleteTemplateGroupResponse';
+import { DeleteThumbnailResult } from './model/DeleteThumbnailResult';
+import { DeleteThumbnailsRequest } from './model/DeleteThumbnailsRequest';
+import { DeleteThumbnailsResponse } from './model/DeleteThumbnailsResponse';
 import { DeleteTranscodeProductReq } from './model/DeleteTranscodeProductReq';
 import { DeleteTranscodeProductRequest } from './model/DeleteTranscodeProductRequest';
 import { DeleteTranscodeProductResponse } from './model/DeleteTranscodeProductResponse';
@@ -122,6 +125,10 @@ import { ListTemplateGroupCollectionRequest } from './model/ListTemplateGroupCol
 import { ListTemplateGroupCollectionResponse } from './model/ListTemplateGroupCollectionResponse';
 import { ListTemplateGroupRequest } from './model/ListTemplateGroupRequest';
 import { ListTemplateGroupResponse } from './model/ListTemplateGroupResponse';
+import { ListThumbnailDetailsRequest } from './model/ListThumbnailDetailsRequest';
+import { ListThumbnailDetailsResponse } from './model/ListThumbnailDetailsResponse';
+import { ListThumbnailInfoRequest } from './model/ListThumbnailInfoRequest';
+import { ListThumbnailInfoResponse } from './model/ListThumbnailInfoResponse';
 import { ListTopStatisticsRequest } from './model/ListTopStatisticsRequest';
 import { ListTopStatisticsResponse } from './model/ListTopStatisticsResponse';
 import { ListTranscodeTemplateRequest } from './model/ListTranscodeTemplateRequest';
@@ -164,6 +171,7 @@ import { QualityInfo } from './model/QualityInfo';
 import { QualityInfoList } from './model/QualityInfoList';
 import { QueryCategoryInfoRsp } from './model/QueryCategoryInfoRsp';
 import { QueryCategoryRsp } from './model/QueryCategoryRsp';
+import { QueryThumbnailInfo } from './model/QueryThumbnailInfo';
 import { RefreshAssetRequest } from './model/RefreshAssetRequest';
 import { RefreshAssetResponse } from './model/RefreshAssetResponse';
 import { RefreshResult } from './model/RefreshResult';
@@ -847,6 +855,27 @@ export class VodClient {
     }
 
     /**
+     * 删除媒资对应的截图，支持批量删除单个媒资下的多个截图结果，一次最多能删除十个。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除媒资下的多个截图
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {string} [assetId] 媒资ID
+     * @param {Array<string>} [taskId] 删除指定截图任务的截图结果，一次最多10个
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteThumbnails(deleteThumbnailsRequest?: DeleteThumbnailsRequest): Promise<DeleteThumbnailsResponse> {
+        const options = ParamCreater().deleteThumbnails(deleteThumbnailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除转码产物。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1118,6 +1147,51 @@ export class VodClient {
      */
     public listTemplateGroupCollection(listTemplateGroupCollectionRequest?: ListTemplateGroupCollectionRequest): Promise<ListTemplateGroupCollectionResponse> {
         const options = ParamCreater().listTemplateGroupCollection(listTemplateGroupCollectionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询截图结果
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询截图详情
+     * @param {string} taskId 截图对应的任务id
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {number} [offset] 查询偏移量。取值范围[0,20480]，默认值：0。
+     * @param {number} [limit] 查询一页返回数。取值范围[1,100]，默认值：20。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listThumbnailDetails(listThumbnailDetailsRequest?: ListThumbnailDetailsRequest): Promise<ListThumbnailDetailsResponse> {
+        const options = ParamCreater().listThumbnailDetails(listThumbnailDetailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询截图任务结果列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询截图任务结果列表
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {string} [assetId] 截图对应媒资id的截图，只支持单个媒资。
+     * @param {string} [taskId] 截图对应的任务id，只支持单个任务查询。
+     * @param {number} [offset] 查询偏移量。取值范围[0,20000]，默认值：0。
+     * @param {number} [limit] 查询一页返回数。取值范围[1,100]，默认值：10。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listThumbnailInfo(listThumbnailInfoRequest?: ListThumbnailInfoRequest): Promise<ListThumbnailInfoResponse> {
+        const options = ParamCreater().listThumbnailInfo(listThumbnailInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3147,6 +3221,57 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除媒资对应的截图，支持批量删除单个媒资下的多个截图结果，一次最多能删除十个。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteThumbnails(deleteThumbnailsRequest?: DeleteThumbnailsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/asset/thumbnails",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xSdkDate;
+            
+            let assetId;
+            
+            let taskId;
+
+            if (deleteThumbnailsRequest !== null && deleteThumbnailsRequest !== undefined) {
+                if (deleteThumbnailsRequest instanceof DeleteThumbnailsRequest) {
+                    xSdkDate = deleteThumbnailsRequest.xSdkDate;
+                    assetId = deleteThumbnailsRequest.assetId;
+                    taskId = deleteThumbnailsRequest.taskId;
+                } else {
+                    xSdkDate = deleteThumbnailsRequest['X-Sdk-Date'];
+                    assetId = deleteThumbnailsRequest['asset_id'];
+                    taskId = deleteThumbnailsRequest['task_id'];
+                }
+            }
+
+        
+            if (assetId !== null && assetId !== undefined) {
+                localVarQueryParameter['asset_id'] = assetId;
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除转码产物。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3932,6 +4057,132 @@ export const ParamCreater = function () {
         
             if (groupCollectionId !== null && groupCollectionId !== undefined) {
                 localVarQueryParameter['group_collection_id'] = groupCollectionId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询截图结果
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listThumbnailDetails(listThumbnailDetailsRequest?: ListThumbnailDetailsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/asset/thumbnail/details",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let taskId;
+            
+            let xSdkDate;
+            
+            let offset;
+            
+            let limit;
+
+            if (listThumbnailDetailsRequest !== null && listThumbnailDetailsRequest !== undefined) {
+                if (listThumbnailDetailsRequest instanceof ListThumbnailDetailsRequest) {
+                    taskId = listThumbnailDetailsRequest.taskId;
+                    xSdkDate = listThumbnailDetailsRequest.xSdkDate;
+                    offset = listThumbnailDetailsRequest.offset;
+                    limit = listThumbnailDetailsRequest.limit;
+                } else {
+                    taskId = listThumbnailDetailsRequest['task_id'];
+                    xSdkDate = listThumbnailDetailsRequest['X-Sdk-Date'];
+                    offset = listThumbnailDetailsRequest['offset'];
+                    limit = listThumbnailDetailsRequest['limit'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+                throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling listThumbnailDetails.');
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询截图任务结果列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listThumbnailInfo(listThumbnailInfoRequest?: ListThumbnailInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/asset/thumbnails",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xSdkDate;
+            
+            let assetId;
+            
+            let taskId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listThumbnailInfoRequest !== null && listThumbnailInfoRequest !== undefined) {
+                if (listThumbnailInfoRequest instanceof ListThumbnailInfoRequest) {
+                    xSdkDate = listThumbnailInfoRequest.xSdkDate;
+                    assetId = listThumbnailInfoRequest.assetId;
+                    taskId = listThumbnailInfoRequest.taskId;
+                    offset = listThumbnailInfoRequest.offset;
+                    limit = listThumbnailInfoRequest.limit;
+                } else {
+                    xSdkDate = listThumbnailInfoRequest['X-Sdk-Date'];
+                    assetId = listThumbnailInfoRequest['asset_id'];
+                    taskId = listThumbnailInfoRequest['task_id'];
+                    offset = listThumbnailInfoRequest['offset'];
+                    limit = listThumbnailInfoRequest['limit'];
+                }
+            }
+
+        
+            if (assetId !== null && assetId !== undefined) {
+                localVarQueryParameter['asset_id'] = assetId;
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;

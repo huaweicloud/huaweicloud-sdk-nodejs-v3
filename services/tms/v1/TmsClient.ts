@@ -61,7 +61,7 @@ import { VersionDetail } from './model/VersionDetail';
 
 export class TmsClient {
     public static newBuilder(): ClientBuilder<TmsClient> {
-            let client = new ClientBuilder<TmsClient>(newClient);
+            let client = new ClientBuilder<TmsClient>(newClient, 'GlobalCredentials');
             return client;
     }
 

@@ -7,7 +7,9 @@ export class MigrateLogicDbOpenReq {
     private 'switch_route_end_time'?: string;
     private 'new_shard_number'?: string;
     private 'is_exclusive'?: boolean;
-    public constructor() { 
+    public constructor(dataNodes?: Array<DataNode>, isExclusive?: boolean) { 
+        this['data_nodes'] = dataNodes;
+        this['is_exclusive'] = isExclusive;
     }
     public withDataNodes(dataNodes: Array<DataNode>): MigrateLogicDbOpenReq {
         this['data_nodes'] = dataNodes;

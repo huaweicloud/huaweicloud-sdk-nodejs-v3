@@ -16,6 +16,7 @@ export class ShowPipelineRunDetailResponse extends SdkResponse {
     public status?: string;
     private 'trigger_type'?: string;
     private 'run_number'?: number;
+    private 'pause_time'?: number;
     private 'start_time'?: number;
     private 'end_time'?: number;
     public stages?: Array<StageRun>;
@@ -119,6 +120,16 @@ export class ShowPipelineRunDetailResponse extends SdkResponse {
     }
     public get runNumber(): number | undefined {
         return this['run_number'];
+    }
+    public withPauseTime(pauseTime: number): ShowPipelineRunDetailResponse {
+        this['pause_time'] = pauseTime;
+        return this;
+    }
+    public set pauseTime(pauseTime: number  | undefined) {
+        this['pause_time'] = pauseTime;
+    }
+    public get pauseTime(): number | undefined {
+        return this['pause_time'];
     }
     public withStartTime(startTime: number): ShowPipelineRunDetailResponse {
         this['start_time'] = startTime;

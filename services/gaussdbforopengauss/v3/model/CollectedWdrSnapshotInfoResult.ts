@@ -1,3 +1,4 @@
+import { CollectedWdrSnapshotInfoResultObsBucket } from './CollectedWdrSnapshotInfoResultObsBucket';
 
 
 export class CollectedWdrSnapshotInfoResult {
@@ -9,6 +10,12 @@ export class CollectedWdrSnapshotInfoResult {
     private 'download_url'?: string;
     public status?: string;
     public notes?: string;
+    private 'job_create_time'?: string;
+    private 'start_snapshot_id'?: string;
+    private 'end_snapshot_id'?: string;
+    private 'file_name'?: string;
+    private 'file_path'?: string;
+    private 'obs_bucket'?: CollectedWdrSnapshotInfoResultObsBucket;
     public constructor() { 
     }
     public withJobId(jobId: string): CollectedWdrSnapshotInfoResult {
@@ -78,5 +85,65 @@ export class CollectedWdrSnapshotInfoResult {
     public withNotes(notes: string): CollectedWdrSnapshotInfoResult {
         this['notes'] = notes;
         return this;
+    }
+    public withJobCreateTime(jobCreateTime: string): CollectedWdrSnapshotInfoResult {
+        this['job_create_time'] = jobCreateTime;
+        return this;
+    }
+    public set jobCreateTime(jobCreateTime: string  | undefined) {
+        this['job_create_time'] = jobCreateTime;
+    }
+    public get jobCreateTime(): string | undefined {
+        return this['job_create_time'];
+    }
+    public withStartSnapshotId(startSnapshotId: string): CollectedWdrSnapshotInfoResult {
+        this['start_snapshot_id'] = startSnapshotId;
+        return this;
+    }
+    public set startSnapshotId(startSnapshotId: string  | undefined) {
+        this['start_snapshot_id'] = startSnapshotId;
+    }
+    public get startSnapshotId(): string | undefined {
+        return this['start_snapshot_id'];
+    }
+    public withEndSnapshotId(endSnapshotId: string): CollectedWdrSnapshotInfoResult {
+        this['end_snapshot_id'] = endSnapshotId;
+        return this;
+    }
+    public set endSnapshotId(endSnapshotId: string  | undefined) {
+        this['end_snapshot_id'] = endSnapshotId;
+    }
+    public get endSnapshotId(): string | undefined {
+        return this['end_snapshot_id'];
+    }
+    public withFileName(fileName: string): CollectedWdrSnapshotInfoResult {
+        this['file_name'] = fileName;
+        return this;
+    }
+    public set fileName(fileName: string  | undefined) {
+        this['file_name'] = fileName;
+    }
+    public get fileName(): string | undefined {
+        return this['file_name'];
+    }
+    public withFilePath(filePath: string): CollectedWdrSnapshotInfoResult {
+        this['file_path'] = filePath;
+        return this;
+    }
+    public set filePath(filePath: string  | undefined) {
+        this['file_path'] = filePath;
+    }
+    public get filePath(): string | undefined {
+        return this['file_path'];
+    }
+    public withObsBucket(obsBucket: CollectedWdrSnapshotInfoResultObsBucket): CollectedWdrSnapshotInfoResult {
+        this['obs_bucket'] = obsBucket;
+        return this;
+    }
+    public set obsBucket(obsBucket: CollectedWdrSnapshotInfoResultObsBucket  | undefined) {
+        this['obs_bucket'] = obsBucket;
+    }
+    public get obsBucket(): CollectedWdrSnapshotInfoResultObsBucket | undefined {
+        return this['obs_bucket'];
     }
 }

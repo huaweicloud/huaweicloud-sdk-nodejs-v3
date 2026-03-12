@@ -58,7 +58,7 @@ import { VersionDetail } from './model/VersionDetail';
 
 export class EpsClient {
     public static newBuilder(): ClientBuilder<EpsClient> {
-            let client = new ClientBuilder<EpsClient>(newClient);
+            let client = new ClientBuilder<EpsClient>(newClient, 'GlobalCredentials');
             return client;
     }
 

@@ -23,6 +23,7 @@ import { CancelSyncIamUserRequest } from './model/CancelSyncIamUserRequest';
 import { CancelSyncIamUserResponse } from './model/CancelSyncIamUserResponse';
 import { CancelSyncRequest } from './model/CancelSyncRequest';
 import { ChargeInfo } from './model/ChargeInfo';
+import { ClusterAuthTros } from './model/ClusterAuthTros';
 import { ClusterDataConnectorMap } from './model/ClusterDataConnectorMap';
 import { ClusterNode } from './model/ClusterNode';
 import { ComponentConfig } from './model/ComponentConfig';
@@ -56,6 +57,8 @@ import { JobBatchDelete } from './model/JobBatchDelete';
 import { JobExecution } from './model/JobExecution';
 import { JobQueryBean } from './model/JobQueryBean';
 import { JobSubmitResult } from './model/JobSubmitResult';
+import { ListClusterManagerAuthStateRequest } from './model/ListClusterManagerAuthStateRequest';
+import { ListClusterManagerAuthStateResponse } from './model/ListClusterManagerAuthStateResponse';
 import { ListDataConnectorRequest } from './model/ListDataConnectorRequest';
 import { ListDataConnectorResponse } from './model/ListDataConnectorResponse';
 import { ListNodesRequest } from './model/ListNodesRequest';
@@ -116,6 +119,8 @@ import { UpdateAgencyMappingRequest } from './model/UpdateAgencyMappingRequest';
 import { UpdateAgencyMappingResponse } from './model/UpdateAgencyMappingResponse';
 import { UpdateAutoScalingPolicyRequest } from './model/UpdateAutoScalingPolicyRequest';
 import { UpdateAutoScalingPolicyResponse } from './model/UpdateAutoScalingPolicyResponse';
+import { UpdateClusterAuthTrosRequest } from './model/UpdateClusterAuthTrosRequest';
+import { UpdateClusterAuthTrosResponse } from './model/UpdateClusterAuthTrosResponse';
 import { UpdateClusterNameRequest } from './model/UpdateClusterNameRequest';
 import { UpdateClusterNameResponse } from './model/UpdateClusterNameResponse';
 import { UpdateClusterReq } from './model/UpdateClusterReq';
@@ -505,6 +510,25 @@ export class MrsClient {
     }
 
     /**
+     * 查询集群界面授权状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群界面授权状态
+     * @param {string} clusterId 集群ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClusterManagerAuthState(listClusterManagerAuthStateRequest?: ListClusterManagerAuthStateRequest): Promise<ListClusterManagerAuthStateResponse> {
+        const options = ParamCreater().listClusterManagerAuthState(listClusterManagerAuthStateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询集群节点列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -564,6 +588,26 @@ export class MrsClient {
      */
     public shrinkCluster(shrinkClusterRequest?: ShrinkClusterRequest): Promise<ShrinkClusterResponse> {
         const options = ParamCreater().shrinkCluster(shrinkClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启/关闭集群界面授权
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启/关闭集群界面授权
+     * @param {string} clusterId 集群ID
+     * @param {ClusterAuthTros} updateClusterAuthTrosRequestBody 开启/关闭集群界面授权请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateClusterAuthTros(updateClusterAuthTrosRequest?: UpdateClusterAuthTrosRequest): Promise<UpdateClusterAuthTrosResponse> {
+        const options = ParamCreater().updateClusterAuthTros(updateClusterAuthTrosRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1762,6 +1806,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询集群界面授权状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClusterManagerAuthState(listClusterManagerAuthStateRequest?: ListClusterManagerAuthStateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/clusters/{cluster_id}/manager-auth",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (listClusterManagerAuthStateRequest !== null && listClusterManagerAuthStateRequest !== undefined) {
+                if (listClusterManagerAuthStateRequest instanceof ListClusterManagerAuthStateRequest) {
+                    clusterId = listClusterManagerAuthStateRequest.clusterId;
+                } else {
+                    clusterId = listClusterManagerAuthStateRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listClusterManagerAuthState.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询集群节点列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1933,6 +2014,52 @@ export const ParamCreater = function () {
         
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling shrinkCluster.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启/关闭集群界面授权
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateClusterAuthTros(updateClusterAuthTrosRequest?: UpdateClusterAuthTrosRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/clusters/{cluster_id}/manager-auth",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (updateClusterAuthTrosRequest !== null && updateClusterAuthTrosRequest !== undefined) {
+                if (updateClusterAuthTrosRequest instanceof UpdateClusterAuthTrosRequest) {
+                    clusterId = updateClusterAuthTrosRequest.clusterId;
+                    body = updateClusterAuthTrosRequest.body
+                } else {
+                    clusterId = updateClusterAuthTrosRequest['cluster_id'];
+                    body = updateClusterAuthTrosRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateClusterAuthTros.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

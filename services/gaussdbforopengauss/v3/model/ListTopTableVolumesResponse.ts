@@ -6,6 +6,8 @@ export class ListTopTableVolumesResponse extends SdkResponse {
     private 'table_volumes'?: Array<TableVolumeResult>;
     private 'total_count'?: number;
     public state?: ListTopTableVolumesResponseStateEnum | string;
+    private 'job_id'?: string;
+    private 'node_id'?: string;
     public constructor() { 
         super();
     }
@@ -32,6 +34,26 @@ export class ListTopTableVolumesResponse extends SdkResponse {
     public withState(state: ListTopTableVolumesResponseStateEnum | string): ListTopTableVolumesResponse {
         this['state'] = state;
         return this;
+    }
+    public withJobId(jobId: string): ListTopTableVolumesResponse {
+        this['job_id'] = jobId;
+        return this;
+    }
+    public set jobId(jobId: string  | undefined) {
+        this['job_id'] = jobId;
+    }
+    public get jobId(): string | undefined {
+        return this['job_id'];
+    }
+    public withNodeId(nodeId: string): ListTopTableVolumesResponse {
+        this['node_id'] = nodeId;
+        return this;
+    }
+    public set nodeId(nodeId: string  | undefined) {
+        this['node_id'] = nodeId;
+    }
+    public get nodeId(): string | undefined {
+        return this['node_id'];
     }
 }
 

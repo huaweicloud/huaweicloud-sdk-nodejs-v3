@@ -25,7 +25,6 @@ import { AuthorizeBackupDownloadRequest } from './model/AuthorizeBackupDownloadR
 import { AuthorizeBackupDownloadResponse } from './model/AuthorizeBackupDownloadResponse';
 import { AvailableFlavorInfoResult } from './model/AvailableFlavorInfoResult';
 import { BackupInfo } from './model/BackupInfo';
-import { BackupNodeInfoResult } from './model/BackupNodeInfoResult';
 import { BackupPolicy } from './model/BackupPolicy';
 import { BackupPolicyErrorResponse } from './model/BackupPolicyErrorResponse';
 import { BackupPolicyInfoOption } from './model/BackupPolicyInfoOption';
@@ -62,9 +61,10 @@ import { CollectWdrSnapshotRequest } from './model/CollectWdrSnapshotRequest';
 import { CollectWdrSnapshotRequestBody } from './model/CollectWdrSnapshotRequestBody';
 import { CollectWdrSnapshotResponse } from './model/CollectWdrSnapshotResponse';
 import { CollectedWdrSnapshotInfoResult } from './model/CollectedWdrSnapshotInfoResult';
+import { CollectedWdrSnapshotInfoResultObsBucket } from './model/CollectedWdrSnapshotInfoResultObsBucket';
 import { CompareConditionOption } from './model/CompareConditionOption';
 import { Components } from './model/Components';
-import { ConfigurationParameter } from './model/ConfigurationParameter';
+import { ConfigurationParameterResult } from './model/ConfigurationParameterResult';
 import { ConfigurationResult } from './model/ConfigurationResult';
 import { ConfigurationSummary } from './model/ConfigurationSummary';
 import { ConfigurationsResult } from './model/ConfigurationsResult';
@@ -230,6 +230,7 @@ import { FullSqlResult } from './model/FullSqlResult';
 import { FullSqlStartRequestBody } from './model/FullSqlStartRequestBody';
 import { FullSqlStatisticInfoResult } from './model/FullSqlStatisticInfoResult';
 import { FullSqlSwitchResult } from './model/FullSqlSwitchResult';
+import { FullSqlTraceStatisticsResult } from './model/FullSqlTraceStatisticsResult';
 import { GaussDBErrorResponseBody } from './model/GaussDBErrorResponseBody';
 import { GaussDBListDatabaseRoles } from './model/GaussDBListDatabaseRoles';
 import { GaussDBListDatabaseRolesPriv } from './model/GaussDBListDatabaseRolesPriv';
@@ -541,7 +542,7 @@ import { OpenGaussInstanceRequestBody } from './model/OpenGaussInstanceRequestBo
 import { OpenGaussInstanceResponse } from './model/OpenGaussInstanceResponse';
 import { OpenGaussInstanceResult } from './model/OpenGaussInstanceResult';
 import { OpenGaussModifyInstanceConfigurationRequest } from './model/OpenGaussModifyInstanceConfigurationRequest';
-import { OpenGaussResizeRequest } from './model/OpenGaussResizeRequest';
+import { OpenGaussResizeRequestBody } from './model/OpenGaussResizeRequestBody';
 import { OpenGaussShard } from './model/OpenGaussShard';
 import { OpenGaussVolume } from './model/OpenGaussVolume';
 import { OpenGaussVolumeResponse } from './model/OpenGaussVolumeResponse';
@@ -829,7 +830,7 @@ import { ValidateParaGroupNameRequest } from './model/ValidateParaGroupNameReque
 import { ValidateParaGroupNameResponse } from './model/ValidateParaGroupNameResponse';
 import { ValidateWeakPasswordRequest } from './model/ValidateWeakPasswordRequest';
 import { ValidateWeakPasswordResponse } from './model/ValidateWeakPasswordResponse';
-import { WaitEventQueryInfo } from './model/WaitEventQueryInfo';
+import { WaitEventQueryInfoOption } from './model/WaitEventQueryInfoOption';
 import { WaitEventResult } from './model/WaitEventResult';
 import { WaitEventTime } from './model/WaitEventTime';
 import { WeakPasswordRequestBody } from './model/WeakPasswordRequestBody';
@@ -3678,7 +3679,7 @@ export class GaussDBforopenGaussClient {
      *
      * @summary 变更实例规格
      * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
-     * @param {OpenGaussResizeRequest} createInstanceRequest 请求体
+     * @param {OpenGaussResizeRequestBody} createInstanceRequest 请求体
      * @param {string} [xLanguage] 语言
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5122,7 +5123,7 @@ export class GaussDBforopenGaussClient {
      * 
      *       - 分布式实例：根据分片数滚动升级。
      *       - 集中式实例：根据AZ数进行滚动升级。 
-     *     
+     * 
      *     - 提交阶段可以对升级完成后的实例进行业务测试，根据需要可以选择提交升级或者升级回退。
      * 
      *       - 提交升级：提交升级。在升级完成，进入提交阶段时。业务测试正常后提交升级，完成本次升级流程。
@@ -5344,7 +5345,7 @@ export class GaussDBforopenGaussClient {
      *
      * @summary 变更实例规格
      * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
-     * @param {OpenGaussResizeRequest} createInstanceRequest 请求体
+     * @param {OpenGaussResizeRequestBody} createInstanceRequest 请求体
      * @param {string} [xLanguage] 语言
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6211,6 +6212,10 @@ export class GaussDBforopenGaussClient {
      * @param {string} [startTime] **参数解释**:   查询开始时间。格式为“yyyy-mm-ddThh:mm:ssZ”。其中，T指某个时间的开始，Z指时区偏移量，时区中的+号需要进行URL编码，编码为%2B，时区中的-号无需编码。   例如北京时间偏移显示为+0800，start_time&#x3D;2024-03-15T17:20:33+0800传参时编码为start_time&#x3D;2024-03-15T17:20:33%2B0800。 **约束限制**:   不涉及。 **取值范围**:   不涉及。 **默认取值**:   不涉及。
      * @param {string} [endTime] **参数解释**:   查询结束时间。格式为“yyyy-mm-ddThh:mm:ssZ”。其中，T指某个时间的开始，Z指时区偏移量，时区中的+号需要进行URL编码，编码为%2B，时区中的-号无需编码。   例如北京时间偏移显示为+0800，end_time&#x3D;2024-03-16T17:20:33+0800传参时编码为end_time&#x3D;2024-03-16T17:20:33%2B0800。 **约束限制**:   不涉及。 **取值范围**:   不涉及。 **默认取值**:   不涉及。
      * @param {string} [jobId] **参数解释**:   任务ID。正确填写后，可查询指定任务对应的快照报告采集结果。不支持模糊匹配，需填写完整的任务ID。 **约束限制**:   不涉及。 **取值范围**:   不涉及。 **默认取值**:   不涉及。
+     * @param {string} [jobEndTime] **参数解释**:   采集任务创建时间终点。可查询任务创建时间小于等于该时间终点的任务结果。格式为“yyyy-mm-ddThh:mm:ssZ”。其中，T指某个时间的开始；Z指时区偏移量。时区中的+号需要进行URL编码，编码为%2B，时区中的-号无需编码。例如，北京时间偏移显示为+0800，job_end_time&#x3D;2024-03-16T17:20:33+0800，传参时编码为job_end_time&#x3D;2024-03-16T17:20:33%2B0800。 **约束限制**:   不涉及。 **取值范围**:   不涉及。 **默认取值**:   不涉及。
+     * @param {string} [jobStartTime] **参数解释**:   采集任务创建时间起点。可查询任务创建时间大于等于该时间起点的任务结果。格式为“yyyy-mm-ddThh:mm:ssZ”。其中，T指某个时间的开始；Z指时区偏移量。时区中的+号需要进行URL编码，编码为%2B，时区中的-号无需编码。例如，北京时间偏移显示为+0800，job_start_time&#x3D;2024-03-15T17:20:33+0800传参时编码为job_start_time&#x3D;2024-03-15T17:20:33%2B0800。 **约束限制**:   不涉及。 **取值范围**:   不涉及。 **默认取值**:   不涉及。
+     * @param {string} [status] **参数解释**: 任务采集状态。填写后，可查询对应采集状态的任务结果。 **约束限制**: 不支持模糊匹配，区分大小写，请填写完整的合法状态值。 **取值范围**: - EXPORTING：采集中。 - SUCCESS：采集成功。 - FAILED：采集失败。  **默认取值**:   不涉及。
+     * @param {string} [wdrType] **参数解释**: 填写后，可查询对应采集类型的任务结果。 **约束限制**: 不支持模糊匹配，区分大小写，请填写完整的合法枚举值。 **取值范围**: - cluster：实例级。 - component：组件级。 - pdb：租户级。  **默认取值**:   不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -17249,7 +17254,7 @@ export const ParamCreater = function () {
          * 
          *       - 分布式实例：根据分片数滚动升级。
          *       - 集中式实例：根据AZ数进行滚动升级。 
-         *     
+         * 
          *     - 提交阶段可以对升级完成后的实例进行业务测试，根据需要可以选择提交升级或者升级回退。
          * 
          *       - 提交升级：提交升级。在升级完成，进入提交阶段时。业务测试正常后提交升级，完成本次升级流程。
@@ -20005,6 +20010,14 @@ export const ParamCreater = function () {
             let endTime;
             
             let jobId;
+            
+            let jobEndTime;
+            
+            let jobStartTime;
+            
+            let status;
+            
+            let wdrType;
 
             if (listWdrSnapshotsCollectResultsRequest !== null && listWdrSnapshotsCollectResultsRequest !== undefined) {
                 if (listWdrSnapshotsCollectResultsRequest instanceof ListWdrSnapshotsCollectResultsRequest) {
@@ -20015,6 +20028,10 @@ export const ParamCreater = function () {
                     startTime = listWdrSnapshotsCollectResultsRequest.startTime;
                     endTime = listWdrSnapshotsCollectResultsRequest.endTime;
                     jobId = listWdrSnapshotsCollectResultsRequest.jobId;
+                    jobEndTime = listWdrSnapshotsCollectResultsRequest.jobEndTime;
+                    jobStartTime = listWdrSnapshotsCollectResultsRequest.jobStartTime;
+                    status = listWdrSnapshotsCollectResultsRequest.status;
+                    wdrType = listWdrSnapshotsCollectResultsRequest.wdrType;
                 } else {
                     instanceId = listWdrSnapshotsCollectResultsRequest['instance_id'];
                     xLanguage = listWdrSnapshotsCollectResultsRequest['X-Language'];
@@ -20023,6 +20040,10 @@ export const ParamCreater = function () {
                     startTime = listWdrSnapshotsCollectResultsRequest['start_time'];
                     endTime = listWdrSnapshotsCollectResultsRequest['end_time'];
                     jobId = listWdrSnapshotsCollectResultsRequest['job_id'];
+                    jobEndTime = listWdrSnapshotsCollectResultsRequest['job_end_time'];
+                    jobStartTime = listWdrSnapshotsCollectResultsRequest['job_start_time'];
+                    status = listWdrSnapshotsCollectResultsRequest['status'];
+                    wdrType = listWdrSnapshotsCollectResultsRequest['wdr_type'];
                 }
             }
 
@@ -20044,6 +20065,18 @@ export const ParamCreater = function () {
             }
             if (jobId !== null && jobId !== undefined) {
                 localVarQueryParameter['job_id'] = jobId;
+            }
+            if (jobEndTime !== null && jobEndTime !== undefined) {
+                localVarQueryParameter['job_end_time'] = jobEndTime;
+            }
+            if (jobStartTime !== null && jobStartTime !== undefined) {
+                localVarQueryParameter['job_start_time'] = jobStartTime;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (wdrType !== null && wdrType !== undefined) {
+                localVarQueryParameter['wdr_type'] = wdrType;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);

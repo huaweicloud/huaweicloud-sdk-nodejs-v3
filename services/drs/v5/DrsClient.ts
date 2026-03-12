@@ -11,7 +11,7 @@ import { ActionReq } from './model/ActionReq';
 import { AddColumnInfo } from './model/AddColumnInfo';
 import { AgencyRole } from './model/AgencyRole';
 import { AlarmNotifyConfig } from './model/AlarmNotifyConfig';
-import { ApiHttpNullResp } from './model/ApiHttpNullResp';
+import { ApiHttpResp } from './model/ApiHttpResp';
 import { AsyncActionBaseResp } from './model/AsyncActionBaseResp';
 import { AsyncActionResp } from './model/AsyncActionResp';
 import { AsyncCommitJobResp } from './model/AsyncCommitJobResp';
@@ -1014,7 +1014,7 @@ export class DrsClient {
      * @summary 对象选择（文件导入 - 模板下载）
      * @param {string} jobId 任务ID。
      * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
-     * @param {'database' | 'table' | 'column'} [fileImportDbLevel] 文件模板支持数据同步级别，不填默认为table表级。 - database：库级 - table：表级 - column：列级
+     * @param {'database' | 'table' | 'column' | 'partition'} [fileImportDbLevel] 文件模板支持数据同步级别，不填默认为table表级。 - database：库级 - table：表级 - column：列级 - partition：partition分区级导入
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2582,7 +2582,8 @@ export class DrsClient {
      * @param {string} jobId 任务ID。
      * @param {any} file 待上传的模板文件。
      * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
-     * @param {'database' | 'table' | 'column'} [fileImportDbLevel] 文件模板支持数据同步级别，不填默认为table表级。 - database：库级 - table：表级 - column：列级
+     * @param {'database' | 'table' | 'column' | 'partition'} [fileImportDbLevel] 文件模板支持数据同步级别，不填默认为table表级。 - database：库级 - table：表级 - column：列级 - partition：partition分区级导入
+     * @param {string} [fileImportMappingType] 导入文件模板的映射场景，取值： - table_mapping：表名映射 - topic_mapping：topic名映射
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -8372,6 +8373,8 @@ export const ParamCreater = function () {
             let xLanguage;
             
             let fileImportDbLevel;
+            
+            let fileImportMappingType;
 
             if (uploadDbObjectTemplateRequest !== null && uploadDbObjectTemplateRequest !== undefined) {
                 if (uploadDbObjectTemplateRequest instanceof UploadDbObjectTemplateRequest) {
@@ -8379,11 +8382,13 @@ export const ParamCreater = function () {
                     file = uploadDbObjectTemplateRequest.body?.file;
                     xLanguage = uploadDbObjectTemplateRequest.xLanguage;
                     fileImportDbLevel = uploadDbObjectTemplateRequest.fileImportDbLevel;
+                    fileImportMappingType = uploadDbObjectTemplateRequest.fileImportMappingType;
                 } else {
                     jobId = uploadDbObjectTemplateRequest['job_id'];
                     file = uploadDbObjectTemplateRequest['body']['file'];
                     xLanguage = uploadDbObjectTemplateRequest['X-Language'];
                     fileImportDbLevel = uploadDbObjectTemplateRequest['file_import_db_level'];
+                    fileImportMappingType = uploadDbObjectTemplateRequest['file_import_mapping_type'];
                 }
             }
 
@@ -8396,6 +8401,9 @@ export const ParamCreater = function () {
             }
             if (fileImportDbLevel !== null && fileImportDbLevel !== undefined) {
                 localVarQueryParameter['file_import_db_level'] = fileImportDbLevel;
+            }
+            if (fileImportMappingType !== null && fileImportMappingType !== undefined) {
+                localVarQueryParameter['file_import_mapping_type'] = fileImportMappingType;
             }
             if (file !== undefined) { 
                 localVarFormParams.append('file', file as any);

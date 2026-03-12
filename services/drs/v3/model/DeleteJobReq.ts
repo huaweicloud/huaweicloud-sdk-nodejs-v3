@@ -47,5 +47,6 @@ export class DeleteJobReq {
 export enum DeleteJobReqDeleteTypeEnum {
     TERMINATE = 'terminate',
     FORCE_TERMINATE = 'force_terminate',
-    DELETE = 'delete'
+    DELETE = 'delete',
+    ROLL_BACK_UPGRADE_ACTIVE_STANDBY = 'roll_back_upgrade_active_standby'
 }

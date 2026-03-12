@@ -1,0 +1,24 @@
+import { BatchCreateOrDeleteTagsRequestBody } from './BatchCreateOrDeleteTagsRequestBody';
+
+
+export class BatchCreateOrDeleteTagsRequest {
+    private 'resource_id'?: string;
+    public body?: BatchCreateOrDeleteTagsRequestBody;
+    public constructor(resourceId?: string) { 
+        this['resource_id'] = resourceId;
+    }
+    public withResourceId(resourceId: string): BatchCreateOrDeleteTagsRequest {
+        this['resource_id'] = resourceId;
+        return this;
+    }
+    public set resourceId(resourceId: string  | undefined) {
+        this['resource_id'] = resourceId;
+    }
+    public get resourceId(): string | undefined {
+        return this['resource_id'];
+    }
+    public withBody(body: BatchCreateOrDeleteTagsRequestBody): BatchCreateOrDeleteTagsRequest {
+        this['body'] = body;
+        return this;
+    }
+}

@@ -17,13 +17,13 @@ export class FullSqlComponetResult {
     public query?: string;
     private 'thread_id'?: string;
     private 'session_id'?: string;
-    private 'begin_time'?: string;
-    private 'end_time'?: string;
+    private 'start_time'?: string;
+    private 'finish_time'?: string;
     private 'slow_query_threshold'?: number;
     private 'n_soft_parse'?: number;
     private 'n_hard_parse'?: number;
     private 'query_plan'?: string;
-    private 'n_return_rows'?: number;
+    private 'n_returned_rows'?: number;
     private 'n_tuples_fetched'?: number;
     private 'n_tuples_returned'?: number;
     private 'n_tuples_inserted'?: number;
@@ -202,25 +202,25 @@ export class FullSqlComponetResult {
     public get sessionId(): string | undefined {
         return this['session_id'];
     }
-    public withBeginTime(beginTime: string): FullSqlComponetResult {
-        this['begin_time'] = beginTime;
+    public withStartTime(startTime: string): FullSqlComponetResult {
+        this['start_time'] = startTime;
         return this;
     }
-    public set beginTime(beginTime: string  | undefined) {
-        this['begin_time'] = beginTime;
+    public set startTime(startTime: string  | undefined) {
+        this['start_time'] = startTime;
     }
-    public get beginTime(): string | undefined {
-        return this['begin_time'];
+    public get startTime(): string | undefined {
+        return this['start_time'];
     }
-    public withEndTime(endTime: string): FullSqlComponetResult {
-        this['end_time'] = endTime;
+    public withFinishTime(finishTime: string): FullSqlComponetResult {
+        this['finish_time'] = finishTime;
         return this;
     }
-    public set endTime(endTime: string  | undefined) {
-        this['end_time'] = endTime;
+    public set finishTime(finishTime: string  | undefined) {
+        this['finish_time'] = finishTime;
     }
-    public get endTime(): string | undefined {
-        return this['end_time'];
+    public get finishTime(): string | undefined {
+        return this['finish_time'];
     }
     public withSlowQueryThreshold(slowQueryThreshold: number): FullSqlComponetResult {
         this['slow_query_threshold'] = slowQueryThreshold;
@@ -262,15 +262,15 @@ export class FullSqlComponetResult {
     public get queryPlan(): string | undefined {
         return this['query_plan'];
     }
-    public withNReturnRows(nReturnRows: number): FullSqlComponetResult {
-        this['n_return_rows'] = nReturnRows;
+    public withNReturnedRows(nReturnedRows: number): FullSqlComponetResult {
+        this['n_returned_rows'] = nReturnedRows;
         return this;
     }
-    public set nReturnRows(nReturnRows: number  | undefined) {
-        this['n_return_rows'] = nReturnRows;
+    public set nReturnedRows(nReturnedRows: number  | undefined) {
+        this['n_returned_rows'] = nReturnedRows;
     }
-    public get nReturnRows(): number | undefined {
-        return this['n_return_rows'];
+    public get nReturnedRows(): number | undefined {
+        return this['n_returned_rows'];
     }
     public withNTuplesFetched(nTuplesFetched: number): FullSqlComponetResult {
         this['n_tuples_fetched'] = nTuplesFetched;

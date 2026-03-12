@@ -8,7 +8,7 @@ export * from './model/ActionReq';
 export * from './model/AddColumnInfo';
 export * from './model/AgencyRole';
 export * from './model/AlarmNotifyConfig';
-export * from './model/ApiHttpNullResp';
+export * from './model/ApiHttpResp';
 export * from './model/AsyncActionBaseResp';
 export * from './model/AsyncActionResp';
 export * from './model/AsyncCommitJobResp';

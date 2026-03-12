@@ -45,6 +45,8 @@ import { ListAsyncTaskStatusRequest } from './model/ListAsyncTaskStatusRequest';
 import { ListAsyncTaskStatusResponse } from './model/ListAsyncTaskStatusResponse';
 import { ListAvailableZonesRequest } from './model/ListAvailableZonesRequest';
 import { ListAvailableZonesResponse } from './model/ListAvailableZonesResponse';
+import { ListClusterSshStateRequest } from './model/ListClusterSshStateRequest';
+import { ListClusterSshStateResponse } from './model/ListClusterSshStateResponse';
 import { ListClusterTagsRequest } from './model/ListClusterTagsRequest';
 import { ListClusterTagsResponse } from './model/ListClusterTagsResponse';
 import { ListClustersByTagsRequest } from './model/ListClustersByTagsRequest';
@@ -81,6 +83,8 @@ import { TaskNodeInfo } from './model/TaskNodeInfo';
 import { Trigger } from './model/Trigger';
 import { UpdateClusterScalingRequest } from './model/UpdateClusterScalingRequest';
 import { UpdateClusterScalingResponse } from './model/UpdateClusterScalingResponse';
+import { UpdateClusterSshRequest } from './model/UpdateClusterSshRequest';
+import { UpdateClusterSshResponse } from './model/UpdateClusterSshResponse';
 import { VersionComponent } from './model/VersionComponent';
 import { VersionConstraint } from './model/VersionConstraint';
 
@@ -347,6 +351,25 @@ export class MrsClient {
     }
 
     /**
+     * 查询集群节点授权状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群节点授权状态
+     * @param {string} clusterId 集群ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClusterSshState(listClusterSshStateRequest?: ListClusterSshStateRequest): Promise<ListClusterSshStateResponse> {
+        const options = ParamCreater().listClusterSshState(listClusterSshStateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询指定集群的标签信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -509,6 +532,27 @@ export class MrsClient {
      */
     public updateClusterScaling(updateClusterScalingRequest?: UpdateClusterScalingRequest): Promise<UpdateClusterScalingResponse> {
         const options = ParamCreater().updateClusterScaling(updateClusterScalingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启/关闭集群节点授权
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启/关闭集群节点授权
+     * @param {string} clusterId 集群ID
+     * @param {boolean} enable 开启/关闭集群节点授权
+     * @param {number} [expireTime] 开启集群节点授权截止时间，仅enable为true时需要传递，如不传该值默认为1天授权时间
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateClusterSsh(updateClusterSshRequest?: UpdateClusterSshRequest): Promise<UpdateClusterSshResponse> {
+        const options = ParamCreater().updateClusterSsh(updateClusterSshRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1024,6 +1068,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询集群节点授权状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClusterSshState(listClusterSshStateRequest?: ListClusterSshStateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/cluster/{cluster_id}/ssh",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (listClusterSshStateRequest !== null && listClusterSshStateRequest !== undefined) {
+                if (listClusterSshStateRequest instanceof ListClusterSshStateRequest) {
+                    clusterId = listClusterSshStateRequest.clusterId;
+                } else {
+                    clusterId = listClusterSshStateRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listClusterSshState.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询指定集群的标签信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1417,6 +1498,61 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启/关闭集群节点授权
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateClusterSsh(updateClusterSshRequest?: UpdateClusterSshRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/cluster/{cluster_id}/ssh",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let enable;
+            
+            let expireTime;
+
+            if (updateClusterSshRequest !== null && updateClusterSshRequest !== undefined) {
+                if (updateClusterSshRequest instanceof UpdateClusterSshRequest) {
+                    clusterId = updateClusterSshRequest.clusterId;
+                    enable = updateClusterSshRequest.enable;
+                    expireTime = updateClusterSshRequest.expireTime;
+                } else {
+                    clusterId = updateClusterSshRequest['cluster_id'];
+                    enable = updateClusterSshRequest['enable'];
+                    expireTime = updateClusterSshRequest['expire_time'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateClusterSsh.');
+            }
+            if (enable === null || enable === undefined) {
+                throw new RequiredError('enable','Required parameter enable was null or undefined when calling updateClusterSsh.');
+            }
+            if (enable !== null && enable !== undefined) {
+                localVarQueryParameter['enable'] = enable;
+            }
+            if (expireTime !== null && expireTime !== undefined) {
+                localVarQueryParameter['expire_time'] = expireTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;

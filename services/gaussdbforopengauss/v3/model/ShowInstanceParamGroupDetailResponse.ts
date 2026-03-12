@@ -1,4 +1,4 @@
-import { ConfigurationParameter } from './ConfigurationParameter';
+import { ConfigurationParameterResult } from './ConfigurationParameterResult';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -7,7 +7,7 @@ export class ShowInstanceParamGroupDetailResponse extends SdkResponse {
     private 'datastore_name'?: string;
     public created?: string;
     public updated?: string;
-    private 'configuration_parameters'?: Array<ConfigurationParameter>;
+    private 'configuration_parameters'?: Array<ConfigurationParameterResult>;
     public constructor() { 
         super();
     }
@@ -39,14 +39,14 @@ export class ShowInstanceParamGroupDetailResponse extends SdkResponse {
         this['updated'] = updated;
         return this;
     }
-    public withConfigurationParameters(configurationParameters: Array<ConfigurationParameter>): ShowInstanceParamGroupDetailResponse {
+    public withConfigurationParameters(configurationParameters: Array<ConfigurationParameterResult>): ShowInstanceParamGroupDetailResponse {
         this['configuration_parameters'] = configurationParameters;
         return this;
     }
-    public set configurationParameters(configurationParameters: Array<ConfigurationParameter>  | undefined) {
+    public set configurationParameters(configurationParameters: Array<ConfigurationParameterResult>  | undefined) {
         this['configuration_parameters'] = configurationParameters;
     }
-    public get configurationParameters(): Array<ConfigurationParameter> | undefined {
+    public get configurationParameters(): Array<ConfigurationParameterResult> | undefined {
         return this['configuration_parameters'];
     }
 }

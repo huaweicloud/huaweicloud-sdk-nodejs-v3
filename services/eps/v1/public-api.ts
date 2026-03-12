@@ -1,4 +1,5 @@
 export * from './EpsClient';
+export * from './GlobalCredentials';
 
 export * from './model/AssociatedResourceListResponse';
 export * from './model/CreateEnterpriseProjectRequest';

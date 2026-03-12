@@ -1,0 +1,23 @@
+import { UpdateDryRunConfigReqBody } from './UpdateDryRunConfigReqBody';
+
+
+export class UpdateDryRunConfigRequest {
+    private 'X-Security-Token'?: string;
+    public body?: UpdateDryRunConfigReqBody;
+    public constructor() { 
+    }
+    public withXSecurityToken(xSecurityToken: string): UpdateDryRunConfigRequest {
+        this['X-Security-Token'] = xSecurityToken;
+        return this;
+    }
+    public set xSecurityToken(xSecurityToken: string  | undefined) {
+        this['X-Security-Token'] = xSecurityToken;
+    }
+    public get xSecurityToken(): string | undefined {
+        return this['X-Security-Token'];
+    }
+    public withBody(body: UpdateDryRunConfigReqBody): UpdateDryRunConfigRequest {
+        this['body'] = body;
+        return this;
+    }
+}

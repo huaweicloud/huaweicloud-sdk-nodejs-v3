@@ -8,6 +8,10 @@ export class ListWdrSnapshotsCollectResultsRequest {
     private 'start_time'?: string;
     private 'end_time'?: string;
     private 'job_id'?: string;
+    private 'job_end_time'?: string;
+    private 'job_start_time'?: string;
+    public status?: string;
+    private 'wdr_type'?: string;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -68,6 +72,40 @@ export class ListWdrSnapshotsCollectResultsRequest {
     }
     public get jobId(): string | undefined {
         return this['job_id'];
+    }
+    public withJobEndTime(jobEndTime: string): ListWdrSnapshotsCollectResultsRequest {
+        this['job_end_time'] = jobEndTime;
+        return this;
+    }
+    public set jobEndTime(jobEndTime: string  | undefined) {
+        this['job_end_time'] = jobEndTime;
+    }
+    public get jobEndTime(): string | undefined {
+        return this['job_end_time'];
+    }
+    public withJobStartTime(jobStartTime: string): ListWdrSnapshotsCollectResultsRequest {
+        this['job_start_time'] = jobStartTime;
+        return this;
+    }
+    public set jobStartTime(jobStartTime: string  | undefined) {
+        this['job_start_time'] = jobStartTime;
+    }
+    public get jobStartTime(): string | undefined {
+        return this['job_start_time'];
+    }
+    public withStatus(status: string): ListWdrSnapshotsCollectResultsRequest {
+        this['status'] = status;
+        return this;
+    }
+    public withWdrType(wdrType: string): ListWdrSnapshotsCollectResultsRequest {
+        this['wdr_type'] = wdrType;
+        return this;
+    }
+    public set wdrType(wdrType: string  | undefined) {
+        this['wdr_type'] = wdrType;
+    }
+    public get wdrType(): string | undefined {
+        return this['wdr_type'];
     }
 }
 

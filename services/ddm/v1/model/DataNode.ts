@@ -4,7 +4,10 @@ export class DataNode {
     public id?: string;
     public user?: string;
     public password?: string;
-    public constructor() { 
+    public constructor(id?: string, user?: string, password?: string) { 
+        this['id'] = id;
+        this['user'] = user;
+        this['password'] = password;
     }
     public withId(id: string): DataNode {
         this['id'] = id;

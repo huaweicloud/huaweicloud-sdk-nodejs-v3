@@ -5,6 +5,7 @@ export class UploadDbObjectTemplateRequest {
     private 'job_id'?: string;
     private 'X-Language'?: UploadDbObjectTemplateRequestXLanguageEnum | string;
     private 'file_import_db_level'?: UploadDbObjectTemplateRequestFileImportDbLevelEnum | string;
+    private 'file_import_mapping_type'?: string;
     public body?: UploadDbObjectTemplateRequestBody;
     public constructor(jobId?: string) { 
         this['job_id'] = jobId;
@@ -39,6 +40,16 @@ export class UploadDbObjectTemplateRequest {
     public get fileImportDbLevel(): UploadDbObjectTemplateRequestFileImportDbLevelEnum | string | undefined {
         return this['file_import_db_level'];
     }
+    public withFileImportMappingType(fileImportMappingType: string): UploadDbObjectTemplateRequest {
+        this['file_import_mapping_type'] = fileImportMappingType;
+        return this;
+    }
+    public set fileImportMappingType(fileImportMappingType: string  | undefined) {
+        this['file_import_mapping_type'] = fileImportMappingType;
+    }
+    public get fileImportMappingType(): string | undefined {
+        return this['file_import_mapping_type'];
+    }
     public withBody(body: UploadDbObjectTemplateRequestBody): UploadDbObjectTemplateRequest {
         this['body'] = body;
         return this;
@@ -60,5 +71,6 @@ export enum UploadDbObjectTemplateRequestXLanguageEnum {
 export enum UploadDbObjectTemplateRequestFileImportDbLevelEnum {
     DATABASE = 'database',
     TABLE = 'table',
-    COLUMN = 'column'
+    COLUMN = 'column',
+    PARTITION = 'partition'
 }

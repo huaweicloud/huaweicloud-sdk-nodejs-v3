@@ -2,16 +2,11 @@
 
 export class SqlTypeRangeConfigResult {
     public category?: string;
-    public prefixes?: string;
     private 'is_preset'?: boolean;
     public constructor() { 
     }
     public withCategory(category: string): SqlTypeRangeConfigResult {
         this['category'] = category;
-        return this;
-    }
-    public withPrefixes(prefixes: string): SqlTypeRangeConfigResult {
-        this['prefixes'] = prefixes;
         return this;
     }
     public withIsPreset(isPreset: boolean): SqlTypeRangeConfigResult {

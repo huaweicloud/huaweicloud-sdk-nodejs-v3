@@ -5,6 +5,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import { AcceptHandshakeRequest } from './model/AcceptHandshakeRequest';
 import { AcceptHandshakeResponse } from './model/AcceptHandshakeResponse';
 import { AccountDto } from './model/AccountDto';
+import { AttachDryRunPolicyRequest } from './model/AttachDryRunPolicyRequest';
+import { AttachDryRunPolicyResponse } from './model/AttachDryRunPolicyResponse';
 import { AttachPolicyRequest } from './model/AttachPolicyRequest';
 import { AttachPolicyResponse } from './model/AttachPolicyResponse';
 import { CancelHandshakeRequest } from './model/CancelHandshakeRequest';
@@ -17,6 +19,9 @@ import { CreateAccountRequest } from './model/CreateAccountRequest';
 import { CreateAccountResponse } from './model/CreateAccountResponse';
 import { CreateAccountStatusDto } from './model/CreateAccountStatusDto';
 import { CreateAccountStatusDtoFailureDetailMsg } from './model/CreateAccountStatusDtoFailureDetailMsg';
+import { CreateDryRunPolicyReqBody } from './model/CreateDryRunPolicyReqBody';
+import { CreateDryRunPolicyRequest } from './model/CreateDryRunPolicyRequest';
+import { CreateDryRunPolicyResponse } from './model/CreateDryRunPolicyResponse';
 import { CreateOrganizationRequest } from './model/CreateOrganizationRequest';
 import { CreateOrganizationResponse } from './model/CreateOrganizationResponse';
 import { CreateOrganizationalUnitReqBody } from './model/CreateOrganizationalUnitReqBody';
@@ -35,6 +40,8 @@ import { DeclineHandshakeResponse } from './model/DeclineHandshakeResponse';
 import { DelegatedAdministratorDto } from './model/DelegatedAdministratorDto';
 import { DelegatedAdministratorReqBody } from './model/DelegatedAdministratorReqBody';
 import { DelegatedServiceDto } from './model/DelegatedServiceDto';
+import { DeleteDryRunPolicyRequest } from './model/DeleteDryRunPolicyRequest';
+import { DeleteDryRunPolicyResponse } from './model/DeleteDryRunPolicyResponse';
 import { DeleteOrganizationRequest } from './model/DeleteOrganizationRequest';
 import { DeleteOrganizationResponse } from './model/DeleteOrganizationResponse';
 import { DeleteOrganizationalUnitRequest } from './model/DeleteOrganizationalUnitRequest';
@@ -45,12 +52,15 @@ import { DeleteTagResourceRequest } from './model/DeleteTagResourceRequest';
 import { DeleteTagResourceResponse } from './model/DeleteTagResourceResponse';
 import { DeregisterDelegatedAdministratorRequest } from './model/DeregisterDelegatedAdministratorRequest';
 import { DeregisterDelegatedAdministratorResponse } from './model/DeregisterDelegatedAdministratorResponse';
+import { DetachDryRunPolicyRequest } from './model/DetachDryRunPolicyRequest';
+import { DetachDryRunPolicyResponse } from './model/DetachDryRunPolicyResponse';
 import { DetachPolicyRequest } from './model/DetachPolicyRequest';
 import { DetachPolicyResponse } from './model/DetachPolicyResponse';
 import { DisablePolicyTypeRequest } from './model/DisablePolicyTypeRequest';
 import { DisablePolicyTypeResponse } from './model/DisablePolicyTypeResponse';
 import { DisableTrustedServiceRequest } from './model/DisableTrustedServiceRequest';
 import { DisableTrustedServiceResponse } from './model/DisableTrustedServiceResponse';
+import { DryRunConfigDto } from './model/DryRunConfigDto';
 import { EnablePolicyTypeRequest } from './model/EnablePolicyTypeRequest';
 import { EnablePolicyTypeResponse } from './model/EnablePolicyTypeResponse';
 import { EnableTrustedServiceRequest } from './model/EnableTrustedServiceRequest';
@@ -72,6 +82,10 @@ import { ListDelegatedAdministratorsRequest } from './model/ListDelegatedAdminis
 import { ListDelegatedAdministratorsResponse } from './model/ListDelegatedAdministratorsResponse';
 import { ListDelegatedServicesRequest } from './model/ListDelegatedServicesRequest';
 import { ListDelegatedServicesResponse } from './model/ListDelegatedServicesResponse';
+import { ListDryRunPoliciesRequest } from './model/ListDryRunPoliciesRequest';
+import { ListDryRunPoliciesResponse } from './model/ListDryRunPoliciesResponse';
+import { ListEntitiesForDryRunPolicyRequest } from './model/ListEntitiesForDryRunPolicyRequest';
+import { ListEntitiesForDryRunPolicyResponse } from './model/ListEntitiesForDryRunPolicyResponse';
 import { ListEntitiesForPolicyRequest } from './model/ListEntitiesForPolicyRequest';
 import { ListEntitiesForPolicyResponse } from './model/ListEntitiesForPolicyResponse';
 import { ListEntitiesRequest } from './model/ListEntitiesRequest';
@@ -127,6 +141,10 @@ import { ShowAccountRequest } from './model/ShowAccountRequest';
 import { ShowAccountResponse } from './model/ShowAccountResponse';
 import { ShowCreateAccountStatusRequest } from './model/ShowCreateAccountStatusRequest';
 import { ShowCreateAccountStatusResponse } from './model/ShowCreateAccountStatusResponse';
+import { ShowDryRunConfigRequest } from './model/ShowDryRunConfigRequest';
+import { ShowDryRunConfigResponse } from './model/ShowDryRunConfigResponse';
+import { ShowDryRunPolicyRequest } from './model/ShowDryRunPolicyRequest';
+import { ShowDryRunPolicyResponse } from './model/ShowDryRunPolicyResponse';
 import { ShowEffectivePoliciesRequest } from './model/ShowEffectivePoliciesRequest';
 import { ShowEffectivePoliciesResponse } from './model/ShowEffectivePoliciesResponse';
 import { ShowHandshakeRequest } from './model/ShowHandshakeRequest';
@@ -154,6 +172,11 @@ import { UntagResourceResponse } from './model/UntagResourceResponse';
 import { UpdateAccountReqBody } from './model/UpdateAccountReqBody';
 import { UpdateAccountRequest } from './model/UpdateAccountRequest';
 import { UpdateAccountResponse } from './model/UpdateAccountResponse';
+import { UpdateDryRunConfigReqBody } from './model/UpdateDryRunConfigReqBody';
+import { UpdateDryRunConfigRequest } from './model/UpdateDryRunConfigRequest';
+import { UpdateDryRunConfigResponse } from './model/UpdateDryRunConfigResponse';
+import { UpdateDryRunPolicyRequest } from './model/UpdateDryRunPolicyRequest';
+import { UpdateDryRunPolicyResponse } from './model/UpdateDryRunPolicyResponse';
 import { UpdateOrganizationalUnitReqBody } from './model/UpdateOrganizationalUnitReqBody';
 import { UpdateOrganizationalUnitRequest } from './model/UpdateOrganizationalUnitRequest';
 import { UpdateOrganizationalUnitResponse } from './model/UpdateOrganizationalUnitResponse';
@@ -502,6 +525,218 @@ export class OrganizationsClient {
      */
     public registerDelegatedAdministrator(registerDelegatedAdministratorRequest?: RegisterDelegatedAdministratorRequest): Promise<RegisterDelegatedAdministratorResponse> {
         const options = ParamCreater().registerDelegatedAdministrator(registerDelegatedAdministratorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询组织策略试运行的配置。此操作只能由组织的管理或云服务委托管理员账号调用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询组织策略试运行的配置
+     * @param {string} rootId 根的唯一标识符（ID）。
+     * @param {'service_control_policy'} policyType 试运行策略的类型名称，service_control_policy：服务控制策略。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDryRunConfig(showDryRunConfigRequest?: ShowDryRunConfigRequest): Promise<ShowDryRunConfigResponse> {
+        const options = ParamCreater().showDryRunConfig(showDryRunConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新组织策略试运行的配置。此操作只能由组织的管理账号调用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新组织策略试运行的配置
+     * @param {UpdateDryRunConfigReqBody} updateDryRunConfigReqBody 组织策略试运行的配置信息。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDryRunConfig(updateDryRunConfigRequest?: UpdateDryRunConfigRequest): Promise<UpdateDryRunConfigResponse> {
+        const options = ParamCreater().updateDryRunConfig(updateDryRunConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 绑定试运行策略到根、组织单元或个人账户。此操作只能由组织的管理账号调用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 将试运行策略跟实体绑定
+     * @param {string} policyId 策略的唯一标识符（ID）。
+     * @param {PolicyTachReqBody} policyTachReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public attachDryRunPolicy(attachDryRunPolicyRequest?: AttachDryRunPolicyRequest): Promise<AttachDryRunPolicyResponse> {
+        const options = ParamCreater().attachDryRunPolicy(attachDryRunPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建指定类型的试运行策略。此操作只能由组织的管理账号调用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建试运行策略
+     * @param {CreateDryRunPolicyReqBody} createDryRunPolicyReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 选择接口返回的信息的语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDryRunPolicy(createDryRunPolicyRequest?: CreateDryRunPolicyRequest): Promise<CreateDryRunPolicyResponse> {
+        const options = ParamCreater().createDryRunPolicy(createDryRunPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 从组织中删除指定的试运行策略。在执行此操作之前，必须首先将策略跟所有组织单元、根和账号解绑。此操作只能由组织的管理账号调用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除试运行策略
+     * @param {string} policyId 策略的唯一标识符（ID）。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDryRunPolicy(deleteDryRunPolicyRequest?: DeleteDryRunPolicyRequest): Promise<DeleteDryRunPolicyResponse> {
+        const options = ParamCreater().deleteDryRunPolicy(deleteDryRunPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 从根、组织单元或账号解绑试运行策略。此操作只能由组织的管理账号调用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 将试运行策略跟实体解绑
+     * @param {string} policyId 策略的唯一标识符（ID）。
+     * @param {PolicyTachReqBody} policyTachReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public detachDryRunPolicy(detachDryRunPolicyRequest?: DetachDryRunPolicyRequest): Promise<DetachDryRunPolicyResponse> {
+        const options = ParamCreater().detachDryRunPolicy(detachDryRunPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列出组织中的所有试运行策略。如果指定了资源ID，例如组织单元ID或账号ID，则将获得该资源已绑定的策略列表。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列出试运行策略
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {string} [attachedEntityId] 根、组织单元或账号的唯一标识符（ID）。
+     * @param {number} [limit] 页面中最大结果数量。
+     * @param {string} [marker] 分页标记。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 选择接口返回的信息的语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDryRunPolicies(listDryRunPoliciesRequest?: ListDryRunPoliciesRequest): Promise<ListDryRunPoliciesResponse> {
+        const options = ParamCreater().listDryRunPolicies(listDryRunPoliciesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列出跟指定试运行策略绑定的所有根、组织单元和账号。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列出跟指定试运行策略绑定的所有实体
+     * @param {string} policyId 策略的唯一标识符（ID）。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {number} [limit] 页面中最大结果数量。
+     * @param {string} [marker] 分页标记。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listEntitiesForDryRunPolicy(listEntitiesForDryRunPolicyRequest?: ListEntitiesForDryRunPolicyRequest): Promise<ListEntitiesForDryRunPolicyResponse> {
+        const options = ParamCreater().listEntitiesForDryRunPolicy(listEntitiesForDryRunPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 检索试运行策略的相关信息。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询试运行策略相关信息
+     * @param {string} policyId 策略的唯一标识符（ID）。
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 选择接口返回的信息的语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDryRunPolicy(showDryRunPolicyRequest?: ShowDryRunPolicyRequest): Promise<ShowDryRunPolicyResponse> {
+        const options = ParamCreater().showDryRunPolicy(showDryRunPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新试运行策略，可以更新试运行策略的名称、描述或内容。如果不提供任何参数，则策略将保持不变。您不能更改策略的类型。此操作只能由组织的管理账号调用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新试运行策略
+     * @param {string} policyId 策略的唯一标识符（ID）。
+     * @param {UpdatePolicyReqBody} updatePolicyReqBody 
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 选择接口返回的信息的语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDryRunPolicy(updateDryRunPolicyRequest?: UpdateDryRunPolicyRequest): Promise<UpdateDryRunPolicyResponse> {
+        const options = ParamCreater().updateDryRunPolicy(updateDryRunPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2198,6 +2433,545 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询组织策略试运行的配置。此操作只能由组织的管理或云服务委托管理员账号调用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDryRunConfig(showDryRunConfigRequest?: ShowDryRunConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/organizations/dry-run-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let rootId;
+            
+            let policyType;
+            
+            let xSecurityToken;
+
+            if (showDryRunConfigRequest !== null && showDryRunConfigRequest !== undefined) {
+                if (showDryRunConfigRequest instanceof ShowDryRunConfigRequest) {
+                    rootId = showDryRunConfigRequest.rootId;
+                    policyType = showDryRunConfigRequest.policyType;
+                    xSecurityToken = showDryRunConfigRequest.xSecurityToken;
+                } else {
+                    rootId = showDryRunConfigRequest['root_id'];
+                    policyType = showDryRunConfigRequest['policy_type'];
+                    xSecurityToken = showDryRunConfigRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (rootId === null || rootId === undefined) {
+                throw new RequiredError('rootId','Required parameter rootId was null or undefined when calling showDryRunConfig.');
+            }
+            if (rootId !== null && rootId !== undefined) {
+                localVarQueryParameter['root_id'] = rootId;
+            }
+            if (policyType === null || policyType === undefined) {
+                throw new RequiredError('policyType','Required parameter policyType was null or undefined when calling showDryRunConfig.');
+            }
+            if (policyType !== null && policyType !== undefined) {
+                localVarQueryParameter['policy_type'] = policyType;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新组织策略试运行的配置。此操作只能由组织的管理账号调用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDryRunConfig(updateDryRunConfigRequest?: UpdateDryRunConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/organizations/dry-run-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xSecurityToken;
+
+            if (updateDryRunConfigRequest !== null && updateDryRunConfigRequest !== undefined) {
+                if (updateDryRunConfigRequest instanceof UpdateDryRunConfigRequest) {
+                    body = updateDryRunConfigRequest.body
+                    xSecurityToken = updateDryRunConfigRequest.xSecurityToken;
+                } else {
+                    body = updateDryRunConfigRequest['body'];
+                    xSecurityToken = updateDryRunConfigRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 绑定试运行策略到根、组织单元或个人账户。此操作只能由组织的管理账号调用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        attachDryRunPolicy(attachDryRunPolicyRequest?: AttachDryRunPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/organizations/dry-run-policies/{policy_id}/attach",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyId;
+            
+            let xSecurityToken;
+
+            if (attachDryRunPolicyRequest !== null && attachDryRunPolicyRequest !== undefined) {
+                if (attachDryRunPolicyRequest instanceof AttachDryRunPolicyRequest) {
+                    policyId = attachDryRunPolicyRequest.policyId;
+                    body = attachDryRunPolicyRequest.body
+                    xSecurityToken = attachDryRunPolicyRequest.xSecurityToken;
+                } else {
+                    policyId = attachDryRunPolicyRequest['policy_id'];
+                    body = attachDryRunPolicyRequest['body'];
+                    xSecurityToken = attachDryRunPolicyRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling attachDryRunPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建指定类型的试运行策略。此操作只能由组织的管理账号调用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDryRunPolicy(createDryRunPolicyRequest?: CreateDryRunPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/organizations/dry-run-policies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xSecurityToken;
+            
+            let xLanguage;
+
+            if (createDryRunPolicyRequest !== null && createDryRunPolicyRequest !== undefined) {
+                if (createDryRunPolicyRequest instanceof CreateDryRunPolicyRequest) {
+                    body = createDryRunPolicyRequest.body
+                    xSecurityToken = createDryRunPolicyRequest.xSecurityToken;
+                    xLanguage = createDryRunPolicyRequest.xLanguage;
+                } else {
+                    body = createDryRunPolicyRequest['body'];
+                    xSecurityToken = createDryRunPolicyRequest['X-Security-Token'];
+                    xLanguage = createDryRunPolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 从组织中删除指定的试运行策略。在执行此操作之前，必须首先将策略跟所有组织单元、根和账号解绑。此操作只能由组织的管理账号调用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDryRunPolicy(deleteDryRunPolicyRequest?: DeleteDryRunPolicyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/organizations/dry-run-policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let policyId;
+            
+            let xSecurityToken;
+
+            if (deleteDryRunPolicyRequest !== null && deleteDryRunPolicyRequest !== undefined) {
+                if (deleteDryRunPolicyRequest instanceof DeleteDryRunPolicyRequest) {
+                    policyId = deleteDryRunPolicyRequest.policyId;
+                    xSecurityToken = deleteDryRunPolicyRequest.xSecurityToken;
+                } else {
+                    policyId = deleteDryRunPolicyRequest['policy_id'];
+                    xSecurityToken = deleteDryRunPolicyRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling deleteDryRunPolicy.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
+
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 从根、组织单元或账号解绑试运行策略。此操作只能由组织的管理账号调用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        detachDryRunPolicy(detachDryRunPolicyRequest?: DetachDryRunPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/organizations/dry-run-policies/{policy_id}/detach",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyId;
+            
+            let xSecurityToken;
+
+            if (detachDryRunPolicyRequest !== null && detachDryRunPolicyRequest !== undefined) {
+                if (detachDryRunPolicyRequest instanceof DetachDryRunPolicyRequest) {
+                    policyId = detachDryRunPolicyRequest.policyId;
+                    body = detachDryRunPolicyRequest.body
+                    xSecurityToken = detachDryRunPolicyRequest.xSecurityToken;
+                } else {
+                    policyId = detachDryRunPolicyRequest['policy_id'];
+                    body = detachDryRunPolicyRequest['body'];
+                    xSecurityToken = detachDryRunPolicyRequest['X-Security-Token'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling detachDryRunPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列出组织中的所有试运行策略。如果指定了资源ID，例如组织单元ID或账号ID，则将获得该资源已绑定的策略列表。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDryRunPolicies(listDryRunPoliciesRequest?: ListDryRunPoliciesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/organizations/dry-run-policies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xSecurityToken;
+            
+            let attachedEntityId;
+            
+            let limit;
+            
+            let marker;
+            
+            let xLanguage;
+
+            if (listDryRunPoliciesRequest !== null && listDryRunPoliciesRequest !== undefined) {
+                if (listDryRunPoliciesRequest instanceof ListDryRunPoliciesRequest) {
+                    xSecurityToken = listDryRunPoliciesRequest.xSecurityToken;
+                    attachedEntityId = listDryRunPoliciesRequest.attachedEntityId;
+                    limit = listDryRunPoliciesRequest.limit;
+                    marker = listDryRunPoliciesRequest.marker;
+                    xLanguage = listDryRunPoliciesRequest.xLanguage;
+                } else {
+                    xSecurityToken = listDryRunPoliciesRequest['X-Security-Token'];
+                    attachedEntityId = listDryRunPoliciesRequest['attached_entity_id'];
+                    limit = listDryRunPoliciesRequest['limit'];
+                    marker = listDryRunPoliciesRequest['marker'];
+                    xLanguage = listDryRunPoliciesRequest['X-Language'];
+                }
+            }
+
+        
+            if (attachedEntityId !== null && attachedEntityId !== undefined) {
+                localVarQueryParameter['attached_entity_id'] = attachedEntityId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列出跟指定试运行策略绑定的所有根、组织单元和账号。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listEntitiesForDryRunPolicy(listEntitiesForDryRunPolicyRequest?: ListEntitiesForDryRunPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/organizations/dry-run-policies/{policy_id}/attached-entities",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let policyId;
+            
+            let xSecurityToken;
+            
+            let limit;
+            
+            let marker;
+
+            if (listEntitiesForDryRunPolicyRequest !== null && listEntitiesForDryRunPolicyRequest !== undefined) {
+                if (listEntitiesForDryRunPolicyRequest instanceof ListEntitiesForDryRunPolicyRequest) {
+                    policyId = listEntitiesForDryRunPolicyRequest.policyId;
+                    xSecurityToken = listEntitiesForDryRunPolicyRequest.xSecurityToken;
+                    limit = listEntitiesForDryRunPolicyRequest.limit;
+                    marker = listEntitiesForDryRunPolicyRequest.marker;
+                } else {
+                    policyId = listEntitiesForDryRunPolicyRequest['policy_id'];
+                    xSecurityToken = listEntitiesForDryRunPolicyRequest['X-Security-Token'];
+                    limit = listEntitiesForDryRunPolicyRequest['limit'];
+                    marker = listEntitiesForDryRunPolicyRequest['marker'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling listEntitiesForDryRunPolicy.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 检索试运行策略的相关信息。此操作只能由组织的管理账号或作为服务委托管理员的成员账号调用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDryRunPolicy(showDryRunPolicyRequest?: ShowDryRunPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/organizations/dry-run-policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let policyId;
+            
+            let xSecurityToken;
+            
+            let xLanguage;
+
+            if (showDryRunPolicyRequest !== null && showDryRunPolicyRequest !== undefined) {
+                if (showDryRunPolicyRequest instanceof ShowDryRunPolicyRequest) {
+                    policyId = showDryRunPolicyRequest.policyId;
+                    xSecurityToken = showDryRunPolicyRequest.xSecurityToken;
+                    xLanguage = showDryRunPolicyRequest.xLanguage;
+                } else {
+                    policyId = showDryRunPolicyRequest['policy_id'];
+                    xSecurityToken = showDryRunPolicyRequest['X-Security-Token'];
+                    xLanguage = showDryRunPolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling showDryRunPolicy.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新试运行策略，可以更新试运行策略的名称、描述或内容。如果不提供任何参数，则策略将保持不变。您不能更改策略的类型。此操作只能由组织的管理账号调用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDryRunPolicy(updateDryRunPolicyRequest?: UpdateDryRunPolicyRequest) {
+            const options = {
+                method: "PATCH",
+                url: "/v1/organizations/dry-run-policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyId;
+            
+            let xSecurityToken;
+            
+            let xLanguage;
+
+            if (updateDryRunPolicyRequest !== null && updateDryRunPolicyRequest !== undefined) {
+                if (updateDryRunPolicyRequest instanceof UpdateDryRunPolicyRequest) {
+                    policyId = updateDryRunPolicyRequest.policyId;
+                    body = updateDryRunPolicyRequest.body
+                    xSecurityToken = updateDryRunPolicyRequest.xSecurityToken;
+                    xLanguage = updateDryRunPolicyRequest.xLanguage;
+                } else {
+                    policyId = updateDryRunPolicyRequest['policy_id'];
+                    body = updateDryRunPolicyRequest['body'];
+                    xSecurityToken = updateDryRunPolicyRequest['X-Security-Token'];
+                    xLanguage = updateDryRunPolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling updateDryRunPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_id': policyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

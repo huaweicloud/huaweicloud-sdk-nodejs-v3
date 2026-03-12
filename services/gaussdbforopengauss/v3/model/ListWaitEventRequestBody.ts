@@ -1,4 +1,4 @@
-import { WaitEventQueryInfo } from './WaitEventQueryInfo';
+import { WaitEventQueryInfoOption } from './WaitEventQueryInfoOption';
 
 
 export class ListWaitEventRequestBody {
@@ -7,7 +7,7 @@ export class ListWaitEventRequestBody {
     public limit?: number;
     public offset?: number;
     private 'order_fields'?: Array<Array<string>>;
-    private 'wait_event_query_info'?: WaitEventQueryInfo;
+    private 'wait_event_query_info'?: WaitEventQueryInfoOption;
     public constructor(nodeId?: string) { 
         this['node_id'] = nodeId;
     }
@@ -43,14 +43,14 @@ export class ListWaitEventRequestBody {
     public get orderFields(): Array<Array<string>> | undefined {
         return this['order_fields'];
     }
-    public withWaitEventQueryInfo(waitEventQueryInfo: WaitEventQueryInfo): ListWaitEventRequestBody {
+    public withWaitEventQueryInfo(waitEventQueryInfo: WaitEventQueryInfoOption): ListWaitEventRequestBody {
         this['wait_event_query_info'] = waitEventQueryInfo;
         return this;
     }
-    public set waitEventQueryInfo(waitEventQueryInfo: WaitEventQueryInfo  | undefined) {
+    public set waitEventQueryInfo(waitEventQueryInfo: WaitEventQueryInfoOption  | undefined) {
         this['wait_event_query_info'] = waitEventQueryInfo;
     }
-    public get waitEventQueryInfo(): WaitEventQueryInfo | undefined {
+    public get waitEventQueryInfo(): WaitEventQueryInfoOption | undefined {
         return this['wait_event_query_info'];
     }
 }

@@ -445,6 +445,7 @@ export enum UpdateFunctionMaxInstanceConfigResponseRuntimeEnum {
     C__NET_CORE_6_0 = 'C#(.NET Core 6.0)',
     CUSTOM = 'Custom',
     PHP7_3 = 'PHP7.3',
+    PHP8_3 = 'PHP8.3',
     CANGJIE1_0 = 'Cangjie1.0',
     HTTP = 'http',
     CUSTOM_IMAGE = 'Custom Image'
