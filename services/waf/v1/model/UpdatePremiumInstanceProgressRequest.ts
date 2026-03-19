@@ -4,6 +4,7 @@ import { AccessProgress } from './AccessProgress';
 export class UpdatePremiumInstanceProgressRequest {
     private 'Content-Type'?: string;
     private 'host_id'?: string;
+    private 'enterprise_project_id'?: string;
     public body?: AccessProgress;
     public constructor(contentType?: string, hostId?: string) { 
         this['Content-Type'] = contentType;
@@ -28,6 +29,16 @@ export class UpdatePremiumInstanceProgressRequest {
     }
     public get hostId(): string | undefined {
         return this['host_id'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): UpdatePremiumInstanceProgressRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
     public withBody(body: AccessProgress): UpdatePremiumInstanceProgressRequest {
         this['body'] = body;

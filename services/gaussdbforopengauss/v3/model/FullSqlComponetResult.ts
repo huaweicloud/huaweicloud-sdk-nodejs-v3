@@ -15,6 +15,7 @@ export class FullSqlComponetResult {
     private 'transaction_id'?: string;
     private 'trace_id'?: string;
     public query?: string;
+    public sql?: string;
     private 'thread_id'?: string;
     private 'session_id'?: string;
     private 'start_time'?: string;
@@ -180,6 +181,10 @@ export class FullSqlComponetResult {
     }
     public withQuery(query: string): FullSqlComponetResult {
         this['query'] = query;
+        return this;
+    }
+    public withSql(sql: string): FullSqlComponetResult {
+        this['sql'] = sql;
         return this;
     }
     public withThreadId(threadId: string): FullSqlComponetResult {

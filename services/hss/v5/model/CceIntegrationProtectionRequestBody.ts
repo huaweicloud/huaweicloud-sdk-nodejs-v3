@@ -7,8 +7,11 @@ export class CceIntegrationProtectionRequestBody {
     private 'charging_mode'?: CceIntegrationProtectionRequestBodyChargingModeEnum | string;
     private 'cce_protection_type'?: CceIntegrationProtectionRequestBodyCceProtectionTypeEnum | string;
     private 'prefer_packet_cycle'?: boolean;
-    public constructor(clusterName?: string) { 
+    public constructor(clusterType?: string, clusterName?: string, chargingMode?: string, cceProtectionType?: string) { 
+        this['cluster_type'] = clusterType;
         this['cluster_name'] = clusterName;
+        this['charging_mode'] = chargingMode;
+        this['cce_protection_type'] = cceProtectionType;
     }
     public withClusterType(clusterType: CceIntegrationProtectionRequestBodyClusterTypeEnum | string): CceIntegrationProtectionRequestBody {
         this['cluster_type'] = clusterType;

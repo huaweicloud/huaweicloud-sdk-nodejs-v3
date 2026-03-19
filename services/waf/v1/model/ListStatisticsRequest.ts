@@ -5,8 +5,8 @@ export class ListStatisticsRequest {
     private 'enterprise_project_id'?: string;
     public from?: number;
     public to?: number;
-    public hosts?: string;
-    public instances?: string;
+    public hosts?: Array<string>;
+    public instances?: Array<string>;
     public constructor(contentType?: string, from?: number, to?: number) { 
         this['Content-Type'] = contentType;
         this['from'] = from;
@@ -40,11 +40,11 @@ export class ListStatisticsRequest {
         this['to'] = to;
         return this;
     }
-    public withHosts(hosts: string): ListStatisticsRequest {
+    public withHosts(hosts: Array<string>): ListStatisticsRequest {
         this['hosts'] = hosts;
         return this;
     }
-    public withInstances(instances: string): ListStatisticsRequest {
+    public withInstances(instances: Array<string>): ListStatisticsRequest {
         this['instances'] = instances;
         return this;
     }

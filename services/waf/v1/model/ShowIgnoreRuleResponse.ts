@@ -16,6 +16,9 @@ export class ShowIgnoreRuleResponse extends SdkResponse {
     public conditions?: Array<Condition>;
     public advanced?: IgnoreAdvanced;
     public domain?: Array<string>;
+    private 'update_time'?: number;
+    private 'clear_time'?: number;
+    private 'hit_num'?: number;
     public constructor() { 
         super();
     }
@@ -72,5 +75,35 @@ export class ShowIgnoreRuleResponse extends SdkResponse {
     public withDomain(domain: Array<string>): ShowIgnoreRuleResponse {
         this['domain'] = domain;
         return this;
+    }
+    public withUpdateTime(updateTime: number): ShowIgnoreRuleResponse {
+        this['update_time'] = updateTime;
+        return this;
+    }
+    public set updateTime(updateTime: number  | undefined) {
+        this['update_time'] = updateTime;
+    }
+    public get updateTime(): number | undefined {
+        return this['update_time'];
+    }
+    public withClearTime(clearTime: number): ShowIgnoreRuleResponse {
+        this['clear_time'] = clearTime;
+        return this;
+    }
+    public set clearTime(clearTime: number  | undefined) {
+        this['clear_time'] = clearTime;
+    }
+    public get clearTime(): number | undefined {
+        return this['clear_time'];
+    }
+    public withHitNum(hitNum: number): ShowIgnoreRuleResponse {
+        this['hit_num'] = hitNum;
+        return this;
+    }
+    public set hitNum(hitNum: number  | undefined) {
+        this['hit_num'] = hitNum;
+    }
+    public get hitNum(): number | undefined {
+        return this['hit_num'];
     }
 }

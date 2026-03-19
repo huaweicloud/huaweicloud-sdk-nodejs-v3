@@ -4,7 +4,7 @@ export class SchemaVolumeResult {
     private 'schema_size'?: string;
     private 'table_count'?: string;
     private 'user_name'?: string;
-    private 'nsp_name'?: string;
+    private 'schema_name'?: string;
     public constructor() { 
     }
     public withSchemaSize(schemaSize: string): SchemaVolumeResult {
@@ -37,14 +37,14 @@ export class SchemaVolumeResult {
     public get userName(): string | undefined {
         return this['user_name'];
     }
-    public withNspName(nspName: string): SchemaVolumeResult {
-        this['nsp_name'] = nspName;
+    public withSchemaName(schemaName: string): SchemaVolumeResult {
+        this['schema_name'] = schemaName;
         return this;
     }
-    public set nspName(nspName: string  | undefined) {
-        this['nsp_name'] = nspName;
+    public set schemaName(schemaName: string  | undefined) {
+        this['schema_name'] = schemaName;
     }
-    public get nspName(): string | undefined {
-        return this['nsp_name'];
+    public get schemaName(): string | undefined {
+        return this['schema_name'];
     }
 }

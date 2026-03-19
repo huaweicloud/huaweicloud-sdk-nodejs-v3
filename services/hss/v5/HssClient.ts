@@ -4474,10 +4474,10 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询应用防护事件列表
-     * @param {string} hostId Host Id
      * @param {number} startTime **参数解释**: 应用防护事件的查询起始时间（Unix时间戳），与end_time配合筛选指定时间段内的事件 **时间格式** Unix时间戳（精确到毫秒，如1736414463000表示2024-12-10 10:41:03） **约束限制**: 需小于end_time，否则返回空结果；时间戳需为有效时间（1970-01-01 00:00:00至今） **取值范围**: 取值0-9223372036854775807 **默认取值**: 无 
      * @param {number} endTime **参数解释**: 查询时间段的终止时间，毫秒级时间戳(ms) **约束限制**: 不涉及 **取值范围**: 取值0-9223372036854775807 **默认取值**: 无 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {string} [appType] **参数解释** 应用防护的应用类型，用于筛选指定类型应用的防护事件 **约束限制** 当前仅支持java类型，传其他值返回空结果，区分大小写 **取值范围** - java：Java语言开发的应用防护事件 **默认取值** 无（查询所有支持的应用类型事件）
@@ -5360,7 +5360,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看默认为新增主机开启防护开关
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，（该字段已废弃） **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6014,9 +6014,9 @@ export class HssClient {
      *
      * @summary 修改默认为新增主机开启防护开关
      * @param {boolean} enable **参数解释**: 是否启用 **约束限制**: 不涉及 **取值范围**: -true：是。 -false：否。 **默认取值**: false 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [linuxPolicyId] **参数解释**: linux策略id **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {string} [windowsPolicyId] **参数解释**: windows策略id **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，（该字段已废弃） **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [linuxPolicyId] **参数解释**: linux策略id（该字段已废弃） **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [windowsPolicyId] **参数解释**: windows策略id（该字段已废弃） **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6432,7 +6432,8 @@ export class HssClient {
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
      * @param {string} [handleStatus] **参数解释**: 处置状态 **约束限制**: 不涉及 **取值范围**: 包含如下:   - unhandled：未处理   - handled：已处理 **默认取值**: 不涉及 
-     * @param {Array<string>} [severityList] **参数解释**: 威胁等级 **约束限制**: 不涉及 **取值范围**: 威胁等级，包含如下:   - Low：低危   - Medium：中危   - High：高危   - Critical：致命 **默认取值**: 不涉及 
+     * @param {Array<string>} [severityList] **参数解释**: 威胁等级，已废弃 **约束限制**: 不涉及 **取值范围**: 威胁等级，包含如下:   - Low：低危   - Medium：中危   - High：高危   - Critical：致命 **默认取值**: 不涉及 
+     * @param {string} [severities] 威胁等级，包含如下:   - Low : 低危   - Medium : 中危   - High : 高危   - Critical : 危急
      * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**： 无 
      * @param {string} [malwareName] **参数解释**: 病毒名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [filePath] **参数解释**： 文件路径 **约束限制**： 不涉及 **取值范围**： 字符数1-512位 **默认取值**： 不涉及 
@@ -6508,7 +6509,6 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询付费病毒查杀服务器列表
-     * @param {string} scanType **参数解释**: 任务类型 **约束限制**: 不涉及 **取值范围**:   - quick ：快速扫描   - full：全盘扫描   - custom : 自定义扫描 **默认取值**: 不涉及 
      * @param {string} startType **参数解释**: 启动类型 **约束限制**: 不涉及 **取值范围**: - now ：立即启动 - period : 周期启动 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
@@ -6518,6 +6518,7 @@ export class HssClient {
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
      * @param {string} [groupId] **参数解释**: 服务器组的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [scanType] 任务类型，包含如下:   - quick ：快速扫描   - full : 全盘扫描   - custom : 自定义扫描
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6565,13 +6566,16 @@ export class HssClient {
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
      * @param {string} [handleStatus] **参数解释**: 处置状态 **约束限制**: 不涉及 **取值范围**: 包含如下:   - unhandled：未处理   - handled：已处理 **默认取值**: 不涉及 
-     * @param {Array<string>} [severityList] **参数解释**: 威胁等级 **约束限制**: 不涉及 **取值范围**: 威胁等级，包含如下:   - Low：低危   - Medium：中危   - High：高危   - Critical：致命 **默认取值**: 不涉及 
+     * @param {Array<string>} [severityList] **参数解释**: 威胁等级，已废弃 **约束限制**: 不涉及 **取值范围**: 威胁等级，包含如下:   - Low：低危   - Medium：中危   - High：高危   - Critical：致命 **默认取值**: 不涉及 
+     * @param {string} [severities] 威胁等级，包含如下:   - Low : 低危   - Medium : 中危   - High : 高危   - Critical : 危急
      * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**： 无 
      * @param {string} [malwareName] **参数解释**: 病毒名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [filePath] **参数解释**： 文件路径 **约束限制**： 不涉及 **取值范围**： 字符数1-512位 **默认取值**： 不涉及 
      * @param {string} [fileHash] **参数解释**： 文件hash，当前为sha256 **约束限制**： 需为合法的SHA256哈希值 **取值范围**： 字符长度64位 **默认取值**： 不涉及 
      * @param {string} [taskName] **参数解释**: 任务名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {boolean} [manualIsolate] **参数解释**: 是否使用手动隔离按钮 **约束限制**: 不涉及 **取值范围**: true（已使用手动隔离）、false（未使用手动隔离） **默认取值**: 不涉及 
+     * @param {Array<string>} [idList] id列表
+     * @param {Array<string>} [fileHashList] hash列表
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -7529,11 +7533,11 @@ export class HssClient {
     }
 
     /**
-     * 查询配置检测策略组列表10。
+     * 查询配置检测策略组列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询配置检测策略组列表10
+     * @summary 查询配置检测策略组列表
      * @param {number} offset **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 不涉及 
      * @param {number} limit **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
@@ -7624,6 +7628,7 @@ export class HssClient {
      * @summary 查询基线检查的统计数据信息
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [groupId] **参数解释**: 策略组ID。当传此字段时，返回当前策略组ID下的数据。当不传此字段时，返回当前企业项目下所有数据。 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
+     * @param {string} [statisticsType] **参数解释** 统计类型，不同的查询类型返回不同的统计数据，为空表示返回所有数据 **约束限制** 不涉及 **取值范围** - weakpwd: 查询主机弱口令检测统计数据 - baseline_passrate: 查询基线检查通过率、主机配置基线通过率、基线风险统计、未通过检查项/已检查项 - host_risk_top_5: 查询主机配置风险TO5 - host_num: 未通过主机/主机总数  **默认取值** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -9022,11 +9027,11 @@ export class HssClient {
     }
 
     /**
-     * 创建VPC终端节点的创建。
+     * 创建VPC终端节点。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建VPC终端节点的创建
+     * @summary 创建VPC终端节点
      * @param {CreateVpcCondition} createVpcEndpointRequestBody **参数解释**: vpc节点请求信息 **约束限制**: 不涉及 **取值范围**: 字符长度0-65535位 **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -9125,6 +9130,10 @@ export class HssClient {
      * @param {string} [groupId] **参数解释**: 服务器组的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [groupName] **参数解释**: 服务器组名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [vpcId] **参数解释**: VPC的ID **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [hostNameList] **参数解释**: 服务器名称列表 **约束限制**: 不涉及 **取值范围**: 单个服务器名称字符长度1-64位 批量查询服务器名称个数1-60个 采用逗号分割 **默认取值**: 不涉及
+     * @param {string} [hostIdList] **参数解释**: 服务器ID列表 **约束限制**: 不涉及 **取值范围**: 单个服务器ID字符长度1-36位 批量查询服务器ID个数1-100个 采用逗号分割 **默认取值**: 不涉及
+     * @param {string} [publicIpList] **参数解释**: 服务器公网IP列表 **约束限制**: 不涉及 **取值范围**: 单个服务器公网IP字符长度1-39位 批量查询服务器公网IP个数1-100个 采用逗号分割 **默认取值**: 不涉及
+     * @param {string} [privateIpList] **参数解释**: 服务器私有IP列表 **约束限制**: 不涉及 **取值范围**: 单个服务器私有IP字符长度1-39位 批量查询服务器私有IP个数1-100个 采用逗号分割 **默认取值**: 不涉及
      * @param {boolean} [hasIntrusion] **参数解释**: 存在告警事件 **约束限制**: 不涉及 **取值范围**: true或者false **默认取值**: 不涉及 
      * @param {boolean} [hasVul] **参数解释**: 存在漏洞风险 **约束限制**: 不涉及 **取值范围**: true或者false **默认取值**: 不涉及 
      * @param {boolean} [hasBaseline] **参数解释**: 存在基线风险 **约束限制**: 不涉及 **取值范围**: true或者false **默认取值**: 不涉及 
@@ -10061,33 +10070,33 @@ export class HssClient {
     }
 
     /**
-     * 本地镜像列表查询。
+     * 本地镜像列表查询
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 本地镜像列表查询
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
-     * @param {string} [imageName] 镜像名称
-     * @param {string} [imageVersion] 镜像版本
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置
-     * @param {number} [limit] 每页显示数量
-     * @param {string} [scanStatus] 扫描状态，包含如下:   - unscan : 未扫描   - success : 扫描完成   - scanning : 扫描中   - failed : 扫描失败   - waiting_for_scan : 等待扫描
-     * @param {string} [localImageType] **参数解释** : 镜像类型 **约束限制** : 不涉及 **取值范围** : 包含如下两种:  - other_image : 非SWR镜像  - swr_image : SWR镜像 **默认取值** : 不涉及 
-     * @param {number} [imageSize] 镜像大小，单位字节
-     * @param {number} [startLatestUpdateTime] 最近更新时间搜索开始日期，时间单位：毫秒（ms）
-     * @param {number} [endLatestUpdateTime] 最近更新时间搜索结束日期，时间单位：毫秒（ms）
-     * @param {number} [startLatestScanTime] 最近一次扫描完成时间搜索开始日期，时间单位：毫秒（ms）
-     * @param {number} [endLatestScanTime] 最近一次扫描完成时间搜索结束日期，时间单位：毫秒（ms）
-     * @param {boolean} [hasVul] 是否存在软件漏洞
-     * @param {string} [hostName] 本地镜像所关联服务器的名称
-     * @param {string} [hostId] 本地镜像所关联服务器的ID
-     * @param {string} [hostIp] 本地镜像所关联服务器的IP（公网或私网）
-     * @param {string} [containerId] 本地镜像所关联容器的ID
-     * @param {string} [containerName] 本地镜像所关联容器的名称
-     * @param {string} [podId] 本地镜像所关联Pod的ID
-     * @param {string} [podName] 本地镜像所关联Pod的名称
-     * @param {string} [appName] 本地镜像所关联软件的名称
-     * @param {boolean} [hasContainer] **参数解释**: 是否存在容器 **约束限制**: 不涉及 **取值范围**: - true：是。 - false：否。  **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {string} [imageName] **参数解释** 本地镜像的名称，用于模糊筛选指定名称的本地镜像列表 **约束限制** 支持部分匹配（如传入\&#39;web\&#39;可匹配所有名称含\&#39;web\&#39;的镜像），区分大小写 **取值范围** 字符长度1-256位，支持字母、数字、短横线、下划线、点号，禁止含@#$%等特殊字符 **默认取值** 无 
+     * @param {string} [imageVersion] **参数解释** 本地镜像的版本标识，用于筛选指定版本的本地镜像，需与image_name配合使用 **约束限制** 仅当指定image_name时传参有效，否则筛选条件不生效 **取值范围** 字符长度1-128位，支持字母、数字、短横线、下划线、点号、冒号 **默认取值** 无 
+     * @param {string} [scanStatus] **参数解释** 本地镜像的安全扫描状态，用于筛选指定扫描状态的镜像列表 **约束限制** 取值必须在指定范围内，否则返回空结果，区分大小写 **取值范围**   - unscan : 未扫描   - success : 扫描完成   - scanning : 扫描中   - failed : 扫描失败   - waiting_for_scan : 等待扫描 **默认取值** 无 
+     * @param {string} [localImageType] **参数解释** 本地镜像的存储来源类型，用于筛选不同来源的本地镜像 **约束限制** 取值必须在指定范围内，否则返回空结果，区分大小写 **取值范围**  - other_image : 非SWR镜像  - swr_image : SWR镜像 **默认取值** 无 
+     * @param {number} [imageSize] **参数解释** 本地镜像的大小（单位字节），用于筛选指定大小的镜像（精确匹配） **约束限制** 仅支持精确匹配，如需范围筛选需结合业务层处理 **取值范围** 取值0-9223372036854775807（约9EB） **默认取值** 无 
+     * @param {number} [startLatestUpdateTime] **参数解释** 本地镜像版本最后更新时间的查询起始值（Unix时间戳，单位ms），与end_latest_update_time配合筛选时间范围 **时间格式** Unix时间戳（如1697509433000表示2023-10-16 10:23:53） **约束限制** 需与end_latest_update_time同时使用，且小于end_latest_update_time，否则筛选无效 **取值范围** 取值0-9223372036854775807 **默认取值** 无 
+     * @param {number} [endLatestUpdateTime] **参数解释** 本地镜像版本最后更新时间的查询结束值（Unix时间戳，单位ms），与start_latest_update_time配合筛选时间范围 **时间格式** Unix时间戳（如1709973506292表示2024-03-08 15:18:26） **约束限制** 需与start_latest_update_time同时使用，且大于start_latest_update_time，否则筛选无效 **取值范围** 取值0-9223372036854775807 **默认取值** 无 
+     * @param {number} [startLatestScanTime] **参数解释** 本地镜像最近一次扫描完成时间的查询起始值（Unix时间戳，单位ms），与end_latest_scan_time配合筛选时间范围 **时间格式** Unix时间戳（精确到毫秒） **约束限制** 仅对scan_status为success的镜像有效，需与end_latest_scan_time同时使用 **取值范围** 取值0-9223372036854775807 **默认取值** 无 
+     * @param {number} [endLatestScanTime] **参数解释** 本地镜像最近一次扫描完成时间的查询结束值（Unix时间戳，单位ms），与start_latest_scan_time配合筛选时间范围 **时间格式** Unix时间戳（精确到毫秒） **约束限制** 仅对scan_status为success的镜像有效，且需大于start_latest_scan_time **取值范围** 取值0-9223372036854775807 **默认取值** 无 
+     * @param {boolean} [hasVul] **参数解释** 用于筛选是否存在软件漏洞的本地镜像，true表示筛选有漏洞的镜像，false表示筛选无漏洞的镜像 **约束限制** 仅对scan_status为success的镜像有效，未扫描镜像不会被筛选 **取值范围** true（存在漏洞）、false（不存在漏洞） **默认取值** 无（不筛选漏洞状态） 
+     * @param {string} [hostName] **参数解释** 本地镜像所关联的云服务器名称，用于筛选关联指定服务器的本地镜像 **约束限制** 支持模糊匹配，区分大小写，仅对关联了服务器的镜像有效 **取值范围** 字符长度1-64位，支持中文、英文、数字、短横线、下划线，禁止含特殊字符 **默认取值** 无 
+     * @param {string} [hostId] **参数解释** 本地镜像所关联的云服务器唯一标识（ECS实例ID），用于精准筛选关联指定服务器的本地镜像 **约束限制** 精确匹配，仅对关联了该服务器的镜像有效 **取值范围** 字符长度1-64位，支持字母、数字、短横线 **默认取值** 无 
+     * @param {string} [hostIp] **参数解释** 本地镜像所关联服务器的公网或私网IP地址，用于筛选关联指定IP服务器的本地镜像 **约束限制** 支持IPv4格式，精确匹配，多个IP需通过业务层分批查询 **取值范围** 符合IPv4格式的字符串（如 **默认取值** 无 
+     * @param {string} [containerId] **参数解释** 本地镜像所关联的容器唯一标识（Docker容器ID），用于精准筛选关联指定容器的本地镜像 **约束限制** 精确匹配，仅对关联了容器的镜像有效 **取值范围** 字符长度1-64位，支持字母、数字、短横线、下划线 **默认取值** 无 
+     * @param {string} [containerName] **参数解释** 本地镜像所关联的容器名称，用于筛选关联指定名称容器的本地镜像 **约束限制** 支持模糊匹配，区分大小写，仅对关联了容器的镜像有效 **取值范围** 字符长度1-64位，支持字母、数字、短横线、下划线、点号 **默认取值** 无 
+     * @param {string} [podId] **参数解释** 本地镜像所关联的Kubernetes Pod唯一标识，用于精准筛选关联指定Pod的本地镜像 **约束限制** 精确匹配，仅对K8s环境中关联了Pod的镜像有效 **取值范围** 字符长度1-64位，支持字母、数字、短横线 **默认取值** 无 
+     * @param {string} [podName] **参数解释** 本地镜像所关联的Kubernetes Pod名称，用于筛选关联指定名称Pod的本地镜像 **约束限制** 支持模糊匹配，区分大小写，仅对K8s环境中关联了Pod的镜像有效 **取值范围** 字符长度1-63位，支持字母、数字、短横线，不能以短横线开头或结尾 **默认取值** 无 
+     * @param {string} [appName] **参数解释** 本地镜像中部署的应用软件名称（如Nginx、MySQL），用于筛选包含指定应用的本地镜像 **约束限制** 支持模糊匹配，区分大小写，仅对已识别应用的镜像有效 **取值范围** 字符长度1-64位，支持中文、英文、数字、短横线、下划线 **默认取值** 无 
+     * @param {boolean} [hasContainer] **参数解释** 用于筛选是否关联了容器的本地镜像 **取值范围**: - true：关联容器的镜像 - false：未关联容器的镜像 **默认取值** 无（不筛选容器关联状态） 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -10228,8 +10237,8 @@ export class HssClient {
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {string} [namespace] **参数解释** 镜像仓库的组织（命名空间）名称，用于筛选指定组织下的镜像检测结果，仅私有/共享镜像仓库有效 **约束限制** 仅当image_type为private_image或shared_image时有效，其他类型传参无效 **取值范围** 符合镜像仓库组织命名规范的字符串 **默认取值** 无 
      * @param {string} [imageName] **参数解释** 镜像的名称，用于精准筛选指定名称的镜像安全配置检测结果 **约束限制** 支持模糊匹配（如传入\&#39;euler\&#39;可匹配所有名称含\&#39;euler\&#39;的镜像） **取值范围** 符合镜像名称命名规范的字符串 **默认取值** 无 
-     * @param {string} [imageVersion] **参数解释** 镜像的版本标识，用于筛选指定版本的镜像安全配置检测结果，与image_name配合使用 **约束限制** 仅当指定image_name时传参有效，否则筛选条件不生效 **取值范围** 符合镜像版本命名规范的字符串、默认取值：无 
-     * @param {string} [imageId] **参数解释** 镜像的唯一标识，用于精准筛选指定镜像的安全配置检测结果，优先级高于image_name+image_version **约束限制** 传入后将忽略image_name和image_version参数，直接按ID筛选 **默认取值** 无 
+     * @param {string} [imageVersion] **参数解释** 镜像的版本标识，用于筛选指定版本的镜像安全配置检测结果，与image_name配合使用 **约束限制** 仅当指定image_name时传参有效，否则筛选条件不生效 **取值范围** 符合镜像版本命名规范的字符串 **默认取值** 无 
+     * @param {string} [imageId] **参数解释** 镜像的唯一标识，用于精准筛选指定镜像的安全配置检测结果，优先级高于image_name+image_version **约束限制** 传入后将忽略image_name和image_version参数，直接按ID筛选 **取值范围** 镜像id，字符长度0~128位 **默认取值** 无 
      * @param {string} [checkName] **参数解释** 安全配置检测的基线名称，用于筛选指定基线的检测结果（如\&#39;CentOS 7\&#39;、\&#39;EulerOS\&#39;等） **约束限制** 仅支持功能介绍中列出的系统基线（CentOS 7、Debian 10、EulerOS、Ubuntu16） **取值范围** 支持的基线名称列表详见功能介绍 **默认取值** 无 
      * @param {string} [severity] **参数解释** 镜像安全配置检测结果的风险等级，用于筛选指定风险等级的检测记录 **约束限制** 取值必须在指定范围内，否则返回空结果 **取值范围** - Security：安全 - Low：低危 - Medium：中危 - High：高危 **默认取值** 无 
      * @param {string} [standard] **参数解释** 安全配置检测遵循的标准，用于筛选符合指定标准的检测结果 **约束限制** 取值必须在指定范围内，否则返回空结果 **取值范围** - cn_standard：等保合规标准 - hw_standard：云安全实践标准 **默认取值** 无 
@@ -12174,7 +12183,8 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [malwareName] **参数解释**: 病毒名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [filePath] **参数解释**： 文件路径 **约束限制**： 不涉及 **取值范围**： 字符数1-512位 **默认取值**： 不涉及 
-     * @param {Array<string>} [severityList] **参数解释**: 威胁等级 **约束限制**: 不涉及 **取值范围**: 威胁等级，包含如下:   - Low：低危   - Medium：中危   - High：高危   - Critical：致命 **默认取值**: 不涉及 
+     * @param {Array<string>} [severityList] **参数解释**: 威胁等级，已废弃 **约束限制**: 不涉及 **取值范围**: 威胁等级，包含如下:   - Low：低危   - Medium：中危   - High：高危   - Critical：致命 **默认取值**: 不涉及 
+     * @param {string} [severities] 威胁等级，包含如下:   - Low : 低危   - Medium : 中危   - High : 高危   - Critical : 危急
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
@@ -12428,11 +12438,11 @@ export class HssClient {
     }
 
     /**
-     * 查询Serverless资产列表。
+     * 查询Serverless资产列表--接口已废弃
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询Serverless资产列表
+     * @summary 查询Serverless资产列表--接口已废弃
      * @param {string} category **参数解释**： 资产维度 **约束限制**： 不涉及 **取值范围**： - container: 容器维度 - pod: pod实例维度 **默认取值**： container
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [limit] **参数解释**： 每页显示数量，默认10 **约束限制**： 不涉及 **取值范围**： 整数取值[10,200] **默认取值**： 10 
@@ -12450,11 +12460,11 @@ export class HssClient {
     }
 
     /**
-     * 查询Serverless资产详细信息。
+     * 查询Serverless资产详细信息--接口已废弃
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询Serverless资产详细信息
+     * @summary 查询Serverless资产详细信息--接口已废弃
      * @param {string} category **参数解释**： 资产维度 **约束限制**： 不涉及 **取值范围**： - container : 容器维度 **默认取值**： container
      * @param {string} assetId **参数解释**: 资产ID，基于参数category决定维度（比如category&#x3D;container时，asset_id为容器id） **约束限制**： 不涉及 **取值范围**: 字符长度0-255位 **默认取值**： 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
@@ -12516,7 +12526,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改配置开关状态
-     * @param {'malware_sample_high_detect' | 'image_pay_per_scan' | 'image_popup' | 'image_free_to_pay_popup'} code 配置类型   - malware_sample_high_detect： 恶意软件高检出模式   - image_pay_per_scan： 镜像扫描按次计费功能开关   - image_popup： 镜像扫描按次计费弹窗开关   - image_free_to_pay_popup：镜像扫描功能免费转付费弹窗开关   - display_unprotected_host：显示未防护的主机 
+     * @param {'malware_sample_high_detect' | 'image_pay_per_scan' | 'image_popup' | 'image_free_to_pay_popup' | 'display_unprotected_host'} code 配置类型   - malware_sample_high_detect： 恶意软件高检出模式   - image_pay_per_scan： 镜像扫描按次计费功能开关   - image_popup： 镜像扫描按次计费弹窗开关   - image_free_to_pay_popup：镜像扫描功能免费转付费弹窗开关   - display_unprotected_host：显示未防护的主机 
      * @param {ChangeSwitchesStatusRequestBody} changeSwitchesStatusRequestBody 配置状态请求参数
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {*} [options] Override http request option.
@@ -12862,7 +12872,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取配置开关状态
-     * @param {'malware_sample_high_detect' | 'image_pay_per_scan' | 'image_popup' | 'image_free_to_pay_popup'} code 配置类型   - malware_sample_high_detect： 恶意软件高检出模式   - image_pay_per_scan： 镜像扫描按次计费功能开关   - image_popup： 镜像扫描按次计费弹窗开关   - image_free_to_pay_popup：镜像扫描功能免费转付费弹窗开关   - display_unprotected_host：显示未防护的主机 
+     * @param {'malware_sample_high_detect' | 'image_pay_per_scan' | 'image_popup' | 'image_free_to_pay_popup' | 'display_unprotected_host'} code 配置类型   - malware_sample_high_detect： 恶意软件高检出模式   - image_pay_per_scan： 镜像扫描按次计费功能开关   - image_popup： 镜像扫描按次计费弹窗开关   - image_free_to_pay_popup：镜像扫描功能免费转付费弹窗开关   - display_unprotected_host：显示未防护的主机 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -13494,6 +13504,7 @@ export class HssClient {
      * @param {string} [handleStatus] **参数解释**: 主机的处置状态 **约束限制**: 不涉及 **取值范围**: - unhandled：待处理 - handled：已处理  **默认取值**: 不涉及 
      * @param {string} [status] **参数解释**: 该漏洞状态包含的主机 **约束限制**: 不涉及 **取值范围**: - vul_status_unfix：未处理 - vul_status_ignored：忽略 - vul_status_verified：验证中 - vul_status_fixing：修复中 - vul_status_fixed：修复完成 - vul_status_reboot：修复成功待重启 - vul_status_failed：修复失败 - vul_status_fix_after_reboot：重启后再次修复  **默认取值**: 不涉及 
      * @param {string} [clusterId] **参数解释**: 集群id **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostIdList] **参数解释**: 主机id列表，多个主机id用英文逗号分隔 **约束限制**: 不涉及 **取值范围**: 字符长度0-1850位 **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -13574,6 +13585,7 @@ export class HssClient {
      * @param {string} [repairType] **参数解释**: 查询漏洞的修复紧急程度类型 **约束限制**: 不涉及 **取值范围**: - need_urgent_repair：需要紧急修复的漏洞 - unrepair：未完成修复的漏洞  **默认取值**: 不涉及 
      * @param {string} [severityLevel] **参数解释**: 漏洞风险等级 **约束限制**: 不涉及 **取值范围**: - Critical: 紧急 - High: 高 - Medium: 中 - Low: 低  **默认取值**: 不涉及 
      * @param {string} [repairPriority] **参数解释**: 漏洞修复优先级 **约束限制**: 不涉及 **取值范围**: - Critical：紧急 - High：高 - Medium：中 - Low：低 **默认取值**: 不涉及 
+     * @param {string} [hostIdList] **参数解释**: 主机id列表，多个主机id用英文逗号分隔 **约束限制**: 不涉及 **取值范围**: 字符长度0-1850位 **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -22449,13 +22461,13 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let hostId;
-            
             let startTime;
             
             let endTime;
             
             let enterpriseProjectId;
+            
+            let hostId;
             
             let offset;
             
@@ -22471,10 +22483,10 @@ export const ParamCreater = function () {
 
             if (listRaspEventsRequest !== null && listRaspEventsRequest !== undefined) {
                 if (listRaspEventsRequest instanceof ListRaspEventsRequest) {
-                    hostId = listRaspEventsRequest.hostId;
                     startTime = listRaspEventsRequest.startTime;
                     endTime = listRaspEventsRequest.endTime;
                     enterpriseProjectId = listRaspEventsRequest.enterpriseProjectId;
+                    hostId = listRaspEventsRequest.hostId;
                     offset = listRaspEventsRequest.offset;
                     limit = listRaspEventsRequest.limit;
                     appType = listRaspEventsRequest.appType;
@@ -22482,10 +22494,10 @@ export const ParamCreater = function () {
                     attackTag = listRaspEventsRequest.attackTag;
                     protectStatus = listRaspEventsRequest.protectStatus;
                 } else {
-                    hostId = listRaspEventsRequest['host_id'];
                     startTime = listRaspEventsRequest['start_time'];
                     endTime = listRaspEventsRequest['end_time'];
                     enterpriseProjectId = listRaspEventsRequest['enterprise_project_id'];
+                    hostId = listRaspEventsRequest['host_id'];
                     offset = listRaspEventsRequest['offset'];
                     limit = listRaspEventsRequest['limit'];
                     appType = listRaspEventsRequest['app_type'];
@@ -22496,12 +22508,6 @@ export const ParamCreater = function () {
             }
 
         
-            if (hostId === null || hostId === undefined) {
-                throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling listRaspEvents.');
-            }
-            if (hostId !== null && hostId !== undefined) {
-                localVarQueryParameter['host_id'] = hostId;
-            }
             if (startTime === null || startTime === undefined) {
                 throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listRaspEvents.');
             }
@@ -22516,6 +22522,9 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -27670,6 +27679,8 @@ export const ParamCreater = function () {
             
             let severityList;
             
+            let severities;
+            
             let assetValue;
             
             let malwareName;
@@ -27695,6 +27706,7 @@ export const ParamCreater = function () {
                     publicIp = exportAntiVirusResultRequest.publicIp;
                     handleStatus = exportAntiVirusResultRequest.handleStatus;
                     severityList = exportAntiVirusResultRequest.severityList;
+                    severities = exportAntiVirusResultRequest.severities;
                     assetValue = exportAntiVirusResultRequest.assetValue;
                     malwareName = exportAntiVirusResultRequest.malwareName;
                     filePath = exportAntiVirusResultRequest.filePath;
@@ -27712,6 +27724,7 @@ export const ParamCreater = function () {
                     publicIp = exportAntiVirusResultRequest['public_ip'];
                     handleStatus = exportAntiVirusResultRequest['handle_status'];
                     severityList = exportAntiVirusResultRequest['severity_list'];
+                    severities = exportAntiVirusResultRequest['severities'];
                     assetValue = exportAntiVirusResultRequest['asset_value'];
                     malwareName = exportAntiVirusResultRequest['malware_name'];
                     filePath = exportAntiVirusResultRequest['file_path'];
@@ -27755,6 +27768,9 @@ export const ParamCreater = function () {
             }
             if (severityList !== null && severityList !== undefined) {
                 localVarQueryParameter['severity_list'] = severityList;
+            }
+            if (severities !== null && severities !== undefined) {
+                localVarQueryParameter['severities'] = severities;
             }
             if (assetValue !== null && assetValue !== undefined) {
                 localVarQueryParameter['asset_value'] = assetValue;
@@ -27974,8 +27990,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let scanType;
-            
             let startType;
             
             let enterpriseProjectId;
@@ -27993,10 +28007,11 @@ export const ParamCreater = function () {
             let publicIp;
             
             let groupId;
+            
+            let scanType;
 
             if (listAntiVirusPaidHostsRequest !== null && listAntiVirusPaidHostsRequest !== undefined) {
                 if (listAntiVirusPaidHostsRequest instanceof ListAntiVirusPaidHostsRequest) {
-                    scanType = listAntiVirusPaidHostsRequest.scanType;
                     startType = listAntiVirusPaidHostsRequest.startType;
                     enterpriseProjectId = listAntiVirusPaidHostsRequest.enterpriseProjectId;
                     offset = listAntiVirusPaidHostsRequest.offset;
@@ -28006,8 +28021,8 @@ export const ParamCreater = function () {
                     privateIp = listAntiVirusPaidHostsRequest.privateIp;
                     publicIp = listAntiVirusPaidHostsRequest.publicIp;
                     groupId = listAntiVirusPaidHostsRequest.groupId;
+                    scanType = listAntiVirusPaidHostsRequest.scanType;
                 } else {
-                    scanType = listAntiVirusPaidHostsRequest['scan_type'];
                     startType = listAntiVirusPaidHostsRequest['start_type'];
                     enterpriseProjectId = listAntiVirusPaidHostsRequest['enterprise_project_id'];
                     offset = listAntiVirusPaidHostsRequest['offset'];
@@ -28017,16 +28032,11 @@ export const ParamCreater = function () {
                     privateIp = listAntiVirusPaidHostsRequest['private_ip'];
                     publicIp = listAntiVirusPaidHostsRequest['public_ip'];
                     groupId = listAntiVirusPaidHostsRequest['group_id'];
+                    scanType = listAntiVirusPaidHostsRequest['scan_type'];
                 }
             }
 
         
-            if (scanType === null || scanType === undefined) {
-                throw new RequiredError('scanType','Required parameter scanType was null or undefined when calling listAntiVirusPaidHosts.');
-            }
-            if (scanType !== null && scanType !== undefined) {
-                localVarQueryParameter['scan_type'] = scanType;
-            }
             if (startType === null || startType === undefined) {
                 throw new RequiredError('startType','Required parameter startType was null or undefined when calling listAntiVirusPaidHosts.');
             }
@@ -28056,6 +28066,9 @@ export const ParamCreater = function () {
             }
             if (groupId !== null && groupId !== undefined) {
                 localVarQueryParameter['group_id'] = groupId;
+            }
+            if (scanType !== null && scanType !== undefined) {
+                localVarQueryParameter['scan_type'] = scanType;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -28160,6 +28173,8 @@ export const ParamCreater = function () {
             
             let severityList;
             
+            let severities;
+            
             let assetValue;
             
             let malwareName;
@@ -28171,6 +28186,10 @@ export const ParamCreater = function () {
             let taskName;
             
             let manualIsolate;
+            
+            let idList;
+            
+            let fileHashList;
 
             if (listAntiVirusResultRequest !== null && listAntiVirusResultRequest !== undefined) {
                 if (listAntiVirusResultRequest instanceof ListAntiVirusResultRequest) {
@@ -28182,12 +28201,15 @@ export const ParamCreater = function () {
                     publicIp = listAntiVirusResultRequest.publicIp;
                     handleStatus = listAntiVirusResultRequest.handleStatus;
                     severityList = listAntiVirusResultRequest.severityList;
+                    severities = listAntiVirusResultRequest.severities;
                     assetValue = listAntiVirusResultRequest.assetValue;
                     malwareName = listAntiVirusResultRequest.malwareName;
                     filePath = listAntiVirusResultRequest.filePath;
                     fileHash = listAntiVirusResultRequest.fileHash;
                     taskName = listAntiVirusResultRequest.taskName;
                     manualIsolate = listAntiVirusResultRequest.manualIsolate;
+                    idList = listAntiVirusResultRequest.idList;
+                    fileHashList = listAntiVirusResultRequest.fileHashList;
                 } else {
                     offset = listAntiVirusResultRequest['offset'];
                     limit = listAntiVirusResultRequest['limit'];
@@ -28197,12 +28219,15 @@ export const ParamCreater = function () {
                     publicIp = listAntiVirusResultRequest['public_ip'];
                     handleStatus = listAntiVirusResultRequest['handle_status'];
                     severityList = listAntiVirusResultRequest['severity_list'];
+                    severities = listAntiVirusResultRequest['severities'];
                     assetValue = listAntiVirusResultRequest['asset_value'];
                     malwareName = listAntiVirusResultRequest['malware_name'];
                     filePath = listAntiVirusResultRequest['file_path'];
                     fileHash = listAntiVirusResultRequest['file_hash'];
                     taskName = listAntiVirusResultRequest['task_name'];
                     manualIsolate = listAntiVirusResultRequest['manual_isolate'];
+                    idList = listAntiVirusResultRequest['id_list'];
+                    fileHashList = listAntiVirusResultRequest['file_hash_list'];
                 }
             }
 
@@ -28237,6 +28262,9 @@ export const ParamCreater = function () {
             if (severityList !== null && severityList !== undefined) {
                 localVarQueryParameter['severity_list'] = severityList;
             }
+            if (severities !== null && severities !== undefined) {
+                localVarQueryParameter['severities'] = severities;
+            }
             if (assetValue !== null && assetValue !== undefined) {
                 localVarQueryParameter['asset_value'] = assetValue;
             }
@@ -28254,6 +28282,12 @@ export const ParamCreater = function () {
             }
             if (manualIsolate !== null && manualIsolate !== undefined) {
                 localVarQueryParameter['manual_isolate'] = manualIsolate;
+            }
+            if (idList !== null && idList !== undefined) {
+                localVarQueryParameter['id_list'] = idList;
+            }
+            if (fileHashList !== null && fileHashList !== undefined) {
+                localVarQueryParameter['file_hash_list'] = fileHashList;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -31088,7 +31122,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询配置检测策略组列表10。
+         * 查询配置检测策略组列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -31352,14 +31386,18 @@ export const ParamCreater = function () {
             let enterpriseProjectId;
             
             let groupId;
+            
+            let statisticsType;
 
             if (showBaselineOverviewRequest !== null && showBaselineOverviewRequest !== undefined) {
                 if (showBaselineOverviewRequest instanceof ShowBaselineOverviewRequest) {
                     enterpriseProjectId = showBaselineOverviewRequest.enterpriseProjectId;
                     groupId = showBaselineOverviewRequest.groupId;
+                    statisticsType = showBaselineOverviewRequest.statisticsType;
                 } else {
                     enterpriseProjectId = showBaselineOverviewRequest['enterprise_project_id'];
                     groupId = showBaselineOverviewRequest['group_id'];
+                    statisticsType = showBaselineOverviewRequest['statistics_type'];
                 }
             }
 
@@ -31369,6 +31407,9 @@ export const ParamCreater = function () {
             }
             if (groupId !== null && groupId !== undefined) {
                 localVarQueryParameter['group_id'] = groupId;
+            }
+            if (statisticsType !== null && statisticsType !== undefined) {
+                localVarQueryParameter['statistics_type'] = statisticsType;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -35186,7 +35227,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建VPC终端节点的创建。
+         * 创建VPC终端节点。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -35428,6 +35469,14 @@ export const ParamCreater = function () {
             
             let vpcId;
             
+            let hostNameList;
+            
+            let hostIdList;
+            
+            let publicIpList;
+            
+            let privateIpList;
+            
             let hasIntrusion;
             
             let hasVul;
@@ -35494,6 +35543,10 @@ export const ParamCreater = function () {
                     groupId = listHostStatusRequest.groupId;
                     groupName = listHostStatusRequest.groupName;
                     vpcId = listHostStatusRequest.vpcId;
+                    hostNameList = listHostStatusRequest.hostNameList;
+                    hostIdList = listHostStatusRequest.hostIdList;
+                    publicIpList = listHostStatusRequest.publicIpList;
+                    privateIpList = listHostStatusRequest.privateIpList;
                     hasIntrusion = listHostStatusRequest.hasIntrusion;
                     hasVul = listHostStatusRequest.hasVul;
                     hasBaseline = listHostStatusRequest.hasBaseline;
@@ -35535,6 +35588,10 @@ export const ParamCreater = function () {
                     groupId = listHostStatusRequest['group_id'];
                     groupName = listHostStatusRequest['group_name'];
                     vpcId = listHostStatusRequest['vpc_id'];
+                    hostNameList = listHostStatusRequest['host_name_list'];
+                    hostIdList = listHostStatusRequest['host_id_list'];
+                    publicIpList = listHostStatusRequest['public_ip_list'];
+                    privateIpList = listHostStatusRequest['private_ip_list'];
                     hasIntrusion = listHostStatusRequest['has_intrusion'];
                     hasVul = listHostStatusRequest['has_vul'];
                     hasBaseline = listHostStatusRequest['has_baseline'];
@@ -35607,6 +35664,18 @@ export const ParamCreater = function () {
             }
             if (vpcId !== null && vpcId !== undefined) {
                 localVarQueryParameter['vpc_id'] = vpcId;
+            }
+            if (hostNameList !== null && hostNameList !== undefined) {
+                localVarQueryParameter['host_name_list'] = hostNameList;
+            }
+            if (hostIdList !== null && hostIdList !== undefined) {
+                localVarQueryParameter['host_id_list'] = hostIdList;
+            }
+            if (publicIpList !== null && publicIpList !== undefined) {
+                localVarQueryParameter['public_ip_list'] = publicIpList;
+            }
+            if (privateIpList !== null && privateIpList !== undefined) {
+                localVarQueryParameter['private_ip_list'] = privateIpList;
             }
             if (hasIntrusion !== null && hasIntrusion !== undefined) {
                 localVarQueryParameter['has_intrusion'] = hasIntrusion;
@@ -38407,7 +38476,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 本地镜像列表查询。
+         * 本地镜像列表查询
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -38425,13 +38494,13 @@ export const ParamCreater = function () {
             
             let enterpriseProjectId;
             
-            let imageName;
-            
-            let imageVersion;
-            
             let offset;
             
             let limit;
+            
+            let imageName;
+            
+            let imageVersion;
             
             let scanStatus;
             
@@ -38470,10 +38539,10 @@ export const ParamCreater = function () {
             if (listImageLocalRequest !== null && listImageLocalRequest !== undefined) {
                 if (listImageLocalRequest instanceof ListImageLocalRequest) {
                     enterpriseProjectId = listImageLocalRequest.enterpriseProjectId;
-                    imageName = listImageLocalRequest.imageName;
-                    imageVersion = listImageLocalRequest.imageVersion;
                     offset = listImageLocalRequest.offset;
                     limit = listImageLocalRequest.limit;
+                    imageName = listImageLocalRequest.imageName;
+                    imageVersion = listImageLocalRequest.imageVersion;
                     scanStatus = listImageLocalRequest.scanStatus;
                     localImageType = listImageLocalRequest.localImageType;
                     imageSize = listImageLocalRequest.imageSize;
@@ -38493,10 +38562,10 @@ export const ParamCreater = function () {
                     hasContainer = listImageLocalRequest.hasContainer;
                 } else {
                     enterpriseProjectId = listImageLocalRequest['enterprise_project_id'];
-                    imageName = listImageLocalRequest['image_name'];
-                    imageVersion = listImageLocalRequest['image_version'];
                     offset = listImageLocalRequest['offset'];
                     limit = listImageLocalRequest['limit'];
+                    imageName = listImageLocalRequest['image_name'];
+                    imageVersion = listImageLocalRequest['image_version'];
                     scanStatus = listImageLocalRequest['scan_status'];
                     localImageType = listImageLocalRequest['local_image_type'];
                     imageSize = listImageLocalRequest['image_size'];
@@ -38521,17 +38590,17 @@ export const ParamCreater = function () {
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
-            if (imageName !== null && imageName !== undefined) {
-                localVarQueryParameter['image_name'] = imageName;
-            }
-            if (imageVersion !== null && imageVersion !== undefined) {
-                localVarQueryParameter['image_version'] = imageVersion;
-            }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (imageName !== null && imageName !== undefined) {
+                localVarQueryParameter['image_name'] = imageName;
+            }
+            if (imageVersion !== null && imageVersion !== undefined) {
+                localVarQueryParameter['image_version'] = imageVersion;
             }
             if (scanStatus !== null && scanStatus !== undefined) {
                 localVarQueryParameter['scan_status'] = scanStatus;
@@ -44789,6 +44858,8 @@ export const ParamCreater = function () {
             
             let severityList;
             
+            let severities;
+            
             let hostName;
             
             let privateIp;
@@ -44816,6 +44887,7 @@ export const ParamCreater = function () {
                     malwareName = listAntivirusHandleHistoryRequest.malwareName;
                     filePath = listAntivirusHandleHistoryRequest.filePath;
                     severityList = listAntivirusHandleHistoryRequest.severityList;
+                    severities = listAntivirusHandleHistoryRequest.severities;
                     hostName = listAntivirusHandleHistoryRequest.hostName;
                     privateIp = listAntivirusHandleHistoryRequest.privateIp;
                     publicIp = listAntivirusHandleHistoryRequest.publicIp;
@@ -44833,6 +44905,7 @@ export const ParamCreater = function () {
                     malwareName = listAntivirusHandleHistoryRequest['malware_name'];
                     filePath = listAntivirusHandleHistoryRequest['file_path'];
                     severityList = listAntivirusHandleHistoryRequest['severity_list'];
+                    severities = listAntivirusHandleHistoryRequest['severities'];
                     hostName = listAntivirusHandleHistoryRequest['host_name'];
                     privateIp = listAntivirusHandleHistoryRequest['private_ip'];
                     publicIp = listAntivirusHandleHistoryRequest['public_ip'];
@@ -44869,6 +44942,9 @@ export const ParamCreater = function () {
             }
             if (severityList !== null && severityList !== undefined) {
                 localVarQueryParameter['severity_list'] = severityList;
+            }
+            if (severities !== null && severities !== undefined) {
+                localVarQueryParameter['severities'] = severities;
             }
             if (hostName !== null && hostName !== undefined) {
                 localVarQueryParameter['host_name'] = hostName;
@@ -45588,7 +45664,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询Serverless资产列表。
+         * 查询Serverless资产列表--接口已废弃
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -45649,7 +45725,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询Serverless资产详细信息。
+         * 查询Serverless资产详细信息--接口已废弃
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -48590,6 +48666,8 @@ export const ParamCreater = function () {
             let status;
             
             let clusterId;
+            
+            let hostIdList;
 
             if (listVulHostHostsRequest !== null && listVulHostHostsRequest !== undefined) {
                 if (listVulHostHostsRequest instanceof ListVulHostHostsRequest) {
@@ -48605,6 +48683,7 @@ export const ParamCreater = function () {
                     handleStatus = listVulHostHostsRequest.handleStatus;
                     status = listVulHostHostsRequest.status;
                     clusterId = listVulHostHostsRequest.clusterId;
+                    hostIdList = listVulHostHostsRequest.hostIdList;
                 } else {
                     limit = listVulHostHostsRequest['limit'];
                     offset = listVulHostHostsRequest['offset'];
@@ -48618,6 +48697,7 @@ export const ParamCreater = function () {
                     handleStatus = listVulHostHostsRequest['handle_status'];
                     status = listVulHostHostsRequest['status'];
                     clusterId = listVulHostHostsRequest['cluster_id'];
+                    hostIdList = listVulHostHostsRequest['host_id_list'];
                 }
             }
 
@@ -48663,6 +48743,9 @@ export const ParamCreater = function () {
             }
             if (clusterId !== null && clusterId !== undefined) {
                 localVarQueryParameter['cluster_id'] = clusterId;
+            }
+            if (hostIdList !== null && hostIdList !== undefined) {
+                localVarQueryParameter['host_id_list'] = hostIdList;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -48857,6 +48940,8 @@ export const ParamCreater = function () {
             let severityLevel;
             
             let repairPriority;
+            
+            let hostIdList;
 
             if (listVulHostVulsRequest !== null && listVulHostVulsRequest !== undefined) {
                 if (listVulHostVulsRequest instanceof ListVulHostVulsRequest) {
@@ -48875,6 +48960,7 @@ export const ParamCreater = function () {
                     repairType = listVulHostVulsRequest.repairType;
                     severityLevel = listVulHostVulsRequest.severityLevel;
                     repairPriority = listVulHostVulsRequest.repairPriority;
+                    hostIdList = listVulHostVulsRequest.hostIdList;
                 } else {
                     enterpriseProjectId = listVulHostVulsRequest['enterprise_project_id'];
                     limit = listVulHostVulsRequest['limit'];
@@ -48891,6 +48977,7 @@ export const ParamCreater = function () {
                     repairType = listVulHostVulsRequest['repair_type'];
                     severityLevel = listVulHostVulsRequest['severity_level'];
                     repairPriority = listVulHostVulsRequest['repair_priority'];
+                    hostIdList = listVulHostVulsRequest['host_id_list'];
                 }
             }
 
@@ -48939,6 +49026,9 @@ export const ParamCreater = function () {
             }
             if (repairPriority !== null && repairPriority !== undefined) {
                 localVarQueryParameter['repair_priority'] = repairPriority;
+            }
+            if (hostIdList !== null && hostIdList !== undefined) {
+                localVarQueryParameter['host_id_list'] = hostIdList;
             }
 
             options.queryParams = localVarQueryParameter;

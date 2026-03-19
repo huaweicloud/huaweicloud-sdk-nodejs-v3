@@ -117,6 +117,7 @@ import { CreateScheduleTaskRequestBody } from './model/CreateScheduleTaskRequest
 import { CreateScheduleTaskResponse } from './model/CreateScheduleTaskResponse';
 import { CreateSlowLogDownloadRequest } from './model/CreateSlowLogDownloadRequest';
 import { CreateSlowLogDownloadResponse } from './model/CreateSlowLogDownloadResponse';
+import { CreateSqlLimitTaskNodeOption } from './model/CreateSqlLimitTaskNodeOption';
 import { CreateSqlLimitTaskRequest } from './model/CreateSqlLimitTaskRequest';
 import { CreateSqlLimitTaskRequestBody } from './model/CreateSqlLimitTaskRequestBody';
 import { CreateSqlLimitTaskResponse } from './model/CreateSqlLimitTaskResponse';
@@ -5472,8 +5473,8 @@ export class GaussDBforopenGaussClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看LTS日志配置信息
-     * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
      * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**: - zh-cn  - en-us  **默认取值**: en-us
+     * @param {string} [instanceId] **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
      * @param {string} [instanceName] **参数解释**: 实例名称。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
      * @param {'Ha' | 'Independent' | 'Combined'} [instanceMode] **参数解释**: 实例类型，不传该参数默认查询全部实例类型。 **约束限制**: 不涉及。 **取值范围**: - Ha 为集中式类型。 - Independent 为独立部署类型。 - Combined 为混合部署类型。  **默认取值**: 不涉及。
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID。只有企业租户时该参数才生效。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 不涉及。
@@ -18069,9 +18070,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let instanceId;
-            
             let xLanguage;
+            
+            let instanceId;
             
             let instanceName;
             
@@ -18085,16 +18086,16 @@ export const ParamCreater = function () {
 
             if (listLtsConfigsRequest !== null && listLtsConfigsRequest !== undefined) {
                 if (listLtsConfigsRequest instanceof ListLtsConfigsRequest) {
-                    instanceId = listLtsConfigsRequest.instanceId;
                     xLanguage = listLtsConfigsRequest.xLanguage;
+                    instanceId = listLtsConfigsRequest.instanceId;
                     instanceName = listLtsConfigsRequest.instanceName;
                     instanceMode = listLtsConfigsRequest.instanceMode;
                     enterpriseProjectId = listLtsConfigsRequest.enterpriseProjectId;
                     offset = listLtsConfigsRequest.offset;
                     limit = listLtsConfigsRequest.limit;
                 } else {
-                    instanceId = listLtsConfigsRequest['instance_id'];
                     xLanguage = listLtsConfigsRequest['X-Language'];
+                    instanceId = listLtsConfigsRequest['instance_id'];
                     instanceName = listLtsConfigsRequest['instance_name'];
                     instanceMode = listLtsConfigsRequest['instance_mode'];
                     enterpriseProjectId = listLtsConfigsRequest['enterprise_project_id'];
@@ -18104,8 +18105,8 @@ export const ParamCreater = function () {
             }
 
         
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listLtsConfigs.');
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
             }
             if (instanceName !== null && instanceName !== undefined) {
                 localVarQueryParameter['instance_name'] = instanceName;
@@ -18127,7 +18128,6 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

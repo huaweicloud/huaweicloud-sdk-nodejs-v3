@@ -2,10 +2,10 @@
 
 export class ListImageLocalRequest {
     private 'enterprise_project_id'?: string;
-    private 'image_name'?: string;
-    private 'image_version'?: string;
     public offset?: number;
     public limit?: number;
+    private 'image_name'?: string;
+    private 'image_version'?: string;
     private 'scan_status'?: string;
     private 'local_image_type'?: string;
     private 'image_size'?: number;
@@ -35,6 +35,14 @@ export class ListImageLocalRequest {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
+    public withOffset(offset: number): ListImageLocalRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: number): ListImageLocalRequest {
+        this['limit'] = limit;
+        return this;
+    }
     public withImageName(imageName: string): ListImageLocalRequest {
         this['image_name'] = imageName;
         return this;
@@ -54,14 +62,6 @@ export class ListImageLocalRequest {
     }
     public get imageVersion(): string | undefined {
         return this['image_version'];
-    }
-    public withOffset(offset: number): ListImageLocalRequest {
-        this['offset'] = offset;
-        return this;
-    }
-    public withLimit(limit: number): ListImageLocalRequest {
-        this['limit'] = limit;
-        return this;
     }
     public withScanStatus(scanStatus: string): ListImageLocalRequest {
         this['scan_status'] = scanStatus;

@@ -6,7 +6,7 @@ export class BacthCreateWhiteBlackIpRuleRequestBody {
     public description?: string;
     public white?: number;
     private 'ip_group_id'?: string;
-    private 'time_mode'?: string;
+    private 'time_mode'?: BacthCreateWhiteBlackIpRuleRequestBodyTimeModeEnum | string;
     public start?: number;
     public terminal?: number;
     private 'policy_ids'?: Array<string>;
@@ -41,14 +41,14 @@ export class BacthCreateWhiteBlackIpRuleRequestBody {
     public get ipGroupId(): string | undefined {
         return this['ip_group_id'];
     }
-    public withTimeMode(timeMode: string): BacthCreateWhiteBlackIpRuleRequestBody {
+    public withTimeMode(timeMode: BacthCreateWhiteBlackIpRuleRequestBodyTimeModeEnum | string): BacthCreateWhiteBlackIpRuleRequestBody {
         this['time_mode'] = timeMode;
         return this;
     }
-    public set timeMode(timeMode: string  | undefined) {
+    public set timeMode(timeMode: BacthCreateWhiteBlackIpRuleRequestBodyTimeModeEnum | string  | undefined) {
         this['time_mode'] = timeMode;
     }
-    public get timeMode(): string | undefined {
+    public get timeMode(): BacthCreateWhiteBlackIpRuleRequestBodyTimeModeEnum | string | undefined {
         return this['time_mode'];
     }
     public withStart(start: number): BacthCreateWhiteBlackIpRuleRequestBody {
@@ -69,4 +69,13 @@ export class BacthCreateWhiteBlackIpRuleRequestBody {
     public get policyIds(): Array<string> | undefined {
         return this['policy_ids'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BacthCreateWhiteBlackIpRuleRequestBodyTimeModeEnum {
+    PERMANENT = 'permanent',
+    CUSTOMIZE = 'customize'
 }

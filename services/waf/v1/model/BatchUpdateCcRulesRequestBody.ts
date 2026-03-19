@@ -1,7 +1,7 @@
+import { BatchUpdateCcRulesRequestBodyPolicyRuleIds } from './BatchUpdateCcRulesRequestBodyPolicyRuleIds';
 import { CcCondition } from './CcCondition';
 import { CcrulesListInfoTagCondition } from './CcrulesListInfoTagCondition';
 import { CreateCcRuleRequestBodyAction } from './CreateCcRuleRequestBodyAction';
-import { PolicyRuleIdRequestBodyPolicyRuleIds } from './PolicyRuleIdRequestBodyPolicyRuleIds';
 
 
 export class BatchUpdateCcRulesRequestBody {
@@ -20,8 +20,8 @@ export class BatchUpdateCcRulesRequestBody {
     private 'domain_aggregation'?: boolean;
     private 'region_aggregation'?: boolean;
     public description?: string;
-    private 'policy_rule_ids'?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>;
-    public constructor(mode?: number, conditions?: Array<CcCondition>, action?: CreateCcRuleRequestBodyAction, tagType?: string, limitNum?: number, limitPeriod?: number, policyRuleIds?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>) { 
+    private 'policy_rule_ids'?: Array<BatchUpdateCcRulesRequestBodyPolicyRuleIds>;
+    public constructor(mode?: number, conditions?: Array<CcCondition>, action?: CreateCcRuleRequestBodyAction, tagType?: string, limitNum?: number, limitPeriod?: number, policyRuleIds?: Array<BatchUpdateCcRulesRequestBodyPolicyRuleIds>) { 
         this['mode'] = mode;
         this['conditions'] = conditions;
         this['action'] = action;
@@ -144,14 +144,14 @@ export class BatchUpdateCcRulesRequestBody {
         this['description'] = description;
         return this;
     }
-    public withPolicyRuleIds(policyRuleIds: Array<PolicyRuleIdRequestBodyPolicyRuleIds>): BatchUpdateCcRulesRequestBody {
+    public withPolicyRuleIds(policyRuleIds: Array<BatchUpdateCcRulesRequestBodyPolicyRuleIds>): BatchUpdateCcRulesRequestBody {
         this['policy_rule_ids'] = policyRuleIds;
         return this;
     }
-    public set policyRuleIds(policyRuleIds: Array<PolicyRuleIdRequestBodyPolicyRuleIds>  | undefined) {
+    public set policyRuleIds(policyRuleIds: Array<BatchUpdateCcRulesRequestBodyPolicyRuleIds>  | undefined) {
         this['policy_rule_ids'] = policyRuleIds;
     }
-    public get policyRuleIds(): Array<PolicyRuleIdRequestBodyPolicyRuleIds> | undefined {
+    public get policyRuleIds(): Array<BatchUpdateCcRulesRequestBodyPolicyRuleIds> | undefined {
         return this['policy_rule_ids'];
     }
 }

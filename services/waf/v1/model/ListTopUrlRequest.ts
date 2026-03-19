@@ -6,8 +6,8 @@ export class ListTopUrlRequest {
     public from?: number;
     public to?: number;
     public top?: number;
-    public hosts?: string;
-    public instances?: string;
+    public hosts?: Array<string>;
+    public instances?: Array<string>;
     public constructor(contentType?: string, from?: number, to?: number) { 
         this['Content-Type'] = contentType;
         this['from'] = from;
@@ -45,11 +45,11 @@ export class ListTopUrlRequest {
         this['top'] = top;
         return this;
     }
-    public withHosts(hosts: string): ListTopUrlRequest {
+    public withHosts(hosts: Array<string>): ListTopUrlRequest {
         this['hosts'] = hosts;
         return this;
     }
-    public withInstances(instances: string): ListTopUrlRequest {
+    public withInstances(instances: Array<string>): ListTopUrlRequest {
         this['instances'] = instances;
         return this;
     }

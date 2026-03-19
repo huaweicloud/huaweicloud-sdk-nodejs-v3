@@ -3,7 +3,6 @@ import { UpdateIpReputationRuleRequestBodyAction } from './UpdateIpReputationRul
 
 export class UpdateIpReputationRuleRequestBody {
     public name?: string;
-    public policyname?: string;
     public description?: string;
     public action?: UpdateIpReputationRuleRequestBodyAction;
     public type?: string;
@@ -16,10 +15,6 @@ export class UpdateIpReputationRuleRequestBody {
     }
     public withName(name: string): UpdateIpReputationRuleRequestBody {
         this['name'] = name;
-        return this;
-    }
-    public withPolicyname(policyname: string): UpdateIpReputationRuleRequestBody {
-        this['policyname'] = policyname;
         return this;
     }
     public withDescription(description: string): UpdateIpReputationRuleRequestBody {

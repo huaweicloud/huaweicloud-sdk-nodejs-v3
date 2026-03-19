@@ -5,8 +5,8 @@ export class ListQpsTimelineRequest {
     private 'enterprise_project_id'?: string;
     public from?: number;
     public to?: number;
-    public hosts?: string;
-    public instances?: string;
+    public hosts?: Array<string>;
+    public instances?: Array<string>;
     private 'group_by'?: string;
     public constructor(contentType?: string, from?: number, to?: number) { 
         this['Content-Type'] = contentType;
@@ -41,11 +41,11 @@ export class ListQpsTimelineRequest {
         this['to'] = to;
         return this;
     }
-    public withHosts(hosts: string): ListQpsTimelineRequest {
+    public withHosts(hosts: Array<string>): ListQpsTimelineRequest {
         this['hosts'] = hosts;
         return this;
     }
-    public withInstances(instances: string): ListQpsTimelineRequest {
+    public withInstances(instances: Array<string>): ListQpsTimelineRequest {
         this['instances'] = instances;
         return this;
     }

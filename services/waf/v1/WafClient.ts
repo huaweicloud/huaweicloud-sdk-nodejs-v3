@@ -30,6 +30,7 @@ import { BatchCreateAntileakageRuleRequestBody } from './model/BatchCreateAntile
 import { BatchCreateAntileakageRuleResponse } from './model/BatchCreateAntileakageRuleResponse';
 import { BatchCreateCcRuleRequest } from './model/BatchCreateCcRuleRequest';
 import { BatchCreateCcRuleRequestBody } from './model/BatchCreateCcRuleRequestBody';
+import { BatchCreateCcRuleRequestBodyAction } from './model/BatchCreateCcRuleRequestBodyAction';
 import { BatchCreateCcRuleResponse } from './model/BatchCreateCcRuleResponse';
 import { BatchCreateCustomRuleRequest } from './model/BatchCreateCustomRuleRequest';
 import { BatchCreateCustomRuleRequestBody } from './model/BatchCreateCustomRuleRequestBody';
@@ -60,31 +61,38 @@ import { BatchDeletePoliciesResponse } from './model/BatchDeletePoliciesResponse
 import { BatchDeleteRulesRequest } from './model/BatchDeleteRulesRequest';
 import { BatchDeleteRulesResponse } from './model/BatchDeleteRulesResponse';
 import { BatchUpdateAntiTamperRulesRequestBody } from './model/BatchUpdateAntiTamperRulesRequestBody';
+import { BatchUpdateAntiTamperRulesRequestBodyPolicyRuleIds } from './model/BatchUpdateAntiTamperRulesRequestBodyPolicyRuleIds';
 import { BatchUpdateAntileakageRuleRequestBody } from './model/BatchUpdateAntileakageRuleRequestBody';
+import { BatchUpdateAntileakageRuleRequestBodyPolicyRuleIds } from './model/BatchUpdateAntileakageRuleRequestBodyPolicyRuleIds';
 import { BatchUpdateAntileakageRulesRequest } from './model/BatchUpdateAntileakageRulesRequest';
 import { BatchUpdateAntileakageRulesResponse } from './model/BatchUpdateAntileakageRulesResponse';
 import { BatchUpdateAntitamperRulesRequest } from './model/BatchUpdateAntitamperRulesRequest';
 import { BatchUpdateAntitamperRulesResponse } from './model/BatchUpdateAntitamperRulesResponse';
 import { BatchUpdateCcRulesRequest } from './model/BatchUpdateCcRulesRequest';
 import { BatchUpdateCcRulesRequestBody } from './model/BatchUpdateCcRulesRequestBody';
+import { BatchUpdateCcRulesRequestBodyPolicyRuleIds } from './model/BatchUpdateCcRulesRequestBodyPolicyRuleIds';
 import { BatchUpdateCcRulesResponse } from './model/BatchUpdateCcRulesResponse';
-import { BatchUpdateCustomRuleRequestBody } from './model/BatchUpdateCustomRuleRequestBody';
 import { BatchUpdateCustomRulesRequest } from './model/BatchUpdateCustomRulesRequest';
+import { BatchUpdateCustomRulesRequestBody } from './model/BatchUpdateCustomRulesRequestBody';
+import { BatchUpdateCustomRulesRequestBodyPolicyRuleIds } from './model/BatchUpdateCustomRulesRequestBodyPolicyRuleIds';
 import { BatchUpdateCustomRulesResponse } from './model/BatchUpdateCustomRulesResponse';
 import { BatchUpdateGeoipRulesRequest } from './model/BatchUpdateGeoipRulesRequest';
 import { BatchUpdateGeoipRulesRequestBody } from './model/BatchUpdateGeoipRulesRequestBody';
 import { BatchUpdateGeoipRulesResponse } from './model/BatchUpdateGeoipRulesResponse';
 import { BatchUpdateIgnoreRuleRequestBody } from './model/BatchUpdateIgnoreRuleRequestBody';
+import { BatchUpdateIgnoreRuleRequestBodyPolicyRuleIds } from './model/BatchUpdateIgnoreRuleRequestBodyPolicyRuleIds';
 import { BatchUpdateIgnoreRulesRequest } from './model/BatchUpdateIgnoreRulesRequest';
 import { BatchUpdateIgnoreRulesResponse } from './model/BatchUpdateIgnoreRulesResponse';
 import { BatchUpdateIpReputationRuleRequestBody } from './model/BatchUpdateIpReputationRuleRequestBody';
-import { BatchUpdateIpReputationRuleRequestBodyAction } from './model/BatchUpdateIpReputationRuleRequestBodyAction';
+import { BatchUpdateIpReputationRuleRequestBodyPolicyRuleIds } from './model/BatchUpdateIpReputationRuleRequestBodyPolicyRuleIds';
 import { BatchUpdateIpReputationRulesRequest } from './model/BatchUpdateIpReputationRulesRequest';
 import { BatchUpdateIpReputationRulesResponse } from './model/BatchUpdateIpReputationRulesResponse';
 import { BatchUpdatePrivacyRuleRequestBody } from './model/BatchUpdatePrivacyRuleRequestBody';
+import { BatchUpdatePrivacyRuleRequestBodyPolicyRuleIds } from './model/BatchUpdatePrivacyRuleRequestBodyPolicyRuleIds';
 import { BatchUpdatePrivacyRulesRequest } from './model/BatchUpdatePrivacyRulesRequest';
 import { BatchUpdatePrivacyRulesResponse } from './model/BatchUpdatePrivacyRulesResponse';
 import { BatchUpdateWhiteBlackIpRuleRequestBody } from './model/BatchUpdateWhiteBlackIpRuleRequestBody';
+import { BatchUpdateWhiteBlackIpRuleRequestBodyPolicyRuleIds } from './model/BatchUpdateWhiteBlackIpRuleRequestBodyPolicyRuleIds';
 import { BatchUpdateWhiteblackipRulesRequest } from './model/BatchUpdateWhiteblackipRulesRequest';
 import { BatchUpdateWhiteblackipRulesResponse } from './model/BatchUpdateWhiteblackipRulesResponse';
 import { BindHost } from './model/BindHost';
@@ -179,6 +187,7 @@ import { CreateIpGroupRequestBody } from './model/CreateIpGroupRequestBody';
 import { CreateIpGroupResponse } from './model/CreateIpGroupResponse';
 import { CreateIpReputationRuleRequest } from './model/CreateIpReputationRuleRequest';
 import { CreateIpReputationRuleRequestBody } from './model/CreateIpReputationRuleRequestBody';
+import { CreateIpReputationRuleRequestBodyAction } from './model/CreateIpReputationRuleRequestBodyAction';
 import { CreateIpReputationRuleResponse } from './model/CreateIpReputationRuleResponse';
 import { CreateIpReputationRuleResponseBodyAction } from './model/CreateIpReputationRuleResponseBodyAction';
 import { CreatePolicyRequest } from './model/CreatePolicyRequest';
@@ -274,6 +283,7 @@ import { HostFlag } from './model/HostFlag';
 import { IdHostnameEntry } from './model/IdHostnameEntry';
 import { IgnoreAdvanced } from './model/IgnoreAdvanced';
 import { IgnoreRuleBody } from './model/IgnoreRuleBody';
+import { Instance } from './model/Instance';
 import { InstanceInfo } from './model/InstanceInfo';
 import { InstanceTag } from './model/InstanceTag';
 import { IpClassificationItem } from './model/IpClassificationItem';
@@ -330,7 +340,6 @@ import { ListIgnorePolicyRulesRequest } from './model/ListIgnorePolicyRulesReque
 import { ListIgnorePolicyRulesResponse } from './model/ListIgnorePolicyRulesResponse';
 import { ListIgnoreRuleRequest } from './model/ListIgnoreRuleRequest';
 import { ListIgnoreRuleResponse } from './model/ListIgnoreRuleResponse';
-import { ListInstance } from './model/ListInstance';
 import { ListInstanceRequest } from './model/ListInstanceRequest';
 import { ListInstanceResponse } from './model/ListInstanceResponse';
 import { ListInstanceTagsRequest } from './model/ListInstanceTagsRequest';
@@ -545,6 +554,7 @@ import { UpdateAntileakageRuleResponse } from './model/UpdateAntileakageRuleResp
 import { UpdateCcRuleRequest } from './model/UpdateCcRuleRequest';
 import { UpdateCcRuleRequestBody } from './model/UpdateCcRuleRequestBody';
 import { UpdateCcRuleResponse } from './model/UpdateCcRuleResponse';
+import { UpdateCcRuleResponseBodyAction } from './model/UpdateCcRuleResponseBodyAction';
 import { UpdateCertificateRequest } from './model/UpdateCertificateRequest';
 import { UpdateCertificateRequestBody } from './model/UpdateCertificateRequestBody';
 import { UpdateCertificateResponse } from './model/UpdateCertificateResponse';
@@ -562,6 +572,9 @@ import { UpdateHostProtectStatusResponse } from './model/UpdateHostProtectStatus
 import { UpdateHostRequest } from './model/UpdateHostRequest';
 import { UpdateHostRequestBody } from './model/UpdateHostRequestBody';
 import { UpdateHostResponse } from './model/UpdateHostResponse';
+import { UpdateIdcIpRuleResponseBodyAction } from './model/UpdateIdcIpRuleResponseBodyAction';
+import { UpdateIgnoreRuleHitNumRequest } from './model/UpdateIgnoreRuleHitNumRequest';
+import { UpdateIgnoreRuleHitNumResponse } from './model/UpdateIgnoreRuleHitNumResponse';
 import { UpdateIgnoreRuleRequest } from './model/UpdateIgnoreRuleRequest';
 import { UpdateIgnoreRuleRequestBody } from './model/UpdateIgnoreRuleRequestBody';
 import { UpdateIgnoreRuleResponse } from './model/UpdateIgnoreRuleResponse';
@@ -669,8 +682,8 @@ export class WafClient {
      * @summary 选中多个策略批量添加网页防篡改规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {BatchCreateAntiTamperRulesRequestBody} bacthCreateWhiteblackipRuleRequestBody 批量创建地理位置访问控制规则
-     * @param {string} [policyids] **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {Array<string>} [policyids] **参数解释：** 防护策略id列表，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -691,8 +704,8 @@ export class WafClient {
      * @summary 选中多个策略批量添加防敏感信息泄漏规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {BatchCreateAntileakageRuleRequestBody} bacthCreateWhiteblackipRuleRequestBody 批量创建防敏感信息泄漏防护规则
-     * @param {string} [policyids] **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [policyids] **参数解释：** 添加规则的策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -713,8 +726,8 @@ export class WafClient {
      * @summary 选中多个策略为批量添加cc规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {BatchCreateCcRuleRequestBody} bacthCreateCcRuleRequestBody 批量创建cc规则
-     * @param {string} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 策略id只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -735,8 +748,8 @@ export class WafClient {
      * @summary 选中多个策略批量添加精准防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {BatchCreateCustomRuleRequestBody} bacthCreateCustomRuleRequestBody 批量创建精准防护规则
-     * @param {string} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 策略id只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
+     * @param {Array<string>} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -778,7 +791,7 @@ export class WafClient {
      * @summary 选中多个策略批量添加全局白名单规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {BatchCreateIgnoreRuleRequestBody} batchCreateIgnoreRuleRequestBody 批量创建全局白名单防护规则
-     * @param {string} [policyids] **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [policyids] **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -800,8 +813,8 @@ export class WafClient {
      * @summary 为多个策略批量添加威胁情报访问控制规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {BatchCreateIpReputationRuleRequestBody} batchCreateIpReputationRuleRequestBody 批量创建威胁情报访问控制规则
-     * @param {string} [policyids] **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -822,8 +835,8 @@ export class WafClient {
      * @summary 选中多个策略批量添加隐私屏蔽防护防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {BatchCreatePrivacyRuleRequestBody} batchCreatePrivacyRuleRequestBody 批量创建隐私屏蔽防护规则
-     * @param {string} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 策略id只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -844,8 +857,8 @@ export class WafClient {
      * @summary 选中多个策略批量添加黑白名单防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {BacthCreateWhiteBlackIpRuleRequestBody} bacthCreateWhiteblackipRuleRequestBody 批量创建黑白名单防护规则
-     * @param {string} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 策略id只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -929,8 +942,8 @@ export class WafClient {
      *
      * @summary 批量删除规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} ruleType **参数解释：** 需要删除的规则类型,目前支持cc,custom,whiteblackip,geoip,ip-reputation,antitamper,antileakage,ignore,privacy **约束限制：** 不涉及 **取值范围：** - cc - custom - whiteblackip - geoip - ip-reputation - antitamper - antileakage - ignore - privacy  **默认取值：** 不涉及
-     * @param {PolicyRuleIdRequestBody} [batchDeleteRulesRequestBody] **参数解释：** 批量删除防护规则body **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {'cc' | 'custom' | 'whiteblackip' | 'privacy' | 'ignore' | 'geoip' | 'antitamper' | 'antileakage' | 'ip-reputation' | 'llm-guards'} ruleType **参数解释：** 需要删除的规则类型,目前支持cc,custom,whiteblackip,privacy,ignore,geoip,antitamper,antileakage,ip-reputation,llm-guards **约束限制：** 需要购买“大模型防火墙”服务后才可使用llm-guards **取值范围：** - cc CC防护 - custom 精准防护 - whiteblackip 黑白名单 - geoip 地理位置防护 - ip-reputation 威胁情报 - antitamper 防篡改 - antileakage 防敏感信息泄露 - ignore 全局白名单(原误报屏蔽) - privacy 隐私屏蔽 - llm-guards 大模型防火墙 **默认取值：** 不涉及
+     * @param {PolicyRuleIdRequestBody} batchDeleteRulesRequestBody **参数解释：** 批量删除防护规则body **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -950,6 +963,7 @@ export class WafClient {
      *
      * @summary 批量更新防敏感信息泄露规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {BatchUpdateAntileakageRuleRequestBody} [batchUpdateAntileakageRuleRequestBody] **参数解释：** 批量修改防敏感信息泄露规则body **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -970,6 +984,7 @@ export class WafClient {
      *
      * @summary 批量更新网页防篡改规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {BatchUpdateAntiTamperRulesRequestBody} [batchUpdateAntiTamperRulesRequestBody] **参数解释：** 批量修改网页防篡改规则body **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -990,6 +1005,7 @@ export class WafClient {
      *
      * @summary 批量修改CC防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {BatchUpdateCcRulesRequestBody} [batchUpdateCcRulesRequestBody] **参数解释：** 批量修CC准防护问控制规则body **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1010,7 +1026,8 @@ export class WafClient {
      *
      * @summary 批量更新精准防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {BatchUpdateCustomRuleRequestBody} [batchUpdateCustomRuleResponseBody] **参数解释：** 批量修改精准防护控制规则body **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {BatchUpdateCustomRulesRequestBody} batchUpdateCustomRuleRequestBody **参数解释：** 批量修改精准防护控制规则body **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1030,6 +1047,7 @@ export class WafClient {
      *
      * @summary 批量修改地理位置访问控制规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {BatchUpdateGeoipRulesRequestBody} [batchUpdateGeoipRulesRequestBody] **参数解释：** 批量修改地理位置访问控制规则body **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1090,7 +1108,7 @@ export class WafClient {
      *
      * @summary 批量更新隐私屏蔽规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {BatchUpdatePrivacyRuleRequestBody} [batchUpdatePrivacyRuleRequestBody] **参数解释：** 批量修改隐私屏蔽规则body **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {BatchUpdatePrivacyRuleRequestBody} batchUpdatePrivacyRuleRequestBody **参数解释：** 批量修改隐私屏蔽规则body **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1110,6 +1128,7 @@ export class WafClient {
      *
      * @summary 批量更新黑白名单设置规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {BatchUpdateWhiteBlackIpRuleRequestBody} [batchUpdateWhiteBlackIpRuleRequestBody] **参数解释：** 批量修改黑白名单设置规则body **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1132,9 +1151,9 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 变更包周期云模式waf规格
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {ChangePrepaidCloudWafRequestBody} changePrepaidCloudWafRequestBody 变更包周期云模式waf规格请求体
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1236,7 +1255,8 @@ export class WafClient {
      *
      * @summary 查询敏感信息选项的详细信息
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} lang **参数解释：** 语言的类型 - cn代表中文 - en代表英文  **约束限制：** 不涉及 **取值范围：** - cn - en  **默认取值：** - cn
+     * @param {string} lang **参数解释：**  语言类型  **约束限制：**  不涉及  **取值范围：**  - cn 中文  - en 英文  **默认取值：**  cn
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1256,8 +1276,8 @@ export class WafClient {
      *
      * @summary 查询威胁情报控制防护选项的详细信息
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} lang **参数解释：** 语言的类型 - cn代表中文 - en代表英文  **约束限制：** 不涉及 **取值范围：** - cn - en  **默认取值：** - cn
-     * @param {string} type **参数解释：** 防护选项的详细信息的类型，当前仅支持“idc”。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {'idc'} type **参数解释：** 防护选项的详细信息的类型，当前仅支持“idc”。 **约束限制：** 不涉及 **取值范围：** - idc **默认取值：** 不涉及
+     * @param {'cn' | 'en'} [lang] **参数解释：** 语言类型 **约束限制：** 不涉及 **取值范围：** - cn 中文 - en 英文 **默认取值：** cn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1317,7 +1337,7 @@ export class WafClient {
      *
      * @summary 查询资源实例
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} resourceType **参数解释：** 资源类型，目前支持waf-instance，waf **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} resourceType **参数解释：** 资源类型，目前支持waf-instance，waf **约束限制：** 不涉及 **取值范围：** - waf - waf-instance **默认取值：** 不涉及
      * @param {TmsResourceInstancesRequest} tmsResourceInstancesRequest **参数解释：** 查询请求body **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1421,10 +1441,10 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建防篡改规则
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {CreateAntiTamperRulesRequestBody} createAntiTamperRuleRequestBody 创建网页防篡改规则请求体
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1444,9 +1464,9 @@ export class WafClient {
      *
      * @summary 创建JS脚本反爬虫规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {CreateAnticrawlerRuleRequestbody} createAnticrawlerRuleRequestBody 创建JS脚本反爬虫规则请求体
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1466,9 +1486,9 @@ export class WafClient {
      *
      * @summary 创建防敏感信息泄露规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {CreateAntileakageRuleRequestBody} createAntileakageRuleRequestBody 创建防泄露规则请求参数
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1487,9 +1507,9 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建cc规则
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 策略id（策略id从查询防护策略列表接口获取）
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {CreateCcRuleRequestBody} [createCcRuleRequestBody] CreateCcRuleRequestBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1531,10 +1551,10 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 开通云模式按需计费接口
-     * @param {string} contentType 内容类型
-     * @param {string} region 区域id
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} region **参数解释：** 局点ID **约束限制：** 华为云支持的局点ID **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {CreateCloudWafPostPaidResourceRequestbody} createCloudWafPostPaidResourceRequestBody 请求body
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1554,9 +1574,9 @@ export class WafClient {
      *
      * @summary 创建精准防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {CreateCustomRuleRequestBody} createCustomRuleRequestBody CreateCustomRuleRequestBody
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1595,10 +1615,10 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建地理位置控制规则
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {CreateGeoIpRuleRequestBody} createGeoIpRuleRequestBody 创建地理访问控制请求体
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1639,7 +1659,7 @@ export class WafClient {
      *
      * @summary 创建全局白名单(原误报屏蔽)规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {CreateIgnoreRuleRequestBody} createIgnoreRuleRequestBody 创建误报屏蔽规则请求体
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
      * @param {*} [options] Override http request option.
@@ -1662,7 +1682,7 @@ export class WafClient {
      * @summary 创建WAF独享引擎实例
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {CreateInstanceRequestBody} createInstanceRequestBody 待创建的独享引擎信息
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1683,7 +1703,7 @@ export class WafClient {
      * @summary 创建ip地址组
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {CreateIpGroupRequestBody} createIpGroupRequestBody 创建ip地址组请求体
-     * @param {string} [enterpriseProjectId] 企业项目id
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1705,7 +1725,7 @@ export class WafClient {
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {CreateIpReputationRuleRequestBody} createIpReputationRuleRequestBody **参数解释：** 创建地理访问控制请求体 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1745,8 +1765,8 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建独享模式域名或者创建云模式ELB接入模式域名
-     * @param {string} contentType 内容类型
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {CreatePremiumHostRequestBody} [createPremiumHostRequestBody] 创建独享模式域名的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1761,14 +1781,14 @@ export class WafClient {
     }
 
     /**
-     * 购买包周期云模式waf。
+     * 购买包周期云模式waf
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 购买包周期云模式waf
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {CreatePrepaidCloudWafRequestBody} createPrepaidCloudWafRequestBody 购买包周期云模式waf请求体
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1787,10 +1807,10 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建隐私屏蔽防护规则
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 策略id，唯一标识一条防护策略，可从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {CreatePrivacyRuleRequestBody} createPrivacyRuleRequestBody 创建隐私屏蔽规则请求体
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1810,9 +1830,9 @@ export class WafClient {
      *
      * @summary 创建攻击惩罚规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {CreatePunishmentRuleRequestBody} createPunishmentRuleRequestBody 创建攻击惩罚规则请求参数
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1851,9 +1871,9 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建引用表
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {CreateValueListRequestBody} createValueListRequestBody 创建引用表请求体
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1872,10 +1892,10 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建黑白名单规则
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {CreateWhiteBlackIpRuleRequestBody} createWhiteblackipRuleRequestBody body_info
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {CreateWhiteBlackIpRuleRequestBody} createWhiteblackipRuleRequestBody 请求体
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1895,7 +1915,7 @@ export class WafClient {
      *
      * @summary 删除代理
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {boolean} [purged] **参数解释：** purged取值为true时，会同步删除在IAM处创建的premium_waf_svc_trust委托，purged取值为false时，不会同步删除在IAM处创建的premium_waf_svc_trust委托 **约束限制：** 不涉及 **取值范围：** - true - false  **默认取值：** 不涉及
+     * @param {boolean} [purged] **参数解释：** purged取值为true时，会同步删除在IAM处创建的premium_waf_svc_trust委托，purged取值为false时，不会同步删除在IAM处创建的premium_waf_svc_trust委托 **约束限制：** 不涉及 **取值范围：** - true - false **默认取值：** 不涉及
      * @param {Array<string>} [roleIdList] **参数解释：** 待删除的代理id **约束限制：** 不涉及 **取值范围：** 从 “查询独享引擎代理”接口的返回结果中，选取需要删除代理的id值 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1937,9 +1957,9 @@ export class WafClient {
      *
      * @summary 删除JS脚本反爬虫防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 规则id
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** JS反爬虫规则id，您可以通过查询JS脚本反爬虫规则列表（ListAnticrawlerRules）接口的响应体中的id字段获取规则id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1959,9 +1979,9 @@ export class WafClient {
      *
      * @summary 删除防敏感信息泄露防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 防敏感信息泄露规则id，通过查询防敏感信息泄露规则列表接口（ListAntileakageRules）获取
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 防敏感信息泄露规则id，通过查询防敏感信息泄露规则列表接口（ListAntileakageRules）获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1980,10 +2000,10 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除防篡改防护规则
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 防篡改规则id，通过查询防篡改规则列表接口（ListAntitamperRule）获取
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 防篡改规则id，通过查询防篡改规则列表接口（ListAntitamperRule）获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2002,10 +2022,10 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除cc防护规则
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 策略id（策略id从查询防护策略列表接口获取）
-     * @param {string} ruleId ID of the cc rule. It can be obtained by calling the **ListCcRules** API.
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** CC规则id，您可以通过查询CC规则列表（ListCcRules）接口的响应体中的id字段获取规则id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2045,9 +2065,9 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 关闭云模式按需计费接口
-     * @param {string} contentType 内容类型
-     * @param {string} [region] 区域id
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} [region] **参数解释：** 局点ID **约束限制：** 华为云支持的局点ID **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2067,9 +2087,9 @@ export class WafClient {
      *
      * @summary 删除精准防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 精准防护规则id，通过查询精准防护规则列表接口（ListCustomRules）获取
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 精准防护规则id，通过查询精准防护规则列表接口（ListCustomRules）获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2088,10 +2108,10 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除地理位置控制防护规则
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 地理位置控制防护规则id，规则id从查询地理位置控制防护规则列表（ListGeoipRule）接口获取，响应体的id字段
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 地理位置控制防护规则id，规则id从查询地理位置控制防护规则列表（ListGeoipRule）接口获取，响应体的id字段 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2132,8 +2152,8 @@ export class WafClient {
      *
      * @summary 删除全局白名单(原误报屏蔽)防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 误报屏蔽规则id，您可以通过查询误报屏蔽规则列表（ListIgnoreRule）接口的响应体中的id字段获取误报屏蔽规则id
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 误报屏蔽规则id，您可以通过查询误报屏蔽规则列表（ListIgnoreRule）接口的响应体中的id字段获取规则id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2154,8 +2174,8 @@ export class WafClient {
      *
      * @summary 删除WAF独享引擎信息
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} instanceId 独享引擎ID（通过调用WAF的ListInstance接口获取所有独享引擎信息查询独享引擎ID）
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} instanceId **参数解释：** 独享引擎ID（通过调用WAF的ListInstance接口获取所有独享引擎信息查询独享引擎ID） **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2174,9 +2194,9 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除ip地址组
-     * @param {string} contentType 内容类型
-     * @param {string} id ip地址组id
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} id **参数解释：** ip地址组id，可从查询地址组列表(ListIpGroup)接口中获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2198,7 +2218,7 @@ export class WafClient {
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} ruleId **参数解释：** 机房IP情报访问控制规则id，通过\&quot;查询威胁情报规则列表\&quot;接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2238,9 +2258,9 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除独享模式域名
-     * @param {string} contentType 内容类型
-     * @param {string} hostId 独享模式域名ID
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} hostId **参数解释：** 域名id，通过 ”查询独享模式域名列表“（ListPremiumHost）获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {boolean} [keepPolicy] 是否保留规则。false表示不保留该域名的防护策略；true表示保留该域名的防护策略。当要删除的防护域名的防护策略防护多个防护域名时，该参数不传。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2260,10 +2280,10 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除隐私屏蔽防护规则
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 隐私屏蔽规则id，您可以通过调用查询隐私屏蔽规则列表（ListPrivacyRule）获取规则id
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 策略id，唯一标识一条防护策略，可从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 隐私屏蔽规则id，您可以通过调用查询隐私屏蔽规则列表（ListPrivacyRule）获取规则id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2283,9 +2303,9 @@ export class WafClient {
      *
      * @summary 删除攻击惩罚规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 攻击惩罚规则id，通过查询攻击惩罚规则列表接口（ListPunishmentRules）获取
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 攻击惩罚规则id，通过查询攻击惩罚规则列表接口（ListPunishmentRules）获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2324,9 +2344,9 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除引用表
-     * @param {string} contentType 内容类型
-     * @param {string} valuelistid 引用表id，通过查询引用表列表（ListValueList）接口获取
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} valuelistid **参数解释：** 引用表id，通过查询引用表列表（ListValueList）接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2345,10 +2365,10 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除黑白名单防护规则
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 黑白名单规则id，您可以通过调用查询黑白名单规则列表（ListWhiteblackipRule）获取黑白名单规则id
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 黑白名单规则id，您可以通过调用查询黑白名单规则列表（ListWhiteblackipRule）获取黑白名单规则id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2368,10 +2388,10 @@ export class WafClient {
      *
      * @summary 查询所有策略网页防篡改
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} [policyids] **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
-     * @param {number} [page] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
-     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含多少条结果。 **约束限制：** 不涉及 **默认取值：** 1000
+     * @param {Array<string>} [policyids] **参数解释：** 防护策略id列表，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
+     * @param {number} [page] **参数解释：** 分页查询时，返回第几页数据 **约束限制：** 不涉及 **取值范围：** page参数的实际有效范围取决于总数据量和pagesize的取值，不能大于总页数 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含的结果条数 **约束限制：** 不涉及 **取值范围：** [0, 总数据量] **默认取值：** 1000
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2391,11 +2411,13 @@ export class WafClient {
      *
      * @summary 查询JS脚本反爬虫规则列表
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {number} offset 偏移量，表示查询该偏移量之后的记录。
-     * @param {number} limit 查询返回记录的数量限制。
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
-     * @param {'anticrawler_except_url' | 'anticrawler_specific_url'} [type] **参数解释：** JS脚本反爬虫规则防护模式 **约束限制：** 不涉及 **取值范围：**  - anticrawler_except_url: 防护所有路径模式，在该模式下，查询的JS脚本反爬虫规则为排除的防护路径规则  - anticrawler_specific_url: 防护指定路径模式，在该模式下，查询的JS脚本反爬虫规则为指定要防护的路径规则  **默认取值：** anticrawler_except_url
+     * @param {number} [offset] **参数解释：** 偏移量，表示查询该偏移量之后的记录，与参数limit一起使用 **约束限制：** 不涉及 **取值范围：** [0, 65535] **默认取值：** 不涉及
+     * @param {number} [limit] **参数解释：** 查询返回记录的数量限制，与参数offset一起使用，如果offset为设置值，则limit无效 **约束限制：** 不涉及 **取值范围：** [1, 65535] **默认取值：** 10
+     * @param {number} [page] **参数解释：** 当前页码，与参数pagesize一起使用 **约束限制：** 不涉及 **取值范围：** [1, 记录数/pagesize] **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 每页大小，与参数page一起使用 **约束限制：** 不涉及 **取值范围：** [0, 2147483647] **默认取值：** 1000
+     * @param {'anticrawler_except_url' | 'anticrawler_specific_url'} [type] **参数解释：** JS脚本反爬虫规则防护模式 **约束限制：** 不涉及 **取值范围：**  - anticrawler_except_url: 防护所有路径模式，在该模式下，查询的JS脚本反爬虫规则为排除的防护路径规则  - anticrawler_specific_url: 防护指定路径模式，在该模式下，查询的JS脚本反爬虫规则为指定要防护的路径规则 **默认取值：** anticrawler_except_url
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2415,10 +2437,10 @@ export class WafClient {
      *
      * @summary 查询所有策略防敏感信息泄露规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} [policyids] **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
-     * @param {number} [page] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
-     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含多少条结果。 **约束限制：** 不涉及 **默认取值：** 1000
+     * @param {string} [policyids] **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id；设置此参数后可查询指定策略下的规则，可以设置多个 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
+     * @param {number} [page] **参数解释：** 分页查询时，返回第几页数据 **约束限制：** 不涉及 **取值范围：** page参数的实际有效范围取决于总数据量和pagesize的取值，不能大于总页数 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含的结果条数 **约束限制：** 不涉及 **取值范围：** [0, 总数据量] **默认取值：** 1000
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2438,10 +2460,12 @@ export class WafClient {
      *
      * @summary 查询防敏感信息泄露规则列表
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防敏感信息泄露规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {number} offset 偏移量，表示查询该偏移量之后的记录。
-     * @param {number} limit 查询返回记录的数量限制。
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
+     * @param {number} [offset] **参数解释：** 偏移量，表示查询该偏移量之后的记录，与参数limit一起使用 **约束限制：** 不涉及 **取值范围：** [0, 65535] **默认取值：** 不涉及
+     * @param {number} [limit] **参数解释：** 查询返回记录的数量限制，与参数offset一起使用，如果offset为设置值，则limit无效 **约束限制：** 不涉及 **取值范围：** [1, 65535] **默认取值：** 10
+     * @param {number} [page] **参数解释：** 当前页码，与参数pagesize一起使用 **约束限制：** 不涉及 **取值范围：** [1, 记录数/pagesize] **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 每页大小，与参数page一起使用 **约束限制：** 不涉及 **取值范围：** [0, 2147483647] **默认取值：** 1000
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2460,8 +2484,8 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询防篡改规则列表
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
      * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。
@@ -2484,9 +2508,9 @@ export class WafClient {
      *
      * @summary 查询攻击防护类型
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {number} from **参数解释：** 起始时间（13位毫秒时间戳），需要和to同时使用。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {number} to **参数解释：** 结束时间（13位毫秒时间戳），需要和from同时使用。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {number} from **参数解释：** 起始时间(毫秒时间戳)，需要和to同时使用 **约束限制：** from &lt;&#x3D; to **取值范围：** from ~ to 最大范围30天 **默认取值：** 不涉及
+     * @param {number} to **参数解释：** 结束时间(毫秒时间戳)，需要和from同时使用 **约束限制：** from ~ to 最大范围30天 **取值范围：** 不能超过当天的结束时间 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2506,13 +2530,13 @@ export class WafClient {
      *
      * @summary 查询安全统计带宽数据
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {number} from 查询的带宽统计数据的起始时间（13位毫秒时间戳），需要和to同时使用
-     * @param {number} to 查询的带宽统计数据的结束时间（13位毫秒时间戳），需要和from同时使用
+     * @param {number} from **参数解释：** 起始时间(毫秒时间戳)，需要和to同时使用 **约束限制：** from &lt;&#x3D; to **取值范围：** from ~ to 最大范围30天 **默认取值：** 不涉及
+     * @param {number} to **参数解释：** 结束时间(毫秒时间戳)，需要和from同时使用 **约束限制：** from ~ to 最大范围30天 **取值范围：** 不能超过当天的结束时间 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
-     * @param {string} [hosts] 域名id，用于查询指定的防护域名在from到to这段时间内的带宽数据。通过查询云模式防护域名列表（ListHost）获取域名id或者通过独享模式域名列表（ListPremiumHost）获取域名id
-     * @param {string} [instances] 引擎实例id，用于查询指定的独享引擎实例所防护的域名在from到to这段时间内的带宽数据。
-     * @param {string} [groupBy] 展示维度，按天展示时传\&quot;DAY\&quot;；默认不传，按照分钟展示。
-     * @param {number} [displayOption] 发送/接受字节数，查看峰值请输入1，查看平均值请输入0
+     * @param {Array<string>} [hosts] **参数解释：** 要查询的域名id列表，通过 ”查询独享模式域名列表“（ListPremiumHost）或者 “查询云模式防护域名列表” （ListHost）接口获取；不传参代表查询全部域名的数据 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [instances] **参数解释：** 要查询的实例id列表，通过 “查询WAF独享引擎列表”（ListInstance）接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [groupBy] **参数解释：** 展示维度，按天展示时传\&quot;DAY\&quot; **约束限制：** 不涉及 **取值范围：** - DAY **默认取值：** 不涉及
+     * @param {0 | 1} [displayOption] **参数解释：** 发送/接受字节数查看形式 **约束限制：** 不涉及 **取值范围：** - 0 平均值 - 1 峰值 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2532,10 +2556,10 @@ export class WafClient {
      *
      * @summary 查询所有策略CC规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 策略id只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
-     * @param {number} [page] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
-     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含多少条结果。 **约束限制：** 不涉及 **默认取值：** 1000
+     * @param {string} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
+     * @param {number} [page] **参数解释：** 分页查询时，返回第几页数据 **约束限制：** 不涉及 **取值范围：** page参数的实际有效范围取决于总数据量和pagesize的取值，不能大于总页数 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含的结果条数 **约束限制：** 不涉及 **取值范围：** [0, 总数据量] **默认取值：** 1000
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2554,11 +2578,13 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询cc规则列表
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 策略id（策略id从查询防护策略列表接口获取）
-     * @param {number} offset 偏移量，表示查询该偏移量之后的记录。
-     * @param {number} limit 查询返回记录的数量限制。
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
+     * @param {number} [offset] **参数解释：** 偏移量，表示查询该偏移量之后的记录，与参数limit一起使用 **约束限制：** 不涉及 **取值范围：** [0, 65535] **默认取值：** 不涉及
+     * @param {number} [limit] **参数解释：** 查询返回记录的数量限制，与参数offset一起使用，如果offset为设置值，则limit无效 **约束限制：** 不涉及 **取值范围：** [1, 65535] **默认取值：** 10
+     * @param {number} [page] **参数解释：** 当前页码，与参数pagesize一起使用 **约束限制：** 不涉及 **取值范围：** [1, 记录数/pagesize] **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 每页大小，与参数page一起使用 **约束限制：** 不涉及 **取值范围：** [0, 2147483647] **默认取值：** 1000
      * @param {string} [name] 规则名称
      * @param {number} [status] 规则的开启状态，1表示开启，0表示关闭
      * @param {string} [category] **参数解释：** 防护动作 **取值范围：** - block: 拦截，表示超过“限速频率”将直接拦截。 - log：仅记录，表示超过“限速频率”将只记录不拦截。 - captcha：表示超过“限速频率”后弹出验证码，进行人机验证，完成验证后，请求将不受访问限制。人机验证目前支持英文。 - dynamic_block：上一个限速周期内，请求频率超过“限速频率”将被拦截，那么在下一个限速周期内，请求频率超过“放行频率”将被拦截。 - advanced_captcha：高阶人机验证，表示超过“限速频率”后弹出验证码，进行人机验证。 - js_challenge：要求客户端完成一段脚本的执行或验证，从而验证请求来源的合法性。
@@ -2635,10 +2661,10 @@ export class WafClient {
      *
      * @summary 查询所有策略精准防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 策略id只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
-     * @param {number} [page] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
-     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含多少条结果。 **约束限制：** 不涉及 **默认取值：** 1000
+     * @param {Array<string>} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
+     * @param {number} [page] **参数解释：** 分页查询时，返回第几页数据 **约束限制：** 不涉及 **取值范围：** page参数的实际有效范围取决于总数据量和pagesize的取值，不能大于总页数 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含的结果条数 **约束限制：** 不涉及 **取值范围：** [0, 总数据量] **默认取值：** 1000
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2658,10 +2684,12 @@ export class WafClient {
      *
      * @summary 查询精准防护规则列表
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {number} offset 偏移量，表示查询该偏移量之后的记录。
-     * @param {number} limit 查询返回记录的数量限制。
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
+     * @param {number} [offset] **参数解释：** 偏移量，表示查询该偏移量之后的记录，与参数limit一起使用 **约束限制：** 不涉及 **取值范围：** [0, 65535] **默认取值：** 不涉及
+     * @param {number} [limit] **参数解释：** 查询返回记录的数量限制，与参数offset一起使用，如果offset为设置值，则limit无效 **约束限制：** 不涉及 **取值范围：** [1, 65535] **默认取值：** 10
+     * @param {number} [page] **参数解释：** 当前页码，与参数pagesize一起使用 **约束限制：** 不涉及 **取值范围：** [1, 记录数/pagesize] **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 每页大小，与参数page一起使用 **约束限制：** 不涉及 **取值范围：** [0, 2147483647] **默认取值：** 1000
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2680,17 +2708,42 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询攻击事件列表
-     * @param {string} contentType 内容类型
-     * @param {string} [xLanguage] 语言，默认值为en-us。zh-cn（中文）/en-us（英文）
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释：** 客户端IP所属地理位置展示语言，默认值为en-us **约束限制：** 不涉及 **取值范围：** - zh-cn 中文 - en-us 英文 **默认取值：** en-us
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
-     * @param {'yesterday' | 'today' | '3days' | '1week' | '1month'} [recent] **参数解释：** 查询日志的时间范围（不能和from、to同时使用，同时使用以recent为准），且recent参数与from、to必须使用其中一个。当同时使用recent参数与from、to时，以recent参数为准 **约束限制：** 不涉及 **取值范围：**  - yesterday：昨天  - today：今天  - 3days：命令注入攻击   - 1week：XSS攻击   - 1month：恶意爬虫   **默认取值：** 不涉及
-     * @param {number} [from] 起始时间(13位时间戳)，需要和to同时使用，不能和recent参数同时使用
-     * @param {number} [to] 结束时间(13位时间戳)，需要和from同时使用，不能和recent参数同时使用
-     * @param {Array<string>} [attacks] **参数解释：** 攻击类型 **约束限制：** 不涉及 **取值范围：**  - sqli：sql注入攻击   - lfi：本地文件包含  - cmdi：命令注入攻击   - xss：XSS攻击   - robot：恶意爬虫   - rfi：远程文件包含   - custom_custom：精准防护   - cc: cc攻击   - webshell：网站木马   - custom_whiteblackip：黑白名单拦截   - custom_geoip：地理访问控制拦截   - antitamper：防篡改   - anticrawler：反爬虫    - leakage：网站信息防泄漏   - illegal：非法请求  - antiscan_high_freq_scan：高频扫描封禁  - antiscan_dir_traversal：目录遍历防护  - vuln：除上述攻击类型外的其他漏洞攻击  **默认取值：** 不涉及
-     * @param {Array<string>} [hosts] 域名id，从获取防护网站列表（ListHost）接口获取域名id
-     * @param {Array<string>} [sips] 源ip，Web访问者的IP地址（攻击者IP地址）
-     * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
-     * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。
+     * @param {'yesterday' | 'today' | '3days' | '1week' | '1month'} [recent] **参数解释：** 查询日志的时间范围，recent参数与from、to必须使用其中一个。当同时使用recent参数与from、to时，以recent参数为准 **约束限制：** 不涉及 **取值范围：**  - yesterday：昨天  - today：今天  - 3days：近3天   - 1week：近7天   - 1month：近30天  **默认取值：** 不涉及
+     * @param {number} [from] **参数解释：** 起始时间(毫秒时间戳)，需要和to同时使用 **约束限制：** from &lt;&#x3D; to **取值范围：** from ~ to 最大范围30天 **默认取值：** 不涉及
+     * @param {number} [to] **参数解释：** 结束时间(毫秒时间戳)，需要和from同时使用 **约束限制：** from ~ to 最大范围30天 **取值范围：** 不能超过当天的结束时间 **默认取值：** 不涉及
+     * @param {Array<string>} [ids] **参数解释：** 防护事件id列表，支持模糊查询 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [nids] **参数解释：** 防护事件id列表（排除搜索），支持模糊查询 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<'xss' | 'botm' | 'webshell' | 'vuln' | 'sqli' | 'robot' | 'rfi' | 'rce' | 'ptr' | 'lfi' | 'antileakage' | 'iprank' | 'custom_whiteblackip' | 'custom_whiteip' | 'custom_blackip' | 'custom_robot' | 'custom_geoip' | 'custom_idc_ip' | 'custom_custom' | 'cmdi' | 'cc' | 'antitamper' | 'anticrawler' | 'third_bot_river' | 'antiscan_high_freq_scan' | 'antiscan_dir_traversal' | 'illegal' | 'followed_action' | 'advanced_bot' | 'llm_prompt_injection' | 'llm_prompt_sensitive' | 'llm_response_sensitive'>} [attacks] **参数解释：** 攻击类型 **约束限制：** 不涉及 **取值范围：** - xss：XSS攻击  - botm：BOT攻击 - webshell：网站木马  - vuln：其他漏洞攻击 - sqli：sql注入攻击  - robot：恶意爬虫  - rfi：远程文件包含  - rce：远程代码执行 - ptr：目录遍历 - lfi：本地文件包含 - antileakage：网站信息泄漏  - iprank：IP信誉库 - custom_whiteblackip：IP黑白名单 - custom_whiteip：白名单 - custom_blackip：黑名单 - custom_robot：扫描器爬虫 - custom_geoip：地理访问控制 - custom_idc_ip：IDC情报 - custom_custom：精准防护  - cmdi：命令注入攻击  - cc：cc攻击  - antitamper：网页防篡改  - anticrawler：网站反爬虫   - third_bot_river：第三方反爬虫 - antiscan_high_freq_scan：高频扫描封禁 - antiscan_dir_traversal：目录遍历防护 - illegal：非法请求 - followed_action：攻击惩罚 - advanced_bot：BOT管理 - llm_prompt_injection：提示词注入攻击 - llm_prompt_sensitive：提示词违规 - llm_response_sensitive：响应违规 **默认取值：** 不涉及
+     * @param {Array<'xss' | 'botm' | 'webshell' | 'vuln' | 'sqli' | 'robot' | 'rfi' | 'rce' | 'ptr' | 'lfi' | 'antileakage' | 'iprank' | 'custom_whiteblackip' | 'custom_whiteip' | 'custom_blackip' | 'custom_robot' | 'custom_geoip' | 'custom_idc_ip' | 'custom_custom' | 'cmdi' | 'cc' | 'antitamper' | 'anticrawler' | 'third_bot_river' | 'antiscan_high_freq_scan' | 'antiscan_dir_traversal' | 'illegal' | 'followed_action' | 'advanced_bot' | 'llm_prompt_injection' | 'llm_prompt_sensitive' | 'llm_response_sensitive'>} [nattacks] **参数解释：** 攻击类型（排除搜索） **约束限制：** 不涉及 **取值范围：** - xss：XSS攻击  - botm：BOT攻击 - webshell：网站木马  - vuln：其他漏洞攻击 - sqli：sql注入攻击  - robot：恶意爬虫  - rfi：远程文件包含  - rce：远程代码执行 - ptr：目录遍历 - lfi：本地文件包含 - antileakage：网站信息泄漏  - iprank：IP信誉库 - custom_whiteblackip：IP黑白名单 - custom_whiteip：白名单 - custom_blackip：黑名单 - custom_robot：扫描器爬虫 - custom_geoip：地理访问控制 - custom_idc_ip：IDC情报 - custom_custom：精准防护  - cmdi：命令注入攻击  - cc：cc攻击  - antitamper：网页防篡改  - anticrawler：网站反爬虫   - third_bot_river：第三方反爬虫 - antiscan_high_freq_scan：高频扫描封禁 - antiscan_dir_traversal：目录遍历防护 - illegal：非法请求 - followed_action：攻击惩罚 - advanced_bot：BOT管理 - llm_prompt_injection：提示词注入攻击 - llm_prompt_sensitive：提示词违规 - llm_response_sensitive：响应违规 **默认取值：** 不涉及
+     * @param {Array<string>} [rules] **参数解释：** 规则id列表 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [nrules] **参数解释：** 规则id列表（排除搜索） **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [sips] **参数解释：** 客户端IP列表 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [nsips] **参数解释：** 客户端IP列表（排除搜索） **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [sip] **参数解释：** 客户端IP，当query_mode为\&quot;equal\&quot;时为精确查询，否则模糊查询 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [urls] **参数解释：** url列表 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [nurls] **参数解释：** url列表（排除搜索） **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [url] **参数解释：** URL，当query_mode为\&quot;equal\&quot;时为精确查询，否则模糊查询 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<'block' | 'pass' | 'log' | 'captcha' | 'cache' | 'mask' | 'js_challenge' | 'advanced_captcha' | 'abort_response' | 'desensitize'>} [actions] **参数解释：** 防护动作列表 **约束限制：** 不涉及 **取值范围：** - block：拦截 - pass：放行 - log：仅记录 - captcha：人机验证 - cache：不匹配 - mask：过滤 - js_challenge：JS挑战 - advanced_captcha：高级人机验证 - abort_response：中断响应 - desensitize：脱敏 **默认取值：** 不涉及
+     * @param {Array<'block' | 'pass' | 'log' | 'captcha' | 'cache' | 'mask' | 'js_challenge' | 'advanced_captcha' | 'abort_response' | 'desensitize'>} [nactions] **参数解释：** 防护动作列表（排除搜索） **约束限制：** 不涉及 **取值范围：** - block：拦截 - pass：放行 - log：仅记录 - captcha：人机验证 - cache：不匹配 - mask：过滤 - js_challenge：JS挑战 - advanced_captcha：高级人机验证 - abort_response：中断响应 - desensitize：脱敏 **默认取值：** 不涉及
+     * @param {string} [domain] **参数解释：** 域名，支持模糊查询 **约束限制：** domain和ndomain不可同时查询，当两个都存在时以domain为准 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [ndomain] **参数解释：** 域名（排除搜索），支持模糊查询 **约束限制：** domain和ndomain不可同时查询，当两个都存在时以domain为准 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [domains] **参数解释：** 域名列表 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [ipCountries] **参数解释：** 客户端IP所属国家列表 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [nipCountries] **参数解释：** 客户端IP所属国家列表（排除搜索） **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [ipRegions] **参数解释：** 客户端IP所属省份列表，仅中国省份生效 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [nipRegions] **参数解释：** 客户端IP所属身份列表（排除搜索），仅中国省份生效 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [responseCodes] **参数解释：** 响应码列表 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [payload] **参数解释：** 恶意负载（被WAF识别的攻击片段）： Web 基础防护(SQL注入、XSS、命令注入等)：被WAF识别的攻击片段 CC 攻击：命中规则的请求次数 精准防护、IP黑白名单、地理访问控制：空 攻击惩罚：命中攻击惩罚的用户标识 恶意爬虫：命中规则的 User-Agent 字段 网页反爬虫：JS 脚本事件：js_verified（JS 脚本验证通过事件）和 js_challenge（发送 JS 验证内容事件）。如果请求验证失败则为空。 网站信息泄露：敏感信息过滤为过滤类型，既电话号码,电子邮箱,身份证号；响应码拦截则为拦截的响应码值。 BOT攻击：命中规则的User-Agent等异常请求特征，或AI行为检测结果的评分细节 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [hosts] **参数解释：** 域名id列表，从获取防护网站列表（ListHost）接口获取域名id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [instances] **参数解释：** 引擎实例id列表 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} [page] **参数解释：** 分页查询时，返回第几页数据 **约束限制：** 不涉及 **取值范围：** page参数的实际有效范围取决于总数据量和pagesize的取值，不能大于总页数 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含的结果条数 **约束限制：** 不涉及 **取值范围：** [0, 总数据量] **默认取值：** 10
+     * @param {'attack_time' | 'sort_ip' | 'host' | 'geo_str' | 'component' | 'rule' | 'attack'} [sortKey] **参数解释：** 排序字段，默认attack_time，选择其他字段时，会按照指定字段和attack_time共同排序 **约束限制：** 不涉及 **取值范围：** - attack_time 攻击时间 - sort_ip 客户端IP - host 域名 - geo_str 地理位置 - component 应用组件 - rule 规则ID - attack 事件类型（攻击类型） **默认取值：** attack_time
+     * @param {'desc' | 'asc'} [sortDirection] **参数解释：** 排序方向 **约束限制：** 不涉及 **取值范围：** - desc 降序 - asc 升序 **默认取值：** desc
+     * @param {'equal' | 'include'} [queryMode] **参数解释：** 查询模式，仅影响参数sip、url **约束限制：** 不涉及 **取值范围：** - equal 精确查询 - include 模糊查询 **默认取值：** include
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2710,8 +2763,8 @@ export class WafClient {
      *
      * @summary 查询事件日志下载的url
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {number} [page] 页数
-     * @param {number} [pagesize] 单页显示数
+     * @param {number} [page] **参数解释：** 分页查询时，返回第几页数据 **约束限制：** 不涉及 **取值范围：** page参数的实际有效范围取决于总数据量和pagesize的取值，不能大于总页数 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含的结果条数 **约束限制：** 不涉及 **取值范围：** [0, 总数据量] **默认取值：** 10
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2731,10 +2784,10 @@ export class WafClient {
      *
      * @summary 查询所有策略地理位置访问控制
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 策略id只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
-     * @param {number} [page] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
-     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含多少条结果。 **约束限制：** 不涉及 **默认取值：** 1000
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
+     * @param {Array<string>} [policyids] **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} [page] **参数解释：** 分页查询时，返回第几页数据 **约束限制：** 不涉及 **取值范围：** page参数的实际有效范围取决于总数据量和pagesize的取值，不能大于总页数 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含的结果条数 **约束限制：** 不涉及 **取值范围：** [0, 总数据量] **默认取值：** 1000
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2753,9 +2806,9 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询地理位置访问控制规则列表
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
      * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。
      * @param {*} [options] Override http request option.
@@ -2801,7 +2854,7 @@ export class WafClient {
      *
      * @summary 获取云模式域名路由信息
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} instanceId **参数解释：** 域名id，您可以通过调用查询云模式防护域名列表（ListHost）获取域名id **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} instanceId **参数解释：** 域名id，您可以通过调用查询云模式防护域名列表（ListHost）获取域名id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2822,10 +2875,10 @@ export class WafClient {
      *
      * @summary 查询所有策略全局白名单
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} [policyids] **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
-     * @param {number} [page] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
-     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含多少条结果。 **约束限制：** 不涉及 **默认取值：** 1000
+     * @param {number} [page] **参数解释：** 分页查询时，返回第几页数据 **约束限制：** 不涉及 **取值范围：** page参数的实际有效范围取决于总数据量和pagesize的取值，不能大于总页数 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含的结果条数 **约束限制：** 不涉及 **取值范围：** [0, 总数据量] **默认取值：** 1000
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2845,10 +2898,10 @@ export class WafClient {
      *
      * @summary 查询全局白名单(原误报屏蔽)规则列表
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的全局白名单规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
-     * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
-     * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。
+     * @param {number} [page] **参数解释：** 分页查询时，返回第几页数据 **约束限制：** 不涉及 **取值范围：** page参数的实际有效范围取决于总数据量和pagesize的取值，不能大于总页数 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含的结果条数 **约束限制：** 不涉及 **取值范围：** [0, 总数据量] **默认取值：** 10
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2868,10 +2921,10 @@ export class WafClient {
      *
      * @summary 查询WAF独享引擎列表
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
-     * @param {number} [page] 分页查询参数，第page页，默认值为1
-     * @param {number} [pagesize] 分页查询参数，每页pagesize条记录，默认值为10
-     * @param {string} [instancename] 模糊查询，独享引擎名称
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
+     * @param {number} [page] **参数解释：** 分页查询时，返回第几页数据 **约束限制：** 不涉及 **取值范围：** page参数的实际有效范围取决于总数据量和pagesize的取值，不能大于总页数 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含的结果条数 **约束限制：** 不涉及 **取值范围：** [0, 总数据量] **默认取值：** 10
+     * @param {string} [instancename] **参数解释：** 模糊查询，独享引擎名称 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2891,8 +2944,9 @@ export class WafClient {
      *
      * @summary 查询WAF独享引擎标签
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} resourceid **参数解释：** 资源类型，目前支持waf和waf-instance **约束限制：** 不涉及 **取值范围：** - waf - waf-instance  **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {'waf' | 'waf-instance'} resourceType **参数解释：** 资源类型 **约束限制：** 不涉及 **取值范围：** - waf 云模式引擎 - waf-instance 独享引擎 **默认取值：** 不涉及
+     * @param {string} resourceid **参数解释：** 引擎id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2911,12 +2965,12 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询地址组列表
-     * @param {string} contentType 内容类型
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {number} [page] 页码，默认值为1
      * @param {number} [pagesize] 每页的条数，单页条数限制100，默认值为10
      * @param {string} [name] ip地址组名称，支持模糊查询
-     * @param {string} [ip] ip地址或ip段，传入该参数将查询包含传入的ip地址或ip段的地址组
+     * @param {string} [ip] 单个ip地址或ip段，传入该参数将查询包含传入的ip地址或ip段的地址组
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2936,10 +2990,10 @@ export class WafClient {
      *
      * @summary 查询所有策略威胁情报控制规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} [policyids] **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
-     * @param {number} [page] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
-     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含多少条结果。 **约束限制：** 不涉及 **默认取值：** 1000
+     * @param {string} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
+     * @param {number} [page] **参数解释：** 分页查询时，返回第几页数据 **约束限制：** 不涉及 **取值范围：** page参数的实际有效范围取决于总数据量和pagesize的取值，不能大于总页数 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含的结果条数 **约束限制：** 不涉及 **取值范围：** [0, 总数据量] **默认取值：** 1000
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2960,9 +3014,11 @@ export class WafClient {
      * @summary 查询威胁情报规则列表
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} policyId **参数解释：** 策略id（策略id从查询防护策略列表接口获取） **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {number} offset **参数解释：** 偏移量，表示查询该偏移量之后的记录。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {number} limit **参数解释：** 查询返回记录的数量限制。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1000
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
+     * @param {number} [offset] **参数解释：** 偏移量，表示查询该偏移量之后的记录 **约束限制：** 不涉及 **取值范围：** [0, 65535] **默认取值：** 不涉及
+     * @param {number} [limit] **参数解释：** 查询返回记录的数量限制 **约束限制：** 不涉及 **取值范围：** [1, 65535] **默认取值：** 10
+     * @param {number} [page] **参数解释：** 分页查询时，返回第几页数据 **约束限制：** 不涉及 **取值范围：** page参数的实际有效范围取决于总数据量和pagesize的取值，不能大于总页数 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含的结果条数 **约束限制：** 不涉及 **取值范围：** [0, 总数据量] **默认取值：** 10
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3002,13 +3058,13 @@ export class WafClient {
      *
      * @summary 查询安全总览分类统计top信息
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {number} from 起始时间（13位毫秒时间戳），需要和to同时使用
-     * @param {number} to 结束时间（13位毫秒时间戳），需要和from同时使用
-     * @param {string} [xLanguage] 语言，默认值为en-us。zh-cn（中文）/en-us（英文）
+     * @param {number} from **参数解释：** 起始时间(毫秒时间戳)，需要和to同时使用 **约束限制：** from &lt;&#x3D; to **取值范围：** from ~ to 最大范围30天 **默认取值：** 不涉及
+     * @param {number} to **参数解释：** 结束时间(毫秒时间戳)，需要和from同时使用 **约束限制：** from ~ to 最大范围30天 **取值范围：** 不能超过当天的结束时间 **默认取值：** 不涉及
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释：** 地理位置展示语言 **约束限制：** 不涉及 **取值范围：** - zh-cn 中文 - en-us 英文 **默认取值：** en-us
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
-     * @param {number} [top] 要查询的前几的结果，最大值为10，默认值为5。
-     * @param {string} [hosts] 域名id，通过查询云模式防护域名列表（ListHost）获取域名id或者通过独享模式域名列表（ListPremiumHost）获取域名id。默认不传，查询该项目下所有防护域名的top业务异常统计信息。
-     * @param {string} [instances] 要查询引擎实例id
+     * @param {number} [top] **参数解释：** 查询前TopN的结果 **约束限制：** 不涉及 **取值范围：** [1, 10] **默认取值：** 5
+     * @param {Array<string>} [hosts] **参数解释：** 要查询的域名id列表，通过 ”查询独享模式域名列表“（ListPremiumHost）或者 “查询云模式防护域名列表” （ListHost）接口获取；不传参代表查询全部域名的数据 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [instances] **参数解释：** 要查询的实例id列表，通过 “查询WAF独享引擎列表”（ListInstance）接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3050,7 +3106,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 独享模式域名列表
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {string} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
      * @param {string} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。如果需要一次查全部域名，该参数值填-1。
@@ -3076,10 +3132,10 @@ export class WafClient {
      *
      * @summary 查询所有策略隐私屏蔽防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 策略id只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
-     * @param {number} [page] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
-     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含多少条结果。 **约束限制：** 不涉及 **默认取值：** 1000
+     * @param {string} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
+     * @param {number} [page] **参数解释：** 分页查询时，返回第几页数据 **约束限制：** 不涉及 **取值范围：** page参数的实际有效范围取决于总数据量和pagesize的取值，不能大于总页数 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含的结果条数 **约束限制：** 不涉及 **取值范围：** [0, 总数据量] **默认取值：** 1000
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3098,11 +3154,11 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询隐私屏蔽防护规则列表
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 策略id，唯一标识一条防护策略，可从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
-     * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
-     * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。
+     * @param {number} [page] **参数解释：** 分页查询时，返回第几页数据 **约束限制：** 不涉及 **取值范围：** page参数的实际有效范围取决于总数据量和pagesize的取值，不能大于总页数 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含的结果条数 **约束限制：** 不涉及 **取值范围：** [0, 总数据量] **默认取值：** 10
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3144,10 +3200,12 @@ export class WafClient {
      *
      * @summary 查询攻击惩罚规则列表
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的攻击惩罚规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {number} offset 偏移量，表示查询该偏移量之后的记录。
-     * @param {number} limit 查询返回记录的数量限制。
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
+     * @param {number} [offset] **参数解释：** 偏移量，表示查询该偏移量之后的记录，与参数limit一起使用 **约束限制：** 不涉及 **取值范围：** [0, 65535] **默认取值：** 不涉及
+     * @param {number} [limit] **参数解释：** 查询返回记录的数量限制，与参数offset一起使用，如果offset为设置值，则limit无效 **约束限制：** 不涉及 **取值范围：** [1, 65535] **默认取值：** 10
+     * @param {number} [page] **参数解释：** 当前页码，与参数pagesize一起使用 **约束限制：** 不涉及 **取值范围：** [1, 记录数/pagesize] **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 每页大小，与参数page一起使用 **约束限制：** 不涉及 **取值范围：** [0, 2147483647] **默认取值：** 1000
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3167,12 +3225,12 @@ export class WafClient {
      *
      * @summary 查询安全统计qps次数
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {number} from 起始时间（13位毫秒时间戳），需要和to同时使用
-     * @param {number} to 结束时间（13位毫秒时间戳），需要和from同时使用
+     * @param {number} from **参数解释：** 起始时间(毫秒时间戳)，需要和to同时使用 **约束限制：** from &lt;&#x3D; to **取值范围：** from ~ to 最大范围30天 **默认取值：** 不涉及
+     * @param {number} to **参数解释：** 结束时间(毫秒时间戳)，需要和from同时使用 **约束限制：** from ~ to 最大范围30天 **取值范围：** 不能超过当天的结束时间 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
-     * @param {string} [hosts] 域名id，通过查询云模式防护域名列表（ListHost）获取域名id或者通过独享模式域名列表（ListPremiumHost）获取域名id
-     * @param {string} [instances] 要查询引擎实例id（仅独享或者ELB实例化模式涉及）
-     * @param {string} [groupBy] 展示维度，按天展示时传\&quot;DAY\&quot;；默认不传，按照分钟展示
+     * @param {Array<string>} [hosts] **参数解释：** 要查询的域名id列表，通过 ”查询独享模式域名列表“（ListPremiumHost）或者 “查询云模式防护域名列表” （ListHost）接口获取；不传参代表查询全部域名的数据 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [instances] **参数解释：** 要查询的实例id列表，通过 “查询WAF独享引擎列表”（ListInstance）接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [groupBy] **参数解释：** 展示维度，按天展示时传\&quot;DAY\&quot; **约束限制：** 不涉及 **取值范围：** - DAY **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3192,12 +3250,12 @@ export class WafClient {
      *
      * @summary 查询安全总览中请求次数时间线统计数据
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {number} from 起始时间（13位毫秒时间戳），需要和to同时使用
-     * @param {number} to 结束时间（13位毫秒时间戳），需要和from同时使用
+     * @param {number} from **参数解释：** 起始时间(毫秒时间戳)，需要和to同时使用 **约束限制：** from &lt;&#x3D; to **取值范围：** from ~ to 最大范围30天 **默认取值：** 不涉及
+     * @param {number} to **参数解释：** 结束时间(毫秒时间戳)，需要和from同时使用 **约束限制：** from ~ to 最大范围30天 **取值范围：** 不能超过当天的结束时间 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
-     * @param {Array<string>} [hosts] 域名id，通过查询云模式防护域名列表（ListHost）获取域名id或者通过独享模式域名列表（ListPremiumHost）获取域名id。默认不传，查询该项目下所有防护域名的top业务异常统计信息。
-     * @param {Array<string>} [instances] 要查询引擎实例id
-     * @param {string} [groupBy] 展示维度，按天展示时传\&quot;DAY\&quot;；默认不传，按照分钟展示
+     * @param {Array<string>} [hosts] **参数解释：** 要查询的域名id列表，通过 ”查询独享模式域名列表“（ListPremiumHost）或者 “查询云模式防护域名列表” （ListHost）接口获取；不传参代表查询全部域名的数据 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [instances] **参数解释：** 要查询的实例id列表，通过 “查询WAF独享引擎列表”（ListInstance）接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [groupBy] **参数解释：** 展示维度，按天展示时传\&quot;DAY\&quot; **约束限制：** 不涉及 **取值范围：** - DAY **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3217,13 +3275,13 @@ export class WafClient {
      *
      * @summary 查询安全统计响应码数据
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {number} from **参数解释：** 起始时间（13位毫秒时间戳） **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {number} to **参数解释：** 结束时间（13位毫秒时间戳） **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} from **参数解释：** 起始时间(毫秒时间戳)，需要和to同时使用 **约束限制：** from &lt;&#x3D; to **取值范围：** from ~ to 最大范围30天 **默认取值：** 不涉及
+     * @param {number} to **参数解释：** 结束时间(毫秒时间戳)，需要和from同时使用 **约束限制：** from ~ to 最大范围30天 **取值范围：** 不能超过当天的结束时间 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
-     * @param {Array<string>} [hosts] **参数解释：** 要查询的域名列表，通过 ”查询独享模式域名列表“（ListPremiumHost）或者 “查询云模式防护域名列表” （ListHost）接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {Array<string>} [instances] **参数解释：** 要查询的实例列表，通过 “查询WAF独享引擎列表”（ListInstance）接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {'WAF' | 'UPSTREAM'} [responseSource] **参数解释：** 响应源 **约束限制：** 不涉及 **取值范围：** - WAF - UPSTREAM  **默认取值：** 不涉及
-     * @param {string} [groupBy] **参数解释：** 展示维度，按天展示时传\&quot;DAY\&quot; **约束限制：** 不涉及 **取值范围：** - DAY  **默认取值：** 不涉及
+     * @param {Array<string>} [hosts] **参数解释：** 要查询的域名id列表，通过 ”查询独享模式域名列表“（ListPremiumHost）或者 “查询云模式防护域名列表” （ListHost）接口获取；不传参代表查询全部域名的数据 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [instances] **参数解释：** 要查询的实例id列表，通过 “查询WAF独享引擎列表”（ListInstance）接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {'WAF' | 'UPSTREAM'} [responseSource] **参数解释：** 响应源 **约束限制：** 不涉及 **取值范围：** - WAF - UPSTREAM **默认取值：** 不涉及
+     * @param {string} [groupBy] **参数解释：** 展示维度，按天展示时传\&quot;DAY\&quot; **约束限制：** 不涉及 **取值范围：** - DAY **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3313,8 +3371,12 @@ export class WafClient {
      *
      * @summary 查询攻击源ip
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} recent **参数解释：** 查询日志的时间范围，如1week（1周）、1month（1个月） **约束限制：** 不涉及 **取值范围：** - yesterday - today - 3days - 1week - 1month  **默认取值：** 不涉及
-     * @param {Array<string>} hosts 要查询事件域名id列表
+     * @param {'yesterday' | 'today' | '3days' | '1week' | '1month'} [recent] **参数解释：** 查询的时间范围，recent参数与from、to必须使用其中一个。当同时使用recent参数与from、to时，以recent参数为准 **约束限制：** 不涉及 **取值范围：**  - yesterday：昨天  - today：今天  - 3days：近3天   - 1week：近7天   - 1month：近30天  **默认取值：** 不涉及
+     * @param {number} [from] **参数解释：** 起始时间(毫秒时间戳)，需要和to同时使用 **约束限制：** from &lt;&#x3D; to **取值范围：** from ~ to 最大范围30天 **默认取值：** 不涉及
+     * @param {number} [to] **参数解释：** 结束时间(毫秒时间戳)，需要和from同时使用 **约束限制：** from ~ to 最大范围30天 **取值范围：** 不能超过当天的结束时间 **默认取值：** 不涉及
+     * @param {number} [top] **参数解释：** 查询前TopN的结果 **约束限制：** 不涉及 **取值范围：** [1, 10] **默认取值：** 5
+     * @param {Array<string>} [hosts] **参数解释：** 要查询的域名id列表，通过 ”查询独享模式域名列表“（ListPremiumHost）或者 “查询云模式防护域名列表” （ListHost）接口获取；不传参代表查询全部域名的数据 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [instances] **参数解释：** 要查询的实例id列表，通过 “查询WAF独享引擎列表”（ListInstance）接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3334,11 +3396,11 @@ export class WafClient {
      *
      * @summary 查询安全总览请求与攻击数量
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {number} from 起始时间(13位时间戳)，需要和to同时使用
-     * @param {number} to 结束时间(13位时间戳),需要和from同时使用
+     * @param {number} from **参数解释：** 起始时间(毫秒时间戳)，需要和to同时使用 **约束限制：** from &lt;&#x3D; to **取值范围：** from ~ to 最大范围30天 **默认取值：** 不涉及
+     * @param {number} to **参数解释：** 结束时间(毫秒时间戳)，需要和from同时使用 **约束限制：** from ~ to 最大范围30天 **取值范围：** 不能超过当天的结束时间 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
-     * @param {string} [hosts] 域名id，通过查询云模式防护域名列表（ListHost）获取域名id或者通过独享模式域名列表（ListPremiumHost）获取域名id
-     * @param {string} [instances] 要查询引擎实例id
+     * @param {Array<string>} [hosts] **参数解释：** 要查询的域名id列表，通过 ”查询独享模式域名列表“（ListPremiumHost）或者 “查询云模式防护域名列表” （ListHost）接口获取；不传参代表查询全部域名的数据 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [instances] **参数解释：** 要查询的实例id列表，通过 “查询WAF独享引擎列表”（ListInstance）接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3358,8 +3420,11 @@ export class WafClient {
      *
      * @summary 查询攻击事件分布类型
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} recent **参数解释：** 查询日志的时间范围，如1week（1周）、1month（1个月） **约束限制：** 不涉及 **取值范围：** - yesterday - today - 3days - 1week - 1month  **默认取值：** 不涉及
-     * @param {Array<string>} [hosts] 要查询事件的域名列表
+     * @param {'yesterday' | 'today' | '3days' | '1week' | '1month'} [recent] **参数解释：** 查询的时间范围，recent参数与from、to必须使用其中一个。当同时使用recent参数与from、to时，以recent参数为准 **约束限制：** 不涉及 **取值范围：**  - yesterday：昨天  - today：今天  - 3days：近3天   - 1week：近7天   - 1month：近30天  **默认取值：** 不涉及
+     * @param {number} [from] **参数解释：** 起始时间(毫秒时间戳)，需要和to同时使用 **约束限制：** from &lt;&#x3D; to **取值范围：** from ~ to 最大范围30天 **默认取值：** 不涉及
+     * @param {number} [to] **参数解释：** 结束时间(毫秒时间戳)，需要和from同时使用 **约束限制：** from ~ to 最大范围30天 **取值范围：** 不能超过当天的结束时间 **默认取值：** 不涉及
+     * @param {Array<string>} [hosts] **参数解释：** 要查询的域名id列表，通过 ”查询独享模式域名列表“（ListPremiumHost）或者 “查询云模式防护域名列表” （ListHost）接口获取；不传参代表查询全部域名的数据 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [instances] **参数解释：** 要查询的实例id列表，通过 “查询WAF独享引擎列表”（ListInstance）接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3379,13 +3444,13 @@ export class WafClient {
      *
      * @summary 查询业务异常数量
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {number} from 起始时间（13位毫秒时间戳），需要和to同时使用
-     * @param {number} to 结束时间（13位毫秒时间戳），需要和from同时使用
+     * @param {number} from **参数解释：** 起始时间(毫秒时间戳)，需要和to同时使用 **约束限制：** from &lt;&#x3D; to **取值范围：** from ~ to 最大范围30天 **默认取值：** 不涉及
+     * @param {number} to **参数解释：** 结束时间(毫秒时间戳)，需要和from同时使用 **约束限制：** from ~ to 最大范围30天 **取值范围：** 不能超过当天的结束时间 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
-     * @param {number} [top] 要查询的前几的结果，默认值为5，最大值为10。
-     * @param {number} [code] 要查询的异常状态码，目前支持查询的异常状态码包括404、500以及502。不传该参数默认查询404的状态码。
-     * @param {string} [hosts] 域名id，通过查询云模式防护域名列表（ListHost）获取域名id或者通过独享模式域名列表（ListPremiumHost）获取域名id。默认不传，查询该项目下所有防护域名的top业务异常统计信息。
-     * @param {string} [instances] 要查询引擎实例id
+     * @param {number} [top] **参数解释：** 查询前TopN的结果 **约束限制：** 不涉及 **取值范围：** [1, 10] **默认取值：** 5
+     * @param {404 | 500 | 502} [code] **参数解释：** 要查询的异常状态码 **约束限制：** 不涉及 **取值范围：** - 404 - 500 - 502 **默认取值：** 404
+     * @param {Array<string>} [hosts] **参数解释：** 要查询的域名id列表，通过 ”查询独享模式域名列表“（ListPremiumHost）或者 “查询云模式防护域名列表” （ListHost）接口获取；不传参代表查询全部域名的数据 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [instances] **参数解释：** 要查询的实例id列表，通过 “查询WAF独享引擎列表”（ListInstance）接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3405,11 +3470,11 @@ export class WafClient {
      *
      * @summary 查询top受攻击域名
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {number} from **参数解释：** 起始时间（13位毫秒时间戳），需要和to同时使用。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {number} to **参数解释：** 结束时间（13位毫秒时间戳），需要和from同时使用。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
-     * @param {number} [top] **参数解释：** 查询受攻击次数排名在前几的结果 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 5
-     * @param {Array<string>} [hosts] **参数解释：** 域名ID，查询的域名列表 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} from **参数解释：** 起始时间(毫秒时间戳)，需要和to同时使用 **约束限制：** from &lt;&#x3D; to **取值范围：** from ~ to 最大范围30天 **默认取值：** 不涉及
+     * @param {number} to **参数解释：** 结束时间(毫秒时间戳)，需要和from同时使用 **约束限制：** from ~ to 最大范围30天 **取值范围：** 不能超过当天的结束时间 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
+     * @param {number} [top] **参数解释：** 查询前TopN的结果 **约束限制：** 不涉及 **取值范围：** [1, 10] **默认取值：** 5
+     * @param {Array<string>} [hosts] **参数解释：** 要查询的域名id列表，通过 ”查询独享模式域名列表“（ListPremiumHost）或者 “查询云模式防护域名列表” （ListHost）接口获取；不传参代表查询全部域名的数据 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3429,12 +3494,12 @@ export class WafClient {
      *
      * @summary 查询攻击源ip
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {number} from **参数解释：** 起始时间 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {number} to **参数解释：** 结束时间 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} from **参数解释：** 起始时间(毫秒时间戳)，需要和to同时使用 **约束限制：** from &lt;&#x3D; to **取值范围：** from ~ to 最大范围30天 **默认取值：** 不涉及
+     * @param {number} to **参数解释：** 结束时间(毫秒时间戳)，需要和from同时使用 **约束限制：** from ~ to 最大范围30天 **取值范围：** 不能超过当天的结束时间 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] **参数解释：** 企业项目id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {number} [top] **参数解释：** 要查询的前几的结果 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {string} [hosts] **参数解释：** 要查询域名列表 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {string} [instances] **参数解释：** 要查询实例列表 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} [top] **参数解释：** 查询前TopN的结果 **约束限制：** 不涉及 **取值范围：** [1, 10] **默认取值：** 5
+     * @param {Array<string>} [hosts] **参数解释：** 要查询的域名id列表，通过 ”查询独享模式域名列表“（ListPremiumHost）或者 “查询云模式防护域名列表” （ListHost）接口获取；不传参代表查询全部域名的数据 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [instances] **参数解释：** 要查询的实例id列表，通过 “查询WAF独享引擎列表”（ListInstance）接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3454,12 +3519,12 @@ export class WafClient {
      *
      * @summary 查询被攻击url
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {number} from **参数解释：** 起始时间 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {number} to **参数解释：** 结束时间 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} from **参数解释：** 起始时间(毫秒时间戳)，需要和to同时使用 **约束限制：** from &lt;&#x3D; to **取值范围：** from ~ to 最大范围30天 **默认取值：** 不涉及
+     * @param {number} to **参数解释：** 结束时间(毫秒时间戳)，需要和from同时使用 **约束限制：** from ~ to 最大范围30天 **取值范围：** 不能超过当天的结束时间 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] **参数解释：** 企业项目id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {number} [top] **参数解释：** 要查询的前几的结果 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {string} [hosts] **参数解释：** 要查询域名列表 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {string} [instances] **参数解释：** 要查询实例列表 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} [top] **参数解释：** 查询前TopN的结果 **约束限制：** 不涉及 **取值范围：** [1, 10] **默认取值：** 5
+     * @param {Array<string>} [hosts] **参数解释：** 要查询的域名id列表，通过 ”查询独享模式域名列表“（ListPremiumHost）或者 “查询云模式防护域名列表” （ListHost）接口获取；不传参代表查询全部域名的数据 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [instances] **参数解释：** 要查询的实例id列表，通过 “查询WAF独享引擎列表”（ListInstance）接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3479,12 +3544,12 @@ export class WafClient {
      *
      * @summary 查询事件日志中的url
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {number} top 受攻击次数最多的几条url
-     * @param {string} [recent] **参数解释：** 查询日志的时间范围，如1week（1周）、1month（1个月） **约束限制：** 不涉及 **取值范围：** - yesterday - today - 3days - 1week - 1month  **默认取值：** 不涉及
-     * @param {number} [from] **参数解释：** 开始时间，统计周期的起始时间戳（毫秒级）。不使用recent参数时需要填写 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {number} [to] **参数解释：** 结束时间，统计周期的终止时间戳（毫秒级）。不使用recent参数时需要填写 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {Array<string>} [hosts] 要查询事件的域名id列表
-     * @param {Array<string>} [instances] 要查询事件的独享域名id列表
+     * @param {number} [top] **参数解释：** 查询前TopN的结果 **约束限制：** 不涉及 **取值范围：** [1, 10] **默认取值：** 5
+     * @param {'yesterday' | 'today' | '3days' | '1week' | '1month'} [recent] **参数解释：** 查询的时间范围，recent参数与from、to必须使用其中一个。当同时使用recent参数与from、to时，以recent参数为准 **约束限制：** 不涉及 **取值范围：**  - yesterday：昨天  - today：今天  - 3days：近3天   - 1week：近7天   - 1month：近30天  **默认取值：** 不涉及
+     * @param {number} [from] **参数解释：** 起始时间(毫秒时间戳)，需要和to同时使用 **约束限制：** from &lt;&#x3D; to **取值范围：** from ~ to 最大范围30天 **默认取值：** 不涉及
+     * @param {number} [to] **参数解释：** 结束时间(毫秒时间戳)，需要和from同时使用 **约束限制：** from ~ to 最大范围30天 **取值范围：** 不能超过当天的结束时间 **默认取值：** 不涉及
+     * @param {Array<string>} [hosts] **参数解释：** 要查询的域名id列表，通过 ”查询独享模式域名列表“（ListPremiumHost）或者 “查询云模式防护域名列表” （ListHost）接口获取；不传参代表查询全部域名的数据 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {Array<string>} [instances] **参数解释：** 要查询的实例id列表，通过 “查询WAF独享引擎列表”（ListInstance）接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3505,7 +3570,7 @@ export class WafClient {
      * @summary 查询引用表列表
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
-     * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。
+     * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围-1-100，默认值为-1，表示查询全部结果。
      * @param {string} [name] 引用表名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3526,19 +3591,19 @@ export class WafClient {
      *
      * @summary 查询web基础防护内置规则列表
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释：** 语言，默认值为zh-cn。zh-cn（中文）/en-us（英文）。 **约束限制：** 不涉及 **取值范围：** - zh-cn：中文 - en-us：英文  **默认取值：** - zh-cn
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
-     * @param {number} [offset] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
-     * @param {number} [limit] **参数解释：** 分页查询的单页返回数量，控制每次请求返回的记录条数。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 10
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释：** 语言，默认值为zh-cn。zh-cn（中文）/en-us（英文）。 **约束限制：** 不涉及 **取值范围：** - zh-cn：中文 - en-us：英文 **默认取值：** zh-cn
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
+     * @param {number} [offset] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回 **约束限制：** 不涉及 **取值范围：** [0,2147483645] **默认取值：** 0
+     * @param {number} [limit] **参数解释：** 分页查询的单页返回数量，控制每次请求返回的记录条数。 **约束限制：** 不涉及 **取值范围：** [1, 1000] **默认取值：** 10
      * @param {number} [from] **参数解释：** 起始时间（13位毫秒时间戳），需要和to同时使用。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {number} [to] **参数解释：** 结束时间（13位毫秒时间戳），需要和from同时使用。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {1 | 2 | 3} [level] **参数解释：** 规则集的防护严格程度。规则集（宽松）下对业务的误报率降低，但漏报率可能会增高；而规则集（严格）下对业务的误报率可能会增高，但漏报率降低。 **约束限制：** 不涉及 **取值范围：** - 1：宽松 - 2：中等 - 3：严格  **默认取值：** 不涉及
+     * @param {1 | 2 | 3} [level] **参数解释：** 规则集的防护严格程度。规则集（宽松）下对业务的误报率降低，但漏报率可能会增高；而规则集（严格）下对业务的误报率可能会增高，但漏报率降低。 **约束限制：** 不涉及 **取值范围：** - 1：宽松 - 2：中等 - 3：严格 **默认取值：** 不涉及
      * @param {string} [id] **参数解释：** 规则ID，规则的唯一标识。 **约束限制：** 不涉及 **取值范围：** 长度为6个字符 **默认取值：** 不涉及
      * @param {string} [description] **参数解释：** 规则描述 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [cveNumber] **参数解释：** CVE编号 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {1 | 2 | 3} [riskLevel] **参数解释：** 危险等级 **约束限制：** 不涉及 **取值范围：** - 1：高危 - 2：中危 - 3：低危  **默认取值：** 不涉及
-     * @param {'vuln' | 'xss' | 'cmdi' | 'lfi' | 'rfi' | 'webshell' | 'robot' | 'sqli'} [protectionTypeNames] **参数解释：** 防护类型 **约束限制：** 不涉及 **取值范围：** - vuln：其他 - xss：跨站脚本 - cmdi：命令注入 - lfi：本地文件包含 - rfi：远程文件包含 - webshell：网站木马 - robot：恶意爬虫 - sqli：SQL注入  **默认取值：** 不涉及
-     * @param {string} [applicationTypeNames] **参数解释：** 应用类型 **约束限制：** 不涉及 **取值范围：** 请参见WAF控制台，Web基础防护规则详情页面的应用类型。 **默认取值：** 不涉及
+     * @param {1 | 2 | 3} [riskLevel] **参数解释：** 危险等级 **约束限制：** 不涉及 **取值范围：** - 1：高危 - 2：中危 - 3：低危 **默认取值：** 不涉及
+     * @param {'vuln' | 'xss' | 'cmdi' | 'lfi' | 'rfi' | 'webshell' | 'robot' | 'sqli'} [protectionTypeNames] **参数解释：** 防护类型 **约束限制：** 不涉及 **取值范围：** - vuln：其他 - xss：跨站脚本 - cmdi：命令注入 - lfi：本地文件包含 - rfi：远程文件包含 - webshell：网站木马 - robot：恶意爬虫 - sqli：SQL注入 **默认取值：** 不涉及
+     * @param {string} [applicationTypeNames] **参数解释：** 应用类型，可通过ConfirmApplicationTypes接口获取支持的应用类型 **约束限制：** 不涉及 **取值范围：** 请参见ConfirmApplicationTypes接口 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3558,10 +3623,10 @@ export class WafClient {
      *
      * @summary 查询所有策略黑白名单防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 策略id只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
-     * @param {number} [page] **参数解释：** 分页查询的起始位置，表示从第几条记录开始返回（从1开始计数）。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 1
-     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含多少条结果。 **约束限制：** 不涉及 **默认取值：** 1000
+     * @param {string} [policyids] **参数解释：** 策略id列表。策略id从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取，多个策略之间用“,”隔开 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
+     * @param {number} [page] **参数解释：** 分页查询时，返回第几页数据 **约束限制：** 不涉及 **取值范围：** page参数的实际有效范围取决于总数据量和pagesize的取值，不能大于总页数 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含的结果条数 **约束限制：** 不涉及 **取值范围：** [0, 总数据量] **默认取值：** 1000
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3580,11 +3645,11 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询黑白名单规则列表
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
-     * @param {number} [page] 分页查询时，返回第几页数据。默认值为1，表示返回第1页数据。
-     * @param {number} [pagesize] 分页查询时，每页包含多少条结果。范围1-100，默认值为10，表示每页包含10条结果。
+     * @param {number} [page] **参数解释：** 分页查询时，返回第几页数据 **约束限制：** 不涉及 **取值范围：** page参数的实际有效范围取决于总数据量和pagesize的取值，不能大于总页数 **默认取值：** 1
+     * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含的结果条数 **约束限制：** 不涉及 **取值范围：** [0, 总数据量] **默认取值：** 10
      * @param {string} [name] 黑白名单规则名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3627,8 +3692,8 @@ export class WafClient {
      *
      * @summary 重命名WAF独享引擎
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} instanceId 独享引擎ID（通过调用WAF的ListInstance接口获取所有独享引擎信息查询独享引擎ID）
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} instanceId **参数解释：** 独享引擎ID（通过调用WAF的ListInstance接口获取所有独享引擎信息查询独享引擎ID） **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {RenameInstanceRequestBody} [renameInstanceRequestBody] 独享引擎新名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3649,8 +3714,8 @@ export class WafClient {
      *
      * @summary 查询JS脚本反爬虫防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 规则id
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** JS反爬虫规则id，您可以通过查询JS脚本反爬虫规则列表（ListAnticrawlerRules）接口的响应体中的id字段获取规则id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3671,8 +3736,8 @@ export class WafClient {
      *
      * @summary 查询防敏感信息泄露防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 防敏感信息泄露规则id，通过查询防敏感信息泄露规则列表接口（ListAntileakageRules）获取
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 防敏感信息泄露规则id，通过查询防敏感信息泄露规则列表接口（ListAntileakageRules）获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3692,10 +3757,10 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询防篡改防护规则
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 防篡改规则id，通过查询防篡改规则列表接口（ListAntitamperRule）获取
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 防篡改规则id，通过查询防篡改规则列表接口（ListAntitamperRule）获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3714,9 +3779,9 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 根据Id查询cc防护规则
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 策略id（策略id从查询防护策略列表接口获取）
-     * @param {string} ruleId ID of the cc rule. It can be obtained by calling the **ListCcRules** API.
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** CC规则id，您可以通过查询CC规则列表（ListCcRules）接口的响应体中的id字段获取规则id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3778,7 +3843,8 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 局点支持特性查询
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} [region] **参数解释：** 局点ID，未携带时仅查询基础数据 **约束限制：** 华为云支持的局点ID **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3798,9 +3864,9 @@ export class WafClient {
      *
      * @summary 根据Id查询精准防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 精准防护规则id，通过查询精准防护规则列表接口（ListCustomRules）获取
-     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 精准防护规则id，通过查询精准防护规则列表接口（ListCustomRules）获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3819,9 +3885,9 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定事件id的防护事件详情
-     * @param {string} contentType 内容类型
-     * @param {string} eventid 防护事件id,通过调用查询攻击事件列表(ListEvent)接口获取防护事件id
-     * @param {string} [xLanguage] 语言，默认值为en-us。zh-cn（中文）/en-us（英文）
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} eventid **参数解释：** 防护事件id,通过调用查询攻击事件列表(ListEvent)接口获取防护事件id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释：** 客户端IP所属地理位置展示语言，默认值为en-us **约束限制：** 不涉及 **取值范围：** - zh-cn 中文 - en-us 英文 **默认取值：** en-us
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3841,10 +3907,10 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询地理位置控制防护规则详情
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 地理位置控制防护规则id，规则id从查询地理位置控制防护规则列表（ListGeoipRule）接口获取，响应体的id字段
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 地理位置控制防护规则id，规则id从查询地理位置控制防护规则列表（ListGeoipRule）接口获取，响应体的id字段 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3885,7 +3951,7 @@ export class WafClient {
      *
      * @summary 查询域名运行状态
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} hostId **参数解释：** 域名ID，您可以通过调用查询全部防护域名列表（ListCompositeHosts）获取域名ID。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} hostId **参数解释：** 域名ID，您可以通过调用查询全部防护域名列表（ListCompositeHosts）获取域名ID。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3905,8 +3971,8 @@ export class WafClient {
      *
      * @summary 查询全局白名单(原误报屏蔽)防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 误报屏蔽规则id，您可以通过查询误报屏蔽规则列表（ListIgnoreRule）接口的响应体中的id字段获取误报屏蔽规则id
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 误报屏蔽规则id，您可以通过查询误报屏蔽规则列表（ListIgnoreRule）接口的响应体中的id字段获取规则id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3927,7 +3993,7 @@ export class WafClient {
      *
      * @summary 查询WAF独享引擎信息
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} instanceId 独享引擎ID（通过调用WAF的ListInstance接口获取所有独享引擎信息查询独享引擎ID）
+     * @param {string} instanceId **参数解释：** 独享引擎ID（通过调用WAF的ListInstance接口获取所有独享引擎信息查询独享引擎ID） **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3947,8 +4013,8 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询ip地址组明细
-     * @param {string} contentType 内容类型
-     * @param {string} id ip地址组id
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} id **参数解释：** ip地址组id，可从查询地址组列表(ListIpGroup)接口中获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4010,7 +4076,7 @@ export class WafClient {
      *
      * @summary 查询地理位置选项的详细信息
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {'cn' | 'en'} [lang] **参数解释：** 语言的类型 - cn代表中文 - en代表英文  **约束限制：** 不涉及 **取值范围：** - cn - en  **默认取值：** - cn
+     * @param {'cn' | 'en'} [lang] **参数解释：** 语言类型 **约束限制：** 不涉及 **取值范围：** - cn 中文 - en 英文 **默认取值：** cn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4029,8 +4095,8 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看独享模式域名配置
-     * @param {string} contentType 内容类型
-     * @param {string} hostId 独享模式域名ID
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} hostId **参数解释：** 域名id，通过 ”查询独享模式域名列表“（ListPremiumHost）获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4050,9 +4116,9 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询隐私屏蔽防护规则
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 隐私屏蔽规则id，您可以通过调用查询隐私屏蔽规则列表（ListPrivacyRule）获取规则id
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 策略id，唯一标识一条防护策略，可从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 隐私屏蔽规则id，您可以通过调用查询隐私屏蔽规则列表（ListPrivacyRule）获取规则id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4073,8 +4139,8 @@ export class WafClient {
      *
      * @summary 根据Id查询攻击惩罚防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 攻击惩罚规则id，通过查询攻击惩罚规则列表接口（ListPunishmentRules）获取
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 攻击惩罚规则id，通过查询攻击惩罚规则列表接口（ListPunishmentRules）获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4154,7 +4220,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户订购信息
-     * @param {string} contentType 内容类型
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4173,8 +4239,8 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询引用表
-     * @param {string} contentType 内容类型
-     * @param {string} valuelistid 引用表id，通过查询引用表列表（ListValueList）接口获取
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} valuelistid **参数解释：** 引用表id，通过查询引用表列表（ListValueList）接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4194,9 +4260,9 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询黑白名单防护规则
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 黑白名单规则id，您可以通过调用查询黑白名单规则列表（ListWhiteblackipRule）获取黑白名单规则id
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 黑白名单规则id，您可以通过调用查询黑白名单规则列表（ListWhiteblackipRule）获取黑白名单规则id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4259,10 +4325,10 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 网页防篡改规则更新缓存
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 防篡改规则id，通过查询防篡改规则列表接口（ListAntitamperRule）获取
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 防篡改规则id，通过查询防篡改规则列表接口（ListAntitamperRule）获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4282,10 +4348,10 @@ export class WafClient {
      *
      * @summary 更新JS脚本反爬虫防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 规则id
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** JS反爬虫规则id，您可以通过查询JS脚本反爬虫规则列表（ListAnticrawlerRules）接口的响应体中的id字段获取规则id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {UpdateAnticrawlerRuleRequestBody} updateAnticrawlerRuleRequestBody 更新反爬虫规则的请求体
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4305,9 +4371,9 @@ export class WafClient {
      *
      * @summary 更新JS脚本反爬虫规则防护模式
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {UpdateAnticrawlerRuleTypeRequestbody} updateAnticrawlerRuleTypeRequestbody 创建JS脚本反爬虫规则body
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4327,10 +4393,10 @@ export class WafClient {
      *
      * @summary 更新防敏感信息泄露防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 防敏感信息泄露规则id，通过查询防敏感信息泄露规则列表接口（ListAntileakageRules）获取
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 防敏感信息泄露规则id，通过查询防敏感信息泄露规则列表接口（ListAntileakageRules）获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {UpdateAntileakageRuleRequestBody} updateAntileakageRuleRequestBody UpdateAntileakageRuleRequestBody
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4349,10 +4415,10 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新cc防护规则
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 策略id（策略id从查询防护策略列表接口获取）
-     * @param {string} ruleId ID of the cc rule. It can be obtained by calling the **ListCcRules** API.
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** CC规则id，您可以通过查询CC规则列表（ListCcRules）接口的响应体中的id字段获取规则id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {UpdateCcRuleRequestBody} [updateCcRuleRequestBody] UpdateCcRuleRequestBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4395,10 +4461,10 @@ export class WafClient {
      *
      * @summary 更新精准防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，通过指定防护策略id来指明查询该防护策略下的防护规则，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 精准防护规则id，通过查询精准防护规则列表接口（ListCustomRules）获取
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 精准防护规则id，通过查询精准防护规则列表接口（ListCustomRules）获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {UpdateCustomRuleRequestBody} updateCustomRuleRequestBody UpdateCustomRuleRequestBody
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4417,11 +4483,11 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新地理位置控制防护规则
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id，响应体的id字段
-     * @param {string} ruleId 地理位置控制规则id，规则id从查询地理位置规则列表（ListGeoipRule）接口获取，响应体的id字段
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 地理位置控制防护规则id，规则id从查询地理位置控制防护规则列表（ListGeoipRule）接口获取，响应体的id字段 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {UpdateGeoipRuleRequestBody} updateGeoipRuleRequestBody body_info
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4506,8 +4572,8 @@ export class WafClient {
      *
      * @summary 更新全局白名单(原误报屏蔽)防护规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 误报屏蔽规则id，您可以通过查询误报屏蔽规则列表（ListIgnoreRule）接口的响应体中的id字段获取误报屏蔽规则id
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 误报屏蔽规则id，您可以通过查询误报屏蔽规则列表（ListIgnoreRule）接口的响应体中的id字段获取规则id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {UpdateIgnoreRuleRequestBody} updateRuleRequestBody 请求体
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
      * @param {*} [options] Override http request option.
@@ -4515,6 +4581,28 @@ export class WafClient {
      */
     public updateIgnoreRule(updateIgnoreRuleRequest?: UpdateIgnoreRuleRequest): Promise<UpdateIgnoreRuleResponse> {
         const options = ParamCreater().updateIgnoreRule(updateIgnoreRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 全局白名单(原误报屏蔽)防护规则的命中次数清零
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 全局白名单(原误报屏蔽)防护规则的命中次数清零
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 误报屏蔽规则id，您可以通过查询误报屏蔽规则列表（ListIgnoreRule）接口的响应体中的id字段获取规则id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateIgnoreRuleHitNum(updateIgnoreRuleHitNumRequest?: UpdateIgnoreRuleHitNumRequest): Promise<UpdateIgnoreRuleHitNumResponse> {
+        const options = ParamCreater().updateIgnoreRuleHitNum(updateIgnoreRuleHitNumRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4549,11 +4637,11 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改ip地址组
-     * @param {string} contentType 内容类型
-     * @param {string} id ip地址组id
-     * @param {UpdateIpGroupRequestBody} updateIpGroupRequestBody 创建ip地址组请求体
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
-     * @param {string} [action] 增量修改ip地址组时，此为必传字段，传入“add”;删除一个或者多个ip时传入“delete”
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} id **参数解释：** ip地址组id，可从查询地址组列表(ListIpGroup)接口中获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {UpdateIpGroupRequestBody} updateIpGroupRequestBody 修改ip地址组请求体
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
+     * @param {'add' | 'delete' | 'update'} [action] **参数解释：** 修改ip地址组时，此为必传字段 **约束限制：** 不涉及 **取值范围：** - add 添加 - delete 删除 - update 修改 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4576,7 +4664,7 @@ export class WafClient {
      * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id，响应体的id字段 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {string} ruleId **参数解释：** 机房IP情报访问控制规则id，通过\&quot;查询威胁情报规则列表\&quot;接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {UpdateIpReputationRuleRequestBody} updateIpReputationRuleRequestBody **参数解释：** body_info **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4661,12 +4749,12 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改单条规则的状态
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 策略id（策略id从查询防护策略列表接口获取）
-     * @param {'whiteblackip' | 'geoip' | 'privacy' | 'antitamper' | 'custom' | 'ignore' | 'cc'} ruletype **参数解释：** 策略类型 **约束限制：** 不涉及 **取值范围：**  - custom：精准防护   - cc: cc攻击   - whiteblackip: 黑白名单  - geoip: 地理位置  - privacy: 私屏蔽防护  - antitamper: 防篡改规则  - ignore: 全局白名单  **默认取值：** 不涉及
-     * @param {string} ruleId 规则id，根据不同的规则类型（ruletype）调用规则列表接口获取规则id，例如黑白名单（whiteblackip）规则id，您可以通过调用查询黑白名单规则列表（ListWhiteblackipRule）获取规则id
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {'cc' | 'custom' | 'whiteblackip' | 'privacy' | 'ignore' | 'geoip' | 'antitamper' | 'antileakage' | 'ip-reputation' | 'llm-guards'} ruletype **参数解释：** 规则类型 **约束限制：** 需要购买“大模型防火墙”服务后才可使用llm-guards **取值范围：** - cc CC防护 - custom 精准防护 - whiteblackip 黑白名单 - geoip 地理位置防护 - ip-reputation 威胁情报 - antitamper 防篡改 - antileakage 防敏感信息泄露 - ignore 全局白名单(原误报屏蔽) - privacy 隐私屏蔽 - llm-guards 大模型防火墙 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 规则id，通过对应规则类型的查询防护规则列表接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {UpdatePolicyRuleStatusRequestBody} updatePolicyRuleStatusRequestBody 修改规则状态入参
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4685,9 +4773,9 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改独享模式域名配置
-     * @param {string} contentType 内容类型
-     * @param {string} hostId 独享模式域名ID
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} hostId **参数解释：** 域名id，通过 ”查询独享模式域名列表“（ListPremiumHost）获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {UpdatePremiumHostRequestBody} [updatePremiumHostRequestBody] 修改独享模式域名的请求
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4708,6 +4796,8 @@ export class WafClient {
      *
      * @summary 修改独享模式域名接入状态
      * @param {string} hostId **参数解释：** 独享模式域名ID **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {UpdatePremiumHostAccessStatusRequestBody} [updatePremiumHostAccessStatusRequestBody] **参数解释：** 修改独享模式域名接入状态的请求 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4727,9 +4817,9 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改独享模式域名防护状态
-     * @param {string} contentType 内容类型
-     * @param {string} hostId 独享模式域名ID
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} hostId **参数解释：** 域名id，通过 ”查询独享模式域名列表“（ListPremiumHost）获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {UpdatePremiumHostProtectStatusRequestBody} [updatePremiumHostProtectStatusRequestBody] 修改独享模式域名防护状态的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4772,6 +4862,7 @@ export class WafClient {
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} hostId **参数解释：** 独享模式域名Id，通过 查询独享模式域名列表(ListPremiumHost) 接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {AccessProgress} body **参数解释：** 修改域名请求接入进度body **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4790,11 +4881,11 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新隐私屏蔽防护规则
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 隐私屏蔽规则id，您可以通过调用查询隐私屏蔽规则列表（ListPrivacyRule）获取规则id
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 策略id，唯一标识一条防护策略，可从\&quot;查询防护策略列表\&quot;(ListPolicy)接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 隐私屏蔽规则id，您可以通过调用查询隐私屏蔽规则列表（ListPrivacyRule）获取规则id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {UpdatePrivacyRuleRequestBody} updatePrivacyRuleRequestBody body_info
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4814,10 +4905,10 @@ export class WafClient {
      *
      * @summary 更新攻击惩罚规则
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 攻击惩罚规则id，通过查询攻击惩罚规则列表接口（ListPunishmentRules）获取
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 攻击惩罚规则id，通过查询攻击惩罚规则列表接口（ListPunishmentRules）获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {UpdatePunishmentRuleRequestBody} updatePunishmentRuleRequestBody 更新攻击惩罚规则的请求体
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4857,9 +4948,9 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改引用表
-     * @param {string} contentType 内容类型
-     * @param {string} valuelistid 引用表id，通过查询引用表列表（ListValueList）接口获取
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} valuelistid **参数解释：** 引用表id，通过查询引用表列表（ListValueList）接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {UpdateValueListRequestBody} [updateValueListRequestBody] 更新引用表的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4879,11 +4970,11 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新黑白名单防护规则
-     * @param {string} contentType 内容类型
-     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
-     * @param {string} ruleId 黑白名单规则id，您可以调用查询黑白名单规则列表（ListWhiteblackipRule）获取黑白名单规则id
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} policyId **参数解释：** 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} ruleId **参数解释：** 黑白名单规则id，您可以调用查询黑白名单规则列表（ListWhiteblackipRule）获取黑白名单规则id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {UpdateWhiteBlackIpRuleRequestBody} updateWhiteblackipRuleRequestBody 更新黑白名单请求体
-     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4922,7 +5013,7 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 域名快速接入WAF
-     * @param {string} projectid **参数解释：** 项目ID，对应控制台用户名-&gt;我的凭证-&gt;项目列表-&gt;项目ID。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及**参数解释：** 项目ID，对应控制台用户名-&gt;我的凭证-&gt;项目列表-&gt;项目ID。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
+     * @param {string} projectid **参数解释：** 项目ID，对应控制台用户名-&gt;我的凭证-&gt;项目列表-&gt;项目ID。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
      * @param {string} instanceid **参数解释：** 域名id。 **约束限制：** 不涉及 **取值范围：** 只能由英文字母、数字组成，且长度为32个字符。 **默认取值：** 不涉及
      * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
      * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符  **默认取值：** 0
@@ -4944,8 +5035,9 @@ export class WafClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 根据Id查询Web防护规则
-     * @param {string} ruleId **参数解释：** 防护规则ID **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {string} [xLanguage] **参数解释：** 语言 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** zh-cn
+     * @param {string} ruleId **参数解释：** 基础防护规则id，通过查询内置规则集列表（ListWebBasicProtectionRules）接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释：** 语言类型 **约束限制：** 不涉及 **取值范围：** - zh-cn 中文 - en-us 英文 **默认取值：** zh-cn
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5221,21 +5313,21 @@ export const ParamCreater = function () {
             
             let contentType;
             
-            let policyids;
-            
             let enterpriseProjectId;
+            
+            let policyids;
 
             if (batchCreateCustomRuleRequest !== null && batchCreateCustomRuleRequest !== undefined) {
                 if (batchCreateCustomRuleRequest instanceof BatchCreateCustomRuleRequest) {
                     contentType = batchCreateCustomRuleRequest.contentType;
                     body = batchCreateCustomRuleRequest.body
-                    policyids = batchCreateCustomRuleRequest.policyids;
                     enterpriseProjectId = batchCreateCustomRuleRequest.enterpriseProjectId;
+                    policyids = batchCreateCustomRuleRequest.policyids;
                 } else {
                     contentType = batchCreateCustomRuleRequest['Content-Type'];
                     body = batchCreateCustomRuleRequest['body'];
-                    policyids = batchCreateCustomRuleRequest['policyids'];
                     enterpriseProjectId = batchCreateCustomRuleRequest['enterprise_project_id'];
+                    policyids = batchCreateCustomRuleRequest['policyids'];
                 }
             }
 
@@ -5243,11 +5335,11 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
-            if (policyids !== null && policyids !== undefined) {
-                localVarQueryParameter['policyids'] = policyids;
-            }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (policyids !== null && policyids !== undefined) {
+                localVarQueryParameter['policyids'] = policyids;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -5761,6 +5853,9 @@ export const ParamCreater = function () {
             if (ruleType === null || ruleType === undefined) {
             throw new RequiredError('ruleType','Required parameter ruleType was null or undefined when calling batchDeleteRules.');
             }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
@@ -5788,28 +5883,36 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             let body: any;
             
             let contentType;
+            
+            let enterpriseProjectId;
 
             if (batchUpdateAntileakageRulesRequest !== null && batchUpdateAntileakageRulesRequest !== undefined) {
                 if (batchUpdateAntileakageRulesRequest instanceof BatchUpdateAntileakageRulesRequest) {
                     contentType = batchUpdateAntileakageRulesRequest.contentType;
+                    enterpriseProjectId = batchUpdateAntileakageRulesRequest.enterpriseProjectId;
                     body = batchUpdateAntileakageRulesRequest.body
                 } else {
                     contentType = batchUpdateAntileakageRulesRequest['Content-Type'];
+                    enterpriseProjectId = batchUpdateAntileakageRulesRequest['enterprise_project_id'];
                     body = batchUpdateAntileakageRulesRequest['body'];
                 }
             }
 
         
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5830,28 +5933,36 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             let body: any;
             
             let contentType;
+            
+            let enterpriseProjectId;
 
             if (batchUpdateAntitamperRulesRequest !== null && batchUpdateAntitamperRulesRequest !== undefined) {
                 if (batchUpdateAntitamperRulesRequest instanceof BatchUpdateAntitamperRulesRequest) {
                     contentType = batchUpdateAntitamperRulesRequest.contentType;
+                    enterpriseProjectId = batchUpdateAntitamperRulesRequest.enterpriseProjectId;
                     body = batchUpdateAntitamperRulesRequest.body
                 } else {
                     contentType = batchUpdateAntitamperRulesRequest['Content-Type'];
+                    enterpriseProjectId = batchUpdateAntitamperRulesRequest['enterprise_project_id'];
                     body = batchUpdateAntitamperRulesRequest['body'];
                 }
             }
 
         
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5872,28 +5983,36 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             let body: any;
             
             let contentType;
+            
+            let enterpriseProjectId;
 
             if (batchUpdateCcRulesRequest !== null && batchUpdateCcRulesRequest !== undefined) {
                 if (batchUpdateCcRulesRequest instanceof BatchUpdateCcRulesRequest) {
                     contentType = batchUpdateCcRulesRequest.contentType;
+                    enterpriseProjectId = batchUpdateCcRulesRequest.enterpriseProjectId;
                     body = batchUpdateCcRulesRequest.body
                 } else {
                     contentType = batchUpdateCcRulesRequest['Content-Type'];
+                    enterpriseProjectId = batchUpdateCcRulesRequest['enterprise_project_id'];
                     body = batchUpdateCcRulesRequest['body'];
                 }
             }
 
         
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5914,28 +6033,39 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             let body: any;
             
             let contentType;
+            
+            let enterpriseProjectId;
 
             if (batchUpdateCustomRulesRequest !== null && batchUpdateCustomRulesRequest !== undefined) {
                 if (batchUpdateCustomRulesRequest instanceof BatchUpdateCustomRulesRequest) {
                     contentType = batchUpdateCustomRulesRequest.contentType;
                     body = batchUpdateCustomRulesRequest.body
+                    enterpriseProjectId = batchUpdateCustomRulesRequest.enterpriseProjectId;
                 } else {
                     contentType = batchUpdateCustomRulesRequest['Content-Type'];
                     body = batchUpdateCustomRulesRequest['body'];
+                    enterpriseProjectId = batchUpdateCustomRulesRequest['enterprise_project_id'];
                 }
             }
 
         
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5956,28 +6086,36 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             let body: any;
             
             let contentType;
+            
+            let enterpriseProjectId;
 
             if (batchUpdateGeoipRulesRequest !== null && batchUpdateGeoipRulesRequest !== undefined) {
                 if (batchUpdateGeoipRulesRequest instanceof BatchUpdateGeoipRulesRequest) {
                     contentType = batchUpdateGeoipRulesRequest.contentType;
+                    enterpriseProjectId = batchUpdateGeoipRulesRequest.enterpriseProjectId;
                     body = batchUpdateGeoipRulesRequest.body
                 } else {
                     contentType = batchUpdateGeoipRulesRequest['Content-Type'];
+                    enterpriseProjectId = batchUpdateGeoipRulesRequest['enterprise_project_id'];
                     body = batchUpdateGeoipRulesRequest['body'];
                 }
             }
 
         
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6098,6 +6236,9 @@ export const ParamCreater = function () {
             }
 
         
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
@@ -6124,28 +6265,36 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             let body: any;
             
             let contentType;
+            
+            let enterpriseProjectId;
 
             if (batchUpdateWhiteblackipRulesRequest !== null && batchUpdateWhiteblackipRulesRequest !== undefined) {
                 if (batchUpdateWhiteblackipRulesRequest instanceof BatchUpdateWhiteblackipRulesRequest) {
                     contentType = batchUpdateWhiteblackipRulesRequest.contentType;
+                    enterpriseProjectId = batchUpdateWhiteblackipRulesRequest.enterpriseProjectId;
                     body = batchUpdateWhiteblackipRulesRequest.body
                 } else {
                     contentType = batchUpdateWhiteblackipRulesRequest['Content-Type'];
+                    enterpriseProjectId = batchUpdateWhiteblackipRulesRequest['enterprise_project_id'];
                     body = batchUpdateWhiteblackipRulesRequest['body'];
                 }
             }
 
         
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6416,14 +6565,18 @@ export const ParamCreater = function () {
             let contentType;
             
             let lang;
+            
+            let enterpriseProjectId;
 
             if (confirmPolicyAntileakageMapRequest !== null && confirmPolicyAntileakageMapRequest !== undefined) {
                 if (confirmPolicyAntileakageMapRequest instanceof ConfirmPolicyAntileakageMapRequest) {
                     contentType = confirmPolicyAntileakageMapRequest.contentType;
                     lang = confirmPolicyAntileakageMapRequest.lang;
+                    enterpriseProjectId = confirmPolicyAntileakageMapRequest.enterpriseProjectId;
                 } else {
                     contentType = confirmPolicyAntileakageMapRequest['Content-Type'];
                     lang = confirmPolicyAntileakageMapRequest['lang'];
+                    enterpriseProjectId = confirmPolicyAntileakageMapRequest['enterprise_project_id'];
                 }
             }
 
@@ -6433,6 +6586,9 @@ export const ParamCreater = function () {
             }
             if (lang !== null && lang !== undefined) {
                 localVarQueryParameter['lang'] = lang;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -6462,34 +6618,31 @@ export const ParamCreater = function () {
             
             let contentType;
             
-            let lang;
-            
             let type;
+            
+            let lang;
 
             if (confirmPolicyIpReputationMapRequest !== null && confirmPolicyIpReputationMapRequest !== undefined) {
                 if (confirmPolicyIpReputationMapRequest instanceof ConfirmPolicyIpReputationMapRequest) {
                     contentType = confirmPolicyIpReputationMapRequest.contentType;
-                    lang = confirmPolicyIpReputationMapRequest.lang;
                     type = confirmPolicyIpReputationMapRequest.type;
+                    lang = confirmPolicyIpReputationMapRequest.lang;
                 } else {
                     contentType = confirmPolicyIpReputationMapRequest['Content-Type'];
-                    lang = confirmPolicyIpReputationMapRequest['lang'];
                     type = confirmPolicyIpReputationMapRequest['type'];
+                    lang = confirmPolicyIpReputationMapRequest['lang'];
                 }
             }
 
         
-            if (lang === null || lang === undefined) {
-                throw new RequiredError('lang','Required parameter lang was null or undefined when calling confirmPolicyIpReputationMap.');
-            }
-            if (lang !== null && lang !== undefined) {
-                localVarQueryParameter['lang'] = lang;
-            }
             if (type === null || type === undefined) {
                 throw new RequiredError('type','Required parameter type was null or undefined when calling confirmPolicyIpReputationMap.');
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
+            }
+            if (lang !== null && lang !== undefined) {
+                localVarQueryParameter['lang'] = lang;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -7767,7 +7920,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 购买包周期云模式waf。
+         * 购买包周期云模式waf
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9403,11 +9556,15 @@ export const ParamCreater = function () {
             
             let policyId;
             
+            let enterpriseProjectId;
+            
             let offset;
             
             let limit;
             
-            let enterpriseProjectId;
+            let page;
+            
+            let pagesize;
             
             let type;
 
@@ -9415,16 +9572,20 @@ export const ParamCreater = function () {
                 if (listAnticrawlerRulesRequest instanceof ListAnticrawlerRulesRequest) {
                     contentType = listAnticrawlerRulesRequest.contentType;
                     policyId = listAnticrawlerRulesRequest.policyId;
+                    enterpriseProjectId = listAnticrawlerRulesRequest.enterpriseProjectId;
                     offset = listAnticrawlerRulesRequest.offset;
                     limit = listAnticrawlerRulesRequest.limit;
-                    enterpriseProjectId = listAnticrawlerRulesRequest.enterpriseProjectId;
+                    page = listAnticrawlerRulesRequest.page;
+                    pagesize = listAnticrawlerRulesRequest.pagesize;
                     type = listAnticrawlerRulesRequest.type;
                 } else {
                     contentType = listAnticrawlerRulesRequest['Content-Type'];
                     policyId = listAnticrawlerRulesRequest['policy_id'];
+                    enterpriseProjectId = listAnticrawlerRulesRequest['enterprise_project_id'];
                     offset = listAnticrawlerRulesRequest['offset'];
                     limit = listAnticrawlerRulesRequest['limit'];
-                    enterpriseProjectId = listAnticrawlerRulesRequest['enterprise_project_id'];
+                    page = listAnticrawlerRulesRequest['page'];
+                    pagesize = listAnticrawlerRulesRequest['pagesize'];
                     type = listAnticrawlerRulesRequest['type'];
                 }
             }
@@ -9433,20 +9594,20 @@ export const ParamCreater = function () {
             if (policyId === null || policyId === undefined) {
             throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling listAnticrawlerRules.');
             }
-            if (offset === null || offset === undefined) {
-                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listAnticrawlerRules.');
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listAnticrawlerRules.');
-            }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pagesize !== null && pagesize !== undefined) {
+                localVarQueryParameter['pagesize'] = pagesize;
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
@@ -9547,25 +9708,33 @@ export const ParamCreater = function () {
             
             let policyId;
             
+            let enterpriseProjectId;
+            
             let offset;
             
             let limit;
             
-            let enterpriseProjectId;
+            let page;
+            
+            let pagesize;
 
             if (listAntileakageRulesRequest !== null && listAntileakageRulesRequest !== undefined) {
                 if (listAntileakageRulesRequest instanceof ListAntileakageRulesRequest) {
                     contentType = listAntileakageRulesRequest.contentType;
                     policyId = listAntileakageRulesRequest.policyId;
+                    enterpriseProjectId = listAntileakageRulesRequest.enterpriseProjectId;
                     offset = listAntileakageRulesRequest.offset;
                     limit = listAntileakageRulesRequest.limit;
-                    enterpriseProjectId = listAntileakageRulesRequest.enterpriseProjectId;
+                    page = listAntileakageRulesRequest.page;
+                    pagesize = listAntileakageRulesRequest.pagesize;
                 } else {
                     contentType = listAntileakageRulesRequest['Content-Type'];
                     policyId = listAntileakageRulesRequest['policy_id'];
+                    enterpriseProjectId = listAntileakageRulesRequest['enterprise_project_id'];
                     offset = listAntileakageRulesRequest['offset'];
                     limit = listAntileakageRulesRequest['limit'];
-                    enterpriseProjectId = listAntileakageRulesRequest['enterprise_project_id'];
+                    page = listAntileakageRulesRequest['page'];
+                    pagesize = listAntileakageRulesRequest['pagesize'];
                 }
             }
 
@@ -9573,20 +9742,20 @@ export const ParamCreater = function () {
             if (policyId === null || policyId === undefined) {
             throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling listAntileakageRules.');
             }
-            if (offset === null || offset === undefined) {
-                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listAntileakageRules.');
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listAntileakageRules.');
-            }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pagesize !== null && pagesize !== undefined) {
+                localVarQueryParameter['pagesize'] = pagesize;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -9906,11 +10075,15 @@ export const ParamCreater = function () {
             
             let policyId;
             
+            let enterpriseProjectId;
+            
             let offset;
             
             let limit;
             
-            let enterpriseProjectId;
+            let page;
+            
+            let pagesize;
             
             let name;
             
@@ -9924,9 +10097,11 @@ export const ParamCreater = function () {
                 if (listCcRulesRequest instanceof ListCcRulesRequest) {
                     contentType = listCcRulesRequest.contentType;
                     policyId = listCcRulesRequest.policyId;
+                    enterpriseProjectId = listCcRulesRequest.enterpriseProjectId;
                     offset = listCcRulesRequest.offset;
                     limit = listCcRulesRequest.limit;
-                    enterpriseProjectId = listCcRulesRequest.enterpriseProjectId;
+                    page = listCcRulesRequest.page;
+                    pagesize = listCcRulesRequest.pagesize;
                     name = listCcRulesRequest.name;
                     status = listCcRulesRequest.status;
                     category = listCcRulesRequest.category;
@@ -9934,9 +10109,11 @@ export const ParamCreater = function () {
                 } else {
                     contentType = listCcRulesRequest['Content-Type'];
                     policyId = listCcRulesRequest['policy_id'];
+                    enterpriseProjectId = listCcRulesRequest['enterprise_project_id'];
                     offset = listCcRulesRequest['offset'];
                     limit = listCcRulesRequest['limit'];
-                    enterpriseProjectId = listCcRulesRequest['enterprise_project_id'];
+                    page = listCcRulesRequest['page'];
+                    pagesize = listCcRulesRequest['pagesize'];
                     name = listCcRulesRequest['name'];
                     status = listCcRulesRequest['status'];
                     category = listCcRulesRequest['category'];
@@ -9948,20 +10125,20 @@ export const ParamCreater = function () {
             if (policyId === null || policyId === undefined) {
             throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling listCcRules.');
             }
-            if (offset === null || offset === undefined) {
-                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listCcRules.');
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listCcRules.');
-            }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pagesize !== null && pagesize !== undefined) {
+                localVarQueryParameter['pagesize'] = pagesize;
             }
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;
@@ -10250,25 +10427,33 @@ export const ParamCreater = function () {
             
             let policyId;
             
+            let enterpriseProjectId;
+            
             let offset;
             
             let limit;
             
-            let enterpriseProjectId;
+            let page;
+            
+            let pagesize;
 
             if (listCustomRulesRequest !== null && listCustomRulesRequest !== undefined) {
                 if (listCustomRulesRequest instanceof ListCustomRulesRequest) {
                     contentType = listCustomRulesRequest.contentType;
                     policyId = listCustomRulesRequest.policyId;
+                    enterpriseProjectId = listCustomRulesRequest.enterpriseProjectId;
                     offset = listCustomRulesRequest.offset;
                     limit = listCustomRulesRequest.limit;
-                    enterpriseProjectId = listCustomRulesRequest.enterpriseProjectId;
+                    page = listCustomRulesRequest.page;
+                    pagesize = listCustomRulesRequest.pagesize;
                 } else {
                     contentType = listCustomRulesRequest['Content-Type'];
                     policyId = listCustomRulesRequest['policy_id'];
+                    enterpriseProjectId = listCustomRulesRequest['enterprise_project_id'];
                     offset = listCustomRulesRequest['offset'];
                     limit = listCustomRulesRequest['limit'];
-                    enterpriseProjectId = listCustomRulesRequest['enterprise_project_id'];
+                    page = listCustomRulesRequest['page'];
+                    pagesize = listCustomRulesRequest['pagesize'];
                 }
             }
 
@@ -10276,20 +10461,20 @@ export const ParamCreater = function () {
             if (policyId === null || policyId === undefined) {
             throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling listCustomRules.');
             }
-            if (offset === null || offset === undefined) {
-                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listCustomRules.');
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listCustomRules.');
-            }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pagesize !== null && pagesize !== undefined) {
+                localVarQueryParameter['pagesize'] = pagesize;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -10330,15 +10515,65 @@ export const ParamCreater = function () {
             
             let to;
             
+            let ids;
+            
+            let nids;
+            
             let attacks;
+            
+            let nattacks;
+            
+            let rules;
+            
+            let nrules;
+            
+            let sips;
+            
+            let nsips;
+            
+            let sip;
+            
+            let urls;
+            
+            let nurls;
+            
+            let url;
+            
+            let actions;
+            
+            let nactions;
+            
+            let domain;
+            
+            let ndomain;
+            
+            let domains;
+            
+            let ipCountries;
+            
+            let nipCountries;
+            
+            let ipRegions;
+            
+            let nipRegions;
+            
+            let responseCodes;
+            
+            let payload;
             
             let hosts;
             
-            let sips;
+            let instances;
             
             let page;
             
             let pagesize;
+            
+            let sortKey;
+            
+            let sortDirection;
+            
+            let queryMode;
 
             if (listEventRequest !== null && listEventRequest !== undefined) {
                 if (listEventRequest instanceof ListEventRequest) {
@@ -10348,11 +10583,36 @@ export const ParamCreater = function () {
                     recent = listEventRequest.recent;
                     from = listEventRequest.from;
                     to = listEventRequest.to;
+                    ids = listEventRequest.ids;
+                    nids = listEventRequest.nids;
                     attacks = listEventRequest.attacks;
-                    hosts = listEventRequest.hosts;
+                    nattacks = listEventRequest.nattacks;
+                    rules = listEventRequest.rules;
+                    nrules = listEventRequest.nrules;
                     sips = listEventRequest.sips;
+                    nsips = listEventRequest.nsips;
+                    sip = listEventRequest.sip;
+                    urls = listEventRequest.urls;
+                    nurls = listEventRequest.nurls;
+                    url = listEventRequest.url;
+                    actions = listEventRequest.actions;
+                    nactions = listEventRequest.nactions;
+                    domain = listEventRequest.domain;
+                    ndomain = listEventRequest.ndomain;
+                    domains = listEventRequest.domains;
+                    ipCountries = listEventRequest.ipCountries;
+                    nipCountries = listEventRequest.nipCountries;
+                    ipRegions = listEventRequest.ipRegions;
+                    nipRegions = listEventRequest.nipRegions;
+                    responseCodes = listEventRequest.responseCodes;
+                    payload = listEventRequest.payload;
+                    hosts = listEventRequest.hosts;
+                    instances = listEventRequest.instances;
                     page = listEventRequest.page;
                     pagesize = listEventRequest.pagesize;
+                    sortKey = listEventRequest.sortKey;
+                    sortDirection = listEventRequest.sortDirection;
+                    queryMode = listEventRequest.queryMode;
                 } else {
                     contentType = listEventRequest['Content-Type'];
                     xLanguage = listEventRequest['X-Language'];
@@ -10360,11 +10620,36 @@ export const ParamCreater = function () {
                     recent = listEventRequest['recent'];
                     from = listEventRequest['from'];
                     to = listEventRequest['to'];
+                    ids = listEventRequest['ids'];
+                    nids = listEventRequest['nids'];
                     attacks = listEventRequest['attacks'];
-                    hosts = listEventRequest['hosts'];
+                    nattacks = listEventRequest['nattacks'];
+                    rules = listEventRequest['rules'];
+                    nrules = listEventRequest['nrules'];
                     sips = listEventRequest['sips'];
+                    nsips = listEventRequest['nsips'];
+                    sip = listEventRequest['sip'];
+                    urls = listEventRequest['urls'];
+                    nurls = listEventRequest['nurls'];
+                    url = listEventRequest['url'];
+                    actions = listEventRequest['actions'];
+                    nactions = listEventRequest['nactions'];
+                    domain = listEventRequest['domain'];
+                    ndomain = listEventRequest['ndomain'];
+                    domains = listEventRequest['domains'];
+                    ipCountries = listEventRequest['ip_countries'];
+                    nipCountries = listEventRequest['nip_countries'];
+                    ipRegions = listEventRequest['ip_regions'];
+                    nipRegions = listEventRequest['nip_regions'];
+                    responseCodes = listEventRequest['response_codes'];
+                    payload = listEventRequest['payload'];
+                    hosts = listEventRequest['hosts'];
+                    instances = listEventRequest['instances'];
                     page = listEventRequest['page'];
                     pagesize = listEventRequest['pagesize'];
+                    sortKey = listEventRequest['sort_key'];
+                    sortDirection = listEventRequest['sort_direction'];
+                    queryMode = listEventRequest['query_mode'];
                 }
             }
 
@@ -10381,20 +10666,95 @@ export const ParamCreater = function () {
             if (to !== null && to !== undefined) {
                 localVarQueryParameter['to'] = to;
             }
+            if (ids !== null && ids !== undefined) {
+                localVarQueryParameter['ids'] = ids;
+            }
+            if (nids !== null && nids !== undefined) {
+                localVarQueryParameter['nids'] = nids;
+            }
             if (attacks !== null && attacks !== undefined) {
                 localVarQueryParameter['attacks'] = attacks;
+            }
+            if (nattacks !== null && nattacks !== undefined) {
+                localVarQueryParameter['nattacks'] = nattacks;
+            }
+            if (rules !== null && rules !== undefined) {
+                localVarQueryParameter['rules'] = rules;
+            }
+            if (nrules !== null && nrules !== undefined) {
+                localVarQueryParameter['nrules'] = nrules;
+            }
+            if (sips !== null && sips !== undefined) {
+                localVarQueryParameter['sips'] = sips;
+            }
+            if (nsips !== null && nsips !== undefined) {
+                localVarQueryParameter['nsips'] = nsips;
+            }
+            if (sip !== null && sip !== undefined) {
+                localVarQueryParameter['sip'] = sip;
+            }
+            if (urls !== null && urls !== undefined) {
+                localVarQueryParameter['urls'] = urls;
+            }
+            if (nurls !== null && nurls !== undefined) {
+                localVarQueryParameter['nurls'] = nurls;
+            }
+            if (url !== null && url !== undefined) {
+                localVarQueryParameter['url'] = url;
+            }
+            if (actions !== null && actions !== undefined) {
+                localVarQueryParameter['actions'] = actions;
+            }
+            if (nactions !== null && nactions !== undefined) {
+                localVarQueryParameter['nactions'] = nactions;
+            }
+            if (domain !== null && domain !== undefined) {
+                localVarQueryParameter['domain'] = domain;
+            }
+            if (ndomain !== null && ndomain !== undefined) {
+                localVarQueryParameter['ndomain'] = ndomain;
+            }
+            if (domains !== null && domains !== undefined) {
+                localVarQueryParameter['domains'] = domains;
+            }
+            if (ipCountries !== null && ipCountries !== undefined) {
+                localVarQueryParameter['ip_countries'] = ipCountries;
+            }
+            if (nipCountries !== null && nipCountries !== undefined) {
+                localVarQueryParameter['nip_countries'] = nipCountries;
+            }
+            if (ipRegions !== null && ipRegions !== undefined) {
+                localVarQueryParameter['ip_regions'] = ipRegions;
+            }
+            if (nipRegions !== null && nipRegions !== undefined) {
+                localVarQueryParameter['nip_regions'] = nipRegions;
+            }
+            if (responseCodes !== null && responseCodes !== undefined) {
+                localVarQueryParameter['response_codes'] = responseCodes;
+            }
+            if (payload !== null && payload !== undefined) {
+                localVarQueryParameter['payload'] = payload;
             }
             if (hosts !== null && hosts !== undefined) {
                 localVarQueryParameter['hosts'] = hosts;
             }
-            if (sips !== null && sips !== undefined) {
-                localVarQueryParameter['sips'] = sips;
+            if (instances !== null && instances !== undefined) {
+                localVarQueryParameter['instances'] = instances;
             }
             if (page !== null && page !== undefined) {
                 localVarQueryParameter['page'] = page;
             }
             if (pagesize !== null && pagesize !== undefined) {
                 localVarQueryParameter['pagesize'] = pagesize;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDirection !== null && sortDirection !== undefined) {
+                localVarQueryParameter['sort_direction'] = sortDirection;
+            }
+            if (queryMode !== null && queryMode !== undefined) {
+                localVarQueryParameter['query_mode'] = queryMode;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -10478,9 +10838,9 @@ export const ParamCreater = function () {
             
             let contentType;
             
-            let policyids;
-            
             let enterpriseProjectId;
+            
+            let policyids;
             
             let page;
             
@@ -10489,25 +10849,25 @@ export const ParamCreater = function () {
             if (listGeoIpPolicyRulesRequest !== null && listGeoIpPolicyRulesRequest !== undefined) {
                 if (listGeoIpPolicyRulesRequest instanceof ListGeoIpPolicyRulesRequest) {
                     contentType = listGeoIpPolicyRulesRequest.contentType;
-                    policyids = listGeoIpPolicyRulesRequest.policyids;
                     enterpriseProjectId = listGeoIpPolicyRulesRequest.enterpriseProjectId;
+                    policyids = listGeoIpPolicyRulesRequest.policyids;
                     page = listGeoIpPolicyRulesRequest.page;
                     pagesize = listGeoIpPolicyRulesRequest.pagesize;
                 } else {
                     contentType = listGeoIpPolicyRulesRequest['Content-Type'];
-                    policyids = listGeoIpPolicyRulesRequest['policyids'];
                     enterpriseProjectId = listGeoIpPolicyRulesRequest['enterprise_project_id'];
+                    policyids = listGeoIpPolicyRulesRequest['policyids'];
                     page = listGeoIpPolicyRulesRequest['page'];
                     pagesize = listGeoIpPolicyRulesRequest['pagesize'];
                 }
             }
 
         
-            if (policyids !== null && policyids !== undefined) {
-                localVarQueryParameter['policyids'] = policyids;
-            }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (policyids !== null && policyids !== undefined) {
+                localVarQueryParameter['policyids'] = policyids;
             }
             if (page !== null && page !== undefined) {
                 localVarQueryParameter['page'] = page;
@@ -10918,7 +11278,7 @@ export const ParamCreater = function () {
         listInstanceTags(listInstanceTagsRequest?: ListInstanceTagsRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/{project_id}/waf/{resourceid}/tags",
+                url: "/v1/{project_id}/waf/{resource_type}/{resourceid}/tags",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -10929,6 +11289,8 @@ export const ParamCreater = function () {
             
             let contentType;
             
+            let resourceType;
+            
             let resourceid;
             
             let enterpriseProjectId;
@@ -10936,16 +11298,21 @@ export const ParamCreater = function () {
             if (listInstanceTagsRequest !== null && listInstanceTagsRequest !== undefined) {
                 if (listInstanceTagsRequest instanceof ListInstanceTagsRequest) {
                     contentType = listInstanceTagsRequest.contentType;
+                    resourceType = listInstanceTagsRequest.resourceType;
                     resourceid = listInstanceTagsRequest.resourceid;
                     enterpriseProjectId = listInstanceTagsRequest.enterpriseProjectId;
                 } else {
                     contentType = listInstanceTagsRequest['Content-Type'];
+                    resourceType = listInstanceTagsRequest['resource_type'];
                     resourceid = listInstanceTagsRequest['resourceid'];
                     enterpriseProjectId = listInstanceTagsRequest['enterprise_project_id'];
                 }
             }
 
         
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listInstanceTags.');
+            }
             if (resourceid === null || resourceid === undefined) {
             throw new RequiredError('resourceid','Required parameter resourceid was null or undefined when calling listInstanceTags.');
             }
@@ -10957,7 +11324,7 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'resourceid': resourceid, };
+            options.pathParams = { 'resource_type': resourceType,'resourceid': resourceid, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -11120,25 +11487,33 @@ export const ParamCreater = function () {
             
             let policyId;
             
+            let enterpriseProjectId;
+            
             let offset;
             
             let limit;
             
-            let enterpriseProjectId;
+            let page;
+            
+            let pagesize;
 
             if (listIpReputationRulesRequest !== null && listIpReputationRulesRequest !== undefined) {
                 if (listIpReputationRulesRequest instanceof ListIpReputationRulesRequest) {
                     contentType = listIpReputationRulesRequest.contentType;
                     policyId = listIpReputationRulesRequest.policyId;
+                    enterpriseProjectId = listIpReputationRulesRequest.enterpriseProjectId;
                     offset = listIpReputationRulesRequest.offset;
                     limit = listIpReputationRulesRequest.limit;
-                    enterpriseProjectId = listIpReputationRulesRequest.enterpriseProjectId;
+                    page = listIpReputationRulesRequest.page;
+                    pagesize = listIpReputationRulesRequest.pagesize;
                 } else {
                     contentType = listIpReputationRulesRequest['Content-Type'];
                     policyId = listIpReputationRulesRequest['policy_id'];
+                    enterpriseProjectId = listIpReputationRulesRequest['enterprise_project_id'];
                     offset = listIpReputationRulesRequest['offset'];
                     limit = listIpReputationRulesRequest['limit'];
-                    enterpriseProjectId = listIpReputationRulesRequest['enterprise_project_id'];
+                    page = listIpReputationRulesRequest['page'];
+                    pagesize = listIpReputationRulesRequest['pagesize'];
                 }
             }
 
@@ -11146,20 +11521,20 @@ export const ParamCreater = function () {
             if (policyId === null || policyId === undefined) {
             throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling listIpReputationRules.');
             }
-            if (offset === null || offset === undefined) {
-                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listIpReputationRules.');
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listIpReputationRules.');
-            }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pagesize !== null && pagesize !== undefined) {
+                localVarQueryParameter['pagesize'] = pagesize;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -11662,25 +12037,33 @@ export const ParamCreater = function () {
             
             let policyId;
             
+            let enterpriseProjectId;
+            
             let offset;
             
             let limit;
             
-            let enterpriseProjectId;
+            let page;
+            
+            let pagesize;
 
             if (listPunishmentRulesRequest !== null && listPunishmentRulesRequest !== undefined) {
                 if (listPunishmentRulesRequest instanceof ListPunishmentRulesRequest) {
                     contentType = listPunishmentRulesRequest.contentType;
                     policyId = listPunishmentRulesRequest.policyId;
+                    enterpriseProjectId = listPunishmentRulesRequest.enterpriseProjectId;
                     offset = listPunishmentRulesRequest.offset;
                     limit = listPunishmentRulesRequest.limit;
-                    enterpriseProjectId = listPunishmentRulesRequest.enterpriseProjectId;
+                    page = listPunishmentRulesRequest.page;
+                    pagesize = listPunishmentRulesRequest.pagesize;
                 } else {
                     contentType = listPunishmentRulesRequest['Content-Type'];
                     policyId = listPunishmentRulesRequest['policy_id'];
+                    enterpriseProjectId = listPunishmentRulesRequest['enterprise_project_id'];
                     offset = listPunishmentRulesRequest['offset'];
                     limit = listPunishmentRulesRequest['limit'];
-                    enterpriseProjectId = listPunishmentRulesRequest['enterprise_project_id'];
+                    page = listPunishmentRulesRequest['page'];
+                    pagesize = listPunishmentRulesRequest['pagesize'];
                 }
             }
 
@@ -11688,20 +12071,20 @@ export const ParamCreater = function () {
             if (policyId === null || policyId === undefined) {
             throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling listPunishmentRules.');
             }
-            if (offset === null || offset === undefined) {
-                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listPunishmentRules.');
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
-            if (limit === null || limit === undefined) {
-                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listPunishmentRules.');
-            }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pagesize !== null && pagesize !== undefined) {
+                localVarQueryParameter['pagesize'] = pagesize;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -12204,32 +12587,54 @@ export const ParamCreater = function () {
             
             let recent;
             
+            let from;
+            
+            let to;
+            
+            let top;
+            
             let hosts;
+            
+            let instances;
 
             if (listSourceIpTop5Request !== null && listSourceIpTop5Request !== undefined) {
                 if (listSourceIpTop5Request instanceof ListSourceIpTop5Request) {
                     contentType = listSourceIpTop5Request.contentType;
                     recent = listSourceIpTop5Request.recent;
+                    from = listSourceIpTop5Request.from;
+                    to = listSourceIpTop5Request.to;
+                    top = listSourceIpTop5Request.top;
                     hosts = listSourceIpTop5Request.hosts;
+                    instances = listSourceIpTop5Request.instances;
                 } else {
                     contentType = listSourceIpTop5Request['Content-Type'];
                     recent = listSourceIpTop5Request['recent'];
+                    from = listSourceIpTop5Request['from'];
+                    to = listSourceIpTop5Request['to'];
+                    top = listSourceIpTop5Request['top'];
                     hosts = listSourceIpTop5Request['hosts'];
+                    instances = listSourceIpTop5Request['instances'];
                 }
             }
 
         
-            if (recent === null || recent === undefined) {
-                throw new RequiredError('recent','Required parameter recent was null or undefined when calling listSourceIpTop5.');
-            }
             if (recent !== null && recent !== undefined) {
                 localVarQueryParameter['recent'] = recent;
             }
-            if (hosts === null || hosts === undefined) {
-                throw new RequiredError('hosts','Required parameter hosts was null or undefined when calling listSourceIpTop5.');
+            if (from !== null && from !== undefined) {
+                localVarQueryParameter['from'] = from;
+            }
+            if (to !== null && to !== undefined) {
+                localVarQueryParameter['to'] = to;
+            }
+            if (top !== null && top !== undefined) {
+                localVarQueryParameter['top'] = top;
             }
             if (hosts !== null && hosts !== undefined) {
                 localVarQueryParameter['hosts'] = hosts;
+            }
+            if (instances !== null && instances !== undefined) {
+                localVarQueryParameter['instances'] = instances;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -12339,29 +12744,47 @@ export const ParamCreater = function () {
             
             let recent;
             
+            let from;
+            
+            let to;
+            
             let hosts;
+            
+            let instances;
 
             if (listThreatsRequest !== null && listThreatsRequest !== undefined) {
                 if (listThreatsRequest instanceof ListThreatsRequest) {
                     contentType = listThreatsRequest.contentType;
                     recent = listThreatsRequest.recent;
+                    from = listThreatsRequest.from;
+                    to = listThreatsRequest.to;
                     hosts = listThreatsRequest.hosts;
+                    instances = listThreatsRequest.instances;
                 } else {
                     contentType = listThreatsRequest['Content-Type'];
                     recent = listThreatsRequest['recent'];
+                    from = listThreatsRequest['from'];
+                    to = listThreatsRequest['to'];
                     hosts = listThreatsRequest['hosts'];
+                    instances = listThreatsRequest['instances'];
                 }
             }
 
         
-            if (recent === null || recent === undefined) {
-                throw new RequiredError('recent','Required parameter recent was null or undefined when calling listThreats.');
-            }
             if (recent !== null && recent !== undefined) {
                 localVarQueryParameter['recent'] = recent;
             }
+            if (from !== null && from !== undefined) {
+                localVarQueryParameter['from'] = from;
+            }
+            if (to !== null && to !== undefined) {
+                localVarQueryParameter['to'] = to;
+            }
             if (hosts !== null && hosts !== undefined) {
                 localVarQueryParameter['hosts'] = hosts;
+            }
+            if (instances !== null && instances !== undefined) {
+                localVarQueryParameter['instances'] = instances;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -12764,9 +13187,6 @@ export const ParamCreater = function () {
             }
 
         
-            if (top === null || top === undefined) {
-                throw new RequiredError('top','Required parameter top was null or undefined when calling listUrl.');
-            }
             if (top !== null && top !== undefined) {
                 localVarQueryParameter['top'] = top;
             }
@@ -13597,18 +14017,25 @@ export const ParamCreater = function () {
 
             
             let contentType;
+            
+            let region;
 
             if (showConsoleConfigRequest !== null && showConsoleConfigRequest !== undefined) {
                 if (showConsoleConfigRequest instanceof ShowConsoleConfigRequest) {
                     contentType = showConsoleConfigRequest.contentType;
+                    region = showConsoleConfigRequest.region;
                 } else {
                     contentType = showConsoleConfigRequest['Content-Type'];
+                    region = showConsoleConfigRequest['region'];
                 }
             }
 
         
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
             }
 
             options.headers = localVarHeaderParameter;
@@ -15509,6 +15936,65 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 全局白名单(原误报屏蔽)防护规则的命中次数清零
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateIgnoreRuleHitNum(updateIgnoreRuleHitNumRequest?: UpdateIgnoreRuleHitNumRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/waf/policy/{policy_id}/ignore/{rule_id}/recount",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let policyId;
+            
+            let ruleId;
+            
+            let enterpriseProjectId;
+
+            if (updateIgnoreRuleHitNumRequest !== null && updateIgnoreRuleHitNumRequest !== undefined) {
+                if (updateIgnoreRuleHitNumRequest instanceof UpdateIgnoreRuleHitNumRequest) {
+                    contentType = updateIgnoreRuleHitNumRequest.contentType;
+                    policyId = updateIgnoreRuleHitNumRequest.policyId;
+                    ruleId = updateIgnoreRuleHitNumRequest.ruleId;
+                    enterpriseProjectId = updateIgnoreRuleHitNumRequest.enterpriseProjectId;
+                } else {
+                    contentType = updateIgnoreRuleHitNumRequest['Content-Type'];
+                    policyId = updateIgnoreRuleHitNumRequest['policy_id'];
+                    ruleId = updateIgnoreRuleHitNumRequest['rule_id'];
+                    enterpriseProjectId = updateIgnoreRuleHitNumRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling updateIgnoreRuleHitNum.');
+            }
+            if (ruleId === null || ruleId === undefined) {
+            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling updateIgnoreRuleHitNum.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'policy_id': policyId,'rule_id': ruleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新云模式域名路由信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -16030,17 +16516,25 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             let body: any;
             
             let hostId;
+            
+            let contentType;
+            
+            let enterpriseProjectId;
 
             if (updatePremiumHostAccessStatusRequest !== null && updatePremiumHostAccessStatusRequest !== undefined) {
                 if (updatePremiumHostAccessStatusRequest instanceof UpdatePremiumHostAccessStatusRequest) {
                     hostId = updatePremiumHostAccessStatusRequest.hostId;
+                    contentType = updatePremiumHostAccessStatusRequest.contentType;
+                    enterpriseProjectId = updatePremiumHostAccessStatusRequest.enterpriseProjectId;
                     body = updatePremiumHostAccessStatusRequest.body
                 } else {
                     hostId = updatePremiumHostAccessStatusRequest['host_id'];
+                    contentType = updatePremiumHostAccessStatusRequest['Content-Type'];
+                    enterpriseProjectId = updatePremiumHostAccessStatusRequest['enterprise_project_id'];
                     body = updatePremiumHostAccessStatusRequest['body'];
                 }
             }
@@ -16049,9 +16543,16 @@ export const ParamCreater = function () {
             if (hostId === null || hostId === undefined) {
             throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling updatePremiumHostAccessStatus.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'host_id': hostId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -16174,22 +16675,26 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             let body: any;
             
             let contentType;
             
             let hostId;
+            
+            let enterpriseProjectId;
 
             if (updatePremiumInstanceProgressRequest !== null && updatePremiumInstanceProgressRequest !== undefined) {
                 if (updatePremiumInstanceProgressRequest instanceof UpdatePremiumInstanceProgressRequest) {
                     contentType = updatePremiumInstanceProgressRequest.contentType;
                     hostId = updatePremiumInstanceProgressRequest.hostId;
                     body = updatePremiumInstanceProgressRequest.body
+                    enterpriseProjectId = updatePremiumInstanceProgressRequest.enterpriseProjectId;
                 } else {
                     contentType = updatePremiumInstanceProgressRequest['Content-Type'];
                     hostId = updatePremiumInstanceProgressRequest['host_id'];
                     body = updatePremiumInstanceProgressRequest['body'];
+                    enterpriseProjectId = updatePremiumInstanceProgressRequest['enterprise_project_id'];
                 }
             }
 
@@ -16200,12 +16705,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'host_id': hostId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -16644,19 +17153,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let ruleId;
             
             let xLanguage;
+            
+            let enterpriseProjectId;
 
             if (showWebProtectionRuleRequest !== null && showWebProtectionRuleRequest !== undefined) {
                 if (showWebProtectionRuleRequest instanceof ShowWebProtectionRuleRequest) {
                     ruleId = showWebProtectionRuleRequest.ruleId;
                     xLanguage = showWebProtectionRuleRequest.xLanguage;
+                    enterpriseProjectId = showWebProtectionRuleRequest.enterpriseProjectId;
                 } else {
                     ruleId = showWebProtectionRuleRequest['rule_id'];
                     xLanguage = showWebProtectionRuleRequest['X-Language'];
+                    enterpriseProjectId = showWebProtectionRuleRequest['enterprise_project_id'];
                 }
             }
 
@@ -16664,10 +17177,14 @@ export const ParamCreater = function () {
             if (ruleId === null || ruleId === undefined) {
             throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling showWebProtectionRule.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'rule_id': ruleId, };
             options.headers = localVarHeaderParameter;
             return options;

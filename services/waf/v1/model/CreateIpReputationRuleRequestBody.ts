@@ -1,15 +1,13 @@
-import { UpdateIpReputationRuleRequestBodyAction } from './UpdateIpReputationRuleRequestBodyAction';
+import { CreateIpReputationRuleRequestBodyAction } from './CreateIpReputationRuleRequestBodyAction';
 
 
 export class CreateIpReputationRuleRequestBody {
     public name?: string;
-    public policyname?: string;
     public description?: string;
-    public status?: number;
-    public action?: UpdateIpReputationRuleRequestBodyAction;
+    public action?: CreateIpReputationRuleRequestBodyAction;
     public type?: string;
     public tags?: Array<string>;
-    public constructor(name?: string, action?: UpdateIpReputationRuleRequestBodyAction, type?: string, tags?: Array<string>) { 
+    public constructor(name?: string, action?: CreateIpReputationRuleRequestBodyAction, type?: string, tags?: Array<string>) { 
         this['name'] = name;
         this['action'] = action;
         this['type'] = type;
@@ -19,19 +17,11 @@ export class CreateIpReputationRuleRequestBody {
         this['name'] = name;
         return this;
     }
-    public withPolicyname(policyname: string): CreateIpReputationRuleRequestBody {
-        this['policyname'] = policyname;
-        return this;
-    }
     public withDescription(description: string): CreateIpReputationRuleRequestBody {
         this['description'] = description;
         return this;
     }
-    public withStatus(status: number): CreateIpReputationRuleRequestBody {
-        this['status'] = status;
-        return this;
-    }
-    public withAction(action: UpdateIpReputationRuleRequestBodyAction): CreateIpReputationRuleRequestBody {
+    public withAction(action: CreateIpReputationRuleRequestBodyAction): CreateIpReputationRuleRequestBody {
         this['action'] = action;
         return this;
     }

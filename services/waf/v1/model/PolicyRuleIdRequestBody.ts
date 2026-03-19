@@ -3,7 +3,8 @@ import { PolicyRuleIdRequestBodyPolicyRuleIds } from './PolicyRuleIdRequestBodyP
 
 export class PolicyRuleIdRequestBody {
     private 'policy_rule_ids'?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>;
-    public constructor() { 
+    public constructor(policyRuleIds?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>) { 
+        this['policy_rule_ids'] = policyRuleIds;
     }
     public withPolicyRuleIds(policyRuleIds: Array<PolicyRuleIdRequestBodyPolicyRuleIds>): PolicyRuleIdRequestBody {
         this['policy_rule_ids'] = policyRuleIds;

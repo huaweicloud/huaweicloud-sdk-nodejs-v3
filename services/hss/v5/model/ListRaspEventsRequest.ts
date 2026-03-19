@@ -2,17 +2,16 @@
 
 export class ListRaspEventsRequest {
     private 'enterprise_project_id'?: string;
+    private 'host_id'?: string;
     public offset?: number;
     public limit?: number;
-    private 'host_id'?: string;
     private 'start_time'?: number;
     private 'end_time'?: number;
     private 'app_type'?: string;
     public severity?: string;
     private 'attack_tag'?: string;
     private 'protect_status'?: string;
-    public constructor(hostId?: string, startTime?: number, endTime?: number) { 
-        this['host_id'] = hostId;
+    public constructor(startTime?: number, endTime?: number) { 
         this['start_time'] = startTime;
         this['end_time'] = endTime;
     }
@@ -26,14 +25,6 @@ export class ListRaspEventsRequest {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withOffset(offset: number): ListRaspEventsRequest {
-        this['offset'] = offset;
-        return this;
-    }
-    public withLimit(limit: number): ListRaspEventsRequest {
-        this['limit'] = limit;
-        return this;
-    }
     public withHostId(hostId: string): ListRaspEventsRequest {
         this['host_id'] = hostId;
         return this;
@@ -43,6 +34,14 @@ export class ListRaspEventsRequest {
     }
     public get hostId(): string | undefined {
         return this['host_id'];
+    }
+    public withOffset(offset: number): ListRaspEventsRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: number): ListRaspEventsRequest {
+        this['limit'] = limit;
+        return this;
     }
     public withStartTime(startTime: number): ListRaspEventsRequest {
         this['start_time'] = startTime;

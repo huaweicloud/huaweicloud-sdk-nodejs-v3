@@ -3,6 +3,7 @@
 export class ShowBaselineOverviewRequest {
     private 'enterprise_project_id'?: string;
     private 'group_id'?: string;
+    private 'statistics_type'?: string;
     public constructor() { 
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ShowBaselineOverviewRequest {
@@ -24,5 +25,15 @@ export class ShowBaselineOverviewRequest {
     }
     public get groupId(): string | undefined {
         return this['group_id'];
+    }
+    public withStatisticsType(statisticsType: string): ShowBaselineOverviewRequest {
+        this['statistics_type'] = statisticsType;
+        return this;
+    }
+    public set statisticsType(statisticsType: string  | undefined) {
+        this['statistics_type'] = statisticsType;
+    }
+    public get statisticsType(): string | undefined {
+        return this['statistics_type'];
     }
 }

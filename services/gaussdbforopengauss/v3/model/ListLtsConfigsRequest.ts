@@ -8,8 +8,7 @@ export class ListLtsConfigsRequest {
     private 'enterprise_project_id'?: string;
     public offset?: number;
     public limit?: number;
-    public constructor(instanceId?: string) { 
-        this['instance_id'] = instanceId;
+    public constructor() { 
     }
     public withXLanguage(xLanguage: ListLtsConfigsRequestXLanguageEnum | string): ListLtsConfigsRequest {
         this['X-Language'] = xLanguage;

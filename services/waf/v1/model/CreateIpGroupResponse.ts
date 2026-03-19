@@ -6,6 +6,7 @@ export class CreateIpGroupResponse extends SdkResponse {
     public id?: string;
     public name?: string;
     public ips?: string;
+    private 'ip_remarks'?: { [key: string]: string; };
     public size?: number;
     public rules?: Array<RuleInfo>;
     public description?: string;
@@ -24,6 +25,16 @@ export class CreateIpGroupResponse extends SdkResponse {
     public withIps(ips: string): CreateIpGroupResponse {
         this['ips'] = ips;
         return this;
+    }
+    public withIpRemarks(ipRemarks: { [key: string]: string; }): CreateIpGroupResponse {
+        this['ip_remarks'] = ipRemarks;
+        return this;
+    }
+    public set ipRemarks(ipRemarks: { [key: string]: string; }  | undefined) {
+        this['ip_remarks'] = ipRemarks;
+    }
+    public get ipRemarks(): { [key: string]: string; } | undefined {
+        return this['ip_remarks'];
     }
     public withSize(size: number): CreateIpGroupResponse {
         this['size'] = size;

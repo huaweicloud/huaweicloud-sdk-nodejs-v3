@@ -13,6 +13,7 @@ export class ListVulHostHostsRequest {
     private 'handle_status'?: string;
     public status?: string;
     private 'cluster_id'?: string;
+    private 'host_id_list'?: string;
     public constructor(limit?: number, offset?: number) { 
         this['limit'] = limit;
         this['offset'] = offset;
@@ -118,5 +119,15 @@ export class ListVulHostHostsRequest {
     }
     public get clusterId(): string | undefined {
         return this['cluster_id'];
+    }
+    public withHostIdList(hostIdList: string): ListVulHostHostsRequest {
+        this['host_id_list'] = hostIdList;
+        return this;
+    }
+    public set hostIdList(hostIdList: string  | undefined) {
+        this['host_id_list'] = hostIdList;
+    }
+    public get hostIdList(): string | undefined {
+        return this['host_id_list'];
     }
 }

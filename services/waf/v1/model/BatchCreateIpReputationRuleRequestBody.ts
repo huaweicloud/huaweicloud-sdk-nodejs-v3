@@ -1,14 +1,14 @@
-import { UpdateIpReputationRuleRequestBodyAction } from './UpdateIpReputationRuleRequestBodyAction';
+import { CreateIpReputationRuleRequestBodyAction } from './CreateIpReputationRuleRequestBodyAction';
 
 
 export class BatchCreateIpReputationRuleRequestBody {
     public name?: string;
-    public type?: string;
+    public type?: BatchCreateIpReputationRuleRequestBodyTypeEnum | string;
     public tags?: Array<string>;
-    public action?: UpdateIpReputationRuleRequestBodyAction;
+    public action?: CreateIpReputationRuleRequestBodyAction;
     public description?: string;
     private 'policy_ids'?: Array<string>;
-    public constructor(name?: string, type?: string, tags?: Array<string>, action?: UpdateIpReputationRuleRequestBodyAction, policyIds?: Array<string>) { 
+    public constructor(name?: string, type?: string, tags?: Array<string>, action?: CreateIpReputationRuleRequestBodyAction, policyIds?: Array<string>) { 
         this['name'] = name;
         this['type'] = type;
         this['tags'] = tags;
@@ -19,7 +19,7 @@ export class BatchCreateIpReputationRuleRequestBody {
         this['name'] = name;
         return this;
     }
-    public withType(type: string): BatchCreateIpReputationRuleRequestBody {
+    public withType(type: BatchCreateIpReputationRuleRequestBodyTypeEnum | string): BatchCreateIpReputationRuleRequestBody {
         this['type'] = type;
         return this;
     }
@@ -27,7 +27,7 @@ export class BatchCreateIpReputationRuleRequestBody {
         this['tags'] = tags;
         return this;
     }
-    public withAction(action: UpdateIpReputationRuleRequestBodyAction): BatchCreateIpReputationRuleRequestBody {
+    public withAction(action: CreateIpReputationRuleRequestBodyAction): BatchCreateIpReputationRuleRequestBody {
         this['action'] = action;
         return this;
     }
@@ -45,4 +45,12 @@ export class BatchCreateIpReputationRuleRequestBody {
     public get policyIds(): Array<string> | undefined {
         return this['policy_ids'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BatchCreateIpReputationRuleRequestBodyTypeEnum {
+    IDC = 'idc'
 }

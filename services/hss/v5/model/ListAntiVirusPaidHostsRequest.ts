@@ -11,8 +11,7 @@ export class ListAntiVirusPaidHostsRequest {
     private 'group_id'?: string;
     private 'scan_type'?: string;
     private 'start_type'?: string;
-    public constructor(scanType?: string, startType?: string) { 
-        this['scan_type'] = scanType;
+    public constructor(startType?: string) { 
         this['start_type'] = startType;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListAntiVirusPaidHostsRequest {

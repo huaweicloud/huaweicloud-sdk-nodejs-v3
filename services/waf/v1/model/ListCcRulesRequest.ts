@@ -6,15 +6,15 @@ export class ListCcRulesRequest {
     private 'policy_id'?: string;
     public offset?: number;
     public limit?: number;
+    public page?: number;
+    public pagesize?: number;
     public name?: string;
     public status?: number;
     public category?: string;
     private 'tag_type'?: ListCcRulesRequestTagTypeEnum | string;
-    public constructor(contentType?: string, policyId?: string, offset?: number, limit?: number) { 
+    public constructor(contentType?: string, policyId?: string) { 
         this['Content-Type'] = contentType;
         this['policy_id'] = policyId;
-        this['offset'] = offset;
-        this['limit'] = limit;
     }
     public withContentType(contentType: string): ListCcRulesRequest {
         this['Content-Type'] = contentType;
@@ -52,6 +52,14 @@ export class ListCcRulesRequest {
     }
     public withLimit(limit: number): ListCcRulesRequest {
         this['limit'] = limit;
+        return this;
+    }
+    public withPage(page: number): ListCcRulesRequest {
+        this['page'] = page;
+        return this;
+    }
+    public withPagesize(pagesize: number): ListCcRulesRequest {
+        this['pagesize'] = pagesize;
         return this;
     }
     public withName(name: string): ListCcRulesRequest {

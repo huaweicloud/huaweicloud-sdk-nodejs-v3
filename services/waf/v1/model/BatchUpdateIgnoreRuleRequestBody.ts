@@ -1,6 +1,6 @@
+import { BatchUpdateIgnoreRuleRequestBodyPolicyRuleIds } from './BatchUpdateIgnoreRuleRequestBodyPolicyRuleIds';
 import { CreateCondition } from './CreateCondition';
 import { IgnoreAdvanced } from './IgnoreAdvanced';
-import { PolicyRuleIdRequestBodyPolicyRuleIds } from './PolicyRuleIdRequestBodyPolicyRuleIds';
 
 
 export class BatchUpdateIgnoreRuleRequestBody {
@@ -10,8 +10,8 @@ export class BatchUpdateIgnoreRuleRequestBody {
     public rule?: string;
     public advanced?: IgnoreAdvanced;
     public description?: string;
-    private 'policy_rule_ids'?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>;
-    public constructor(domain?: Array<string>, conditions?: Array<CreateCondition>, mode?: number, rule?: string, policyRuleIds?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>) { 
+    private 'policy_rule_ids'?: Array<BatchUpdateIgnoreRuleRequestBodyPolicyRuleIds>;
+    public constructor(domain?: Array<string>, conditions?: Array<CreateCondition>, mode?: number, rule?: string, policyRuleIds?: Array<BatchUpdateIgnoreRuleRequestBodyPolicyRuleIds>) { 
         this['domain'] = domain;
         this['conditions'] = conditions;
         this['mode'] = mode;
@@ -42,14 +42,14 @@ export class BatchUpdateIgnoreRuleRequestBody {
         this['description'] = description;
         return this;
     }
-    public withPolicyRuleIds(policyRuleIds: Array<PolicyRuleIdRequestBodyPolicyRuleIds>): BatchUpdateIgnoreRuleRequestBody {
+    public withPolicyRuleIds(policyRuleIds: Array<BatchUpdateIgnoreRuleRequestBodyPolicyRuleIds>): BatchUpdateIgnoreRuleRequestBody {
         this['policy_rule_ids'] = policyRuleIds;
         return this;
     }
-    public set policyRuleIds(policyRuleIds: Array<PolicyRuleIdRequestBodyPolicyRuleIds>  | undefined) {
+    public set policyRuleIds(policyRuleIds: Array<BatchUpdateIgnoreRuleRequestBodyPolicyRuleIds>  | undefined) {
         this['policy_rule_ids'] = policyRuleIds;
     }
-    public get policyRuleIds(): Array<PolicyRuleIdRequestBodyPolicyRuleIds> | undefined {
+    public get policyRuleIds(): Array<BatchUpdateIgnoreRuleRequestBodyPolicyRuleIds> | undefined {
         return this['policy_rule_ids'];
     }
 }

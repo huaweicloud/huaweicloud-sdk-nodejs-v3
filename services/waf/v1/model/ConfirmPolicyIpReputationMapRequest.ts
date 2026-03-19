@@ -2,11 +2,10 @@
 
 export class ConfirmPolicyIpReputationMapRequest {
     private 'Content-Type'?: string;
-    public lang?: string;
-    public type?: string;
-    public constructor(contentType?: string, lang?: string, type?: string) { 
+    public lang?: ConfirmPolicyIpReputationMapRequestLangEnum | string;
+    public type?: ConfirmPolicyIpReputationMapRequestTypeEnum | string;
+    public constructor(contentType?: string, type?: string) { 
         this['Content-Type'] = contentType;
-        this['lang'] = lang;
         this['type'] = type;
     }
     public withContentType(contentType: string): ConfirmPolicyIpReputationMapRequest {
@@ -19,12 +18,28 @@ export class ConfirmPolicyIpReputationMapRequest {
     public get contentType(): string | undefined {
         return this['Content-Type'];
     }
-    public withLang(lang: string): ConfirmPolicyIpReputationMapRequest {
+    public withLang(lang: ConfirmPolicyIpReputationMapRequestLangEnum | string): ConfirmPolicyIpReputationMapRequest {
         this['lang'] = lang;
         return this;
     }
-    public withType(type: string): ConfirmPolicyIpReputationMapRequest {
+    public withType(type: ConfirmPolicyIpReputationMapRequestTypeEnum | string): ConfirmPolicyIpReputationMapRequest {
         this['type'] = type;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ConfirmPolicyIpReputationMapRequestLangEnum {
+    CN = 'cn',
+    EN = 'en'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ConfirmPolicyIpReputationMapRequestTypeEnum {
+    IDC = 'idc'
 }

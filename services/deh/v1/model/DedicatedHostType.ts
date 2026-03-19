@@ -1,5 +1,4 @@
 import { DedicatedHostTypeOffering } from './DedicatedHostTypeOffering';
-import { PageInfo } from './PageInfo';
 
 
 export class DedicatedHostType {
@@ -11,8 +10,7 @@ export class DedicatedHostType {
     private 'supported_flavors'?: Array<string>;
     public category?: string;
     private 'availability_zone_offerings'?: Array<DedicatedHostTypeOffering>;
-    private 'page_info'?: PageInfo;
-    public constructor(hostType?: string, vcpus?: number, cores?: number, sockets?: number, memory?: number, supportedFlavors?: Array<string>, category?: string, pageInfo?: PageInfo) { 
+    public constructor(hostType?: string, vcpus?: number, cores?: number, sockets?: number, memory?: number, supportedFlavors?: Array<string>, category?: string) { 
         this['host_type'] = hostType;
         this['vcpus'] = vcpus;
         this['cores'] = cores;
@@ -20,7 +18,6 @@ export class DedicatedHostType {
         this['memory'] = memory;
         this['supported_flavors'] = supportedFlavors;
         this['category'] = category;
-        this['page_info'] = pageInfo;
     }
     public withHostType(hostType: string): DedicatedHostType {
         this['host_type'] = hostType;
@@ -71,15 +68,5 @@ export class DedicatedHostType {
     }
     public get availabilityZoneOfferings(): Array<DedicatedHostTypeOffering> | undefined {
         return this['availability_zone_offerings'];
-    }
-    public withPageInfo(pageInfo: PageInfo): DedicatedHostType {
-        this['page_info'] = pageInfo;
-        return this;
-    }
-    public set pageInfo(pageInfo: PageInfo  | undefined) {
-        this['page_info'] = pageInfo;
-    }
-    public get pageInfo(): PageInfo | undefined {
-        return this['page_info'];
     }
 }

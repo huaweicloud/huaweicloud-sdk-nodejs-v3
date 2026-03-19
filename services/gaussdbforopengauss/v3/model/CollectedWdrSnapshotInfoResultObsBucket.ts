@@ -4,7 +4,7 @@ export class CollectedWdrSnapshotInfoResultObsBucket {
     public name?: string;
     public type?: string;
     public url?: string;
-    public port?: string;
+    public port?: number;
     private 'domain_id'?: string;
     public constructor() { 
     }
@@ -20,7 +20,7 @@ export class CollectedWdrSnapshotInfoResultObsBucket {
         this['url'] = url;
         return this;
     }
-    public withPort(port: string): CollectedWdrSnapshotInfoResultObsBucket {
+    public withPort(port: number): CollectedWdrSnapshotInfoResultObsBucket {
         this['port'] = port;
         return this;
     }

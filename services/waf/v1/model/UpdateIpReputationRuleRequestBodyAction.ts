@@ -2,7 +2,8 @@
 
 export class UpdateIpReputationRuleRequestBodyAction {
     public category?: string;
-    public constructor() { 
+    public constructor(category?: string) { 
+        this['category'] = category;
     }
     public withCategory(category: string): UpdateIpReputationRuleRequestBodyAction {
         this['category'] = category;

@@ -1,5 +1,5 @@
+import { BatchUpdateAntileakageRuleRequestBodyPolicyRuleIds } from './BatchUpdateAntileakageRuleRequestBodyPolicyRuleIds';
 import { LeakageListInfoAction } from './LeakageListInfoAction';
-import { PolicyRuleIdRequestBodyPolicyRuleIds } from './PolicyRuleIdRequestBodyPolicyRuleIds';
 
 
 export class BatchUpdateAntileakageRuleRequestBody {
@@ -8,8 +8,8 @@ export class BatchUpdateAntileakageRuleRequestBody {
     public contents?: Array<string>;
     public action?: LeakageListInfoAction;
     public description?: string;
-    private 'policy_rule_ids'?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>;
-    public constructor(url?: string, category?: string, contents?: Array<string>, policyRuleIds?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>) { 
+    private 'policy_rule_ids'?: Array<BatchUpdateAntileakageRuleRequestBodyPolicyRuleIds>;
+    public constructor(url?: string, category?: string, contents?: Array<string>, policyRuleIds?: Array<BatchUpdateAntileakageRuleRequestBodyPolicyRuleIds>) { 
         this['url'] = url;
         this['category'] = category;
         this['contents'] = contents;
@@ -35,14 +35,14 @@ export class BatchUpdateAntileakageRuleRequestBody {
         this['description'] = description;
         return this;
     }
-    public withPolicyRuleIds(policyRuleIds: Array<PolicyRuleIdRequestBodyPolicyRuleIds>): BatchUpdateAntileakageRuleRequestBody {
+    public withPolicyRuleIds(policyRuleIds: Array<BatchUpdateAntileakageRuleRequestBodyPolicyRuleIds>): BatchUpdateAntileakageRuleRequestBody {
         this['policy_rule_ids'] = policyRuleIds;
         return this;
     }
-    public set policyRuleIds(policyRuleIds: Array<PolicyRuleIdRequestBodyPolicyRuleIds>  | undefined) {
+    public set policyRuleIds(policyRuleIds: Array<BatchUpdateAntileakageRuleRequestBodyPolicyRuleIds>  | undefined) {
         this['policy_rule_ids'] = policyRuleIds;
     }
-    public get policyRuleIds(): Array<PolicyRuleIdRequestBodyPolicyRuleIds> | undefined {
+    public get policyRuleIds(): Array<BatchUpdateAntileakageRuleRequestBodyPolicyRuleIds> | undefined {
         return this['policy_rule_ids'];
     }
 }

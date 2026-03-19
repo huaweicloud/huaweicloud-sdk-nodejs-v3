@@ -33,6 +33,10 @@ import { DeployCertificateRequestBody } from './model/DeployCertificateRequestBo
 import { DeployCertificateResponse } from './model/DeployCertificateResponse';
 import { DeployedResource } from './model/DeployedResource';
 import { DeployedResourceDetail } from './model/DeployedResourceDetail';
+import { DisableNotificationRequest } from './model/DisableNotificationRequest';
+import { DisableNotificationResponse } from './model/DisableNotificationResponse';
+import { EnableNotificationRequest } from './model/EnableNotificationRequest';
+import { EnableNotificationResponse } from './model/EnableNotificationResponse';
 import { ExportCertificateRequest } from './model/ExportCertificateRequest';
 import { ExportCertificateResponse } from './model/ExportCertificateResponse';
 import { FaiureResource } from './model/FaiureResource';
@@ -53,6 +57,7 @@ import { ListDeployedResourcesRequestBody } from './model/ListDeployedResourcesR
 import { ListDeployedResourcesResponse } from './model/ListDeployedResourcesResponse';
 import { ListTagsByCertificateRequest } from './model/ListTagsByCertificateRequest';
 import { ListTagsByCertificateResponse } from './model/ListTagsByCertificateResponse';
+import { NoticeRequestBody } from './model/NoticeRequestBody';
 import { PurchaseCertificateRequestBody } from './model/PurchaseCertificateRequestBody';
 import { PushCertificateRequest } from './model/PushCertificateRequest';
 import { PushCertificateRequestBody } from './model/PushCertificateRequestBody';
@@ -230,6 +235,44 @@ export class ScmClient {
      */
     public deployCertificate(deployCertificateRequest?: DeployCertificateRequest): Promise<DeployCertificateResponse> {
         const options = ParamCreater().deployCertificate(deployCertificateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 禁用证书提醒。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 禁用证书提醒
+     * @param {Array<NoticeRequestBody>} disableNotificationRequestBody requestBody
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disableNotification(disableNotificationRequest?: DisableNotificationRequest): Promise<DisableNotificationResponse> {
+        const options = ParamCreater().disableNotification(disableNotificationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 启用证书提醒。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启用证书提醒
+     * @param {Array<NoticeRequestBody>} enableNotificationRequestBody requestBody
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public enableNotification(enableNotificationRequest?: EnableNotificationRequest): Promise<EnableNotificationResponse> {
+        const options = ParamCreater().enableNotification(enableNotificationRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -897,6 +940,82 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'certificate_id': certificateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 禁用证书提醒。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disableNotification(disableNotificationRequest?: DisableNotificationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/scm/notification/disable",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (disableNotificationRequest !== null && disableNotificationRequest !== undefined) {
+                if (disableNotificationRequest instanceof DisableNotificationRequest) {
+                    body = disableNotificationRequest.body
+                } else {
+                    body = disableNotificationRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 启用证书提醒。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        enableNotification(enableNotificationRequest?: EnableNotificationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/scm/notification/enable",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (enableNotificationRequest !== null && enableNotificationRequest !== undefined) {
+                if (enableNotificationRequest instanceof EnableNotificationRequest) {
+                    body = enableNotificationRequest.body
+                } else {
+                    body = enableNotificationRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

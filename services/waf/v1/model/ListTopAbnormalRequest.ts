@@ -6,9 +6,9 @@ export class ListTopAbnormalRequest {
     public from?: number;
     public to?: number;
     public top?: number;
-    public code?: number;
-    public hosts?: string;
-    public instances?: string;
+    public code?: ListTopAbnormalRequestCodeEnum | number;
+    public hosts?: Array<string>;
+    public instances?: Array<string>;
     public constructor(contentType?: string, from?: number, to?: number) { 
         this['Content-Type'] = contentType;
         this['from'] = from;
@@ -46,16 +46,26 @@ export class ListTopAbnormalRequest {
         this['top'] = top;
         return this;
     }
-    public withCode(code: number): ListTopAbnormalRequest {
+    public withCode(code: ListTopAbnormalRequestCodeEnum | number): ListTopAbnormalRequest {
         this['code'] = code;
         return this;
     }
-    public withHosts(hosts: string): ListTopAbnormalRequest {
+    public withHosts(hosts: Array<string>): ListTopAbnormalRequest {
         this['hosts'] = hosts;
         return this;
     }
-    public withInstances(instances: string): ListTopAbnormalRequest {
+    public withInstances(instances: Array<string>): ListTopAbnormalRequest {
         this['instances'] = instances;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListTopAbnormalRequestCodeEnum {
+    NUMBER_404 = 404,
+    NUMBER_500 = 500,
+    NUMBER_502 = 502
 }

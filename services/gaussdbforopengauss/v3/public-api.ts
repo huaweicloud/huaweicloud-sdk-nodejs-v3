@@ -115,6 +115,7 @@ export * from './model/CreateScheduleTaskRequestBody';
 export * from './model/CreateScheduleTaskResponse';
 export * from './model/CreateSlowLogDownloadRequest';
 export * from './model/CreateSlowLogDownloadResponse';
+export * from './model/CreateSqlLimitTaskNodeOption';
 export * from './model/CreateSqlLimitTaskRequest';
 export * from './model/CreateSqlLimitTaskRequestBody';
 export * from './model/CreateSqlLimitTaskResponse';

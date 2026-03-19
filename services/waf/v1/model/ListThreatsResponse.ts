@@ -14,6 +14,9 @@ export class ListThreatsResponse extends SdkResponse {
     public whiteblackip?: number;
     public antileakage?: number;
     public antitamper?: number;
+    private 'llm_prompt_injection'?: number;
+    private 'llm_prompt_sensitive'?: number;
+    private 'llm_response_sensitive'?: number;
     public constructor() { 
         super();
     }
@@ -64,5 +67,35 @@ export class ListThreatsResponse extends SdkResponse {
     public withAntitamper(antitamper: number): ListThreatsResponse {
         this['antitamper'] = antitamper;
         return this;
+    }
+    public withLlmPromptInjection(llmPromptInjection: number): ListThreatsResponse {
+        this['llm_prompt_injection'] = llmPromptInjection;
+        return this;
+    }
+    public set llmPromptInjection(llmPromptInjection: number  | undefined) {
+        this['llm_prompt_injection'] = llmPromptInjection;
+    }
+    public get llmPromptInjection(): number | undefined {
+        return this['llm_prompt_injection'];
+    }
+    public withLlmPromptSensitive(llmPromptSensitive: number): ListThreatsResponse {
+        this['llm_prompt_sensitive'] = llmPromptSensitive;
+        return this;
+    }
+    public set llmPromptSensitive(llmPromptSensitive: number  | undefined) {
+        this['llm_prompt_sensitive'] = llmPromptSensitive;
+    }
+    public get llmPromptSensitive(): number | undefined {
+        return this['llm_prompt_sensitive'];
+    }
+    public withLlmResponseSensitive(llmResponseSensitive: number): ListThreatsResponse {
+        this['llm_response_sensitive'] = llmResponseSensitive;
+        return this;
+    }
+    public set llmResponseSensitive(llmResponseSensitive: number  | undefined) {
+        this['llm_response_sensitive'] = llmResponseSensitive;
+    }
+    public get llmResponseSensitive(): number | undefined {
+        return this['llm_response_sensitive'];
     }
 }

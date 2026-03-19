@@ -16,6 +16,7 @@ export class ListVulHostVulsRequest {
     private 'repair_type'?: string;
     private 'severity_level'?: string;
     private 'repair_priority'?: string;
+    private 'host_id_list'?: string;
     public constructor() { 
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListVulHostVulsRequest {
@@ -143,5 +144,15 @@ export class ListVulHostVulsRequest {
     }
     public get repairPriority(): string | undefined {
         return this['repair_priority'];
+    }
+    public withHostIdList(hostIdList: string): ListVulHostVulsRequest {
+        this['host_id_list'] = hostIdList;
+        return this;
+    }
+    public set hostIdList(hostIdList: string  | undefined) {
+        this['host_id_list'] = hostIdList;
+    }
+    public get hostIdList(): string | undefined {
+        return this['host_id_list'];
     }
 }

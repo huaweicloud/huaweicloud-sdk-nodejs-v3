@@ -1,7 +1,7 @@
 
 
 export class ListCustomPolicyRulesRequest {
-    public policyids?: string;
+    public policyids?: Array<string>;
     private 'enterprise_project_id'?: string;
     public page?: number;
     public pagesize?: number;
@@ -9,7 +9,7 @@ export class ListCustomPolicyRulesRequest {
     public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
     }
-    public withPolicyids(policyids: string): ListCustomPolicyRulesRequest {
+    public withPolicyids(policyids: Array<string>): ListCustomPolicyRulesRequest {
         this['policyids'] = policyids;
         return this;
     }

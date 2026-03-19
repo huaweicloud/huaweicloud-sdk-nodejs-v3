@@ -10,6 +10,7 @@ export class ExportAntiVirusResultRequest {
     private 'public_ip'?: string;
     private 'handle_status'?: string;
     private 'severity_list'?: Array<string>;
+    public severities?: string;
     private 'asset_value'?: string;
     private 'malware_name'?: string;
     private 'file_path'?: string;
@@ -89,6 +90,10 @@ export class ExportAntiVirusResultRequest {
     }
     public get severityList(): Array<string> | undefined {
         return this['severity_list'];
+    }
+    public withSeverities(severities: string): ExportAntiVirusResultRequest {
+        this['severities'] = severities;
+        return this;
     }
     public withAssetValue(assetValue: string): ExportAntiVirusResultRequest {
         this['asset_value'] = assetValue;

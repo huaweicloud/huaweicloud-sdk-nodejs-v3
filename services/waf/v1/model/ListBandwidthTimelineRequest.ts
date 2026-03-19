@@ -5,10 +5,10 @@ export class ListBandwidthTimelineRequest {
     private 'enterprise_project_id'?: string;
     public from?: number;
     public to?: number;
-    public hosts?: string;
-    public instances?: string;
+    public hosts?: Array<string>;
+    public instances?: Array<string>;
     private 'group_by'?: string;
-    private 'display_option'?: number;
+    private 'display_option'?: ListBandwidthTimelineRequestDisplayOptionEnum | number;
     public constructor(contentType?: string, from?: number, to?: number) { 
         this['Content-Type'] = contentType;
         this['from'] = from;
@@ -42,11 +42,11 @@ export class ListBandwidthTimelineRequest {
         this['to'] = to;
         return this;
     }
-    public withHosts(hosts: string): ListBandwidthTimelineRequest {
+    public withHosts(hosts: Array<string>): ListBandwidthTimelineRequest {
         this['hosts'] = hosts;
         return this;
     }
-    public withInstances(instances: string): ListBandwidthTimelineRequest {
+    public withInstances(instances: Array<string>): ListBandwidthTimelineRequest {
         this['instances'] = instances;
         return this;
     }
@@ -60,14 +60,23 @@ export class ListBandwidthTimelineRequest {
     public get groupBy(): string | undefined {
         return this['group_by'];
     }
-    public withDisplayOption(displayOption: number): ListBandwidthTimelineRequest {
+    public withDisplayOption(displayOption: ListBandwidthTimelineRequestDisplayOptionEnum | number): ListBandwidthTimelineRequest {
         this['display_option'] = displayOption;
         return this;
     }
-    public set displayOption(displayOption: number  | undefined) {
+    public set displayOption(displayOption: ListBandwidthTimelineRequestDisplayOptionEnum | number  | undefined) {
         this['display_option'] = displayOption;
     }
-    public get displayOption(): number | undefined {
+    public get displayOption(): ListBandwidthTimelineRequestDisplayOptionEnum | number | undefined {
         return this['display_option'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListBandwidthTimelineRequestDisplayOptionEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
 }

@@ -1,4 +1,4 @@
-import { PolicyRuleIdRequestBodyPolicyRuleIds } from './PolicyRuleIdRequestBodyPolicyRuleIds';
+import { BatchUpdatePrivacyRuleRequestBodyPolicyRuleIds } from './BatchUpdatePrivacyRuleRequestBodyPolicyRuleIds';
 
 
 export class BatchUpdatePrivacyRuleRequestBody {
@@ -6,8 +6,8 @@ export class BatchUpdatePrivacyRuleRequestBody {
     public category?: BatchUpdatePrivacyRuleRequestBodyCategoryEnum | string;
     public index?: string;
     public description?: string;
-    private 'policy_rule_ids'?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>;
-    public constructor(url?: string, category?: string, index?: string, policyRuleIds?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>) { 
+    private 'policy_rule_ids'?: Array<BatchUpdatePrivacyRuleRequestBodyPolicyRuleIds>;
+    public constructor(url?: string, category?: string, index?: string, policyRuleIds?: Array<BatchUpdatePrivacyRuleRequestBodyPolicyRuleIds>) { 
         this['url'] = url;
         this['category'] = category;
         this['index'] = index;
@@ -29,14 +29,14 @@ export class BatchUpdatePrivacyRuleRequestBody {
         this['description'] = description;
         return this;
     }
-    public withPolicyRuleIds(policyRuleIds: Array<PolicyRuleIdRequestBodyPolicyRuleIds>): BatchUpdatePrivacyRuleRequestBody {
+    public withPolicyRuleIds(policyRuleIds: Array<BatchUpdatePrivacyRuleRequestBodyPolicyRuleIds>): BatchUpdatePrivacyRuleRequestBody {
         this['policy_rule_ids'] = policyRuleIds;
         return this;
     }
-    public set policyRuleIds(policyRuleIds: Array<PolicyRuleIdRequestBodyPolicyRuleIds>  | undefined) {
+    public set policyRuleIds(policyRuleIds: Array<BatchUpdatePrivacyRuleRequestBodyPolicyRuleIds>  | undefined) {
         this['policy_rule_ids'] = policyRuleIds;
     }
-    public get policyRuleIds(): Array<PolicyRuleIdRequestBodyPolicyRuleIds> | undefined {
+    public get policyRuleIds(): Array<BatchUpdatePrivacyRuleRequestBodyPolicyRuleIds> | undefined {
         return this['policy_rule_ids'];
     }
 }

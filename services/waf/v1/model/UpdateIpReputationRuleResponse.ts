@@ -1,4 +1,4 @@
-import { CreateIpReputationRuleResponseBodyAction } from './CreateIpReputationRuleResponseBodyAction';
+import { UpdateIdcIpRuleResponseBodyAction } from './UpdateIdcIpRuleResponseBodyAction';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -12,7 +12,7 @@ export class UpdateIpReputationRuleResponse extends SdkResponse {
     public timestamp?: number;
     public description?: string;
     public status?: number;
-    public action?: CreateIpReputationRuleResponseBodyAction;
+    public action?: UpdateIdcIpRuleResponseBodyAction;
     public isp?: string;
     public constructor() { 
         super();
@@ -53,7 +53,7 @@ export class UpdateIpReputationRuleResponse extends SdkResponse {
         this['status'] = status;
         return this;
     }
-    public withAction(action: CreateIpReputationRuleResponseBodyAction): UpdateIpReputationRuleResponse {
+    public withAction(action: UpdateIdcIpRuleResponseBodyAction): UpdateIpReputationRuleResponse {
         this['action'] = action;
         return this;
     }

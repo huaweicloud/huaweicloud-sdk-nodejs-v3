@@ -9,6 +9,7 @@ export class TemplateParamVariable {
     public sensitive?: boolean;
     public type?: string;
     public validations?: Array<TemplateParamVariableValidation>;
+    private 'latest_param'?: string;
     public constructor() { 
     }
     public withDefault(_default: object): TemplateParamVariable {
@@ -44,5 +45,15 @@ export class TemplateParamVariable {
     public withValidations(validations: Array<TemplateParamVariableValidation>): TemplateParamVariable {
         this['validations'] = validations;
         return this;
+    }
+    public withLatestParam(latestParam: string): TemplateParamVariable {
+        this['latest_param'] = latestParam;
+        return this;
+    }
+    public set latestParam(latestParam: string  | undefined) {
+        this['latest_param'] = latestParam;
+    }
+    public get latestParam(): string | undefined {
+        return this['latest_param'];
     }
 }

@@ -6,7 +6,7 @@ export class CreateWhiteBlackIpRuleRequestBody {
     public description?: string;
     public white?: number;
     private 'ip_group_id'?: string;
-    private 'time_mode'?: string;
+    private 'time_mode'?: CreateWhiteBlackIpRuleRequestBodyTimeModeEnum | string;
     public start?: number;
     public terminal?: number;
     public constructor(name?: string, white?: number) { 
@@ -39,14 +39,14 @@ export class CreateWhiteBlackIpRuleRequestBody {
     public get ipGroupId(): string | undefined {
         return this['ip_group_id'];
     }
-    public withTimeMode(timeMode: string): CreateWhiteBlackIpRuleRequestBody {
+    public withTimeMode(timeMode: CreateWhiteBlackIpRuleRequestBodyTimeModeEnum | string): CreateWhiteBlackIpRuleRequestBody {
         this['time_mode'] = timeMode;
         return this;
     }
-    public set timeMode(timeMode: string  | undefined) {
+    public set timeMode(timeMode: CreateWhiteBlackIpRuleRequestBodyTimeModeEnum | string  | undefined) {
         this['time_mode'] = timeMode;
     }
-    public get timeMode(): string | undefined {
+    public get timeMode(): CreateWhiteBlackIpRuleRequestBodyTimeModeEnum | string | undefined {
         return this['time_mode'];
     }
     public withStart(start: number): CreateWhiteBlackIpRuleRequestBody {
@@ -57,4 +57,13 @@ export class CreateWhiteBlackIpRuleRequestBody {
         this['terminal'] = terminal;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateWhiteBlackIpRuleRequestBodyTimeModeEnum {
+    PERMANENT = 'permanent',
+    CUSTOMIZE = 'customize'
 }

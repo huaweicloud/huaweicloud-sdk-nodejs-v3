@@ -8,6 +8,7 @@ export class ListAntivirusHandleHistoryRequest {
     private 'malware_name'?: string;
     private 'file_path'?: string;
     private 'severity_list'?: Array<string>;
+    public severities?: string;
     private 'host_name'?: string;
     private 'private_ip'?: string;
     private 'public_ip'?: string;
@@ -72,6 +73,10 @@ export class ListAntivirusHandleHistoryRequest {
     }
     public get severityList(): Array<string> | undefined {
         return this['severity_list'];
+    }
+    public withSeverities(severities: string): ListAntivirusHandleHistoryRequest {
+        this['severities'] = severities;
+        return this;
     }
     public withHostName(hostName: string): ListAntivirusHandleHistoryRequest {
         this['host_name'] = hostName;

@@ -1,17 +1,13 @@
 
 
 export class ListGeoIpPolicyRulesRequest {
-    public policyids?: string;
     private 'enterprise_project_id'?: string;
+    private 'Content-Type'?: string;
+    public policyids?: Array<string>;
     public page?: number;
     public pagesize?: number;
-    private 'Content-Type'?: string;
     public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
-    }
-    public withPolicyids(policyids: string): ListGeoIpPolicyRulesRequest {
-        this['policyids'] = policyids;
-        return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListGeoIpPolicyRulesRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
@@ -23,14 +19,6 @@ export class ListGeoIpPolicyRulesRequest {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withPage(page: number): ListGeoIpPolicyRulesRequest {
-        this['page'] = page;
-        return this;
-    }
-    public withPagesize(pagesize: number): ListGeoIpPolicyRulesRequest {
-        this['pagesize'] = pagesize;
-        return this;
-    }
     public withContentType(contentType: string): ListGeoIpPolicyRulesRequest {
         this['Content-Type'] = contentType;
         return this;
@@ -40,5 +28,17 @@ export class ListGeoIpPolicyRulesRequest {
     }
     public get contentType(): string | undefined {
         return this['Content-Type'];
+    }
+    public withPolicyids(policyids: Array<string>): ListGeoIpPolicyRulesRequest {
+        this['policyids'] = policyids;
+        return this;
+    }
+    public withPage(page: number): ListGeoIpPolicyRulesRequest {
+        this['page'] = page;
+        return this;
+    }
+    public withPagesize(pagesize: number): ListGeoIpPolicyRulesRequest {
+        this['pagesize'] = pagesize;
+        return this;
     }
 }

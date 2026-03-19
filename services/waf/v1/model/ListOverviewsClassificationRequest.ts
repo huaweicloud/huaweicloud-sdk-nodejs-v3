@@ -2,13 +2,13 @@
 
 export class ListOverviewsClassificationRequest {
     private 'Content-Type'?: string;
-    private 'X-Language'?: string;
+    private 'X-Language'?: ListOverviewsClassificationRequestXLanguageEnum | string;
     private 'enterprise_project_id'?: string;
     public from?: number;
     public to?: number;
     public top?: number;
-    public hosts?: string;
-    public instances?: string;
+    public hosts?: Array<string>;
+    public instances?: Array<string>;
     public constructor(contentType?: string, from?: number, to?: number) { 
         this['Content-Type'] = contentType;
         this['from'] = from;
@@ -24,14 +24,14 @@ export class ListOverviewsClassificationRequest {
     public get contentType(): string | undefined {
         return this['Content-Type'];
     }
-    public withXLanguage(xLanguage: string): ListOverviewsClassificationRequest {
+    public withXLanguage(xLanguage: ListOverviewsClassificationRequestXLanguageEnum | string): ListOverviewsClassificationRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: string  | undefined) {
+    public set xLanguage(xLanguage: ListOverviewsClassificationRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage(): string | undefined {
+    public get xLanguage(): ListOverviewsClassificationRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListOverviewsClassificationRequest {
@@ -56,12 +56,21 @@ export class ListOverviewsClassificationRequest {
         this['top'] = top;
         return this;
     }
-    public withHosts(hosts: string): ListOverviewsClassificationRequest {
+    public withHosts(hosts: Array<string>): ListOverviewsClassificationRequest {
         this['hosts'] = hosts;
         return this;
     }
-    public withInstances(instances: string): ListOverviewsClassificationRequest {
+    public withInstances(instances: Array<string>): ListOverviewsClassificationRequest {
         this['instances'] = instances;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListOverviewsClassificationRequestXLanguageEnum {
+    ZH_CN = 'zh-cn',
+    EN_US = 'en-us'
 }

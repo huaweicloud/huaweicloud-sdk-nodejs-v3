@@ -2,6 +2,7 @@
 
 export class ShowConsoleConfigRequest {
     private 'Content-Type'?: string;
+    public region?: string;
     public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
     }
@@ -14,5 +15,9 @@ export class ShowConsoleConfigRequest {
     }
     public get contentType(): string | undefined {
         return this['Content-Type'];
+    }
+    public withRegion(region: string): ShowConsoleConfigRequest {
+        this['region'] = region;
+        return this;
     }
 }

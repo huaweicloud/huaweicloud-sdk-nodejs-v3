@@ -69,11 +69,14 @@ export class UpdatePolicyRuleStatusRequest {
     * @enum {string}
     */
 export enum UpdatePolicyRuleStatusRequestRuletypeEnum {
-    WHITEBLACKIP = 'whiteblackip',
-    GEOIP = 'geoip',
-    PRIVACY = 'privacy',
-    ANTITAMPER = 'antitamper',
+    CC = 'cc',
     CUSTOM = 'custom',
+    WHITEBLACKIP = 'whiteblackip',
+    PRIVACY = 'privacy',
     IGNORE = 'ignore',
-    CC = 'cc'
+    GEOIP = 'geoip',
+    ANTITAMPER = 'antitamper',
+    ANTILEAKAGE = 'antileakage',
+    IP_REPUTATION = 'ip-reputation',
+    LLM_GUARDS = 'llm-guards'
 }

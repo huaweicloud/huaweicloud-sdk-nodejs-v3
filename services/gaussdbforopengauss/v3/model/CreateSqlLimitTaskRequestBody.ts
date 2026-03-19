@@ -1,4 +1,4 @@
-import { CreateLimitTaskNodeOption } from './CreateLimitTaskNodeOption';
+import { CreateSqlLimitTaskNodeOption } from './CreateSqlLimitTaskNodeOption';
 
 
 export class CreateSqlLimitTaskRequestBody {
@@ -14,7 +14,7 @@ export class CreateSqlLimitTaskRequestBody {
     private 'cpu_utilization'?: number;
     private 'memory_utilization'?: number;
     public databases?: string;
-    private 'node_infos'?: Array<CreateLimitTaskNodeOption>;
+    private 'node_infos'?: Array<CreateSqlLimitTaskNodeOption>;
     public constructor(taskScope?: string, limitType?: string, taskName?: string, parallelSize?: number) { 
         this['task_scope'] = taskScope;
         this['limit_type'] = limitType;
@@ -135,14 +135,14 @@ export class CreateSqlLimitTaskRequestBody {
         this['databases'] = databases;
         return this;
     }
-    public withNodeInfos(nodeInfos: Array<CreateLimitTaskNodeOption>): CreateSqlLimitTaskRequestBody {
+    public withNodeInfos(nodeInfos: Array<CreateSqlLimitTaskNodeOption>): CreateSqlLimitTaskRequestBody {
         this['node_infos'] = nodeInfos;
         return this;
     }
-    public set nodeInfos(nodeInfos: Array<CreateLimitTaskNodeOption>  | undefined) {
+    public set nodeInfos(nodeInfos: Array<CreateSqlLimitTaskNodeOption>  | undefined) {
         this['node_infos'] = nodeInfos;
     }
-    public get nodeInfos(): Array<CreateLimitTaskNodeOption> | undefined {
+    public get nodeInfos(): Array<CreateSqlLimitTaskNodeOption> | undefined {
         return this['node_infos'];
     }
 }

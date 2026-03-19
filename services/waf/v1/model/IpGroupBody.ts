@@ -6,6 +6,7 @@ export class IpGroupBody {
     public id?: string;
     public name?: string;
     public ips?: string;
+    private 'ip_remarks'?: { [key: string]: string; };
     public size?: number;
     public rules?: Array<RuleInfo>;
     private 'share_info'?: ShareInfo;
@@ -23,6 +24,16 @@ export class IpGroupBody {
     public withIps(ips: string): IpGroupBody {
         this['ips'] = ips;
         return this;
+    }
+    public withIpRemarks(ipRemarks: { [key: string]: string; }): IpGroupBody {
+        this['ip_remarks'] = ipRemarks;
+        return this;
+    }
+    public set ipRemarks(ipRemarks: { [key: string]: string; }  | undefined) {
+        this['ip_remarks'] = ipRemarks;
+    }
+    public get ipRemarks(): { [key: string]: string; } | undefined {
+        return this['ip_remarks'];
     }
     public withSize(size: number): IpGroupBody {
         this['size'] = size;

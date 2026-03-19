@@ -1,13 +1,13 @@
+import { BatchCreateCcRuleRequestBodyAction } from './BatchCreateCcRuleRequestBodyAction';
 import { CcCondition } from './CcCondition';
 import { CcrulesListInfoTagCondition } from './CcrulesListInfoTagCondition';
-import { CreateCcRuleRequestBodyAction } from './CreateCcRuleRequestBodyAction';
 
 
 export class BatchCreateCcRuleRequestBody {
     public name?: string;
     public mode?: number;
     public conditions?: Array<CcCondition>;
-    public action?: CreateCcRuleRequestBodyAction;
+    public action?: BatchCreateCcRuleRequestBodyAction;
     private 'tag_type'?: BatchCreateCcRuleRequestBodyTagTypeEnum | string;
     private 'tag_index'?: string;
     private 'tag_condition'?: CcrulesListInfoTagCondition;
@@ -19,7 +19,7 @@ export class BatchCreateCcRuleRequestBody {
     private 'region_aggregation'?: boolean;
     public description?: string;
     private 'policy_ids'?: Array<string>;
-    public constructor(mode?: number, conditions?: Array<CcCondition>, action?: CreateCcRuleRequestBodyAction, tagType?: string, limitNum?: number, limitPeriod?: number, policyIds?: Array<string>) { 
+    public constructor(mode?: number, conditions?: Array<CcCondition>, action?: BatchCreateCcRuleRequestBodyAction, tagType?: string, limitNum?: number, limitPeriod?: number, policyIds?: Array<string>) { 
         this['mode'] = mode;
         this['conditions'] = conditions;
         this['action'] = action;
@@ -40,7 +40,7 @@ export class BatchCreateCcRuleRequestBody {
         this['conditions'] = conditions;
         return this;
     }
-    public withAction(action: CreateCcRuleRequestBodyAction): BatchCreateCcRuleRequestBody {
+    public withAction(action: BatchCreateCcRuleRequestBodyAction): BatchCreateCcRuleRequestBody {
         this['action'] = action;
         return this;
     }

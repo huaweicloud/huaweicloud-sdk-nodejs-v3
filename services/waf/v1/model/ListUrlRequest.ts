@@ -3,14 +3,13 @@
 export class ListUrlRequest {
     private 'Content-Type'?: string;
     public top?: number;
-    public recent?: string;
+    public recent?: ListUrlRequestRecentEnum | string;
     public from?: number;
     public to?: number;
     public hosts?: Array<string>;
     public instances?: Array<string>;
-    public constructor(contentType?: string, top?: number) { 
+    public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
-        this['top'] = top;
     }
     public withContentType(contentType: string): ListUrlRequest {
         this['Content-Type'] = contentType;
@@ -26,7 +25,7 @@ export class ListUrlRequest {
         this['top'] = top;
         return this;
     }
-    public withRecent(recent: string): ListUrlRequest {
+    public withRecent(recent: ListUrlRequestRecentEnum | string): ListUrlRequest {
         this['recent'] = recent;
         return this;
     }
@@ -46,4 +45,16 @@ export class ListUrlRequest {
         this['instances'] = instances;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListUrlRequestRecentEnum {
+    YESTERDAY = 'yesterday',
+    TODAY = 'today',
+    E_3DAYS = '3days',
+    E_1WEEK = '1week',
+    E_1MONTH = '1month'
 }

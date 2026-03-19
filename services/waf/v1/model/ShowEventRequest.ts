@@ -2,7 +2,7 @@
 
 export class ShowEventRequest {
     private 'Content-Type'?: string;
-    private 'X-Language'?: string;
+    private 'X-Language'?: ShowEventRequestXLanguageEnum | string;
     private 'enterprise_project_id'?: string;
     public eventid?: string;
     public constructor(contentType?: string, eventid?: string) { 
@@ -19,14 +19,14 @@ export class ShowEventRequest {
     public get contentType(): string | undefined {
         return this['Content-Type'];
     }
-    public withXLanguage(xLanguage: string): ShowEventRequest {
+    public withXLanguage(xLanguage: ShowEventRequestXLanguageEnum | string): ShowEventRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: string  | undefined) {
+    public set xLanguage(xLanguage: ShowEventRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage(): string | undefined {
+    public get xLanguage(): ShowEventRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ShowEventRequest {
@@ -43,4 +43,13 @@ export class ShowEventRequest {
         this['eventid'] = eventid;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowEventRequestXLanguageEnum {
+    ZH_CN = 'zh-cn',
+    EN_US = 'en-us'
 }

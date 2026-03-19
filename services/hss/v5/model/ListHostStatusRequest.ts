@@ -17,6 +17,10 @@ export class ListHostStatusRequest {
     private 'group_id'?: string;
     private 'group_name'?: string;
     private 'vpc_id'?: string;
+    private 'host_name_list'?: string;
+    private 'host_id_list'?: string;
+    private 'public_ip_list'?: string;
+    private 'private_ip_list'?: string;
     private 'has_intrusion'?: boolean;
     private 'has_vul'?: boolean;
     private 'has_baseline'?: boolean;
@@ -190,6 +194,46 @@ export class ListHostStatusRequest {
     }
     public get vpcId(): string | undefined {
         return this['vpc_id'];
+    }
+    public withHostNameList(hostNameList: string): ListHostStatusRequest {
+        this['host_name_list'] = hostNameList;
+        return this;
+    }
+    public set hostNameList(hostNameList: string  | undefined) {
+        this['host_name_list'] = hostNameList;
+    }
+    public get hostNameList(): string | undefined {
+        return this['host_name_list'];
+    }
+    public withHostIdList(hostIdList: string): ListHostStatusRequest {
+        this['host_id_list'] = hostIdList;
+        return this;
+    }
+    public set hostIdList(hostIdList: string  | undefined) {
+        this['host_id_list'] = hostIdList;
+    }
+    public get hostIdList(): string | undefined {
+        return this['host_id_list'];
+    }
+    public withPublicIpList(publicIpList: string): ListHostStatusRequest {
+        this['public_ip_list'] = publicIpList;
+        return this;
+    }
+    public set publicIpList(publicIpList: string  | undefined) {
+        this['public_ip_list'] = publicIpList;
+    }
+    public get publicIpList(): string | undefined {
+        return this['public_ip_list'];
+    }
+    public withPrivateIpList(privateIpList: string): ListHostStatusRequest {
+        this['private_ip_list'] = privateIpList;
+        return this;
+    }
+    public set privateIpList(privateIpList: string  | undefined) {
+        this['private_ip_list'] = privateIpList;
+    }
+    public get privateIpList(): string | undefined {
+        return this['private_ip_list'];
     }
     public withHasIntrusion(hasIntrusion: boolean): ListHostStatusRequest {
         this['has_intrusion'] = hasIntrusion;

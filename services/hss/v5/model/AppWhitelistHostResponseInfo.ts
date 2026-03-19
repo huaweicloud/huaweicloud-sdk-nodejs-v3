@@ -6,8 +6,11 @@ export class AppWhitelistHostResponseInfo {
     private 'host_name'?: string;
     private 'public_ip'?: string;
     private 'private_ip'?: string;
-    private 'asset_value'?: string;
     private 'os_type'?: string;
+    private 'os_name'?: string;
+    private 'asset_value'?: string;
+    private 'host_status'?: string;
+    private 'agent_status'?: string;
     public constructor() { 
     }
     public withAgentId(agentId: string): AppWhitelistHostResponseInfo {
@@ -60,6 +63,26 @@ export class AppWhitelistHostResponseInfo {
     public get privateIp(): string | undefined {
         return this['private_ip'];
     }
+    public withOsType(osType: string): AppWhitelistHostResponseInfo {
+        this['os_type'] = osType;
+        return this;
+    }
+    public set osType(osType: string  | undefined) {
+        this['os_type'] = osType;
+    }
+    public get osType(): string | undefined {
+        return this['os_type'];
+    }
+    public withOsName(osName: string): AppWhitelistHostResponseInfo {
+        this['os_name'] = osName;
+        return this;
+    }
+    public set osName(osName: string  | undefined) {
+        this['os_name'] = osName;
+    }
+    public get osName(): string | undefined {
+        return this['os_name'];
+    }
     public withAssetValue(assetValue: string): AppWhitelistHostResponseInfo {
         this['asset_value'] = assetValue;
         return this;
@@ -70,14 +93,24 @@ export class AppWhitelistHostResponseInfo {
     public get assetValue(): string | undefined {
         return this['asset_value'];
     }
-    public withOsType(osType: string): AppWhitelistHostResponseInfo {
-        this['os_type'] = osType;
+    public withHostStatus(hostStatus: string): AppWhitelistHostResponseInfo {
+        this['host_status'] = hostStatus;
         return this;
     }
-    public set osType(osType: string  | undefined) {
-        this['os_type'] = osType;
+    public set hostStatus(hostStatus: string  | undefined) {
+        this['host_status'] = hostStatus;
     }
-    public get osType(): string | undefined {
-        return this['os_type'];
+    public get hostStatus(): string | undefined {
+        return this['host_status'];
+    }
+    public withAgentStatus(agentStatus: string): AppWhitelistHostResponseInfo {
+        this['agent_status'] = agentStatus;
+        return this;
+    }
+    public set agentStatus(agentStatus: string  | undefined) {
+        this['agent_status'] = agentStatus;
+    }
+    public get agentStatus(): string | undefined {
+        return this['agent_status'];
     }
 }

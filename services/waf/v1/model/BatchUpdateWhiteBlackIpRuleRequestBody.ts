@@ -1,4 +1,4 @@
-import { PolicyRuleIdRequestBodyPolicyRuleIds } from './PolicyRuleIdRequestBodyPolicyRuleIds';
+import { BatchUpdateWhiteBlackIpRuleRequestBodyPolicyRuleIds } from './BatchUpdateWhiteBlackIpRuleRequestBodyPolicyRuleIds';
 
 
 export class BatchUpdateWhiteBlackIpRuleRequestBody {
@@ -7,11 +7,11 @@ export class BatchUpdateWhiteBlackIpRuleRequestBody {
     public description?: string;
     public white?: number;
     private 'ip_group_id'?: string;
-    private 'time_mode'?: string;
+    private 'time_mode'?: BatchUpdateWhiteBlackIpRuleRequestBodyTimeModeEnum | string;
     public start?: number;
     public terminal?: number;
-    private 'policy_rule_ids'?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>;
-    public constructor(name?: string, white?: number, policyRuleIds?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>) { 
+    private 'policy_rule_ids'?: Array<BatchUpdateWhiteBlackIpRuleRequestBodyPolicyRuleIds>;
+    public constructor(name?: string, white?: number, policyRuleIds?: Array<BatchUpdateWhiteBlackIpRuleRequestBodyPolicyRuleIds>) { 
         this['name'] = name;
         this['white'] = white;
         this['policy_rule_ids'] = policyRuleIds;
@@ -42,14 +42,14 @@ export class BatchUpdateWhiteBlackIpRuleRequestBody {
     public get ipGroupId(): string | undefined {
         return this['ip_group_id'];
     }
-    public withTimeMode(timeMode: string): BatchUpdateWhiteBlackIpRuleRequestBody {
+    public withTimeMode(timeMode: BatchUpdateWhiteBlackIpRuleRequestBodyTimeModeEnum | string): BatchUpdateWhiteBlackIpRuleRequestBody {
         this['time_mode'] = timeMode;
         return this;
     }
-    public set timeMode(timeMode: string  | undefined) {
+    public set timeMode(timeMode: BatchUpdateWhiteBlackIpRuleRequestBodyTimeModeEnum | string  | undefined) {
         this['time_mode'] = timeMode;
     }
-    public get timeMode(): string | undefined {
+    public get timeMode(): BatchUpdateWhiteBlackIpRuleRequestBodyTimeModeEnum | string | undefined {
         return this['time_mode'];
     }
     public withStart(start: number): BatchUpdateWhiteBlackIpRuleRequestBody {
@@ -60,14 +60,23 @@ export class BatchUpdateWhiteBlackIpRuleRequestBody {
         this['terminal'] = terminal;
         return this;
     }
-    public withPolicyRuleIds(policyRuleIds: Array<PolicyRuleIdRequestBodyPolicyRuleIds>): BatchUpdateWhiteBlackIpRuleRequestBody {
+    public withPolicyRuleIds(policyRuleIds: Array<BatchUpdateWhiteBlackIpRuleRequestBodyPolicyRuleIds>): BatchUpdateWhiteBlackIpRuleRequestBody {
         this['policy_rule_ids'] = policyRuleIds;
         return this;
     }
-    public set policyRuleIds(policyRuleIds: Array<PolicyRuleIdRequestBodyPolicyRuleIds>  | undefined) {
+    public set policyRuleIds(policyRuleIds: Array<BatchUpdateWhiteBlackIpRuleRequestBodyPolicyRuleIds>  | undefined) {
         this['policy_rule_ids'] = policyRuleIds;
     }
-    public get policyRuleIds(): Array<PolicyRuleIdRequestBodyPolicyRuleIds> | undefined {
+    public get policyRuleIds(): Array<BatchUpdateWhiteBlackIpRuleRequestBodyPolicyRuleIds> | undefined {
         return this['policy_rule_ids'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BatchUpdateWhiteBlackIpRuleRequestBodyTimeModeEnum {
+    PERMANENT = 'permanent',
+    CUSTOMIZE = 'customize'
 }

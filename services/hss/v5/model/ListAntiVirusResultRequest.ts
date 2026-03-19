@@ -9,12 +9,15 @@ export class ListAntiVirusResultRequest {
     private 'public_ip'?: string;
     private 'handle_status'?: string;
     private 'severity_list'?: Array<string>;
+    public severities?: string;
     private 'asset_value'?: string;
     private 'malware_name'?: string;
     private 'file_path'?: string;
     private 'file_hash'?: string;
     private 'task_name'?: string;
     private 'manual_isolate'?: boolean;
+    private 'id_list'?: Array<string>;
+    private 'file_hash_list'?: Array<string>;
     public constructor(offset?: number, limit?: number) { 
         this['offset'] = offset;
         this['limit'] = limit;
@@ -87,6 +90,10 @@ export class ListAntiVirusResultRequest {
     public get severityList(): Array<string> | undefined {
         return this['severity_list'];
     }
+    public withSeverities(severities: string): ListAntiVirusResultRequest {
+        this['severities'] = severities;
+        return this;
+    }
     public withAssetValue(assetValue: string): ListAntiVirusResultRequest {
         this['asset_value'] = assetValue;
         return this;
@@ -146,5 +153,25 @@ export class ListAntiVirusResultRequest {
     }
     public get manualIsolate(): boolean | undefined {
         return this['manual_isolate'];
+    }
+    public withIdList(idList: Array<string>): ListAntiVirusResultRequest {
+        this['id_list'] = idList;
+        return this;
+    }
+    public set idList(idList: Array<string>  | undefined) {
+        this['id_list'] = idList;
+    }
+    public get idList(): Array<string> | undefined {
+        return this['id_list'];
+    }
+    public withFileHashList(fileHashList: Array<string>): ListAntiVirusResultRequest {
+        this['file_hash_list'] = fileHashList;
+        return this;
+    }
+    public set fileHashList(fileHashList: Array<string>  | undefined) {
+        this['file_hash_list'] = fileHashList;
+    }
+    public get fileHashList(): Array<string> | undefined {
+        return this['file_hash_list'];
     }
 }

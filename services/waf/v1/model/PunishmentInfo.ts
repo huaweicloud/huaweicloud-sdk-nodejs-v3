@@ -4,6 +4,7 @@ export class PunishmentInfo {
     public id?: string;
     public policyid?: string;
     private 'block_time'?: number;
+    private 'time_unit'?: string;
     public category?: string;
     public description?: string;
     public timestamp?: number;
@@ -26,6 +27,16 @@ export class PunishmentInfo {
     }
     public get blockTime(): number | undefined {
         return this['block_time'];
+    }
+    public withTimeUnit(timeUnit: string): PunishmentInfo {
+        this['time_unit'] = timeUnit;
+        return this;
+    }
+    public set timeUnit(timeUnit: string  | undefined) {
+        this['time_unit'] = timeUnit;
+    }
+    public get timeUnit(): string | undefined {
+        return this['time_unit'];
     }
     public withCategory(category: string): PunishmentInfo {
         this['category'] = category;

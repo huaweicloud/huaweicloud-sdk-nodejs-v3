@@ -1,11 +1,11 @@
-import { ListInstance } from './ListInstance';
+import { Instance } from './Instance';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListInstanceResponse extends SdkResponse {
     public total?: number;
     public purchased?: boolean;
-    public items?: Array<ListInstance>;
+    public items?: Array<Instance>;
     public constructor() { 
         super();
     }
@@ -17,7 +17,7 @@ export class ListInstanceResponse extends SdkResponse {
         this['purchased'] = purchased;
         return this;
     }
-    public withItems(items: Array<ListInstance>): ListInstanceResponse {
+    public withItems(items: Array<Instance>): ListInstanceResponse {
         this['items'] = items;
         return this;
     }

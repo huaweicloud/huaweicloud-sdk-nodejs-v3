@@ -1,9 +1,10 @@
-import { BatchUpdateCustomRuleRequestBody } from './BatchUpdateCustomRuleRequestBody';
+import { BatchUpdateCustomRulesRequestBody } from './BatchUpdateCustomRulesRequestBody';
 
 
 export class BatchUpdateCustomRulesRequest {
     private 'Content-Type'?: string;
-    public body?: BatchUpdateCustomRuleRequestBody;
+    private 'enterprise_project_id'?: string;
+    public body?: BatchUpdateCustomRulesRequestBody;
     public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
     }
@@ -17,7 +18,17 @@ export class BatchUpdateCustomRulesRequest {
     public get contentType(): string | undefined {
         return this['Content-Type'];
     }
-    public withBody(body: BatchUpdateCustomRuleRequestBody): BatchUpdateCustomRulesRequest {
+    public withEnterpriseProjectId(enterpriseProjectId: string): BatchUpdateCustomRulesRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
+    }
+    public withBody(body: BatchUpdateCustomRulesRequestBody): BatchUpdateCustomRulesRequest {
         this['body'] = body;
         return this;
     }

@@ -2,14 +2,14 @@ import { BatchCreateAntiTamperRulesRequestBody } from './BatchCreateAntiTamperRu
 
 
 export class BatchCreateAntiTamperRuleRequest {
-    public policyids?: string;
+    public policyids?: Array<string>;
     private 'enterprise_project_id'?: string;
     private 'Content-Type'?: string;
     public body?: BatchCreateAntiTamperRulesRequestBody;
     public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
     }
-    public withPolicyids(policyids: string): BatchCreateAntiTamperRuleRequest {
+    public withPolicyids(policyids: Array<string>): BatchCreateAntiTamperRuleRequest {
         this['policyids'] = policyids;
         return this;
     }

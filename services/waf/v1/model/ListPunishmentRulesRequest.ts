@@ -6,11 +6,11 @@ export class ListPunishmentRulesRequest {
     private 'policy_id'?: string;
     public offset?: number;
     public limit?: number;
-    public constructor(contentType?: string, policyId?: string, offset?: number, limit?: number) { 
+    public page?: number;
+    public pagesize?: number;
+    public constructor(contentType?: string, policyId?: string) { 
         this['Content-Type'] = contentType;
         this['policy_id'] = policyId;
-        this['offset'] = offset;
-        this['limit'] = limit;
     }
     public withContentType(contentType: string): ListPunishmentRulesRequest {
         this['Content-Type'] = contentType;
@@ -48,6 +48,14 @@ export class ListPunishmentRulesRequest {
     }
     public withLimit(limit: number): ListPunishmentRulesRequest {
         this['limit'] = limit;
+        return this;
+    }
+    public withPage(page: number): ListPunishmentRulesRequest {
+        this['page'] = page;
+        return this;
+    }
+    public withPagesize(pagesize: number): ListPunishmentRulesRequest {
+        this['pagesize'] = pagesize;
         return this;
     }
 }

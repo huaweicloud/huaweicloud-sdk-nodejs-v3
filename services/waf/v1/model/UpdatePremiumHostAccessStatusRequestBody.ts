@@ -2,7 +2,8 @@
 
 export class UpdatePremiumHostAccessStatusRequestBody {
     private 'access_status'?: number;
-    public constructor() { 
+    public constructor(accessStatus?: number) { 
+        this['access_status'] = accessStatus;
     }
     public withAccessStatus(accessStatus: number): UpdatePremiumHostAccessStatusRequestBody {
         this['access_status'] = accessStatus;

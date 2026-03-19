@@ -1,6 +1,6 @@
 import { CcCondition } from './CcCondition';
-import { CcrulesListInfoAction } from './CcrulesListInfoAction';
 import { CcrulesListInfoTagCondition } from './CcrulesListInfoTagCondition';
+import { UpdateCcRuleResponseBodyAction } from './UpdateCcRuleResponseBodyAction';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -13,7 +13,7 @@ export class DeleteCcRuleResponse extends SdkResponse {
     public mode?: number;
     public status?: number;
     public conditions?: Array<CcCondition>;
-    public action?: CcrulesListInfoAction;
+    public action?: UpdateCcRuleResponseBodyAction;
     private 'tag_type'?: DeleteCcRuleResponseTagTypeEnum | string;
     private 'tag_index'?: string;
     private 'tag_condition'?: CcrulesListInfoTagCondition;
@@ -64,7 +64,7 @@ export class DeleteCcRuleResponse extends SdkResponse {
         this['conditions'] = conditions;
         return this;
     }
-    public withAction(action: CcrulesListInfoAction): DeleteCcRuleResponse {
+    public withAction(action: UpdateCcRuleResponseBodyAction): DeleteCcRuleResponse {
         this['action'] = action;
         return this;
     }

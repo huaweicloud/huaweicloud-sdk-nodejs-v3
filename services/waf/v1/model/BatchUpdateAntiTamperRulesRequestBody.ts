@@ -1,4 +1,4 @@
-import { PolicyRuleIdRequestBodyPolicyRuleIds } from './PolicyRuleIdRequestBodyPolicyRuleIds';
+import { BatchUpdateAntiTamperRulesRequestBodyPolicyRuleIds } from './BatchUpdateAntiTamperRulesRequestBodyPolicyRuleIds';
 
 
 export class BatchUpdateAntiTamperRulesRequestBody {
@@ -6,8 +6,8 @@ export class BatchUpdateAntiTamperRulesRequestBody {
     public hostname?: string;
     public url?: string;
     public description?: string;
-    private 'policy_rule_ids'?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>;
-    public constructor(hostname?: string, url?: string, policyRuleIds?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>) { 
+    private 'policy_rule_ids'?: Array<BatchUpdateAntiTamperRulesRequestBodyPolicyRuleIds>;
+    public constructor(hostname?: string, url?: string, policyRuleIds?: Array<BatchUpdateAntiTamperRulesRequestBodyPolicyRuleIds>) { 
         this['hostname'] = hostname;
         this['url'] = url;
         this['policy_rule_ids'] = policyRuleIds;
@@ -28,14 +28,14 @@ export class BatchUpdateAntiTamperRulesRequestBody {
         this['description'] = description;
         return this;
     }
-    public withPolicyRuleIds(policyRuleIds: Array<PolicyRuleIdRequestBodyPolicyRuleIds>): BatchUpdateAntiTamperRulesRequestBody {
+    public withPolicyRuleIds(policyRuleIds: Array<BatchUpdateAntiTamperRulesRequestBodyPolicyRuleIds>): BatchUpdateAntiTamperRulesRequestBody {
         this['policy_rule_ids'] = policyRuleIds;
         return this;
     }
-    public set policyRuleIds(policyRuleIds: Array<PolicyRuleIdRequestBodyPolicyRuleIds>  | undefined) {
+    public set policyRuleIds(policyRuleIds: Array<BatchUpdateAntiTamperRulesRequestBodyPolicyRuleIds>  | undefined) {
         this['policy_rule_ids'] = policyRuleIds;
     }
-    public get policyRuleIds(): Array<PolicyRuleIdRequestBodyPolicyRuleIds> | undefined {
+    public get policyRuleIds(): Array<BatchUpdateAntiTamperRulesRequestBodyPolicyRuleIds> | undefined {
         return this['policy_rule_ids'];
     }
 }

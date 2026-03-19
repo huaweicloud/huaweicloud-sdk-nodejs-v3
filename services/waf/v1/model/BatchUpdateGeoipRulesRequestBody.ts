@@ -8,7 +8,8 @@ export class BatchUpdateGeoipRulesRequestBody {
     public name?: string;
     public geoip?: string;
     public white?: number;
-    public constructor() { 
+    public constructor(policyRuleIds?: Array<PolicyRuleIdRequestBodyPolicyRuleIds>) { 
+        this['policy_rule_ids'] = policyRuleIds;
     }
     public withPolicyRuleIds(policyRuleIds: Array<PolicyRuleIdRequestBodyPolicyRuleIds>): BatchUpdateGeoipRulesRequestBody {
         this['policy_rule_ids'] = policyRuleIds;

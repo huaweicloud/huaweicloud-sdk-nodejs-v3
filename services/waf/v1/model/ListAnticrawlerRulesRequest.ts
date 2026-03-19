@@ -6,12 +6,12 @@ export class ListAnticrawlerRulesRequest {
     private 'policy_id'?: string;
     public offset?: number;
     public limit?: number;
+    public page?: number;
+    public pagesize?: number;
     public type?: ListAnticrawlerRulesRequestTypeEnum | string;
-    public constructor(contentType?: string, policyId?: string, offset?: number, limit?: number) { 
+    public constructor(contentType?: string, policyId?: string) { 
         this['Content-Type'] = contentType;
         this['policy_id'] = policyId;
-        this['offset'] = offset;
-        this['limit'] = limit;
     }
     public withContentType(contentType: string): ListAnticrawlerRulesRequest {
         this['Content-Type'] = contentType;
@@ -49,6 +49,14 @@ export class ListAnticrawlerRulesRequest {
     }
     public withLimit(limit: number): ListAnticrawlerRulesRequest {
         this['limit'] = limit;
+        return this;
+    }
+    public withPage(page: number): ListAnticrawlerRulesRequest {
+        this['page'] = page;
+        return this;
+    }
+    public withPagesize(pagesize: number): ListAnticrawlerRulesRequest {
+        this['pagesize'] = pagesize;
         return this;
     }
     public withType(type: ListAnticrawlerRulesRequestTypeEnum | string): ListAnticrawlerRulesRequest {

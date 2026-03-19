@@ -3,7 +3,9 @@
 export class PolicyRuleIdRequestBodyPolicyRuleIds {
     private 'policy_id'?: string;
     private 'rule_ids'?: Array<string>;
-    public constructor() { 
+    public constructor(policyId?: string, ruleIds?: Array<string>) { 
+        this['policy_id'] = policyId;
+        this['rule_ids'] = ruleIds;
     }
     public withPolicyId(policyId: string): PolicyRuleIdRequestBodyPolicyRuleIds {
         this['policy_id'] = policyId;

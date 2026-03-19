@@ -30,5 +30,6 @@ export enum ShowSwitchesStatusRequestCodeEnum {
     MALWARE_SAMPLE_HIGH_DETECT = 'malware_sample_high_detect',
     IMAGE_PAY_PER_SCAN = 'image_pay_per_scan',
     IMAGE_POPUP = 'image_popup',
-    IMAGE_FREE_TO_PAY_POPUP = 'image_free_to_pay_popup'
+    IMAGE_FREE_TO_PAY_POPUP = 'image_free_to_pay_popup',
+    DISPLAY_UNPROTECTED_HOST = 'display_unprotected_host'
 }

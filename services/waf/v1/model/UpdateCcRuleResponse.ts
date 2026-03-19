@@ -1,6 +1,6 @@
 import { CcCondition } from './CcCondition';
-import { CcrulesListInfoAction } from './CcrulesListInfoAction';
 import { CcrulesListInfoTagCondition } from './CcrulesListInfoTagCondition';
+import { UpdateCcRuleResponseBodyAction } from './UpdateCcRuleResponseBodyAction';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -12,7 +12,7 @@ export class UpdateCcRuleResponse extends SdkResponse {
     public prefix?: boolean;
     public mode?: number;
     public conditions?: Array<CcCondition>;
-    public action?: CcrulesListInfoAction;
+    public action?: UpdateCcRuleResponseBodyAction;
     private 'tag_type'?: UpdateCcRuleResponseTagTypeEnum | string;
     private 'tag_index'?: string;
     private 'tag_condition'?: CcrulesListInfoTagCondition;
@@ -58,7 +58,7 @@ export class UpdateCcRuleResponse extends SdkResponse {
         this['conditions'] = conditions;
         return this;
     }
-    public withAction(action: CcrulesListInfoAction): UpdateCcRuleResponse {
+    public withAction(action: UpdateCcRuleResponseBodyAction): UpdateCcRuleResponse {
         this['action'] = action;
         return this;
     }

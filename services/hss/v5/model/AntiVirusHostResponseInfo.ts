@@ -6,6 +6,10 @@ export class AntiVirusHostResponseInfo {
     private 'public_ip'?: string;
     private 'private_ip'?: string;
     private 'agent_id'?: string;
+    private 'os_name'?: string;
+    private 'host_status'?: string;
+    private 'agent_status'?: string;
+    private 'asset_value'?: string;
     private 'os_type'?: string;
     private 'group_id'?: string;
     public constructor() { 
@@ -59,6 +63,46 @@ export class AntiVirusHostResponseInfo {
     }
     public get agentId(): string | undefined {
         return this['agent_id'];
+    }
+    public withOsName(osName: string): AntiVirusHostResponseInfo {
+        this['os_name'] = osName;
+        return this;
+    }
+    public set osName(osName: string  | undefined) {
+        this['os_name'] = osName;
+    }
+    public get osName(): string | undefined {
+        return this['os_name'];
+    }
+    public withHostStatus(hostStatus: string): AntiVirusHostResponseInfo {
+        this['host_status'] = hostStatus;
+        return this;
+    }
+    public set hostStatus(hostStatus: string  | undefined) {
+        this['host_status'] = hostStatus;
+    }
+    public get hostStatus(): string | undefined {
+        return this['host_status'];
+    }
+    public withAgentStatus(agentStatus: string): AntiVirusHostResponseInfo {
+        this['agent_status'] = agentStatus;
+        return this;
+    }
+    public set agentStatus(agentStatus: string  | undefined) {
+        this['agent_status'] = agentStatus;
+    }
+    public get agentStatus(): string | undefined {
+        return this['agent_status'];
+    }
+    public withAssetValue(assetValue: string): AntiVirusHostResponseInfo {
+        this['asset_value'] = assetValue;
+        return this;
+    }
+    public set assetValue(assetValue: string  | undefined) {
+        this['asset_value'] = assetValue;
+    }
+    public get assetValue(): string | undefined {
+        return this['asset_value'];
     }
     public withOsType(osType: string): AntiVirusHostResponseInfo {
         this['os_type'] = osType;
