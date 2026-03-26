@@ -176,6 +176,8 @@ import { LoadbalancersResource } from './model/LoadbalancersResource';
 import { LogConfiguration } from './model/LogConfiguration';
 import { LogList } from './model/LogList';
 import { Member } from './model/Member';
+import { Model } from './model/Model';
+import { ModelList } from './model/ModelList';
 import { PayInfoBody } from './model/PayInfoBody';
 import { PeriodReq } from './model/PeriodReq';
 import { PermissionInfo } from './model/PermissionInfo';

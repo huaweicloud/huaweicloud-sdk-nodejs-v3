@@ -70,6 +70,8 @@ import { BatchTagDelActionResponse } from './model/BatchTagDelActionResponse';
 import { BindEipRequest } from './model/BindEipRequest';
 import { BinlogClearPolicyRequestBody } from './model/BinlogClearPolicyRequestBody';
 import { BusinessPartner } from './model/BusinessPartner';
+import { ChangeBackupConfigRequest } from './model/ChangeBackupConfigRequest';
+import { ChangeBackupConfigResponse } from './model/ChangeBackupConfigResponse';
 import { ChangeFailoverModeRequest } from './model/ChangeFailoverModeRequest';
 import { ChangeFailoverModeResponse } from './model/ChangeFailoverModeResponse';
 import { ChangeFailoverStrategyRequest } from './model/ChangeFailoverStrategyRequest';
@@ -690,6 +692,8 @@ import { SetBackupPolicyRequestBody } from './model/SetBackupPolicyRequestBody';
 import { SetBackupPolicyResponse } from './model/SetBackupPolicyResponse';
 import { SetBinlogClearPolicyRequest } from './model/SetBinlogClearPolicyRequest';
 import { SetBinlogClearPolicyResponse } from './model/SetBinlogClearPolicyResponse';
+import { SetConfigurationRequestBody } from './model/SetConfigurationRequestBody';
+import { SetConfigurationResponseBody } from './model/SetConfigurationResponseBody';
 import { SetDatabaseUserPrivilegeReqV3 } from './model/SetDatabaseUserPrivilegeReqV3';
 import { SetDatabaseUserPrivilegeRequest } from './model/SetDatabaseUserPrivilegeRequest';
 import { SetDatabaseUserPrivilegeResponse } from './model/SetDatabaseUserPrivilegeResponse';
@@ -735,6 +739,8 @@ import { ShowAutoUpgradePolicyRequest } from './model/ShowAutoUpgradePolicyReque
 import { ShowAutoUpgradePolicyResponse } from './model/ShowAutoUpgradePolicyResponse';
 import { ShowAvailableVersionRequest } from './model/ShowAvailableVersionRequest';
 import { ShowAvailableVersionResponse } from './model/ShowAvailableVersionResponse';
+import { ShowBackupConfigRequest } from './model/ShowBackupConfigRequest';
+import { ShowBackupConfigResponse } from './model/ShowBackupConfigResponse';
 import { ShowBackupDownloadLinkRequest } from './model/ShowBackupDownloadLinkRequest';
 import { ShowBackupDownloadLinkResponse } from './model/ShowBackupDownloadLinkResponse';
 import { ShowBackupPolicyRequest } from './model/ShowBackupPolicyRequest';
@@ -1196,6 +1202,27 @@ export class RdsClient {
      */
     public batchTagDelAction(batchTagDelActionRequest?: BatchTagDelActionRequest): Promise<BatchTagDelActionResponse> {
         const options = ParamCreater().batchTagDelAction(batchTagDelActionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 备份管理通用配置接口，目前支持切换备份方式
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 切换实例备份方式（PostgreSQL）
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {SetConfigurationRequestBody} setConfigurationRequestBody 备份配置请求体
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeBackupConfig(changeBackupConfigRequest?: ChangeBackupConfigRequest): Promise<ChangeBackupConfigResponse> {
+        const options = ParamCreater().changeBackupConfig(changeBackupConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3788,6 +3815,26 @@ export class RdsClient {
      */
     public showAvailableVersion(showAvailableVersionRequest?: ShowAvailableVersionRequest): Promise<ShowAvailableVersionResponse> {
         const options = ParamCreater().showAvailableVersion(showAvailableVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询备份管理配置接口。目前支持查询备份方式。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例备份方式（PostgreSQL）
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBackupConfig(showBackupConfigRequest?: ShowBackupConfigRequest): Promise<ShowBackupConfigResponse> {
+        const options = ParamCreater().showBackupConfig(showBackupConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7781,6 +7828,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling batchTagDelAction.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 备份管理通用配置接口，目前支持切换备份方式
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeBackupConfig(changeBackupConfigRequest?: ChangeBackupConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (changeBackupConfigRequest !== null && changeBackupConfigRequest !== undefined) {
+                if (changeBackupConfigRequest instanceof ChangeBackupConfigRequest) {
+                    instanceId = changeBackupConfigRequest.instanceId;
+                    body = changeBackupConfigRequest.body
+                    xLanguage = changeBackupConfigRequest.xLanguage;
+                } else {
+                    instanceId = changeBackupConfigRequest['instance_id'];
+                    body = changeBackupConfigRequest['body'];
+                    xLanguage = changeBackupConfigRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling changeBackupConfig.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -14549,6 +14649,50 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showAvailableVersion.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询备份管理配置接口。目前支持查询备份方式。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBackupConfig(showBackupConfigRequest?: ShowBackupConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/backups/config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showBackupConfigRequest !== null && showBackupConfigRequest !== undefined) {
+                if (showBackupConfigRequest instanceof ShowBackupConfigRequest) {
+                    instanceId = showBackupConfigRequest.instanceId;
+                    xLanguage = showBackupConfigRequest.xLanguage;
+                } else {
+                    instanceId = showBackupConfigRequest['instance_id'];
+                    xLanguage = showBackupConfigRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showBackupConfig.');
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);

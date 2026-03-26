@@ -194,6 +194,13 @@ import { ListInstanceNodesInfoRequest } from './model/ListInstanceNodesInfoReque
 import { ListInstanceNodesInfoResponse } from './model/ListInstanceNodesInfoResponse';
 import { ListInstanceTopSlowLogRequest } from './model/ListInstanceTopSlowLogRequest';
 import { ListInstanceTopSlowLogResponse } from './model/ListInstanceTopSlowLogResponse';
+import { ListLockBlockingDbRequest } from './model/ListLockBlockingDbRequest';
+import { ListLockBlockingDbResponse } from './model/ListLockBlockingDbResponse';
+import { ListLockBlockingDetailRequest } from './model/ListLockBlockingDetailRequest';
+import { ListLockBlockingDetailRespDetailList } from './model/ListLockBlockingDetailRespDetailList';
+import { ListLockBlockingDetailResponse } from './model/ListLockBlockingDetailResponse';
+import { ListLockBlockingRelationshipRequest } from './model/ListLockBlockingRelationshipRequest';
+import { ListLockBlockingRelationshipResponse } from './model/ListLockBlockingRelationshipResponse';
 import { ListMetadataLocksRequest } from './model/ListMetadataLocksRequest';
 import { ListMetadataLocksResponse } from './model/ListMetadataLocksResponse';
 import { ListProcessesRequest } from './model/ListProcessesRequest';
@@ -240,6 +247,9 @@ import { SaveCredentialForBatchInspectionResponse } from './model/SaveCredential
 import { SaveCredentialRequest } from './model/SaveCredentialRequest';
 import { SaveCredentialRequestBody } from './model/SaveCredentialRequestBody';
 import { SaveCredentialResponse } from './model/SaveCredentialResponse';
+import { SetLockBlockingSwitchReq } from './model/SetLockBlockingSwitchReq';
+import { SetLockBlockingSwitchRequest } from './model/SetLockBlockingSwitchRequest';
+import { SetLockBlockingSwitchResponse } from './model/SetLockBlockingSwitchResponse';
 import { SetThresholdForMetricRequest } from './model/SetThresholdForMetricRequest';
 import { SetThresholdForMetricResponse } from './model/SetThresholdForMetricResponse';
 import { ShareConnUserInfo } from './model/ShareConnUserInfo';
@@ -263,6 +273,13 @@ import { ShowInstanceHealthReportRequest } from './model/ShowInstanceHealthRepor
 import { ShowInstanceHealthReportResponse } from './model/ShowInstanceHealthReportResponse';
 import { ShowLatestDeadLockSnapshotRequest } from './model/ShowLatestDeadLockSnapshotRequest';
 import { ShowLatestDeadLockSnapshotResponse } from './model/ShowLatestDeadLockSnapshotResponse';
+import { ShowLockBlockingStatisticsRequest } from './model/ShowLockBlockingStatisticsRequest';
+import { ShowLockBlockingStatisticsResponse } from './model/ShowLockBlockingStatisticsResponse';
+import { ShowLockBlockingSwitchRequest } from './model/ShowLockBlockingSwitchRequest';
+import { ShowLockBlockingSwitchResponse } from './model/ShowLockBlockingSwitchResponse';
+import { ShowLockBlockingTrendRequest } from './model/ShowLockBlockingTrendRequest';
+import { ShowLockBlockingTrendRespTrendList } from './model/ShowLockBlockingTrendRespTrendList';
+import { ShowLockBlockingTrendResponse } from './model/ShowLockBlockingTrendResponse';
 import { ShowMetricNamesSupportRequest } from './model/ShowMetricNamesSupportRequest';
 import { ShowMetricNamesSupportResponse } from './model/ShowMetricNamesSupportResponse';
 import { ShowQuotasRequest } from './model/ShowQuotasRequest';
@@ -1575,6 +1592,78 @@ export class DasClient {
     }
 
     /**
+     * 查询锁阻塞数据库名列表。
+     * 仅支持SQLServer实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询锁阻塞数据库名列表
+     * @param {string} instanceId 实例ID。
+     * @param {number} startTime 开始时间戳（Unix timestamp），单位：毫秒。
+     * @param {number} endTime 结束时间戳（Unix timestamp），单位：毫秒。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLockBlockingDb(listLockBlockingDbRequest?: ListLockBlockingDbRequest): Promise<ListLockBlockingDbResponse> {
+        const options = ParamCreater().listLockBlockingDb(listLockBlockingDbRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询锁阻塞明细列表。
+     * 仅支持SQLServer实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询锁阻塞明细列表
+     * @param {string} instanceId 实例ID。
+     * @param {number} startTime 开始时间戳（Unix timestamp），单位：毫秒。
+     * @param {number} endTime 结束时间戳（Unix timestamp），单位：毫秒。
+     * @param {number} [perPage] 每页返回的数量，默认值为20
+     * @param {number} [curPage] 当前页码，第一次查询的时候默认值为1
+     * @param {string} [dbName] 数据库名。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLockBlockingDetail(listLockBlockingDetailRequest?: ListLockBlockingDetailRequest): Promise<ListLockBlockingDetailResponse> {
+        const options = ParamCreater().listLockBlockingDetail(listLockBlockingDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询锁阻塞关系。
+     * 仅支持SQLServer实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询锁阻塞关系
+     * @param {string} instanceId 实例ID。
+     * @param {string} uniqueId 批次ID。
+     * @param {number} spid 会话ID。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLockBlockingRelationship(listLockBlockingRelationshipRequest?: ListLockBlockingRelationshipRequest): Promise<ListLockBlockingRelationshipResponse> {
+        const options = ParamCreater().listLockBlockingRelationship(listLockBlockingRelationshipRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询元数据锁列表。
      * 目前仅支持MySQL实例。
      * 
@@ -1924,6 +2013,26 @@ export class DasClient {
     }
 
     /**
+     * 设置锁阻塞开关和保存时长，仅支持SQLServer引擎
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置锁阻塞开关和保存时长
+     * @param {SetLockBlockingSwitchReq} setLockBlockingSwitchRequestBody 请求体
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setLockBlockingSwitch(setLockBlockingSwitchRequest?: SetLockBlockingSwitchRequest): Promise<SetLockBlockingSwitchResponse> {
+        const options = ParamCreater().setLockBlockingSwitch(setLockBlockingSwitchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设置指标阈值
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2123,6 +2232,73 @@ export class DasClient {
      */
     public showLatestDeadLockSnapshot(showLatestDeadLockSnapshotRequest?: ShowLatestDeadLockSnapshotRequest): Promise<ShowLatestDeadLockSnapshotResponse> {
         const options = ParamCreater().showLatestDeadLockSnapshot(showLatestDeadLockSnapshotRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询锁阻塞数量统计。
+     * 仅支持SQLServer实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询锁阻塞数量统计
+     * @param {string} instanceId 实例ID。
+     * @param {number} currentTime 当前时间戳（Unix timestamp），单位：毫秒。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLockBlockingStatistics(showLockBlockingStatisticsRequest?: ShowLockBlockingStatisticsRequest): Promise<ShowLockBlockingStatisticsResponse> {
+        const options = ParamCreater().showLockBlockingStatistics(showLockBlockingStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询锁阻塞开关和保存时长。
+     * 仅支持SQLServer实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询锁阻塞开关和保存时长
+     * @param {string} instanceId 实例ID。
+     * @param {string} engineType 数据库类型。当前支持的数据库类型包括SQLServer
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLockBlockingSwitch(showLockBlockingSwitchRequest?: ShowLockBlockingSwitchRequest): Promise<ShowLockBlockingSwitchResponse> {
+        const options = ParamCreater().showLockBlockingSwitch(showLockBlockingSwitchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询锁阻塞趋势列表。
+     * 仅支持SQLServer实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询锁阻塞趋势列表
+     * @param {string} instanceId 实例ID。
+     * @param {number} startTime 开始时间戳（Unix timestamp），单位：毫秒。
+     * @param {number} endTime 结束时间戳（Unix timestamp），单位：毫秒。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLockBlockingTrend(showLockBlockingTrendRequest?: ShowLockBlockingTrendRequest): Promise<ShowLockBlockingTrendResponse> {
+        const options = ParamCreater().showLockBlockingTrend(showLockBlockingTrendRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5924,6 +6100,225 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询锁阻塞数据库名列表。
+         * 仅支持SQLServer实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLockBlockingDb(listLockBlockingDbRequest?: ListLockBlockingDbRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/lock-blocking/get-lock-blocking-db-list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let xLanguage;
+
+            if (listLockBlockingDbRequest !== null && listLockBlockingDbRequest !== undefined) {
+                if (listLockBlockingDbRequest instanceof ListLockBlockingDbRequest) {
+                    instanceId = listLockBlockingDbRequest.instanceId;
+                    startTime = listLockBlockingDbRequest.startTime;
+                    endTime = listLockBlockingDbRequest.endTime;
+                    xLanguage = listLockBlockingDbRequest.xLanguage;
+                } else {
+                    instanceId = listLockBlockingDbRequest['instance_id'];
+                    startTime = listLockBlockingDbRequest['start_time'];
+                    endTime = listLockBlockingDbRequest['end_time'];
+                    xLanguage = listLockBlockingDbRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listLockBlockingDb.');
+            }
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listLockBlockingDb.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listLockBlockingDb.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询锁阻塞明细列表。
+         * 仅支持SQLServer实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLockBlockingDetail(listLockBlockingDetailRequest?: ListLockBlockingDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/lock-blocking/get-lock-blocking-detail-list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let perPage;
+            
+            let curPage;
+            
+            let dbName;
+            
+            let xLanguage;
+
+            if (listLockBlockingDetailRequest !== null && listLockBlockingDetailRequest !== undefined) {
+                if (listLockBlockingDetailRequest instanceof ListLockBlockingDetailRequest) {
+                    instanceId = listLockBlockingDetailRequest.instanceId;
+                    startTime = listLockBlockingDetailRequest.startTime;
+                    endTime = listLockBlockingDetailRequest.endTime;
+                    perPage = listLockBlockingDetailRequest.perPage;
+                    curPage = listLockBlockingDetailRequest.curPage;
+                    dbName = listLockBlockingDetailRequest.dbName;
+                    xLanguage = listLockBlockingDetailRequest.xLanguage;
+                } else {
+                    instanceId = listLockBlockingDetailRequest['instance_id'];
+                    startTime = listLockBlockingDetailRequest['start_time'];
+                    endTime = listLockBlockingDetailRequest['end_time'];
+                    perPage = listLockBlockingDetailRequest['per_page'];
+                    curPage = listLockBlockingDetailRequest['cur_page'];
+                    dbName = listLockBlockingDetailRequest['db_name'];
+                    xLanguage = listLockBlockingDetailRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listLockBlockingDetail.');
+            }
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling listLockBlockingDetail.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling listLockBlockingDetail.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (perPage !== null && perPage !== undefined) {
+                localVarQueryParameter['per_page'] = perPage;
+            }
+            if (curPage !== null && curPage !== undefined) {
+                localVarQueryParameter['cur_page'] = curPage;
+            }
+            if (dbName !== null && dbName !== undefined) {
+                localVarQueryParameter['db_name'] = dbName;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询锁阻塞关系。
+         * 仅支持SQLServer实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLockBlockingRelationship(listLockBlockingRelationshipRequest?: ListLockBlockingRelationshipRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/lock-blocking/get-lock-blocking-relationship",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let uniqueId;
+            
+            let spid;
+            
+            let xLanguage;
+
+            if (listLockBlockingRelationshipRequest !== null && listLockBlockingRelationshipRequest !== undefined) {
+                if (listLockBlockingRelationshipRequest instanceof ListLockBlockingRelationshipRequest) {
+                    instanceId = listLockBlockingRelationshipRequest.instanceId;
+                    uniqueId = listLockBlockingRelationshipRequest.uniqueId;
+                    spid = listLockBlockingRelationshipRequest.spid;
+                    xLanguage = listLockBlockingRelationshipRequest.xLanguage;
+                } else {
+                    instanceId = listLockBlockingRelationshipRequest['instance_id'];
+                    uniqueId = listLockBlockingRelationshipRequest['unique_id'];
+                    spid = listLockBlockingRelationshipRequest['spid'];
+                    xLanguage = listLockBlockingRelationshipRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listLockBlockingRelationship.');
+            }
+            if (uniqueId === null || uniqueId === undefined) {
+                throw new RequiredError('uniqueId','Required parameter uniqueId was null or undefined when calling listLockBlockingRelationship.');
+            }
+            if (uniqueId !== null && uniqueId !== undefined) {
+                localVarQueryParameter['unique_id'] = uniqueId;
+            }
+            if (spid === null || spid === undefined) {
+                throw new RequiredError('spid','Required parameter spid was null or undefined when calling listLockBlockingRelationship.');
+            }
+            if (spid !== null && spid !== undefined) {
+                localVarQueryParameter['spid'] = spid;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询元数据锁列表。
          * 目前仅支持MySQL实例。
          * 
@@ -6974,6 +7369,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 设置锁阻塞开关和保存时长，仅支持SQLServer引擎
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setLockBlockingSwitch(setLockBlockingSwitchRequest?: SetLockBlockingSwitchRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/lock-blocking/switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (setLockBlockingSwitchRequest !== null && setLockBlockingSwitchRequest !== undefined) {
+                if (setLockBlockingSwitchRequest instanceof SetLockBlockingSwitchRequest) {
+                    body = setLockBlockingSwitchRequest.body
+                    xLanguage = setLockBlockingSwitchRequest.xLanguage;
+                } else {
+                    body = setLockBlockingSwitchRequest['body'];
+                    xLanguage = setLockBlockingSwitchRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设置指标阈值
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7465,6 +7905,186 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'connection_id': connectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询锁阻塞数量统计。
+         * 仅支持SQLServer实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLockBlockingStatistics(showLockBlockingStatisticsRequest?: ShowLockBlockingStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/lock-blocking/get-lock-blocking-statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let currentTime;
+            
+            let xLanguage;
+
+            if (showLockBlockingStatisticsRequest !== null && showLockBlockingStatisticsRequest !== undefined) {
+                if (showLockBlockingStatisticsRequest instanceof ShowLockBlockingStatisticsRequest) {
+                    instanceId = showLockBlockingStatisticsRequest.instanceId;
+                    currentTime = showLockBlockingStatisticsRequest.currentTime;
+                    xLanguage = showLockBlockingStatisticsRequest.xLanguage;
+                } else {
+                    instanceId = showLockBlockingStatisticsRequest['instance_id'];
+                    currentTime = showLockBlockingStatisticsRequest['current_time'];
+                    xLanguage = showLockBlockingStatisticsRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showLockBlockingStatistics.');
+            }
+            if (currentTime === null || currentTime === undefined) {
+                throw new RequiredError('currentTime','Required parameter currentTime was null or undefined when calling showLockBlockingStatistics.');
+            }
+            if (currentTime !== null && currentTime !== undefined) {
+                localVarQueryParameter['current_time'] = currentTime;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询锁阻塞开关和保存时长。
+         * 仅支持SQLServer实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLockBlockingSwitch(showLockBlockingSwitchRequest?: ShowLockBlockingSwitchRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/lock-blocking/switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let engineType;
+            
+            let xLanguage;
+
+            if (showLockBlockingSwitchRequest !== null && showLockBlockingSwitchRequest !== undefined) {
+                if (showLockBlockingSwitchRequest instanceof ShowLockBlockingSwitchRequest) {
+                    instanceId = showLockBlockingSwitchRequest.instanceId;
+                    engineType = showLockBlockingSwitchRequest.engineType;
+                    xLanguage = showLockBlockingSwitchRequest.xLanguage;
+                } else {
+                    instanceId = showLockBlockingSwitchRequest['instance_id'];
+                    engineType = showLockBlockingSwitchRequest['engine_type'];
+                    xLanguage = showLockBlockingSwitchRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+                throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showLockBlockingSwitch.');
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (engineType === null || engineType === undefined) {
+                throw new RequiredError('engineType','Required parameter engineType was null or undefined when calling showLockBlockingSwitch.');
+            }
+            if (engineType !== null && engineType !== undefined) {
+                localVarQueryParameter['engine_type'] = engineType;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询锁阻塞趋势列表。
+         * 仅支持SQLServer实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLockBlockingTrend(showLockBlockingTrendRequest?: ShowLockBlockingTrendRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/lock-blocking/get-lock-blocking-trend",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let xLanguage;
+
+            if (showLockBlockingTrendRequest !== null && showLockBlockingTrendRequest !== undefined) {
+                if (showLockBlockingTrendRequest instanceof ShowLockBlockingTrendRequest) {
+                    instanceId = showLockBlockingTrendRequest.instanceId;
+                    startTime = showLockBlockingTrendRequest.startTime;
+                    endTime = showLockBlockingTrendRequest.endTime;
+                    xLanguage = showLockBlockingTrendRequest.xLanguage;
+                } else {
+                    instanceId = showLockBlockingTrendRequest['instance_id'];
+                    startTime = showLockBlockingTrendRequest['start_time'];
+                    endTime = showLockBlockingTrendRequest['end_time'];
+                    xLanguage = showLockBlockingTrendRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showLockBlockingTrend.');
+            }
+            if (startTime === null || startTime === undefined) {
+                throw new RequiredError('startTime','Required parameter startTime was null or undefined when calling showLockBlockingTrend.');
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling showLockBlockingTrend.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

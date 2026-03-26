@@ -17,6 +17,7 @@ import { AutoSqlLimitingRule } from './model/AutoSqlLimitingRule';
 import { Backup } from './model/Backup';
 import { BackupEncryptRequest } from './model/BackupEncryptRequest';
 import { BackupPolicy } from './model/BackupPolicy';
+import { BackupV3 } from './model/BackupV3';
 import { Backups } from './model/Backups';
 import { BatchDeleteBackupRequest } from './model/BatchDeleteBackupRequest';
 import { BatchDeleteBackupRequestBody } from './model/BatchDeleteBackupRequestBody';
@@ -169,6 +170,8 @@ import { DedicatedComputeInfo } from './model/DedicatedComputeInfo';
 import { DedicatedResource } from './model/DedicatedResource';
 import { DedicatedResourceCapacity } from './model/DedicatedResourceCapacity';
 import { DedicatedStorageInfo } from './model/DedicatedStorageInfo';
+import { DeleteAutoSqlLimitingRequest } from './model/DeleteAutoSqlLimitingRequest';
+import { DeleteAutoSqlLimitingResponse } from './model/DeleteAutoSqlLimitingResponse';
 import { DeleteBackupResult } from './model/DeleteBackupResult';
 import { DeleteChLtsConfigRequestBody } from './model/DeleteChLtsConfigRequestBody';
 import { DeleteChLtsConfigRequestBodyLogConfigs } from './model/DeleteChLtsConfigRequestBodyLogConfigs';
@@ -202,6 +205,9 @@ import { DeleteGaussMySqlProxyRequest } from './model/DeleteGaussMySqlProxyReque
 import { DeleteGaussMySqlProxyResponse } from './model/DeleteGaussMySqlProxyResponse';
 import { DeleteGaussMySqlReadonlyNodeRequest } from './model/DeleteGaussMySqlReadonlyNodeRequest';
 import { DeleteGaussMySqlReadonlyNodeResponse } from './model/DeleteGaussMySqlReadonlyNodeResponse';
+import { DeleteHtapProcessListRequest } from './model/DeleteHtapProcessListRequest';
+import { DeleteHtapProcessListResponse } from './model/DeleteHtapProcessListResponse';
+import { DeleteHtapProcessReq } from './model/DeleteHtapProcessReq';
 import { DeleteLtsConfigsRequest } from './model/DeleteLtsConfigsRequest';
 import { DeleteLtsConfigsRequestBody } from './model/DeleteLtsConfigsRequestBody';
 import { DeleteLtsConfigsResponse } from './model/DeleteLtsConfigsResponse';
@@ -215,6 +221,8 @@ import { DeleteScheduleTasKResponse } from './model/DeleteScheduleTasKResponse';
 import { DeleteSqlFilterRuleReq } from './model/DeleteSqlFilterRuleReq';
 import { DeleteSqlFilterRuleRequest } from './model/DeleteSqlFilterRuleRequest';
 import { DeleteSqlFilterRuleResponse } from './model/DeleteSqlFilterRuleResponse';
+import { DeleteStarRockLtsConfigRequest } from './model/DeleteStarRockLtsConfigRequest';
+import { DeleteStarRockLtsConfigResponse } from './model/DeleteStarRockLtsConfigResponse';
 import { DeleteStarRocksDataReplication } from './model/DeleteStarRocksDataReplication';
 import { DeleteStarRocksDataReplicationRequest } from './model/DeleteStarRocksDataReplicationRequest';
 import { DeleteStarRocksDataReplicationResponse } from './model/DeleteStarRocksDataReplicationResponse';
@@ -251,6 +259,10 @@ import { GetJobInstanceInfoDetail } from './model/GetJobInstanceInfoDetail';
 import { GrantDatabasePermission } from './model/GrantDatabasePermission';
 import { GrantDatabasePermissionRequestBody } from './model/GrantDatabasePermissionRequestBody';
 import { HistoricalSqlFilterRule } from './model/HistoricalSqlFilterRule';
+import { HtapCreateLTSConfigRequestBody } from './model/HtapCreateLTSConfigRequestBody';
+import { HtapCreateLTSConfigRequestBodyLogConfigs } from './model/HtapCreateLTSConfigRequestBodyLogConfigs';
+import { HtapDeleteLTSConfigRequestBody } from './model/HtapDeleteLTSConfigRequestBody';
+import { HtapDeleteLTSConfigRequestBodyLogConfigs } from './model/HtapDeleteLTSConfigRequestBodyLogConfigs';
 import { HtapErrorLogDetailResponseErrorLogList } from './model/HtapErrorLogDetailResponseErrorLogList';
 import { HtapErrorLogQueryRequestBody } from './model/HtapErrorLogQueryRequestBody';
 import { HtapFlavorInfoFlavors } from './model/HtapFlavorInfoFlavors';
@@ -262,6 +274,7 @@ import { HtapLTSConfigResponseInstance } from './model/HtapLTSConfigResponseInst
 import { HtapLTSConfigResponseInstanceLtsConfigs } from './model/HtapLTSConfigResponseInstanceLtsConfigs';
 import { HtapLTSConfigResponseLtsConfigs } from './model/HtapLTSConfigResponseLtsConfigs';
 import { HtapNodeInfoResponseBodyNodeList } from './model/HtapNodeInfoResponseBodyNodeList';
+import { HtapProcessInfo } from './model/HtapProcessInfo';
 import { HtapQueryQueueRule } from './model/HtapQueryQueueRule';
 import { HtapStorageTypeStorageType } from './model/HtapStorageTypeStorageType';
 import { IncrementalBackups } from './model/IncrementalBackups';
@@ -609,8 +622,12 @@ import { ShowHtapErrorLogDetailRequest } from './model/ShowHtapErrorLogDetailReq
 import { ShowHtapErrorLogDetailResponse } from './model/ShowHtapErrorLogDetailResponse';
 import { ShowHtapLtsConfigRequest } from './model/ShowHtapLtsConfigRequest';
 import { ShowHtapLtsConfigResponse } from './model/ShowHtapLtsConfigResponse';
+import { ShowHtapProcessListRequest } from './model/ShowHtapProcessListRequest';
+import { ShowHtapProcessListResponse } from './model/ShowHtapProcessListResponse';
 import { ShowHtapQueryQueuesRuleRequest } from './model/ShowHtapQueryQueuesRuleRequest';
 import { ShowHtapQueryQueuesRuleResponse } from './model/ShowHtapQueryQueuesRuleResponse';
+import { ShowInstanceBackupsRequest } from './model/ShowInstanceBackupsRequest';
+import { ShowInstanceBackupsResponse } from './model/ShowInstanceBackupsResponse';
 import { ShowInstanceDatabaseVersionRequest } from './model/ShowInstanceDatabaseVersionRequest';
 import { ShowInstanceDatabaseVersionResponse } from './model/ShowInstanceDatabaseVersionResponse';
 import { ShowInstanceDatabasesForHtapRequest } from './model/ShowInstanceDatabasesForHtapRequest';
@@ -835,6 +852,8 @@ import { UpdateSlowlogSensitiveSwitchRequestBody } from './model/UpdateSlowlogSe
 import { UpdateSlowlogSensitiveSwitchResponse } from './model/UpdateSlowlogSensitiveSwitchResponse';
 import { UpdateSqlFilterControlRequest } from './model/UpdateSqlFilterControlRequest';
 import { UpdateSqlFilterControlResponse } from './model/UpdateSqlFilterControlResponse';
+import { UpdateStarRockLtsConfigRequest } from './model/UpdateStarRockLtsConfigRequest';
+import { UpdateStarRockLtsConfigResponse } from './model/UpdateStarRockLtsConfigResponse';
 import { UpdateStarRocksDatabaseUserPasswordRequest } from './model/UpdateStarRocksDatabaseUserPasswordRequest';
 import { UpdateStarRocksDatabaseUserPasswordResponse } from './model/UpdateStarRocksDatabaseUserPasswordResponse';
 import { UpdateStarRocksDatabaseUserPermissionRequest } from './model/UpdateStarRocksDatabaseUserPermissionRequest';
@@ -1345,6 +1364,27 @@ export class GaussDBClient {
      */
     public createRestoreTables(createRestoreTablesRequest?: CreateRestoreTablesRequest): Promise<CreateRestoreTablesResponse> {
         const options = ParamCreater().createRestoreTables(createRestoreTablesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 关闭自治限流。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关闭自治限流
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  获取方法请参见[查询实例列表](https://support.huaweicloud.com/api-taurusdb/ListGaussMySqlInstancesUnifyStatus.html)。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} nodeId **参数解释**：  节点ID。  获取方法请参见[查询实例详情](https://support.huaweicloud.com/api-taurusdb/ShowGaussMySqlInstanceInfoUnifyStatus.html)。  **约束限制**：  节点角色必须为主节点。  **取值范围**：  只能由英文字母、数字组成，前面为UUID，后缀为no07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn  **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAutoSqlLimiting(deleteAutoSqlLimitingRequest?: DeleteAutoSqlLimitingRequest): Promise<DeleteAutoSqlLimitingResponse> {
+        const options = ParamCreater().deleteAutoSqlLimiting(deleteAutoSqlLimitingRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3209,6 +3249,32 @@ export class GaussDBClient {
     }
 
     /**
+     * 查询指定实例全量备份列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定实例全量备份列表
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  获取方法请参见[查询实例列表](https://support.huaweicloud.com/api-taurusdb/ListGaussMySqlInstancesUnifyStatus.html)。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn  **默认取值**：  en-us。
+     * @param {string} [offset] **参数解释**：    索引位置，偏移量。从第一条数据偏移offset条数据后开始查询。    **约束限制**：    必须为整数，不能为负数。    **取值范围**：    ≥0。  **默认取值**：    0。
+     * @param {string} [limit] **参数解释**：  查询记录数。  **约束限制**：  必须为整数，不能为负数。  **取值范围**：  1-100。  **默认取值**：  100。
+     * @param {string} [orderField] **参数解释**:  根据指定字段排序。  **约束限制**:  不涉及。  **取值范围**:  - name：备份名称。 - beginTime：备份开启时间。 - type：备份类型。  **默认取值**: 不涉及。
+     * @param {string} [orderRule] **参数解释**: 排序规则。  **约束限制**: 不涉及。  **取值范围**: - asc：升序。 - desc：降序。  **默认取值**: 不涉及。
+     * @param {string} [filterField] **参数解释**: 过滤字段类型。 **约束限制**: 不涉及。 **取值范围**: name：根据备份名称进行过滤。 **默认取值**: 不涉及。
+     * @param {string} [filterContent] **参数解释**: 过滤内容。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceBackups(showInstanceBackupsRequest?: ShowInstanceBackupsRequest): Promise<ShowInstanceBackupsResponse> {
+        const options = ParamCreater().showInstanceBackups(showInstanceBackupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询内核版本信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4966,6 +5032,47 @@ export class GaussDBClient {
     }
 
     /**
+     * 删除HTAP实例会话。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除HTAP实例会话
+     * @param {string} xLanguage **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn  **默认值**：  en-us。
+     * @param {string} instanceId **参数解释**：  HTAP标准版实例ID，严格匹配UUID规则。可通过调用[查询HTAP实例列表](https://support.huaweicloud.com/api-taurusdb/ListHtapInstanceInfo.html)接口获取。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in17，且长度为36个字符。  **默认值**：  不涉及。
+     * @param {DeleteHtapProcessReq} deleteHtapProcessListRequestBody **参数解释**：  删除HTAP实例会话请求体。  **约束限制**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteHtapProcessList(deleteHtapProcessListRequest?: DeleteHtapProcessListRequest): Promise<DeleteHtapProcessListResponse> {
+        const options = ParamCreater().deleteHtapProcessList(deleteHtapProcessListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量解除LTS日志配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量解除LTS日志配置
+     * @param {'zh-cn' | 'en-us'} xLanguage **参数解释**：              请求语言类型。  **约束限制**：  不涉及。  **取值范围**： - en-us - zh-cn  **默认值**：  en-us。
+     * @param {HtapDeleteLTSConfigRequestBody} deleteLTSConfigRequestBody **参数解释**：  解除LTS日志配置请求体。  **约束限制**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteStarRockLtsConfig(deleteStarRockLtsConfigRequest?: DeleteStarRockLtsConfigRequest): Promise<DeleteStarRockLtsConfigResponse> {
+        const options = ParamCreater().deleteStarRockLtsConfig(deleteStarRockLtsConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除StarRocks数据同步。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5773,6 +5880,28 @@ export class GaussDBClient {
     }
 
     /**
+     * 查询HTAP实例当前会话。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询HTAP实例当前会话
+     * @param {string} xLanguage **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn  **默认值**：  en-us。
+     * @param {string} instanceId **参数解释**：  HTAP标准版实例ID，严格匹配UUID规则。可通过调用[查询HTAP实例列表](https://support.huaweicloud.com/api-taurusdb/ListHtapInstanceInfo.html)接口获取。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in17，且长度为36个字符。  **默认值**：  不涉及。
+     * @param {string} [limit] **参数解释**：              查询记录数。  **约束限制**：  必须为整数，不能为负数。  **取值范围**：  1-100。  **默认值**：  100。
+     * @param {string} [offset] **参数解释**：              索引位置，偏移量。从第一条数据偏移offset条数据后开始查询。  **约束限制**：  必须为整数，不能为负数。  **取值范围**：  ≥0  **默认值**：  0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showHtapProcessList(showHtapProcessListRequest?: ShowHtapProcessListRequest): Promise<ShowHtapProcessListResponse> {
+        const options = ParamCreater().showHtapProcessList(showHtapProcessListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询当前查询队列开关和阈值。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6023,6 +6152,26 @@ export class GaussDBClient {
      */
     public updateHtapQueryQueuesControl(updateHtapQueryQueuesControlRequest?: UpdateHtapQueryQueuesControlRequest): Promise<UpdateHtapQueryQueuesControlResponse> {
         const options = ParamCreater().updateHtapQueryQueuesControl(updateHtapQueryQueuesControlRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量创建LTS日志配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量创建LTS日志配置
+     * @param {'zh-cn' | 'en-us'} xLanguage **参数解释**：              请求语言类型。  **约束限制**：  不涉及。  **取值范围**： - en-us - zh-cn  **默认值**：  en-us。
+     * @param {HtapCreateLTSConfigRequestBody} updateLTSConfigRequestBody **参数解释**：  创建LTS日志配置请求体。  **约束限制**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateStarRockLtsConfig(updateStarRockLtsConfigRequest?: UpdateStarRockLtsConfigRequest): Promise<UpdateStarRockLtsConfigResponse> {
+        const options = ParamCreater().updateStarRockLtsConfig(updateStarRockLtsConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7301,6 +7450,57 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 关闭自治限流。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAutoSqlLimiting(deleteAutoSqlLimitingRequest?: DeleteAutoSqlLimitingRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/nodes/{node_id}/auto-sql-limiting",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let nodeId;
+            
+            let xLanguage;
+
+            if (deleteAutoSqlLimitingRequest !== null && deleteAutoSqlLimitingRequest !== undefined) {
+                if (deleteAutoSqlLimitingRequest instanceof DeleteAutoSqlLimitingRequest) {
+                    instanceId = deleteAutoSqlLimitingRequest.instanceId;
+                    nodeId = deleteAutoSqlLimitingRequest.nodeId;
+                    xLanguage = deleteAutoSqlLimitingRequest.xLanguage;
+                } else {
+                    instanceId = deleteAutoSqlLimitingRequest['instance_id'];
+                    nodeId = deleteAutoSqlLimitingRequest['node_id'];
+                    xLanguage = deleteAutoSqlLimitingRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteAutoSqlLimiting.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling deleteAutoSqlLimiting.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'node_id': nodeId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -12133,6 +12333,93 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询指定实例全量备份列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceBackups(showInstanceBackupsRequest?: ShowInstanceBackupsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/backups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+            
+            let orderField;
+            
+            let orderRule;
+            
+            let filterField;
+            
+            let filterContent;
+
+            if (showInstanceBackupsRequest !== null && showInstanceBackupsRequest !== undefined) {
+                if (showInstanceBackupsRequest instanceof ShowInstanceBackupsRequest) {
+                    instanceId = showInstanceBackupsRequest.instanceId;
+                    xLanguage = showInstanceBackupsRequest.xLanguage;
+                    offset = showInstanceBackupsRequest.offset;
+                    limit = showInstanceBackupsRequest.limit;
+                    orderField = showInstanceBackupsRequest.orderField;
+                    orderRule = showInstanceBackupsRequest.orderRule;
+                    filterField = showInstanceBackupsRequest.filterField;
+                    filterContent = showInstanceBackupsRequest.filterContent;
+                } else {
+                    instanceId = showInstanceBackupsRequest['instance_id'];
+                    xLanguage = showInstanceBackupsRequest['X-Language'];
+                    offset = showInstanceBackupsRequest['offset'];
+                    limit = showInstanceBackupsRequest['limit'];
+                    orderField = showInstanceBackupsRequest['order_field'];
+                    orderRule = showInstanceBackupsRequest['order_rule'];
+                    filterField = showInstanceBackupsRequest['filter_field'];
+                    filterContent = showInstanceBackupsRequest['filter_content'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceBackups.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (orderField !== null && orderField !== undefined) {
+                localVarQueryParameter['order_field'] = orderField;
+            }
+            if (orderRule !== null && orderRule !== undefined) {
+                localVarQueryParameter['order_rule'] = orderRule;
+            }
+            if (filterField !== null && filterField !== undefined) {
+                localVarQueryParameter['filter_field'] = filterField;
+            }
+            if (filterContent !== null && filterContent !== undefined) {
+                localVarQueryParameter['filter_content'] = filterContent;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询内核版本信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -16606,6 +16893,104 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除HTAP实例会话。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteHtapProcessList(deleteHtapProcessListRequest?: DeleteHtapProcessListRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/htap/process",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+            
+            let instanceId;
+
+            if (deleteHtapProcessListRequest !== null && deleteHtapProcessListRequest !== undefined) {
+                if (deleteHtapProcessListRequest instanceof DeleteHtapProcessListRequest) {
+                    xLanguage = deleteHtapProcessListRequest.xLanguage;
+                    instanceId = deleteHtapProcessListRequest.instanceId;
+                    body = deleteHtapProcessListRequest.body
+                } else {
+                    xLanguage = deleteHtapProcessListRequest['X-Language'];
+                    instanceId = deleteHtapProcessListRequest['instance_id'];
+                    body = deleteHtapProcessListRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteHtapProcessList.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量解除LTS日志配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteStarRockLtsConfig(deleteStarRockLtsConfigRequest?: DeleteStarRockLtsConfigRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/starrocks/instances/logs/lts-configs",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (deleteStarRockLtsConfigRequest !== null && deleteStarRockLtsConfigRequest !== undefined) {
+                if (deleteStarRockLtsConfigRequest instanceof DeleteStarRockLtsConfigRequest) {
+                    xLanguage = deleteStarRockLtsConfigRequest.xLanguage;
+                    body = deleteStarRockLtsConfigRequest.body
+                } else {
+                    xLanguage = deleteStarRockLtsConfigRequest['X-Language'];
+                    body = deleteStarRockLtsConfigRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除StarRocks数据同步。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -18656,6 +19041,65 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询HTAP实例当前会话。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showHtapProcessList(showHtapProcessListRequest?: ShowHtapProcessListRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/htap/process",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let instanceId;
+            
+            let limit;
+            
+            let offset;
+
+            if (showHtapProcessListRequest !== null && showHtapProcessListRequest !== undefined) {
+                if (showHtapProcessListRequest instanceof ShowHtapProcessListRequest) {
+                    xLanguage = showHtapProcessListRequest.xLanguage;
+                    instanceId = showHtapProcessListRequest.instanceId;
+                    limit = showHtapProcessListRequest.limit;
+                    offset = showHtapProcessListRequest.offset;
+                } else {
+                    xLanguage = showHtapProcessListRequest['X-Language'];
+                    instanceId = showHtapProcessListRequest['instance_id'];
+                    limit = showHtapProcessListRequest['limit'];
+                    offset = showHtapProcessListRequest['offset'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showHtapProcessList.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询当前查询队列开关和阈值。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -19329,6 +19773,51 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量创建LTS日志配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateStarRockLtsConfig(updateStarRockLtsConfigRequest?: UpdateStarRockLtsConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/starrocks/instances/logs/lts-configs",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (updateStarRockLtsConfigRequest !== null && updateStarRockLtsConfigRequest !== undefined) {
+                if (updateStarRockLtsConfigRequest instanceof UpdateStarRockLtsConfigRequest) {
+                    xLanguage = updateStarRockLtsConfigRequest.xLanguage;
+                    body = updateStarRockLtsConfigRequest.body
+                } else {
+                    xLanguage = updateStarRockLtsConfigRequest['X-Language'];
+                    body = updateStarRockLtsConfigRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

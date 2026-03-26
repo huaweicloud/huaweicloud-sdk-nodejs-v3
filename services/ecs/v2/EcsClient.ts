@@ -69,6 +69,7 @@ import { BatchUpdateServersNameRequest } from './model/BatchUpdateServersNameReq
 import { BatchUpdateServersNameRequestBody } from './model/BatchUpdateServersNameRequestBody';
 import { BatchUpdateServersNameResponse } from './model/BatchUpdateServersNameResponse';
 import { BlockDeviceAttachableQuantity } from './model/BlockDeviceAttachableQuantity';
+import { CapacityReservationSpecification } from './model/CapacityReservationSpecification';
 import { ChangeServerChargeModePrepaidOption } from './model/ChangeServerChargeModePrepaidOption';
 import { ChangeServerChargeModeRequest } from './model/ChangeServerChargeModeRequest';
 import { ChangeServerChargeModeRequestBody } from './model/ChangeServerChargeModeRequestBody';

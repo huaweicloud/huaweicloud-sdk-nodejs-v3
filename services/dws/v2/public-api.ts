@@ -15,6 +15,7 @@ export * from './model/AddWorkloadRuleResponse';
 export * from './model/AlarmConfigResponse';
 export * from './model/AlarmDetailResponse';
 export * from './model/AlarmStatisticResponse';
+export * from './model/AlarmSubDetailResopnse';
 export * from './model/AlarmSubRequest';
 export * from './model/AlarmSubUpdateRequest';
 export * from './model/AlarmSubscriptionResponse';

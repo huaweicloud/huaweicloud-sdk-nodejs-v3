@@ -1,3 +1,4 @@
+import { AlarmSubDetailResopnse } from './AlarmSubDetailResopnse';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -13,6 +14,8 @@ export class CreateAlarmSubResponse extends SdkResponse {
     private 'notification_target_type'?: string;
     public language?: string;
     private 'time_zone'?: string;
+    private 'cluster_id'?: string;
+    private 'alarm_details'?: Array<AlarmSubDetailResopnse>;
     public constructor() { 
         super();
     }
@@ -101,5 +104,25 @@ export class CreateAlarmSubResponse extends SdkResponse {
     }
     public get timeZone(): string | undefined {
         return this['time_zone'];
+    }
+    public withClusterId(clusterId: string): CreateAlarmSubResponse {
+        this['cluster_id'] = clusterId;
+        return this;
+    }
+    public set clusterId(clusterId: string  | undefined) {
+        this['cluster_id'] = clusterId;
+    }
+    public get clusterId(): string | undefined {
+        return this['cluster_id'];
+    }
+    public withAlarmDetails(alarmDetails: Array<AlarmSubDetailResopnse>): CreateAlarmSubResponse {
+        this['alarm_details'] = alarmDetails;
+        return this;
+    }
+    public set alarmDetails(alarmDetails: Array<AlarmSubDetailResopnse>  | undefined) {
+        this['alarm_details'] = alarmDetails;
+    }
+    public get alarmDetails(): Array<AlarmSubDetailResopnse> | undefined {
+        return this['alarm_details'];
     }
 }

@@ -1,4 +1,6 @@
+import { CapacityReservationSpecification } from './CapacityReservationSpecification';
 import { CpuOptions } from './CpuOptions';
+import { EnclaveOptions } from './EnclaveOptions';
 import { Hypervisor } from './Hypervisor';
 import { NetworkInterfaces } from './NetworkInterfaces';
 import { SecurityOptions } from './SecurityOptions';
@@ -12,6 +14,10 @@ import { ServerSystemTag } from './ServerSystemTag';
 
 
 export class ServerDetail {
+    private 'capacity_reservation_id'?: string;
+    private 'capacity_reservation_specification'?: CapacityReservationSpecification;
+    private 'spod_id'?: string;
+    private 'enclave_options'?: EnclaveOptions;
     public status?: string;
     public updated?: string;
     private 'auto_terminate_time'?: string;
@@ -61,7 +67,11 @@ export class ServerDetail {
     private 'security_options'?: SecurityOptions;
     public hypervisor?: Hypervisor;
     private 'network_interfaces'?: Array<NetworkInterfaces>;
-    public constructor(status?: string, updated?: string, autoTerminateTime?: string, hostId?: string, oSEXTSRVATTRHost?: string, addresses?: { [key: string]: Array<ServerAddress>; }, keyName?: string, image?: ServerImage, oSEXTSTSTaskState?: string, oSEXTSTSVmState?: string, oSEXTSRVATTRInstanceName?: string, oSEXTSRVATTRHypervisorHostname?: string, flavor?: ServerFlavor, id?: string, securityGroups?: Array<ServerSecurityGroup>, oSEXTAZAvailabilityZone?: string, userId?: string, name?: string, created?: string, tenantId?: string, accessIPv4?: string, accessIPv6?: string, oSEXTSTSPowerState?: number, configDrive?: string, metadata?: { [key: string]: string; }, oSSRVUSGLaunchedAt?: string, oSSRVUSGTerminatedAt?: string, osExtendedVolumesVolumesAttached?: Array<ServerExtendVolumeAttachment>, hostStatus?: string, oSEXTSRVATTRHostname?: string, oSEXTSRVATTRLaunchIndex?: number, oSEXTSRVATTRKernelId?: string, oSEXTSRVATTRRamdiskId?: string, oSEXTSRVATTRRootDeviceName?: string, locked?: boolean) { 
+    public constructor(capacityReservationId?: string, capacityReservationSpecification?: CapacityReservationSpecification, spodId?: string, enclaveOptions?: EnclaveOptions, status?: string, updated?: string, autoTerminateTime?: string, hostId?: string, oSEXTSRVATTRHost?: string, addresses?: { [key: string]: Array<ServerAddress>; }, keyName?: string, image?: ServerImage, oSEXTSTSTaskState?: string, oSEXTSTSVmState?: string, oSEXTSRVATTRInstanceName?: string, oSEXTSRVATTRHypervisorHostname?: string, flavor?: ServerFlavor, id?: string, securityGroups?: Array<ServerSecurityGroup>, oSEXTAZAvailabilityZone?: string, userId?: string, name?: string, created?: string, tenantId?: string, accessIPv4?: string, accessIPv6?: string, oSEXTSTSPowerState?: number, configDrive?: string, metadata?: { [key: string]: string; }, oSSRVUSGLaunchedAt?: string, oSSRVUSGTerminatedAt?: string, osExtendedVolumesVolumesAttached?: Array<ServerExtendVolumeAttachment>, hostStatus?: string, oSEXTSRVATTRHostname?: string, oSEXTSRVATTRLaunchIndex?: number, oSEXTSRVATTRKernelId?: string, oSEXTSRVATTRRamdiskId?: string, oSEXTSRVATTRRootDeviceName?: string, locked?: boolean) { 
+        this['capacity_reservation_id'] = capacityReservationId;
+        this['capacity_reservation_specification'] = capacityReservationSpecification;
+        this['spod_id'] = spodId;
+        this['enclave_options'] = enclaveOptions;
         this['status'] = status;
         this['updated'] = updated;
         this['auto_terminate_time'] = autoTerminateTime;
@@ -97,6 +107,46 @@ export class ServerDetail {
         this['OS-EXT-SRV-ATTR:ramdisk_id'] = oSEXTSRVATTRRamdiskId;
         this['OS-EXT-SRV-ATTR:root_device_name'] = oSEXTSRVATTRRootDeviceName;
         this['locked'] = locked;
+    }
+    public withCapacityReservationId(capacityReservationId: string): ServerDetail {
+        this['capacity_reservation_id'] = capacityReservationId;
+        return this;
+    }
+    public set capacityReservationId(capacityReservationId: string  | undefined) {
+        this['capacity_reservation_id'] = capacityReservationId;
+    }
+    public get capacityReservationId(): string | undefined {
+        return this['capacity_reservation_id'];
+    }
+    public withCapacityReservationSpecification(capacityReservationSpecification: CapacityReservationSpecification): ServerDetail {
+        this['capacity_reservation_specification'] = capacityReservationSpecification;
+        return this;
+    }
+    public set capacityReservationSpecification(capacityReservationSpecification: CapacityReservationSpecification  | undefined) {
+        this['capacity_reservation_specification'] = capacityReservationSpecification;
+    }
+    public get capacityReservationSpecification(): CapacityReservationSpecification | undefined {
+        return this['capacity_reservation_specification'];
+    }
+    public withSpodId(spodId: string): ServerDetail {
+        this['spod_id'] = spodId;
+        return this;
+    }
+    public set spodId(spodId: string  | undefined) {
+        this['spod_id'] = spodId;
+    }
+    public get spodId(): string | undefined {
+        return this['spod_id'];
+    }
+    public withEnclaveOptions(enclaveOptions: EnclaveOptions): ServerDetail {
+        this['enclave_options'] = enclaveOptions;
+        return this;
+    }
+    public set enclaveOptions(enclaveOptions: EnclaveOptions  | undefined) {
+        this['enclave_options'] = enclaveOptions;
+    }
+    public get enclaveOptions(): EnclaveOptions | undefined {
+        return this['enclave_options'];
     }
     public withStatus(status: string): ServerDetail {
         this['status'] = status;

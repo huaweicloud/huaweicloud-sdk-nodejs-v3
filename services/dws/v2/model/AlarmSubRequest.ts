@@ -8,6 +8,8 @@ export class AlarmSubRequest {
     private 'notification_target_name'?: string;
     private 'notification_target_type'?: string;
     private 'time_zone'?: string;
+    private 'cluster_id'?: string;
+    private 'alarm_detail'?: string;
     public constructor(name?: string, notificationTarget?: string, notificationTargetName?: string, notificationTargetType?: string, timeZone?: string) { 
         this['name'] = name;
         this['notification_target'] = notificationTarget;
@@ -72,5 +74,25 @@ export class AlarmSubRequest {
     }
     public get timeZone(): string | undefined {
         return this['time_zone'];
+    }
+    public withClusterId(clusterId: string): AlarmSubRequest {
+        this['cluster_id'] = clusterId;
+        return this;
+    }
+    public set clusterId(clusterId: string  | undefined) {
+        this['cluster_id'] = clusterId;
+    }
+    public get clusterId(): string | undefined {
+        return this['cluster_id'];
+    }
+    public withAlarmDetail(alarmDetail: string): AlarmSubRequest {
+        this['alarm_detail'] = alarmDetail;
+        return this;
+    }
+    public set alarmDetail(alarmDetail: string  | undefined) {
+        this['alarm_detail'] = alarmDetail;
+    }
+    public get alarmDetail(): string | undefined {
+        return this['alarm_detail'];
     }
 }

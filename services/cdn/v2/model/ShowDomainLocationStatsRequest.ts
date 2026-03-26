@@ -6,6 +6,7 @@ export class ShowDomainLocationStatsRequest {
     private 'end_time'?: number;
     private 'domain_name'?: string;
     private 'stat_type'?: string;
+    private 'ip_version'?: string;
     public interval?: number;
     public country?: string;
     public province?: string;
@@ -62,6 +63,16 @@ export class ShowDomainLocationStatsRequest {
     }
     public get statType(): string | undefined {
         return this['stat_type'];
+    }
+    public withIpVersion(ipVersion: string): ShowDomainLocationStatsRequest {
+        this['ip_version'] = ipVersion;
+        return this;
+    }
+    public set ipVersion(ipVersion: string  | undefined) {
+        this['ip_version'] = ipVersion;
+    }
+    public get ipVersion(): string | undefined {
+        return this['ip_version'];
     }
     public withInterval(interval: number): ShowDomainLocationStatsRequest {
         this['interval'] = interval;

@@ -19,7 +19,7 @@ export class RecycleInstanceV3 {
     private 'backup_level'?: string;
     private 'recycle_backup_id'?: string;
     private 'recycle_status'?: string;
-    private 'recycle_bakcups'?: Array<RecycleBackupV3>;
+    private 'recycle_backups'?: Array<RecycleBackupV3>;
     public constructor() { 
     }
     public withId(id: string): RecycleInstanceV3 {
@@ -180,14 +180,14 @@ export class RecycleInstanceV3 {
     public get recycleStatus(): string | undefined {
         return this['recycle_status'];
     }
-    public withRecycleBakcups(recycleBakcups: Array<RecycleBackupV3>): RecycleInstanceV3 {
-        this['recycle_bakcups'] = recycleBakcups;
+    public withRecycleBackups(recycleBackups: Array<RecycleBackupV3>): RecycleInstanceV3 {
+        this['recycle_backups'] = recycleBackups;
         return this;
     }
-    public set recycleBakcups(recycleBakcups: Array<RecycleBackupV3>  | undefined) {
-        this['recycle_bakcups'] = recycleBakcups;
+    public set recycleBackups(recycleBackups: Array<RecycleBackupV3>  | undefined) {
+        this['recycle_backups'] = recycleBackups;
     }
-    public get recycleBakcups(): Array<RecycleBackupV3> | undefined {
-        return this['recycle_bakcups'];
+    public get recycleBackups(): Array<RecycleBackupV3> | undefined {
+        return this['recycle_backups'];
     }
 }

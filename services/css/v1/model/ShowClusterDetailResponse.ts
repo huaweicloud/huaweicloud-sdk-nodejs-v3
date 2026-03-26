@@ -4,6 +4,7 @@ import { ClusterDetailInstances } from './ClusterDetailInstances';
 import { ClusterDetailTags } from './ClusterDetailTags';
 import { ElbWhiteListResp } from './ElbWhiteListResp';
 import { PublicKibanaRespBody } from './PublicKibanaRespBody';
+import { SnapshotPolicyResp } from './SnapshotPolicyResp';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -15,7 +16,7 @@ export class ShowClusterDetailResponse extends SdkResponse {
     public updated?: string;
     public name?: string;
     public publicIp?: string;
-    public snapshotPolicy?: object;
+    public snapshotPolicy?: SnapshotPolicyResp;
     public created?: string;
     public id?: string;
     public status?: string;
@@ -74,7 +75,7 @@ export class ShowClusterDetailResponse extends SdkResponse {
         this['publicIp'] = publicIp;
         return this;
     }
-    public withSnapshotPolicy(snapshotPolicy: object): ShowClusterDetailResponse {
+    public withSnapshotPolicy(snapshotPolicy: SnapshotPolicyResp): ShowClusterDetailResponse {
         this['snapshotPolicy'] = snapshotPolicy;
         return this;
     }

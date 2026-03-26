@@ -1,4 +1,5 @@
 import { FlavorRespVersionBody } from './FlavorRespVersionBody';
+import { ModelList } from './ModelList';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -6,6 +7,7 @@ export class ShowDataStoreFlavorDetailResponse extends SdkResponse {
     public id?: string;
     public dbname?: string;
     public versions?: Array<FlavorRespVersionBody>;
+    public modelList?: ModelList;
     public constructor() { 
         super();
     }
@@ -19,6 +21,10 @@ export class ShowDataStoreFlavorDetailResponse extends SdkResponse {
     }
     public withVersions(versions: Array<FlavorRespVersionBody>): ShowDataStoreFlavorDetailResponse {
         this['versions'] = versions;
+        return this;
+    }
+    public withModelList(modelList: ModelList): ShowDataStoreFlavorDetailResponse {
+        this['modelList'] = modelList;
         return this;
     }
 }

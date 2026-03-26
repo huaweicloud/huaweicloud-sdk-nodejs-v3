@@ -1,3 +1,215 @@
+# 3.1.189 2026-03-26
+
+### HuaweiCloud SDK CDN
+
+- _接口版本_
+  - V2
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowDomainLocationStats**
+    - 请求参数变更
+      - `+ ip_version`
+
+### HuaweiCloud SDK Cloudtest
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 支持接口`BatchAddCaseResultInTask`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK CSS
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowClusterDetail**
+    - 响应参数变更
+      - `+ snapshotPolicy.backupEnable`
+      - `+ snapshotPolicy.bakPeriod`
+      - `+ snapshotPolicy.bakFrequency`
+      - `+ snapshotPolicy.bakKeepDay`
+      - `* snapshotPolicy: object -> object<SnapshotPolicyResp>`
+  - **UpdateYmls**
+    - 请求参数变更
+      - `+ edit.modify.kibana.yml`
+  - **ShowDataStoreFlavorDetail**
+    - 响应参数变更
+      - `+ modelList`
+
+### HuaweiCloud SDK DAS
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 支持以下接口：
+    - `ListLockBlockingDb`
+    - `ListLockBlockingDetail`
+    - `ListLockBlockingRelationship`
+    - `ShowLockBlockingStatistics`
+    - `ShowLockBlockingTrend`
+    - `ShowLockBlockingSwitch`
+    - `SetLockBlockingSwitch`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK DWS
+
+- _接口版本_
+  - V2
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **UpdateAlarmSub**
+    - 请求参数变更
+      - `+ language`
+      - `+ time_zone`
+      - `+ cluster_id`
+      - `+ alarm_details`
+    - 响应参数变更
+      - `+ alarm_details`
+      - `+ cluster_id`
+  - **DeleteAlarmSub**
+    - 响应参数变更
+      - `+ alarm_details`
+      - `+ cluster_id`
+  - **ResizeCluster**
+    - 请求参数变更
+      - `+ mode`
+      - `+ redis_conf`
+  - **ListElbs**
+    - 响应参数变更
+      - `+ count`
+      - `+ elbs.ip_target_enable`
+  - **ListAlarmDetail**
+    - 请求参数变更
+      - `+ from`
+      - `+ to`
+      - `+ recent_day`
+  - **CreateAlarmSub**
+    - 请求参数变更
+      - `+ cluster_id`
+      - `+ alarm_detail`
+    - 响应参数变更
+      - `+ alarm_details`
+      - `+ cluster_id`
+  - **ListAlarmSubs**
+    - 响应参数变更
+      - `+ alarm_details`
+      - `+ cluster_id`
+      - `+ alarm_subscriptions.cluster_id`
+      - `+ alarm_subscriptions.alarm_details`
+  - **CheckGrowCluster**
+    - 请求参数变更
+      - `+ mode`
+      - `+ redis_conf`
+
+### HuaweiCloud SDK ECS
+
+- _接口版本_
+  - V2
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowServer**
+    - 响应参数变更
+      - `+ server.capacity_reservation_id`
+      - `+ server.capacity_reservation_specification`
+      - `+ server.spod_id`
+      - `+ server.enclave_options`
+  - **ListServersDetails**
+    - 响应参数变更
+      - `+ servers.capacity_reservation_id`
+      - `+ servers.capacity_reservation_specification`
+      - `+ servers.spod_id`
+      - `+ servers.enclave_options`
+  - **ListRecycleBinServers**
+    - 响应参数变更
+      - `+ servers.capacity_reservation_id`
+      - `+ servers.capacity_reservation_specification`
+      - `+ servers.spod_id`
+      - `+ servers.enclave_options`
+
+### HuaweiCloud SDK GaussDB
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 支持以下接口：
+    - `ShowHtapProcessList`
+    - `DeleteHtapProcessList`
+    - `ShowInstanceBackups`
+    - `DeleteAutoSqlLimiting`
+    - `UpdateStarRockLtsConfig`
+    - `DeleteStarRockLtsConfig`
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListRecycleInstances**
+    - 响应参数变更
+      - `+ instances.recycle_backups`
+      - `- instances.recycle_bakcups`
+  - **ListImmediateJobs**
+    - 响应参数变更
+      - `+ jobs.show_detail`
+      - `+ jobs.action_names`
+  - **CreateGaussMySqlInstance**
+    - 请求参数变更
+      - `+ volume.type`
+
+### HuaweiCloud SDK RDS
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 支持接口`ShowBackupConfig`、`ChangeBackupConfig`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK SMS
+
+- _接口版本_
+  - V3
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ExportConsistencyResults**
+    - 响应参数变更
+      - `* : string -> binary`
+
+### HuaweiCloud SDK WAF
+
+- _接口版本_
+  - V1
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListTopDomains**
+    - 响应参数变更
+      - `+ items.web_tag`
+
 # 3.1.188 2026-03-19
 
 ### HuaweiCloud SDK AAD

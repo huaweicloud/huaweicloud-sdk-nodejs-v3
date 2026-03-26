@@ -12,6 +12,7 @@ export class ClusterElbInfo {
     private 'admin_state_up'?: boolean;
     public bandwidth?: number;
     private 'vpc_id'?: string;
+    private 'ip_target_enable'?: boolean;
     public constructor() { 
     }
     public withId(id: string): ClusterElbInfo {
@@ -93,5 +94,15 @@ export class ClusterElbInfo {
     }
     public get vpcId(): string | undefined {
         return this['vpc_id'];
+    }
+    public withIpTargetEnable(ipTargetEnable: boolean): ClusterElbInfo {
+        this['ip_target_enable'] = ipTargetEnable;
+        return this;
+    }
+    public set ipTargetEnable(ipTargetEnable: boolean  | undefined) {
+        this['ip_target_enable'] = ipTargetEnable;
+    }
+    public get ipTargetEnable(): boolean | undefined {
+        return this['ip_target_enable'];
     }
 }

@@ -174,6 +174,8 @@ export * from './model/LoadbalancersResource';
 export * from './model/LogConfiguration';
 export * from './model/LogList';
 export * from './model/Member';
+export * from './model/Model';
+export * from './model/ModelList';
 export * from './model/PayInfoBody';
 export * from './model/PeriodReq';
 export * from './model/PermissionInfo';

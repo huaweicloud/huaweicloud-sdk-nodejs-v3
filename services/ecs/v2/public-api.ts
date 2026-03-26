@@ -67,6 +67,7 @@ export * from './model/BatchUpdateServersNameRequest';
 export * from './model/BatchUpdateServersNameRequestBody';
 export * from './model/BatchUpdateServersNameResponse';
 export * from './model/BlockDeviceAttachableQuantity';
+export * from './model/CapacityReservationSpecification';
 export * from './model/ChangeServerChargeModePrepaidOption';
 export * from './model/ChangeServerChargeModeRequest';
 export * from './model/ChangeServerChargeModeRequestBody';

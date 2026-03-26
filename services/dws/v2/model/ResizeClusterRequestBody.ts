@@ -1,3 +1,4 @@
+import { RedisConfReq } from './RedisConfReq';
 import { ScaleOut } from './ScaleOut';
 
 
@@ -7,6 +8,8 @@ export class ResizeClusterRequestBody {
     private 'create_node_only'?: boolean;
     private 'waiting_for_killing'?: number;
     private 'auto_redistribute'?: boolean;
+    public mode?: string;
+    private 'redis_conf'?: RedisConfReq;
     public constructor(scaleOut?: ScaleOut) { 
         this['scale_out'] = scaleOut;
     }
@@ -59,5 +62,19 @@ export class ResizeClusterRequestBody {
     }
     public get autoRedistribute(): boolean | undefined {
         return this['auto_redistribute'];
+    }
+    public withMode(mode: string): ResizeClusterRequestBody {
+        this['mode'] = mode;
+        return this;
+    }
+    public withRedisConf(redisConf: RedisConfReq): ResizeClusterRequestBody {
+        this['redis_conf'] = redisConf;
+        return this;
+    }
+    public set redisConf(redisConf: RedisConfReq  | undefined) {
+        this['redis_conf'] = redisConf;
+    }
+    public get redisConf(): RedisConfReq | undefined {
+        return this['redis_conf'];
     }
 }

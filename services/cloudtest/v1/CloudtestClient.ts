@@ -55,10 +55,13 @@ import { BasicAWInfo } from './model/BasicAWInfo';
 import { BasicAw } from './model/BasicAw';
 import { BasicAwCata } from './model/BasicAwCata';
 import { BasicAwRes } from './model/BasicAwRes';
+import { BatchAddCaseResultInTaskRequest } from './model/BatchAddCaseResultInTaskRequest';
+import { BatchAddCaseResultInTaskResponse } from './model/BatchAddCaseResultInTaskResponse';
 import { BatchAddRelationsByOneCaseRequest } from './model/BatchAddRelationsByOneCaseRequest';
 import { BatchAddRelationsByOneCaseResponse } from './model/BatchAddRelationsByOneCaseResponse';
 import { BatchAddResourcesForIteratorRequest } from './model/BatchAddResourcesForIteratorRequest';
 import { BatchAddResourcesForIteratorResponse } from './model/BatchAddResourcesForIteratorResponse';
+import { BatchAddTestCaseResultInTaskInfo } from './model/BatchAddTestCaseResultInTaskInfo';
 import { BatchCreateUpdateApiTestCaseVo } from './model/BatchCreateUpdateApiTestCaseVo';
 import { BatchDeleteFacotrByIdsRequest } from './model/BatchDeleteFacotrByIdsRequest';
 import { BatchDeleteFacotrByIdsResponse } from './model/BatchDeleteFacotrByIdsResponse';
@@ -758,6 +761,27 @@ export class CloudtestClient {
      */
     public addTestCaseResultLog(addTestCaseResultLogRequest?: AddTestCaseResultLogRequest): Promise<AddTestCaseResultLogResponse> {
         const options = ParamCreater().addTestCaseResultLog(addTestCaseResultLogRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 在任务下批量设置用例结果
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 在任务下批量设置用例结果
+     * @param {string} projectId 项目id
+     * @param {string} versionUri 版本URI
+     * @param {BatchAddTestCaseResultInTaskInfo} param 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchAddCaseResultInTask(batchAddCaseResultInTaskRequest?: BatchAddCaseResultInTaskRequest): Promise<BatchAddCaseResultInTaskResponse> {
+        const options = ParamCreater().batchAddCaseResultInTask(batchAddCaseResultInTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4396,6 +4420,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'project_id': projectId,'version_uri': versionUri,'case_uri': caseUri, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 在任务下批量设置用例结果
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchAddCaseResultInTask(batchAddCaseResultInTaskRequest?: BatchAddCaseResultInTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/{project_id}/versions/{version_uri}/task/testcases/results",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+            
+            let versionUri;
+
+            if (batchAddCaseResultInTaskRequest !== null && batchAddCaseResultInTaskRequest !== undefined) {
+                if (batchAddCaseResultInTaskRequest instanceof BatchAddCaseResultInTaskRequest) {
+                    projectId = batchAddCaseResultInTaskRequest.projectId;
+                    versionUri = batchAddCaseResultInTaskRequest.versionUri;
+                    body = batchAddCaseResultInTaskRequest.body
+                } else {
+                    projectId = batchAddCaseResultInTaskRequest['project_id'];
+                    versionUri = batchAddCaseResultInTaskRequest['version_uri'];
+                    body = batchAddCaseResultInTaskRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling batchAddCaseResultInTask.');
+            }
+            if (versionUri === null || versionUri === undefined) {
+            throw new RequiredError('versionUri','Required parameter versionUri was null or undefined when calling batchAddCaseResultInTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId,'version_uri': versionUri, };
             options.headers = localVarHeaderParameter;
             return options;
         },

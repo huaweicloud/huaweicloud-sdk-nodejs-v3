@@ -12,6 +12,8 @@ export class TaskDetailInfo {
     private 'created_time'?: string;
     private 'ended_time'?: string;
     private 'fail_reason'?: string;
+    private 'show_detail'?: boolean;
+    private 'action_names'?: Array<string>;
     public constructor() { 
     }
     public withInstanceId(instanceId: string): TaskDetailInfo {
@@ -111,5 +113,25 @@ export class TaskDetailInfo {
     }
     public get failReason(): string | undefined {
         return this['fail_reason'];
+    }
+    public withShowDetail(showDetail: boolean): TaskDetailInfo {
+        this['show_detail'] = showDetail;
+        return this;
+    }
+    public set showDetail(showDetail: boolean  | undefined) {
+        this['show_detail'] = showDetail;
+    }
+    public get showDetail(): boolean | undefined {
+        return this['show_detail'];
+    }
+    public withActionNames(actionNames: Array<string>): TaskDetailInfo {
+        this['action_names'] = actionNames;
+        return this;
+    }
+    public set actionNames(actionNames: Array<string>  | undefined) {
+        this['action_names'] = actionNames;
+    }
+    public get actionNames(): Array<string> | undefined {
+        return this['action_names'];
     }
 }
