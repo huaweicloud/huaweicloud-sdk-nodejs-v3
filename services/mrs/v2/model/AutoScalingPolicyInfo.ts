@@ -10,10 +10,7 @@ export class AutoScalingPolicyInfo {
     private 'resources_plans'?: Array<ResourcesPlan>;
     public rules?: Array<Rule>;
     public tags?: Array<Tag>;
-    public constructor(autoScalingEnable?: boolean, minCapacity?: number, maxCapacity?: number) { 
-        this['auto_scaling_enable'] = autoScalingEnable;
-        this['min_capacity'] = minCapacity;
-        this['max_capacity'] = maxCapacity;
+    public constructor() { 
     }
     public withAutoScalingEnable(autoScalingEnable: boolean): AutoScalingPolicyInfo {
         this['auto_scaling_enable'] = autoScalingEnable;

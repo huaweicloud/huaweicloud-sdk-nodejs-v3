@@ -5,9 +5,10 @@ export class AutoScalingPolicyV2 {
     private 'node_group_name'?: string;
     private 'resource_pool_name'?: string;
     private 'auto_scaling_policy'?: AutoScalingPolicyInfo;
-    public constructor(nodeGroupName?: string, resourcePoolName?: string) { 
+    public constructor(nodeGroupName?: string, resourcePoolName?: string, autoScalingPolicy?: AutoScalingPolicyInfo) { 
         this['node_group_name'] = nodeGroupName;
         this['resource_pool_name'] = resourcePoolName;
+        this['auto_scaling_policy'] = autoScalingPolicy;
     }
     public withNodeGroupName(nodeGroupName: string): AutoScalingPolicyV2 {
         this['node_group_name'] = nodeGroupName;

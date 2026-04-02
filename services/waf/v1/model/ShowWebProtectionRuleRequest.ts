@@ -1,11 +1,22 @@
 
 
 export class ShowWebProtectionRuleRequest {
+    private 'Content-Type'?: string;
     private 'X-Language'?: ShowWebProtectionRuleRequestXLanguageEnum | string;
     private 'enterprise_project_id'?: string;
     private 'rule_id'?: string;
     public constructor(ruleId?: string) { 
         this['rule_id'] = ruleId;
+    }
+    public withContentType(contentType: string): ShowWebProtectionRuleRequest {
+        this['Content-Type'] = contentType;
+        return this;
+    }
+    public set contentType(contentType: string  | undefined) {
+        this['Content-Type'] = contentType;
+    }
+    public get contentType(): string | undefined {
+        return this['Content-Type'];
     }
     public withXLanguage(xLanguage: ShowWebProtectionRuleRequestXLanguageEnum | string): ShowWebProtectionRuleRequest {
         this['X-Language'] = xLanguage;

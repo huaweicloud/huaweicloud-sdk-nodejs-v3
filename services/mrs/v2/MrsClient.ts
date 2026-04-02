@@ -333,7 +333,7 @@ export class MrsClient {
      * @param {'FAILED' | 'KILLED' | 'UNDEFINED' | 'SUCCEEDED'} [jobResult] 作业运行结果。 - FAILED：执行失败的作业。 - KILLED：执行中被手动终止的作业。 - UNDEFINED：正在执行的作业。 - SUCCEEDED：执行成功的作业。
      * @param {string} [queue] 作业的资源对列类型名称，作业的资源对列类型名称，只能由数字、字母和特殊字符(-_)组成, 并且长度为1～64字符。
      * @param {string} [limit] 返回结果中每页显示条数。缺省值：10
-     * @param {string} [offset] 表示作业列表从该偏移量开始查询。缺省值：0
+     * @param {string} [offset] 表示作业列表从该偏移量开始查询。缺省值：1
      * @param {string} [sortBy] 返回结果的排序方式，默认值为desc。 - asc：按升序排列 - desc：按降序排列
      * @param {number} [submittedTimeBegin] 查询该时间之后提交的作业，UTC的毫秒时间戳。例如：1562032041362。
      * @param {number} [submittedTimeEnd] 查询该时间之前提交的作业UTC的毫秒时间戳。例如：1562032041362。
@@ -705,10 +705,10 @@ export class MrsClient {
      * @summary 获取指定目录文件列表
      * @param {string} clusterId 集群ID。获取方法，请参见[获取集群ID](https://support.huaweicloud.com/api-mrs/mrs_02_9001.html)。
      * @param {string} path 文件目录。 比如访问“/tmp/test”目录列表，此处必须是目录，整体URI为/v2/{project_id}/clusters/{cluster_id}/files?path&#x3D;%2Ftmp%2Ftest 单层目录要遵循以下规则： - 不能为空 - 不能以\&quot;.\&quot;开头或结尾 - 不能包括下列符号 : :*?\&quot;&lt;&gt;|\\;&amp;,\&#39;&#x60;!{}[]$%+ - 不能超过255个字节
-     * @param {string} [offset] 分页参数，表示从该偏移量开始查询文件列表，默认值为0。
+     * @param {string} [offset] 分页参数，表示从该偏移量开始查询文件列表，默认值为1。
      * @param {string} [limit] 分页参数，列表当前分页的数量限制，默认为100，最大1000。
      * @param {'path_suffix' | 'length' | 'modification_time'} [sortKey] 列表排序按该属性排序。缺省值：path_suffix - path_suffix：文件或目录名称 - length：文件大小 - modification_time：修改时间
-     * @param {'desc' | 'asc'} [order] 列表排序方式，desc为降序，asc为升序，默认值为desc。
+     * @param {'desc' | 'asc'} [order] 列表排序方式，desc为降序，asc为升序，默认值为asc。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

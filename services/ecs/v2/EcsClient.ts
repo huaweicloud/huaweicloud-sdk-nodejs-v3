@@ -2211,11 +2211,11 @@ export class EcsClient {
     }
 
     /**
-     * 查询flavor的容量
+     * 查询规格的容量
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询flavor的容量
+     * @summary 查询规格的容量
      * @param {string} flavorId 
      * @param {string} [count] 
      * @param {string} [regionIds] 
@@ -6767,7 +6767,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询flavor的容量
+         * 查询规格的容量
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

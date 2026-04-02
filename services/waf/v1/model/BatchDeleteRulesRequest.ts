@@ -48,6 +48,5 @@ export enum BatchDeleteRulesRequestRuleTypeEnum {
     GEOIP = 'geoip',
     ANTITAMPER = 'antitamper',
     ANTILEAKAGE = 'antileakage',
-    IP_REPUTATION = 'ip-reputation',
-    LLM_GUARDS = 'llm-guards'
+    IP_REPUTATION = 'ip-reputation'
 }

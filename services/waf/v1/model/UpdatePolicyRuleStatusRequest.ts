@@ -5,13 +5,13 @@ export class UpdatePolicyRuleStatusRequest {
     private 'Content-Type'?: string;
     private 'enterprise_project_id'?: string;
     private 'policy_id'?: string;
-    public ruletype?: UpdatePolicyRuleStatusRequestRuletypeEnum | string;
+    private 'rule_type'?: UpdatePolicyRuleStatusRequestRuleTypeEnum | string;
     private 'rule_id'?: string;
     public body?: UpdatePolicyRuleStatusRequestBody;
-    public constructor(contentType?: string, policyId?: string, ruletype?: string, ruleId?: string) { 
+    public constructor(contentType?: string, policyId?: string, ruleType?: string, ruleId?: string) { 
         this['Content-Type'] = contentType;
         this['policy_id'] = policyId;
-        this['ruletype'] = ruletype;
+        this['rule_type'] = ruleType;
         this['rule_id'] = ruleId;
     }
     public withContentType(contentType: string): UpdatePolicyRuleStatusRequest {
@@ -44,9 +44,15 @@ export class UpdatePolicyRuleStatusRequest {
     public get policyId(): string | undefined {
         return this['policy_id'];
     }
-    public withRuletype(ruletype: UpdatePolicyRuleStatusRequestRuletypeEnum | string): UpdatePolicyRuleStatusRequest {
-        this['ruletype'] = ruletype;
+    public withRuleType(ruleType: UpdatePolicyRuleStatusRequestRuleTypeEnum | string): UpdatePolicyRuleStatusRequest {
+        this['rule_type'] = ruleType;
         return this;
+    }
+    public set ruleType(ruleType: UpdatePolicyRuleStatusRequestRuleTypeEnum | string  | undefined) {
+        this['rule_type'] = ruleType;
+    }
+    public get ruleType(): UpdatePolicyRuleStatusRequestRuleTypeEnum | string | undefined {
+        return this['rule_type'];
     }
     public withRuleId(ruleId: string): UpdatePolicyRuleStatusRequest {
         this['rule_id'] = ruleId;
@@ -68,7 +74,7 @@ export class UpdatePolicyRuleStatusRequest {
     * @export
     * @enum {string}
     */
-export enum UpdatePolicyRuleStatusRequestRuletypeEnum {
+export enum UpdatePolicyRuleStatusRequestRuleTypeEnum {
     CC = 'cc',
     CUSTOM = 'custom',
     WHITEBLACKIP = 'whiteblackip',
@@ -77,6 +83,5 @@ export enum UpdatePolicyRuleStatusRequestRuletypeEnum {
     GEOIP = 'geoip',
     ANTITAMPER = 'antitamper',
     ANTILEAKAGE = 'antileakage',
-    IP_REPUTATION = 'ip-reputation',
-    LLM_GUARDS = 'llm-guards'
+    IP_REPUTATION = 'ip-reputation'
 }

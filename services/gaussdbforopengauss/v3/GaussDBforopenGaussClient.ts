@@ -513,6 +513,9 @@ import { ModifyInstancePortResponse } from './model/ModifyInstancePortResponse';
 import { ModifyParameterConfigTemplateRequest } from './model/ModifyParameterConfigTemplateRequest';
 import { ModifyParameterConfigTemplateRequestBody } from './model/ModifyParameterConfigTemplateRequestBody';
 import { ModifyParameterConfigTemplateResponse } from './model/ModifyParameterConfigTemplateResponse';
+import { ModifySecurityGroupRequest } from './model/ModifySecurityGroupRequest';
+import { ModifySecurityGroupRequestBody } from './model/ModifySecurityGroupRequestBody';
+import { ModifySecurityGroupResponse } from './model/ModifySecurityGroupResponse';
 import { MultiQueryConditionOption } from './model/MultiQueryConditionOption';
 import { MySQLCompatibilityResult } from './model/MySQLCompatibilityResult';
 import { NodeDistributionOption } from './model/NodeDistributionOption';
@@ -3604,6 +3607,27 @@ export class GaussDBforopenGaussClient {
      */
     public modifyParameterConfigTemplate(modifyParameterConfigTemplateRequest?: ModifyParameterConfigTemplateRequest): Promise<ModifyParameterConfigTemplateResponse> {
         const options = ParamCreater().modifyParameterConfigTemplate(modifyParameterConfigTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改实例安全组。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改实例安全组
+     * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
+     * @param {ModifySecurityGroupRequestBody} modifySecurityGroupRequestBody 
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**: - zh-cn  - en-us  **默认取值**: en-us
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifySecurityGroup(modifySecurityGroupRequest?: ModifySecurityGroupRequest): Promise<ModifySecurityGroupResponse> {
+        const options = ParamCreater().modifySecurityGroup(modifySecurityGroupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -13571,6 +13595,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'config_id': configId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改实例安全组。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifySecurityGroup(modifySecurityGroupRequest?: ModifySecurityGroupRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/security-group",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (modifySecurityGroupRequest !== null && modifySecurityGroupRequest !== undefined) {
+                if (modifySecurityGroupRequest instanceof ModifySecurityGroupRequest) {
+                    instanceId = modifySecurityGroupRequest.instanceId;
+                    body = modifySecurityGroupRequest.body
+                    xLanguage = modifySecurityGroupRequest.xLanguage;
+                } else {
+                    instanceId = modifySecurityGroupRequest['instance_id'];
+                    body = modifySecurityGroupRequest['body'];
+                    xLanguage = modifySecurityGroupRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling modifySecurityGroup.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
