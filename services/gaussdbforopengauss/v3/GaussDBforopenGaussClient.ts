@@ -24,6 +24,7 @@ import { AttachEipResponse } from './model/AttachEipResponse';
 import { AuthorizeBackupDownloadRequest } from './model/AuthorizeBackupDownloadRequest';
 import { AuthorizeBackupDownloadResponse } from './model/AuthorizeBackupDownloadResponse';
 import { AvailableFlavorInfoResult } from './model/AvailableFlavorInfoResult';
+import { AzInformationResult } from './model/AzInformationResult';
 import { BackupInfo } from './model/BackupInfo';
 import { BackupPolicy } from './model/BackupPolicy';
 import { BackupPolicyErrorResponse } from './model/BackupPolicyErrorResponse';
@@ -51,6 +52,8 @@ import { CanBeRollbackedHotfixDetail } from './model/CanBeRollbackedHotfixDetail
 import { CanBeUpgradedHotfixDetail } from './model/CanBeUpgradedHotfixDetail';
 import { CancelScheduleTaskRequest } from './model/CancelScheduleTaskRequest';
 import { CancelScheduleTaskResponse } from './model/CancelScheduleTaskResponse';
+import { ChangeDemand2PeriodRequest } from './model/ChangeDemand2PeriodRequest';
+import { ChangeDemand2PeriodResponse } from './model/ChangeDemand2PeriodResponse';
 import { CnComponentInfoResult } from './model/CnComponentInfoResult';
 import { CnInfoBeforeReduce } from './model/CnInfoBeforeReduce';
 import { CodeWaitEventTime } from './model/CodeWaitEventTime';
@@ -501,6 +504,7 @@ import { MetricNameResult } from './model/MetricNameResult';
 import { ModifyAutoEnlargePolicyRequest } from './model/ModifyAutoEnlargePolicyRequest';
 import { ModifyAutoEnlargePolicyRequestBody } from './model/ModifyAutoEnlargePolicyRequestBody';
 import { ModifyAutoEnlargePolicyResponse } from './model/ModifyAutoEnlargePolicyResponse';
+import { ModifyDBPayTypeRequestBody } from './model/ModifyDBPayTypeRequestBody';
 import { ModifyEpsQuotaRequest } from './model/ModifyEpsQuotaRequest';
 import { ModifyEpsQuotaRequestBody } from './model/ModifyEpsQuotaRequestBody';
 import { ModifyEpsQuotaResponse } from './model/ModifyEpsQuotaResponse';
@@ -558,6 +562,7 @@ import { ParaErrorResponseBody } from './model/ParaErrorResponseBody';
 import { ParaGroupParameterResult } from './model/ParaGroupParameterResult';
 import { ParamGroupCopyRequestBody } from './model/ParamGroupCopyRequestBody';
 import { ParamGroupDiffRequestBody } from './model/ParamGroupDiffRequestBody';
+import { PeriodChargeInfoOption } from './model/PeriodChargeInfoOption';
 import { PluginExtensions } from './model/PluginExtensions';
 import { ProjectQuotasResult } from './model/ProjectQuotasResult';
 import { PwdResetRequest } from './model/PwdResetRequest';
@@ -770,6 +775,11 @@ import { SwitchKmsTdeRequestBody } from './model/SwitchKmsTdeRequestBody';
 import { SwitchKmsTdeResponse } from './model/SwitchKmsTdeResponse';
 import { SwitchLogCollectionStatusRequest } from './model/SwitchLogCollectionStatusRequest';
 import { SwitchLogCollectionStatusResponse } from './model/SwitchLogCollectionStatusResponse';
+import { SwitchLoggerReplicaAvailabilityZonesRequest } from './model/SwitchLoggerReplicaAvailabilityZonesRequest';
+import { SwitchLoggerReplicaAvailabilityZonesResponse } from './model/SwitchLoggerReplicaAvailabilityZonesResponse';
+import { SwitchLoggerReplicaRequest } from './model/SwitchLoggerReplicaRequest';
+import { SwitchLoggerReplicaRequestBody } from './model/SwitchLoggerReplicaRequestBody';
+import { SwitchLoggerReplicaResponse } from './model/SwitchLoggerReplicaResponse';
 import { SwitchReplicaRequest } from './model/SwitchReplicaRequest';
 import { SwitchReplicaRequestBody } from './model/SwitchReplicaRequestBody';
 import { SwitchReplicaResponse } from './model/SwitchReplicaResponse';
@@ -1058,6 +1068,25 @@ export class GaussDBforopenGaussClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 按需转包周期
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 按需转包周期
+     * @param {ModifyDBPayTypeRequestBody} changeDemand2PeriodRequestBody 按需转包周期请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeDemand2Period(changeDemand2PeriodRequest?: ChangeDemand2PeriodRequest): Promise<ChangeDemand2PeriodResponse> {
+        const options = ParamCreater().changeDemand2Period(changeDemand2PeriodRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -4962,6 +4991,47 @@ export class GaussDBforopenGaussClient {
     }
 
     /**
+     * 一主两备切换一主一备一日志
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 一主两备切换一主一备一日志
+     * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
+     * @param {SwitchLoggerReplicaRequestBody} switchLoggerReplicaRequestBody 切换日志副本请求体。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**: - zh-cn  - en-us  **默认取值**: en-us
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchLoggerReplica(switchLoggerReplicaRequest?: SwitchLoggerReplicaRequest): Promise<SwitchLoggerReplicaResponse> {
+        const options = ParamCreater().switchLoggerReplica(switchLoggerReplicaRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 选择日志节点AZ
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 选择日志节点AZ
+     * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**: - zh-cn  - en-us  **默认取值**: en-us
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchLoggerReplicaAvailabilityZones(switchLoggerReplicaAvailabilityZonesRequest?: SwitchLoggerReplicaAvailabilityZonesRequest): Promise<SwitchLoggerReplicaAvailabilityZonesResponse> {
+        const options = ParamCreater().switchLoggerReplicaAvailabilityZones(switchLoggerReplicaAvailabilityZonesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 当前只支持分布式独立部署一主一备一日志切换至一主两备形态。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6797,6 +6867,44 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 按需转包周期
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeDemand2Period(changeDemand2PeriodRequest?: ChangeDemand2PeriodRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/change-charge-mode",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (changeDemand2PeriodRequest !== null && changeDemand2PeriodRequest !== undefined) {
+                if (changeDemand2PeriodRequest instanceof ChangeDemand2PeriodRequest) {
+                    body = changeDemand2PeriodRequest.body
+                } else {
+                    body = changeDemand2PeriodRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -16885,6 +16993,103 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'status': status, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 一主两备切换一主一备一日志
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchLoggerReplica(switchLoggerReplicaRequest?: SwitchLoggerReplicaRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instance/{instance_id}/switch-logger-replica",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (switchLoggerReplicaRequest !== null && switchLoggerReplicaRequest !== undefined) {
+                if (switchLoggerReplicaRequest instanceof SwitchLoggerReplicaRequest) {
+                    instanceId = switchLoggerReplicaRequest.instanceId;
+                    body = switchLoggerReplicaRequest.body
+                    xLanguage = switchLoggerReplicaRequest.xLanguage;
+                } else {
+                    instanceId = switchLoggerReplicaRequest['instance_id'];
+                    body = switchLoggerReplicaRequest['body'];
+                    xLanguage = switchLoggerReplicaRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchLoggerReplica.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 选择日志节点AZ
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchLoggerReplicaAvailabilityZones(switchLoggerReplicaAvailabilityZonesRequest?: SwitchLoggerReplicaAvailabilityZonesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/switch-logger-replica/availability_zones",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (switchLoggerReplicaAvailabilityZonesRequest !== null && switchLoggerReplicaAvailabilityZonesRequest !== undefined) {
+                if (switchLoggerReplicaAvailabilityZonesRequest instanceof SwitchLoggerReplicaAvailabilityZonesRequest) {
+                    instanceId = switchLoggerReplicaAvailabilityZonesRequest.instanceId;
+                    xLanguage = switchLoggerReplicaAvailabilityZonesRequest.xLanguage;
+                } else {
+                    instanceId = switchLoggerReplicaAvailabilityZonesRequest['instance_id'];
+                    xLanguage = switchLoggerReplicaAvailabilityZonesRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchLoggerReplicaAvailabilityZones.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

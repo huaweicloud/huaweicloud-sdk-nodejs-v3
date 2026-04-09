@@ -1,4 +1,5 @@
 import { PolicyFilterDefinition } from './PolicyFilterDefinition';
+import { PolicyFilterDefinitionV2 } from './PolicyFilterDefinitionV2';
 import { PolicyParameterValue } from './PolicyParameterValue';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -12,6 +13,7 @@ export class CreateOrganizationPolicyAssignmentResponse extends SdkResponse {
     public description?: string;
     public period?: string;
     private 'policy_filter'?: PolicyFilterDefinition;
+    private 'policy_filter_v2'?: PolicyFilterDefinitionV2;
     public parameters?: { [key: string]: PolicyParameterValue; };
     private 'policy_definition_id'?: string;
     private 'created_at'?: string;
@@ -86,6 +88,16 @@ export class CreateOrganizationPolicyAssignmentResponse extends SdkResponse {
     }
     public get policyFilter(): PolicyFilterDefinition | undefined {
         return this['policy_filter'];
+    }
+    public withPolicyFilterV2(policyFilterV2: PolicyFilterDefinitionV2): CreateOrganizationPolicyAssignmentResponse {
+        this['policy_filter_v2'] = policyFilterV2;
+        return this;
+    }
+    public set policyFilterV2(policyFilterV2: PolicyFilterDefinitionV2  | undefined) {
+        this['policy_filter_v2'] = policyFilterV2;
+    }
+    public get policyFilterV2(): PolicyFilterDefinitionV2 | undefined {
+        return this['policy_filter_v2'];
     }
     public withParameters(parameters: { [key: string]: PolicyParameterValue; }): CreateOrganizationPolicyAssignmentResponse {
         this['parameters'] = parameters;

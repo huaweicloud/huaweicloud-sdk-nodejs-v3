@@ -73,6 +73,8 @@ export * from './model/CloseDeviceTunnelResponse';
 export * from './model/Cmd';
 export * from './model/ColumnMapping';
 export * from './model/ConditionGroup';
+export * from './model/ConfirmBatchTaskRequest';
+export * from './model/ConfirmBatchTaskResponse';
 export * from './model/ConnectState';
 export * from './model/CountAsyncHistoryCommandsRequest';
 export * from './model/CountAsyncHistoryCommandsResponse';

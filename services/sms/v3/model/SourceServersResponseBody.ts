@@ -27,6 +27,7 @@ export class SourceServersResponseBody {
     private 'state_action_time'?: number;
     private 'is_consistency_result_exist'?: boolean;
     private 'has_tc'?: boolean;
+    private 'start_type'?: string;
     public constructor() { 
     }
     public withId(id: string): SourceServersResponseBody {
@@ -204,6 +205,16 @@ export class SourceServersResponseBody {
     }
     public get hasTc(): boolean | undefined {
         return this['has_tc'];
+    }
+    public withStartType(startType: string): SourceServersResponseBody {
+        this['start_type'] = startType;
+        return this;
+    }
+    public set startType(startType: string  | undefined) {
+        this['start_type'] = startType;
+    }
+    public get startType(): string | undefined {
+        return this['start_type'];
     }
 }
 

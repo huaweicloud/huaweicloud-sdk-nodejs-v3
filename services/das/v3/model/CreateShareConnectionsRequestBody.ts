@@ -4,6 +4,7 @@ import { ShareConnUserInfo } from './ShareConnUserInfo';
 export class CreateShareConnectionsRequestBody {
     private 'shared_conn_id'?: string;
     private 'expired_time'?: string;
+    public timezone?: string;
     public users?: Array<ShareConnUserInfo>;
     public constructor(sharedConnId?: string, users?: Array<ShareConnUserInfo>) { 
         this['shared_conn_id'] = sharedConnId;
@@ -28,6 +29,10 @@ export class CreateShareConnectionsRequestBody {
     }
     public get expiredTime(): string | undefined {
         return this['expired_time'];
+    }
+    public withTimezone(timezone: string): CreateShareConnectionsRequestBody {
+        this['timezone'] = timezone;
+        return this;
     }
     public withUsers(users: Array<ShareConnUserInfo>): CreateShareConnectionsRequestBody {
         this['users'] = users;

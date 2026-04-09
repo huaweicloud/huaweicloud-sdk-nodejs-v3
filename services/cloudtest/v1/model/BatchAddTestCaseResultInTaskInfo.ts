@@ -5,7 +5,7 @@ export class BatchAddTestCaseResultInTaskInfo {
     public result?: AddTestCaseResultInfo;
     private 'task_uri'?: string;
     private 'task_result_uri'?: string;
-    private 'test_case_uris'?: string;
+    private 'test_case_uris'?: Array<string>;
     public isAsyn?: boolean;
     public constructor() { 
     }
@@ -33,14 +33,14 @@ export class BatchAddTestCaseResultInTaskInfo {
     public get taskResultUri(): string | undefined {
         return this['task_result_uri'];
     }
-    public withTestCaseUris(testCaseUris: string): BatchAddTestCaseResultInTaskInfo {
+    public withTestCaseUris(testCaseUris: Array<string>): BatchAddTestCaseResultInTaskInfo {
         this['test_case_uris'] = testCaseUris;
         return this;
     }
-    public set testCaseUris(testCaseUris: string  | undefined) {
+    public set testCaseUris(testCaseUris: Array<string>  | undefined) {
         this['test_case_uris'] = testCaseUris;
     }
-    public get testCaseUris(): string | undefined {
+    public get testCaseUris(): Array<string> | undefined {
         return this['test_case_uris'];
     }
     public withIsAsyn(isAsyn: boolean): BatchAddTestCaseResultInTaskInfo {

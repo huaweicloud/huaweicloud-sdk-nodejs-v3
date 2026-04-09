@@ -60,6 +60,8 @@ import { CreateDdmDatabaseResponse } from './model/CreateDdmDatabaseResponse';
 import { CreateDdmInstanceReq } from './model/CreateDdmInstanceReq';
 import { CreateDdmInstanceRequest } from './model/CreateDdmInstanceRequest';
 import { CreateDdmInstanceResponse } from './model/CreateDdmInstanceResponse';
+import { CreateDdmUserRequest } from './model/CreateDdmUserRequest';
+import { CreateDdmUserResponse } from './model/CreateDdmUserResponse';
 import { CreateGroupRequest } from './model/CreateGroupRequest';
 import { CreateGroupRequestBody } from './model/CreateGroupRequestBody';
 import { CreateGroupResponse } from './model/CreateGroupResponse';
@@ -68,6 +70,8 @@ import { CreateInstanceExtendParam } from './model/CreateInstanceExtendParam';
 import { CreateInstanceReq } from './model/CreateInstanceReq';
 import { CreateInstanceRequest } from './model/CreateInstanceRequest';
 import { CreateInstanceResponse } from './model/CreateInstanceResponse';
+import { CreateUserRelatedLogicDbV3 } from './model/CreateUserRelatedLogicDbV3';
+import { CreateUserRequestV3 } from './model/CreateUserRequestV3';
 import { CreateUsersDatabases } from './model/CreateUsersDatabases';
 import { CreateUsersDetailResponses } from './model/CreateUsersDetailResponses';
 import { CreateUsersInfo } from './model/CreateUsersInfo';
@@ -95,6 +99,8 @@ import { DeleteDdmDatabaseRequest } from './model/DeleteDdmDatabaseRequest';
 import { DeleteDdmDatabaseResponse } from './model/DeleteDdmDatabaseResponse';
 import { DeleteDdmInstanceRequest } from './model/DeleteDdmInstanceRequest';
 import { DeleteDdmInstanceResponse } from './model/DeleteDdmInstanceResponse';
+import { DeleteDdmUserRequest } from './model/DeleteDdmUserRequest';
+import { DeleteDdmUserResponse } from './model/DeleteDdmUserResponse';
 import { DeleteGroupRequest } from './model/DeleteGroupRequest';
 import { DeleteGroupResponse } from './model/DeleteGroupResponse';
 import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
@@ -132,7 +138,9 @@ import { GetDatabaseUsedRds } from './model/GetDatabaseUsedRds';
 import { GetDatabases } from './model/GetDatabases';
 import { GetDetailfNodesInfo } from './model/GetDetailfNodesInfo';
 import { GetUsersListDetailResponses } from './model/GetUsersListDetailResponses';
+import { GetUsersListDetailResponsesV3 } from './model/GetUsersListDetailResponsesV3';
 import { GetUsersListdatabase } from './model/GetUsersListdatabase';
+import { GetUsersListdatabaseV3 } from './model/GetUsersListdatabaseV3';
 import { GroupInfo } from './model/GroupInfo';
 import { GroupNodeInfo } from './model/GroupNodeInfo';
 import { IamAccount } from './model/IamAccount';
@@ -165,6 +173,8 @@ import { ListDdmEnginesRequest } from './model/ListDdmEnginesRequest';
 import { ListDdmEnginesResponse } from './model/ListDdmEnginesResponse';
 import { ListDdmFlavorsRequest } from './model/ListDdmFlavorsRequest';
 import { ListDdmFlavorsResponse } from './model/ListDdmFlavorsResponse';
+import { ListDdmUsersRequest } from './model/ListDdmUsersRequest';
+import { ListDdmUsersResponse } from './model/ListDdmUsersResponse';
 import { ListDdmsRequest } from './model/ListDdmsRequest';
 import { ListDdmsResponse } from './model/ListDdmsResponse';
 import { ListEnginesRequest } from './model/ListEnginesRequest';
@@ -212,6 +222,9 @@ import { ModifyInstanceSecurityGroupReq } from './model/ModifyInstanceSecurityGr
 import { ModifyReadAndWriteStrategyReq } from './model/ModifyReadAndWriteStrategyReq';
 import { ModifySqlBlackListRequest } from './model/ModifySqlBlackListRequest';
 import { ModifySqlBlackListResponse } from './model/ModifySqlBlackListResponse';
+import { MoveTmlogFilesRequest } from './model/MoveTmlogFilesRequest';
+import { MoveTmlogFilesResponse } from './model/MoveTmlogFilesResponse';
+import { MoveTmlogsRequest } from './model/MoveTmlogsRequest';
 import { NodeInfo } from './model/NodeInfo';
 import { NodeList } from './model/NodeList';
 import { ParaGroupUpdate } from './model/ParaGroupUpdate';
@@ -220,6 +233,7 @@ import { PhysicalProcessInfo } from './model/PhysicalProcessInfo';
 import { PreCheckResult } from './model/PreCheckResult';
 import { PublicIpInfo } from './model/PublicIpInfo';
 import { QueryAvailableRdsList } from './model/QueryAvailableRdsList';
+import { ReadOnlySwitchReq } from './model/ReadOnlySwitchReq';
 import { ReadWriteRatioList } from './model/ReadWriteRatioList';
 import { RebuildConfigRequest } from './model/RebuildConfigRequest';
 import { RebuildConfigResponse } from './model/RebuildConfigResponse';
@@ -229,11 +243,14 @@ import { RelatedDn } from './model/RelatedDn';
 import { RelatedDnVO } from './model/RelatedDnVO';
 import { ResetAdministratorRequest } from './model/ResetAdministratorRequest';
 import { ResetAdministratorResponse } from './model/ResetAdministratorResponse';
+import { ResetDdmUserPasswordRequest } from './model/ResetDdmUserPasswordRequest';
+import { ResetDdmUserPasswordResponse } from './model/ResetDdmUserPasswordResponse';
 import { ResetParameterGroupRequest } from './model/ResetParameterGroupRequest';
 import { ResetParameterGroupResponse } from './model/ResetParameterGroupResponse';
 import { ResetUserPasswordReq } from './model/ResetUserPasswordReq';
 import { ResetUserPasswordRequest } from './model/ResetUserPasswordRequest';
 import { ResetUserPasswordResponse } from './model/ResetUserPasswordResponse';
+import { ResetUserPasswordV3RequestBody } from './model/ResetUserPasswordV3RequestBody';
 import { ResizeFlavorReq } from './model/ResizeFlavorReq';
 import { ResizeFlavorRequest } from './model/ResizeFlavorRequest';
 import { ResizeFlavorResponse } from './model/ResizeFlavorResponse';
@@ -259,6 +276,8 @@ import { RollBackDatabaseVersionRequest } from './model/RollBackDatabaseVersionR
 import { RollBackDatabaseVersionResponse } from './model/RollBackDatabaseVersionResponse';
 import { RollbackMigrationRequest } from './model/RollbackMigrationRequest';
 import { RollbackMigrationResponse } from './model/RollbackMigrationResponse';
+import { SetReadOnlyStatusRequest } from './model/SetReadOnlyStatusRequest';
+import { SetReadOnlyStatusResponse } from './model/SetReadOnlyStatusResponse';
 import { Shards } from './model/Shards';
 import { ShowAvalibleDdmsRequest } from './model/ShowAvalibleDdmsRequest';
 import { ShowAvalibleDdmsResponse } from './model/ShowAvalibleDdmsResponse';
@@ -303,6 +322,8 @@ import { ShowRelatedDnsRequest } from './model/ShowRelatedDnsRequest';
 import { ShowRelatedDnsResponse } from './model/ShowRelatedDnsResponse';
 import { ShowRiskInfoRequest } from './model/ShowRiskInfoRequest';
 import { ShowRiskInfoResponse } from './model/ShowRiskInfoResponse';
+import { ShowTmlogInfosRequest } from './model/ShowTmlogInfosRequest';
+import { ShowTmlogInfosResponse } from './model/ShowTmlogInfosResponse';
 import { ShrinkInstanceNodesRequest } from './model/ShrinkInstanceNodesRequest';
 import { ShrinkInstanceNodesResponse } from './model/ShrinkInstanceNodesResponse';
 import { SlowLogList } from './model/SlowLogList';
@@ -320,10 +341,13 @@ import { SyncDnInformationResponse } from './model/SyncDnInformationResponse';
 import { Tags } from './model/Tags';
 import { TargetDn4Restore } from './model/TargetDn4Restore';
 import { TaskLogsVO } from './model/TaskLogsVO';
+import { TmlogInfo } from './model/TmlogInfo';
 import { UnbindEipRequest } from './model/UnbindEipRequest';
 import { UnbindEipResponse } from './model/UnbindEipResponse';
 import { UpdateDatabaseInfoRequest } from './model/UpdateDatabaseInfoRequest';
 import { UpdateDatabaseInfoResponse } from './model/UpdateDatabaseInfoResponse';
+import { UpdateDdmUserRequest } from './model/UpdateDdmUserRequest';
+import { UpdateDdmUserResponse } from './model/UpdateDdmUserResponse';
 import { UpdateInstanceNameRequest } from './model/UpdateInstanceNameRequest';
 import { UpdateInstanceNameResponse } from './model/UpdateInstanceNameResponse';
 import { UpdateInstanceParamRequest } from './model/UpdateInstanceParamRequest';
@@ -338,9 +362,11 @@ import { UpdatePortRequest } from './model/UpdatePortRequest';
 import { UpdateReadAndWriteStrategyRequest } from './model/UpdateReadAndWriteStrategyRequest';
 import { UpdateReadAndWriteStrategyResponse } from './model/UpdateReadAndWriteStrategyResponse';
 import { UpdateUserDetailReq } from './model/UpdateUserDetailReq';
+import { UpdateUserRelatedLogicDbV3 } from './model/UpdateUserRelatedLogicDbV3';
 import { UpdateUserReq } from './model/UpdateUserReq';
 import { UpdateUserRequest } from './model/UpdateUserRequest';
 import { UpdateUserResponse } from './model/UpdateUserResponse';
+import { UpdateUserV3RequestBody } from './model/UpdateUserV3RequestBody';
 import { UpdateUsersDatabases } from './model/UpdateUsersDatabases';
 import { UploadSchemaMetadataRequest } from './model/UploadSchemaMetadataRequest';
 import { UploadSchemaMetadataResponse } from './model/UploadSchemaMetadataResponse';
@@ -763,6 +789,26 @@ export class DdmClient {
     }
 
     /**
+     * 账号用于连接和管理逻辑库。一个DDM账号可以关联多个逻辑库。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建账号
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {CreateUserRequestV3} createDdmUserRequestBody **参数解释**：  创建账号的请求体。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDdmUser(createDdmUserRequest?: CreateDdmUserRequest): Promise<CreateDdmUserResponse> {
+        const options = ParamCreater().createDdmUser(createDdmUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建组
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -897,6 +943,26 @@ export class DdmClient {
      */
     public deleteDdmInstance(deleteDdmInstanceRequest?: DeleteDdmInstanceRequest): Promise<DeleteDdmInstanceResponse> {
         const options = ParamCreater().deleteDdmInstance(deleteDdmInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除账号。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除账号
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} username **参数解释**：  需要删除的账号名称。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDdmUser(deleteDdmUserRequest?: DeleteDdmUserRequest): Promise<DeleteDdmUserResponse> {
+        const options = ParamCreater().deleteDdmUser(deleteDdmUserRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1227,6 +1293,27 @@ export class DdmClient {
      */
     public listDdmFlavors(listDdmFlavorsRequest?: ListDdmFlavorsRequest): Promise<ListDdmFlavorsResponse> {
         const options = ParamCreater().listDdmFlavors(listDdmFlavorsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询账号列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询账号列表
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {number} [offset] **参数解释**：  分页参数: 起始值。  **约束限制**：  不涉及。  **取值范围**：  大于等于0。  **默认取值**：  默认值是0。     
+     * @param {number} [limit] **参数解释**：  分页参数: 每页记录数。  **约束限制**：  不涉及。  **取值范围**：  大于0且小于等于128。  **默认取值**：  默认值是10。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDdmUsers(listDdmUsersRequest?: ListDdmUsersRequest): Promise<ListDdmUsersResponse> {
+        const options = ParamCreater().listDdmUsers(listDdmUsersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1587,6 +1674,27 @@ export class DdmClient {
      */
     public resetAdministrator(resetAdministratorRequest?: ResetAdministratorRequest): Promise<ResetAdministratorResponse> {
         const options = ParamCreater().resetAdministrator(resetAdministratorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 重置现有账号的密码。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重置账号密码
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} username **参数解释**：  需要重置密码的账号名称。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {ResetUserPasswordV3RequestBody} resetDdmUserPasswordRequestBody **参数解释**：  创建账号的请求体。  **约束限制**：  base_authority、description、databases和password_lifetime 参数中至少有一个参数必须进行配置。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resetDdmUserPassword(resetDdmUserPasswordRequest?: ResetDdmUserPasswordRequest): Promise<ResetDdmUserPasswordResponse> {
+        const options = ParamCreater().resetDdmUserPassword(resetDdmUserPasswordRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2288,6 +2396,27 @@ export class DdmClient {
     }
 
     /**
+     * 修改现有DDM账号的权限或者与逻辑库的关联关系。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改账号
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {string} username **参数解释**：  需要修改的账号名称。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {UpdateUserV3RequestBody} updateDdmUserRequestBody **参数解释**：  创建账号的请求体。  **约束限制**：  base_authority、description、databases和password_lifetime 参数中至少有一个参数必须进行配置。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDdmUser(updateDdmUserRequest?: UpdateDdmUserRequest): Promise<UpdateDdmUserResponse> {
+        const options = ParamCreater().updateDdmUser(updateDdmUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改DDM实例名称。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2550,6 +2679,27 @@ export class DdmClient {
     }
 
     /**
+     * 移动TMLOG文件
+     * 将当前的TMLOG文件压缩移动到备份目录下
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 移动TMLOG文件
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {MoveTmlogsRequest} moveTmlogFilesRequestBody **参数解释**：  移动TMLOG文件的请求体。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public moveTmlogFiles(moveTmlogFilesRequest?: MoveTmlogFilesRequest): Promise<MoveTmlogFilesResponse> {
+        const options = ParamCreater().moveTmlogFiles(moveTmlogFilesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新参数组V3
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2570,6 +2720,26 @@ export class DdmClient {
     }
 
     /**
+     * 设置实例只读状态V3
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置实例只读状态V3
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {ReadOnlySwitchReq} setReadOnlyStatusRequestBody **参数解释**：  设置实例只读状态的请求体。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setReadOnlyStatus(setReadOnlyStatusRequest?: SetReadOnlyStatusRequest): Promise<SetReadOnlyStatusResponse> {
+        const options = ParamCreater().setReadOnlyStatus(setReadOnlyStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询实例详情V3
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2581,6 +2751,28 @@ export class DdmClient {
      */
     public showDdmDetail(showDdmDetailRequest?: ShowDdmDetailRequest): Promise<ShowDdmDetailResponse> {
         const options = ParamCreater().showDdmDetail(showDdmDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询TMLOG信息
+     * TMLOG记录XA事务信息，用以支持事务恢复
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询TMLOG信息
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {number} [offset] 参数解释：  索引位置，偏移量。  约束限制：  不涉及。  取值范围：  大于等于0。  默认取值：  默认值是0。
+     * @param {number} [limit] 参数解释：  查询记录数。  约束限制：  不涉及。  取值范围：  大于0且小于等于128。  默认取值：  默认值是10。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTmlogInfos(showTmlogInfosRequest?: ShowTmlogInfosRequest): Promise<ShowTmlogInfosResponse> {
+        const options = ParamCreater().showTmlogInfos(showTmlogInfosRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3516,6 +3708,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 账号用于连接和管理逻辑库。一个DDM账号可以关联多个逻辑库。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDdmUser(createDdmUserRequest?: CreateDdmUserRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/users",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createDdmUserRequest !== null && createDdmUserRequest !== undefined) {
+                if (createDdmUserRequest instanceof CreateDdmUserRequest) {
+                    instanceId = createDdmUserRequest.instanceId;
+                    body = createDdmUserRequest.body
+                } else {
+                    instanceId = createDdmUserRequest['instance_id'];
+                    body = createDdmUserRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createDdmUser.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建组
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3832,6 +4070,50 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除账号。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDdmUser(deleteDdmUserRequest?: DeleteDdmUserRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/users/{username}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let username;
+
+            if (deleteDdmUserRequest !== null && deleteDdmUserRequest !== undefined) {
+                if (deleteDdmUserRequest instanceof DeleteDdmUserRequest) {
+                    instanceId = deleteDdmUserRequest.instanceId;
+                    username = deleteDdmUserRequest.username;
+                } else {
+                    instanceId = deleteDdmUserRequest['instance_id'];
+                    username = deleteDdmUserRequest['username'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteDdmUser.');
+            }
+            if (username === null || username === undefined) {
+            throw new RequiredError('username','Required parameter username was null or undefined when calling deleteDdmUser.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'username': username, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4621,6 +4903,58 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询账号列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDdmUsers(listDdmUsersRequest?: ListDdmUsersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/users",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listDdmUsersRequest !== null && listDdmUsersRequest !== undefined) {
+                if (listDdmUsersRequest instanceof ListDdmUsersRequest) {
+                    instanceId = listDdmUsersRequest.instanceId;
+                    offset = listDdmUsersRequest.offset;
+                    limit = listDdmUsersRequest.limit;
+                } else {
+                    instanceId = listDdmUsersRequest['instance_id'];
+                    offset = listDdmUsersRequest['offset'];
+                    limit = listDdmUsersRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listDdmUsers.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5567,6 +5901,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 重置现有账号的密码。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resetDdmUserPassword(resetDdmUserPasswordRequest?: ResetDdmUserPasswordRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/users/{username}/password",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let username;
+
+            if (resetDdmUserPasswordRequest !== null && resetDdmUserPasswordRequest !== undefined) {
+                if (resetDdmUserPasswordRequest instanceof ResetDdmUserPasswordRequest) {
+                    instanceId = resetDdmUserPasswordRequest.instanceId;
+                    username = resetDdmUserPasswordRequest.username;
+                    body = resetDdmUserPasswordRequest.body
+                } else {
+                    instanceId = resetDdmUserPasswordRequest['instance_id'];
+                    username = resetDdmUserPasswordRequest['username'];
+                    body = resetDdmUserPasswordRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling resetDdmUserPassword.');
+            }
+            if (username === null || username === undefined) {
+            throw new RequiredError('username','Required parameter username was null or undefined when calling resetDdmUserPassword.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'username': username, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7202,6 +7589,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改现有DDM账号的权限或者与逻辑库的关联关系。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDdmUser(updateDdmUserRequest?: UpdateDdmUserRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/users/{username}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let username;
+
+            if (updateDdmUserRequest !== null && updateDdmUserRequest !== undefined) {
+                if (updateDdmUserRequest instanceof UpdateDdmUserRequest) {
+                    instanceId = updateDdmUserRequest.instanceId;
+                    username = updateDdmUserRequest.username;
+                    body = updateDdmUserRequest.body
+                } else {
+                    instanceId = updateDdmUserRequest['instance_id'];
+                    username = updateDdmUserRequest['username'];
+                    body = updateDdmUserRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateDdmUser.');
+            }
+            if (username === null || username === undefined) {
+            throw new RequiredError('username','Required parameter username was null or undefined when calling updateDdmUser.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'username': username, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改DDM实例名称。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7810,6 +8250,53 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 移动TMLOG文件
+         * 将当前的TMLOG文件压缩移动到备份目录下
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        moveTmlogFiles(moveTmlogFilesRequest?: MoveTmlogFilesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/tmlogs",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (moveTmlogFilesRequest !== null && moveTmlogFilesRequest !== undefined) {
+                if (moveTmlogFilesRequest instanceof MoveTmlogFilesRequest) {
+                    instanceId = moveTmlogFilesRequest.instanceId;
+                    body = moveTmlogFilesRequest.body
+                } else {
+                    instanceId = moveTmlogFilesRequest['instance_id'];
+                    body = moveTmlogFilesRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling moveTmlogFiles.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新参数组V3
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7856,6 +8343,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 设置实例只读状态V3
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setReadOnlyStatus(setReadOnlyStatusRequest?: SetReadOnlyStatusRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/readonly-status",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (setReadOnlyStatusRequest !== null && setReadOnlyStatusRequest !== undefined) {
+                if (setReadOnlyStatusRequest instanceof SetReadOnlyStatusRequest) {
+                    instanceId = setReadOnlyStatusRequest.instanceId;
+                    body = setReadOnlyStatusRequest.body
+                } else {
+                    instanceId = setReadOnlyStatusRequest['instance_id'];
+                    body = setReadOnlyStatusRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setReadOnlyStatus.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询实例详情V3
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7887,6 +8420,59 @@ export const ParamCreater = function () {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showDdmDetail.');
             }
 
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询TMLOG信息
+         * TMLOG记录XA事务信息，用以支持事务恢复
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTmlogInfos(showTmlogInfosRequest?: ShowTmlogInfosRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/tmlogs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (showTmlogInfosRequest !== null && showTmlogInfosRequest !== undefined) {
+                if (showTmlogInfosRequest instanceof ShowTmlogInfosRequest) {
+                    instanceId = showTmlogInfosRequest.instanceId;
+                    offset = showTmlogInfosRequest.offset;
+                    limit = showTmlogInfosRequest.limit;
+                } else {
+                    instanceId = showTmlogInfosRequest['instance_id'];
+                    offset = showTmlogInfosRequest['offset'];
+                    limit = showTmlogInfosRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showTmlogInfos.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

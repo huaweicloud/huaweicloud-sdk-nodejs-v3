@@ -1,4 +1,5 @@
 import { PolicyFilterDefinition } from './PolicyFilterDefinition';
+import { PolicyFilterDefinitionV2 } from './PolicyFilterDefinitionV2';
 import { PolicyParameterValue } from './PolicyParameterValue';
 
 
@@ -7,6 +8,7 @@ export class ManagedPolicyAssignmentMetadata {
     public period?: ManagedPolicyAssignmentMetadataPeriodEnum | string;
     public parameters?: { [key: string]: PolicyParameterValue; };
     private 'policy_filter'?: PolicyFilterDefinition;
+    private 'policy_filter_v2'?: PolicyFilterDefinitionV2;
     private 'policy_definition_id'?: string;
     public constructor(policyDefinitionId?: string) { 
         this['policy_definition_id'] = policyDefinitionId;
@@ -32,6 +34,16 @@ export class ManagedPolicyAssignmentMetadata {
     }
     public get policyFilter(): PolicyFilterDefinition | undefined {
         return this['policy_filter'];
+    }
+    public withPolicyFilterV2(policyFilterV2: PolicyFilterDefinitionV2): ManagedPolicyAssignmentMetadata {
+        this['policy_filter_v2'] = policyFilterV2;
+        return this;
+    }
+    public set policyFilterV2(policyFilterV2: PolicyFilterDefinitionV2  | undefined) {
+        this['policy_filter_v2'] = policyFilterV2;
+    }
+    public get policyFilterV2(): PolicyFilterDefinitionV2 | undefined {
+        return this['policy_filter_v2'];
     }
     public withPolicyDefinitionId(policyDefinitionId: string): ManagedPolicyAssignmentMetadata {
         this['policy_definition_id'] = policyDefinitionId;

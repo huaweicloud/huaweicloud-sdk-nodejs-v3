@@ -38,6 +38,7 @@ export class ShowServerResponse extends SdkResponse {
     private 'stage_action_time'?: number;
     private 'agent_version'?: string;
     private 'has_tc'?: boolean;
+    private 'start_type'?: string;
     public constructor() { 
         super();
     }
@@ -252,6 +253,16 @@ export class ShowServerResponse extends SdkResponse {
     }
     public get hasTc(): boolean | undefined {
         return this['has_tc'];
+    }
+    public withStartType(startType: string): ShowServerResponse {
+        this['start_type'] = startType;
+        return this;
+    }
+    public set startType(startType: string  | undefined) {
+        this['start_type'] = startType;
+    }
+    public get startType(): string | undefined {
+        return this['start_type'];
     }
 }
 

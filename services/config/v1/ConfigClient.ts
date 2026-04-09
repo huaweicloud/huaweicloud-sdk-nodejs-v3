@@ -73,6 +73,7 @@ import { CreateStoredQueryResponse } from './model/CreateStoredQueryResponse';
 import { CreateTrackerConfigRequest } from './model/CreateTrackerConfigRequest';
 import { CreateTrackerConfigResponse } from './model/CreateTrackerConfigResponse';
 import { CustomPolicy } from './model/CustomPolicy';
+import { CustomPolicyAssignmentMetadata } from './model/CustomPolicyAssignmentMetadata';
 import { DeleteAggregationAuthorizationRequest } from './model/DeleteAggregationAuthorizationRequest';
 import { DeleteAggregationAuthorizationResponse } from './model/DeleteAggregationAuthorizationResponse';
 import { DeleteConfigurationAggregatorRequest } from './model/DeleteConfigurationAggregatorRequest';

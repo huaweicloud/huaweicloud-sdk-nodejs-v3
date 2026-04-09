@@ -75,6 +75,8 @@ import { CloseDeviceTunnelResponse } from './model/CloseDeviceTunnelResponse';
 import { Cmd } from './model/Cmd';
 import { ColumnMapping } from './model/ColumnMapping';
 import { ConditionGroup } from './model/ConditionGroup';
+import { ConfirmBatchTaskRequest } from './model/ConfirmBatchTaskRequest';
+import { ConfirmBatchTaskResponse } from './model/ConfirmBatchTaskResponse';
 import { ConnectState } from './model/ConnectState';
 import { CountAsyncHistoryCommandsRequest } from './model/CountAsyncHistoryCommandsRequest';
 import { CountAsyncHistoryCommandsResponse } from './model/CountAsyncHistoryCommandsResponse';
@@ -972,6 +974,27 @@ export class IoTDAClient {
      */
     public updateRoutingBacklogPolicy(updateRoutingBacklogPolicyRequest?: UpdateRoutingBacklogPolicyRequest): Promise<UpdateRoutingBacklogPolicyResponse> {
         const options = ParamCreater().updateRoutingBacklogPolicy(updateRoutingBacklogPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口确执行认批量任务，目前只支持task_type为firmwareUpgrade，softwareUpgrade和moduleUpgrade。如果task_id对应任务已经完成（成功、失败、部分成功，已经停止）或正在停止中，则不可以调用该接口。如果请求Body为{}，则调用该接口后会确认执行所有处于等待中状态子任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 确认执行批量任务
+     * @param {string} taskId **参数说明**：批量任务ID，创建批量任务时由物联网平台分配获得。 **取值范围**：长度不超过24，只允许小写字母a到f、数字的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {BatchTargets} [confirmBatchTaskRequestBody] request
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public confirmBatchTask(confirmBatchTaskRequest?: ConfirmBatchTaskRequest): Promise<ConfirmBatchTaskResponse> {
+        const options = ParamCreater().confirmBatchTask(confirmBatchTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5463,6 +5486,56 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口确执行认批量任务，目前只支持task_type为firmwareUpgrade，softwareUpgrade和moduleUpgrade。如果task_id对应任务已经完成（成功、失败、部分成功，已经停止）或正在停止中，则不可以调用该接口。如果请求Body为{}，则调用该接口后会确认执行所有处于等待中状态子任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        confirmBatchTask(confirmBatchTaskRequest?: ConfirmBatchTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/batchtasks/{task_id}/confirm",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let taskId;
+            
+            let instanceId;
+
+            if (confirmBatchTaskRequest !== null && confirmBatchTaskRequest !== undefined) {
+                if (confirmBatchTaskRequest instanceof ConfirmBatchTaskRequest) {
+                    taskId = confirmBatchTaskRequest.taskId;
+                    instanceId = confirmBatchTaskRequest.instanceId;
+                    body = confirmBatchTaskRequest.body
+                } else {
+                    taskId = confirmBatchTaskRequest['task_id'];
+                    instanceId = confirmBatchTaskRequest['Instance-Id'];
+                    body = confirmBatchTaskRequest['body'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling confirmBatchTask.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

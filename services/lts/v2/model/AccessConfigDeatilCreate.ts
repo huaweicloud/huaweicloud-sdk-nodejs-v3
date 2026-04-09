@@ -9,6 +9,7 @@ export class AccessConfigDeatilCreate {
     private 'windows_log_info'?: AccessConfigWindowsLogInfoCreate;
     public stdout?: boolean;
     public stderr?: boolean;
+    private 'combine_stdout'?: boolean;
     public pathType?: AccessConfigDeatilCreatePathTypeEnum | string;
     public namespaceRegex?: string;
     public podNameRegex?: string;
@@ -69,6 +70,16 @@ export class AccessConfigDeatilCreate {
     public withStderr(stderr: boolean): AccessConfigDeatilCreate {
         this['stderr'] = stderr;
         return this;
+    }
+    public withCombineStdout(combineStdout: boolean): AccessConfigDeatilCreate {
+        this['combine_stdout'] = combineStdout;
+        return this;
+    }
+    public set combineStdout(combineStdout: boolean  | undefined) {
+        this['combine_stdout'] = combineStdout;
+    }
+    public get combineStdout(): boolean | undefined {
+        return this['combine_stdout'];
     }
     public withPathType(pathType: AccessConfigDeatilCreatePathTypeEnum | string): AccessConfigDeatilCreate {
         this['pathType'] = pathType;

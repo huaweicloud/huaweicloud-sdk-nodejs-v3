@@ -7,6 +7,7 @@ export class Task {
     private 'task_name'?: string;
     private 'task_type'?: string;
     private 'task_mode'?: string;
+    private 'need_confirm'?: boolean;
     private 'task_ext_info'?: object;
     public targets?: Array<string>;
     private 'targets_filter'?: { [key: string]: object; };
@@ -57,6 +58,16 @@ export class Task {
     }
     public get taskMode(): string | undefined {
         return this['task_mode'];
+    }
+    public withNeedConfirm(needConfirm: boolean): Task {
+        this['need_confirm'] = needConfirm;
+        return this;
+    }
+    public set needConfirm(needConfirm: boolean  | undefined) {
+        this['need_confirm'] = needConfirm;
+    }
+    public get needConfirm(): boolean | undefined {
+        return this['need_confirm'];
     }
     public withTaskExtInfo(taskExtInfo: object): Task {
         this['task_ext_info'] = taskExtInfo;

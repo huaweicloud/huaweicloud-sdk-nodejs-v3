@@ -9,6 +9,7 @@ export class AccessConfigDeatilUpdate {
     private 'windows_log_info'?: AccessConfigWindowsLogInfoUpdate;
     public stdout?: boolean;
     public stderr?: boolean;
+    private 'combine_stdout'?: boolean;
     public pathType?: AccessConfigDeatilUpdatePathTypeEnum | string;
     public namespaceRegex?: string;
     public podNameRegex?: string;
@@ -67,6 +68,16 @@ export class AccessConfigDeatilUpdate {
     public withStderr(stderr: boolean): AccessConfigDeatilUpdate {
         this['stderr'] = stderr;
         return this;
+    }
+    public withCombineStdout(combineStdout: boolean): AccessConfigDeatilUpdate {
+        this['combine_stdout'] = combineStdout;
+        return this;
+    }
+    public set combineStdout(combineStdout: boolean  | undefined) {
+        this['combine_stdout'] = combineStdout;
+    }
+    public get combineStdout(): boolean | undefined {
+        return this['combine_stdout'];
     }
     public withPathType(pathType: AccessConfigDeatilUpdatePathTypeEnum | string): AccessConfigDeatilUpdate {
         this['pathType'] = pathType;

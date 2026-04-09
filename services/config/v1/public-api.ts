@@ -71,6 +71,7 @@ export * from './model/CreateStoredQueryResponse';
 export * from './model/CreateTrackerConfigRequest';
 export * from './model/CreateTrackerConfigResponse';
 export * from './model/CustomPolicy';
+export * from './model/CustomPolicyAssignmentMetadata';
 export * from './model/DeleteAggregationAuthorizationRequest';
 export * from './model/DeleteAggregationAuthorizationResponse';
 export * from './model/DeleteConfigurationAggregatorRequest';
