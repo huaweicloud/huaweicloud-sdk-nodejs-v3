@@ -10,6 +10,7 @@ export class NatMappingConfig {
     private 'vag_port'?: string;
     private 'access_filter_type'?: number;
     private 'enterprise_project_id'?: string;
+    private 'assist_auth_enabled'?: boolean;
     public tags?: Array<Tag>;
     public constructor() { 
     }
@@ -92,6 +93,16 @@ export class NatMappingConfig {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withAssistAuthEnabled(assistAuthEnabled: boolean): NatMappingConfig {
+        this['assist_auth_enabled'] = assistAuthEnabled;
+        return this;
+    }
+    public set assistAuthEnabled(assistAuthEnabled: boolean  | undefined) {
+        this['assist_auth_enabled'] = assistAuthEnabled;
+    }
+    public get assistAuthEnabled(): boolean | undefined {
+        return this['assist_auth_enabled'];
     }
     public withTags(tags: Array<Tag>): NatMappingConfig {
         this['tags'] = tags;

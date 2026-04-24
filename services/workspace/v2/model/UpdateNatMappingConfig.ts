@@ -9,6 +9,7 @@ export class UpdateNatMappingConfig {
     private 'vag_ip'?: string;
     private 'access_filter_type'?: number;
     private 'enterprise_project_id'?: string;
+    private 'assist_auth_enabled'?: boolean;
     public tags?: Array<Tag>;
     public constructor() { 
     }
@@ -81,6 +82,16 @@ export class UpdateNatMappingConfig {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withAssistAuthEnabled(assistAuthEnabled: boolean): UpdateNatMappingConfig {
+        this['assist_auth_enabled'] = assistAuthEnabled;
+        return this;
+    }
+    public set assistAuthEnabled(assistAuthEnabled: boolean  | undefined) {
+        this['assist_auth_enabled'] = assistAuthEnabled;
+    }
+    public get assistAuthEnabled(): boolean | undefined {
+        return this['assist_auth_enabled'];
     }
     public withTags(tags: Array<Tag>): UpdateNatMappingConfig {
         this['tags'] = tags;

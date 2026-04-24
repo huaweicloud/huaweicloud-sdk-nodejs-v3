@@ -35,5 +35,7 @@ export class ShowUserAccessStagesResponse extends SdkResponse {
     */
 export enum ShowUserAccessStagesResponseBizTypeEnum {
     APP = 'APP',
-    DESKTOP = 'DESKTOP'
+    DESKTOP = 'DESKTOP',
+    SHARE_APP = 'SHARE_APP',
+    VDI = 'VDI'
 }

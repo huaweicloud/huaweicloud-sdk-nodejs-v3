@@ -25,6 +25,7 @@ export class ListPoolDesktopsDetailRequest {
     private 'subnet_id'?: string;
     private 'is_support_internet'?: boolean;
     private 'availability_zone'?: string;
+    public isolated?: boolean;
     public constructor(poolId?: string) { 
         this['pool_id'] = poolId;
     }
@@ -244,6 +245,10 @@ export class ListPoolDesktopsDetailRequest {
     public get availabilityZone(): string | undefined {
         return this['availability_zone'];
     }
+    public withIsolated(isolated: boolean): ListPoolDesktopsDetailRequest {
+        this['isolated'] = isolated;
+        return this;
+    }
 }
 
 /**
@@ -254,7 +259,8 @@ export enum ListPoolDesktopsDetailRequestInconsistentTypeEnum {
     PRODUCT_ID = 'PRODUCT_ID',
     IMAGE_ID = 'IMAGE_ID',
     DISK_NUM = 'DISK_NUM',
-    DISK_SIZE = 'DISK_SIZE'
+    DISK_SIZE = 'DISK_SIZE',
+    AUTO_ISOLATION = 'AUTO_ISOLATION'
 }
 /**
     * @export

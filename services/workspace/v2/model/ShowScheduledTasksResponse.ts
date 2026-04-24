@@ -9,6 +9,7 @@ export class ShowScheduledTasksResponse extends SdkResponse {
     private 'force_execute'?: boolean;
     private 'scheduled_type'?: string;
     private 'life_cycle_type'?: string;
+    private 'life_cycle_exec_period'?: number;
     private 'day_interval'?: number;
     private 'week_list'?: string;
     private 'month_list'?: string;
@@ -80,6 +81,16 @@ export class ShowScheduledTasksResponse extends SdkResponse {
     }
     public get lifeCycleType(): string | undefined {
         return this['life_cycle_type'];
+    }
+    public withLifeCycleExecPeriod(lifeCycleExecPeriod: number): ShowScheduledTasksResponse {
+        this['life_cycle_exec_period'] = lifeCycleExecPeriod;
+        return this;
+    }
+    public set lifeCycleExecPeriod(lifeCycleExecPeriod: number  | undefined) {
+        this['life_cycle_exec_period'] = lifeCycleExecPeriod;
+    }
+    public get lifeCycleExecPeriod(): number | undefined {
+        return this['life_cycle_exec_period'];
     }
     public withDayInterval(dayInterval: number): ShowScheduledTasksResponse {
         this['day_interval'] = dayInterval;

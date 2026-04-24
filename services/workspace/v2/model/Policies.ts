@@ -3,6 +3,7 @@ import { PoliciesClient } from './PoliciesClient';
 import { PoliciesCloudStorage } from './PoliciesCloudStorage';
 import { PoliciesCustom } from './PoliciesCustom';
 import { PoliciesDisplay } from './PoliciesDisplay';
+import { PoliciesDomainControl } from './PoliciesDomainControl';
 import { PoliciesFileAndClipboard } from './PoliciesFileAndClipboard';
 import { PoliciesKeyboardMouse } from './PoliciesKeyboardMouse';
 import { PoliciesPeripherals } from './PoliciesPeripherals';
@@ -31,6 +32,7 @@ export class Policies {
     private 'record_audit'?: PoliciesRecordAudit;
     private 'cloud_storage'?: PoliciesCloudStorage;
     private 'user_profile'?: PoliciesUserProfile;
+    private 'domain_control'?: PoliciesDomainControl;
     public constructor() { 
     }
     public withPeripherals(peripherals: PoliciesPeripherals): Policies {
@@ -134,5 +136,15 @@ export class Policies {
     }
     public get userProfile(): PoliciesUserProfile | undefined {
         return this['user_profile'];
+    }
+    public withDomainControl(domainControl: PoliciesDomainControl): Policies {
+        this['domain_control'] = domainControl;
+        return this;
+    }
+    public set domainControl(domainControl: PoliciesDomainControl  | undefined) {
+        this['domain_control'] = domainControl;
+    }
+    public get domainControl(): PoliciesDomainControl | undefined {
+        return this['domain_control'];
     }
 }

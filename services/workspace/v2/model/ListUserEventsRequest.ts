@@ -7,6 +7,7 @@ export class ListUserEventsRequest {
     private 'event_type'?: string;
     private 'resource_id'?: string;
     private 'resource_name'?: string;
+    public domain?: string;
     public offset?: number;
     public limit?: number;
     public constructor(startTime?: string, endTime?: string) { 
@@ -66,6 +67,10 @@ export class ListUserEventsRequest {
     }
     public get resourceName(): string | undefined {
         return this['resource_name'];
+    }
+    public withDomain(domain: string): ListUserEventsRequest {
+        this['domain'] = domain;
+        return this;
     }
     public withOffset(offset: number): ListUserEventsRequest {
         this['offset'] = offset;

@@ -3,7 +3,8 @@ import { DataProcessInfo } from './DataProcessInfo';
 
 export class DataProcessReq {
     private 'data_process_info'?: Array<DataProcessInfo>;
-    public constructor() { 
+    public constructor(dataProcessInfo?: Array<DataProcessInfo>) { 
+        this['data_process_info'] = dataProcessInfo;
     }
     public withDataProcessInfo(dataProcessInfo: Array<DataProcessInfo>): DataProcessReq {
         this['data_process_info'] = dataProcessInfo;

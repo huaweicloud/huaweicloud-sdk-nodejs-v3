@@ -2,6 +2,7 @@ import { AutoscalePolicy } from './AutoscalePolicy';
 import { DesktopPoolVolumeInfo } from './DesktopPoolVolumeInfo';
 import { SecurityGroupIdInfo } from './SecurityGroupIdInfo';
 import { Tag } from './Tag';
+import { UserResetPolicy } from './UserResetPolicy';
 
 
 export class UpdateDesktopPoolAttributesReq {
@@ -12,6 +13,7 @@ export class UpdateDesktopPoolAttributesReq {
     private 'disconnected_retention_period'?: number;
     private 'enable_autoscale'?: boolean;
     private 'autoscale_policy'?: AutoscalePolicy;
+    private 'user_reset_policy'?: UserResetPolicy;
     private 'in_maintenance_mode'?: boolean;
     private 'desktop_name_policy_id'?: string;
     private 'availability_zone'?: string;
@@ -74,6 +76,16 @@ export class UpdateDesktopPoolAttributesReq {
     }
     public get autoscalePolicy(): AutoscalePolicy | undefined {
         return this['autoscale_policy'];
+    }
+    public withUserResetPolicy(userResetPolicy: UserResetPolicy): UpdateDesktopPoolAttributesReq {
+        this['user_reset_policy'] = userResetPolicy;
+        return this;
+    }
+    public set userResetPolicy(userResetPolicy: UserResetPolicy  | undefined) {
+        this['user_reset_policy'] = userResetPolicy;
+    }
+    public get userResetPolicy(): UserResetPolicy | undefined {
+        return this['user_reset_policy'];
     }
     public withInMaintenanceMode(inMaintenanceMode: boolean): UpdateDesktopPoolAttributesReq {
         this['in_maintenance_mode'] = inMaintenanceMode;

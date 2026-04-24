@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListUpgradeWorkFlowsResponse extends SdkResponse {
     public kind?: string;
     public apiVersion?: string;
-    public items?: UpgradeWorkFlow;
+    public items?: Array<UpgradeWorkFlow>;
     public constructor() { 
         super();
     }
@@ -17,7 +17,7 @@ export class ListUpgradeWorkFlowsResponse extends SdkResponse {
         this['apiVersion'] = apiVersion;
         return this;
     }
-    public withItems(items: UpgradeWorkFlow): ListUpgradeWorkFlowsResponse {
+    public withItems(items: Array<UpgradeWorkFlow>): ListUpgradeWorkFlowsResponse {
         this['items'] = items;
         return this;
     }

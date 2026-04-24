@@ -2,6 +2,7 @@
 
 export class OrderV5 {
     private 'order_id'?: string;
+    private 'job_id'?: string;
     private 'order_status'?: number;
     public result?: string;
     private 'result_code'?: string;
@@ -17,6 +18,16 @@ export class OrderV5 {
     }
     public get orderId(): string | undefined {
         return this['order_id'];
+    }
+    public withJobId(jobId: string): OrderV5 {
+        this['job_id'] = jobId;
+        return this;
+    }
+    public set jobId(jobId: string  | undefined) {
+        this['job_id'] = jobId;
+    }
+    public get jobId(): string | undefined {
+        return this['job_id'];
     }
     public withOrderStatus(orderStatus: number): OrderV5 {
         this['order_status'] = orderStatus;

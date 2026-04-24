@@ -4,7 +4,7 @@ import { Point } from './Point';
 export class LineStatus {
     public startPoint?: Point;
     public endPoint?: Point;
-    public critical?: string;
+    public critical?: boolean;
     public constructor() { 
     }
     public withStartPoint(startPoint: Point): LineStatus {
@@ -15,7 +15,7 @@ export class LineStatus {
         this['endPoint'] = endPoint;
         return this;
     }
-    public withCritical(critical: string): LineStatus {
+    public withCritical(critical: boolean): LineStatus {
         this['critical'] = critical;
         return this;
     }

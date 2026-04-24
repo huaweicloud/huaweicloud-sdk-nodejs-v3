@@ -13,6 +13,7 @@ export class Vdi {
     private 'disconnect_hibernate_options'?: VdiDisconnectHibernateOptions;
     private 'no_operation_hibernate_enable'?: boolean;
     private 'no_operation_hibernate_options'?: VdiNoOperationHibernateOptions;
+    private 'ignore_power_status'?: boolean;
     public constructor() { 
     }
     public withAutoLockEnable(autoLockEnable: boolean): Vdi {
@@ -94,5 +95,15 @@ export class Vdi {
     }
     public get noOperationHibernateOptions(): VdiNoOperationHibernateOptions | undefined {
         return this['no_operation_hibernate_options'];
+    }
+    public withIgnorePowerStatus(ignorePowerStatus: boolean): Vdi {
+        this['ignore_power_status'] = ignorePowerStatus;
+        return this;
+    }
+    public set ignorePowerStatus(ignorePowerStatus: boolean  | undefined) {
+        this['ignore_power_status'] = ignorePowerStatus;
+    }
+    public get ignorePowerStatus(): boolean | undefined {
+        return this['ignore_power_status'];
     }
 }

@@ -31,6 +31,7 @@ export class CreateDesktopReq {
     private 'hour_package_product_id'?: string;
     private 'hour_package_offering_id'?: string;
     private 'if_mount_old_desktop_disk'?: boolean;
+    public domain?: string;
     public constructor(desktopType?: string, productId?: string, imageType?: string, imageId?: string, rootVolume?: Volume) { 
         this['desktop_type'] = desktopType;
         this['product_id'] = productId;
@@ -237,6 +238,10 @@ export class CreateDesktopReq {
     }
     public get ifMountOldDesktopDisk(): boolean | undefined {
         return this['if_mount_old_desktop_disk'];
+    }
+    public withDomain(domain: string): CreateDesktopReq {
+        this['domain'] = domain;
+        return this;
     }
 }
 

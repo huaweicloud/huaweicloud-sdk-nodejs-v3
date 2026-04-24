@@ -3,6 +3,8 @@
 export class ShowInstanceResultRequest {
     private 'instance_id'?: string;
     public workspace?: string;
+    public limit?: number;
+    public offset?: number;
     public constructor(instanceId?: string, workspace?: string) { 
         this['instance_id'] = instanceId;
         this['workspace'] = workspace;
@@ -19,6 +21,14 @@ export class ShowInstanceResultRequest {
     }
     public withWorkspace(workspace: string): ShowInstanceResultRequest {
         this['workspace'] = workspace;
+        return this;
+    }
+    public withLimit(limit: number): ShowInstanceResultRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ShowInstanceResultRequest {
+        this['offset'] = offset;
         return this;
     }
 }

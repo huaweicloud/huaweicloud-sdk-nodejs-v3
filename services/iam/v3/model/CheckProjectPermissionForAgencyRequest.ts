@@ -1,11 +1,23 @@
 
 
 export class CheckProjectPermissionForAgencyRequest {
+    private 'project_id'?: string;
     private 'agency_id'?: string;
     private 'role_id'?: string;
-    public constructor(agencyId?: string, roleId?: string) { 
+    public constructor(projectId?: string, agencyId?: string, roleId?: string) { 
+        this['project_id'] = projectId;
         this['agency_id'] = agencyId;
         this['role_id'] = roleId;
+    }
+    public withProjectId(projectId: string): CheckProjectPermissionForAgencyRequest {
+        this['project_id'] = projectId;
+        return this;
+    }
+    public set projectId(projectId: string  | undefined) {
+        this['project_id'] = projectId;
+    }
+    public get projectId(): string | undefined {
+        return this['project_id'];
     }
     public withAgencyId(agencyId: string): CheckProjectPermissionForAgencyRequest {
         this['agency_id'] = agencyId;

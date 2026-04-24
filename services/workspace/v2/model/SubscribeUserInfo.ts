@@ -3,9 +3,9 @@
 export class SubscribeUserInfo {
     private 'user_id'?: string;
     private 'user_name'?: string;
-    public constructor(userId?: string, userName?: string) { 
-        this['user_id'] = userId;
-        this['user_name'] = userName;
+    private 'user_phone'?: string;
+    private 'ai_func'?: boolean;
+    public constructor() { 
     }
     public withUserId(userId: string): SubscribeUserInfo {
         this['user_id'] = userId;
@@ -26,5 +26,25 @@ export class SubscribeUserInfo {
     }
     public get userName(): string | undefined {
         return this['user_name'];
+    }
+    public withUserPhone(userPhone: string): SubscribeUserInfo {
+        this['user_phone'] = userPhone;
+        return this;
+    }
+    public set userPhone(userPhone: string  | undefined) {
+        this['user_phone'] = userPhone;
+    }
+    public get userPhone(): string | undefined {
+        return this['user_phone'];
+    }
+    public withAiFunc(aiFunc: boolean): SubscribeUserInfo {
+        this['ai_func'] = aiFunc;
+        return this;
+    }
+    public set aiFunc(aiFunc: boolean  | undefined) {
+        this['ai_func'] = aiFunc;
+    }
+    public get aiFunc(): boolean | undefined {
+        return this['ai_func'];
     }
 }

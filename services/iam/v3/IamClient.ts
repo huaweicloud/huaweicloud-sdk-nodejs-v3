@@ -566,7 +566,7 @@ import { Versions } from './model/Versions';
 
 export class IamClient {
     public static newBuilder(): ClientBuilder<IamClient> {
-            let client = new ClientBuilder<IamClient>(newClient);
+            let client = new ClientBuilder<IamClient>(newClient, 'GlobalCredentials,BasicCredentials');
             return client;
     }
 
@@ -634,6 +634,7 @@ export class IamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 为委托授予项目服务权限
+     * @param {string} projectId 委托方的项目ID，获取方式请参见：[获取项目名称、项目ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {string} agencyId 委托ID，获取方式请参见：[获取委托名、委托ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {string} roleId 权限ID，获取方式请参见：[获取权限名、权限ID](https://support.huaweicloud.com/api-iam/iam_10_0001.html)。
      * @param {*} [options] Override http request option.
@@ -654,7 +655,6 @@ export class IamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 基于委托为企业项目授权
-     * @param {string} contentType application/json
      * @param {CreateAgencyEpPolicyAssignmentReqBody} createAgencyEpPolicyAssignmentReqBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -767,6 +767,7 @@ export class IamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询委托是否拥有项目服务权限
+     * @param {string} projectId 委托方的项目ID，获取方式请参见：[获取项目名称、项目ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {string} agencyId 委托ID，获取方式请参见：[获取委托名、委托ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {string} roleId 权限ID，获取方式请参见：[获取权限名、权限ID](https://support.huaweicloud.com/api-iam/iam_10_0001.html)。
      * @param {*} [options] Override http request option.
@@ -1181,6 +1182,7 @@ export class IamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 为用户组授予项目服务权限
+     * @param {string} projectId 项目ID，获取方式请参见：[获取项目名称、项目ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {string} groupId 用户组ID，获取方式请参见：[获取用户组ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {string} roleId 权限ID，获取方式请参见：[获取权限名、权限ID](https://support.huaweicloud.com/api-iam/iam_10_0001.html)。
      * @param {*} [options] Override http request option.
@@ -1226,6 +1228,7 @@ export class IamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询用户组是否拥有项目服务权限
+     * @param {string} projectId 项目ID，获取方式请参见：[获取项目名称、项目ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {string} groupId 用户组ID，获取方式请参见：[获取用户组ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {string} roleId 权限ID，获取方式请参见：[获取权限名、权限ID](https://support.huaweicloud.com/api-iam/iam_10_0001.html)。
      * @param {*} [options] Override http request option.
@@ -1314,7 +1317,6 @@ export class IamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 注册身份提供商
-     * @param {string} contentType 该字段内容填为“application/json;charset&#x3D;utf8”。
      * @param {string} id 待注册的身份提供商ID。
      * @param {KeystoneCreateIdentityProviderRequestBody} keystoneCreateIdentityProviderRequestBody 请求体。
      * @param {*} [options] Override http request option.
@@ -1745,6 +1747,7 @@ export class IamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询项目服务中的用户组权限
+     * @param {string} projectId 项目ID，获取方式请参见：[获取项目名称、项目ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {string} groupId 用户组ID，获取方式请参见：[获取用户组ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1919,6 +1922,7 @@ export class IamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 移除用户组的项目服务权限
+     * @param {string} projectId 项目ID，获取方式请参见：[获取项目名称、项目ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {string} groupId 用户组ID，获取方式请参见：[获取用户组ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {string} roleId 权限ID，获取方式请参见：[获取权限名、权限ID](https://support.huaweicloud.com/api-iam/iam_10_0001.html)。
      * @param {*} [options] Override http request option.
@@ -2088,11 +2092,12 @@ export class IamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询项目详情
+     * @param {string} projectId 待查询的项目ID，获取方式请参见：[获取账号、IAM用户、项目、用户组、委托的名称和ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public keystoneShowProject(keystoneShowProjectRequest?: KeystoneShowProjectRequest): Promise<KeystoneShowProjectResponse> {
-        const options = ParamCreater().keystoneShowProject();
+        const options = ParamCreater().keystoneShowProject(keystoneShowProjectRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2301,6 +2306,7 @@ export class IamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改项目信息
+     * @param {string} projectId 待修改的项目ID，获取方式请参见：[获取账号、IAM用户、项目、用户组、委托的名称和ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {KeystoneUpdateProjectRequestBody} keystoneUpdateProjectRequestBody 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2499,6 +2505,7 @@ export class IamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询项目服务中的委托权限
+     * @param {string} projectId 委托方的项目ID，获取方式请参见：[获取项目名称、项目ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {string} agencyId 委托ID，获取方式请参见：[获取委托名、委托ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2629,6 +2636,7 @@ export class IamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 移除委托的项目服务权限
+     * @param {string} projectId 委托方的项目ID，获取方式请参见：[获取项目名称、项目ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {string} agencyId 委托ID，获取方式请参见：[获取委托名、委托ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {string} roleId 权限ID，获取方式请参见：[获取权限名、权限ID](https://support.huaweicloud.com/api-iam/iam_10_0001.html)。
      * @param {*} [options] Override http request option.
@@ -2649,7 +2657,6 @@ export class IamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除企业项目关联委托的权限
-     * @param {string} contentType application/json
      * @param {CreateOrDelAgencyEpPolicyAssignmentReqBody} delAgencyEpPolicyAssignmentReqBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2959,11 +2966,12 @@ export class IamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询项目详情与状态
+     * @param {string} projectId 待查询的项目ID，获取方式请参见：[获取账号、IAM用户、项目、用户组、委托的名称和ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public showProjectDetailsAndStatus(showProjectDetailsAndStatusRequest?: ShowProjectDetailsAndStatusRequest): Promise<ShowProjectDetailsAndStatusResponse> {
-        const options = ParamCreater().showProjectDetailsAndStatus();
+        const options = ParamCreater().showProjectDetailsAndStatus(showProjectDetailsAndStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2979,11 +2987,12 @@ export class IamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询项目配额
+     * @param {string} projectId 待查询的项目ID，获取方式请参见：[获取账号、IAM用户、项目、用户组、委托的名称和ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public showProjectQuota(showProjectQuotaRequest?: ShowProjectQuotaRequest): Promise<ShowProjectQuotaResponse> {
-        const options = ParamCreater().showProjectQuota();
+        const options = ParamCreater().showProjectQuota(showProjectQuotaRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3218,6 +3227,7 @@ export class IamClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 设置项目状态
+     * @param {string} projectId 待设置状态的项目ID，获取方式请参见：[获取账号、IAM用户、项目、用户组、委托的名称和ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {UpdateProjectStatusRequestBody} updateProjectStatusRequestBody 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3981,21 +3991,28 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
+            let projectId;
+            
             let agencyId;
             
             let roleId;
 
             if (associateAgencyWithProjectPermissionRequest !== null && associateAgencyWithProjectPermissionRequest !== undefined) {
                 if (associateAgencyWithProjectPermissionRequest instanceof AssociateAgencyWithProjectPermissionRequest) {
+                    projectId = associateAgencyWithProjectPermissionRequest.projectId;
                     agencyId = associateAgencyWithProjectPermissionRequest.agencyId;
                     roleId = associateAgencyWithProjectPermissionRequest.roleId;
                 } else {
+                    projectId = associateAgencyWithProjectPermissionRequest['project_id'];
                     agencyId = associateAgencyWithProjectPermissionRequest['agency_id'];
                     roleId = associateAgencyWithProjectPermissionRequest['role_id'];
                 }
             }
 
         
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling associateAgencyWithProjectPermission.');
+            }
             if (agencyId === null || agencyId === undefined) {
             throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling associateAgencyWithProjectPermission.');
             }
@@ -4003,7 +4020,7 @@ export const ParamCreater = function () {
             throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling associateAgencyWithProjectPermission.');
             }
 
-            options.pathParams = { 'agency_id': agencyId,'role_id': roleId, };
+            options.pathParams = { 'project_id': projectId,'agency_id': agencyId,'role_id': roleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4026,15 +4043,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
-            
-            let contentType;
 
             if (associateRoleToAgencyOnEnterpriseProjectRequest !== null && associateRoleToAgencyOnEnterpriseProjectRequest !== undefined) {
                 if (associateRoleToAgencyOnEnterpriseProjectRequest instanceof AssociateRoleToAgencyOnEnterpriseProjectRequest) {
-                    contentType = associateRoleToAgencyOnEnterpriseProjectRequest.contentType;
                     body = associateRoleToAgencyOnEnterpriseProjectRequest.body
                 } else {
-                    contentType = associateRoleToAgencyOnEnterpriseProjectRequest['Content-Type'];
                     body = associateRoleToAgencyOnEnterpriseProjectRequest['body'];
                 }
             }
@@ -4042,9 +4055,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -4283,21 +4293,28 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
+            let projectId;
+            
             let agencyId;
             
             let roleId;
 
             if (checkProjectPermissionForAgencyRequest !== null && checkProjectPermissionForAgencyRequest !== undefined) {
                 if (checkProjectPermissionForAgencyRequest instanceof CheckProjectPermissionForAgencyRequest) {
+                    projectId = checkProjectPermissionForAgencyRequest.projectId;
                     agencyId = checkProjectPermissionForAgencyRequest.agencyId;
                     roleId = checkProjectPermissionForAgencyRequest.roleId;
                 } else {
+                    projectId = checkProjectPermissionForAgencyRequest['project_id'];
                     agencyId = checkProjectPermissionForAgencyRequest['agency_id'];
                     roleId = checkProjectPermissionForAgencyRequest['role_id'];
                 }
             }
 
         
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling checkProjectPermissionForAgency.');
+            }
             if (agencyId === null || agencyId === undefined) {
             throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling checkProjectPermissionForAgency.');
             }
@@ -4305,7 +4322,7 @@ export const ParamCreater = function () {
             throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling checkProjectPermissionForAgency.');
             }
 
-            options.pathParams = { 'agency_id': agencyId,'role_id': roleId, };
+            options.pathParams = { 'project_id': projectId,'agency_id': agencyId,'role_id': roleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5145,21 +5162,28 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
+            let projectId;
+            
             let groupId;
             
             let roleId;
 
             if (keystoneAssociateGroupWithProjectPermissionRequest !== null && keystoneAssociateGroupWithProjectPermissionRequest !== undefined) {
                 if (keystoneAssociateGroupWithProjectPermissionRequest instanceof KeystoneAssociateGroupWithProjectPermissionRequest) {
+                    projectId = keystoneAssociateGroupWithProjectPermissionRequest.projectId;
                     groupId = keystoneAssociateGroupWithProjectPermissionRequest.groupId;
                     roleId = keystoneAssociateGroupWithProjectPermissionRequest.roleId;
                 } else {
+                    projectId = keystoneAssociateGroupWithProjectPermissionRequest['project_id'];
                     groupId = keystoneAssociateGroupWithProjectPermissionRequest['group_id'];
                     roleId = keystoneAssociateGroupWithProjectPermissionRequest['role_id'];
                 }
             }
 
         
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling keystoneAssociateGroupWithProjectPermission.');
+            }
             if (groupId === null || groupId === undefined) {
             throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneAssociateGroupWithProjectPermission.');
             }
@@ -5167,7 +5191,7 @@ export const ParamCreater = function () {
             throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling keystoneAssociateGroupWithProjectPermission.');
             }
 
-            options.pathParams = { 'group_id': groupId,'role_id': roleId, };
+            options.pathParams = { 'project_id': projectId,'group_id': groupId,'role_id': roleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5244,21 +5268,28 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
+            let projectId;
+            
             let groupId;
             
             let roleId;
 
             if (keystoneCheckProjectPermissionForGroupRequest !== null && keystoneCheckProjectPermissionForGroupRequest !== undefined) {
                 if (keystoneCheckProjectPermissionForGroupRequest instanceof KeystoneCheckProjectPermissionForGroupRequest) {
+                    projectId = keystoneCheckProjectPermissionForGroupRequest.projectId;
                     groupId = keystoneCheckProjectPermissionForGroupRequest.groupId;
                     roleId = keystoneCheckProjectPermissionForGroupRequest.roleId;
                 } else {
+                    projectId = keystoneCheckProjectPermissionForGroupRequest['project_id'];
                     groupId = keystoneCheckProjectPermissionForGroupRequest['group_id'];
                     roleId = keystoneCheckProjectPermissionForGroupRequest['role_id'];
                 }
             }
 
         
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling keystoneCheckProjectPermissionForGroup.');
+            }
             if (groupId === null || groupId === undefined) {
             throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneCheckProjectPermissionForGroup.');
             }
@@ -5266,7 +5297,7 @@ export const ParamCreater = function () {
             throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling keystoneCheckProjectPermissionForGroup.');
             }
 
-            options.pathParams = { 'group_id': groupId,'role_id': roleId, };
+            options.pathParams = { 'project_id': projectId,'group_id': groupId,'role_id': roleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5431,17 +5462,13 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let contentType;
-            
             let id;
 
             if (keystoneCreateIdentityProviderRequest !== null && keystoneCreateIdentityProviderRequest !== undefined) {
                 if (keystoneCreateIdentityProviderRequest instanceof KeystoneCreateIdentityProviderRequest) {
-                    contentType = keystoneCreateIdentityProviderRequest.contentType;
                     id = keystoneCreateIdentityProviderRequest.id;
                     body = keystoneCreateIdentityProviderRequest.body
                 } else {
-                    contentType = keystoneCreateIdentityProviderRequest['Content-Type'];
                     id = keystoneCreateIdentityProviderRequest['id'];
                     body = keystoneCreateIdentityProviderRequest['body'];
                 }
@@ -5453,9 +5480,6 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -6240,22 +6264,29 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
+            let projectId;
+            
             let groupId;
 
             if (keystoneListProjectPermissionsForGroupRequest !== null && keystoneListProjectPermissionsForGroupRequest !== undefined) {
                 if (keystoneListProjectPermissionsForGroupRequest instanceof KeystoneListProjectPermissionsForGroupRequest) {
+                    projectId = keystoneListProjectPermissionsForGroupRequest.projectId;
                     groupId = keystoneListProjectPermissionsForGroupRequest.groupId;
                 } else {
+                    projectId = keystoneListProjectPermissionsForGroupRequest['project_id'];
                     groupId = keystoneListProjectPermissionsForGroupRequest['group_id'];
                 }
             }
 
         
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling keystoneListProjectPermissionsForGroup.');
+            }
             if (groupId === null || groupId === undefined) {
             throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneListProjectPermissionsForGroup.');
             }
 
-            options.pathParams = { 'group_id': groupId, };
+            options.pathParams = { 'project_id': projectId,'group_id': groupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6576,21 +6607,28 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
+            let projectId;
+            
             let groupId;
             
             let roleId;
 
             if (keystoneRemoveProjectPermissionFromGroupRequest !== null && keystoneRemoveProjectPermissionFromGroupRequest !== undefined) {
                 if (keystoneRemoveProjectPermissionFromGroupRequest instanceof KeystoneRemoveProjectPermissionFromGroupRequest) {
+                    projectId = keystoneRemoveProjectPermissionFromGroupRequest.projectId;
                     groupId = keystoneRemoveProjectPermissionFromGroupRequest.groupId;
                     roleId = keystoneRemoveProjectPermissionFromGroupRequest.roleId;
                 } else {
+                    projectId = keystoneRemoveProjectPermissionFromGroupRequest['project_id'];
                     groupId = keystoneRemoveProjectPermissionFromGroupRequest['group_id'];
                     roleId = keystoneRemoveProjectPermissionFromGroupRequest['role_id'];
                 }
             }
 
         
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling keystoneRemoveProjectPermissionFromGroup.');
+            }
             if (groupId === null || groupId === undefined) {
             throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneRemoveProjectPermissionFromGroup.');
             }
@@ -6598,7 +6636,7 @@ export const ParamCreater = function () {
             throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling keystoneRemoveProjectPermissionFromGroup.');
             }
 
-            options.pathParams = { 'group_id': groupId,'role_id': roleId, };
+            options.pathParams = { 'project_id': projectId,'group_id': groupId,'role_id': roleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6874,7 +6912,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        keystoneShowProject() {
+        keystoneShowProject(keystoneShowProjectRequest?: KeystoneShowProjectRequest) {
             const options = {
                 method: "GET",
                 url: "/v3/projects/{project_id}",
@@ -6885,7 +6923,23 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
+            let projectId;
 
+            if (keystoneShowProjectRequest !== null && keystoneShowProjectRequest !== undefined) {
+                if (keystoneShowProjectRequest instanceof KeystoneShowProjectRequest) {
+                    projectId = keystoneShowProjectRequest.projectId;
+                } else {
+                    projectId = keystoneShowProjectRequest['project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling keystoneShowProject.');
+            }
+
+            options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7286,22 +7340,30 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let projectId;
 
             if (keystoneUpdateProjectRequest !== null && keystoneUpdateProjectRequest !== undefined) {
                 if (keystoneUpdateProjectRequest instanceof KeystoneUpdateProjectRequest) {
+                    projectId = keystoneUpdateProjectRequest.projectId;
                     body = keystoneUpdateProjectRequest.body
                 } else {
+                    projectId = keystoneUpdateProjectRequest['project_id'];
                     body = keystoneUpdateProjectRequest['body'];
                 }
             }
 
         
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling keystoneUpdateProject.');
+            }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7705,22 +7767,29 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
+            let projectId;
+            
             let agencyId;
 
             if (listProjectPermissionsForAgencyRequest !== null && listProjectPermissionsForAgencyRequest !== undefined) {
                 if (listProjectPermissionsForAgencyRequest instanceof ListProjectPermissionsForAgencyRequest) {
+                    projectId = listProjectPermissionsForAgencyRequest.projectId;
                     agencyId = listProjectPermissionsForAgencyRequest.agencyId;
                 } else {
+                    projectId = listProjectPermissionsForAgencyRequest['project_id'];
                     agencyId = listProjectPermissionsForAgencyRequest['agency_id'];
                 }
             }
 
         
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listProjectPermissionsForAgency.');
+            }
             if (agencyId === null || agencyId === undefined) {
             throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling listProjectPermissionsForAgency.');
             }
 
-            options.pathParams = { 'agency_id': agencyId, };
+            options.pathParams = { 'project_id': projectId,'agency_id': agencyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7979,21 +8048,28 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
+            let projectId;
+            
             let agencyId;
             
             let roleId;
 
             if (removeProjectPermissionFromAgencyRequest !== null && removeProjectPermissionFromAgencyRequest !== undefined) {
                 if (removeProjectPermissionFromAgencyRequest instanceof RemoveProjectPermissionFromAgencyRequest) {
+                    projectId = removeProjectPermissionFromAgencyRequest.projectId;
                     agencyId = removeProjectPermissionFromAgencyRequest.agencyId;
                     roleId = removeProjectPermissionFromAgencyRequest.roleId;
                 } else {
+                    projectId = removeProjectPermissionFromAgencyRequest['project_id'];
                     agencyId = removeProjectPermissionFromAgencyRequest['agency_id'];
                     roleId = removeProjectPermissionFromAgencyRequest['role_id'];
                 }
             }
 
         
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling removeProjectPermissionFromAgency.');
+            }
             if (agencyId === null || agencyId === undefined) {
             throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling removeProjectPermissionFromAgency.');
             }
@@ -8001,7 +8077,7 @@ export const ParamCreater = function () {
             throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling removeProjectPermissionFromAgency.');
             }
 
-            options.pathParams = { 'agency_id': agencyId,'role_id': roleId, };
+            options.pathParams = { 'project_id': projectId,'agency_id': agencyId,'role_id': roleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8024,15 +8100,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
-            
-            let contentType;
 
             if (revokeRoleFromAgencyOnEnterpriseProjectRequest !== null && revokeRoleFromAgencyOnEnterpriseProjectRequest !== undefined) {
                 if (revokeRoleFromAgencyOnEnterpriseProjectRequest instanceof RevokeRoleFromAgencyOnEnterpriseProjectRequest) {
-                    contentType = revokeRoleFromAgencyOnEnterpriseProjectRequest.contentType;
                     body = revokeRoleFromAgencyOnEnterpriseProjectRequest.body
                 } else {
-                    contentType = revokeRoleFromAgencyOnEnterpriseProjectRequest['Content-Type'];
                     body = revokeRoleFromAgencyOnEnterpriseProjectRequest['body'];
                 }
             }
@@ -8040,9 +8112,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (contentType !== undefined && contentType !== null) {
-                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -8698,7 +8767,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showProjectDetailsAndStatus() {
+        showProjectDetailsAndStatus(showProjectDetailsAndStatusRequest?: ShowProjectDetailsAndStatusRequest) {
             const options = {
                 method: "GET",
                 url: "/v3-ext/projects/{project_id}",
@@ -8709,7 +8778,23 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
+            let projectId;
 
+            if (showProjectDetailsAndStatusRequest !== null && showProjectDetailsAndStatusRequest !== undefined) {
+                if (showProjectDetailsAndStatusRequest instanceof ShowProjectDetailsAndStatusRequest) {
+                    projectId = showProjectDetailsAndStatusRequest.projectId;
+                } else {
+                    projectId = showProjectDetailsAndStatusRequest['project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showProjectDetailsAndStatus.');
+            }
+
+            options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8721,7 +8806,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showProjectQuota() {
+        showProjectQuota(showProjectQuotaRequest?: ShowProjectQuotaRequest) {
             const options = {
                 method: "GET",
                 url: "/v3.0/OS-QUOTA/projects/{project_id}",
@@ -8732,7 +8817,23 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
+            let projectId;
 
+            if (showProjectQuotaRequest !== null && showProjectQuotaRequest !== undefined) {
+                if (showProjectQuotaRequest instanceof ShowProjectQuotaRequest) {
+                    projectId = showProjectQuotaRequest.projectId;
+                } else {
+                    projectId = showProjectQuotaRequest['project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showProjectQuota.');
+            }
+
+            options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -9237,22 +9338,30 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let body: any;
+            
+            let projectId;
 
             if (updateProjectStatusRequest !== null && updateProjectStatusRequest !== undefined) {
                 if (updateProjectStatusRequest instanceof UpdateProjectStatusRequest) {
+                    projectId = updateProjectStatusRequest.projectId;
                     body = updateProjectStatusRequest.body
                 } else {
+                    projectId = updateProjectStatusRequest['project_id'];
                     body = updateProjectStatusRequest['body'];
                 }
             }
 
         
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling updateProjectStatus.');
+            }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

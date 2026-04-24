@@ -7,6 +7,8 @@ export class AutoscalePolicy {
     private 'once_auto_created'?: number;
     private 'min_retention'?: number;
     private 'idle_retention_duration'?: number;
+    private 'auto_isolation_enable'?: boolean;
+    private 'auto_isolation_max_num'?: number;
     public constructor() { 
     }
     public withAutoscaleType(autoscaleType: AutoscalePolicyAutoscaleTypeEnum | string): AutoscalePolicy {
@@ -68,6 +70,26 @@ export class AutoscalePolicy {
     }
     public get idleRetentionDuration(): number | undefined {
         return this['idle_retention_duration'];
+    }
+    public withAutoIsolationEnable(autoIsolationEnable: boolean): AutoscalePolicy {
+        this['auto_isolation_enable'] = autoIsolationEnable;
+        return this;
+    }
+    public set autoIsolationEnable(autoIsolationEnable: boolean  | undefined) {
+        this['auto_isolation_enable'] = autoIsolationEnable;
+    }
+    public get autoIsolationEnable(): boolean | undefined {
+        return this['auto_isolation_enable'];
+    }
+    public withAutoIsolationMaxNum(autoIsolationMaxNum: number): AutoscalePolicy {
+        this['auto_isolation_max_num'] = autoIsolationMaxNum;
+        return this;
+    }
+    public set autoIsolationMaxNum(autoIsolationMaxNum: number  | undefined) {
+        this['auto_isolation_max_num'] = autoIsolationMaxNum;
+    }
+    public get autoIsolationMaxNum(): number | undefined {
+        return this['auto_isolation_max_num'];
     }
 }
 

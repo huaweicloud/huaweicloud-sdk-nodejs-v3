@@ -4,6 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowAssistAuthConfigResponse extends SdkResponse {
     private 'otp_config_info'?: OtpConfigInfo;
+    private 'main_auth_config_id'?: string;
     public constructor() { 
         super();
     }
@@ -16,5 +17,15 @@ export class ShowAssistAuthConfigResponse extends SdkResponse {
     }
     public get otpConfigInfo(): OtpConfigInfo | undefined {
         return this['otp_config_info'];
+    }
+    public withMainAuthConfigId(mainAuthConfigId: string): ShowAssistAuthConfigResponse {
+        this['main_auth_config_id'] = mainAuthConfigId;
+        return this;
+    }
+    public set mainAuthConfigId(mainAuthConfigId: string  | undefined) {
+        this['main_auth_config_id'] = mainAuthConfigId;
+    }
+    public get mainAuthConfigId(): string | undefined {
+        return this['main_auth_config_id'];
     }
 }

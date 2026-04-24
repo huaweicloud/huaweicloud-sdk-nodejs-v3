@@ -54,6 +54,7 @@ import { BatchTagActionRequest } from './model/BatchTagActionRequest';
 import { BatchTagActionResponse } from './model/BatchTagActionResponse';
 import { ChangeToPeriodRequest } from './model/ChangeToPeriodRequest';
 import { ChangeToPeriodResponse } from './model/ChangeToPeriodResponse';
+import { ChargeInfoVo } from './model/ChargeInfoVo';
 import { CheckDataFilterRequest } from './model/CheckDataFilterRequest';
 import { CheckDataFilterResponse } from './model/CheckDataFilterResponse';
 import { CheckJobNameReq } from './model/CheckJobNameReq';
@@ -74,11 +75,13 @@ import { CollectPositionAsyncResponse } from './model/CollectPositionAsyncRespon
 import { ColumnInfo } from './model/ColumnInfo';
 import { ColumnMappingInfo } from './model/ColumnMappingInfo';
 import { ColumnObject } from './model/ColumnObject';
+import { ColumnProcessObjects } from './model/ColumnProcessObjects';
 import { CommitAsyncJobRequest } from './model/CommitAsyncJobRequest';
 import { CommitAsyncJobResponse } from './model/CommitAsyncJobResponse';
 import { CompareJobInfo } from './model/CompareJobInfo';
 import { CompareResultInfo } from './model/CompareResultInfo';
 import { CompareTaskParams } from './model/CompareTaskParams';
+import { CompareUserInfo } from './model/CompareUserInfo';
 import { ConnectionConfig } from './model/ConnectionConfig';
 import { ConnectionManagement } from './model/ConnectionManagement';
 import { ConnectionResp } from './model/ConnectionResp';
@@ -99,6 +102,8 @@ import { CreateJobResponse } from './model/CreateJobResponse';
 import { CreateOfflineTaskReq } from './model/CreateOfflineTaskReq';
 import { CreateReplicationJobRequest } from './model/CreateReplicationJobRequest';
 import { CreateReplicationJobResponse } from './model/CreateReplicationJobResponse';
+import { CreateSubscriptionRequest } from './model/CreateSubscriptionRequest';
+import { CreateSubscriptionResponse } from './model/CreateSubscriptionResponse';
 import { CustomizedDns } from './model/CustomizedDns';
 import { DataFilteringCondition } from './model/DataFilteringCondition';
 import { DataProcessInfo } from './model/DataProcessInfo';
@@ -125,6 +130,8 @@ import { DeleteJobResp } from './model/DeleteJobResp';
 import { DeleteJobResponse } from './model/DeleteJobResponse';
 import { DeleteReplicationJobRequest } from './model/DeleteReplicationJobRequest';
 import { DeleteReplicationJobResponse } from './model/DeleteReplicationJobResponse';
+import { DeleteSubscriptionRequest } from './model/DeleteSubscriptionRequest';
+import { DeleteSubscriptionResponse } from './model/DeleteSubscriptionResponse';
 import { DeleteUserDriverReq } from './model/DeleteUserDriverReq';
 import { DeleteUserJdbcDriverRequest } from './model/DeleteUserJdbcDriverRequest';
 import { DeleteUserJdbcDriverResponse } from './model/DeleteUserJdbcDriverResponse';
@@ -148,7 +155,10 @@ import { ExportFilesReq } from './model/ExportFilesReq';
 import { ExportJobsTemplateReq } from './model/ExportJobsTemplateReq';
 import { ExportOperationInfoRequest } from './model/ExportOperationInfoRequest';
 import { ExportOperationInfoResponse } from './model/ExportOperationInfoResponse';
+import { ExportReplayReportRequest } from './model/ExportReplayReportRequest';
+import { ExportReplayReportResponse } from './model/ExportReplayReportResponse';
 import { ExportReportObsFileRespExportReportObsFiles } from './model/ExportReportObsFileRespExportReportObsFiles';
+import { ExportSqlDataReq } from './model/ExportSqlDataReq';
 import { FailedToBindEipChildInfo } from './model/FailedToBindEipChildInfo';
 import { FlowCompareData } from './model/FlowCompareData';
 import { HealthCompareJob } from './model/HealthCompareJob';
@@ -180,6 +190,8 @@ import { ListConnectionsRequest } from './model/ListConnectionsRequest';
 import { ListConnectionsResponse } from './model/ListConnectionsResponse';
 import { ListDbObjectsRequest } from './model/ListDbObjectsRequest';
 import { ListDbObjectsResponse } from './model/ListDbObjectsResponse';
+import { ListExtraColumnsRequest } from './model/ListExtraColumnsRequest';
+import { ListExtraColumnsResponse } from './model/ListExtraColumnsResponse';
 import { ListInstanceByTagsRequest } from './model/ListInstanceByTagsRequest';
 import { ListInstanceByTagsResponse } from './model/ListInstanceByTagsResponse';
 import { ListInstanceTagsRequest } from './model/ListInstanceTagsRequest';
@@ -201,6 +213,8 @@ import { ListProjectTagsRequest } from './model/ListProjectTagsRequest';
 import { ListProjectTagsResponse } from './model/ListProjectTagsResponse';
 import { ListReplicationJobsRequest } from './model/ListReplicationJobsRequest';
 import { ListReplicationJobsResponse } from './model/ListReplicationJobsResponse';
+import { ListSupportLinksRequest } from './model/ListSupportLinksRequest';
+import { ListSupportLinksResponse } from './model/ListSupportLinksResponse';
 import { ListTagsRequest } from './model/ListTagsRequest';
 import { ListTagsResponse } from './model/ListTagsResponse';
 import { ListTemplatesRequest } from './model/ListTemplatesRequest';
@@ -226,8 +240,11 @@ import { ObjectsCompareOverviewInfo } from './model/ObjectsCompareOverviewInfo';
 import { ObjectsCompareTaskInfo } from './model/ObjectsCompareTaskInfo';
 import { ObjectsHealthCompareOverviewInfo } from './model/ObjectsHealthCompareOverviewInfo';
 import { OfflineTaskInfo } from './model/OfflineTaskInfo';
+import { OperateDataCompareJobReq } from './model/OperateDataCompareJobReq';
 import { ParameterConfig } from './model/ParameterConfig';
 import { ParameterInfo } from './model/ParameterInfo';
+import { PauseCompareJobsRequest } from './model/PauseCompareJobsRequest';
+import { PauseCompareJobsResponse } from './model/PauseCompareJobsResponse';
 import { PeriodOrderInfo } from './model/PeriodOrderInfo';
 import { PolicyConfig } from './model/PolicyConfig';
 import { PrecheckFailSubJobResult } from './model/PrecheckFailSubJobResult';
@@ -269,12 +286,16 @@ import { ReplayingSqlResp } from './model/ReplayingSqlResp';
 import { ResourceInstance } from './model/ResourceInstance';
 import { ResourceTag } from './model/ResourceTag';
 import { ResourceTagInfo } from './model/ResourceTagInfo';
+import { RestartCompareJobsRequest } from './model/RestartCompareJobsRequest';
+import { RestartCompareJobsResponse } from './model/RestartCompareJobsResponse';
 import { SchemaObject } from './model/SchemaObject';
 import { SelectDbTableObjectInfo } from './model/SelectDbTableObjectInfo';
 import { ShowActionsRequest } from './model/ShowActionsRequest';
 import { ShowActionsResponse } from './model/ShowActionsResponse';
 import { ShowAgencyInfoRequest } from './model/ShowAgencyInfoRequest';
 import { ShowAgencyInfoResponse } from './model/ShowAgencyInfoResponse';
+import { ShowChildNumRequest } from './model/ShowChildNumRequest';
+import { ShowChildNumResponse } from './model/ShowChildNumResponse';
 import { ShowColumnInfoReq } from './model/ShowColumnInfoReq';
 import { ShowColumnInfoResultRequest } from './model/ShowColumnInfoResultRequest';
 import { ShowColumnInfoResultResponse } from './model/ShowColumnInfoResultResponse';
@@ -284,6 +305,8 @@ import { ShowComparePolicyRequest } from './model/ShowComparePolicyRequest';
 import { ShowComparePolicyResponse } from './model/ShowComparePolicyResponse';
 import { ShowCompareProgressRequest } from './model/ShowCompareProgressRequest';
 import { ShowCompareProgressResponse } from './model/ShowCompareProgressResponse';
+import { ShowCompareUsersDetailRequest } from './model/ShowCompareUsersDetailRequest';
+import { ShowCompareUsersDetailResponse } from './model/ShowCompareUsersDetailResponse';
 import { ShowDataFilteringResultRequest } from './model/ShowDataFilteringResultRequest';
 import { ShowDataFilteringResultResponse } from './model/ShowDataFilteringResultResponse';
 import { ShowDataProcessingRulesResultRequest } from './model/ShowDataProcessingRulesResultRequest';
@@ -328,10 +351,16 @@ import { ShowProgressDataRequest } from './model/ShowProgressDataRequest';
 import { ShowProgressDataResponse } from './model/ShowProgressDataResponse';
 import { ShowReplayProgressRequest } from './model/ShowReplayProgressRequest';
 import { ShowReplayProgressResponse } from './model/ShowReplayProgressResponse';
+import { ShowReplayReportExportStatusRequest } from './model/ShowReplayReportExportStatusRequest';
+import { ShowReplayReportExportStatusResponse } from './model/ShowReplayReportExportStatusResponse';
 import { ShowReplayResultsRequest } from './model/ShowReplayResultsRequest';
 import { ShowReplayResultsResponse } from './model/ShowReplayResultsResponse';
 import { ShowReplicationJobRequest } from './model/ShowReplicationJobRequest';
 import { ShowReplicationJobResponse } from './model/ShowReplicationJobResponse';
+import { ShowSmnTopicInfoRequest } from './model/ShowSmnTopicInfoRequest';
+import { ShowSmnTopicInfoResponse } from './model/ShowSmnTopicInfoResponse';
+import { ShowSubscriptionDetailRequest } from './model/ShowSubscriptionDetailRequest';
+import { ShowSubscriptionDetailResponse } from './model/ShowSubscriptionDetailResponse';
 import { ShowSubscriptionListsRequest } from './model/ShowSubscriptionListsRequest';
 import { ShowSubscriptionListsResponse } from './model/ShowSubscriptionListsResponse';
 import { ShowSupportObjectTypeRequest } from './model/ShowSupportObjectTypeRequest';
@@ -341,15 +370,22 @@ import { ShowTimelineResponse } from './model/ShowTimelineResponse';
 import { ShowUpdateObjectSavingStatusRequest } from './model/ShowUpdateObjectSavingStatusRequest';
 import { ShowUpdateObjectSavingStatusResponse } from './model/ShowUpdateObjectSavingStatusResponse';
 import { SingleCreateJobReq } from './model/SingleCreateJobReq';
+import { SingleCreateSubscriptionReq } from './model/SingleCreateSubscriptionReq';
 import { SingleUpdateJobReq } from './model/SingleUpdateJobReq';
 import { SkipPreCheckInfo } from './model/SkipPreCheckInfo';
+import { SmnTopicInfo } from './model/SmnTopicInfo';
 import { SpeedLimitInfo } from './model/SpeedLimitInfo';
 import { StopJobActionInfo } from './model/StopJobActionInfo';
 import { StopJobActionReq } from './model/StopJobActionReq';
 import { StopJobActionRequest } from './model/StopJobActionRequest';
 import { StopJobActionResponse } from './model/StopJobActionResponse';
+import { SubscriptionDataType } from './model/SubscriptionDataType';
+import { SubscriptionEndpointInfo } from './model/SubscriptionEndpointInfo';
 import { SubscriptionListResp } from './model/SubscriptionListResp';
+import { SubscriptionSourceEndpointInfo } from './model/SubscriptionSourceEndpointInfo';
 import { SupportImportFileResult } from './model/SupportImportFileResult';
+import { SupportLinkInfo } from './model/SupportLinkInfo';
+import { SupportLinksResp } from './model/SupportLinksResp';
 import { SyncJdbcDriverRequest } from './model/SyncJdbcDriverRequest';
 import { SyncJdbcDriverResponse } from './model/SyncJdbcDriverResponse';
 import { SyncUserJdbcDriverRequest } from './model/SyncUserJdbcDriverRequest';
@@ -385,6 +421,9 @@ import { UpdateReplicationJobRequest } from './model/UpdateReplicationJobRequest
 import { UpdateReplicationJobResponse } from './model/UpdateReplicationJobResponse';
 import { UpdateStartPositionRequest } from './model/UpdateStartPositionRequest';
 import { UpdateStartPositionResponse } from './model/UpdateStartPositionResponse';
+import { UpdateSubscriptionInfoReq } from './model/UpdateSubscriptionInfoReq';
+import { UpdateSubscriptionInfoRequest } from './model/UpdateSubscriptionInfoRequest';
+import { UpdateSubscriptionInfoResponse } from './model/UpdateSubscriptionInfoResponse';
 import { UpdateUserDriverReq } from './model/UpdateUserDriverReq';
 import { UploadDbObjectTemplateRequest } from './model/UploadDbObjectTemplateRequest';
 import { UploadDbObjectTemplateRequestBody } from './model/UploadDbObjectTemplateRequestBody';
@@ -846,6 +885,26 @@ export class DrsClient {
     }
 
     /**
+     * 创建订阅任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建订阅任务
+     * @param {SingleCreateSubscriptionReq} createSubscriptionRequestBody 创建订阅任务的请求体
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSubscription(createSubscriptionRequest?: CreateSubscriptionRequest): Promise<CreateSubscriptionResponse> {
+        const options = ParamCreater().createSubscription(createSubscriptionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除对象的列信息（列映射、列过滤）
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -939,6 +998,26 @@ export class DrsClient {
      */
     public deleteReplicationJob(deleteReplicationJobRequest?: DeleteReplicationJobRequest): Promise<DeleteReplicationJobResponse> {
         const options = ParamCreater().deleteReplicationJob(deleteReplicationJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除订阅任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除订阅任务
+     * @param {string} jobId 任务ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSubscription(deleteSubscriptionRequest?: DeleteSubscriptionRequest): Promise<DeleteSubscriptionResponse> {
+        const options = ParamCreater().deleteSubscription(deleteSubscriptionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1089,6 +1168,27 @@ export class DrsClient {
     }
 
     /**
+     * 导出流量回放任务SQL报告文件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导出流量回放任务SQL报告文件
+     * @param {string} jobId 任务ID。
+     * @param {ExportSqlDataReq} exportReplayReportRequestBody 导出流量回放任务SQL文件请求体
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportReplayReport(exportReplayReportRequest?: ExportReplayReportRequest): Promise<ExportReplayReportResponse> {
+        const options = ParamCreater().exportReplayReport(exportReplayReportRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量导入任务
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1207,6 +1307,29 @@ export class DrsClient {
      */
     public listDbObjects(listDbObjectsRequest?: ListDbObjectsRequest): Promise<ListDbObjectsResponse> {
         const options = ParamCreater().listDbObjects(listDbObjectsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询数据加工对象的附加列信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据加工对象的附加列信息
+     * @param {string} jobId 任务ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {boolean} [isOnlyShowSent] 是否仅查询已下发的加工对象，默认为否。
+     * @param {number} [offset] 偏移量，表示查询该偏移量后面的记录，默认为0。
+     * @param {number} [limit] 查询返回记录的数量限制，默认为10。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listExtraColumns(listExtraColumnsRequest?: ListExtraColumnsRequest): Promise<ListExtraColumnsResponse> {
+        const options = ParamCreater().listExtraColumns(listExtraColumnsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1369,7 +1492,7 @@ export class DrsClient {
      * @param {string} [enterpriseProjectId] 企业项目ID。 缺省值：\&quot;\&quot;，表示查询所有企业项目任务。
      * @param {number} [offset] 偏移量，表示查询该偏移量后面的记录。
      * @param {number} [limit] 查询返回记录的数量限制。
-     * @param {string} [sortKey] 返回结果按该关键字排序，默认为“create_time”。
+     * @param {'name' | 'status' | 'create_time' | 'net_type' | 'job_direction' | 'pay_mode'} [sortKey] 返回结果按该关键字排序，默认为“create_time”。 当前支持排序的关键字： - name - status - create_time - net_type - job_direction - pay_mode
      * @param {string} [sortDir] 降序或升序（分别对应desc和asc，默认为“desc”）。
      * @param {Array<string>} [instanceIds] 数据库实例ID列表，最多支持10个
      * @param {string} [instanceIp] 数据库实例IP
@@ -1451,6 +1574,28 @@ export class DrsClient {
      */
     public listReplicationJobs(listReplicationJobsRequest?: ListReplicationJobsRequest): Promise<ListReplicationJobsResponse> {
         const options = ParamCreater().listReplicationJobs(listReplicationJobsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据参数不同，可查询实时迁移、实时同步、实时灾备等可用链路信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询可用链路信息
+     * @param {string} jobType 任务场景。取值： - migration：实时迁移。 - sync：实时同步。 - cloudDataGuard：实时灾备。 - replay：录制回放。 - verify：校验任务。 - cdc：CDC任务。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {number} [offset] 偏移量，表示查询该偏移量后面的记录，默认为0。
+     * @param {number} [limit] 查询返回记录的数量限制，默认为10。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSupportLinks(listSupportLinksRequest?: ListSupportLinksRequest): Promise<ListSupportLinksResponse> {
+        const options = ParamCreater().listSupportLinks(listSupportLinksRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1586,6 +1731,48 @@ export class DrsClient {
     }
 
     /**
+     * 暂停对比任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 暂停对比任务
+     * @param {string} jobId 任务ID。
+     * @param {string} [xLanguage] 请求语言类型。
+     * @param {OperateDataCompareJobReq} [pauseCompareJobsRequestBody] 请求体，包含对比任务列表。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public pauseCompareJobs(pauseCompareJobsRequest?: PauseCompareJobsRequest): Promise<PauseCompareJobsResponse> {
+        const options = ParamCreater().pauseCompareJobs(pauseCompareJobsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 继续对比任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 继续对比任务
+     * @param {string} jobId 任务ID。
+     * @param {OperateDataCompareJobReq} restartCompareJobsRequestBody 请求体，包含对比任务列表。
+     * @param {string} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public restartCompareJobs(restartCompareJobsRequest?: RestartCompareJobsRequest): Promise<RestartCompareJobsResponse> {
+        const options = ParamCreater().restartCompareJobs(restartCompareJobsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取指定任务允许、不允许、当前操作信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1618,6 +1805,28 @@ export class DrsClient {
      */
     public showAgencyInfo(showAgencyInfoRequest?: ShowAgencyInfoRequest): Promise<ShowAgencyInfoResponse> {
         const options = ParamCreater().showAgencyInfo(showAgencyInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据ddm/gaussv5数据库的分片个数计算对应子任务数量
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询子任务数量
+     * @param {string} instanceId ddm或者gaussdbv5数据库的实例id
+     * @param {'gaussdbv5' | ' ddm'} dbType 数据库实例的类型
+     * @param {string} [region] 局点，默认是当前region
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showChildNum(showChildNumRequest?: ShowChildNumRequest): Promise<ShowChildNumResponse> {
+        const options = ParamCreater().showChildNum(showChildNumRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1706,6 +1915,29 @@ export class DrsClient {
      */
     public showCompareProgress(showCompareProgressRequest?: ShowCompareProgressRequest): Promise<ShowCompareProgressResponse> {
         const options = ParamCreater().showCompareProgress(showCompareProgressRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询用户对比详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户对比详情
+     * @param {string} jobId 任务ID。
+     * @param {string} compareJobId 对比任务的ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {string} [offset] 偏移量，表示查询该偏移量后面的记录，默认为0。
+     * @param {string} [limit] 查询返回记录的数量限制，默认为10。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCompareUsersDetail(showCompareUsersDetailRequest?: ShowCompareUsersDetailRequest): Promise<ShowCompareUsersDetailResponse> {
+        const options = ParamCreater().showCompareUsersDetail(showCompareUsersDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2204,6 +2436,27 @@ export class DrsClient {
     }
 
     /**
+     * 查询流量回放任务的报告文件导出状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询流量回放任务的报告文件导出状态
+     * @param {string} jobId 任务ID。
+     * @param {string} fileType 导出的sql文件类型。取值范围： - abnormal_sql ：异常sql列表 - abnormal_sql_detail ：异常sql详情 - slow_sql ：慢sql列表 - slow_sql_detail ： 慢sql详情
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showReplayReportExportStatus(showReplayReportExportStatusRequest?: ShowReplayReportExportStatusRequest): Promise<ShowReplayReportExportStatusResponse> {
+        const options = ParamCreater().showReplayReportExportStatus(showReplayReportExportStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取录制回放结果数据，包括：回放基于时间维度统计信息，异常SQL及统计结果、慢SQL及统计结果
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2247,6 +2500,45 @@ export class DrsClient {
      */
     public showReplicationJob(showReplicationJobRequest?: ShowReplicationJobRequest): Promise<ShowReplicationJobResponse> {
         const options = ParamCreater().showReplicationJob(showReplicationJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * SMN主题查询。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary SMN主题查询
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSmnTopicInfo(showSmnTopicInfoRequest?: ShowSmnTopicInfoRequest): Promise<ShowSmnTopicInfoResponse> {
+        const options = ParamCreater().showSmnTopicInfo(showSmnTopicInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询订阅任务详情，可以根据企业项目和任务ID查询各订阅任务详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询订阅任务详情
+     * @param {string} jobId 任务ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSubscriptionDetail(showSubscriptionDetailRequest?: ShowSubscriptionDetailRequest): Promise<ShowSubscriptionDetailResponse> {
+        const options = ParamCreater().showSubscriptionDetail(showSubscriptionDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2566,6 +2858,27 @@ export class DrsClient {
      */
     public updateStartPosition(updateStartPositionRequest?: UpdateStartPositionRequest): Promise<UpdateStartPositionResponse> {
         const options = ParamCreater().updateStartPosition(updateStartPositionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改订阅任务的信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改订阅任务的信息
+     * @param {string} jobId 任务ID。
+     * @param {UpdateSubscriptionInfoReq} updateSubscriptionInfoRequestBody 修改订阅任务信息请求体。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSubscriptionInfo(updateSubscriptionInfoRequest?: UpdateSubscriptionInfoRequest): Promise<UpdateSubscriptionInfoResponse> {
+        const options = ParamCreater().updateSubscriptionInfo(updateSubscriptionInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3708,6 +4021,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建订阅任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSubscription(createSubscriptionRequest?: CreateSubscriptionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/subscription",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (createSubscriptionRequest !== null && createSubscriptionRequest !== undefined) {
+                if (createSubscriptionRequest instanceof CreateSubscriptionRequest) {
+                    body = createSubscriptionRequest.body
+                    xLanguage = createSubscriptionRequest.xLanguage;
+                } else {
+                    body = createSubscriptionRequest['body'];
+                    xLanguage = createSubscriptionRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除对象的列信息（列映射、列过滤）
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3927,6 +4285,50 @@ export const ParamCreater = function () {
         
             if (jobId === null || jobId === undefined) {
             throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling deleteReplicationJob.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除订阅任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSubscription(deleteSubscriptionRequest?: DeleteSubscriptionRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/{project_id}/subscriptions/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let xLanguage;
+
+            if (deleteSubscriptionRequest !== null && deleteSubscriptionRequest !== undefined) {
+                if (deleteSubscriptionRequest instanceof DeleteSubscriptionRequest) {
+                    jobId = deleteSubscriptionRequest.jobId;
+                    xLanguage = deleteSubscriptionRequest.xLanguage;
+                } else {
+                    jobId = deleteSubscriptionRequest['job_id'];
+                    xLanguage = deleteSubscriptionRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling deleteSubscription.');
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -4260,6 +4662,59 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 导出流量回放任务SQL报告文件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportReplayReport(exportReplayReportRequest?: ExportReplayReportRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/jobs/{job_id}/export-replay-sql",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobId;
+            
+            let xLanguage;
+
+            if (exportReplayReportRequest !== null && exportReplayReportRequest !== undefined) {
+                if (exportReplayReportRequest instanceof ExportReplayReportRequest) {
+                    jobId = exportReplayReportRequest.jobId;
+                    body = exportReplayReportRequest.body
+                    xLanguage = exportReplayReportRequest.xLanguage;
+                } else {
+                    jobId = exportReplayReportRequest['job_id'];
+                    body = exportReplayReportRequest['body'];
+                    xLanguage = exportReplayReportRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling exportReplayReport.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -4667,6 +5122,72 @@ export const ParamCreater = function () {
             }
             if (dbNames !== null && dbNames !== undefined) {
                 localVarQueryParameter['db_names'] = dbNames;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询数据加工对象的附加列信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listExtraColumns(listExtraColumnsRequest?: ListExtraColumnsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/jobs/{job_id}/extra-column-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let xLanguage;
+            
+            let isOnlyShowSent;
+            
+            let offset;
+            
+            let limit;
+
+            if (listExtraColumnsRequest !== null && listExtraColumnsRequest !== undefined) {
+                if (listExtraColumnsRequest instanceof ListExtraColumnsRequest) {
+                    jobId = listExtraColumnsRequest.jobId;
+                    xLanguage = listExtraColumnsRequest.xLanguage;
+                    isOnlyShowSent = listExtraColumnsRequest.isOnlyShowSent;
+                    offset = listExtraColumnsRequest.offset;
+                    limit = listExtraColumnsRequest.limit;
+                } else {
+                    jobId = listExtraColumnsRequest['job_id'];
+                    xLanguage = listExtraColumnsRequest['X-Language'];
+                    isOnlyShowSent = listExtraColumnsRequest['is_only_show_sent'];
+                    offset = listExtraColumnsRequest['offset'];
+                    limit = listExtraColumnsRequest['limit'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling listExtraColumns.');
+            }
+            if (isOnlyShowSent !== null && isOnlyShowSent !== undefined) {
+                localVarQueryParameter['is_only_show_sent'] = isOnlyShowSent;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -5427,6 +5948,67 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据参数不同，可查询实时迁移、实时同步、实时灾备等可用链路信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSupportLinks(listSupportLinksRequest?: ListSupportLinksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/support-links",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobType;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (listSupportLinksRequest !== null && listSupportLinksRequest !== undefined) {
+                if (listSupportLinksRequest instanceof ListSupportLinksRequest) {
+                    jobType = listSupportLinksRequest.jobType;
+                    xLanguage = listSupportLinksRequest.xLanguage;
+                    offset = listSupportLinksRequest.offset;
+                    limit = listSupportLinksRequest.limit;
+                } else {
+                    jobType = listSupportLinksRequest['job_type'];
+                    xLanguage = listSupportLinksRequest['X-Language'];
+                    offset = listSupportLinksRequest['offset'];
+                    limit = listSupportLinksRequest['limit'];
+                }
+            }
+
+        
+            if (jobType === null || jobType === undefined) {
+                throw new RequiredError('jobType','Required parameter jobType was null or undefined when calling listSupportLinks.');
+            }
+            if (jobType !== null && jobType !== undefined) {
+                localVarQueryParameter['job_type'] = jobType;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询租户在指定Project中实例类型的所有资源标签集合。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5750,6 +6332,109 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 暂停对比任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        pauseCompareJobs(pauseCompareJobsRequest?: PauseCompareJobsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/jobs/{job_id}/compare/pause",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobId;
+            
+            let xLanguage;
+
+            if (pauseCompareJobsRequest !== null && pauseCompareJobsRequest !== undefined) {
+                if (pauseCompareJobsRequest instanceof PauseCompareJobsRequest) {
+                    jobId = pauseCompareJobsRequest.jobId;
+                    xLanguage = pauseCompareJobsRequest.xLanguage;
+                    body = pauseCompareJobsRequest.body
+                } else {
+                    jobId = pauseCompareJobsRequest['job_id'];
+                    xLanguage = pauseCompareJobsRequest['X-Language'];
+                    body = pauseCompareJobsRequest['body'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling pauseCompareJobs.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 继续对比任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        restartCompareJobs(restartCompareJobsRequest?: RestartCompareJobsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/jobs/{job_id}/compare/restart",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobId;
+            
+            let xLanguage;
+
+            if (restartCompareJobsRequest !== null && restartCompareJobsRequest !== undefined) {
+                if (restartCompareJobsRequest instanceof RestartCompareJobsRequest) {
+                    jobId = restartCompareJobsRequest.jobId;
+                    body = restartCompareJobsRequest.body
+                    xLanguage = restartCompareJobsRequest.xLanguage;
+                } else {
+                    jobId = restartCompareJobsRequest['job_id'];
+                    body = restartCompareJobsRequest['body'];
+                    xLanguage = restartCompareJobsRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling restartCompareJobs.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取指定任务允许、不允许、当前操作信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5833,6 +6518,70 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'agency_name': agencyName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据ddm/gaussv5数据库的分片个数计算对应子任务数量
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showChildNum(showChildNumRequest?: ShowChildNumRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/jobs/child-count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let dbType;
+            
+            let region;
+            
+            let xLanguage;
+
+            if (showChildNumRequest !== null && showChildNumRequest !== undefined) {
+                if (showChildNumRequest instanceof ShowChildNumRequest) {
+                    instanceId = showChildNumRequest.instanceId;
+                    dbType = showChildNumRequest.dbType;
+                    region = showChildNumRequest.region;
+                    xLanguage = showChildNumRequest.xLanguage;
+                } else {
+                    instanceId = showChildNumRequest['instance_id'];
+                    dbType = showChildNumRequest['db_type'];
+                    region = showChildNumRequest['region'];
+                    xLanguage = showChildNumRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+                throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showChildNum.');
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (dbType === null || dbType === undefined) {
+                throw new RequiredError('dbType','Required parameter dbType was null or undefined when calling showChildNum.');
+            }
+            if (dbType !== null && dbType !== undefined) {
+                localVarQueryParameter['db_type'] = dbType;
+            }
+            if (region !== null && region !== undefined) {
+                localVarQueryParameter['region'] = region;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6052,6 +6801,72 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
+            options.pathParams = { 'job_id': jobId,'compare_job_id': compareJobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用户对比详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCompareUsersDetail(showCompareUsersDetailRequest?: ShowCompareUsersDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/jobs/{job_id}/compare/users/{compare_job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let compareJobId;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (showCompareUsersDetailRequest !== null && showCompareUsersDetailRequest !== undefined) {
+                if (showCompareUsersDetailRequest instanceof ShowCompareUsersDetailRequest) {
+                    jobId = showCompareUsersDetailRequest.jobId;
+                    compareJobId = showCompareUsersDetailRequest.compareJobId;
+                    xLanguage = showCompareUsersDetailRequest.xLanguage;
+                    offset = showCompareUsersDetailRequest.offset;
+                    limit = showCompareUsersDetailRequest.limit;
+                } else {
+                    jobId = showCompareUsersDetailRequest['job_id'];
+                    compareJobId = showCompareUsersDetailRequest['compare_job_id'];
+                    xLanguage = showCompareUsersDetailRequest['X-Language'];
+                    offset = showCompareUsersDetailRequest['offset'];
+                    limit = showCompareUsersDetailRequest['limit'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showCompareUsersDetail.');
+            }
+            if (compareJobId === null || compareJobId === undefined) {
+            throw new RequiredError('compareJobId','Required parameter compareJobId was null or undefined when calling showCompareUsersDetail.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'job_id': jobId,'compare_job_id': compareJobId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -7375,6 +8190,61 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询流量回放任务的报告文件导出状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showReplayReportExportStatus(showReplayReportExportStatusRequest?: ShowReplayReportExportStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/jobs/{job_id}/sql-export-status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobId;
+            
+            let fileType;
+            
+            let xLanguage;
+
+            if (showReplayReportExportStatusRequest !== null && showReplayReportExportStatusRequest !== undefined) {
+                if (showReplayReportExportStatusRequest instanceof ShowReplayReportExportStatusRequest) {
+                    jobId = showReplayReportExportStatusRequest.jobId;
+                    fileType = showReplayReportExportStatusRequest.fileType;
+                    xLanguage = showReplayReportExportStatusRequest.xLanguage;
+                } else {
+                    jobId = showReplayReportExportStatusRequest['job_id'];
+                    fileType = showReplayReportExportStatusRequest['file_type'];
+                    xLanguage = showReplayReportExportStatusRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showReplayReportExportStatus.');
+            }
+            if (fileType === null || fileType === undefined) {
+                throw new RequiredError('fileType','Required parameter fileType was null or undefined when calling showReplayReportExportStatus.');
+            }
+            if (fileType !== null && fileType !== undefined) {
+                localVarQueryParameter['file_type'] = fileType;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取录制回放结果数据，包括：回放基于时间维度统计信息，异常SQL及统计结果、慢SQL及统计结果
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7533,6 +8403,86 @@ export const ParamCreater = function () {
         
             if (jobId === null || jobId === undefined) {
             throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showReplicationJob.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * SMN主题查询。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSmnTopicInfo(showSmnTopicInfoRequest?: ShowSmnTopicInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/smn/topic-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let xLanguage;
+
+            if (showSmnTopicInfoRequest !== null && showSmnTopicInfoRequest !== undefined) {
+                if (showSmnTopicInfoRequest instanceof ShowSmnTopicInfoRequest) {
+                    xLanguage = showSmnTopicInfoRequest.xLanguage;
+                } else {
+                    xLanguage = showSmnTopicInfoRequest['X-Language'];
+                }
+            }
+
+        
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询订阅任务详情，可以根据企业项目和任务ID查询各订阅任务详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSubscriptionDetail(showSubscriptionDetailRequest?: ShowSubscriptionDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/subscriptions/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+            
+            let xLanguage;
+
+            if (showSubscriptionDetailRequest !== null && showSubscriptionDetailRequest !== undefined) {
+                if (showSubscriptionDetailRequest instanceof ShowSubscriptionDetailRequest) {
+                    jobId = showSubscriptionDetailRequest.jobId;
+                    xLanguage = showSubscriptionDetailRequest.xLanguage;
+                } else {
+                    jobId = showSubscriptionDetailRequest['job_id'];
+                    xLanguage = showSubscriptionDetailRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showSubscriptionDetail.');
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -8332,6 +9282,59 @@ export const ParamCreater = function () {
         
             if (jobId === null || jobId === undefined) {
             throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling updateStartPosition.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改订阅任务的信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSubscriptionInfo(updateSubscriptionInfoRequest?: UpdateSubscriptionInfoRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/{project_id}/subscriptions/{job_id}/info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let jobId;
+            
+            let xLanguage;
+
+            if (updateSubscriptionInfoRequest !== null && updateSubscriptionInfoRequest !== undefined) {
+                if (updateSubscriptionInfoRequest instanceof UpdateSubscriptionInfoRequest) {
+                    jobId = updateSubscriptionInfoRequest.jobId;
+                    body = updateSubscriptionInfoRequest.body
+                    xLanguage = updateSubscriptionInfoRequest.xLanguage;
+                } else {
+                    jobId = updateSubscriptionInfoRequest['job_id'];
+                    body = updateSubscriptionInfoRequest['body'];
+                    xLanguage = updateSubscriptionInfoRequest['X-Language'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling updateSubscriptionInfo.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

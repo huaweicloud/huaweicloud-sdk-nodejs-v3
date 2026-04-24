@@ -8,6 +8,7 @@ export class NetworkConfig {
     private 'management_subnet_cidr'?: string;
     private 'management_node_subnet_id'?: string;
     private 'vpc_config_infos'?: Array<VpcConfigInfo>;
+    private 'dc_vnc_ip'?: string;
     public constructor() { 
     }
     public withVpcId(vpcId: string): NetworkConfig {
@@ -69,5 +70,15 @@ export class NetworkConfig {
     }
     public get vpcConfigInfos(): Array<VpcConfigInfo> | undefined {
         return this['vpc_config_infos'];
+    }
+    public withDcVncIp(dcVncIp: string): NetworkConfig {
+        this['dc_vnc_ip'] = dcVncIp;
+        return this;
+    }
+    public set dcVncIp(dcVncIp: string  | undefined) {
+        this['dc_vnc_ip'] = dcVncIp;
+    }
+    public get dcVncIp(): string | undefined {
+        return this['dc_vnc_ip'];
     }
 }

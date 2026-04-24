@@ -5,9 +5,7 @@ export class ChangeDesktopNetworkReq {
     private 'subnet_id'?: string;
     private 'private_ip'?: string;
     private 'security_group_ids'?: Array<string>;
-    public constructor(vpcId?: string, subnetId?: string, securityGroupIds?: Array<string>) { 
-        this['vpc_id'] = vpcId;
-        this['subnet_id'] = subnetId;
+    public constructor(securityGroupIds?: Array<string>) { 
         this['security_group_ids'] = securityGroupIds;
     }
     public withVpcId(vpcId: string): ChangeDesktopNetworkReq {

@@ -1,13 +1,13 @@
-import { DesktopResourcePackage } from './DesktopResourcePackage';
+import { DesktopResourceItem } from './DesktopResourceItem';
 import { OrderExtendParam } from './OrderExtendParam';
 
 
 export class CreateResourcePackageOrderReq {
     private 'enterprise_project_id'?: string;
-    private 'resource_packages'?: Array<DesktopResourcePackage>;
+    private 'resource_packages'?: Array<DesktopResourceItem>;
     private 'resource_size'?: number;
     private 'extend_param'?: OrderExtendParam;
-    public constructor(resourcePackages?: Array<DesktopResourcePackage>) { 
+    public constructor(resourcePackages?: Array<DesktopResourceItem>) { 
         this['resource_packages'] = resourcePackages;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): CreateResourcePackageOrderReq {
@@ -20,14 +20,14 @@ export class CreateResourcePackageOrderReq {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withResourcePackages(resourcePackages: Array<DesktopResourcePackage>): CreateResourcePackageOrderReq {
+    public withResourcePackages(resourcePackages: Array<DesktopResourceItem>): CreateResourcePackageOrderReq {
         this['resource_packages'] = resourcePackages;
         return this;
     }
-    public set resourcePackages(resourcePackages: Array<DesktopResourcePackage>  | undefined) {
+    public set resourcePackages(resourcePackages: Array<DesktopResourceItem>  | undefined) {
         this['resource_packages'] = resourcePackages;
     }
-    public get resourcePackages(): Array<DesktopResourcePackage> | undefined {
+    public get resourcePackages(): Array<DesktopResourceItem> | undefined {
         return this['resource_packages'];
     }
     public withResourceSize(resourceSize: number): CreateResourcePackageOrderReq {

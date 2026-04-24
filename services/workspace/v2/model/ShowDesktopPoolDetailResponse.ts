@@ -2,6 +2,7 @@ import { AutoscalePolicy } from './AutoscalePolicy';
 import { ProductInfo } from './ProductInfo';
 import { SecurityGroupInfo } from './SecurityGroupInfo';
 import { Tag } from './Tag';
+import { UserResetPolicy } from './UserResetPolicy';
 import { VolumeInfo } from './VolumeInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -25,12 +26,15 @@ export class ShowDesktopPoolDetailResponse extends SdkResponse {
     private 'image_os_version'?: string;
     private 'image_os_platform'?: string;
     private 'image_product_code'?: string;
+    private 'image_cloud_service_type'?: string;
+    private 'image_resource_type'?: string;
     private 'root_volume'?: VolumeInfo;
     private 'data_volumes'?: Array<VolumeInfo>;
     private 'security_groups'?: Array<SecurityGroupInfo>;
     private 'disconnected_retention_period'?: number;
     private 'enable_autoscale'?: boolean;
     private 'autoscale_policy'?: AutoscalePolicy;
+    private 'user_reset_policy'?: UserResetPolicy;
     public status?: string;
     private 'enterprise_project_id'?: string;
     private 'in_maintenance_mode'?: boolean;
@@ -38,6 +42,8 @@ export class ShowDesktopPoolDetailResponse extends SdkResponse {
     public tags?: Array<Tag>;
     private 'ou_name'?: string;
     private 'vpc_id'?: string;
+    private 'isolation_num'?: number;
+    public domain?: string;
     public constructor() { 
         super();
     }
@@ -191,6 +197,26 @@ export class ShowDesktopPoolDetailResponse extends SdkResponse {
     public get imageProductCode(): string | undefined {
         return this['image_product_code'];
     }
+    public withImageCloudServiceType(imageCloudServiceType: string): ShowDesktopPoolDetailResponse {
+        this['image_cloud_service_type'] = imageCloudServiceType;
+        return this;
+    }
+    public set imageCloudServiceType(imageCloudServiceType: string  | undefined) {
+        this['image_cloud_service_type'] = imageCloudServiceType;
+    }
+    public get imageCloudServiceType(): string | undefined {
+        return this['image_cloud_service_type'];
+    }
+    public withImageResourceType(imageResourceType: string): ShowDesktopPoolDetailResponse {
+        this['image_resource_type'] = imageResourceType;
+        return this;
+    }
+    public set imageResourceType(imageResourceType: string  | undefined) {
+        this['image_resource_type'] = imageResourceType;
+    }
+    public get imageResourceType(): string | undefined {
+        return this['image_resource_type'];
+    }
     public withRootVolume(rootVolume: VolumeInfo): ShowDesktopPoolDetailResponse {
         this['root_volume'] = rootVolume;
         return this;
@@ -251,6 +277,16 @@ export class ShowDesktopPoolDetailResponse extends SdkResponse {
     public get autoscalePolicy(): AutoscalePolicy | undefined {
         return this['autoscale_policy'];
     }
+    public withUserResetPolicy(userResetPolicy: UserResetPolicy): ShowDesktopPoolDetailResponse {
+        this['user_reset_policy'] = userResetPolicy;
+        return this;
+    }
+    public set userResetPolicy(userResetPolicy: UserResetPolicy  | undefined) {
+        this['user_reset_policy'] = userResetPolicy;
+    }
+    public get userResetPolicy(): UserResetPolicy | undefined {
+        return this['user_reset_policy'];
+    }
     public withStatus(status: string): ShowDesktopPoolDetailResponse {
         this['status'] = status;
         return this;
@@ -308,5 +344,19 @@ export class ShowDesktopPoolDetailResponse extends SdkResponse {
     }
     public get vpcId(): string | undefined {
         return this['vpc_id'];
+    }
+    public withIsolationNum(isolationNum: number): ShowDesktopPoolDetailResponse {
+        this['isolation_num'] = isolationNum;
+        return this;
+    }
+    public set isolationNum(isolationNum: number  | undefined) {
+        this['isolation_num'] = isolationNum;
+    }
+    public get isolationNum(): number | undefined {
+        return this['isolation_num'];
+    }
+    public withDomain(domain: string): ShowDesktopPoolDetailResponse {
+        this['domain'] = domain;
+        return this;
     }
 }

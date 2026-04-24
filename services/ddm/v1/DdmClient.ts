@@ -237,6 +237,8 @@ import { ReadOnlySwitchReq } from './model/ReadOnlySwitchReq';
 import { ReadWriteRatioList } from './model/ReadWriteRatioList';
 import { RebuildConfigRequest } from './model/RebuildConfigRequest';
 import { RebuildConfigResponse } from './model/RebuildConfigResponse';
+import { RebuildDdmConfigRequest } from './model/RebuildDdmConfigRequest';
+import { RebuildDdmConfigResponse } from './model/RebuildDdmConfigResponse';
 import { ReduceNodeOpenRequest } from './model/ReduceNodeOpenRequest';
 import { ReduceRequest } from './model/ReduceRequest';
 import { RelatedDn } from './model/RelatedDn';
@@ -346,6 +348,11 @@ import { UnbindEipRequest } from './model/UnbindEipRequest';
 import { UnbindEipResponse } from './model/UnbindEipResponse';
 import { UpdateDatabaseInfoRequest } from './model/UpdateDatabaseInfoRequest';
 import { UpdateDatabaseInfoResponse } from './model/UpdateDatabaseInfoResponse';
+import { UpdateDdmInstanceNameRequest } from './model/UpdateDdmInstanceNameRequest';
+import { UpdateDdmInstanceNameRequestBody } from './model/UpdateDdmInstanceNameRequestBody';
+import { UpdateDdmInstanceNameResponse } from './model/UpdateDdmInstanceNameResponse';
+import { UpdateDdmInstanceSecurityGroupRequest } from './model/UpdateDdmInstanceSecurityGroupRequest';
+import { UpdateDdmInstanceSecurityGroupResponse } from './model/UpdateDdmInstanceSecurityGroupResponse';
 import { UpdateDdmUserRequest } from './model/UpdateDdmUserRequest';
 import { UpdateDdmUserResponse } from './model/UpdateDdmUserResponse';
 import { UpdateInstanceNameRequest } from './model/UpdateInstanceNameRequest';
@@ -356,6 +363,7 @@ import { UpdateInstancePortRequest } from './model/UpdateInstancePortRequest';
 import { UpdateInstancePortResponse } from './model/UpdateInstancePortResponse';
 import { UpdateInstanceSecurityGroupRequest } from './model/UpdateInstanceSecurityGroupRequest';
 import { UpdateInstanceSecurityGroupResponse } from './model/UpdateInstanceSecurityGroupResponse';
+import { UpdateInstanceSecurityGroupV3RequestBody } from './model/UpdateInstanceSecurityGroupV3RequestBody';
 import { UpdateParametersReq } from './model/UpdateParametersReq';
 import { UpdateParametersReqValues } from './model/UpdateParametersReqValues';
 import { UpdatePortRequest } from './model/UpdatePortRequest';
@@ -1662,6 +1670,25 @@ export class DdmClient {
     }
 
     /**
+     * 表数据重载。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 表数据重载
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public rebuildDdmConfig(rebuildDdmConfigRequest?: RebuildDdmConfigRequest): Promise<RebuildDdmConfigResponse> {
+        const options = ParamCreater().rebuildDdmConfig(rebuildDdmConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 首次调用时新建DDM管理员帐号并设置密码。后续调用时仅更新管理员密码。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2388,6 +2415,46 @@ export class DdmClient {
      */
     public updateDatabaseInfo(updateDatabaseInfoRequest?: UpdateDatabaseInfoRequest): Promise<UpdateDatabaseInfoResponse> {
         const options = ParamCreater().updateDatabaseInfo(updateDatabaseInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改实例名称。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改实例名称
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {UpdateDdmInstanceNameRequestBody} updateDdmInstanceNameRequestBody **参数解释**：  创建账号的请求体。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDdmInstanceName(updateDdmInstanceNameRequest?: UpdateDdmInstanceNameRequest): Promise<UpdateDdmInstanceNameResponse> {
+        const options = ParamCreater().updateDdmInstanceName(updateDdmInstanceNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改实例安全组。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改实例安全组
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in09，长度为36个字符。  **默认取值**：  不涉及。
+     * @param {UpdateInstanceSecurityGroupV3RequestBody} updateDdmInstanceSecurityGroupRequestBody **参数解释**：  创建账号的请求体。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDdmInstanceSecurityGroup(updateDdmInstanceSecurityGroupRequest?: UpdateDdmInstanceSecurityGroupRequest): Promise<UpdateDdmInstanceSecurityGroupResponse> {
+        const options = ParamCreater().updateDdmInstanceSecurityGroup(updateDdmInstanceSecurityGroupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5860,6 +5927,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 表数据重载。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        rebuildDdmConfig(rebuildDdmConfigRequest?: RebuildDdmConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/reload-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (rebuildDdmConfigRequest !== null && rebuildDdmConfigRequest !== undefined) {
+                if (rebuildDdmConfigRequest instanceof RebuildDdmConfigRequest) {
+                    instanceId = rebuildDdmConfigRequest.instanceId;
+                } else {
+                    instanceId = rebuildDdmConfigRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling rebuildDdmConfig.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 首次调用时新建DDM管理员帐号并设置密码。后续调用时仅更新管理员密码。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7583,6 +7687,98 @@ export const ParamCreater = function () {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateDatabaseInfo.');
             }
 
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改实例名称。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDdmInstanceName(updateDdmInstanceNameRequest?: UpdateDdmInstanceNameRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/name",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateDdmInstanceNameRequest !== null && updateDdmInstanceNameRequest !== undefined) {
+                if (updateDdmInstanceNameRequest instanceof UpdateDdmInstanceNameRequest) {
+                    instanceId = updateDdmInstanceNameRequest.instanceId;
+                    body = updateDdmInstanceNameRequest.body
+                } else {
+                    instanceId = updateDdmInstanceNameRequest['instance_id'];
+                    body = updateDdmInstanceNameRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateDdmInstanceName.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改实例安全组。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDdmInstanceSecurityGroup(updateDdmInstanceSecurityGroupRequest?: UpdateDdmInstanceSecurityGroupRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/security-group",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateDdmInstanceSecurityGroupRequest !== null && updateDdmInstanceSecurityGroupRequest !== undefined) {
+                if (updateDdmInstanceSecurityGroupRequest instanceof UpdateDdmInstanceSecurityGroupRequest) {
+                    instanceId = updateDdmInstanceSecurityGroupRequest.instanceId;
+                    body = updateDdmInstanceSecurityGroupRequest.body
+                } else {
+                    instanceId = updateDdmInstanceSecurityGroupRequest['instance_id'];
+                    body = updateDdmInstanceSecurityGroupRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateDdmInstanceSecurityGroup.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

@@ -77,5 +77,8 @@ export class UserAccessStage {
 export enum UserAccessStageStageEnum {
     LOGIN = 'LOGIN',
     PRECONNECT = 'PRECONNECT',
-    CONNECT = 'CONNECT'
+    CONNECT = 'CONNECT',
+    MAIN_AUTH = 'MAIN_AUTH',
+    MFA_AUTH = 'MFA_AUTH',
+    CLICK_ICON = 'CLICK_ICON'
 }

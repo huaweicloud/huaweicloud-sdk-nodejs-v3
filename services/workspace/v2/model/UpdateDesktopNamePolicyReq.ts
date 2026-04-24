@@ -7,6 +7,7 @@ export class UpdateDesktopNamePolicyReq {
     private 'start_number'?: number;
     private 'single_domain_user_inc'?: number;
     private 'is_default_policy'?: boolean;
+    private 'prefix_truncation_enabled'?: boolean;
     public constructor() { 
     }
     public withPolicyName(policyName: string): UpdateDesktopNamePolicyReq {
@@ -68,5 +69,15 @@ export class UpdateDesktopNamePolicyReq {
     }
     public get isDefaultPolicy(): boolean | undefined {
         return this['is_default_policy'];
+    }
+    public withPrefixTruncationEnabled(prefixTruncationEnabled: boolean): UpdateDesktopNamePolicyReq {
+        this['prefix_truncation_enabled'] = prefixTruncationEnabled;
+        return this;
+    }
+    public set prefixTruncationEnabled(prefixTruncationEnabled: boolean  | undefined) {
+        this['prefix_truncation_enabled'] = prefixTruncationEnabled;
+    }
+    public get prefixTruncationEnabled(): boolean | undefined {
+        return this['prefix_truncation_enabled'];
     }
 }

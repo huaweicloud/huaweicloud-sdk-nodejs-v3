@@ -10,7 +10,7 @@ export class ListJobsRequest {
     private 'enterprise_project_id'?: string;
     public offset?: number;
     public limit?: number;
-    private 'sort_key'?: string;
+    private 'sort_key'?: ListJobsRequestSortKeyEnum | string;
     private 'sort_dir'?: string;
     private 'instance_ids'?: Array<string>;
     private 'instance_ip'?: string;
@@ -83,14 +83,14 @@ export class ListJobsRequest {
         this['limit'] = limit;
         return this;
     }
-    public withSortKey(sortKey: string): ListJobsRequest {
+    public withSortKey(sortKey: ListJobsRequestSortKeyEnum | string): ListJobsRequest {
         this['sort_key'] = sortKey;
         return this;
     }
-    public set sortKey(sortKey: string  | undefined) {
+    public set sortKey(sortKey: ListJobsRequestSortKeyEnum | string  | undefined) {
         this['sort_key'] = sortKey;
     }
-    public get sortKey(): string | undefined {
+    public get sortKey(): ListJobsRequestSortKeyEnum | string | undefined {
         return this['sort_key'];
     }
     public withSortDir(sortDir: string): ListJobsRequest {
@@ -187,4 +187,16 @@ export enum ListJobsRequestNetTypeEnum {
     EIP = 'eip',
     VPC = 'vpc',
     VPN = 'vpn'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListJobsRequestSortKeyEnum {
+    NAME = 'name',
+    STATUS = 'status',
+    CREATE_TIME = 'create_time',
+    NET_TYPE = 'net_type',
+    JOB_DIRECTION = 'job_direction',
+    PAY_MODE = 'pay_mode'
 }

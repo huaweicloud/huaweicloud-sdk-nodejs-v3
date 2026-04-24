@@ -1100,7 +1100,6 @@ export class DcClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询虚拟接口对等体连通性探测实例列表
-     * @param {string} vifPeerId 虚拟接口对等体ID
      * @param {string} [marker] 上一页最后一条资源记录的ID，为空时为查询第一页。 使用说明：必须与limit一起使用。
      * @param {number} [limit] 每页返回的个数。 取值范围：1~2000。
      * @param {string} [sortKey] 排序字段。
@@ -3723,8 +3722,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let vifPeerId;
-            
             let marker;
             
             let limit;
@@ -3739,7 +3736,6 @@ export const ParamCreater = function () {
 
             if (listVifPeerDetectionsRequest !== null && listVifPeerDetectionsRequest !== undefined) {
                 if (listVifPeerDetectionsRequest instanceof ListVifPeerDetectionsRequest) {
-                    vifPeerId = listVifPeerDetectionsRequest.vifPeerId;
                     marker = listVifPeerDetectionsRequest.marker;
                     limit = listVifPeerDetectionsRequest.limit;
                     sortKey = listVifPeerDetectionsRequest.sortKey;
@@ -3747,7 +3743,6 @@ export const ParamCreater = function () {
                     offset = listVifPeerDetectionsRequest.offset;
                     pageReverse = listVifPeerDetectionsRequest.pageReverse;
                 } else {
-                    vifPeerId = listVifPeerDetectionsRequest['vif_peer_id'];
                     marker = listVifPeerDetectionsRequest['marker'];
                     limit = listVifPeerDetectionsRequest['limit'];
                     sortKey = listVifPeerDetectionsRequest['sort_key'];
@@ -3758,9 +3753,6 @@ export const ParamCreater = function () {
             }
 
         
-            if (vifPeerId === null || vifPeerId === undefined) {
-            throw new RequiredError('vifPeerId','Required parameter vifPeerId was null or undefined when calling listVifPeerDetections.');
-            }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
             }
@@ -3781,7 +3773,6 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'vif_peer_id': vifPeerId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

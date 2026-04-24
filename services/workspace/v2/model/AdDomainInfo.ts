@@ -6,11 +6,10 @@ export class AdDomainInfo {
     private 'domain_password'?: string;
     private 'cba_enabled'?: boolean;
     private 'certificate_id'?: string;
-    public constructor(domainType?: string, domainAdminAccount?: string, domainPassword?: string, cbaEnabled?: boolean) { 
+    public constructor(domainType?: string, domainAdminAccount?: string, domainPassword?: string) { 
         this['domain_type'] = domainType;
         this['domain_admin_account'] = domainAdminAccount;
         this['domain_password'] = domainPassword;
-        this['cba_enabled'] = cbaEnabled;
     }
     public withDomainType(domainType: AdDomainInfoDomainTypeEnum | string): AdDomainInfo {
         this['domain_type'] = domainType;

@@ -23,7 +23,8 @@ export enum CreateAgenciesReqSceneEnum {
     WORKSPACE = 'WORKSPACE',
     CLOUD_GAME = 'CLOUD_GAME',
     CLOUD_STORAGE = 'CLOUD_STORAGE',
-    SCREEN_RECORD = 'SCREEN_RECORD'
+    SCREEN_RECORD = 'SCREEN_RECORD',
+    IMAGE_CREATION = 'IMAGE_CREATION'
 }
 /**
     * @export

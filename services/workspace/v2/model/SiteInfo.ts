@@ -1,3 +1,4 @@
+import { NetworkConfig } from './NetworkConfig';
 
 
 export class SiteInfo {
@@ -7,6 +8,7 @@ export class SiteInfo {
     private 'project_id'?: string;
     public status?: string;
     private 'create_time'?: string;
+    private 'network_config'?: NetworkConfig;
     public constructor() { 
     }
     public withSiteId(siteId: string): SiteInfo {
@@ -62,6 +64,16 @@ export class SiteInfo {
     }
     public get createTime(): string | undefined {
         return this['create_time'];
+    }
+    public withNetworkConfig(networkConfig: NetworkConfig): SiteInfo {
+        this['network_config'] = networkConfig;
+        return this;
+    }
+    public set networkConfig(networkConfig: NetworkConfig  | undefined) {
+        this['network_config'] = networkConfig;
+    }
+    public get networkConfig(): NetworkConfig | undefined {
+        return this['network_config'];
     }
 }
 

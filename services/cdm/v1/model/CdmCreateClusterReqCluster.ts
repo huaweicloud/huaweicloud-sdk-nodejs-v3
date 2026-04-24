@@ -15,7 +15,9 @@ export class CdmCreateClusterReqCluster {
     public name?: string;
     private 'sys_tags'?: Array<SysTags>;
     public isAutoOff?: boolean;
-    public constructor() { 
+    public constructor(vpcId?: string, name?: string) { 
+        this['vpcId'] = vpcId;
+        this['name'] = name;
     }
     public withScheduleBootTime(scheduleBootTime: string): CdmCreateClusterReqCluster {
         this['scheduleBootTime'] = scheduleBootTime;

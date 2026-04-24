@@ -55,6 +55,8 @@ export class DesktopDetailInfo {
     private 'root_resource_id'?: string;
     private 'hour_package_info'?: HourPackageInfo;
     private 'is_freeze'?: boolean;
+    public isolated?: boolean;
+    public domain?: string;
     public constructor() { 
     }
     public withDesktopId(desktopId: string): DesktopDetailInfo {
@@ -450,6 +452,14 @@ export class DesktopDetailInfo {
     }
     public get isFreeze(): boolean | undefined {
         return this['is_freeze'];
+    }
+    public withIsolated(isolated: boolean): DesktopDetailInfo {
+        this['isolated'] = isolated;
+        return this;
+    }
+    public withDomain(domain: string): DesktopDetailInfo {
+        this['domain'] = domain;
+        return this;
     }
 }
 

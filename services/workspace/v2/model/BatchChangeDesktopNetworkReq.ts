@@ -5,10 +5,8 @@ export class BatchChangeDesktopNetworkReq {
     private 'vpc_id'?: string;
     private 'subnet_id'?: string;
     private 'security_group_ids'?: Array<string>;
-    public constructor(desktopIds?: Array<string>, vpcId?: string, subnetId?: string) { 
+    public constructor(desktopIds?: Array<string>) { 
         this['desktop_ids'] = desktopIds;
-        this['vpc_id'] = vpcId;
-        this['subnet_id'] = subnetId;
     }
     public withDesktopIds(desktopIds: Array<string>): BatchChangeDesktopNetworkReq {
         this['desktop_ids'] = desktopIds;

@@ -21,10 +21,12 @@ export class UpdateScheduledTasksReq {
     public description?: string;
     public enable?: boolean;
     private 'extra_params'?: string;
+    private 'apply_object_update_type'?: UpdateScheduledTasksReqApplyObjectUpdateTypeEnum | string;
     private 'apply_objects'?: Array<ApplyObject>;
     public priority?: number;
     private 'is_gray'?: boolean;
     private 'wait_time'?: number;
+    private 'life_cycle_exec_period'?: number;
     public constructor() { 
     }
     public withScheduledType(scheduledType: UpdateScheduledTasksReqScheduledTypeEnum | string): UpdateScheduledTasksReq {
@@ -195,6 +197,16 @@ export class UpdateScheduledTasksReq {
     public get extraParams(): string | undefined {
         return this['extra_params'];
     }
+    public withApplyObjectUpdateType(applyObjectUpdateType: UpdateScheduledTasksReqApplyObjectUpdateTypeEnum | string): UpdateScheduledTasksReq {
+        this['apply_object_update_type'] = applyObjectUpdateType;
+        return this;
+    }
+    public set applyObjectUpdateType(applyObjectUpdateType: UpdateScheduledTasksReqApplyObjectUpdateTypeEnum | string  | undefined) {
+        this['apply_object_update_type'] = applyObjectUpdateType;
+    }
+    public get applyObjectUpdateType(): UpdateScheduledTasksReqApplyObjectUpdateTypeEnum | string | undefined {
+        return this['apply_object_update_type'];
+    }
     public withApplyObjects(applyObjects: Array<ApplyObject>): UpdateScheduledTasksReq {
         this['apply_objects'] = applyObjects;
         return this;
@@ -229,6 +241,16 @@ export class UpdateScheduledTasksReq {
     public get waitTime(): number | undefined {
         return this['wait_time'];
     }
+    public withLifeCycleExecPeriod(lifeCycleExecPeriod: number): UpdateScheduledTasksReq {
+        this['life_cycle_exec_period'] = lifeCycleExecPeriod;
+        return this;
+    }
+    public set lifeCycleExecPeriod(lifeCycleExecPeriod: number  | undefined) {
+        this['life_cycle_exec_period'] = lifeCycleExecPeriod;
+    }
+    public get lifeCycleExecPeriod(): number | undefined {
+        return this['life_cycle_exec_period'];
+    }
 }
 
 /**
@@ -241,4 +263,12 @@ export enum UpdateScheduledTasksReqScheduledTypeEnum {
     WEEK = 'WEEK',
     MONTH = 'MONTH',
     LIFE_CYCLE = 'LIFE_CYCLE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateScheduledTasksReqApplyObjectUpdateTypeEnum {
+    CLEAR_ALL = 'CLEAR_ALL',
+    FULL_COVERAGE = 'FULL_COVERAGE'
 }

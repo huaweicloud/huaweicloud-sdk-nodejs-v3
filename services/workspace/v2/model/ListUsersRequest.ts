@@ -12,7 +12,9 @@ export class ListUsersRequest {
     private 'share_space_desktops'?: boolean;
     private 'is_query_total_desktops'?: boolean;
     private 'enterprise_project_id'?: string;
+    public disabled?: boolean;
     public domain?: string;
+    private 'platform_type'?: string;
     public constructor() { 
     }
     public withUserName(userName: string): ListUsersRequest {
@@ -107,8 +109,22 @@ export class ListUsersRequest {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
+    public withDisabled(disabled: boolean): ListUsersRequest {
+        this['disabled'] = disabled;
+        return this;
+    }
     public withDomain(domain: string): ListUsersRequest {
         this['domain'] = domain;
         return this;
+    }
+    public withPlatformType(platformType: string): ListUsersRequest {
+        this['platform_type'] = platformType;
+        return this;
+    }
+    public set platformType(platformType: string  | undefined) {
+        this['platform_type'] = platformType;
+    }
+    public get platformType(): string | undefined {
+        return this['platform_type'];
     }
 }

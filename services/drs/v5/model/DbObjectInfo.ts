@@ -1,6 +1,7 @@
 
 
 export class DbObjectInfo {
+    private 'object_name'?: string;
     private 'source_db_name'?: string;
     private 'source_schema_name'?: string;
     private 'source_table_name'?: string;
@@ -9,6 +10,16 @@ export class DbObjectInfo {
     private 'target_table_name'?: string;
     private 'has_column_info'?: boolean;
     public constructor() { 
+    }
+    public withObjectName(objectName: string): DbObjectInfo {
+        this['object_name'] = objectName;
+        return this;
+    }
+    public set objectName(objectName: string  | undefined) {
+        this['object_name'] = objectName;
+    }
+    public get objectName(): string | undefined {
+        return this['object_name'];
     }
     public withSourceDbName(sourceDbName: string): DbObjectInfo {
         this['source_db_name'] = sourceDbName;

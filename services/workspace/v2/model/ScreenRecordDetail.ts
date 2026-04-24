@@ -20,6 +20,8 @@ export class ScreenRecordDetail {
     private 'end_time'?: string;
     private 'update_time'?: string;
     public duration?: number;
+    private 'upload_type'?: string;
+    private 'site_type'?: string;
     public constructor() { 
     }
     public withId(id: string): ScreenRecordDetail {
@@ -175,5 +177,25 @@ export class ScreenRecordDetail {
     public withDuration(duration: number): ScreenRecordDetail {
         this['duration'] = duration;
         return this;
+    }
+    public withUploadType(uploadType: string): ScreenRecordDetail {
+        this['upload_type'] = uploadType;
+        return this;
+    }
+    public set uploadType(uploadType: string  | undefined) {
+        this['upload_type'] = uploadType;
+    }
+    public get uploadType(): string | undefined {
+        return this['upload_type'];
+    }
+    public withSiteType(siteType: string): ScreenRecordDetail {
+        this['site_type'] = siteType;
+        return this;
+    }
+    public set siteType(siteType: string  | undefined) {
+        this['site_type'] = siteType;
+    }
+    public get siteType(): string | undefined {
+        return this['site_type'];
     }
 }

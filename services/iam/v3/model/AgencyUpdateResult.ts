@@ -4,12 +4,12 @@ export class AgencyUpdateResult {
     private 'create_time'?: string;
     public description?: string;
     private 'domain_id'?: string;
-    public duration?: string;
+    public duration?: object;
     private 'expire_time'?: string;
     public id?: string;
     public name?: string;
     private 'trust_domain_id'?: string;
-    public constructor(createTime?: string, description?: string, duration?: string, expireTime?: string, id?: string, name?: string) { 
+    public constructor(createTime?: string, description?: string, duration?: object, expireTime?: string, id?: string, name?: string) { 
         this['create_time'] = createTime;
         this['description'] = description;
         this['duration'] = duration;
@@ -41,7 +41,7 @@ export class AgencyUpdateResult {
     public get domainId(): string | undefined {
         return this['domain_id'];
     }
-    public withDuration(duration: string): AgencyUpdateResult {
+    public withDuration(duration: object): AgencyUpdateResult {
         this['duration'] = duration;
         return this;
     }

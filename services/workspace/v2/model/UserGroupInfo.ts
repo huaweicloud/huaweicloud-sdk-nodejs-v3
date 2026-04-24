@@ -107,5 +107,6 @@ export class UserGroupInfo {
     */
 export enum UserGroupInfoPlatformTypeEnum {
     AD = 'AD',
-    LOCAL = 'LOCAL'
+    LOCAL = 'LOCAL',
+    UOS = 'UOS'
 }

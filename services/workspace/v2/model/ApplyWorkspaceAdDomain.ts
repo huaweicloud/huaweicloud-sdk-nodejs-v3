@@ -14,6 +14,8 @@ export class ApplyWorkspaceAdDomain {
     private 'standby_dns_ip'?: string;
     private 'delete_computer_object'?: number;
     private 'use_ldaps'?: boolean;
+    private 'cba_enabled'?: boolean;
+    private 'certificate_id'?: string;
     private 'tls_config'?: TlsConfig;
     public constructor(domainType?: string) { 
         this['domain_type'] = domainType;
@@ -137,6 +139,26 @@ export class ApplyWorkspaceAdDomain {
     }
     public get useLdaps(): boolean | undefined {
         return this['use_ldaps'];
+    }
+    public withCbaEnabled(cbaEnabled: boolean): ApplyWorkspaceAdDomain {
+        this['cba_enabled'] = cbaEnabled;
+        return this;
+    }
+    public set cbaEnabled(cbaEnabled: boolean  | undefined) {
+        this['cba_enabled'] = cbaEnabled;
+    }
+    public get cbaEnabled(): boolean | undefined {
+        return this['cba_enabled'];
+    }
+    public withCertificateId(certificateId: string): ApplyWorkspaceAdDomain {
+        this['certificate_id'] = certificateId;
+        return this;
+    }
+    public set certificateId(certificateId: string  | undefined) {
+        this['certificate_id'] = certificateId;
+    }
+    public get certificateId(): string | undefined {
+        return this['certificate_id'];
     }
     public withTlsConfig(tlsConfig: TlsConfig): ApplyWorkspaceAdDomain {
         this['tls_config'] = tlsConfig;

@@ -1,4 +1,5 @@
 export * from './IamClient';
+export * from './GlobalCredentials,BasicCredentials';
 
 export * from './model/AclPolicyOption';
 export * from './model/AclPolicyResult';

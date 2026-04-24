@@ -11,6 +11,7 @@ export class ExportUserConnectionNewRequest {
     private 'max_e2e_rtt'?: number;
     private 'enterprise_project_id'?: string;
     private 'public_ip'?: string;
+    public domain?: string;
     public constructor() { 
     }
     public withStartTime(startTime: string): ExportUserConnectionNewRequest {
@@ -106,5 +107,9 @@ export class ExportUserConnectionNewRequest {
     }
     public get publicIp(): string | undefined {
         return this['public_ip'];
+    }
+    public withDomain(domain: string): ExportUserConnectionNewRequest {
+        this['domain'] = domain;
+        return this;
     }
 }

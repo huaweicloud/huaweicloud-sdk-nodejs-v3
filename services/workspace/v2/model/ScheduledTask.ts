@@ -6,6 +6,7 @@ export class ScheduledTask {
     private 'task_type'?: string;
     private 'scheduled_type'?: string;
     private 'life_cycle_type'?: string;
+    private 'life_cycle_exec_period'?: number;
     private 'last_status'?: string;
     private 'next_execution_time'?: string;
     private 'expire_time'?: string;
@@ -60,6 +61,16 @@ export class ScheduledTask {
     }
     public get lifeCycleType(): string | undefined {
         return this['life_cycle_type'];
+    }
+    public withLifeCycleExecPeriod(lifeCycleExecPeriod: number): ScheduledTask {
+        this['life_cycle_exec_period'] = lifeCycleExecPeriod;
+        return this;
+    }
+    public set lifeCycleExecPeriod(lifeCycleExecPeriod: number  | undefined) {
+        this['life_cycle_exec_period'] = lifeCycleExecPeriod;
+    }
+    public get lifeCycleExecPeriod(): number | undefined {
+        return this['life_cycle_exec_period'];
     }
     public withLastStatus(lastStatus: string): ScheduledTask {
         this['last_status'] = lastStatus;

@@ -1,11 +1,23 @@
 
 
 export class KeystoneAssociateGroupWithProjectPermissionRequest {
+    private 'project_id'?: string;
     private 'group_id'?: string;
     private 'role_id'?: string;
-    public constructor(groupId?: string, roleId?: string) { 
+    public constructor(projectId?: string, groupId?: string, roleId?: string) { 
+        this['project_id'] = projectId;
         this['group_id'] = groupId;
         this['role_id'] = roleId;
+    }
+    public withProjectId(projectId: string): KeystoneAssociateGroupWithProjectPermissionRequest {
+        this['project_id'] = projectId;
+        return this;
+    }
+    public set projectId(projectId: string  | undefined) {
+        this['project_id'] = projectId;
+    }
+    public get projectId(): string | undefined {
+        return this['project_id'];
     }
     public withGroupId(groupId: string): KeystoneAssociateGroupWithProjectPermissionRequest {
         this['group_id'] = groupId;

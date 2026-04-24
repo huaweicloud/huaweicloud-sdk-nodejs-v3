@@ -7,9 +7,7 @@ export class ListVifPeerDetectionsRequest {
     private 'sort_dir'?: Array<ListVifPeerDetectionsRequestSortDirEnum> | Array<string>;
     public offset?: number;
     private 'page_reverse'?: boolean;
-    private 'vif_peer_id'?: string;
-    public constructor(vifPeerId?: string) { 
-        this['vif_peer_id'] = vifPeerId;
+    public constructor() { 
     }
     public withMarker(marker: string): ListVifPeerDetectionsRequest {
         this['marker'] = marker;
@@ -52,16 +50,6 @@ export class ListVifPeerDetectionsRequest {
     }
     public get pageReverse(): boolean | undefined {
         return this['page_reverse'];
-    }
-    public withVifPeerId(vifPeerId: string): ListVifPeerDetectionsRequest {
-        this['vif_peer_id'] = vifPeerId;
-        return this;
-    }
-    public set vifPeerId(vifPeerId: string  | undefined) {
-        this['vif_peer_id'] = vifPeerId;
-    }
-    public get vifPeerId(): string | undefined {
-        return this['vif_peer_id'];
     }
 }
 

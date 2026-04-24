@@ -23,6 +23,7 @@ export class CreateScheduledTasksReq {
     private 'extra_params'?: string;
     private 'apply_objects'?: Array<ApplyObject>;
     private 'wait_time'?: number;
+    private 'life_cycle_exec_period'?: number;
     public constructor(taskType?: string, taskName?: string) { 
         this['task_type'] = taskType;
         this['task_name'] = taskName;
@@ -221,6 +222,16 @@ export class CreateScheduledTasksReq {
     public get waitTime(): number | undefined {
         return this['wait_time'];
     }
+    public withLifeCycleExecPeriod(lifeCycleExecPeriod: number): CreateScheduledTasksReq {
+        this['life_cycle_exec_period'] = lifeCycleExecPeriod;
+        return this;
+    }
+    public set lifeCycleExecPeriod(lifeCycleExecPeriod: number  | undefined) {
+        this['life_cycle_exec_period'] = lifeCycleExecPeriod;
+    }
+    public get lifeCycleExecPeriod(): number | undefined {
+        return this['life_cycle_exec_period'];
+    }
 }
 
 /**
@@ -245,6 +256,5 @@ export enum CreateScheduledTasksReqTaskTypeEnum {
     HIBERNATE = 'HIBERNATE',
     REBUILD = 'REBUILD',
     EXECUTE_SCRIPT = 'EXECUTE_SCRIPT',
-    CREATE_SNAPSHOT = 'CREATE_SNAPSHOT',
-    DELETE_BLACK_ECS = 'DELETE_BLACK_ECS'
+    CREATE_SNAPSHOT = 'CREATE_SNAPSHOT'
 }

@@ -7,6 +7,7 @@ export class Session {
     private 'disconnect_on_lock_flag'?: boolean;
     private 'auto_lock_start_time'?: string;
     private 'auto_lock_end_time'?: string;
+    private 'is_lock_screen_on_disconnect'?: boolean;
     public constructor() { 
     }
     public withVdi(vdi: Vdi): Session {
@@ -52,5 +53,15 @@ export class Session {
     }
     public get autoLockEndTime(): string | undefined {
         return this['auto_lock_end_time'];
+    }
+    public withIsLockScreenOnDisconnect(isLockScreenOnDisconnect: boolean): Session {
+        this['is_lock_screen_on_disconnect'] = isLockScreenOnDisconnect;
+        return this;
+    }
+    public set isLockScreenOnDisconnect(isLockScreenOnDisconnect: boolean  | undefined) {
+        this['is_lock_screen_on_disconnect'] = isLockScreenOnDisconnect;
+    }
+    public get isLockScreenOnDisconnect(): boolean | undefined {
+        return this['is_lock_screen_on_disconnect'];
     }
 }

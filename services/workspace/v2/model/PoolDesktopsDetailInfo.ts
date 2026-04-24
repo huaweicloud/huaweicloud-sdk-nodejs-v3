@@ -56,6 +56,8 @@ export class PoolDesktopsDetailInfo {
     private 'root_resource_id'?: string;
     private 'hour_package_info'?: HourPackageInfo;
     private 'is_freeze'?: boolean;
+    public isolated?: boolean;
+    public domain?: string;
     private 'inconsistent_types'?: Array<string>;
     public constructor() { 
     }
@@ -452,6 +454,14 @@ export class PoolDesktopsDetailInfo {
     }
     public get isFreeze(): boolean | undefined {
         return this['is_freeze'];
+    }
+    public withIsolated(isolated: boolean): PoolDesktopsDetailInfo {
+        this['isolated'] = isolated;
+        return this;
+    }
+    public withDomain(domain: string): PoolDesktopsDetailInfo {
+        this['domain'] = domain;
+        return this;
     }
     public withInconsistentTypes(inconsistentTypes: Array<string>): PoolDesktopsDetailInfo {
         this['inconsistent_types'] = inconsistentTypes;

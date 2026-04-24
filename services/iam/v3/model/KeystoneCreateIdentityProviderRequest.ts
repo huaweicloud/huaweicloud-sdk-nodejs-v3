@@ -2,22 +2,10 @@ import { KeystoneCreateIdentityProviderRequestBody } from './KeystoneCreateIdent
 
 
 export class KeystoneCreateIdentityProviderRequest {
-    private 'Content-Type'?: string;
     public id?: string;
     public body?: KeystoneCreateIdentityProviderRequestBody;
-    public constructor(contentType?: string, id?: string) { 
-        this['Content-Type'] = contentType;
+    public constructor(id?: string) { 
         this['id'] = id;
-    }
-    public withContentType(contentType: string): KeystoneCreateIdentityProviderRequest {
-        this['Content-Type'] = contentType;
-        return this;
-    }
-    public set contentType(contentType: string  | undefined) {
-        this['Content-Type'] = contentType;
-    }
-    public get contentType(): string | undefined {
-        return this['Content-Type'];
     }
     public withId(id: string): KeystoneCreateIdentityProviderRequest {
         this['id'] = id;

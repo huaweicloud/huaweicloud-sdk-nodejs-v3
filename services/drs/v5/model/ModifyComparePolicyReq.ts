@@ -6,7 +6,7 @@ export class ModifyComparePolicyReq {
     private 'begin_time'?: string;
     private 'end_time'?: string;
     private 'compare_type'?: Array<string>;
-    private 'compare_policy'?: string;
+    private 'compare_policy'?: ModifyComparePolicyReqComparePolicyEnum | string;
     private 'interval_hour'?: number;
     public constructor(action?: string) { 
         this['action'] = action;
@@ -49,14 +49,14 @@ export class ModifyComparePolicyReq {
     public get compareType(): Array<string> | undefined {
         return this['compare_type'];
     }
-    public withComparePolicy(comparePolicy: string): ModifyComparePolicyReq {
+    public withComparePolicy(comparePolicy: ModifyComparePolicyReqComparePolicyEnum | string): ModifyComparePolicyReq {
         this['compare_policy'] = comparePolicy;
         return this;
     }
-    public set comparePolicy(comparePolicy: string  | undefined) {
+    public set comparePolicy(comparePolicy: ModifyComparePolicyReqComparePolicyEnum | string  | undefined) {
         this['compare_policy'] = comparePolicy;
     }
-    public get comparePolicy(): string | undefined {
+    public get comparePolicy(): ModifyComparePolicyReqComparePolicyEnum | string | undefined {
         return this['compare_policy'];
     }
     public withIntervalHour(intervalHour: number): ModifyComparePolicyReq {
@@ -69,4 +69,13 @@ export class ModifyComparePolicyReq {
     public get intervalHour(): number | undefined {
         return this['interval_hour'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ModifyComparePolicyReqComparePolicyEnum {
+    NORMAL = 'normal',
+    MANYTOONE = 'manyToOne'
 }

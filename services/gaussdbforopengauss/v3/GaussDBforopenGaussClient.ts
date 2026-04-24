@@ -43,6 +43,9 @@ import { BatchSetBackupPolicyResponse } from './model/BatchSetBackupPolicyRespon
 import { BatchShowUpgradeCandidateVersionsRequest } from './model/BatchShowUpgradeCandidateVersionsRequest';
 import { BatchShowUpgradeCandidateVersionsResponse } from './model/BatchShowUpgradeCandidateVersionsResponse';
 import { BeforeHbaConfOption } from './model/BeforeHbaConfOption';
+import { BindDNatRequest } from './model/BindDNatRequest';
+import { BindDNatRequestBody } from './model/BindDNatRequestBody';
+import { BindDNatResponse } from './model/BindDNatResponse';
 import { BindEIPRequestBody } from './model/BindEIPRequestBody';
 import { BindLtsConfigRequest } from './model/BindLtsConfigRequest';
 import { BindLtsConfigRequestBody } from './model/BindLtsConfigRequestBody';
@@ -128,6 +131,7 @@ import { CreateWdrSnapshotRequest } from './model/CreateWdrSnapshotRequest';
 import { CreateWdrSnapshotResponse } from './model/CreateWdrSnapshotResponse';
 import { CustomerPluginInfoResult } from './model/CustomerPluginInfoResult';
 import { DBMSuccessResponseBody } from './model/DBMSuccessResponseBody';
+import { DNatInfoResult } from './model/DNatInfoResult';
 import { DataIoTime } from './model/DataIoTime';
 import { DataStroeErrorResponse } from './model/DataStroeErrorResponse';
 import { DatabaseForListTableResult } from './model/DatabaseForListTableResult';
@@ -311,6 +315,8 @@ import { ListConfigurationsDiffRequest } from './model/ListConfigurationsDiffReq
 import { ListConfigurationsDiffResponse } from './model/ListConfigurationsDiffResponse';
 import { ListConfigurationsRequest } from './model/ListConfigurationsRequest';
 import { ListConfigurationsResponse } from './model/ListConfigurationsResponse';
+import { ListDNatInfoRequest } from './model/ListDNatInfoRequest';
+import { ListDNatInfoResponse } from './model/ListDNatInfoResponse';
 import { ListDatabaseInstancesRequest } from './model/ListDatabaseInstancesRequest';
 import { ListDatabaseInstancesResponse } from './model/ListDatabaseInstancesResponse';
 import { ListDatabaseRolesRequest } from './model/ListDatabaseRolesRequest';
@@ -1045,6 +1051,27 @@ export class GaussDBforopenGaussClient {
      */
     public batchShowUpgradeCandidateVersions(batchShowUpgradeCandidateVersionsRequest?: BatchShowUpgradeCandidateVersionsRequest): Promise<BatchShowUpgradeCandidateVersionsResponse> {
         const options = ParamCreater().batchShowUpgradeCandidateVersions(batchShowUpgradeCandidateVersionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 绑定/解绑NAT网关。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 绑定/解绑NAT网关
+     * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**: - zh-cn  - en-us  **默认取值**: en-us
+     * @param {BindDNatRequestBody} [bindDNatRequestBody] **参数解释** : 设置DNAT网关配置请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public bindDNat(bindDNatRequest?: BindDNatRequest): Promise<BindDNatResponse> {
+        const options = ParamCreater().bindDNat(bindDNatRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2133,6 +2160,26 @@ export class GaussDBforopenGaussClient {
      */
     public listConfigurationsDiff(listConfigurationsDiffRequest?: ListConfigurationsDiffRequest): Promise<ListConfigurationsDiffResponse> {
         const options = ParamCreater().listConfigurationsDiff(listConfigurationsDiffRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询已绑定的NAT网关列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询已绑定的NAT网关列表
+     * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**: - zh-cn  - en-us  **默认取值**: en-us
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDNatInfo(listDNatInfoRequest?: ListDNatInfoRequest): Promise<ListDNatInfoResponse> {
+        const options = ParamCreater().listDNatInfo(listDNatInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6828,6 +6875,56 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 绑定/解绑NAT网关。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        bindDNat(bindDNatRequest?: BindDNatRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/dnat",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (bindDNatRequest !== null && bindDNatRequest !== undefined) {
+                if (bindDNatRequest instanceof BindDNatRequest) {
+                    instanceId = bindDNatRequest.instanceId;
+                    xLanguage = bindDNatRequest.xLanguage;
+                    body = bindDNatRequest.body
+                } else {
+                    instanceId = bindDNatRequest['instance_id'];
+                    xLanguage = bindDNatRequest['X-Language'];
+                    body = bindDNatRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling bindDNat.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 取消定时任务
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9506,6 +9603,50 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询已绑定的NAT网关列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDNatInfo(listDNatInfoRequest?: ListDNatInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/dnat",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (listDNatInfoRequest !== null && listDNatInfoRequest !== undefined) {
+                if (listDNatInfoRequest instanceof ListDNatInfoRequest) {
+                    instanceId = listDNatInfoRequest.instanceId;
+                    xLanguage = listDNatInfoRequest.xLanguage;
+                } else {
+                    instanceId = listDNatInfoRequest['instance_id'];
+                    xLanguage = listDNatInfoRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listDNatInfo.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
