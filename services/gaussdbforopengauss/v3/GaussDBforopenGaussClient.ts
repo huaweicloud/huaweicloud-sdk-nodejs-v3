@@ -17146,7 +17146,7 @@ export const ParamCreater = function () {
         switchLoggerReplica(switchLoggerReplicaRequest?: SwitchLoggerReplicaRequest) {
             const options = {
                 method: "POST",
-                url: "/v3/{project_id}/instance/{instance_id}/switch-logger-replica",
+                url: "/v3/{project_id}/instances/{instance_id}/switch-logger-replica",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},

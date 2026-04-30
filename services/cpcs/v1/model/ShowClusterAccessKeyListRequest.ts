@@ -2,8 +2,8 @@
 
 export class ShowClusterAccessKeyListRequest {
     private 'cluster_id'?: string;
-    private 'page_size'?: number;
-    private 'page_num'?: number;
+    public limit?: number;
+    public offset?: number;
     private 'app_name'?: string;
     private 'sort_key'?: string;
     private 'sort_dir'?: string;
@@ -20,25 +20,13 @@ export class ShowClusterAccessKeyListRequest {
     public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
-    public withPageSize(pageSize: number): ShowClusterAccessKeyListRequest {
-        this['page_size'] = pageSize;
+    public withLimit(limit: number): ShowClusterAccessKeyListRequest {
+        this['limit'] = limit;
         return this;
     }
-    public set pageSize(pageSize: number  | undefined) {
-        this['page_size'] = pageSize;
-    }
-    public get pageSize(): number | undefined {
-        return this['page_size'];
-    }
-    public withPageNum(pageNum: number): ShowClusterAccessKeyListRequest {
-        this['page_num'] = pageNum;
+    public withOffset(offset: number): ShowClusterAccessKeyListRequest {
+        this['offset'] = offset;
         return this;
-    }
-    public set pageNum(pageNum: number  | undefined) {
-        this['page_num'] = pageNum;
-    }
-    public get pageNum(): number | undefined {
-        return this['page_num'];
     }
     public withAppName(appName: string): ShowClusterAccessKeyListRequest {
         this['app_name'] = appName;

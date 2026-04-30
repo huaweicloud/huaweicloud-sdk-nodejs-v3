@@ -27,5 +27,5 @@ export class DataFilteringCondition {
     */
 export enum DataFilteringConditionFilteringTypeEnum {
     CONTENTCONDITIONALFILTER = 'contentConditionalFilter',
-    CONFIGCONDITIONALFILTER = ' configConditionalFilter'
+    CONFIGCONDITIONALFILTER = 'configConditionalFilter'
 }

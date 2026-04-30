@@ -17,6 +17,7 @@ export class StepRun {
     public message?: string;
     private 'start_time'?: number;
     private 'end_time'?: number;
+    private 'daily_build_number'?: string;
     public constructor() { 
     }
     public withName(name: string): StepRun {
@@ -120,5 +121,15 @@ export class StepRun {
     }
     public get endTime(): number | undefined {
         return this['end_time'];
+    }
+    public withDailyBuildNumber(dailyBuildNumber: string): StepRun {
+        this['daily_build_number'] = dailyBuildNumber;
+        return this;
+    }
+    public set dailyBuildNumber(dailyBuildNumber: string  | undefined) {
+        this['daily_build_number'] = dailyBuildNumber;
+    }
+    public get dailyBuildNumber(): string | undefined {
+        return this['daily_build_number'];
     }
 }

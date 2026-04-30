@@ -4,6 +4,7 @@ export class SetAuditlogPolicyRequestBody {
     private 'keep_days'?: number;
     private 'reserve_auditlogs'?: boolean;
     private 'audit_types'?: Array<string>;
+    public databases?: Array<string>;
     public constructor(keepDays?: number) { 
         this['keep_days'] = keepDays;
     }
@@ -36,5 +37,9 @@ export class SetAuditlogPolicyRequestBody {
     }
     public get auditTypes(): Array<string> | undefined {
         return this['audit_types'];
+    }
+    public withDatabases(databases: Array<string>): SetAuditlogPolicyRequestBody {
+        this['databases'] = databases;
+        return this;
     }
 }

@@ -3,8 +3,8 @@
 export class ShowAssociationListRequest {
     private 'cluster_id'?: string;
     private 'app_id'?: string;
-    private 'page_size'?: number;
-    private 'page_num'?: number;
+    public limit?: number;
+    public offset?: number;
     private 'sort_key'?: string;
     private 'sort_dir'?: string;
     public constructor() { 
@@ -29,25 +29,13 @@ export class ShowAssociationListRequest {
     public get appId(): string | undefined {
         return this['app_id'];
     }
-    public withPageSize(pageSize: number): ShowAssociationListRequest {
-        this['page_size'] = pageSize;
+    public withLimit(limit: number): ShowAssociationListRequest {
+        this['limit'] = limit;
         return this;
     }
-    public set pageSize(pageSize: number  | undefined) {
-        this['page_size'] = pageSize;
-    }
-    public get pageSize(): number | undefined {
-        return this['page_size'];
-    }
-    public withPageNum(pageNum: number): ShowAssociationListRequest {
-        this['page_num'] = pageNum;
+    public withOffset(offset: number): ShowAssociationListRequest {
+        this['offset'] = offset;
         return this;
-    }
-    public set pageNum(pageNum: number  | undefined) {
-        this['page_num'] = pageNum;
-    }
-    public get pageNum(): number | undefined {
-        return this['page_num'];
     }
     public withSortKey(sortKey: string): ShowAssociationListRequest {
         this['sort_key'] = sortKey;

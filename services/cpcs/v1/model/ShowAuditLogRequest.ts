@@ -1,31 +1,19 @@
 
 
 export class ShowAuditLogRequest {
-    private 'page_size'?: number;
-    private 'page_num'?: number;
+    public limit?: number;
+    public offset?: number;
     private 'start_time'?: number;
     private 'end_time'?: number;
     public constructor() { 
     }
-    public withPageSize(pageSize: number): ShowAuditLogRequest {
-        this['page_size'] = pageSize;
+    public withLimit(limit: number): ShowAuditLogRequest {
+        this['limit'] = limit;
         return this;
     }
-    public set pageSize(pageSize: number  | undefined) {
-        this['page_size'] = pageSize;
-    }
-    public get pageSize(): number | undefined {
-        return this['page_size'];
-    }
-    public withPageNum(pageNum: number): ShowAuditLogRequest {
-        this['page_num'] = pageNum;
+    public withOffset(offset: number): ShowAuditLogRequest {
+        this['offset'] = offset;
         return this;
-    }
-    public set pageNum(pageNum: number  | undefined) {
-        this['page_num'] = pageNum;
-    }
-    public get pageNum(): number | undefined {
-        return this['page_num'];
     }
     public withStartTime(startTime: number): ShowAuditLogRequest {
         this['start_time'] = startTime;

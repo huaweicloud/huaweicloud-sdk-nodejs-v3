@@ -4,6 +4,7 @@ export class ListPipelineRunsQuery {
     public status?: Array<string>;
     private 'start_time'?: string;
     private 'end_time'?: string;
+    private 'update_time'?: string;
     public offset?: number;
     public limit?: number;
     private 'sort_key'?: string;
@@ -33,6 +34,16 @@ export class ListPipelineRunsQuery {
     }
     public get endTime(): string | undefined {
         return this['end_time'];
+    }
+    public withUpdateTime(updateTime: string): ListPipelineRunsQuery {
+        this['update_time'] = updateTime;
+        return this;
+    }
+    public set updateTime(updateTime: string  | undefined) {
+        this['update_time'] = updateTime;
+    }
+    public get updateTime(): string | undefined {
+        return this['update_time'];
     }
     public withOffset(offset: number): ListPipelineRunsQuery {
         this['offset'] = offset;

@@ -69,6 +69,6 @@ export class ListDbObjectsResponse extends SdkResponse {
     */
 export enum ListDbObjectsResponseStatusEnum {
     SUCCESS = 'success',
-    FAILED = ' failed',
-    PENDING = ' pending'
+    FAILED = 'failed',
+    PENDING = 'pending'
 }

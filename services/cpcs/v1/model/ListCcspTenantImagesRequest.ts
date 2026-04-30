@@ -1,33 +1,21 @@
 
 
 export class ListCcspTenantImagesRequest {
-    private 'page_size'?: number;
-    private 'page_num'?: number;
+    public limit?: number;
+    public offset?: number;
     private 'image_name'?: string;
     private 'service_type'?: string;
     private 'sort_key'?: string;
     private 'sort_dir'?: string;
     public constructor() { 
     }
-    public withPageSize(pageSize: number): ListCcspTenantImagesRequest {
-        this['page_size'] = pageSize;
+    public withLimit(limit: number): ListCcspTenantImagesRequest {
+        this['limit'] = limit;
         return this;
     }
-    public set pageSize(pageSize: number  | undefined) {
-        this['page_size'] = pageSize;
-    }
-    public get pageSize(): number | undefined {
-        return this['page_size'];
-    }
-    public withPageNum(pageNum: number): ListCcspTenantImagesRequest {
-        this['page_num'] = pageNum;
+    public withOffset(offset: number): ListCcspTenantImagesRequest {
+        this['offset'] = offset;
         return this;
-    }
-    public set pageNum(pageNum: number  | undefined) {
-        this['page_num'] = pageNum;
-    }
-    public get pageNum(): number | undefined {
-        return this['page_num'];
     }
     public withImageName(imageName: string): ListCcspTenantImagesRequest {
         this['image_name'] = imageName;

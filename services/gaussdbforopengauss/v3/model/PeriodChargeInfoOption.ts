@@ -5,7 +5,9 @@ export class PeriodChargeInfoOption {
     private 'period_num'?: number;
     private 'is_auto_renew'?: boolean;
     private 'is_auto_pay'?: boolean;
-    public constructor() { 
+    public constructor(periodType?: string, periodNum?: number) { 
+        this['period_type'] = periodType;
+        this['period_num'] = periodNum;
     }
     public withPeriodType(periodType: PeriodChargeInfoOptionPeriodTypeEnum | string): PeriodChargeInfoOption {
         this['period_type'] = periodType;

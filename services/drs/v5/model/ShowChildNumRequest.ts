@@ -59,5 +59,5 @@ export enum ShowChildNumRequestXLanguageEnum {
     */
 export enum ShowChildNumRequestDbTypeEnum {
     GAUSSDBV5 = 'gaussdbv5',
-    DDM = ' ddm'
+    DDM = 'ddm'
 }

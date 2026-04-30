@@ -6,8 +6,8 @@ export class ShowResourceDetailAccessKeyRequest {
     private 'service_type'?: string;
     private 'algorithm_type'?: string;
     private 'certificate_type'?: string;
-    private 'page_size'?: number;
-    private 'page_num'?: number;
+    public limit?: number;
+    public offset?: number;
     public from?: number;
     public to?: string;
     public constructor() { 
@@ -62,25 +62,13 @@ export class ShowResourceDetailAccessKeyRequest {
     public get certificateType(): string | undefined {
         return this['certificate_type'];
     }
-    public withPageSize(pageSize: number): ShowResourceDetailAccessKeyRequest {
-        this['page_size'] = pageSize;
+    public withLimit(limit: number): ShowResourceDetailAccessKeyRequest {
+        this['limit'] = limit;
         return this;
     }
-    public set pageSize(pageSize: number  | undefined) {
-        this['page_size'] = pageSize;
-    }
-    public get pageSize(): number | undefined {
-        return this['page_size'];
-    }
-    public withPageNum(pageNum: number): ShowResourceDetailAccessKeyRequest {
-        this['page_num'] = pageNum;
+    public withOffset(offset: number): ShowResourceDetailAccessKeyRequest {
+        this['offset'] = offset;
         return this;
-    }
-    public set pageNum(pageNum: number  | undefined) {
-        this['page_num'] = pageNum;
-    }
-    public get pageNum(): number | undefined {
-        return this['page_num'];
     }
     public withFrom(from: number): ShowResourceDetailAccessKeyRequest {
         this['from'] = from;

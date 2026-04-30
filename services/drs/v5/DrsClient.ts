@@ -1819,7 +1819,7 @@ export class DrsClient {
      *
      * @summary 查询子任务数量
      * @param {string} instanceId ddm或者gaussdbv5数据库的实例id
-     * @param {'gaussdbv5' | ' ddm'} dbType 数据库实例的类型
+     * @param {'gaussdbv5' | 'ddm'} dbType 数据库实例的类型
      * @param {string} [region] 局点，默认是当前region
      * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
      * @param {*} [options] Override http request option.

@@ -7,9 +7,9 @@ export class ShowAuditLogResponseBodyAuditRecords {
     private 'cluster_type'?: string;
     public operation?: string;
     public time?: number;
-    private 'operate_status'?: number;
-    private 'operate_message'?: string;
-    private 'audit_status'?: number;
+    public status?: string;
+    private 'failure_message'?: string;
+    public verification?: string;
     public constructor() { 
     }
     public withId(id: string): ShowAuditLogResponseBodyAuditRecords {
@@ -54,34 +54,22 @@ export class ShowAuditLogResponseBodyAuditRecords {
         this['time'] = time;
         return this;
     }
-    public withOperateStatus(operateStatus: number): ShowAuditLogResponseBodyAuditRecords {
-        this['operate_status'] = operateStatus;
+    public withStatus(status: string): ShowAuditLogResponseBodyAuditRecords {
+        this['status'] = status;
         return this;
     }
-    public set operateStatus(operateStatus: number  | undefined) {
-        this['operate_status'] = operateStatus;
-    }
-    public get operateStatus(): number | undefined {
-        return this['operate_status'];
-    }
-    public withOperateMessage(operateMessage: string): ShowAuditLogResponseBodyAuditRecords {
-        this['operate_message'] = operateMessage;
+    public withFailureMessage(failureMessage: string): ShowAuditLogResponseBodyAuditRecords {
+        this['failure_message'] = failureMessage;
         return this;
     }
-    public set operateMessage(operateMessage: string  | undefined) {
-        this['operate_message'] = operateMessage;
+    public set failureMessage(failureMessage: string  | undefined) {
+        this['failure_message'] = failureMessage;
     }
-    public get operateMessage(): string | undefined {
-        return this['operate_message'];
+    public get failureMessage(): string | undefined {
+        return this['failure_message'];
     }
-    public withAuditStatus(auditStatus: number): ShowAuditLogResponseBodyAuditRecords {
-        this['audit_status'] = auditStatus;
+    public withVerification(verification: string): ShowAuditLogResponseBodyAuditRecords {
+        this['verification'] = verification;
         return this;
-    }
-    public set auditStatus(auditStatus: number  | undefined) {
-        this['audit_status'] = auditStatus;
-    }
-    public get auditStatus(): number | undefined {
-        return this['audit_status'];
     }
 }

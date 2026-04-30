@@ -2,8 +2,8 @@
 
 export class ShowAppAccessKeyListRequest {
     private 'app_id'?: string;
-    private 'page_size'?: number;
-    private 'page_num'?: number;
+    public limit?: number;
+    public offset?: number;
     private 'key_name'?: string;
     private 'sort_key'?: string;
     private 'sort_dir'?: string;
@@ -20,25 +20,13 @@ export class ShowAppAccessKeyListRequest {
     public get appId(): string | undefined {
         return this['app_id'];
     }
-    public withPageSize(pageSize: number): ShowAppAccessKeyListRequest {
-        this['page_size'] = pageSize;
+    public withLimit(limit: number): ShowAppAccessKeyListRequest {
+        this['limit'] = limit;
         return this;
     }
-    public set pageSize(pageSize: number  | undefined) {
-        this['page_size'] = pageSize;
-    }
-    public get pageSize(): number | undefined {
-        return this['page_size'];
-    }
-    public withPageNum(pageNum: number): ShowAppAccessKeyListRequest {
-        this['page_num'] = pageNum;
+    public withOffset(offset: number): ShowAppAccessKeyListRequest {
+        this['offset'] = offset;
         return this;
-    }
-    public set pageNum(pageNum: number  | undefined) {
-        this['page_num'] = pageNum;
-    }
-    public get pageNum(): number | undefined {
-        return this['page_num'];
     }
     public withKeyName(keyName: string): ShowAppAccessKeyListRequest {
         this['key_name'] = keyName;

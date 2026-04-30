@@ -12,10 +12,6 @@ import { AssociateAppsRequestBody } from './model/AssociateAppsRequestBody';
 import { AssociateAppsResponse } from './model/AssociateAppsResponse';
 import { AssociationInfo } from './model/AssociationInfo';
 import { AuthObject } from './model/AuthObject';
-import { AuthObjectAuth } from './model/AuthObjectAuth';
-import { AuthObjectAuthAccessKey } from './model/AuthObjectAuthAccessKey';
-import { AuthObjectScope } from './model/AuthObjectScope';
-import { AuthObjectScopeCluster } from './model/AuthObjectScopeCluster';
 import { AuthorizeAccessKeysRequest } from './model/AuthorizeAccessKeysRequest';
 import { AuthorizeAccessKeysRequestBody } from './model/AuthorizeAccessKeysRequestBody';
 import { AuthorizeAccessKeysResponse } from './model/AuthorizeAccessKeysResponse';
@@ -131,9 +127,11 @@ import { ShowVmMonitorResponse } from './model/ShowVmMonitorResponse';
 import { StatisticalCharacteristic } from './model/StatisticalCharacteristic';
 import { SwitchCpcsTokenRequest } from './model/SwitchCpcsTokenRequest';
 import { SwitchCpcsTokenResponse } from './model/SwitchCpcsTokenResponse';
-import { SwitchTokenResponseAk } from './model/SwitchTokenResponseAk';
-import { SwitchTokenResponseUser } from './model/SwitchTokenResponseUser';
-import { SwitchTokenResponseUserDomain } from './model/SwitchTokenResponseUserDomain';
+import { SwitchTokenResponseToken } from './model/SwitchTokenResponseToken';
+import { SwitchTokenResponseTokenApp } from './model/SwitchTokenResponseTokenApp';
+import { SwitchTokenResponseTokenRoles } from './model/SwitchTokenResponseTokenRoles';
+import { SwitchTokenResponseTokenUser } from './model/SwitchTokenResponseTokenUser';
+import { SwitchTokenResponseTokenUserDomain } from './model/SwitchTokenResponseTokenUserDomain';
 import { VendorCertificateStatistic } from './model/VendorCertificateStatistic';
 import { VendorKeyStatistic } from './model/VendorKeyStatistic';
 import { VsmResourceInfo } from './model/VsmResourceInfo';
@@ -503,8 +501,8 @@ export class CpcsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询密码服务的镜像
-     * @param {number} [pageSize] 指定查询返回记录条数，默认值10
-     * @param {number} [pageNum] 索引位置，从page_num指定的下一条数据开始查询默认值为0
+     * @param {number} [limit] 指定查询返回记录条数，默认值10
+     * @param {number} [offset] 索引位置，从offset指定的下一条数据开始查询默认值为0
      * @param {string} [imageName] 镜像名称
      * @param {string} [serviceType] 镜像所属的服务类型： - **ENCRYPT_DECRYPT** : 加解密服务； - **SIGN_VERIFY** : 签名验签服务； - **KMS** : 密钥管理服务； - **TIMESTAMP** : 时间戳服务； - **COLLA_SIGN** : 协同签名服务； - **OTP** : 动态令牌服务； - **DB_ENCRYPT** : 数据库加密服务； - **FILE_ENCRYPT** : 文件加密服务 - **TIMESTAMP** : 时间戳服务； - **DIGIT_SEAL** : 电子签章服务； - **SSL_VPN** : ssl vpn服务；
      * @param {string} [sortKey] 排序属性，目前支持以下属性： - **create_time** : 镜像的创建时间（默认）
@@ -567,8 +565,8 @@ export class CpcsClient {
      *
      * @summary 查询应用的访问密钥列表
      * @param {string} appId 应用ID
-     * @param {number} [pageSize] 指定查询返回记录条数，默认值10
-     * @param {number} [pageNum] 索引位置，从page_num指定的下一条数据开始查询默认值为0
+     * @param {number} [limit] 指定查询返回记录条数，默认值10
+     * @param {number} [offset] 索引位置，从offset指定的下一条数据开始查询默认值为0
      * @param {string} [keyName] 访问密钥名称
      * @param {string} [sortKey] 排序属性，目前支持以下属性： - **create_time** : 应用的创建时间（默认）
      * @param {string} [sortDir] 排序方向，支持以下值： - **DESC** : 降序（默认） - **ASC** : 升序
@@ -590,8 +588,8 @@ export class CpcsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询应用列表
-     * @param {number} [pageSize] 指定查询返回记录条数，默认值10
-     * @param {number} [pageNum] 索引位置，从page_num指定的下一条数据开始查询默认值为0
+     * @param {number} [limit] 指定查询返回记录条数，默认值10
+     * @param {number} [offset] 索引位置，从offset指定的下一条数据开始查询默认值为0
      * @param {string} [appName] 应用名称
      * @param {string} [vpcName] 所属的VPC名称
      * @param {string} [sortKey] 排序属性，目前支持以下属性： - **create_time** : 应用的创建时间（默认）
@@ -616,8 +614,8 @@ export class CpcsClient {
      * @summary 查询密码服务集群与应用的绑定关系列表
      * @param {string} [clusterId] 密码集群ID
      * @param {string} [appId] 应用ID
-     * @param {number} [pageSize] 指定查询返回记录条数，默认值10
-     * @param {number} [pageNum] 索引位置，从page_num指定的下一条数据开始查询默认值为0
+     * @param {number} [limit] 指定查询返回记录条数，默认值10
+     * @param {number} [offset] 索引位置，从offset指定的下一条数据开始查询默认值为0
      * @param {string} [sortKey] 排序属性，目前支持以下属性： - **create_time** : 应用的创建时间（默认）
      * @param {string} [sortDir] 排序方向，支持以下值： - **DESC** : 降序（默认） - **ASC** : 升序
      * @param {*} [options] Override http request option.
@@ -638,8 +636,8 @@ export class CpcsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询平台审计日志
-     * @param {number} [pageSize] 指定查询返回记录条数，默认值10
-     * @param {number} [pageNum] 索引位置，从page_num指定的下一条数据开始查询默认值为0
+     * @param {number} [limit] 指定查询返回记录条数，默认值10
+     * @param {number} [offset] 索引位置，从offset指定的下一条数据开始查询默认值为0
      * @param {number} [startTime] 开始时间
      * @param {number} [endTime] 结束时间
      * @param {*} [options] Override http request option.
@@ -697,8 +695,8 @@ export class CpcsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询密码服务集群列表
-     * @param {number} [pageSize] 指定查询返回记录条数，默认值10
-     * @param {number} [pageNum] 索引位置，从page_num指定的下一条数据开始查询默认值为0
+     * @param {number} [limit] 指定查询返回记录条数，默认值10
+     * @param {number} [offset] 索引位置，从offset指定的下一条数据开始查询默认值为0
      * @param {string} [name] 集群名称
      * @param {string} [serviceType] 集群所属的服务类型： - **ENCRYPT_DECRYPT** : 加解密服务； - **SIGN_VERIFY** : 签名验签服务； - **KMS** : 密钥管理服务； - **TIMESTAMP** : 时间戳服务； - **COLLA_SIGN** : 协同签名服务； - **OTP** : 动态令牌服务； - **DB_ENCRYPT** : 数据库加密服务； - **FILE_ENCRYPT** : 文件加密服务 - **TIMESTAMP** : 时间戳服务； - **DIGIT_SEAL** : 电子签章服务； - **SSL_VPN** : ssl vpn服务；
      * @param {string} [sortKey] 排序属性，目前支持以下属性： - **create_time** : 集群的创建时间（默认）
@@ -721,9 +719,9 @@ export class CpcsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询密码服务实例列表
-     * @param {number} [pageSize] 指定查询返回记录条数，默认值10
+     * @param {number} [limit] 指定查询返回记录条数，默认值10
      * @param {string} [name] 实例名称
-     * @param {number} [pageNum] 索引位置，从page_num指定的下一条数据开始查询默认值为0
+     * @param {number} [offset] 索引位置，从offset指定的下一条数据开始查询默认值为0
      * @param {string} [sortKey] 排序属性，目前支持以下属性： - **create_time** : 实例创建时间（默认）
      * @param {string} [sortDir] 排序方向，支持以下值： - **DESC** : 降序（默认） - **ASC** : 升序
      * @param {string} [clusterId] 密码服务集群ID
@@ -748,8 +746,8 @@ export class CpcsClient {
      *
      * @summary 查询密码服务集群已授权的访问密钥列表
      * @param {string} clusterId 密码集群ID
-     * @param {number} [pageSize] 指定查询返回记录条数，默认值10
-     * @param {number} [pageNum] 索引位置，从page_num指定的下一条数据开始查询默认值为0
+     * @param {number} [limit] 指定查询返回记录条数，默认值10
+     * @param {number} [offset] 索引位置，从offset指定的下一条数据开始查询默认值为0
      * @param {string} [appName] 应用名称
      * @param {string} [sortKey] 排序属性，目前支持以下属性： - **create_time** : 应用的创建时间（默认）
      * @param {string} [sortDir] 排序方向，支持以下值： - **DESC** : 降序（默认） - **ASC** : 升序
@@ -796,8 +794,8 @@ export class CpcsClient {
      * @param {string} [serviceType] 密码服务类型，默认空字符串，默认查询所有密码服务类型
      * @param {string} [algorithmType] 算法类型，默认空字符串，0：国密，1：国际
      * @param {string} [certificateType] 证书类型，默认空字符串，0：根证书，1：业务证书
-     * @param {number} [pageSize] 页面大小，不超过1500
-     * @param {number} [pageNum] 页数，默认1
+     * @param {number} [limit] 页面大小，不超过1500
+     * @param {number} [offset] 页数，默认1
      * @param {number} [from] 查询起始时间戳，毫秒级时间戳，默认为0，默认从三天前查询
      * @param {string} [to] 查询终止时间戳，毫秒级时间戳，默认为0，默认查询到当前时间
      * @param {*} [options] Override http request option.
@@ -823,8 +821,8 @@ export class CpcsClient {
      * @param {string} [serviceType] 密码服务类型，默认空字符串，默认查询所有密码服务类型
      * @param {string} [algorithmType] 算法类型，默认空字符串，0：国密，1：国际
      * @param {string} [certificateType] 证书类型，默认空字符串，0：根证书，1：业务证书
-     * @param {number} [pageSize] 页面大小，不超过1500
-     * @param {number} [pageNum] 页数，默认1
+     * @param {number} [limit] 页面大小，不超过1500
+     * @param {number} [offset] 页数，默认1
      * @param {number} [from] 查询起始时间戳，毫秒级时间戳，默认为0，默认从三天前查询
      * @param {number} [to] 查询终止时间戳，毫秒级时间戳，默认为0，默认查询到当前时间
      * @param {*} [options] Override http request option.
@@ -914,7 +912,7 @@ export class CpcsClient {
     }
 
     /**
-     * 获取CPCS中\\资源总量统计信息
+     * 获取CPCS中资源总量统计信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1865,9 +1863,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let pageSize;
+            let limit;
             
-            let pageNum;
+            let offset;
             
             let imageName;
             
@@ -1879,15 +1877,15 @@ export const ParamCreater = function () {
 
             if (listCcspTenantImagesRequest !== null && listCcspTenantImagesRequest !== undefined) {
                 if (listCcspTenantImagesRequest instanceof ListCcspTenantImagesRequest) {
-                    pageSize = listCcspTenantImagesRequest.pageSize;
-                    pageNum = listCcspTenantImagesRequest.pageNum;
+                    limit = listCcspTenantImagesRequest.limit;
+                    offset = listCcspTenantImagesRequest.offset;
                     imageName = listCcspTenantImagesRequest.imageName;
                     serviceType = listCcspTenantImagesRequest.serviceType;
                     sortKey = listCcspTenantImagesRequest.sortKey;
                     sortDir = listCcspTenantImagesRequest.sortDir;
                 } else {
-                    pageSize = listCcspTenantImagesRequest['page_size'];
-                    pageNum = listCcspTenantImagesRequest['page_num'];
+                    limit = listCcspTenantImagesRequest['limit'];
+                    offset = listCcspTenantImagesRequest['offset'];
                     imageName = listCcspTenantImagesRequest['image_name'];
                     serviceType = listCcspTenantImagesRequest['service_type'];
                     sortKey = listCcspTenantImagesRequest['sort_key'];
@@ -1896,11 +1894,11 @@ export const ParamCreater = function () {
             }
 
         
-            if (pageSize !== null && pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
-            if (pageNum !== null && pageNum !== undefined) {
-                localVarQueryParameter['page_num'] = pageNum;
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (imageName !== null && imageName !== undefined) {
                 localVarQueryParameter['image_name'] = imageName;
@@ -2020,9 +2018,9 @@ export const ParamCreater = function () {
             
             let appId;
             
-            let pageSize;
+            let limit;
             
-            let pageNum;
+            let offset;
             
             let keyName;
             
@@ -2033,15 +2031,15 @@ export const ParamCreater = function () {
             if (showAppAccessKeyListRequest !== null && showAppAccessKeyListRequest !== undefined) {
                 if (showAppAccessKeyListRequest instanceof ShowAppAccessKeyListRequest) {
                     appId = showAppAccessKeyListRequest.appId;
-                    pageSize = showAppAccessKeyListRequest.pageSize;
-                    pageNum = showAppAccessKeyListRequest.pageNum;
+                    limit = showAppAccessKeyListRequest.limit;
+                    offset = showAppAccessKeyListRequest.offset;
                     keyName = showAppAccessKeyListRequest.keyName;
                     sortKey = showAppAccessKeyListRequest.sortKey;
                     sortDir = showAppAccessKeyListRequest.sortDir;
                 } else {
                     appId = showAppAccessKeyListRequest['app_id'];
-                    pageSize = showAppAccessKeyListRequest['page_size'];
-                    pageNum = showAppAccessKeyListRequest['page_num'];
+                    limit = showAppAccessKeyListRequest['limit'];
+                    offset = showAppAccessKeyListRequest['offset'];
                     keyName = showAppAccessKeyListRequest['key_name'];
                     sortKey = showAppAccessKeyListRequest['sort_key'];
                     sortDir = showAppAccessKeyListRequest['sort_dir'];
@@ -2052,11 +2050,11 @@ export const ParamCreater = function () {
             if (appId === null || appId === undefined) {
             throw new RequiredError('appId','Required parameter appId was null or undefined when calling showAppAccessKeyList.');
             }
-            if (pageSize !== null && pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
-            if (pageNum !== null && pageNum !== undefined) {
-                localVarQueryParameter['page_num'] = pageNum;
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (keyName !== null && keyName !== undefined) {
                 localVarQueryParameter['key_name'] = keyName;
@@ -2091,9 +2089,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let pageSize;
+            let limit;
             
-            let pageNum;
+            let offset;
             
             let appName;
             
@@ -2105,15 +2103,15 @@ export const ParamCreater = function () {
 
             if (showAppListRequest !== null && showAppListRequest !== undefined) {
                 if (showAppListRequest instanceof ShowAppListRequest) {
-                    pageSize = showAppListRequest.pageSize;
-                    pageNum = showAppListRequest.pageNum;
+                    limit = showAppListRequest.limit;
+                    offset = showAppListRequest.offset;
                     appName = showAppListRequest.appName;
                     vpcName = showAppListRequest.vpcName;
                     sortKey = showAppListRequest.sortKey;
                     sortDir = showAppListRequest.sortDir;
                 } else {
-                    pageSize = showAppListRequest['page_size'];
-                    pageNum = showAppListRequest['page_num'];
+                    limit = showAppListRequest['limit'];
+                    offset = showAppListRequest['offset'];
                     appName = showAppListRequest['app_name'];
                     vpcName = showAppListRequest['vpc_name'];
                     sortKey = showAppListRequest['sort_key'];
@@ -2122,11 +2120,11 @@ export const ParamCreater = function () {
             }
 
         
-            if (pageSize !== null && pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
-            if (pageNum !== null && pageNum !== undefined) {
-                localVarQueryParameter['page_num'] = pageNum;
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (appName !== null && appName !== undefined) {
                 localVarQueryParameter['app_name'] = appName;
@@ -2167,9 +2165,9 @@ export const ParamCreater = function () {
             
             let appId;
             
-            let pageSize;
+            let limit;
             
-            let pageNum;
+            let offset;
             
             let sortKey;
             
@@ -2179,15 +2177,15 @@ export const ParamCreater = function () {
                 if (showAssociationListRequest instanceof ShowAssociationListRequest) {
                     clusterId = showAssociationListRequest.clusterId;
                     appId = showAssociationListRequest.appId;
-                    pageSize = showAssociationListRequest.pageSize;
-                    pageNum = showAssociationListRequest.pageNum;
+                    limit = showAssociationListRequest.limit;
+                    offset = showAssociationListRequest.offset;
                     sortKey = showAssociationListRequest.sortKey;
                     sortDir = showAssociationListRequest.sortDir;
                 } else {
                     clusterId = showAssociationListRequest['cluster_id'];
                     appId = showAssociationListRequest['app_id'];
-                    pageSize = showAssociationListRequest['page_size'];
-                    pageNum = showAssociationListRequest['page_num'];
+                    limit = showAssociationListRequest['limit'];
+                    offset = showAssociationListRequest['offset'];
                     sortKey = showAssociationListRequest['sort_key'];
                     sortDir = showAssociationListRequest['sort_dir'];
                 }
@@ -2200,11 +2198,11 @@ export const ParamCreater = function () {
             if (appId !== null && appId !== undefined) {
                 localVarQueryParameter['app_id'] = appId;
             }
-            if (pageSize !== null && pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
-            if (pageNum !== null && pageNum !== undefined) {
-                localVarQueryParameter['page_num'] = pageNum;
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (sortKey !== null && sortKey !== undefined) {
                 localVarQueryParameter['sort_key'] = sortKey;
@@ -2235,9 +2233,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let pageSize;
+            let limit;
             
-            let pageNum;
+            let offset;
             
             let startTime;
             
@@ -2245,24 +2243,24 @@ export const ParamCreater = function () {
 
             if (showAuditLogRequest !== null && showAuditLogRequest !== undefined) {
                 if (showAuditLogRequest instanceof ShowAuditLogRequest) {
-                    pageSize = showAuditLogRequest.pageSize;
-                    pageNum = showAuditLogRequest.pageNum;
+                    limit = showAuditLogRequest.limit;
+                    offset = showAuditLogRequest.offset;
                     startTime = showAuditLogRequest.startTime;
                     endTime = showAuditLogRequest.endTime;
                 } else {
-                    pageSize = showAuditLogRequest['page_size'];
-                    pageNum = showAuditLogRequest['page_num'];
+                    limit = showAuditLogRequest['limit'];
+                    offset = showAuditLogRequest['offset'];
                     startTime = showAuditLogRequest['start_time'];
                     endTime = showAuditLogRequest['end_time'];
                 }
             }
 
         
-            if (pageSize !== null && pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
-            if (pageNum !== null && pageNum !== undefined) {
-                localVarQueryParameter['page_num'] = pageNum;
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (startTime !== null && startTime !== undefined) {
                 localVarQueryParameter['start_time'] = startTime;
@@ -2351,9 +2349,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let pageSize;
+            let limit;
             
-            let pageNum;
+            let offset;
             
             let name;
             
@@ -2365,15 +2363,15 @@ export const ParamCreater = function () {
 
             if (showCcspClusterListRequest !== null && showCcspClusterListRequest !== undefined) {
                 if (showCcspClusterListRequest instanceof ShowCcspClusterListRequest) {
-                    pageSize = showCcspClusterListRequest.pageSize;
-                    pageNum = showCcspClusterListRequest.pageNum;
+                    limit = showCcspClusterListRequest.limit;
+                    offset = showCcspClusterListRequest.offset;
                     name = showCcspClusterListRequest.name;
                     serviceType = showCcspClusterListRequest.serviceType;
                     sortKey = showCcspClusterListRequest.sortKey;
                     sortDir = showCcspClusterListRequest.sortDir;
                 } else {
-                    pageSize = showCcspClusterListRequest['page_size'];
-                    pageNum = showCcspClusterListRequest['page_num'];
+                    limit = showCcspClusterListRequest['limit'];
+                    offset = showCcspClusterListRequest['offset'];
                     name = showCcspClusterListRequest['name'];
                     serviceType = showCcspClusterListRequest['service_type'];
                     sortKey = showCcspClusterListRequest['sort_key'];
@@ -2382,11 +2380,11 @@ export const ParamCreater = function () {
             }
 
         
-            if (pageSize !== null && pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
-            if (pageNum !== null && pageNum !== undefined) {
-                localVarQueryParameter['page_num'] = pageNum;
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;
@@ -2423,11 +2421,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let pageSize;
+            let limit;
             
             let name;
             
-            let pageNum;
+            let offset;
             
             let sortKey;
             
@@ -2441,18 +2439,18 @@ export const ParamCreater = function () {
 
             if (showCcspInstanceInfoRequest !== null && showCcspInstanceInfoRequest !== undefined) {
                 if (showCcspInstanceInfoRequest instanceof ShowCcspInstanceInfoRequest) {
-                    pageSize = showCcspInstanceInfoRequest.pageSize;
+                    limit = showCcspInstanceInfoRequest.limit;
                     name = showCcspInstanceInfoRequest.name;
-                    pageNum = showCcspInstanceInfoRequest.pageNum;
+                    offset = showCcspInstanceInfoRequest.offset;
                     sortKey = showCcspInstanceInfoRequest.sortKey;
                     sortDir = showCcspInstanceInfoRequest.sortDir;
                     clusterId = showCcspInstanceInfoRequest.clusterId;
                     status = showCcspInstanceInfoRequest.status;
                     isNormal = showCcspInstanceInfoRequest.isNormal;
                 } else {
-                    pageSize = showCcspInstanceInfoRequest['page_size'];
+                    limit = showCcspInstanceInfoRequest['limit'];
                     name = showCcspInstanceInfoRequest['name'];
-                    pageNum = showCcspInstanceInfoRequest['page_num'];
+                    offset = showCcspInstanceInfoRequest['offset'];
                     sortKey = showCcspInstanceInfoRequest['sort_key'];
                     sortDir = showCcspInstanceInfoRequest['sort_dir'];
                     clusterId = showCcspInstanceInfoRequest['cluster_id'];
@@ -2462,14 +2460,14 @@ export const ParamCreater = function () {
             }
 
         
-            if (pageSize !== null && pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;
             }
-            if (pageNum !== null && pageNum !== undefined) {
-                localVarQueryParameter['page_num'] = pageNum;
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (sortKey !== null && sortKey !== undefined) {
                 localVarQueryParameter['sort_key'] = sortKey;
@@ -2511,9 +2509,9 @@ export const ParamCreater = function () {
             
             let clusterId;
             
-            let pageSize;
+            let limit;
             
-            let pageNum;
+            let offset;
             
             let appName;
             
@@ -2524,15 +2522,15 @@ export const ParamCreater = function () {
             if (showClusterAccessKeyListRequest !== null && showClusterAccessKeyListRequest !== undefined) {
                 if (showClusterAccessKeyListRequest instanceof ShowClusterAccessKeyListRequest) {
                     clusterId = showClusterAccessKeyListRequest.clusterId;
-                    pageSize = showClusterAccessKeyListRequest.pageSize;
-                    pageNum = showClusterAccessKeyListRequest.pageNum;
+                    limit = showClusterAccessKeyListRequest.limit;
+                    offset = showClusterAccessKeyListRequest.offset;
                     appName = showClusterAccessKeyListRequest.appName;
                     sortKey = showClusterAccessKeyListRequest.sortKey;
                     sortDir = showClusterAccessKeyListRequest.sortDir;
                 } else {
                     clusterId = showClusterAccessKeyListRequest['cluster_id'];
-                    pageSize = showClusterAccessKeyListRequest['page_size'];
-                    pageNum = showClusterAccessKeyListRequest['page_num'];
+                    limit = showClusterAccessKeyListRequest['limit'];
+                    offset = showClusterAccessKeyListRequest['offset'];
                     appName = showClusterAccessKeyListRequest['app_name'];
                     sortKey = showClusterAccessKeyListRequest['sort_key'];
                     sortDir = showClusterAccessKeyListRequest['sort_dir'];
@@ -2543,11 +2541,11 @@ export const ParamCreater = function () {
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showClusterAccessKeyList.');
             }
-            if (pageSize !== null && pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
-            if (pageNum !== null && pageNum !== undefined) {
-                localVarQueryParameter['page_num'] = pageNum;
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (appName !== null && appName !== undefined) {
                 localVarQueryParameter['app_name'] = appName;
@@ -2630,9 +2628,9 @@ export const ParamCreater = function () {
             
             let certificateType;
             
-            let pageSize;
+            let limit;
             
-            let pageNum;
+            let offset;
             
             let from;
             
@@ -2645,8 +2643,8 @@ export const ParamCreater = function () {
                     serviceType = showResourceDetailAccessKeyRequest.serviceType;
                     algorithmType = showResourceDetailAccessKeyRequest.algorithmType;
                     certificateType = showResourceDetailAccessKeyRequest.certificateType;
-                    pageSize = showResourceDetailAccessKeyRequest.pageSize;
-                    pageNum = showResourceDetailAccessKeyRequest.pageNum;
+                    limit = showResourceDetailAccessKeyRequest.limit;
+                    offset = showResourceDetailAccessKeyRequest.offset;
                     from = showResourceDetailAccessKeyRequest.from;
                     to = showResourceDetailAccessKeyRequest.to;
                 } else {
@@ -2655,8 +2653,8 @@ export const ParamCreater = function () {
                     serviceType = showResourceDetailAccessKeyRequest['service_type'];
                     algorithmType = showResourceDetailAccessKeyRequest['algorithm_type'];
                     certificateType = showResourceDetailAccessKeyRequest['certificate_type'];
-                    pageSize = showResourceDetailAccessKeyRequest['page_size'];
-                    pageNum = showResourceDetailAccessKeyRequest['page_num'];
+                    limit = showResourceDetailAccessKeyRequest['limit'];
+                    offset = showResourceDetailAccessKeyRequest['offset'];
                     from = showResourceDetailAccessKeyRequest['from'];
                     to = showResourceDetailAccessKeyRequest['to'];
                 }
@@ -2678,11 +2676,11 @@ export const ParamCreater = function () {
             if (certificateType !== null && certificateType !== undefined) {
                 localVarQueryParameter['certificate_type'] = certificateType;
             }
-            if (pageSize !== null && pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
-            if (pageNum !== null && pageNum !== undefined) {
-                localVarQueryParameter['page_num'] = pageNum;
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (from !== null && from !== undefined) {
                 localVarQueryParameter['from'] = from;
@@ -2723,9 +2721,9 @@ export const ParamCreater = function () {
             
             let certificateType;
             
-            let pageSize;
+            let limit;
             
-            let pageNum;
+            let offset;
             
             let from;
             
@@ -2738,8 +2736,8 @@ export const ParamCreater = function () {
                     serviceType = showResourceDetailCertificateRequest.serviceType;
                     algorithmType = showResourceDetailCertificateRequest.algorithmType;
                     certificateType = showResourceDetailCertificateRequest.certificateType;
-                    pageSize = showResourceDetailCertificateRequest.pageSize;
-                    pageNum = showResourceDetailCertificateRequest.pageNum;
+                    limit = showResourceDetailCertificateRequest.limit;
+                    offset = showResourceDetailCertificateRequest.offset;
                     from = showResourceDetailCertificateRequest.from;
                     to = showResourceDetailCertificateRequest.to;
                 } else {
@@ -2748,8 +2746,8 @@ export const ParamCreater = function () {
                     serviceType = showResourceDetailCertificateRequest['service_type'];
                     algorithmType = showResourceDetailCertificateRequest['algorithm_type'];
                     certificateType = showResourceDetailCertificateRequest['certificate_type'];
-                    pageSize = showResourceDetailCertificateRequest['page_size'];
-                    pageNum = showResourceDetailCertificateRequest['page_num'];
+                    limit = showResourceDetailCertificateRequest['limit'];
+                    offset = showResourceDetailCertificateRequest['offset'];
                     from = showResourceDetailCertificateRequest['from'];
                     to = showResourceDetailCertificateRequest['to'];
                 }
@@ -2771,11 +2769,11 @@ export const ParamCreater = function () {
             if (certificateType !== null && certificateType !== undefined) {
                 localVarQueryParameter['certificate_type'] = certificateType;
             }
-            if (pageSize !== null && pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
-            if (pageNum !== null && pageNum !== undefined) {
-                localVarQueryParameter['page_num'] = pageNum;
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (from !== null && from !== undefined) {
                 localVarQueryParameter['from'] = from;
@@ -3011,7 +3009,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取CPCS中\\资源总量统计信息
+         * 获取CPCS中资源总量统计信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

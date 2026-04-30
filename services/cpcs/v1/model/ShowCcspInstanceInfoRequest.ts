@@ -1,9 +1,9 @@
 
 
 export class ShowCcspInstanceInfoRequest {
-    private 'page_size'?: number;
+    public limit?: number;
     public name?: string;
-    private 'page_num'?: number;
+    public offset?: number;
     private 'sort_key'?: string;
     private 'sort_dir'?: string;
     private 'cluster_id'?: string;
@@ -11,29 +11,17 @@ export class ShowCcspInstanceInfoRequest {
     private 'is_normal'?: boolean;
     public constructor() { 
     }
-    public withPageSize(pageSize: number): ShowCcspInstanceInfoRequest {
-        this['page_size'] = pageSize;
+    public withLimit(limit: number): ShowCcspInstanceInfoRequest {
+        this['limit'] = limit;
         return this;
-    }
-    public set pageSize(pageSize: number  | undefined) {
-        this['page_size'] = pageSize;
-    }
-    public get pageSize(): number | undefined {
-        return this['page_size'];
     }
     public withName(name: string): ShowCcspInstanceInfoRequest {
         this['name'] = name;
         return this;
     }
-    public withPageNum(pageNum: number): ShowCcspInstanceInfoRequest {
-        this['page_num'] = pageNum;
+    public withOffset(offset: number): ShowCcspInstanceInfoRequest {
+        this['offset'] = offset;
         return this;
-    }
-    public set pageNum(pageNum: number  | undefined) {
-        this['page_num'] = pageNum;
-    }
-    public get pageNum(): number | undefined {
-        return this['page_num'];
     }
     public withSortKey(sortKey: string): ShowCcspInstanceInfoRequest {
         this['sort_key'] = sortKey;

@@ -1,18 +1,17 @@
-import { AuthObjectAuth } from './AuthObjectAuth';
-import { AuthObjectScope } from './AuthObjectScope';
 
 
 export class AuthObject {
-    public auth?: AuthObjectAuth;
-    public scope?: AuthObjectScope;
+    private 'app_id'?: string;
     public constructor() { 
     }
-    public withAuth(auth: AuthObjectAuth): AuthObject {
-        this['auth'] = auth;
+    public withAppId(appId: string): AuthObject {
+        this['app_id'] = appId;
         return this;
     }
-    public withScope(scope: AuthObjectScope): AuthObject {
-        this['scope'] = scope;
-        return this;
+    public set appId(appId: string  | undefined) {
+        this['app_id'] = appId;
+    }
+    public get appId(): string | undefined {
+        return this['app_id'];
     }
 }

@@ -7,6 +7,7 @@ import { ResourceTag } from './ResourceTag';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowAggregatePolicyAssignmentDetailResponse extends SdkResponse {
+    private 'aggregator_name'?: string;
     private 'policy_assignment_type'?: ShowAggregatePolicyAssignmentDetailResponsePolicyAssignmentTypeEnum | string;
     public id?: string;
     public name?: string;
@@ -26,6 +27,16 @@ export class ShowAggregatePolicyAssignmentDetailResponse extends SdkResponse {
     private 'target_id'?: string;
     public constructor() { 
         super();
+    }
+    public withAggregatorName(aggregatorName: string): ShowAggregatePolicyAssignmentDetailResponse {
+        this['aggregator_name'] = aggregatorName;
+        return this;
+    }
+    public set aggregatorName(aggregatorName: string  | undefined) {
+        this['aggregator_name'] = aggregatorName;
+    }
+    public get aggregatorName(): string | undefined {
+        return this['aggregator_name'];
     }
     public withPolicyAssignmentType(policyAssignmentType: ShowAggregatePolicyAssignmentDetailResponsePolicyAssignmentTypeEnum | string): ShowAggregatePolicyAssignmentDetailResponse {
         this['policy_assignment_type'] = policyAssignmentType;
