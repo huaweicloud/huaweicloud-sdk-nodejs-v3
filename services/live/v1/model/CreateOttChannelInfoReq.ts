@@ -18,14 +18,13 @@ export class CreateOttChannelInfoReq {
     private 'record_settings'?: CreateOttChannelInfoReqRecordSettings;
     public endpoints?: Array<EndpointItem>;
     private 'encoder_settings_expand'?: EncoderSettingsExpand;
-    public constructor(domain?: string, appName?: string, id?: string, state?: string, input?: InputStreamInfo, recordSettings?: CreateOttChannelInfoReqRecordSettings, endpoints?: Array<EndpointItem>) { 
+    public constructor(domain?: string, appName?: string, id?: string, state?: string, input?: InputStreamInfo, recordSettings?: CreateOttChannelInfoReqRecordSettings) { 
         this['domain'] = domain;
         this['app_name'] = appName;
         this['id'] = id;
         this['state'] = state;
         this['input'] = input;
         this['record_settings'] = recordSettings;
-        this['endpoints'] = endpoints;
     }
     public withDomain(domain: string): CreateOttChannelInfoReq {
         this['domain'] = domain;

@@ -33,6 +33,7 @@ export class VulHostInfo {
     private 'agent_status'?: string;
     private 'disabled_operate_types'?: Array<HostVulInfoDisabledOperateTypes>;
     private 'repair_priority'?: string;
+    private 'node_type'?: string;
     public constructor() { 
     }
     public withHostId(hostId: string): VulHostInfo {
@@ -326,5 +327,15 @@ export class VulHostInfo {
     }
     public get repairPriority(): string | undefined {
         return this['repair_priority'];
+    }
+    public withNodeType(nodeType: string): VulHostInfo {
+        this['node_type'] = nodeType;
+        return this;
+    }
+    public set nodeType(nodeType: string  | undefined) {
+        this['node_type'] = nodeType;
+    }
+    public get nodeType(): string | undefined {
+        return this['node_type'];
     }
 }

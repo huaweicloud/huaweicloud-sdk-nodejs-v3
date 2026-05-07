@@ -106,6 +106,7 @@ import { DeleteWatermarkTemplateResponse } from './model/DeleteWatermarkTemplate
 import { DomainHttpsCertInfo } from './model/DomainHttpsCertInfo';
 import { DomainIpv6SwitchReq } from './model/DomainIpv6SwitchReq';
 import { DomainMapping } from './model/DomainMapping';
+import { DomainStreamBackupInfo } from './model/DomainStreamBackupInfo';
 import { EncoderSettingsExpand } from './model/EncoderSettingsExpand';
 import { EncoderSettingsExpandAudioDescriptions } from './model/EncoderSettingsExpandAudioDescriptions';
 import { Encryption } from './model/Encryption';
@@ -186,6 +187,8 @@ import { LogInfo } from './model/LogInfo';
 import { MP4RecordConfig } from './model/MP4RecordConfig';
 import { ManifestSelection } from './model/ManifestSelection';
 import { ModifyDelayConfig } from './model/ModifyDelayConfig';
+import { ModifyDomainStreamBackupRequest } from './model/ModifyDomainStreamBackupRequest';
+import { ModifyDomainStreamBackupResponse } from './model/ModifyDomainStreamBackupResponse';
 import { ModifyFlowOutputRequest } from './model/ModifyFlowOutputRequest';
 import { ModifyFlowOutputResponse } from './model/ModifyFlowOutputResponse';
 import { ModifyFlowSourcesRequest } from './model/ModifyFlowSourcesRequest';
@@ -262,6 +265,8 @@ import { ShowDomainKeyChainRequest } from './model/ShowDomainKeyChainRequest';
 import { ShowDomainKeyChainResponse } from './model/ShowDomainKeyChainResponse';
 import { ShowDomainRequest } from './model/ShowDomainRequest';
 import { ShowDomainResponse } from './model/ShowDomainResponse';
+import { ShowDomainStreamBackupRequest } from './model/ShowDomainStreamBackupRequest';
+import { ShowDomainStreamBackupResponse } from './model/ShowDomainStreamBackupResponse';
 import { ShowDomainVerificationRequest } from './model/ShowDomainVerificationRequest';
 import { ShowDomainVerificationResponse } from './model/ShowDomainVerificationResponse';
 import { ShowFlowDetailRequest } from './model/ShowFlowDetailRequest';
@@ -1385,6 +1390,25 @@ export class LiveClient {
     }
 
     /**
+     * 设置域名主备流功能开关，可支持同一路流推多个，按照先后顺序定优先级，客户可进行流优先级切换
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置域名主备流功能开关
+     * @param {DomainStreamBackupInfo} modifyDomainStreamBackupRequestBody 域名主备流功能开关
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyDomainStreamBackup(modifyDomainStreamBackupRequest?: ModifyDomainStreamBackupRequest): Promise<ModifyDomainStreamBackupResponse> {
+        const options = ParamCreater().modifyDomainStreamBackup(modifyDomainStreamBackupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新转推输出
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1554,6 +1578,25 @@ export class LiveClient {
      */
     public showDomainKeyChain(showDomainKeyChainRequest?: ShowDomainKeyChainRequest): Promise<ShowDomainKeyChainResponse> {
         const options = ParamCreater().showDomainKeyChain(showDomainKeyChainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询域名主备流功能开关，可支持同一路流推多个，按照先后顺序定优先级，客户可进行流优先级切换
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询域名主备流功能开关
+     * @param {string} publishDomain **参数解释**： 直播推流域名 **约束限制**： 不涉及 **取值范围**： 字符长度为[1-255]位 **默认取值**： 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDomainStreamBackup(showDomainStreamBackupRequest?: ShowDomainStreamBackupRequest): Promise<ShowDomainStreamBackupResponse> {
+        const options = ParamCreater().showDomainStreamBackup(showDomainStreamBackupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4941,6 +4984,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 设置域名主备流功能开关，可支持同一路流推多个，按照先后顺序定优先级，客户可进行流优先级切换
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyDomainStreamBackup(modifyDomainStreamBackupRequest?: ModifyDomainStreamBackupRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/domain/stream-backup",
+                contentType: "application/json; charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (modifyDomainStreamBackupRequest !== null && modifyDomainStreamBackupRequest !== undefined) {
+                if (modifyDomainStreamBackupRequest instanceof ModifyDomainStreamBackupRequest) {
+                    body = modifyDomainStreamBackupRequest.body
+                } else {
+                    body = modifyDomainStreamBackupRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json; charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新转推输出
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5340,6 +5421,46 @@ export const ParamCreater = function () {
             }
             if (domain !== null && domain !== undefined) {
                 localVarQueryParameter['domain'] = domain;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询域名主备流功能开关，可支持同一路流推多个，按照先后顺序定优先级，客户可进行流优先级切换
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDomainStreamBackup(showDomainStreamBackupRequest?: ShowDomainStreamBackupRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/domain/stream-backup",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let publishDomain;
+
+            if (showDomainStreamBackupRequest !== null && showDomainStreamBackupRequest !== undefined) {
+                if (showDomainStreamBackupRequest instanceof ShowDomainStreamBackupRequest) {
+                    publishDomain = showDomainStreamBackupRequest.publishDomain;
+                } else {
+                    publishDomain = showDomainStreamBackupRequest['publish_domain'];
+                }
+            }
+
+        
+            if (publishDomain === null || publishDomain === undefined) {
+                throw new RequiredError('publishDomain','Required parameter publishDomain was null or undefined when calling showDomainStreamBackup.');
+            }
+            if (publishDomain !== null && publishDomain !== undefined) {
+                localVarQueryParameter['publish_domain'] = publishDomain;
             }
 
             options.queryParams = localVarQueryParameter;

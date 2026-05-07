@@ -5,6 +5,7 @@ export class ListAntiVirusPolicyRequest {
     public offset?: number;
     public limit?: number;
     private 'policy_name'?: string;
+    private 'scan_type'?: string;
     public constructor(offset?: number, limit?: number) { 
         this['offset'] = offset;
         this['limit'] = limit;
@@ -36,5 +37,15 @@ export class ListAntiVirusPolicyRequest {
     }
     public get policyName(): string | undefined {
         return this['policy_name'];
+    }
+    public withScanType(scanType: string): ListAntiVirusPolicyRequest {
+        this['scan_type'] = scanType;
+        return this;
+    }
+    public set scanType(scanType: string  | undefined) {
+        this['scan_type'] = scanType;
+    }
+    public get scanType(): string | undefined {
+        return this['scan_type'];
     }
 }

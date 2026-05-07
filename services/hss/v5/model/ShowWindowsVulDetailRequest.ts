@@ -1,6 +1,6 @@
 
 
-export class ShowWindosVulDetailRequest {
+export class ShowWindowsVulDetailRequest {
     private 'enterprise_project_id'?: string;
     public limit?: number;
     public offset?: number;
@@ -10,7 +10,7 @@ export class ShowWindosVulDetailRequest {
     public constructor(vulId?: string) { 
         this['vul_id'] = vulId;
     }
-    public withEnterpriseProjectId(enterpriseProjectId: string): ShowWindosVulDetailRequest {
+    public withEnterpriseProjectId(enterpriseProjectId: string): ShowWindowsVulDetailRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
@@ -20,15 +20,15 @@ export class ShowWindosVulDetailRequest {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withLimit(limit: number): ShowWindosVulDetailRequest {
+    public withLimit(limit: number): ShowWindowsVulDetailRequest {
         this['limit'] = limit;
         return this;
     }
-    public withOffset(offset: number): ShowWindosVulDetailRequest {
+    public withOffset(offset: number): ShowWindowsVulDetailRequest {
         this['offset'] = offset;
         return this;
     }
-    public withVulId(vulId: string): ShowWindosVulDetailRequest {
+    public withVulId(vulId: string): ShowWindowsVulDetailRequest {
         this['vul_id'] = vulId;
         return this;
     }
@@ -38,7 +38,7 @@ export class ShowWindosVulDetailRequest {
     public get vulId(): string | undefined {
         return this['vul_id'];
     }
-    public withCveId(cveId: string): ShowWindosVulDetailRequest {
+    public withCveId(cveId: string): ShowWindowsVulDetailRequest {
         this['cve_id'] = cveId;
         return this;
     }
@@ -48,7 +48,7 @@ export class ShowWindosVulDetailRequest {
     public get cveId(): string | undefined {
         return this['cve_id'];
     }
-    public withHandleStatus(handleStatus: string): ShowWindosVulDetailRequest {
+    public withHandleStatus(handleStatus: string): ShowWindowsVulDetailRequest {
         this['handle_status'] = handleStatus;
         return this;
     }

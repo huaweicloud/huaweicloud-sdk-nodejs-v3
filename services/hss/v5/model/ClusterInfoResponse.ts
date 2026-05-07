@@ -1,5 +1,6 @@
 import { ClusterInfoResponseDsInfo } from './ClusterInfoResponseDsInfo';
 import { ClusterInfoResponseRegistryInfo } from './ClusterInfoResponseRegistryInfo';
+import { ClusterInfoResponseResourceInfo } from './ClusterInfoResponseResourceInfo';
 
 
 export class ClusterInfoResponse {
@@ -19,6 +20,7 @@ export class ClusterInfoResponse {
     private 'cluster_log_status'?: string;
     private 'invoked_service'?: string;
     private 'registry_info'?: ClusterInfoResponseRegistryInfo;
+    private 'resource_info'?: ClusterInfoResponseResourceInfo;
     public constructor() { 
     }
     public withLatestVersion(latestVersion: boolean): ClusterInfoResponse {
@@ -174,5 +176,15 @@ export class ClusterInfoResponse {
     }
     public get registryInfo(): ClusterInfoResponseRegistryInfo | undefined {
         return this['registry_info'];
+    }
+    public withResourceInfo(resourceInfo: ClusterInfoResponseResourceInfo): ClusterInfoResponse {
+        this['resource_info'] = resourceInfo;
+        return this;
+    }
+    public set resourceInfo(resourceInfo: ClusterInfoResponseResourceInfo  | undefined) {
+        this['resource_info'] = resourceInfo;
+    }
+    public get resourceInfo(): ClusterInfoResponseResourceInfo | undefined {
+        return this['resource_info'];
     }
 }

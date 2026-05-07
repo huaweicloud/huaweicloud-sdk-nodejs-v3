@@ -4,7 +4,7 @@ export class Resources {
     private 'cluster_id'?: string;
     private 'cluster_name'?: string;
     public images?: string;
-    public labels?: string;
+    public labels?: Array<string>;
     public namespace?: string;
     public constructor() { 
     }
@@ -32,7 +32,7 @@ export class Resources {
         this['images'] = images;
         return this;
     }
-    public withLabels(labels: string): Resources {
+    public withLabels(labels: Array<string>): Resources {
         this['labels'] = labels;
         return this;
     }

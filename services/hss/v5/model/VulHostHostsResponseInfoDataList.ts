@@ -20,6 +20,7 @@ export class VulHostHostsResponseInfoDataList {
     private 'handle_status'?: string;
     private 'vul_num_with_repair_priority_list'?: Array<VulHostHostsResponseInfoVulNumWithRepairPriorityList>;
     private 'vul_ids_info'?: VulHostHostsResponseInfoVulIdsInfo;
+    private 'node_type'?: string;
     public constructor() { 
     }
     public withHostId(hostId: string): VulHostHostsResponseInfoDataList {
@@ -179,5 +180,15 @@ export class VulHostHostsResponseInfoDataList {
     }
     public get vulIdsInfo(): VulHostHostsResponseInfoVulIdsInfo | undefined {
         return this['vul_ids_info'];
+    }
+    public withNodeType(nodeType: string): VulHostHostsResponseInfoDataList {
+        this['node_type'] = nodeType;
+        return this;
+    }
+    public set nodeType(nodeType: string  | undefined) {
+        this['node_type'] = nodeType;
+    }
+    public get nodeType(): string | undefined {
+        return this['node_type'];
     }
 }

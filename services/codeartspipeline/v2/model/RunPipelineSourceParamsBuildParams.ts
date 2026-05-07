@@ -15,7 +15,7 @@ export class RunPipelineSourceParamsBuildParams {
     private 'source_codehub_url'?: string;
     private 'source_codehub_http_url'?: string;
     private 'virtual_merge_branch'?: string;
-    private 'virtual_merge_commitId'?: string;
+    private 'virtual_merge_commit_id'?: string;
     public constructor() { 
     }
     public withAction(action: string): RunPipelineSourceParamsBuildParams {
@@ -141,13 +141,13 @@ export class RunPipelineSourceParamsBuildParams {
         return this['virtual_merge_branch'];
     }
     public withVirtualMergeCommitId(virtualMergeCommitId: string): RunPipelineSourceParamsBuildParams {
-        this['virtual_merge_commitId'] = virtualMergeCommitId;
+        this['virtual_merge_commit_id'] = virtualMergeCommitId;
         return this;
     }
     public set virtualMergeCommitId(virtualMergeCommitId: string  | undefined) {
-        this['virtual_merge_commitId'] = virtualMergeCommitId;
+        this['virtual_merge_commit_id'] = virtualMergeCommitId;
     }
     public get virtualMergeCommitId(): string | undefined {
-        return this['virtual_merge_commitId'];
+        return this['virtual_merge_commit_id'];
     }
 }

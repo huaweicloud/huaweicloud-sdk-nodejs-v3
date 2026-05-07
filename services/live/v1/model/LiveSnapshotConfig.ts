@@ -7,6 +7,7 @@ export class LiveSnapshotConfig {
     private 'auth_key'?: string;
     private 'time_interval'?: number;
     private 'object_write_mode'?: number;
+    private 'snapshot_mode'?: LiveSnapshotConfigSnapshotModeEnum | string;
     private 'obs_location'?: ObsFileAddr;
     private 'call_back_enable'?: LiveSnapshotConfigCallBackEnableEnum | string;
     private 'call_back_url'?: string;
@@ -63,6 +64,16 @@ export class LiveSnapshotConfig {
     }
     public get objectWriteMode(): number | undefined {
         return this['object_write_mode'];
+    }
+    public withSnapshotMode(snapshotMode: LiveSnapshotConfigSnapshotModeEnum | string): LiveSnapshotConfig {
+        this['snapshot_mode'] = snapshotMode;
+        return this;
+    }
+    public set snapshotMode(snapshotMode: LiveSnapshotConfigSnapshotModeEnum | string  | undefined) {
+        this['snapshot_mode'] = snapshotMode;
+    }
+    public get snapshotMode(): LiveSnapshotConfigSnapshotModeEnum | string | undefined {
+        return this['snapshot_mode'];
     }
     public withObsLocation(obsLocation: ObsFileAddr): LiveSnapshotConfig {
         this['obs_location'] = obsLocation;
@@ -126,6 +137,15 @@ export class LiveSnapshotConfig {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum LiveSnapshotConfigSnapshotModeEnum {
+    KEYFRAME = 'keyframe',
+    NOKEYFRAME = 'nokeyframe',
+    RANDOM = 'random'
+}
 /**
     * @export
     * @enum {string}

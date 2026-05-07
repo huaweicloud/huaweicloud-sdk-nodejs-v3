@@ -1,3 +1,4 @@
+import { RuntimeServiceInfo } from './RuntimeServiceInfo';
 
 
 export class Host {
@@ -53,6 +54,16 @@ export class Host {
     private 'common_login_area_codes'?: Array<number>;
     private 'cluster_name'?: string;
     private 'cluster_id'?: string;
+    private 'container_type'?: number;
+    private 'ransom_protection_status'?: string;
+    private 'wtp_protect_status'?: string;
+    private 'two_factor_auth'?: boolean;
+    private 'data_center_tag'?: string;
+    private 'service_provider_name'?: string;
+    private 'node_runtime_info'?: Array<RuntimeServiceInfo>;
+    public mode?: string;
+    private 'cpu_limit'?: string;
+    private 'mem_limit'?: string;
     public constructor() { 
     }
     public withHostName(hostName: string): Host {
@@ -532,6 +543,100 @@ export class Host {
     }
     public get clusterId(): string | undefined {
         return this['cluster_id'];
+    }
+    public withContainerType(containerType: number): Host {
+        this['container_type'] = containerType;
+        return this;
+    }
+    public set containerType(containerType: number  | undefined) {
+        this['container_type'] = containerType;
+    }
+    public get containerType(): number | undefined {
+        return this['container_type'];
+    }
+    public withRansomProtectionStatus(ransomProtectionStatus: string): Host {
+        this['ransom_protection_status'] = ransomProtectionStatus;
+        return this;
+    }
+    public set ransomProtectionStatus(ransomProtectionStatus: string  | undefined) {
+        this['ransom_protection_status'] = ransomProtectionStatus;
+    }
+    public get ransomProtectionStatus(): string | undefined {
+        return this['ransom_protection_status'];
+    }
+    public withWtpProtectStatus(wtpProtectStatus: string): Host {
+        this['wtp_protect_status'] = wtpProtectStatus;
+        return this;
+    }
+    public set wtpProtectStatus(wtpProtectStatus: string  | undefined) {
+        this['wtp_protect_status'] = wtpProtectStatus;
+    }
+    public get wtpProtectStatus(): string | undefined {
+        return this['wtp_protect_status'];
+    }
+    public withTwoFactorAuth(twoFactorAuth: boolean): Host {
+        this['two_factor_auth'] = twoFactorAuth;
+        return this;
+    }
+    public set twoFactorAuth(twoFactorAuth: boolean  | undefined) {
+        this['two_factor_auth'] = twoFactorAuth;
+    }
+    public get twoFactorAuth(): boolean | undefined {
+        return this['two_factor_auth'];
+    }
+    public withDataCenterTag(dataCenterTag: string): Host {
+        this['data_center_tag'] = dataCenterTag;
+        return this;
+    }
+    public set dataCenterTag(dataCenterTag: string  | undefined) {
+        this['data_center_tag'] = dataCenterTag;
+    }
+    public get dataCenterTag(): string | undefined {
+        return this['data_center_tag'];
+    }
+    public withServiceProviderName(serviceProviderName: string): Host {
+        this['service_provider_name'] = serviceProviderName;
+        return this;
+    }
+    public set serviceProviderName(serviceProviderName: string  | undefined) {
+        this['service_provider_name'] = serviceProviderName;
+    }
+    public get serviceProviderName(): string | undefined {
+        return this['service_provider_name'];
+    }
+    public withNodeRuntimeInfo(nodeRuntimeInfo: Array<RuntimeServiceInfo>): Host {
+        this['node_runtime_info'] = nodeRuntimeInfo;
+        return this;
+    }
+    public set nodeRuntimeInfo(nodeRuntimeInfo: Array<RuntimeServiceInfo>  | undefined) {
+        this['node_runtime_info'] = nodeRuntimeInfo;
+    }
+    public get nodeRuntimeInfo(): Array<RuntimeServiceInfo> | undefined {
+        return this['node_runtime_info'];
+    }
+    public withMode(mode: string): Host {
+        this['mode'] = mode;
+        return this;
+    }
+    public withCpuLimit(cpuLimit: string): Host {
+        this['cpu_limit'] = cpuLimit;
+        return this;
+    }
+    public set cpuLimit(cpuLimit: string  | undefined) {
+        this['cpu_limit'] = cpuLimit;
+    }
+    public get cpuLimit(): string | undefined {
+        return this['cpu_limit'];
+    }
+    public withMemLimit(memLimit: string): Host {
+        this['mem_limit'] = memLimit;
+        return this;
+    }
+    public set memLimit(memLimit: string  | undefined) {
+        this['mem_limit'] = memLimit;
+    }
+    public get memLimit(): string | undefined {
+        return this['mem_limit'];
     }
 }
 

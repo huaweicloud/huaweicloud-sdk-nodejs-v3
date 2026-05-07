@@ -14,6 +14,7 @@ export class ListVulHostHostsRequest {
     public status?: string;
     private 'cluster_id'?: string;
     private 'host_id_list'?: string;
+    private 'node_type'?: string;
     public constructor(limit?: number, offset?: number) { 
         this['limit'] = limit;
         this['offset'] = offset;
@@ -129,5 +130,15 @@ export class ListVulHostHostsRequest {
     }
     public get hostIdList(): string | undefined {
         return this['host_id_list'];
+    }
+    public withNodeType(nodeType: string): ListVulHostHostsRequest {
+        this['node_type'] = nodeType;
+        return this;
+    }
+    public set nodeType(nodeType: string  | undefined) {
+        this['node_type'] = nodeType;
+    }
+    public get nodeType(): string | undefined {
+        return this['node_type'];
     }
 }

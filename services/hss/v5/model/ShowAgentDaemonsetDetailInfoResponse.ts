@@ -1,5 +1,6 @@
 import { CreateDaemonsetRequestBodyScheduleInfo } from './CreateDaemonsetRequestBodyScheduleInfo';
 import { DaemonsetYamlResponseInfoDsInfo } from './DaemonsetYamlResponseInfoDsInfo';
+import { DaemonsetYamlResponseInfoResourceInfo } from './DaemonsetYamlResponseInfoResourceInfo';
 import { RuntimeRequestBody } from './RuntimeRequestBody';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -12,6 +13,7 @@ export class ShowAgentDaemonsetDetailInfoResponse extends SdkResponse {
     private 'ds_info'?: DaemonsetYamlResponseInfoDsInfo;
     private 'installed_status'?: string;
     private 'schedule_info'?: CreateDaemonsetRequestBodyScheduleInfo;
+    private 'resource_info'?: DaemonsetYamlResponseInfoResourceInfo;
     public constructor() { 
         super();
     }
@@ -84,5 +86,15 @@ export class ShowAgentDaemonsetDetailInfoResponse extends SdkResponse {
     }
     public get scheduleInfo(): CreateDaemonsetRequestBodyScheduleInfo | undefined {
         return this['schedule_info'];
+    }
+    public withResourceInfo(resourceInfo: DaemonsetYamlResponseInfoResourceInfo): ShowAgentDaemonsetDetailInfoResponse {
+        this['resource_info'] = resourceInfo;
+        return this;
+    }
+    public set resourceInfo(resourceInfo: DaemonsetYamlResponseInfoResourceInfo  | undefined) {
+        this['resource_info'] = resourceInfo;
+    }
+    public get resourceInfo(): DaemonsetYamlResponseInfoResourceInfo | undefined {
+        return this['resource_info'];
     }
 }

@@ -494,6 +494,8 @@ import { ListTransactionRequestBody } from './model/ListTransactionRequestBody';
 import { ListTransactionRequestBodyTransactionQueryInfo } from './model/ListTransactionRequestBodyTransactionQueryInfo';
 import { ListTransactionResponse } from './model/ListTransactionResponse';
 import { ListTransactionResponseBodyRows } from './model/ListTransactionResponseBodyRows';
+import { ListUpgradePathsRequest } from './model/ListUpgradePathsRequest';
+import { ListUpgradePathsResponse } from './model/ListUpgradePathsResponse';
 import { ListVolume } from './model/ListVolume';
 import { ListWaitEventRequest } from './model/ListWaitEventRequest';
 import { ListWaitEventRequestBody } from './model/ListWaitEventRequestBody';
@@ -844,12 +846,14 @@ import { UpgradeInstanceVersionResponse } from './model/UpgradeInstanceVersionRe
 import { UpgradeInstancesRequestBody } from './model/UpgradeInstancesRequestBody';
 import { UpgradeInstancesVersionRequest } from './model/UpgradeInstancesVersionRequest';
 import { UpgradeInstancesVersionResponse } from './model/UpgradeInstancesVersionResponse';
+import { UpgradePathsResult } from './model/UpgradePathsResult';
 import { UpgradeRequestBody } from './model/UpgradeRequestBody';
 import { UpgradeTypeInfo } from './model/UpgradeTypeInfo';
 import { ValidateParaGroupNameRequest } from './model/ValidateParaGroupNameRequest';
 import { ValidateParaGroupNameResponse } from './model/ValidateParaGroupNameResponse';
 import { ValidateWeakPasswordRequest } from './model/ValidateWeakPasswordRequest';
 import { ValidateWeakPasswordResponse } from './model/ValidateWeakPasswordResponse';
+import { VersionInfosResult } from './model/VersionInfosResult';
 import { WaitEventQueryInfoOption } from './model/WaitEventQueryInfoOption';
 import { WaitEventResult } from './model/WaitEventResult';
 import { WaitEventTime } from './model/WaitEventTime';
@@ -3558,6 +3562,27 @@ export class GaussDBforopenGaussClient {
      */
     public listTransaction(listTransactionRequest?: ListTransactionRequest): Promise<ListTransactionResponse> {
         const options = ParamCreater().listTransaction(listTransactionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询引擎的升级路径
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询引擎的升级路径
+     * @param {string} sourceVersion **参数解释**: 源引擎版本号。 **约束限制**: 不涉及 **取值范围**: 不涉及 **默认取值**: 不涉及。 
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**: - zh-cn  - en-us  **默认取值**: en-us
+     * @param {string} [targetVersion] **参数解释**: 目标引擎版本号。 **约束限制**: 不涉及 **取值范围**: 不涉及 **默认取值**: 不涉及。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listUpgradePaths(listUpgradePathsRequest?: ListUpgradePathsRequest): Promise<ListUpgradePathsResponse> {
+        const options = ParamCreater().listUpgradePaths(listUpgradePathsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -13534,6 +13559,60 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询引擎的升级路径
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listUpgradePaths(listUpgradePathsRequest?: ListUpgradePathsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/upgrade-paths",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let sourceVersion;
+            
+            let xLanguage;
+            
+            let targetVersion;
+
+            if (listUpgradePathsRequest !== null && listUpgradePathsRequest !== undefined) {
+                if (listUpgradePathsRequest instanceof ListUpgradePathsRequest) {
+                    sourceVersion = listUpgradePathsRequest.sourceVersion;
+                    xLanguage = listUpgradePathsRequest.xLanguage;
+                    targetVersion = listUpgradePathsRequest.targetVersion;
+                } else {
+                    sourceVersion = listUpgradePathsRequest['source_version'];
+                    xLanguage = listUpgradePathsRequest['X-Language'];
+                    targetVersion = listUpgradePathsRequest['target_version'];
+                }
+            }
+
+        
+            if (sourceVersion === null || sourceVersion === undefined) {
+                throw new RequiredError('sourceVersion','Required parameter sourceVersion was null or undefined when calling listUpgradePaths.');
+            }
+            if (sourceVersion !== null && sourceVersion !== undefined) {
+                localVarQueryParameter['source_version'] = sourceVersion;
+            }
+            if (targetVersion !== null && targetVersion !== undefined) {
+                localVarQueryParameter['target_version'] = targetVersion;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -1,3 +1,4 @@
+import { CreateDaemonsetRequestBodyResourceInfo } from './CreateDaemonsetRequestBodyResourceInfo';
 import { CreateDaemonsetRequestBodyScheduleInfo } from './CreateDaemonsetRequestBodyScheduleInfo';
 import { RuntimeRequestBody } from './RuntimeRequestBody';
 
@@ -7,6 +8,7 @@ export class CreateDaemonsetRequestBody {
     private 'auto_upgrade'?: boolean;
     private 'runtime_info'?: Array<RuntimeRequestBody>;
     private 'schedule_info'?: CreateDaemonsetRequestBodyScheduleInfo;
+    private 'resource_info'?: CreateDaemonsetRequestBodyResourceInfo;
     public constructor() { 
     }
     public withClusterName(clusterName: string): CreateDaemonsetRequestBody {
@@ -48,5 +50,15 @@ export class CreateDaemonsetRequestBody {
     }
     public get scheduleInfo(): CreateDaemonsetRequestBodyScheduleInfo | undefined {
         return this['schedule_info'];
+    }
+    public withResourceInfo(resourceInfo: CreateDaemonsetRequestBodyResourceInfo): CreateDaemonsetRequestBody {
+        this['resource_info'] = resourceInfo;
+        return this;
+    }
+    public set resourceInfo(resourceInfo: CreateDaemonsetRequestBodyResourceInfo  | undefined) {
+        this['resource_info'] = resourceInfo;
+    }
+    public get resourceInfo(): CreateDaemonsetRequestBodyResourceInfo | undefined {
+        return this['resource_info'];
     }
 }

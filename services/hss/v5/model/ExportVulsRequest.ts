@@ -18,6 +18,7 @@ export class ExportVulsRequest {
     public status?: string;
     private 'asset_value'?: string;
     private 'group_name'?: string;
+    private 'node_type'?: string;
     public body?: ExportVulRequestBody;
     public constructor(exportSize?: number, category?: string) { 
         this['export_size'] = exportSize;
@@ -152,6 +153,16 @@ export class ExportVulsRequest {
     }
     public get groupName(): string | undefined {
         return this['group_name'];
+    }
+    public withNodeType(nodeType: string): ExportVulsRequest {
+        this['node_type'] = nodeType;
+        return this;
+    }
+    public set nodeType(nodeType: string  | undefined) {
+        this['node_type'] = nodeType;
+    }
+    public get nodeType(): string | undefined {
+        return this['node_type'];
     }
     public withBody(body: ExportVulRequestBody): ExportVulsRequest {
         this['body'] = body;

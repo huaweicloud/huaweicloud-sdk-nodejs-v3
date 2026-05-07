@@ -14,6 +14,7 @@ export class ListVulnerabilitiesRequest {
     public status?: string;
     private 'asset_value'?: string;
     private 'group_name'?: string;
+    private 'node_type'?: string;
     public constructor() { 
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListVulnerabilitiesRequest {
@@ -121,5 +122,15 @@ export class ListVulnerabilitiesRequest {
     }
     public get groupName(): string | undefined {
         return this['group_name'];
+    }
+    public withNodeType(nodeType: string): ListVulnerabilitiesRequest {
+        this['node_type'] = nodeType;
+        return this;
+    }
+    public set nodeType(nodeType: string  | undefined) {
+        this['node_type'] = nodeType;
+    }
+    public get nodeType(): string | undefined {
+        return this['node_type'];
     }
 }

@@ -21,6 +21,7 @@ export class ListVulHostsRequest {
     private 'container_name'?: string;
     private 'min_scan_time'?: number;
     private 'max_scan_time'?: number;
+    private 'node_type'?: string;
     public constructor(vulId?: string, type?: string) { 
         this['vul_id'] = vulId;
         this['type'] = type;
@@ -200,5 +201,15 @@ export class ListVulHostsRequest {
     }
     public get maxScanTime(): number | undefined {
         return this['max_scan_time'];
+    }
+    public withNodeType(nodeType: string): ListVulHostsRequest {
+        this['node_type'] = nodeType;
+        return this;
+    }
+    public set nodeType(nodeType: string  | undefined) {
+        this['node_type'] = nodeType;
+    }
+    public get nodeType(): string | undefined {
+        return this['node_type'];
     }
 }

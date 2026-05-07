@@ -1,3 +1,4 @@
+import { CreateDaemonsetRequestBodyResourceInfo } from './CreateDaemonsetRequestBodyResourceInfo';
 import { CreateDaemonsetRequestBodyScheduleInfo } from './CreateDaemonsetRequestBodyScheduleInfo';
 import { RuntimeRequestBody } from './RuntimeRequestBody';
 
@@ -12,6 +13,7 @@ export class UpdateDaemonsetRequestBody {
     private 'charging_mode'?: UpdateDaemonsetRequestBodyChargingModeEnum | string;
     private 'cce_protection_type'?: UpdateDaemonsetRequestBodyCceProtectionTypeEnum | string;
     private 'prefer_packet_cycle'?: boolean;
+    private 'resource_info'?: CreateDaemonsetRequestBodyResourceInfo;
     public constructor() { 
     }
     public withAgentVersion(agentVersion: string): UpdateDaemonsetRequestBody {
@@ -103,6 +105,16 @@ export class UpdateDaemonsetRequestBody {
     }
     public get preferPacketCycle(): boolean | undefined {
         return this['prefer_packet_cycle'];
+    }
+    public withResourceInfo(resourceInfo: CreateDaemonsetRequestBodyResourceInfo): UpdateDaemonsetRequestBody {
+        this['resource_info'] = resourceInfo;
+        return this;
+    }
+    public set resourceInfo(resourceInfo: CreateDaemonsetRequestBodyResourceInfo  | undefined) {
+        this['resource_info'] = resourceInfo;
+    }
+    public get resourceInfo(): CreateDaemonsetRequestBodyResourceInfo | undefined {
+        return this['resource_info'];
     }
 }
 
