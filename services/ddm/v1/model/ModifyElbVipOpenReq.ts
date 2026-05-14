@@ -3,7 +3,8 @@
 export class ModifyElbVipOpenReq {
     private 'group_id'?: string;
     private 'new_ip'?: string;
-    public constructor() { 
+    public constructor(newIp?: string) { 
+        this['new_ip'] = newIp;
     }
     public withGroupId(groupId: string): ModifyElbVipOpenReq {
         this['group_id'] = groupId;

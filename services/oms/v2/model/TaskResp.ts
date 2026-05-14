@@ -13,7 +13,6 @@ export class TaskResp {
     public description?: string;
     private 'dst_node'?: DstNodeResp;
     private 'enable_failed_object_recording'?: boolean;
-    private 'enable_kms'?: boolean;
     private 'enable_metadata_migration'?: boolean;
     private 'enable_restore'?: boolean;
     private 'error_reason'?: ErrorReasonResp;
@@ -92,16 +91,6 @@ export class TaskResp {
     }
     public get enableFailedObjectRecording(): boolean | undefined {
         return this['enable_failed_object_recording'];
-    }
-    public withEnableKms(enableKms: boolean): TaskResp {
-        this['enable_kms'] = enableKms;
-        return this;
-    }
-    public set enableKms(enableKms: boolean  | undefined) {
-        this['enable_kms'] = enableKms;
-    }
-    public get enableKms(): boolean | undefined {
-        return this['enable_kms'];
     }
     public withEnableMetadataMigration(enableMetadataMigration: boolean): TaskResp {
         this['enable_metadata_migration'] = enableMetadataMigration;

@@ -9,7 +9,6 @@ export class CreateTaskReq {
     private 'task_type'?: CreateTaskReqTaskTypeEnum | string;
     private 'src_node'?: SrcNodeReq;
     private 'dst_node'?: DstNodeReq;
-    private 'enable_kms'?: boolean;
     public description?: string;
     private 'migrate_since'?: number;
     private 'bandwidth_policy'?: Array<BandwidthPolicyDto>;
@@ -56,16 +55,6 @@ export class CreateTaskReq {
     }
     public get dstNode(): DstNodeReq | undefined {
         return this['dst_node'];
-    }
-    public withEnableKms(enableKms: boolean): CreateTaskReq {
-        this['enable_kms'] = enableKms;
-        return this;
-    }
-    public set enableKms(enableKms: boolean  | undefined) {
-        this['enable_kms'] = enableKms;
-    }
-    public get enableKms(): boolean | undefined {
-        return this['enable_kms'];
     }
     public withDescription(description: string): CreateTaskReq {
         this['description'] = description;

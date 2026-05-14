@@ -1,8 +1,6 @@
-import { IamAccount } from './IamAccount';
 
 
 export class MigrateRouteSwitchReqVO {
-    private 'iam_account'?: IamAccount;
     private 'project_id'?: string;
     private 'instance_id'?: string;
     private 'task_id'?: string;
@@ -11,16 +9,6 @@ export class MigrateRouteSwitchReqVO {
     private 'is_open_api'?: boolean;
     private 'logic_db_name'?: string;
     public constructor() { 
-    }
-    public withIamAccount(iamAccount: IamAccount): MigrateRouteSwitchReqVO {
-        this['iam_account'] = iamAccount;
-        return this;
-    }
-    public set iamAccount(iamAccount: IamAccount  | undefined) {
-        this['iam_account'] = iamAccount;
-    }
-    public get iamAccount(): IamAccount | undefined {
-        return this['iam_account'];
     }
     public withProjectId(projectId: string): MigrateRouteSwitchReqVO {
         this['project_id'] = projectId;

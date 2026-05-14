@@ -12,7 +12,6 @@ export class CreateTaskGroupReq {
     private 'enable_metadata_migration'?: boolean;
     private 'enable_failed_object_recording'?: boolean;
     private 'enable_restore'?: boolean;
-    private 'enable_kms'?: boolean;
     private 'task_type'?: CreateTaskGroupReqTaskTypeEnum | string;
     private 'bandwidth_policy'?: Array<BandwidthPolicyDto>;
     private 'smn_config'?: SmnConfig;
@@ -22,10 +21,9 @@ export class CreateTaskGroupReq {
     private 'dst_storage_policy'?: CreateTaskGroupReqDstStoragePolicyEnum | string;
     private 'consistency_check'?: CreateTaskGroupReqConsistencyCheckEnum | string;
     private 'enable_requester_pays'?: boolean;
-    public constructor(srcNode?: TaskGroupSrcNode, dstNode?: TaskGroupDstNode, enableKms?: boolean) { 
+    public constructor(srcNode?: TaskGroupSrcNode, dstNode?: TaskGroupDstNode) { 
         this['src_node'] = srcNode;
         this['dst_node'] = dstNode;
-        this['enable_kms'] = enableKms;
     }
     public withSrcNode(srcNode: TaskGroupSrcNode): CreateTaskGroupReq {
         this['src_node'] = srcNode;
@@ -80,16 +78,6 @@ export class CreateTaskGroupReq {
     }
     public get enableRestore(): boolean | undefined {
         return this['enable_restore'];
-    }
-    public withEnableKms(enableKms: boolean): CreateTaskGroupReq {
-        this['enable_kms'] = enableKms;
-        return this;
-    }
-    public set enableKms(enableKms: boolean  | undefined) {
-        this['enable_kms'] = enableKms;
-    }
-    public get enableKms(): boolean | undefined {
-        return this['enable_kms'];
     }
     public withTaskType(taskType: CreateTaskGroupReqTaskTypeEnum | string): CreateTaskGroupReq {
         this['task_type'] = taskType;

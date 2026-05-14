@@ -13,6 +13,8 @@ export class SrcNodeReq {
     public bucket?: string;
     private 'object_key'?: Array<string>;
     private 'list_file'?: ListFile;
+    private 'crypto_type'?: SrcNodeReqCryptoTypeEnum | string;
+    private 'kms_key_id'?: string;
     public constructor() { 
     }
     public withCloudType(cloudType: string): SrcNodeReq {
@@ -101,4 +103,33 @@ export class SrcNodeReq {
     public get listFile(): ListFile | undefined {
         return this['list_file'];
     }
+    public withCryptoType(cryptoType: SrcNodeReqCryptoTypeEnum | string): SrcNodeReq {
+        this['crypto_type'] = cryptoType;
+        return this;
+    }
+    public set cryptoType(cryptoType: SrcNodeReqCryptoTypeEnum | string  | undefined) {
+        this['crypto_type'] = cryptoType;
+    }
+    public get cryptoType(): SrcNodeReqCryptoTypeEnum | string | undefined {
+        return this['crypto_type'];
+    }
+    public withKmsKeyId(kmsKeyId: string): SrcNodeReq {
+        this['kms_key_id'] = kmsKeyId;
+        return this;
+    }
+    public set kmsKeyId(kmsKeyId: string  | undefined) {
+        this['kms_key_id'] = kmsKeyId;
+    }
+    public get kmsKeyId(): string | undefined {
+        return this['kms_key_id'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SrcNodeReqCryptoTypeEnum {
+    DEFAULT = 'DEFAULT',
+    KMS = 'KMS'
 }

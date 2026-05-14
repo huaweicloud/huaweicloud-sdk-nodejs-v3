@@ -143,7 +143,6 @@ import { GetUsersListdatabase } from './model/GetUsersListdatabase';
 import { GetUsersListdatabaseV3 } from './model/GetUsersListdatabaseV3';
 import { GroupInfo } from './model/GroupInfo';
 import { GroupNodeInfo } from './model/GroupNodeInfo';
-import { IamAccount } from './model/IamAccount';
 import { Instance } from './model/Instance';
 import { InstanceDetail } from './model/InstanceDetail';
 import { IpGroupItem } from './model/IpGroupItem';
@@ -346,6 +345,8 @@ import { TaskLogsVO } from './model/TaskLogsVO';
 import { TmlogInfo } from './model/TmlogInfo';
 import { UnbindEipRequest } from './model/UnbindEipRequest';
 import { UnbindEipResponse } from './model/UnbindEipResponse';
+import { UnbindLogicDbRequest } from './model/UnbindLogicDbRequest';
+import { UnbindLogicDbResponse } from './model/UnbindLogicDbResponse';
 import { UpdateDatabaseInfoRequest } from './model/UpdateDatabaseInfoRequest';
 import { UpdateDatabaseInfoResponse } from './model/UpdateDatabaseInfoResponse';
 import { UpdateDdmInstanceNameRequest } from './model/UpdateDdmInstanceNameRequest';
@@ -2396,6 +2397,26 @@ export class DdmClient {
      */
     public unbindEip(unbindEipRequest?: UnbindEipRequest): Promise<UnbindEipResponse> {
         const options = ParamCreater().unbindEip(unbindEipRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 逻辑库解绑
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 逻辑库解绑
+     * @param {string} instanceId DDM实例ID
+     * @param {string} logicDbName 需要解绑的逻辑库名
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public unbindLogicDb(unbindLogicDbRequest?: UnbindLogicDbRequest): Promise<UnbindLogicDbResponse> {
+        const options = ParamCreater().unbindLogicDb(unbindLogicDbRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7651,6 +7672,50 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 逻辑库解绑
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        unbindLogicDb(unbindLogicDbRequest?: UnbindLogicDbRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/databases/{logic_db_name}/unbind",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let logicDbName;
+
+            if (unbindLogicDbRequest !== null && unbindLogicDbRequest !== undefined) {
+                if (unbindLogicDbRequest instanceof UnbindLogicDbRequest) {
+                    instanceId = unbindLogicDbRequest.instanceId;
+                    logicDbName = unbindLogicDbRequest.logicDbName;
+                } else {
+                    instanceId = unbindLogicDbRequest['instance_id'];
+                    logicDbName = unbindLogicDbRequest['logic_db_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling unbindLogicDb.');
+            }
+            if (logicDbName === null || logicDbName === undefined) {
+            throw new RequiredError('logicDbName','Required parameter logicDbName was null or undefined when calling unbindLogicDb.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'logic_db_name': logicDbName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

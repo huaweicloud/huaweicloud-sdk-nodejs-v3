@@ -7,6 +7,8 @@ export class DstNodeReq {
     public bucket?: string;
     private 'save_prefix'?: string;
     public region?: string;
+    private 'crypto_type'?: DstNodeReqCryptoTypeEnum | string;
+    private 'kms_key_id'?: string;
     public constructor(ak?: string, sk?: string, bucket?: string, region?: string) { 
         this['ak'] = ak;
         this['sk'] = sk;
@@ -49,4 +51,33 @@ export class DstNodeReq {
         this['region'] = region;
         return this;
     }
+    public withCryptoType(cryptoType: DstNodeReqCryptoTypeEnum | string): DstNodeReq {
+        this['crypto_type'] = cryptoType;
+        return this;
+    }
+    public set cryptoType(cryptoType: DstNodeReqCryptoTypeEnum | string  | undefined) {
+        this['crypto_type'] = cryptoType;
+    }
+    public get cryptoType(): DstNodeReqCryptoTypeEnum | string | undefined {
+        return this['crypto_type'];
+    }
+    public withKmsKeyId(kmsKeyId: string): DstNodeReq {
+        this['kms_key_id'] = kmsKeyId;
+        return this;
+    }
+    public set kmsKeyId(kmsKeyId: string  | undefined) {
+        this['kms_key_id'] = kmsKeyId;
+    }
+    public get kmsKeyId(): string | undefined {
+        return this['kms_key_id'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DstNodeReqCryptoTypeEnum {
+    DEFAULT = 'DEFAULT',
+    KMS = 'KMS'
 }

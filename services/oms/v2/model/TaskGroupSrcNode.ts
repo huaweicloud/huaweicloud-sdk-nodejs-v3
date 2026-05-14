@@ -5,6 +5,8 @@ export class TaskGroupSrcNode {
     public ak?: string;
     public sk?: string;
     private 'connection_string'?: string;
+    private 'crypto_type'?: TaskGroupSrcNodeCryptoTypeEnum | string;
+    private 'kms_key_id'?: string;
     private 'json_auth_file'?: string;
     private 'app_id'?: string;
     public region?: string;
@@ -31,6 +33,26 @@ export class TaskGroupSrcNode {
     }
     public get connectionString(): string | undefined {
         return this['connection_string'];
+    }
+    public withCryptoType(cryptoType: TaskGroupSrcNodeCryptoTypeEnum | string): TaskGroupSrcNode {
+        this['crypto_type'] = cryptoType;
+        return this;
+    }
+    public set cryptoType(cryptoType: TaskGroupSrcNodeCryptoTypeEnum | string  | undefined) {
+        this['crypto_type'] = cryptoType;
+    }
+    public get cryptoType(): TaskGroupSrcNodeCryptoTypeEnum | string | undefined {
+        return this['crypto_type'];
+    }
+    public withKmsKeyId(kmsKeyId: string): TaskGroupSrcNode {
+        this['kms_key_id'] = kmsKeyId;
+        return this;
+    }
+    public set kmsKeyId(kmsKeyId: string  | undefined) {
+        this['kms_key_id'] = kmsKeyId;
+    }
+    public get kmsKeyId(): string | undefined {
+        return this['kms_key_id'];
     }
     public withJsonAuthFile(jsonAuthFile: string): TaskGroupSrcNode {
         this['json_auth_file'] = jsonAuthFile;
@@ -90,4 +112,13 @@ export class TaskGroupSrcNode {
     public get listFile(): ListFile | undefined {
         return this['list_file'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TaskGroupSrcNodeCryptoTypeEnum {
+    DEFAULT = 'DEFAULT',
+    KMS = 'KMS'
 }

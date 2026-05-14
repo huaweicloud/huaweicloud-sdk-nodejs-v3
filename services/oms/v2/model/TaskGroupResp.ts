@@ -17,7 +17,6 @@ export class TaskGroupResp {
     private 'enable_metadata_migration'?: boolean;
     private 'enable_failed_object_recording'?: boolean;
     private 'enable_restore'?: boolean;
-    private 'enable_kms'?: boolean;
     private 'task_type'?: TaskGroupRespTaskTypeEnum | string;
     private 'bandwidth_policy'?: Array<BandwidthPolicyDto>;
     private 'smn_config'?: SmnInfo;
@@ -125,16 +124,6 @@ export class TaskGroupResp {
     }
     public get enableRestore(): boolean | undefined {
         return this['enable_restore'];
-    }
-    public withEnableKms(enableKms: boolean): TaskGroupResp {
-        this['enable_kms'] = enableKms;
-        return this;
-    }
-    public set enableKms(enableKms: boolean  | undefined) {
-        this['enable_kms'] = enableKms;
-    }
-    public get enableKms(): boolean | undefined {
-        return this['enable_kms'];
     }
     public withTaskType(taskType: TaskGroupRespTaskTypeEnum | string): TaskGroupResp {
         this['task_type'] = taskType;

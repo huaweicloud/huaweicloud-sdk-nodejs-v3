@@ -1,5 +1,4 @@
 import { DNInstance } from './DNInstance';
-import { IamAccount } from './IamAccount';
 
 
 export class LoadSchemaMetadataReq {
@@ -7,7 +6,6 @@ export class LoadSchemaMetadataReq {
     private 'dn_instance'?: Array<DNInstance>;
     private 'instance_id'?: string;
     private 'project_id'?: string;
-    private 'iam_account'?: IamAccount;
     public constructor() { 
     }
     public withCompressedDatabasesInfo(compressedDatabasesInfo: string): LoadSchemaMetadataReq {
@@ -49,15 +47,5 @@ export class LoadSchemaMetadataReq {
     }
     public get projectId(): string | undefined {
         return this['project_id'];
-    }
-    public withIamAccount(iamAccount: IamAccount): LoadSchemaMetadataReq {
-        this['iam_account'] = iamAccount;
-        return this;
-    }
-    public set iamAccount(iamAccount: IamAccount  | undefined) {
-        this['iam_account'] = iamAccount;
-    }
-    public get iamAccount(): IamAccount | undefined {
-        return this['iam_account'];
     }
 }

@@ -4,7 +4,8 @@ export class ParaGroupUpdate {
     public name?: string;
     public description?: string;
     public values?: object;
-    public constructor() { 
+    public constructor(values?: object) { 
+        this['values'] = values;
     }
     public withName(name: string): ParaGroupUpdate {
         this['name'] = name;

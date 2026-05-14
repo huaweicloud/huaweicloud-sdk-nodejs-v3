@@ -3,6 +3,8 @@
 export class TaskGroupDstNode {
     public ak?: string;
     public sk?: string;
+    private 'crypto_type'?: TaskGroupDstNodeCryptoTypeEnum | string;
+    private 'kms_key_id'?: string;
     public region?: string;
     public bucket?: string;
     private 'cloud_type'?: string;
@@ -20,6 +22,26 @@ export class TaskGroupDstNode {
     public withSk(sk: string): TaskGroupDstNode {
         this['sk'] = sk;
         return this;
+    }
+    public withCryptoType(cryptoType: TaskGroupDstNodeCryptoTypeEnum | string): TaskGroupDstNode {
+        this['crypto_type'] = cryptoType;
+        return this;
+    }
+    public set cryptoType(cryptoType: TaskGroupDstNodeCryptoTypeEnum | string  | undefined) {
+        this['crypto_type'] = cryptoType;
+    }
+    public get cryptoType(): TaskGroupDstNodeCryptoTypeEnum | string | undefined {
+        return this['crypto_type'];
+    }
+    public withKmsKeyId(kmsKeyId: string): TaskGroupDstNode {
+        this['kms_key_id'] = kmsKeyId;
+        return this;
+    }
+    public set kmsKeyId(kmsKeyId: string  | undefined) {
+        this['kms_key_id'] = kmsKeyId;
+    }
+    public get kmsKeyId(): string | undefined {
+        return this['kms_key_id'];
     }
     public withRegion(region: string): TaskGroupDstNode {
         this['region'] = region;
@@ -49,4 +71,13 @@ export class TaskGroupDstNode {
     public get savePrefix(): string | undefined {
         return this['save_prefix'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TaskGroupDstNodeCryptoTypeEnum {
+    DEFAULT = 'DEFAULT',
+    KMS = 'KMS'
 }

@@ -36,6 +36,9 @@ import { CreateAssetByFileUploadRequest } from './model/CreateAssetByFileUploadR
 import { CreateAssetByFileUploadResponse } from './model/CreateAssetByFileUploadResponse';
 import { CreateAssetCategoryRequest } from './model/CreateAssetCategoryRequest';
 import { CreateAssetCategoryResponse } from './model/CreateAssetCategoryResponse';
+import { CreateAssetEditTaskReq } from './model/CreateAssetEditTaskReq';
+import { CreateAssetEditTaskRequest } from './model/CreateAssetEditTaskRequest';
+import { CreateAssetEditTaskResponse } from './model/CreateAssetEditTaskResponse';
 import { CreateAssetProcessTaskRequest } from './model/CreateAssetProcessTaskRequest';
 import { CreateAssetProcessTaskResponse } from './model/CreateAssetProcessTaskResponse';
 import { CreateAssetReviewTaskRequest } from './model/CreateAssetReviewTaskRequest';
@@ -77,6 +80,8 @@ import { CreateWatermarkTemplateRequest } from './model/CreateWatermarkTemplateR
 import { CreateWatermarkTemplateResponse } from './model/CreateWatermarkTemplateResponse';
 import { DeleteAssetCategoryRequest } from './model/DeleteAssetCategoryRequest';
 import { DeleteAssetCategoryResponse } from './model/DeleteAssetCategoryResponse';
+import { DeleteAssetEditTaskRequest } from './model/DeleteAssetEditTaskRequest';
+import { DeleteAssetEditTaskResponse } from './model/DeleteAssetEditTaskResponse';
 import { DeleteAssetsRequest } from './model/DeleteAssetsRequest';
 import { DeleteAssetsResponse } from './model/DeleteAssetsResponse';
 import { DeleteDyAssetRequest } from './model/DeleteDyAssetRequest';
@@ -97,9 +102,11 @@ import { DeleteTranscodeTemplateRequest } from './model/DeleteTranscodeTemplateR
 import { DeleteTranscodeTemplateResponse } from './model/DeleteTranscodeTemplateResponse';
 import { DeleteWatermarkTemplateRequest } from './model/DeleteWatermarkTemplateRequest';
 import { DeleteWatermarkTemplateResponse } from './model/DeleteWatermarkTemplateResponse';
+import { EditInput } from './model/EditInput';
 import { EditMediaTask } from './model/EditMediaTask';
 import { EditMediaTaskInput } from './model/EditMediaTaskInput';
 import { EditingSetting } from './model/EditingSetting';
+import { EditingTaskInfo } from './model/EditingTaskInfo';
 import { ExtractAudioTaskReq } from './model/ExtractAudioTaskReq';
 import { FileAddr } from './model/FileAddr';
 import { ImageSpriteTask } from './model/ImageSpriteTask';
@@ -109,6 +116,8 @@ import { ListAssetCategoryRequest } from './model/ListAssetCategoryRequest';
 import { ListAssetCategoryResponse } from './model/ListAssetCategoryResponse';
 import { ListAssetDailySummaryLogRequest } from './model/ListAssetDailySummaryLogRequest';
 import { ListAssetDailySummaryLogResponse } from './model/ListAssetDailySummaryLogResponse';
+import { ListAssetEditTaskRequest } from './model/ListAssetEditTaskRequest';
+import { ListAssetEditTaskResponse } from './model/ListAssetEditTaskResponse';
 import { ListAssetListRequest } from './model/ListAssetListRequest';
 import { ListAssetListResponse } from './model/ListAssetListResponse';
 import { ListAssetTaskInfoRequest } from './model/ListAssetTaskInfoRequest';
@@ -273,6 +282,7 @@ import { VideoInfo } from './model/VideoInfo';
 import { VideoProcess } from './model/VideoProcess';
 import { VideoTemplateInfo } from './model/VideoTemplateInfo';
 import { VideoTypeRef } from './model/VideoTypeRef';
+import { VodEditingSetting } from './model/VodEditingSetting';
 import { VodRetrievalData } from './model/VodRetrievalData';
 import { VodSampleData } from './model/VodSampleData';
 import { WatermarkRequest } from './model/WatermarkRequest';
@@ -433,6 +443,26 @@ export class VodClient {
      */
     public createAssetCategory(createAssetCategoryRequest?: CreateAssetCategoryRequest): Promise<CreateAssetCategoryResponse> {
         const options = ParamCreater().createAssetCategory(createAssetCategoryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建编辑任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建编辑任务
+     * @param {CreateAssetEditTaskReq} createAssetEditTaskRequestBody 创建编辑任务
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAssetEditTask(createAssetEditTaskRequest?: CreateAssetEditTaskRequest): Promise<CreateAssetEditTaskResponse> {
+        const options = ParamCreater().createAssetEditTask(createAssetEditTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -770,6 +800,26 @@ export class VodClient {
     }
 
     /**
+     * 取消编辑任务，仅支持取消等待中的任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 取消编辑任务
+     * @param {string} taskId 任务ID
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAssetEditTask(deleteAssetEditTaskRequest?: DeleteAssetEditTaskRequest): Promise<DeleteAssetEditTaskResponse> {
+        const options = ParamCreater().deleteAssetEditTask(deleteAssetEditTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除媒资。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -975,6 +1025,28 @@ export class VodClient {
      */
     public listAssetDailySummaryLog(listAssetDailySummaryLogRequest?: ListAssetDailySummaryLogRequest): Promise<ListAssetDailySummaryLogResponse> {
         const options = ParamCreater().listAssetDailySummaryLog(listAssetDailySummaryLogRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询编辑任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询编辑任务
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {string} [taskId] 编辑任务ID
+     * @param {number} [offset] 查询偏移量，默认0
+     * @param {number} [limit] 查询一页返回数，默认10，最大支持100
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAssetEditTask(listAssetEditTaskRequest?: ListAssetEditTaskRequest): Promise<ListAssetEditTaskResponse> {
+        const options = ParamCreater().listAssetEditTask(listAssetEditTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2296,6 +2368,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建编辑任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAssetEditTask(createAssetEditTaskRequest?: CreateAssetEditTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/asset/editing/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xSdkDate;
+
+            if (createAssetEditTaskRequest !== null && createAssetEditTaskRequest !== undefined) {
+                if (createAssetEditTaskRequest instanceof CreateAssetEditTaskRequest) {
+                    body = createAssetEditTaskRequest.body
+                    xSdkDate = createAssetEditTaskRequest.xSdkDate;
+                } else {
+                    body = createAssetEditTaskRequest['body'];
+                    xSdkDate = createAssetEditTaskRequest['X-Sdk-Date'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 实现视频转码、截图、加密等处理。既可以同时启动多种操作，也可以只启动一种操作。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3001,6 +3118,53 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 取消编辑任务，仅支持取消等待中的任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAssetEditTask(deleteAssetEditTaskRequest?: DeleteAssetEditTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/asset/editing/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let taskId;
+            
+            let xSdkDate;
+
+            if (deleteAssetEditTaskRequest !== null && deleteAssetEditTaskRequest !== undefined) {
+                if (deleteAssetEditTaskRequest instanceof DeleteAssetEditTaskRequest) {
+                    taskId = deleteAssetEditTaskRequest.taskId;
+                    xSdkDate = deleteAssetEditTaskRequest.xSdkDate;
+                } else {
+                    taskId = deleteAssetEditTaskRequest['task_id'];
+                    xSdkDate = deleteAssetEditTaskRequest['X-Sdk-Date'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+                throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling deleteAssetEditTask.');
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除媒资。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3516,6 +3680,64 @@ export const ParamCreater = function () {
             }
             if (endTime !== null && endTime !== undefined) {
                 localVarQueryParameter['end_time'] = endTime;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询编辑任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAssetEditTask(listAssetEditTaskRequest?: ListAssetEditTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/asset/editing/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xSdkDate;
+            
+            let taskId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listAssetEditTaskRequest !== null && listAssetEditTaskRequest !== undefined) {
+                if (listAssetEditTaskRequest instanceof ListAssetEditTaskRequest) {
+                    xSdkDate = listAssetEditTaskRequest.xSdkDate;
+                    taskId = listAssetEditTaskRequest.taskId;
+                    offset = listAssetEditTaskRequest.offset;
+                    limit = listAssetEditTaskRequest.limit;
+                } else {
+                    xSdkDate = listAssetEditTaskRequest['X-Sdk-Date'];
+                    taskId = listAssetEditTaskRequest['task_id'];
+                    offset = listAssetEditTaskRequest['offset'];
+                    limit = listAssetEditTaskRequest['limit'];
+                }
+            }
+
+        
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;

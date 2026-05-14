@@ -68,6 +68,9 @@ import { DeleteKeyStoreRequest } from './model/DeleteKeyStoreRequest';
 import { DeleteKeyStoreResponse } from './model/DeleteKeyStoreResponse';
 import { DeleteTagRequest } from './model/DeleteTagRequest';
 import { DeleteTagResponse } from './model/DeleteTagResponse';
+import { DeriveSharedSecretRequest } from './model/DeriveSharedSecretRequest';
+import { DeriveSharedSecretRequestBody } from './model/DeriveSharedSecretRequestBody';
+import { DeriveSharedSecretResponse } from './model/DeriveSharedSecretResponse';
 import { DisableKeyRequest } from './model/DisableKeyRequest';
 import { DisableKeyResponse } from './model/DisableKeyResponse';
 import { DisableKeyRotationRequest } from './model/DisableKeyRotationRequest';
@@ -129,6 +132,10 @@ import { ListSupportRegionsResponse } from './model/ListSupportRegionsResponse';
 import { OperateKeyRequestBody } from './model/OperateKeyRequestBody';
 import { PageInfo } from './model/PageInfo';
 import { Quotas } from './model/Quotas';
+import { ReEncryptRequest } from './model/ReEncryptRequest';
+import { ReEncryptRequestBody } from './model/ReEncryptRequestBody';
+import { ReEncryptResponse } from './model/ReEncryptResponse';
+import { Recipient } from './model/Recipient';
 import { ReplicateKeyRequest } from './model/ReplicateKeyRequest';
 import { ReplicateKeyRequestBody } from './model/ReplicateKeyRequestBody';
 import { ReplicateKeyResponse } from './model/ReplicateKeyResponse';
@@ -664,6 +671,25 @@ export class KmsClient {
     }
 
     /**
+     * 功能介绍：派生共享密钥
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 派生共享密钥
+     * @param {DeriveSharedSecretRequestBody} deriveSharedSecretRequestBody 派生共享密钥请求消息体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deriveSharedSecret(deriveSharedSecretRequest?: DeriveSharedSecretRequest): Promise<DeriveSharedSecretResponse> {
+        const options = ParamCreater().deriveSharedSecret(deriveSharedSecretRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 功能介绍：禁用密钥，密钥禁用后不可以使用。
      * - 说明：密钥为启用状态才能禁用密钥。
      * 
@@ -1025,6 +1051,27 @@ export class KmsClient {
      */
     public listSupportRegions(listSupportRegionsRequest?: ListSupportRegionsRequest): Promise<ListSupportRegionsResponse> {
         const options = ParamCreater().listSupportRegions(listSupportRegionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 将密文使用源密钥解密后，再使用指定的新密钥加密。
+     * 能将CreateDatekey，CreateDatakeyWithoutPlainText,EncryptDatakey加密的数据密钥密文重新加密成新的数据密钥密文。
+     * 能将EncryptData加密的密文重新加密成新的密文。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重加密
+     * @param {ReEncryptRequestBody} reEncryptRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public reEncrypt(reEncryptRequest?: ReEncryptRequest): Promise<ReEncryptResponse> {
+        const options = ParamCreater().reEncrypt(reEncryptRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2295,6 +2342,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 功能介绍：派生共享密钥
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deriveSharedSecret(deriveSharedSecretRequest?: DeriveSharedSecretRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/kms/derive-shared-secret",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deriveSharedSecretRequest !== null && deriveSharedSecretRequest !== undefined) {
+                if (deriveSharedSecretRequest instanceof DeriveSharedSecretRequest) {
+                    body = deriveSharedSecretRequest.body
+                } else {
+                    body = deriveSharedSecretRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 功能介绍：禁用密钥，密钥禁用后不可以使用。
          * - 说明：密钥为启用状态才能禁用密钥。
          * 
@@ -3031,6 +3116,46 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将密文使用源密钥解密后，再使用指定的新密钥加密。
+         * 能将CreateDatekey，CreateDatakeyWithoutPlainText,EncryptDatakey加密的数据密钥密文重新加密成新的数据密钥密文。
+         * 能将EncryptData加密的密文重新加密成新的密文。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        reEncrypt(reEncryptRequest?: ReEncryptRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/kms/re-encrypt",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (reEncryptRequest !== null && reEncryptRequest !== undefined) {
+                if (reEncryptRequest instanceof ReEncryptRequest) {
+                    body = reEncryptRequest.body
+                } else {
+                    body = reEncryptRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

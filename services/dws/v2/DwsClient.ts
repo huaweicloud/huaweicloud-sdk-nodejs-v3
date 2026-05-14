@@ -600,6 +600,8 @@ import { UpdateLogicalClusterRequestBody } from './model/UpdateLogicalClusterReq
 import { UpdateLogicalClusterResponse } from './model/UpdateLogicalClusterResponse';
 import { UpdateMaintenanceWindowRequest } from './model/UpdateMaintenanceWindowRequest';
 import { UpdateMaintenanceWindowResponse } from './model/UpdateMaintenanceWindowResponse';
+import { UpdateQueueBaseInfoRequest } from './model/UpdateQueueBaseInfoRequest';
+import { UpdateQueueBaseInfoResponse } from './model/UpdateQueueBaseInfoResponse';
 import { UpdateQueueResourcesRequest } from './model/UpdateQueueResourcesRequest';
 import { UpdateQueueResourcesResponse } from './model/UpdateQueueResourcesResponse';
 import { UpdateRedistributionConfigurationsRequest } from './model/UpdateRedistributionConfigurationsRequest';
@@ -608,6 +610,7 @@ import { UpdateSchemasRequest } from './model/UpdateSchemasRequest';
 import { UpdateSchemasResponse } from './model/UpdateSchemasResponse';
 import { UpdateWorkloadPlanStageRequest } from './model/UpdateWorkloadPlanStageRequest';
 import { UpdateWorkloadPlanStageResponse } from './model/UpdateWorkloadPlanStageResponse';
+import { UpdateWorkloadQueueReq } from './model/UpdateWorkloadQueueReq';
 import { UpdateWorkloadRuleRequest } from './model/UpdateWorkloadRuleRequest';
 import { UpdateWorkloadRuleResponse } from './model/UpdateWorkloadRuleResponse';
 import { UserAuthorityReq } from './model/UserAuthorityReq';
@@ -630,6 +633,7 @@ import { WorkloadQueueUserReq } from './model/WorkloadQueueUserReq';
 import { WorkloadQueueUserReqUserList } from './model/WorkloadQueueUserReqUserList';
 import { WorkloadResource } from './model/WorkloadResource';
 import { WorkloadResourceItem } from './model/WorkloadResourceItem';
+import { WorkloadResourceQueue } from './model/WorkloadResourceQueue';
 import { WorkloadSchemaReq } from './model/WorkloadSchemaReq';
 import { WorkloadStatus } from './model/WorkloadStatus';
 import { WorkloadStatusReq } from './model/WorkloadStatusReq';
@@ -1341,8 +1345,8 @@ export class DwsClient {
     }
 
     /**
-     * 删除集群v2接口。集群删除后将释放此集群的所有资源，包括客户数据。为了安全起见，请在删除集群前为这个集群创建快照。
-     * 删除集群建议优先使用“删除DWS集群”接口，覆盖此接口所有参数及功能。
+     * 删除集群（旧接口）。集群删除后将释放此集群的所有资源，包括客户数据。为了安全起见，请在删除集群前为这个集群创建快照。
+     * 删除集群建议优先使用另一个新接口，覆盖此接口所有参数及功能。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2277,7 +2281,7 @@ export class DwsClient {
      * @param {number} [offset] **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0
      * @param {number} [limit] **参数解释**： 分页查询，每页显示的条目数量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 100
      * @param {string} [filterBy] **参数解释**： 过滤字段。 **约束限制**： 不涉及。 **取值范围**： instCreateType：根据资源状态过滤 status：根据节点状态过滤 **默认取值**： null
-     * @param {string} [filter] **参数解释**： 过滤字段内容。 **约束限制**： 不涉及。 **取值范围**： 当根据资源状态过滤时，可选如下值： - ALL：全部 - INST：已使用 - NODE：空虚 当根据节点状态过滤时，可选如下值： - ALL：全部 - CREATING：创建中 - FREE：空闲 - ACTIVE：可用 - FAILED：不可用 - UNKNOWN：未知 - CREATE_FAILED：创建失败 - DELETING：删除中 - DELETE_FAILED：删除失败 **默认取值**： null
+     * @param {string} [filter] **参数解释**： 过滤字段内容。 **约束限制**： 不涉及。 **取值范围**： 当根据资源状态过滤时，可选如下值： - ALL：全部 - INST：已使用 - NODE：空闲 当根据节点状态过滤时，可选如下值： - ALL：全部 - CREATING：创建中 - FREE：空闲可用 - ACTIVE：可用 - FAILED：不可用 - UNKNOWN：未知 - CREATE_FAILED：创建失败 - DELETING：删除中 - DELETE_FAILED：删除失败 **默认取值**： null
      * @param {string} [orderBy] **参数解释**： 排序字段。默认无序返回。 **约束限制**： 不涉及。 **取值范围**： name：根据名称过滤 **默认取值**： null
      * @param {string} [order] **参数解释**： 排序：升序/降序。 **约束限制**： 不涉及。 **取值范围**： asc：升序 desc：降序 **默认取值**： null
      * @param {string} [deleted] **参数解释**： 是否被删除，字段已废弃。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： null
@@ -4643,6 +4647,27 @@ export class DwsClient {
     }
 
     /**
+     * 更新资源池基础信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新资源池基础信息
+     * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} queueName **参数解释**： 资源池名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {UpdateWorkloadQueueReq} [updateQueueBaseInfoRequestBody] **参数解释**： 更新资源池基础信息请求体。 **约束限制**： 不涉及。 **取值范围**： 非null。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateQueueBaseInfo(updateQueueBaseInfoRequest?: UpdateQueueBaseInfoRequest): Promise<UpdateQueueBaseInfoResponse> {
+        const options = ParamCreater().updateQueueBaseInfo(updateQueueBaseInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新资源池资源配置信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6279,8 +6304,8 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除集群v2接口。集群删除后将释放此集群的所有资源，包括客户数据。为了安全起见，请在删除集群前为这个集群创建快照。
-         * 删除集群建议优先使用“删除DWS集群”接口，覆盖此接口所有参数及功能。
+         * 删除集群（旧接口）。集群删除后将释放此集群的所有资源，包括客户数据。为了安全起见，请在删除集群前为这个集群创建快照。
+         * 删除集群建议优先使用另一个新接口，覆盖此接口所有参数及功能。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -13897,6 +13922,56 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新资源池基础信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateQueueBaseInfo(updateQueueBaseInfoRequest?: UpdateQueueBaseInfoRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/clusters/{cluster_id}/workload/queues/{queue_name}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let queueName;
+
+            if (updateQueueBaseInfoRequest !== null && updateQueueBaseInfoRequest !== undefined) {
+                if (updateQueueBaseInfoRequest instanceof UpdateQueueBaseInfoRequest) {
+                    clusterId = updateQueueBaseInfoRequest.clusterId;
+                    queueName = updateQueueBaseInfoRequest.queueName;
+                    body = updateQueueBaseInfoRequest.body
+                } else {
+                    clusterId = updateQueueBaseInfoRequest['cluster_id'];
+                    queueName = updateQueueBaseInfoRequest['queue_name'];
+                    body = updateQueueBaseInfoRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateQueueBaseInfo.');
+            }
+            if (queueName === null || queueName === undefined) {
+            throw new RequiredError('queueName','Required parameter queueName was null or undefined when calling updateQueueBaseInfo.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'queue_name': queueName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

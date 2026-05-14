@@ -14,6 +14,8 @@ export class CreateInstanceRequestBody {
     private 'obs_encrypt'?: boolean;
     private 'encrypt_type'?: CreateInstanceRequestBodyEncryptTypeEnum | string;
     private 'obs_bucket_name'?: string;
+    private 'enable_intranet_access'?: boolean;
+    private 'obs_enc_kms_key_id'?: string;
     public constructor(name?: string, spec?: string, vpcId?: string, subnetId?: string, projectId?: string, chargeMode?: string, enterpriseProjectId?: string) { 
         this['name'] = name;
         this['spec'] = spec;
@@ -124,6 +126,26 @@ export class CreateInstanceRequestBody {
     }
     public get obsBucketName(): string | undefined {
         return this['obs_bucket_name'];
+    }
+    public withEnableIntranetAccess(enableIntranetAccess: boolean): CreateInstanceRequestBody {
+        this['enable_intranet_access'] = enableIntranetAccess;
+        return this;
+    }
+    public set enableIntranetAccess(enableIntranetAccess: boolean  | undefined) {
+        this['enable_intranet_access'] = enableIntranetAccess;
+    }
+    public get enableIntranetAccess(): boolean | undefined {
+        return this['enable_intranet_access'];
+    }
+    public withObsEncKmsKeyId(obsEncKmsKeyId: string): CreateInstanceRequestBody {
+        this['obs_enc_kms_key_id'] = obsEncKmsKeyId;
+        return this;
+    }
+    public set obsEncKmsKeyId(obsEncKmsKeyId: string  | undefined) {
+        this['obs_enc_kms_key_id'] = obsEncKmsKeyId;
+    }
+    public get obsEncKmsKeyId(): string | undefined {
+        return this['obs_enc_kms_key_id'];
     }
 }
 

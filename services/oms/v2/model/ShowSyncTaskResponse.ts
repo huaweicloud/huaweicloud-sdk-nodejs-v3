@@ -12,7 +12,6 @@ export class ShowSyncTaskResponse extends SdkResponse {
     private 'dst_region'?: string;
     public description?: string;
     public status?: ShowSyncTaskResponseStatusEnum | string;
-    private 'enable_kms'?: boolean;
     private 'enable_metadata_migration'?: boolean;
     private 'enable_restore'?: boolean;
     private 'app_id'?: string;
@@ -114,16 +113,6 @@ export class ShowSyncTaskResponse extends SdkResponse {
     public withStatus(status: ShowSyncTaskResponseStatusEnum | string): ShowSyncTaskResponse {
         this['status'] = status;
         return this;
-    }
-    public withEnableKms(enableKms: boolean): ShowSyncTaskResponse {
-        this['enable_kms'] = enableKms;
-        return this;
-    }
-    public set enableKms(enableKms: boolean  | undefined) {
-        this['enable_kms'] = enableKms;
-    }
-    public get enableKms(): boolean | undefined {
-        return this['enable_kms'];
     }
     public withEnableMetadataMigration(enableMetadataMigration: boolean): ShowSyncTaskResponse {
         this['enable_metadata_migration'] = enableMetadataMigration;

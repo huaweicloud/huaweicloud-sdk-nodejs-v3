@@ -3,6 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ModifySubtitleResponse extends SdkResponse {
     private 'asset_id'?: string;
+    private 'thumbnail_task_id'?: string;
     public constructor() { 
         super();
     }
@@ -15,5 +16,15 @@ export class ModifySubtitleResponse extends SdkResponse {
     }
     public get assetId(): string | undefined {
         return this['asset_id'];
+    }
+    public withThumbnailTaskId(thumbnailTaskId: string): ModifySubtitleResponse {
+        this['thumbnail_task_id'] = thumbnailTaskId;
+        return this;
+    }
+    public set thumbnailTaskId(thumbnailTaskId: string  | undefined) {
+        this['thumbnail_task_id'] = thumbnailTaskId;
+    }
+    public get thumbnailTaskId(): string | undefined {
+        return this['thumbnail_task_id'];
     }
 }

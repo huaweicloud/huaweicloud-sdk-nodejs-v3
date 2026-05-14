@@ -5,6 +5,8 @@ export class SourceCdnReq {
     private 'authentication_type'?: SourceCdnReqAuthenticationTypeEnum | string;
     public domain?: string;
     public protocol?: SourceCdnReqProtocolEnum | string;
+    private 'crypto_type'?: SourceCdnReqCryptoTypeEnum | string;
+    private 'kms_key_id'?: string;
     public constructor(authenticationType?: string, domain?: string, protocol?: string) { 
         this['authentication_type'] = authenticationType;
         this['domain'] = domain;
@@ -38,6 +40,26 @@ export class SourceCdnReq {
         this['protocol'] = protocol;
         return this;
     }
+    public withCryptoType(cryptoType: SourceCdnReqCryptoTypeEnum | string): SourceCdnReq {
+        this['crypto_type'] = cryptoType;
+        return this;
+    }
+    public set cryptoType(cryptoType: SourceCdnReqCryptoTypeEnum | string  | undefined) {
+        this['crypto_type'] = cryptoType;
+    }
+    public get cryptoType(): SourceCdnReqCryptoTypeEnum | string | undefined {
+        return this['crypto_type'];
+    }
+    public withKmsKeyId(kmsKeyId: string): SourceCdnReq {
+        this['kms_key_id'] = kmsKeyId;
+        return this;
+    }
+    public set kmsKeyId(kmsKeyId: string  | undefined) {
+        this['kms_key_id'] = kmsKeyId;
+    }
+    public get kmsKeyId(): string | undefined {
+        return this['kms_key_id'];
+    }
 }
 
 /**
@@ -64,4 +86,12 @@ export enum SourceCdnReqAuthenticationTypeEnum {
 export enum SourceCdnReqProtocolEnum {
     HTTP = 'http',
     HTTPS = 'https'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SourceCdnReqCryptoTypeEnum {
+    DEFAULT = 'DEFAULT',
+    KMS = 'KMS'
 }

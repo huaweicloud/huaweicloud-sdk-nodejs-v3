@@ -3,7 +3,9 @@
 export class BindEipOpenRequest {
     private 'public_ip'?: string;
     private 'public_ip_id'?: string;
-    public constructor() { 
+    public constructor(publicIp?: string, publicIpId?: string) { 
+        this['public_ip'] = publicIp;
+        this['public_ip_id'] = publicIpId;
     }
     public withPublicIp(publicIp: string): BindEipOpenRequest {
         this['public_ip'] = publicIp;

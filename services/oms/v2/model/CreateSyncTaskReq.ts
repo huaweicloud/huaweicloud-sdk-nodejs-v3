@@ -7,13 +7,16 @@ export class CreateSyncTaskReq {
     private 'src_bucket'?: string;
     private 'src_ak'?: string;
     private 'src_sk'?: string;
+    private 'src_crypto_type'?: CreateSyncTaskReqSrcCryptoTypeEnum | string;
+    private 'src_kms_key_id'?: string;
     private 'dst_ak'?: string;
     private 'dst_sk'?: string;
+    private 'dst_crypto_type'?: CreateSyncTaskReqDstCryptoTypeEnum | string;
+    private 'dst_kms_key_id'?: string;
     private 'dst_region'?: string;
     private 'dst_bucket'?: string;
     public description?: string;
     private 'enable_metadata_migration'?: boolean;
-    private 'enable_kms'?: boolean;
     private 'enable_restore'?: boolean;
     private 'dst_storage_policy'?: CreateSyncTaskReqDstStoragePolicyEnum | string;
     private 'app_id'?: string;
@@ -79,6 +82,26 @@ export class CreateSyncTaskReq {
     public get srcSk(): string | undefined {
         return this['src_sk'];
     }
+    public withSrcCryptoType(srcCryptoType: CreateSyncTaskReqSrcCryptoTypeEnum | string): CreateSyncTaskReq {
+        this['src_crypto_type'] = srcCryptoType;
+        return this;
+    }
+    public set srcCryptoType(srcCryptoType: CreateSyncTaskReqSrcCryptoTypeEnum | string  | undefined) {
+        this['src_crypto_type'] = srcCryptoType;
+    }
+    public get srcCryptoType(): CreateSyncTaskReqSrcCryptoTypeEnum | string | undefined {
+        return this['src_crypto_type'];
+    }
+    public withSrcKmsKeyId(srcKmsKeyId: string): CreateSyncTaskReq {
+        this['src_kms_key_id'] = srcKmsKeyId;
+        return this;
+    }
+    public set srcKmsKeyId(srcKmsKeyId: string  | undefined) {
+        this['src_kms_key_id'] = srcKmsKeyId;
+    }
+    public get srcKmsKeyId(): string | undefined {
+        return this['src_kms_key_id'];
+    }
     public withDstAk(dstAk: string): CreateSyncTaskReq {
         this['dst_ak'] = dstAk;
         return this;
@@ -98,6 +121,26 @@ export class CreateSyncTaskReq {
     }
     public get dstSk(): string | undefined {
         return this['dst_sk'];
+    }
+    public withDstCryptoType(dstCryptoType: CreateSyncTaskReqDstCryptoTypeEnum | string): CreateSyncTaskReq {
+        this['dst_crypto_type'] = dstCryptoType;
+        return this;
+    }
+    public set dstCryptoType(dstCryptoType: CreateSyncTaskReqDstCryptoTypeEnum | string  | undefined) {
+        this['dst_crypto_type'] = dstCryptoType;
+    }
+    public get dstCryptoType(): CreateSyncTaskReqDstCryptoTypeEnum | string | undefined {
+        return this['dst_crypto_type'];
+    }
+    public withDstKmsKeyId(dstKmsKeyId: string): CreateSyncTaskReq {
+        this['dst_kms_key_id'] = dstKmsKeyId;
+        return this;
+    }
+    public set dstKmsKeyId(dstKmsKeyId: string  | undefined) {
+        this['dst_kms_key_id'] = dstKmsKeyId;
+    }
+    public get dstKmsKeyId(): string | undefined {
+        return this['dst_kms_key_id'];
     }
     public withDstRegion(dstRegion: string): CreateSyncTaskReq {
         this['dst_region'] = dstRegion;
@@ -132,16 +175,6 @@ export class CreateSyncTaskReq {
     }
     public get enableMetadataMigration(): boolean | undefined {
         return this['enable_metadata_migration'];
-    }
-    public withEnableKms(enableKms: boolean): CreateSyncTaskReq {
-        this['enable_kms'] = enableKms;
-        return this;
-    }
-    public set enableKms(enableKms: boolean  | undefined) {
-        this['enable_kms'] = enableKms;
-    }
-    public get enableKms(): boolean | undefined {
-        return this['enable_kms'];
     }
     public withEnableRestore(enableRestore: boolean): CreateSyncTaskReq {
         this['enable_restore'] = enableRestore;
@@ -195,6 +228,22 @@ export class CreateSyncTaskReq {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateSyncTaskReqSrcCryptoTypeEnum {
+    DEFAULT = 'DEFAULT',
+    KMS = 'KMS'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateSyncTaskReqDstCryptoTypeEnum {
+    DEFAULT = 'DEFAULT',
+    KMS = 'KMS'
+}
 /**
     * @export
     * @enum {string}

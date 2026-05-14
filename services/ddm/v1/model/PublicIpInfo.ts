@@ -8,6 +8,7 @@ export class PublicIpInfo {
     private 'binding_entity_id'?: string;
     private 'binding_entity_name'?: string;
     private 'binding_entity_type'?: PublicIpInfoBindingEntityTypeEnum | string;
+    private 'group_id'?: string;
     public constructor() { 
     }
     public withId(id: string): PublicIpInfo {
@@ -67,6 +68,16 @@ export class PublicIpInfo {
     }
     public get bindingEntityType(): PublicIpInfoBindingEntityTypeEnum | string | undefined {
         return this['binding_entity_type'];
+    }
+    public withGroupId(groupId: string): PublicIpInfo {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
     }
 }
 
