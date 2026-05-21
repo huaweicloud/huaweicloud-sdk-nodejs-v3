@@ -4,7 +4,10 @@ export class DNInstance {
     private 'dn_instance_id'?: string;
     private 'admin_user'?: string;
     private 'admin_password'?: string;
-    public constructor() { 
+    public constructor(dnInstanceId?: string, adminUser?: string, adminPassword?: string) { 
+        this['dn_instance_id'] = dnInstanceId;
+        this['admin_user'] = adminUser;
+        this['admin_password'] = adminPassword;
     }
     public withDnInstanceId(dnInstanceId: string): DNInstance {
         this['dn_instance_id'] = dnInstanceId;

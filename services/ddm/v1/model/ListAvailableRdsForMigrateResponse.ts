@@ -4,6 +4,9 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListAvailableRdsForMigrateResponse extends SdkResponse {
     private 'data_nodes'?: Array<AvailableDnInstance>;
+    public offset?: number;
+    public limit?: number;
+    public total?: number;
     public constructor() { 
         super();
     }
@@ -16,5 +19,17 @@ export class ListAvailableRdsForMigrateResponse extends SdkResponse {
     }
     public get dataNodes(): Array<AvailableDnInstance> | undefined {
         return this['data_nodes'];
+    }
+    public withOffset(offset: number): ListAvailableRdsForMigrateResponse {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: number): ListAvailableRdsForMigrateResponse {
+        this['limit'] = limit;
+        return this;
+    }
+    public withTotal(total: number): ListAvailableRdsForMigrateResponse {
+        this['total'] = total;
+        return this;
     }
 }

@@ -5,7 +5,7 @@ export class ApplyHistory {
     private 'target_name'?: string;
     private 'apply_result'?: string;
     private 'applied_at'?: Date;
-    private 'error_code'?: string;
+    private 'error_message'?: string;
     public constructor() { 
     }
     public withTargetId(targetId: string): ApplyHistory {
@@ -48,14 +48,14 @@ export class ApplyHistory {
     public get appliedAt(): Date | undefined {
         return this['applied_at'];
     }
-    public withErrorCode(errorCode: string): ApplyHistory {
-        this['error_code'] = errorCode;
+    public withErrorMessage(errorMessage: string): ApplyHistory {
+        this['error_message'] = errorMessage;
         return this;
     }
-    public set errorCode(errorCode: string  | undefined) {
-        this['error_code'] = errorCode;
+    public set errorMessage(errorMessage: string  | undefined) {
+        this['error_message'] = errorMessage;
     }
-    public get errorCode(): string | undefined {
-        return this['error_code'];
+    public get errorMessage(): string | undefined {
+        return this['error_message'];
     }
 }

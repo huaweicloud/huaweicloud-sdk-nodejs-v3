@@ -3,8 +3,10 @@
 export class CreateConfigurationRequest {
     public name?: string;
     public description?: string;
-    public values?: object;
-    public constructor() { 
+    public values?: { [key: string]: string; };
+    public constructor(name?: string, description?: string) { 
+        this['name'] = name;
+        this['description'] = description;
     }
     public withName(name: string): CreateConfigurationRequest {
         this['name'] = name;
@@ -14,7 +16,7 @@ export class CreateConfigurationRequest {
         this['description'] = description;
         return this;
     }
-    public withValues(values: object): CreateConfigurationRequest {
+    public withValues(values: { [key: string]: string; }): CreateConfigurationRequest {
         this['values'] = values;
         return this;
     }

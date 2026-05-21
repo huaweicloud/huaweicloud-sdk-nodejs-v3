@@ -13,6 +13,7 @@ export class ListAllL7RulesRequest {
     public key?: Array<string>;
     public type?: Array<string>;
     private 'enterprise_project_id'?: Array<string>;
+    private 'l7policy_id'?: Array<string>;
     public constructor() { 
     }
     public withLimit(limit: number): ListAllL7RulesRequest {
@@ -92,5 +93,15 @@ export class ListAllL7RulesRequest {
     }
     public get enterpriseProjectId(): Array<string> | undefined {
         return this['enterprise_project_id'];
+    }
+    public withL7policyId(l7policyId: Array<string>): ListAllL7RulesRequest {
+        this['l7policy_id'] = l7policyId;
+        return this;
+    }
+    public set l7policyId(l7policyId: Array<string>  | undefined) {
+        this['l7policy_id'] = l7policyId;
+    }
+    public get l7policyId(): Array<string> | undefined {
+        return this['l7policy_id'];
     }
 }

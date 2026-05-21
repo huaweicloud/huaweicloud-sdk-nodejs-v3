@@ -5,7 +5,10 @@ export class RestoreInst2ExistReq {
     public source?: object;
     public target?: object;
     private 'data_node_relations'?: Array<DataNodeRelation>;
-    public constructor() { 
+    public constructor(source?: object, target?: object, dataNodeRelations?: Array<DataNodeRelation>) { 
+        this['source'] = source;
+        this['target'] = target;
+        this['data_node_relations'] = dataNodeRelations;
     }
     public withSource(source: object): RestoreInst2ExistReq {
         this['source'] = source;

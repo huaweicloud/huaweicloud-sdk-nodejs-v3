@@ -10,6 +10,7 @@ export class GetUsersListDetailResponsesV3 {
     public description?: string;
     public created?: string;
     public databases?: Array<GetUsersListdatabaseV3>;
+    private 'expiration_time'?: string;
     public constructor(name?: string, status?: string, baseAuthority?: Array<string>, description?: string, created?: string, databases?: Array<GetUsersListdatabaseV3>) { 
         this['name'] = name;
         this['status'] = status;
@@ -67,5 +68,15 @@ export class GetUsersListDetailResponsesV3 {
     public withDatabases(databases: Array<GetUsersListdatabaseV3>): GetUsersListDetailResponsesV3 {
         this['databases'] = databases;
         return this;
+    }
+    public withExpirationTime(expirationTime: string): GetUsersListDetailResponsesV3 {
+        this['expiration_time'] = expirationTime;
+        return this;
+    }
+    public set expirationTime(expirationTime: string  | undefined) {
+        this['expiration_time'] = expirationTime;
+    }
+    public get expirationTime(): string | undefined {
+        return this['expiration_time'];
     }
 }

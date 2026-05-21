@@ -232,7 +232,6 @@ export * from './model/ListAvailabilityZonesRequest';
 export * from './model/ListAvailabilityZonesResponse';
 export * from './model/ListCertificatesRequest';
 export * from './model/ListCertificatesResponse';
-export * from './model/ListDnsIpResponseBody';
 export * from './model/ListDomainIPsRequest';
 export * from './model/ListDomainIPsResponse';
 export * from './model/ListFeatureConfigsRequest';

@@ -5,6 +5,9 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowRelatedDnsResponse extends SdkResponse {
     private 'related_data_nodes'?: Array<RelatedDnVO>;
     private 'latest_restorable_time'?: string;
+    public offset?: number;
+    public limit?: number;
+    public total?: number;
     public constructor() { 
         super();
     }
@@ -27,5 +30,17 @@ export class ShowRelatedDnsResponse extends SdkResponse {
     }
     public get latestRestorableTime(): string | undefined {
         return this['latest_restorable_time'];
+    }
+    public withOffset(offset: number): ShowRelatedDnsResponse {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: number): ShowRelatedDnsResponse {
+        this['limit'] = limit;
+        return this;
+    }
+    public withTotal(total: number): ShowRelatedDnsResponse {
+        this['total'] = total;
+        return this;
     }
 }

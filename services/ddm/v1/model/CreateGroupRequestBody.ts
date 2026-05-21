@@ -5,11 +5,11 @@ export class CreateGroupRequestBody {
     public name?: string;
     public type?: CreateGroupRequestBodyTypeEnum | string;
     private 'flavor_id'?: string;
+    private 'flavor_ref'?: string;
     public nodes?: Array<NodeInfo>;
-    public constructor(name?: string, type?: string, flavorId?: string, nodes?: Array<NodeInfo>) { 
+    public constructor(name?: string, type?: string, nodes?: Array<NodeInfo>) { 
         this['name'] = name;
         this['type'] = type;
-        this['flavor_id'] = flavorId;
         this['nodes'] = nodes;
     }
     public withName(name: string): CreateGroupRequestBody {
@@ -29,6 +29,16 @@ export class CreateGroupRequestBody {
     }
     public get flavorId(): string | undefined {
         return this['flavor_id'];
+    }
+    public withFlavorRef(flavorRef: string): CreateGroupRequestBody {
+        this['flavor_ref'] = flavorRef;
+        return this;
+    }
+    public set flavorRef(flavorRef: string  | undefined) {
+        this['flavor_ref'] = flavorRef;
+    }
+    public get flavorRef(): string | undefined {
+        return this['flavor_ref'];
     }
     public withNodes(nodes: Array<NodeInfo>): CreateGroupRequestBody {
         this['nodes'] = nodes;

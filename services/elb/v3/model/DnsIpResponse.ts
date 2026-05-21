@@ -1,7 +1,6 @@
 
 
 export class DnsIpResponse {
-    public id?: string;
     public enable?: boolean;
     private 'ip_address'?: string;
     public type?: string;
@@ -9,10 +8,6 @@ export class DnsIpResponse {
     private 'created_at'?: string;
     private 'updated_at'?: string;
     public constructor() { 
-    }
-    public withId(id: string): DnsIpResponse {
-        this['id'] = id;
-        return this;
     }
     public withEnable(enable: boolean): DnsIpResponse {
         this['enable'] = enable;

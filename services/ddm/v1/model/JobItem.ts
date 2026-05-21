@@ -9,7 +9,7 @@ export class JobItem {
     public process?: string;
     private 'instance_name'?: string;
     private 'instance_id'?: string;
-    public jobs?: Array<string>;
+    public operations?: Array<string>;
     private 'database_name'?: string;
     private 'fail_reason'?: string;
     public constructor() { 
@@ -70,8 +70,8 @@ export class JobItem {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withJobs(jobs: Array<string>): JobItem {
-        this['jobs'] = jobs;
+    public withOperations(operations: Array<string>): JobItem {
+        this['operations'] = operations;
         return this;
     }
     public withDatabaseName(databaseName: string): JobItem {

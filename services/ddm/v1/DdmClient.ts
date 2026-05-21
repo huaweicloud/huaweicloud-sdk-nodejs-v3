@@ -24,6 +24,7 @@ import { ChangeDatabaseVersionRequest } from './model/ChangeDatabaseVersionReque
 import { ChangeDatabaseVersionResponse } from './model/ChangeDatabaseVersionResponse';
 import { ChangeStrategyRequest } from './model/ChangeStrategyRequest';
 import { ChangeStrategyResponse } from './model/ChangeStrategyResponse';
+import { ChargeInfo } from './model/ChargeInfo';
 import { CheckDataNodeConnectionRequest } from './model/CheckDataNodeConnectionRequest';
 import { CheckDataNodeConnectionResponse } from './model/CheckDataNodeConnectionResponse';
 import { CheckMigrateLogicDbRequest } from './model/CheckMigrateLogicDbRequest';
@@ -267,6 +268,8 @@ import { Restore2ExistRequest } from './model/Restore2ExistRequest';
 import { Restore2ExistResponse } from './model/Restore2ExistResponse';
 import { RestoreInst2ExistReq } from './model/RestoreInst2ExistReq';
 import { RestoreMetaData2ExistReq } from './model/RestoreMetaData2ExistReq';
+import { RestoreMetaDataSource } from './model/RestoreMetaDataSource';
+import { RestoreMetaDataTarget } from './model/RestoreMetaDataTarget';
 import { RestoreMetadataRequest } from './model/RestoreMetadataRequest';
 import { RestoreMetadataResponse } from './model/RestoreMetadataResponse';
 import { RestoreTimeInterval } from './model/RestoreTimeInterval';
@@ -8284,7 +8287,7 @@ export const ParamCreater = function () {
         checkDataNodeConnection(checkDataNodeConnectionRequest?: CheckDataNodeConnectionRequest) {
             const options = {
                 method: "POST",
-                url: "/v3/{project_id}/instance/{instance_id}/rds/connection",
+                url: "/v3/{project_id}/instances/{instance_id}/rds/connection",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},

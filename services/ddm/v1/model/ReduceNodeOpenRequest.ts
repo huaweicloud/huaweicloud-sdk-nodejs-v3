@@ -1,19 +1,9 @@
 
 
 export class ReduceNodeOpenRequest {
-    private 'instance_id'?: string;
     private 'node_ids'?: Array<string>;
-    public constructor() { 
-    }
-    public withInstanceId(instanceId: string): ReduceNodeOpenRequest {
-        this['instance_id'] = instanceId;
-        return this;
-    }
-    public set instanceId(instanceId: string  | undefined) {
-        this['instance_id'] = instanceId;
-    }
-    public get instanceId(): string | undefined {
-        return this['instance_id'];
+    public constructor(nodeIds?: Array<string>) { 
+        this['node_ids'] = nodeIds;
     }
     public withNodeIds(nodeIds: Array<string>): ReduceNodeOpenRequest {
         this['node_ids'] = nodeIds;

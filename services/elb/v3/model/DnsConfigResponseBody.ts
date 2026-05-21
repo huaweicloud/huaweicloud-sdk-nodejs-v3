@@ -3,22 +3,25 @@ import { GlobalEipInfo } from './GlobalEipInfo';
 
 
 export class DnsConfigResponseBody {
+    public id?: string;
     private 'vip_address'?: string;
     private 'ipv6_vip_address'?: string;
     public eips?: Array<EipInfo>;
     private 'global_eips'?: Array<GlobalEipInfo>;
     private 'public_domain_name_enable'?: boolean;
     private 'public_dns_zone_name'?: string;
-    private 'public_dns_zone_id'?: string;
     private 'public_domain_name'?: string;
     private 'public_dns_record_set_ttl'?: number;
     private 'private_domain_name_enable'?: boolean;
     private 'private_dns_zone_name'?: string;
-    private 'private_dns_zone_id'?: string;
     private 'private_domain_name'?: string;
     private 'private_dns_zone_type'?: string;
     private 'private_dns_record_set_ttl'?: number;
     public constructor() { 
+    }
+    public withId(id: string): DnsConfigResponseBody {
+        this['id'] = id;
+        return this;
     }
     public withVipAddress(vipAddress: string): DnsConfigResponseBody {
         this['vip_address'] = vipAddress;
@@ -74,16 +77,6 @@ export class DnsConfigResponseBody {
     public get publicDnsZoneName(): string | undefined {
         return this['public_dns_zone_name'];
     }
-    public withPublicDnsZoneId(publicDnsZoneId: string): DnsConfigResponseBody {
-        this['public_dns_zone_id'] = publicDnsZoneId;
-        return this;
-    }
-    public set publicDnsZoneId(publicDnsZoneId: string  | undefined) {
-        this['public_dns_zone_id'] = publicDnsZoneId;
-    }
-    public get publicDnsZoneId(): string | undefined {
-        return this['public_dns_zone_id'];
-    }
     public withPublicDomainName(publicDomainName: string): DnsConfigResponseBody {
         this['public_domain_name'] = publicDomainName;
         return this;
@@ -123,16 +116,6 @@ export class DnsConfigResponseBody {
     }
     public get privateDnsZoneName(): string | undefined {
         return this['private_dns_zone_name'];
-    }
-    public withPrivateDnsZoneId(privateDnsZoneId: string): DnsConfigResponseBody {
-        this['private_dns_zone_id'] = privateDnsZoneId;
-        return this;
-    }
-    public set privateDnsZoneId(privateDnsZoneId: string  | undefined) {
-        this['private_dns_zone_id'] = privateDnsZoneId;
-    }
-    public get privateDnsZoneId(): string | undefined {
-        return this['private_dns_zone_id'];
     }
     public withPrivateDomainName(privateDomainName: string): DnsConfigResponseBody {
         this['private_domain_name'] = privateDomainName;

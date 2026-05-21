@@ -20,6 +20,7 @@ export class ListMasterSlavePoolsRequest {
     private 'vpc_id'?: Array<string>;
     public type?: Array<string>;
     private 'connection_drain'?: boolean;
+    private 'public_border_group'?: Array<string>;
     public constructor() { 
     }
     public withMarker(marker: string): ListMasterSlavePoolsRequest {
@@ -169,5 +170,15 @@ export class ListMasterSlavePoolsRequest {
     }
     public get connectionDrain(): boolean | undefined {
         return this['connection_drain'];
+    }
+    public withPublicBorderGroup(publicBorderGroup: Array<string>): ListMasterSlavePoolsRequest {
+        this['public_border_group'] = publicBorderGroup;
+        return this;
+    }
+    public set publicBorderGroup(publicBorderGroup: Array<string>  | undefined) {
+        this['public_border_group'] = publicBorderGroup;
+    }
+    public get publicBorderGroup(): Array<string> | undefined {
+        return this['public_border_group'];
     }
 }

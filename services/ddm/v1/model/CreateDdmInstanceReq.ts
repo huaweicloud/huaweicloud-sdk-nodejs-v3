@@ -1,3 +1,4 @@
+import { ChargeInfo } from './ChargeInfo';
 
 
 export class CreateDdmInstanceReq {
@@ -14,8 +15,16 @@ export class CreateDdmInstanceReq {
     private 'time_zone'?: string;
     private 'admin_user_name'?: string;
     private 'admin_user_password'?: string;
-    private 'charge_info'?: object;
-    public constructor() { 
+    private 'charge_info'?: ChargeInfo;
+    public constructor(name?: string, availableZones?: Array<string>, nodeNum?: number, engineVersion?: string, flavorRef?: string, vpcId?: string, subnetId?: string, securityGroupId?: string) { 
+        this['name'] = name;
+        this['available_zones'] = availableZones;
+        this['node_num'] = nodeNum;
+        this['engine_version'] = engineVersion;
+        this['flavor_ref'] = flavorRef;
+        this['vpc_id'] = vpcId;
+        this['subnet_id'] = subnetId;
+        this['security_group_id'] = securityGroupId;
     }
     public withName(name: string): CreateDdmInstanceReq {
         this['name'] = name;
@@ -141,14 +150,14 @@ export class CreateDdmInstanceReq {
     public get adminUserPassword(): string | undefined {
         return this['admin_user_password'];
     }
-    public withChargeInfo(chargeInfo: object): CreateDdmInstanceReq {
+    public withChargeInfo(chargeInfo: ChargeInfo): CreateDdmInstanceReq {
         this['charge_info'] = chargeInfo;
         return this;
     }
-    public set chargeInfo(chargeInfo: object  | undefined) {
+    public set chargeInfo(chargeInfo: ChargeInfo  | undefined) {
         this['charge_info'] = chargeInfo;
     }
-    public get chargeInfo(): object | undefined {
+    public get chargeInfo(): ChargeInfo | undefined {
         return this['charge_info'];
     }
 }
