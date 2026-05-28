@@ -45,6 +45,7 @@ export class TaskResp {
     private 'dst_storage_policy'?: TaskRespDstStoragePolicyEnum | string;
     private 'consistency_check'?: TaskRespConsistencyCheckEnum | string;
     private 'enable_requester_pays'?: boolean;
+    private 'obs_system'?: TaskRespObsSystemEnum | string;
     private 'task_priority'?: TaskRespTaskPriorityEnum | string;
     public constructor() { 
     }
@@ -388,6 +389,16 @@ export class TaskResp {
     public get enableRequesterPays(): boolean | undefined {
         return this['enable_requester_pays'];
     }
+    public withObsSystem(obsSystem: TaskRespObsSystemEnum | string): TaskResp {
+        this['obs_system'] = obsSystem;
+        return this;
+    }
+    public set obsSystem(obsSystem: TaskRespObsSystemEnum | string  | undefined) {
+        this['obs_system'] = obsSystem;
+    }
+    public get obsSystem(): TaskRespObsSystemEnum | string | undefined {
+        return this['obs_system'];
+    }
     public withTaskPriority(taskPriority: TaskRespTaskPriorityEnum | string): TaskResp {
         this['task_priority'] = taskPriority;
         return this;
@@ -448,6 +459,14 @@ export enum TaskRespConsistencyCheckEnum {
     SIZE_LAST_MODIFIED = 'size_last_modified',
     CRC64 = 'crc64',
     NO_CHECK = 'no_check'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TaskRespObsSystemEnum {
+    BUCKET = 'BUCKET',
+    PFS = 'PFS'
 }
 /**
     * @export

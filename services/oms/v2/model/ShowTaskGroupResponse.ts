@@ -45,6 +45,7 @@ export class ShowTaskGroupResponse extends SdkResponse {
     private 'object_overwrite_mode'?: ShowTaskGroupResponseObjectOverwriteModeEnum | string;
     private 'dst_storage_policy'?: ShowTaskGroupResponseDstStoragePolicyEnum | string;
     private 'consistency_check'?: ShowTaskGroupResponseConsistencyCheckEnum | string;
+    private 'obs_system'?: string;
     private 'enable_requester_pays'?: boolean;
     public constructor() { 
         super();
@@ -396,6 +397,16 @@ export class ShowTaskGroupResponse extends SdkResponse {
     }
     public get consistencyCheck(): ShowTaskGroupResponseConsistencyCheckEnum | string | undefined {
         return this['consistency_check'];
+    }
+    public withObsSystem(obsSystem: string): ShowTaskGroupResponse {
+        this['obs_system'] = obsSystem;
+        return this;
+    }
+    public set obsSystem(obsSystem: string  | undefined) {
+        this['obs_system'] = obsSystem;
+    }
+    public get obsSystem(): string | undefined {
+        return this['obs_system'];
     }
     public withEnableRequesterPays(enableRequesterPays: boolean): ShowTaskGroupResponse {
         this['enable_requester_pays'] = enableRequesterPays;

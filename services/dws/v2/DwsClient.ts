@@ -1227,7 +1227,7 @@ export class DwsClient {
     }
 
     /**
-     * 创建逻辑集群。
+     * 使用弹性池的节点，创建逻辑集群，此接口已经不再演进，后续版本中可能会下线，新版本中此接口对应功能已经下线。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2304,6 +2304,7 @@ export class DwsClient {
      *
      * @summary 查询合适的缩容数
      * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
+     * @param {string} [logicalClusterName] **参数解释**： 逻辑集群名，填写该参数，表示获取逻辑集群合适的缩容节点个数。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4165,7 +4166,7 @@ export class DwsClient {
     }
 
     /**
-     * 逻辑集群缩容，支持从弹性池缩容。
+     * 逻辑集群缩容，支持从逻辑集群中缩容、从弹性池中缩容。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4586,6 +4587,7 @@ export class DwsClient {
      * 编辑修改逻辑集群。接口根据提交的请求体判断当前操作是逻辑集群缩容或者扩容。
      * 场景一：原始的逻辑集群有6个节点（两个环），提交请求时的请求体只有1个环，此时为逻辑集群缩容。
      * 场景二：原始的逻辑集群有6个节点（两个环），提交请求时的请求体中有3个环，此时为逻辑集群扩容。
+     * 此接口已经不再演进，后续版本中可能会下线，新版本中此接口对应功能已经下线。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -6048,7 +6050,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建逻辑集群。
+         * 使用弹性池的节点，创建逻辑集群，此接口已经不再演进，后续版本中可能会下线，新版本中此接口对应功能已经下线。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8496,15 +8498,19 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let clusterId;
+            
+            let logicalClusterName;
 
             if (listClusterScaleInNumbersRequest !== null && listClusterScaleInNumbersRequest !== undefined) {
                 if (listClusterScaleInNumbersRequest instanceof ListClusterScaleInNumbersRequest) {
                     clusterId = listClusterScaleInNumbersRequest.clusterId;
+                    logicalClusterName = listClusterScaleInNumbersRequest.logicalClusterName;
                 } else {
                     clusterId = listClusterScaleInNumbersRequest['cluster_id'];
+                    logicalClusterName = listClusterScaleInNumbersRequest['logical_cluster_name'];
                 }
             }
 
@@ -8512,7 +8518,11 @@ export const ParamCreater = function () {
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listClusterScaleInNumbers.');
             }
+            if (logicalClusterName !== null && logicalClusterName !== undefined) {
+                localVarQueryParameter['logical_cluster_name'] = logicalClusterName;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -12879,7 +12889,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 逻辑集群缩容，支持从弹性池缩容。
+         * 逻辑集群缩容，支持从逻辑集群中缩容、从弹性池中缩容。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -13776,6 +13786,7 @@ export const ParamCreater = function () {
          * 编辑修改逻辑集群。接口根据提交的请求体判断当前操作是逻辑集群缩容或者扩容。
          * 场景一：原始的逻辑集群有6个节点（两个环），提交请求时的请求体只有1个环，此时为逻辑集群缩容。
          * 场景二：原始的逻辑集群有6个节点（两个环），提交请求时的请求体中有3个环，此时为逻辑集群扩容。
+         * 此接口已经不再演进，后续版本中可能会下线，新版本中此接口对应功能已经下线。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

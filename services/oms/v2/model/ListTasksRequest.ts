@@ -5,6 +5,7 @@ export class ListTasksRequest {
     public limit?: number;
     public offset?: number;
     public status?: number;
+    private 'task_name'?: string;
     public constructor() { 
     }
     public withGroupId(groupId: string): ListTasksRequest {
@@ -28,5 +29,15 @@ export class ListTasksRequest {
     public withStatus(status: number): ListTasksRequest {
         this['status'] = status;
         return this;
+    }
+    public withTaskName(taskName: string): ListTasksRequest {
+        this['task_name'] = taskName;
+        return this;
+    }
+    public set taskName(taskName: string  | undefined) {
+        this['task_name'] = taskName;
+    }
+    public get taskName(): string | undefined {
+        return this['task_name'];
     }
 }

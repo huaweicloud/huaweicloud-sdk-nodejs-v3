@@ -44,6 +44,7 @@ export class TaskGroupResp {
     private 'object_overwrite_mode'?: TaskGroupRespObjectOverwriteModeEnum | string;
     private 'dst_storage_policy'?: TaskGroupRespDstStoragePolicyEnum | string;
     private 'consistency_check'?: TaskGroupRespConsistencyCheckEnum | string;
+    private 'obs_system'?: string;
     private 'enable_requester_pays'?: boolean;
     public constructor() { 
     }
@@ -394,6 +395,16 @@ export class TaskGroupResp {
     }
     public get consistencyCheck(): TaskGroupRespConsistencyCheckEnum | string | undefined {
         return this['consistency_check'];
+    }
+    public withObsSystem(obsSystem: string): TaskGroupResp {
+        this['obs_system'] = obsSystem;
+        return this;
+    }
+    public set obsSystem(obsSystem: string  | undefined) {
+        this['obs_system'] = obsSystem;
+    }
+    public get obsSystem(): string | undefined {
+        return this['obs_system'];
     }
     public withEnableRequesterPays(enableRequesterPays: boolean): TaskGroupResp {
         this['enable_requester_pays'] = enableRequesterPays;

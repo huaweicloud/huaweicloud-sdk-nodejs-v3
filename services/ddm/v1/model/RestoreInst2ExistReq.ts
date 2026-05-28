@@ -1,20 +1,22 @@
 import { DataNodeRelation } from './DataNodeRelation';
+import { RestoreInstSource } from './RestoreInstSource';
+import { RestoreInstTarget } from './RestoreInstTarget';
 
 
 export class RestoreInst2ExistReq {
-    public source?: object;
-    public target?: object;
+    public source?: RestoreInstSource;
+    public target?: RestoreInstTarget;
     private 'data_node_relations'?: Array<DataNodeRelation>;
-    public constructor(source?: object, target?: object, dataNodeRelations?: Array<DataNodeRelation>) { 
+    public constructor(source?: RestoreInstSource, target?: RestoreInstTarget, dataNodeRelations?: Array<DataNodeRelation>) { 
         this['source'] = source;
         this['target'] = target;
         this['data_node_relations'] = dataNodeRelations;
     }
-    public withSource(source: object): RestoreInst2ExistReq {
+    public withSource(source: RestoreInstSource): RestoreInst2ExistReq {
         this['source'] = source;
         return this;
     }
-    public withTarget(target: object): RestoreInst2ExistReq {
+    public withTarget(target: RestoreInstTarget): RestoreInst2ExistReq {
         this['target'] = target;
         return this;
     }

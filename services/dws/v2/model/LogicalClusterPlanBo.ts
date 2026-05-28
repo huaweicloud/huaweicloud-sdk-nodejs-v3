@@ -7,8 +7,8 @@ export class LogicalClusterPlanBo {
     private 'node_num'?: number;
     private 'main_logical_cluster'?: string;
     private 'plan_type'?: string;
-    private 'start_time'?: string;
-    private 'end_time'?: string;
+    private 'start_time'?: number;
+    private 'end_time'?: number;
     public actions?: Array<LogicalClusterPlanActionsParam>;
     public constructor(planType?: string, actions?: Array<LogicalClusterPlanActionsParam>) { 
         this['plan_type'] = planType;
@@ -58,24 +58,24 @@ export class LogicalClusterPlanBo {
     public get planType(): string | undefined {
         return this['plan_type'];
     }
-    public withStartTime(startTime: string): LogicalClusterPlanBo {
+    public withStartTime(startTime: number): LogicalClusterPlanBo {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string  | undefined) {
+    public set startTime(startTime: number  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime(): string | undefined {
+    public get startTime(): number | undefined {
         return this['start_time'];
     }
-    public withEndTime(endTime: string): LogicalClusterPlanBo {
+    public withEndTime(endTime: number): LogicalClusterPlanBo {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string  | undefined) {
+    public set endTime(endTime: number  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime(): string | undefined {
+    public get endTime(): number | undefined {
         return this['end_time'];
     }
     public withActions(actions: Array<LogicalClusterPlanActionsParam>): LogicalClusterPlanBo {

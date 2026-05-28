@@ -5,8 +5,8 @@ export class ShrinkLogicalClusterRequestBody {
     private 'cluster_rings'?: Array<ClusterRing>;
     private 'parallel_jobs'?: number;
     public mode?: string;
-    public constructor(clusterRings?: Array<ClusterRing>) { 
-        this['cluster_rings'] = clusterRings;
+    private 'shrink_node_num'?: number;
+    public constructor() { 
     }
     public withClusterRings(clusterRings: Array<ClusterRing>): ShrinkLogicalClusterRequestBody {
         this['cluster_rings'] = clusterRings;
@@ -31,5 +31,15 @@ export class ShrinkLogicalClusterRequestBody {
     public withMode(mode: string): ShrinkLogicalClusterRequestBody {
         this['mode'] = mode;
         return this;
+    }
+    public withShrinkNodeNum(shrinkNodeNum: number): ShrinkLogicalClusterRequestBody {
+        this['shrink_node_num'] = shrinkNodeNum;
+        return this;
+    }
+    public set shrinkNodeNum(shrinkNodeNum: number  | undefined) {
+        this['shrink_node_num'] = shrinkNodeNum;
+    }
+    public get shrinkNodeNum(): number | undefined {
+        return this['shrink_node_num'];
     }
 }

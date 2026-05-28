@@ -46,6 +46,7 @@ export class ShowTaskResponse extends SdkResponse {
     private 'dst_storage_policy'?: ShowTaskResponseDstStoragePolicyEnum | string;
     private 'consistency_check'?: ShowTaskResponseConsistencyCheckEnum | string;
     private 'enable_requester_pays'?: boolean;
+    private 'obs_system'?: ShowTaskResponseObsSystemEnum | string;
     private 'task_priority'?: ShowTaskResponseTaskPriorityEnum | string;
     public constructor() { 
         super();
@@ -390,6 +391,16 @@ export class ShowTaskResponse extends SdkResponse {
     public get enableRequesterPays(): boolean | undefined {
         return this['enable_requester_pays'];
     }
+    public withObsSystem(obsSystem: ShowTaskResponseObsSystemEnum | string): ShowTaskResponse {
+        this['obs_system'] = obsSystem;
+        return this;
+    }
+    public set obsSystem(obsSystem: ShowTaskResponseObsSystemEnum | string  | undefined) {
+        this['obs_system'] = obsSystem;
+    }
+    public get obsSystem(): ShowTaskResponseObsSystemEnum | string | undefined {
+        return this['obs_system'];
+    }
     public withTaskPriority(taskPriority: ShowTaskResponseTaskPriorityEnum | string): ShowTaskResponse {
         this['task_priority'] = taskPriority;
         return this;
@@ -450,6 +461,14 @@ export enum ShowTaskResponseConsistencyCheckEnum {
     SIZE_LAST_MODIFIED = 'size_last_modified',
     CRC64 = 'crc64',
     NO_CHECK = 'no_check'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowTaskResponseObsSystemEnum {
+    BUCKET = 'BUCKET',
+    PFS = 'PFS'
 }
 /**
     * @export

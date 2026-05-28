@@ -32,7 +32,8 @@ export class ListInstancesResult {
     private 'lb_port'?: string;
     private 'availability_zone'?: string;
     private 'dual_active_info'?: DualActiveInfo;
-    public constructor(id?: string, name?: string, status?: string, port?: string, region?: string, datastore?: ListInstancesDatastoreResult, mode?: string, engine?: string, created?: string, updated?: string, dbUserName?: string, vpcId?: string, subnetId?: string, securityGroupId?: string, backupStrategy?: ListInstancesBackupStrategyResult, payMode?: string, maintenanceWindow?: string, groups?: Array<ListInstancesGroupResult>, enterpriseProjectId?: string, timeZone?: string, actions?: Array<string>) { 
+    public ssl?: string;
+    public constructor(id?: string, name?: string, status?: string, port?: string, region?: string, datastore?: ListInstancesDatastoreResult, mode?: string, engine?: string, created?: string, updated?: string, dbUserName?: string, vpcId?: string, subnetId?: string, securityGroupId?: string, backupStrategy?: ListInstancesBackupStrategyResult, payMode?: string, maintenanceWindow?: string, groups?: Array<ListInstancesGroupResult>, enterpriseProjectId?: string, timeZone?: string, actions?: Array<string>, ssl?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['status'] = status;
@@ -54,6 +55,7 @@ export class ListInstancesResult {
         this['enterprise_project_id'] = enterpriseProjectId;
         this['time_zone'] = timeZone;
         this['actions'] = actions;
+        this['ssl'] = ssl;
     }
     public withId(id: string): ListInstancesResult {
         this['id'] = id;
@@ -252,5 +254,9 @@ export class ListInstancesResult {
     }
     public get dualActiveInfo(): DualActiveInfo | undefined {
         return this['dual_active_info'];
+    }
+    public withSsl(ssl: string): ListInstancesResult {
+        this['ssl'] = ssl;
+        return this;
     }
 }

@@ -9,6 +9,9 @@ import { BatchUpdateTasksResponse } from './model/BatchUpdateTasksResponse';
 import { CheckPrefixReq } from './model/CheckPrefixReq';
 import { CheckPrefixRequest } from './model/CheckPrefixRequest';
 import { CheckPrefixResponse } from './model/CheckPrefixResponse';
+import { CheckUrlSourceListFileFormatReq } from './model/CheckUrlSourceListFileFormatReq';
+import { CheckUrlSourceListFileFormatRequest } from './model/CheckUrlSourceListFileFormatRequest';
+import { CheckUrlSourceListFileFormatResponse } from './model/CheckUrlSourceListFileFormatResponse';
 import { CheckedKey } from './model/CheckedKey';
 import { CreateSyncEventsRequest } from './model/CreateSyncEventsRequest';
 import { CreateSyncEventsResponse } from './model/CreateSyncEventsResponse';
@@ -161,6 +164,25 @@ export class OmsClient {
      */
     public checkPrefix(checkPrefixRequest?: CheckPrefixRequest): Promise<CheckPrefixResponse> {
         const options = ParamCreater().checkPrefix(checkPrefixRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 检查url来源列表文件格式是否有效
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 检查url来源列表文件格式
+     * @param {CheckUrlSourceListFileFormatReq} checkUrlSourceListFileFormatRequestBody 检查url来源列表文件格式请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkUrlSourceListFileFormat(checkUrlSourceListFileFormatRequest?: CheckUrlSourceListFileFormatRequest): Promise<CheckUrlSourceListFileFormatResponse> {
+        const options = ParamCreater().checkUrlSourceListFileFormat(checkUrlSourceListFileFormatRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -379,6 +401,7 @@ export class OmsClient {
      * @param {number} [limit] 查询返回迁移任务列表当前页面的数量，默认查询10条。 最多返回100条迁移任务信息。
      * @param {number} [offset] 起始的任务序号，默认为0。 取值大于等于0，取值为0时从第一条开始查询。
      * @param {number} [status] 迁移任务状态（无该参数时代表查询所有状态的任务）： 1：等待调度 2：正在执行 3：停止 4：失败 5：成功 7: 暂停中
+     * @param {string} [taskName] 任务名称，支持模糊查询。 1.长度限制0~255 2.不支持特殊字符
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -583,7 +606,7 @@ export class OmsClient {
     }
 
     /**
-     * 同步任务停止后，调用该接口以启动同步任务(目前只支持华北-北京四、华东-上海一地区)。
+     * 同步任务停止后，调用该接口以启动同步任务(目前只支持华北-北京四、华东-上海一和西南-贵阳一地区)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -643,7 +666,7 @@ export class OmsClient {
     }
 
     /**
-     * 当同步任务处于同步中时，调用该接口停止任务(目前只支持华北-北京四、华东-上海一地区)。
+     * 当同步任务处于同步中时，调用该接口停止任务(目前只支持华北-北京四、华东-上海一和西南-贵阳一地区)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -860,6 +883,44 @@ export const ParamCreater = function () {
                     body = checkPrefixRequest.body
                 } else {
                     body = checkPrefixRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 检查url来源列表文件格式是否有效
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkUrlSourceListFileFormat(checkUrlSourceListFileFormatRequest?: CheckUrlSourceListFileFormatRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/objectstorage/buckets/url-source-list-file",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (checkUrlSourceListFileFormatRequest !== null && checkUrlSourceListFileFormatRequest !== undefined) {
+                if (checkUrlSourceListFileFormatRequest instanceof CheckUrlSourceListFileFormatRequest) {
+                    body = checkUrlSourceListFileFormatRequest.body
+                } else {
+                    body = checkUrlSourceListFileFormatRequest['body'];
                 }
             }
 
@@ -1342,6 +1403,8 @@ export const ParamCreater = function () {
             let offset;
             
             let status;
+            
+            let taskName;
 
             if (listTasksRequest !== null && listTasksRequest !== undefined) {
                 if (listTasksRequest instanceof ListTasksRequest) {
@@ -1349,11 +1412,13 @@ export const ParamCreater = function () {
                     limit = listTasksRequest.limit;
                     offset = listTasksRequest.offset;
                     status = listTasksRequest.status;
+                    taskName = listTasksRequest.taskName;
                 } else {
                     groupId = listTasksRequest['group_id'];
                     limit = listTasksRequest['limit'];
                     offset = listTasksRequest['offset'];
                     status = listTasksRequest['status'];
+                    taskName = listTasksRequest['task_name'];
                 }
             }
 
@@ -1369,6 +1434,9 @@ export const ParamCreater = function () {
             }
             if (status !== null && status !== undefined) {
                 localVarQueryParameter['status'] = status;
+            }
+            if (taskName !== null && taskName !== undefined) {
+                localVarQueryParameter['task_name'] = taskName;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1758,7 +1826,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 同步任务停止后，调用该接口以启动同步任务(目前只支持华北-北京四、华东-上海一地区)。
+         * 同步任务停止后，调用该接口以启动同步任务(目前只支持华北-北京四、华东-上海一和西南-贵阳一地区)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1896,7 +1964,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 当同步任务处于同步中时，调用该接口停止任务(目前只支持华北-北京四、华东-上海一地区)。
+         * 当同步任务处于同步中时，调用该接口停止任务(目前只支持华北-北京四、华东-上海一和西南-贵阳一地区)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

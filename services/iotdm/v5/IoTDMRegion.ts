@@ -16,6 +16,7 @@ export class IoTDMRegion {
     public static AF_SOUTH_1 = new Region("af-south-1", ["https://iotda-mgmt.af-south-1.myhuaweicloud.com"]);
     public static ME_EAST_1 = new Region("me-east-1", ["https://iotda-mgmt.me-east-1.myhuaweicloud.com"]);
     public static LA_SOUTH_2 = new Region("la-south-2", ["https://iotda-mgmt.la-south-2.myhuaweicloud.com"]);
+    public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://iotda-mgmt.ru-moscow-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -28,7 +29,8 @@ export class IoTDMRegion {
         "ap-southeast-1":IoTDMRegion.AP_SOUTHEAST_1,
         "af-south-1":IoTDMRegion.AF_SOUTH_1,
         "me-east-1":IoTDMRegion.ME_EAST_1,
-        "la-south-2":IoTDMRegion.LA_SOUTH_2
+        "la-south-2":IoTDMRegion.LA_SOUTH_2,
+        "ru-moscow-1":IoTDMRegion.RU_MOSCOW_1
     };
   
     public static valueOf(regionId: string) {

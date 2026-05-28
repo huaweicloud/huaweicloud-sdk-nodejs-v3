@@ -265,6 +265,8 @@ export * from './model/RestartNodeResponse';
 export * from './model/Restore2ExistRequest';
 export * from './model/Restore2ExistResponse';
 export * from './model/RestoreInst2ExistReq';
+export * from './model/RestoreInstSource';
+export * from './model/RestoreInstTarget';
 export * from './model/RestoreMetaData2ExistReq';
 export * from './model/RestoreMetaDataSource';
 export * from './model/RestoreMetaDataTarget';

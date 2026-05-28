@@ -267,6 +267,8 @@ import { RestartNodeResponse } from './model/RestartNodeResponse';
 import { Restore2ExistRequest } from './model/Restore2ExistRequest';
 import { Restore2ExistResponse } from './model/Restore2ExistResponse';
 import { RestoreInst2ExistReq } from './model/RestoreInst2ExistReq';
+import { RestoreInstSource } from './model/RestoreInstSource';
+import { RestoreInstTarget } from './model/RestoreInstTarget';
 import { RestoreMetaData2ExistReq } from './model/RestoreMetaData2ExistReq';
 import { RestoreMetaDataSource } from './model/RestoreMetaDataSource';
 import { RestoreMetaDataTarget } from './model/RestoreMetaDataTarget';

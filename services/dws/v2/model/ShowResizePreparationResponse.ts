@@ -5,6 +5,7 @@ export class ShowResizePreparationResponse extends SdkResponse {
     public status?: string;
     private 'is_support'?: boolean;
     public progress?: string;
+    private 'instance_ids'?: Array<string>;
     public constructor() { 
         super();
     }
@@ -25,5 +26,15 @@ export class ShowResizePreparationResponse extends SdkResponse {
     public withProgress(progress: string): ShowResizePreparationResponse {
         this['progress'] = progress;
         return this;
+    }
+    public withInstanceIds(instanceIds: Array<string>): ShowResizePreparationResponse {
+        this['instance_ids'] = instanceIds;
+        return this;
+    }
+    public set instanceIds(instanceIds: Array<string>  | undefined) {
+        this['instance_ids'] = instanceIds;
+    }
+    public get instanceIds(): Array<string> | undefined {
+        return this['instance_ids'];
     }
 }
