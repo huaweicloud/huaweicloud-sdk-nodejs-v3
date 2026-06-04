@@ -12,6 +12,7 @@ export class AuthMethodConfigRequest {
     private 'third_party_auth_config'?: ThirdPartyAuthConfig;
     private 'emergency_login_mode'?: string;
     private 'saml2_auth_config'?: Saml2AuthConfig;
+    private 'sms_login_enabled'?: boolean;
     public constructor() { 
     }
     public withId(id: string): AuthMethodConfigRequest {
@@ -77,5 +78,15 @@ export class AuthMethodConfigRequest {
     }
     public get saml2AuthConfig(): Saml2AuthConfig | undefined {
         return this['saml2_auth_config'];
+    }
+    public withSmsLoginEnabled(smsLoginEnabled: boolean): AuthMethodConfigRequest {
+        this['sms_login_enabled'] = smsLoginEnabled;
+        return this;
+    }
+    public set smsLoginEnabled(smsLoginEnabled: boolean  | undefined) {
+        this['sms_login_enabled'] = smsLoginEnabled;
+    }
+    public get smsLoginEnabled(): boolean | undefined {
+        return this['sms_login_enabled'];
     }
 }

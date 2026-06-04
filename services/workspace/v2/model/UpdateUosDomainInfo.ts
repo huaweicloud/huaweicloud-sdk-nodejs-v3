@@ -14,7 +14,15 @@ export class UpdateUosDomainInfo {
     public id?: string;
     private 'app_cert_id'?: string;
     private 'openapi_ca_cert_id'?: string;
-    public constructor() { 
+    public constructor(username?: string, userPassword?: string, mainDcAddress?: string, openInterfaceAddress?: string, internalServiceAddress?: string, appCert?: string, appCertKey?: string, openapiCaCert?: string) { 
+        this['username'] = username;
+        this['user_password'] = userPassword;
+        this['main_dc_address'] = mainDcAddress;
+        this['open_interface_address'] = openInterfaceAddress;
+        this['internal_service_address'] = internalServiceAddress;
+        this['app_cert'] = appCert;
+        this['app_cert_key'] = appCertKey;
+        this['openapi_ca_cert'] = openapiCaCert;
     }
     public withUsername(username: string): UpdateUosDomainInfo {
         this['username'] = username;

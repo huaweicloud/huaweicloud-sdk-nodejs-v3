@@ -1,12 +1,12 @@
 import { SubscribeAiAssistantListResponseProject } from './SubscribeAiAssistantListResponseProject';
+import { SubscribeUserBasicInfo } from './SubscribeUserBasicInfo';
 import { SubscribeUserGroupInfo } from './SubscribeUserGroupInfo';
-import { SubscribeUserInfo } from './SubscribeUserInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListSubscribeAiAssistantUsersResponse extends SdkResponse {
     private 'total_count'?: number;
-    public users?: Array<SubscribeUserInfo>;
+    public users?: Array<SubscribeUserBasicInfo>;
     public usergroups?: Array<SubscribeUserGroupInfo>;
     public project?: SubscribeAiAssistantListResponseProject;
     public constructor() { 
@@ -22,7 +22,7 @@ export class ListSubscribeAiAssistantUsersResponse extends SdkResponse {
     public get totalCount(): number | undefined {
         return this['total_count'];
     }
-    public withUsers(users: Array<SubscribeUserInfo>): ListSubscribeAiAssistantUsersResponse {
+    public withUsers(users: Array<SubscribeUserBasicInfo>): ListSubscribeAiAssistantUsersResponse {
         this['users'] = users;
         return this;
     }

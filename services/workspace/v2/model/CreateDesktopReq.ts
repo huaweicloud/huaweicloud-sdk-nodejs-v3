@@ -24,6 +24,7 @@ export class CreateDesktopReq {
     public size?: number;
     private 'email_notification'?: boolean;
     private 'enterprise_project_id'?: string;
+    private 'ou_name'?: string;
     public tags?: Array<Tag>;
     private 'apply_shared_vpc_dedicated_param'?: ApplySharedVpcDedicatedParam;
     public eip?: Eip;
@@ -180,6 +181,16 @@ export class CreateDesktopReq {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withOuName(ouName: string): CreateDesktopReq {
+        this['ou_name'] = ouName;
+        return this;
+    }
+    public set ouName(ouName: string  | undefined) {
+        this['ou_name'] = ouName;
+    }
+    public get ouName(): string | undefined {
+        return this['ou_name'];
     }
     public withTags(tags: Array<Tag>): CreateDesktopReq {
         this['tags'] = tags;

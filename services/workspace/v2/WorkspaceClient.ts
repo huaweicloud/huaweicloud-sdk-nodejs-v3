@@ -1075,6 +1075,7 @@ import { SubscribeAiAssistantRequest } from './model/SubscribeAiAssistantRequest
 import { SubscribeAiAssistantResponse } from './model/SubscribeAiAssistantResponse';
 import { SubscribeOperationReq } from './model/SubscribeOperationReq';
 import { SubscribeOperationReqProject } from './model/SubscribeOperationReqProject';
+import { SubscribeUserBasicInfo } from './model/SubscribeUserBasicInfo';
 import { SubscribeUserGroupInfo } from './model/SubscribeUserGroupInfo';
 import { SubscribeUserInfo } from './model/SubscribeUserInfo';
 import { SubscribeUserSharerReq } from './model/SubscribeUserSharerReq';
@@ -1119,6 +1120,9 @@ import { UpdateAssistAuthConfigApplyObjectsRequest } from './model/UpdateAssistA
 import { UpdateAssistAuthConfigApplyObjectsResponse } from './model/UpdateAssistAuthConfigApplyObjectsResponse';
 import { UpdateAssistAuthMethodConfigRequest } from './model/UpdateAssistAuthMethodConfigRequest';
 import { UpdateAssistAuthMethodConfigResponse } from './model/UpdateAssistAuthMethodConfigResponse';
+import { UpdateAuthConfigReq } from './model/UpdateAuthConfigReq';
+import { UpdateAuthConfigRequest } from './model/UpdateAuthConfigRequest';
+import { UpdateAuthConfigResponse } from './model/UpdateAuthConfigResponse';
 import { UpdateAuthMethodConfigRequest } from './model/UpdateAuthMethodConfigRequest';
 import { UpdateAuthMethodConfigResponse } from './model/UpdateAuthMethodConfigResponse';
 import { UpdateDcVncRequest } from './model/UpdateDcVncRequest';
@@ -1143,8 +1147,6 @@ import { UpdateDomainNewRequest } from './model/UpdateDomainNewRequest';
 import { UpdateDomainNewResponse } from './model/UpdateDomainNewResponse';
 import { UpdateEnterpriseIdRequest } from './model/UpdateEnterpriseIdRequest';
 import { UpdateEnterpriseIdResponse } from './model/UpdateEnterpriseIdResponse';
-import { UpdateFullSpeedRecordConfigRequest } from './model/UpdateFullSpeedRecordConfigRequest';
-import { UpdateFullSpeedRecordConfigResponse } from './model/UpdateFullSpeedRecordConfigResponse';
 import { UpdateHostParam } from './model/UpdateHostParam';
 import { UpdateHostsRequest } from './model/UpdateHostsRequest';
 import { UpdateHostsRequestBody } from './model/UpdateHostsRequestBody';
@@ -1165,7 +1167,9 @@ import { UpdatePolicyGroupResponse } from './model/UpdatePolicyGroupResponse';
 import { UpdateScheduledTasksReq } from './model/UpdateScheduledTasksReq';
 import { UpdateScheduledTasksRequest } from './model/UpdateScheduledTasksRequest';
 import { UpdateScheduledTasksResponse } from './model/UpdateScheduledTasksResponse';
+import { UpdateScreenRecordsRequest } from './model/UpdateScreenRecordsRequest';
 import { UpdateScreenRecordsRequestBody } from './model/UpdateScreenRecordsRequestBody';
+import { UpdateScreenRecordsResponse } from './model/UpdateScreenRecordsResponse';
 import { UpdateScreenRecordsTrafficLimitConfigRequest } from './model/UpdateScreenRecordsTrafficLimitConfigRequest';
 import { UpdateScreenRecordsTrafficLimitConfigResponse } from './model/UpdateScreenRecordsTrafficLimitConfigResponse';
 import { UpdateScriptReq } from './model/UpdateScriptReq';
@@ -2304,6 +2308,26 @@ export class WorkspaceClient {
      */
     public updateAssistAuthMethodConfig(updateAssistAuthMethodConfigRequest?: UpdateAssistAuthMethodConfigRequest): Promise<UpdateAssistAuthMethodConfigResponse> {
         const options = ParamCreater().updateAssistAuthMethodConfig(updateAssistAuthMethodConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 增量更新指定认证配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 增量更新认证配置
+     * @param {string} authConfigId 认证配置ID
+     * @param {UpdateAuthConfigReq} updateAuthConfigRequestBody 增量更新认证配置请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAuthConfig(updateAuthConfigRequest?: UpdateAuthConfigRequest): Promise<UpdateAuthConfigResponse> {
+        const options = ParamCreater().updateAuthConfig(updateAuthConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6355,8 +6379,8 @@ export class WorkspaceClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateFullSpeedRecordConfig(updateFullSpeedRecordConfigRequest?: UpdateFullSpeedRecordConfigRequest): Promise<UpdateFullSpeedRecordConfigResponse> {
-        const options = ParamCreater().updateFullSpeedRecordConfig(updateFullSpeedRecordConfigRequest);
+    public updateScreenRecords(updateScreenRecordsRequest?: UpdateScreenRecordsRequest): Promise<UpdateScreenRecordsResponse> {
+        const options = ParamCreater().updateScreenRecords(updateScreenRecordsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -10661,6 +10685,52 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 增量更新指定认证配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAuthConfig(updateAuthConfigRequest?: UpdateAuthConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/auth-configs/{auth_config_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let authConfigId;
+
+            if (updateAuthConfigRequest !== null && updateAuthConfigRequest !== undefined) {
+                if (updateAuthConfigRequest instanceof UpdateAuthConfigRequest) {
+                    authConfigId = updateAuthConfigRequest.authConfigId;
+                    body = updateAuthConfigRequest.body
+                } else {
+                    authConfigId = updateAuthConfigRequest['auth_config_id'];
+                    body = updateAuthConfigRequest['body'];
+                }
+            }
+
+        
+            if (authConfigId === null || authConfigId === undefined) {
+            throw new RequiredError('authConfigId','Required parameter authConfigId was null or undefined when calling updateAuthConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'auth_config_id': authConfigId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -20227,7 +20297,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        updateFullSpeedRecordConfig(updateFullSpeedRecordConfigRequest?: UpdateFullSpeedRecordConfigRequest) {
+        updateScreenRecords(updateScreenRecordsRequest?: UpdateScreenRecordsRequest) {
             const options = {
                 method: "PUT",
                 url: "/v2/{project_id}/screen-records/{record_id}",
@@ -20243,19 +20313,19 @@ export const ParamCreater = function () {
             
             let recordId;
 
-            if (updateFullSpeedRecordConfigRequest !== null && updateFullSpeedRecordConfigRequest !== undefined) {
-                if (updateFullSpeedRecordConfigRequest instanceof UpdateFullSpeedRecordConfigRequest) {
-                    recordId = updateFullSpeedRecordConfigRequest.recordId;
-                    body = updateFullSpeedRecordConfigRequest.body
+            if (updateScreenRecordsRequest !== null && updateScreenRecordsRequest !== undefined) {
+                if (updateScreenRecordsRequest instanceof UpdateScreenRecordsRequest) {
+                    recordId = updateScreenRecordsRequest.recordId;
+                    body = updateScreenRecordsRequest.body
                 } else {
-                    recordId = updateFullSpeedRecordConfigRequest['record_id'];
-                    body = updateFullSpeedRecordConfigRequest['body'];
+                    recordId = updateScreenRecordsRequest['record_id'];
+                    body = updateScreenRecordsRequest['body'];
                 }
             }
 
         
             if (recordId === null || recordId === undefined) {
-            throw new RequiredError('recordId','Required parameter recordId was null or undefined when calling updateFullSpeedRecordConfig.');
+            throw new RequiredError('recordId','Required parameter recordId was null or undefined when calling updateScreenRecords.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

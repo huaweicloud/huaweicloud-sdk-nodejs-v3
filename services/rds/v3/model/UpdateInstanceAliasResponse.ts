@@ -1,12 +1,12 @@
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
-export class UpdatePostgresqlInstanceAliasResponse extends SdkResponse {
+export class UpdateInstanceAliasResponse extends SdkResponse {
     public resp?: string;
     public constructor() { 
         super();
     }
-    public withResp(resp: string): UpdatePostgresqlInstanceAliasResponse {
+    public withResp(resp: string): UpdateInstanceAliasResponse {
         this['resp'] = resp;
         return this;
     }

@@ -9,6 +9,8 @@ export class NodeItem {
     private 'public_ip'?: string;
     private 'spec_code'?: string;
     private 'availability_zone'?: string;
+    private 'nat_gateway_id'?: string;
+    private 'external_service_port'?: number;
     public constructor(id?: string, name?: string, status?: string, role?: string, privateIp?: string, publicIp?: string, specCode?: string, availabilityZone?: string) { 
         this['id'] = id;
         this['name'] = name;
@@ -74,5 +76,25 @@ export class NodeItem {
     }
     public get availabilityZone(): string | undefined {
         return this['availability_zone'];
+    }
+    public withNatGatewayId(natGatewayId: string): NodeItem {
+        this['nat_gateway_id'] = natGatewayId;
+        return this;
+    }
+    public set natGatewayId(natGatewayId: string  | undefined) {
+        this['nat_gateway_id'] = natGatewayId;
+    }
+    public get natGatewayId(): string | undefined {
+        return this['nat_gateway_id'];
+    }
+    public withExternalServicePort(externalServicePort: number): NodeItem {
+        this['external_service_port'] = externalServicePort;
+        return this;
+    }
+    public set externalServicePort(externalServicePort: number  | undefined) {
+        this['external_service_port'] = externalServicePort;
+    }
+    public get externalServicePort(): number | undefined {
+        return this['external_service_port'];
     }
 }

@@ -120,6 +120,7 @@ export * from './model/HttpGetBody';
 export * from './model/HttpPutBody';
 export * from './model/HttpResponseHeader';
 export * from './model/HttpsDetail';
+export * from './model/HttpsTlsVersion';
 export * from './model/InheritConfig';
 export * from './model/InheritConfigQuery';
 export * from './model/IpFilter';

@@ -12,6 +12,7 @@ export class ShowAuthConfigResponse extends SdkResponse {
     private 'radius_gateway_config'?: RadiusGatewayConfigInfo;
     private 'third_party_auth_config'?: Array<ThirdPartyAuthConfig>;
     private 'emergency_login_mode'?: string;
+    private 'sms_login_enabled'?: boolean;
     private 'saml2_auth_config'?: Saml2AuthConfig;
     public constructor() { 
         super();
@@ -73,6 +74,16 @@ export class ShowAuthConfigResponse extends SdkResponse {
     }
     public get emergencyLoginMode(): string | undefined {
         return this['emergency_login_mode'];
+    }
+    public withSmsLoginEnabled(smsLoginEnabled: boolean): ShowAuthConfigResponse {
+        this['sms_login_enabled'] = smsLoginEnabled;
+        return this;
+    }
+    public set smsLoginEnabled(smsLoginEnabled: boolean  | undefined) {
+        this['sms_login_enabled'] = smsLoginEnabled;
+    }
+    public get smsLoginEnabled(): boolean | undefined {
+        return this['sms_login_enabled'];
     }
     public withSaml2AuthConfig(saml2AuthConfig: Saml2AuthConfig): ShowAuthConfigResponse {
         this['saml2_auth_config'] = saml2AuthConfig;

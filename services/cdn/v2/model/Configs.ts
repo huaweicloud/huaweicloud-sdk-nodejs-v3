@@ -12,6 +12,7 @@ import { ForceRedirectConfig } from './ForceRedirectConfig';
 import { Hsts } from './Hsts';
 import { HttpPutBody } from './HttpPutBody';
 import { HttpResponseHeader } from './HttpResponseHeader';
+import { HttpsTlsVersion } from './HttpsTlsVersion';
 import { IpFilter } from './IpFilter';
 import { IpFrequencyLimit } from './IpFrequencyLimit';
 import { OriginRequestHeader } from './OriginRequestHeader';
@@ -66,6 +67,7 @@ export class Configs {
     private 'browser_cache_rules'?: Array<BrowserCacheRules>;
     private 'access_area_filter'?: Array<AccessAreaFilter>;
     private 'client_cert'?: ClientCert;
+    private 'https_tls_version'?: HttpsTlsVersion;
     public constructor() { 
     }
     public withBusinessType(businessType: string): Configs {
@@ -383,5 +385,15 @@ export class Configs {
     }
     public get clientCert(): ClientCert | undefined {
         return this['client_cert'];
+    }
+    public withHttpsTlsVersion(httpsTlsVersion: HttpsTlsVersion): Configs {
+        this['https_tls_version'] = httpsTlsVersion;
+        return this;
+    }
+    public set httpsTlsVersion(httpsTlsVersion: HttpsTlsVersion  | undefined) {
+        this['https_tls_version'] = httpsTlsVersion;
+    }
+    public get httpsTlsVersion(): HttpsTlsVersion | undefined {
+        return this['https_tls_version'];
     }
 }

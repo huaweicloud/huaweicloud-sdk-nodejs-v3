@@ -35,6 +35,9 @@ import { BatchTagActionResponse } from './model/BatchTagActionResponse';
 import { BatchUpgradeDatabaseVersionRequest } from './model/BatchUpgradeDatabaseVersionRequest';
 import { BatchUpgradeDatabaseVersionRequestBody } from './model/BatchUpgradeDatabaseVersionRequestBody';
 import { BatchUpgradeDatabaseVersionResponse } from './model/BatchUpgradeDatabaseVersionResponse';
+import { BindPublicGatewayRequest } from './model/BindPublicGatewayRequest';
+import { BindPublicGatewayRequestBody } from './model/BindPublicGatewayRequestBody';
+import { BindPublicGatewayResponse } from './model/BindPublicGatewayResponse';
 import { CancelEipRequest } from './model/CancelEipRequest';
 import { CancelEipResponse } from './model/CancelEipResponse';
 import { CancelScheduledTaskRequest } from './model/CancelScheduledTaskRequest';
@@ -373,6 +376,8 @@ import { TagItem } from './model/TagItem';
 import { TagResponse } from './model/TagResponse';
 import { TagWithKeyValue } from './model/TagWithKeyValue';
 import { Target } from './model/Target';
+import { UnbindPublicGatewayRequest } from './model/UnbindPublicGatewayRequest';
+import { UnbindPublicGatewayResponse } from './model/UnbindPublicGatewayResponse';
 import { UpdateBackupDownloadPolicyRequest } from './model/UpdateBackupDownloadPolicyRequest';
 import { UpdateBackupDownloadPolicyRequestBody } from './model/UpdateBackupDownloadPolicyRequestBody';
 import { UpdateBackupDownloadPolicyResponse } from './model/UpdateBackupDownloadPolicyResponse';
@@ -562,6 +567,27 @@ export class DdsClient {
      */
     public batchUpgradeDatabaseVersion(batchUpgradeDatabaseVersionRequest?: BatchUpgradeDatabaseVersionRequest): Promise<BatchUpgradeDatabaseVersionResponse> {
         const options = ParamCreater().batchUpgradeDatabaseVersion(batchUpgradeDatabaseVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 为实例下的节点绑定公网网关。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 绑定公网网关
+     * @param {string} instanceId **参数解释：** 实例ID，可以调用“查询实例列表和详情-QueryingInstancesandDetails”接口获取。如果未申请实例，可以调用“创建实例-CreatingaDBInstance”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} nodeId **参数解释：** 需要绑定公网网关规则的节点ID。 **约束限制：** 集群实例选择mongos节点，副本集实例选择primary或者secondary节点。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {BindPublicGatewayRequestBody} bindPublicGatewayRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public bindPublicGateway(bindPublicGatewayRequest?: BindPublicGatewayRequest): Promise<BindPublicGatewayResponse> {
+        const options = ParamCreater().bindPublicGateway(bindPublicGatewayRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2716,6 +2742,26 @@ export class DdsClient {
     }
 
     /**
+     * 为实例下的节点解绑公网网关。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解绑公网网关
+     * @param {string} instanceId **参数解释：** 实例ID，可以调用“查询实例列表和详情-QueryingInstancesandDetails”接口获取。如果未申请实例，可以调用“创建实例-CreatingaDBInstance”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} nodeId **参数解释：** 需要绑定公网网关规则的节点ID。 **约束限制：** 集群实例选择mongos节点，副本集实例选择primary或者secondary节点。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public unbindPublicGateway(unbindPublicGatewayRequest?: UnbindPublicGatewayRequest): Promise<UnbindPublicGatewayResponse> {
+        const options = ParamCreater().unbindPublicGateway(unbindPublicGatewayRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新备份下载策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3324,6 +3370,59 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 为实例下的节点绑定公网网关。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        bindPublicGateway(bindPublicGatewayRequest?: BindPublicGatewayRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/nodes/{node_id}/public-gateway",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let nodeId;
+
+            if (bindPublicGatewayRequest !== null && bindPublicGatewayRequest !== undefined) {
+                if (bindPublicGatewayRequest instanceof BindPublicGatewayRequest) {
+                    instanceId = bindPublicGatewayRequest.instanceId;
+                    nodeId = bindPublicGatewayRequest.nodeId;
+                    body = bindPublicGatewayRequest.body
+                } else {
+                    instanceId = bindPublicGatewayRequest['instance_id'];
+                    nodeId = bindPublicGatewayRequest['node_id'];
+                    body = bindPublicGatewayRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling bindPublicGateway.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling bindPublicGateway.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'node_id': nodeId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8381,6 +8480,50 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 为实例下的节点解绑公网网关。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        unbindPublicGateway(unbindPublicGatewayRequest?: UnbindPublicGatewayRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/instances/{instance_id}/nodes/{node_id}/public-gateway",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let nodeId;
+
+            if (unbindPublicGatewayRequest !== null && unbindPublicGatewayRequest !== undefined) {
+                if (unbindPublicGatewayRequest instanceof UnbindPublicGatewayRequest) {
+                    instanceId = unbindPublicGatewayRequest.instanceId;
+                    nodeId = unbindPublicGatewayRequest.nodeId;
+                } else {
+                    instanceId = unbindPublicGatewayRequest['instance_id'];
+                    nodeId = unbindPublicGatewayRequest['node_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling unbindPublicGateway.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling unbindPublicGateway.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'node_id': nodeId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

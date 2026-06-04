@@ -166,16 +166,12 @@ import { BusinessCatalogTreeNode } from './model/BusinessCatalogTreeNode';
 import { CancelFactoryPackagesRequest } from './model/CancelFactoryPackagesRequest';
 import { CancelFactoryPackagesRequestBody } from './model/CancelFactoryPackagesRequestBody';
 import { CancelFactoryPackagesResponse } from './model/CancelFactoryPackagesResponse';
-import { CatalogAttributeVO } from './model/CatalogAttributeVO';
-import { CatalogAttributeVOParent } from './model/CatalogAttributeVOParent';
-import { CatalogEntityVO } from './model/CatalogEntityVO';
 import { CatalogInfo } from './model/CatalogInfo';
 import { CatalogLevelVO } from './model/CatalogLevelVO';
 import { CatalogLevelVOList } from './model/CatalogLevelVOList';
 import { CatalogMetaDataEventInfo } from './model/CatalogMetaDataEventInfo';
 import { CatalogMetaDataEventRequest } from './model/CatalogMetaDataEventRequest';
 import { CatalogMoveParaDTO } from './model/CatalogMoveParaDTO';
-import { CatalogParamsVO } from './model/CatalogParamsVO';
 import { CatalogVO } from './model/CatalogVO';
 import { CategoryDetailVO } from './model/CategoryDetailVO';
 import { CategoryInfo } from './model/CategoryInfo';
@@ -2991,7 +2987,7 @@ export class DataArtsStudioClient {
      *
      * @summary 创建主题
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {CatalogParamsVO} createSubjectRequestBody catalog参数。
+     * @param {CatalogVO} createSubjectRequestBody catalog参数。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.
@@ -9781,7 +9777,7 @@ export class DataArtsStudioClient {
      *
      * @summary 修改主题
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {CatalogParamsVO} updateSubjectRequestBody catalog参数。
+     * @param {CatalogVO} updateSubjectRequestBody catalog参数。
      * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
      * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
      * @param {*} [options] Override http request option.

@@ -1,13 +1,13 @@
 import { UpdateScreenRecordsRequestBody } from './UpdateScreenRecordsRequestBody';
 
 
-export class UpdateFullSpeedRecordConfigRequest {
+export class UpdateScreenRecordsRequest {
     private 'record_id'?: string;
     public body?: UpdateScreenRecordsRequestBody;
     public constructor(recordId?: string) { 
         this['record_id'] = recordId;
     }
-    public withRecordId(recordId: string): UpdateFullSpeedRecordConfigRequest {
+    public withRecordId(recordId: string): UpdateScreenRecordsRequest {
         this['record_id'] = recordId;
         return this;
     }
@@ -17,7 +17,7 @@ export class UpdateFullSpeedRecordConfigRequest {
     public get recordId(): string | undefined {
         return this['record_id'];
     }
-    public withBody(body: UpdateScreenRecordsRequestBody): UpdateFullSpeedRecordConfigRequest {
+    public withBody(body: UpdateScreenRecordsRequestBody): UpdateScreenRecordsRequest {
         this['body'] = body;
         return this;
     }

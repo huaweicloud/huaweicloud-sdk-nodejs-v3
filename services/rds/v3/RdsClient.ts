@@ -913,6 +913,8 @@ import { UpdateHostPrivilegeResponse } from './model/UpdateHostPrivilegeResponse
 import { UpdateIncreBackupPolicy1Request } from './model/UpdateIncreBackupPolicy1Request';
 import { UpdateIncreBackupPolicy1RequestBody } from './model/UpdateIncreBackupPolicy1RequestBody';
 import { UpdateIncreBackupPolicy1Response } from './model/UpdateIncreBackupPolicy1Response';
+import { UpdateInstanceAliasRequest } from './model/UpdateInstanceAliasRequest';
+import { UpdateInstanceAliasResponse } from './model/UpdateInstanceAliasResponse';
 import { UpdateInstanceConfigurationAsyncRequest } from './model/UpdateInstanceConfigurationAsyncRequest';
 import { UpdateInstanceConfigurationAsyncResponse } from './model/UpdateInstanceConfigurationAsyncResponse';
 import { UpdateInstanceConfigurationRequest } from './model/UpdateInstanceConfigurationRequest';
@@ -928,8 +930,6 @@ import { UpdatePostgresqlDbUserCommentRequest } from './model/UpdatePostgresqlDb
 import { UpdatePostgresqlDbUserCommentResponse } from './model/UpdatePostgresqlDbUserCommentResponse';
 import { UpdatePostgresqlExtensionRequest } from './model/UpdatePostgresqlExtensionRequest';
 import { UpdatePostgresqlExtensionResponse } from './model/UpdatePostgresqlExtensionResponse';
-import { UpdatePostgresqlInstanceAliasRequest } from './model/UpdatePostgresqlInstanceAliasRequest';
-import { UpdatePostgresqlInstanceAliasResponse } from './model/UpdatePostgresqlInstanceAliasResponse';
 import { UpdatePostgresqlParameterValueRequest } from './model/UpdatePostgresqlParameterValueRequest';
 import { UpdatePostgresqlParameterValueResponse } from './model/UpdatePostgresqlParameterValueResponse';
 import { UpdateRdsInstanceAliasRequest } from './model/UpdateRdsInstanceAliasRequest';
@@ -4672,6 +4672,27 @@ export class RdsClient {
     }
 
     /**
+     * 修改指定数据库实例的备注信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改实例备注信息
+     * @param {string} instanceId 实例ID。
+     * @param {UpdateRdsInstanceAliasRequest} updateRdsInstanceAliasRequest 请求体。
+     * @param {string} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstanceAlias(updateInstanceAliasRequest?: UpdateInstanceAliasRequest): Promise<UpdateInstanceAliasResponse> {
+        const options = ParamCreater().updateInstanceAlias(updateInstanceAliasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改指定实例的参数。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4748,27 +4769,6 @@ export class RdsClient {
      */
     public updatePort(updatePortRequest?: UpdatePortRequest): Promise<UpdatePortResponse> {
         const options = ParamCreater().updatePort(updatePortRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 修改指定数据库实例的备注信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 修改实例备注信息
-     * @param {string} instanceId 实例ID。
-     * @param {UpdateRdsInstanceAliasRequest} updateRdsInstanceAliasRequest 请求体。
-     * @param {string} [xLanguage] 语言
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updatePostgresqlInstanceAlias(updatePostgresqlInstanceAliasRequest?: UpdatePostgresqlInstanceAliasRequest): Promise<UpdatePostgresqlInstanceAliasResponse> {
-        const options = ParamCreater().updatePostgresqlInstanceAlias(updatePostgresqlInstanceAliasRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -16616,6 +16616,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改指定数据库实例的备注信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstanceAlias(updateInstanceAliasRequest?: UpdateInstanceAliasRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/alias",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (updateInstanceAliasRequest !== null && updateInstanceAliasRequest !== undefined) {
+                if (updateInstanceAliasRequest instanceof UpdateInstanceAliasRequest) {
+                    instanceId = updateInstanceAliasRequest.instanceId;
+                    body = updateInstanceAliasRequest.body
+                    xLanguage = updateInstanceAliasRequest.xLanguage;
+                } else {
+                    instanceId = updateInstanceAliasRequest['instance_id'];
+                    body = updateInstanceAliasRequest['body'];
+                    xLanguage = updateInstanceAliasRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceAlias.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改指定实例的参数。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -16812,59 +16865,6 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updatePort.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (xLanguage !== undefined && xLanguage !== null) {
-                localVarHeaderParameter['X-Language'] = String(xLanguage);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'instance_id': instanceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 修改指定数据库实例的备注信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updatePostgresqlInstanceAlias(updatePostgresqlInstanceAliasRequest?: UpdatePostgresqlInstanceAliasRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v3/{project_id}/instances/{instance_id}/alias",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let instanceId;
-            
-            let xLanguage;
-
-            if (updatePostgresqlInstanceAliasRequest !== null && updatePostgresqlInstanceAliasRequest !== undefined) {
-                if (updatePostgresqlInstanceAliasRequest instanceof UpdatePostgresqlInstanceAliasRequest) {
-                    instanceId = updatePostgresqlInstanceAliasRequest.instanceId;
-                    body = updatePostgresqlInstanceAliasRequest.body
-                    xLanguage = updatePostgresqlInstanceAliasRequest.xLanguage;
-                } else {
-                    instanceId = updatePostgresqlInstanceAliasRequest['instance_id'];
-                    body = updatePostgresqlInstanceAliasRequest['body'];
-                    xLanguage = updatePostgresqlInstanceAliasRequest['X-Language'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updatePostgresqlInstanceAlias.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

@@ -1,14 +1,14 @@
 import { UpdateRdsInstanceAliasRequest } from './UpdateRdsInstanceAliasRequest';
 
 
-export class UpdatePostgresqlInstanceAliasRequest {
+export class UpdateInstanceAliasRequest {
     private 'X-Language'?: string;
     private 'instance_id'?: string;
     public body?: UpdateRdsInstanceAliasRequest;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
-    public withXLanguage(xLanguage: string): UpdatePostgresqlInstanceAliasRequest {
+    public withXLanguage(xLanguage: string): UpdateInstanceAliasRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
@@ -18,7 +18,7 @@ export class UpdatePostgresqlInstanceAliasRequest {
     public get xLanguage(): string | undefined {
         return this['X-Language'];
     }
-    public withInstanceId(instanceId: string): UpdatePostgresqlInstanceAliasRequest {
+    public withInstanceId(instanceId: string): UpdateInstanceAliasRequest {
         this['instance_id'] = instanceId;
         return this;
     }
@@ -28,7 +28,7 @@ export class UpdatePostgresqlInstanceAliasRequest {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withBody(body: UpdateRdsInstanceAliasRequest): UpdatePostgresqlInstanceAliasRequest {
+    public withBody(body: UpdateRdsInstanceAliasRequest): UpdateInstanceAliasRequest {
         this['body'] = body;
         return this;
     }

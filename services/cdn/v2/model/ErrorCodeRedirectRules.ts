@@ -2,6 +2,7 @@
 
 export class ErrorCodeRedirectRules {
     private 'error_code'?: number;
+    private 'execution_mode'?: string;
     private 'target_code'?: number;
     private 'target_link'?: string;
     public constructor(errorCode?: number, targetCode?: number, targetLink?: string) { 
@@ -18,6 +19,16 @@ export class ErrorCodeRedirectRules {
     }
     public get errorCode(): number | undefined {
         return this['error_code'];
+    }
+    public withExecutionMode(executionMode: string): ErrorCodeRedirectRules {
+        this['execution_mode'] = executionMode;
+        return this;
+    }
+    public set executionMode(executionMode: string  | undefined) {
+        this['execution_mode'] = executionMode;
+    }
+    public get executionMode(): string | undefined {
+        return this['execution_mode'];
     }
     public withTargetCode(targetCode: number): ErrorCodeRedirectRules {
         this['target_code'] = targetCode;

@@ -1,11 +1,11 @@
-import { CatalogParamsVO } from './CatalogParamsVO';
+import { CatalogVO } from './CatalogVO';
 
 
 export class CreateSubjectRequest {
     public workspace?: string;
     private 'X-Project-Id'?: string;
     private 'Content-Type'?: string;
-    public body?: CatalogParamsVO;
+    public body?: CatalogVO;
     public constructor(workspace?: string) { 
         this['workspace'] = workspace;
     }
@@ -33,7 +33,7 @@ export class CreateSubjectRequest {
     public get contentType(): string | undefined {
         return this['Content-Type'];
     }
-    public withBody(body: CatalogParamsVO): CreateSubjectRequest {
+    public withBody(body: CatalogVO): CreateSubjectRequest {
         this['body'] = body;
         return this;
     }
