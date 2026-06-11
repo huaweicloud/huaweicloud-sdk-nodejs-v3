@@ -1,6 +1,6 @@
 
 
-export class ProductInfo {
+export class ProductDetailInfo {
     private 'product_id'?: string;
     private 'flavor_id'?: string;
     public type?: string;
@@ -29,7 +29,7 @@ export class ProductInfo {
     private 'support_gpu_type'?: string;
     public constructor() { 
     }
-    public withProductId(productId: string): ProductInfo {
+    public withProductId(productId: string): ProductDetailInfo {
         this['product_id'] = productId;
         return this;
     }
@@ -39,7 +39,7 @@ export class ProductInfo {
     public get productId(): string | undefined {
         return this['product_id'];
     }
-    public withFlavorId(flavorId: string): ProductInfo {
+    public withFlavorId(flavorId: string): ProductDetailInfo {
         this['flavor_id'] = flavorId;
         return this;
     }
@@ -49,19 +49,19 @@ export class ProductInfo {
     public get flavorId(): string | undefined {
         return this['flavor_id'];
     }
-    public withType(type: string): ProductInfo {
+    public withType(type: string): ProductDetailInfo {
         this['type'] = type;
         return this;
     }
-    public withArchitecture(architecture: string): ProductInfo {
+    public withArchitecture(architecture: string): ProductDetailInfo {
         this['architecture'] = architecture;
         return this;
     }
-    public withCpu(cpu: string): ProductInfo {
+    public withCpu(cpu: string): ProductDetailInfo {
         this['cpu'] = cpu;
         return this;
     }
-    public withCpuDesc(cpuDesc: string): ProductInfo {
+    public withCpuDesc(cpuDesc: string): ProductDetailInfo {
         this['cpu_desc'] = cpuDesc;
         return this;
     }
@@ -71,11 +71,11 @@ export class ProductInfo {
     public get cpuDesc(): string | undefined {
         return this['cpu_desc'];
     }
-    public withMemory(memory: string): ProductInfo {
+    public withMemory(memory: string): ProductDetailInfo {
         this['memory'] = memory;
         return this;
     }
-    public withIsGpu(isGpu: boolean): ProductInfo {
+    public withIsGpu(isGpu: boolean): ProductDetailInfo {
         this['is_gpu'] = isGpu;
         return this;
     }
@@ -85,7 +85,7 @@ export class ProductInfo {
     public get isGpu(): boolean | undefined {
         return this['is_gpu'];
     }
-    public withSystemDiskType(systemDiskType: string): ProductInfo {
+    public withSystemDiskType(systemDiskType: string): ProductDetailInfo {
         this['system_disk_type'] = systemDiskType;
         return this;
     }
@@ -95,7 +95,7 @@ export class ProductInfo {
     public get systemDiskType(): string | undefined {
         return this['system_disk_type'];
     }
-    public withSystemDiskSize(systemDiskSize: string): ProductInfo {
+    public withSystemDiskSize(systemDiskSize: string): ProductDetailInfo {
         this['system_disk_size'] = systemDiskSize;
         return this;
     }
@@ -105,7 +105,7 @@ export class ProductInfo {
     public get systemDiskSize(): string | undefined {
         return this['system_disk_size'];
     }
-    public withGpuDesc(gpuDesc: string): ProductInfo {
+    public withGpuDesc(gpuDesc: string): ProductDetailInfo {
         this['gpu_desc'] = gpuDesc;
         return this;
     }
@@ -115,11 +115,11 @@ export class ProductInfo {
     public get gpuDesc(): string | undefined {
         return this['gpu_desc'];
     }
-    public withDescriptions(descriptions: string): ProductInfo {
+    public withDescriptions(descriptions: string): ProductDetailInfo {
         this['descriptions'] = descriptions;
         return this;
     }
-    public withChargeMode(chargeMode: string): ProductInfo {
+    public withChargeMode(chargeMode: string): ProductDetailInfo {
         this['charge_mode'] = chargeMode;
         return this;
     }
@@ -129,7 +129,7 @@ export class ProductInfo {
     public get chargeMode(): string | undefined {
         return this['charge_mode'];
     }
-    public withContainDataDisk(containDataDisk: boolean): ProductInfo {
+    public withContainDataDisk(containDataDisk: boolean): ProductDetailInfo {
         this['contain_data_disk'] = containDataDisk;
         return this;
     }
@@ -139,7 +139,7 @@ export class ProductInfo {
     public get containDataDisk(): boolean | undefined {
         return this['contain_data_disk'];
     }
-    public withResourceType(resourceType: string): ProductInfo {
+    public withResourceType(resourceType: string): ProductDetailInfo {
         this['resource_type'] = resourceType;
         return this;
     }
@@ -149,7 +149,7 @@ export class ProductInfo {
     public get resourceType(): string | undefined {
         return this['resource_type'];
     }
-    public withCloudServiceType(cloudServiceType: string): ProductInfo {
+    public withCloudServiceType(cloudServiceType: string): ProductDetailInfo {
         this['cloud_service_type'] = cloudServiceType;
         return this;
     }
@@ -159,7 +159,7 @@ export class ProductInfo {
     public get cloudServiceType(): string | undefined {
         return this['cloud_service_type'];
     }
-    public withVolumeProductType(volumeProductType: string): ProductInfo {
+    public withVolumeProductType(volumeProductType: string): ProductDetailInfo {
         this['volume_product_type'] = volumeProductType;
         return this;
     }
@@ -169,15 +169,15 @@ export class ProductInfo {
     public get volumeProductType(): string | undefined {
         return this['volume_product_type'];
     }
-    public withSessions(sessions: number): ProductInfo {
+    public withSessions(sessions: number): ProductDetailInfo {
         this['sessions'] = sessions;
         return this;
     }
-    public withStatus(status: string): ProductInfo {
+    public withStatus(status: string): ProductDetailInfo {
         this['status'] = status;
         return this;
     }
-    public withCondOperationAz(condOperationAz: string): ProductInfo {
+    public withCondOperationAz(condOperationAz: string): ProductDetailInfo {
         this['cond_operation_az'] = condOperationAz;
         return this;
     }
@@ -187,7 +187,7 @@ export class ProductInfo {
     public get condOperationAz(): string | undefined {
         return this['cond_operation_az'];
     }
-    public withSubProductList(subProductList: Array<string>): ProductInfo {
+    public withSubProductList(subProductList: Array<string>): ProductDetailInfo {
         this['sub_product_list'] = subProductList;
         return this;
     }
@@ -197,7 +197,7 @@ export class ProductInfo {
     public get subProductList(): Array<string> | undefined {
         return this['sub_product_list'];
     }
-    public withDomainIds(domainIds: Array<string>): ProductInfo {
+    public withDomainIds(domainIds: Array<string>): ProductDetailInfo {
         this['domain_ids'] = domainIds;
         return this;
     }
@@ -207,7 +207,7 @@ export class ProductInfo {
     public get domainIds(): Array<string> | undefined {
         return this['domain_ids'];
     }
-    public withPackageType(packageType: string): ProductInfo {
+    public withPackageType(packageType: string): ProductDetailInfo {
         this['package_type'] = packageType;
         return this;
     }
@@ -217,7 +217,7 @@ export class ProductInfo {
     public get packageType(): string | undefined {
         return this['package_type'];
     }
-    public withSeriesType(seriesType: string): ProductInfo {
+    public withSeriesType(seriesType: string): ProductDetailInfo {
         this['series_type'] = seriesType;
         return this;
     }
@@ -227,7 +227,7 @@ export class ProductInfo {
     public get seriesType(): string | undefined {
         return this['series_type'];
     }
-    public withExpireTime(expireTime: Date): ProductInfo {
+    public withExpireTime(expireTime: Date): ProductDetailInfo {
         this['expire_time'] = expireTime;
         return this;
     }
@@ -237,7 +237,7 @@ export class ProductInfo {
     public get expireTime(): Date | undefined {
         return this['expire_time'];
     }
-    public withSupportGpuType(supportGpuType: string): ProductInfo {
+    public withSupportGpuType(supportGpuType: string): ProductDetailInfo {
         this['support_gpu_type'] = supportGpuType;
         return this;
     }

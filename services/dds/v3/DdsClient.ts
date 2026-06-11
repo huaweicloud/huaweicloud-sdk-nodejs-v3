@@ -29,6 +29,9 @@ import { BalancerActiveWindow } from './model/BalancerActiveWindow';
 import { BatchDeleteBackupRequest } from './model/BatchDeleteBackupRequest';
 import { BatchDeleteBackupRequestBody } from './model/BatchDeleteBackupRequestBody';
 import { BatchDeleteBackupResponse } from './model/BatchDeleteBackupResponse';
+import { BatchDeleteShardsRequest } from './model/BatchDeleteShardsRequest';
+import { BatchDeleteShardsRequestBody } from './model/BatchDeleteShardsRequestBody';
+import { BatchDeleteShardsResponse } from './model/BatchDeleteShardsResponse';
 import { BatchOperateInstanceTagRequestBody } from './model/BatchOperateInstanceTagRequestBody';
 import { BatchTagActionRequest } from './model/BatchTagActionRequest';
 import { BatchTagActionResponse } from './model/BatchTagActionResponse';
@@ -441,7 +444,7 @@ export class DdsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 实例新增只读节点
-     * @param {string} instanceId 实例ID。
+     * @param {string} instanceId **参数解释：** 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {AddReadonlyNodeRequestBody} addReadonlyNodeRequestBody 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -528,6 +531,26 @@ export class DdsClient {
      */
     public batchDeleteBackup(batchDeleteBackupRequest?: BatchDeleteBackupRequest): Promise<BatchDeleteBackupResponse> {
         const options = ParamCreater().batchDeleteBackup(batchDeleteBackupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除分片
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除分片
+     * @param {string} instanceId **参数解释：** 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {BatchDeleteShardsRequestBody} batchDeleteShardsRequestBody 请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteShards(batchDeleteShardsRequest?: BatchDeleteShardsRequest): Promise<BatchDeleteShardsResponse> {
+        const options = ParamCreater().batchDeleteShards(batchDeleteShardsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3286,6 +3309,52 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除分片
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteShards(batchDeleteShardsRequest?: BatchDeleteShardsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/shards/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (batchDeleteShardsRequest !== null && batchDeleteShardsRequest !== undefined) {
+                if (batchDeleteShardsRequest instanceof BatchDeleteShardsRequest) {
+                    instanceId = batchDeleteShardsRequest.instanceId;
+                    body = batchDeleteShardsRequest.body
+                } else {
+                    instanceId = batchDeleteShardsRequest['instance_id'];
+                    body = batchDeleteShardsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling batchDeleteShards.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

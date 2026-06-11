@@ -2,8 +2,8 @@ import { AppTypeEnum } from './AppTypeEnum';
 import { BaseServerGroup } from './BaseServerGroup';
 import { ExtraSessionTypeEnum } from './ExtraSessionTypeEnum';
 import { OsTypeEnum } from './OsTypeEnum';
-import { ProductInfo } from './ProductInfo';
 import { ScalingPolicy } from './ScalingPolicy';
+import { ServerProductInfo } from './ServerProductInfo';
 import { StorageFolderMountType } from './StorageFolderMountType';
 import { TmsTag } from './TmsTag';
 import { VolumeType } from './VolumeType';
@@ -36,7 +36,7 @@ export class ServerGroup {
     private 'app_server_count'?: number;
     private 'app_group_count'?: number;
     private 'image_name'?: string;
-    private 'product_info'?: ProductInfo;
+    private 'product_info'?: ServerProductInfo;
     private 'subnet_name'?: string;
     private 'scaling_policy'?: ScalingPolicy;
     public tags?: Array<TmsTag>;
@@ -285,14 +285,14 @@ export class ServerGroup {
     public get imageName(): string | undefined {
         return this['image_name'];
     }
-    public withProductInfo(productInfo: ProductInfo): ServerGroup {
+    public withProductInfo(productInfo: ServerProductInfo): ServerGroup {
         this['product_info'] = productInfo;
         return this;
     }
-    public set productInfo(productInfo: ProductInfo  | undefined) {
+    public set productInfo(productInfo: ServerProductInfo  | undefined) {
         this['product_info'] = productInfo;
     }
-    public get productInfo(): ProductInfo | undefined {
+    public get productInfo(): ServerProductInfo | undefined {
         return this['product_info'];
     }
     public withSubnetName(subnetName: string): ServerGroup {

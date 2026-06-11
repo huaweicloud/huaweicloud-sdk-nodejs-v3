@@ -5,6 +5,9 @@ export class DualActiveInfo {
     public status?: string;
     private 'destination_instance_id'?: string;
     private 'destination_region'?: string;
+    private 'destination_instance_name'?: string;
+    private 'destination_instance_node_num'?: string;
+    private 'destination_instance_spec_code'?: string;
     public constructor() { 
     }
     public withRole(role: string): DualActiveInfo {
@@ -34,5 +37,35 @@ export class DualActiveInfo {
     }
     public get destinationRegion(): string | undefined {
         return this['destination_region'];
+    }
+    public withDestinationInstanceName(destinationInstanceName: string): DualActiveInfo {
+        this['destination_instance_name'] = destinationInstanceName;
+        return this;
+    }
+    public set destinationInstanceName(destinationInstanceName: string  | undefined) {
+        this['destination_instance_name'] = destinationInstanceName;
+    }
+    public get destinationInstanceName(): string | undefined {
+        return this['destination_instance_name'];
+    }
+    public withDestinationInstanceNodeNum(destinationInstanceNodeNum: string): DualActiveInfo {
+        this['destination_instance_node_num'] = destinationInstanceNodeNum;
+        return this;
+    }
+    public set destinationInstanceNodeNum(destinationInstanceNodeNum: string  | undefined) {
+        this['destination_instance_node_num'] = destinationInstanceNodeNum;
+    }
+    public get destinationInstanceNodeNum(): string | undefined {
+        return this['destination_instance_node_num'];
+    }
+    public withDestinationInstanceSpecCode(destinationInstanceSpecCode: string): DualActiveInfo {
+        this['destination_instance_spec_code'] = destinationInstanceSpecCode;
+        return this;
+    }
+    public set destinationInstanceSpecCode(destinationInstanceSpecCode: string  | undefined) {
+        this['destination_instance_spec_code'] = destinationInstanceSpecCode;
+    }
+    public get destinationInstanceSpecCode(): string | undefined {
+        return this['destination_instance_spec_code'];
     }
 }

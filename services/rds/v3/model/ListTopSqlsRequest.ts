@@ -3,6 +3,7 @@
 export class ListTopSqlsRequest {
     private 'instance_id'?: string;
     private 'X-Language'?: ListTopSqlsRequestXLanguageEnum | string;
+    public offset?: number;
     private 'sort_key'?: string;
     public limit?: number;
     public statement?: string;
@@ -29,6 +30,10 @@ export class ListTopSqlsRequest {
     }
     public get xLanguage(): ListTopSqlsRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
+    }
+    public withOffset(offset: number): ListTopSqlsRequest {
+        this['offset'] = offset;
+        return this;
     }
     public withSortKey(sortKey: string): ListTopSqlsRequest {
         this['sort_key'] = sortKey;

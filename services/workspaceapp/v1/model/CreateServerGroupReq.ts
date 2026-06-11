@@ -3,7 +3,7 @@ import { ExtraSessionTypeEnum } from './ExtraSessionTypeEnum';
 import { ImageTypeEnum } from './ImageTypeEnum';
 import { IpVirtual } from './IpVirtual';
 import { OsTypeEnum } from './OsTypeEnum';
-import { RoutePolicy } from './RoutePolicy';
+import { RoutePolicyDetail } from './RoutePolicyDetail';
 import { TmsTag } from './TmsTag';
 import { VolumeType } from './VolumeType';
 
@@ -15,7 +15,7 @@ export class CreateServerGroupReq {
     private 'image_type'?: ImageTypeEnum;
     private 'os_type'?: OsTypeEnum;
     public description?: string;
-    private 'route_policy'?: RoutePolicy;
+    private 'route_policy'?: RoutePolicyDetail;
     private 'product_id'?: string;
     private 'flavor_id'?: string;
     private 'vpc_id'?: string;
@@ -93,14 +93,14 @@ export class CreateServerGroupReq {
         this['description'] = description;
         return this;
     }
-    public withRoutePolicy(routePolicy: RoutePolicy): CreateServerGroupReq {
+    public withRoutePolicy(routePolicy: RoutePolicyDetail): CreateServerGroupReq {
         this['route_policy'] = routePolicy;
         return this;
     }
-    public set routePolicy(routePolicy: RoutePolicy  | undefined) {
+    public set routePolicy(routePolicy: RoutePolicyDetail  | undefined) {
         this['route_policy'] = routePolicy;
     }
-    public get routePolicy(): RoutePolicy | undefined {
+    public get routePolicy(): RoutePolicyDetail | undefined {
         return this['route_policy'];
     }
     public withProductId(productId: string): CreateServerGroupReq {

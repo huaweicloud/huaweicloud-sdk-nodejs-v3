@@ -6,8 +6,8 @@ export class RecycleInstance {
     public name?: string;
     public mode?: string;
     private 'product_type'?: string;
-    public datastore?: RecycleDatastore;
-    private 'charge_mode'?: string;
+    private 'data_store'?: RecycleDatastore;
+    private 'charge_type'?: string;
     private 'enterprise_project_id'?: string;
     private 'backup_id'?: string;
     private 'created_at'?: string;
@@ -37,19 +37,25 @@ export class RecycleInstance {
     public get productType(): string | undefined {
         return this['product_type'];
     }
-    public withDatastore(datastore: RecycleDatastore): RecycleInstance {
-        this['datastore'] = datastore;
+    public withDataStore(dataStore: RecycleDatastore): RecycleInstance {
+        this['data_store'] = dataStore;
         return this;
     }
-    public withChargeMode(chargeMode: string): RecycleInstance {
-        this['charge_mode'] = chargeMode;
+    public set dataStore(dataStore: RecycleDatastore  | undefined) {
+        this['data_store'] = dataStore;
+    }
+    public get dataStore(): RecycleDatastore | undefined {
+        return this['data_store'];
+    }
+    public withChargeType(chargeType: string): RecycleInstance {
+        this['charge_type'] = chargeType;
         return this;
     }
-    public set chargeMode(chargeMode: string  | undefined) {
-        this['charge_mode'] = chargeMode;
+    public set chargeType(chargeType: string  | undefined) {
+        this['charge_type'] = chargeType;
     }
-    public get chargeMode(): string | undefined {
-        return this['charge_mode'];
+    public get chargeType(): string | undefined {
+        return this['charge_type'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): RecycleInstance {
         this['enterprise_project_id'] = enterpriseProjectId;

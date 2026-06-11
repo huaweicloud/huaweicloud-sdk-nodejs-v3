@@ -6,6 +6,7 @@ import { PoliciesCustom } from './PoliciesCustom';
 import { PoliciesDisplay } from './PoliciesDisplay';
 import { PoliciesFileAndClipboard } from './PoliciesFileAndClipboard';
 import { PoliciesFolderRedirection } from './PoliciesFolderRedirection';
+import { PoliciesFolderRedirectionV2 } from './PoliciesFolderRedirectionV2';
 import { PoliciesKeyboardMouse } from './PoliciesKeyboardMouse';
 import { PoliciesPeripherals } from './PoliciesPeripherals';
 import { PoliciesUrlRedirection } from './PoliciesUrlRedirection';
@@ -30,6 +31,7 @@ export class Policies {
     private 'user_profile'?: PoliciesUserProfile;
     private 'url_redirection'?: PoliciesUrlRedirection;
     private 'folder_redirection'?: PoliciesFolderRedirection;
+    private 'folder_redirection_v2'?: PoliciesFolderRedirectionV2;
     private 'user_profile_management'?: PoliciesUserProfileManagement;
     public constructor() { 
     }
@@ -130,6 +132,16 @@ export class Policies {
     }
     public get folderRedirection(): PoliciesFolderRedirection | undefined {
         return this['folder_redirection'];
+    }
+    public withFolderRedirectionV2(folderRedirectionV2: PoliciesFolderRedirectionV2): Policies {
+        this['folder_redirection_v2'] = folderRedirectionV2;
+        return this;
+    }
+    public set folderRedirectionV2(folderRedirectionV2: PoliciesFolderRedirectionV2  | undefined) {
+        this['folder_redirection_v2'] = folderRedirectionV2;
+    }
+    public get folderRedirectionV2(): PoliciesFolderRedirectionV2 | undefined {
+        return this['folder_redirection_v2'];
     }
     public withUserProfileManagement(userProfileManagement: PoliciesUserProfileManagement): Policies {
         this['user_profile_management'] = userProfileManagement;

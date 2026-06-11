@@ -1,16 +1,16 @@
-import { PolicyStatement } from './PolicyStatement';
+import { AuthorizeObsPolicyStatement } from './AuthorizeObsPolicyStatement';
 
 
 export class Policy {
     public version?: string;
-    public statement?: PolicyStatement;
+    public statement?: AuthorizeObsPolicyStatement;
     public constructor() { 
     }
     public withVersion(version: string): Policy {
         this['version'] = version;
         return this;
     }
-    public withStatement(statement: PolicyStatement): Policy {
+    public withStatement(statement: AuthorizeObsPolicyStatement): Policy {
         this['statement'] = statement;
         return this;
     }

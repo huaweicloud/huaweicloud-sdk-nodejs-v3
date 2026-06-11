@@ -1,5 +1,6 @@
 import { BizStatusEnum } from './BizStatusEnum';
 import { BizVersionManageVO } from './BizVersionManageVO';
+import { RelationVO } from './RelationVO';
 import { SelfDefinedFieldVO } from './SelfDefinedFieldVO';
 
 
@@ -12,6 +13,7 @@ export class CatalogVO {
     public code?: string;
     public alias?: string;
     public status?: BizStatusEnum;
+    public permission?: number;
     private 'new_biz'?: BizVersionManageVO;
     private 'data_owner'?: string;
     private 'data_owner_list'?: string;
@@ -20,11 +22,10 @@ export class CatalogVO {
     public level?: number;
     public ordinal?: number;
     public owner?: string;
-    private 'parent_id'?: string;
-    private 'swap_order_id'?: string;
+    private 'parent_id'?: number;
+    private 'swap_order_id'?: number;
     public id?: string;
     private 'qualified_id'?: string;
-    private 'from_public'?: boolean;
     private 'create_by'?: string;
     private 'update_by'?: string;
     private 'create_time'?: Date;
@@ -32,7 +33,11 @@ export class CatalogVO {
     private 'children_num'?: number;
     public children?: Array<CatalogVO>;
     private 'self_defined_fields'?: Array<SelfDefinedFieldVO>;
-    public constructor() { 
+    public relations?: Array<RelationVO>;
+    public constructor(nameCh?: string, dataOwnerList?: string, level?: number) { 
+        this['name_ch'] = nameCh;
+        this['data_owner_list'] = dataOwnerList;
+        this['level'] = level;
     }
     public withNameCh(nameCh: string): CatalogVO {
         this['name_ch'] = nameCh;
@@ -82,6 +87,10 @@ export class CatalogVO {
     }
     public withStatus(status: BizStatusEnum): CatalogVO {
         this['status'] = status;
+        return this;
+    }
+    public withPermission(permission: number): CatalogVO {
+        this['permission'] = permission;
         return this;
     }
     public withNewBiz(newBiz: BizVersionManageVO): CatalogVO {
@@ -140,24 +149,24 @@ export class CatalogVO {
         this['owner'] = owner;
         return this;
     }
-    public withParentId(parentId: string): CatalogVO {
+    public withParentId(parentId: number): CatalogVO {
         this['parent_id'] = parentId;
         return this;
     }
-    public set parentId(parentId: string  | undefined) {
+    public set parentId(parentId: number  | undefined) {
         this['parent_id'] = parentId;
     }
-    public get parentId(): string | undefined {
+    public get parentId(): number | undefined {
         return this['parent_id'];
     }
-    public withSwapOrderId(swapOrderId: string): CatalogVO {
+    public withSwapOrderId(swapOrderId: number): CatalogVO {
         this['swap_order_id'] = swapOrderId;
         return this;
     }
-    public set swapOrderId(swapOrderId: string  | undefined) {
+    public set swapOrderId(swapOrderId: number  | undefined) {
         this['swap_order_id'] = swapOrderId;
     }
-    public get swapOrderId(): string | undefined {
+    public get swapOrderId(): number | undefined {
         return this['swap_order_id'];
     }
     public withId(id: string): CatalogVO {
@@ -173,16 +182,6 @@ export class CatalogVO {
     }
     public get qualifiedId(): string | undefined {
         return this['qualified_id'];
-    }
-    public withFromPublic(fromPublic: boolean): CatalogVO {
-        this['from_public'] = fromPublic;
-        return this;
-    }
-    public set fromPublic(fromPublic: boolean  | undefined) {
-        this['from_public'] = fromPublic;
-    }
-    public get fromPublic(): boolean | undefined {
-        return this['from_public'];
     }
     public withCreateBy(createBy: string): CatalogVO {
         this['create_by'] = createBy;
@@ -247,5 +246,9 @@ export class CatalogVO {
     }
     public get selfDefinedFields(): Array<SelfDefinedFieldVO> | undefined {
         return this['self_defined_fields'];
+    }
+    public withRelations(relations: Array<RelationVO>): CatalogVO {
+        this['relations'] = relations;
+        return this;
     }
 }

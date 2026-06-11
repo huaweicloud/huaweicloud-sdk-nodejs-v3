@@ -5,6 +5,8 @@ export class AddReadonlyNodeRequestBody {
     public num?: number;
     public delay?: number;
     private 'is_auto_pay'?: boolean;
+    private 'group_id'?: string;
+    private 'availability_zone'?: string;
     public constructor(specCode?: string, num?: number) { 
         this['spec_code'] = specCode;
         this['num'] = num;
@@ -36,5 +38,25 @@ export class AddReadonlyNodeRequestBody {
     }
     public get isAutoPay(): boolean | undefined {
         return this['is_auto_pay'];
+    }
+    public withGroupId(groupId: string): AddReadonlyNodeRequestBody {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
+    }
+    public withAvailabilityZone(availabilityZone: string): AddReadonlyNodeRequestBody {
+        this['availability_zone'] = availabilityZone;
+        return this;
+    }
+    public set availabilityZone(availabilityZone: string  | undefined) {
+        this['availability_zone'] = availabilityZone;
+    }
+    public get availabilityZone(): string | undefined {
+        return this['availability_zone'];
     }
 }

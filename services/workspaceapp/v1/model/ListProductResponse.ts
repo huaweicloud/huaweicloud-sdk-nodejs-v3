@@ -1,11 +1,11 @@
-import { ProductInfo } from './ProductInfo';
+import { ProductDetailInfo } from './ProductDetailInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListProductResponse extends SdkResponse {
     private 'availability_zone'?: string;
     private 'os_type'?: string;
-    public products?: Array<ProductInfo>;
+    public products?: Array<ProductDetailInfo>;
     public constructor() { 
         super();
     }
@@ -29,7 +29,7 @@ export class ListProductResponse extends SdkResponse {
     public get osType(): string | undefined {
         return this['os_type'];
     }
-    public withProducts(products: Array<ProductInfo>): ListProductResponse {
+    public withProducts(products: Array<ProductDetailInfo>): ListProductResponse {
         this['products'] = products;
         return this;
     }

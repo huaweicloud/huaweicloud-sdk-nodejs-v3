@@ -4,10 +4,10 @@ import { ExtraSessionTypeEnum } from './ExtraSessionTypeEnum';
 import { Flavor } from './Flavor';
 import { IpVirtual } from './IpVirtual';
 import { OsTypeEnum } from './OsTypeEnum';
-import { ProductInfo } from './ProductInfo';
-import { RoutePolicy } from './RoutePolicy';
+import { RoutePolicyDetail } from './RoutePolicyDetail';
 import { ScalingPolicy } from './ScalingPolicy';
 import { ServerGroup } from './ServerGroup';
+import { ServerProductInfo } from './ServerProductInfo';
 import { StorageFolderMountType } from './StorageFolderMountType';
 import { TmsTag } from './TmsTag';
 import { VolumeType } from './VolumeType';
@@ -41,7 +41,7 @@ export class ShowServerGroupResponse extends SdkResponse {
     private 'app_server_count'?: number;
     private 'app_group_count'?: number;
     private 'image_name'?: string;
-    private 'product_info'?: ProductInfo;
+    private 'product_info'?: ServerProductInfo;
     private 'subnet_name'?: string;
     private 'scaling_policy'?: ScalingPolicy;
     public tags?: Array<TmsTag>;
@@ -49,7 +49,7 @@ export class ShowServerGroupResponse extends SdkResponse {
     public flavors?: Array<Flavor>;
     private 'project_name'?: string;
     private 'image_min_disk'?: number;
-    private 'route_policy'?: RoutePolicy;
+    private 'route_policy'?: RoutePolicyDetail;
     private 'image_product_id'?: string;
     private 'image_type'?: string;
     private 'ip_virtual'?: IpVirtual;
@@ -298,14 +298,14 @@ export class ShowServerGroupResponse extends SdkResponse {
     public get imageName(): string | undefined {
         return this['image_name'];
     }
-    public withProductInfo(productInfo: ProductInfo): ShowServerGroupResponse {
+    public withProductInfo(productInfo: ServerProductInfo): ShowServerGroupResponse {
         this['product_info'] = productInfo;
         return this;
     }
-    public set productInfo(productInfo: ProductInfo  | undefined) {
+    public set productInfo(productInfo: ServerProductInfo  | undefined) {
         this['product_info'] = productInfo;
     }
-    public get productInfo(): ProductInfo | undefined {
+    public get productInfo(): ServerProductInfo | undefined {
         return this['product_info'];
     }
     public withSubnetName(subnetName: string): ShowServerGroupResponse {
@@ -366,14 +366,14 @@ export class ShowServerGroupResponse extends SdkResponse {
     public get imageMinDisk(): number | undefined {
         return this['image_min_disk'];
     }
-    public withRoutePolicy(routePolicy: RoutePolicy): ShowServerGroupResponse {
+    public withRoutePolicy(routePolicy: RoutePolicyDetail): ShowServerGroupResponse {
         this['route_policy'] = routePolicy;
         return this;
     }
-    public set routePolicy(routePolicy: RoutePolicy  | undefined) {
+    public set routePolicy(routePolicy: RoutePolicyDetail  | undefined) {
         this['route_policy'] = routePolicy;
     }
-    public get routePolicy(): RoutePolicy | undefined {
+    public get routePolicy(): RoutePolicyDetail | undefined {
         return this['route_policy'];
     }
     public withImageProductId(imageProductId: string): ShowServerGroupResponse {

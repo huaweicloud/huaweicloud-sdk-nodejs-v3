@@ -5,6 +5,7 @@ export class ClusterItemResponseInfo {
     private 'cluster_name'?: string;
     private 'cluster_ns'?: Array<string>;
     private 'cluster_labels'?: Array<string>;
+    private 'cluster_type'?: string;
     private 'protect_status'?: string;
     public constructor() { 
     }
@@ -47,6 +48,16 @@ export class ClusterItemResponseInfo {
     }
     public get clusterLabels(): Array<string> | undefined {
         return this['cluster_labels'];
+    }
+    public withClusterType(clusterType: string): ClusterItemResponseInfo {
+        this['cluster_type'] = clusterType;
+        return this;
+    }
+    public set clusterType(clusterType: string  | undefined) {
+        this['cluster_type'] = clusterType;
+    }
+    public get clusterType(): string | undefined {
+        return this['cluster_type'];
     }
     public withProtectStatus(protectStatus: string): ClusterItemResponseInfo {
         this['protect_status'] = protectStatus;

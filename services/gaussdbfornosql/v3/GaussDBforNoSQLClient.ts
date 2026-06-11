@@ -15,6 +15,7 @@ import { ApplyHistoryRsp } from './model/ApplyHistoryRsp';
 import { AvailabilityZoneDetail } from './model/AvailabilityZoneDetail';
 import { Backup } from './model/Backup';
 import { BackupPolicy } from './model/BackupPolicy';
+import { BackupSpaceUsage } from './model/BackupSpaceUsage';
 import { BackupStrategyOption } from './model/BackupStrategyOption';
 import { BackupStrategyResult } from './model/BackupStrategyResult';
 import { BatchDeleteManualBackupRequest } from './model/BatchDeleteManualBackupRequest';
@@ -32,6 +33,7 @@ import { CancelInstanceScheduleWindowRequest } from './model/CancelInstanceSched
 import { CancelInstanceScheduleWindowResponse } from './model/CancelInstanceScheduleWindowResponse';
 import { CassandraSlowLogDetail } from './model/CassandraSlowLogDetail';
 import { CertInfo } from './model/CertInfo';
+import { CertInfoOption } from './model/CertInfoOption';
 import { ChargeInfoOption } from './model/ChargeInfoOption';
 import { ChargeInfoResult } from './model/ChargeInfoResult';
 import { CheckDisasterRecoveryOperationRequest } from './model/CheckDisasterRecoveryOperationRequest';
@@ -132,8 +134,10 @@ import { InstanceLogConfigDetail } from './model/InstanceLogConfigDetail';
 import { InstanceResult } from './model/InstanceResult';
 import { InstanceTagResult } from './model/InstanceTagResult';
 import { InstancesDatastoreResult } from './model/InstancesDatastoreResult';
+import { IpGroupsDetail } from './model/IpGroupsDetail';
 import { JobDetail } from './model/JobDetail';
 import { JobInstanceInfo } from './model/JobInstanceInfo';
+import { LbAccessControlSettings } from './model/LbAccessControlSettings';
 import { Links } from './model/Links';
 import { ListApiVersionRequest } from './model/ListApiVersionRequest';
 import { ListApiVersionResponse } from './model/ListApiVersionResponse';
@@ -278,6 +282,7 @@ import { QueryDatabaseTableInfo } from './model/QueryDatabaseTableInfo';
 import { QueryInstanceBackupResponseBodyBackups } from './model/QueryInstanceBackupResponseBodyBackups';
 import { QueryInstanceBackupResponseBodyDatastore } from './model/QueryInstanceBackupResponseBodyDatastore';
 import { QueryRestoreList } from './model/QueryRestoreList';
+import { QuerySwitchoverRatioInfo } from './model/QuerySwitchoverRatioInfo';
 import { RecoveryInfo } from './model/RecoveryInfo';
 import { RecycleDatastore } from './model/RecycleDatastore';
 import { RecycleInstance } from './model/RecycleInstance';
@@ -349,6 +354,7 @@ import { SetRecyclePolicyResponse } from './model/SetRecyclePolicyResponse';
 import { SetRedisPitrPolicyRequest } from './model/SetRedisPitrPolicyRequest';
 import { SetRedisPitrPolicyRequestBody } from './model/SetRedisPitrPolicyRequestBody';
 import { SetRedisPitrPolicyResponse } from './model/SetRedisPitrPolicyResponse';
+import { SetSwitchoverRatioInfo } from './model/SetSwitchoverRatioInfo';
 import { ShowAllInstancesBackupsNewRequest } from './model/ShowAllInstancesBackupsNewRequest';
 import { ShowAllInstancesBackupsNewResponse } from './model/ShowAllInstancesBackupsNewResponse';
 import { ShowAllInstancesBackupsRequest } from './model/ShowAllInstancesBackupsRequest';
@@ -442,7 +448,6 @@ import { SwitchToMasterRequest } from './model/SwitchToMasterRequest';
 import { SwitchToMasterResponse } from './model/SwitchToMasterResponse';
 import { SwitchToSlaveRequest } from './model/SwitchToSlaveRequest';
 import { SwitchToSlaveResponse } from './model/SwitchToSlaveResponse';
-import { SwitchoverRatioInfo } from './model/SwitchoverRatioInfo';
 import { Tag } from './model/Tag';
 import { TagOption } from './model/TagOption';
 import { UpdateClientNetworkRequest } from './model/UpdateClientNetworkRequest';
@@ -1171,15 +1176,15 @@ export class GaussDBforNoSQLClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询备份列表（推荐）
-     * @param {string} [instanceId] 参数解释： 实例ID，可以调用“查询实例列表”接口获取。如果未申请实例，可以调用“创建实例”接口创建。 约束限制： 不涉及。 取值范围： 不涉及。 默认取值： 不涉及。
-     * @param {string} [datastoreType] 参数解释： 数据库类型。 约束限制： 不涉及。 取值范围： 不涉及。 默认取值：  - cassandra  - redis  - mongodb  - influxdb
+     * @param {string} [instanceId] **参数解释：** 实例ID，可以调用“查询实例列表”接口获取。如果未申请实例，可以调用“创建实例”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [datastoreType] **参数解释：** 数据库类型。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：**  - cassandra  - redis  - mongodb  - influxdb
      * @param {string} [backupId] 备份ID。
-     * @param {string} [backupType] 参数解释： 备份类型，大小写敏感。 约束限制： 不涉及。 取值范围：  - 取值为“Auto”，表示自动全量备份。  - 取值为“Manual”，表示手动全量备份。  - 当该字段未传入值时，默认只查询所有的全量备份(包含库表级)，包括自动全备备份和手动全量备份。 默认取值： 不涉及。
-     * @param {string} [type] 参数解释： 备份策略类型。 约束限制： 不涉及。 取值范围：  - Instance 表示查询实例级备份。  - DatabaseTable 表示查询库表级备份。 默认取值：  Instance。
-     * @param {number} [limit] 参数解释： 查询备份个数上限值。 约束限制： 不涉及。 取值范围： 1~100。 默认取值： 不传该参数时，默认查询前100条实例信息。
-     * @param {number} [offset] 参数解释： 索引位置偏移量，表示从指定project ID下最新的备份创建时间开始，按时间的先后顺序偏移offset条数据后查询对应的备份信息。 约束限制： 取值大于或等于0。 取值范围： 取值大于或等于0。 默认取值： 不传该参数时，查询偏移量默认为0，表示从最新的备份创建时间对应的备份开始查询。
-     * @param {string} [beginTime] 参数解释： 查询备份开始的时间，为yyyy-mm-ddThh:mm:ssZ字符串格式，T指某个时间的开始，Z指时区偏移量。 约束限制： - “end_time”有值时，“begin_time”必选。 取值范围： 不涉及。 默认取值： 默认为空。
-     * @param {string} [endTime] 参数解释： 查询备份开始的结束时间，为yyyy-mm-ddThh:mm:ssZ字符串格式，T指某个时间的开始，Z指时区偏移量。 约束限制： - “begin_time”有值时，“end_time”必选。 取值范围： 不涉及。 默认取值： 默认为空。
+     * @param {string} [backupType] **参数解释：** 备份类型，大小写敏感。 **约束限制：** 不涉及。 **取值范围：**  - 取值为“Auto”，表示自动全量备份。  - 取值为“Manual”，表示手动全量备份。  - 当该字段未传入值时，默认只查询所有的全量备份(包含库表级)，包括自动全备备份和手动全量备份。 **默认取值：** 不涉及。
+     * @param {string} [type] **参数解释：** 备份策略类型。 **约束限制：** 不涉及。 **取值范围：**  - Instance 表示查询实例级备份。  - DatabaseTable 表示查询库表级备份。 **默认取值：**  Instance。
+     * @param {number} [limit] **参数解释：** 查询备份个数上限值。 **约束限制：** 不涉及。 **取值范围：** 1~100。 **默认取值：** 不传该参数时，默认查询前100条实例信息。
+     * @param {number} [offset] **参数解释：** 索引位置偏移量，表示从指定project ID下最新的备份创建时间开始，按时间的先后顺序偏移offset条数据后查询对应的备份信息。 **约束限制：** 取值大于或等于0。 **取值范围：** 取值大于或等于0。 **默认取值：** 不传该参数时，查询偏移量默认为0，表示从最新的备份创建时间对应的备份开始查询。
+     * @param {string} [beginTime] **参数解释：** 查询备份开始的时间，为yyyy-mm-ddThh:mm:ssZ字符串格式，T指某个时间的开始，Z指时区偏移量。 **约束限制：** - “end_time”有值时，“begin_time”必选。 **取值范围：** 不涉及。 **默认取值：** 默认为空。
+     * @param {string} [endTime] **参数解释：** 查询备份开始的结束时间，为yyyy-mm-ddThh:mm:ssZ字符串格式，T指某个时间的开始，Z指时区偏移量。 **约束限制：** - “begin_time”有值时，“end_time”必选。 **取值范围：** 不涉及。 **默认取值：** 默认为空。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1553,14 +1558,14 @@ export class GaussDBforNoSQLClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询实例列表和详情
-     * @param {string} [id] 实例ID。 如果id以“*”起始，表示按照“*”后面的值模糊匹配，否则，按照实际填写的id精确匹配查询。
-     * @param {string} [name] 实例名称。 如果name以“*”起始，表示按照“*”后面的值模糊匹配，否则，按照实际填写的name精确匹配查询。
-     * @param {string} [datastoreType] 数据库类型。   - 取值为“cassandra”，表示查询GeminiDB Cassandra数据库实例。   - 取值为“mongodb”，表示查询GeminiDB Mongo数据库实例。   - 取值为“influxdb”，表示查询GeminiDB Influx数据库实例。   - 取值为“redis”，表示查询GeminiDB Redis数据库实例。   - 如果不传该参数，表示查询所有数据库实例。
-     * @param {string} [mode] 实例类型。   -  取值为“Cluster”，表示GeminiDB Cassandra、GeminiDB Influx、GeminiDB Redis Proxy经典部署模式集群实例类型。    -  取值为“CloudNativeCluster”，表示GeminiDB Cassandra、GeminiDB Influx、GeminiDB Redis云原生部署模式集群实例类型。   -  取值为“RedisCluster”，表示GeminiDB Redis Cluster经典部署模式集群实例类型。   -  取值为“Replication”，表示GeminiDB Redis经典部署模式主备实例类型。    -  取值为“InfluxdbSingle”，表示GeminiDB Influx经典部署模式单节点实例类型。   -  取值为“ReplicaSet”，表示GeminiDB Mongo副本集实例类型。   -  如果不传datastore_type参数，自动忽略该参数设置。   -  默认取值：不涉及。
-     * @param {string} [vpcId] 虚拟私有云ID，获取方法如下：   - 方法1：登录虚拟私有云服务的控制台界面，在虚拟私有云的详情页面查找VPC ID。   - 方法2：通过虚拟私有云服务的API接口查询，具体操作可参考查询VPC列表。
-     * @param {string} [subnetId] 子网的网络ID，获取方法如下：   - 方法1：登录虚拟私有云服务的控制台界面，单击VPC下的子网，进入子网详情页面，查找网络ID。   - 方法2：通过虚拟私有云服务的API接口查询，具体操作可参考查询子网列表。
-     * @param {number} [offset] 索引位置偏移量，表示从指定project ID下最新的实例创建时间开始，按时间的先后顺序偏移offset条数据后查询对应的实例信息。 取值大于或等于0。不传该参数时，查询偏移量默认为0，表示从最新的实例创建时间对应的实例开始查询。
-     * @param {number} [limit] 查询实例个数上限值。 取值范围：1~100。不传该参数时，默认查询前100条实例信息。
+     * @param {string} [id] **参数解释：** 实例ID。 **约束限制：** 如果id以“*”起始，表示按照“*”后面的值模糊匹配，否则，按照实际填写的id精确匹配查询。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [name] **参数解释：** 实例名称。 **约束限制：** 如果name以“*”起始，表示按照“*”后面的值模糊匹配，否则，按照实际填写的name精确匹配查询。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [datastoreType] **参数解释：** 数据库类型。 **约束限制：** 不涉及。 **取值范围：**   - 取值为“cassandra”，表示查询GeminiDB Cassandra数据库实例。   - 取值为“mongodb”，表示查询GeminiDB Mongo数据库实例。   - 取值为“influxdb”，表示查询GeminiDB Influx数据库实例。   - 取值为“redis”，表示查询GeminiDB Redis数据库实例。   - 取值为“dynamodb”，表示查询GeminiDB兼容DynamoDB数据库实例。   - 取值为“hbase”，表示查询GeminiDB HBase数据库实例。 **默认取值：** 如果不传该参数，表示查询所有数据库实例。
+     * @param {string} [mode] **参数解释：** 实例类型。 **约束限制：** 不涉及。 **取值范围：**    -  取值为“Cluster”，表示GeminiDB Cassandra、GeminiDB Influx、GeminiDB Redis Proxy、GeminiDB HBase、GeminiDB兼容DynamoDB经典部署模式集群实例类型。     -  取值为“CloudNativeCluster”，表示GeminiDB Cassandra、GeminiDB Influx、GeminiDB Redis、GeminiDB HBase、GeminiDB兼容DynamoDB云原生部署模式集群实例类型。    -  取值为“RedisCluster”，表示GeminiDB Redis Cluster经典部署模式集群实例类型。    -  取值为“Replication”，表示GeminiDB Redis经典部署模式主备实例类型。     -  取值为“InfluxdbSingle”，表示GeminiDB Influx经典部署模式单节点实例类型。    -  取值为“EnhancedCluster”，表示GeminiDB Influx经典部署模式集群增强实例类型。    -  取值为“ReplicaSet”，表示GeminiDB Mongo副本集实例类型。    -  如果不传datastore_type参数，自动忽略该参数设置。 **默认取值：** 不涉及。
+     * @param {string} [vpcId] **参数解释：** 虚拟私有云ID。获取方法如下：    - 方法1：登录虚拟私有云服务的控制台界面，在虚拟私有云的详情页面查找VPC ID。    - 方法2：通过虚拟私有云服务的API接口查询，具体操作可参考查询VPC列表。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [subnetId] **参数解释：** 子网的网络ID。获取方法如下：    - 方法1：登录虚拟私有云服务的控制台界面，单击VPC下的子网，进入子网详情页面，查找网络ID。    - 方法2：通过虚拟私有云服务的API接口查询，具体操作可参考查询子网列表。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {number} [offset] **参数解释：** 索引位置偏移量 ，表示从指定project ID下最新的实例创建时间开始，按时间的先后顺序偏移offset条数据后查询对应的实例信息。 **约束限制：** 取值大于或等于0。 **取值范围：** 不涉及。 **默认取值：** 不传该参数时，查询偏移量默认为0，表示从最新的实例创建时间对应的实例开始查询。
+     * @param {number} [limit] **参数解释：** 查询实例个数上限值。 **约束限制：** 不涉及。 **取值范围：** 1~100。 **默认取值：** 不传该参数时，默认查询前100条实例信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1793,8 +1798,8 @@ export class GaussDBforNoSQLClient {
      *
      * @summary 查询回收站实例列表
      * @param {string} [xLanguage] 语言。
-     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
-     * @param {number} [limit] 查询个数上限值。取值范围：1~100。不传该参数时，默认查询前100条信息。
+     * @param {number} [offset] **参数解释：** 索引位置，偏移量。 索引位置偏移量。从第一条数据偏移offset条数据后开始查询。 **约束限制：** 大于或等于0。 **取值范围：** 不涉及。 **默认取值：** 0，表示从第一条数据开始查询。
+     * @param {number} [limit] **参数解释：** 查询个数上限值。 **约束限制：** 不涉及。 **取值范围：** 1~100。 **默认取值：** 100。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2308,8 +2313,8 @@ export class GaussDBforNoSQLClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 数据文件导入已有实例
-     * @param {string} instanceId 参数解释： 实例ID，可以调用“查询实例列表”接口获取。如果未申请实例，可以调用“创建实例”接口创建。 约束限制： 不涉及。 取值范围： 不涉及。 默认取值： 不涉及。
-     * @param {RestoreRedisDataRequestBody} restoreRedisDataRequestBody 参数解释： 请求体。 约束限制： 不涉及。 取值范围： 不涉及。 默认取值： 不涉及。
+     * @param {string} instanceId **参数解释：** 实例ID，可以调用“查询实例列表”接口获取。如果未申请实例，可以调用“创建实例”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {RestoreRedisDataRequestBody} restoreRedisDataRequestBody **参数解释：** 请求体。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2700,9 +2705,9 @@ export class GaussDBforNoSQLClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询实例容灾切换的故障节点比例
-     * @param {string} [instanceId] 实例ID。
-     * @param {number} [offset] 索引位置偏移量，表示从指定offset条数据后查询对应的实例信息。 取值大于或等于0。不传该参数时，查询偏移量默认为0。
-     * @param {number} [limit] 查询实例个数上限值。 取值范围：1~50。不传该参数时，默认查询前50条实例信息。
+     * @param {string} [instanceId] **参数解释：** 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {number} [offset] **参数解释：** 索引位置，偏移量。 从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询）。 **约束限制：** 取值必须为数字，不能为负数。 **取值范围：** 非负整数。 **默认取值：** 0。
+     * @param {number} [limit] **参数解释：** 查询个数上限值。 **约束限制：** 不涉及。 **取值范围：** 1~50。 **默认取值：** 50。不传该参数时，默认查询前50条信息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

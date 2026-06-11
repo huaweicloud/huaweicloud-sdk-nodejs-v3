@@ -8,6 +8,7 @@ export class ListQuotasDetailRequest {
     private 'quota_status'?: string;
     private 'used_status'?: string;
     private 'host_name'?: string;
+    private 'host_id_list'?: Array<string>;
     private 'resource_id'?: string;
     private 'charging_mode'?: string;
     public limit?: number;
@@ -65,6 +66,16 @@ export class ListQuotasDetailRequest {
     }
     public get hostName(): string | undefined {
         return this['host_name'];
+    }
+    public withHostIdList(hostIdList: Array<string>): ListQuotasDetailRequest {
+        this['host_id_list'] = hostIdList;
+        return this;
+    }
+    public set hostIdList(hostIdList: Array<string>  | undefined) {
+        this['host_id_list'] = hostIdList;
+    }
+    public get hostIdList(): Array<string> | undefined {
+        return this['host_id_list'];
     }
     public withResourceId(resourceId: string): ListQuotasDetailRequest {
         this['resource_id'] = resourceId;

@@ -1,3 +1,5 @@
+import { BackupSpaceUsage } from './BackupSpaceUsage';
+import { CertInfoOption } from './CertInfoOption';
 import { DualActiveInfo } from './DualActiveInfo';
 import { ListInstancesBackupStrategyResult } from './ListInstancesBackupStrategyResult';
 import { ListInstancesDatastoreResult } from './ListInstancesDatastoreResult';
@@ -28,12 +30,16 @@ export class ListInstancesResult {
     private 'dedicated_resource_id'?: string;
     private 'time_zone'?: string;
     public actions?: Array<string>;
+    private 'disk_encryption_id'?: string;
     private 'lb_ip_address'?: string;
     private 'lb_port'?: string;
     private 'availability_zone'?: string;
+    private 'dr_instance_id'?: string;
     private 'dual_active_info'?: DualActiveInfo;
+    private 'ccm_cert_info'?: CertInfoOption;
     public ssl?: string;
-    public constructor(id?: string, name?: string, status?: string, port?: string, region?: string, datastore?: ListInstancesDatastoreResult, mode?: string, engine?: string, created?: string, updated?: string, dbUserName?: string, vpcId?: string, subnetId?: string, securityGroupId?: string, backupStrategy?: ListInstancesBackupStrategyResult, payMode?: string, maintenanceWindow?: string, groups?: Array<ListInstancesGroupResult>, enterpriseProjectId?: string, timeZone?: string, actions?: Array<string>, ssl?: string) { 
+    private 'backup_space_usage'?: BackupSpaceUsage;
+    public constructor(id?: string, name?: string, status?: string, port?: string, region?: string, datastore?: ListInstancesDatastoreResult, mode?: string, engine?: string, created?: string, updated?: string, dbUserName?: string, vpcId?: string, subnetId?: string, securityGroupId?: string, backupStrategy?: ListInstancesBackupStrategyResult, payMode?: string, maintenanceWindow?: string, groups?: Array<ListInstancesGroupResult>, enterpriseProjectId?: string, timeZone?: string, actions?: Array<string>, diskEncryptionId?: string, ssl?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['status'] = status;
@@ -55,6 +61,7 @@ export class ListInstancesResult {
         this['enterprise_project_id'] = enterpriseProjectId;
         this['time_zone'] = timeZone;
         this['actions'] = actions;
+        this['disk_encryption_id'] = diskEncryptionId;
         this['ssl'] = ssl;
     }
     public withId(id: string): ListInstancesResult {
@@ -215,6 +222,16 @@ export class ListInstancesResult {
         this['actions'] = actions;
         return this;
     }
+    public withDiskEncryptionId(diskEncryptionId: string): ListInstancesResult {
+        this['disk_encryption_id'] = diskEncryptionId;
+        return this;
+    }
+    public set diskEncryptionId(diskEncryptionId: string  | undefined) {
+        this['disk_encryption_id'] = diskEncryptionId;
+    }
+    public get diskEncryptionId(): string | undefined {
+        return this['disk_encryption_id'];
+    }
     public withLbIpAddress(lbIpAddress: string): ListInstancesResult {
         this['lb_ip_address'] = lbIpAddress;
         return this;
@@ -245,6 +262,16 @@ export class ListInstancesResult {
     public get availabilityZone(): string | undefined {
         return this['availability_zone'];
     }
+    public withDrInstanceId(drInstanceId: string): ListInstancesResult {
+        this['dr_instance_id'] = drInstanceId;
+        return this;
+    }
+    public set drInstanceId(drInstanceId: string  | undefined) {
+        this['dr_instance_id'] = drInstanceId;
+    }
+    public get drInstanceId(): string | undefined {
+        return this['dr_instance_id'];
+    }
     public withDualActiveInfo(dualActiveInfo: DualActiveInfo): ListInstancesResult {
         this['dual_active_info'] = dualActiveInfo;
         return this;
@@ -255,8 +282,28 @@ export class ListInstancesResult {
     public get dualActiveInfo(): DualActiveInfo | undefined {
         return this['dual_active_info'];
     }
+    public withCcmCertInfo(ccmCertInfo: CertInfoOption): ListInstancesResult {
+        this['ccm_cert_info'] = ccmCertInfo;
+        return this;
+    }
+    public set ccmCertInfo(ccmCertInfo: CertInfoOption  | undefined) {
+        this['ccm_cert_info'] = ccmCertInfo;
+    }
+    public get ccmCertInfo(): CertInfoOption | undefined {
+        return this['ccm_cert_info'];
+    }
     public withSsl(ssl: string): ListInstancesResult {
         this['ssl'] = ssl;
         return this;
+    }
+    public withBackupSpaceUsage(backupSpaceUsage: BackupSpaceUsage): ListInstancesResult {
+        this['backup_space_usage'] = backupSpaceUsage;
+        return this;
+    }
+    public set backupSpaceUsage(backupSpaceUsage: BackupSpaceUsage  | undefined) {
+        this['backup_space_usage'] = backupSpaceUsage;
+    }
+    public get backupSpaceUsage(): BackupSpaceUsage | undefined {
+        return this['backup_space_usage'];
     }
 }

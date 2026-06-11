@@ -1482,6 +1482,7 @@ export * from './model/ScanPeriodDate';
 export * from './model/ScanProgress';
 export * from './model/ScanTime';
 export * from './model/ScanType';
+export * from './model/Scope';
 export * from './model/SecurityCheckClusterReports';
 export * from './model/SecurityCheckConfigRequestInfo';
 export * from './model/SecurityCheckHostInfo';

@@ -1485,6 +1485,7 @@ import { ScanPeriodDate } from './model/ScanPeriodDate';
 import { ScanProgress } from './model/ScanProgress';
 import { ScanTime } from './model/ScanTime';
 import { ScanType } from './model/ScanType';
+import { Scope } from './model/Scope';
 import { SecurityCheckClusterReports } from './model/SecurityCheckClusterReports';
 import { SecurityCheckConfigRequestInfo } from './model/SecurityCheckConfigRequestInfo';
 import { SecurityCheckHostInfo } from './model/SecurityCheckHostInfo';
@@ -2864,6 +2865,65 @@ export class HssClient {
      */
     public listAgentInstallScript(listAgentInstallScriptRequest?: ListAgentInstallScriptRequest): Promise<ListAgentInstallScriptResponse> {
         const options = ParamCreater().listAgentInstallScript(listAgentInstallScriptRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询AI组件详细信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary AI组件详细信息
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
+     * @param {string} catalogue **参数解释**: AI组件类别 **约束限制**: 不涉及 **取值范围**: - app：应用 - tool：工具  **默认取值**: 不涉及
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {string} [serverName] **参数解释**: category&#x3D;&#x3D;host时 表示服务器名称 category&#x3D;&#x3D;container时 表示节点名称 category&#x3D;&#x3D;serverless时 表示实例名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
+     * @param {string} [serverIp] **参数解释**: category&#x3D;&#x3D;host时 表示服务器IP地址 category&#x3D;&#x3D;container时 表示节点IP地址 category&#x3D;&#x3D;serverless时 表示实例IP地址 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {string} [aiApplication] **参数解释**: AI应用名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {string} [aiTool] **参数解释**: AI工具名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {string} [type] **参数解释**: AI应用类型 **约束限制**: 不涉及 **取值范围**: 字符长度0-64位 **默认取值**: 不涉及 
+     * @param {string} [version] **参数解释**: AI版本 **约束限制**: 不涉及 **取值范围**: 字符长度0-32位 **默认取值**: 不涉及 
+     * @param {string} [installationPath] **参数解释**: 安装路径 **约束限制**: 不涉及 **取值范围**: 字符长度0-512位 **默认取值**: 不涉及 
+     * @param {number} [firstScanTime] **参数解释**: 首次扫描时间，时间单位毫秒（ms） **约束限制**: 不涉及 **取值范围**: 取值0-9223372036854775807 **默认取值**: 不涉及 
+     * @param {number} [latestScanTime] **参数解释**: 最近扫描时间，时间单位毫秒（ms） **约束限制**: 不涉及 **取值范围**: 取值0-9223372036854775807 **默认取值**: 不涉及 
+     * @param {string} [containerName] **参数解释**: 容器名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
+     * @param {string} [containerId] **参数解释**: 容器ID **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {string} [imageName] **参数解释**: 镜像名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAiComponentDetail(listAiComponentDetailRequest?: ListAiComponentDetailRequest): Promise<ListAiComponentDetailResponse> {
+        const options = ParamCreater().listAiComponentDetail(listAiComponentDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询AI组件统计信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询AI组件统计信息
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
+     * @param {string} catalogue **参数解释**: AI组件类别 **约束限制**: 不涉及 **取值范围**: - app：应用 - tool：工具  **默认取值**: 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {string} [aiComponentName] **参数解释**： AI组件对应类型的名称 **取值范围**： 字符长度1-256位 **约束限制**: 不涉及 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAiComponentStatistics(listAiComponentStatisticsRequest?: ListAiComponentStatisticsRequest): Promise<ListAiComponentStatisticsResponse> {
+        const options = ParamCreater().listAiComponentStatistics(listAiComponentStatisticsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4677,11 +4737,11 @@ export class HssClient {
     }
 
     /**
-     * 查入侵事件列表。
+     * 查询安全告警事件。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查入侵事件列表
+     * @summary 查询安全告警事件
      * @param {string} category **参数解释**： 事件类别 **约束限制**: 不涉及 **取值范围**: - host：主机安全事件 - container：容器安全事件  **默认取值**: 不涉及 
      * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
@@ -6408,30 +6468,6 @@ export class HssClient {
     }
 
     /**
-     * 查询Agent历史状态列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询Agent历史状态列表
-     * @param {string} agentId **参数解释**: Agent的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {string} [agentStatus] **参数解释**： agent状态 **约束限制**: 不涉及 **取值范围**: -not_installed：未安装 -online：在线 -offline：离线 -install_failed：安装失败 -installing：安装中  **默认取值**: 不涉及 
-     * @param {string} [abnormalReason] **参数解释**: 异常原因 **约束限制**: 不涉及 **取值范围**: 字符长度0-512位 **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAgentStatus(listAgentStatusRequest?: ListAgentStatusRequest): Promise<ListAgentStatusResponse> {
-        const options = ParamCreater().listAgentStatus(listAgentStatusRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 修改“病毒查杀按次计费”开关状态。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -7211,65 +7247,6 @@ export class HssClient {
      */
     public switchAppWhitelistPolicyLearnStatus(switchAppWhitelistPolicyLearnStatusRequest?: SwitchAppWhitelistPolicyLearnStatusRequest): Promise<SwitchAppWhitelistPolicyLearnStatusResponse> {
         const options = ParamCreater().switchAppWhitelistPolicyLearnStatus(switchAppWhitelistPolicyLearnStatusRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询AI组件详细信息
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary AI组件详细信息
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} catalogue **参数解释**: AI组件类别 **约束限制**: 不涉及 **取值范围**: - app：应用 - tool：工具  **默认取值**: 不涉及
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {string} [serverName] **参数解释**: category&#x3D;&#x3D;host时 表示服务器名称 category&#x3D;&#x3D;container时 表示节点名称 category&#x3D;&#x3D;serverless时 表示实例名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
-     * @param {string} [serverIp] **参数解释**: category&#x3D;&#x3D;host时 表示服务器IP地址 category&#x3D;&#x3D;container时 表示节点IP地址 category&#x3D;&#x3D;serverless时 表示实例IP地址 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {string} [aiApplication] **参数解释**: AI应用名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {string} [aiTool] **参数解释**: AI工具名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {string} [type] **参数解释**: AI应用类型 **约束限制**: 不涉及 **取值范围**: 字符长度0-64位 **默认取值**: 不涉及 
-     * @param {string} [version] **参数解释**: AI版本 **约束限制**: 不涉及 **取值范围**: 字符长度0-32位 **默认取值**: 不涉及 
-     * @param {string} [installationPath] **参数解释**: 安装路径 **约束限制**: 不涉及 **取值范围**: 字符长度0-512位 **默认取值**: 不涉及 
-     * @param {number} [firstScanTime] **参数解释**: 首次扫描时间，时间单位毫秒（ms） **约束限制**: 不涉及 **取值范围**: 取值0-9223372036854775807 **默认取值**: 不涉及 
-     * @param {number} [latestScanTime] **参数解释**: 最近扫描时间，时间单位毫秒（ms） **约束限制**: 不涉及 **取值范围**: 取值0-9223372036854775807 **默认取值**: 不涉及 
-     * @param {string} [containerName] **参数解释**: 容器名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
-     * @param {string} [containerId] **参数解释**: 容器ID **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {string} [imageName] **参数解释**: 镜像名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAiComponentDetail(listAiComponentDetailRequest?: ListAiComponentDetailRequest): Promise<ListAiComponentDetailResponse> {
-        const options = ParamCreater().listAiComponentDetail(listAiComponentDetailRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询AI组件统计信息
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询AI组件统计信息
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} catalogue **参数解释**: AI组件类别 **约束限制**: 不涉及 **取值范围**: - app：应用 - tool：工具  **默认取值**: 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {string} [aiComponentName] **参数解释**： AI组件对应类型的名称 **取值范围**： 字符长度1-256位 **约束限制**: 不涉及 **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAiComponentStatistics(listAiComponentStatisticsRequest?: ListAiComponentStatisticsRequest): Promise<ListAiComponentStatisticsResponse> {
-        const options = ParamCreater().listAiComponentStatistics(listAiComponentStatisticsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9411,6 +9388,30 @@ export class HssClient {
      */
     public deleteHostsGroup(deleteHostsGroupRequest?: DeleteHostsGroupRequest): Promise<DeleteHostsGroupResponse> {
         const options = ParamCreater().deleteHostsGroup(deleteHostsGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Agent历史状态列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Agent历史状态列表
+     * @param {string} agentId **参数解释**: Agent的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {string} [agentStatus] **参数解释**： agent状态 **约束限制**: 不涉及 **取值范围**: -not_installed：未安装 -online：在线 -offline：离线 -install_failed：安装失败 -installing：安装中  **默认取值**: 不涉及 
+     * @param {string} [abnormalReason] **参数解释**: 异常原因 **约束限制**: 不涉及 **取值范围**: 字符长度0-512位 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAgentStatus(listAgentStatusRequest?: ListAgentStatusRequest): Promise<ListAgentStatusResponse> {
+        const options = ParamCreater().listAgentStatus(listAgentStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -11900,6 +11901,7 @@ export class HssClient {
      * @param {string} [quotaStatus] **参数解释**: 配额状态 **约束限制**: 不涉及 **取值范围**: 包含如下三种： - normal ： 正常 - expired ：过期 - freeze ：冻结 **默认取值**: 不涉及
      * @param {string} [usedStatus] **参数解释**: 使用状态 **约束限制**: 不涉及 **取值范围**: 包含如下两种： - idle ：空闲的 - used ：使用中 **默认取值**: 不涉及
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {Array<string>} [hostIdList] **参数解释**: 服务器ID列表 **约束限制**: 不涉及 **取值范围**: 单个服务器ID字符长度1-64位 批量查询服务器ID个数1-100个 采用逗号分割 **默认取值**: 不涉及
      * @param {string} [resourceId] **参数解释** : HSS配额的资源ID **约束限制** : 不涉及 **取值范围** : 字符长度1-128位 **默认取值** : 不涉及 
      * @param {string} [chargingMode] **参数解释**： 收费模式 **约束限制**: 不涉及 **取值范围**: - packet_cycle ：包年/包月。 - on_demand ：按需。 **默认取值**: 不涉及
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
@@ -17404,6 +17406,239 @@ export const ParamCreater = function () {
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询AI组件详细信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAiComponentDetail(listAiComponentDetailRequest?: ListAiComponentDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/ai-component/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let catalogue;
+            
+            let limit;
+            
+            let offset;
+            
+            let serverName;
+            
+            let serverIp;
+            
+            let aiApplication;
+            
+            let hostId;
+            
+            let aiTool;
+            
+            let type;
+            
+            let version;
+            
+            let installationPath;
+            
+            let firstScanTime;
+            
+            let latestScanTime;
+            
+            let containerName;
+            
+            let containerId;
+            
+            let imageName;
+
+            if (listAiComponentDetailRequest !== null && listAiComponentDetailRequest !== undefined) {
+                if (listAiComponentDetailRequest instanceof ListAiComponentDetailRequest) {
+                    category = listAiComponentDetailRequest.category;
+                    catalogue = listAiComponentDetailRequest.catalogue;
+                    limit = listAiComponentDetailRequest.limit;
+                    offset = listAiComponentDetailRequest.offset;
+                    serverName = listAiComponentDetailRequest.serverName;
+                    serverIp = listAiComponentDetailRequest.serverIp;
+                    aiApplication = listAiComponentDetailRequest.aiApplication;
+                    hostId = listAiComponentDetailRequest.hostId;
+                    aiTool = listAiComponentDetailRequest.aiTool;
+                    type = listAiComponentDetailRequest.type;
+                    version = listAiComponentDetailRequest.version;
+                    installationPath = listAiComponentDetailRequest.installationPath;
+                    firstScanTime = listAiComponentDetailRequest.firstScanTime;
+                    latestScanTime = listAiComponentDetailRequest.latestScanTime;
+                    containerName = listAiComponentDetailRequest.containerName;
+                    containerId = listAiComponentDetailRequest.containerId;
+                    imageName = listAiComponentDetailRequest.imageName;
+                } else {
+                    category = listAiComponentDetailRequest['category'];
+                    catalogue = listAiComponentDetailRequest['catalogue'];
+                    limit = listAiComponentDetailRequest['limit'];
+                    offset = listAiComponentDetailRequest['offset'];
+                    serverName = listAiComponentDetailRequest['server_name'];
+                    serverIp = listAiComponentDetailRequest['server_ip'];
+                    aiApplication = listAiComponentDetailRequest['ai_application'];
+                    hostId = listAiComponentDetailRequest['host_id'];
+                    aiTool = listAiComponentDetailRequest['ai_tool'];
+                    type = listAiComponentDetailRequest['type'];
+                    version = listAiComponentDetailRequest['version'];
+                    installationPath = listAiComponentDetailRequest['installation_path'];
+                    firstScanTime = listAiComponentDetailRequest['first_scan_time'];
+                    latestScanTime = listAiComponentDetailRequest['latest_scan_time'];
+                    containerName = listAiComponentDetailRequest['container_name'];
+                    containerId = listAiComponentDetailRequest['container_id'];
+                    imageName = listAiComponentDetailRequest['image_name'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listAiComponentDetail.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (catalogue === null || catalogue === undefined) {
+                throw new RequiredError('catalogue','Required parameter catalogue was null or undefined when calling listAiComponentDetail.');
+            }
+            if (catalogue !== null && catalogue !== undefined) {
+                localVarQueryParameter['catalogue'] = catalogue;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (serverName !== null && serverName !== undefined) {
+                localVarQueryParameter['server_name'] = serverName;
+            }
+            if (serverIp !== null && serverIp !== undefined) {
+                localVarQueryParameter['server_ip'] = serverIp;
+            }
+            if (aiApplication !== null && aiApplication !== undefined) {
+                localVarQueryParameter['ai_application'] = aiApplication;
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+            if (aiTool !== null && aiTool !== undefined) {
+                localVarQueryParameter['ai_tool'] = aiTool;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (version !== null && version !== undefined) {
+                localVarQueryParameter['version'] = version;
+            }
+            if (installationPath !== null && installationPath !== undefined) {
+                localVarQueryParameter['installation_path'] = installationPath;
+            }
+            if (firstScanTime !== null && firstScanTime !== undefined) {
+                localVarQueryParameter['first_scan_time'] = firstScanTime;
+            }
+            if (latestScanTime !== null && latestScanTime !== undefined) {
+                localVarQueryParameter['latest_scan_time'] = latestScanTime;
+            }
+            if (containerName !== null && containerName !== undefined) {
+                localVarQueryParameter['container_name'] = containerName;
+            }
+            if (containerId !== null && containerId !== undefined) {
+                localVarQueryParameter['container_id'] = containerId;
+            }
+            if (imageName !== null && imageName !== undefined) {
+                localVarQueryParameter['image_name'] = imageName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询AI组件统计信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAiComponentStatistics(listAiComponentStatisticsRequest?: ListAiComponentStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/ai-component/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let catalogue;
+            
+            let enterpriseProjectId;
+            
+            let limit;
+            
+            let offset;
+            
+            let aiComponentName;
+
+            if (listAiComponentStatisticsRequest !== null && listAiComponentStatisticsRequest !== undefined) {
+                if (listAiComponentStatisticsRequest instanceof ListAiComponentStatisticsRequest) {
+                    category = listAiComponentStatisticsRequest.category;
+                    catalogue = listAiComponentStatisticsRequest.catalogue;
+                    enterpriseProjectId = listAiComponentStatisticsRequest.enterpriseProjectId;
+                    limit = listAiComponentStatisticsRequest.limit;
+                    offset = listAiComponentStatisticsRequest.offset;
+                    aiComponentName = listAiComponentStatisticsRequest.aiComponentName;
+                } else {
+                    category = listAiComponentStatisticsRequest['category'];
+                    catalogue = listAiComponentStatisticsRequest['catalogue'];
+                    enterpriseProjectId = listAiComponentStatisticsRequest['enterprise_project_id'];
+                    limit = listAiComponentStatisticsRequest['limit'];
+                    offset = listAiComponentStatisticsRequest['offset'];
+                    aiComponentName = listAiComponentStatisticsRequest['ai_component_name'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listAiComponentStatistics.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (catalogue === null || catalogue === undefined) {
+                throw new RequiredError('catalogue','Required parameter catalogue was null or undefined when calling listAiComponentStatistics.');
+            }
+            if (catalogue !== null && catalogue !== undefined) {
+                localVarQueryParameter['catalogue'] = catalogue;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (aiComponentName !== null && aiComponentName !== undefined) {
+                localVarQueryParameter['ai_component_name'] = aiComponentName;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -23258,7 +23493,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查入侵事件列表。
+         * 查询安全告警事件。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -27861,81 +28096,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询Agent历史状态列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listAgentStatus(listAgentStatusRequest?: ListAgentStatusRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/host-management/agent/status",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let agentId;
-            
-            let enterpriseProjectId;
-            
-            let limit;
-            
-            let offset;
-            
-            let agentStatus;
-            
-            let abnormalReason;
-
-            if (listAgentStatusRequest !== null && listAgentStatusRequest !== undefined) {
-                if (listAgentStatusRequest instanceof ListAgentStatusRequest) {
-                    agentId = listAgentStatusRequest.agentId;
-                    enterpriseProjectId = listAgentStatusRequest.enterpriseProjectId;
-                    limit = listAgentStatusRequest.limit;
-                    offset = listAgentStatusRequest.offset;
-                    agentStatus = listAgentStatusRequest.agentStatus;
-                    abnormalReason = listAgentStatusRequest.abnormalReason;
-                } else {
-                    agentId = listAgentStatusRequest['agent_id'];
-                    enterpriseProjectId = listAgentStatusRequest['enterprise_project_id'];
-                    limit = listAgentStatusRequest['limit'];
-                    offset = listAgentStatusRequest['offset'];
-                    agentStatus = listAgentStatusRequest['agent_status'];
-                    abnormalReason = listAgentStatusRequest['abnormal_reason'];
-                }
-            }
-
-        
-            if (agentId === null || agentId === undefined) {
-                throw new RequiredError('agentId','Required parameter agentId was null or undefined when calling listAgentStatus.');
-            }
-            if (agentId !== null && agentId !== undefined) {
-                localVarQueryParameter['agent_id'] = agentId;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (agentStatus !== null && agentStatus !== undefined) {
-                localVarQueryParameter['agent_status'] = agentStatus;
-            }
-            if (abnormalReason !== null && abnormalReason !== undefined) {
-                localVarQueryParameter['abnormal_reason'] = abnormalReason;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 修改“病毒查杀按次计费”开关状态。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -30313,239 +30473,6 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'policy_id': policyId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询AI组件详细信息
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listAiComponentDetail(listAiComponentDetailRequest?: ListAiComponentDetailRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/ai-component/detail",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let category;
-            
-            let catalogue;
-            
-            let limit;
-            
-            let offset;
-            
-            let serverName;
-            
-            let serverIp;
-            
-            let aiApplication;
-            
-            let hostId;
-            
-            let aiTool;
-            
-            let type;
-            
-            let version;
-            
-            let installationPath;
-            
-            let firstScanTime;
-            
-            let latestScanTime;
-            
-            let containerName;
-            
-            let containerId;
-            
-            let imageName;
-
-            if (listAiComponentDetailRequest !== null && listAiComponentDetailRequest !== undefined) {
-                if (listAiComponentDetailRequest instanceof ListAiComponentDetailRequest) {
-                    category = listAiComponentDetailRequest.category;
-                    catalogue = listAiComponentDetailRequest.catalogue;
-                    limit = listAiComponentDetailRequest.limit;
-                    offset = listAiComponentDetailRequest.offset;
-                    serverName = listAiComponentDetailRequest.serverName;
-                    serverIp = listAiComponentDetailRequest.serverIp;
-                    aiApplication = listAiComponentDetailRequest.aiApplication;
-                    hostId = listAiComponentDetailRequest.hostId;
-                    aiTool = listAiComponentDetailRequest.aiTool;
-                    type = listAiComponentDetailRequest.type;
-                    version = listAiComponentDetailRequest.version;
-                    installationPath = listAiComponentDetailRequest.installationPath;
-                    firstScanTime = listAiComponentDetailRequest.firstScanTime;
-                    latestScanTime = listAiComponentDetailRequest.latestScanTime;
-                    containerName = listAiComponentDetailRequest.containerName;
-                    containerId = listAiComponentDetailRequest.containerId;
-                    imageName = listAiComponentDetailRequest.imageName;
-                } else {
-                    category = listAiComponentDetailRequest['category'];
-                    catalogue = listAiComponentDetailRequest['catalogue'];
-                    limit = listAiComponentDetailRequest['limit'];
-                    offset = listAiComponentDetailRequest['offset'];
-                    serverName = listAiComponentDetailRequest['server_name'];
-                    serverIp = listAiComponentDetailRequest['server_ip'];
-                    aiApplication = listAiComponentDetailRequest['ai_application'];
-                    hostId = listAiComponentDetailRequest['host_id'];
-                    aiTool = listAiComponentDetailRequest['ai_tool'];
-                    type = listAiComponentDetailRequest['type'];
-                    version = listAiComponentDetailRequest['version'];
-                    installationPath = listAiComponentDetailRequest['installation_path'];
-                    firstScanTime = listAiComponentDetailRequest['first_scan_time'];
-                    latestScanTime = listAiComponentDetailRequest['latest_scan_time'];
-                    containerName = listAiComponentDetailRequest['container_name'];
-                    containerId = listAiComponentDetailRequest['container_id'];
-                    imageName = listAiComponentDetailRequest['image_name'];
-                }
-            }
-
-        
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listAiComponentDetail.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (catalogue === null || catalogue === undefined) {
-                throw new RequiredError('catalogue','Required parameter catalogue was null or undefined when calling listAiComponentDetail.');
-            }
-            if (catalogue !== null && catalogue !== undefined) {
-                localVarQueryParameter['catalogue'] = catalogue;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (serverName !== null && serverName !== undefined) {
-                localVarQueryParameter['server_name'] = serverName;
-            }
-            if (serverIp !== null && serverIp !== undefined) {
-                localVarQueryParameter['server_ip'] = serverIp;
-            }
-            if (aiApplication !== null && aiApplication !== undefined) {
-                localVarQueryParameter['ai_application'] = aiApplication;
-            }
-            if (hostId !== null && hostId !== undefined) {
-                localVarQueryParameter['host_id'] = hostId;
-            }
-            if (aiTool !== null && aiTool !== undefined) {
-                localVarQueryParameter['ai_tool'] = aiTool;
-            }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-            if (version !== null && version !== undefined) {
-                localVarQueryParameter['version'] = version;
-            }
-            if (installationPath !== null && installationPath !== undefined) {
-                localVarQueryParameter['installation_path'] = installationPath;
-            }
-            if (firstScanTime !== null && firstScanTime !== undefined) {
-                localVarQueryParameter['first_scan_time'] = firstScanTime;
-            }
-            if (latestScanTime !== null && latestScanTime !== undefined) {
-                localVarQueryParameter['latest_scan_time'] = latestScanTime;
-            }
-            if (containerName !== null && containerName !== undefined) {
-                localVarQueryParameter['container_name'] = containerName;
-            }
-            if (containerId !== null && containerId !== undefined) {
-                localVarQueryParameter['container_id'] = containerId;
-            }
-            if (imageName !== null && imageName !== undefined) {
-                localVarQueryParameter['image_name'] = imageName;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询AI组件统计信息
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listAiComponentStatistics(listAiComponentStatisticsRequest?: ListAiComponentStatisticsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/ai-component/statistics",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let category;
-            
-            let catalogue;
-            
-            let enterpriseProjectId;
-            
-            let limit;
-            
-            let offset;
-            
-            let aiComponentName;
-
-            if (listAiComponentStatisticsRequest !== null && listAiComponentStatisticsRequest !== undefined) {
-                if (listAiComponentStatisticsRequest instanceof ListAiComponentStatisticsRequest) {
-                    category = listAiComponentStatisticsRequest.category;
-                    catalogue = listAiComponentStatisticsRequest.catalogue;
-                    enterpriseProjectId = listAiComponentStatisticsRequest.enterpriseProjectId;
-                    limit = listAiComponentStatisticsRequest.limit;
-                    offset = listAiComponentStatisticsRequest.offset;
-                    aiComponentName = listAiComponentStatisticsRequest.aiComponentName;
-                } else {
-                    category = listAiComponentStatisticsRequest['category'];
-                    catalogue = listAiComponentStatisticsRequest['catalogue'];
-                    enterpriseProjectId = listAiComponentStatisticsRequest['enterprise_project_id'];
-                    limit = listAiComponentStatisticsRequest['limit'];
-                    offset = listAiComponentStatisticsRequest['offset'];
-                    aiComponentName = listAiComponentStatisticsRequest['ai_component_name'];
-                }
-            }
-
-        
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listAiComponentStatistics.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (catalogue === null || catalogue === undefined) {
-                throw new RequiredError('catalogue','Required parameter catalogue was null or undefined when calling listAiComponentStatistics.');
-            }
-            if (catalogue !== null && catalogue !== undefined) {
-                localVarQueryParameter['catalogue'] = catalogue;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (aiComponentName !== null && aiComponentName !== undefined) {
-                localVarQueryParameter['ai_component_name'] = aiComponentName;
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -36474,6 +36401,81 @@ export const ParamCreater = function () {
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Agent历史状态列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAgentStatus(listAgentStatusRequest?: ListAgentStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/host-management/agent/status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let agentId;
+            
+            let enterpriseProjectId;
+            
+            let limit;
+            
+            let offset;
+            
+            let agentStatus;
+            
+            let abnormalReason;
+
+            if (listAgentStatusRequest !== null && listAgentStatusRequest !== undefined) {
+                if (listAgentStatusRequest instanceof ListAgentStatusRequest) {
+                    agentId = listAgentStatusRequest.agentId;
+                    enterpriseProjectId = listAgentStatusRequest.enterpriseProjectId;
+                    limit = listAgentStatusRequest.limit;
+                    offset = listAgentStatusRequest.offset;
+                    agentStatus = listAgentStatusRequest.agentStatus;
+                    abnormalReason = listAgentStatusRequest.abnormalReason;
+                } else {
+                    agentId = listAgentStatusRequest['agent_id'];
+                    enterpriseProjectId = listAgentStatusRequest['enterprise_project_id'];
+                    limit = listAgentStatusRequest['limit'];
+                    offset = listAgentStatusRequest['offset'];
+                    agentStatus = listAgentStatusRequest['agent_status'];
+                    abnormalReason = listAgentStatusRequest['abnormal_reason'];
+                }
+            }
+
+        
+            if (agentId === null || agentId === undefined) {
+                throw new RequiredError('agentId','Required parameter agentId was null or undefined when calling listAgentStatus.');
+            }
+            if (agentId !== null && agentId !== undefined) {
+                localVarQueryParameter['agent_id'] = agentId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (agentStatus !== null && agentStatus !== undefined) {
+                localVarQueryParameter['agent_status'] = agentStatus;
+            }
+            if (abnormalReason !== null && abnormalReason !== undefined) {
+                localVarQueryParameter['abnormal_reason'] = abnormalReason;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -44204,6 +44206,8 @@ export const ParamCreater = function () {
             
             let hostName;
             
+            let hostIdList;
+            
             let resourceId;
             
             let chargingMode;
@@ -44221,6 +44225,7 @@ export const ParamCreater = function () {
                     quotaStatus = listQuotasDetailRequest.quotaStatus;
                     usedStatus = listQuotasDetailRequest.usedStatus;
                     hostName = listQuotasDetailRequest.hostName;
+                    hostIdList = listQuotasDetailRequest.hostIdList;
                     resourceId = listQuotasDetailRequest.resourceId;
                     chargingMode = listQuotasDetailRequest.chargingMode;
                     limit = listQuotasDetailRequest.limit;
@@ -44233,6 +44238,7 @@ export const ParamCreater = function () {
                     quotaStatus = listQuotasDetailRequest['quota_status'];
                     usedStatus = listQuotasDetailRequest['used_status'];
                     hostName = listQuotasDetailRequest['host_name'];
+                    hostIdList = listQuotasDetailRequest['host_id_list'];
                     resourceId = listQuotasDetailRequest['resource_id'];
                     chargingMode = listQuotasDetailRequest['charging_mode'];
                     limit = listQuotasDetailRequest['limit'];
@@ -44258,6 +44264,9 @@ export const ParamCreater = function () {
             }
             if (hostName !== null && hostName !== undefined) {
                 localVarQueryParameter['host_name'] = hostName;
+            }
+            if (hostIdList !== null && hostIdList !== undefined) {
+                localVarQueryParameter['host_id_list'] = hostIdList;
             }
             if (resourceId !== null && resourceId !== undefined) {
                 localVarQueryParameter['resource_id'] = resourceId;

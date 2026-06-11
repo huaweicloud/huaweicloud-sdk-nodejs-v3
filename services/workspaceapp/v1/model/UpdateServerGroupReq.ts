@@ -1,6 +1,6 @@
 import { AppTypeEnum } from './AppTypeEnum';
 import { ImageTypeEnum } from './ImageTypeEnum';
-import { RoutePolicy } from './RoutePolicy';
+import { RoutePolicyDetail } from './RoutePolicyDetail';
 import { StorageFolderMountType } from './StorageFolderMountType';
 import { VolumeType } from './VolumeType';
 
@@ -8,7 +8,7 @@ import { VolumeType } from './VolumeType';
 export class UpdateServerGroupReq {
     public name?: string;
     public description?: string;
-    private 'route_policy'?: RoutePolicy;
+    private 'route_policy'?: RoutePolicyDetail;
     private 'storage_mount_policy'?: StorageFolderMountType;
     private 'image_id'?: string;
     private 'image_product_id'?: string;
@@ -28,14 +28,14 @@ export class UpdateServerGroupReq {
         this['description'] = description;
         return this;
     }
-    public withRoutePolicy(routePolicy: RoutePolicy): UpdateServerGroupReq {
+    public withRoutePolicy(routePolicy: RoutePolicyDetail): UpdateServerGroupReq {
         this['route_policy'] = routePolicy;
         return this;
     }
-    public set routePolicy(routePolicy: RoutePolicy  | undefined) {
+    public set routePolicy(routePolicy: RoutePolicyDetail  | undefined) {
         this['route_policy'] = routePolicy;
     }
-    public get routePolicy(): RoutePolicy | undefined {
+    public get routePolicy(): RoutePolicyDetail | undefined {
         return this['route_policy'];
     }
     public withStorageMountPolicy(storageMountPolicy: StorageFolderMountType): UpdateServerGroupReq {

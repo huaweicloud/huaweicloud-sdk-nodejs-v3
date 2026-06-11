@@ -3,6 +3,7 @@ import { BackupStrategyOption } from './BackupStrategyOption';
 import { ChargeInfoOption } from './ChargeInfoOption';
 import { CreateInstanceFlavorOption } from './CreateInstanceFlavorOption';
 import { DatastoreOption } from './DatastoreOption';
+import { LbAccessControlSettings } from './LbAccessControlSettings';
 import { RestoreInfo } from './RestoreInfo';
 
 
@@ -18,6 +19,7 @@ export class CreateInstanceRequestBody {
     public mode?: string;
     private 'product_type'?: string;
     public flavor?: Array<CreateInstanceFlavorOption>;
+    private 'disk_encryption_id'?: string;
     private 'configuration_id'?: string;
     private 'backup_strategy'?: BackupStrategyOption;
     private 'enterprise_project_id'?: string;
@@ -27,6 +29,7 @@ export class CreateInstanceRequestBody {
     private 'restore_info'?: RestoreInfo;
     public port?: string;
     private 'availability_zone_detail'?: AvailabilityZoneDetail;
+    private 'lb_access_control_settings'?: LbAccessControlSettings;
     public constructor(name?: string, datastore?: DatastoreOption, region?: string, availabilityZone?: string, vpcId?: string, subnetId?: string, securityGroupId?: string, password?: string, mode?: string, flavor?: Array<CreateInstanceFlavorOption>) { 
         this['name'] = name;
         this['datastore'] = datastore;
@@ -113,6 +116,16 @@ export class CreateInstanceRequestBody {
         this['flavor'] = flavor;
         return this;
     }
+    public withDiskEncryptionId(diskEncryptionId: string): CreateInstanceRequestBody {
+        this['disk_encryption_id'] = diskEncryptionId;
+        return this;
+    }
+    public set diskEncryptionId(diskEncryptionId: string  | undefined) {
+        this['disk_encryption_id'] = diskEncryptionId;
+    }
+    public get diskEncryptionId(): string | undefined {
+        return this['disk_encryption_id'];
+    }
     public withConfigurationId(configurationId: string): CreateInstanceRequestBody {
         this['configuration_id'] = configurationId;
         return this;
@@ -196,5 +209,15 @@ export class CreateInstanceRequestBody {
     }
     public get availabilityZoneDetail(): AvailabilityZoneDetail | undefined {
         return this['availability_zone_detail'];
+    }
+    public withLbAccessControlSettings(lbAccessControlSettings: LbAccessControlSettings): CreateInstanceRequestBody {
+        this['lb_access_control_settings'] = lbAccessControlSettings;
+        return this;
+    }
+    public set lbAccessControlSettings(lbAccessControlSettings: LbAccessControlSettings  | undefined) {
+        this['lb_access_control_settings'] = lbAccessControlSettings;
+    }
+    public get lbAccessControlSettings(): LbAccessControlSettings | undefined {
+        return this['lb_access_control_settings'];
     }
 }

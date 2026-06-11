@@ -7,8 +7,8 @@ import { EcsNetWork } from './EcsNetWork';
 import { Flavor } from './Flavor';
 import { JobStatus } from './JobStatus';
 import { JobType } from './JobType';
-import { ProductInfo } from './ProductInfo';
 import { ServerAddress } from './ServerAddress';
+import { ServerProductInfo } from './ServerProductInfo';
 import { ServerSecurityGroup } from './ServerSecurityGroup';
 import { ServerStatus } from './ServerStatus';
 import { TmsTag } from './TmsTag';
@@ -45,7 +45,7 @@ export class ShowServerResponse extends SdkResponse {
     private 'resource_pool_type'?: string;
     private 'host_id'?: string;
     private 'server_group_name'?: string;
-    private 'product_info'?: ProductInfo;
+    private 'product_info'?: ServerProductInfo;
     public metadata?: { [key: string]: string; };
     private 'session_count'?: number;
     private 'vm_status'?: AppServerStatus;
@@ -299,14 +299,14 @@ export class ShowServerResponse extends SdkResponse {
     public get serverGroupName(): string | undefined {
         return this['server_group_name'];
     }
-    public withProductInfo(productInfo: ProductInfo): ShowServerResponse {
+    public withProductInfo(productInfo: ServerProductInfo): ShowServerResponse {
         this['product_info'] = productInfo;
         return this;
     }
-    public set productInfo(productInfo: ProductInfo  | undefined) {
+    public set productInfo(productInfo: ServerProductInfo  | undefined) {
         this['product_info'] = productInfo;
     }
-    public get productInfo(): ProductInfo | undefined {
+    public get productInfo(): ServerProductInfo | undefined {
         return this['product_info'];
     }
     public withMetadata(metadata: { [key: string]: string; }): ShowServerResponse {

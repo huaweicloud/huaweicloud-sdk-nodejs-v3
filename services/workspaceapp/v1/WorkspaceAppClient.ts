@@ -11,6 +11,7 @@ import { AddVolumes } from './model/AddVolumes';
 import { App } from './model/App';
 import { AppCategoryEnum } from './model/AppCategoryEnum';
 import { AppConnectionInfo } from './model/AppConnectionInfo';
+import { AppDataRoamingConfigurations } from './model/AppDataRoamingConfigurations';
 import { AppExtendedInfo } from './model/AppExtendedInfo';
 import { AppGroup } from './model/AppGroup';
 import { AppGroupAuthorizeReq } from './model/AppGroupAuthorizeReq';
@@ -32,6 +33,7 @@ import { Attachment } from './model/Attachment';
 import { Authorization } from './model/Authorization';
 import { AuthorizationMail } from './model/AuthorizationMail';
 import { AuthorizationTypeEnum } from './model/AuthorizationTypeEnum';
+import { AuthorizeObsPolicyStatement } from './model/AuthorizeObsPolicyStatement';
 import { AuthorizeObsReq } from './model/AuthorizeObsReq';
 import { AuthorizeObsRequest } from './model/AuthorizeObsRequest';
 import { AuthorizeObsResponse } from './model/AuthorizeObsResponse';
@@ -139,6 +141,7 @@ import { CloudStorageOptions } from './model/CloudStorageOptions';
 import { ComBandwidthControlOptions } from './model/ComBandwidthControlOptions';
 import { ComBandwidthPercentageOptions } from './model/ComBandwidthPercentageOptions';
 import { ConfigKeyStringSet } from './model/ConfigKeyStringSet';
+import { ContactsConfigurations } from './model/ContactsConfigurations';
 import { CorpConfigInfo } from './model/CorpConfigInfo';
 import { CountImageSubJobsRequest } from './model/CountImageSubJobsRequest';
 import { CountImageSubJobsResponse } from './model/CountImageSubJobsResponse';
@@ -238,6 +241,7 @@ import { DeleteUserStorageAttachmentRequest } from './model/DeleteUserStorageAtt
 import { DeleteUserStorageAttachmentResponse } from './model/DeleteUserStorageAttachmentResponse';
 import { DeleteWarehouseAppRequest } from './model/DeleteWarehouseAppRequest';
 import { DeleteWarehouseAppResponse } from './model/DeleteWarehouseAppResponse';
+import { DesktopConfigurations } from './model/DesktopConfigurations';
 import { DisassociateAppGroupRequest } from './model/DisassociateAppGroupRequest';
 import { DisassociateAppGroupResponse } from './model/DisassociateAppGroupResponse';
 import { DisplayBandwidthControlOptions } from './model/DisplayBandwidthControlOptions';
@@ -246,6 +250,8 @@ import { DisplayOptions } from './model/DisplayOptions';
 import { DisplayOptionsDeepCompressionOptions } from './model/DisplayOptionsDeepCompressionOptions';
 import { DisplayOptionsVideoBitRateOptions } from './model/DisplayOptionsVideoBitRateOptions';
 import { DisplayOptionsVideoQualityOptions } from './model/DisplayOptionsVideoQualityOptions';
+import { DocumentsConfigurations } from './model/DocumentsConfigurations';
+import { DownloadsConfigurations } from './model/DownloadsConfigurations';
 import { EcsNetWork } from './model/EcsNetWork';
 import { ExportAppConnectionRequest } from './model/ExportAppConnectionRequest';
 import { ExportAppConnectionResponse } from './model/ExportAppConnectionResponse';
@@ -255,6 +261,7 @@ import { ExportSessionsResponse } from './model/ExportSessionsResponse';
 import { ExportUserConnectionRequest } from './model/ExportUserConnectionRequest';
 import { ExportUserConnectionResponse } from './model/ExportUserConnectionResponse';
 import { ExtraSessionTypeEnum } from './model/ExtraSessionTypeEnum';
+import { FavoritesConfigurations } from './model/FavoritesConfigurations';
 import { FileInfo } from './model/FileInfo';
 import { FileRedirectionBandwidthControlOptions } from './model/FileRedirectionBandwidthControlOptions';
 import { FileRedirectionBandwidthPercentageOptions } from './model/FileRedirectionBandwidthPercentageOptions';
@@ -266,6 +273,7 @@ import { Flavor } from './model/Flavor';
 import { FlavorLink } from './model/FlavorLink';
 import { FolderInfo } from './model/FolderInfo';
 import { FolderRedirectionOptions } from './model/FolderRedirectionOptions';
+import { FolderRedirectionV2Options } from './model/FolderRedirectionV2Options';
 import { HotspotSessionMigrationConfig } from './model/HotspotSessionMigrationConfig';
 import { I18n } from './model/I18n';
 import { ImageAccountInfo } from './model/ImageAccountInfo';
@@ -293,6 +301,7 @@ import { JobResourceInfo } from './model/JobResourceInfo';
 import { JobStatus } from './model/JobStatus';
 import { JobType } from './model/JobType';
 import { LatestVersionInfo } from './model/LatestVersionInfo';
+import { LinksConfigurations } from './model/LinksConfigurations';
 import { ListAccessAgentLatestVersionRequest } from './model/ListAccessAgentLatestVersionRequest';
 import { ListAccessAgentLatestVersionResponse } from './model/ListAccessAgentLatestVersionResponse';
 import { ListAppConnectionReq } from './model/ListAppConnectionReq';
@@ -400,6 +409,7 @@ import { LogoffUserSessionRequest } from './model/LogoffUserSessionRequest';
 import { LogoffUserSessionResponse } from './model/LogoffUserSessionResponse';
 import { MultimediaBandwidthControlOptions } from './model/MultimediaBandwidthControlOptions';
 import { MultimediaBandwidthPercentageOptions } from './model/MultimediaBandwidthPercentageOptions';
+import { MusicConfigurations } from './model/MusicConfigurations';
 import { Nic } from './model/Nic';
 import { OsTypeEnum } from './model/OsTypeEnum';
 import { PageResp } from './model/PageResp';
@@ -408,6 +418,7 @@ import { PcscBandwidthPercentageOptions } from './model/PcscBandwidthPercentageO
 import { PersistentStorage } from './model/PersistentStorage';
 import { PersistentStorageAssignment } from './model/PersistentStorageAssignment';
 import { PersistentStorageClaim } from './model/PersistentStorageClaim';
+import { PicturesConfigurations } from './model/PicturesConfigurations';
 import { PlatformTypeEnum } from './model/PlatformTypeEnum';
 import { Policies } from './model/Policies';
 import { PoliciesAudio } from './model/PoliciesAudio';
@@ -421,6 +432,7 @@ import { PoliciesFileAndClipboardClipboardRedirectionOptions } from './model/Pol
 import { PoliciesFileAndClipboardFileRedirection } from './model/PoliciesFileAndClipboardFileRedirection';
 import { PoliciesFileAndClipboardFileRedirectionRedirectionSendFileOptions } from './model/PoliciesFileAndClipboardFileRedirectionRedirectionSendFileOptions';
 import { PoliciesFolderRedirection } from './model/PoliciesFolderRedirection';
+import { PoliciesFolderRedirectionV2 } from './model/PoliciesFolderRedirectionV2';
 import { PoliciesKeyboardMouse } from './model/PoliciesKeyboardMouse';
 import { PoliciesPeripherals } from './model/PoliciesPeripherals';
 import { PoliciesPeripheralsDeviceRedirection } from './model/PoliciesPeripheralsDeviceRedirection';
@@ -435,6 +447,7 @@ import { PoliciesUrlRedirection } from './model/PoliciesUrlRedirection';
 import { PoliciesUserProfile } from './model/PoliciesUserProfile';
 import { PoliciesUserProfileManagement } from './model/PoliciesUserProfileManagement';
 import { Policy } from './model/Policy';
+import { PolicyEffectEnum } from './model/PolicyEffectEnum';
 import { PolicyGroup } from './model/PolicyGroup';
 import { PolicyGroupForCreate } from './model/PolicyGroupForCreate';
 import { PolicyGroupForTemplate } from './model/PolicyGroupForTemplate';
@@ -444,7 +457,7 @@ import { PolicyTemplate } from './model/PolicyTemplate';
 import { PrinterBandwidthControlOptions } from './model/PrinterBandwidthControlOptions';
 import { PrinterBandwidthPercentageOptions } from './model/PrinterBandwidthPercentageOptions';
 import { PrinterRedirectionOptions } from './model/PrinterRedirectionOptions';
-import { ProductInfo } from './model/ProductInfo';
+import { ProductDetailInfo } from './model/ProductDetailInfo';
 import { ProjectConfig } from './model/ProjectConfig';
 import { ProjectConfigClusterGroupIdEntity } from './model/ProjectConfigClusterGroupIdEntity';
 import { PublishApp } from './model/PublishApp';
@@ -469,6 +482,8 @@ import { ResetUserProfileRequest } from './model/ResetUserProfileRequest';
 import { ResetUserProfileResponse } from './model/ResetUserProfileResponse';
 import { Resource } from './model/Resource';
 import { RoutePolicy } from './model/RoutePolicy';
+import { RoutePolicyDetail } from './model/RoutePolicyDetail';
+import { SavedGamesConfigurations } from './model/SavedGamesConfigurations';
 import { Sbc } from './model/Sbc';
 import { SbcAutomaticDisconnectionOptions } from './model/SbcAutomaticDisconnectionOptions';
 import { ScalingPolicy } from './model/ScalingPolicy';
@@ -483,6 +498,7 @@ import { ScheduleTaskTargetTypeEnum } from './model/ScheduleTaskTargetTypeEnum';
 import { ScheduleTaskTypeEnum } from './model/ScheduleTaskTypeEnum';
 import { ScheduledTaskConfig } from './model/ScheduledTaskConfig';
 import { ScheduledTypeEnum } from './model/ScheduledTypeEnum';
+import { SearchesConfigurations } from './model/SearchesConfigurations';
 import { SecureChannelBandwidthControlOptions } from './model/SecureChannelBandwidthControlOptions';
 import { SecureChannelBandwidthPercentageOptions } from './model/SecureChannelBandwidthPercentageOptions';
 import { SecurityGroup } from './model/SecurityGroup';
@@ -506,6 +522,7 @@ import { ServerIdSet } from './model/ServerIdSet';
 import { ServerJobInfo } from './model/ServerJobInfo';
 import { ServerJobInfos } from './model/ServerJobInfos';
 import { ServerMetricData } from './model/ServerMetricData';
+import { ServerProductInfo } from './model/ServerProductInfo';
 import { ServerSecurityGroup } from './model/ServerSecurityGroup';
 import { ServerStatus } from './model/ServerStatus';
 import { Session } from './model/Session';
@@ -561,10 +578,12 @@ import { ShowServerVncResponse } from './model/ShowServerVncResponse';
 import { ShowSessionTypesRequest } from './model/ShowSessionTypesRequest';
 import { ShowSessionTypesResponse } from './model/ShowSessionTypesResponse';
 import { SoldOutInfo } from './model/SoldOutInfo';
+import { StartMenuConfigurations } from './model/StartMenuConfigurations';
 import { Storage } from './model/Storage';
 import { StorageFolderMountType } from './model/StorageFolderMountType';
 import { StorageMetadata } from './model/StorageMetadata';
 import { StringSet } from './model/StringSet';
+import { SubJobDetailInfo } from './model/SubJobDetailInfo';
 import { SubJobInfo } from './model/SubJobInfo';
 import { Target } from './model/Target';
 import { TargetInfo } from './model/TargetInfo';
@@ -609,6 +628,7 @@ import { UpdatePolicyTemplateResponse } from './model/UpdatePolicyTemplateRespon
 import { UpdatePreBootPolicyReq } from './model/UpdatePreBootPolicyReq';
 import { UpdatePreBootPolicyRequest } from './model/UpdatePreBootPolicyRequest';
 import { UpdatePreBootPolicyResponse } from './model/UpdatePreBootPolicyResponse';
+import { UpdateRawIconReq } from './model/UpdateRawIconReq';
 import { UpdateScheduleTaskReq } from './model/UpdateScheduleTaskReq';
 import { UpdateScheduleTaskRequest } from './model/UpdateScheduleTaskRequest';
 import { UpdateScheduleTaskResponse } from './model/UpdateScheduleTaskResponse';
@@ -630,6 +650,8 @@ import { UpdateUserFolderReq } from './model/UpdateUserFolderReq';
 import { UpdateWarehouseAppReq } from './model/UpdateWarehouseAppReq';
 import { UpdateWarehouseAppRequest } from './model/UpdateWarehouseAppRequest';
 import { UpdateWarehouseAppResponse } from './model/UpdateWarehouseAppResponse';
+import { UploadAppIconRawRequest } from './model/UploadAppIconRawRequest';
+import { UploadAppIconRawResponse } from './model/UploadAppIconRawResponse';
 import { UploadAppIconRequest } from './model/UploadAppIconRequest';
 import { UploadAppIconRequestBody } from './model/UploadAppIconRequestBody';
 import { UploadAppIconResponse } from './model/UploadAppIconResponse';
@@ -651,6 +673,7 @@ import { ValidateServerGroupRequest } from './model/ValidateServerGroupRequest';
 import { ValidateServerGroupResponse } from './model/ValidateServerGroupResponse';
 import { ValidateSeverGroupReq } from './model/ValidateSeverGroupReq';
 import { VerifyStatusEnum } from './model/VerifyStatusEnum';
+import { VideosConfigurations } from './model/VideosConfigurations';
 import { VirtualChannel } from './model/VirtualChannel';
 import { VirtualChannelBandwidthControlOptions } from './model/VirtualChannelBandwidthControlOptions';
 import { VirtualChannelBandwidthPercentageOptions } from './model/VirtualChannelBandwidthPercentageOptions';
@@ -718,7 +741,7 @@ export class WorkspaceAppClient {
     }
 
     /**
-     * 添加用户应用仓库桶及桶授权。
+     * 添加用户应用仓库桶及桶授权，用于租户自定义桶。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1113,6 +1136,27 @@ export class WorkspaceAppClient {
      */
     public uploadAppIcon(uploadAppIconRequest?: UploadAppIconRequest): Promise<UploadAppIconResponse> {
         const options = ParamCreater().uploadAppIcon(uploadAppIconRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改自定义应用图标。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改自定义应用图标
+     * @param {string} appGroupId 应用组ID。
+     * @param {string} appId 应用ID。
+     * @param {UpdateRawIconReq} uploadAppIconRawRequestBody 使用raw格式、base64编码的png格式图标,base64编码字符长度限制为20000。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public uploadAppIconRaw(uploadAppIconRawRequest?: UploadAppIconRawRequest): Promise<UploadAppIconRawResponse> {
+        const options = ParamCreater().uploadAppIconRaw(uploadAppIconRawRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1539,7 +1583,7 @@ export class WorkspaceAppClient {
     }
 
     /**
-     * 切换文件夹归属集群，文件系统在切换
+     * 切换文件夹归属集群，该操作需要sfs先操作文件系统切换后调用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1578,7 +1622,7 @@ export class WorkspaceAppClient {
     }
 
     /**
-     * 创建个人文件夹，已存在对应目录时，仅更新策略不会重复创建目录。
+     * 创建个人文件夹并创建对应文件系统，已存在对应目录时，仅更新策略不会重复创建目录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1598,7 +1642,7 @@ export class WorkspaceAppClient {
     }
 
     /**
-     * 删除共享存储，只会解除NAS与项目配置之间的关联关系。
+     * 删除共享存储，只会解除NAS与项目配置之间的关联关系
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1617,7 +1661,7 @@ export class WorkspaceAppClient {
     }
 
     /**
-     * 删除个人存储目录，个人目录中的数据也将永久删除且无法恢复。
+     * 删除个人存储目录，对应文件系统也将删除，个人目录中的数据也将永久删除且无法恢复。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1728,7 +1772,7 @@ export class WorkspaceAppClient {
     }
 
     /**
-     * 重置userprofile，初始化或重置并备份userprofile。
+     * 重置userprofile，初始化或重置并备份userprofile，输入ori_name时将ori_name备份重置到AppData目录，不输入时为初始化重置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1766,7 +1810,7 @@ export class WorkspaceAppClient {
     }
 
     /**
-     * 云存储文件流转与分享
+     * 云存储文件流转与分享，根据不同的transfer_type实现个人文件上传到共享文件夹，从共享文件夹拉取文件到个人文件夹。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1785,7 +1829,7 @@ export class WorkspaceAppClient {
     }
 
     /**
-     * 文件预流转，在接收方接收文件前返回可用的文件路径
+     * 文件预流转，在接收方接收文件前返回可用的文件路径，如果接收方不存在当前获取文件的同名文件，则不修改返回，否则返回新的可用的文件名。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1804,7 +1848,7 @@ export class WorkspaceAppClient {
     }
 
     /**
-     * 创建个人文件夹。
+     * 修改个人文件夹。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1906,7 +1950,7 @@ export class WorkspaceAppClient {
     }
 
     /**
-     * 修改热点会话不迁移用户, 在对热点绘画迁移用户新增时如已存在该用户，则进行覆盖添加，在删除用户时如果不存在用户，则进行忽略。
+     * 修改热点会话不迁移用户, 在对热点会话迁移用户新增时如已存在该用户，则进行覆盖添加，在删除用户时如果不存在用户，则进行忽略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4280,7 +4324,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 添加用户应用仓库桶及桶授权。
+         * 添加用户应用仓库桶及桶授权，用于租户自定义桶。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5180,6 +5224,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改自定义应用图标。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        uploadAppIconRaw(uploadAppIconRawRequest?: UploadAppIconRawRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/app-groups/{app_group_id}/apps/{app_id}/raw-icon",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let appGroupId;
+            
+            let appId;
+
+            if (uploadAppIconRawRequest !== null && uploadAppIconRawRequest !== undefined) {
+                if (uploadAppIconRawRequest instanceof UploadAppIconRawRequest) {
+                    appGroupId = uploadAppIconRawRequest.appGroupId;
+                    appId = uploadAppIconRawRequest.appId;
+                    body = uploadAppIconRawRequest.body
+                } else {
+                    appGroupId = uploadAppIconRawRequest['app_group_id'];
+                    appId = uploadAppIconRawRequest['app_id'];
+                    body = uploadAppIconRawRequest['body'];
+                }
+            }
+
+        
+            if (appGroupId === null || appGroupId === undefined) {
+            throw new RequiredError('appGroupId','Required parameter appGroupId was null or undefined when calling uploadAppIconRaw.');
+            }
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling uploadAppIconRaw.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'app_group_id': appGroupId,'app_id': appId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 租户服务激活。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6051,7 +6148,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 切换文件夹归属集群，文件系统在切换
+         * 切换文件夹归属集群，该操作需要sfs先操作文件系统切换后调用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6135,7 +6232,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建个人文件夹，已存在对应目录时，仅更新策略不会重复创建目录。
+         * 创建个人文件夹并创建对应文件系统，已存在对应目录时，仅更新策略不会重复创建目录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6181,7 +6278,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除共享存储，只会解除NAS与项目配置之间的关联关系。
+         * 删除共享存储，只会解除NAS与项目配置之间的关联关系
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6218,7 +6315,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除个人存储目录，个人目录中的数据也将永久删除且无法恢复。
+         * 删除个人存储目录，对应文件系统也将删除，个人目录中的数据也将永久删除且无法恢复。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6529,7 +6626,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 重置userprofile，初始化或重置并备份userprofile。
+         * 重置userprofile，初始化或重置并备份userprofile，输入ori_name时将ori_name备份重置到AppData目录，不输入时为初始化重置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6604,7 +6701,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 云存储文件流转与分享
+         * 云存储文件流转与分享，根据不同的transfer_type实现个人文件上传到共享文件夹，从共享文件夹拉取文件到个人文件夹。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6642,7 +6739,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 文件预流转，在接收方接收文件前返回可用的文件路径
+         * 文件预流转，在接收方接收文件前返回可用的文件路径，如果接收方不存在当前获取文件的同名文件，则不修改返回，否则返回新的可用的文件名。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6680,7 +6777,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建个人文件夹。
+         * 修改个人文件夹。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6920,7 +7017,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改热点会话不迁移用户, 在对热点绘画迁移用户新增时如已存在该用户，则进行覆盖添加，在删除用户时如果不存在用户，则进行忽略。
+         * 修改热点会话不迁移用户, 在对热点会话迁移用户新增时如已存在该用户，则进行覆盖添加，在删除用户时如果不存在用户，则进行忽略。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -1,11 +1,11 @@
-import { ImageJobDetailInfo } from './ImageJobDetailInfo';
 import { PageResp } from './PageResp';
+import { SubJobDetailInfo } from './SubJobDetailInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListSubJobsResponse extends SdkResponse {
     public count?: number;
-    public items?: Array<ImageJobDetailInfo>;
+    public items?: Array<SubJobDetailInfo>;
     public constructor() { 
         super();
     }
@@ -13,7 +13,7 @@ export class ListSubJobsResponse extends SdkResponse {
         this['count'] = count;
         return this;
     }
-    public withItems(items: Array<ImageJobDetailInfo>): ListSubJobsResponse {
+    public withItems(items: Array<SubJobDetailInfo>): ListSubJobsResponse {
         this['items'] = items;
         return this;
     }

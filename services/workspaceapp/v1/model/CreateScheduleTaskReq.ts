@@ -1,12 +1,8 @@
-import { ScheduleTaskPolicy } from './ScheduleTaskPolicy';
-import { ScheduleTaskTypeEnum } from './ScheduleTaskTypeEnum';
 import { ScheduledTaskConfig } from './ScheduledTaskConfig';
-import { ScheduledTypeEnum } from './ScheduledTypeEnum';
-import { TargetInfo } from './TargetInfo';
 
 
 export class CreateScheduleTaskReq {
-    private 'scheduled_type'?: ScheduledTypeEnum;
+    private 'scheduled_type'?: CreateScheduleTaskReqScheduledTypeEnum | string;
     private 'day_interval'?: number;
     private 'week_list'?: string;
     private 'month_list'?: string;
@@ -15,21 +11,16 @@ export class CreateScheduleTaskReq {
     private 'scheduled_date'?: string;
     private 'scheduled_time'?: string;
     private 'expire_time'?: Date;
-    private 'task_name'?: string;
-    private 'task_type'?: ScheduleTaskTypeEnum;
-    private 'schedule_task_policy'?: ScheduleTaskPolicy;
-    public description?: string;
-    private 'target_infos'?: Array<TargetInfo>;
     public constructor() { 
     }
-    public withScheduledType(scheduledType: ScheduledTypeEnum): CreateScheduleTaskReq {
+    public withScheduledType(scheduledType: CreateScheduleTaskReqScheduledTypeEnum | string): CreateScheduleTaskReq {
         this['scheduled_type'] = scheduledType;
         return this;
     }
-    public set scheduledType(scheduledType: ScheduledTypeEnum  | undefined) {
+    public set scheduledType(scheduledType: CreateScheduleTaskReqScheduledTypeEnum | string  | undefined) {
         this['scheduled_type'] = scheduledType;
     }
-    public get scheduledType(): ScheduledTypeEnum | undefined {
+    public get scheduledType(): CreateScheduleTaskReqScheduledTypeEnum | string | undefined {
         return this['scheduled_type'];
     }
     public withDayInterval(dayInterval: number): CreateScheduleTaskReq {
@@ -112,48 +103,15 @@ export class CreateScheduleTaskReq {
     public get expireTime(): Date | undefined {
         return this['expire_time'];
     }
-    public withTaskName(taskName: string): CreateScheduleTaskReq {
-        this['task_name'] = taskName;
-        return this;
-    }
-    public set taskName(taskName: string  | undefined) {
-        this['task_name'] = taskName;
-    }
-    public get taskName(): string | undefined {
-        return this['task_name'];
-    }
-    public withTaskType(taskType: ScheduleTaskTypeEnum): CreateScheduleTaskReq {
-        this['task_type'] = taskType;
-        return this;
-    }
-    public set taskType(taskType: ScheduleTaskTypeEnum  | undefined) {
-        this['task_type'] = taskType;
-    }
-    public get taskType(): ScheduleTaskTypeEnum | undefined {
-        return this['task_type'];
-    }
-    public withScheduleTaskPolicy(scheduleTaskPolicy: ScheduleTaskPolicy): CreateScheduleTaskReq {
-        this['schedule_task_policy'] = scheduleTaskPolicy;
-        return this;
-    }
-    public set scheduleTaskPolicy(scheduleTaskPolicy: ScheduleTaskPolicy  | undefined) {
-        this['schedule_task_policy'] = scheduleTaskPolicy;
-    }
-    public get scheduleTaskPolicy(): ScheduleTaskPolicy | undefined {
-        return this['schedule_task_policy'];
-    }
-    public withDescription(description: string): CreateScheduleTaskReq {
-        this['description'] = description;
-        return this;
-    }
-    public withTargetInfos(targetInfos: Array<TargetInfo>): CreateScheduleTaskReq {
-        this['target_infos'] = targetInfos;
-        return this;
-    }
-    public set targetInfos(targetInfos: Array<TargetInfo>  | undefined) {
-        this['target_infos'] = targetInfos;
-    }
-    public get targetInfos(): Array<TargetInfo> | undefined {
-        return this['target_infos'];
-    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateScheduleTaskReqScheduledTypeEnum {
+    FIXED_TIME = 'FIXED_TIME',
+    DAY = 'DAY',
+    WEEK = 'WEEK',
+    MONTH = 'MONTH'
 }

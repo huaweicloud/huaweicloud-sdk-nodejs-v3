@@ -5,6 +5,9 @@ export class AntiVirusEventWhiteRuleListRequestInfo {
     private 'field_key'?: string;
     private 'field_value'?: string;
     private 'judge_type'?: string;
+    public scope?: boolean;
+    private 'agent_ids'?: Array<string>;
+    private 'instance_ids'?: Array<string>;
     public constructor(eventType?: number, fieldKey?: string, fieldValue?: string, judgeType?: string) { 
         this['event_type'] = eventType;
         this['field_key'] = fieldKey;
@@ -50,5 +53,29 @@ export class AntiVirusEventWhiteRuleListRequestInfo {
     }
     public get judgeType(): string | undefined {
         return this['judge_type'];
+    }
+    public withScope(scope: boolean): AntiVirusEventWhiteRuleListRequestInfo {
+        this['scope'] = scope;
+        return this;
+    }
+    public withAgentIds(agentIds: Array<string>): AntiVirusEventWhiteRuleListRequestInfo {
+        this['agent_ids'] = agentIds;
+        return this;
+    }
+    public set agentIds(agentIds: Array<string>  | undefined) {
+        this['agent_ids'] = agentIds;
+    }
+    public get agentIds(): Array<string> | undefined {
+        return this['agent_ids'];
+    }
+    public withInstanceIds(instanceIds: Array<string>): AntiVirusEventWhiteRuleListRequestInfo {
+        this['instance_ids'] = instanceIds;
+        return this;
+    }
+    public set instanceIds(instanceIds: Array<string>  | undefined) {
+        this['instance_ids'] = instanceIds;
+    }
+    public get instanceIds(): Array<string> | undefined {
+        return this['instance_ids'];
     }
 }
