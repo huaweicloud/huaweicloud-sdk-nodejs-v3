@@ -1,11 +1,11 @@
 import { MergeRequestTemplateDto } from './MergeRequestTemplateDto';
+import { MergeRequestTemplateFromDto } from './MergeRequestTemplateFromDto';
 import { UserBasicDto } from './UserBasicDto';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateMergeRequestTemplateResponse extends SdkResponse {
     public id?: number;
-    private 'repository_id'?: number;
     public description?: string;
     private 'created_at'?: string;
     private 'updated_at'?: string;
@@ -15,22 +15,14 @@ export class CreateMergeRequestTemplateResponse extends SdkResponse {
     private 'is_wip'?: boolean;
     private 'auto_extract_mr_title'?: number;
     public creator?: UserBasicDto;
+    private 'repository_id'?: number;
+    public from?: MergeRequestTemplateFromDto;
     public constructor() { 
         super();
     }
     public withId(id: number): CreateMergeRequestTemplateResponse {
         this['id'] = id;
         return this;
-    }
-    public withRepositoryId(repositoryId: number): CreateMergeRequestTemplateResponse {
-        this['repository_id'] = repositoryId;
-        return this;
-    }
-    public set repositoryId(repositoryId: number  | undefined) {
-        this['repository_id'] = repositoryId;
-    }
-    public get repositoryId(): number | undefined {
-        return this['repository_id'];
     }
     public withDescription(description: string): CreateMergeRequestTemplateResponse {
         this['description'] = description;
@@ -108,6 +100,20 @@ export class CreateMergeRequestTemplateResponse extends SdkResponse {
     }
     public withCreator(creator: UserBasicDto): CreateMergeRequestTemplateResponse {
         this['creator'] = creator;
+        return this;
+    }
+    public withRepositoryId(repositoryId: number): CreateMergeRequestTemplateResponse {
+        this['repository_id'] = repositoryId;
+        return this;
+    }
+    public set repositoryId(repositoryId: number  | undefined) {
+        this['repository_id'] = repositoryId;
+    }
+    public get repositoryId(): number | undefined {
+        return this['repository_id'];
+    }
+    public withFrom(from: MergeRequestTemplateFromDto): CreateMergeRequestTemplateResponse {
+        this['from'] = from;
         return this;
     }
 }

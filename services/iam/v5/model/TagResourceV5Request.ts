@@ -41,5 +41,7 @@ export class TagResourceV5Request {
     */
 export enum TagResourceV5RequestResourceTypeEnum {
     AGENCY = 'agency',
-    USER = 'user'
+    USER = 'user',
+    OIDC_PROVIDER = 'oidc_provider',
+    SAML_PROVIDER = 'saml_provider'
 }

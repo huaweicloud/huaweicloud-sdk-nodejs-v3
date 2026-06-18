@@ -33,6 +33,7 @@ export class UpdateMergeRequestSettingResponse extends SdkResponse {
     private 'only_allow_merge_if_vote_bigger_than'?: number;
     private 'only_assignee_can_merge'?: boolean;
     private 'repository_id'?: number;
+    private 'has_evaluation_permission'?: boolean;
     public constructor() { 
         super();
     }
@@ -319,6 +320,16 @@ export class UpdateMergeRequestSettingResponse extends SdkResponse {
     }
     public get repositoryId(): number | undefined {
         return this['repository_id'];
+    }
+    public withHasEvaluationPermission(hasEvaluationPermission: boolean): UpdateMergeRequestSettingResponse {
+        this['has_evaluation_permission'] = hasEvaluationPermission;
+        return this;
+    }
+    public set hasEvaluationPermission(hasEvaluationPermission: boolean  | undefined) {
+        this['has_evaluation_permission'] = hasEvaluationPermission;
+    }
+    public get hasEvaluationPermission(): boolean | undefined {
+        return this['has_evaluation_permission'];
     }
 }
 

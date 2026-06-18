@@ -5,9 +5,11 @@ export class ListCommitAssociatedRefsRequest {
     public sha?: string;
     public offset?: number;
     public limit?: number;
-    public constructor(repositoryId?: number, sha?: string) { 
+    public type?: ListCommitAssociatedRefsRequestTypeEnum | string;
+    public constructor(repositoryId?: number, sha?: string, type?: string) { 
         this['repository_id'] = repositoryId;
         this['sha'] = sha;
+        this['type'] = type;
     }
     public withRepositoryId(repositoryId: number): ListCommitAssociatedRefsRequest {
         this['repository_id'] = repositoryId;
@@ -31,4 +33,17 @@ export class ListCommitAssociatedRefsRequest {
         this['limit'] = limit;
         return this;
     }
+    public withType(type: ListCommitAssociatedRefsRequestTypeEnum | string): ListCommitAssociatedRefsRequest {
+        this['type'] = type;
+        return this;
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListCommitAssociatedRefsRequestTypeEnum {
+    BRANCH = 'branch',
+    TAG = 'tag'
 }

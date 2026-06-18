@@ -7,7 +7,6 @@ export class UpdateMergeRequestDiscussionResponse extends SdkResponse {
     public id?: number;
     public type?: string;
     public body?: string;
-    public attachment?: string;
     public author?: UserBasicDto;
     private 'created_at'?: string;
     private 'updated_at'?: string;
@@ -38,6 +37,7 @@ export class UpdateMergeRequestDiscussionResponse extends SdkResponse {
     public position?: PositionDto;
     public resolved?: boolean;
     private 'is_outdated'?: boolean;
+    private 'from_robot'?: boolean;
     private 'moderation_result'?: boolean;
     private 'moderation_time'?: number;
     private 'moderation_status'?: number;
@@ -54,10 +54,6 @@ export class UpdateMergeRequestDiscussionResponse extends SdkResponse {
     }
     public withBody(body: string): UpdateMergeRequestDiscussionResponse {
         this['body'] = body;
-        return this;
-    }
-    public withAttachment(attachment: string): UpdateMergeRequestDiscussionResponse {
-        this['attachment'] = attachment;
         return this;
     }
     public withAuthor(author: UserBasicDto): UpdateMergeRequestDiscussionResponse {
@@ -287,6 +283,16 @@ export class UpdateMergeRequestDiscussionResponse extends SdkResponse {
     }
     public get isOutdated(): boolean | undefined {
         return this['is_outdated'];
+    }
+    public withFromRobot(fromRobot: boolean): UpdateMergeRequestDiscussionResponse {
+        this['from_robot'] = fromRobot;
+        return this;
+    }
+    public set fromRobot(fromRobot: boolean  | undefined) {
+        this['from_robot'] = fromRobot;
+    }
+    public get fromRobot(): boolean | undefined {
+        return this['from_robot'];
     }
     public withModerationResult(moderationResult: boolean): UpdateMergeRequestDiscussionResponse {
         this['moderation_result'] = moderationResult;

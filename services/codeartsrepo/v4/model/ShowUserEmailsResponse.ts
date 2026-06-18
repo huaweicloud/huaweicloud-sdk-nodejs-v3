@@ -10,6 +10,7 @@ export class ShowUserEmailsResponse extends SdkResponse {
     private 'updated_at'?: string;
     private 'last_activity_on'?: string;
     private 'commit_email'?: string;
+    private 'is_default'?: boolean;
     public constructor() { 
         super();
     }
@@ -68,6 +69,16 @@ export class ShowUserEmailsResponse extends SdkResponse {
     }
     public get commitEmail(): string | undefined {
         return this['commit_email'];
+    }
+    public withIsDefault(isDefault: boolean): ShowUserEmailsResponse {
+        this['is_default'] = isDefault;
+        return this;
+    }
+    public set isDefault(isDefault: boolean  | undefined) {
+        this['is_default'] = isDefault;
+    }
+    public get isDefault(): boolean | undefined {
+        return this['is_default'];
     }
 }
 

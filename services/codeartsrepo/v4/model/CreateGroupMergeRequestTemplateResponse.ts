@@ -5,7 +5,6 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateGroupMergeRequestTemplateResponse extends SdkResponse {
     public id?: number;
-    private 'repository_id'?: number;
     public description?: string;
     private 'created_at'?: string;
     private 'updated_at'?: string;
@@ -22,16 +21,6 @@ export class CreateGroupMergeRequestTemplateResponse extends SdkResponse {
     public withId(id: number): CreateGroupMergeRequestTemplateResponse {
         this['id'] = id;
         return this;
-    }
-    public withRepositoryId(repositoryId: number): CreateGroupMergeRequestTemplateResponse {
-        this['repository_id'] = repositoryId;
-        return this;
-    }
-    public set repositoryId(repositoryId: number  | undefined) {
-        this['repository_id'] = repositoryId;
-    }
-    public get repositoryId(): number | undefined {
-        return this['repository_id'];
     }
     public withDescription(description: string): CreateGroupMergeRequestTemplateResponse {
         this['description'] = description;

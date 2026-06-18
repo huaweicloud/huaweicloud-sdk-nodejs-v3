@@ -10,7 +10,8 @@ export class CreateMergeRequestNoteDto {
     private 'proposer_id'?: string;
     private 'line_types'?: CreateMergeRequestNoteDtoLineTypesEnum | string;
     public position?: PositionDto;
-    public constructor() { 
+    public constructor(body?: string) { 
+        this['body'] = body;
     }
     public withBody(body: string): CreateMergeRequestNoteDto {
         this['body'] = body;

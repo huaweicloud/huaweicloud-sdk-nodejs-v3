@@ -1,5 +1,6 @@
 import { CategoryDto } from './CategoryDto';
 import { RequiredAttributeDto } from './RequiredAttributeDto';
+import { ReviewSettingDto } from './ReviewSettingDto';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -10,7 +11,8 @@ export class CreateReviewSettingResponse extends SdkResponse {
     private 'review_default_categories'?: Array<string>;
     private 'review_customized_categories'?: Array<string>;
     private 'review_modules'?: Array<string>;
-    private 'repository_id'?: number;
+    private 'secondary_category_type'?: string;
+    private 'secondary_categories'?: Array<CategoryDto>;
     private 'note_required_attributes'?: Array<RequiredAttributeDto>;
     private 'codehub_default_categories'?: Array<CategoryDto>;
     private 'hicode_default_categories'?: Array<CategoryDto>;
@@ -77,15 +79,25 @@ export class CreateReviewSettingResponse extends SdkResponse {
     public get reviewModules(): Array<string> | undefined {
         return this['review_modules'];
     }
-    public withRepositoryId(repositoryId: number): CreateReviewSettingResponse {
-        this['repository_id'] = repositoryId;
+    public withSecondaryCategoryType(secondaryCategoryType: string): CreateReviewSettingResponse {
+        this['secondary_category_type'] = secondaryCategoryType;
         return this;
     }
-    public set repositoryId(repositoryId: number  | undefined) {
-        this['repository_id'] = repositoryId;
+    public set secondaryCategoryType(secondaryCategoryType: string  | undefined) {
+        this['secondary_category_type'] = secondaryCategoryType;
     }
-    public get repositoryId(): number | undefined {
-        return this['repository_id'];
+    public get secondaryCategoryType(): string | undefined {
+        return this['secondary_category_type'];
+    }
+    public withSecondaryCategories(secondaryCategories: Array<CategoryDto>): CreateReviewSettingResponse {
+        this['secondary_categories'] = secondaryCategories;
+        return this;
+    }
+    public set secondaryCategories(secondaryCategories: Array<CategoryDto>  | undefined) {
+        this['secondary_categories'] = secondaryCategories;
+    }
+    public get secondaryCategories(): Array<CategoryDto> | undefined {
+        return this['secondary_categories'];
     }
     public withNoteRequiredAttributes(noteRequiredAttributes: Array<RequiredAttributeDto>): CreateReviewSettingResponse {
         this['note_required_attributes'] = noteRequiredAttributes;

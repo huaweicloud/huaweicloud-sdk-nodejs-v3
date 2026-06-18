@@ -31,6 +31,8 @@ export enum RepositoryInheritSettingUpdateBodyDtoNameEnum {
     REPOSITORY_SETTINGS = 'repository_settings',
     PUSH_RULES = 'push_rules',
     MERGE_REQUESTS = 'merge_requests',
+    MR_BRANCH_POLICIES = 'mr_branch_policies',
+    REVIEWS = 'reviews',
     E2E_SETTINGS = 'e2e_settings',
     WATERMARK = 'watermark'
 }

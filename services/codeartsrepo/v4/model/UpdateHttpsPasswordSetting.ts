@@ -2,7 +2,8 @@
 
 export class UpdateHttpsPasswordSetting {
     private 'https_clone_iam_auth'?: string;
-    public constructor() { 
+    public constructor(httpsCloneIamAuth?: string) { 
+        this['https_clone_iam_auth'] = httpsCloneIamAuth;
     }
     public withHttpsCloneIamAuth(httpsCloneIamAuth: string): UpdateHttpsPasswordSetting {
         this['https_clone_iam_auth'] = httpsCloneIamAuth;

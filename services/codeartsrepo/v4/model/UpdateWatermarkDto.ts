@@ -2,7 +2,8 @@
 
 export class UpdateWatermarkDto {
     public watermark?: boolean;
-    public constructor() { 
+    public constructor(watermark?: boolean) { 
+        this['watermark'] = watermark;
     }
     public withWatermark(watermark: boolean): UpdateWatermarkDto {
         this['watermark'] = watermark;

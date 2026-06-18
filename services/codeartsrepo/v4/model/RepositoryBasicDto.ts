@@ -37,6 +37,8 @@ export class RepositoryBasicDto {
     public creator?: RepositoryUserBasicDto;
     private 'creator_id'?: number;
     private 'forked_from_repository'?: RepositorySimpleDto;
+    private 'encryption_status'?: RepositoryBasicDtoEncryptionStatusEnum | string;
+    private 'repo_encryption_enabled'?: boolean;
     public constructor() { 
     }
     public withId(id: number): RepositoryBasicDto {
@@ -303,6 +305,26 @@ export class RepositoryBasicDto {
     public get forkedFromRepository(): RepositorySimpleDto | undefined {
         return this['forked_from_repository'];
     }
+    public withEncryptionStatus(encryptionStatus: RepositoryBasicDtoEncryptionStatusEnum | string): RepositoryBasicDto {
+        this['encryption_status'] = encryptionStatus;
+        return this;
+    }
+    public set encryptionStatus(encryptionStatus: RepositoryBasicDtoEncryptionStatusEnum | string  | undefined) {
+        this['encryption_status'] = encryptionStatus;
+    }
+    public get encryptionStatus(): RepositoryBasicDtoEncryptionStatusEnum | string | undefined {
+        return this['encryption_status'];
+    }
+    public withRepoEncryptionEnabled(repoEncryptionEnabled: boolean): RepositoryBasicDto {
+        this['repo_encryption_enabled'] = repoEncryptionEnabled;
+        return this;
+    }
+    public set repoEncryptionEnabled(repoEncryptionEnabled: boolean  | undefined) {
+        this['repo_encryption_enabled'] = repoEncryptionEnabled;
+    }
+    public get repoEncryptionEnabled(): boolean | undefined {
+        return this['repo_encryption_enabled'];
+    }
 }
 
 /**
@@ -312,4 +334,14 @@ export class RepositoryBasicDto {
 export enum RepositoryBasicDtoDevelopModeEnum {
     NORMAL = 'normal',
     CR = 'CR'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RepositoryBasicDtoEncryptionStatusEnum {
+    ENCRYPTING = 'encrypting',
+    ENCRYPTED = 'encrypted',
+    DECRYPTING = 'decrypting',
+    DECRYPTED = 'decrypted'
 }

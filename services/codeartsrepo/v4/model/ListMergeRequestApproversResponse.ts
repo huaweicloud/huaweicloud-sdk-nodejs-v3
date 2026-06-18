@@ -1,32 +1,32 @@
-import { UserBasicDto } from './UserBasicDto';
+import { MergeRequestApprovalUserDto } from './MergeRequestApprovalUserDto';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListMergeRequestApproversResponse extends SdkResponse {
-    private 'required_approvers_list'?: Array<UserBasicDto>;
-    private 'optional_approvers_list'?: Array<UserBasicDto>;
+    private 'required_approvers_list'?: Array<MergeRequestApprovalUserDto>;
+    private 'optional_approvers_list'?: Array<MergeRequestApprovalUserDto>;
     private 'X-Total'?: string;
     public constructor() { 
         super();
     }
-    public withRequiredApproversList(requiredApproversList: Array<UserBasicDto>): ListMergeRequestApproversResponse {
+    public withRequiredApproversList(requiredApproversList: Array<MergeRequestApprovalUserDto>): ListMergeRequestApproversResponse {
         this['required_approvers_list'] = requiredApproversList;
         return this;
     }
-    public set requiredApproversList(requiredApproversList: Array<UserBasicDto>  | undefined) {
+    public set requiredApproversList(requiredApproversList: Array<MergeRequestApprovalUserDto>  | undefined) {
         this['required_approvers_list'] = requiredApproversList;
     }
-    public get requiredApproversList(): Array<UserBasicDto> | undefined {
+    public get requiredApproversList(): Array<MergeRequestApprovalUserDto> | undefined {
         return this['required_approvers_list'];
     }
-    public withOptionalApproversList(optionalApproversList: Array<UserBasicDto>): ListMergeRequestApproversResponse {
+    public withOptionalApproversList(optionalApproversList: Array<MergeRequestApprovalUserDto>): ListMergeRequestApproversResponse {
         this['optional_approvers_list'] = optionalApproversList;
         return this;
     }
-    public set optionalApproversList(optionalApproversList: Array<UserBasicDto>  | undefined) {
+    public set optionalApproversList(optionalApproversList: Array<MergeRequestApprovalUserDto>  | undefined) {
         this['optional_approvers_list'] = optionalApproversList;
     }
-    public get optionalApproversList(): Array<UserBasicDto> | undefined {
+    public get optionalApproversList(): Array<MergeRequestApprovalUserDto> | undefined {
         return this['optional_approvers_list'];
     }
     public withXTotal(xTotal: string): ListMergeRequestApproversResponse {

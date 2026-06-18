@@ -11,7 +11,6 @@ export class CommitNoteDto {
     public body?: string;
     private 'diff_file'?: string;
     public diff?: string;
-    public attachment?: string;
     public author?: UserBasicDto;
     private 'created_at'?: string;
     private 'updated_at'?: string;
@@ -35,6 +34,7 @@ export class CommitNoteDto {
     public assignee?: UserBasicDto;
     public proposer?: UserBasicDto;
     private 'is_reply'?: boolean;
+    private 'from_robot'?: boolean;
     private 'moderation_result'?: boolean;
     private 'moderation_time'?: number;
     private 'moderation_status'?: number;
@@ -94,10 +94,6 @@ export class CommitNoteDto {
     }
     public withDiff(diff: string): CommitNoteDto {
         this['diff'] = diff;
-        return this;
-    }
-    public withAttachment(attachment: string): CommitNoteDto {
-        this['attachment'] = attachment;
         return this;
     }
     public withAuthor(author: UserBasicDto): CommitNoteDto {
@@ -269,6 +265,16 @@ export class CommitNoteDto {
     }
     public get isReply(): boolean | undefined {
         return this['is_reply'];
+    }
+    public withFromRobot(fromRobot: boolean): CommitNoteDto {
+        this['from_robot'] = fromRobot;
+        return this;
+    }
+    public set fromRobot(fromRobot: boolean  | undefined) {
+        this['from_robot'] = fromRobot;
+    }
+    public get fromRobot(): boolean | undefined {
+        return this['from_robot'];
     }
     public withModerationResult(moderationResult: boolean): CommitNoteDto {
         this['moderation_result'] = moderationResult;

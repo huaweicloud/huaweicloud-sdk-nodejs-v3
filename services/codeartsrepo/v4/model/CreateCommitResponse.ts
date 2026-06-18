@@ -33,6 +33,7 @@ export class CreateCommitResponse extends SdkResponse {
     private 'nick_name'?: string;
     private 'tenant_name'?: string;
     private 'user_name'?: string;
+    private 'author_id'?: number;
     public stats?: CommitStatsDto;
     public status?: CreateCommitResponseStatusEnum | string;
     private 'last_pipeline'?: PipelineBasicDto;
@@ -267,6 +268,16 @@ export class CreateCommitResponse extends SdkResponse {
     }
     public get userName(): string | undefined {
         return this['user_name'];
+    }
+    public withAuthorId(authorId: number): CreateCommitResponse {
+        this['author_id'] = authorId;
+        return this;
+    }
+    public set authorId(authorId: number  | undefined) {
+        this['author_id'] = authorId;
+    }
+    public get authorId(): number | undefined {
+        return this['author_id'];
     }
     public withStats(stats: CommitStatsDto): CreateCommitResponse {
         this['stats'] = stats;

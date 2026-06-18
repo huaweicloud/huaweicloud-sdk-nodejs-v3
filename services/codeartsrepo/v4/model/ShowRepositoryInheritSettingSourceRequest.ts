@@ -3,8 +3,9 @@
 export class ShowRepositoryInheritSettingSourceRequest {
     private 'repository_id'?: number;
     public name?: ShowRepositoryInheritSettingSourceRequestNameEnum | string;
-    public constructor(repositoryId?: number) { 
+    public constructor(repositoryId?: number, name?: string) { 
         this['repository_id'] = repositoryId;
+        this['name'] = name;
     }
     public withRepositoryId(repositoryId: number): ShowRepositoryInheritSettingSourceRequest {
         this['repository_id'] = repositoryId;
@@ -28,5 +29,6 @@ export class ShowRepositoryInheritSettingSourceRequest {
     */
 export enum ShowRepositoryInheritSettingSourceRequestNameEnum {
     PROTECTED_BRANCHES = 'protected_branches',
-    PROTECTED_TAGS = 'protected_tags'
+    PROTECTED_TAGS = 'protected_tags',
+    MERGE_REQUESTS = 'merge_requests'
 }

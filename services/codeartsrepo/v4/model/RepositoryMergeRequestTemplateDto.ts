@@ -1,10 +1,10 @@
 import { MergeRequestTemplateDto } from './MergeRequestTemplateDto';
+import { MergeRequestTemplateFromDto } from './MergeRequestTemplateFromDto';
 import { UserBasicDto } from './UserBasicDto';
 
 
 export class RepositoryMergeRequestTemplateDto {
     public id?: number;
-    private 'repository_id'?: number;
     public description?: string;
     private 'created_at'?: string;
     private 'updated_at'?: string;
@@ -14,21 +14,13 @@ export class RepositoryMergeRequestTemplateDto {
     private 'is_wip'?: boolean;
     private 'auto_extract_mr_title'?: number;
     public creator?: UserBasicDto;
+    private 'repository_id'?: number;
+    public from?: MergeRequestTemplateFromDto;
     public constructor() { 
     }
     public withId(id: number): RepositoryMergeRequestTemplateDto {
         this['id'] = id;
         return this;
-    }
-    public withRepositoryId(repositoryId: number): RepositoryMergeRequestTemplateDto {
-        this['repository_id'] = repositoryId;
-        return this;
-    }
-    public set repositoryId(repositoryId: number  | undefined) {
-        this['repository_id'] = repositoryId;
-    }
-    public get repositoryId(): number | undefined {
-        return this['repository_id'];
     }
     public withDescription(description: string): RepositoryMergeRequestTemplateDto {
         this['description'] = description;
@@ -106,6 +98,20 @@ export class RepositoryMergeRequestTemplateDto {
     }
     public withCreator(creator: UserBasicDto): RepositoryMergeRequestTemplateDto {
         this['creator'] = creator;
+        return this;
+    }
+    public withRepositoryId(repositoryId: number): RepositoryMergeRequestTemplateDto {
+        this['repository_id'] = repositoryId;
+        return this;
+    }
+    public set repositoryId(repositoryId: number  | undefined) {
+        this['repository_id'] = repositoryId;
+    }
+    public get repositoryId(): number | undefined {
+        return this['repository_id'];
+    }
+    public withFrom(from: MergeRequestTemplateFromDto): RepositoryMergeRequestTemplateDto {
+        this['from'] = from;
         return this;
     }
 }

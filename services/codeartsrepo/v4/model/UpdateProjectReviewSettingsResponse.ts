@@ -1,5 +1,4 @@
 import { CategoryDto } from './CategoryDto';
-import { RequiredAttributeDto } from './RequiredAttributeDto';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -10,10 +9,8 @@ export class UpdateProjectReviewSettingsResponse extends SdkResponse {
     private 'review_default_categories'?: Array<string>;
     private 'review_customized_categories'?: Array<string>;
     private 'review_modules'?: Array<string>;
-    private 'repository_id'?: number;
-    private 'note_required_attributes'?: Array<RequiredAttributeDto>;
-    private 'codehub_default_categories'?: Array<CategoryDto>;
-    private 'hicode_default_categories'?: Array<CategoryDto>;
+    private 'secondary_category_type'?: string;
+    private 'secondary_categories'?: Array<CategoryDto>;
     public constructor() { 
         super();
     }
@@ -77,44 +74,24 @@ export class UpdateProjectReviewSettingsResponse extends SdkResponse {
     public get reviewModules(): Array<string> | undefined {
         return this['review_modules'];
     }
-    public withRepositoryId(repositoryId: number): UpdateProjectReviewSettingsResponse {
-        this['repository_id'] = repositoryId;
+    public withSecondaryCategoryType(secondaryCategoryType: string): UpdateProjectReviewSettingsResponse {
+        this['secondary_category_type'] = secondaryCategoryType;
         return this;
     }
-    public set repositoryId(repositoryId: number  | undefined) {
-        this['repository_id'] = repositoryId;
+    public set secondaryCategoryType(secondaryCategoryType: string  | undefined) {
+        this['secondary_category_type'] = secondaryCategoryType;
     }
-    public get repositoryId(): number | undefined {
-        return this['repository_id'];
+    public get secondaryCategoryType(): string | undefined {
+        return this['secondary_category_type'];
     }
-    public withNoteRequiredAttributes(noteRequiredAttributes: Array<RequiredAttributeDto>): UpdateProjectReviewSettingsResponse {
-        this['note_required_attributes'] = noteRequiredAttributes;
+    public withSecondaryCategories(secondaryCategories: Array<CategoryDto>): UpdateProjectReviewSettingsResponse {
+        this['secondary_categories'] = secondaryCategories;
         return this;
     }
-    public set noteRequiredAttributes(noteRequiredAttributes: Array<RequiredAttributeDto>  | undefined) {
-        this['note_required_attributes'] = noteRequiredAttributes;
+    public set secondaryCategories(secondaryCategories: Array<CategoryDto>  | undefined) {
+        this['secondary_categories'] = secondaryCategories;
     }
-    public get noteRequiredAttributes(): Array<RequiredAttributeDto> | undefined {
-        return this['note_required_attributes'];
-    }
-    public withCodehubDefaultCategories(codehubDefaultCategories: Array<CategoryDto>): UpdateProjectReviewSettingsResponse {
-        this['codehub_default_categories'] = codehubDefaultCategories;
-        return this;
-    }
-    public set codehubDefaultCategories(codehubDefaultCategories: Array<CategoryDto>  | undefined) {
-        this['codehub_default_categories'] = codehubDefaultCategories;
-    }
-    public get codehubDefaultCategories(): Array<CategoryDto> | undefined {
-        return this['codehub_default_categories'];
-    }
-    public withHicodeDefaultCategories(hicodeDefaultCategories: Array<CategoryDto>): UpdateProjectReviewSettingsResponse {
-        this['hicode_default_categories'] = hicodeDefaultCategories;
-        return this;
-    }
-    public set hicodeDefaultCategories(hicodeDefaultCategories: Array<CategoryDto>  | undefined) {
-        this['hicode_default_categories'] = hicodeDefaultCategories;
-    }
-    public get hicodeDefaultCategories(): Array<CategoryDto> | undefined {
-        return this['hicode_default_categories'];
+    public get secondaryCategories(): Array<CategoryDto> | undefined {
+        return this['secondary_categories'];
     }
 }

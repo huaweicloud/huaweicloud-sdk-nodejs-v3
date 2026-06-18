@@ -9,6 +9,7 @@ export class UserBasicExternalDto {
     private 'web_url'?: string;
     private 'nick_name'?: string;
     private 'tenant_name'?: string;
+    private 'has_permission'?: boolean;
     public constructor() { 
     }
     public withId(id: number): UserBasicExternalDto {
@@ -66,5 +67,15 @@ export class UserBasicExternalDto {
     }
     public get tenantName(): string | undefined {
         return this['tenant_name'];
+    }
+    public withHasPermission(hasPermission: boolean): UserBasicExternalDto {
+        this['has_permission'] = hasPermission;
+        return this;
+    }
+    public set hasPermission(hasPermission: boolean  | undefined) {
+        this['has_permission'] = hasPermission;
+    }
+    public get hasPermission(): boolean | undefined {
+        return this['has_permission'];
     }
 }

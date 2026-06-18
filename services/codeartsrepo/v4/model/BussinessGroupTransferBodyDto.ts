@@ -2,7 +2,8 @@
 
 export class BussinessGroupTransferBodyDto {
     private 'owner_id'?: number;
-    public constructor() { 
+    public constructor(ownerId?: number) { 
+        this['owner_id'] = ownerId;
     }
     public withOwnerId(ownerId: number): BussinessGroupTransferBodyDto {
         this['owner_id'] = ownerId;

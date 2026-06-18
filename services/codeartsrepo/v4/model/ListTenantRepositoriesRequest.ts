@@ -9,6 +9,7 @@ export class ListTenantRepositoriesRequest {
     private 'created_before'?: Date;
     public sort?: ListTenantRepositoriesRequestSortEnum | string;
     private 'sort_field'?: ListTenantRepositoriesRequestSortFieldEnum | string;
+    public locked?: boolean;
     public offset?: number;
     public limit?: number;
     public constructor() { 
@@ -74,6 +75,10 @@ export class ListTenantRepositoriesRequest {
     }
     public get sortField(): ListTenantRepositoriesRequestSortFieldEnum | string | undefined {
         return this['sort_field'];
+    }
+    public withLocked(locked: boolean): ListTenantRepositoriesRequest {
+        this['locked'] = locked;
+        return this;
     }
     public withOffset(offset: number): ListTenantRepositoriesRequest {
         this['offset'] = offset;

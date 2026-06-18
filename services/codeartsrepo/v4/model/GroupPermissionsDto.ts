@@ -4,7 +4,8 @@ export class GroupPermissionsDto {
     private 'project_id'?: string;
     private 'group_name'?: string;
     private 'group_id'?: string;
-    public constructor() { 
+    public constructor(groupId?: string) { 
+        this['group_id'] = groupId;
     }
     public withProjectId(projectId: string): GroupPermissionsDto {
         this['project_id'] = projectId;

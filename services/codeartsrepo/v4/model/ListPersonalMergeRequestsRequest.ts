@@ -216,7 +216,8 @@ export enum ListPersonalMergeRequestsRequestSortEnum {
     */
 export enum ListPersonalMergeRequestsRequestViewEnum {
     SIMPLE = 'simple',
-    BASIC = 'basic'
+    BASIC = 'basic',
+    VIEW_FOR_LIST = 'view_for_list'
 }
 /**
     * @export
@@ -234,6 +235,6 @@ export enum ListPersonalMergeRequestsRequestScopeEnum {
     * @enum {string}
     */
 export enum ListPersonalMergeRequestsRequestWipEnum {
-    TRUE = 'true',
-    FALSE = 'false'
+    YES = 'yes',
+    NO = 'no'
 }

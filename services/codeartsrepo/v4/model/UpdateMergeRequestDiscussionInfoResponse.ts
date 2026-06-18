@@ -1,28 +1,23 @@
-import { PositionDto } from './PositionDto';
+import { MergeRequestBasicDiscussionDto } from './MergeRequestBasicDiscussionDto';
+import { MergeRequestVersionParamsDto } from './MergeRequestVersionParamsDto';
+import { NoteDto } from './NoteDto';
 import { UserBasicDto } from './UserBasicDto';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateMergeRequestDiscussionInfoResponse extends SdkResponse {
-    public id?: number;
-    public type?: string;
-    public body?: string;
-    public attachment?: string;
-    public author?: UserBasicDto;
-    private 'created_at'?: string;
-    private 'updated_at'?: string;
-    public system?: boolean;
-    private 'noteable_id'?: number;
+    public id?: string;
+    private 'individual_note'?: boolean;
+    public notes?: Array<NoteDto>;
+    private 'repository_id'?: number;
     private 'noteable_type'?: UpdateMergeRequestDiscussionInfoResponseNoteableTypeEnum | string;
     private 'commit_id'?: string;
-    public resolvable?: boolean;
-    private 'is_reply'?: boolean;
-    private 'resolved_by'?: UserBasicDto;
-    private 'noteable_iid'?: number;
-    private 'discussion_id'?: string;
-    public repository?: string;
-    private 'diff_file'?: string;
-    public diff?: string;
+    private 'repository_full_path'?: string;
+    private 'a_mode'?: string;
+    private 'b_mode'?: string;
+    private 'deleted_file'?: boolean;
+    private 'new_file'?: boolean;
+    public resolved?: boolean;
     public archived?: boolean;
     private 'review_categories'?: string;
     private 'review_categories_cn'?: string;
@@ -31,72 +26,42 @@ export class UpdateMergeRequestDiscussionInfoResponse extends SdkResponse {
     public severity?: UpdateMergeRequestDiscussionInfoResponseSeverityEnum | string;
     private 'severity_cn'?: string;
     private 'severity_en'?: UpdateMergeRequestDiscussionInfoResponseSeverityEnEnum | string;
-    private 'file_path'?: string;
-    public line?: string;
     public assignee?: UserBasicDto;
     public proposer?: UserBasicDto;
-    public position?: PositionDto;
-    public resolved?: boolean;
-    private 'is_outdated'?: boolean;
-    private 'moderation_result'?: boolean;
-    private 'moderation_time'?: number;
-    private 'moderation_status'?: number;
+    private 'merge_request_version_params'?: MergeRequestVersionParamsDto;
+    private 'diff_file'?: string;
+    private 'added_lines'?: number;
+    private 'removed_lines'?: number;
     public constructor() { 
         super();
     }
-    public withId(id: number): UpdateMergeRequestDiscussionInfoResponse {
+    public withId(id: string): UpdateMergeRequestDiscussionInfoResponse {
         this['id'] = id;
         return this;
     }
-    public withType(type: string): UpdateMergeRequestDiscussionInfoResponse {
-        this['type'] = type;
+    public withIndividualNote(individualNote: boolean): UpdateMergeRequestDiscussionInfoResponse {
+        this['individual_note'] = individualNote;
         return this;
     }
-    public withBody(body: string): UpdateMergeRequestDiscussionInfoResponse {
-        this['body'] = body;
+    public set individualNote(individualNote: boolean  | undefined) {
+        this['individual_note'] = individualNote;
+    }
+    public get individualNote(): boolean | undefined {
+        return this['individual_note'];
+    }
+    public withNotes(notes: Array<NoteDto>): UpdateMergeRequestDiscussionInfoResponse {
+        this['notes'] = notes;
         return this;
     }
-    public withAttachment(attachment: string): UpdateMergeRequestDiscussionInfoResponse {
-        this['attachment'] = attachment;
+    public withRepositoryId(repositoryId: number): UpdateMergeRequestDiscussionInfoResponse {
+        this['repository_id'] = repositoryId;
         return this;
     }
-    public withAuthor(author: UserBasicDto): UpdateMergeRequestDiscussionInfoResponse {
-        this['author'] = author;
-        return this;
+    public set repositoryId(repositoryId: number  | undefined) {
+        this['repository_id'] = repositoryId;
     }
-    public withCreatedAt(createdAt: string): UpdateMergeRequestDiscussionInfoResponse {
-        this['created_at'] = createdAt;
-        return this;
-    }
-    public set createdAt(createdAt: string  | undefined) {
-        this['created_at'] = createdAt;
-    }
-    public get createdAt(): string | undefined {
-        return this['created_at'];
-    }
-    public withUpdatedAt(updatedAt: string): UpdateMergeRequestDiscussionInfoResponse {
-        this['updated_at'] = updatedAt;
-        return this;
-    }
-    public set updatedAt(updatedAt: string  | undefined) {
-        this['updated_at'] = updatedAt;
-    }
-    public get updatedAt(): string | undefined {
-        return this['updated_at'];
-    }
-    public withSystem(system: boolean): UpdateMergeRequestDiscussionInfoResponse {
-        this['system'] = system;
-        return this;
-    }
-    public withNoteableId(noteableId: number): UpdateMergeRequestDiscussionInfoResponse {
-        this['noteable_id'] = noteableId;
-        return this;
-    }
-    public set noteableId(noteableId: number  | undefined) {
-        this['noteable_id'] = noteableId;
-    }
-    public get noteableId(): number | undefined {
-        return this['noteable_id'];
+    public get repositoryId(): number | undefined {
+        return this['repository_id'];
     }
     public withNoteableType(noteableType: UpdateMergeRequestDiscussionInfoResponseNoteableTypeEnum | string): UpdateMergeRequestDiscussionInfoResponse {
         this['noteable_type'] = noteableType;
@@ -118,66 +83,58 @@ export class UpdateMergeRequestDiscussionInfoResponse extends SdkResponse {
     public get commitId(): string | undefined {
         return this['commit_id'];
     }
-    public withResolvable(resolvable: boolean): UpdateMergeRequestDiscussionInfoResponse {
-        this['resolvable'] = resolvable;
+    public withRepositoryFullPath(repositoryFullPath: string): UpdateMergeRequestDiscussionInfoResponse {
+        this['repository_full_path'] = repositoryFullPath;
         return this;
     }
-    public withIsReply(isReply: boolean): UpdateMergeRequestDiscussionInfoResponse {
-        this['is_reply'] = isReply;
+    public set repositoryFullPath(repositoryFullPath: string  | undefined) {
+        this['repository_full_path'] = repositoryFullPath;
+    }
+    public get repositoryFullPath(): string | undefined {
+        return this['repository_full_path'];
+    }
+    public withAMode(aMode: string): UpdateMergeRequestDiscussionInfoResponse {
+        this['a_mode'] = aMode;
         return this;
     }
-    public set isReply(isReply: boolean  | undefined) {
-        this['is_reply'] = isReply;
+    public set aMode(aMode: string  | undefined) {
+        this['a_mode'] = aMode;
     }
-    public get isReply(): boolean | undefined {
-        return this['is_reply'];
+    public get aMode(): string | undefined {
+        return this['a_mode'];
     }
-    public withResolvedBy(resolvedBy: UserBasicDto): UpdateMergeRequestDiscussionInfoResponse {
-        this['resolved_by'] = resolvedBy;
+    public withBMode(bMode: string): UpdateMergeRequestDiscussionInfoResponse {
+        this['b_mode'] = bMode;
         return this;
     }
-    public set resolvedBy(resolvedBy: UserBasicDto  | undefined) {
-        this['resolved_by'] = resolvedBy;
+    public set bMode(bMode: string  | undefined) {
+        this['b_mode'] = bMode;
     }
-    public get resolvedBy(): UserBasicDto | undefined {
-        return this['resolved_by'];
+    public get bMode(): string | undefined {
+        return this['b_mode'];
     }
-    public withNoteableIid(noteableIid: number): UpdateMergeRequestDiscussionInfoResponse {
-        this['noteable_iid'] = noteableIid;
+    public withDeletedFile(deletedFile: boolean): UpdateMergeRequestDiscussionInfoResponse {
+        this['deleted_file'] = deletedFile;
         return this;
     }
-    public set noteableIid(noteableIid: number  | undefined) {
-        this['noteable_iid'] = noteableIid;
+    public set deletedFile(deletedFile: boolean  | undefined) {
+        this['deleted_file'] = deletedFile;
     }
-    public get noteableIid(): number | undefined {
-        return this['noteable_iid'];
+    public get deletedFile(): boolean | undefined {
+        return this['deleted_file'];
     }
-    public withDiscussionId(discussionId: string): UpdateMergeRequestDiscussionInfoResponse {
-        this['discussion_id'] = discussionId;
+    public withNewFile(newFile: boolean): UpdateMergeRequestDiscussionInfoResponse {
+        this['new_file'] = newFile;
         return this;
     }
-    public set discussionId(discussionId: string  | undefined) {
-        this['discussion_id'] = discussionId;
+    public set newFile(newFile: boolean  | undefined) {
+        this['new_file'] = newFile;
     }
-    public get discussionId(): string | undefined {
-        return this['discussion_id'];
+    public get newFile(): boolean | undefined {
+        return this['new_file'];
     }
-    public withRepository(repository: string): UpdateMergeRequestDiscussionInfoResponse {
-        this['repository'] = repository;
-        return this;
-    }
-    public withDiffFile(diffFile: string): UpdateMergeRequestDiscussionInfoResponse {
-        this['diff_file'] = diffFile;
-        return this;
-    }
-    public set diffFile(diffFile: string  | undefined) {
-        this['diff_file'] = diffFile;
-    }
-    public get diffFile(): string | undefined {
-        return this['diff_file'];
-    }
-    public withDiff(diff: string): UpdateMergeRequestDiscussionInfoResponse {
-        this['diff'] = diff;
+    public withResolved(resolved: boolean): UpdateMergeRequestDiscussionInfoResponse {
+        this['resolved'] = resolved;
         return this;
     }
     public withArchived(archived: boolean): UpdateMergeRequestDiscussionInfoResponse {
@@ -248,20 +205,6 @@ export class UpdateMergeRequestDiscussionInfoResponse extends SdkResponse {
     public get severityEn(): UpdateMergeRequestDiscussionInfoResponseSeverityEnEnum | string | undefined {
         return this['severity_en'];
     }
-    public withFilePath(filePath: string): UpdateMergeRequestDiscussionInfoResponse {
-        this['file_path'] = filePath;
-        return this;
-    }
-    public set filePath(filePath: string  | undefined) {
-        this['file_path'] = filePath;
-    }
-    public get filePath(): string | undefined {
-        return this['file_path'];
-    }
-    public withLine(line: string): UpdateMergeRequestDiscussionInfoResponse {
-        this['line'] = line;
-        return this;
-    }
     public withAssignee(assignee: UserBasicDto): UpdateMergeRequestDiscussionInfoResponse {
         this['assignee'] = assignee;
         return this;
@@ -270,53 +213,45 @@ export class UpdateMergeRequestDiscussionInfoResponse extends SdkResponse {
         this['proposer'] = proposer;
         return this;
     }
-    public withPosition(position: PositionDto): UpdateMergeRequestDiscussionInfoResponse {
-        this['position'] = position;
+    public withMergeRequestVersionParams(mergeRequestVersionParams: MergeRequestVersionParamsDto): UpdateMergeRequestDiscussionInfoResponse {
+        this['merge_request_version_params'] = mergeRequestVersionParams;
         return this;
     }
-    public withResolved(resolved: boolean): UpdateMergeRequestDiscussionInfoResponse {
-        this['resolved'] = resolved;
+    public set mergeRequestVersionParams(mergeRequestVersionParams: MergeRequestVersionParamsDto  | undefined) {
+        this['merge_request_version_params'] = mergeRequestVersionParams;
+    }
+    public get mergeRequestVersionParams(): MergeRequestVersionParamsDto | undefined {
+        return this['merge_request_version_params'];
+    }
+    public withDiffFile(diffFile: string): UpdateMergeRequestDiscussionInfoResponse {
+        this['diff_file'] = diffFile;
         return this;
     }
-    public withIsOutdated(isOutdated: boolean): UpdateMergeRequestDiscussionInfoResponse {
-        this['is_outdated'] = isOutdated;
+    public set diffFile(diffFile: string  | undefined) {
+        this['diff_file'] = diffFile;
+    }
+    public get diffFile(): string | undefined {
+        return this['diff_file'];
+    }
+    public withAddedLines(addedLines: number): UpdateMergeRequestDiscussionInfoResponse {
+        this['added_lines'] = addedLines;
         return this;
     }
-    public set isOutdated(isOutdated: boolean  | undefined) {
-        this['is_outdated'] = isOutdated;
+    public set addedLines(addedLines: number  | undefined) {
+        this['added_lines'] = addedLines;
     }
-    public get isOutdated(): boolean | undefined {
-        return this['is_outdated'];
+    public get addedLines(): number | undefined {
+        return this['added_lines'];
     }
-    public withModerationResult(moderationResult: boolean): UpdateMergeRequestDiscussionInfoResponse {
-        this['moderation_result'] = moderationResult;
+    public withRemovedLines(removedLines: number): UpdateMergeRequestDiscussionInfoResponse {
+        this['removed_lines'] = removedLines;
         return this;
     }
-    public set moderationResult(moderationResult: boolean  | undefined) {
-        this['moderation_result'] = moderationResult;
+    public set removedLines(removedLines: number  | undefined) {
+        this['removed_lines'] = removedLines;
     }
-    public get moderationResult(): boolean | undefined {
-        return this['moderation_result'];
-    }
-    public withModerationTime(moderationTime: number): UpdateMergeRequestDiscussionInfoResponse {
-        this['moderation_time'] = moderationTime;
-        return this;
-    }
-    public set moderationTime(moderationTime: number  | undefined) {
-        this['moderation_time'] = moderationTime;
-    }
-    public get moderationTime(): number | undefined {
-        return this['moderation_time'];
-    }
-    public withModerationStatus(moderationStatus: number): UpdateMergeRequestDiscussionInfoResponse {
-        this['moderation_status'] = moderationStatus;
-        return this;
-    }
-    public set moderationStatus(moderationStatus: number  | undefined) {
-        this['moderation_status'] = moderationStatus;
-    }
-    public get moderationStatus(): number | undefined {
-        return this['moderation_status'];
+    public get removedLines(): number | undefined {
+        return this['removed_lines'];
     }
 }
 

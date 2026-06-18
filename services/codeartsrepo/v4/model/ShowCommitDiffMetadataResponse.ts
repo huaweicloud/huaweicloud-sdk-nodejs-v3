@@ -11,6 +11,7 @@ export class ShowCommitDiffMetadataResponse extends SdkResponse {
     private 'change_file_count'?: number;
     private 'change_line_count'?: number;
     private 'too_large'?: boolean;
+    private 'blob_id'?: string;
     public constructor() { 
         super();
     }
@@ -77,5 +78,15 @@ export class ShowCommitDiffMetadataResponse extends SdkResponse {
     }
     public get tooLarge(): boolean | undefined {
         return this['too_large'];
+    }
+    public withBlobId(blobId: string): ShowCommitDiffMetadataResponse {
+        this['blob_id'] = blobId;
+        return this;
+    }
+    public set blobId(blobId: string  | undefined) {
+        this['blob_id'] = blobId;
+    }
+    public get blobId(): string | undefined {
+        return this['blob_id'];
     }
 }

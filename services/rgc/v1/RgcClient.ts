@@ -1131,6 +1131,7 @@ export class RgcClient {
      * @summary 查询模板的部署参数
      * @param {string} templateName 模板名称。
      * @param {string} version 模板版本。
+     * @param {string} [accountId] 纳管账号ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2951,14 +2952,18 @@ export const ParamCreater = function () {
             let templateName;
             
             let version;
+            
+            let accountId;
 
             if (showTemplateDeployParamsRequest !== null && showTemplateDeployParamsRequest !== undefined) {
                 if (showTemplateDeployParamsRequest instanceof ShowTemplateDeployParamsRequest) {
                     templateName = showTemplateDeployParamsRequest.templateName;
                     version = showTemplateDeployParamsRequest.version;
+                    accountId = showTemplateDeployParamsRequest.accountId;
                 } else {
                     templateName = showTemplateDeployParamsRequest['template_name'];
                     version = showTemplateDeployParamsRequest['version'];
+                    accountId = showTemplateDeployParamsRequest['account_id'];
                 }
             }
 
@@ -2971,6 +2976,9 @@ export const ParamCreater = function () {
             }
             if (version !== null && version !== undefined) {
                 localVarQueryParameter['version'] = version;
+            }
+            if (accountId !== null && accountId !== undefined) {
+                localVarQueryParameter['account_id'] = accountId;
             }
 
             options.queryParams = localVarQueryParameter;

@@ -1,4 +1,4 @@
-import { UserBasicDto } from './UserBasicDto';
+import { UserSafeDto } from './UserSafeDto';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -16,7 +16,7 @@ export class ListGroupMergeRequestCanBeAssignedReviewersResponse extends SdkResp
     private 'nick_name'?: string;
     private 'tenant_name'?: string;
     private 'error_message'?: string;
-    private 'is_committer'?: boolean;
+    private 'X-Total'?: string;
     public constructor() { 
         super();
     }
@@ -120,15 +120,15 @@ export class ListGroupMergeRequestCanBeAssignedReviewersResponse extends SdkResp
     public get errorMessage(): string | undefined {
         return this['error_message'];
     }
-    public withIsCommitter(isCommitter: boolean): ListGroupMergeRequestCanBeAssignedReviewersResponse {
-        this['is_committer'] = isCommitter;
+    public withXTotal(xTotal: string): ListGroupMergeRequestCanBeAssignedReviewersResponse {
+        this['X-Total'] = xTotal;
         return this;
     }
-    public set isCommitter(isCommitter: boolean  | undefined) {
-        this['is_committer'] = isCommitter;
+    public set xTotal(xTotal: string  | undefined) {
+        this['X-Total'] = xTotal;
     }
-    public get isCommitter(): boolean | undefined {
-        return this['is_committer'];
+    public get xTotal(): string | undefined {
+        return this['X-Total'];
     }
 }
 

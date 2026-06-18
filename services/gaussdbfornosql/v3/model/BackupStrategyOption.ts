@@ -2,7 +2,7 @@
 
 export class BackupStrategyOption {
     private 'start_time'?: string;
-    private 'keep_days'?: string;
+    private 'keep_days'?: number;
     public constructor(startTime?: string) { 
         this['start_time'] = startTime;
     }
@@ -16,14 +16,14 @@ export class BackupStrategyOption {
     public get startTime(): string | undefined {
         return this['start_time'];
     }
-    public withKeepDays(keepDays: string): BackupStrategyOption {
+    public withKeepDays(keepDays: number): BackupStrategyOption {
         this['keep_days'] = keepDays;
         return this;
     }
-    public set keepDays(keepDays: string  | undefined) {
+    public set keepDays(keepDays: number  | undefined) {
         this['keep_days'] = keepDays;
     }
-    public get keepDays(): string | undefined {
+    public get keepDays(): number | undefined {
         return this['keep_days'];
     }
 }

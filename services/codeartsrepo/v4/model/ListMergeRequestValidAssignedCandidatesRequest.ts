@@ -8,12 +8,12 @@ export class ListMergeRequestValidAssignedCandidatesRequest {
     public limit?: number;
     public search?: string;
     private 'search_by_name_list'?: string;
-    private 'target_project_id'?: string;
+    private 'target_repository_id'?: string;
     public view?: ListMergeRequestValidAssignedCandidatesRequestViewEnum | string;
-    public mode?: ListMergeRequestValidAssignedCandidatesRequestModeEnum | string;
     private 'only_developers'?: boolean;
-    public constructor(repositoryId?: number) { 
+    public constructor(repositoryId?: number, targetBranch?: string) { 
         this['repository_id'] = repositoryId;
+        this['target_branch'] = targetBranch;
     }
     public withRepositoryId(repositoryId: number): ListMergeRequestValidAssignedCandidatesRequest {
         this['repository_id'] = repositoryId;
@@ -67,22 +67,18 @@ export class ListMergeRequestValidAssignedCandidatesRequest {
     public get searchByNameList(): string | undefined {
         return this['search_by_name_list'];
     }
-    public withTargetProjectId(targetProjectId: string): ListMergeRequestValidAssignedCandidatesRequest {
-        this['target_project_id'] = targetProjectId;
+    public withTargetRepositoryId(targetRepositoryId: string): ListMergeRequestValidAssignedCandidatesRequest {
+        this['target_repository_id'] = targetRepositoryId;
         return this;
     }
-    public set targetProjectId(targetProjectId: string  | undefined) {
-        this['target_project_id'] = targetProjectId;
+    public set targetRepositoryId(targetRepositoryId: string  | undefined) {
+        this['target_repository_id'] = targetRepositoryId;
     }
-    public get targetProjectId(): string | undefined {
-        return this['target_project_id'];
+    public get targetRepositoryId(): string | undefined {
+        return this['target_repository_id'];
     }
     public withView(view: ListMergeRequestValidAssignedCandidatesRequestViewEnum | string): ListMergeRequestValidAssignedCandidatesRequest {
         this['view'] = view;
-        return this;
-    }
-    public withMode(mode: ListMergeRequestValidAssignedCandidatesRequestModeEnum | string): ListMergeRequestValidAssignedCandidatesRequest {
-        this['mode'] = mode;
         return this;
     }
     public withOnlyDevelopers(onlyDevelopers: boolean): ListMergeRequestValidAssignedCandidatesRequest {
@@ -102,14 +98,6 @@ export class ListMergeRequestValidAssignedCandidatesRequest {
     * @enum {string}
     */
 export enum ListMergeRequestValidAssignedCandidatesRequestViewEnum {
-    APPROVER = 'approver',
-    ASSIGNEE = 'assignee'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListMergeRequestValidAssignedCandidatesRequestModeEnum {
     APPROVER = 'approver',
     ASSIGNEE = 'assignee'
 }

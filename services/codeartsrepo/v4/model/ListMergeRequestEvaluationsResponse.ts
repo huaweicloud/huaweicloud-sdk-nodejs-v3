@@ -13,6 +13,7 @@ export class ListMergeRequestEvaluationsResponse extends SdkResponse {
     public content?: string;
     public user?: UserBasicDto;
     private 'custom_evaluations'?: Array<CustomEvaluationDto>;
+    private 'X-Total'?: string;
     public constructor() { 
         super();
     }
@@ -71,5 +72,15 @@ export class ListMergeRequestEvaluationsResponse extends SdkResponse {
     }
     public get customEvaluations(): Array<CustomEvaluationDto> | undefined {
         return this['custom_evaluations'];
+    }
+    public withXTotal(xTotal: string): ListMergeRequestEvaluationsResponse {
+        this['X-Total'] = xTotal;
+        return this;
+    }
+    public set xTotal(xTotal: string  | undefined) {
+        this['X-Total'] = xTotal;
+    }
+    public get xTotal(): string | undefined {
+        return this['X-Total'];
     }
 }

@@ -9,6 +9,9 @@ import { AccessKeyStatus } from './model/AccessKeyStatus';
 import { Action } from './model/Action';
 import { ActionAssociatedResource } from './model/ActionAssociatedResource';
 import { ActionName } from './model/ActionName';
+import { AddClientIDToOIDCProviderReqBody } from './model/AddClientIDToOIDCProviderReqBody';
+import { AddClientIDToOIDCProviderV5Request } from './model/AddClientIDToOIDCProviderV5Request';
+import { AddClientIDToOIDCProviderV5Response } from './model/AddClientIDToOIDCProviderV5Response';
 import { AddUserToGroupReqBody } from './model/AddUserToGroupReqBody';
 import { AddUserToGroupV5Request } from './model/AddUserToGroupV5Request';
 import { AddUserToGroupV5Response } from './model/AddUserToGroupV5Response';
@@ -48,12 +51,18 @@ import { CreateGroupV5Response } from './model/CreateGroupV5Response';
 import { CreateLoginProfileReqBody } from './model/CreateLoginProfileReqBody';
 import { CreateLoginProfileV5Request } from './model/CreateLoginProfileV5Request';
 import { CreateLoginProfileV5Response } from './model/CreateLoginProfileV5Response';
+import { CreateOIDCProviderReqBody } from './model/CreateOIDCProviderReqBody';
+import { CreateOIDCProviderV5Request } from './model/CreateOIDCProviderV5Request';
+import { CreateOIDCProviderV5Response } from './model/CreateOIDCProviderV5Response';
 import { CreatePolicyReqBody } from './model/CreatePolicyReqBody';
 import { CreatePolicyV5Request } from './model/CreatePolicyV5Request';
 import { CreatePolicyV5Response } from './model/CreatePolicyV5Response';
 import { CreatePolicyVersionReqBody } from './model/CreatePolicyVersionReqBody';
 import { CreatePolicyVersionV5Request } from './model/CreatePolicyVersionV5Request';
 import { CreatePolicyVersionV5Response } from './model/CreatePolicyVersionV5Response';
+import { CreateSAMLProviderReqBody } from './model/CreateSAMLProviderReqBody';
+import { CreateSAMLProviderV5Request } from './model/CreateSAMLProviderV5Request';
+import { CreateSAMLProviderV5Response } from './model/CreateSAMLProviderV5Response';
 import { CreateServiceLinkedAgencyReqBody } from './model/CreateServiceLinkedAgencyReqBody';
 import { CreateServiceLinkedAgencyV5Request } from './model/CreateServiceLinkedAgencyV5Request';
 import { CreateServiceLinkedAgencyV5Response } from './model/CreateServiceLinkedAgencyV5Response';
@@ -72,12 +81,16 @@ import { DeleteGroupV5Request } from './model/DeleteGroupV5Request';
 import { DeleteGroupV5Response } from './model/DeleteGroupV5Response';
 import { DeleteLoginProfileV5Request } from './model/DeleteLoginProfileV5Request';
 import { DeleteLoginProfileV5Response } from './model/DeleteLoginProfileV5Response';
+import { DeleteOIDCProviderV5Request } from './model/DeleteOIDCProviderV5Request';
+import { DeleteOIDCProviderV5Response } from './model/DeleteOIDCProviderV5Response';
 import { DeletePolicyV5Request } from './model/DeletePolicyV5Request';
 import { DeletePolicyV5Response } from './model/DeletePolicyV5Response';
 import { DeletePolicyVersionV5Request } from './model/DeletePolicyVersionV5Request';
 import { DeletePolicyVersionV5Response } from './model/DeletePolicyVersionV5Response';
 import { DeleteResourceTagsV5Request } from './model/DeleteResourceTagsV5Request';
 import { DeleteResourceTagsV5Response } from './model/DeleteResourceTagsV5Response';
+import { DeleteSAMLProviderV5Request } from './model/DeleteSAMLProviderV5Request';
+import { DeleteSAMLProviderV5Response } from './model/DeleteSAMLProviderV5Response';
 import { DeleteServiceLinkedAgencyV5Request } from './model/DeleteServiceLinkedAgencyV5Request';
 import { DeleteServiceLinkedAgencyV5Response } from './model/DeleteServiceLinkedAgencyV5Response';
 import { DeleteUserV5Request } from './model/DeleteUserV5Request';
@@ -124,6 +137,15 @@ import { GroupDescription } from './model/GroupDescription';
 import { GroupId } from './model/GroupId';
 import { GroupName } from './model/GroupName';
 import { GroupSummary } from './model/GroupSummary';
+import { InlineResponse2001SamlProvider } from './model/InlineResponse2001SamlProvider';
+import { InlineResponse2001SamlProviderTags } from './model/InlineResponse2001SamlProviderTags';
+import { InlineResponse2002OidcProviders } from './model/InlineResponse2002OidcProviders';
+import { InlineResponse2003OidcProvider } from './model/InlineResponse2003OidcProvider';
+import { InlineResponse200PageInfo } from './model/InlineResponse200PageInfo';
+import { InlineResponse200PrivateKeys } from './model/InlineResponse200PrivateKeys';
+import { InlineResponse200SamlProviders } from './model/InlineResponse200SamlProviders';
+import { InlineResponse2011OidcProvider } from './model/InlineResponse2011OidcProvider';
+import { InlineResponse201SamlProvider } from './model/InlineResponse201SamlProvider';
 import { Key } from './model/Key';
 import { ListAccessKeysV5Request } from './model/ListAccessKeysV5Request';
 import { ListAccessKeysV5Response } from './model/ListAccessKeysV5Response';
@@ -141,6 +163,8 @@ import { ListGroupsV5Request } from './model/ListGroupsV5Request';
 import { ListGroupsV5Response } from './model/ListGroupsV5Response';
 import { ListMfaDevicesV5Request } from './model/ListMfaDevicesV5Request';
 import { ListMfaDevicesV5Response } from './model/ListMfaDevicesV5Response';
+import { ListOIDCProvidersV5Request } from './model/ListOIDCProvidersV5Request';
+import { ListOIDCProvidersV5Response } from './model/ListOIDCProvidersV5Response';
 import { ListPoliciesV5Request } from './model/ListPoliciesV5Request';
 import { ListPoliciesV5Response } from './model/ListPoliciesV5Response';
 import { ListPolicyVersionsV5Request } from './model/ListPolicyVersionsV5Request';
@@ -149,6 +173,8 @@ import { ListRegisteredServicesForAuthSchemaV5Request } from './model/ListRegist
 import { ListRegisteredServicesForAuthSchemaV5Response } from './model/ListRegisteredServicesForAuthSchemaV5Response';
 import { ListResourceTagsV5Request } from './model/ListResourceTagsV5Request';
 import { ListResourceTagsV5Response } from './model/ListResourceTagsV5Response';
+import { ListSAMLProvidersV5Request } from './model/ListSAMLProvidersV5Request';
+import { ListSAMLProvidersV5Response } from './model/ListSAMLProvidersV5Response';
 import { ListServicePrincipalsV5Request } from './model/ListServicePrincipalsV5Request';
 import { ListServicePrincipalsV5Response } from './model/ListServicePrincipalsV5Response';
 import { ListUsersV5Request } from './model/ListUsersV5Request';
@@ -175,8 +201,12 @@ import { PolicyType } from './model/PolicyType';
 import { PolicyUser } from './model/PolicyUser';
 import { PolicyVersion } from './model/PolicyVersion';
 import { PolicyVersionId } from './model/PolicyVersionId';
+import { ProviderDescription } from './model/ProviderDescription';
 import { Reason } from './model/Reason';
 import { RegionName } from './model/RegionName';
+import { RemoveClientIDFromOIDCProviderReqBody } from './model/RemoveClientIDFromOIDCProviderReqBody';
+import { RemoveClientIDFromOIDCProviderV5Request } from './model/RemoveClientIDFromOIDCProviderV5Request';
+import { RemoveClientIDFromOIDCProviderV5Response } from './model/RemoveClientIDFromOIDCProviderV5Response';
 import { RemoveUserFromGroupReqBody } from './model/RemoveUserFromGroupReqBody';
 import { RemoveUserFromGroupV5Request } from './model/RemoveUserFromGroupV5Request';
 import { RemoveUserFromGroupV5Response } from './model/RemoveUserFromGroupV5Response';
@@ -199,8 +229,12 @@ import { ShowLoginPolicyV5Request } from './model/ShowLoginPolicyV5Request';
 import { ShowLoginPolicyV5Response } from './model/ShowLoginPolicyV5Response';
 import { ShowLoginProfileV5Request } from './model/ShowLoginProfileV5Request';
 import { ShowLoginProfileV5Response } from './model/ShowLoginProfileV5Response';
+import { ShowOIDCProviderV5Request } from './model/ShowOIDCProviderV5Request';
+import { ShowOIDCProviderV5Response } from './model/ShowOIDCProviderV5Response';
 import { ShowPasswordPolicyV5Request } from './model/ShowPasswordPolicyV5Request';
 import { ShowPasswordPolicyV5Response } from './model/ShowPasswordPolicyV5Response';
+import { ShowSAMLProviderV5Request } from './model/ShowSAMLProviderV5Request';
+import { ShowSAMLProviderV5Response } from './model/ShowSAMLProviderV5Response';
 import { ShowUserLastLoginV5Request } from './model/ShowUserLastLoginV5Request';
 import { ShowUserLastLoginV5Response } from './model/ShowUserLastLoginV5Response';
 import { ShowUserV5Request } from './model/ShowUserV5Request';
@@ -230,9 +264,18 @@ import { UpdateLoginPolicyV5Response } from './model/UpdateLoginPolicyV5Response
 import { UpdateLoginProfileReqBody } from './model/UpdateLoginProfileReqBody';
 import { UpdateLoginProfileV5Request } from './model/UpdateLoginProfileV5Request';
 import { UpdateLoginProfileV5Response } from './model/UpdateLoginProfileV5Response';
+import { UpdateOIDCProviderReqBody } from './model/UpdateOIDCProviderReqBody';
+import { UpdateOIDCProviderThumbprintReqBody } from './model/UpdateOIDCProviderThumbprintReqBody';
+import { UpdateOIDCProviderThumbprintV5Request } from './model/UpdateOIDCProviderThumbprintV5Request';
+import { UpdateOIDCProviderThumbprintV5Response } from './model/UpdateOIDCProviderThumbprintV5Response';
+import { UpdateOIDCProviderV5Request } from './model/UpdateOIDCProviderV5Request';
+import { UpdateOIDCProviderV5Response } from './model/UpdateOIDCProviderV5Response';
 import { UpdatePasswordPolicyReqBody } from './model/UpdatePasswordPolicyReqBody';
 import { UpdatePasswordPolicyV5Request } from './model/UpdatePasswordPolicyV5Request';
 import { UpdatePasswordPolicyV5Response } from './model/UpdatePasswordPolicyV5Response';
+import { UpdateSAMLProviderReqBody } from './model/UpdateSAMLProviderReqBody';
+import { UpdateSAMLProviderV5Request } from './model/UpdateSAMLProviderV5Request';
+import { UpdateSAMLProviderV5Response } from './model/UpdateSAMLProviderV5Response';
 import { UpdateTrustPolicyReqBody } from './model/UpdateTrustPolicyReqBody';
 import { UpdateTrustPolicyV5Request } from './model/UpdateTrustPolicyV5Request';
 import { UpdateTrustPolicyV5Response } from './model/UpdateTrustPolicyV5Response';
@@ -838,6 +881,177 @@ export class IamClient {
     }
 
     /**
+     * 该接口可以用于向指定 IAM OIDC 提供商已注册的客户端 ID 列表中添加一个新的客户端 ID。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 向指定OIDC提供商添加客户端 ID
+     * @param {string} providerId 提供商ID，长度为1到64个字符，只包含字母、数字和\&quot;-\&quot;的字符串。
+     * @param {AddClientIDToOIDCProviderReqBody} addClientIDToOIDCProviderReqBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addClientIDToOIDCProviderV5(addClientIDToOIDCProviderV5Request?: AddClientIDToOIDCProviderV5Request): Promise<AddClientIDToOIDCProviderV5Response> {
+        const options = ParamCreater().addClientIDToOIDCProviderV5(addClientIDToOIDCProviderV5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于创建一个支持 OpenID Connect (OIDC) 的身份提供商 (IdP)。
+     * 您通过此操作创建的 OIDC 提供商可用作信任委托的信任策略中的主体 (Principal)，用于在华为云和 OIDC 提供商之间建立信任关系。
+     * 您可以直接使用您的身份提供商去创建新的信任委托，要了解更多信息，请参阅 IAM 用户指南中的**身份提供商**章节。
+     * 
+     * 当您创建 IAM OIDC 提供商时，您需要指定以下内容：
+     * - 要信任的 OIDC 身份提供商的 URL。
+     * - 客户端 ID 列表（也称为受众 Audiences），用于识别允许使用该 OIDC 提供商进行身份验证的应用程序。
+     * - 附加到指定 IAM OIDC 提供商的标签列表。
+     * - OIDC 身份提供商使用的一个或多个服务器证书的指纹列表。
+     * 
+     * **注意：**
+     * IAM 使用我们的信任根证书颁发机构 (CAs) 库来验证 JSON Web Key Set (JWKS) 端点的 TLS 证书，从而确保与 OIDC 身份提供商 (IdPs) 的通信安全。如果您的 OIDC IdP 依赖于不是由这些受信任 CA 之一签名的证书，那么我们才会使用 IdP 配置中设置的指纹来确保通信安全。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建OIDC提供商
+     * @param {CreateOIDCProviderReqBody} createOIDCProviderReqBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createOIDCProviderV5(createOIDCProviderV5Request?: CreateOIDCProviderV5Request): Promise<CreateOIDCProviderV5Response> {
+        const options = ParamCreater().createOIDCProviderV5(createOIDCProviderV5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于删除 IAM 中的一个 OpenID Connect (OIDC) 的身份提供商 (IdP)。IAM 在删除 OIDC 提供商时不会更新在信任策略中引用该提供商作为主体的任何信任委托，删除之后任何尝试切换代入引用已删除提供商的信任委托的操作都将失败。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除指定OIDC提供商
+     * @param {string} providerId 提供商ID，长度为1到64个字符，只包含字母、数字和\&quot;-\&quot;的字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteOIDCProviderV5(deleteOIDCProviderV5Request?: DeleteOIDCProviderV5Request): Promise<DeleteOIDCProviderV5Response> {
+        const options = ParamCreater().deleteOIDCProviderV5(deleteOIDCProviderV5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于查询所有 OpenID Connect (OIDC) 的身份提供商 (IdP) 列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所有OIDC提供商
+     * @param {number} [limit] 每页显示的条目数量，范围为1到200条，默认为100条。
+     * @param {string} [marker] 分页标记，长度为4到400个字符，只包含字母、数字、\&quot;+\&quot;、\&quot;/\&quot;、\&quot;&#x3D;\&quot;、\&quot;-\&quot;和\&quot;_\&quot;的字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listOIDCProvidersV5(listOIDCProvidersV5Request?: ListOIDCProvidersV5Request): Promise<ListOIDCProvidersV5Response> {
+        const options = ParamCreater().listOIDCProvidersV5(listOIDCProvidersV5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于移除指定 IAM OIDC 提供商客户端 ID 列表中指定的客户端 ID。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 移除指定OIDC提供商中指定的客户端ID
+     * @param {string} providerId 提供商ID，长度为1到64个字符，只包含字母、数字和\&quot;-\&quot;的字符串。
+     * @param {RemoveClientIDFromOIDCProviderReqBody} removeClientIDFromOIDCProviderReqBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public removeClientIDFromOIDCProviderV5(removeClientIDFromOIDCProviderV5Request?: RemoveClientIDFromOIDCProviderV5Request): Promise<RemoveClientIDFromOIDCProviderV5Response> {
+        const options = ParamCreater().removeClientIDFromOIDCProviderV5(removeClientIDFromOIDCProviderV5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于查询 OpenID Connect (OIDC) 的身份提供商 (IdP) 详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定OIDC提供商
+     * @param {string} providerId 提供商ID，长度为1到64个字符，只包含字母、数字和\&quot;-\&quot;的字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showOIDCProviderV5(showOIDCProviderV5Request?: ShowOIDCProviderV5Request): Promise<ShowOIDCProviderV5Response> {
+        const options = ParamCreater().showOIDCProviderV5(showOIDCProviderV5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用一个新的指纹列表替换与 OIDC 提供商关联的现有指纹列表。通常，您仅在身份提供商证书更改时才需要更新指纹，这种情况一般很少发生。但是，如果提供商的证书发生了变化，而您又没有更新指纹，那么任何尝试切换代入与该 OIDC 提供商相关的 信任委托都将失败。
+     * 
+     * **注意：**
+     * IAM 使用自己的信任根证书颁发机构 (CAs) 库来验证 JSON Web Key Set (JWKS) 端点的 TLS 证书，从而确保与 OIDC 身份提供商 (IdPs) 的通信安全。如果您的 OIDC IdP 依赖于不是由这些受信任 CA 之一签名的证书，那么我们才会使用 IdP 配置中设置的指纹来确保通信安全。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 替换OIDC提供商指纹列表
+     * @param {string} providerId 提供商ID，长度为1到64个字符，只包含字母、数字和\&quot;-\&quot;的字符串。
+     * @param {UpdateOIDCProviderThumbprintReqBody} updateOIDCProviderThumbprintReqBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateOIDCProviderThumbprintV5(updateOIDCProviderThumbprintV5Request?: UpdateOIDCProviderThumbprintV5Request): Promise<UpdateOIDCProviderThumbprintV5Response> {
+        const options = ParamCreater().updateOIDCProviderThumbprintV5(updateOIDCProviderThumbprintV5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于修改 IAM 中的一个 OpenID Connect (OIDC) 的身份提供商 (IdP)的描述字段。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改指定OIDC提供商描述
+     * @param {string} providerId 提供商ID，长度为1到64个字符，只包含字母、数字和\&quot;-\&quot;的字符串。
+     * @param {UpdateOIDCProviderReqBody} updateOIDCProviderReqBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateOIDCProviderV5(updateOIDCProviderV5Request?: UpdateOIDCProviderV5Request): Promise<UpdateOIDCProviderV5Response> {
+        const options = ParamCreater().updateOIDCProviderV5(updateOIDCProviderV5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口可以用于创建一个默认版本为v1的新自定义身份策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1232,7 +1446,7 @@ export class IamClient {
      *
      * @summary 删除指定资源的部分标签
      * @param {string} resourceId 资源ID，长度为1到64个字符，只包含字母、数字和\&quot;-\&quot;的字符串。
-     * @param {'agency' | 'user'} resourceType 资源类型，可以为“信任委托”（trust agency）或“IAM用户”（user）。
+     * @param {'agency' | 'user' | 'oidc_provider' | 'saml_provider'} resourceType 资源类型，可以为“信任委托”（trust agency）或“IAM用户”（user）或“身份提供商”（provider）。
      * @param {Array<string>} requestBody 待删除的标签键列表。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1253,7 +1467,7 @@ export class IamClient {
      *
      * @summary 获取指定资源的所有标签
      * @param {string} resourceId 资源ID，长度为1到64个字符，只包含字母、数字和\&quot;-\&quot;的字符串。
-     * @param {'agency' | 'user'} resourceType 资源类型，可以为“信任委托”（trust agency）或“IAM用户”（user）。
+     * @param {'agency' | 'user' | 'oidc_provider' | 'saml_provider'} resourceType 资源类型，可以为“信任委托”（trust agency）或“IAM用户”（user）或“身份提供商”（provider）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1273,13 +1487,114 @@ export class IamClient {
      *
      * @summary 为IAM资源打上标签
      * @param {string} resourceId 资源ID，长度为1到64个字符，只包含字母、数字和\&quot;-\&quot;的字符串。
-     * @param {'agency' | 'user'} resourceType 资源类型，可以为“信任委托”（trust agency）或“IAM用户”（user）。
+     * @param {'agency' | 'user' | 'oidc_provider' | 'saml_provider'} resourceType 资源类型，可以为“信任委托”（trust agency）或“IAM用户”（user）或“身份提供商”（provider）。
      * @param {Tags} tags 需要创建的资源标签信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public tagResourceV5(tagResourceV5Request?: TagResourceV5Request): Promise<TagResourceV5Response> {
         const options = ParamCreater().tagResourceV5(tagResourceV5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于创建一个支持 SAML 2.0 的身份提供商 (IdP)。
+     * 
+     * 您通过此操作创建的 SAML 提供商可用作信任委托的信任策略中的主体 (Principal)，用于在华为云和 SAML 提供商之间建立信任关系。 该信任策略可以允许使用 SAML IdP 登录的联邦用户切换至该信任委托，您可以创建使用 Web 单点登录 (SSO) 到 华为云控制台的 IAM 信任委托，或者支持对华为云进行 API 访问的 IAM 信任委托。
+     * 
+     * 当您创建 SAML 提供商时，您需要上传从 IdP 获得的 SAML 元数据文档。该文档包含颁发者的名称、过期信息以及可用于验证 IdP 发送的 SAML 身份验证响应（断言）的密钥。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建SAML提供商
+     * @param {CreateSAMLProviderReqBody} createSAMLProviderReqBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSAMLProviderV5(createSAMLProviderV5Request?: CreateSAMLProviderV5Request): Promise<CreateSAMLProviderV5Response> {
+        const options = ParamCreater().createSAMLProviderV5(createSAMLProviderV5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于删除 IAM 中的一个 SAML 2.0 的身份提供商 (IdP)。IAM 在删除 SAML 提供商时不会更新在信任策略中引用该提供商作为主体的任何信任委托，删除之后任何尝试切换代入引用已删除提供商的信任委托的操作都将失败。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除指定SAML提供商
+     * @param {string} providerId 提供商ID，长度为1到64个字符，只包含字母、数字和\&quot;-\&quot;的字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSAMLProviderV5(deleteSAMLProviderV5Request?: DeleteSAMLProviderV5Request): Promise<DeleteSAMLProviderV5Response> {
+        const options = ParamCreater().deleteSAMLProviderV5(deleteSAMLProviderV5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于查询所有 SAML 2.0 的身份提供商 (IdP) 列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所有SAML提供商
+     * @param {number} [limit] 每页显示的条目数量，范围为1到200条，默认为100条。
+     * @param {string} [marker] 分页标记，长度为4到400个字符，只包含字母、数字、\&quot;+\&quot;、\&quot;/\&quot;、\&quot;&#x3D;\&quot;、\&quot;-\&quot;和\&quot;_\&quot;的字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSAMLProvidersV5(listSAMLProvidersV5Request?: ListSAMLProvidersV5Request): Promise<ListSAMLProvidersV5Response> {
+        const options = ParamCreater().listSAMLProvidersV5(listSAMLProvidersV5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于查询 SAML 2.0 的身份提供商 (IdP) 详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定SAML提供商
+     * @param {string} providerId 提供商ID，长度为1到64个字符，只包含字母、数字和\&quot;-\&quot;的字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSAMLProviderV5(showSAMLProviderV5Request?: ShowSAMLProviderV5Request): Promise<ShowSAMLProviderV5Response> {
+        const options = ParamCreater().showSAMLProviderV5(showSAMLProviderV5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于更新现有 SAML 提供商的元数据文档、SAML 加密设置以及私钥。要轮换私钥，请在单独的请求中先添加新的私钥，然后移除旧的私钥。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新指定SAML提供商
+     * @param {string} providerId 提供商ID，长度为1到64个字符，只包含字母、数字和\&quot;-\&quot;的字符串。
+     * @param {UpdateSAMLProviderReqBody} updateSAMLProviderReqBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSAMLProviderV5(updateSAMLProviderV5Request?: UpdateSAMLProviderV5Request): Promise<UpdateSAMLProviderV5Response> {
+        const options = ParamCreater().updateSAMLProviderV5(updateSAMLProviderV5Request);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2868,6 +3183,360 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口可以用于向指定 IAM OIDC 提供商已注册的客户端 ID 列表中添加一个新的客户端 ID。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addClientIDToOIDCProviderV5(addClientIDToOIDCProviderV5Request?: AddClientIDToOIDCProviderV5Request) {
+            const options = {
+                method: "POST",
+                url: "/v5/oidc-providers/{provider_id}/add-client-id",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let providerId;
+
+            if (addClientIDToOIDCProviderV5Request !== null && addClientIDToOIDCProviderV5Request !== undefined) {
+                if (addClientIDToOIDCProviderV5Request instanceof AddClientIDToOIDCProviderV5Request) {
+                    providerId = addClientIDToOIDCProviderV5Request.providerId;
+                    body = addClientIDToOIDCProviderV5Request.body
+                } else {
+                    providerId = addClientIDToOIDCProviderV5Request['provider_id'];
+                    body = addClientIDToOIDCProviderV5Request['body'];
+                }
+            }
+
+        
+            if (providerId === null || providerId === undefined) {
+            throw new RequiredError('providerId','Required parameter providerId was null or undefined when calling addClientIDToOIDCProviderV5.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'provider_id': providerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于创建一个支持 OpenID Connect (OIDC) 的身份提供商 (IdP)。
+         * 您通过此操作创建的 OIDC 提供商可用作信任委托的信任策略中的主体 (Principal)，用于在华为云和 OIDC 提供商之间建立信任关系。
+         * 您可以直接使用您的身份提供商去创建新的信任委托，要了解更多信息，请参阅 IAM 用户指南中的**身份提供商**章节。
+         * 
+         * 当您创建 IAM OIDC 提供商时，您需要指定以下内容：
+         * - 要信任的 OIDC 身份提供商的 URL。
+         * - 客户端 ID 列表（也称为受众 Audiences），用于识别允许使用该 OIDC 提供商进行身份验证的应用程序。
+         * - 附加到指定 IAM OIDC 提供商的标签列表。
+         * - OIDC 身份提供商使用的一个或多个服务器证书的指纹列表。
+         * 
+         * **注意：**
+         * IAM 使用我们的信任根证书颁发机构 (CAs) 库来验证 JSON Web Key Set (JWKS) 端点的 TLS 证书，从而确保与 OIDC 身份提供商 (IdPs) 的通信安全。如果您的 OIDC IdP 依赖于不是由这些受信任 CA 之一签名的证书，那么我们才会使用 IdP 配置中设置的指纹来确保通信安全。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createOIDCProviderV5(createOIDCProviderV5Request?: CreateOIDCProviderV5Request) {
+            const options = {
+                method: "POST",
+                url: "/v5/oidc-providers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createOIDCProviderV5Request !== null && createOIDCProviderV5Request !== undefined) {
+                if (createOIDCProviderV5Request instanceof CreateOIDCProviderV5Request) {
+                    body = createOIDCProviderV5Request.body
+                } else {
+                    body = createOIDCProviderV5Request['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于删除 IAM 中的一个 OpenID Connect (OIDC) 的身份提供商 (IdP)。IAM 在删除 OIDC 提供商时不会更新在信任策略中引用该提供商作为主体的任何信任委托，删除之后任何尝试切换代入引用已删除提供商的信任委托的操作都将失败。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteOIDCProviderV5(deleteOIDCProviderV5Request?: DeleteOIDCProviderV5Request) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/oidc-providers/{provider_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let providerId;
+
+            if (deleteOIDCProviderV5Request !== null && deleteOIDCProviderV5Request !== undefined) {
+                if (deleteOIDCProviderV5Request instanceof DeleteOIDCProviderV5Request) {
+                    providerId = deleteOIDCProviderV5Request.providerId;
+                } else {
+                    providerId = deleteOIDCProviderV5Request['provider_id'];
+                }
+            }
+
+        
+            if (providerId === null || providerId === undefined) {
+            throw new RequiredError('providerId','Required parameter providerId was null or undefined when calling deleteOIDCProviderV5.');
+            }
+
+            options.pathParams = { 'provider_id': providerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于查询所有 OpenID Connect (OIDC) 的身份提供商 (IdP) 列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listOIDCProvidersV5(listOIDCProvidersV5Request?: ListOIDCProvidersV5Request) {
+            const options = {
+                method: "GET",
+                url: "/v5/oidc-providers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+
+            if (listOIDCProvidersV5Request !== null && listOIDCProvidersV5Request !== undefined) {
+                if (listOIDCProvidersV5Request instanceof ListOIDCProvidersV5Request) {
+                    limit = listOIDCProvidersV5Request.limit;
+                    marker = listOIDCProvidersV5Request.marker;
+                } else {
+                    limit = listOIDCProvidersV5Request['limit'];
+                    marker = listOIDCProvidersV5Request['marker'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于移除指定 IAM OIDC 提供商客户端 ID 列表中指定的客户端 ID。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        removeClientIDFromOIDCProviderV5(removeClientIDFromOIDCProviderV5Request?: RemoveClientIDFromOIDCProviderV5Request) {
+            const options = {
+                method: "POST",
+                url: "/v5/oidc-providers/{provider_id}/remove-client-id",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let providerId;
+
+            if (removeClientIDFromOIDCProviderV5Request !== null && removeClientIDFromOIDCProviderV5Request !== undefined) {
+                if (removeClientIDFromOIDCProviderV5Request instanceof RemoveClientIDFromOIDCProviderV5Request) {
+                    providerId = removeClientIDFromOIDCProviderV5Request.providerId;
+                    body = removeClientIDFromOIDCProviderV5Request.body
+                } else {
+                    providerId = removeClientIDFromOIDCProviderV5Request['provider_id'];
+                    body = removeClientIDFromOIDCProviderV5Request['body'];
+                }
+            }
+
+        
+            if (providerId === null || providerId === undefined) {
+            throw new RequiredError('providerId','Required parameter providerId was null or undefined when calling removeClientIDFromOIDCProviderV5.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'provider_id': providerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于查询 OpenID Connect (OIDC) 的身份提供商 (IdP) 详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showOIDCProviderV5(showOIDCProviderV5Request?: ShowOIDCProviderV5Request) {
+            const options = {
+                method: "GET",
+                url: "/v5/oidc-providers/{provider_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let providerId;
+
+            if (showOIDCProviderV5Request !== null && showOIDCProviderV5Request !== undefined) {
+                if (showOIDCProviderV5Request instanceof ShowOIDCProviderV5Request) {
+                    providerId = showOIDCProviderV5Request.providerId;
+                } else {
+                    providerId = showOIDCProviderV5Request['provider_id'];
+                }
+            }
+
+        
+            if (providerId === null || providerId === undefined) {
+            throw new RequiredError('providerId','Required parameter providerId was null or undefined when calling showOIDCProviderV5.');
+            }
+
+            options.pathParams = { 'provider_id': providerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用一个新的指纹列表替换与 OIDC 提供商关联的现有指纹列表。通常，您仅在身份提供商证书更改时才需要更新指纹，这种情况一般很少发生。但是，如果提供商的证书发生了变化，而您又没有更新指纹，那么任何尝试切换代入与该 OIDC 提供商相关的 信任委托都将失败。
+         * 
+         * **注意：**
+         * IAM 使用自己的信任根证书颁发机构 (CAs) 库来验证 JSON Web Key Set (JWKS) 端点的 TLS 证书，从而确保与 OIDC 身份提供商 (IdPs) 的通信安全。如果您的 OIDC IdP 依赖于不是由这些受信任 CA 之一签名的证书，那么我们才会使用 IdP 配置中设置的指纹来确保通信安全。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateOIDCProviderThumbprintV5(updateOIDCProviderThumbprintV5Request?: UpdateOIDCProviderThumbprintV5Request) {
+            const options = {
+                method: "PUT",
+                url: "/v5/oidc-providers/{provider_id}/thumbprint",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let providerId;
+
+            if (updateOIDCProviderThumbprintV5Request !== null && updateOIDCProviderThumbprintV5Request !== undefined) {
+                if (updateOIDCProviderThumbprintV5Request instanceof UpdateOIDCProviderThumbprintV5Request) {
+                    providerId = updateOIDCProviderThumbprintV5Request.providerId;
+                    body = updateOIDCProviderThumbprintV5Request.body
+                } else {
+                    providerId = updateOIDCProviderThumbprintV5Request['provider_id'];
+                    body = updateOIDCProviderThumbprintV5Request['body'];
+                }
+            }
+
+        
+            if (providerId === null || providerId === undefined) {
+            throw new RequiredError('providerId','Required parameter providerId was null or undefined when calling updateOIDCProviderThumbprintV5.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'provider_id': providerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于修改 IAM 中的一个 OpenID Connect (OIDC) 的身份提供商 (IdP)的描述字段。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateOIDCProviderV5(updateOIDCProviderV5Request?: UpdateOIDCProviderV5Request) {
+            const options = {
+                method: "PUT",
+                url: "/v5/oidc-providers/{provider_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let providerId;
+
+            if (updateOIDCProviderV5Request !== null && updateOIDCProviderV5Request !== undefined) {
+                if (updateOIDCProviderV5Request instanceof UpdateOIDCProviderV5Request) {
+                    providerId = updateOIDCProviderV5Request.providerId;
+                    body = updateOIDCProviderV5Request.body
+                } else {
+                    providerId = updateOIDCProviderV5Request['provider_id'];
+                    body = updateOIDCProviderV5Request['body'];
+                }
+            }
+
+        
+            if (providerId === null || providerId === undefined) {
+            throw new RequiredError('providerId','Required parameter providerId was null or undefined when calling updateOIDCProviderV5.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'provider_id': providerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口可以用于创建一个默认版本为v1的新自定义身份策略。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3925,6 +4594,212 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'resource_id': resourceId,'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于创建一个支持 SAML 2.0 的身份提供商 (IdP)。
+         * 
+         * 您通过此操作创建的 SAML 提供商可用作信任委托的信任策略中的主体 (Principal)，用于在华为云和 SAML 提供商之间建立信任关系。 该信任策略可以允许使用 SAML IdP 登录的联邦用户切换至该信任委托，您可以创建使用 Web 单点登录 (SSO) 到 华为云控制台的 IAM 信任委托，或者支持对华为云进行 API 访问的 IAM 信任委托。
+         * 
+         * 当您创建 SAML 提供商时，您需要上传从 IdP 获得的 SAML 元数据文档。该文档包含颁发者的名称、过期信息以及可用于验证 IdP 发送的 SAML 身份验证响应（断言）的密钥。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSAMLProviderV5(createSAMLProviderV5Request?: CreateSAMLProviderV5Request) {
+            const options = {
+                method: "POST",
+                url: "/v5/saml-providers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createSAMLProviderV5Request !== null && createSAMLProviderV5Request !== undefined) {
+                if (createSAMLProviderV5Request instanceof CreateSAMLProviderV5Request) {
+                    body = createSAMLProviderV5Request.body
+                } else {
+                    body = createSAMLProviderV5Request['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于删除 IAM 中的一个 SAML 2.0 的身份提供商 (IdP)。IAM 在删除 SAML 提供商时不会更新在信任策略中引用该提供商作为主体的任何信任委托，删除之后任何尝试切换代入引用已删除提供商的信任委托的操作都将失败。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSAMLProviderV5(deleteSAMLProviderV5Request?: DeleteSAMLProviderV5Request) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/saml-providers/{provider_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let providerId;
+
+            if (deleteSAMLProviderV5Request !== null && deleteSAMLProviderV5Request !== undefined) {
+                if (deleteSAMLProviderV5Request instanceof DeleteSAMLProviderV5Request) {
+                    providerId = deleteSAMLProviderV5Request.providerId;
+                } else {
+                    providerId = deleteSAMLProviderV5Request['provider_id'];
+                }
+            }
+
+        
+            if (providerId === null || providerId === undefined) {
+            throw new RequiredError('providerId','Required parameter providerId was null or undefined when calling deleteSAMLProviderV5.');
+            }
+
+            options.pathParams = { 'provider_id': providerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于查询所有 SAML 2.0 的身份提供商 (IdP) 列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSAMLProvidersV5(listSAMLProvidersV5Request?: ListSAMLProvidersV5Request) {
+            const options = {
+                method: "GET",
+                url: "/v5/saml-providers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+
+            if (listSAMLProvidersV5Request !== null && listSAMLProvidersV5Request !== undefined) {
+                if (listSAMLProvidersV5Request instanceof ListSAMLProvidersV5Request) {
+                    limit = listSAMLProvidersV5Request.limit;
+                    marker = listSAMLProvidersV5Request.marker;
+                } else {
+                    limit = listSAMLProvidersV5Request['limit'];
+                    marker = listSAMLProvidersV5Request['marker'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于查询 SAML 2.0 的身份提供商 (IdP) 详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSAMLProviderV5(showSAMLProviderV5Request?: ShowSAMLProviderV5Request) {
+            const options = {
+                method: "GET",
+                url: "/v5/saml-providers/{provider_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let providerId;
+
+            if (showSAMLProviderV5Request !== null && showSAMLProviderV5Request !== undefined) {
+                if (showSAMLProviderV5Request instanceof ShowSAMLProviderV5Request) {
+                    providerId = showSAMLProviderV5Request.providerId;
+                } else {
+                    providerId = showSAMLProviderV5Request['provider_id'];
+                }
+            }
+
+        
+            if (providerId === null || providerId === undefined) {
+            throw new RequiredError('providerId','Required parameter providerId was null or undefined when calling showSAMLProviderV5.');
+            }
+
+            options.pathParams = { 'provider_id': providerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于更新现有 SAML 提供商的元数据文档、SAML 加密设置以及私钥。要轮换私钥，请在单独的请求中先添加新的私钥，然后移除旧的私钥。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSAMLProviderV5(updateSAMLProviderV5Request?: UpdateSAMLProviderV5Request) {
+            const options = {
+                method: "PUT",
+                url: "/v5/saml-providers/{provider_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let providerId;
+
+            if (updateSAMLProviderV5Request !== null && updateSAMLProviderV5Request !== undefined) {
+                if (updateSAMLProviderV5Request instanceof UpdateSAMLProviderV5Request) {
+                    providerId = updateSAMLProviderV5Request.providerId;
+                    body = updateSAMLProviderV5Request.body
+                } else {
+                    providerId = updateSAMLProviderV5Request['provider_id'];
+                    body = updateSAMLProviderV5Request['body'];
+                }
+            }
+
+        
+            if (providerId === null || providerId === undefined) {
+            throw new RequiredError('providerId','Required parameter providerId was null or undefined when calling updateSAMLProviderV5.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'provider_id': providerId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

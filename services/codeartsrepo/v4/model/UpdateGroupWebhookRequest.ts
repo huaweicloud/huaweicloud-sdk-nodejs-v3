@@ -1,10 +1,10 @@
-import { WebhookParamsDto } from './WebhookParamsDto';
+import { WebhookParamsRequestDto } from './WebhookParamsRequestDto';
 
 
 export class UpdateGroupWebhookRequest {
     private 'group_id'?: number;
     private 'hook_id'?: number;
-    public body?: WebhookParamsDto;
+    public body?: WebhookParamsRequestDto;
     public constructor(groupId?: number, hookId?: number) { 
         this['group_id'] = groupId;
         this['hook_id'] = hookId;
@@ -29,7 +29,7 @@ export class UpdateGroupWebhookRequest {
     public get hookId(): number | undefined {
         return this['hook_id'];
     }
-    public withBody(body: WebhookParamsDto): UpdateGroupWebhookRequest {
+    public withBody(body: WebhookParamsRequestDto): UpdateGroupWebhookRequest {
         this['body'] = body;
         return this;
     }

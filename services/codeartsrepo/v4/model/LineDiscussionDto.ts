@@ -1,13 +1,13 @@
-import { MergeRequestBasicDiscussionDto } from './MergeRequestBasicDiscussionDto';
+import { MergeRequestDiscussionDto } from './MergeRequestDiscussionDto';
 
 
 export class LineDiscussionDto {
-    public discussions?: Array<MergeRequestBasicDiscussionDto>;
+    public discussions?: Array<MergeRequestDiscussionDto>;
     public line?: number;
     public type?: LineDiscussionDtoTypeEnum | string;
     public constructor() { 
     }
-    public withDiscussions(discussions: Array<MergeRequestBasicDiscussionDto>): LineDiscussionDto {
+    public withDiscussions(discussions: Array<MergeRequestDiscussionDto>): LineDiscussionDto {
         this['discussions'] = discussions;
         return this;
     }

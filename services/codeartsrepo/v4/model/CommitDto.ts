@@ -28,6 +28,7 @@ export class CommitDto {
     private 'nick_name'?: string;
     private 'tenant_name'?: string;
     private 'user_name'?: string;
+    private 'author_id'?: number;
     public constructor() { 
     }
     public withId(id: string): CommitDto {
@@ -255,5 +256,15 @@ export class CommitDto {
     }
     public get userName(): string | undefined {
         return this['user_name'];
+    }
+    public withAuthorId(authorId: number): CommitDto {
+        this['author_id'] = authorId;
+        return this;
+    }
+    public set authorId(authorId: number  | undefined) {
+        this['author_id'] = authorId;
+    }
+    public get authorId(): number | undefined {
+        return this['author_id'];
     }
 }

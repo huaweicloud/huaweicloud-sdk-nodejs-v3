@@ -1,3 +1,4 @@
+import { ProjectEncryptionStatusBriefDto } from './ProjectEncryptionStatusBriefDto';
 import { PushRuleDevelopersDto } from './PushRuleDevelopersDto';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -9,6 +10,8 @@ export class ShowRepositoryGeneralPolicyResponse extends SdkResponse {
     private 'tag_name_regex'?: string;
     private 'forbidden_developer_create_branch'?: boolean;
     private 'create_branch_whitelist_users'?: Array<PushRuleDevelopersDto>;
+    private 'repo_encryption_enabled'?: boolean;
+    private 'repo_encryption_status'?: ProjectEncryptionStatusBriefDto;
     public constructor() { 
         super();
     }
@@ -71,5 +74,25 @@ export class ShowRepositoryGeneralPolicyResponse extends SdkResponse {
     }
     public get createBranchWhitelistUsers(): Array<PushRuleDevelopersDto> | undefined {
         return this['create_branch_whitelist_users'];
+    }
+    public withRepoEncryptionEnabled(repoEncryptionEnabled: boolean): ShowRepositoryGeneralPolicyResponse {
+        this['repo_encryption_enabled'] = repoEncryptionEnabled;
+        return this;
+    }
+    public set repoEncryptionEnabled(repoEncryptionEnabled: boolean  | undefined) {
+        this['repo_encryption_enabled'] = repoEncryptionEnabled;
+    }
+    public get repoEncryptionEnabled(): boolean | undefined {
+        return this['repo_encryption_enabled'];
+    }
+    public withRepoEncryptionStatus(repoEncryptionStatus: ProjectEncryptionStatusBriefDto): ShowRepositoryGeneralPolicyResponse {
+        this['repo_encryption_status'] = repoEncryptionStatus;
+        return this;
+    }
+    public set repoEncryptionStatus(repoEncryptionStatus: ProjectEncryptionStatusBriefDto  | undefined) {
+        this['repo_encryption_status'] = repoEncryptionStatus;
+    }
+    public get repoEncryptionStatus(): ProjectEncryptionStatusBriefDto | undefined {
+        return this['repo_encryption_status'];
     }
 }

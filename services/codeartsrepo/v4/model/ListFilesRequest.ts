@@ -3,6 +3,7 @@
 export class ListFilesRequest {
     private 'repository_id'?: number;
     private 'ref_name'?: string;
+    public search?: string;
     public offset?: number;
     public limit?: number;
     public constructor(repositoryId?: number) { 
@@ -27,6 +28,10 @@ export class ListFilesRequest {
     }
     public get refName(): string | undefined {
         return this['ref_name'];
+    }
+    public withSearch(search: string): ListFilesRequest {
+        this['search'] = search;
+        return this;
     }
     public withOffset(offset: number): ListFilesRequest {
         this['offset'] = offset;

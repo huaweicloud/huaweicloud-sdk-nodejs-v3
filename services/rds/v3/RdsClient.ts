@@ -54,6 +54,9 @@ import { BatchModifyPublicationsRequestBody } from './model/BatchModifyPublicati
 import { BatchModifySubscriptionRequest } from './model/BatchModifySubscriptionRequest';
 import { BatchModifySubscriptionResponse } from './model/BatchModifySubscriptionResponse';
 import { BatchOperateResponseInfo } from './model/BatchOperateResponseInfo';
+import { BatchResizeFlavorRequest } from './model/BatchResizeFlavorRequest';
+import { BatchResizeFlavorRequestBody } from './model/BatchResizeFlavorRequestBody';
+import { BatchResizeFlavorResponse } from './model/BatchResizeFlavorResponse';
 import { BatchRestoreDatabaseRequest } from './model/BatchRestoreDatabaseRequest';
 import { BatchRestoreDatabaseResponse } from './model/BatchRestoreDatabaseResponse';
 import { BatchRestorePostgreSqlTablesRequest } from './model/BatchRestorePostgreSqlTablesRequest';
@@ -1138,6 +1141,26 @@ export class RdsClient {
      */
     public batchExecuteEvents(batchExecuteEventsRequest?: BatchExecuteEventsRequest): Promise<BatchExecuteEventsResponse> {
         const options = ParamCreater().batchExecuteEvents(batchExecuteEventsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量变更实例规格
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量变更实例规格
+     * @param {BatchResizeFlavorRequestBody} batchResizeFlavorRequestBody **参数解释**：  批量规格变更请求体。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchResizeFlavor(batchResizeFlavorRequest?: BatchResizeFlavorRequest): Promise<BatchResizeFlavorResponse> {
+        const options = ParamCreater().batchResizeFlavor(batchResizeFlavorRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7908,6 +7931,51 @@ export const ParamCreater = function () {
                 } else {
                     body = batchExecuteEventsRequest['body'];
                     xLanguage = batchExecuteEventsRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量变更实例规格
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchResizeFlavor(batchResizeFlavorRequest?: BatchResizeFlavorRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/batch/resize",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (batchResizeFlavorRequest !== null && batchResizeFlavorRequest !== undefined) {
+                if (batchResizeFlavorRequest instanceof BatchResizeFlavorRequest) {
+                    body = batchResizeFlavorRequest.body
+                    xLanguage = batchResizeFlavorRequest.xLanguage;
+                } else {
+                    body = batchResizeFlavorRequest['body'];
+                    xLanguage = batchResizeFlavorRequest['X-Language'];
                 }
             }
 

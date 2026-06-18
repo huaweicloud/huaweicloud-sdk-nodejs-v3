@@ -74,6 +74,7 @@ import { BodyPutLabelDto } from './model/BodyPutLabelDto';
 import { BranchSimpleDto } from './model/BranchSimpleDto';
 import { BussinessGroupTransferBodyDto } from './model/BussinessGroupTransferBodyDto';
 import { CategoryDto } from './model/CategoryDto';
+import { ChangeRequestHookCfgDto } from './model/ChangeRequestHookCfgDto';
 import { ChangesTreeDto } from './model/ChangesTreeDto';
 import { ChangesTreeObjectDiffDto } from './model/ChangesTreeObjectDiffDto';
 import { ChangesTreeObjectDto } from './model/ChangesTreeObjectDto';
@@ -81,6 +82,7 @@ import { CheckDeployKeyRequest } from './model/CheckDeployKeyRequest';
 import { CheckDeployKeyResponse } from './model/CheckDeployKeyResponse';
 import { CheckGroupDeployKeyRequest } from './model/CheckGroupDeployKeyRequest';
 import { CheckGroupDeployKeyResponse } from './model/CheckGroupDeployKeyResponse';
+import { CodelineDto } from './model/CodelineDto';
 import { CommentPathDto } from './model/CommentPathDto';
 import { CommitDiscussionDto } from './model/CommitDiscussionDto';
 import { CommitDto } from './model/CommitDto';
@@ -156,8 +158,11 @@ import { CreateReviewSettingResponse } from './model/CreateReviewSettingResponse
 import { CreateTagDto } from './model/CreateTagDto';
 import { CreateTagRequest } from './model/CreateTagRequest';
 import { CreateTagResponse } from './model/CreateTagResponse';
+import { CreateTenantKmsGrantRequest } from './model/CreateTenantKmsGrantRequest';
+import { CreateTenantKmsGrantResponse } from './model/CreateTenantKmsGrantResponse';
 import { CustomEvaluationDto } from './model/CustomEvaluationDto';
 import { DateTitleDto } from './model/DateTitleDto';
+import { DefEntryDto } from './model/DefEntryDto';
 import { DeleteBranchRequest } from './model/DeleteBranchRequest';
 import { DeleteBranchResponse } from './model/DeleteBranchResponse';
 import { DeleteFileRequest } from './model/DeleteFileRequest';
@@ -239,6 +244,7 @@ import { GroupMergeRequestTemplateDto } from './model/GroupMergeRequestTemplateD
 import { GroupMyRoleDto } from './model/GroupMyRoleDto';
 import { GroupMyRoleDtoV4 } from './model/GroupMyRoleDtoV4';
 import { GroupPermissionsDto } from './model/GroupPermissionsDto';
+import { GroupProtectedBranchApiDto } from './model/GroupProtectedBranchApiDto';
 import { GroupSumDto } from './model/GroupSumDto';
 import { ImpersonationToken } from './model/ImpersonationToken';
 import { ImportMergeRequestRequest } from './model/ImportMergeRequestRequest';
@@ -252,6 +258,7 @@ import { LabelBasicDto } from './model/LabelBasicDto';
 import { LabelCreateDto } from './model/LabelCreateDto';
 import { LabelDetailDto } from './model/LabelDetailDto';
 import { LabelSimpleDto } from './model/LabelSimpleDto';
+import { LanguageDto } from './model/LanguageDto';
 import { LanguagesDto } from './model/LanguagesDto';
 import { LineContentDto } from './model/LineContentDto';
 import { LineDiscussionDto } from './model/LineDiscussionDto';
@@ -298,6 +305,8 @@ import { ListGroupMergeRequestValidAssignedCandidatesRequest } from './model/Lis
 import { ListGroupMergeRequestValidAssignedCandidatesResponse } from './model/ListGroupMergeRequestValidAssignedCandidatesResponse';
 import { ListGroupPermissionResourcesRequest } from './model/ListGroupPermissionResourcesRequest';
 import { ListGroupPermissionResourcesResponse } from './model/ListGroupPermissionResourcesResponse';
+import { ListGroupProtectedBranchesRequest } from './model/ListGroupProtectedBranchesRequest';
+import { ListGroupProtectedBranchesResponse } from './model/ListGroupProtectedBranchesResponse';
 import { ListGroupProtectedRefsUserGroupsRequest } from './model/ListGroupProtectedRefsUserGroupsRequest';
 import { ListGroupProtectedRefsUserGroupsResponse } from './model/ListGroupProtectedRefsUserGroupsResponse';
 import { ListGroupRepositoriesRequest } from './model/ListGroupRepositoriesRequest';
@@ -322,6 +331,8 @@ import { ListLogsTreeRequest } from './model/ListLogsTreeRequest';
 import { ListLogsTreeResponse } from './model/ListLogsTreeResponse';
 import { ListManageableGroupsRequest } from './model/ListManageableGroupsRequest';
 import { ListManageableGroupsResponse } from './model/ListManageableGroupsResponse';
+import { ListManagementUsersRequest } from './model/ListManagementUsersRequest';
+import { ListManagementUsersResponse } from './model/ListManagementUsersResponse';
 import { ListMembersRequest } from './model/ListMembersRequest';
 import { ListMembersResponse } from './model/ListMembersResponse';
 import { ListMergeRequestApproverSettingsRequest } from './model/ListMergeRequestApproverSettingsRequest';
@@ -372,6 +383,8 @@ import { ListProjectMergeRequestCanBeAssignedUsersRequest } from './model/ListPr
 import { ListProjectMergeRequestCanBeAssignedUsersResponse } from './model/ListProjectMergeRequestCanBeAssignedUsersResponse';
 import { ListProjectMergeRequestTemplatesRequest } from './model/ListProjectMergeRequestTemplatesRequest';
 import { ListProjectMergeRequestTemplatesResponse } from './model/ListProjectMergeRequestTemplatesResponse';
+import { ListProjectMergeRequestsRequest } from './model/ListProjectMergeRequestsRequest';
+import { ListProjectMergeRequestsResponse } from './model/ListProjectMergeRequestsResponse';
 import { ListProjectNoteRequiredAttributesRequest } from './model/ListProjectNoteRequiredAttributesRequest';
 import { ListProjectNoteRequiredAttributesResponse } from './model/ListProjectNoteRequiredAttributesResponse';
 import { ListProjectProtectedBranchesRequest } from './model/ListProjectProtectedBranchesRequest';
@@ -412,6 +425,8 @@ import { ListRepositoryLanguagesRequest } from './model/ListRepositoryLanguagesR
 import { ListRepositoryLanguagesResponse } from './model/ListRepositoryLanguagesResponse';
 import { ListRepositoryMergeRequestsRequest } from './model/ListRepositoryMergeRequestsRequest';
 import { ListRepositoryMergeRequestsResponse } from './model/ListRepositoryMergeRequestsResponse';
+import { ListRepositoryNavigationReferencesRequest } from './model/ListRepositoryNavigationReferencesRequest';
+import { ListRepositoryNavigationReferencesResponse } from './model/ListRepositoryNavigationReferencesResponse';
 import { ListRepositoryProtectedRefsUserGroupsRequest } from './model/ListRepositoryProtectedRefsUserGroupsRequest';
 import { ListRepositoryProtectedRefsUserGroupsResponse } from './model/ListRepositoryProtectedRefsUserGroupsResponse';
 import { ListRepositoryResourcePermissionsRequest } from './model/ListRepositoryResourcePermissionsRequest';
@@ -434,6 +449,10 @@ import { ListSubmodulesRequest } from './model/ListSubmodulesRequest';
 import { ListSubmodulesResponse } from './model/ListSubmodulesResponse';
 import { ListTagsRequest } from './model/ListTagsRequest';
 import { ListTagsResponse } from './model/ListTagsResponse';
+import { ListTenantCmksRequest } from './model/ListTenantCmksRequest';
+import { ListTenantCmksResponse } from './model/ListTenantCmksResponse';
+import { ListTenantEncryptedRepositoriesRequest } from './model/ListTenantEncryptedRepositoriesRequest';
+import { ListTenantEncryptedRepositoriesResponse } from './model/ListTenantEncryptedRepositoriesResponse';
 import { ListTenantRepositoriesRequest } from './model/ListTenantRepositoriesRequest';
 import { ListTenantRepositoriesResponse } from './model/ListTenantRepositoriesResponse';
 import { ListTenantTrustedIpAddressesRequest } from './model/ListTenantTrustedIpAddressesRequest';
@@ -453,12 +472,14 @@ import { LogTreeDto } from './model/LogTreeDto';
 import { MRConflictFileDto } from './model/MRConflictFileDto';
 import { MRVoteReviewerDto } from './model/MRVoteReviewerDto';
 import { ManageableGroupDto } from './model/ManageableGroupDto';
+import { ManagementUserDto } from './model/ManagementUserDto';
 import { MemberAccess } from './model/MemberAccess';
 import { MemberBaseDto } from './model/MemberBaseDto';
 import { MergeErrorDto } from './model/MergeErrorDto';
 import { MergeMergeRequestBodyDto } from './model/MergeMergeRequestBodyDto';
 import { MergeMergeRequestRequest } from './model/MergeMergeRequestRequest';
 import { MergeMergeRequestResponse } from './model/MergeMergeRequestResponse';
+import { MergeRequestApprovalUserDto } from './model/MergeRequestApprovalUserDto';
 import { MergeRequestApproverSettingResultDto } from './model/MergeRequestApproverSettingResultDto';
 import { MergeRequestBaseEvaluationDto } from './model/MergeRequestBaseEvaluationDto';
 import { MergeRequestBasicDiscussionDto } from './model/MergeRequestBasicDiscussionDto';
@@ -475,13 +496,14 @@ import { MergeRequestReviewerExternalDto } from './model/MergeRequestReviewerExt
 import { MergeRequestSettingResultDto } from './model/MergeRequestSettingResultDto';
 import { MergeRequestStatisticDto } from './model/MergeRequestStatisticDto';
 import { MergeRequestTemplateDto } from './model/MergeRequestTemplateDto';
+import { MergeRequestTemplateFromDto } from './model/MergeRequestTemplateFromDto';
 import { MergeRequestVersionParamsDto } from './model/MergeRequestVersionParamsDto';
 import { MergeRequestVoteBodyDto } from './model/MergeRequestVoteBodyDto';
-import { MergeRequestVoteReviewerDto } from './model/MergeRequestVoteReviewerDto';
 import { MergeRequestVotesDto } from './model/MergeRequestVotesDto';
 import { MilestoneBasicDto } from './model/MilestoneBasicDto';
 import { ModifyEmailAddressDto } from './model/ModifyEmailAddressDto';
 import { MrCherryRevertDto } from './model/MrCherryRevertDto';
+import { MultipleRoleDto } from './model/MultipleRoleDto';
 import { NamespaceBasicDto } from './model/NamespaceBasicDto';
 import { NoteDto } from './model/NoteDto';
 import { NoteRequiredAttributeDto } from './model/NoteRequiredAttributeDto';
@@ -501,6 +523,7 @@ import { PositionDto } from './model/PositionDto';
 import { PostMergeRequestParamsDtoForOpenApi } from './model/PostMergeRequestParamsDtoForOpenApi';
 import { PostNoteRequiredAttributeDto } from './model/PostNoteRequiredAttributeDto';
 import { ProjectCreatorDto } from './model/ProjectCreatorDto';
+import { ProjectEncryptionStatusBriefDto } from './model/ProjectEncryptionStatusBriefDto';
 import { ProjectMergeRequestTemplateDto } from './model/ProjectMergeRequestTemplateDto';
 import { ProjectProtectedActionResultApiDto } from './model/ProjectProtectedActionResultApiDto';
 import { ProjectProtectedActionResultDto } from './model/ProjectProtectedActionResultDto';
@@ -521,6 +544,9 @@ import { PushRuleDevelopersDto } from './model/PushRuleDevelopersDto';
 import { PutMergeRequestParamsDto } from './model/PutMergeRequestParamsDto';
 import { RebaseMergeRequestForOpenApiRequest } from './model/RebaseMergeRequestForOpenApiRequest';
 import { RebaseMergeRequestForOpenApiResponse } from './model/RebaseMergeRequestForOpenApiResponse';
+import { RebuildRepositoryNavigationRequest } from './model/RebuildRepositoryNavigationRequest';
+import { RebuildRepositoryNavigationResponse } from './model/RebuildRepositoryNavigationResponse';
+import { RefEntryDto } from './model/RefEntryDto';
 import { RelatedCommitSimpleDto } from './model/RelatedCommitSimpleDto';
 import { RemoteMirrorDto } from './model/RemoteMirrorDto';
 import { RemoteMirrorSyncInfoDto } from './model/RemoteMirrorSyncInfoDto';
@@ -539,6 +565,7 @@ import { RenameFileBodyDto } from './model/RenameFileBodyDto';
 import { RenameFileRequest } from './model/RenameFileRequest';
 import { RenameFileResponse } from './model/RenameFileResponse';
 import { ReplyMergeRequestNoteDto } from './model/ReplyMergeRequestNoteDto';
+import { RepoEncryptionDto } from './model/RepoEncryptionDto';
 import { RepoNotificationSubscriptionStateDto } from './model/RepoNotificationSubscriptionStateDto';
 import { RepoSubscriptionEventDto } from './model/RepoSubscriptionEventDto';
 import { RepoWebHookSubscriptionDto } from './model/RepoWebHookSubscriptionDto';
@@ -567,6 +594,7 @@ import { RepositorySimpleDto } from './model/RepositorySimpleDto';
 import { RepositorySimplestDto } from './model/RepositorySimplestDto';
 import { RepositoryStatisticsDto } from './model/RepositoryStatisticsDto';
 import { RepositoryTemplateDto } from './model/RepositoryTemplateDto';
+import { RepositoryTransferBodyDto } from './model/RepositoryTransferBodyDto';
 import { RepositoryUserBasicDto } from './model/RepositoryUserBasicDto';
 import { RepositoryUserDto } from './model/RepositoryUserDto';
 import { RepositoryUserGroupDto } from './model/RepositoryUserGroupDto';
@@ -583,10 +611,12 @@ import { ResponsePermissionInfo } from './model/ResponsePermissionInfo';
 import { ReviewDto } from './model/ReviewDto';
 import { ReviewMergeRequestRequest } from './model/ReviewMergeRequestRequest';
 import { ReviewMergeRequestResponse } from './model/ReviewMergeRequestResponse';
+import { ReviewSettingDto } from './model/ReviewSettingDto';
 import { ReviewSettingParamDto } from './model/ReviewSettingParamDto';
 import { RoleBasicDto } from './model/RoleBasicDto';
 import { RoleSyncDto } from './model/RoleSyncDto';
 import { SSHKeyDto } from './model/SSHKeyDto';
+import { SchemaDto } from './model/SchemaDto';
 import { SendUserEmailVerifyCodeRequest } from './model/SendUserEmailVerifyCodeRequest';
 import { SendUserEmailVerifyCodeResponse } from './model/SendUserEmailVerifyCodeResponse';
 import { SettingsInheritCfgBodyApiDto } from './model/SettingsInheritCfgBodyApiDto';
@@ -684,6 +714,8 @@ import { ShowProjectReviewSettingsRequest } from './model/ShowProjectReviewSetti
 import { ShowProjectReviewSettingsResponse } from './model/ShowProjectReviewSettingsResponse';
 import { ShowProjectSettingsInheritCfgRequest } from './model/ShowProjectSettingsInheritCfgRequest';
 import { ShowProjectSettingsInheritCfgResponse } from './model/ShowProjectSettingsInheritCfgResponse';
+import { ShowProjectTenantSettingsRequest } from './model/ShowProjectTenantSettingsRequest';
+import { ShowProjectTenantSettingsResponse } from './model/ShowProjectTenantSettingsResponse';
 import { ShowProjectWatermarkRequest } from './model/ShowProjectWatermarkRequest';
 import { ShowProjectWatermarkResponse } from './model/ShowProjectWatermarkResponse';
 import { ShowProjectWebhookLogRequest } from './model/ShowProjectWebhookLogRequest';
@@ -702,6 +734,10 @@ import { ShowRefCompareRequest } from './model/ShowRefCompareRequest';
 import { ShowRefCompareResponse } from './model/ShowRefCompareResponse';
 import { ShowRemoteMirrorRequest } from './model/ShowRemoteMirrorRequest';
 import { ShowRemoteMirrorResponse } from './model/ShowRemoteMirrorResponse';
+import { ShowRepoLastStatisticsRequest } from './model/ShowRepoLastStatisticsRequest';
+import { ShowRepoLastStatisticsResponse } from './model/ShowRepoLastStatisticsResponse';
+import { ShowRepoStatisticsSummaryRequest } from './model/ShowRepoStatisticsSummaryRequest';
+import { ShowRepoStatisticsSummaryResponse } from './model/ShowRepoStatisticsSummaryResponse';
 import { ShowRepositoryE2eSettingRequest } from './model/ShowRepositoryE2eSettingRequest';
 import { ShowRepositoryE2eSettingResponse } from './model/ShowRepositoryE2eSettingResponse';
 import { ShowRepositoryGeneralCommitRuleRequest } from './model/ShowRepositoryGeneralCommitRuleRequest';
@@ -714,6 +750,12 @@ import { ShowRepositoryInheritSettingSourceRequest } from './model/ShowRepositor
 import { ShowRepositoryInheritSettingSourceResponse } from './model/ShowRepositoryInheritSettingSourceResponse';
 import { ShowRepositoryMergeRequestsStatisticRequest } from './model/ShowRepositoryMergeRequestsStatisticRequest';
 import { ShowRepositoryMergeRequestsStatisticResponse } from './model/ShowRepositoryMergeRequestsStatisticResponse';
+import { ShowRepositoryNavigationLanguageRequest } from './model/ShowRepositoryNavigationLanguageRequest';
+import { ShowRepositoryNavigationLanguageResponse } from './model/ShowRepositoryNavigationLanguageResponse';
+import { ShowRepositoryNavigationOutlineRequest } from './model/ShowRepositoryNavigationOutlineRequest';
+import { ShowRepositoryNavigationOutlineResponse } from './model/ShowRepositoryNavigationOutlineResponse';
+import { ShowRepositoryNavigationSchemaRequest } from './model/ShowRepositoryNavigationSchemaRequest';
+import { ShowRepositoryNavigationSchemaResponse } from './model/ShowRepositoryNavigationSchemaResponse';
 import { ShowRepositoryPermissionInheritEnabledRequest } from './model/ShowRepositoryPermissionInheritEnabledRequest';
 import { ShowRepositoryPermissionInheritEnabledResponse } from './model/ShowRepositoryPermissionInheritEnabledResponse';
 import { ShowRepositoryRequest } from './model/ShowRepositoryRequest';
@@ -734,6 +776,12 @@ import { ShowReviewSettingRequest } from './model/ShowReviewSettingRequest';
 import { ShowReviewSettingResponse } from './model/ShowReviewSettingResponse';
 import { ShowTagRequest } from './model/ShowTagRequest';
 import { ShowTagResponse } from './model/ShowTagResponse';
+import { ShowTenantDevelopModeRequest } from './model/ShowTenantDevelopModeRequest';
+import { ShowTenantDevelopModeResponse } from './model/ShowTenantDevelopModeResponse';
+import { ShowTenantKmsGrantRequest } from './model/ShowTenantKmsGrantRequest';
+import { ShowTenantKmsGrantResponse } from './model/ShowTenantKmsGrantResponse';
+import { ShowTenantRepoEncryptionSettingRequest } from './model/ShowTenantRepoEncryptionSettingRequest';
+import { ShowTenantRepoEncryptionSettingResponse } from './model/ShowTenantRepoEncryptionSettingResponse';
 import { ShowUserEmailsRequest } from './model/ShowUserEmailsRequest';
 import { ShowUserEmailsResponse } from './model/ShowUserEmailsResponse';
 import { ShowUserRefPermissionRequest } from './model/ShowUserRefPermissionRequest';
@@ -752,12 +800,17 @@ import { StatisticsParamsDto } from './model/StatisticsParamsDto';
 import { SubgroupAndProjectBaseDto } from './model/SubgroupAndProjectBaseDto';
 import { SubmoduleDto } from './model/SubmoduleDto';
 import { SubmoduleReqDto } from './model/SubmoduleReqDto';
+import { SymbolNodeDto } from './model/SymbolNodeDto';
 import { SyncDeployKeyToSubmodulesRequest } from './model/SyncDeployKeyToSubmodulesRequest';
 import { SyncDeployKeyToSubmodulesResponse } from './model/SyncDeployKeyToSubmodulesResponse';
+import { TenantCMKDto } from './model/TenantCMKDto';
+import { TenantRepoEncryptionSettingRequestDto } from './model/TenantRepoEncryptionSettingRequestDto';
 import { TenantRepositoryDto } from './model/TenantRepositoryDto';
 import { TenantTrustedIpAddressDto } from './model/TenantTrustedIpAddressDto';
 import { TransferGroupRequest } from './model/TransferGroupRequest';
 import { TransferGroupResponse } from './model/TransferGroupResponse';
+import { TransferRepositoryRequest } from './model/TransferRepositoryRequest';
+import { TransferRepositoryResponse } from './model/TransferRepositoryResponse';
 import { TreeDto } from './model/TreeDto';
 import { TreeObjectDto } from './model/TreeObjectDto';
 import { TrustedIpAddressDto } from './model/TrustedIpAddressDto';
@@ -778,6 +831,8 @@ import { UpdateGroupMergeRequestTemplateRequest } from './model/UpdateGroupMerge
 import { UpdateGroupMergeRequestTemplateResponse } from './model/UpdateGroupMergeRequestTemplateResponse';
 import { UpdateGroupNoteRequiredAttributesRequest } from './model/UpdateGroupNoteRequiredAttributesRequest';
 import { UpdateGroupNoteRequiredAttributesResponse } from './model/UpdateGroupNoteRequiredAttributesResponse';
+import { UpdateGroupResourcePermissionsRequest } from './model/UpdateGroupResourcePermissionsRequest';
+import { UpdateGroupResourcePermissionsResponse } from './model/UpdateGroupResourcePermissionsResponse';
 import { UpdateGroupReviewSettingsRequest } from './model/UpdateGroupReviewSettingsRequest';
 import { UpdateGroupReviewSettingsResponse } from './model/UpdateGroupReviewSettingsResponse';
 import { UpdateGroupWatermarkRequest } from './model/UpdateGroupWatermarkRequest';
@@ -856,6 +911,8 @@ import { UpdateRepositoryWatermarkRequest } from './model/UpdateRepositoryWaterm
 import { UpdateRepositoryWatermarkResponse } from './model/UpdateRepositoryWatermarkResponse';
 import { UpdateRepositoryWebhookRequest } from './model/UpdateRepositoryWebhookRequest';
 import { UpdateRepositoryWebhookResponse } from './model/UpdateRepositoryWebhookResponse';
+import { UpdateTenantRepoEncryptionSettingRequest } from './model/UpdateTenantRepoEncryptionSettingRequest';
+import { UpdateTenantRepoEncryptionSettingResponse } from './model/UpdateTenantRepoEncryptionSettingResponse';
 import { UpdateTenantTrustedIpAddressRequest } from './model/UpdateTenantTrustedIpAddressRequest';
 import { UpdateTenantTrustedIpAddressResponse } from './model/UpdateTenantTrustedIpAddressResponse';
 import { UpdateTrustedIpAddressRequest } from './model/UpdateTrustedIpAddressRequest';
@@ -872,10 +929,13 @@ import { UserSafeDto } from './model/UserSafeDto';
 import { UserTeamBasicDto } from './model/UserTeamBasicDto';
 import { ValidateRepoNameDto } from './model/ValidateRepoNameDto';
 import { ValidateRepoNameResultDto } from './model/ValidateRepoNameResultDto';
+import { WebHookBranchCfgDto } from './model/WebHookBranchCfgDto';
+import { WebHookEventCfgDto } from './model/WebHookEventCfgDto';
 import { WebhookDto } from './model/WebhookDto';
 import { WebhookLogDto } from './model/WebhookLogDto';
 import { WebhookLogExtendDto } from './model/WebhookLogExtendDto';
 import { WebhookParamsDto } from './model/WebhookParamsDto';
+import { WebhookParamsRequestDto } from './model/WebhookParamsRequestDto';
 import { WebhookRepositoryDto } from './model/WebhookRepositoryDto';
 import { WorkItemSimpleDto } from './model/WorkItemSimpleDto';
 
@@ -901,7 +961,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建提交信息
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {CommitParams} commitParams 创建提交请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -921,7 +981,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 回退提交
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} sha **参数解释：** 回退的CommitId **取值范围：** 字符串长度40。
      * @param {CommitRevetOrCherryPickDto} commitRevetOrCherryPickDto 回退提交请求体
      * @param {*} [options] Override http request option.
@@ -942,8 +1002,9 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 根据提交ID查询分支、标签列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} sha **参数解释：** 提交ID。
+     * @param {'branch' | 'tag'} type **参数解释：** 分支或者tag。 **取值范围：** 只能为branch或者tag。 **约束限制：** 只能为branch或者tag。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
@@ -964,7 +1025,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看提交列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {string} [refName] 分支/tag名
@@ -993,7 +1054,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取特定提交信息
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} sha **参数解释：** 分支名、tag名、提交ID。
      * @param {boolean} [stats] **参数解释：** 是否包含状态信息。 **取值范围：** - true，包含。 - false，不包含。
      * @param {boolean} [showCodeChanges] **参数解释：** 是否包含代码变化信息。 **取值范围：** - true，包含。 - false，不包含。
@@ -1015,7 +1076,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取commit引入的文件变更元数据
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} sha **参数解释：** 分支名、tag名、提交ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1035,7 +1096,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取commit引入的指定文件的变更内容
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} sha **参数解释：** 分支名、tag名、提交ID。
      * @param {string} [path] **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过100000。
      * @param {string} [oldPath] **参数解释：** 改名之前的文件路径。 **取值范围：** 字符串长度不少于1，不超过100000。
@@ -1058,7 +1119,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取提交差异
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} sha **参数解释：** 分支名、tag名、提交ID。
      * @param {boolean} [ignoreWhitespaceChange] **参数解释：** 是否忽略空白数量更改。 **取值范围：** - true，忽略空白数量的更改。 - false，不会忽略空白数量的更改。
      * @param {boolean} [notStatistic] **参数解释：** 是否返回统计数量。 **取值范围：** - true，不返回统计数量。 - false，返回统计数量。
@@ -1082,7 +1143,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建合并请求检视意见
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {CreateMergeRequestNoteDto} createMergeRequestNoteDto 创建合并请求审核设置参数
      * @param {*} [options] Override http request option.
@@ -1103,7 +1164,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 回复合并请求检视意见
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {string} discussionId **参数解释：** 检视意见id(主评和回复共用)。 **取值范围：** 字符串长度40。
      * @param {ReplyMergeRequestNoteDto} replyMergeRequestNoteDto 回复合并请求检视意见请求体
@@ -1125,7 +1186,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建/更新检视意见设置
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {ReviewSettingParamDto} reviewSettingParamDto 创建/更新检视意见设置请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1145,7 +1206,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除合并请求检视意见
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {string} discussionId **参数解释：** 检视意见id(主评和回复共用)。 **取值范围：** 字符串长度40。
      * @param {number} noteId **参数解释：** 评论id(主评论和回复不共用)。
@@ -1167,7 +1228,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码页单个提交下检视意见列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} sha **参数解释：** 提交ID。
      * @param {string} [sort] **参数解释：** 检视意见返回排序 - asc 按创建时间正序返回 - desc 按创建时间倒序返回
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
@@ -1208,7 +1269,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取合并请求检视意见列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {string} [unresolved] **参数解释：** 是否筛选解决的检视意见 - true 筛选所有未解决的检视意见 - false 筛选所有已解决的检视意见 - \&#39;\&#39; 不传此值时默认查询所有检视意见
      * @param {number} [authorId] **参数解释：** 操作者id。
@@ -1233,7 +1294,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取合并请求动态列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -1255,7 +1316,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目检视意见必填项
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1274,7 +1335,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库下检视意见作者列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {'Commit' | 'MergeRequest'} noteableType **参数解释：** 意见类型。 **取值范围：** - Commit，提交。 - MergeRequest，合并请求。  
      * @param {'resolved' | 'unresolved' | 'all'} resolvedStatus **参数解释：** 解决状态。 **取值范围：** - resolved，已解决。 - unresolved，未解决。   - all，全部。
      * @param {string} [reviewersFilter] **参数解释：** 根据检视人名字或用户名筛选意见。
@@ -1298,7 +1359,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库检视意见列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {'Commit' | 'MergeRequest'} noteableType **参数解释：** 意见类型。 **取值范围：** - Commit，提交。 - MergeRequest，合并请求。  
      * @param {string} [search] **参数解释：** 查询评论内容。
      * @param {Date} [startDate] **参数解释：** 开始日期。
@@ -1333,7 +1394,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组检视意见必填项
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1352,7 +1413,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组检视意见设置(不含必填项)
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1371,7 +1432,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 根据discussion_id获取合并请求检视意见
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {string} discussionId **参数解释：** 检视意见id(主评和回复共用)。 **取值范围：** 字符串长度40。
      * @param {*} [options] Override http request option.
@@ -1392,7 +1453,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库检视意见必填项
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1411,7 +1472,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目检视意见设置(不含必填项)
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1430,7 +1491,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取检视意见设置
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {boolean} [withDefaultReviewCategories] **参数解释：** 额外返回可勾选检视意见分类和系统预置检视意见分类。 **取值范围：** - true, 返回可勾选检视意见分类和系统预置检视意见分类。 - false, 不返回可勾选检视意见分类和系统预置检视意见分类。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1450,7 +1511,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建/更新代码组检视意见必填项
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {PostNoteRequiredAttributeDto} postNoteRequiredAttributeDto 创建/更新代码组检视意见必填项
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1470,7 +1531,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建/更新代码组检视意见设置(不含必填项)
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {ReviewSettingParamDto} reviewSettingParamDto 创建/更新代码组检视意见设置(不含必填项)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1490,7 +1551,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新合并请求检视意见
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {string} discussionId **参数解释：** 检视意见id(主评和回复共用)。 **取值范围：** 字符串长度40。
      * @param {number} noteId **参数解释：** 评论id(主评论和回复不共用)。
@@ -1513,7 +1574,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新合并请求检视意见中除评论内容以外的信息
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {string} discussionId **参数解释：** 检视意见id(主评和回复共用)。 **取值范围：** 字符串长度40。
      * @param {UpdateMergeRequestNoteDto} updateMergeRequestNoteDto 更新合并请求检视意见请求体
@@ -1535,7 +1596,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建/更新仓库检视意见必填项
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {PostNoteRequiredAttributeDto} postNoteRequiredAttributeDto 创建/更新仓库检视意见必填项
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1555,7 +1616,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建/更新项目检视意见必填项
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {PostNoteRequiredAttributeDto} postNoteRequiredAttributeDto 创建/更新项目检视意见必填项
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1575,7 +1636,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建/更新项目检视意见设置(不含必填项)
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {ReviewSettingParamDto} reviewSettingParamDto 创建/更新项目检视意见设置(不含必填项)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1595,7 +1656,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建文件
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {FileBodyDto} fileBodyDto 创建文件参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1615,7 +1676,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除文件
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} filePath **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过10000。
      * @param {string} branch **参数解释：** 分支名称。 **取值范围：** 字符串长度不少于1，不超过2000。
      * @param {string} commitMessage **参数解释：** 删除描述。 **取值范围：** 字符串长度不少于1，不超过2000。
@@ -1639,8 +1700,8 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库单个文件内容(下载单个文件)
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} blobId **参数解释：** blob文件ID。通过[[查询某个仓库的文件信息](https://support.huaweicloud.com/api-codeartsrepo/ListFilesByQuery.html)](tag:hws)[[查询某个仓库的文件信息](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListFilesByQuery.html)](tag:hws_hk)[[查询某个仓库的文件信息](https://support.huaweicloud.com/eu/api-codeartsrepo/ListFilesByQuery.html)](tag:hws_eu)[查询某个仓库的文件信息](tag:hcs,hcs_sm)接口查询某个仓库的文件信息获取。 **取值范围：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} blobId **参数解释：** blob文件ID。通过[[查询某个仓库的文件信息](https://support.huaweicloud.com/api-codeartsrepo/ListFilesByQuery.html)](tag:hws)[[查询某个仓库的文件信息](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListFilesByQuery.html)](tag:hws_hk)[[查询某个仓库的文件信息](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListFilesByQuery.html)](tag:hws_hk_ch)[[查询某个仓库的文件信息](https://support.huaweicloud.com/eu/api-codeartsrepo/ListFilesByQuery.html)](tag:hws_eu)[查询某个仓库的文件信息](tag:hcs,hcs_sm)接口查询某个仓库的文件信息获取。 **取值范围：** 不涉及。
      * @param {string} filePath **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过10000。
      * @param {string} [fileName] **参数解释：** 下载文件名。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
@@ -1661,7 +1722,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取文件追溯信息
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} filePath **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过10000。
      * @param {string} sha **参数解释：** 分支名、tag名、提交ID。
      * @param {*} [options] Override http request option.
@@ -1682,7 +1743,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取当前文件上级树结构
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [filePath] **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过10000。
      * @param {string} [refName] **参数解释：** 分支或者tag名称。 **约束限制：** 不支持以 - . refs/heads/ refs/remotes/ 开头，不支持空格 [ \\ &lt; ~ ^ : ? * ! ( ) \&#39; \&quot; | 等特殊字符，不支持以. / .lock结尾。 **取值范围：** 字符串长度不少于1，不超过200。 **默认取值：** 仓库默认分支。
      * @param {*} [options] Override http request option.
@@ -1703,8 +1764,9 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定分支下所有的文件列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [refName] **参数解释：** 分支或者tag名称。 **约束限制：** 不支持以 - . refs/heads/ refs/remotes/ 开头，不支持空格 [ \\ &lt; ~ ^ : ? * ! ( ) \&#39; \&quot; | 等特殊字符，不支持以. / .lock结尾。 **取值范围：** 字符串长度不少于1，不超过200。 **默认取值：** 仓库默认分支。
+     * @param {string} [search] **参数解释：** 文件名、文件路径 **取值范围：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
@@ -1725,7 +1787,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看文件树
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [ref] **参数解释：** 引用，可以是分支名称、标签名称或者commitid，如果不传则为默认分支。 **取值范围：** 字符串长度不少于1，不超过2000。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -1747,7 +1809,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看分支文件列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [ref] **参数解释：** 引用，可以是分支名称、标签名称或者commitid，如果不传则为默认分支。 **取值范围：** 字符串长度不少于1，不超过2000。
      * @param {string} [path] **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过100000。
      * @param {boolean} [recursive] **参数解释：** 是否递归查询
@@ -1771,7 +1833,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 文件重命名
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {RenameFileBodyDto} renameFileBodyDto 分支名列表
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1791,7 +1853,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看文件属性与内容
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} filePath **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过10000。
      * @param {string} [ref] **参数解释：** 引用，可以是分支名称、标签名称或者commitid，如果不传则为默认分支。 **取值范围：** 字符串长度不少于1，不超过2000。
      * @param {*} [options] Override http request option.
@@ -1812,7 +1874,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取文件内容
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} filePath **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过10000。
      * @param {string} sha **参数解释：** 分支名、tag名、提交ID。
      * @param {*} [options] Override http request option.
@@ -1833,7 +1895,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库单个文件内容
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} filePath **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过10000。
      * @param {string} [ref] **参数解释：** 引用，可以是分支名称、标签名称或者commitid，如果不传则为默认分支。 **取值范围：** 字符串长度不少于1，不超过2000。
      * @param {*} [options] Override http request option.
@@ -1854,7 +1916,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库默认分支的Readme文件内容
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1873,7 +1935,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新文件内容
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} filePath **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过10000。
      * @param {UpdateFileBodyDto} [updateFileBodyDto] 修改文件内容参数
      * @param {*} [options] Override http request option.
@@ -1894,8 +1956,8 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 关联代码组与成员组
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {string} userGroupId **参数解释：** 成员组id。 **取值范围：** 字符串长度32。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1915,7 +1977,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建代码组
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {CreateGroupRequestBody} [createGroupRequestBody] 创建代码组参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1935,8 +1997,8 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除代码组
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1955,8 +2017,8 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组下可添加的成员列表
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {string} [search] **参数解释：** 检索内容
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -1978,8 +2040,8 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组下可添加的成员组
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
@@ -2000,8 +2062,8 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组下可添加的成员列表
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {string} [query] **参数解释：** 成员搜索字符串
      * @param {'domain' | 'normal' | 'inherit'} [joinWay] **参数解释：** 成员加入方式 domain 租户 normal 普通 inherit 继承
      * @param {number} [accessLevel] **参数解释：** 过滤成员的access level， 10待审核 20浏览者 30开发者 40管理员 50所有者
@@ -2039,12 +2101,35 @@ export class CodeArtsRepoClient {
     }
 
     /**
+     * 获取代码组下保护分支列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取代码组下保护分支列表
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
+     * @param {boolean} userActions **参数解释：** 是否返回带有user_action结构的数据，user_action结构的数据为最新的结构，推荐传参为true **约束限制：** true,false **取值范围：** true,false **默认取值：** 默认不传参
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {string} [search] **参数解释：** 检索内容 **约束限制：** 保护分支名称 **取值范围：** 保护分支名称 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGroupProtectedBranches(listGroupProtectedBranchesRequest?: ListGroupProtectedBranchesRequest): Promise<ListGroupProtectedBranchesResponse> {
+        const options = ParamCreater().listGroupProtectedBranches(listGroupProtectedBranchesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取代码组下的子代码组和仓库列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组下的子代码组和仓库列表
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {number} [filter] **参数解释：** 检索条件，名称。
      * @param {'id' | 'name' | 'created_at' | 'updated_at'} [orderBy] **参数解释：** 排序字段 id 唯一标识 name 名称 created_at 创建时间 updated_at 更新时间
      * @param {'asc' | 'desc'} [sort] **参数解释：** 排序顺序 asc顺序 desc逆序
@@ -2069,7 +2154,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 组织下查询成员组列表
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {string} [search] **参数解释：** 组织下用户组id。 **取值范围：** 字符串长度不少于1，不超过1000。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -2117,7 +2202,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目下当前用户有管理权限的代码组列表
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {'group' | 'repository'} [scope] **参数解释：** 创建资源类型。 **约束限制：** - group 代码组。 - repository仓库。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -2139,8 +2224,8 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组信息
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2159,7 +2244,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定代码组的基本设置信息
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2178,7 +2263,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组继承设置项
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2197,7 +2282,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组继承权限设置开关
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2216,7 +2301,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组继承设置项
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2235,7 +2320,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组水印设置
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2254,7 +2339,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定代码组的基本设置信息
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2273,7 +2358,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组的继承设置
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {'protected_branches' | 'protected_tags' | 'push_rules' | 'merge_requests' | 'mr_branch_policies' | 'reviews' | 'e2e_settings' | 'webhook_settings' | 'deploy_keys' | 'watermark' | 'repository_settings'} settingType **参数解释：** 必填项，设置类型protected_branches保护分支 protected_tags保护tag push_rules推送规则 merge_requests合并请求 mr_branch_policies合并分支 reviews检视意见 e2e_settings e2e设置 webhook_settings hook设置 deploy_keys 部署key watermark水印 repository_settings仓库设置。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2293,7 +2378,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 移交代码组
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {BussinessGroupTransferBodyDto} [bussinessGroupTransferBodyDto] 移交代码组参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2313,7 +2398,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新代码组的基本设置信息
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {UpdateGeneralPolicyDto} updateGeneralPolicyDto 更新代码组的基本设置信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2333,7 +2418,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新代码组水印设置
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {UpdateWatermarkDto} updateWatermarkDto 更新代码组水印设置参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2353,7 +2438,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加仓库成员
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {BatchCreateRepositoryMemberBodyDto} batchCreateRepositoryMemberBodyDto 添加成员详情
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2373,7 +2458,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组下成员组列表
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配用户名称、用户昵称、租户名称。
@@ -2390,12 +2475,33 @@ export class CodeArtsRepoClient {
     }
 
     /**
+     * 获取仓库下有审批权限成员（审批用户是否可以进入该仓库）
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取仓库下有审批权限成员
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listManagementUsers(listManagementUsersRequest?: ListManagementUsersRequest): Promise<ListManagementUsersResponse> {
+        const options = ParamCreater().listManagementUsers(listManagementUsersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Total'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取仓库成员列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库成员列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配用户名称、用户昵称、租户名称。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -2419,7 +2525,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目下成员列表
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {string} [query] **参数解释：** 成员搜索字符串
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -2441,7 +2547,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目下成员组列表
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配用户名称、用户昵称、租户名称。
@@ -2463,7 +2569,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库下成员组列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配用户名称、用户昵称、租户名称。
@@ -2485,7 +2591,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取成员组列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配用户名称、用户昵称、租户名称。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -2507,9 +2613,9 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 审核合并请求
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
-     * @param {ApprovalActionTypeDto} [approvalActionTypeDto] 更新项目下Webhook参数
+     * @param {ApprovalActionTypeDto} [approvalActionTypeDto] 审核合并请求
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2528,7 +2634,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary Cherry pick合并请求
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {MrCherryRevertDto} mrCherryRevertDto Cherry pick合并请求请求体
      * @param {*} [options] Override http request option.
@@ -2549,8 +2655,8 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建代码组合并请求审核设置
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
-     * @param {CreateMergeRequestApproverSettingDto} createMergeRequestApproverSettingDto 创建代码组合并请求审核设置参数
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
+     * @param {CreateMergeRequestApproverSettingDto} createMergeRequestApproverSettingDto 创建代码组合并请求审核设置请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2569,7 +2675,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建代码组合并请求模板
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {CreateMergeRequestTemplateDto} createMergeRequestTemplateDto 创建合并请求模板请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2589,7 +2695,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建合并请求
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {PostMergeRequestParamsDtoForOpenApi} postMergeRequestParamsDtoForOpenApi 创建合并请求请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2609,7 +2715,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建合并请求审核设置
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {MergeRequestApproverSettingResultDto} mergeRequestApproverSettingResultDto 创建合并请求审核设置参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2629,7 +2735,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建合并请求模板
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {CreateMergeRequestTemplateDto} createMergeRequestTemplateDto 创建合并请求模板请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2649,7 +2755,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建项目合并请求审核设置
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {CreateMergeRequestApproverSettingDto} createMergeRequestApproverSettingDto 创建项目合并请求审核设置参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2669,7 +2775,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建项目合并请求模板
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {CreateMergeRequestTemplateDto} createMergeRequestTemplateDto 创建合并请求模板请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2689,7 +2795,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除代码组合并请求审核配置
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {number} settingId **参数解释：** 合并请求审核设置id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2709,7 +2815,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除代码组合并请求模板
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {number} templateId **参数解释：** 合并请求模板id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2729,7 +2835,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除合并请求审核配置
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} settingId **参数解释：** 合并请求审核设置id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2749,7 +2855,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除合并请求模板
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} templateId **参数解释：** 合并请求模板id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2769,7 +2875,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除合并请求打分
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2789,7 +2895,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除项目合并请求审核配置
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} settingId **参数解释：** 合并请求审核设置id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2809,7 +2915,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除项目合并请求模板
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} templateId **参数解释：** 合并请求模板id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2829,7 +2935,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 导入合并请求
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {ImportMrParamsDto} importMrParamsDto 导入合并请求请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2849,7 +2955,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取提交关联的合并请求
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} sha **参数解释：** 提交ID。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -2860,7 +2966,7 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listCommitAssociatedMergeRequests(listCommitAssociatedMergeRequestsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -2871,7 +2977,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取检视意见模板列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {boolean} [isDefault] **参数解释：** 是否返回默认模板。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -2882,7 +2988,7 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listDiscussionTemplates(listDiscussionTemplatesRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -2893,7 +2999,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组合并请求审核设置列表
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
@@ -2903,7 +3009,7 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listGroupMergeRequestApproverSettings(listGroupMergeRequestApproverSettingsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -2914,7 +3020,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组检视人
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
@@ -2924,7 +3030,7 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listGroupMergeRequestCanBeAssignedReviewers(listGroupMergeRequestCanBeAssignedReviewersRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -2935,7 +3041,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组合并请求模板列表
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {string} [templateName] **参数解释：** 搜索的模板名称 **取值范围：** 字符串长度不少于1，不超过100000。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -2946,7 +3052,7 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listGroupMergeRequestTemplates(listGroupMergeRequestTemplatesRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -2957,7 +3063,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组审核人或合并人
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
@@ -2967,7 +3073,7 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listGroupMergeRequestValidAssignedCandidates(listGroupMergeRequestValidAssignedCandidatesRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -2978,7 +3084,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取合并请求审核设置列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {'branch' | 'file' | 'project'} [targetType] **参数解释：** 审核配置类型。 **约束限制 ** - branch, 分支配置。 - file, 文件配置 （未启用）。 - project, 项目配置 （未启用）。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -2989,7 +3095,7 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listMergeRequestApproverSettings(listMergeRequestApproverSettingsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3000,9 +3106,9 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取合并请求审核人列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} [targetBranch] **参数解释：** 目标分支。创建MR时，代码将要合入的分支。
-     * @param {string} [sourceBranch] **参数解释：** 目标分支。创建MR时，变更代码所属的分支。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} targetBranch **参数解释：** 目标分支。创建MR时，代码将要合入的分支。
+     * @param {string} sourceBranch **参数解释：** 目标分支。创建MR时，变更代码所属的分支。
      * @param {number} [mergeRequestIid] **参数解释：**  合并请求 iid。
      * @param {string} [targetRepositoryId] **参数解释：** 目标仓库id。创建MR时，代码将要合入的仓库。
      * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配用户名称、用户昵称、租户名称。
@@ -3026,7 +3132,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取合并请求文件变更列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {string} filePath **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过10000。
      * @param {boolean} [ignoreWhitespaceChange] **参数解释：** 是否忽略空白数量更改。 **取值范围：** - true，忽略空白数量的更改。 - false，不会忽略空白数量的更改。
@@ -3042,7 +3148,7 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listMergeRequestChanges(listMergeRequestChangesRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3053,7 +3159,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取合并请求文件变更列表树
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {string} commitId **参数解释：** commit ID。 **取值范围：** 字符串长度不少于1，不超过40。
      * @param {number} [approvalUserId] **参数解释：** 审核人ID。
@@ -3068,7 +3174,7 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listMergeRequestChangesTrees(listMergeRequestChangesTreesRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3079,7 +3185,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取合并请求commit列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {'simple'} [view] **参数解释：** 是否以简单模式展示commit，传值为simple时以简单模式展示，否则正常展示。 **约束限制 ** - simple, 以简单模式展示commit。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
@@ -3091,7 +3197,7 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listMergeRequestCommits(listMergeRequestCommitsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3102,7 +3208,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取所有的冲突文件
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -3114,7 +3220,7 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listMergeRequestConflictFiles(listMergeRequestConflictFilesRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3125,7 +3231,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取合并请求评价列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -3136,7 +3242,7 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listMergeRequestEvaluations(listMergeRequestEvaluationsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3147,7 +3253,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取合并请求参与者
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -3158,7 +3264,7 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listMergeRequestParticipants(listMergeRequestParticipantsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3169,9 +3275,9 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取合并请求检视人列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} [targetBranch] **参数解释：** 目标分支。创建MR时，代码将要合入的分支。
-     * @param {string} [sourceBranch] **参数解释：** 目标分支。创建MR时，变更代码所属的分支。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} targetBranch **参数解释：** 目标分支。创建MR时，代码将要合入的分支。
+     * @param {string} sourceBranch **参数解释：** 目标分支。创建MR时，变更代码所属的分支。
      * @param {number} [mergeRequestIid] **参数解释：**  合并请求 iid。
      * @param {string} [targetRepositoryId] **参数解释：** 目标仓库id。创建MR时，代码将要合入的仓库。
      * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配用户名称、用户昵称、租户名称。
@@ -3195,7 +3301,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取合并请求模板列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {'default' | 'list'} view **参数解释：** 结果集返回的范围 **取值范围：** - default，返回模板名称为“default template”的模板。 - list，返回模板列表。
      * @param {string} [templateName] **参数解释：** 搜索的模板名称 **取值范围：** 字符串长度不少于1，不超过100000。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
@@ -3207,28 +3313,27 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listMergeRequestTemplates(listMergeRequestTemplatesRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * 获取可选的合并请求检视人
+     * 获取仓库审核人或合并人
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取可选的合并请求检视人
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} [targetBranch] **参数解释：** 目标分支。创建MR时，代码将要合入的分支。
+     * @summary 获取仓库审核人或合并人
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} targetBranch **参数解释：** 目标分支。创建MR时，代码将要合入的分支。
      * @param {number} [mergeRequestIid] **参数解释：**  合并请求 iid。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配用户名称、用户昵称、租户名称。
-     * @param {string} [searchByNameList] **参数解释：** Search user list by name list。
-     * @param {string} [targetProjectId] **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
-     * @param {'approver' | 'assignee'} [view] **参数解释：** The type of assignee, merge user or approver
-     * @param {'approver' | 'assignee'} [mode] **参数解释：** The type of assignee, merge user or approver
-     * @param {boolean} [onlyDevelopers] **参数解释：** The type of memeber, developer
+     * @param {string} [searchByNameList] **参数解释：** 批量匹配用户，一次可传多个用户的用户名和昵称，用\&quot;, \&quot;分隔，最多50个。示例：\&quot;zhangsan, lisi, wangwu\&quot;
+     * @param {string} [targetRepositoryId] **参数解释：** 目标仓库id。创建MR时，代码将要合入的仓库。
+     * @param {'approver' | 'assignee'} [view] **参数解释：** approver: 获取审核人 assingee: 获取合并人
+     * @param {boolean} [onlyDevelopers] **参数解释：** true: 仅返回开发者。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3236,7 +3341,7 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listMergeRequestValidAssignedCandidates(listMergeRequestValidAssignedCandidatesRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3247,7 +3352,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取文件变更历史版本列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -3258,7 +3363,7 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listMergeRequestVersions(listMergeRequestVersionsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3277,13 +3382,13 @@ export class CodeArtsRepoClient {
      * @param {Date} [createdAfter] **参数解释：** 指定时间后创建
      * @param {Date} [updatedAfter] **参数解释：** 指定时间后更新
      * @param {Date} [updatedBefore] **参数解释：** 指定时间前更新
-     * @param {'simple' | 'basic'} [view] **参数解释：** 结果集属性，根据给定的参数返回不同的结果， simple，返回简单数据，basic返回基本数据。
+     * @param {'simple' | 'basic' | 'view_for_list'} [view] **参数解释：** 结果集属性，根据给定的参数返回不同的结果， simple，返回简单数据，basic返回基本数据。
      * @param {string} [authorId] **参数解释：** 合并请求创建人
      * @param {'created_by_me' | 'assigned_to_me' | 'need_my_review' | 'need_my_approve' | 'all'} [scope] **参数解释：**   - created_by_me 我创建的合并请求   - assigned_to_me 待我合并的合并请求   - need_my_review 待我检视的合并请求   - need_my_approve 待我审核的合并请求   - all 所有有权限访问的合并请求
      * @param {string} [sourceBranch] **参数解释：** 合并请求原分支
      * @param {string} [targetBranch] **参数解释：** 合并请求目标分支
      * @param {string} [search] **参数解释：** 根据合并请求标题、描述信息过滤关键字
-     * @param {'true' | 'false'} [wip] **参数解释：** 合并请求标题是否有WIP关键字
+     * @param {'yes' | 'no'} [wip] **参数解释：** 合并请求标题是否有WIP关键字
      * @param {string} [mergedBy] **参数解释：** 合并请求合并人
      * @param {Date} [mergedAfter] **参数解释：** 指定时间后合入
      * @param {Date} [mergedBefore] **参数解释：** 指定时间前合入
@@ -3297,7 +3402,7 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listPersonalMergeRequests(listPersonalMergeRequestsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3308,7 +3413,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目合并请求审核设置列表
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
@@ -3318,18 +3423,18 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listProjectMergeRequestApproverSettings(listProjectMergeRequestApproverSettingsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * 获取代码组检视人
+     * 获取项目检视人
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目检视人
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
@@ -3339,18 +3444,18 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listProjectMergeRequestCanBeAssignedReviewers(listProjectMergeRequestCanBeAssignedReviewersRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
 
     /**
-     * 获取代码组审核人或合并人
+     * 获取项目审核人或合并人
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目审核人或合并人
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
@@ -3360,7 +3465,7 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listProjectMergeRequestCanBeAssignedUsers(listProjectMergeRequestCanBeAssignedUsersRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3371,7 +3476,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目合并请求模板列表
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {string} [templateName] **参数解释：** 搜索的模板名称 **取值范围：** 字符串长度不少于1，不超过100000。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -3382,7 +3487,39 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listProjectMergeRequestTemplates(listProjectMergeRequestTemplatesRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取项目MR列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取项目MR列表
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {'all' | 'opened' | 'closed' | 'merged'} [state] **参数解释：** 返回指定状态的合并请求。 **约束限制：** - all，表示所有状态。 - opened，表示开启中状态 - closed，表示已关闭状态 - merged，表示已合并状态
+     * @param {'created_at' | 'updated_at'} [orderBy] **参数解释：** 排序方式。 **取值范围：** - created_at，创建时间。 - updated_at，更新时间。
+     * @param {'asc' | 'desc'} [sort] **参数解释：** 排序方式。 **约束限制：** - asc，升序。 - desc，降序。
+     * @param {string} [authorId] **参数解释：** 返回由指定ID用户创建的合并请求。 多个ID以逗号\&#39;,\&#39;分隔，返回满足条件的合并请求并集。
+     * @param {string} [sourceBranch] **参数解释：** 返回指定源分支的合并请求。
+     * @param {string} [targetBranch] **参数解释：** 返回指定目标分支的合并请求。
+     * @param {string} [search] **参数解释：** 合并请求关键字搜索。 返回标题或者描述包含对应关键字的合并请求。
+     * @param {number} [sourceRepositoryId] **参数解释：** 查询指定源仓库的数据。
+     * @param {boolean} [onlyCount] **参数解释：** 是否仅返回合并请求计数。 **取值范围：** - true，仅返回合并请求计数。 - false，返回合并请求详细信息。
+     * @param {string} [labels] **参数解释：** 查询包含指定labels的合并请求。
+     * @param {string} [topic] **参数解释：** 合并请求主题
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProjectMergeRequests(listProjectMergeRequestsRequest?: ListProjectMergeRequestsRequest): Promise<ListProjectMergeRequestsResponse> {
+        const options = ParamCreater().listProjectMergeRequests(listProjectMergeRequestsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3393,7 +3530,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库MR列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {'all' | 'opened' | 'closed' | 'merged'} [state] **参数解释：** 返回指定状态的合并请求。 **约束限制：** - all，表示所有状态。 - opened，表示开启中状态 - closed，表示已关闭状态 - merged，表示已合并状态
@@ -3413,7 +3550,7 @@ export class CodeArtsRepoClient {
         const options = ParamCreater().listRepositoryMergeRequests(listRepositoryMergeRequestsRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Total'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3424,7 +3561,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 合入合并请求
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {MergeMergeRequestBodyDto} mergeMergeRequestBodyDto 合入合并请求请求体
      * @param {*} [options] Override http request option.
@@ -3445,7 +3582,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 变基合并请求
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3465,7 +3602,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 在线解决合并请求冲突
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {ResolveConflictDto} resolveConflictDto 解决合并请求冲突请求体
      * @param {*} [options] Override http request option.
@@ -3486,9 +3623,9 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 检视合并请求
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
-     * @param {ApprovalActionTypeDto} [approvalActionTypeDto] 更新项目下Webhook参数
+     * @param {ApprovalActionTypeDto} [approvalActionTypeDto] 检视合并请求
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3507,7 +3644,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取合并请求关联的最新流水线
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3527,7 +3664,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取合并请求的平均评价
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3547,7 +3684,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取分支代码冲突
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} sourceRepositoryId **参数解释：** 查询指定源仓库的数据。
      * @param {string} sourceBranch **参数解释：** 源分支。
      * @param {string} targetBranch **参数解释：** 目标分支。
@@ -3570,7 +3707,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码页单个提交下文件的检视意见
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} sha **参数解释：** 提交ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3590,7 +3727,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组合并请求设置
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3609,15 +3746,15 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取合并请求文件变更页单个文件下的检视意见
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
-     * @param {number} [line] 
-     * @param {boolean} [withCommitComments] 
+     * @param {number} [line] **参数解释：** 获取特定行的检视意见列表(新增、不变行使用右侧行号；删除行使用左侧行号)。
+     * @param {boolean} [withCommitComments] **参数解释：** 是否返回在代码页签下加的评论。 **取值范围：** - true，补充代码页签下的评论并返回。 - false，不处理。
      * @param {string} [path] **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过100000。
-     * @param {'basic'} [view] 
-     * @param {string} [baseSha] 合并请求中原分支与目标分支的共同基准点
-     * @param {string} [startSha] 合并请求中，从共同基准点开始到原分支方向的第一个提交点
-     * @param {string} [headSha] 合并请求中原分支指向的提交点
+     * @param {'basic'} [view] **参数解释：** 是否只返回基础信息。 **取值范围：** - basic，返回基础信息(建议)。 - sample，额外返回代码片段等信息。
+     * @param {string} [baseSha] **参数解释：** 合并请求中原分支与目标分支的共同基准点。 **取值范围：** 长度为40的sha1字符串。
+     * @param {string} [startSha] **参数解释：** 合并请求中，从共同基准点开始到原分支方向的第一个提交点。 **取值范围：** 长度为40的sha1字符串。
+     * @param {string} [headSha] **参数解释：** 合并请求中原分支指向的提交点。 **取值范围：** 长度为40的sha1字符串。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3636,7 +3773,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取MR详情
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3656,7 +3793,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库合并请求设置
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3675,7 +3812,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取单个合并请求模板
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} templateId **参数解释：** 合并请求模板id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3695,7 +3832,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取合并请求打分
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3715,7 +3852,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取合并请求的可合入状态。
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3735,7 +3872,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目合并请求设置
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3754,7 +3891,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库合并请求统计数据
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} iids **参数解释：** 合并请求iid。
      * @param {'commits_count' | 'changed_files_count' | 'notes_count' | 'changed_lines_count'} [fields] **参数解释：** 统计字段。 **约束限制 ** - commits_count，统计提交数 - changed_files_count，文件变更数 - notes_count， 检视意见数 - changed_lines_count，代码变更行数
      * @param {*} [options] Override http request option.
@@ -3775,7 +3912,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新代码组合并请求审核设置
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {number} settingId **参数解释：** 合并请求审核设置id。
      * @param {CreateMergeRequestApproverSettingDto} [createMergeRequestApproverSettingDto] 更新代码组合并请求审核设置
      * @param {*} [options] Override http request option.
@@ -3796,7 +3933,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新代码组合并请求模板
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {number} templateId **参数解释：** 合并请求模板id。
      * @param {CreateMergeRequestTemplateDto} createMergeRequestTemplateDto 创建合并请求模板请求体
      * @param {*} [options] Override http request option.
@@ -3817,7 +3954,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新合并请求
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {PutMergeRequestParamsDto} putMergeRequestParamsDto 更新合并请求请求体
      * @param {*} [options] Override http request option.
@@ -3838,9 +3975,9 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新合并请求审核设置
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} settingId **参数解释：** 合并请求审核设置id。
-     * @param {MergeRequestApproverSettingResultDto} [mergeRequestApproverSettingResultDto] 更新项目下Webhook参数
+     * @param {MergeRequestApproverSettingResultDto} [mergeRequestApproverSettingResultDto] 更新合并请求审核设置请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3859,9 +3996,9 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新合并请求的审核人列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
-     * @param {ApprovalApproverInfoDto} [approvalApproverInfoDto] 更新项目下Webhook参数
+     * @param {ApprovalApproverInfoDto} [approvalApproverInfoDto] 更新合并请求的审核人列表
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3880,9 +4017,9 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新合并请求的检视人列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
-     * @param {ApprovalReviewerInfoDto} [approvalReviewerInfoDto] 更新项目下Webhook参数
+     * @param {ApprovalReviewerInfoDto} [approvalReviewerInfoDto] 更新合并请求的检视人列表
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3901,7 +4038,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新仓库合并请求设置
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {UpdateMergeRequestSettingDto} updateMergeRequestSettingDto 更新仓库合并请求设置请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3921,7 +4058,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新合并请求模板
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} templateId **参数解释：** 合并请求模板id。
      * @param {CreateMergeRequestTemplateDto} createMergeRequestTemplateDto 创建合并请求模板请求体
      * @param {*} [options] Override http request option.
@@ -3942,7 +4079,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新合并请求打分
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} mergeRequestIid **参数解释：**  合并请求 iid。
      * @param {MergeRequestVoteBodyDto} mergeRequestVoteBodyDto 更新合并请求打分
      * @param {*} [options] Override http request option.
@@ -3963,7 +4100,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新项目合并请求审核设置
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} settingId **参数解释：** 合并请求审核设置id。
      * @param {CreateMergeRequestApproverSettingDto} [createMergeRequestApproverSettingDto] 更新项目合并请求审核设置
      * @param {*} [options] Override http request option.
@@ -3984,7 +4121,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新项目合并请求模板
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} templateId **参数解释：** 合并请求模板id。
      * @param {CreateMergeRequestTemplateDto} createMergeRequestTemplateDto 创建合并请求模板请求体
      * @param {*} [options] Override http request option.
@@ -4005,7 +4142,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除仓库文件推送权限
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {BatchDeleteFilePushPermissionDto} batchDeleteFilePushPermissionDto 批量删除仓库文件推送权限
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4025,7 +4162,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量更新仓库文件推送权限
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {BatchUpdateFilePushPermissionBodyDto} batchUpdateFilePushPermissionBodyDto 批量更新仓库文件推送权限
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4045,7 +4182,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建仓库文件推送权限
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {CreateRepositoryFilePushPermissionDto} createRepositoryFilePushPermissionDto 创建仓库文件推送权限
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4065,7 +4202,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库文件推送权限列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配保护分支名。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -4087,7 +4224,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询仓库权限矩阵配置
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} resourceName **参数解释：** 权限资源名称 **约束限制：** 不涉及。 **取值范围：** - repository， 仓库 - code，代码 - member，成员 - branch，分支 - tag，Tag - mr，MR - label, 合并请求标签
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -4109,7 +4246,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询仓库权限配置信息
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4123,12 +4260,33 @@ export class CodeArtsRepoClient {
     }
 
     /**
+     * 更新代码组权限矩阵配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新代码组权限矩阵配置
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
+     * @param {number} resourceId **参数解释：** 资源Id，通过获取代码组权限资源点列表获取的数据中的Id **默认取值：** 不涉及。
+     * @param {UpdatePermissionBodyDto} updatePermissionBodyDto 更新代码组权限矩阵配置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateGroupResourcePermissions(updateGroupResourcePermissionsRequest?: UpdateGroupResourcePermissionsRequest): Promise<UpdateGroupResourcePermissionsResponse> {
+        const options = ParamCreater().updateGroupResourcePermissions(updateGroupResourcePermissionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新仓库权限继承配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新仓库权限继承配置
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {PermissionInheritEnabledDto} permissionInheritEnabledDto 更新权限继承参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4148,7 +4306,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新仓库权限矩阵配置
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} resourceName **参数解释：** 权限资源名称 **约束限制：** 不涉及。 **取值范围：** - repository， 仓库 - code，代码 - member，成员 - branch，分支 - tag，Tag - mr，MR - label, 合并请求标签
      * @param {UpdatePermissionBodyDto} updatePermissionBodyDto 更新仓库权限矩阵配置
      * @param {*} [options] Override http request option.
@@ -4169,7 +4327,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取流水线的关联的最新任务
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} pipelineId **参数解释：**  流水线 id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4189,7 +4347,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取流水线的关联的任务列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} pipelineId **参数解释：**  流水线 id。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -4211,7 +4369,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 工作项关联的提交信息
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {string} itemId **参数解释：** 工作项Id。 **约束限制：** 不涉及  **取值范围：** 字符串长度不少于1，不超过128。
      * @param {'commit' | 'branch' | 'mergerequest'} [type] **参数解释：** 工作项关联的提交类型。 **约束限制：** 不涉及  **取值范围：** - commit，提交。 - branch，分支。 - mergerequest，合并请求。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
@@ -4234,7 +4392,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目下的代码组和仓库列表
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} [filter] **参数解释：** 检索条件，名称。
      * @param {'id' | 'name' | 'created_at' | 'updated_at'} [orderBy] **参数解释：** 排序字段 id 唯一标识 name 名称 created_at 创建时间 updated_at 更新时间
      * @param {'asc' | 'desc'} [sort] **参数解释：** 排序顺序 asc顺序 desc逆序
@@ -4259,7 +4417,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定项目的基本设置信息
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4278,7 +4436,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目成员设置
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
@@ -4299,7 +4457,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目继承设置项
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4318,7 +4476,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目水印设置
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4337,7 +4495,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定项目的基本设置信息
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4351,13 +4509,16 @@ export class CodeArtsRepoClient {
     }
 
     /**
-     * 获取资源点对应的角色和权限
+     * 获取代码组中指定权限资源下的权限矩阵。
+     * 说明：
+     * (a) 权限资源：CodeArtsRepo中需要鉴权的对象。代码组层级的权限资源有：代码组、仓库、代码、成员、Tag、合并请求&amp;变更请求、标签。&lt;动作 + 权限资源&gt; 就构成权限点，如：新建仓库、下载代码、添加成员等。权限点是CodeArtsRepo鉴权的基本单位。
+     * (b) 权限矩阵：记录了角色和权限点之间的关联关系，即记录了角色有哪些权限，没有哪些权限。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取资源点对应的角色和权限
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
-     * @param {number} resourceId **参数解释：** 资源Id，通过获取代码组权限资源点列表获取的数据中的Id
+     * @summary 获取代码组中指定权限资源下的权限矩阵
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
+     * @param {number} resourceId **参数解释：** 资源Id，通过获取代码组权限资源点列表获取的数据中的Id **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
@@ -4378,7 +4539,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新项目的基本设置信息
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {UpdateGeneralPolicyDto} updateGeneralPolicyDto 更新项目的基本设置信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4398,7 +4559,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新项目继承设置项
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {SettingsInheritCfgBodyApiDto} settingsInheritCfgBodyApiDto 更新项目继承设置项
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4418,7 +4579,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新项目水印设置
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {UpdateWatermarkDto} updateWatermarkDto 更新项目水印设置参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4438,7 +4599,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量创建仓库保护分支
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {RepositoryProtectedBranchBodyDto} repositoryProtectedBranchBodyDto 批量创建仓库保护分支
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4458,7 +4619,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量创建仓库保护Tag
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {RepositoryProtectedTagBodyDto} repositoryProtectedTagBodyDto 批量创建仓库保护分支
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4478,7 +4639,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除仓库保护分支
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {BatchDeleteProtectedBranchesBodyDto} batchDeleteProtectedBranchesBodyDto 批量删除仓库保护分支
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4498,7 +4659,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除仓库保护Tag
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {BatchDeleteProtectedTagsBodyDto} batchDeleteProtectedTagsBodyDto 批量更新仓库保护Tag
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4518,7 +4679,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量更新仓库保护分支
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {BatchUpdateProtectedBranchesBodyDto} batchUpdateProtectedBranchesBodyDto 批量更新仓库保护分支
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4538,7 +4699,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量更新仓库保护Tag
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {BatchUpdateProtectedTagsBodyDto} batchUpdateProtectedTagsBodyDto 批量更新仓库保护Tag
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4558,7 +4719,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建项目下保护分支
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {ProtectedBranchBodyApiDto} protectedBranchBodyApiDto 创建项目下保护分支
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4578,7 +4739,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建项目下的保护tag
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {ProjectProtectedTagDto} projectProtectedTagDto 创建项目下的保护tag
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4598,7 +4759,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除仓库保护分支
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} branchName **参数解释：** 保护分支名或通配符列表。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4618,7 +4779,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除仓库保护Tag
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} tagName **参数解释：** 保护分Tag或通配符列表。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4638,7 +4799,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目下保护分支列表
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {string} [search] **参数解释：** 保护分支名称。 **取值范围：** 字符串长度不少于1，不超过2000。
@@ -4662,7 +4823,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定项目的保护tag详情
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4681,7 +4842,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库保护分支列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配保护分支名。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
@@ -4703,7 +4864,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库保护Tag列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配保护Tag名。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
@@ -4725,7 +4886,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库保护分支
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} branchName **参数解释：** 保护分支名或通配符表达式。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4745,7 +4906,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库保护Tag
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} tagName **参数解释：** 保护分Tag或通配符列表。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4765,7 +4926,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新仓库保护分支
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} branchName **参数解释：** 保护分支名或通配符表达式。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {Array<ProtectedBranchProtectedActionBodyDto>} protectedBranchProtectedActionBodyDto 更新仓库保护分支
      * @param {*} [options] Override http request option.
@@ -4786,7 +4947,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新仓库保护Tag
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} tagName **参数解释：** 保护分Tag或通配符列表。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {Array<RepositoryProtectedTagActionBodyDto>} repositoryProtectedTagActionBodyDto 更新仓库保护Tag
      * @param {*} [options] Override http request option.
@@ -4802,35 +4963,12 @@ export class CodeArtsRepoClient {
     }
 
     /**
-     * 查看分支/tag列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查看分支/tag列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {'branch' | 'tag'} [type] **参数解释：** 分支或者tag。 **取值范围：** 只能为branch或者tag。 **约束限制：** 只能为branch或者tag。
-     * @param {string} [search] **参数解释：** 搜索关键词。
-     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
-     * @param {number} [limit] **参数解释：** 返回数量。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listRefsList(listRefsListRequest?: ListRefsListRequest): Promise<ListRefsListResponse> {
-        const options = ParamCreater().listRefsList(listRefsListRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 批量删除分支
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除分支
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {BatchDeleteBranchDto} batchDeleteBranchDto 分支名列表
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4850,7 +4988,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建分支
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {CreateBranchDto} createBranchDto 分支详情
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4870,7 +5008,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建标签
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {CreateTagDto} createTagDto 创建标签参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4890,8 +5028,8 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除分支
-     * @param {string} branchName **参数解释：** 分支名称。 **取值范围：** 字符串长度不少于1，不超过2000。
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} branchName **参数解释：** 分支名称。 **约束限制：** 不涉及。 **取值范围：** 字符串长度不少于1，不超过2000。 **默认取值：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4910,7 +5048,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除标签
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} tagName **参数解释：** 标签名称。 **取值范围：** 字符串长度不少于1，不超过2000。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4930,7 +5068,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取分支列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {'not_protect'} [branchType] **参数解释：** 分支类型，默认返回全部分支，not_protect，返回非保护分支。 **约束限制：** 不涉及。 **取值范围：** 不涉及。
      * @param {string} [creator] **参数解释：** 创建者，用户ID或者IamId。 **取值范围：** 字符串长度不少于1，不超过100000。
      * @param {'name' | 'updated_desc' | 'updated_asc'} [sort] **参数解释：** 排序方式 **约束限制：** - name，分支名倒序。 - updated_desc，更新时间倒序。 - updated_asc，更新时间正序。
@@ -4951,12 +5089,35 @@ export class CodeArtsRepoClient {
     }
 
     /**
+     * 查看分支/tag列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看分支/tag列表
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {'branch' | 'tag'} [type] **参数解释：** 分支或者tag。 **取值范围：** 只能为branch或者tag。 **约束限制：** 只能为branch或者tag。
+     * @param {string} [search] **参数解释：** 搜索关键词。
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRefsList(listRefsListRequest?: ListRefsListRequest): Promise<ListRefsListResponse> {
+        const options = ParamCreater().listRefsList(listRefsListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取标签列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取标签列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [creator] **参数解释：** 创建者，用户ID或者IamId。 **取值范围：** 字符串长度不少于1，不超过100000。
      * @param {'asc' | 'desc'} [sort] **参数解释：** 排序方式。 **约束限制：** - asc，升序。 - desc，降序。
      * @param {string} [search] **参数解释：** 搜索条件，按标签名称搜索。 **取值范围：** 字符串长度不少于1，不超过2000。
@@ -4982,8 +5143,8 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取分支详情
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} branchName **参数解释：** 分支名称。 **取值范围：** 字符串长度不少于1，不超过2000。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} branchName **参数解释：** 分支名称。 **约束限制：** 不涉及。 **取值范围：** 字符串长度不少于1，不超过2000。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5002,7 +5163,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看标签详情
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} tagName **参数解释：** 标签名称。 **取值范围：** 字符串长度不少于1，不超过2000。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5022,7 +5183,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 分支重命名
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {UpdateBranchDto} updateBranchDto 更新分支名称参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5042,7 +5203,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建子模块
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {SubmoduleReqDto} submoduleReqDto 子模块详情
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5082,7 +5243,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 将普通仓库与远程镜像关联
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {RemoteMirrorDto} [remoteMirrorDto] 镜像同步信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5102,8 +5263,8 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 关联仓库与成员组
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} userGroupId **参数解释：** 成员组id。 **取值范围：** 字符串长度32。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5142,7 +5303,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建指定分支下的目录
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {RepositoryDirDto} repositoryDirDto 目录信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5162,7 +5323,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建仓库提交规则
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {CommitRuleCreateBodyDto} commitRuleCreateBodyDto 仓库通用提交规则
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5182,7 +5343,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建仓库标签
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {LabelCreateDto} labelCreateDto list of label
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5202,7 +5363,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建仓库系统标签
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5221,7 +5382,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除仓库标签
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} name **参数解释：** 标签名 **约束限制：** 必传。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5261,7 +5422,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 仓库下载
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [sha] **参数解释：** 分支名、tag名、提交ID。
      * @param {string} [path] **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过100000。
      * @param {string} [archiveFormat] **参数解释：** 下载格式。 **取值范围：** - zip。 - tar.gz。   - tar.bz2。 - tar。
@@ -5283,7 +5444,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 触发仓库统计任务
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {StatisticsParamsDto} statisticsParamsDto 分支名列表
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5331,7 +5492,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组下仓库列表
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {string} [search] **参数解释：** 仓库名称搜索关键字。 **取值范围：** 不涉及。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -5355,7 +5516,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取当前用户最近提交动态列表
-     * @param {string} [projectId] **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} [projectId] **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} [size] **参数解释：** 获取数量。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5404,7 +5565,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目下仓库列表
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {string} [search] **参数解释：** 仓库名称搜索关键字。 **取值范围：** 不涉及。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -5428,7 +5589,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看仓库提交规则
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
@@ -5449,7 +5610,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库贡献者列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {'name' | 'email' | 'commits'} [orderBy] **参数解释：** 排序方式。 **取值范围：** - name，名字。 - email，邮箱。 - commits，提交数量。
@@ -5475,7 +5636,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库动态
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} [authorId] **参数解释：** 操作者id。
      * @param {'all' | 'push'} [filter] **参数解释：** 动态类型。 **约束限制：** - all，表示全部。 - push，表示推送。
      * @param {Date} [before] **参数解释：** 开始日期。
@@ -5500,7 +5661,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库Fork列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {'created_at' | 'updated_at'} [orderBy] **参数解释：**  排序字段。 **约束限制：**  必须为枚举值中的选项。 **取值范围：**  - created_at，创建时间。 - updated_at，更新时间。 **默认取值：**  created_at。
@@ -5524,7 +5685,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库标签列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {string} [search] **参数解释：** 查询关键字，可模糊匹配标签名。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
@@ -5549,7 +5710,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库默认分支语言统计
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5558,6 +5719,32 @@ export class CodeArtsRepoClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Total'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取代码导航引用关系
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取代码导航引用关系
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} symbol **参数解释：** 搜索符号（页面选中的字符串） **取值范围：** 不涉及
+     * @param {string} language **参数解释：** 代码语言 **取值范围：** - C - C++ - Go - Java - JavaScript - PHP - Python - Ruby - Rust
+     * @param {string} blob **参数解释：** blob文件ID。通过[[查询某个仓库的文件信息](https://support.huaweicloud.com/api-codeartsrepo/ListFilesByQuery.html)](tag:hws)[[查询某个仓库的文件信息](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListFilesByQuery.html)](tag:hws_hk)[查询某个仓库的文件信息](tag:hcs,hcs_sm)接口查询某个仓库的文件信息获取。 **取值范围：** 不涉及。
+     * @param {string} filePath **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过10000。
+     * @param {string} [path] **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过100000。
+     * @param {string} [revision] **参数解释：** 版本提交id **取值范围：** 不涉及
+     * @param {string} [ref] **参数解释：** 引用，可以是分支名称、标签名称或者commitid，如果不传则为默认分支。 **取值范围：** 字符串长度不少于1，不超过2000。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRepositoryNavigationReferences(listRepositoryNavigationReferencesRequest?: ListRepositoryNavigationReferencesRequest): Promise<ListRepositoryNavigationReferencesResponse> {
+        const options = ParamCreater().listRepositoryNavigationReferences(listRepositoryNavigationReferencesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -5577,7 +5764,7 @@ export class CodeArtsRepoClient {
      * @param {string} [enterType] **参数解释：** 参赛类型。 **约束限制：** 不涉及 **取值范围：** - AI。 - 大数据。 - 小程序。 - 微服务。 **默认取值：** 不涉及
      * @param {'up' | 'down'} [dateOrder] **参数解释：** 按照模板仓的创建时间进行排序。 **约束限制：** 不涉及 **取值范围：** - up，升序。 - down，降序。 **默认取值：** 不涉及
      * @param {string} [language] **参数解释：** 编程语言。 **约束限制：** 不涉及 **取值范围：** - ArkTS。 - ASP.NET。 - C。 - C#。 - C++。 - Go。 - Groovy。 - HTML。 - Java。 - NodeJS。 - OTHERS。 - PHP。 - Python。 **默认取值：** 不涉及
-     * @param {string} [projectId] **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 当该参数不为空时，仅返回当前项目下符合搜索条件的模板仓 **取值范围：** 字符串长度32。 **取值范围：** 不涉及
+     * @param {string} [projectId] **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 当该参数不为空时，仅返回当前项目下符合搜索条件的模板仓 **取值范围：** 字符串长度32。 **取值范围：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5596,7 +5783,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库指定分支或者标签子模块列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} sha **参数解释：** 分支名、tag名、提交ID。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -5639,8 +5826,8 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 锁定仓库
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5654,12 +5841,31 @@ export class CodeArtsRepoClient {
     }
 
     /**
+     * 触发代码导航任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 触发代码导航任务
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public rebuildRepositoryNavigation(rebuildRepositoryNavigationRequest?: RebuildRepositoryNavigationRequest): Promise<RebuildRepositoryNavigationResponse> {
+        const options = ParamCreater().rebuildRepositoryNavigation(rebuildRepositoryNavigationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除仓库部署密钥
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除仓库部署密钥
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} keyId **参数解释：**  部署密钥 ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5674,12 +5880,12 @@ export class CodeArtsRepoClient {
     }
 
     /**
-     * 将该该仓库的部署密钥从子模组中删除
+     * 将该仓库的部署密钥从子模组中删除
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除子仓库部署密钥
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} keyId **参数解释：**  部署密钥 ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5699,8 +5905,8 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取文件内容
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} blobId **参数解释：** blob文件ID。通过[[查询某个仓库的文件信息](https://support.huaweicloud.com/api-codeartsrepo/ListFilesByQuery.html)](tag:hws)[[查询某个仓库的文件信息](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListFilesByQuery.html)](tag:hws_hk)[[查询某个仓库的文件信息](https://support.huaweicloud.com/eu/api-codeartsrepo/ListFilesByQuery.html)](tag:hws_eu)[查询某个仓库的文件信息](tag:hcs,hcs_sm)接口查询某个仓库的文件信息获取。 **取值范围：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} blobId **参数解释：** blob文件ID。通过[[查询某个仓库的文件信息](https://support.huaweicloud.com/api-codeartsrepo/ListFilesByQuery.html)](tag:hws)[[查询某个仓库的文件信息](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListFilesByQuery.html)](tag:hws_hk)[[查询某个仓库的文件信息](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListFilesByQuery.html)](tag:hws_hk_ch)[[查询某个仓库的文件信息](https://support.huaweicloud.com/eu/api-codeartsrepo/ListFilesByQuery.html)](tag:hws_eu)[查询某个仓库的文件信息](tag:hcs,hcs_sm)接口查询某个仓库的文件信息获取。 **取值范围：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5719,8 +5925,8 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库指定分支的提交统计信息
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} branchName **参数解释：** 分支名称。 **取值范围：** 字符串长度不少于1，不超过2000。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} branchName **参数解释：** 分支名称。 **约束限制：** 不涉及。 **取值范围：** 字符串长度不少于1，不超过2000。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5739,7 +5945,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 按行数查询提交文件内容
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} filePath **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过10000。
      * @param {string} commitId **参数解释：** commit ID。 **取值范围：** 字符串长度不少于1，不超过40。
      * @param {number} start **参数解释：** 文件开始行数。
@@ -5762,7 +5968,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库最近推送事件
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5781,7 +5987,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库通知设置
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {'internal_message' | 'email' | 'qyweixin' | 'feishu' | 'dingding'} type **参数解释：** 通知类型。 **取值范围：**   - internal_message，站内信。   - email，邮件。   - qyweixin，企业微信。   - feishu，飞书。   - dingding，钉钉。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5801,7 +6007,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库通知设置启用状态
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5820,7 +6026,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 分支、tags、提交对比
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} from **参数解释：** 要开始比较的分支名称、标签名称或者commitid。 **取值范围：** 字符串长度不少于1，不超过100000。
      * @param {string} to **参数解释：** 要停止比较的分支名称、标签名称或者commitid。 **取值范围：** 字符串长度不少于1，不超过100000。
      * @param {'branch' | 'commit' | 'tag'} [compareType] **参数解释：** 对比类型。 **取值范围：** - branch，分支。 - commit，提交。 - tag，标签。
@@ -5851,7 +6057,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库镜像详情
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5865,12 +6071,51 @@ export class CodeArtsRepoClient {
     }
 
     /**
+     * 获取仓库最近的提交统计信息，其中按人员统计记录最多统计按创建时间降序的前100条数据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取仓库最近的提交统计信息
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} branchName **参数解释：** 分支名称。 **约束限制：** 不涉及。 **取值范围：** 字符串长度不少于1，不超过2000。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRepoLastStatistics(showRepoLastStatisticsRequest?: ShowRepoLastStatisticsRequest): Promise<ShowRepoLastStatisticsResponse> {
+        const options = ParamCreater().showRepoLastStatistics(showRepoLastStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取仓库统计信息概览，包括仓库大小，分支数量，提交数量等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取仓库统计信息概览
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRepoStatisticsSummary(showRepoStatisticsSummaryRequest?: ShowRepoStatisticsSummaryRequest): Promise<ShowRepoStatisticsSummaryResponse> {
+        const options = ParamCreater().showRepoStatisticsSummary(showRepoStatisticsSummaryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取仓库详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库详情
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5889,7 +6134,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看仓库通用提交规则
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5908,7 +6153,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看仓库通用策略
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5927,7 +6172,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看仓库继承设置
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5946,8 +6191,8 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看仓库继承设置源
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {'protected_branches' | 'protected_tags'} [name] **参数解释：** 设置名称。 **约束限制：** 不涉及。 **取值范围：** - protected_branches，保护分支。 - protected_tags，保护Tag。 **默认取值：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {'protected_branches' | 'protected_tags' | 'merge_requests'} name **参数解释：** 设置名称。 **约束限制：** 不涉及。 **取值范围：** - protected_branches：保护分支。 - protected_tags：保护Tag。 - merge_requests：合并请求。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5961,12 +6206,74 @@ export class CodeArtsRepoClient {
     }
 
     /**
+     * 获取代码导航功能的语言信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取代码导航功能的语言信息
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRepositoryNavigationLanguage(showRepositoryNavigationLanguageRequest?: ShowRepositoryNavigationLanguageRequest): Promise<ShowRepositoryNavigationLanguageResponse> {
+        const options = ParamCreater().showRepositoryNavigationLanguage(showRepositoryNavigationLanguageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取代码导航大纲
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取代码导航大纲
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} language **参数解释：** 代码语言 **取值范围：** - C - C++ - Go - Java - JavaScript - PHP - Python - Ruby - Rust
+     * @param {string} blob **参数解释：** blob文件ID。通过[[查询某个仓库的文件信息](https://support.huaweicloud.com/api-codeartsrepo/ListFilesByQuery.html)](tag:hws)[[查询某个仓库的文件信息](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListFilesByQuery.html)](tag:hws_hk)[查询某个仓库的文件信息](tag:hcs,hcs_sm)接口查询某个仓库的文件信息获取。 **取值范围：** 不涉及。
+     * @param {string} filePath **参数解释：** 文件路径。 **取值范围：** 字符串长度不少于1，不超过10000。
+     * @param {string} [revision] **参数解释：** 版本提交id **取值范围：** 不涉及
+     * @param {string} [ref] **参数解释：** 引用，可以是分支名称、标签名称或者commitid，如果不传则为默认分支。 **取值范围：** 字符串长度不少于1，不超过2000。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRepositoryNavigationOutline(showRepositoryNavigationOutlineRequest?: ShowRepositoryNavigationOutlineRequest): Promise<ShowRepositoryNavigationOutlineResponse> {
+        const options = ParamCreater().showRepositoryNavigationOutline(showRepositoryNavigationOutlineRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取代码导航功能的模式信息，包括最近索引创建时间，做大统计的文件数量信息等
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取代码导航功能的模式信息
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRepositoryNavigationSchema(showRepositoryNavigationSchemaRequest?: ShowRepositoryNavigationSchemaRequest): Promise<ShowRepositoryNavigationSchemaResponse> {
+        const options = ParamCreater().showRepositoryNavigationSchema(showRepositoryNavigationSchemaRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取仓库统计任务状态
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库统计任务状态
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5985,7 +6292,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库统计摘要
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6004,7 +6311,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库水印设置
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6023,7 +6330,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取CR仓库用户分支或标签级权限
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} targetRef **参数解释：** 分支或者标签名称。  **约束限制：** 不支持空格 [ \\ &lt; ~ ^ : ? * ! ( ) \&#39; \&quot; | 等特殊字符，不支持以. / .lock结尾，分支以refs/head/开头，标签以refs/tag/开头  **取值范围：** 字符串长度不少于1，不超过210。 **默认取值：** 不涉及。
      * @param {'read' | 'review' | 'approval' | 'create-change' | 'merge' | 'create-delete' | 'push'} [action] **参数解释：** 动作类型，可用于查询指定动作的权限 - read，查看 - review，检视 - approval, 审核 - create-change，创建变更请求 - merge，合并变更请求 - create-delete，创建/删除分支 - push, 推送
      * @param {number} [changeRequestIid] **参数解释：** 变更请求在仓库内部的ID。
@@ -6045,7 +6352,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 启动仓库加速
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6064,7 +6371,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 启动仓库镜像同步
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {RemoteMirrorSyncInfoDto} [remoteMirrorSyncInfoDto] 镜像同步信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6084,7 +6391,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 仓库部署密钥同步到子仓
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} keyId **参数解释：**  部署密钥 ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6099,13 +6406,33 @@ export class CodeArtsRepoClient {
     }
 
     /**
+     * 将仓库转移到其他代码组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 转移仓库
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {RepositoryTransferBodyDto} repositoryTransferBodyDto 转移仓库
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public transferRepository(transferRepositoryRequest?: TransferRepositoryRequest): Promise<TransferRepositoryResponse> {
+        const options = ParamCreater().transferRepository(transferRepositoryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 解锁仓库
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 解锁仓库
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6124,7 +6451,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改仓库通知设置
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {'internal_message' | 'email' | 'qyweixin' | 'feishu' | 'dingding'} type **参数解释：** 通知类型。 **取值范围：**   - internal_message，站内信。   - email，邮件。   - qyweixin，企业微信。   - feishu，飞书。   - dingding，钉钉。
      * @param {UpdateRepoNotificationSubscriptionDto} [updateRepoNotificationSubscriptionDto] The properties of the update subscription
      * @param {*} [options] Override http request option.
@@ -6145,7 +6472,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改仓库提交规则
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} commitRuleId **参数解释：** 仓库提交规则ID。 **约束限制：** 不涉及。 **取值范围：** 1-2147483647 **默认取值：** 不涉及。
      * @param {CommitRuleUpdateBodyDto} commitRuleUpdateBodyDto 仓库通用提交规则
      * @param {*} [options] Override http request option.
@@ -6166,7 +6493,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改仓库通用提交规则
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {GeneralCommitRuleBodyDto} generalCommitRuleBodyDto 仓库通用提交规则
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6186,7 +6513,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改仓库通用策略
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {GeneralPolicyBodyDto} generalPolicyBodyDto 仓库通用策略
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6206,7 +6533,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改仓库继承设置
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {RepositoryInheritSettingsBodyDto} repositoryInheritSettingsBodyDto 仓库继承设置
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6226,7 +6553,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改仓库标签
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {BodyPutLabelDto} bodyPutLabelDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6246,7 +6573,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新仓库镜像信息
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {RemoteMirrorUpdateBody} [remoteMirrorUpdateBody] 镜像同步信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6266,7 +6593,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新仓库水印设置
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {UpdateWatermarkDto} updateWatermarkDto 更新仓库水印设置参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6321,6 +6648,25 @@ export class CodeArtsRepoClient {
     }
 
     /**
+     * 创建当前租户委托给Repo的KMS授权
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建当前租户委托给Repo的KMS授权
+     * @param {string} tenantId **参数解释：** 租户id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTenantKmsGrant(createTenantKmsGrantRequest?: CreateTenantKmsGrantRequest): Promise<CreateTenantKmsGrantResponse> {
+        const options = ParamCreater().createTenantKmsGrant(createTenantKmsGrantRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除租户ip白名单
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6340,7 +6686,7 @@ export class CodeArtsRepoClient {
     }
 
     /**
-     * 租户下所有占用资源的仓库列表
+     * 租户下所有占用资源的仓库列表，最多只能导出2万条记录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -6351,6 +6697,50 @@ export class CodeArtsRepoClient {
      */
     public exportTenantRepositories(exportTenantRepositoriesRequest?: ExportTenantRepositoriesRequest): Promise<ExportTenantRepositoriesResponse> {
         const options = ParamCreater().exportTenantRepositories(exportTenantRepositoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取当前租户的在KMS托管的主密钥CMK列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取当前租户的在KMS托管的主密钥CMK列表
+     * @param {string} tenantId **参数解释：** 租户id
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTenantCmks(listTenantCmksRequest?: ListTenantCmksRequest): Promise<ListTenantCmksResponse> {
+        const options = ParamCreater().listTenantCmks(listTenantCmksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取当前租户已加密的仓库列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取当前租户已加密的仓库列表
+     * @param {string} tenantId **参数解释：** 租户id
+     * @param {number} [offset] **参数解释：** 偏移量，从0开始。
+     * @param {number} [limit] **参数解释：** 返回数量。
+     * @param {'repoName' | 'ownerName'} [orderBy] **参数解释：** 排序字段 repoName 仓库名称  ownerName | 仓库所有者名称 ownerName, 不传该字段时不进行排序
+     * @param {'asc' | 'desc'} [sort] **参数解释：** 排序顺序 asc顺序 desc逆序
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTenantEncryptedRepositories(listTenantEncryptedRepositoriesRequest?: ListTenantEncryptedRepositoriesRequest): Promise<ListTenantEncryptedRepositoriesResponse> {
+        const options = ParamCreater().listTenantEncryptedRepositories(listTenantEncryptedRepositoriesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6372,6 +6762,7 @@ export class CodeArtsRepoClient {
      * @param {Date} [createdBefore] **参数解释：** 筛选在该时间之前创建的仓库。
      * @param {'asc' | 'desc'} [sort] **参数解释：** 结果集排序方式。 **约束限制：** 与sort_field搭配使用。  **取值范围：** - asc，正序返回。 - desc，倒序返回。
      * @param {'owner' | 'capacity' | 'status' | 'create_time' | 'member_number' | 'repository_name'} [sortField] **参数解释：** 用作排序的字段。 - owner，仓库所有者。 - capacity，使用空间。 - status，状态。 - create_time，创建时间。 - member_number，成员数量。 - repository_name，仓库名称。
+     * @param {boolean} [locked] **参数解释：** 是否锁定。 **约束限制：** 不传是查询全部数据 **取值范围：** - true，锁定的仓库。 - false，未锁定的仓库。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
@@ -6407,6 +6798,101 @@ export class CodeArtsRepoClient {
     }
 
     /**
+     * 获取租户设置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取租户设置
+     * @param {string} [projectId] **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** project_id传参时表示查询的是项目所有者对应租户的设置 **取值范围：** 字符串长度32。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProjectTenantSettings(showProjectTenantSettingsRequest?: ShowProjectTenantSettingsRequest): Promise<ShowProjectTenantSettingsResponse> {
+        const options = ParamCreater().showProjectTenantSettings(showProjectTenantSettingsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看当前租户的开发模式
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看当前租户的开发模式
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTenantDevelopMode(showTenantDevelopModeRequest?: ShowTenantDevelopModeRequest): Promise<ShowTenantDevelopModeResponse> {
+        const options = ParamCreater().showTenantDevelopMode();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取当前租户委托授权KMS状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取当前租户委托授权KMS状态
+     * @param {string} tenantId **参数解释：** 租户id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTenantKmsGrant(showTenantKmsGrantRequest?: ShowTenantKmsGrantRequest): Promise<ShowTenantKmsGrantResponse> {
+        const options = ParamCreater().showTenantKmsGrant(showTenantKmsGrantRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取当前租户的仓库加密配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取当前租户的仓库加密配置
+     * @param {string} tenantId **参数解释：** 租户id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTenantRepoEncryptionSetting(showTenantRepoEncryptionSettingRequest?: ShowTenantRepoEncryptionSettingRequest): Promise<ShowTenantRepoEncryptionSettingResponse> {
+        const options = ParamCreater().showTenantRepoEncryptionSetting(showTenantRepoEncryptionSettingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改当前租户的仓库加密配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改当前租户的仓库加密配置
+     * @param {string} tenantId **参数解释：** 租户id
+     * @param {TenantRepoEncryptionSettingRequestDto} tenantRepoEncryptionSettingRequestDto 修改当前租户的仓库加密配置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTenantRepoEncryptionSetting(updateTenantRepoEncryptionSettingRequest?: UpdateTenantRepoEncryptionSettingRequest): Promise<UpdateTenantRepoEncryptionSettingResponse> {
+        const options = ParamCreater().updateTenantRepoEncryptionSetting(updateTenantRepoEncryptionSettingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改租户ip白名单
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6432,7 +6918,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 校验部署密钥在上层代码组或项目是否配置
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {DeployKeyValueDto} deployKeyValueDto 部署密钥
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6452,7 +6938,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 校验代码组部署密钥在上层代码组或项目是否配置
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {DeployKeyValueDto} deployKeyValueDto 部署密钥
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6472,7 +6958,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库下指定分支的关联工作项列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} branchName **参数解释：** 分支名称。  **约束限制：** 不支持以 - . refs/heads/ refs/remotes/ 开头，不支持空格 [ \\ &lt; ~ ^ : ? * ! ( ) \&#39; \&quot; | 等特殊字符，不支持以. / .lock结尾。  **取值范围：** 字符串长度不少于1，不超过200。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6492,7 +6978,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组下部署密钥列表
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
@@ -6513,7 +6999,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目下部署密钥列表
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
@@ -6534,7 +7020,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库下部署密钥列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
@@ -6555,8 +7041,8 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库下工作项列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {boolean} isIpd **参数解释：** 是否为IPD类型项目的工作项。 **取值范围：** true/false
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -6580,7 +7066,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组下E2E设置信息
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6599,7 +7085,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目下E2E设置信息
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6618,7 +7104,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库下E2E设置信息
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {boolean} [takeEffect] **参数解释：** 是否查询生效的E2E配置。 **取值范围：** true：查询仓库实际生效的E2E配置，比如继承自代码组或者项目的E2E设置，false：查询仓库自身的E2E配置。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6695,7 +7181,6 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取用户的个人访问令牌
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
      * @param {'all' | 'active' | 'inactive'} [state] **参数解释：** 状态 all 所有状态 active 活跃，未过期 inactive 非活跃，失效的。
      * @param {string} [search] **参数解释：** 检索内容
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
@@ -6851,8 +7336,8 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加代码组下Webhook
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
-     * @param {WebhookParamsDto} [webhookParamsDto] 添加代码组下Webhook参数
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
+     * @param {WebhookParamsRequestDto} [webhookParamsRequestDto] 添加代码组下Webhook参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6871,7 +7356,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加项目下Webhook
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {WebhookParamsDto} [webhookParamsDto] 添加项目下Webhook参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6891,7 +7376,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加仓库下Webhook
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {WebhookParamsDto} [webhookParamsDto] 添加仓库下Webhook参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6911,7 +7396,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组下指定Webhook的日志列表
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {number} hookId **参数解释：**  Webhook id。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -6937,7 +7422,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组下Webhook列表
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
@@ -6958,7 +7443,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目下指定Webhook的日志列表
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} hookId **参数解释：**  Webhook id。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -6984,7 +7469,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目下Webhook列表
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
@@ -7005,7 +7490,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库下指定Webhook的日志列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} hookId **参数解释：**  Webhook id。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
@@ -7030,7 +7515,8 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库下Webhook列表
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
+     * @param {boolean} [includeSystem] **参数解释：** 是否包含系统webhook **取值范围：** - true，包含。 - false，不包含。
      * @param {number} [offset] **参数解释：** 偏移量，从0开始。
      * @param {number} [limit] **参数解释：** 返回数量。
      * @param {*} [options] Override http request option.
@@ -7051,7 +7537,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除代码组下单个Webhook
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {number} hookId **参数解释：**  Webhook id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -7071,7 +7557,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除项目下单个Webhook
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} hookId **参数解释：**  Webhook id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -7091,7 +7577,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除仓库下单个Webhook
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} hookId **参数解释：**  Webhook id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -7111,7 +7597,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组下单个Webhook数据
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {number} hookId **参数解释：**  Webhook id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -7131,7 +7617,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取代码组下指定Webhook的指定日志详情
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {number} hookId **参数解释：**  Webhook id。
      * @param {number} logId **参数解释：**  Webhook 日志id。
      * @param {*} [options] Override http request option.
@@ -7152,7 +7638,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目下单个Webhook数据
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} hookId **参数解释：**  Webhook id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -7172,7 +7658,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目下指定Webhook的指定日志详情
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} hookId **参数解释：**  Webhook id。
      * @param {number} logId **参数解释：**  Webhook 日志id。
      * @param {*} [options] Override http request option.
@@ -7193,7 +7679,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库下单个Webhook数据
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} hookId **参数解释：**  Webhook id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -7213,7 +7699,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取仓库下指定Webhook的指定日志详情
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} hookId **参数解释：**  Webhook id。
      * @param {number} logId **参数解释：**  Webhook 日志id。
      * @param {*} [options] Override http request option.
@@ -7234,9 +7720,9 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新代码组下单个Webhook数据
-     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id
+     * @param {number} groupId **参数解释：** 代码组id，代码组首页，Group ID后的数字Id **默认取值：** 不涉及。
      * @param {number} hookId **参数解释：**  Webhook id。
-     * @param {WebhookParamsDto} [webhookParamsDto] 更新代码组下Webhook参数
+     * @param {WebhookParamsRequestDto} [webhookParamsRequestDto] 更新代码组下Webhook参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -7255,7 +7741,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新项目下单个Webhook数据
-     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
+     * @param {string} projectId **参数解释：** 项目的32位uuid，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/en-us/api-projectman/ListProjectsV4.html)](tag:hws_hk)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk_ch)[[查询项目列表](https://support.huaweicloud.com/eu/api-projectman/ListProjectsV4.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **取值范围：** 字符串长度32。
      * @param {number} hookId **参数解释：**  Webhook id。
      * @param {WebhookParamsDto} [webhookParamsDto] 更新项目下Webhook参数
      * @param {*} [options] Override http request option.
@@ -7276,7 +7762,7 @@ export class CodeArtsRepoClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新仓库下单个Webhook数据
-     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。
+     * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {number} hookId **参数解释：**  Webhook id。
      * @param {WebhookParamsDto} [webhookParamsDto] 更新仓库下Webhook参数
      * @param {*} [options] Override http request option.
@@ -7415,6 +7901,8 @@ export const ParamCreater = function () {
             
             let sha;
             
+            let type;
+            
             let offset;
             
             let limit;
@@ -7423,11 +7911,13 @@ export const ParamCreater = function () {
                 if (listCommitAssociatedRefsRequest instanceof ListCommitAssociatedRefsRequest) {
                     repositoryId = listCommitAssociatedRefsRequest.repositoryId;
                     sha = listCommitAssociatedRefsRequest.sha;
+                    type = listCommitAssociatedRefsRequest.type;
                     offset = listCommitAssociatedRefsRequest.offset;
                     limit = listCommitAssociatedRefsRequest.limit;
                 } else {
                     repositoryId = listCommitAssociatedRefsRequest['repository_id'];
                     sha = listCommitAssociatedRefsRequest['sha'];
+                    type = listCommitAssociatedRefsRequest['type'];
                     offset = listCommitAssociatedRefsRequest['offset'];
                     limit = listCommitAssociatedRefsRequest['limit'];
                 }
@@ -7439,6 +7929,12 @@ export const ParamCreater = function () {
             }
             if (sha === null || sha === undefined) {
             throw new RequiredError('sha','Required parameter sha was null or undefined when calling listCommitAssociatedRefs.');
+            }
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling listCommitAssociatedRefs.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -9450,6 +9946,8 @@ export const ParamCreater = function () {
             
             let refName;
             
+            let search;
+            
             let offset;
             
             let limit;
@@ -9458,11 +9956,13 @@ export const ParamCreater = function () {
                 if (listFilesRequest instanceof ListFilesRequest) {
                     repositoryId = listFilesRequest.repositoryId;
                     refName = listFilesRequest.refName;
+                    search = listFilesRequest.search;
                     offset = listFilesRequest.offset;
                     limit = listFilesRequest.limit;
                 } else {
                     repositoryId = listFilesRequest['repository_id'];
                     refName = listFilesRequest['ref_name'];
+                    search = listFilesRequest['search'];
                     offset = listFilesRequest['offset'];
                     limit = listFilesRequest['limit'];
                 }
@@ -9474,6 +9974,9 @@ export const ParamCreater = function () {
             }
             if (refName !== null && refName !== undefined) {
                 localVarQueryParameter['ref_name'] = refName;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -10315,6 +10818,75 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取代码组下保护分支列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGroupProtectedBranches(listGroupProtectedBranchesRequest?: ListGroupProtectedBranchesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/groups/{group_id}/protected-branches",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let groupId;
+            
+            let userActions;
+            
+            let offset;
+            
+            let limit;
+            
+            let search;
+
+            if (listGroupProtectedBranchesRequest !== null && listGroupProtectedBranchesRequest !== undefined) {
+                if (listGroupProtectedBranchesRequest instanceof ListGroupProtectedBranchesRequest) {
+                    groupId = listGroupProtectedBranchesRequest.groupId;
+                    userActions = listGroupProtectedBranchesRequest.userActions;
+                    offset = listGroupProtectedBranchesRequest.offset;
+                    limit = listGroupProtectedBranchesRequest.limit;
+                    search = listGroupProtectedBranchesRequest.search;
+                } else {
+                    groupId = listGroupProtectedBranchesRequest['group_id'];
+                    userActions = listGroupProtectedBranchesRequest['user_actions'];
+                    offset = listGroupProtectedBranchesRequest['offset'];
+                    limit = listGroupProtectedBranchesRequest['limit'];
+                    search = listGroupProtectedBranchesRequest['search'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listGroupProtectedBranches.');
+            }
+            if (userActions === null || userActions === undefined) {
+                throw new RequiredError('userActions','Required parameter userActions was null or undefined when calling listGroupProtectedBranches.');
+            }
+            if (userActions !== null && userActions !== undefined) {
+                localVarQueryParameter['user_actions'] = userActions;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取代码组下的子代码组和仓库列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11148,6 +11720,58 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取仓库下有审批权限成员（审批用户是否可以进入该仓库）
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listManagementUsers(listManagementUsersRequest?: ListManagementUsersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/management-members",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listManagementUsersRequest !== null && listManagementUsersRequest !== undefined) {
+                if (listManagementUsersRequest instanceof ListManagementUsersRequest) {
+                    repositoryId = listManagementUsersRequest.repositoryId;
+                    offset = listManagementUsersRequest.offset;
+                    limit = listManagementUsersRequest.limit;
+                } else {
+                    repositoryId = listManagementUsersRequest['repository_id'];
+                    offset = listManagementUsersRequest['offset'];
+                    limit = listManagementUsersRequest['limit'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listManagementUsers.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -12691,8 +13315,14 @@ export const ParamCreater = function () {
             if (repositoryId === null || repositoryId === undefined) {
             throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listMergeRequestApprovers.');
             }
+            if (targetBranch === null || targetBranch === undefined) {
+                throw new RequiredError('targetBranch','Required parameter targetBranch was null or undefined when calling listMergeRequestApprovers.');
+            }
             if (targetBranch !== null && targetBranch !== undefined) {
                 localVarQueryParameter['target_branch'] = targetBranch;
+            }
+            if (sourceBranch === null || sourceBranch === undefined) {
+                throw new RequiredError('sourceBranch','Required parameter sourceBranch was null or undefined when calling listMergeRequestApprovers.');
             }
             if (sourceBranch !== null && sourceBranch !== undefined) {
                 localVarQueryParameter['source_branch'] = sourceBranch;
@@ -13215,8 +13845,14 @@ export const ParamCreater = function () {
             if (repositoryId === null || repositoryId === undefined) {
             throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listMergeRequestReviewers.');
             }
+            if (targetBranch === null || targetBranch === undefined) {
+                throw new RequiredError('targetBranch','Required parameter targetBranch was null or undefined when calling listMergeRequestReviewers.');
+            }
             if (targetBranch !== null && targetBranch !== undefined) {
                 localVarQueryParameter['target_branch'] = targetBranch;
+            }
+            if (sourceBranch === null || sourceBranch === undefined) {
+                throw new RequiredError('sourceBranch','Required parameter sourceBranch was null or undefined when calling listMergeRequestReviewers.');
             }
             if (sourceBranch !== null && sourceBranch !== undefined) {
                 localVarQueryParameter['source_branch'] = sourceBranch;
@@ -13313,7 +13949,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取可选的合并请求检视人
+         * 获取仓库审核人或合并人
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -13343,11 +13979,9 @@ export const ParamCreater = function () {
             
             let searchByNameList;
             
-            let targetProjectId;
+            let targetRepositoryId;
             
             let view;
-            
-            let mode;
             
             let onlyDevelopers;
 
@@ -13360,9 +13994,8 @@ export const ParamCreater = function () {
                     limit = listMergeRequestValidAssignedCandidatesRequest.limit;
                     search = listMergeRequestValidAssignedCandidatesRequest.search;
                     searchByNameList = listMergeRequestValidAssignedCandidatesRequest.searchByNameList;
-                    targetProjectId = listMergeRequestValidAssignedCandidatesRequest.targetProjectId;
+                    targetRepositoryId = listMergeRequestValidAssignedCandidatesRequest.targetRepositoryId;
                     view = listMergeRequestValidAssignedCandidatesRequest.view;
-                    mode = listMergeRequestValidAssignedCandidatesRequest.mode;
                     onlyDevelopers = listMergeRequestValidAssignedCandidatesRequest.onlyDevelopers;
                 } else {
                     repositoryId = listMergeRequestValidAssignedCandidatesRequest['repository_id'];
@@ -13372,9 +14005,8 @@ export const ParamCreater = function () {
                     limit = listMergeRequestValidAssignedCandidatesRequest['limit'];
                     search = listMergeRequestValidAssignedCandidatesRequest['search'];
                     searchByNameList = listMergeRequestValidAssignedCandidatesRequest['search_by_name_list'];
-                    targetProjectId = listMergeRequestValidAssignedCandidatesRequest['target_project_id'];
+                    targetRepositoryId = listMergeRequestValidAssignedCandidatesRequest['target_repository_id'];
                     view = listMergeRequestValidAssignedCandidatesRequest['view'];
-                    mode = listMergeRequestValidAssignedCandidatesRequest['mode'];
                     onlyDevelopers = listMergeRequestValidAssignedCandidatesRequest['only_developers'];
                 }
             }
@@ -13382,6 +14014,9 @@ export const ParamCreater = function () {
         
             if (repositoryId === null || repositoryId === undefined) {
             throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listMergeRequestValidAssignedCandidates.');
+            }
+            if (targetBranch === null || targetBranch === undefined) {
+                throw new RequiredError('targetBranch','Required parameter targetBranch was null or undefined when calling listMergeRequestValidAssignedCandidates.');
             }
             if (targetBranch !== null && targetBranch !== undefined) {
                 localVarQueryParameter['target_branch'] = targetBranch;
@@ -13401,14 +14036,11 @@ export const ParamCreater = function () {
             if (searchByNameList !== null && searchByNameList !== undefined) {
                 localVarQueryParameter['search_by_name_list'] = searchByNameList;
             }
-            if (targetProjectId !== null && targetProjectId !== undefined) {
-                localVarQueryParameter['target_project_id'] = targetProjectId;
+            if (targetRepositoryId !== null && targetRepositoryId !== undefined) {
+                localVarQueryParameter['target_repository_id'] = targetRepositoryId;
             }
             if (view !== null && view !== undefined) {
                 localVarQueryParameter['view'] = view;
-            }
-            if (mode !== null && mode !== undefined) {
-                localVarQueryParameter['mode'] = mode;
             }
             if (onlyDevelopers !== null && onlyDevelopers !== undefined) {
                 localVarQueryParameter['only_developers'] = onlyDevelopers;
@@ -13709,7 +14341,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取代码组检视人
+         * 获取项目检视人
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -13761,7 +14393,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取代码组审核人或合并人
+         * 获取项目审核人或合并人
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -13863,6 +14495,135 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取项目MR列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProjectMergeRequests(listProjectMergeRequestsRequest?: ListProjectMergeRequestsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/projects/{project_id}/merge-requests",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let offset;
+            
+            let limit;
+            
+            let state;
+            
+            let orderBy;
+            
+            let sort;
+            
+            let authorId;
+            
+            let sourceBranch;
+            
+            let targetBranch;
+            
+            let search;
+            
+            let sourceRepositoryId;
+            
+            let onlyCount;
+            
+            let labels;
+            
+            let topic;
+
+            if (listProjectMergeRequestsRequest !== null && listProjectMergeRequestsRequest !== undefined) {
+                if (listProjectMergeRequestsRequest instanceof ListProjectMergeRequestsRequest) {
+                    projectId = listProjectMergeRequestsRequest.projectId;
+                    offset = listProjectMergeRequestsRequest.offset;
+                    limit = listProjectMergeRequestsRequest.limit;
+                    state = listProjectMergeRequestsRequest.state;
+                    orderBy = listProjectMergeRequestsRequest.orderBy;
+                    sort = listProjectMergeRequestsRequest.sort;
+                    authorId = listProjectMergeRequestsRequest.authorId;
+                    sourceBranch = listProjectMergeRequestsRequest.sourceBranch;
+                    targetBranch = listProjectMergeRequestsRequest.targetBranch;
+                    search = listProjectMergeRequestsRequest.search;
+                    sourceRepositoryId = listProjectMergeRequestsRequest.sourceRepositoryId;
+                    onlyCount = listProjectMergeRequestsRequest.onlyCount;
+                    labels = listProjectMergeRequestsRequest.labels;
+                    topic = listProjectMergeRequestsRequest.topic;
+                } else {
+                    projectId = listProjectMergeRequestsRequest['project_id'];
+                    offset = listProjectMergeRequestsRequest['offset'];
+                    limit = listProjectMergeRequestsRequest['limit'];
+                    state = listProjectMergeRequestsRequest['state'];
+                    orderBy = listProjectMergeRequestsRequest['order_by'];
+                    sort = listProjectMergeRequestsRequest['sort'];
+                    authorId = listProjectMergeRequestsRequest['author_id'];
+                    sourceBranch = listProjectMergeRequestsRequest['source_branch'];
+                    targetBranch = listProjectMergeRequestsRequest['target_branch'];
+                    search = listProjectMergeRequestsRequest['search'];
+                    sourceRepositoryId = listProjectMergeRequestsRequest['source_repository_id'];
+                    onlyCount = listProjectMergeRequestsRequest['only_count'];
+                    labels = listProjectMergeRequestsRequest['labels'];
+                    topic = listProjectMergeRequestsRequest['topic'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listProjectMergeRequests.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (state !== null && state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (sort !== null && sort !== undefined) {
+                localVarQueryParameter['sort'] = sort;
+            }
+            if (authorId !== null && authorId !== undefined) {
+                localVarQueryParameter['author_id'] = authorId;
+            }
+            if (sourceBranch !== null && sourceBranch !== undefined) {
+                localVarQueryParameter['source_branch'] = sourceBranch;
+            }
+            if (targetBranch !== null && targetBranch !== undefined) {
+                localVarQueryParameter['target_branch'] = targetBranch;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+            if (sourceRepositoryId !== null && sourceRepositoryId !== undefined) {
+                localVarQueryParameter['source_repository_id'] = sourceRepositoryId;
+            }
+            if (onlyCount !== null && onlyCount !== undefined) {
+                localVarQueryParameter['only_count'] = onlyCount;
+            }
+            if (labels !== null && labels !== undefined) {
+                localVarQueryParameter['labels'] = labels;
+            }
+            if (topic !== null && topic !== undefined) {
+                localVarQueryParameter['topic'] = topic;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -15694,6 +16455,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 更新代码组权限矩阵配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateGroupResourcePermissions(updateGroupResourcePermissionsRequest?: UpdateGroupResourcePermissionsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/groups/{group_id}/permissions/{resource_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let groupId;
+            
+            let resourceId;
+
+            if (updateGroupResourcePermissionsRequest !== null && updateGroupResourcePermissionsRequest !== undefined) {
+                if (updateGroupResourcePermissionsRequest instanceof UpdateGroupResourcePermissionsRequest) {
+                    groupId = updateGroupResourcePermissionsRequest.groupId;
+                    resourceId = updateGroupResourcePermissionsRequest.resourceId;
+                    body = updateGroupResourcePermissionsRequest.body
+                } else {
+                    groupId = updateGroupResourcePermissionsRequest['group_id'];
+                    resourceId = updateGroupResourcePermissionsRequest['resource_id'];
+                    body = updateGroupResourcePermissionsRequest['body'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateGroupResourcePermissions.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling updateGroupResourcePermissions.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'group_id': groupId,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新仓库权限继承配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -16242,7 +17056,10 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取资源点对应的角色和权限
+         * 获取代码组中指定权限资源下的权限矩阵。
+         * 说明：
+         * (a) 权限资源：CodeArtsRepo中需要鉴权的对象。代码组层级的权限资源有：代码组、仓库、代码、成员、Tag、合并请求&amp;变更请求、标签。&lt;动作 + 权限资源&gt; 就构成权限点，如：新建仓库、下载代码、添加成员等。权限点是CodeArtsRepo鉴权的基本单位。
+         * (b) 权限矩阵：记录了角色和权限点之间的关联关系，即记录了角色有哪些权限，没有哪些权限。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -17341,72 +18158,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查看分支/tag列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listRefsList(listRefsListRequest?: ListRefsListRequest) {
-            const options = {
-                method: "GET",
-                url: "/v4/repositories/{repository_id}/repository/refs",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let repositoryId;
-            
-            let type;
-            
-            let search;
-            
-            let offset;
-            
-            let limit;
-
-            if (listRefsListRequest !== null && listRefsListRequest !== undefined) {
-                if (listRefsListRequest instanceof ListRefsListRequest) {
-                    repositoryId = listRefsListRequest.repositoryId;
-                    type = listRefsListRequest.type;
-                    search = listRefsListRequest.search;
-                    offset = listRefsListRequest.offset;
-                    limit = listRefsListRequest.limit;
-                } else {
-                    repositoryId = listRefsListRequest['repository_id'];
-                    type = listRefsListRequest['type'];
-                    search = listRefsListRequest['search'];
-                    offset = listRefsListRequest['offset'];
-                    limit = listRefsListRequest['limit'];
-                }
-            }
-
-        
-            if (repositoryId === null || repositoryId === undefined) {
-            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listRefsList.');
-            }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-            if (search !== null && search !== undefined) {
-                localVarQueryParameter['search'] = search;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'repository_id': repositoryId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 批量删除分支
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -17713,6 +18464,72 @@ export const ParamCreater = function () {
             }
             if (view !== null && view !== undefined) {
                 localVarQueryParameter['view'] = view;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看分支/tag列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRefsList(listRefsListRequest?: ListRefsListRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/repository/refs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let type;
+            
+            let search;
+            
+            let offset;
+            
+            let limit;
+
+            if (listRefsListRequest !== null && listRefsListRequest !== undefined) {
+                if (listRefsListRequest instanceof ListRefsListRequest) {
+                    repositoryId = listRefsListRequest.repositoryId;
+                    type = listRefsListRequest.type;
+                    search = listRefsListRequest.search;
+                    offset = listRefsListRequest.offset;
+                    limit = listRefsListRequest.limit;
+                } else {
+                    repositoryId = listRefsListRequest['repository_id'];
+                    type = listRefsListRequest['type'];
+                    search = listRefsListRequest['search'];
+                    offset = listRefsListRequest['offset'];
+                    limit = listRefsListRequest['limit'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listRefsList.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -19356,6 +20173,105 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取代码导航引用关系
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRepositoryNavigationReferences(listRepositoryNavigationReferencesRequest?: ListRepositoryNavigationReferencesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/repository/nav/references",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let symbol;
+            
+            let language;
+            
+            let blob;
+            
+            let filePath;
+            
+            let path;
+            
+            let revision;
+            
+            let ref;
+
+            if (listRepositoryNavigationReferencesRequest !== null && listRepositoryNavigationReferencesRequest !== undefined) {
+                if (listRepositoryNavigationReferencesRequest instanceof ListRepositoryNavigationReferencesRequest) {
+                    repositoryId = listRepositoryNavigationReferencesRequest.repositoryId;
+                    symbol = listRepositoryNavigationReferencesRequest.symbol;
+                    language = listRepositoryNavigationReferencesRequest.language;
+                    blob = listRepositoryNavigationReferencesRequest.blob;
+                    filePath = listRepositoryNavigationReferencesRequest.filePath;
+                    path = listRepositoryNavigationReferencesRequest.path;
+                    revision = listRepositoryNavigationReferencesRequest.revision;
+                    ref = listRepositoryNavigationReferencesRequest.ref;
+                } else {
+                    repositoryId = listRepositoryNavigationReferencesRequest['repository_id'];
+                    symbol = listRepositoryNavigationReferencesRequest['symbol'];
+                    language = listRepositoryNavigationReferencesRequest['language'];
+                    blob = listRepositoryNavigationReferencesRequest['blob'];
+                    filePath = listRepositoryNavigationReferencesRequest['file_path'];
+                    path = listRepositoryNavigationReferencesRequest['path'];
+                    revision = listRepositoryNavigationReferencesRequest['revision'];
+                    ref = listRepositoryNavigationReferencesRequest['ref'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listRepositoryNavigationReferences.');
+            }
+            if (symbol === null || symbol === undefined) {
+                throw new RequiredError('symbol','Required parameter symbol was null or undefined when calling listRepositoryNavigationReferences.');
+            }
+            if (symbol !== null && symbol !== undefined) {
+                localVarQueryParameter['symbol'] = symbol;
+            }
+            if (language === null || language === undefined) {
+                throw new RequiredError('language','Required parameter language was null or undefined when calling listRepositoryNavigationReferences.');
+            }
+            if (language !== null && language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
+            if (blob === null || blob === undefined) {
+                throw new RequiredError('blob','Required parameter blob was null or undefined when calling listRepositoryNavigationReferences.');
+            }
+            if (blob !== null && blob !== undefined) {
+                localVarQueryParameter['blob'] = blob;
+            }
+            if (filePath === null || filePath === undefined) {
+                throw new RequiredError('filePath','Required parameter filePath was null or undefined when calling listRepositoryNavigationReferences.');
+            }
+            if (filePath !== null && filePath !== undefined) {
+                localVarQueryParameter['file_path'] = filePath;
+            }
+            if (path !== null && path !== undefined) {
+                localVarQueryParameter['path'] = path;
+            }
+            if (revision !== null && revision !== undefined) {
+                localVarQueryParameter['revision'] = revision;
+            }
+            if (ref !== null && ref !== undefined) {
+                localVarQueryParameter['ref'] = ref;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 模板仓列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -19617,6 +20533,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 触发代码导航任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        rebuildRepositoryNavigation(rebuildRepositoryNavigationRequest?: RebuildRepositoryNavigationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/repositories/{repository_id}/repository/nav/build",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let repositoryId;
+
+            if (rebuildRepositoryNavigationRequest !== null && rebuildRepositoryNavigationRequest !== undefined) {
+                if (rebuildRepositoryNavigationRequest instanceof RebuildRepositoryNavigationRequest) {
+                    repositoryId = rebuildRepositoryNavigationRequest.repositoryId;
+                } else {
+                    repositoryId = rebuildRepositoryNavigationRequest['repository_id'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling rebuildRepositoryNavigation.');
+            }
+
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除仓库部署密钥
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -19661,7 +20614,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 将该该仓库的部署密钥从子模组中删除
+         * 将该仓库的部署密钥从子模组中删除
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -20166,6 +21119,91 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取仓库最近的提交统计信息，其中按人员统计记录最多统计按创建时间降序的前100条数据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRepoLastStatistics(showRepoLastStatisticsRequest?: ShowRepoLastStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/repository/stats/last-statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let branchName;
+
+            if (showRepoLastStatisticsRequest !== null && showRepoLastStatisticsRequest !== undefined) {
+                if (showRepoLastStatisticsRequest instanceof ShowRepoLastStatisticsRequest) {
+                    repositoryId = showRepoLastStatisticsRequest.repositoryId;
+                    branchName = showRepoLastStatisticsRequest.branchName;
+                } else {
+                    repositoryId = showRepoLastStatisticsRequest['repository_id'];
+                    branchName = showRepoLastStatisticsRequest['branch_name'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showRepoLastStatistics.');
+            }
+            if (branchName === null || branchName === undefined) {
+                throw new RequiredError('branchName','Required parameter branchName was null or undefined when calling showRepoLastStatistics.');
+            }
+            if (branchName !== null && branchName !== undefined) {
+                localVarQueryParameter['branch_name'] = branchName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取仓库统计信息概览，包括仓库大小，分支数量，提交数量等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRepoStatisticsSummary(showRepoStatisticsSummaryRequest?: ShowRepoStatisticsSummaryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/repository/stats/summary",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let repositoryId;
+
+            if (showRepoStatisticsSummaryRequest !== null && showRepoStatisticsSummaryRequest !== undefined) {
+                if (showRepoStatisticsSummaryRequest instanceof ShowRepoStatisticsSummaryRequest) {
+                    repositoryId = showRepoStatisticsSummaryRequest.repositoryId;
+                } else {
+                    repositoryId = showRepoStatisticsSummaryRequest['repository_id'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showRepoStatisticsSummary.');
+            }
+
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取仓库详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -20348,11 +21386,170 @@ export const ParamCreater = function () {
             if (repositoryId === null || repositoryId === undefined) {
             throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showRepositoryInheritSettingSource.');
             }
+            if (name === null || name === undefined) {
+                throw new RequiredError('name','Required parameter name was null or undefined when calling showRepositoryInheritSettingSource.');
+            }
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取代码导航功能的语言信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRepositoryNavigationLanguage(showRepositoryNavigationLanguageRequest?: ShowRepositoryNavigationLanguageRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/repository/nav/language",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let repositoryId;
+
+            if (showRepositoryNavigationLanguageRequest !== null && showRepositoryNavigationLanguageRequest !== undefined) {
+                if (showRepositoryNavigationLanguageRequest instanceof ShowRepositoryNavigationLanguageRequest) {
+                    repositoryId = showRepositoryNavigationLanguageRequest.repositoryId;
+                } else {
+                    repositoryId = showRepositoryNavigationLanguageRequest['repository_id'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showRepositoryNavigationLanguage.');
+            }
+
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取代码导航大纲
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRepositoryNavigationOutline(showRepositoryNavigationOutlineRequest?: ShowRepositoryNavigationOutlineRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/repository/nav/outline",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let repositoryId;
+            
+            let language;
+            
+            let blob;
+            
+            let filePath;
+            
+            let revision;
+            
+            let ref;
+
+            if (showRepositoryNavigationOutlineRequest !== null && showRepositoryNavigationOutlineRequest !== undefined) {
+                if (showRepositoryNavigationOutlineRequest instanceof ShowRepositoryNavigationOutlineRequest) {
+                    repositoryId = showRepositoryNavigationOutlineRequest.repositoryId;
+                    language = showRepositoryNavigationOutlineRequest.language;
+                    blob = showRepositoryNavigationOutlineRequest.blob;
+                    filePath = showRepositoryNavigationOutlineRequest.filePath;
+                    revision = showRepositoryNavigationOutlineRequest.revision;
+                    ref = showRepositoryNavigationOutlineRequest.ref;
+                } else {
+                    repositoryId = showRepositoryNavigationOutlineRequest['repository_id'];
+                    language = showRepositoryNavigationOutlineRequest['language'];
+                    blob = showRepositoryNavigationOutlineRequest['blob'];
+                    filePath = showRepositoryNavigationOutlineRequest['file_path'];
+                    revision = showRepositoryNavigationOutlineRequest['revision'];
+                    ref = showRepositoryNavigationOutlineRequest['ref'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showRepositoryNavigationOutline.');
+            }
+            if (language === null || language === undefined) {
+                throw new RequiredError('language','Required parameter language was null or undefined when calling showRepositoryNavigationOutline.');
+            }
+            if (language !== null && language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
+            if (blob === null || blob === undefined) {
+                throw new RequiredError('blob','Required parameter blob was null or undefined when calling showRepositoryNavigationOutline.');
+            }
+            if (blob !== null && blob !== undefined) {
+                localVarQueryParameter['blob'] = blob;
+            }
+            if (filePath === null || filePath === undefined) {
+                throw new RequiredError('filePath','Required parameter filePath was null or undefined when calling showRepositoryNavigationOutline.');
+            }
+            if (filePath !== null && filePath !== undefined) {
+                localVarQueryParameter['file_path'] = filePath;
+            }
+            if (revision !== null && revision !== undefined) {
+                localVarQueryParameter['revision'] = revision;
+            }
+            if (ref !== null && ref !== undefined) {
+                localVarQueryParameter['ref'] = ref;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取代码导航功能的模式信息，包括最近索引创建时间，做大统计的文件数量信息等
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRepositoryNavigationSchema(showRepositoryNavigationSchemaRequest?: ShowRepositoryNavigationSchemaRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/repositories/{repository_id}/repository/nav/schema",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let repositoryId;
+
+            if (showRepositoryNavigationSchemaRequest !== null && showRepositoryNavigationSchemaRequest !== undefined) {
+                if (showRepositoryNavigationSchemaRequest instanceof ShowRepositoryNavigationSchemaRequest) {
+                    repositoryId = showRepositoryNavigationSchemaRequest.repositoryId;
+                } else {
+                    repositoryId = showRepositoryNavigationSchemaRequest['repository_id'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showRepositoryNavigationSchema.');
+            }
+
             options.pathParams = { 'repository_id': repositoryId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -20651,6 +21848,52 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'repository_id': repositoryId,'key_id': keyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将仓库转移到其他代码组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        transferRepository(transferRepositoryRequest?: TransferRepositoryRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/repositories/{repository_id}/transfer",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let repositoryId;
+
+            if (transferRepositoryRequest !== null && transferRepositoryRequest !== undefined) {
+                if (transferRepositoryRequest instanceof TransferRepositoryRequest) {
+                    repositoryId = transferRepositoryRequest.repositoryId;
+                    body = transferRepositoryRequest.body
+                } else {
+                    repositoryId = transferRepositoryRequest['repository_id'];
+                    body = transferRepositoryRequest['body'];
+                }
+            }
+
+        
+            if (repositoryId === null || repositoryId === undefined) {
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling transferRepository.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'repository_id': repositoryId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -21165,6 +22408,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建当前租户委托给Repo的KMS授权
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTenantKmsGrant(createTenantKmsGrantRequest?: CreateTenantKmsGrantRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/tenants/{tenant_id}/repo-encryption/kms-grant",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let tenantId;
+
+            if (createTenantKmsGrantRequest !== null && createTenantKmsGrantRequest !== undefined) {
+                if (createTenantKmsGrantRequest instanceof CreateTenantKmsGrantRequest) {
+                    tenantId = createTenantKmsGrantRequest.tenantId;
+                } else {
+                    tenantId = createTenantKmsGrantRequest['tenant_id'];
+                }
+            }
+
+        
+            if (tenantId === null || tenantId === undefined) {
+            throw new RequiredError('tenantId','Required parameter tenantId was null or undefined when calling createTenantKmsGrant.');
+            }
+
+            options.pathParams = { 'tenant_id': tenantId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除租户ip白名单
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -21202,7 +22482,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 租户下所有占用资源的仓库列表
+         * 租户下所有占用资源的仓库列表，最多只能导出2万条记录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -21232,6 +22512,124 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取当前租户的在KMS托管的主密钥CMK列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTenantCmks(listTenantCmksRequest?: ListTenantCmksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/tenants/{tenant_id}/repo-encryption/cmks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let tenantId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listTenantCmksRequest !== null && listTenantCmksRequest !== undefined) {
+                if (listTenantCmksRequest instanceof ListTenantCmksRequest) {
+                    tenantId = listTenantCmksRequest.tenantId;
+                    offset = listTenantCmksRequest.offset;
+                    limit = listTenantCmksRequest.limit;
+                } else {
+                    tenantId = listTenantCmksRequest['tenant_id'];
+                    offset = listTenantCmksRequest['offset'];
+                    limit = listTenantCmksRequest['limit'];
+                }
+            }
+
+        
+            if (tenantId === null || tenantId === undefined) {
+            throw new RequiredError('tenantId','Required parameter tenantId was null or undefined when calling listTenantCmks.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'tenant_id': tenantId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取当前租户已加密的仓库列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTenantEncryptedRepositories(listTenantEncryptedRepositoriesRequest?: ListTenantEncryptedRepositoriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/tenants/{tenant_id}/repo-encryption/repositories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let tenantId;
+            
+            let offset;
+            
+            let limit;
+            
+            let orderBy;
+            
+            let sort;
+
+            if (listTenantEncryptedRepositoriesRequest !== null && listTenantEncryptedRepositoriesRequest !== undefined) {
+                if (listTenantEncryptedRepositoriesRequest instanceof ListTenantEncryptedRepositoriesRequest) {
+                    tenantId = listTenantEncryptedRepositoriesRequest.tenantId;
+                    offset = listTenantEncryptedRepositoriesRequest.offset;
+                    limit = listTenantEncryptedRepositoriesRequest.limit;
+                    orderBy = listTenantEncryptedRepositoriesRequest.orderBy;
+                    sort = listTenantEncryptedRepositoriesRequest.sort;
+                } else {
+                    tenantId = listTenantEncryptedRepositoriesRequest['tenant_id'];
+                    offset = listTenantEncryptedRepositoriesRequest['offset'];
+                    limit = listTenantEncryptedRepositoriesRequest['limit'];
+                    orderBy = listTenantEncryptedRepositoriesRequest['order_by'];
+                    sort = listTenantEncryptedRepositoriesRequest['sort'];
+                }
+            }
+
+        
+            if (tenantId === null || tenantId === undefined) {
+            throw new RequiredError('tenantId','Required parameter tenantId was null or undefined when calling listTenantEncryptedRepositories.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (sort !== null && sort !== undefined) {
+                localVarQueryParameter['sort'] = sort;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'tenant_id': tenantId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -21269,6 +22667,8 @@ export const ParamCreater = function () {
             
             let sortField;
             
+            let locked;
+            
             let offset;
             
             let limit;
@@ -21283,6 +22683,7 @@ export const ParamCreater = function () {
                     createdBefore = listTenantRepositoriesRequest.createdBefore;
                     sort = listTenantRepositoriesRequest.sort;
                     sortField = listTenantRepositoriesRequest.sortField;
+                    locked = listTenantRepositoriesRequest.locked;
                     offset = listTenantRepositoriesRequest.offset;
                     limit = listTenantRepositoriesRequest.limit;
                 } else {
@@ -21294,6 +22695,7 @@ export const ParamCreater = function () {
                     createdBefore = listTenantRepositoriesRequest['created_before'];
                     sort = listTenantRepositoriesRequest['sort'];
                     sortField = listTenantRepositoriesRequest['sort_field'];
+                    locked = listTenantRepositoriesRequest['locked'];
                     offset = listTenantRepositoriesRequest['offset'];
                     limit = listTenantRepositoriesRequest['limit'];
                 }
@@ -21323,6 +22725,9 @@ export const ParamCreater = function () {
             }
             if (sortField !== null && sortField !== undefined) {
                 localVarQueryParameter['sort_field'] = sortField;
+            }
+            if (locked !== null && locked !== undefined) {
+                localVarQueryParameter['locked'] = locked;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -21376,6 +22781,184 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取租户设置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProjectTenantSettings(showProjectTenantSettingsRequest?: ShowProjectTenantSettingsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/tenant/setting",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+
+            if (showProjectTenantSettingsRequest !== null && showProjectTenantSettingsRequest !== undefined) {
+                if (showProjectTenantSettingsRequest instanceof ShowProjectTenantSettingsRequest) {
+                    projectId = showProjectTenantSettingsRequest.projectId;
+                } else {
+                    projectId = showProjectTenantSettingsRequest['project_id'];
+                }
+            }
+
+        
+            if (projectId !== null && projectId !== undefined) {
+                localVarQueryParameter['project_id'] = projectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看当前租户的开发模式
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTenantDevelopMode() {
+            const options = {
+                method: "GET",
+                url: "/v4/tenant/develop-mode",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取当前租户委托授权KMS状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTenantKmsGrant(showTenantKmsGrantRequest?: ShowTenantKmsGrantRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/tenants/{tenant_id}/repo-encryption/kms-grant",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let tenantId;
+
+            if (showTenantKmsGrantRequest !== null && showTenantKmsGrantRequest !== undefined) {
+                if (showTenantKmsGrantRequest instanceof ShowTenantKmsGrantRequest) {
+                    tenantId = showTenantKmsGrantRequest.tenantId;
+                } else {
+                    tenantId = showTenantKmsGrantRequest['tenant_id'];
+                }
+            }
+
+        
+            if (tenantId === null || tenantId === undefined) {
+            throw new RequiredError('tenantId','Required parameter tenantId was null or undefined when calling showTenantKmsGrant.');
+            }
+
+            options.pathParams = { 'tenant_id': tenantId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取当前租户的仓库加密配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTenantRepoEncryptionSetting(showTenantRepoEncryptionSettingRequest?: ShowTenantRepoEncryptionSettingRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/tenants/{tenant_id}/repo-encryption/setting",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let tenantId;
+
+            if (showTenantRepoEncryptionSettingRequest !== null && showTenantRepoEncryptionSettingRequest !== undefined) {
+                if (showTenantRepoEncryptionSettingRequest instanceof ShowTenantRepoEncryptionSettingRequest) {
+                    tenantId = showTenantRepoEncryptionSettingRequest.tenantId;
+                } else {
+                    tenantId = showTenantRepoEncryptionSettingRequest['tenant_id'];
+                }
+            }
+
+        
+            if (tenantId === null || tenantId === undefined) {
+            throw new RequiredError('tenantId','Required parameter tenantId was null or undefined when calling showTenantRepoEncryptionSetting.');
+            }
+
+            options.pathParams = { 'tenant_id': tenantId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改当前租户的仓库加密配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateTenantRepoEncryptionSetting(updateTenantRepoEncryptionSettingRequest?: UpdateTenantRepoEncryptionSettingRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/tenants/{tenant_id}/repo-encryption/setting",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let tenantId;
+
+            if (updateTenantRepoEncryptionSettingRequest !== null && updateTenantRepoEncryptionSettingRequest !== undefined) {
+                if (updateTenantRepoEncryptionSettingRequest instanceof UpdateTenantRepoEncryptionSettingRequest) {
+                    tenantId = updateTenantRepoEncryptionSettingRequest.tenantId;
+                    body = updateTenantRepoEncryptionSettingRequest.body
+                } else {
+                    tenantId = updateTenantRepoEncryptionSettingRequest['tenant_id'];
+                    body = updateTenantRepoEncryptionSettingRequest['body'];
+                }
+            }
+
+        
+            if (tenantId === null || tenantId === undefined) {
+            throw new RequiredError('tenantId','Required parameter tenantId was null or undefined when calling updateTenantRepoEncryptionSetting.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'tenant_id': tenantId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -22054,8 +23637,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let groupId;
-            
             let state;
             
             let search;
@@ -22066,13 +23647,11 @@ export const ParamCreater = function () {
 
             if (listImpersonationTokensRequest !== null && listImpersonationTokensRequest !== undefined) {
                 if (listImpersonationTokensRequest instanceof ListImpersonationTokensRequest) {
-                    groupId = listImpersonationTokensRequest.groupId;
                     state = listImpersonationTokensRequest.state;
                     search = listImpersonationTokensRequest.search;
                     offset = listImpersonationTokensRequest.offset;
                     limit = listImpersonationTokensRequest.limit;
                 } else {
-                    groupId = listImpersonationTokensRequest['group_id'];
                     state = listImpersonationTokensRequest['state'];
                     search = listImpersonationTokensRequest['search'];
                     offset = listImpersonationTokensRequest['offset'];
@@ -22081,9 +23660,6 @@ export const ParamCreater = function () {
             }
 
         
-            if (groupId === null || groupId === undefined) {
-            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listImpersonationTokens.');
-            }
             if (state !== null && state !== undefined) {
                 localVarQueryParameter['state'] = state;
             }
@@ -22098,7 +23674,6 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'group_id': groupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -22853,6 +24428,8 @@ export const ParamCreater = function () {
             
             let repositoryId;
             
+            let includeSystem;
+            
             let offset;
             
             let limit;
@@ -22860,10 +24437,12 @@ export const ParamCreater = function () {
             if (listRepositoryWebhooksRequest !== null && listRepositoryWebhooksRequest !== undefined) {
                 if (listRepositoryWebhooksRequest instanceof ListRepositoryWebhooksRequest) {
                     repositoryId = listRepositoryWebhooksRequest.repositoryId;
+                    includeSystem = listRepositoryWebhooksRequest.includeSystem;
                     offset = listRepositoryWebhooksRequest.offset;
                     limit = listRepositoryWebhooksRequest.limit;
                 } else {
                     repositoryId = listRepositoryWebhooksRequest['repository_id'];
+                    includeSystem = listRepositoryWebhooksRequest['include_system'];
                     offset = listRepositoryWebhooksRequest['offset'];
                     limit = listRepositoryWebhooksRequest['limit'];
                 }
@@ -22872,6 +24451,9 @@ export const ParamCreater = function () {
         
             if (repositoryId === null || repositoryId === undefined) {
             throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling listRepositoryWebhooks.');
+            }
+            if (includeSystem !== null && includeSystem !== undefined) {
+                localVarQueryParameter['include_system'] = includeSystem;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;

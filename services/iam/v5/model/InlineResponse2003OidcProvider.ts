@@ -1,0 +1,79 @@
+import { InlineResponse2001SamlProviderTags } from './InlineResponse2001SamlProviderTags';
+
+
+export class InlineResponse2003OidcProvider {
+    private 'provider_id'?: string;
+    public name?: string;
+    public description?: string;
+    public url?: string;
+    public urn?: string;
+    private 'client_ids'?: Array<string>;
+    public thumbprints?: Array<string>;
+    public tags?: Array<InlineResponse2001SamlProviderTags>;
+    private 'created_at'?: Date;
+    public constructor(providerId?: string, name?: string, description?: string, url?: string, urn?: string, clientIds?: Array<string>, thumbprints?: Array<string>, tags?: Array<InlineResponse2001SamlProviderTags>, createdAt?: Date) { 
+        this['provider_id'] = providerId;
+        this['name'] = name;
+        this['description'] = description;
+        this['url'] = url;
+        this['urn'] = urn;
+        this['client_ids'] = clientIds;
+        this['thumbprints'] = thumbprints;
+        this['tags'] = tags;
+        this['created_at'] = createdAt;
+    }
+    public withProviderId(providerId: string): InlineResponse2003OidcProvider {
+        this['provider_id'] = providerId;
+        return this;
+    }
+    public set providerId(providerId: string  | undefined) {
+        this['provider_id'] = providerId;
+    }
+    public get providerId(): string | undefined {
+        return this['provider_id'];
+    }
+    public withName(name: string): InlineResponse2003OidcProvider {
+        this['name'] = name;
+        return this;
+    }
+    public withDescription(description: string): InlineResponse2003OidcProvider {
+        this['description'] = description;
+        return this;
+    }
+    public withUrl(url: string): InlineResponse2003OidcProvider {
+        this['url'] = url;
+        return this;
+    }
+    public withUrn(urn: string): InlineResponse2003OidcProvider {
+        this['urn'] = urn;
+        return this;
+    }
+    public withClientIds(clientIds: Array<string>): InlineResponse2003OidcProvider {
+        this['client_ids'] = clientIds;
+        return this;
+    }
+    public set clientIds(clientIds: Array<string>  | undefined) {
+        this['client_ids'] = clientIds;
+    }
+    public get clientIds(): Array<string> | undefined {
+        return this['client_ids'];
+    }
+    public withThumbprints(thumbprints: Array<string>): InlineResponse2003OidcProvider {
+        this['thumbprints'] = thumbprints;
+        return this;
+    }
+    public withTags(tags: Array<InlineResponse2001SamlProviderTags>): InlineResponse2003OidcProvider {
+        this['tags'] = tags;
+        return this;
+    }
+    public withCreatedAt(createdAt: Date): InlineResponse2003OidcProvider {
+        this['created_at'] = createdAt;
+        return this;
+    }
+    public set createdAt(createdAt: Date  | undefined) {
+        this['created_at'] = createdAt;
+    }
+    public get createdAt(): Date | undefined {
+        return this['created_at'];
+    }
+}

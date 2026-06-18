@@ -38,6 +38,8 @@ export * from './model/ListInstancesRequest';
 export * from './model/ListInstancesResponse';
 export * from './model/ListSpecificationsRequest';
 export * from './model/ListSpecificationsResponse';
+export * from './model/ListSwitchConfigInfoRequest';
+export * from './model/ListSwitchConfigInfoResponse';
 export * from './model/ListTagsRequest';
 export * from './model/ListTagsResponse';
 export * from './model/LoginInstanceAdminRequest';

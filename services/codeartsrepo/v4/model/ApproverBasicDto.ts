@@ -13,6 +13,7 @@ export class ApproverBasicDto {
     private 'nick_name'?: string;
     private 'tenant_name'?: string;
     private 'approver_comment'?: string;
+    private 'has_permission'?: boolean;
     public constructor() { 
     }
     public withId(id: number): ApproverBasicDto {
@@ -94,5 +95,15 @@ export class ApproverBasicDto {
     }
     public get approverComment(): string | undefined {
         return this['approver_comment'];
+    }
+    public withHasPermission(hasPermission: boolean): ApproverBasicDto {
+        this['has_permission'] = hasPermission;
+        return this;
+    }
+    public set hasPermission(hasPermission: boolean  | undefined) {
+        this['has_permission'] = hasPermission;
+    }
+    public get hasPermission(): boolean | undefined {
+        return this['has_permission'];
     }
 }

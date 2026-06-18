@@ -1,11 +1,11 @@
 import { UserBasicDto } from './UserBasicDto';
 
 
-export class MergeRequestVoteReviewerDto {
+export class MergeRequestApprovalUserDto {
     public id?: number;
     public name?: string;
     public username?: string;
-    public state?: MergeRequestVoteReviewerDtoStateEnum | string;
+    public state?: MergeRequestApprovalUserDtoStateEnum | string;
     private 'service_license_status'?: number;
     private 'avatar_url'?: string;
     private 'avatar_path'?: string;
@@ -15,26 +15,26 @@ export class MergeRequestVoteReviewerDto {
     private 'nick_name'?: string;
     private 'tenant_name'?: string;
     private 'error_message'?: string;
-    private 'is_committer'?: boolean;
+    private 'has_permission'?: boolean;
     public constructor() { 
     }
-    public withId(id: number): MergeRequestVoteReviewerDto {
+    public withId(id: number): MergeRequestApprovalUserDto {
         this['id'] = id;
         return this;
     }
-    public withName(name: string): MergeRequestVoteReviewerDto {
+    public withName(name: string): MergeRequestApprovalUserDto {
         this['name'] = name;
         return this;
     }
-    public withUsername(username: string): MergeRequestVoteReviewerDto {
+    public withUsername(username: string): MergeRequestApprovalUserDto {
         this['username'] = username;
         return this;
     }
-    public withState(state: MergeRequestVoteReviewerDtoStateEnum | string): MergeRequestVoteReviewerDto {
+    public withState(state: MergeRequestApprovalUserDtoStateEnum | string): MergeRequestApprovalUserDto {
         this['state'] = state;
         return this;
     }
-    public withServiceLicenseStatus(serviceLicenseStatus: number): MergeRequestVoteReviewerDto {
+    public withServiceLicenseStatus(serviceLicenseStatus: number): MergeRequestApprovalUserDto {
         this['service_license_status'] = serviceLicenseStatus;
         return this;
     }
@@ -44,7 +44,7 @@ export class MergeRequestVoteReviewerDto {
     public get serviceLicenseStatus(): number | undefined {
         return this['service_license_status'];
     }
-    public withAvatarUrl(avatarUrl: string): MergeRequestVoteReviewerDto {
+    public withAvatarUrl(avatarUrl: string): MergeRequestApprovalUserDto {
         this['avatar_url'] = avatarUrl;
         return this;
     }
@@ -54,7 +54,7 @@ export class MergeRequestVoteReviewerDto {
     public get avatarUrl(): string | undefined {
         return this['avatar_url'];
     }
-    public withAvatarPath(avatarPath: string): MergeRequestVoteReviewerDto {
+    public withAvatarPath(avatarPath: string): MergeRequestApprovalUserDto {
         this['avatar_path'] = avatarPath;
         return this;
     }
@@ -64,11 +64,11 @@ export class MergeRequestVoteReviewerDto {
     public get avatarPath(): string | undefined {
         return this['avatar_path'];
     }
-    public withEmail(email: string): MergeRequestVoteReviewerDto {
+    public withEmail(email: string): MergeRequestApprovalUserDto {
         this['email'] = email;
         return this;
     }
-    public withNameCn(nameCn: string): MergeRequestVoteReviewerDto {
+    public withNameCn(nameCn: string): MergeRequestApprovalUserDto {
         this['name_cn'] = nameCn;
         return this;
     }
@@ -78,7 +78,7 @@ export class MergeRequestVoteReviewerDto {
     public get nameCn(): string | undefined {
         return this['name_cn'];
     }
-    public withWebUrl(webUrl: string): MergeRequestVoteReviewerDto {
+    public withWebUrl(webUrl: string): MergeRequestApprovalUserDto {
         this['web_url'] = webUrl;
         return this;
     }
@@ -88,7 +88,7 @@ export class MergeRequestVoteReviewerDto {
     public get webUrl(): string | undefined {
         return this['web_url'];
     }
-    public withNickName(nickName: string): MergeRequestVoteReviewerDto {
+    public withNickName(nickName: string): MergeRequestApprovalUserDto {
         this['nick_name'] = nickName;
         return this;
     }
@@ -98,7 +98,7 @@ export class MergeRequestVoteReviewerDto {
     public get nickName(): string | undefined {
         return this['nick_name'];
     }
-    public withTenantName(tenantName: string): MergeRequestVoteReviewerDto {
+    public withTenantName(tenantName: string): MergeRequestApprovalUserDto {
         this['tenant_name'] = tenantName;
         return this;
     }
@@ -108,7 +108,7 @@ export class MergeRequestVoteReviewerDto {
     public get tenantName(): string | undefined {
         return this['tenant_name'];
     }
-    public withErrorMessage(errorMessage: string): MergeRequestVoteReviewerDto {
+    public withErrorMessage(errorMessage: string): MergeRequestApprovalUserDto {
         this['error_message'] = errorMessage;
         return this;
     }
@@ -118,15 +118,15 @@ export class MergeRequestVoteReviewerDto {
     public get errorMessage(): string | undefined {
         return this['error_message'];
     }
-    public withIsCommitter(isCommitter: boolean): MergeRequestVoteReviewerDto {
-        this['is_committer'] = isCommitter;
+    public withHasPermission(hasPermission: boolean): MergeRequestApprovalUserDto {
+        this['has_permission'] = hasPermission;
         return this;
     }
-    public set isCommitter(isCommitter: boolean  | undefined) {
-        this['is_committer'] = isCommitter;
+    public set hasPermission(hasPermission: boolean  | undefined) {
+        this['has_permission'] = hasPermission;
     }
-    public get isCommitter(): boolean | undefined {
-        return this['is_committer'];
+    public get hasPermission(): boolean | undefined {
+        return this['has_permission'];
     }
 }
 
@@ -134,7 +134,7 @@ export class MergeRequestVoteReviewerDto {
     * @export
     * @enum {string}
     */
-export enum MergeRequestVoteReviewerDtoStateEnum {
+export enum MergeRequestApprovalUserDtoStateEnum {
     ACTIVE = 'active',
     BLOCKED = 'blocked',
     ERROR = 'error'

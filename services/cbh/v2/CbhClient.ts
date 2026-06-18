@@ -40,6 +40,8 @@ import { ListInstancesRequest } from './model/ListInstancesRequest';
 import { ListInstancesResponse } from './model/ListInstancesResponse';
 import { ListSpecificationsRequest } from './model/ListSpecificationsRequest';
 import { ListSpecificationsResponse } from './model/ListSpecificationsResponse';
+import { ListSwitchConfigInfoRequest } from './model/ListSwitchConfigInfoRequest';
+import { ListSwitchConfigInfoResponse } from './model/ListSwitchConfigInfoResponse';
 import { ListTagsRequest } from './model/ListTagsRequest';
 import { ListTagsResponse } from './model/ListTagsResponse';
 import { LoginInstanceAdminRequest } from './model/LoginInstanceAdminRequest';
@@ -302,6 +304,24 @@ export class CbhClient {
      */
     public listSpecifications(listSpecificationsRequest?: ListSpecificationsRequest): Promise<ListSpecificationsResponse> {
         const options = ParamCreater().listSpecifications(listSpecificationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取当前版本的开关控制信息列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取后端开关控制信息列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSwitchConfigInfo(listSwitchConfigInfoRequest?: ListSwitchConfigInfoRequest): Promise<ListSwitchConfigInfoResponse> {
+        const options = ParamCreater().listSwitchConfigInfo();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1129,6 +1149,27 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取当前版本的开关控制信息列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSwitchConfigInfo() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/cbs/feature/config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

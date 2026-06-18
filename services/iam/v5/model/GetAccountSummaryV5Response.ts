@@ -16,6 +16,10 @@ export class GetAccountSummaryV5Response extends SdkResponse {
     public groups?: number;
     private 'groups_quota'?: number;
     private 'root_user_mfa_enabled'?: number;
+    private 'oidc_provider'?: number;
+    private 'oidc_provider_quota'?: number;
+    private 'saml_provider'?: number;
+    private 'saml_provider_quota'?: number;
     public constructor() { 
         super();
     }
@@ -134,5 +138,45 @@ export class GetAccountSummaryV5Response extends SdkResponse {
     }
     public get rootUserMfaEnabled(): number | undefined {
         return this['root_user_mfa_enabled'];
+    }
+    public withOidcProvider(oidcProvider: number): GetAccountSummaryV5Response {
+        this['oidc_provider'] = oidcProvider;
+        return this;
+    }
+    public set oidcProvider(oidcProvider: number  | undefined) {
+        this['oidc_provider'] = oidcProvider;
+    }
+    public get oidcProvider(): number | undefined {
+        return this['oidc_provider'];
+    }
+    public withOidcProviderQuota(oidcProviderQuota: number): GetAccountSummaryV5Response {
+        this['oidc_provider_quota'] = oidcProviderQuota;
+        return this;
+    }
+    public set oidcProviderQuota(oidcProviderQuota: number  | undefined) {
+        this['oidc_provider_quota'] = oidcProviderQuota;
+    }
+    public get oidcProviderQuota(): number | undefined {
+        return this['oidc_provider_quota'];
+    }
+    public withSamlProvider(samlProvider: number): GetAccountSummaryV5Response {
+        this['saml_provider'] = samlProvider;
+        return this;
+    }
+    public set samlProvider(samlProvider: number  | undefined) {
+        this['saml_provider'] = samlProvider;
+    }
+    public get samlProvider(): number | undefined {
+        return this['saml_provider'];
+    }
+    public withSamlProviderQuota(samlProviderQuota: number): GetAccountSummaryV5Response {
+        this['saml_provider_quota'] = samlProviderQuota;
+        return this;
+    }
+    public set samlProviderQuota(samlProviderQuota: number  | undefined) {
+        this['saml_provider_quota'] = samlProviderQuota;
+    }
+    public get samlProviderQuota(): number | undefined {
+        return this['saml_provider_quota'];
     }
 }

@@ -4,6 +4,7 @@ export class CreateRepoRequest {
     private 'import_members'?: number;
     public name?: string;
     private 'project_uuid'?: string;
+    private 'group_id'?: number;
     private 'template_id'?: string;
     private 'visibility_level'?: number;
     private 'import_url'?: string;
@@ -39,6 +40,16 @@ export class CreateRepoRequest {
     }
     public get projectUuid(): string | undefined {
         return this['project_uuid'];
+    }
+    public withGroupId(groupId: number): CreateRepoRequest {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: number  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): number | undefined {
+        return this['group_id'];
     }
     public withTemplateId(templateId: string): CreateRepoRequest {
         this['template_id'] = templateId;

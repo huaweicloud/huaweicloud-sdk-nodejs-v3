@@ -11,6 +11,7 @@ export class TenantRepositoryDto {
     private 'repository_name'?: string;
     private 'project_name'?: string;
     private 'project_id'?: string;
+    public locked?: boolean;
     public constructor() { 
     }
     public withOwner(owner: string): TenantRepositoryDto {
@@ -94,6 +95,10 @@ export class TenantRepositoryDto {
     }
     public get projectId(): string | undefined {
         return this['project_id'];
+    }
+    public withLocked(locked: boolean): TenantRepositoryDto {
+        this['locked'] = locked;
+        return this;
     }
 }
 

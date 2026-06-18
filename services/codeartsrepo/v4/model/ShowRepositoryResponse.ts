@@ -42,6 +42,8 @@ export class ShowRepositoryResponse extends SdkResponse {
     public creator?: RepositoryUserBasicDto;
     private 'creator_id'?: number;
     private 'forked_from_repository'?: RepositorySimpleDto;
+    private 'encryption_status'?: ShowRepositoryResponseEncryptionStatusEnum | string;
+    private 'repo_encryption_enabled'?: boolean;
     public uuid?: string;
     private 'ancestor_ids'?: Array<number>;
     private 'ancestor_names'?: Array<string>;
@@ -328,6 +330,26 @@ export class ShowRepositoryResponse extends SdkResponse {
     public get forkedFromRepository(): RepositorySimpleDto | undefined {
         return this['forked_from_repository'];
     }
+    public withEncryptionStatus(encryptionStatus: ShowRepositoryResponseEncryptionStatusEnum | string): ShowRepositoryResponse {
+        this['encryption_status'] = encryptionStatus;
+        return this;
+    }
+    public set encryptionStatus(encryptionStatus: ShowRepositoryResponseEncryptionStatusEnum | string  | undefined) {
+        this['encryption_status'] = encryptionStatus;
+    }
+    public get encryptionStatus(): ShowRepositoryResponseEncryptionStatusEnum | string | undefined {
+        return this['encryption_status'];
+    }
+    public withRepoEncryptionEnabled(repoEncryptionEnabled: boolean): ShowRepositoryResponse {
+        this['repo_encryption_enabled'] = repoEncryptionEnabled;
+        return this;
+    }
+    public set repoEncryptionEnabled(repoEncryptionEnabled: boolean  | undefined) {
+        this['repo_encryption_enabled'] = repoEncryptionEnabled;
+    }
+    public get repoEncryptionEnabled(): boolean | undefined {
+        return this['repo_encryption_enabled'];
+    }
     public withUuid(uuid: string): ShowRepositoryResponse {
         this['uuid'] = uuid;
         return this;
@@ -509,4 +531,14 @@ export class ShowRepositoryResponse extends SdkResponse {
 export enum ShowRepositoryResponseDevelopModeEnum {
     NORMAL = 'normal',
     CR = 'CR'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowRepositoryResponseEncryptionStatusEnum {
+    ENCRYPTING = 'encrypting',
+    ENCRYPTED = 'encrypted',
+    DECRYPTING = 'decrypting',
+    DECRYPTED = 'decrypted'
 }

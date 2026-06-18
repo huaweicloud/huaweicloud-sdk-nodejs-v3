@@ -1,4 +1,5 @@
 import { GroupMyRoleDtoV4 } from './GroupMyRoleDtoV4';
+import { MultipleRoleDto } from './MultipleRoleDto';
 
 
 export class GroupBaseDto {
@@ -34,6 +35,7 @@ export class GroupBaseDto {
     private 'sub_group_count'?: number;
     private 'last_owner'?: boolean;
     public starred?: boolean;
+    public roles?: Array<MultipleRoleDto>;
     public constructor() { 
     }
     public withProjectId(projectId: string): GroupBaseDto {
@@ -312,6 +314,10 @@ export class GroupBaseDto {
     }
     public withStarred(starred: boolean): GroupBaseDto {
         this['starred'] = starred;
+        return this;
+    }
+    public withRoles(roles: Array<MultipleRoleDto>): GroupBaseDto {
+        this['roles'] = roles;
         return this;
     }
 }

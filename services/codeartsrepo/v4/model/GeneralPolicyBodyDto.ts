@@ -7,6 +7,7 @@ export class GeneralPolicyBodyDto {
     private 'tag_name_regex'?: string;
     private 'forbidden_developer_create_branch'?: boolean;
     private 'create_branch_whitelist_user_ids'?: string;
+    private 'repo_encryption_enabled'?: boolean;
     public constructor() { 
     }
     public withDisableFork(disableFork: boolean): GeneralPolicyBodyDto {
@@ -68,5 +69,15 @@ export class GeneralPolicyBodyDto {
     }
     public get createBranchWhitelistUserIds(): string | undefined {
         return this['create_branch_whitelist_user_ids'];
+    }
+    public withRepoEncryptionEnabled(repoEncryptionEnabled: boolean): GeneralPolicyBodyDto {
+        this['repo_encryption_enabled'] = repoEncryptionEnabled;
+        return this;
+    }
+    public set repoEncryptionEnabled(repoEncryptionEnabled: boolean  | undefined) {
+        this['repo_encryption_enabled'] = repoEncryptionEnabled;
+    }
+    public get repoEncryptionEnabled(): boolean | undefined {
+        return this['repo_encryption_enabled'];
     }
 }

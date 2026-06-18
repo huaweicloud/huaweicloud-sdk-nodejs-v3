@@ -9,8 +9,10 @@ export class ListMergeRequestReviewersRequest {
     public search?: string;
     public offset?: number;
     public limit?: number;
-    public constructor(repositoryId?: number) { 
+    public constructor(repositoryId?: number, targetBranch?: string, sourceBranch?: string) { 
         this['repository_id'] = repositoryId;
+        this['target_branch'] = targetBranch;
+        this['source_branch'] = sourceBranch;
     }
     public withRepositoryId(repositoryId: number): ListMergeRequestReviewersRequest {
         this['repository_id'] = repositoryId;

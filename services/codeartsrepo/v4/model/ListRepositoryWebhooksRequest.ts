@@ -2,6 +2,7 @@
 
 export class ListRepositoryWebhooksRequest {
     private 'repository_id'?: number;
+    private 'include_system'?: boolean;
     public offset?: number;
     public limit?: number;
     public constructor(repositoryId?: number) { 
@@ -16,6 +17,16 @@ export class ListRepositoryWebhooksRequest {
     }
     public get repositoryId(): number | undefined {
         return this['repository_id'];
+    }
+    public withIncludeSystem(includeSystem: boolean): ListRepositoryWebhooksRequest {
+        this['include_system'] = includeSystem;
+        return this;
+    }
+    public set includeSystem(includeSystem: boolean  | undefined) {
+        this['include_system'] = includeSystem;
+    }
+    public get includeSystem(): boolean | undefined {
+        return this['include_system'];
     }
     public withOffset(offset: number): ListRepositoryWebhooksRequest {
         this['offset'] = offset;

@@ -10,6 +10,7 @@ export class ListMergeRequestVersionsResponse extends SdkResponse {
     private 'merge_request_id'?: number;
     public state?: string;
     private 'real_size'?: string;
+    private 'X-Total'?: string;
     public constructor() { 
         super();
     }
@@ -80,5 +81,15 @@ export class ListMergeRequestVersionsResponse extends SdkResponse {
     }
     public get realSize(): string | undefined {
         return this['real_size'];
+    }
+    public withXTotal(xTotal: string): ListMergeRequestVersionsResponse {
+        this['X-Total'] = xTotal;
+        return this;
+    }
+    public set xTotal(xTotal: string  | undefined) {
+        this['X-Total'] = xTotal;
+    }
+    public get xTotal(): string | undefined {
+        return this['X-Total'];
     }
 }

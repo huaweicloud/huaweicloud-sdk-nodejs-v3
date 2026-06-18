@@ -9,8 +9,8 @@ export class SubgroupAndProjectBaseDto {
     private 'full_name'?: string;
     private 'full_path'?: string;
     private 'created_at'?: string;
-    private 'updated_at_timestamp'?: string;
-    private 'star_time'?: string;
+    private 'updated_at_timestamp'?: number;
+    private 'star_time'?: number;
     public starred?: boolean;
     private 'develop_mode'?: string;
     public id?: number;
@@ -119,24 +119,24 @@ export class SubgroupAndProjectBaseDto {
     public get createdAt(): string | undefined {
         return this['created_at'];
     }
-    public withUpdatedAtTimestamp(updatedAtTimestamp: string): SubgroupAndProjectBaseDto {
+    public withUpdatedAtTimestamp(updatedAtTimestamp: number): SubgroupAndProjectBaseDto {
         this['updated_at_timestamp'] = updatedAtTimestamp;
         return this;
     }
-    public set updatedAtTimestamp(updatedAtTimestamp: string  | undefined) {
+    public set updatedAtTimestamp(updatedAtTimestamp: number  | undefined) {
         this['updated_at_timestamp'] = updatedAtTimestamp;
     }
-    public get updatedAtTimestamp(): string | undefined {
+    public get updatedAtTimestamp(): number | undefined {
         return this['updated_at_timestamp'];
     }
-    public withStarTime(starTime: string): SubgroupAndProjectBaseDto {
+    public withStarTime(starTime: number): SubgroupAndProjectBaseDto {
         this['star_time'] = starTime;
         return this;
     }
-    public set starTime(starTime: string  | undefined) {
+    public set starTime(starTime: number  | undefined) {
         this['star_time'] = starTime;
     }
-    public get starTime(): string | undefined {
+    public get starTime(): number | undefined {
         return this['star_time'];
     }
     public withStarred(starred: boolean): SubgroupAndProjectBaseDto {

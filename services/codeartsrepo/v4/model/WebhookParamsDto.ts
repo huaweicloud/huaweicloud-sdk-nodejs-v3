@@ -4,6 +4,7 @@ export class WebhookParamsDto {
     public url?: string;
     private 'push_events'?: boolean;
     private 'push_events_branch_regex_filter'?: string;
+    private 'note_plain_text_filter'?: Array<string>;
     private 'tag_push_events'?: boolean;
     private 'merge_requests_events'?: boolean;
     private 'note_events'?: boolean;
@@ -36,6 +37,16 @@ export class WebhookParamsDto {
     }
     public get pushEventsBranchRegexFilter(): string | undefined {
         return this['push_events_branch_regex_filter'];
+    }
+    public withNotePlainTextFilter(notePlainTextFilter: Array<string>): WebhookParamsDto {
+        this['note_plain_text_filter'] = notePlainTextFilter;
+        return this;
+    }
+    public set notePlainTextFilter(notePlainTextFilter: Array<string>  | undefined) {
+        this['note_plain_text_filter'] = notePlainTextFilter;
+    }
+    public get notePlainTextFilter(): Array<string> | undefined {
+        return this['note_plain_text_filter'];
     }
     public withTagPushEvents(tagPushEvents: boolean): WebhookParamsDto {
         this['tag_push_events'] = tagPushEvents;

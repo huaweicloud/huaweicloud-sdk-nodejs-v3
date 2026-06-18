@@ -17,8 +17,12 @@ export class MergeRequestExternalDto {
     private 'source_branch'?: string;
     private 'target_branch'?: string;
     private 'is_source_branch_protected'?: boolean;
+    private 'is_source_branch_default'?: boolean;
     private 'devcloud_source_branch'?: string;
+    public upvotes?: number;
+    public downvotes?: number;
     public author?: UserBasicExternalDto;
+    public assignee?: UserBasicExternalDto;
     private 'source_repository_id'?: number;
     private 'target_repository_id'?: number;
     private 'source_project_id'?: string;
@@ -36,6 +40,7 @@ export class MergeRequestExternalDto {
     private 'closed_by'?: UserBasicExternalDto;
     private 'closed_at'?: string;
     private 'user_notes_count'?: number;
+    private 'should_remove_source_branch'?: boolean;
     private 'force_remove_source_branch'?: boolean;
     private 'web_url'?: string;
     private 'merge_request_diff'?: MergeRequestDiffExternalDto;
@@ -52,6 +57,7 @@ export class MergeRequestExternalDto {
     private 'moderation_time'?: number;
     private 'moderation_status'?: number;
     private 'is_use_temp_branch'?: boolean;
+    private 'only_assignee_can_merge'?: boolean;
     public constructor() { 
     }
     public withId(id: number): MergeRequestExternalDto {
@@ -134,6 +140,16 @@ export class MergeRequestExternalDto {
     public get isSourceBranchProtected(): boolean | undefined {
         return this['is_source_branch_protected'];
     }
+    public withIsSourceBranchDefault(isSourceBranchDefault: boolean): MergeRequestExternalDto {
+        this['is_source_branch_default'] = isSourceBranchDefault;
+        return this;
+    }
+    public set isSourceBranchDefault(isSourceBranchDefault: boolean  | undefined) {
+        this['is_source_branch_default'] = isSourceBranchDefault;
+    }
+    public get isSourceBranchDefault(): boolean | undefined {
+        return this['is_source_branch_default'];
+    }
     public withDevcloudSourceBranch(devcloudSourceBranch: string): MergeRequestExternalDto {
         this['devcloud_source_branch'] = devcloudSourceBranch;
         return this;
@@ -144,8 +160,20 @@ export class MergeRequestExternalDto {
     public get devcloudSourceBranch(): string | undefined {
         return this['devcloud_source_branch'];
     }
+    public withUpvotes(upvotes: number): MergeRequestExternalDto {
+        this['upvotes'] = upvotes;
+        return this;
+    }
+    public withDownvotes(downvotes: number): MergeRequestExternalDto {
+        this['downvotes'] = downvotes;
+        return this;
+    }
     public withAuthor(author: UserBasicExternalDto): MergeRequestExternalDto {
         this['author'] = author;
+        return this;
+    }
+    public withAssignee(assignee: UserBasicExternalDto): MergeRequestExternalDto {
+        this['assignee'] = assignee;
         return this;
     }
     public withSourceRepositoryId(sourceRepositoryId: number): MergeRequestExternalDto {
@@ -293,6 +321,16 @@ export class MergeRequestExternalDto {
     }
     public get userNotesCount(): number | undefined {
         return this['user_notes_count'];
+    }
+    public withShouldRemoveSourceBranch(shouldRemoveSourceBranch: boolean): MergeRequestExternalDto {
+        this['should_remove_source_branch'] = shouldRemoveSourceBranch;
+        return this;
+    }
+    public set shouldRemoveSourceBranch(shouldRemoveSourceBranch: boolean  | undefined) {
+        this['should_remove_source_branch'] = shouldRemoveSourceBranch;
+    }
+    public get shouldRemoveSourceBranch(): boolean | undefined {
+        return this['should_remove_source_branch'];
     }
     public withForceRemoveSourceBranch(forceRemoveSourceBranch: boolean): MergeRequestExternalDto {
         this['force_remove_source_branch'] = forceRemoveSourceBranch;
@@ -447,5 +485,15 @@ export class MergeRequestExternalDto {
     }
     public get isUseTempBranch(): boolean | undefined {
         return this['is_use_temp_branch'];
+    }
+    public withOnlyAssigneeCanMerge(onlyAssigneeCanMerge: boolean): MergeRequestExternalDto {
+        this['only_assignee_can_merge'] = onlyAssigneeCanMerge;
+        return this;
+    }
+    public set onlyAssigneeCanMerge(onlyAssigneeCanMerge: boolean  | undefined) {
+        this['only_assignee_can_merge'] = onlyAssigneeCanMerge;
+    }
+    public get onlyAssigneeCanMerge(): boolean | undefined {
+        return this['only_assignee_can_merge'];
     }
 }

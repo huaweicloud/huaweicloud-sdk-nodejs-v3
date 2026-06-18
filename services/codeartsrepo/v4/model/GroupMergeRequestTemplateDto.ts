@@ -4,7 +4,6 @@ import { UserBasicDto } from './UserBasicDto';
 
 export class GroupMergeRequestTemplateDto {
     public id?: number;
-    private 'repository_id'?: number;
     public description?: string;
     private 'created_at'?: string;
     private 'updated_at'?: string;
@@ -20,16 +19,6 @@ export class GroupMergeRequestTemplateDto {
     public withId(id: number): GroupMergeRequestTemplateDto {
         this['id'] = id;
         return this;
-    }
-    public withRepositoryId(repositoryId: number): GroupMergeRequestTemplateDto {
-        this['repository_id'] = repositoryId;
-        return this;
-    }
-    public set repositoryId(repositoryId: number  | undefined) {
-        this['repository_id'] = repositoryId;
-    }
-    public get repositoryId(): number | undefined {
-        return this['repository_id'];
     }
     public withDescription(description: string): GroupMergeRequestTemplateDto {
         this['description'] = description;
