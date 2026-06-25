@@ -27,6 +27,8 @@ export class UpdateCcRuleResponse extends SdkResponse {
     public unaggregation?: boolean;
     private 'aging_time'?: number;
     public producer?: number;
+    public priority?: number;
+    private 'cc_priority'?: number;
     public constructor() { 
         super();
     }
@@ -183,6 +185,20 @@ export class UpdateCcRuleResponse extends SdkResponse {
     public withProducer(producer: number): UpdateCcRuleResponse {
         this['producer'] = producer;
         return this;
+    }
+    public withPriority(priority: number): UpdateCcRuleResponse {
+        this['priority'] = priority;
+        return this;
+    }
+    public withCcPriority(ccPriority: number): UpdateCcRuleResponse {
+        this['cc_priority'] = ccPriority;
+        return this;
+    }
+    public set ccPriority(ccPriority: number  | undefined) {
+        this['cc_priority'] = ccPriority;
+    }
+    public get ccPriority(): number | undefined {
+        return this['cc_priority'];
     }
 }
 

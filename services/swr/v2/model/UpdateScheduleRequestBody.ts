@@ -5,9 +5,8 @@ import { ScheduleObj } from './ScheduleObj';
 export class UpdateScheduleRequestBody {
     public schedule?: ScheduleObj;
     public parameters?: GcParameters;
-    public constructor(schedule?: ScheduleObj, parameters?: GcParameters) { 
+    public constructor(schedule?: ScheduleObj) { 
         this['schedule'] = schedule;
-        this['parameters'] = parameters;
     }
     public withSchedule(schedule: ScheduleObj): UpdateScheduleRequestBody {
         this['schedule'] = schedule;

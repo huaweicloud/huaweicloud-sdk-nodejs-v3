@@ -6,6 +6,7 @@ import { CcrulesListInfoTagCondition } from './CcrulesListInfoTagCondition';
 export class CcrulesListInfo {
     public policyname?: string;
     public priority?: number;
+    private 'cc_priority'?: number;
     public name?: string;
     public id?: string;
     public policyid?: string;
@@ -39,6 +40,16 @@ export class CcrulesListInfo {
     public withPriority(priority: number): CcrulesListInfo {
         this['priority'] = priority;
         return this;
+    }
+    public withCcPriority(ccPriority: number): CcrulesListInfo {
+        this['cc_priority'] = ccPriority;
+        return this;
+    }
+    public set ccPriority(ccPriority: number  | undefined) {
+        this['cc_priority'] = ccPriority;
+    }
+    public get ccPriority(): number | undefined {
+        return this['cc_priority'];
     }
     public withName(name: string): CcrulesListInfo {
         this['name'] = name;

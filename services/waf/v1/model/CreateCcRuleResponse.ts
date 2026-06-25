@@ -29,6 +29,8 @@ export class CreateCcRuleResponse extends SdkResponse {
     private 'aging_time'?: number;
     public producer?: number;
     public timestamp?: number;
+    public priority?: number;
+    private 'cc_priority'?: number;
     public constructor() { 
         super();
     }
@@ -193,6 +195,20 @@ export class CreateCcRuleResponse extends SdkResponse {
     public withTimestamp(timestamp: number): CreateCcRuleResponse {
         this['timestamp'] = timestamp;
         return this;
+    }
+    public withPriority(priority: number): CreateCcRuleResponse {
+        this['priority'] = priority;
+        return this;
+    }
+    public withCcPriority(ccPriority: number): CreateCcRuleResponse {
+        this['cc_priority'] = ccPriority;
+        return this;
+    }
+    public set ccPriority(ccPriority: number  | undefined) {
+        this['cc_priority'] = ccPriority;
+    }
+    public get ccPriority(): number | undefined {
+        return this['cc_priority'];
     }
 }
 

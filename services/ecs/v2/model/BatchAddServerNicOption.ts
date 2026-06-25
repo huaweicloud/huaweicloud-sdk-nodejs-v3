@@ -9,6 +9,7 @@ export class BatchAddServerNicOption {
     private 'ip_address'?: string;
     private 'ipv6_enable'?: boolean;
     private 'ipv6_bandwidth'?: Ipv6Bandwidth;
+    private 'efi_enable'?: boolean;
     public constructor() { 
     }
     public withSubnetId(subnetId: string): BatchAddServerNicOption {
@@ -70,5 +71,15 @@ export class BatchAddServerNicOption {
     }
     public get ipv6Bandwidth(): Ipv6Bandwidth | undefined {
         return this['ipv6_bandwidth'];
+    }
+    public withEfiEnable(efiEnable: boolean): BatchAddServerNicOption {
+        this['efi_enable'] = efiEnable;
+        return this;
+    }
+    public set efiEnable(efiEnable: boolean  | undefined) {
+        this['efi_enable'] = efiEnable;
+    }
+    public get efiEnable(): boolean | undefined {
+        return this['efi_enable'];
     }
 }

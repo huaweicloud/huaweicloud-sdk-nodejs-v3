@@ -6275,6 +6275,7 @@ export class GaussDBClient {
      * @param {string} selectedDbs **参数解释**：  用户选中的数据库名，用英文\\\&quot;,\\\&quot;隔开。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
      * @param {string} [xLanguage] **参数解释**：              请求语言类型。  **约束限制**：  不涉及。  **取值范围**： - en-us - zh-cn  **默认取值**：  en-us。
      * @param {string} [isInstanceLevel] **参数解释**：  判断是否是实例级同步。  **约束限制**：  不涉及。  **取值范围**：  - true：实例级同步。 - false: 非实例级同步。  **默认取值**：  false。
+     * @param {string} [databaseScope] **参数解释**：  数据库同步范围。  **约束限制**：  必须选择实例级同步。  **取值范围**：  - true：所有库。 - false：部分库。  **默认取值**：  部分库。
      * @param {string} [isSupportRegexp] **参数解释**：  是否支持标配符。  **约束限制**：  不涉及。  **取值范围**：  - true: 支持标配符。 - false: 不支持标配符。  **默认取值**：  不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -20064,6 +20065,8 @@ export const ParamCreater = function () {
             let xLanguage;
             let isInstanceLevel;
             
+            let databaseScope;
+            
             let isSupportRegexp;
             
 
@@ -20075,6 +20078,7 @@ export const ParamCreater = function () {
                     selectedDbs = uploadImportExcelTemplateRequest.body?.selectedDbs;
                     xLanguage = uploadImportExcelTemplateRequest.xLanguage;
                     isInstanceLevel = uploadImportExcelTemplateRequest.body?.isInstanceLevel;
+                    databaseScope = uploadImportExcelTemplateRequest.body?.databaseScope;
                     isSupportRegexp = uploadImportExcelTemplateRequest.body?.isSupportRegexp;
                 } else {
                     instanceId = uploadImportExcelTemplateRequest['instance_id'];
@@ -20083,6 +20087,7 @@ export const ParamCreater = function () {
                     selectedDbs = uploadImportExcelTemplateRequest['body']['selectedDbs'];
                     xLanguage = uploadImportExcelTemplateRequest['X-Language'];
                     isInstanceLevel = uploadImportExcelTemplateRequest['body']['isInstanceLevel'];
+                    databaseScope = uploadImportExcelTemplateRequest['body']['databaseScope'];
                     isSupportRegexp = uploadImportExcelTemplateRequest['body']['isSupportRegexp'];
                 }
             }
@@ -20108,6 +20113,9 @@ export const ParamCreater = function () {
             }
             if (selectedDbs !== undefined) { 
                 localVarFormParams.append('selected_dbs', selectedDbs as any);
+            }
+            if (databaseScope !== undefined) { 
+                localVarFormParams.append('database_scope', databaseScope as any);
             }
             if (isSupportRegexp !== undefined) { 
                 localVarFormParams.append('is_support_regexp', isSupportRegexp as any);

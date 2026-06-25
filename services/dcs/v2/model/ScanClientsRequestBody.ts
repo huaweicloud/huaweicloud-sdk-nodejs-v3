@@ -3,8 +3,7 @@
 export class ScanClientsRequestBody {
     private 'node_id'?: string;
     private 'clean_cache'?: boolean;
-    public constructor(nodeId?: string) { 
-        this['node_id'] = nodeId;
+    public constructor() { 
     }
     public withNodeId(nodeId: string): ScanClientsRequestBody {
         this['node_id'] = nodeId;

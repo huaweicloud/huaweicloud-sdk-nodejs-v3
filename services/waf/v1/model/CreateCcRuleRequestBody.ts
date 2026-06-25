@@ -18,6 +18,8 @@ export class CreateCcRuleRequestBody {
     private 'domain_aggregation'?: boolean;
     private 'region_aggregation'?: boolean;
     public description?: string;
+    public priority?: number;
+    private 'cc_priority'?: number;
     public constructor(mode?: number, conditions?: Array<CcCondition>, action?: CreateCcRuleRequestBodyAction, tagType?: string, limitNum?: number, limitPeriod?: number) { 
         this['mode'] = mode;
         this['conditions'] = conditions;
@@ -135,6 +137,20 @@ export class CreateCcRuleRequestBody {
     public withDescription(description: string): CreateCcRuleRequestBody {
         this['description'] = description;
         return this;
+    }
+    public withPriority(priority: number): CreateCcRuleRequestBody {
+        this['priority'] = priority;
+        return this;
+    }
+    public withCcPriority(ccPriority: number): CreateCcRuleRequestBody {
+        this['cc_priority'] = ccPriority;
+        return this;
+    }
+    public set ccPriority(ccPriority: number  | undefined) {
+        this['cc_priority'] = ccPriority;
+    }
+    public get ccPriority(): number | undefined {
+        return this['cc_priority'];
     }
 }
 

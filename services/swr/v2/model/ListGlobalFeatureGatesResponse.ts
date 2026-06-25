@@ -5,6 +5,7 @@ export class ListGlobalFeatureGatesResponse extends SdkResponse {
     public enableUserDefObs?: boolean;
     public enableEnterprise?: boolean;
     public cerAvailable?: boolean;
+    public enableIntranetAccessSwitch?: boolean;
     public constructor() { 
         super();
     }
@@ -18,6 +19,10 @@ export class ListGlobalFeatureGatesResponse extends SdkResponse {
     }
     public withCerAvailable(cerAvailable: boolean): ListGlobalFeatureGatesResponse {
         this['cerAvailable'] = cerAvailable;
+        return this;
+    }
+    public withEnableIntranetAccessSwitch(enableIntranetAccessSwitch: boolean): ListGlobalFeatureGatesResponse {
+        this['enableIntranetAccessSwitch'] = enableIntranetAccessSwitch;
         return this;
     }
 }

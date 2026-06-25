@@ -24,6 +24,7 @@ import { CheckMd5DuplicationRequest } from './model/CheckMd5DuplicationRequest';
 import { CheckMd5DuplicationResponse } from './model/CheckMd5DuplicationResponse';
 import { Common } from './model/Common';
 import { CommonInfo } from './model/CommonInfo';
+import { ConfigCdnHttpsReq } from './model/ConfigCdnHttpsReq';
 import { ConfirmAssetUploadReq } from './model/ConfirmAssetUploadReq';
 import { ConfirmAssetUploadRequest } from './model/ConfirmAssetUploadRequest';
 import { ConfirmAssetUploadResponse } from './model/ConfirmAssetUploadResponse';
@@ -200,6 +201,8 @@ import { ShowAssetTempAuthorityRequest } from './model/ShowAssetTempAuthorityReq
 import { ShowAssetTempAuthorityResponse } from './model/ShowAssetTempAuthorityResponse';
 import { ShowCdnStatisticsRequest } from './model/ShowCdnStatisticsRequest';
 import { ShowCdnStatisticsResponse } from './model/ShowCdnStatisticsResponse';
+import { ShowHttpsConfigRequest } from './model/ShowHttpsConfigRequest';
+import { ShowHttpsConfigResponse } from './model/ShowHttpsConfigResponse';
 import { ShowObjectMetaDataRequest } from './model/ShowObjectMetaDataRequest';
 import { ShowObjectMetaDataResponse } from './model/ShowObjectMetaDataResponse';
 import { ShowPreheatingAssetRequest } from './model/ShowPreheatingAssetRequest';
@@ -256,6 +259,8 @@ import { UpdateCategoryReq } from './model/UpdateCategoryReq';
 import { UpdateCoverByThumbnailReq } from './model/UpdateCoverByThumbnailReq';
 import { UpdateCoverByThumbnailRequest } from './model/UpdateCoverByThumbnailRequest';
 import { UpdateCoverByThumbnailResponse } from './model/UpdateCoverByThumbnailResponse';
+import { UpdateHttpsConfigRequest } from './model/UpdateHttpsConfigRequest';
+import { UpdateHttpsConfigResponse } from './model/UpdateHttpsConfigResponse';
 import { UpdateStorageModeReq } from './model/UpdateStorageModeReq';
 import { UpdateStorageModeRequest } from './model/UpdateStorageModeRequest';
 import { UpdateStorageModeResponse } from './model/UpdateStorageModeResponse';
@@ -1955,6 +1960,46 @@ export class VodClient {
      */
     public uploadMetaDataByUrl(uploadMetaDataByUrlRequest?: UploadMetaDataByUrlRequest): Promise<UploadMetaDataByUrlResponse> {
         const options = ParamCreater().uploadMetaDataByUrl(uploadMetaDataByUrlRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询证书配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询https配置
+     * @param {string} domain 加速域名
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showHttpsConfig(showHttpsConfigRequest?: ShowHttpsConfigRequest): Promise<ShowHttpsConfigResponse> {
+        const options = ParamCreater().showHttpsConfig(showHttpsConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 点播提供给域名配置https证书的接口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 配置https
+     * @param {ConfigCdnHttpsReq} updateHttpsConfigRequestBody 配置https
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateHttpsConfig(updateHttpsConfigRequest?: UpdateHttpsConfigRequest): Promise<UpdateHttpsConfigResponse> {
+        const options = ParamCreater().updateHttpsConfig(updateHttpsConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6090,6 +6135,98 @@ export const ParamCreater = function () {
                 } else {
                     body = uploadMetaDataByUrlRequest['body'];
                     xSdkDate = uploadMetaDataByUrlRequest['X-Sdk-Date'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询证书配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showHttpsConfig(showHttpsConfigRequest?: ShowHttpsConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/asset/domain/https",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domain;
+            
+            let xSdkDate;
+
+            if (showHttpsConfigRequest !== null && showHttpsConfigRequest !== undefined) {
+                if (showHttpsConfigRequest instanceof ShowHttpsConfigRequest) {
+                    domain = showHttpsConfigRequest.domain;
+                    xSdkDate = showHttpsConfigRequest.xSdkDate;
+                } else {
+                    domain = showHttpsConfigRequest['domain'];
+                    xSdkDate = showHttpsConfigRequest['X-Sdk-Date'];
+                }
+            }
+
+        
+            if (domain === null || domain === undefined) {
+                throw new RequiredError('domain','Required parameter domain was null or undefined when calling showHttpsConfig.');
+            }
+            if (domain !== null && domain !== undefined) {
+                localVarQueryParameter['domain'] = domain;
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 点播提供给域名配置https证书的接口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateHttpsConfig(updateHttpsConfigRequest?: UpdateHttpsConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1.0/{project_id}/asset/domain/https",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xSdkDate;
+
+            if (updateHttpsConfigRequest !== null && updateHttpsConfigRequest !== undefined) {
+                if (updateHttpsConfigRequest instanceof UpdateHttpsConfigRequest) {
+                    body = updateHttpsConfigRequest.body
+                    xSdkDate = updateHttpsConfigRequest.xSdkDate;
+                } else {
+                    body = updateHttpsConfigRequest['body'];
+                    xSdkDate = updateHttpsConfigRequest['X-Sdk-Date'];
                 }
             }
 

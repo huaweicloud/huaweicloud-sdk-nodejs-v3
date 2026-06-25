@@ -31,6 +31,7 @@ export class StarRocksInstanceInfoInstances {
     private 'param_group'?: string;
     public actions?: Array<QueryAction>;
     private 'create_fail_error_code'?: string;
+    private 'users_sync_switch_on'?: boolean;
     public groups?: Array<StarRocksInstanceInfoGroups>;
     private 'ops_window'?: StarRocksInstanceInfoOpsWindow;
     private 'tags_info'?: StarRocksInstanceInfoTagsInfo;
@@ -275,6 +276,16 @@ export class StarRocksInstanceInfoInstances {
     }
     public get createFailErrorCode(): string | undefined {
         return this['create_fail_error_code'];
+    }
+    public withUsersSyncSwitchOn(usersSyncSwitchOn: boolean): StarRocksInstanceInfoInstances {
+        this['users_sync_switch_on'] = usersSyncSwitchOn;
+        return this;
+    }
+    public set usersSyncSwitchOn(usersSyncSwitchOn: boolean  | undefined) {
+        this['users_sync_switch_on'] = usersSyncSwitchOn;
+    }
+    public get usersSyncSwitchOn(): boolean | undefined {
+        return this['users_sync_switch_on'];
     }
     public withGroups(groups: Array<StarRocksInstanceInfoGroups>): StarRocksInstanceInfoInstances {
         this['groups'] = groups;

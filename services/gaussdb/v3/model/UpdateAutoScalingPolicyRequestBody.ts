@@ -8,6 +8,7 @@ export class UpdateAutoScalingPolicyRequestBody {
     private 'enlarge_threshold'?: number;
     private 'max_flavor'?: string;
     private 'reduce_enabled'?: boolean;
+    private 'reduce_threshold'?: number;
     private 'max_read_only_count'?: number;
     private 'read_only_weight'?: number;
     private 'scaling_strategy'?: ScalingStrategyReqInfo;
@@ -68,6 +69,16 @@ export class UpdateAutoScalingPolicyRequestBody {
     }
     public get reduceEnabled(): boolean | undefined {
         return this['reduce_enabled'];
+    }
+    public withReduceThreshold(reduceThreshold: number): UpdateAutoScalingPolicyRequestBody {
+        this['reduce_threshold'] = reduceThreshold;
+        return this;
+    }
+    public set reduceThreshold(reduceThreshold: number  | undefined) {
+        this['reduce_threshold'] = reduceThreshold;
+    }
+    public get reduceThreshold(): number | undefined {
+        return this['reduce_threshold'];
     }
     public withMaxReadOnlyCount(maxReadOnlyCount: number): UpdateAutoScalingPolicyRequestBody {
         this['max_read_only_count'] = maxReadOnlyCount;

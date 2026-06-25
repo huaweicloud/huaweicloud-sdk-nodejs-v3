@@ -9,6 +9,7 @@ export class PostPaidServerNic {
     private 'ipv6_enable'?: boolean;
     private 'ipv6_bandwidth'?: PostPaidServerIpv6Bandwidth;
     private 'allowed_address_pairs'?: Array<CreateServerNicAllowedAddressPairs>;
+    private 'efi_enable'?: boolean;
     public constructor() { 
     }
     public withSubnetId(subnetId: string): PostPaidServerNic {
@@ -70,5 +71,15 @@ export class PostPaidServerNic {
     }
     public get allowedAddressPairs(): Array<CreateServerNicAllowedAddressPairs> | undefined {
         return this['allowed_address_pairs'];
+    }
+    public withEfiEnable(efiEnable: boolean): PostPaidServerNic {
+        this['efi_enable'] = efiEnable;
+        return this;
+    }
+    public set efiEnable(efiEnable: boolean  | undefined) {
+        this['efi_enable'] = efiEnable;
+    }
+    public get efiEnable(): boolean | undefined {
+        return this['efi_enable'];
     }
 }

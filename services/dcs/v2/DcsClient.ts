@@ -1446,7 +1446,7 @@ export class DcsClient {
      *
      * @summary 获取会话列表
      * @param {string} instanceId 实例ID。
-     * @param {string} nodeId 节点ID。
+     * @param {string} [nodeId] 节点ID。
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询， 偏移量大于等于0。
      * @param {number} [limit] 每页显示条数，最小值为1，最大值为1000，若不设置该参数，则为10.
      * @param {string} [addr] 按客户端连接地址过滤。
@@ -5443,9 +5443,6 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listClients.');
-            }
-            if (nodeId === null || nodeId === undefined) {
-                throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling listClients.');
             }
             if (nodeId !== null && nodeId !== undefined) {
                 localVarQueryParameter['node_id'] = nodeId;

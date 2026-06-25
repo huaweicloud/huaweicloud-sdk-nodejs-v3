@@ -5,6 +5,7 @@ export class UploadImportExcelTemplateRequestBody {
     public file?: any;
     private 'is_instance_level'?: UploadImportExcelTemplateRequestBodyIsInstanceLevelEnum | string;
     private 'selected_dbs'?: string;
+    private 'database_scope'?: string;
     private 'is_support_regexp'?: UploadImportExcelTemplateRequestBodyIsSupportRegexpEnum | string;
     public constructor(templateType?: string, file?: any, selectedDbs?: string) { 
         this['template_type'] = templateType;
@@ -44,6 +45,16 @@ export class UploadImportExcelTemplateRequestBody {
     }
     public get selectedDbs(): string | undefined {
         return this['selected_dbs'];
+    }
+    public withDatabaseScope(databaseScope: string): UploadImportExcelTemplateRequestBody {
+        this['database_scope'] = databaseScope;
+        return this;
+    }
+    public set databaseScope(databaseScope: string  | undefined) {
+        this['database_scope'] = databaseScope;
+    }
+    public get databaseScope(): string | undefined {
+        return this['database_scope'];
     }
     public withIsSupportRegexp(isSupportRegexp: UploadImportExcelTemplateRequestBodyIsSupportRegexpEnum | string): UploadImportExcelTemplateRequestBody {
         this['is_support_regexp'] = isSupportRegexp;

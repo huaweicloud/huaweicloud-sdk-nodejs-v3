@@ -4,7 +4,8 @@ import { UnusedAnalysisRule } from './UnusedAnalysisRule';
 export class AnalyzerConfigurationUnusedAccess {
     private 'unused_access_age'?: number;
     private 'unused_analysis_rule'?: UnusedAnalysisRule;
-    public constructor() { 
+    public constructor(unusedAccessAge?: number) { 
+        this['unused_access_age'] = unusedAccessAge;
     }
     public withUnusedAccessAge(unusedAccessAge: number): AnalyzerConfigurationUnusedAccess {
         this['unused_access_age'] = unusedAccessAge;

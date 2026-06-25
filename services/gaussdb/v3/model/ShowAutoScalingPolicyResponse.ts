@@ -12,6 +12,7 @@ export class ShowAutoScalingPolicyResponse extends SdkResponse {
     private 'enlarge_threshold'?: number;
     private 'max_flavor'?: string;
     private 'reduce_enabled'?: boolean;
+    private 'reduce_threshold'?: number;
     private 'min_flavor'?: string;
     private 'silence_start_at'?: string;
     private 'scaling_strategy'?: ScalingStrategyInfo;
@@ -98,6 +99,16 @@ export class ShowAutoScalingPolicyResponse extends SdkResponse {
     }
     public get reduceEnabled(): boolean | undefined {
         return this['reduce_enabled'];
+    }
+    public withReduceThreshold(reduceThreshold: number): ShowAutoScalingPolicyResponse {
+        this['reduce_threshold'] = reduceThreshold;
+        return this;
+    }
+    public set reduceThreshold(reduceThreshold: number  | undefined) {
+        this['reduce_threshold'] = reduceThreshold;
+    }
+    public get reduceThreshold(): number | undefined {
+        return this['reduce_threshold'];
     }
     public withMinFlavor(minFlavor: string): ShowAutoScalingPolicyResponse {
         this['min_flavor'] = minFlavor;

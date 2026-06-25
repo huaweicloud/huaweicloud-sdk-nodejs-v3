@@ -8,9 +8,8 @@ export class ListClientsRequest {
     public addr?: string;
     public sort?: string;
     public order?: ListClientsRequestOrderEnum | string;
-    public constructor(instanceId?: string, nodeId?: string) { 
+    public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
-        this['node_id'] = nodeId;
     }
     public withInstanceId(instanceId: string): ListClientsRequest {
         this['instance_id'] = instanceId;

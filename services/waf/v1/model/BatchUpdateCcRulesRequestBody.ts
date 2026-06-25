@@ -21,6 +21,8 @@ export class BatchUpdateCcRulesRequestBody {
     private 'region_aggregation'?: boolean;
     public description?: string;
     private 'policy_rule_ids'?: Array<BatchUpdateCcRulesRequestBodyPolicyRuleIds>;
+    public priority?: number;
+    private 'cc_priority'?: number;
     public constructor(mode?: number, conditions?: Array<CcCondition>, action?: CreateCcRuleRequestBodyAction, tagType?: string, limitNum?: number, limitPeriod?: number, policyRuleIds?: Array<BatchUpdateCcRulesRequestBodyPolicyRuleIds>) { 
         this['mode'] = mode;
         this['conditions'] = conditions;
@@ -153,6 +155,20 @@ export class BatchUpdateCcRulesRequestBody {
     }
     public get policyRuleIds(): Array<BatchUpdateCcRulesRequestBodyPolicyRuleIds> | undefined {
         return this['policy_rule_ids'];
+    }
+    public withPriority(priority: number): BatchUpdateCcRulesRequestBody {
+        this['priority'] = priority;
+        return this;
+    }
+    public withCcPriority(ccPriority: number): BatchUpdateCcRulesRequestBody {
+        this['cc_priority'] = ccPriority;
+        return this;
+    }
+    public set ccPriority(ccPriority: number  | undefined) {
+        this['cc_priority'] = ccPriority;
+    }
+    public get ccPriority(): number | undefined {
+        return this['cc_priority'];
     }
 }
 
