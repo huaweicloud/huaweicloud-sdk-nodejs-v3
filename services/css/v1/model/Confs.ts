@@ -8,6 +8,7 @@ export class Confs {
     public setting?: Setting;
     public updateAt?: string;
     public desc?: string;
+    public sensitiveWordsShielding?: boolean;
     public constructor() { 
     }
     public withName(name: string): Confs {
@@ -32,6 +33,10 @@ export class Confs {
     }
     public withDesc(desc: string): Confs {
         this['desc'] = desc;
+        return this;
+    }
+    public withSensitiveWordsShielding(sensitiveWordsShielding: boolean): Confs {
+        this['sensitiveWordsShielding'] = sensitiveWordsShielding;
         return this;
     }
 }

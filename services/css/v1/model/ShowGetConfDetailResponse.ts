@@ -9,6 +9,7 @@ export class ShowGetConfDetailResponse extends SdkResponse {
     public setting?: Setting;
     public updateAt?: string;
     public desc?: string;
+    public sensitiveWordsShielding?: boolean;
     public constructor() { 
         super();
     }
@@ -34,6 +35,10 @@ export class ShowGetConfDetailResponse extends SdkResponse {
     }
     public withDesc(desc: string): ShowGetConfDetailResponse {
         this['desc'] = desc;
+        return this;
+    }
+    public withSensitiveWordsShielding(sensitiveWordsShielding: boolean): ShowGetConfDetailResponse {
+        this['sensitiveWordsShielding'] = sensitiveWordsShielding;
         return this;
     }
 }

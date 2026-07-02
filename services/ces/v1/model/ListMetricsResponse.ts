@@ -1,11 +1,11 @@
-import { MetaData } from './MetaData';
 import { MetricInfoList } from './MetricInfoList';
+import { MetricListMetaDataResp } from './MetricListMetaDataResp';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListMetricsResponse extends SdkResponse {
     public metrics?: Array<MetricInfoList>;
-    private 'meta_data'?: MetaData;
+    private 'meta_data'?: MetricListMetaDataResp;
     public constructor() { 
         super();
     }
@@ -13,14 +13,14 @@ export class ListMetricsResponse extends SdkResponse {
         this['metrics'] = metrics;
         return this;
     }
-    public withMetaData(metaData: MetaData): ListMetricsResponse {
+    public withMetaData(metaData: MetricListMetaDataResp): ListMetricsResponse {
         this['meta_data'] = metaData;
         return this;
     }
-    public set metaData(metaData: MetaData  | undefined) {
+    public set metaData(metaData: MetricListMetaDataResp  | undefined) {
         this['meta_data'] = metaData;
     }
-    public get metaData(): MetaData | undefined {
+    public get metaData(): MetricListMetaDataResp | undefined {
         return this['meta_data'];
     }
 }

@@ -25,6 +25,7 @@ export class FlinkJobConfig {
     private 'execution_agency_urn'?: string;
     private 'resume_checkpoint'?: boolean;
     private 'runtime_config'?: string;
+    private 'flink_log_config'?: string;
     private 'graph_editor_enabled'?: boolean;
     private 'graph_editor_data'?: string;
     private 'resume_max_num'?: number;
@@ -265,6 +266,16 @@ export class FlinkJobConfig {
     }
     public get runtimeConfig(): string | undefined {
         return this['runtime_config'];
+    }
+    public withFlinkLogConfig(flinkLogConfig: string): FlinkJobConfig {
+        this['flink_log_config'] = flinkLogConfig;
+        return this;
+    }
+    public set flinkLogConfig(flinkLogConfig: string  | undefined) {
+        this['flink_log_config'] = flinkLogConfig;
+    }
+    public get flinkLogConfig(): string | undefined {
+        return this['flink_log_config'];
     }
     public withGraphEditorEnabled(graphEditorEnabled: boolean): FlinkJobConfig {
         this['graph_editor_enabled'] = graphEditorEnabled;

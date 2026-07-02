@@ -32,5 +32,6 @@ export class DimensionInfoResp {
     */
 export enum DimensionInfoRespFilterTypeEnum {
     ALL_INSTANCES = 'all_instances',
-    SPECIFIC_INSTANCES = 'specific_instances'
+    SPECIFIC_INSTANCES = 'specific_instances',
+    RESOURCE_GROUPS = 'resource_groups'
 }

@@ -98,7 +98,9 @@ export enum UpdateWidgetInfoViewEnum {
     BAR_CHART = 'bar_chart',
     TABLE = 'table',
     CIRCULAR_BAR = 'circular_bar',
-    AREA_CHART = 'area_chart'
+    AREA_CHART = 'area_chart',
+    GAUGE = 'gauge',
+    STAT = 'stat'
 }
 /**
     * @export

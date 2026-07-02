@@ -6,7 +6,9 @@ export class PlainSslEnableRequest {
     private 'user_name'?: string;
     private 'pass_word'?: string;
     private 'sasl_enabled_mechanisms'?: Array<PlainSslEnableRequestSaslEnabledMechanismsEnum> | Array<string>;
-    public constructor() { 
+    public constructor(protocol?: string, enable?: boolean) { 
+        this['protocol'] = protocol;
+        this['enable'] = enable;
     }
     public withProtocol(protocol: PlainSslEnableRequestProtocolEnum | string): PlainSslEnableRequest {
         this['protocol'] = protocol;

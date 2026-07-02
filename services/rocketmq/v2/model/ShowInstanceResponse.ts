@@ -41,6 +41,8 @@ export class ShowInstanceResponse extends SdkResponse {
     private 'storage_type'?: string;
     private 'extend_times'?: number;
     private 'ipv6_enable'?: boolean;
+    private 'ipv6_broker_address'?: string;
+    private 'ipv6_namesrv_address'?: string;
     private 'support_features'?: string;
     private 'disk_encrypted'?: boolean;
     private 'ces_version'?: string;
@@ -419,6 +421,26 @@ export class ShowInstanceResponse extends SdkResponse {
     }
     public get ipv6Enable(): boolean | undefined {
         return this['ipv6_enable'];
+    }
+    public withIpv6BrokerAddress(ipv6BrokerAddress: string): ShowInstanceResponse {
+        this['ipv6_broker_address'] = ipv6BrokerAddress;
+        return this;
+    }
+    public set ipv6BrokerAddress(ipv6BrokerAddress: string  | undefined) {
+        this['ipv6_broker_address'] = ipv6BrokerAddress;
+    }
+    public get ipv6BrokerAddress(): string | undefined {
+        return this['ipv6_broker_address'];
+    }
+    public withIpv6NamesrvAddress(ipv6NamesrvAddress: string): ShowInstanceResponse {
+        this['ipv6_namesrv_address'] = ipv6NamesrvAddress;
+        return this;
+    }
+    public set ipv6NamesrvAddress(ipv6NamesrvAddress: string  | undefined) {
+        this['ipv6_namesrv_address'] = ipv6NamesrvAddress;
+    }
+    public get ipv6NamesrvAddress(): string | undefined {
+        return this['ipv6_namesrv_address'];
     }
     public withSupportFeatures(supportFeatures: string): ShowInstanceResponse {
         this['support_features'] = supportFeatures;

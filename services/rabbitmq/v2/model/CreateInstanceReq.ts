@@ -24,13 +24,17 @@ export class CreateInstanceReq {
     private 'ssl_enable'?: boolean;
     private 'storage_spec_code'?: CreateInstanceReqStorageSpecCodeEnum | string;
     private 'enterprise_project_id'?: string;
+    private 'disk_encrypted_enable'?: boolean;
+    private 'disk_encrypted_key'?: string;
+    private 'arch_type'?: string;
     public tags?: Array<TagEntity>;
     private 'bss_param'?: BssParam;
-    public constructor(name?: string, engine?: string, engineVersion?: string, storageSpace?: number, vpcId?: string, securityGroupId?: string, subnetId?: string, availableZones?: Array<string>, productId?: string, storageSpecCode?: string) { 
+    public constructor(name?: string, engineVersion?: string, storageSpace?: number, accessUser?: string, password?: string, vpcId?: string, securityGroupId?: string, subnetId?: string, availableZones?: Array<string>, productId?: string, storageSpecCode?: string) { 
         this['name'] = name;
-        this['engine'] = engine;
         this['engine_version'] = engineVersion;
         this['storage_space'] = storageSpace;
+        this['access_user'] = accessUser;
+        this['password'] = password;
         this['vpc_id'] = vpcId;
         this['security_group_id'] = securityGroupId;
         this['subnet_id'] = subnetId;
@@ -223,6 +227,36 @@ export class CreateInstanceReq {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withDiskEncryptedEnable(diskEncryptedEnable: boolean): CreateInstanceReq {
+        this['disk_encrypted_enable'] = diskEncryptedEnable;
+        return this;
+    }
+    public set diskEncryptedEnable(diskEncryptedEnable: boolean  | undefined) {
+        this['disk_encrypted_enable'] = diskEncryptedEnable;
+    }
+    public get diskEncryptedEnable(): boolean | undefined {
+        return this['disk_encrypted_enable'];
+    }
+    public withDiskEncryptedKey(diskEncryptedKey: string): CreateInstanceReq {
+        this['disk_encrypted_key'] = diskEncryptedKey;
+        return this;
+    }
+    public set diskEncryptedKey(diskEncryptedKey: string  | undefined) {
+        this['disk_encrypted_key'] = diskEncryptedKey;
+    }
+    public get diskEncryptedKey(): string | undefined {
+        return this['disk_encrypted_key'];
+    }
+    public withArchType(archType: string): CreateInstanceReq {
+        this['arch_type'] = archType;
+        return this;
+    }
+    public set archType(archType: string  | undefined) {
+        this['arch_type'] = archType;
+    }
+    public get archType(): string | undefined {
+        return this['arch_type'];
     }
     public withTags(tags: Array<TagEntity>): CreateInstanceReq {
         this['tags'] = tags;

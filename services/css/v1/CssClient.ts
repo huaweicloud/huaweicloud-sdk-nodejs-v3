@@ -97,8 +97,6 @@ import { DeleteClustersTagsResponse } from './model/DeleteClustersTagsResponse';
 import { DeleteConfReq } from './model/DeleteConfReq';
 import { DeleteConfRequest } from './model/DeleteConfRequest';
 import { DeleteConfResponse } from './model/DeleteConfResponse';
-import { DeleteConfigRequest } from './model/DeleteConfigRequest';
-import { DeleteConfigResponse } from './model/DeleteConfigResponse';
 import { DeleteIkThesaurusRequest } from './model/DeleteIkThesaurusRequest';
 import { DeleteIkThesaurusResponse } from './model/DeleteIkThesaurusResponse';
 import { DeleteSnapshotRequest } from './model/DeleteSnapshotRequest';
@@ -273,9 +271,9 @@ import { StartPublicWhitelistResponse } from './model/StartPublicWhitelistRespon
 import { StartTargetClusterConnectivityTestReq } from './model/StartTargetClusterConnectivityTestReq';
 import { StartTargetClusterConnectivityTestRequest } from './model/StartTargetClusterConnectivityTestRequest';
 import { StartTargetClusterConnectivityTestResponse } from './model/StartTargetClusterConnectivityTestResponse';
+import { StartVpcepRequest } from './model/StartVpcepRequest';
+import { StartVpcepResponse } from './model/StartVpcepResponse';
 import { StartVpecpReq } from './model/StartVpecpReq';
-import { StartVpecpRequest } from './model/StartVpecpRequest';
-import { StartVpecpResponse } from './model/StartVpecpResponse';
 import { StopHotPipelineRequest } from './model/StopHotPipelineRequest';
 import { StopHotPipelineRequestBody } from './model/StopHotPipelineRequestBody';
 import { StopHotPipelineResponse } from './model/StopHotPipelineResponse';
@@ -291,8 +289,8 @@ import { StopPublicWhitelistRequest } from './model/StopPublicWhitelistRequest';
 import { StopPublicWhitelistResponse } from './model/StopPublicWhitelistResponse';
 import { StopSnapshotRequest } from './model/StopSnapshotRequest';
 import { StopSnapshotResponse } from './model/StopSnapshotResponse';
-import { StopVpecpRequest } from './model/StopVpecpRequest';
-import { StopVpecpResponse } from './model/StopVpecpResponse';
+import { StopVpcepRequest } from './model/StopVpcepRequest';
+import { StopVpcepResponse } from './model/StopVpcepResponse';
 import { SummaryInfo } from './model/SummaryInfo';
 import { SystemTemplates } from './model/SystemTemplates';
 import { Tag } from './model/Tag';
@@ -1579,8 +1577,8 @@ export class CssClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public startVpecp(startVpecpRequest?: StartVpecpRequest): Promise<StartVpecpResponse> {
-        const options = ParamCreater().startVpecp(startVpecpRequest);
+    public startVpcep(startVpcepRequest?: StartVpcepRequest): Promise<StartVpcepResponse> {
+        const options = ParamCreater().startVpcep(startVpcepRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1674,8 +1672,8 @@ export class CssClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public stopVpecp(stopVpecpRequest?: StopVpecpRequest): Promise<StopVpecpResponse> {
-        const options = ParamCreater().stopVpecp(stopVpecpRequest);
+    public stopVpcep(stopVpcepRequest?: StopVpcepRequest): Promise<StopVpcepResponse> {
+        const options = ParamCreater().stopVpcep(stopVpcepRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2332,26 +2330,6 @@ export class CssClient {
      */
     public deleteConf(deleteConfRequest?: DeleteConfRequest): Promise<DeleteConfResponse> {
         const options = ParamCreater().deleteConf(deleteConfRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除配置文件。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除配置文件V2
-     * @param {string} clusterId 指定删除配置文件的集群ID。
-     * @param {DeleteConfReq} deleteConfReq 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteConfig(deleteConfigRequest?: DeleteConfigRequest): Promise<DeleteConfigResponse> {
-        const options = ParamCreater().deleteConfig(deleteConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5198,7 +5176,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        startVpecp(startVpecpRequest?: StartVpecpRequest) {
+        startVpcep(startVpcepRequest?: StartVpcepRequest) {
             const options = {
                 method: "POST",
                 url: "/v1.0/{project_id}/clusters/{cluster_id}/vpcepservice/open",
@@ -5214,19 +5192,19 @@ export const ParamCreater = function () {
             
             let clusterId;
 
-            if (startVpecpRequest !== null && startVpecpRequest !== undefined) {
-                if (startVpecpRequest instanceof StartVpecpRequest) {
-                    clusterId = startVpecpRequest.clusterId;
-                    body = startVpecpRequest.body
+            if (startVpcepRequest !== null && startVpcepRequest !== undefined) {
+                if (startVpcepRequest instanceof StartVpcepRequest) {
+                    clusterId = startVpcepRequest.clusterId;
+                    body = startVpcepRequest.body
                 } else {
-                    clusterId = startVpecpRequest['cluster_id'];
-                    body = startVpecpRequest['body'];
+                    clusterId = startVpcepRequest['cluster_id'];
+                    body = startVpcepRequest['body'];
                 }
             }
 
         
             if (clusterId === null || clusterId === undefined) {
-            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling startVpecp.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling startVpcep.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -5392,7 +5370,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        stopVpecp(stopVpecpRequest?: StopVpecpRequest) {
+        stopVpcep(stopVpcepRequest?: StopVpcepRequest) {
             const options = {
                 method: "PUT",
                 url: "/v1.0/{project_id}/clusters/{cluster_id}/vpcepservice/close",
@@ -5406,17 +5384,17 @@ export const ParamCreater = function () {
             
             let clusterId;
 
-            if (stopVpecpRequest !== null && stopVpecpRequest !== undefined) {
-                if (stopVpecpRequest instanceof StopVpecpRequest) {
-                    clusterId = stopVpecpRequest.clusterId;
+            if (stopVpcepRequest !== null && stopVpcepRequest !== undefined) {
+                if (stopVpcepRequest instanceof StopVpcepRequest) {
+                    clusterId = stopVpcepRequest.clusterId;
                 } else {
-                    clusterId = stopVpecpRequest['cluster_id'];
+                    clusterId = stopVpcepRequest['cluster_id'];
                 }
             }
 
         
             if (clusterId === null || clusterId === undefined) {
-            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling stopVpecp.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling stopVpcep.');
             }
 
             options.pathParams = { 'cluster_id': clusterId, };
@@ -6942,52 +6920,6 @@ export const ParamCreater = function () {
         
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteConf.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'cluster_id': clusterId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除配置文件。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteConfig(deleteConfigRequest?: DeleteConfigRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v2.0/{project_id}/clusters/{cluster_id}/lgsconf/delete",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let clusterId;
-
-            if (deleteConfigRequest !== null && deleteConfigRequest !== undefined) {
-                if (deleteConfigRequest instanceof DeleteConfigRequest) {
-                    clusterId = deleteConfigRequest.clusterId;
-                    body = deleteConfigRequest.body
-                } else {
-                    clusterId = deleteConfigRequest['cluster_id'];
-                    body = deleteConfigRequest['body'];
-                }
-            }
-
-        
-            if (clusterId === null || clusterId === undefined) {
-            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteConfig.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

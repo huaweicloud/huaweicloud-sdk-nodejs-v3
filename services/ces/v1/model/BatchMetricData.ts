@@ -1,5 +1,5 @@
 import { DatapointForBatchMetric } from './DatapointForBatchMetric';
-import { MetricsDimension } from './MetricsDimension';
+import { MetricsDimensionResp } from './MetricsDimensionResp';
 
 
 export class BatchMetricData {
@@ -7,7 +7,7 @@ export class BatchMetricData {
     public datapoints?: Array<DatapointForBatchMetric>;
     public namespace?: string;
     private 'metric_name'?: string;
-    public dimensions?: Array<MetricsDimension>;
+    public dimensions?: Array<MetricsDimensionResp>;
     public constructor(datapoints?: Array<DatapointForBatchMetric>, metricName?: string) { 
         this['datapoints'] = datapoints;
         this['metric_name'] = metricName;
@@ -34,7 +34,7 @@ export class BatchMetricData {
     public get metricName(): string | undefined {
         return this['metric_name'];
     }
-    public withDimensions(dimensions: Array<MetricsDimension>): BatchMetricData {
+    public withDimensions(dimensions: Array<MetricsDimensionResp>): BatchMetricData {
         this['dimensions'] = dimensions;
         return this;
     }

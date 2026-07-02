@@ -1,13 +1,11 @@
-import { DeleteConfReq } from './DeleteConfReq';
 
 
-export class DeleteConfigRequest {
+export class StopVpcepRequest {
     private 'cluster_id'?: string;
-    public body?: DeleteConfReq;
     public constructor(clusterId?: string) { 
         this['cluster_id'] = clusterId;
     }
-    public withClusterId(clusterId: string): DeleteConfigRequest {
+    public withClusterId(clusterId: string): StopVpcepRequest {
         this['cluster_id'] = clusterId;
         return this;
     }
@@ -16,9 +14,5 @@ export class DeleteConfigRequest {
     }
     public get clusterId(): string | undefined {
         return this['cluster_id'];
-    }
-    public withBody(body: DeleteConfReq): DeleteConfigRequest {
-        this['body'] = body;
-        return this;
     }
 }

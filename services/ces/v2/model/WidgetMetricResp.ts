@@ -7,6 +7,7 @@ export class WidgetMetricResp {
     public namespace?: string;
     public dimensions?: DimensionInfoResp;
     private 'metric_name'?: string;
+    private 'y_axis_position'?: WidgetMetricRespYAxisPositionEnum | string;
     public alias?: Array<string>;
     private 'extra_info'?: ExtraInfoResp;
     private 'rollup_enable'?: boolean;
@@ -38,6 +39,16 @@ export class WidgetMetricResp {
     }
     public get metricName(): string | undefined {
         return this['metric_name'];
+    }
+    public withYAxisPosition(yAxisPosition: WidgetMetricRespYAxisPositionEnum | string): WidgetMetricResp {
+        this['y_axis_position'] = yAxisPosition;
+        return this;
+    }
+    public set yAxisPosition(yAxisPosition: WidgetMetricRespYAxisPositionEnum | string  | undefined) {
+        this['y_axis_position'] = yAxisPosition;
+    }
+    public get yAxisPosition(): WidgetMetricRespYAxisPositionEnum | string | undefined {
+        return this['y_axis_position'];
     }
     public withAlias(alias: Array<string>): WidgetMetricResp {
         this['alias'] = alias;
@@ -143,6 +154,14 @@ export class WidgetMetricResp {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum WidgetMetricRespYAxisPositionEnum {
+    LEFT = 'left',
+    RIGHT = 'right'
+}
 /**
     * @export
     * @enum {string}

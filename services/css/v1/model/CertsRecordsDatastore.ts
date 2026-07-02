@@ -4,8 +4,8 @@ export class CertsRecordsDatastore {
     public id?: string;
     public status?: string;
     public fileLocation?: string;
-    public fileName?: boolean;
-    public updateAt?: boolean;
+    public fileName?: string;
+    public updateAt?: string;
     public constructor() { 
     }
     public withId(id: string): CertsRecordsDatastore {
@@ -20,11 +20,11 @@ export class CertsRecordsDatastore {
         this['fileLocation'] = fileLocation;
         return this;
     }
-    public withFileName(fileName: boolean): CertsRecordsDatastore {
+    public withFileName(fileName: string): CertsRecordsDatastore {
         this['fileName'] = fileName;
         return this;
     }
-    public withUpdateAt(updateAt: boolean): CertsRecordsDatastore {
+    public withUpdateAt(updateAt: string): CertsRecordsDatastore {
         this['updateAt'] = updateAt;
         return this;
     }

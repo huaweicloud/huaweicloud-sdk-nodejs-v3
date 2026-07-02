@@ -1,18 +1,18 @@
-import { MetricsDimension } from './MetricsDimension';
+import { MetricsDimensionResp } from './MetricsDimensionResp';
 
 
 export class MetricInfoList {
-    public dimensions?: Array<MetricsDimension>;
+    public dimensions?: Array<MetricsDimensionResp>;
     private 'metric_name'?: string;
     public namespace?: string;
     public unit?: string;
-    public constructor(dimensions?: Array<MetricsDimension>, metricName?: string, namespace?: string, unit?: string) { 
+    public constructor(dimensions?: Array<MetricsDimensionResp>, metricName?: string, namespace?: string, unit?: string) { 
         this['dimensions'] = dimensions;
         this['metric_name'] = metricName;
         this['namespace'] = namespace;
         this['unit'] = unit;
     }
-    public withDimensions(dimensions: Array<MetricsDimension>): MetricInfoList {
+    public withDimensions(dimensions: Array<MetricsDimensionResp>): MetricInfoList {
         this['dimensions'] = dimensions;
         return this;
     }

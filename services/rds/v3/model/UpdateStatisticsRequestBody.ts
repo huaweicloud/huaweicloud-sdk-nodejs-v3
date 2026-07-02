@@ -2,7 +2,8 @@
 
 export class UpdateStatisticsRequestBody {
     private 'db_name'?: string;
-    public constructor() { 
+    public constructor(dbName?: string) { 
+        this['db_name'] = dbName;
     }
     public withDbName(dbName: string): UpdateStatisticsRequestBody {
         this['db_name'] = dbName;

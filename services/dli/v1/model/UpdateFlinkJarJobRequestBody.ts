@@ -30,6 +30,7 @@ export class UpdateFlinkJarJobRequestBody {
     private 'resume_max_num'?: number;
     private 'checkpoint_path'?: string;
     private 'runtime_config'?: string;
+    private 'flink_log_config'?: string;
     private 'job_type'?: string;
     private 'resource_config'?: ResourceConfig;
     private 'resource_config_version'?: string;
@@ -284,6 +285,16 @@ export class UpdateFlinkJarJobRequestBody {
     }
     public get runtimeConfig(): string | undefined {
         return this['runtime_config'];
+    }
+    public withFlinkLogConfig(flinkLogConfig: string): UpdateFlinkJarJobRequestBody {
+        this['flink_log_config'] = flinkLogConfig;
+        return this;
+    }
+    public set flinkLogConfig(flinkLogConfig: string  | undefined) {
+        this['flink_log_config'] = flinkLogConfig;
+    }
+    public get flinkLogConfig(): string | undefined {
+        return this['flink_log_config'];
     }
     public withJobType(jobType: string): UpdateFlinkJarJobRequestBody {
         this['job_type'] = jobType;

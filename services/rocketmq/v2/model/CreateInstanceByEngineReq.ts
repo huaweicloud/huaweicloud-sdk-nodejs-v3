@@ -17,6 +17,8 @@ export class CreateInstanceByEngineReq {
     private 'enterprise_project_id'?: string;
     private 'enable_acl'?: boolean;
     private 'ipv6_enable'?: boolean;
+    private 'ipv6_broker_address'?: string;
+    private 'ipv6_namesrv_address'?: string;
     private 'proxy_enable'?: boolean;
     private 'enable_publicip'?: boolean;
     private 'disk_encrypted_enable'?: boolean;
@@ -170,6 +172,26 @@ export class CreateInstanceByEngineReq {
     }
     public get ipv6Enable(): boolean | undefined {
         return this['ipv6_enable'];
+    }
+    public withIpv6BrokerAddress(ipv6BrokerAddress: string): CreateInstanceByEngineReq {
+        this['ipv6_broker_address'] = ipv6BrokerAddress;
+        return this;
+    }
+    public set ipv6BrokerAddress(ipv6BrokerAddress: string  | undefined) {
+        this['ipv6_broker_address'] = ipv6BrokerAddress;
+    }
+    public get ipv6BrokerAddress(): string | undefined {
+        return this['ipv6_broker_address'];
+    }
+    public withIpv6NamesrvAddress(ipv6NamesrvAddress: string): CreateInstanceByEngineReq {
+        this['ipv6_namesrv_address'] = ipv6NamesrvAddress;
+        return this;
+    }
+    public set ipv6NamesrvAddress(ipv6NamesrvAddress: string  | undefined) {
+        this['ipv6_namesrv_address'] = ipv6NamesrvAddress;
+    }
+    public get ipv6NamesrvAddress(): string | undefined {
+        return this['ipv6_namesrv_address'];
     }
     public withProxyEnable(proxyEnable: boolean): CreateInstanceByEngineReq {
         this['proxy_enable'] = proxyEnable;

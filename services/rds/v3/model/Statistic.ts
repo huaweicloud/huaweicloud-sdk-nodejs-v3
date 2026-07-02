@@ -7,7 +7,7 @@ export class Statistic {
     public calls?: number;
     public query?: string;
     public rows?: number;
-    public canUse?: number;
+    public canUse?: boolean;
     public constructor() { 
     }
     public withUserName(userName: string): Statistic {
@@ -46,7 +46,7 @@ export class Statistic {
         this['rows'] = rows;
         return this;
     }
-    public withCanUse(canUse: number): Statistic {
+    public withCanUse(canUse: boolean): Statistic {
         this['canUse'] = canUse;
         return this;
     }

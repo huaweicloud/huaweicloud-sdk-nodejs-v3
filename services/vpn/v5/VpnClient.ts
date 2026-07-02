@@ -115,6 +115,9 @@ import { Dpd } from './model/Dpd';
 import { ExportClientConfigRequest } from './model/ExportClientConfigRequest';
 import { ExportClientConfigRequestBody } from './model/ExportClientConfigRequestBody';
 import { ExportClientConfigResponse } from './model/ExportClientConfigResponse';
+import { ExportPeerConfigurationRequestBody } from './model/ExportPeerConfigurationRequestBody';
+import { ExportVpnConnectionPeerConfigurationRequest } from './model/ExportVpnConnectionPeerConfigurationRequest';
+import { ExportVpnConnectionPeerConfigurationResponse } from './model/ExportVpnConnectionPeerConfigurationResponse';
 import { ExtendedAvailabilityZone } from './model/ExtendedAvailabilityZone';
 import { IkePolicy } from './model/IkePolicy';
 import { ImportClientCaCertificateRequestBody } from './model/ImportClientCaCertificateRequestBody';
@@ -129,6 +132,8 @@ import { ListAvailabilityZonesRequest } from './model/ListAvailabilityZonesReque
 import { ListAvailabilityZonesResponse } from './model/ListAvailabilityZonesResponse';
 import { ListCgwsRequest } from './model/ListCgwsRequest';
 import { ListCgwsResponse } from './model/ListCgwsResponse';
+import { ListConnectionIpsecSaRequest } from './model/ListConnectionIpsecSaRequest';
+import { ListConnectionIpsecSaResponse } from './model/ListConnectionIpsecSaResponse';
 import { ListConnectionMonitorsRequest } from './model/ListConnectionMonitorsRequest';
 import { ListConnectionMonitorsResponse } from './model/ListConnectionMonitorsResponse';
 import { ListExtendedAvailabilityZonesRequest } from './model/ListExtendedAvailabilityZonesRequest';
@@ -141,6 +146,8 @@ import { ListP2cVgwsRequest } from './model/ListP2cVgwsRequest';
 import { ListP2cVgwsResponse } from './model/ListP2cVgwsResponse';
 import { ListP2cVpnGatewayJobsRequest } from './model/ListP2cVpnGatewayJobsRequest';
 import { ListP2cVpnGatewayJobsResponse } from './model/ListP2cVpnGatewayJobsResponse';
+import { ListPeerConfigurationSupportedDevicesRequest } from './model/ListPeerConfigurationSupportedDevicesRequest';
+import { ListPeerConfigurationSupportedDevicesResponse } from './model/ListPeerConfigurationSupportedDevicesResponse';
 import { ListProjectTagsRequest } from './model/ListProjectTagsRequest';
 import { ListProjectTagsResponse } from './model/ListProjectTagsResponse';
 import { ListResourcesByTagsRequest } from './model/ListResourcesByTagsRequest';
@@ -151,6 +158,8 @@ import { ListVpnAccessPoliciesRequest } from './model/ListVpnAccessPoliciesReque
 import { ListVpnAccessPoliciesResponse } from './model/ListVpnAccessPoliciesResponse';
 import { ListVpnConnectionsRequest } from './model/ListVpnConnectionsRequest';
 import { ListVpnConnectionsResponse } from './model/ListVpnConnectionsResponse';
+import { ListVpnGatewayCertificatesRequest } from './model/ListVpnGatewayCertificatesRequest';
+import { ListVpnGatewayCertificatesResponse } from './model/ListVpnGatewayCertificatesResponse';
 import { ListVpnGatewayJobsRequest } from './model/ListVpnGatewayJobsRequest';
 import { ListVpnGatewayJobsResponse } from './model/ListVpnGatewayJobsResponse';
 import { ListVpnServersByProjectRequest } from './model/ListVpnServersByProjectRequest';
@@ -190,6 +199,7 @@ import { ResponseEipInfo } from './model/ResponseEipInfo';
 import { ResponseP2cVgw } from './model/ResponseP2cVgw';
 import { ResponseVpnConnection } from './model/ResponseVpnConnection';
 import { ResponseVpnGateway } from './model/ResponseVpnGateway';
+import { SaInfo } from './model/SaInfo';
 import { ShowCgwRequest } from './model/ShowCgwRequest';
 import { ShowCgwResponse } from './model/ShowCgwResponse';
 import { ShowClientCaRequest } from './model/ShowClientCaRequest';
@@ -225,6 +235,7 @@ import { ShowVpnUserGroupResponse } from './model/ShowVpnUserGroupResponse';
 import { ShowVpnUserRequest } from './model/ShowVpnUserRequest';
 import { ShowVpnUserResponse } from './model/ShowVpnUserResponse';
 import { SubJob } from './model/SubJob';
+import { SupportedDevice } from './model/SupportedDevice';
 import { Tag } from './model/Tag';
 import { UpdateCgwRequest } from './model/UpdateCgwRequest';
 import { UpdateCgwRequestBody } from './model/UpdateCgwRequestBody';
@@ -741,6 +752,8 @@ export class VpnClient {
      *
      * @summary 查询资源任务列表
      * @param {string} [resourceId] 资源ID
+     * @param {number} [limit] 分页查询时每页返回的记录数量
+     * @param {string} [marker] 上一页最后一条资源记录的创建时间，为空时为查询第一页。使用说明：必须与limit一起使用。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1096,6 +1109,63 @@ export class VpnClient {
     }
 
     /**
+     * 根据连接ID、设备厂商、型号、版本，导出指定VPN连接对应的配置文件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导出VPN连接配置
+     * @param {string} vpnConnectionId vpn连接ID
+     * @param {ExportPeerConfigurationRequestBody} exportPeerConfigurationRequestBody 请求参数对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportVpnConnectionPeerConfiguration(exportVpnConnectionPeerConfigurationRequest?: ExportVpnConnectionPeerConfigurationRequest): Promise<ExportVpnConnectionPeerConfigurationResponse> {
+        const options = ParamCreater().exportVpnConnectionPeerConfiguration(exportVpnConnectionPeerConfigurationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['header-response-token'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据连接ID，查询指定的VPN连接网段协商信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询VPN连接网段协商信息
+     * @param {string} vpnConnectionId vpn连接ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listConnectionIpsecSa(listConnectionIpsecSaRequest?: ListConnectionIpsecSaRequest): Promise<ListConnectionIpsecSaResponse> {
+        const options = ParamCreater().listConnectionIpsecSa(listConnectionIpsecSaRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['header-response-token'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取可导出VPN连接配置的设备厂商、型号、版本
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取可导出VPN连接配置的设备
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPeerConfigurationSupportedDevices(listPeerConfigurationSupportedDevicesRequest?: ListPeerConfigurationSupportedDevicesRequest): Promise<ListPeerConfigurationSupportedDevicesResponse> {
+        const options = ParamCreater().listPeerConfigurationSupportedDevices();
+
+         // @ts-ignore
+        options['responseHeaders'] = ['header-response-token'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询VPN连接列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1375,6 +1445,8 @@ export class VpnClient {
      *
      * @summary 查询资源任务列表
      * @param {string} [resourceId] 资源ID
+     * @param {number} [limit] 分页查询时每页返回的记录数量
+     * @param {string} [marker] 上一页最后一条资源记录的创建时间，为空时为查询第一页。使用说明：必须与limit一起使用。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1504,6 +1576,27 @@ export class VpnClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['header-response-token'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询租户下的所有VPN网关证书
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询租户下的的所有VPN网关证书
+     * @param {number} [limit] 分页查询时每页返回的记录数量
+     * @param {string} [marker] 上一页最后一条资源记录的创建时间，为空时为查询第一页。使用说明：必须与limit一起使用。
+     * @param {number} [preExpireDays] 证书预到期天数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVpnGatewayCertificates(listVpnGatewayCertificatesRequest?: ListVpnGatewayCertificatesRequest): Promise<ListVpnGatewayCertificatesResponse> {
+        const options = ParamCreater().listVpnGatewayCertificates(listVpnGatewayCertificatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -2934,18 +3027,32 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let resourceId;
+            
+            let limit;
+            
+            let marker;
 
             if (listP2cVpnGatewayJobsRequest !== null && listP2cVpnGatewayJobsRequest !== undefined) {
                 if (listP2cVpnGatewayJobsRequest instanceof ListP2cVpnGatewayJobsRequest) {
                     resourceId = listP2cVpnGatewayJobsRequest.resourceId;
+                    limit = listP2cVpnGatewayJobsRequest.limit;
+                    marker = listP2cVpnGatewayJobsRequest.marker;
                 } else {
                     resourceId = listP2cVpnGatewayJobsRequest['resource_id'];
+                    limit = listP2cVpnGatewayJobsRequest['limit'];
+                    marker = listP2cVpnGatewayJobsRequest['marker'];
                 }
             }
 
         
             if (resourceId !== null && resourceId !== undefined) {
                 localVarQueryParameter['resource_id'] = resourceId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3736,6 +3843,110 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据连接ID、设备厂商、型号、版本，导出指定VPN连接对应的配置文件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportVpnConnectionPeerConfiguration(exportVpnConnectionPeerConfigurationRequest?: ExportVpnConnectionPeerConfigurationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/vpn-connection/{vpn_connection_id}/peer-configuration/export",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let vpnConnectionId;
+
+            if (exportVpnConnectionPeerConfigurationRequest !== null && exportVpnConnectionPeerConfigurationRequest !== undefined) {
+                if (exportVpnConnectionPeerConfigurationRequest instanceof ExportVpnConnectionPeerConfigurationRequest) {
+                    vpnConnectionId = exportVpnConnectionPeerConfigurationRequest.vpnConnectionId;
+                    body = exportVpnConnectionPeerConfigurationRequest.body
+                } else {
+                    vpnConnectionId = exportVpnConnectionPeerConfigurationRequest['vpn_connection_id'];
+                    body = exportVpnConnectionPeerConfigurationRequest['body'];
+                }
+            }
+
+        
+            if (vpnConnectionId === null || vpnConnectionId === undefined) {
+            throw new RequiredError('vpnConnectionId','Required parameter vpnConnectionId was null or undefined when calling exportVpnConnectionPeerConfiguration.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'vpn_connection_id': vpnConnectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据连接ID，查询指定的VPN连接网段协商信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listConnectionIpsecSa(listConnectionIpsecSaRequest?: ListConnectionIpsecSaRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/vpn-connection/{vpn_connection_id}/ipsec-sa",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let vpnConnectionId;
+
+            if (listConnectionIpsecSaRequest !== null && listConnectionIpsecSaRequest !== undefined) {
+                if (listConnectionIpsecSaRequest instanceof ListConnectionIpsecSaRequest) {
+                    vpnConnectionId = listConnectionIpsecSaRequest.vpnConnectionId;
+                } else {
+                    vpnConnectionId = listConnectionIpsecSaRequest['vpn_connection_id'];
+                }
+            }
+
+        
+            if (vpnConnectionId === null || vpnConnectionId === undefined) {
+            throw new RequiredError('vpnConnectionId','Required parameter vpnConnectionId was null or undefined when calling listConnectionIpsecSa.');
+            }
+
+            options.pathParams = { 'vpn_connection_id': vpnConnectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取可导出VPN连接配置的设备厂商、型号、版本
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPeerConfigurationSupportedDevices() {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/peer-configuration/supported-devices",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询VPN连接列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4307,18 +4518,32 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let resourceId;
+            
+            let limit;
+            
+            let marker;
 
             if (listVpnGatewayJobsRequest !== null && listVpnGatewayJobsRequest !== undefined) {
                 if (listVpnGatewayJobsRequest instanceof ListVpnGatewayJobsRequest) {
                     resourceId = listVpnGatewayJobsRequest.resourceId;
+                    limit = listVpnGatewayJobsRequest.limit;
+                    marker = listVpnGatewayJobsRequest.marker;
                 } else {
                     resourceId = listVpnGatewayJobsRequest['resource_id'];
+                    limit = listVpnGatewayJobsRequest['limit'];
+                    marker = listVpnGatewayJobsRequest['marker'];
                 }
             }
 
         
             if (resourceId !== null && resourceId !== undefined) {
                 localVarQueryParameter['resource_id'] = resourceId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4608,6 +4833,57 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'vgw_id': vgwId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户下的所有VPN网关证书
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listVpnGatewayCertificates(listVpnGatewayCertificatesRequest?: ListVpnGatewayCertificatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/vpn-gateway-certificates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let preExpireDays;
+
+            if (listVpnGatewayCertificatesRequest !== null && listVpnGatewayCertificatesRequest !== undefined) {
+                if (listVpnGatewayCertificatesRequest instanceof ListVpnGatewayCertificatesRequest) {
+                    limit = listVpnGatewayCertificatesRequest.limit;
+                    marker = listVpnGatewayCertificatesRequest.marker;
+                    preExpireDays = listVpnGatewayCertificatesRequest.preExpireDays;
+                } else {
+                    limit = listVpnGatewayCertificatesRequest['limit'];
+                    marker = listVpnGatewayCertificatesRequest['marker'];
+                    preExpireDays = listVpnGatewayCertificatesRequest['pre_expire_days'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (preExpireDays !== null && preExpireDays !== undefined) {
+                localVarQueryParameter['pre_expire_days'] = preExpireDays;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

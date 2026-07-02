@@ -10,6 +10,8 @@ export class ProductEntityProperties {
     private 'max_storage_per_node'?: string;
     private 'product_alias'?: string;
     private 'max_tps_per_rcu'?: string;
+    private 'max_tps_per_broker'?: string;
+    private 'step_length'?: string;
     private 'engine_versions'?: string;
     private 'min_storage'?: string;
     private 'min_storage_per_node'?: string;
@@ -96,6 +98,26 @@ export class ProductEntityProperties {
     }
     public get maxTpsPerRcu(): string | undefined {
         return this['max_tps_per_rcu'];
+    }
+    public withMaxTpsPerBroker(maxTpsPerBroker: string): ProductEntityProperties {
+        this['max_tps_per_broker'] = maxTpsPerBroker;
+        return this;
+    }
+    public set maxTpsPerBroker(maxTpsPerBroker: string  | undefined) {
+        this['max_tps_per_broker'] = maxTpsPerBroker;
+    }
+    public get maxTpsPerBroker(): string | undefined {
+        return this['max_tps_per_broker'];
+    }
+    public withStepLength(stepLength: string): ProductEntityProperties {
+        this['step_length'] = stepLength;
+        return this;
+    }
+    public set stepLength(stepLength: string  | undefined) {
+        this['step_length'] = stepLength;
+    }
+    public get stepLength(): string | undefined {
+        return this['step_length'];
     }
     public withEngineVersions(engineVersions: string): ProductEntityProperties {
         this['engine_versions'] = engineVersions;

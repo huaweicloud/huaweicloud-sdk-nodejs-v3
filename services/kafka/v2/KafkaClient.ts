@@ -209,6 +209,8 @@ import { ResetUserPasswordReq } from './model/ResetUserPasswordReq';
 import { ResetUserPasswrodRequest } from './model/ResetUserPasswrodRequest';
 import { ResetUserPasswrodResponse } from './model/ResetUserPasswrodResponse';
 import { ResizeEngineInstanceReq } from './model/ResizeEngineInstanceReq';
+import { ResizeEngineInstanceRequest } from './model/ResizeEngineInstanceRequest';
+import { ResizeEngineInstanceResponse } from './model/ResizeEngineInstanceResponse';
 import { ResizeKafkaInstanceRequest } from './model/ResizeKafkaInstanceRequest';
 import { ResizeKafkaInstanceResponse } from './model/ResizeKafkaInstanceResponse';
 import { RestartConnectorTaskRequest } from './model/RestartConnectorTaskRequest';
@@ -279,6 +281,9 @@ import { ShowKafkaClusterRequest } from './model/ShowKafkaClusterRequest';
 import { ShowKafkaClusterResponse } from './model/ShowKafkaClusterResponse';
 import { ShowKafkaInstanceExtendProductInfoRequest } from './model/ShowKafkaInstanceExtendProductInfoRequest';
 import { ShowKafkaInstanceExtendProductInfoResponse } from './model/ShowKafkaInstanceExtendProductInfoResponse';
+import { ShowKafkaLogTaskEntity } from './model/ShowKafkaLogTaskEntity';
+import { ShowKafkaLogTaskRequest } from './model/ShowKafkaLogTaskRequest';
+import { ShowKafkaLogTaskResponse } from './model/ShowKafkaLogTaskResponse';
 import { ShowKafkaProductCoresRequest } from './model/ShowKafkaProductCoresRequest';
 import { ShowKafkaProductCoresResponse } from './model/ShowKafkaProductCoresResponse';
 import { ShowKafkaProjectTagsRequest } from './model/ShowKafkaProjectTagsRequest';
@@ -329,7 +334,13 @@ import { SmartConnectTaskReqSourceConfig } from './model/SmartConnectTaskReqSour
 import { SmartConnectTaskRespSinkConfig } from './model/SmartConnectTaskRespSinkConfig';
 import { SmartConnectTaskRespSourceConfig } from './model/SmartConnectTaskRespSourceConfig';
 import { SmartConnectValidateEntity } from './model/SmartConnectValidateEntity';
+import { StartKafkaLogTaskReq } from './model/StartKafkaLogTaskReq';
+import { StartKafkaLogTaskReqEntity } from './model/StartKafkaLogTaskReqEntity';
+import { StartKafkaLogTaskRequest } from './model/StartKafkaLogTaskRequest';
+import { StartKafkaLogTaskResponse } from './model/StartKafkaLogTaskResponse';
 import { StepDetail } from './model/StepDetail';
+import { StopKafkaLogTaskRequest } from './model/StopKafkaLogTaskRequest';
+import { StopKafkaLogTaskResponse } from './model/StopKafkaLogTaskResponse';
 import { StopKafkaRebalanceLogTaskRequest } from './model/StopKafkaRebalanceLogTaskRequest';
 import { StopKafkaRebalanceLogTaskResponse } from './model/StopKafkaRebalanceLogTaskResponse';
 import { TagEntity } from './model/TagEntity';
@@ -1483,6 +1494,27 @@ export class KafkaClient {
     }
 
     /**
+     * 实例规格变更。[当前通过调用API，只支持按需实例进行实例扩容。](tag:hws,hws_hk,ctc,cmcc,hws_eu)
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 实例扩容
+     * @param {'kafka'} engine 消息引擎。
+     * @param {string} instanceId 实例ID。
+     * @param {ResizeEngineInstanceReq} resizeEngineInstanceRequestBody 请求消息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resizeEngineInstance(resizeEngineInstanceRequest?: ResizeEngineInstanceRequest): Promise<ResizeEngineInstanceResponse> {
+        const options = ParamCreater().resizeEngineInstance(resizeEngineInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 实例规格变更。[当前通过调用API，只支持按需实例进行实例扩容。](tag:hws,hws_hk,ctc,cmcc,hws_eu,ax)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1864,6 +1896,26 @@ export class KafkaClient {
      */
     public showKafkaInstanceExtendProductInfo(showKafkaInstanceExtendProductInfoRequest?: ShowKafkaInstanceExtendProductInfoRequest): Promise<ShowKafkaInstanceExtendProductInfoResponse> {
         const options = ParamCreater().showKafkaInstanceExtendProductInfo(showKafkaInstanceExtendProductInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询日志任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询日志任务
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {'REBALANCE' | 'topic_log'} logType **参数解释**： 日志任务类型。 **约束限制**： 不涉及。 **取值范围**： - REBALANCE：重平衡日志。 - topic_log：Topic日志。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showKafkaLogTask(showKafkaLogTaskRequest?: ShowKafkaLogTaskRequest): Promise<ShowKafkaLogTaskResponse> {
+        const options = ParamCreater().showKafkaLogTask(showKafkaLogTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2270,6 +2322,47 @@ export class KafkaClient {
      */
     public showVolumeExpandConfig(showVolumeExpandConfigRequest?: ShowVolumeExpandConfigRequest): Promise<ShowVolumeExpandConfigResponse> {
         const options = ParamCreater().showVolumeExpandConfig(showVolumeExpandConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启日志任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启日志任务
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {'REBALANCE' | 'topic_log'} logType **参数解释**： 日志任务类型。 **约束限制**： 不涉及。 **取值范围**： - REBALANCE：重平衡日志。 - topic_log：Topic日志。 **默认取值**： 不涉及。
+     * @param {StartKafkaLogTaskReq} startKafkaLogTaskRequestBody 请求消息体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startKafkaLogTask(startKafkaLogTaskRequest?: StartKafkaLogTaskRequest): Promise<StartKafkaLogTaskResponse> {
+        const options = ParamCreater().startKafkaLogTask(startKafkaLogTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 停止日志任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 停止日志任务
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {'REBALANCE' | 'topic_log'} logType **参数解释**： 日志任务类型。 **约束限制**： 不涉及。 **取值范围**： - REBALANCE：重平衡日志。 - topic_log：Topic日志。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public stopKafkaLogTask(stopKafkaLogTaskRequest?: StopKafkaLogTaskRequest): Promise<StopKafkaLogTaskResponse> {
+        const options = ParamCreater().stopKafkaLogTask(stopKafkaLogTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5442,6 +5535,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 实例规格变更。[当前通过调用API，只支持按需实例进行实例扩容。](tag:hws,hws_hk,ctc,cmcc,hws_eu)
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resizeEngineInstance(resizeEngineInstanceRequest?: ResizeEngineInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{engine}/{project_id}/instances/{instance_id}/extend",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let engine;
+            
+            let instanceId;
+
+            if (resizeEngineInstanceRequest !== null && resizeEngineInstanceRequest !== undefined) {
+                if (resizeEngineInstanceRequest instanceof ResizeEngineInstanceRequest) {
+                    engine = resizeEngineInstanceRequest.engine;
+                    instanceId = resizeEngineInstanceRequest.instanceId;
+                    body = resizeEngineInstanceRequest.body
+                } else {
+                    engine = resizeEngineInstanceRequest['engine'];
+                    instanceId = resizeEngineInstanceRequest['instance_id'];
+                    body = resizeEngineInstanceRequest['body'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling resizeEngineInstance.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling resizeEngineInstance.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'engine': engine,'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 实例规格变更。[当前通过调用API，只支持按需实例进行实例扩容。](tag:hws,hws_hk,ctc,cmcc,hws_eu,ax)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6333,6 +6479,50 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询日志任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showKafkaLogTask(showKafkaLogTaskRequest?: ShowKafkaLogTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/kafka/instances/{instance_id}/logs/{log_type}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let logType;
+
+            if (showKafkaLogTaskRequest !== null && showKafkaLogTaskRequest !== undefined) {
+                if (showKafkaLogTaskRequest instanceof ShowKafkaLogTaskRequest) {
+                    instanceId = showKafkaLogTaskRequest.instanceId;
+                    logType = showKafkaLogTaskRequest.logType;
+                } else {
+                    instanceId = showKafkaLogTaskRequest['instance_id'];
+                    logType = showKafkaLogTaskRequest['log_type'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showKafkaLogTask.');
+            }
+            if (logType === null || logType === undefined) {
+            throw new RequiredError('logType','Required parameter logType was null or undefined when calling showKafkaLogTask.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'log_type': logType, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7230,6 +7420,103 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启日志任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        startKafkaLogTask(startKafkaLogTaskRequest?: StartKafkaLogTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/kafka/instances/{instance_id}/logs/{log_type}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let logType;
+
+            if (startKafkaLogTaskRequest !== null && startKafkaLogTaskRequest !== undefined) {
+                if (startKafkaLogTaskRequest instanceof StartKafkaLogTaskRequest) {
+                    instanceId = startKafkaLogTaskRequest.instanceId;
+                    logType = startKafkaLogTaskRequest.logType;
+                    body = startKafkaLogTaskRequest.body
+                } else {
+                    instanceId = startKafkaLogTaskRequest['instance_id'];
+                    logType = startKafkaLogTaskRequest['log_type'];
+                    body = startKafkaLogTaskRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling startKafkaLogTask.');
+            }
+            if (logType === null || logType === undefined) {
+            throw new RequiredError('logType','Required parameter logType was null or undefined when calling startKafkaLogTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'log_type': logType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 停止日志任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        stopKafkaLogTask(stopKafkaLogTaskRequest?: StopKafkaLogTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/kafka/instances/{instance_id}/logs/{log_type}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let logType;
+
+            if (stopKafkaLogTaskRequest !== null && stopKafkaLogTaskRequest !== undefined) {
+                if (stopKafkaLogTaskRequest instanceof StopKafkaLogTaskRequest) {
+                    instanceId = stopKafkaLogTaskRequest.instanceId;
+                    logType = stopKafkaLogTaskRequest.logType;
+                } else {
+                    instanceId = stopKafkaLogTaskRequest['instance_id'];
+                    logType = stopKafkaLogTaskRequest['log_type'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling stopKafkaLogTask.');
+            }
+            if (logType === null || logType === undefined) {
+            throw new RequiredError('logType','Required parameter logType was null or undefined when calling stopKafkaLogTask.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'log_type': logType, };
             options.headers = localVarHeaderParameter;
             return options;
         },

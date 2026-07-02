@@ -6,6 +6,8 @@ export class UpdateConsumerGroup {
     public brokers?: Array<string>;
     public name?: string;
     private 'retry_max_time'?: number;
+    private 'consume_orderly'?: boolean;
+    private 'group_desc'?: string;
     public constructor(enabled?: boolean, broadcast?: boolean, retryMaxTime?: number) { 
         this['enabled'] = enabled;
         this['broadcast'] = broadcast;
@@ -36,5 +38,25 @@ export class UpdateConsumerGroup {
     }
     public get retryMaxTime(): number | undefined {
         return this['retry_max_time'];
+    }
+    public withConsumeOrderly(consumeOrderly: boolean): UpdateConsumerGroup {
+        this['consume_orderly'] = consumeOrderly;
+        return this;
+    }
+    public set consumeOrderly(consumeOrderly: boolean  | undefined) {
+        this['consume_orderly'] = consumeOrderly;
+    }
+    public get consumeOrderly(): boolean | undefined {
+        return this['consume_orderly'];
+    }
+    public withGroupDesc(groupDesc: string): UpdateConsumerGroup {
+        this['group_desc'] = groupDesc;
+        return this;
+    }
+    public set groupDesc(groupDesc: string  | undefined) {
+        this['group_desc'] = groupDesc;
+    }
+    public get groupDesc(): string | undefined {
+        return this['group_desc'];
     }
 }

@@ -1,12 +1,17 @@
 
 
 export class Member {
+    public id?: string;
     public name?: string;
     public address?: string;
     private 'protocol_port'?: number;
     private 'operating_status'?: string;
     private 'instance_id'?: string;
     public constructor() { 
+    }
+    public withId(id: string): Member {
+        this['id'] = id;
+        return this;
     }
     public withName(name: string): Member {
         this['name'] = name;

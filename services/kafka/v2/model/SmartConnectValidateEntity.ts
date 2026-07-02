@@ -4,7 +4,8 @@ import { SmartConnectTaskRespSourceConfig } from './SmartConnectTaskRespSourceCo
 export class SmartConnectValidateEntity {
     public task?: SmartConnectTaskRespSourceConfig;
     public type?: string;
-    public constructor() { 
+    public constructor(type?: string) { 
+        this['type'] = type;
     }
     public withTask(task: SmartConnectTaskRespSourceConfig): SmartConnectValidateEntity {
         this['task'] = task;

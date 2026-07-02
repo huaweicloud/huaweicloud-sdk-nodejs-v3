@@ -6,6 +6,7 @@ import { RabbitMQProductSupportFeaturesEntity } from './RabbitMQProductSupportFe
 export class RabbitMQExtendProductInfoEntity {
     public type?: string;
     private 'product_id'?: string;
+    private 'billing_code'?: string;
     private 'ecs_flavor_id'?: string;
     private 'arch_types'?: Array<string>;
     private 'charging_mode'?: Array<string>;
@@ -14,6 +15,7 @@ export class RabbitMQExtendProductInfoEntity {
     private 'available_zones'?: Array<string>;
     private 'unavailable_zones'?: Array<string>;
     private 'support_features'?: Array<RabbitMQProductSupportFeaturesEntity>;
+    private 'qingtian_incompatible'?: boolean;
     public constructor() { 
     }
     public withType(type: string): RabbitMQExtendProductInfoEntity {
@@ -29,6 +31,16 @@ export class RabbitMQExtendProductInfoEntity {
     }
     public get productId(): string | undefined {
         return this['product_id'];
+    }
+    public withBillingCode(billingCode: string): RabbitMQExtendProductInfoEntity {
+        this['billing_code'] = billingCode;
+        return this;
+    }
+    public set billingCode(billingCode: string  | undefined) {
+        this['billing_code'] = billingCode;
+    }
+    public get billingCode(): string | undefined {
+        return this['billing_code'];
     }
     public withEcsFlavorId(ecsFlavorId: string): RabbitMQExtendProductInfoEntity {
         this['ecs_flavor_id'] = ecsFlavorId;
@@ -97,5 +109,15 @@ export class RabbitMQExtendProductInfoEntity {
     }
     public get supportFeatures(): Array<RabbitMQProductSupportFeaturesEntity> | undefined {
         return this['support_features'];
+    }
+    public withQingtianIncompatible(qingtianIncompatible: boolean): RabbitMQExtendProductInfoEntity {
+        this['qingtian_incompatible'] = qingtianIncompatible;
+        return this;
+    }
+    public set qingtianIncompatible(qingtianIncompatible: boolean  | undefined) {
+        this['qingtian_incompatible'] = qingtianIncompatible;
+    }
+    public get qingtianIncompatible(): boolean | undefined {
+        return this['qingtian_incompatible'];
     }
 }

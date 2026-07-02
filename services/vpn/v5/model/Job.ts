@@ -7,6 +7,7 @@ export class Job {
     private 'job_type'?: JobJobTypeEnum | string;
     public status?: JobStatusEnum | string;
     private 'created_at'?: Date;
+    private 'expected_time_seconds'?: number;
     private 'finished_at'?: Date;
     private 'error_message'?: string;
     private 'sub_jobs'?: Array<SubJob>;
@@ -49,6 +50,16 @@ export class Job {
     }
     public get createdAt(): Date | undefined {
         return this['created_at'];
+    }
+    public withExpectedTimeSeconds(expectedTimeSeconds: number): Job {
+        this['expected_time_seconds'] = expectedTimeSeconds;
+        return this;
+    }
+    public set expectedTimeSeconds(expectedTimeSeconds: number  | undefined) {
+        this['expected_time_seconds'] = expectedTimeSeconds;
+    }
+    public get expectedTimeSeconds(): number | undefined {
+        return this['expected_time_seconds'];
     }
     public withFinishedAt(finishedAt: Date): Job {
         this['finished_at'] = finishedAt;
@@ -100,5 +111,7 @@ export enum JobStatusEnum {
     SUCCESS = 'success',
     ROLLING_BACK = 'rolling_back',
     ROLLBACK_SUCCESS = 'rollback_success',
-    FAIL = 'fail'
+    FAIL = 'fail',
+    RUNNING = 'running',
+    INIT = 'init'
 }

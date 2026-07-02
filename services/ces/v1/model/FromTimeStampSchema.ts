@@ -1,6 +1,6 @@
 
 
-export class TimeStampSchema {
+export class FromTimeStampSchema {
     public constructor() { 
     }
 }

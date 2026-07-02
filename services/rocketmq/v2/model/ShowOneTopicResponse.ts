@@ -7,6 +7,7 @@ export class ShowOneTopicResponse extends SdkResponse {
     private 'total_read_queue_num'?: number;
     private 'total_write_queue_num'?: number;
     public permission?: ShowOneTopicResponsePermissionEnum | string;
+    private 'created_at'?: number;
     public brokers?: Array<TopicBrokers>;
     private 'message_type'?: ShowOneTopicResponseMessageTypeEnum | string;
     public constructor() { 
@@ -39,6 +40,16 @@ export class ShowOneTopicResponse extends SdkResponse {
     public withPermission(permission: ShowOneTopicResponsePermissionEnum | string): ShowOneTopicResponse {
         this['permission'] = permission;
         return this;
+    }
+    public withCreatedAt(createdAt: number): ShowOneTopicResponse {
+        this['created_at'] = createdAt;
+        return this;
+    }
+    public set createdAt(createdAt: number  | undefined) {
+        this['created_at'] = createdAt;
+    }
+    public get createdAt(): number | undefined {
+        return this['created_at'];
     }
     public withBrokers(brokers: Array<TopicBrokers>): ShowOneTopicResponse {
         this['brokers'] = brokers;

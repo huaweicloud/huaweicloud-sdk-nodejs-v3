@@ -136,6 +136,7 @@ export * from './model/EnterpriseProjectIdAndTags';
 export * from './model/EpResourceStatistics';
 export * from './model/EventDimensionName';
 export * from './model/ExtendInfo';
+export * from './model/ExtendInfoResp';
 export * from './model/ExtendRelationId';
 export * from './model/ExtraInfo';
 export * from './model/ExtraInfoResp';

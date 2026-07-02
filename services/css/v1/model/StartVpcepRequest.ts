@@ -1,13 +1,13 @@
 import { StartVpecpReq } from './StartVpecpReq';
 
 
-export class StartVpecpRequest {
+export class StartVpcepRequest {
     private 'cluster_id'?: string;
     public body?: StartVpecpReq;
     public constructor(clusterId?: string) { 
         this['cluster_id'] = clusterId;
     }
-    public withClusterId(clusterId: string): StartVpecpRequest {
+    public withClusterId(clusterId: string): StartVpcepRequest {
         this['cluster_id'] = clusterId;
         return this;
     }
@@ -17,7 +17,7 @@ export class StartVpecpRequest {
     public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
-    public withBody(body: StartVpecpReq): StartVpecpRequest {
+    public withBody(body: StartVpecpReq): StartVpcepRequest {
         this['body'] = body;
         return this;
     }

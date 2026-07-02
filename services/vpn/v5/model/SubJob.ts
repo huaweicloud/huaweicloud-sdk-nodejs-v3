@@ -4,6 +4,7 @@ export class SubJob {
     public id?: string;
     private 'job_type'?: SubJobJobTypeEnum | string;
     public status?: SubJobStatusEnum | string;
+    private 'expected_time_seconds'?: number;
     private 'created_at'?: Date;
     private 'finished_at'?: Date;
     private 'error_message'?: string;
@@ -26,6 +27,16 @@ export class SubJob {
     public withStatus(status: SubJobStatusEnum | string): SubJob {
         this['status'] = status;
         return this;
+    }
+    public withExpectedTimeSeconds(expectedTimeSeconds: number): SubJob {
+        this['expected_time_seconds'] = expectedTimeSeconds;
+        return this;
+    }
+    public set expectedTimeSeconds(expectedTimeSeconds: number  | undefined) {
+        this['expected_time_seconds'] = expectedTimeSeconds;
+    }
+    public get expectedTimeSeconds(): number | undefined {
+        return this['expected_time_seconds'];
     }
     public withCreatedAt(createdAt: Date): SubJob {
         this['created_at'] = createdAt;
@@ -66,7 +77,8 @@ export class SubJob {
 export enum SubJobJobTypeEnum {
     PREPARE_RESOURCE = 'prepare_resource',
     UPGRADE_WORKER_1 = 'upgrade_worker_1',
-    UPGRADE_WORKER_2 = 'upgrade_worker_2'
+    UPGRADE_WORKER_2 = 'upgrade_worker_2',
+    MIGRATE_NETWORK_1 = 'migrate_network_1'
 }
 /**
     * @export

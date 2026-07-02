@@ -2,7 +2,7 @@
 
 export class Subtask {
     public id?: number;
-    private 'job_id'?: string;
+    private 'job_id'?: number;
     public namespace?: string;
     public repository?: string;
     public tag?: string;
@@ -11,7 +11,7 @@ export class Subtask {
     public status?: string;
     private 'status_text'?: string;
     private 'op_time'?: string;
-    public constructor(id?: number, jobId?: string, namespace?: string, repository?: string, tag?: string, digest?: string, action?: string, status?: string, statusText?: string, opTime?: string) { 
+    public constructor(id?: number, jobId?: number, namespace?: string, repository?: string, tag?: string, digest?: string, action?: string, status?: string, statusText?: string, opTime?: string) { 
         this['id'] = id;
         this['job_id'] = jobId;
         this['namespace'] = namespace;
@@ -27,14 +27,14 @@ export class Subtask {
         this['id'] = id;
         return this;
     }
-    public withJobId(jobId: string): Subtask {
+    public withJobId(jobId: number): Subtask {
         this['job_id'] = jobId;
         return this;
     }
-    public set jobId(jobId: string  | undefined) {
+    public set jobId(jobId: number  | undefined) {
         this['job_id'] = jobId;
     }
-    public get jobId(): string | undefined {
+    public get jobId(): number | undefined {
         return this['job_id'];
     }
     public withNamespace(namespace: string): Subtask {

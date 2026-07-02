@@ -42,6 +42,7 @@ export class InstanceDetail {
     private 'ipv6_enable'?: boolean;
     private 'support_features'?: string;
     private 'disk_encrypted'?: boolean;
+    private 'disk_encrypted_key'?: string;
     private 'ces_version'?: string;
     private 'node_num'?: number;
     private 'new_spec_billing_enable'?: boolean;
@@ -51,7 +52,9 @@ export class InstanceDetail {
     private 'namesrv_address'?: string;
     private 'namesrv_domain_name'?: string;
     private 'broker_address'?: string;
+    private 'ipv6_broker_address'?: string;
     private 'public_namesrv_address'?: string;
+    private 'ipv6_namesrv_address'?: string;
     private 'public_namesrv_domain_name'?: string;
     private 'public_broker_address'?: string;
     private 'grpc_address'?: string;
@@ -436,6 +439,16 @@ export class InstanceDetail {
     public get diskEncrypted(): boolean | undefined {
         return this['disk_encrypted'];
     }
+    public withDiskEncryptedKey(diskEncryptedKey: string): InstanceDetail {
+        this['disk_encrypted_key'] = diskEncryptedKey;
+        return this;
+    }
+    public set diskEncryptedKey(diskEncryptedKey: string  | undefined) {
+        this['disk_encrypted_key'] = diskEncryptedKey;
+    }
+    public get diskEncryptedKey(): string | undefined {
+        return this['disk_encrypted_key'];
+    }
     public withCesVersion(cesVersion: string): InstanceDetail {
         this['ces_version'] = cesVersion;
         return this;
@@ -526,6 +539,16 @@ export class InstanceDetail {
     public get brokerAddress(): string | undefined {
         return this['broker_address'];
     }
+    public withIpv6BrokerAddress(ipv6BrokerAddress: string): InstanceDetail {
+        this['ipv6_broker_address'] = ipv6BrokerAddress;
+        return this;
+    }
+    public set ipv6BrokerAddress(ipv6BrokerAddress: string  | undefined) {
+        this['ipv6_broker_address'] = ipv6BrokerAddress;
+    }
+    public get ipv6BrokerAddress(): string | undefined {
+        return this['ipv6_broker_address'];
+    }
     public withPublicNamesrvAddress(publicNamesrvAddress: string): InstanceDetail {
         this['public_namesrv_address'] = publicNamesrvAddress;
         return this;
@@ -535,6 +558,16 @@ export class InstanceDetail {
     }
     public get publicNamesrvAddress(): string | undefined {
         return this['public_namesrv_address'];
+    }
+    public withIpv6NamesrvAddress(ipv6NamesrvAddress: string): InstanceDetail {
+        this['ipv6_namesrv_address'] = ipv6NamesrvAddress;
+        return this;
+    }
+    public set ipv6NamesrvAddress(ipv6NamesrvAddress: string  | undefined) {
+        this['ipv6_namesrv_address'] = ipv6NamesrvAddress;
+    }
+    public get ipv6NamesrvAddress(): string | undefined {
+        return this['ipv6_namesrv_address'];
     }
     public withPublicNamesrvDomainName(publicNamesrvDomainName: string): InstanceDetail {
         this['public_namesrv_domain_name'] = publicNamesrvDomainName;

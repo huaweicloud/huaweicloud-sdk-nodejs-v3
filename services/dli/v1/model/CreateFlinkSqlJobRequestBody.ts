@@ -30,6 +30,7 @@ export class CreateFlinkSqlJobRequestBody {
     private 'resume_checkpoint'?: boolean;
     private 'resume_max_num'?: number;
     private 'runtime_config'?: string;
+    private 'flink_log_config'?: string;
     private 'flink_version'?: string;
     private 'execution_agency_urn'?: string;
     private 'resource_config_version'?: string;
@@ -288,6 +289,16 @@ export class CreateFlinkSqlJobRequestBody {
     }
     public get runtimeConfig(): string | undefined {
         return this['runtime_config'];
+    }
+    public withFlinkLogConfig(flinkLogConfig: string): CreateFlinkSqlJobRequestBody {
+        this['flink_log_config'] = flinkLogConfig;
+        return this;
+    }
+    public set flinkLogConfig(flinkLogConfig: string  | undefined) {
+        this['flink_log_config'] = flinkLogConfig;
+    }
+    public get flinkLogConfig(): string | undefined {
+        return this['flink_log_config'];
     }
     public withFlinkVersion(flinkVersion: string): CreateFlinkSqlJobRequestBody {
         this['flink_version'] = flinkVersion;

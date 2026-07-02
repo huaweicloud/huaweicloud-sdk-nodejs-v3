@@ -6,7 +6,6 @@ export class LoadBalancer {
     public id?: string;
     public name?: string;
     public guaranteed?: string;
-    private 'billing_info'?: string;
     public description?: string;
     private 'vpc_id'?: string;
     private 'provisioning_status'?: string;
@@ -28,16 +27,6 @@ export class LoadBalancer {
     public withGuaranteed(guaranteed: string): LoadBalancer {
         this['guaranteed'] = guaranteed;
         return this;
-    }
-    public withBillingInfo(billingInfo: string): LoadBalancer {
-        this['billing_info'] = billingInfo;
-        return this;
-    }
-    public set billingInfo(billingInfo: string  | undefined) {
-        this['billing_info'] = billingInfo;
-    }
-    public get billingInfo(): string | undefined {
-        return this['billing_info'];
     }
     public withDescription(description: string): LoadBalancer {
         this['description'] = description;

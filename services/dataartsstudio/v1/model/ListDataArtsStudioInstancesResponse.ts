@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListDataArtsStudioInstancesResponse extends SdkResponse {
     private 'billing_check'?: boolean;
     public count?: number;
-    private 'commodity_order_lists'?: Array<ApigCommodityOrder>;
+    private 'commodity_orders'?: Array<ApigCommodityOrder>;
     public constructor() { 
         super();
     }
@@ -23,14 +23,14 @@ export class ListDataArtsStudioInstancesResponse extends SdkResponse {
         this['count'] = count;
         return this;
     }
-    public withCommodityOrderLists(commodityOrderLists: Array<ApigCommodityOrder>): ListDataArtsStudioInstancesResponse {
-        this['commodity_order_lists'] = commodityOrderLists;
+    public withCommodityOrders(commodityOrders: Array<ApigCommodityOrder>): ListDataArtsStudioInstancesResponse {
+        this['commodity_orders'] = commodityOrders;
         return this;
     }
-    public set commodityOrderLists(commodityOrderLists: Array<ApigCommodityOrder>  | undefined) {
-        this['commodity_order_lists'] = commodityOrderLists;
+    public set commodityOrders(commodityOrders: Array<ApigCommodityOrder>  | undefined) {
+        this['commodity_orders'] = commodityOrders;
     }
-    public get commodityOrderLists(): Array<ApigCommodityOrder> | undefined {
-        return this['commodity_order_lists'];
+    public get commodityOrders(): Array<ApigCommodityOrder> | undefined {
+        return this['commodity_orders'];
     }
 }

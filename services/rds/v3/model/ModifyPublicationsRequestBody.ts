@@ -1,11 +1,11 @@
-import { OperateUsedJobSchedule } from './OperateUsedJobSchedule';
+import { OperateUsedJobScheduleModifyPub } from './OperateUsedJobScheduleModifyPub';
 import { PublicationTableInfoRequest } from './PublicationTableInfoRequest';
 import { SubscriptionOption } from './SubscriptionOption';
 
 
 export class ModifyPublicationsRequestBody {
     private 'subscription_options'?: SubscriptionOption;
-    private 'job_schedule'?: OperateUsedJobSchedule;
+    private 'job_schedule'?: OperateUsedJobScheduleModifyPub;
     private 'is_select_all_table'?: boolean;
     private 'extend_tables'?: Array<string>;
     public tables?: Array<PublicationTableInfoRequest>;
@@ -21,14 +21,14 @@ export class ModifyPublicationsRequestBody {
     public get subscriptionOptions(): SubscriptionOption | undefined {
         return this['subscription_options'];
     }
-    public withJobSchedule(jobSchedule: OperateUsedJobSchedule): ModifyPublicationsRequestBody {
+    public withJobSchedule(jobSchedule: OperateUsedJobScheduleModifyPub): ModifyPublicationsRequestBody {
         this['job_schedule'] = jobSchedule;
         return this;
     }
-    public set jobSchedule(jobSchedule: OperateUsedJobSchedule  | undefined) {
+    public set jobSchedule(jobSchedule: OperateUsedJobScheduleModifyPub  | undefined) {
         this['job_schedule'] = jobSchedule;
     }
-    public get jobSchedule(): OperateUsedJobSchedule | undefined {
+    public get jobSchedule(): OperateUsedJobScheduleModifyPub | undefined {
         return this['job_schedule'];
     }
     public withIsSelectAllTable(isSelectAllTable: boolean): ModifyPublicationsRequestBody {

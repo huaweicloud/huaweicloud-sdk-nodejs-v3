@@ -1,9 +1,14 @@
 
 
 export class ListenerIpGroup {
+    public type?: string;
     private 'ipgroup_id'?: string;
     private 'enable_ipgroup'?: boolean;
     public constructor() { 
+    }
+    public withType(type: string): ListenerIpGroup {
+        this['type'] = type;
+        return this;
     }
     public withIpgroupId(ipgroupId: string): ListenerIpGroup {
         this['ipgroup_id'] = ipgroupId;

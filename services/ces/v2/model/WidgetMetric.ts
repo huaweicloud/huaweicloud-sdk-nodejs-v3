@@ -9,6 +9,7 @@ export class WidgetMetric {
     private 'metric_name'?: string;
     public alias?: Array<string>;
     private 'extra_info'?: ExtraInfo;
+    private 'y_axis_position'?: WidgetMetricYAxisPositionEnum | string;
     private 'rollup_enable'?: boolean;
     private 'rollup_filter'?: RollupFilter;
     private 'rollup_dimension'?: string;
@@ -55,6 +56,16 @@ export class WidgetMetric {
     }
     public get extraInfo(): ExtraInfo | undefined {
         return this['extra_info'];
+    }
+    public withYAxisPosition(yAxisPosition: WidgetMetricYAxisPositionEnum | string): WidgetMetric {
+        this['y_axis_position'] = yAxisPosition;
+        return this;
+    }
+    public set yAxisPosition(yAxisPosition: WidgetMetricYAxisPositionEnum | string  | undefined) {
+        this['y_axis_position'] = yAxisPosition;
+    }
+    public get yAxisPosition(): WidgetMetricYAxisPositionEnum | string | undefined {
+        return this['y_axis_position'];
     }
     public withRollupEnable(rollupEnable: boolean): WidgetMetric {
         this['rollup_enable'] = rollupEnable;
@@ -146,6 +157,14 @@ export class WidgetMetric {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum WidgetMetricYAxisPositionEnum {
+    LEFT = 'left',
+    RIGHT = 'right'
+}
 /**
     * @export
     * @enum {string}

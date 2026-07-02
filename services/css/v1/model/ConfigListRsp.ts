@@ -8,6 +8,7 @@ export class ConfigListRsp {
     public finishedAt?: string;
     public modifyDeleteReset?: string;
     public failedMsg?: string;
+    public instType?: string;
     public constructor() { 
     }
     public withId(id: string): ConfigListRsp {
@@ -36,6 +37,10 @@ export class ConfigListRsp {
     }
     public withFailedMsg(failedMsg: string): ConfigListRsp {
         this['failedMsg'] = failedMsg;
+        return this;
+    }
+    public withInstType(instType: string): ConfigListRsp {
+        this['instType'] = instType;
         return this;
     }
 }

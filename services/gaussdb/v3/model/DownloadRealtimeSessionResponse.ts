@@ -1,7 +1,7 @@
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
-export class DeleteConfigResponse extends SdkResponse {
+export class DownloadRealtimeSessionResponse extends SdkResponse {
     public constructor() { 
         super();
     }

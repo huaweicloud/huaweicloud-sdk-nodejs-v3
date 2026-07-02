@@ -26,6 +26,7 @@ export class UpdateFlinkSqlJobRequestBody {
     private 'resume_checkpoint'?: boolean;
     private 'resume_max_num'?: number;
     private 'runtime_config'?: string;
+    private 'flink_log_config'?: string;
     private 'operator_config'?: string;
     private 'static_estimator_config'?: string;
     private 'flink_version'?: string;
@@ -261,6 +262,16 @@ export class UpdateFlinkSqlJobRequestBody {
     }
     public get runtimeConfig(): string | undefined {
         return this['runtime_config'];
+    }
+    public withFlinkLogConfig(flinkLogConfig: string): UpdateFlinkSqlJobRequestBody {
+        this['flink_log_config'] = flinkLogConfig;
+        return this;
+    }
+    public set flinkLogConfig(flinkLogConfig: string  | undefined) {
+        this['flink_log_config'] = flinkLogConfig;
+    }
+    public get flinkLogConfig(): string | undefined {
+        return this['flink_log_config'];
     }
     public withOperatorConfig(operatorConfig: string): UpdateFlinkSqlJobRequestBody {
         this['operator_config'] = operatorConfig;

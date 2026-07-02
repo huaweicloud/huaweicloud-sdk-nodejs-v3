@@ -56,6 +56,8 @@ export class ShowInstanceResponse extends SdkResponse {
     public tags?: Array<TagEntity>;
     private 'service_type'?: string;
     private 'storage_type'?: string;
+    private 'disk_encrypted'?: boolean;
+    private 'disk_encrypted_key'?: string;
     public constructor() { 
         super();
     }
@@ -540,6 +542,26 @@ export class ShowInstanceResponse extends SdkResponse {
     }
     public get storageType(): string | undefined {
         return this['storage_type'];
+    }
+    public withDiskEncrypted(diskEncrypted: boolean): ShowInstanceResponse {
+        this['disk_encrypted'] = diskEncrypted;
+        return this;
+    }
+    public set diskEncrypted(diskEncrypted: boolean  | undefined) {
+        this['disk_encrypted'] = diskEncrypted;
+    }
+    public get diskEncrypted(): boolean | undefined {
+        return this['disk_encrypted'];
+    }
+    public withDiskEncryptedKey(diskEncryptedKey: string): ShowInstanceResponse {
+        this['disk_encrypted_key'] = diskEncryptedKey;
+        return this;
+    }
+    public set diskEncryptedKey(diskEncryptedKey: string  | undefined) {
+        this['disk_encrypted_key'] = diskEncryptedKey;
+    }
+    public get diskEncryptedKey(): string | undefined {
+        return this['disk_encrypted_key'];
     }
 }
 

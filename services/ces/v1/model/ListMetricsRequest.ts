@@ -1,15 +1,30 @@
 
 
 export class ListMetricsRequest {
+    public namespace?: string;
+    private 'metric_name'?: string;
     private 'dim.0'?: string;
     private 'dim.1'?: string;
     private 'dim.2'?: string;
-    public limit?: number;
-    private 'metric_name'?: string;
-    public namespace?: string;
-    public order?: ListMetricsRequestOrderEnum | string;
+    private 'dim.3'?: string;
     public start?: string;
+    public limit?: number;
+    public order?: ListMetricsRequestOrderEnum | string;
     public constructor() { 
+    }
+    public withNamespace(namespace: string): ListMetricsRequest {
+        this['namespace'] = namespace;
+        return this;
+    }
+    public withMetricName(metricName: string): ListMetricsRequest {
+        this['metric_name'] = metricName;
+        return this;
+    }
+    public set metricName(metricName: string  | undefined) {
+        this['metric_name'] = metricName;
+    }
+    public get metricName(): string | undefined {
+        return this['metric_name'];
     }
     public withDim0(dim0: string): ListMetricsRequest {
         this['dim.0'] = dim0;
@@ -41,30 +56,26 @@ export class ListMetricsRequest {
     public get dim2(): string | undefined {
         return this['dim.2'];
     }
+    public withDim3(dim3: string): ListMetricsRequest {
+        this['dim.3'] = dim3;
+        return this;
+    }
+    public set dim3(dim3: string  | undefined) {
+        this['dim.3'] = dim3;
+    }
+    public get dim3(): string | undefined {
+        return this['dim.3'];
+    }
+    public withStart(start: string): ListMetricsRequest {
+        this['start'] = start;
+        return this;
+    }
     public withLimit(limit: number): ListMetricsRequest {
         this['limit'] = limit;
         return this;
     }
-    public withMetricName(metricName: string): ListMetricsRequest {
-        this['metric_name'] = metricName;
-        return this;
-    }
-    public set metricName(metricName: string  | undefined) {
-        this['metric_name'] = metricName;
-    }
-    public get metricName(): string | undefined {
-        return this['metric_name'];
-    }
-    public withNamespace(namespace: string): ListMetricsRequest {
-        this['namespace'] = namespace;
-        return this;
-    }
     public withOrder(order: ListMetricsRequestOrderEnum | string): ListMetricsRequest {
         this['order'] = order;
-        return this;
-    }
-    public withStart(start: string): ListMetricsRequest {
-        this['start'] = start;
         return this;
     }
 }

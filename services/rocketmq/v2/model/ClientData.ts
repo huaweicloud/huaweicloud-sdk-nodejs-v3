@@ -6,6 +6,7 @@ export class ClientData {
     public version?: string;
     private 'client_id'?: string;
     private 'client_addr'?: string;
+    private 'consume_type'?: ClientDataConsumeTypeEnum | string;
     public subscriptions?: Array<Subscription>;
     public constructor() { 
     }
@@ -37,8 +38,28 @@ export class ClientData {
     public get clientAddr(): string | undefined {
         return this['client_addr'];
     }
+    public withConsumeType(consumeType: ClientDataConsumeTypeEnum | string): ClientData {
+        this['consume_type'] = consumeType;
+        return this;
+    }
+    public set consumeType(consumeType: ClientDataConsumeTypeEnum | string  | undefined) {
+        this['consume_type'] = consumeType;
+    }
+    public get consumeType(): ClientDataConsumeTypeEnum | string | undefined {
+        return this['consume_type'];
+    }
     public withSubscriptions(subscriptions: Array<Subscription>): ClientData {
         this['subscriptions'] = subscriptions;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ClientDataConsumeTypeEnum {
+    CONSUME_POP = 'CONSUME_POP',
+    CONSUME_PASSIVELY = 'CONSUME_PASSIVELY',
+    CONSUME_ACTIVELY = 'CONSUME_ACTIVELY'
 }

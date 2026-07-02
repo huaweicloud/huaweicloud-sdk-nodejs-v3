@@ -6,8 +6,7 @@ export class UpdateDashboardRequestBody {
     private 'is_favorite'?: boolean;
     private 'row_widget_num'?: number;
     private 'extend_info'?: ExtendInfo;
-    public constructor(rowWidgetNum?: number) { 
-        this['row_widget_num'] = rowWidgetNum;
+    public constructor() { 
     }
     public withDashboardName(dashboardName: string): UpdateDashboardRequestBody {
         this['dashboard_name'] = dashboardName;

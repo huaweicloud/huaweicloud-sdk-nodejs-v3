@@ -161,7 +161,7 @@ export class CssClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除配置文件
+     * @summary 删除配置文件V2
      * @param {string} clusterId 指定删除配置文件的集群ID。获取方法请参见[获取集群ID](css_03_0101.xml)。
      * @param {DeleteConfReqNew} deleteConfReq 
      * @param {*} [options] Override http request option.
@@ -181,7 +181,7 @@ export class CssClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除自定义模板
+     * @summary 删除自定义模板V2
      * @param {DeleteTemplateReqNew} deleteTemplateReqNew 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

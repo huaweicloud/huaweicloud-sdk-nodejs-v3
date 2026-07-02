@@ -1,6 +1,7 @@
 import { DashBoardIdItemResp } from './DashBoardIdItemResp';
 import { DashBoardNameItemResp } from './DashBoardNameItemResp';
 import { EnterpriseIdItemResp } from './EnterpriseIdItemResp';
+import { ExtendInfoResp } from './ExtendInfoResp';
 import { IsFavoriteItem } from './IsFavoriteItem';
 import { WidgetDisplayMode } from './WidgetDisplayMode';
 
@@ -13,7 +14,8 @@ export class DashBoardInfo {
     private 'is_favorite'?: boolean;
     private 'creator_name'?: string;
     private 'create_time'?: number;
-    private 'widgets_num'?: number;
+    private 'widget_num'?: number;
+    private 'extend_info'?: ExtendInfoResp;
     public namespace?: string;
     private 'sub_product'?: string;
     private 'dashboard_template_id'?: string;
@@ -89,15 +91,25 @@ export class DashBoardInfo {
     public get createTime(): number | undefined {
         return this['create_time'];
     }
-    public withWidgetsNum(widgetsNum: number): DashBoardInfo {
-        this['widgets_num'] = widgetsNum;
+    public withWidgetNum(widgetNum: number): DashBoardInfo {
+        this['widget_num'] = widgetNum;
         return this;
     }
-    public set widgetsNum(widgetsNum: number  | undefined) {
-        this['widgets_num'] = widgetsNum;
+    public set widgetNum(widgetNum: number  | undefined) {
+        this['widget_num'] = widgetNum;
     }
-    public get widgetsNum(): number | undefined {
-        return this['widgets_num'];
+    public get widgetNum(): number | undefined {
+        return this['widget_num'];
+    }
+    public withExtendInfo(extendInfo: ExtendInfoResp): DashBoardInfo {
+        this['extend_info'] = extendInfo;
+        return this;
+    }
+    public set extendInfo(extendInfo: ExtendInfoResp  | undefined) {
+        this['extend_info'] = extendInfo;
+    }
+    public get extendInfo(): ExtendInfoResp | undefined {
+        return this['extend_info'];
     }
     public withNamespace(namespace: string): DashBoardInfo {
         this['namespace'] = namespace;

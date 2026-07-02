@@ -1,8 +1,8 @@
 import { ShowCesHierarchyRespInstanceIds } from './ShowCesHierarchyRespInstanceIds';
-import { ShowCesHierarchyRespNodes } from './ShowCesHierarchyRespNodes';
 import { ShowCeshierarchyRespDimensions } from './ShowCeshierarchyRespDimensions';
 import { ShowCeshierarchyRespDlq } from './ShowCeshierarchyRespDlq';
 import { ShowCeshierarchyRespGroups } from './ShowCeshierarchyRespGroups';
+import { ShowCeshierarchyRespNodes } from './ShowCeshierarchyRespNodes';
 import { ShowCeshierarchyRespTopics } from './ShowCeshierarchyRespTopics';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -10,7 +10,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowCesHierarchyResponse extends SdkResponse {
     public dimensions?: Array<ShowCeshierarchyRespDimensions>;
     private 'instance_ids'?: Array<ShowCesHierarchyRespInstanceIds>;
-    public nodes?: Array<ShowCesHierarchyRespNodes>;
+    public nodes?: Array<ShowCeshierarchyRespNodes>;
     public topics?: Array<ShowCeshierarchyRespTopics>;
     public dlq?: Array<ShowCeshierarchyRespDlq>;
     public groups?: Array<ShowCeshierarchyRespGroups>;
@@ -31,7 +31,7 @@ export class ShowCesHierarchyResponse extends SdkResponse {
     public get instanceIds(): Array<ShowCesHierarchyRespInstanceIds> | undefined {
         return this['instance_ids'];
     }
-    public withNodes(nodes: Array<ShowCesHierarchyRespNodes>): ShowCesHierarchyResponse {
+    public withNodes(nodes: Array<ShowCeshierarchyRespNodes>): ShowCesHierarchyResponse {
         this['nodes'] = nodes;
         return this;
     }

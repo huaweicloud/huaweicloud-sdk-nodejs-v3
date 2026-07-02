@@ -30,6 +30,7 @@ export class CreateFlinkJarJobRequestBody {
     private 'resume_max_num'?: number;
     private 'checkpoint_path'?: string;
     private 'runtime_config'?: string;
+    private 'flink_log_config'?: string;
     private 'execution_agency_urn'?: string;
     public tags?: Array<Tag>;
     private 'resource_config'?: ResourceConfig;
@@ -276,6 +277,16 @@ export class CreateFlinkJarJobRequestBody {
     }
     public get runtimeConfig(): string | undefined {
         return this['runtime_config'];
+    }
+    public withFlinkLogConfig(flinkLogConfig: string): CreateFlinkJarJobRequestBody {
+        this['flink_log_config'] = flinkLogConfig;
+        return this;
+    }
+    public set flinkLogConfig(flinkLogConfig: string  | undefined) {
+        this['flink_log_config'] = flinkLogConfig;
+    }
+    public get flinkLogConfig(): string | undefined {
+        return this['flink_log_config'];
     }
     public withExecutionAgencyUrn(executionAgencyUrn: string): CreateFlinkJarJobRequestBody {
         this['execution_agency_urn'] = executionAgencyUrn;

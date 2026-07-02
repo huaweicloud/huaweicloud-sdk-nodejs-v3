@@ -8,7 +8,6 @@ export class CollectPublicationMonitorResponse extends SdkResponse {
     private 'average_latency'?: number;
     private 'last_dist_sync'?: string;
     private 'replicated_transactions'?: number;
-    private 'replication_rate_trans'?: number;
     public constructor() { 
         super();
     }
@@ -65,15 +64,5 @@ export class CollectPublicationMonitorResponse extends SdkResponse {
     }
     public get replicatedTransactions(): number | undefined {
         return this['replicated_transactions'];
-    }
-    public withReplicationRateTrans(replicationRateTrans: number): CollectPublicationMonitorResponse {
-        this['replication_rate_trans'] = replicationRateTrans;
-        return this;
-    }
-    public set replicationRateTrans(replicationRateTrans: number  | undefined) {
-        this['replication_rate_trans'] = replicationRateTrans;
-    }
-    public get replicationRateTrans(): number | undefined {
-        return this['replication_rate_trans'];
     }
 }

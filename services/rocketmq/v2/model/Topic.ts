@@ -6,6 +6,7 @@ export class Topic {
     private 'total_read_queue_num'?: number;
     private 'total_write_queue_num'?: number;
     public permission?: TopicPermissionEnum | string;
+    private 'created_at'?: number;
     public brokers?: Array<TopicBrokers>;
     private 'message_type'?: TopicMessageTypeEnum | string;
     public constructor() { 
@@ -37,6 +38,16 @@ export class Topic {
     public withPermission(permission: TopicPermissionEnum | string): Topic {
         this['permission'] = permission;
         return this;
+    }
+    public withCreatedAt(createdAt: number): Topic {
+        this['created_at'] = createdAt;
+        return this;
+    }
+    public set createdAt(createdAt: number  | undefined) {
+        this['created_at'] = createdAt;
+    }
+    public get createdAt(): number | undefined {
+        return this['created_at'];
     }
     public withBrokers(brokers: Array<TopicBrokers>): Topic {
         this['brokers'] = brokers;

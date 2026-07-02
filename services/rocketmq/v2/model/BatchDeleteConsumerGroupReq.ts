@@ -1,17 +1,11 @@
 
 
 export class BatchDeleteConsumerGroupReq {
-    private 'job_id'?: string;
+    public groups?: Array<string>;
     public constructor() { 
     }
-    public withJobId(jobId: string): BatchDeleteConsumerGroupReq {
-        this['job_id'] = jobId;
+    public withGroups(groups: Array<string>): BatchDeleteConsumerGroupReq {
+        this['groups'] = groups;
         return this;
-    }
-    public set jobId(jobId: string  | undefined) {
-        this['job_id'] = jobId;
-    }
-    public get jobId(): string | undefined {
-        return this['job_id'];
     }
 }

@@ -11,6 +11,7 @@ export class ConsumerGroup {
     public permissions?: Array<string>;
     private 'consume_orderly'?: boolean;
     private 'group_online'?: boolean;
+    private 'topic_subscription_count'?: number;
     public constructor() { 
     }
     public withEnabled(enabled: boolean): ConsumerGroup {
@@ -82,5 +83,15 @@ export class ConsumerGroup {
     }
     public get groupOnline(): boolean | undefined {
         return this['group_online'];
+    }
+    public withTopicSubscriptionCount(topicSubscriptionCount: number): ConsumerGroup {
+        this['topic_subscription_count'] = topicSubscriptionCount;
+        return this;
+    }
+    public set topicSubscriptionCount(topicSubscriptionCount: number  | undefined) {
+        this['topic_subscription_count'] = topicSubscriptionCount;
+    }
+    public get topicSubscriptionCount(): number | undefined {
+        return this['topic_subscription_count'];
     }
 }
