@@ -227,6 +227,9 @@ import { LogoffBuiltInAccountRequestBody } from './model/LogoffBuiltInAccountReq
 import { LogoffBuiltInAccountResponse } from './model/LogoffBuiltInAccountResponse';
 import { MetadataLock } from './model/MetadataLock';
 import { MultiNodesSingleMetricMetrics } from './model/MultiNodesSingleMetricMetrics';
+import { ParseDeadLockRequest } from './model/ParseDeadLockRequest';
+import { ParseDeadLockRequestBody } from './model/ParseDeadLockRequestBody';
+import { ParseDeadLockResponse } from './model/ParseDeadLockResponse';
 import { ParseSqlLimitRulesReq } from './model/ParseSqlLimitRulesReq';
 import { ParseSqlLimitRulesRequest } from './model/ParseSqlLimitRulesRequest';
 import { ParseSqlLimitRulesResponse } from './model/ParseSqlLimitRulesResponse';
@@ -253,6 +256,14 @@ import { SetLockBlockingSwitchResponse } from './model/SetLockBlockingSwitchResp
 import { SetThresholdForMetricRequest } from './model/SetThresholdForMetricRequest';
 import { SetThresholdForMetricResponse } from './model/SetThresholdForMetricResponse';
 import { ShareConnUserInfo } from './model/ShareConnUserInfo';
+import { ShowAnalysisSessionResultRequest } from './model/ShowAnalysisSessionResultRequest';
+import { ShowAnalysisSessionResultResp } from './model/ShowAnalysisSessionResultResp';
+import { ShowAnalysisSessionResultRespSqlTemplates } from './model/ShowAnalysisSessionResultRespSqlTemplates';
+import { ShowAnalysisSessionResultRespTopStateDuration } from './model/ShowAnalysisSessionResultRespTopStateDuration';
+import { ShowAnalysisSessionResultRespTopTransactionDuration } from './model/ShowAnalysisSessionResultRespTopTransactionDuration';
+import { ShowAnalysisSessionResultResponse } from './model/ShowAnalysisSessionResultResponse';
+import { ShowAnalysisSessionStatusRequest } from './model/ShowAnalysisSessionStatusRequest';
+import { ShowAnalysisSessionStatusResponse } from './model/ShowAnalysisSessionStatusResponse';
 import { ShowApiVersionRequest } from './model/ShowApiVersionRequest';
 import { ShowApiVersionResponse } from './model/ShowApiVersionResponse';
 import { ShowCredentialRequest } from './model/ShowCredentialRequest';
@@ -261,6 +272,17 @@ import { ShowDasRecommendSqlLimitRuleRequest } from './model/ShowDasRecommendSql
 import { ShowDasRecommendSqlLimitRuleResponse } from './model/ShowDasRecommendSqlLimitRuleResponse';
 import { ShowDbUserRequest } from './model/ShowDbUserRequest';
 import { ShowDbUserResponse } from './model/ShowDbUserResponse';
+import { ShowDeadLockAnalysisResultRequest } from './model/ShowDeadLockAnalysisResultRequest';
+import { ShowDeadLockAnalysisResultRespSqlList } from './model/ShowDeadLockAnalysisResultRespSqlList';
+import { ShowDeadLockAnalysisResultResponse } from './model/ShowDeadLockAnalysisResultResponse';
+import { ShowDeadLockTopologyGraphRespConflictGroups } from './model/ShowDeadLockTopologyGraphRespConflictGroups';
+import { ShowDeadLockTopologyGraphRespEdges } from './model/ShowDeadLockTopologyGraphRespEdges';
+import { ShowDeadLockTopologyGraphRespLockedData } from './model/ShowDeadLockTopologyGraphRespLockedData';
+import { ShowDeadLockTopologyGraphRespLocks } from './model/ShowDeadLockTopologyGraphRespLocks';
+import { ShowDeadLockTopologyGraphRespMeta } from './model/ShowDeadLockTopologyGraphRespMeta';
+import { ShowDeadLockTopologyGraphRespTransactions } from './model/ShowDeadLockTopologyGraphRespTransactions';
+import { ShowDeadLockTopologyRequest } from './model/ShowDeadLockTopologyRequest';
+import { ShowDeadLockTopologyResponse } from './model/ShowDeadLockTopologyResponse';
 import { ShowFullDeadLockListRequest } from './model/ShowFullDeadLockListRequest';
 import { ShowFullDeadLockListResponse } from './model/ShowFullDeadLockListResponse';
 import { ShowFullDeadLockSwitchRequest } from './model/ShowFullDeadLockSwitchRequest';
@@ -304,6 +326,9 @@ import { SlowSqlStatistics } from './model/SlowSqlStatistics';
 import { SlowSqlTemplate } from './model/SlowSqlTemplate';
 import { SlowSqlTrendItem } from './model/SlowSqlTrendItem';
 import { SqlLimitRule } from './model/SqlLimitRule';
+import { StartAnalysisSessionRequest } from './model/StartAnalysisSessionRequest';
+import { StartAnalysisSessionRequestBody } from './model/StartAnalysisSessionRequestBody';
+import { StartAnalysisSessionResponse } from './model/StartAnalysisSessionResponse';
 import { SupportMetricNameListSupportMetricNames } from './model/SupportMetricNameListSupportMetricNames';
 import { SynchronizeInstancesReq } from './model/SynchronizeInstancesReq';
 import { SynchronizeInstancesRequest } from './model/SynchronizeInstancesRequest';
@@ -1931,6 +1956,26 @@ export class DasClient {
     }
 
     /**
+     * 一键分析死锁日志
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 一键分析死锁日志
+     * @param {string} instanceId 实例ID
+     * @param {ParseDeadLockRequestBody} parseDeadLockRequestBody 死锁分析请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public parseDeadLock(parseDeadLockRequest?: ParseDeadLockRequest): Promise<ParseDeadLockResponse> {
+        const options = ParamCreater().parseDeadLock(parseDeadLockRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据原始SQL生成SQL限流关键字，目前支持MySQL、MariaDB、GaussDB(for MySQL)三种引擎。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2053,6 +2098,48 @@ export class DasClient {
     }
 
     /**
+     * 查询会话分析结果
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询会话分析结果
+     * @param {string} instanceId 实例ID
+     * @param {string} nodeId 节点ID
+     * @param {string} jobId 任务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAnalysisSessionResult(showAnalysisSessionResultRequest?: ShowAnalysisSessionResultRequest): Promise<ShowAnalysisSessionResultResponse> {
+        const options = ParamCreater().showAnalysisSessionResult(showAnalysisSessionResultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询会话分析状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询会话分析状态
+     * @param {string} instanceId 实例ID
+     * @param {string} nodeId 节点ID
+     * @param {string} jobId 任务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAnalysisSessionStatus(showAnalysisSessionStatusRequest?: ShowAnalysisSessionStatusRequest): Promise<ShowAnalysisSessionStatusResponse> {
+        const options = ParamCreater().showAnalysisSessionStatus(showAnalysisSessionStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询AK/SK。用于判断是否已保存AK/SK
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2106,6 +2193,50 @@ export class DasClient {
      */
     public showDbUser(showDbUserRequest?: ShowDbUserRequest): Promise<ShowDbUserResponse> {
         const options = ParamCreater().showDbUser(showDbUserRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询死锁日志分析结果
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询死锁日志分析结果
+     * @param {string} instanceId 实例ID
+     * @param {string} deadLockId 死锁唯一标识
+     * @param {string} [jobId] 死锁分析任务唯一标识
+     * @param {string} [transactionId] 事务ID
+     * @param {number} [offset] 偏移量
+     * @param {number} [limit] 单次返回数量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDeadLockAnalysisResult(showDeadLockAnalysisResultRequest?: ShowDeadLockAnalysisResultRequest): Promise<ShowDeadLockAnalysisResultResponse> {
+        const options = ParamCreater().showDeadLockAnalysisResult(showDeadLockAnalysisResultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取死锁拓扑图数据
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取死锁拓扑图数据
+     * @param {string} connectionId 数据库用户ID。用户使用数据库账号与数据库建立的连接ID。
+     * @param {string} deadLockId 死锁的ID值
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDeadLockTopology(showDeadLockTopologyRequest?: ShowDeadLockTopologyRequest): Promise<ShowDeadLockTopologyResponse> {
+        const options = ParamCreater().showDeadLockTopology(showDeadLockTopologyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2491,6 +2622,27 @@ export class DasClient {
      */
     public showTuning(showTuningRequest?: ShowTuningRequest): Promise<ShowTuningResponse> {
         const options = ParamCreater().showTuning(showTuningRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开始会话分析
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开始会话分析
+     * @param {string} instanceId 实例ID
+     * @param {string} nodeId 节点ID
+     * @param {StartAnalysisSessionRequestBody} startAnalysisSessionRequestBody 开始会话分析的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startAnalysisSession(startAnalysisSessionRequest?: StartAnalysisSessionRequest): Promise<StartAnalysisSessionResponse> {
+        const options = ParamCreater().startAnalysisSession(startAnalysisSessionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7181,6 +7333,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 一键分析死锁日志
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        parseDeadLock(parseDeadLockRequest?: ParseDeadLockRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/dead-lock-analysis",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (parseDeadLockRequest !== null && parseDeadLockRequest !== undefined) {
+                if (parseDeadLockRequest instanceof ParseDeadLockRequest) {
+                    instanceId = parseDeadLockRequest.instanceId;
+                    body = parseDeadLockRequest.body
+                } else {
+                    instanceId = parseDeadLockRequest['instance_id'];
+                    body = parseDeadLockRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling parseDeadLock.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据原始SQL生成SQL限流关键字，目前支持MySQL、MariaDB、GaussDB(for MySQL)三种引擎。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7459,6 +7657,116 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询会话分析结果
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAnalysisSessionResult(showAnalysisSessionResultRequest?: ShowAnalysisSessionResultRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/nodes/{node_id}/session-analysis-result",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let nodeId;
+            
+            let jobId;
+
+            if (showAnalysisSessionResultRequest !== null && showAnalysisSessionResultRequest !== undefined) {
+                if (showAnalysisSessionResultRequest instanceof ShowAnalysisSessionResultRequest) {
+                    instanceId = showAnalysisSessionResultRequest.instanceId;
+                    nodeId = showAnalysisSessionResultRequest.nodeId;
+                    jobId = showAnalysisSessionResultRequest.jobId;
+                } else {
+                    instanceId = showAnalysisSessionResultRequest['instance_id'];
+                    nodeId = showAnalysisSessionResultRequest['node_id'];
+                    jobId = showAnalysisSessionResultRequest['job_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showAnalysisSessionResult.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling showAnalysisSessionResult.');
+            }
+            if (jobId === null || jobId === undefined) {
+                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showAnalysisSessionResult.');
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'node_id': nodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询会话分析状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAnalysisSessionStatus(showAnalysisSessionStatusRequest?: ShowAnalysisSessionStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/nodes/{node_id}/session-analysis-status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let nodeId;
+            
+            let jobId;
+
+            if (showAnalysisSessionStatusRequest !== null && showAnalysisSessionStatusRequest !== undefined) {
+                if (showAnalysisSessionStatusRequest instanceof ShowAnalysisSessionStatusRequest) {
+                    instanceId = showAnalysisSessionStatusRequest.instanceId;
+                    nodeId = showAnalysisSessionStatusRequest.nodeId;
+                    jobId = showAnalysisSessionStatusRequest.jobId;
+                } else {
+                    instanceId = showAnalysisSessionStatusRequest['instance_id'];
+                    nodeId = showAnalysisSessionStatusRequest['node_id'];
+                    jobId = showAnalysisSessionStatusRequest['job_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showAnalysisSessionStatus.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling showAnalysisSessionStatus.');
+            }
+            if (jobId === null || jobId === undefined) {
+                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showAnalysisSessionStatus.');
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'node_id': nodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询AK/SK。用于判断是否已保存AK/SK
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7580,6 +7888,130 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'db_user_id': dbUserId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询死锁日志分析结果
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDeadLockAnalysisResult(showDeadLockAnalysisResultRequest?: ShowDeadLockAnalysisResultRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/dead-lock-analysis",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let deadLockId;
+            
+            let jobId;
+            
+            let transactionId;
+            
+            let offset;
+            
+            let limit;
+
+            if (showDeadLockAnalysisResultRequest !== null && showDeadLockAnalysisResultRequest !== undefined) {
+                if (showDeadLockAnalysisResultRequest instanceof ShowDeadLockAnalysisResultRequest) {
+                    instanceId = showDeadLockAnalysisResultRequest.instanceId;
+                    deadLockId = showDeadLockAnalysisResultRequest.deadLockId;
+                    jobId = showDeadLockAnalysisResultRequest.jobId;
+                    transactionId = showDeadLockAnalysisResultRequest.transactionId;
+                    offset = showDeadLockAnalysisResultRequest.offset;
+                    limit = showDeadLockAnalysisResultRequest.limit;
+                } else {
+                    instanceId = showDeadLockAnalysisResultRequest['instance_id'];
+                    deadLockId = showDeadLockAnalysisResultRequest['dead_lock_id'];
+                    jobId = showDeadLockAnalysisResultRequest['job_id'];
+                    transactionId = showDeadLockAnalysisResultRequest['transaction_id'];
+                    offset = showDeadLockAnalysisResultRequest['offset'];
+                    limit = showDeadLockAnalysisResultRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showDeadLockAnalysisResult.');
+            }
+            if (deadLockId === null || deadLockId === undefined) {
+                throw new RequiredError('deadLockId','Required parameter deadLockId was null or undefined when calling showDeadLockAnalysisResult.');
+            }
+            if (deadLockId !== null && deadLockId !== undefined) {
+                localVarQueryParameter['dead_lock_id'] = deadLockId;
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+            if (transactionId !== null && transactionId !== undefined) {
+                localVarQueryParameter['transaction_id'] = transactionId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取死锁拓扑图数据
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDeadLockTopology(showDeadLockTopologyRequest?: ShowDeadLockTopologyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/connections/{connection_id}/dead-lock-topology",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let connectionId;
+            
+            let deadLockId;
+
+            if (showDeadLockTopologyRequest !== null && showDeadLockTopologyRequest !== undefined) {
+                if (showDeadLockTopologyRequest instanceof ShowDeadLockTopologyRequest) {
+                    connectionId = showDeadLockTopologyRequest.connectionId;
+                    deadLockId = showDeadLockTopologyRequest.deadLockId;
+                } else {
+                    connectionId = showDeadLockTopologyRequest['connection_id'];
+                    deadLockId = showDeadLockTopologyRequest['dead_lock_id'];
+                }
+            }
+
+        
+            if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling showDeadLockTopology.');
+            }
+            if (deadLockId === null || deadLockId === undefined) {
+                throw new RequiredError('deadLockId','Required parameter deadLockId was null or undefined when calling showDeadLockTopology.');
+            }
+            if (deadLockId !== null && deadLockId !== undefined) {
+                localVarQueryParameter['dead_lock_id'] = deadLockId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'connection_id': connectionId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8570,6 +9002,59 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'message_id': messageId,'connection_id': connectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开始会话分析
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        startAnalysisSession(startAnalysisSessionRequest?: StartAnalysisSessionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/nodes/{node_id}/session-analysis",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let nodeId;
+
+            if (startAnalysisSessionRequest !== null && startAnalysisSessionRequest !== undefined) {
+                if (startAnalysisSessionRequest instanceof StartAnalysisSessionRequest) {
+                    instanceId = startAnalysisSessionRequest.instanceId;
+                    nodeId = startAnalysisSessionRequest.nodeId;
+                    body = startAnalysisSessionRequest.body
+                } else {
+                    instanceId = startAnalysisSessionRequest['instance_id'];
+                    nodeId = startAnalysisSessionRequest['node_id'];
+                    body = startAnalysisSessionRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling startAnalysisSession.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling startAnalysisSession.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'node_id': nodeId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

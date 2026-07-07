@@ -1,16 +1,16 @@
 
 
 export class ScheduledTaskV3 {
-    private 'create_time'?: Date;
+    private 'create_time'?: number;
     private 'datastore_type'?: string;
-    private 'end_time'?: Date;
+    private 'end_time'?: number;
     private 'instance_id'?: string;
     private 'instance_name'?: string;
     private 'instance_status'?: string;
     private 'project_id'?: string;
     private 'proxy_id'?: string;
     private 'proxy_name'?: string;
-    private 'start_time'?: Date;
+    private 'start_time'?: number;
     private 'target_config'?: { [key: string]: string; };
     private 'task_id'?: string;
     private 'task_name'?: string;
@@ -18,14 +18,14 @@ export class ScheduledTaskV3 {
     private 'task_status'?: string;
     public constructor() { 
     }
-    public withCreateTime(createTime: Date): ScheduledTaskV3 {
+    public withCreateTime(createTime: number): ScheduledTaskV3 {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: Date  | undefined) {
+    public set createTime(createTime: number  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime(): Date | undefined {
+    public get createTime(): number | undefined {
         return this['create_time'];
     }
     public withDatastoreType(datastoreType: string): ScheduledTaskV3 {
@@ -38,14 +38,14 @@ export class ScheduledTaskV3 {
     public get datastoreType(): string | undefined {
         return this['datastore_type'];
     }
-    public withEndTime(endTime: Date): ScheduledTaskV3 {
+    public withEndTime(endTime: number): ScheduledTaskV3 {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: Date  | undefined) {
+    public set endTime(endTime: number  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime(): Date | undefined {
+    public get endTime(): number | undefined {
         return this['end_time'];
     }
     public withInstanceId(instanceId: string): ScheduledTaskV3 {
@@ -108,14 +108,14 @@ export class ScheduledTaskV3 {
     public get proxyName(): string | undefined {
         return this['proxy_name'];
     }
-    public withStartTime(startTime: Date): ScheduledTaskV3 {
+    public withStartTime(startTime: number): ScheduledTaskV3 {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: Date  | undefined) {
+    public set startTime(startTime: number  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime(): Date | undefined {
+    public get startTime(): number | undefined {
         return this['start_time'];
     }
     public withTargetConfig(targetConfig: { [key: string]: string; }): ScheduledTaskV3 {

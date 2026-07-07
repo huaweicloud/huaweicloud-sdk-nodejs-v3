@@ -1,21 +1,21 @@
 
 
 export class BackupResourcePackageFlavor {
-    private 'spce_code'?: string;
+    private 'spec_code'?: string;
     public volume?: string;
-    public constructor(spceCode?: string, volume?: string) { 
-        this['spce_code'] = spceCode;
+    public constructor(specCode?: string, volume?: string) { 
+        this['spec_code'] = specCode;
         this['volume'] = volume;
     }
-    public withSpceCode(spceCode: string): BackupResourcePackageFlavor {
-        this['spce_code'] = spceCode;
+    public withSpecCode(specCode: string): BackupResourcePackageFlavor {
+        this['spec_code'] = specCode;
         return this;
     }
-    public set spceCode(spceCode: string  | undefined) {
-        this['spce_code'] = spceCode;
+    public set specCode(specCode: string  | undefined) {
+        this['spec_code'] = specCode;
     }
-    public get spceCode(): string | undefined {
-        return this['spce_code'];
+    public get specCode(): string | undefined {
+        return this['spec_code'];
     }
     public withVolume(volume: string): BackupResourcePackageFlavor {
         this['volume'] = volume;

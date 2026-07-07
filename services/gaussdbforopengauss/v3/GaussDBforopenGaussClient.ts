@@ -35,6 +35,9 @@ import { BaseOpsKeyViewRequestBody } from './model/BaseOpsKeyViewRequestBody';
 import { BatchDeleteInstanceTagRequest } from './model/BatchDeleteInstanceTagRequest';
 import { BatchDeleteInstanceTagRequestBody } from './model/BatchDeleteInstanceTagRequestBody';
 import { BatchDeleteInstanceTagResponse } from './model/BatchDeleteInstanceTagResponse';
+import { BatchExecuteEventsRequest } from './model/BatchExecuteEventsRequest';
+import { BatchExecuteEventsRequestBody } from './model/BatchExecuteEventsRequestBody';
+import { BatchExecuteEventsResponse } from './model/BatchExecuteEventsResponse';
 import { BatchSetBackupPolicyFailedRecordResult } from './model/BatchSetBackupPolicyFailedRecordResult';
 import { BatchSetBackupPolicyOption } from './model/BatchSetBackupPolicyOption';
 import { BatchSetBackupPolicyRequest } from './model/BatchSetBackupPolicyRequest';
@@ -194,6 +197,9 @@ import { EnterpriseProjectInfoResult } from './model/EnterpriseProjectInfoResult
 import { EpsQuotasOption } from './model/EpsQuotasOption';
 import { EpsRemainingQuotaResult } from './model/EpsRemainingQuotaResult';
 import { ErrorResponseBody } from './model/ErrorResponseBody';
+import { EventInstanceOption } from './model/EventInstanceOption';
+import { EventJobResult } from './model/EventJobResult';
+import { EventScheduleWindowOption } from './model/EventScheduleWindowOption';
 import { EventTimeInfo } from './model/EventTimeInfo';
 import { ExcuteSQLNodeInfoResult } from './model/ExcuteSQLNodeInfoResult';
 import { ExecuteCrossCloudDisasterDataCacheEndRequest } from './model/ExecuteCrossCloudDisasterDataCacheEndRequest';
@@ -212,6 +218,7 @@ import { ExecuteCrossCloudDisasterSwitchoverRequest } from './model/ExecuteCross
 import { ExecuteCrossCloudDisasterSwitchoverResponse } from './model/ExecuteCrossCloudDisasterSwitchoverResponse';
 import { ExecuteCrossCloudReleaseDisasterRequest } from './model/ExecuteCrossCloudReleaseDisasterRequest';
 import { ExecuteCrossCloudReleaseDisasterResponse } from './model/ExecuteCrossCloudReleaseDisasterResponse';
+import { ExecuteWindowResult } from './model/ExecuteWindowResult';
 import { ExecutionTimeDetailsInfo } from './model/ExecutionTimeDetailsInfo';
 import { ExpansionParameterResult } from './model/ExpansionParameterResult';
 import { ExpansionParametersRequestBody } from './model/ExpansionParametersRequestBody';
@@ -357,6 +364,8 @@ import { ListEnterpriseProjectsRequest } from './model/ListEnterpriseProjectsReq
 import { ListEnterpriseProjectsResponse } from './model/ListEnterpriseProjectsResponse';
 import { ListEpsQuotasRequest } from './model/ListEpsQuotasRequest';
 import { ListEpsQuotasResponse } from './model/ListEpsQuotasResponse';
+import { ListEventsRequest } from './model/ListEventsRequest';
+import { ListEventsResponse } from './model/ListEventsResponse';
 import { ListFeaturesRequest } from './model/ListFeaturesRequest';
 import { ListFeaturesResponse } from './model/ListFeaturesResponse';
 import { ListFlavorInfo } from './model/ListFlavorInfo';
@@ -625,6 +634,7 @@ import { RunInstanceActionResponse } from './model/RunInstanceActionResponse';
 import { SaveAsParameterConfigTemplateRequest } from './model/SaveAsParameterConfigTemplateRequest';
 import { SaveAsParameterConfigTemplateRequestBody } from './model/SaveAsParameterConfigTemplateRequestBody';
 import { SaveAsParameterConfigTemplateResponse } from './model/SaveAsParameterConfigTemplateResponse';
+import { ScheduleEventInfoResult } from './model/ScheduleEventInfoResult';
 import { ScheduleTaskDetail } from './model/ScheduleTaskDetail';
 import { SchemaTableDefinitionResult } from './model/SchemaTableDefinitionResult';
 import { SchemaVolumeResult } from './model/SchemaVolumeResult';
@@ -1015,6 +1025,26 @@ export class GaussDBforopenGaussClient {
      */
     public batchDeleteInstanceTag(batchDeleteInstanceTagRequest?: BatchDeleteInstanceTagRequest): Promise<BatchDeleteInstanceTagResponse> {
         const options = ParamCreater().batchDeleteInstanceTag(batchDeleteInstanceTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 操作EG事件中心通知事件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 操作EG事件中心通知事件
+     * @param {BatchExecuteEventsRequestBody} batchExecuteEventsRequestBody **参数解释**: 操作事件请求体。 **约束限制**: 不涉及。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] **参数解释**: 请求语言类型。 **约束限制**: 不涉及。 **取值范围**: - en-us - zh-cn  **默认取值**: en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchExecuteEvents(batchExecuteEventsRequest?: BatchExecuteEventsRequest): Promise<BatchExecuteEventsResponse> {
+        const options = ParamCreater().batchExecuteEvents(batchExecuteEventsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2558,6 +2588,34 @@ export class GaussDBforopenGaussClient {
     }
 
     /**
+     * 查询事件列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询事件列表
+     * @param {'en-us' | 'zh-cn'} [xLanguage] **参数解释**: 请求语言类型。 **约束限制**: 不涉及。 **取值范围**: - en-us - zh-cn  **默认取值**: en-us。
+     * @param {string} [id] **参数解释**: 事件ID。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 不涉及。
+     * @param {string} [instanceId] **参数解释**: 实例ID。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 不涉及。
+     * @param {string} [status] **参数解释**: 事件状态。 **约束限制**: 不涉及。 **取值范围**: - WAITING：等待中 - INQUIRING：待授权 - SCHEDULED：待执行 - EXECUTING：执行中 - COMPLETED：已完成 - FAILED：失败 - CANCELED：已取消 **默认取值**: 不涉及。
+     * @param {string} [type] **参数解释**: 事件类型。 **约束限制**: 不涉及。 **取值范围**: - RESTAT_NODE：重启实例节点 **默认取值**: 不涉及。
+     * @param {string} [level] **参数解释**: 事件级别。 **约束限制**: 不涉及。 **取值范围**: - CRITICAL：紧急 - MAJOR：重要 - MINOR：一般 - INFO：提示 **默认取值**: 不涉及。
+     * @param {string} [sortField] **参数解释**: 排序字段。 **约束限制**: 不涉及。 **取值范围**: - planned_execution_time：计划执行时间 - created_time：创建时间 - latest_execution_time：最晚执行时间 **默认取值**: 不涉及。
+     * @param {string} [order] **参数解释**: 排序顺序。 **约束限制**: 不涉及。 **取值范围**: - DESC：降序 - ASC：升序 **默认取值**: DESC。
+     * @param {number} [offset] **参数解释**: 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询。 **约束限制**: 必须为数字，不能为负数。 **取值范围**: 不涉及。 **默认取值**: 0。
+     * @param {number} [limit] **参数解释**: 查询记录数。 **约束限制**: 不能为负数。 **取值范围**: 最小值为1，最大值为100。 **默认取值**: 10。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listEvents(listEventsRequest?: ListEventsRequest): Promise<ListEventsResponse> {
+        const options = ParamCreater().listEvents(listEventsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询当前实例高级特性列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2892,6 +2950,7 @@ export class GaussDBforopenGaussClient {
      * @summary 查询关键视图下发节点信息
      * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
      * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**: - zh-cn  - en-us  **默认取值**: en-us
+     * @param {object} [listKeyViewExecuteNodeRequestBody] **参数解释**: 查询关键视图下发节点信息请求体。 **约束限制**: 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6810,6 +6869,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 操作EG事件中心通知事件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchExecuteEvents(batchExecuteEventsRequest?: BatchExecuteEventsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/schedule-events",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (batchExecuteEventsRequest !== null && batchExecuteEventsRequest !== undefined) {
+                if (batchExecuteEventsRequest instanceof BatchExecuteEventsRequest) {
+                    body = batchExecuteEventsRequest.body
+                    xLanguage = batchExecuteEventsRequest.xLanguage;
+                } else {
+                    body = batchExecuteEventsRequest['body'];
+                    xLanguage = batchExecuteEventsRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量设置自动备份策略。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10723,6 +10827,106 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询事件列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listEvents(listEventsRequest?: ListEventsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/schedule-events",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let id;
+            
+            let instanceId;
+            
+            let status;
+            
+            let type;
+            
+            let level;
+            
+            let sortField;
+            
+            let order;
+            
+            let offset;
+            
+            let limit;
+
+            if (listEventsRequest !== null && listEventsRequest !== undefined) {
+                if (listEventsRequest instanceof ListEventsRequest) {
+                    xLanguage = listEventsRequest.xLanguage;
+                    id = listEventsRequest.id;
+                    instanceId = listEventsRequest.instanceId;
+                    status = listEventsRequest.status;
+                    type = listEventsRequest.type;
+                    level = listEventsRequest.level;
+                    sortField = listEventsRequest.sortField;
+                    order = listEventsRequest.order;
+                    offset = listEventsRequest.offset;
+                    limit = listEventsRequest.limit;
+                } else {
+                    xLanguage = listEventsRequest['X-Language'];
+                    id = listEventsRequest['id'];
+                    instanceId = listEventsRequest['instance_id'];
+                    status = listEventsRequest['status'];
+                    type = listEventsRequest['type'];
+                    level = listEventsRequest['level'];
+                    sortField = listEventsRequest['sort_field'];
+                    order = listEventsRequest['order'];
+                    offset = listEventsRequest['offset'];
+                    limit = listEventsRequest['limit'];
+                }
+            }
+
+        
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (level !== null && level !== undefined) {
+                localVarQueryParameter['level'] = level;
+            }
+            if (sortField !== null && sortField !== undefined) {
+                localVarQueryParameter['sort_field'] = sortField;
+            }
+            if (order !== null && order !== undefined) {
+                localVarQueryParameter['order'] = order;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询当前实例高级特性列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11685,13 +11889,15 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v3/{project_id}/instances/{instance_id}/key-view-execute-node",
-                contentType: "application/json",
+                contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
-                headers: {}
+                headers: {},
+                data: {}
             };
             const localVarHeaderParameter = {} as any;
 
+            let body: any;
             
             let instanceId;
             
@@ -11701,9 +11907,11 @@ export const ParamCreater = function () {
                 if (listKeyViewExecuteNodeRequest instanceof ListKeyViewExecuteNodeRequest) {
                     instanceId = listKeyViewExecuteNodeRequest.instanceId;
                     xLanguage = listKeyViewExecuteNodeRequest.xLanguage;
+                    body = listKeyViewExecuteNodeRequest.body
                 } else {
                     instanceId = listKeyViewExecuteNodeRequest['instance_id'];
                     xLanguage = listKeyViewExecuteNodeRequest['X-Language'];
+                    body = listKeyViewExecuteNodeRequest['body'];
                 }
             }
 
@@ -11714,7 +11922,9 @@ export const ParamCreater = function () {
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

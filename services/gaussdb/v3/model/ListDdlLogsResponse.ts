@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListDdlLogsResponse extends SdkResponse {
     private 'ddl_logs'?: Array<DdlLogInfo>;
     private 'total_count'?: number;
-    private 'keey_days'?: number;
+    private 'keep_days'?: number;
     private 'switch_status'?: string;
     public constructor() { 
         super();
@@ -30,15 +30,15 @@ export class ListDdlLogsResponse extends SdkResponse {
     public get totalCount(): number | undefined {
         return this['total_count'];
     }
-    public withKeeyDays(keeyDays: number): ListDdlLogsResponse {
-        this['keey_days'] = keeyDays;
+    public withKeepDays(keepDays: number): ListDdlLogsResponse {
+        this['keep_days'] = keepDays;
         return this;
     }
-    public set keeyDays(keeyDays: number  | undefined) {
-        this['keey_days'] = keeyDays;
+    public set keepDays(keepDays: number  | undefined) {
+        this['keep_days'] = keepDays;
     }
-    public get keeyDays(): number | undefined {
-        return this['keey_days'];
+    public get keepDays(): number | undefined {
+        return this['keep_days'];
     }
     public withSwitchStatus(switchStatus: string): ListDdlLogsResponse {
         this['switch_status'] = switchStatus;
