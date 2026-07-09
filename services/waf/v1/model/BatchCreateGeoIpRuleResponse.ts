@@ -11,6 +11,7 @@ export class BatchCreateGeoIpRuleResponse extends SdkResponse {
     private 'ip_type'?: string;
     public description?: string;
     public timestamp?: number;
+    public geoTagList?: Array<string>;
     public constructor() { 
         super();
     }
@@ -54,6 +55,10 @@ export class BatchCreateGeoIpRuleResponse extends SdkResponse {
     }
     public withTimestamp(timestamp: number): BatchCreateGeoIpRuleResponse {
         this['timestamp'] = timestamp;
+        return this;
+    }
+    public withGeoTagList(geoTagList: Array<string>): BatchCreateGeoIpRuleResponse {
+        this['geoTagList'] = geoTagList;
         return this;
     }
 }

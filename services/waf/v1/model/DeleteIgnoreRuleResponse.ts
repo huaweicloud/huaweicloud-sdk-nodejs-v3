@@ -15,7 +15,7 @@ export class DeleteIgnoreRuleResponse extends SdkResponse {
     private 'url_logic'?: string;
     public conditions?: Array<Condition>;
     public advanced?: IgnoreAdvanced;
-    public domains?: Array<string>;
+    public domain?: Array<string>;
     public constructor() { 
         super();
     }
@@ -69,8 +69,8 @@ export class DeleteIgnoreRuleResponse extends SdkResponse {
         this['advanced'] = advanced;
         return this;
     }
-    public withDomains(domains: Array<string>): DeleteIgnoreRuleResponse {
-        this['domains'] = domains;
+    public withDomain(domain: Array<string>): DeleteIgnoreRuleResponse {
+        this['domain'] = domain;
         return this;
     }
 }

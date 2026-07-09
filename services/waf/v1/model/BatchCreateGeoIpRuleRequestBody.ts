@@ -7,10 +7,9 @@ export class BatchCreateGeoIpRuleRequestBody {
     private 'ip_type'?: string;
     public description?: string;
     private 'policy_ids'?: Array<string>;
-    public constructor(geoip?: string, white?: number, ipType?: string, policyIds?: Array<string>) { 
+    public constructor(geoip?: string, white?: number, policyIds?: Array<string>) { 
         this['geoip'] = geoip;
         this['white'] = white;
-        this['ip_type'] = ipType;
         this['policy_ids'] = policyIds;
     }
     public withName(name: string): BatchCreateGeoIpRuleRequestBody {

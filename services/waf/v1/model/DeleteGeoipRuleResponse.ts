@@ -6,6 +6,7 @@ export class DeleteGeoipRuleResponse extends SdkResponse {
     public name?: string;
     public policyid?: string;
     public geoip?: string;
+    public geoTagList?: Array<string>;
     public white?: number;
     public status?: number;
     public description?: string;
@@ -27,6 +28,10 @@ export class DeleteGeoipRuleResponse extends SdkResponse {
     }
     public withGeoip(geoip: string): DeleteGeoipRuleResponse {
         this['geoip'] = geoip;
+        return this;
+    }
+    public withGeoTagList(geoTagList: Array<string>): DeleteGeoipRuleResponse {
+        this['geoTagList'] = geoTagList;
         return this;
     }
     public withWhite(white: number): DeleteGeoipRuleResponse {

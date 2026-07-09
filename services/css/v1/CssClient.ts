@@ -1032,7 +1032,7 @@ export class CssClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取智能运维告警可用的SMN主题
+     * @summary 获取可用的SMN主题
      * @param {string} domainId 域账号ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1471,7 +1471,7 @@ export class CssClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 自动设置集群快照的基础配置（不推荐使用）
+     * @summary 自动设置集群快照的基础配置
      * @param {string} clusterId 指定要备份的集群ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

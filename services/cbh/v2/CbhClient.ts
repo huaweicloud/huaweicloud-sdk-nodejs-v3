@@ -87,6 +87,7 @@ import { StartInstanceRequest } from './model/StartInstanceRequest';
 import { StartInstanceResponse } from './model/StartInstanceResponse';
 import { StopInstanceRequest } from './model/StopInstanceRequest';
 import { StopInstanceResponse } from './model/StopInstanceResponse';
+import { SwitchInfo } from './model/SwitchInfo';
 import { SwitchInstanceVpcRequest } from './model/SwitchInstanceVpcRequest';
 import { SwitchInstanceVpcResponse } from './model/SwitchInstanceVpcResponse';
 import { SwitchVirtualPrivateCloudRequestBody } from './model/SwitchVirtualPrivateCloudRequestBody';
@@ -98,6 +99,7 @@ import { UpdateInstanceSecurityGroupResponse } from './model/UpdateInstanceSecur
 import { UpgradeCbhRequestBody } from './model/UpgradeCbhRequestBody';
 import { UpgradeInstanceRequest } from './model/UpgradeInstanceRequest';
 import { UpgradeInstanceResponse } from './model/UpgradeInstanceResponse';
+import { VersionInfo } from './model/VersionInfo';
 
 export class CbhClient {
     public static newBuilder(): ClientBuilder<CbhClient> {

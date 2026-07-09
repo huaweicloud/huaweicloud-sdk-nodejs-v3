@@ -10,6 +10,8 @@ import { AddAuditDatabaseNewRequest } from './model/AddAuditDatabaseNewRequest';
 import { AddAuditDatabaseNewResponse } from './model/AddAuditDatabaseNewResponse';
 import { AddAuditDatabaseRequest } from './model/AddAuditDatabaseRequest';
 import { AddAuditDatabaseResponse } from './model/AddAuditDatabaseResponse';
+import { AddDatabaseSslKeyRequest } from './model/AddDatabaseSslKeyRequest';
+import { AddDatabaseSslKeyResponse } from './model/AddDatabaseSslKeyResponse';
 import { AddRdsDatabaseNewRequest } from './model/AddRdsDatabaseNewRequest';
 import { AddRdsDatabaseNewResponse } from './model/AddRdsDatabaseNewResponse';
 import { AddRdsDatabaseRequest } from './model/AddRdsDatabaseRequest';
@@ -17,6 +19,7 @@ import { AddRdsDatabaseResponse } from './model/AddRdsDatabaseResponse';
 import { AddRdsNoAgentDatabaseRequest } from './model/AddRdsNoAgentDatabaseRequest';
 import { AddRdsNoAgentDatabaseResponse } from './model/AddRdsNoAgentDatabaseResponse';
 import { AddWhitelistRequest } from './model/AddWhitelistRequest';
+import { AffectedResource } from './model/AffectedResource';
 import { AgentEditRequest } from './model/AgentEditRequest';
 import { AgentSwitchRequest } from './model/AgentSwitchRequest';
 import { AlarmLogRequest } from './model/AlarmLogRequest';
@@ -25,6 +28,7 @@ import { AlarmLogResponseAlarmLog } from './model/AlarmLogResponseAlarmLog';
 import { AlarmLogResponseNewAlarmLog } from './model/AlarmLogResponseNewAlarmLog';
 import { AuditAgentRequest } from './model/AuditAgentRequest';
 import { AuditAgentRespoonseAgents } from './model/AuditAgentRespoonseAgents';
+import { AuditInstanceBean } from './model/AuditInstanceBean';
 import { AuditInstanceListBean } from './model/AuditInstanceListBean';
 import { AuditInstanceRiskCount } from './model/AuditInstanceRiskCount';
 import { AuditScopeRequestNew } from './model/AuditScopeRequestNew';
@@ -69,6 +73,7 @@ import { ChangePasswordRequest } from './model/ChangePasswordRequest';
 import { ChangeSecurityGroupRequest } from './model/ChangeSecurityGroupRequest';
 import { ChargeOrderDbssNew } from './model/ChargeOrderDbssNew';
 import { Cluster } from './model/Cluster';
+import { CommonSettingsResponseLogRetention } from './model/CommonSettingsResponseLogRetention';
 import { ConfigAlarmTopicRequest } from './model/ConfigAlarmTopicRequest';
 import { ConfigReportTopicRequest } from './model/ConfigReportTopicRequest';
 import { ConfirmUpgradeAuditRequest } from './model/ConfirmUpgradeAuditRequest';
@@ -119,9 +124,14 @@ import { CreateReportRequestBody } from './model/CreateReportRequestBody';
 import { CreateReportResponse } from './model/CreateReportResponse';
 import { CreateSensitiveMaskRuleRequest } from './model/CreateSensitiveMaskRuleRequest';
 import { CreateSensitiveMaskRuleResponse } from './model/CreateSensitiveMaskRuleResponse';
+import { CsbResource } from './model/CsbResource';
+import { CsbResourceTag } from './model/CsbResourceTag';
 import { DataBase } from './model/DataBase';
 import { DataBaseBean } from './model/DataBaseBean';
+import { DataResourceHead } from './model/DataResourceHead';
 import { DatabaseRiskStatisticsDto } from './model/DatabaseRiskStatisticsDto';
+import { DbDataStore } from './model/DbDataStore';
+import { DbUser } from './model/DbUser';
 import { DeleteAuditAgentNewRequest } from './model/DeleteAuditAgentNewRequest';
 import { DeleteAuditAgentNewResponse } from './model/DeleteAuditAgentNewResponse';
 import { DeleteAuditAgentRequest } from './model/DeleteAuditAgentRequest';
@@ -194,6 +204,8 @@ import { ListAuditInstanceJobsNewRequest } from './model/ListAuditInstanceJobsNe
 import { ListAuditInstanceJobsNewResponse } from './model/ListAuditInstanceJobsNewResponse';
 import { ListAuditInstanceJobsRequest } from './model/ListAuditInstanceJobsRequest';
 import { ListAuditInstanceJobsResponse } from './model/ListAuditInstanceJobsResponse';
+import { ListAuditInstancesLastRequest } from './model/ListAuditInstancesLastRequest';
+import { ListAuditInstancesLastResponse } from './model/ListAuditInstancesLastResponse';
 import { ListAuditInstancesNewRequest } from './model/ListAuditInstancesNewRequest';
 import { ListAuditInstancesNewResponse } from './model/ListAuditInstancesNewResponse';
 import { ListAuditInstancesRequest } from './model/ListAuditInstancesRequest';
@@ -236,6 +248,8 @@ import { ListAvailabilityZoneInfosRequest } from './model/ListAvailabilityZoneIn
 import { ListAvailabilityZoneInfosResponse } from './model/ListAvailabilityZoneInfosResponse';
 import { ListDbEncryptInstancesRequest } from './model/ListDbEncryptInstancesRequest';
 import { ListDbEncryptInstancesResponse } from './model/ListDbEncryptInstancesResponse';
+import { ListDomainAllResourceRequest } from './model/ListDomainAllResourceRequest';
+import { ListDomainAllResourceResponse } from './model/ListDomainAllResourceResponse';
 import { ListEcsSpecificationNewRequest } from './model/ListEcsSpecificationNewRequest';
 import { ListEcsSpecificationNewResponse } from './model/ListEcsSpecificationNewResponse';
 import { ListEcsSpecificationRequest } from './model/ListEcsSpecificationRequest';
@@ -264,6 +278,7 @@ import { OperateLogGetRequest } from './model/OperateLogGetRequest';
 import { OperateLogInfo } from './model/OperateLogInfo';
 import { OperationStatisticsBean } from './model/OperationStatisticsBean';
 import { OutsideInsConfig } from './model/OutsideInsConfig';
+import { PageInfo } from './model/PageInfo';
 import { ProductInfoBeanNew } from './model/ProductInfoBeanNew';
 import { ProjectResourceTagResponseTags } from './model/ProjectResourceTagResponseTags';
 import { PublicIp } from './model/PublicIp';
@@ -291,6 +306,7 @@ import { ResetDbEncryptPasswordRequest } from './model/ResetDbEncryptPasswordReq
 import { ResetDbEncryptPasswordResponse } from './model/ResetDbEncryptPasswordResponse';
 import { ResetDbOmPasswordRequest } from './model/ResetDbOmPasswordRequest';
 import { ResetDbOmPasswordResponse } from './model/ResetDbOmPasswordResponse';
+import { ResourceEnvironment } from './model/ResourceEnvironment';
 import { ResourceInstanceResponseResources } from './model/ResourceInstanceResponseResources';
 import { ResourceInstanceResponseSysTags } from './model/ResourceInstanceResponseSysTags';
 import { ResourceInstanceResponseTags } from './model/ResourceInstanceResponseTags';
@@ -301,6 +317,7 @@ import { ResourceTagDeleteRequestTags } from './model/ResourceTagDeleteRequestTa
 import { ResourceTagInfoBean } from './model/ResourceTagInfoBean';
 import { ResourceTagRequest } from './model/ResourceTagRequest';
 import { ResourceTagRequestTags } from './model/ResourceTagRequestTags';
+import { ResponseAuditV2 } from './model/ResponseAuditV2';
 import { ResponseServer } from './model/ResponseServer';
 import { RestoreAuditBackupRequest } from './model/RestoreAuditBackupRequest';
 import { RestoreAuditBackupResponse } from './model/RestoreAuditBackupResponse';
@@ -382,10 +399,14 @@ import { ShowAuditUpgradeStatusRequest } from './model/ShowAuditUpgradeStatusReq
 import { ShowAuditUpgradeStatusResponse } from './model/ShowAuditUpgradeStatusResponse';
 import { ShowBackupRiskBucketPathRequest } from './model/ShowBackupRiskBucketPathRequest';
 import { ShowBackupRiskBucketPathResponse } from './model/ShowBackupRiskBucketPathResponse';
+import { ShowDomainAllResourceCountRequest } from './model/ShowDomainAllResourceCountRequest';
+import { ShowDomainAllResourceCountResponse } from './model/ShowDomainAllResourceCountResponse';
 import { ShowInstanceMonitorInfoRequest } from './model/ShowInstanceMonitorInfoRequest';
 import { ShowInstanceMonitorInfoResponse } from './model/ShowInstanceMonitorInfoResponse';
 import { ShowInstanceQuotaRequest } from './model/ShowInstanceQuotaRequest';
 import { ShowInstanceQuotaResponse } from './model/ShowInstanceQuotaResponse';
+import { ShowLogRetentionCommonSettingsRequest } from './model/ShowLogRetentionCommonSettingsRequest';
+import { ShowLogRetentionCommonSettingsResponse } from './model/ShowLogRetentionCommonSettingsResponse';
 import { ShowSensitiveMaskSwitchRequest } from './model/ShowSensitiveMaskSwitchRequest';
 import { ShowSensitiveMaskSwitchResponse } from './model/ShowSensitiveMaskSwitchResponse';
 import { ShowSensitiveResultSwitchRequest } from './model/ShowSensitiveResultSwitchRequest';
@@ -467,11 +488,15 @@ import { UpdateDbEncryptInstanceNameRequest } from './model/UpdateDbEncryptInsta
 import { UpdateDbEncryptInstanceNameResponse } from './model/UpdateDbEncryptInstanceNameResponse';
 import { UpdateDbOmInstanceNameRequest } from './model/UpdateDbOmInstanceNameRequest';
 import { UpdateDbOmInstanceNameResponse } from './model/UpdateDbOmInstanceNameResponse';
+import { UpdateLogRetention } from './model/UpdateLogRetention';
+import { UpdateLogRetentionCommonSettingsRequest } from './model/UpdateLogRetentionCommonSettingsRequest';
+import { UpdateLogRetentionCommonSettingsResponse } from './model/UpdateLogRetentionCommonSettingsResponse';
 import { UpdateSensitiveMaskRuleRequest } from './model/UpdateSensitiveMaskRuleRequest';
 import { UpdateSensitiveMaskRuleResponse } from './model/UpdateSensitiveMaskRuleResponse';
 import { UpdateWhitelistRequest } from './model/UpdateWhitelistRequest';
 import { UploadAuditDbConfigRequest } from './model/UploadAuditDbConfigRequest';
 import { UploadAuditDbConfigResponse } from './model/UploadAuditDbConfigResponse';
+import { UploadDatabaseSslFileRequest } from './model/UploadDatabaseSslFileRequest';
 import { WhitelistBatchDeleteRequest } from './model/WhitelistBatchDeleteRequest';
 import { WhitelistBean } from './model/WhitelistBean';
 
@@ -544,6 +569,27 @@ export class DbssClient {
      */
     public addAuditDatabaseNew(addAuditDatabaseNewRequest?: AddAuditDatabaseNewRequest): Promise<AddAuditDatabaseNewResponse> {
         const options = ParamCreater().addAuditDatabaseNew(addAuditDatabaseNewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 上传/更新数据库私钥
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 上传/更新数据库私钥
+     * @param {string} instanceId **参数解释**： 实例ID。可通过查询实例列表接口ID字段获取 **约束限制**： 不涉及 **取值范围**： 以查询实例列表接口值为准，字符长度32-64。 **默认取值**： 不涉及
+     * @param {string} dbId **参数解释**： 数据库ID。可通过查询实例数据库列表接口ID字段获取 **约束限制**： 不涉及 **取值范围**： 以查询数据库接口值为准，字符长度16-64。 **默认取值**： 不涉及
+     * @param {UploadDatabaseSslFileRequest} addDatabaseSSLKeyRequestBody 请求body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addDatabaseSslKey(addDatabaseSslKeyRequest?: AddDatabaseSslKeyRequest): Promise<AddDatabaseSslKeyResponse> {
+        const options = ParamCreater().addDatabaseSslKey(addDatabaseSslKeyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1616,6 +1662,26 @@ export class DbssClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
+    public listAuditInstancesLast(listAuditInstancesLastRequest?: ListAuditInstancesLastRequest): Promise<ListAuditInstancesLastResponse> {
+        const options = ParamCreater().listAuditInstancesLast(listAuditInstancesLastRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询审计实例列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询审计实例列表[待下线]
+     * @param {string} [offset] **参数解释**： 分页偏移量，从第一条数据偏移offset条数据后开始查询 **约束限制**： 仅支持大于等于0的整数 **取值范围**： 大于等于0 **默认取值**： 默认值为0 
+     * @param {string} [limit] **参数解释**： 每页查询记录数。 **约束限制**： 仅支持大于0的整数 **取值范围**： 大于0小于等于1000 **默认取值**： 默认值为100 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
     public listAuditInstancesNew(listAuditInstancesNewRequest?: ListAuditInstancesNewRequest): Promise<ListAuditInstancesNewResponse> {
         const options = ParamCreater().listAuditInstancesNew(listAuditInstancesNewRequest);
 
@@ -1977,6 +2043,29 @@ export class DbssClient {
      */
     public listDbEncryptInstances(listDbEncryptInstancesRequest?: ListDbEncryptInstancesRequest): Promise<ListDbEncryptInstancesResponse> {
         const options = ParamCreater().listDbEncryptInstances();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 云脑链接器获取资源列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 云脑链接器获取资源列表
+     * @param {string} domainId **参数解释**： 账户ID。 通过调用IAM服务[查询IAM用户详情]接口获取 **约束限制**： 不涉及 **取值范围**： 以IAM服务[查询IAM用户详情]接口值为准。 **默认取值**： 不涉及 
+     * @param {string} resourceType **参数解释**：  资源类型 **约束限制**： 不涉及 **取值范围**：  - cloudservers: 审计  - dbEncrypt: 加密  - dbOm: 运维 **默认取值**： 不涉及 
+     * @param {string} regionId **参数解释**：  以当前region id为准 **约束限制**： 不涉及 **取值范围**： 以当前region id为准 **默认取值**： 以当前region id为准 
+     * @param {number} [limit] **参数解释**：  每页条数 **约束限制**：  正整数 **取值范围**：  大于0，小于等于100 **默认取值**：  100 
+     * @param {string} [marker] **参数解释**：  分页下一页标志位 **约束限制**：  以列表查询接口返回为准 **取值范围**：  不涉及 **默认取值**：  不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDomainAllResource(listDomainAllResourceRequest?: ListDomainAllResourceRequest): Promise<ListDomainAllResourceResponse> {
+        const options = ParamCreater().listDomainAllResource(listDomainAllResourceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2708,6 +2797,27 @@ export class DbssClient {
     }
 
     /**
+     * 云脑链接器获取资源总量
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 云脑链接器获取资源总量
+     * @param {string} domainId **参数解释**： 账户ID。 通过调用IAM服务[查询IAM用户详情]接口获取 **约束限制**： 不涉及 **取值范围**： 以IAM服务[查询IAM用户详情]接口值为准。 **默认取值**： 不涉及 
+     * @param {string} resourceType **参数解释**：  资源类型 **约束限制**： 不涉及 **取值范围**：  - cloudservers: 审计  - dbEncrypt: 加密  - dbOm: 运维 **默认取值**： 不涉及 
+     * @param {string} regionId **参数解释**：  以当前region id为准 **约束限制**： 不涉及 **取值范围**： 以当前region id为准 **默认取值**： 以当前region id为准 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDomainAllResourceCount(showDomainAllResourceCountRequest?: ShowDomainAllResourceCountRequest): Promise<ShowDomainAllResourceCountResponse> {
+        const options = ParamCreater().showDomainAllResourceCount(showDomainAllResourceCountRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取实例监控数据
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2738,6 +2848,25 @@ export class DbssClient {
      */
     public showInstanceQuota(showInstanceQuotaRequest?: ShowInstanceQuotaRequest): Promise<ShowInstanceQuotaResponse> {
         const options = ParamCreater().showInstanceQuota();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取审计实例日志保存时间配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取审计实例日志保存时间配置
+     * @param {string} instanceId **参数解释**： 实例ID。可通过查询实例列表接口ID字段获取 **约束限制**： 不涉及 **取值范围**： 以查询实例列表接口值为准，字符长度32-64。 **默认取值**： 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLogRetentionCommonSettings(showLogRetentionCommonSettingsRequest?: ShowLogRetentionCommonSettingsRequest): Promise<ShowLogRetentionCommonSettingsResponse> {
+        const options = ParamCreater().showLogRetentionCommonSettings(showLogRetentionCommonSettingsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3304,6 +3433,26 @@ export class DbssClient {
      */
     public updateDbOmInstanceName(updateDbOmInstanceNameRequest?: UpdateDbOmInstanceNameRequest): Promise<UpdateDbOmInstanceNameResponse> {
         const options = ParamCreater().updateDbOmInstanceName(updateDbOmInstanceNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 设置审计实例日志保存时间配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置审计实例日志保存时间配置
+     * @param {string} instanceId **参数解释**： 实例ID。可通过查询实例列表接口ID字段获取 **约束限制**： 不涉及 **取值范围**： 以查询实例列表接口值为准，字符长度32-64。 **默认取值**： 不涉及 
+     * @param {UpdateLogRetention} updateLogRetentionCommonSettingsRequestBody 请求body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateLogRetentionCommonSettings(updateLogRetentionCommonSettingsRequest?: UpdateLogRetentionCommonSettingsRequest): Promise<UpdateLogRetentionCommonSettingsResponse> {
+        const options = ParamCreater().updateLogRetentionCommonSettings(updateLogRetentionCommonSettingsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3936,6 +4085,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 上传/更新数据库私钥
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addDatabaseSslKey(addDatabaseSslKeyRequest?: AddDatabaseSslKeyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/audit/{instance_id}/databases/{db_id}/sslkey",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let dbId;
+
+            if (addDatabaseSslKeyRequest !== null && addDatabaseSslKeyRequest !== undefined) {
+                if (addDatabaseSslKeyRequest instanceof AddDatabaseSslKeyRequest) {
+                    instanceId = addDatabaseSslKeyRequest.instanceId;
+                    dbId = addDatabaseSslKeyRequest.dbId;
+                    body = addDatabaseSslKeyRequest.body
+                } else {
+                    instanceId = addDatabaseSslKeyRequest['instance_id'];
+                    dbId = addDatabaseSslKeyRequest['db_id'];
+                    body = addDatabaseSslKeyRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling addDatabaseSslKey.');
+            }
+            if (dbId === null || dbId === undefined) {
+            throw new RequiredError('dbId','Required parameter dbId was null or undefined when calling addDatabaseSslKey.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'db_id': dbId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6300,6 +6502,50 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
+        listAuditInstancesLast(listAuditInstancesLastRequest?: ListAuditInstancesLastRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/audit/instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+
+            if (listAuditInstancesLastRequest !== null && listAuditInstancesLastRequest !== undefined) {
+                if (listAuditInstancesLastRequest instanceof ListAuditInstancesLastRequest) {
+                    offset = listAuditInstancesLastRequest.offset;
+                    limit = listAuditInstancesLastRequest.limit;
+                } else {
+                    offset = listAuditInstancesLastRequest['offset'];
+                    limit = listAuditInstancesLastRequest['limit'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询审计实例列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
         listAuditInstancesNew(listAuditInstancesNewRequest?: ListAuditInstancesNewRequest) {
             const options = {
                 method: "GET",
@@ -7100,6 +7346,72 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 云脑链接器获取资源列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDomainAllResource(listDomainAllResourceRequest?: ListDomainAllResourceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/all-resources/{region_id}/{resource_type}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domainId;
+            
+            let resourceType;
+            
+            let regionId;
+            
+            let limit;
+            
+            let marker;
+
+            if (listDomainAllResourceRequest !== null && listDomainAllResourceRequest !== undefined) {
+                if (listDomainAllResourceRequest instanceof ListDomainAllResourceRequest) {
+                    domainId = listDomainAllResourceRequest.domainId;
+                    resourceType = listDomainAllResourceRequest.resourceType;
+                    regionId = listDomainAllResourceRequest.regionId;
+                    limit = listDomainAllResourceRequest.limit;
+                    marker = listDomainAllResourceRequest.marker;
+                } else {
+                    domainId = listDomainAllResourceRequest['domain_id'];
+                    resourceType = listDomainAllResourceRequest['resource_type'];
+                    regionId = listDomainAllResourceRequest['region_id'];
+                    limit = listDomainAllResourceRequest['limit'];
+                    marker = listDomainAllResourceRequest['marker'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling listDomainAllResource.');
+            }
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listDomainAllResource.');
+            }
+            if (regionId === null || regionId === undefined) {
+            throw new RequiredError('regionId','Required parameter regionId was null or undefined when calling listDomainAllResource.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'domain_id': domainId,'resource_type': resourceType,'region_id': regionId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8593,6 +8905,57 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 云脑链接器获取资源总量
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDomainAllResourceCount(showDomainAllResourceCountRequest?: ShowDomainAllResourceCountRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-manager/domains/{domain_id}/all-resources/{region_id}/{resource_type}/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let domainId;
+            
+            let resourceType;
+            
+            let regionId;
+
+            if (showDomainAllResourceCountRequest !== null && showDomainAllResourceCountRequest !== undefined) {
+                if (showDomainAllResourceCountRequest instanceof ShowDomainAllResourceCountRequest) {
+                    domainId = showDomainAllResourceCountRequest.domainId;
+                    resourceType = showDomainAllResourceCountRequest.resourceType;
+                    regionId = showDomainAllResourceCountRequest.regionId;
+                } else {
+                    domainId = showDomainAllResourceCountRequest['domain_id'];
+                    resourceType = showDomainAllResourceCountRequest['resource_type'];
+                    regionId = showDomainAllResourceCountRequest['region_id'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainAllResourceCount.');
+            }
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling showDomainAllResourceCount.');
+            }
+            if (regionId === null || regionId === undefined) {
+            throw new RequiredError('regionId','Required parameter regionId was null or undefined when calling showDomainAllResourceCount.');
+            }
+
+            options.pathParams = { 'domain_id': domainId,'resource_type': resourceType,'region_id': regionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取实例监控数据
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8655,6 +9018,43 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取审计实例日志保存时间配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLogRetentionCommonSettings(showLogRetentionCommonSettingsRequest?: ShowLogRetentionCommonSettingsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/audit/{instance_id}/settings/common-settings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showLogRetentionCommonSettingsRequest !== null && showLogRetentionCommonSettingsRequest !== undefined) {
+                if (showLogRetentionCommonSettingsRequest instanceof ShowLogRetentionCommonSettingsRequest) {
+                    instanceId = showLogRetentionCommonSettingsRequest.instanceId;
+                } else {
+                    instanceId = showLogRetentionCommonSettingsRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showLogRetentionCommonSettings.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -9848,6 +10248,52 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateDbOmInstanceName.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 设置审计实例日志保存时间配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateLogRetentionCommonSettings(updateLogRetentionCommonSettingsRequest?: UpdateLogRetentionCommonSettingsRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/audit/{instance_id}/settings/common-settings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateLogRetentionCommonSettingsRequest !== null && updateLogRetentionCommonSettingsRequest !== undefined) {
+                if (updateLogRetentionCommonSettingsRequest instanceof UpdateLogRetentionCommonSettingsRequest) {
+                    instanceId = updateLogRetentionCommonSettingsRequest.instanceId;
+                    body = updateLogRetentionCommonSettingsRequest.body
+                } else {
+                    instanceId = updateLogRetentionCommonSettingsRequest['instance_id'];
+                    body = updateLogRetentionCommonSettingsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateLogRetentionCommonSettings.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

@@ -9,6 +9,8 @@ export class ShowWebProtectionRuleResponse extends SdkResponse {
     private 'protection_type'?: string;
     public description?: string;
     private 'create_time'?: number;
+    private 'update_time'?: number;
+    private 'effective_time'?: number;
     public constructor() { 
         super();
     }
@@ -69,6 +71,26 @@ export class ShowWebProtectionRuleResponse extends SdkResponse {
     }
     public get createTime(): number | undefined {
         return this['create_time'];
+    }
+    public withUpdateTime(updateTime: number): ShowWebProtectionRuleResponse {
+        this['update_time'] = updateTime;
+        return this;
+    }
+    public set updateTime(updateTime: number  | undefined) {
+        this['update_time'] = updateTime;
+    }
+    public get updateTime(): number | undefined {
+        return this['update_time'];
+    }
+    public withEffectiveTime(effectiveTime: number): ShowWebProtectionRuleResponse {
+        this['effective_time'] = effectiveTime;
+        return this;
+    }
+    public set effectiveTime(effectiveTime: number  | undefined) {
+        this['effective_time'] = effectiveTime;
+    }
+    public get effectiveTime(): number | undefined {
+        return this['effective_time'];
     }
 }
 

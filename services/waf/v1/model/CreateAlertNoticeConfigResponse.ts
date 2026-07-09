@@ -12,7 +12,7 @@ export class CreateAlertNoticeConfigResponse extends SdkResponse {
     public threat?: Array<string>;
     private 'prefer_html'?: boolean;
     private 'notice_class'?: string;
-    private 'nearly_expired_time'?: string;
+    private 'nearly_expired_time'?: number;
     private 'is_all_enterprise_project'?: boolean;
     private 'enterprise_project_id'?: string;
     private 'update_time'?: number;
@@ -77,14 +77,14 @@ export class CreateAlertNoticeConfigResponse extends SdkResponse {
     public get noticeClass(): string | undefined {
         return this['notice_class'];
     }
-    public withNearlyExpiredTime(nearlyExpiredTime: string): CreateAlertNoticeConfigResponse {
+    public withNearlyExpiredTime(nearlyExpiredTime: number): CreateAlertNoticeConfigResponse {
         this['nearly_expired_time'] = nearlyExpiredTime;
         return this;
     }
-    public set nearlyExpiredTime(nearlyExpiredTime: string  | undefined) {
+    public set nearlyExpiredTime(nearlyExpiredTime: number  | undefined) {
         this['nearly_expired_time'] = nearlyExpiredTime;
     }
-    public get nearlyExpiredTime(): string | undefined {
+    public get nearlyExpiredTime(): number | undefined {
         return this['nearly_expired_time'];
     }
     public withIsAllEnterpriseProject(isAllEnterpriseProject: boolean): CreateAlertNoticeConfigResponse {

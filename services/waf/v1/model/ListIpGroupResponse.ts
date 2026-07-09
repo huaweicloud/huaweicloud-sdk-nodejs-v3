@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListIpGroupResponse extends SdkResponse {
     public total?: number;
     public items?: Array<IpGroupBody>;
-    public cloudTotal?: number;
+    private 'cloud_total'?: number;
     public constructor() { 
         super();
     }
@@ -18,7 +18,13 @@ export class ListIpGroupResponse extends SdkResponse {
         return this;
     }
     public withCloudTotal(cloudTotal: number): ListIpGroupResponse {
-        this['cloudTotal'] = cloudTotal;
+        this['cloud_total'] = cloudTotal;
         return this;
+    }
+    public set cloudTotal(cloudTotal: number  | undefined) {
+        this['cloud_total'] = cloudTotal;
+    }
+    public get cloudTotal(): number | undefined {
+        return this['cloud_total'];
     }
 }

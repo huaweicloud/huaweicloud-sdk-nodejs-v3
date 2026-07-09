@@ -11,6 +11,7 @@ export class PolicyOption {
     public webshell?: boolean;
     public cc?: boolean;
     public custom?: boolean;
+    public precise?: boolean;
     public whiteblackip?: boolean;
     public geoip?: boolean;
     public ignore?: boolean;
@@ -19,6 +20,8 @@ export class PolicyOption {
     public antileakage?: boolean;
     private 'bot_enable'?: boolean;
     private 'modulex_enabled'?: boolean;
+    private 'followed_action'?: boolean;
+    public anticrawler?: boolean;
     public constructor() { 
     }
     public withWebattack(webattack: boolean): PolicyOption {
@@ -85,6 +88,10 @@ export class PolicyOption {
         this['custom'] = custom;
         return this;
     }
+    public withPrecise(precise: boolean): PolicyOption {
+        this['precise'] = precise;
+        return this;
+    }
     public withWhiteblackip(whiteblackip: boolean): PolicyOption {
         this['whiteblackip'] = whiteblackip;
         return this;
@@ -128,5 +135,19 @@ export class PolicyOption {
     }
     public get modulexEnabled(): boolean | undefined {
         return this['modulex_enabled'];
+    }
+    public withFollowedAction(followedAction: boolean): PolicyOption {
+        this['followed_action'] = followedAction;
+        return this;
+    }
+    public set followedAction(followedAction: boolean  | undefined) {
+        this['followed_action'] = followedAction;
+    }
+    public get followedAction(): boolean | undefined {
+        return this['followed_action'];
+    }
+    public withAnticrawler(anticrawler: boolean): PolicyOption {
+        this['anticrawler'] = anticrawler;
+        return this;
     }
 }

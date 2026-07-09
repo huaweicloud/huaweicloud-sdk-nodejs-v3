@@ -18,6 +18,7 @@ export class DeleteHostResponse extends SdkResponse {
     private 'exclusive_ip'?: boolean;
     private 'paid_type'?: DeleteHostResponsePaidTypeEnum | string;
     private 'web_tag'?: string;
+    public region?: string;
     public constructor() { 
         super();
     }
@@ -116,6 +117,10 @@ export class DeleteHostResponse extends SdkResponse {
     }
     public get webTag(): string | undefined {
         return this['web_tag'];
+    }
+    public withRegion(region: string): DeleteHostResponse {
+        this['region'] = region;
+        return this;
     }
 }
 

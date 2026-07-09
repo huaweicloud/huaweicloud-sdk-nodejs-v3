@@ -9,6 +9,7 @@ export class DeleteIpGroupResponse extends SdkResponse {
     private 'ip_remarks'?: { [key: string]: string; };
     public size?: number;
     public rules?: Array<RuleInfo>;
+    public description?: string;
     public constructor() { 
         super();
     }
@@ -40,6 +41,10 @@ export class DeleteIpGroupResponse extends SdkResponse {
     }
     public withRules(rules: Array<RuleInfo>): DeleteIpGroupResponse {
         this['rules'] = rules;
+        return this;
+    }
+    public withDescription(description: string): DeleteIpGroupResponse {
+        this['description'] = description;
         return this;
     }
 }

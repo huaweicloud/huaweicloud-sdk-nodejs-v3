@@ -9,7 +9,7 @@ export class UpdateAlertNoticeConfigRequestBody {
     public times?: number;
     public threat?: Array<string>;
     private 'notice_class'?: string;
-    private 'nearly_expired_time'?: string;
+    private 'nearly_expired_time'?: number;
     private 'is_all_enterprise_project'?: boolean;
     public constructor(name?: string, topicUrn?: string, noticeClass?: string) { 
         this['name'] = name;
@@ -60,14 +60,14 @@ export class UpdateAlertNoticeConfigRequestBody {
     public get noticeClass(): string | undefined {
         return this['notice_class'];
     }
-    public withNearlyExpiredTime(nearlyExpiredTime: string): UpdateAlertNoticeConfigRequestBody {
+    public withNearlyExpiredTime(nearlyExpiredTime: number): UpdateAlertNoticeConfigRequestBody {
         this['nearly_expired_time'] = nearlyExpiredTime;
         return this;
     }
-    public set nearlyExpiredTime(nearlyExpiredTime: string  | undefined) {
+    public set nearlyExpiredTime(nearlyExpiredTime: number  | undefined) {
         this['nearly_expired_time'] = nearlyExpiredTime;
     }
-    public get nearlyExpiredTime(): string | undefined {
+    public get nearlyExpiredTime(): number | undefined {
         return this['nearly_expired_time'];
     }
     public withIsAllEnterpriseProject(isAllEnterpriseProject: boolean): UpdateAlertNoticeConfigRequestBody {

@@ -8,6 +8,7 @@ export class AntiTamperRuleResponseBody {
     public status?: number;
     public hostname?: string;
     public url?: string;
+    public policyname?: string;
     public constructor() { 
     }
     public withId(id: string): AntiTamperRuleResponseBody {
@@ -36,6 +37,10 @@ export class AntiTamperRuleResponseBody {
     }
     public withUrl(url: string): AntiTamperRuleResponseBody {
         this['url'] = url;
+        return this;
+    }
+    public withPolicyname(policyname: string): AntiTamperRuleResponseBody {
+        this['policyname'] = policyname;
         return this;
     }
 }
