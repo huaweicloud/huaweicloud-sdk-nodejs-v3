@@ -260,6 +260,8 @@ export class CbhClient {
      *
      * @summary 获取堡垒机实例列表
      * @param {number} [instanceId] 云堡垒机实例ID。（非必传，需要查询单个实例详情时传入）
+     * @param {string} [limit] 查询返回的记录数量上限，默认值 1000，即一次最多返回 1000 条实例记录。最小值为1，最大值为1000。
+     * @param {string} [offset] 查询的起始偏移量（索引位置），默认值 0，即从第 0 条记录开始查。最小值为0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1037,18 +1039,32 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let instanceId;
+            
+            let limit;
+            
+            let offset;
 
             if (listInstancesRequest !== null && listInstancesRequest !== undefined) {
                 if (listInstancesRequest instanceof ListInstancesRequest) {
                     instanceId = listInstancesRequest.instanceId;
+                    limit = listInstancesRequest.limit;
+                    offset = listInstancesRequest.offset;
                 } else {
                     instanceId = listInstancesRequest['instance_id'];
+                    limit = listInstancesRequest['limit'];
+                    offset = listInstancesRequest['offset'];
                 }
             }
 
         
             if (instanceId !== null && instanceId !== undefined) {
                 localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
             options.queryParams = localVarQueryParameter;

@@ -2,6 +2,8 @@
 
 export class ListInstancesRequest {
     private 'instance_id'?: number;
+    public limit?: string;
+    public offset?: string;
     public constructor() { 
     }
     public withInstanceId(instanceId: number): ListInstancesRequest {
@@ -13,5 +15,13 @@ export class ListInstancesRequest {
     }
     public get instanceId(): number | undefined {
         return this['instance_id'];
+    }
+    public withLimit(limit: string): ListInstancesRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: string): ListInstancesRequest {
+        this['offset'] = offset;
+        return this;
     }
 }

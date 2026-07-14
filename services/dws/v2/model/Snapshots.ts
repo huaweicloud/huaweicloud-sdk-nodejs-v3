@@ -20,7 +20,7 @@ export class Snapshots {
     private 'bak_period'?: string;
     private 'db_user'?: string;
     public progress?: string;
-    private 'backup_key'?: SnapshotsBackupKeyEnum | string;
+    private 'backup_key'?: string;
     private 'prior_backup_key'?: string;
     private 'base_backup_key'?: string;
     private 'backup_device'?: string;
@@ -150,14 +150,14 @@ export class Snapshots {
         this['progress'] = progress;
         return this;
     }
-    public withBackupKey(backupKey: SnapshotsBackupKeyEnum | string): Snapshots {
+    public withBackupKey(backupKey: string): Snapshots {
         this['backup_key'] = backupKey;
         return this;
     }
-    public set backupKey(backupKey: SnapshotsBackupKeyEnum | string  | undefined) {
+    public set backupKey(backupKey: string  | undefined) {
         this['backup_key'] = backupKey;
     }
-    public get backupKey(): SnapshotsBackupKeyEnum | string | undefined {
+    public get backupKey(): string | undefined {
         return this['backup_key'];
     }
     public withPriorBackupKey(priorBackupKey: string): Snapshots {
@@ -302,13 +302,6 @@ export class Snapshots {
     }
 }
 
-/**
-    * @export
-    * @enum {string}
-    */
-export enum SnapshotsBackupKeyEnum {
-    E_20160823_035923 = '20160823_035923'
-}
 /**
     * @export
     * @enum {string}

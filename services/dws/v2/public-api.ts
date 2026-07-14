@@ -412,6 +412,7 @@ export * from './model/NodeTypeDatastores';
 export * from './model/NodeTypeDatastoresAttachments';
 export * from './model/NodeTypeElasticVolumeSpecs';
 export * from './model/NodeTypes';
+export * from './model/NodeVo';
 export * from './model/Nodes';
 export * from './model/NoteInfo';
 export * from './model/ObjectAuthority';

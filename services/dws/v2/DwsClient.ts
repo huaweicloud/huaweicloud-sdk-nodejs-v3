@@ -414,6 +414,7 @@ import { NodeTypeDatastores } from './model/NodeTypeDatastores';
 import { NodeTypeDatastoresAttachments } from './model/NodeTypeDatastoresAttachments';
 import { NodeTypeElasticVolumeSpecs } from './model/NodeTypeElasticVolumeSpecs';
 import { NodeTypes } from './model/NodeTypes';
+import { NodeVo } from './model/NodeVo';
 import { Nodes } from './model/Nodes';
 import { NoteInfo } from './model/NoteInfo';
 import { ObjectAuthority } from './model/ObjectAuthority';
@@ -1046,7 +1047,7 @@ export class DwsClient {
     }
 
     /**
-     * 创建告警订阅。
+     * 创建订阅告警。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2853,11 +2854,11 @@ export class DwsClient {
     }
 
     /**
-     * 查询集群使用指标列表。
+     * 查询集群使用的指标列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询集群使用指标列表
+     * @summary 查询集群使用的指标列表
      * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {number} offset **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0
      * @param {number} limit **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0，最大1000。 **默认取值**： 不限制。
@@ -2909,11 +2910,11 @@ export class DwsClient {
      * @summary 查询历史监控数据
      * @param {string} from **参数解释**： 开始时间。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} to **参数解释**： 结束时间。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {string} indicatorName **参数解释**： 指标名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {string} dim0 **参数解释**： 第一层级。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} indicatorName **参数解释**： 指标名称。查询性能监控指标接口返回值中的indicator_name。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} dim0 **参数解释**： 第一层级。根据indicator_name传入不同参数，详见请求示例。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} [_function] **参数解释**： 取值方法。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} [period] **参数解释**： 取值周期。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {string} [dim1] **参数解释**： 第二层级。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [dim1] **参数解释**： 第二层级。根据indicator_name传入不同参数，详见请求示例。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3218,9 +3219,9 @@ export class DwsClient {
      * @param {string} rateType **参数解释**： 查询类型，固定取值。 **约束限制**： 不涉及。 **取值范围**： skew：表倾斜率。 dirtyPage：表脏页率。 **默认取值**： 不涉及。
      * @param {number} offset **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0
      * @param {number} limit **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 不限制。
-     * @param {string} [orderBy] **参数解释**： 排序字段，固定取值。 **约束限制**： 不涉及。 **取值范围**： table_size：表大小。 rate：表倾斜率或脏页率。 **默认取值**： 不涉及。
+     * @param {string} [orderBy] **参数解释**： 排序字段，固定取值。 **约束限制**： 不涉及。 **取值范围**： 值为null或空字符串时表示按默认排序处理。 table_size：表大小。 rate：表倾斜率或脏页率。 **默认取值**： 不涉及。
      * @param {string} [sortBy] **参数解释**： 正序还是倒序排序，固定取值。 **约束限制**： 不涉及。 **取值范围**： ASC：正序。 DESC：倒序。 **默认取值**： 不涉及。
-     * @param {string} [filter] **参数解释**： 查询条件，固定取值。 **约束限制**： 不涉及。 **取值范围**： db_name：数据库名称。 schema_name：schema名称。 table_name：表名。 table_owner：所属用户。 **默认取值**： 不涉及。
+     * @param {string} [filter] **参数解释**： 查询条件，固定取值。 **约束限制**： 不涉及。 **取值范围**： 值为空字符串或null时表示不过滤。 db_name：数据库名称。 schema_name：schema名称。 table_name：表名。 table_owner：所属用户。 **默认取值**： 不涉及。
      * @param {string} [value] **参数解释**： 过滤条件的值。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5673,7 +5674,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建告警订阅。
+         * 创建订阅告警。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9866,7 +9867,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询集群使用指标列表。
+         * 查询集群使用的指标列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

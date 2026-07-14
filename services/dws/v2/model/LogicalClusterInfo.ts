@@ -1,5 +1,6 @@
 import { ActionInfo } from './ActionInfo';
 import { ClusterRing } from './ClusterRing';
+import { NodeVo } from './NodeVo';
 
 
 export class LogicalClusterInfo {
@@ -16,6 +17,7 @@ export class LogicalClusterInfo {
     public mode?: string;
     private 'waiting_for_killing'?: number;
     private 'cluster_type'?: string;
+    private 'node_list'?: Array<NodeVo>;
     public constructor() { 
     }
     public withLogicalClusterId(logicalClusterId: string): LogicalClusterInfo {
@@ -135,5 +137,15 @@ export class LogicalClusterInfo {
     }
     public get clusterType(): string | undefined {
         return this['cluster_type'];
+    }
+    public withNodeList(nodeList: Array<NodeVo>): LogicalClusterInfo {
+        this['node_list'] = nodeList;
+        return this;
+    }
+    public set nodeList(nodeList: Array<NodeVo>  | undefined) {
+        this['node_list'] = nodeList;
+    }
+    public get nodeList(): Array<NodeVo> | undefined {
+        return this['node_list'];
     }
 }
