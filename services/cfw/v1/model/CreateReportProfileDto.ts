@@ -11,10 +11,9 @@ export class CreateReportProfileDto {
     public status?: CreateReportProfileDtoStatusEnum | number;
     private 'topic_urn'?: string;
     private 'subscription_type'?: CreateReportProfileDtoSubscriptionTypeEnum | number;
-    public constructor(category?: string, name?: string, topicUrn?: string) { 
+    public constructor(category?: string, name?: string) { 
         this['category'] = category;
         this['name'] = name;
-        this['topic_urn'] = topicUrn;
     }
     public withCategory(category: CreateReportProfileDtoCategoryEnum | string): CreateReportProfileDto {
         this['category'] = category;

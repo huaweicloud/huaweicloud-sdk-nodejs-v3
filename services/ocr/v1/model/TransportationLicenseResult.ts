@@ -18,6 +18,7 @@ export class TransportationLicenseResult {
     private 'assessed_technical_level'?: string;
     private 'image_location'?: Array<Array<number>>;
     private 'adjusted_image'?: string;
+    private 'is_temporary_certificate'?: boolean;
     public confidence?: object;
     public constructor() { 
     }
@@ -190,6 +191,16 @@ export class TransportationLicenseResult {
     }
     public get adjustedImage(): string | undefined {
         return this['adjusted_image'];
+    }
+    public withIsTemporaryCertificate(isTemporaryCertificate: boolean): TransportationLicenseResult {
+        this['is_temporary_certificate'] = isTemporaryCertificate;
+        return this;
+    }
+    public set isTemporaryCertificate(isTemporaryCertificate: boolean  | undefined) {
+        this['is_temporary_certificate'] = isTemporaryCertificate;
+    }
+    public get isTemporaryCertificate(): boolean | undefined {
+        return this['is_temporary_certificate'];
     }
     public withConfidence(confidence: object): TransportationLicenseResult {
         this['confidence'] = confidence;

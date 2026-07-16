@@ -4,7 +4,10 @@ export class IpsRuleChangeDto {
     private 'ips_ids'?: Array<string>;
     private 'object_id'?: string;
     public status?: IpsRuleChangeDtoStatusEnum | string;
-    public constructor() { 
+    public constructor(ipsIds?: Array<string>, objectId?: string, status?: string) { 
+        this['ips_ids'] = ipsIds;
+        this['object_id'] = objectId;
+        this['status'] = status;
     }
     public withIpsIds(ipsIds: Array<string>): IpsRuleChangeDto {
         this['ips_ids'] = ipsIds;

@@ -11,6 +11,7 @@ export class ScaleGroupStatus {
     public phase?: ScaleGroupStatusPhaseEnum | string;
     public desiredNodeCount?: number;
     public unpaidScaleNodeCount?: number;
+    public activeNodeCount?: number;
     public existingNodeCount?: ScaleGroupStatusExistingNodeCount;
     public upcomingNodeCount?: ScaleGroupStatusUpcomingNodeCount;
     public scaleDownDisabledNodeCount?: number;
@@ -43,6 +44,10 @@ export class ScaleGroupStatus {
     }
     public withUnpaidScaleNodeCount(unpaidScaleNodeCount: number): ScaleGroupStatus {
         this['unpaidScaleNodeCount'] = unpaidScaleNodeCount;
+        return this;
+    }
+    public withActiveNodeCount(activeNodeCount: number): ScaleGroupStatus {
+        this['activeNodeCount'] = activeNodeCount;
         return this;
     }
     public withExistingNodeCount(existingNodeCount: ScaleGroupStatusExistingNodeCount): ScaleGroupStatus {

@@ -40,6 +40,8 @@ export class VatInvoiceResult {
     private 'item_list'?: Array<ItemList>;
     public province?: string;
     public city?: string;
+    private 'total_pages'?: string;
+    private 'current_page'?: string;
     public confidence?: object;
     private 'text_location'?: object;
     private 'belong_buyer_name'?: string;
@@ -354,6 +356,26 @@ export class VatInvoiceResult {
     public withCity(city: string): VatInvoiceResult {
         this['city'] = city;
         return this;
+    }
+    public withTotalPages(totalPages: string): VatInvoiceResult {
+        this['total_pages'] = totalPages;
+        return this;
+    }
+    public set totalPages(totalPages: string  | undefined) {
+        this['total_pages'] = totalPages;
+    }
+    public get totalPages(): string | undefined {
+        return this['total_pages'];
+    }
+    public withCurrentPage(currentPage: string): VatInvoiceResult {
+        this['current_page'] = currentPage;
+        return this;
+    }
+    public set currentPage(currentPage: string  | undefined) {
+        this['current_page'] = currentPage;
+    }
+    public get currentPage(): string | undefined {
+        return this['current_page'];
     }
     public withConfidence(confidence: object): VatInvoiceResult {
         this['confidence'] = confidence;

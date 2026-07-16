@@ -4,8 +4,8 @@ export class IpRegionResponseBodyData {
     private 'region_id'?: string;
     private 'description_cn'?: string;
     private 'description_en'?: string;
-    private 'region_type'?: string;
-    private 'superior_region_id'?: number;
+    private 'region_type'?: number;
+    private 'superior_region_id'?: string;
     public constructor() { 
     }
     public withRegionId(regionId: string): IpRegionResponseBodyData {
@@ -38,24 +38,24 @@ export class IpRegionResponseBodyData {
     public get descriptionEn(): string | undefined {
         return this['description_en'];
     }
-    public withRegionType(regionType: string): IpRegionResponseBodyData {
+    public withRegionType(regionType: number): IpRegionResponseBodyData {
         this['region_type'] = regionType;
         return this;
     }
-    public set regionType(regionType: string  | undefined) {
+    public set regionType(regionType: number  | undefined) {
         this['region_type'] = regionType;
     }
-    public get regionType(): string | undefined {
+    public get regionType(): number | undefined {
         return this['region_type'];
     }
-    public withSuperiorRegionId(superiorRegionId: number): IpRegionResponseBodyData {
+    public withSuperiorRegionId(superiorRegionId: string): IpRegionResponseBodyData {
         this['superior_region_id'] = superiorRegionId;
         return this;
     }
-    public set superiorRegionId(superiorRegionId: number  | undefined) {
+    public set superiorRegionId(superiorRegionId: string  | undefined) {
         this['superior_region_id'] = superiorRegionId;
     }
-    public get superiorRegionId(): number | undefined {
+    public get superiorRegionId(): string | undefined {
         return this['superior_region_id'];
     }
 }

@@ -1,12 +1,13 @@
+import { AddEipAlarmWhitelistRespData } from './AddEipAlarmWhitelistRespData';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class AddEipAlarmWhitelistResponse extends SdkResponse {
-    public data?: object;
+    public data?: AddEipAlarmWhitelistRespData;
     public constructor() { 
         super();
     }
-    public withData(data: object): AddEipAlarmWhitelistResponse {
+    public withData(data: AddEipAlarmWhitelistRespData): AddEipAlarmWhitelistResponse {
         this['data'] = data;
         return this;
     }

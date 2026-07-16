@@ -10,6 +10,7 @@ export class NodePoolSpecUpdate {
     public ignoreInitialNodeCount?: boolean;
     public autoscaling?: NodePoolNodeAutoscaling;
     public nodeManagementUpdate?: NodeManagement;
+    public customSecurityGroups?: Array<string>;
     public taintPolicyOnExistingNodes?: string;
     public labelPolicyOnExistingNodes?: string;
     public userTagsPolicyOnExistingNodes?: string;
@@ -35,6 +36,10 @@ export class NodePoolSpecUpdate {
     }
     public withNodeManagementUpdate(nodeManagementUpdate: NodeManagement): NodePoolSpecUpdate {
         this['nodeManagementUpdate'] = nodeManagementUpdate;
+        return this;
+    }
+    public withCustomSecurityGroups(customSecurityGroups: Array<string>): NodePoolSpecUpdate {
+        this['customSecurityGroups'] = customSecurityGroups;
         return this;
     }
     public withTaintPolicyOnExistingNodes(taintPolicyOnExistingNodes: string): NodePoolSpecUpdate {

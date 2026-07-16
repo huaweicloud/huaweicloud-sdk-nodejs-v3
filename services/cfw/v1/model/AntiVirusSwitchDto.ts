@@ -3,7 +3,9 @@
 export class AntiVirusSwitchDto {
     private 'anti_virus_status'?: number;
     private 'object_id'?: string;
-    public constructor() { 
+    public constructor(antiVirusStatus?: number, objectId?: string) { 
+        this['anti_virus_status'] = antiVirusStatus;
+        this['object_id'] = objectId;
     }
     public withAntiVirusStatus(antiVirusStatus: number): AntiVirusSwitchDto {
         this['anti_virus_status'] = antiVirusStatus;

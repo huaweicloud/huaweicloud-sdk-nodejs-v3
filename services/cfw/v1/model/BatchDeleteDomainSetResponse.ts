@@ -1,13 +1,13 @@
-import { Mapstringstring } from './Mapstringstring';
+import { DeleteDomainSetResponseDatas } from './DeleteDomainSetResponseDatas';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class BatchDeleteDomainSetResponse extends SdkResponse {
-    public data?: { [key: string]: Array<Mapstringstring>; };
+    public data?: DeleteDomainSetResponseDatas;
     public constructor() { 
         super();
     }
-    public withData(data: { [key: string]: Array<Mapstringstring>; }): BatchDeleteDomainSetResponse {
+    public withData(data: DeleteDomainSetResponseDatas): BatchDeleteDomainSetResponse {
         this['data'] = data;
         return this;
     }

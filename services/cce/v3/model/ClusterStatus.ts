@@ -1,3 +1,4 @@
+import { ClusterCondition } from './ClusterCondition';
 import { ClusterEndpoints } from './ClusterEndpoints';
 
 
@@ -13,6 +14,7 @@ export class ClusterStatus {
     public lockSourceId?: string;
     public deleteOption?: object;
     public deleteStatus?: object;
+    public conditions?: Array<ClusterCondition>;
     public constructor() { 
     }
     public withPhase(phase: string): ClusterStatus {
@@ -57,6 +59,10 @@ export class ClusterStatus {
     }
     public withDeleteStatus(deleteStatus: object): ClusterStatus {
         this['deleteStatus'] = deleteStatus;
+        return this;
+    }
+    public withConditions(conditions: Array<ClusterCondition>): ClusterStatus {
+        this['conditions'] = conditions;
         return this;
     }
 }

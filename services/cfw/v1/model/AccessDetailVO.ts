@@ -2,6 +2,8 @@ import { AccessLogInfo } from './AccessLogInfo';
 
 
 export class AccessDetailVO {
+    private 'all_session_count'?: number;
+    private 'session_count'?: number;
     private 'dst_ip_count'?: number;
     private 'dst_port_count'?: number;
     private 'hit_count'?: number;
@@ -13,6 +15,26 @@ export class AccessDetailVO {
     private 'rule_hit_count'?: number;
     private 'src_ip_count'?: number;
     public constructor() { 
+    }
+    public withAllSessionCount(allSessionCount: number): AccessDetailVO {
+        this['all_session_count'] = allSessionCount;
+        return this;
+    }
+    public set allSessionCount(allSessionCount: number  | undefined) {
+        this['all_session_count'] = allSessionCount;
+    }
+    public get allSessionCount(): number | undefined {
+        return this['all_session_count'];
+    }
+    public withSessionCount(sessionCount: number): AccessDetailVO {
+        this['session_count'] = sessionCount;
+        return this;
+    }
+    public set sessionCount(sessionCount: number  | undefined) {
+        this['session_count'] = sessionCount;
+    }
+    public get sessionCount(): number | undefined {
+        return this['session_count'];
     }
     public withDstIpCount(dstIpCount: number): AccessDetailVO {
         this['dst_ip_count'] = dstIpCount;

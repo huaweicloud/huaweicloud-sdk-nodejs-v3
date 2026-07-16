@@ -3,6 +3,7 @@ import { AccessTopStatisticsVO } from './AccessTopStatisticsVO';
 
 
 export class AccessTopVO {
+    private 'all_hit_rule_list'?: Array<AccessTopMemberVO>;
     private 'deny_count'?: number;
     private 'deny_top_one_acl_id'?: string;
     private 'deny_top_one_acl_name'?: string;
@@ -22,6 +23,16 @@ export class AccessTopVO {
     public records?: Array<AccessTopStatisticsVO>;
     private 'top_deny_rule_list'?: Array<AccessTopMemberVO>;
     public constructor() { 
+    }
+    public withAllHitRuleList(allHitRuleList: Array<AccessTopMemberVO>): AccessTopVO {
+        this['all_hit_rule_list'] = allHitRuleList;
+        return this;
+    }
+    public set allHitRuleList(allHitRuleList: Array<AccessTopMemberVO>  | undefined) {
+        this['all_hit_rule_list'] = allHitRuleList;
+    }
+    public get allHitRuleList(): Array<AccessTopMemberVO> | undefined {
+        return this['all_hit_rule_list'];
     }
     public withDenyCount(denyCount: number): AccessTopVO {
         this['deny_count'] = denyCount;

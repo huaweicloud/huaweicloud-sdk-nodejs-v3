@@ -2,11 +2,11 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateObjectConfigDescResponse extends SdkResponse {
-    public data?: object;
+    public data?: string;
     public constructor() { 
         super();
     }
-    public withData(data: object): UpdateObjectConfigDescResponse {
+    public withData(data: string): UpdateObjectConfigDescResponse {
         this['data'] = data;
         return this;
     }

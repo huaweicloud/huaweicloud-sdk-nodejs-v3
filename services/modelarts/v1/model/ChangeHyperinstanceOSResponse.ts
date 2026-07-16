@@ -1,0 +1,108 @@
+import { ServerResponse } from './ServerResponse';
+
+import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
+
+export class ChangeHyperinstanceOSResponse extends SdkResponse {
+    private 'create_at'?: number;
+    private 'hps_cluster_id'?: string;
+    private 'hps_id'?: string;
+    public id?: string;
+    public name?: string;
+    private 'order_id'?: string;
+    public status?: ChangeHyperinstanceOSResponseStatusEnum | string;
+    public servers?: Array<ServerResponse>;
+    private 'update_at'?: number;
+    private 'X-Request-Id'?: string;
+    public constructor() { 
+        super();
+    }
+    public withCreateAt(createAt: number): ChangeHyperinstanceOSResponse {
+        this['create_at'] = createAt;
+        return this;
+    }
+    public set createAt(createAt: number  | undefined) {
+        this['create_at'] = createAt;
+    }
+    public get createAt(): number | undefined {
+        return this['create_at'];
+    }
+    public withHpsClusterId(hpsClusterId: string): ChangeHyperinstanceOSResponse {
+        this['hps_cluster_id'] = hpsClusterId;
+        return this;
+    }
+    public set hpsClusterId(hpsClusterId: string  | undefined) {
+        this['hps_cluster_id'] = hpsClusterId;
+    }
+    public get hpsClusterId(): string | undefined {
+        return this['hps_cluster_id'];
+    }
+    public withHpsId(hpsId: string): ChangeHyperinstanceOSResponse {
+        this['hps_id'] = hpsId;
+        return this;
+    }
+    public set hpsId(hpsId: string  | undefined) {
+        this['hps_id'] = hpsId;
+    }
+    public get hpsId(): string | undefined {
+        return this['hps_id'];
+    }
+    public withId(id: string): ChangeHyperinstanceOSResponse {
+        this['id'] = id;
+        return this;
+    }
+    public withName(name: string): ChangeHyperinstanceOSResponse {
+        this['name'] = name;
+        return this;
+    }
+    public withOrderId(orderId: string): ChangeHyperinstanceOSResponse {
+        this['order_id'] = orderId;
+        return this;
+    }
+    public set orderId(orderId: string  | undefined) {
+        this['order_id'] = orderId;
+    }
+    public get orderId(): string | undefined {
+        return this['order_id'];
+    }
+    public withStatus(status: ChangeHyperinstanceOSResponseStatusEnum | string): ChangeHyperinstanceOSResponse {
+        this['status'] = status;
+        return this;
+    }
+    public withServers(servers: Array<ServerResponse>): ChangeHyperinstanceOSResponse {
+        this['servers'] = servers;
+        return this;
+    }
+    public withUpdateAt(updateAt: number): ChangeHyperinstanceOSResponse {
+        this['update_at'] = updateAt;
+        return this;
+    }
+    public set updateAt(updateAt: number  | undefined) {
+        this['update_at'] = updateAt;
+    }
+    public get updateAt(): number | undefined {
+        return this['update_at'];
+    }
+    public withXRequestId(xRequestId: string): ChangeHyperinstanceOSResponse {
+        this['X-Request-Id'] = xRequestId;
+        return this;
+    }
+    public set xRequestId(xRequestId: string  | undefined) {
+        this['X-Request-Id'] = xRequestId;
+    }
+    public get xRequestId(): string | undefined {
+        return this['X-Request-Id'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ChangeHyperinstanceOSResponseStatusEnum {
+    PROVISIONING = 'PROVISIONING',
+    ACTIVE = 'ACTIVE',
+    ERROR = 'ERROR',
+    REIMAGING = 'REIMAGING',
+    TERMINATING = 'TERMINATING',
+    TERMINATED = 'TERMINATED'
+}

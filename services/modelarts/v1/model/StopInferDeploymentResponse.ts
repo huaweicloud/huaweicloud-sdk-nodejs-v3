@@ -1,0 +1,281 @@
+import { AdvancedConfig } from './AdvancedConfig';
+import { InferModelResponse } from './InferModelResponse';
+import { UnitConfigResponse } from './UnitConfigResponse';
+
+import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
+
+export class StopInferDeploymentResponse extends SdkResponse {
+    public id?: string;
+    public name?: string;
+    private 'pool_id'?: string;
+    public count?: number;
+    private 'system_log_dump_enable'?: boolean;
+    private 'unit_configs'?: Array<UnitConfigResponse>;
+    public weight?: number;
+    private 'traffic_ratio'?: string;
+    private 'secret_type'?: string;
+    private 'secret_name'?: string;
+    public priority?: number;
+    private 'high_avail_switch'?: boolean;
+    public framework?: string;
+    public version?: string;
+    private 'version_id'?: string;
+    public status?: string;
+    private 'running_count'?: number;
+    private 'deploy_type'?: string;
+    private 'mirror_traffic_enable'?: boolean;
+    private 'mirror_traffic_weight'?: string;
+    private 'version_count'?: number;
+    private 'workload_type'?: string;
+    private 'update_at'?: number;
+    private 'lts_state'?: string;
+    private 'infer_name'?: string;
+    public model?: InferModelResponse;
+    private 'advanced_config'?: AdvancedConfig;
+    public description?: string;
+    private 'create_at'?: string;
+    private 'schedule_strategy'?: string;
+    public constructor() { 
+        super();
+    }
+    public withId(id: string): StopInferDeploymentResponse {
+        this['id'] = id;
+        return this;
+    }
+    public withName(name: string): StopInferDeploymentResponse {
+        this['name'] = name;
+        return this;
+    }
+    public withPoolId(poolId: string): StopInferDeploymentResponse {
+        this['pool_id'] = poolId;
+        return this;
+    }
+    public set poolId(poolId: string  | undefined) {
+        this['pool_id'] = poolId;
+    }
+    public get poolId(): string | undefined {
+        return this['pool_id'];
+    }
+    public withCount(count: number): StopInferDeploymentResponse {
+        this['count'] = count;
+        return this;
+    }
+    public withSystemLogDumpEnable(systemLogDumpEnable: boolean): StopInferDeploymentResponse {
+        this['system_log_dump_enable'] = systemLogDumpEnable;
+        return this;
+    }
+    public set systemLogDumpEnable(systemLogDumpEnable: boolean  | undefined) {
+        this['system_log_dump_enable'] = systemLogDumpEnable;
+    }
+    public get systemLogDumpEnable(): boolean | undefined {
+        return this['system_log_dump_enable'];
+    }
+    public withUnitConfigs(unitConfigs: Array<UnitConfigResponse>): StopInferDeploymentResponse {
+        this['unit_configs'] = unitConfigs;
+        return this;
+    }
+    public set unitConfigs(unitConfigs: Array<UnitConfigResponse>  | undefined) {
+        this['unit_configs'] = unitConfigs;
+    }
+    public get unitConfigs(): Array<UnitConfigResponse> | undefined {
+        return this['unit_configs'];
+    }
+    public withWeight(weight: number): StopInferDeploymentResponse {
+        this['weight'] = weight;
+        return this;
+    }
+    public withTrafficRatio(trafficRatio: string): StopInferDeploymentResponse {
+        this['traffic_ratio'] = trafficRatio;
+        return this;
+    }
+    public set trafficRatio(trafficRatio: string  | undefined) {
+        this['traffic_ratio'] = trafficRatio;
+    }
+    public get trafficRatio(): string | undefined {
+        return this['traffic_ratio'];
+    }
+    public withSecretType(secretType: string): StopInferDeploymentResponse {
+        this['secret_type'] = secretType;
+        return this;
+    }
+    public set secretType(secretType: string  | undefined) {
+        this['secret_type'] = secretType;
+    }
+    public get secretType(): string | undefined {
+        return this['secret_type'];
+    }
+    public withSecretName(secretName: string): StopInferDeploymentResponse {
+        this['secret_name'] = secretName;
+        return this;
+    }
+    public set secretName(secretName: string  | undefined) {
+        this['secret_name'] = secretName;
+    }
+    public get secretName(): string | undefined {
+        return this['secret_name'];
+    }
+    public withPriority(priority: number): StopInferDeploymentResponse {
+        this['priority'] = priority;
+        return this;
+    }
+    public withHighAvailSwitch(highAvailSwitch: boolean): StopInferDeploymentResponse {
+        this['high_avail_switch'] = highAvailSwitch;
+        return this;
+    }
+    public set highAvailSwitch(highAvailSwitch: boolean  | undefined) {
+        this['high_avail_switch'] = highAvailSwitch;
+    }
+    public get highAvailSwitch(): boolean | undefined {
+        return this['high_avail_switch'];
+    }
+    public withFramework(framework: string): StopInferDeploymentResponse {
+        this['framework'] = framework;
+        return this;
+    }
+    public withVersion(version: string): StopInferDeploymentResponse {
+        this['version'] = version;
+        return this;
+    }
+    public withVersionId(versionId: string): StopInferDeploymentResponse {
+        this['version_id'] = versionId;
+        return this;
+    }
+    public set versionId(versionId: string  | undefined) {
+        this['version_id'] = versionId;
+    }
+    public get versionId(): string | undefined {
+        return this['version_id'];
+    }
+    public withStatus(status: string): StopInferDeploymentResponse {
+        this['status'] = status;
+        return this;
+    }
+    public withRunningCount(runningCount: number): StopInferDeploymentResponse {
+        this['running_count'] = runningCount;
+        return this;
+    }
+    public set runningCount(runningCount: number  | undefined) {
+        this['running_count'] = runningCount;
+    }
+    public get runningCount(): number | undefined {
+        return this['running_count'];
+    }
+    public withDeployType(deployType: string): StopInferDeploymentResponse {
+        this['deploy_type'] = deployType;
+        return this;
+    }
+    public set deployType(deployType: string  | undefined) {
+        this['deploy_type'] = deployType;
+    }
+    public get deployType(): string | undefined {
+        return this['deploy_type'];
+    }
+    public withMirrorTrafficEnable(mirrorTrafficEnable: boolean): StopInferDeploymentResponse {
+        this['mirror_traffic_enable'] = mirrorTrafficEnable;
+        return this;
+    }
+    public set mirrorTrafficEnable(mirrorTrafficEnable: boolean  | undefined) {
+        this['mirror_traffic_enable'] = mirrorTrafficEnable;
+    }
+    public get mirrorTrafficEnable(): boolean | undefined {
+        return this['mirror_traffic_enable'];
+    }
+    public withMirrorTrafficWeight(mirrorTrafficWeight: string): StopInferDeploymentResponse {
+        this['mirror_traffic_weight'] = mirrorTrafficWeight;
+        return this;
+    }
+    public set mirrorTrafficWeight(mirrorTrafficWeight: string  | undefined) {
+        this['mirror_traffic_weight'] = mirrorTrafficWeight;
+    }
+    public get mirrorTrafficWeight(): string | undefined {
+        return this['mirror_traffic_weight'];
+    }
+    public withVersionCount(versionCount: number): StopInferDeploymentResponse {
+        this['version_count'] = versionCount;
+        return this;
+    }
+    public set versionCount(versionCount: number  | undefined) {
+        this['version_count'] = versionCount;
+    }
+    public get versionCount(): number | undefined {
+        return this['version_count'];
+    }
+    public withWorkloadType(workloadType: string): StopInferDeploymentResponse {
+        this['workload_type'] = workloadType;
+        return this;
+    }
+    public set workloadType(workloadType: string  | undefined) {
+        this['workload_type'] = workloadType;
+    }
+    public get workloadType(): string | undefined {
+        return this['workload_type'];
+    }
+    public withUpdateAt(updateAt: number): StopInferDeploymentResponse {
+        this['update_at'] = updateAt;
+        return this;
+    }
+    public set updateAt(updateAt: number  | undefined) {
+        this['update_at'] = updateAt;
+    }
+    public get updateAt(): number | undefined {
+        return this['update_at'];
+    }
+    public withLtsState(ltsState: string): StopInferDeploymentResponse {
+        this['lts_state'] = ltsState;
+        return this;
+    }
+    public set ltsState(ltsState: string  | undefined) {
+        this['lts_state'] = ltsState;
+    }
+    public get ltsState(): string | undefined {
+        return this['lts_state'];
+    }
+    public withInferName(inferName: string): StopInferDeploymentResponse {
+        this['infer_name'] = inferName;
+        return this;
+    }
+    public set inferName(inferName: string  | undefined) {
+        this['infer_name'] = inferName;
+    }
+    public get inferName(): string | undefined {
+        return this['infer_name'];
+    }
+    public withModel(model: InferModelResponse): StopInferDeploymentResponse {
+        this['model'] = model;
+        return this;
+    }
+    public withAdvancedConfig(advancedConfig: AdvancedConfig): StopInferDeploymentResponse {
+        this['advanced_config'] = advancedConfig;
+        return this;
+    }
+    public set advancedConfig(advancedConfig: AdvancedConfig  | undefined) {
+        this['advanced_config'] = advancedConfig;
+    }
+    public get advancedConfig(): AdvancedConfig | undefined {
+        return this['advanced_config'];
+    }
+    public withDescription(description: string): StopInferDeploymentResponse {
+        this['description'] = description;
+        return this;
+    }
+    public withCreateAt(createAt: string): StopInferDeploymentResponse {
+        this['create_at'] = createAt;
+        return this;
+    }
+    public set createAt(createAt: string  | undefined) {
+        this['create_at'] = createAt;
+    }
+    public get createAt(): string | undefined {
+        return this['create_at'];
+    }
+    public withScheduleStrategy(scheduleStrategy: string): StopInferDeploymentResponse {
+        this['schedule_strategy'] = scheduleStrategy;
+        return this;
+    }
+    public set scheduleStrategy(scheduleStrategy: string  | undefined) {
+        this['schedule_strategy'] = scheduleStrategy;
+    }
+    public get scheduleStrategy(): string | undefined {
+        return this['schedule_strategy'];
+    }
+}

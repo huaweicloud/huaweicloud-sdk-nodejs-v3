@@ -7,7 +7,11 @@ export class AdvancedIpsRuleDto {
     private 'object_id'?: string;
     public param?: string;
     public status?: number;
-    public constructor() { 
+    public constructor(ipsRuleId?: string, ipsRuleType?: number, objectId?: string, status?: number) { 
+        this['ips_rule_id'] = ipsRuleId;
+        this['ips_rule_type'] = ipsRuleType;
+        this['object_id'] = objectId;
+        this['status'] = status;
     }
     public withAction(action: number): AdvancedIpsRuleDto {
         this['action'] = action;

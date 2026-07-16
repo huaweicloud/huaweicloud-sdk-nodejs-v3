@@ -36,6 +36,7 @@ import { AddDomainsRequest } from './model/AddDomainsRequest';
 import { AddDomainsResponse } from './model/AddDomainsResponse';
 import { AddEipAlarmWhitelistRequest } from './model/AddEipAlarmWhitelistRequest';
 import { AddEipAlarmWhitelistRequestBody } from './model/AddEipAlarmWhitelistRequestBody';
+import { AddEipAlarmWhitelistRespData } from './model/AddEipAlarmWhitelistRespData';
 import { AddEipAlarmWhitelistResponse } from './model/AddEipAlarmWhitelistResponse';
 import { AddLogConfigRequest } from './model/AddLogConfigRequest';
 import { AddLogConfigResponse } from './model/AddLogConfigResponse';
@@ -197,6 +198,7 @@ import { DeleteCaptureTaskResponse } from './model/DeleteCaptureTaskResponse';
 import { DeleteDomainDto } from './model/DeleteDomainDto';
 import { DeleteDomainSetRequest } from './model/DeleteDomainSetRequest';
 import { DeleteDomainSetResponse } from './model/DeleteDomainSetResponse';
+import { DeleteDomainSetResponseDatas } from './model/DeleteDomainSetResponseDatas';
 import { DeleteDomainsRequest } from './model/DeleteDomainsRequest';
 import { DeleteDomainsResponse } from './model/DeleteDomainsResponse';
 import { DeleteFirewallRequest } from './model/DeleteFirewallRequest';
@@ -220,6 +222,7 @@ import { DeleteTagResponse } from './model/DeleteTagResponse';
 import { DeleteTagsDto } from './model/DeleteTagsDto';
 import { DnsServersResponseDTO } from './model/DnsServersResponseDTO';
 import { DomainInfo } from './model/DomainInfo';
+import { DomainSetId } from './model/DomainSetId';
 import { DomainSetInfoDto } from './model/DomainSetInfoDto';
 import { DomainSetResponseData } from './model/DomainSetResponseData';
 import { DomainSetVo } from './model/DomainSetVo';
@@ -433,7 +436,6 @@ import { ListServiceSetsRequest } from './model/ListServiceSetsRequest';
 import { ListServiceSetsResponse } from './model/ListServiceSetsResponse';
 import { LogConfigDto } from './model/LogConfigDto';
 import { LogVO } from './model/LogVO';
-import { Mapstringstring } from './model/Mapstringstring';
 import { MultiAccountRespData } from './model/MultiAccountRespData';
 import { OrderRuleAclDto } from './model/OrderRuleAclDto';
 import { OrderRuleId } from './model/OrderRuleId';
@@ -1368,7 +1370,7 @@ export class CfwClient {
      * @param {string} [ip] **参数解释**： IP地址信息 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及
      * @param {string} [name] **参数解释**： 规则名称，由用户定义，用于标识规则 **约束限制**： 字符串长度为0到255 **取值范围**： 不涉及 **默认取值**： 不涉及
      * @param {number} [direction] **参数解释**： 规则方向，用于指定规则是从云上至云下，还是云下至云上 **约束限制**： 当规则type&#x3D;0（互联网规则）或者type&#x3D; 2（nat规则）时方向值必填 **取值范围**： 0表示外到内（云下到云上），1表示内到外（云上到云下）， **默认取值**： 不涉及
-     * @param {0 | 1} [status] **参数解释**： 规则启用状态，用于区分规则是否启用 **约束限制**： 仅能使用数字0和1 **取值范围**： 0表示启用，1表示禁用 **默认取值**： 不涉及
+     * @param {0 | 1} [status] **参数解释**： 规则启用状态，用于区分规则是否启用 **约束限制**： 仅能使用数字0和1 **取值范围**： 0表示禁用，1表示启用 **默认取值**： 不涉及
      * @param {0 | 1} [actionType] **参数解释**： 规则动作类型，用于区分规则对流量的动作 **约束限制**： 仅能使用数字0和1 **取值范围**： 0表示允许通行（permit），1表示拒绝通行（deny） **默认取值**： 不涉及
      * @param {0 | 1} [addressType] **参数解释**： IP地址的互联网协议类型，用于指定IP地址的互联网协议，由客户指定 **约束限制**： 不涉及 **取值范围**： 0表示IPv4，1表示IPv6 **默认取值**： 不涉及
      * @param {string} [enterpriseProjectId] **参数解释**： 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，配置后可根据企业项目过滤不同企业项目下的资产，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**：  0
@@ -2173,7 +2175,6 @@ export class CfwClient {
      * @param {number} offset **参数解释**： 偏移量：指定返回记录的开始位置 **约束限制**： 不涉及 **取值范围**： 大于或等于0 **默认取值**： 0
      * @param {string} [enterpriseProjectId] **参数解释**： 企业项目ID，用户根据组织规划企业项目，对应的ID为企业项目ID，配置后可根据企业项目过滤不同企业项目下的资产，可通过[如何获取企业项目ID](cfw_02_0027.xml)获取 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 0
      * @param {string} [domainName] **参数解释**： 域名名称 **约束限制**： 域名格式，如www.example.com **取值范围**： 不涉及 **默认取值**： 不涉及
-     * @param {string} [objectId] **参数解释**： 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用[查询防火墙实例接口](ListFirewallDetail.xml)获得，通过返回值中的data.records.protect_objects.object_id（.表示各对象之间层级的区分）获得 **约束限制**： type为0时，object_id为互联网边界防护对象ID，type为1时，object_id为VPC边界防护对象ID。此处仅取type为1的防护对象id，可通过data.records.protect_objects.type（.表示各对象之间层级的区分）获得。 **取值范围**： 不涉及 **默认取值**： 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -8918,8 +8919,6 @@ export const ParamCreater = function () {
             let enterpriseProjectId;
             
             let domainName;
-            
-            let objectId;
 
             if (listDomainsRequest !== null && listDomainsRequest !== undefined) {
                 if (listDomainsRequest instanceof ListDomainsRequest) {
@@ -8930,7 +8929,6 @@ export const ParamCreater = function () {
                     offset = listDomainsRequest.offset;
                     enterpriseProjectId = listDomainsRequest.enterpriseProjectId;
                     domainName = listDomainsRequest.domainName;
-                    objectId = listDomainsRequest.objectId;
                 } else {
                     projectId = listDomainsRequest['project_id'];
                     domainSetId = listDomainsRequest['domain_set_id'];
@@ -8939,7 +8937,6 @@ export const ParamCreater = function () {
                     offset = listDomainsRequest['offset'];
                     enterpriseProjectId = listDomainsRequest['enterprise_project_id'];
                     domainName = listDomainsRequest['domain_name'];
-                    objectId = listDomainsRequest['object_Id'];
                 }
             }
 
@@ -8973,9 +8970,6 @@ export const ParamCreater = function () {
             }
             if (domainName !== null && domainName !== undefined) {
                 localVarQueryParameter['domain_name'] = domainName;
-            }
-            if (objectId !== null && objectId !== undefined) {
-                localVarQueryParameter['object_Id'] = objectId;
             }
 
             options.queryParams = localVarQueryParameter;

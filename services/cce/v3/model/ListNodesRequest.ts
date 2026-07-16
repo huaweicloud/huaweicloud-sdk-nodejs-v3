@@ -3,6 +3,8 @@
 export class ListNodesRequest {
     private 'cluster_id'?: string;
     private 'Content-Type'?: string;
+    public limit?: number;
+    public marker?: string;
     public constructor(clusterId?: string, contentType?: string) { 
         this['cluster_id'] = clusterId;
         this['Content-Type'] = contentType;
@@ -26,5 +28,13 @@ export class ListNodesRequest {
     }
     public get contentType(): string | undefined {
         return this['Content-Type'];
+    }
+    public withLimit(limit: number): ListNodesRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListNodesRequest {
+        this['marker'] = marker;
+        return this;
     }
 }

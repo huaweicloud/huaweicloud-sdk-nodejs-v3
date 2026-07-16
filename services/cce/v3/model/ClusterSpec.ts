@@ -1,4 +1,5 @@
 import { Authentication } from './Authentication';
+import { CertificateAuthority } from './CertificateAuthority';
 import { ClusterExtendParam } from './ClusterExtendParam';
 import { ClusterOps } from './ClusterOps';
 import { ContainerNetwork } from './ContainerNetwork';
@@ -43,8 +44,8 @@ export class ClusterSpec {
     public configurationsOverride?: Array<PackageConfiguration>;
     public clusterOps?: ClusterOps;
     public encryptionConfig?: EncryptionConfig;
-    public constructor(flavor?: string, hostNetwork?: HostNetwork, containerNetwork?: ContainerNetwork, eniNetwork?: EniNetwork) { 
-        this['flavor'] = flavor;
+    public certificateAuthority?: CertificateAuthority;
+    public constructor(hostNetwork?: HostNetwork, containerNetwork?: ContainerNetwork, eniNetwork?: EniNetwork) { 
         this['hostNetwork'] = hostNetwork;
         this['containerNetwork'] = containerNetwork;
         this['eniNetwork'] = eniNetwork;
@@ -169,6 +170,10 @@ export class ClusterSpec {
         this['encryptionConfig'] = encryptionConfig;
         return this;
     }
+    public withCertificateAuthority(certificateAuthority: CertificateAuthority): ClusterSpec {
+        this['certificateAuthority'] = certificateAuthority;
+        return this;
+    }
 }
 
 /**
@@ -192,6 +197,7 @@ export enum ClusterSpecTypeEnum {
     * @enum {string}
     */
 export enum ClusterSpecKubeProxyModeEnum {
+    NFTABLES = 'nftables',
     IPTABLES = 'iptables',
     IPVS = 'ipvs'
 }

@@ -8,8 +8,8 @@ export class BlackWhiteListResponseDataRecords {
     public protocol?: number;
     public port?: string;
     public description?: string;
-    private 'created_date'?: string;
-    private 'modified_date'?: string;
+    private 'created_date'?: number;
+    private 'modified_date'?: number;
     public constructor() { 
     }
     public withListId(listId: string): BlackWhiteListResponseDataRecords {
@@ -52,24 +52,24 @@ export class BlackWhiteListResponseDataRecords {
         this['description'] = description;
         return this;
     }
-    public withCreatedDate(createdDate: string): BlackWhiteListResponseDataRecords {
+    public withCreatedDate(createdDate: number): BlackWhiteListResponseDataRecords {
         this['created_date'] = createdDate;
         return this;
     }
-    public set createdDate(createdDate: string  | undefined) {
+    public set createdDate(createdDate: number  | undefined) {
         this['created_date'] = createdDate;
     }
-    public get createdDate(): string | undefined {
+    public get createdDate(): number | undefined {
         return this['created_date'];
     }
-    public withModifiedDate(modifiedDate: string): BlackWhiteListResponseDataRecords {
+    public withModifiedDate(modifiedDate: number): BlackWhiteListResponseDataRecords {
         this['modified_date'] = modifiedDate;
         return this;
     }
-    public set modifiedDate(modifiedDate: string  | undefined) {
+    public set modifiedDate(modifiedDate: number  | undefined) {
         this['modified_date'] = modifiedDate;
     }
-    public get modifiedDate(): string | undefined {
+    public get modifiedDate(): number | undefined {
         return this['modified_date'];
     }
 }
