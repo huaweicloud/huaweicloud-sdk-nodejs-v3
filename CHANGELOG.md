@@ -1,3 +1,32 @@
+# 3.1.207 2026-07-23
+
+### HuaweiCloud SDK DataArtsStudio
+
+- _API Version_
+  - V1
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListFactoryScripts**
+    - changes of response param
+      - `+ scripts.modify_time`
+
+### HuaweiCloud SDK RDS
+
+- _API Version_
+  - V3
+- _Features_
+  - Support the APIs `ModifyJobSchedule`, `DeleteJobSchedule`, `ListJobSchedules`, `CreateJobSchedule`
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListDbAgentJobHistorys**
+    - changes of response param
+      - `+ histories`
+      - `- historys`
+
 # 3.1.206 2026-07-16
 
 ### HuaweiCloud SDK CCE

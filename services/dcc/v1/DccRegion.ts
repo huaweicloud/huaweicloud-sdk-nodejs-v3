@@ -17,6 +17,7 @@ export class DccRegion {
     public static AP_SOUTHEAST_1 = new Region("ap-southeast-1", ["https://dcc.ap-southeast-1.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_2 = new Region("ap-southeast-2", ["https://dcc.ap-southeast-2.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_3 = new Region("ap-southeast-3", ["https://dcc.ap-southeast-3.myhuaweicloud.com"]);
+    public static CN_EAST_4 = new Region("cn-east-4", ["https://dcc.cn-east-4.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -30,7 +31,8 @@ export class DccRegion {
         "cn-southwest-2":DccRegion.CN_SOUTHWEST_2,
         "ap-southeast-1":DccRegion.AP_SOUTHEAST_1,
         "ap-southeast-2":DccRegion.AP_SOUTHEAST_2,
-        "ap-southeast-3":DccRegion.AP_SOUTHEAST_3
+        "ap-southeast-3":DccRegion.AP_SOUTHEAST_3,
+        "cn-east-4":DccRegion.CN_EAST_4
     };
   
     public static valueOf(regionId: string) {

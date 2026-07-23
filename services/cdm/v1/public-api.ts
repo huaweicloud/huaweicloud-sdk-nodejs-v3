@@ -30,6 +30,7 @@ export * from './model/ClusterDetailInstanceFlavor';
 export * from './model/ClusterDetailInstanceVolume';
 export * from './model/ClusterInstance';
 export * from './model/ClusterLinks';
+export * from './model/ClusterTag';
 export * from './model/ClusterTask';
 export * from './model/Clusters';
 export * from './model/ConfigValues';

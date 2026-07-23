@@ -1,18 +1,18 @@
-import { ListDbAgentJobHistorysResult } from './ListDbAgentJobHistorysResult';
+import { JobScheduleInfo } from './JobScheduleInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
-export class ListDbAgentJobHistorysResponse extends SdkResponse {
-    public histories?: Array<ListDbAgentJobHistorysResult>;
+export class ListJobSchedulesResponse extends SdkResponse {
+    public schedules?: Array<JobScheduleInfo>;
     private 'total_count'?: number;
     public constructor() { 
         super();
     }
-    public withHistories(histories: Array<ListDbAgentJobHistorysResult>): ListDbAgentJobHistorysResponse {
-        this['histories'] = histories;
+    public withSchedules(schedules: Array<JobScheduleInfo>): ListJobSchedulesResponse {
+        this['schedules'] = schedules;
         return this;
     }
-    public withTotalCount(totalCount: number): ListDbAgentJobHistorysResponse {
+    public withTotalCount(totalCount: number): ListJobSchedulesResponse {
         this['total_count'] = totalCount;
         return this;
     }

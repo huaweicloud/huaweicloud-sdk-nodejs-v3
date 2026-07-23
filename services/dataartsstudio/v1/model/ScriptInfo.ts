@@ -12,6 +12,7 @@ export class ScriptInfo {
     public configuration?: object;
     public description?: string;
     public owner?: string;
+    private 'modify_time'?: number;
     public version?: number;
     public constructor() { 
     }
@@ -76,6 +77,16 @@ export class ScriptInfo {
     public withOwner(owner: string): ScriptInfo {
         this['owner'] = owner;
         return this;
+    }
+    public withModifyTime(modifyTime: number): ScriptInfo {
+        this['modify_time'] = modifyTime;
+        return this;
+    }
+    public set modifyTime(modifyTime: number  | undefined) {
+        this['modify_time'] = modifyTime;
+    }
+    public get modifyTime(): number | undefined {
+        return this['modify_time'];
     }
     public withVersion(version: number): ScriptInfo {
         this['version'] = version;

@@ -3,6 +3,7 @@ import { CdmQueryClusterDetailsRepsonseMaintainWindow } from './CdmQueryClusterD
 import { CdmQueryClusterDetailsRepsonsePublicEndpointStatus } from './CdmQueryClusterDetailsRepsonsePublicEndpointStatus';
 import { ClusterDetailInstance } from './ClusterDetailInstance';
 import { ClusterLinks } from './ClusterLinks';
+import { ClusterTag } from './ClusterTag';
 import { ClusterTask } from './ClusterTask';
 import { CustomerConfig } from './CustomerConfig';
 import { Datastore } from './Datastore';
@@ -46,6 +47,8 @@ export class ShowClusterDetailResponse extends SdkResponse {
     public actions?: Array<string>;
     public updated?: string;
     public status?: string;
+    private 'eps_id'?: string;
+    public tags?: Array<ClusterTag>;
     public constructor() { 
         super();
     }
@@ -211,6 +214,20 @@ export class ShowClusterDetailResponse extends SdkResponse {
     }
     public withStatus(status: string): ShowClusterDetailResponse {
         this['status'] = status;
+        return this;
+    }
+    public withEpsId(epsId: string): ShowClusterDetailResponse {
+        this['eps_id'] = epsId;
+        return this;
+    }
+    public set epsId(epsId: string  | undefined) {
+        this['eps_id'] = epsId;
+    }
+    public get epsId(): string | undefined {
+        return this['eps_id'];
+    }
+    public withTags(tags: Array<ClusterTag>): ShowClusterDetailResponse {
+        this['tags'] = tags;
         return this;
     }
 }

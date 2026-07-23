@@ -32,6 +32,7 @@ import { ClusterDetailInstanceFlavor } from './model/ClusterDetailInstanceFlavor
 import { ClusterDetailInstanceVolume } from './model/ClusterDetailInstanceVolume';
 import { ClusterInstance } from './model/ClusterInstance';
 import { ClusterLinks } from './model/ClusterLinks';
+import { ClusterTag } from './model/ClusterTag';
 import { ClusterTask } from './model/ClusterTask';
 import { Clusters } from './model/Clusters';
 import { ConfigValues } from './model/ConfigValues';

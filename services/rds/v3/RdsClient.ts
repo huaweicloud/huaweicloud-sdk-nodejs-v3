@@ -135,6 +135,9 @@ import { CreateInstanceRespItem } from './model/CreateInstanceRespItem';
 import { CreateInstanceResponse } from './model/CreateInstanceResponse';
 import { CreateIntelligentKillSessionRequest } from './model/CreateIntelligentKillSessionRequest';
 import { CreateIntelligentKillSessionResponse } from './model/CreateIntelligentKillSessionResponse';
+import { CreateJobScheduleRequest } from './model/CreateJobScheduleRequest';
+import { CreateJobScheduleRequestBody } from './model/CreateJobScheduleRequestBody';
+import { CreateJobScheduleResponse } from './model/CreateJobScheduleResponse';
 import { CreateManualBackupRequest } from './model/CreateManualBackupRequest';
 import { CreateManualBackupRequestBody } from './model/CreateManualBackupRequestBody';
 import { CreateManualBackupResponse } from './model/CreateManualBackupResponse';
@@ -218,6 +221,8 @@ import { DeleteInstanceRequest } from './model/DeleteInstanceRequest';
 import { DeleteInstanceResponse } from './model/DeleteInstanceResponse';
 import { DeleteJobRequest } from './model/DeleteJobRequest';
 import { DeleteJobResponse } from './model/DeleteJobResponse';
+import { DeleteJobScheduleRequest } from './model/DeleteJobScheduleRequest';
+import { DeleteJobScheduleResponse } from './model/DeleteJobScheduleResponse';
 import { DeleteLogConfigResponseBody } from './model/DeleteLogConfigResponseBody';
 import { DeleteLogConfigs } from './model/DeleteLogConfigs';
 import { DeleteLogLtsConfigsRequest } from './model/DeleteLogLtsConfigsRequest';
@@ -327,6 +332,7 @@ import { IntelligentKillSessionStatistic } from './model/IntelligentKillSessionS
 import { JobScheduleDailyFrequencyInfo } from './model/JobScheduleDailyFrequencyInfo';
 import { JobScheduleDurationInfo } from './model/JobScheduleDurationInfo';
 import { JobScheduleFrequencyInfo } from './model/JobScheduleFrequencyInfo';
+import { JobScheduleInfo } from './model/JobScheduleInfo';
 import { JobScheduleOneTimeOccurrenceInfo } from './model/JobScheduleOneTimeOccurrenceInfo';
 import { LDatastore } from './model/LDatastore';
 import { LinksInfoResponse } from './model/LinksInfoResponse';
@@ -424,6 +430,8 @@ import { ListJobInfoDetailRequest } from './model/ListJobInfoDetailRequest';
 import { ListJobInfoDetailResponse } from './model/ListJobInfoDetailResponse';
 import { ListJobInfoRequest } from './model/ListJobInfoRequest';
 import { ListJobInfoResponse } from './model/ListJobInfoResponse';
+import { ListJobSchedulesRequest } from './model/ListJobSchedulesRequest';
+import { ListJobSchedulesResponse } from './model/ListJobSchedulesResponse';
 import { ListLogLtsConfigsRequest } from './model/ListLogLtsConfigsRequest';
 import { ListLogLtsConfigsResponse } from './model/ListLogLtsConfigsResponse';
 import { ListMajorVersionFeatureRequest } from './model/ListMajorVersionFeatureRequest';
@@ -549,6 +557,9 @@ import { ModifyDbAgentJobRequest } from './model/ModifyDbAgentJobRequest';
 import { ModifyDbAgentJobRequestBody } from './model/ModifyDbAgentJobRequestBody';
 import { ModifyDbAgentJobResponse } from './model/ModifyDbAgentJobResponse';
 import { ModifyDnsNameRequestBody } from './model/ModifyDnsNameRequestBody';
+import { ModifyJobScheduleRequest } from './model/ModifyJobScheduleRequest';
+import { ModifyJobScheduleRequestBody } from './model/ModifyJobScheduleRequestBody';
+import { ModifyJobScheduleResponse } from './model/ModifyJobScheduleResponse';
 import { ModifyMySqlProxyRouteModeRequest } from './model/ModifyMySqlProxyRouteModeRequest';
 import { ModifyParamRequest } from './model/ModifyParamRequest';
 import { ModifyPostgresqlHbaConfRequest } from './model/ModifyPostgresqlHbaConfRequest';
@@ -6814,6 +6825,25 @@ export class RdsClient {
     }
 
     /**
+     * 创建数据库定时任务策略。每个类型最多只能创建100个自定义策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建数据库定时任务策略
+     * @param {CreateJobScheduleRequestBody} createJobScheduleRequestBody 创建数据库定时任务策略请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createJobSchedule(createJobScheduleRequest?: CreateJobScheduleRequest): Promise<CreateJobScheduleResponse> {
+        const options = ParamCreater().createJobSchedule(createJobScheduleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建发布
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6909,6 +6939,25 @@ export class RdsClient {
      */
     public deleteDistribution(deleteDistributionRequest?: DeleteDistributionRequest): Promise<DeleteDistributionResponse> {
         const options = ParamCreater().deleteDistribution(deleteDistributionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除数据库定时任务策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除数据库定时任务策略
+     * @param {string} scheduleId 策略ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteJobSchedule(deleteJobScheduleRequest?: DeleteJobScheduleRequest): Promise<DeleteJobScheduleResponse> {
+        const options = ParamCreater().deleteJobSchedule(deleteJobScheduleRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7192,6 +7241,28 @@ export class RdsClient {
      */
     public listDistributorInstances(listDistributorInstancesRequest?: ListDistributorInstancesRequest): Promise<ListDistributorInstancesResponse> {
         const options = ParamCreater().listDistributorInstances(listDistributorInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询数据库定时任务策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据库定时任务策略
+     * @param {string} [scheduleType] 策略类型，snapshot:快照策略, sync:同步策略，默认查询所有类型
+     * @param {string} [scheduleId] 策略id
+     * @param {number} [offset] 索引位置，偏移量。从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询），必须为数字，不能为负数。
+     * @param {number} [limit] 查询记录数。默认为10，不能为负数，最小值为1，最大值为200。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJobSchedules(listJobSchedulesRequest?: ListJobSchedulesRequest): Promise<ListJobSchedulesResponse> {
+        const options = ParamCreater().listJobSchedules(listJobSchedulesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7486,6 +7557,26 @@ export class RdsClient {
      */
     public modifyDbAgentJob(modifyDbAgentJobRequest?: ModifyDbAgentJobRequest): Promise<ModifyDbAgentJobResponse> {
         const options = ParamCreater().modifyDbAgentJob(modifyDbAgentJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改数据库定时任务策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改数据库定时任务策略
+     * @param {string} scheduleId 策略ID
+     * @param {ModifyJobScheduleRequestBody} modifyJobScheduleRequestBody 修改数据库定时任务策略请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyJobSchedule(modifyJobScheduleRequest?: ModifyJobScheduleRequest): Promise<ModifyJobScheduleResponse> {
+        const options = ParamCreater().modifyJobSchedule(modifyJobScheduleRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -22287,6 +22378,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建数据库定时任务策略。每个类型最多只能创建100个自定义策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createJobSchedule(createJobScheduleRequest?: CreateJobScheduleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/db-job/schedules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createJobScheduleRequest !== null && createJobScheduleRequest !== undefined) {
+                if (createJobScheduleRequest instanceof CreateJobScheduleRequest) {
+                    body = createJobScheduleRequest.body
+                } else {
+                    body = createJobScheduleRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建发布
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -22531,6 +22660,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除数据库定时任务策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteJobSchedule(deleteJobScheduleRequest?: DeleteJobScheduleRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/db-job/schedules/{schedule_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let scheduleId;
+
+            if (deleteJobScheduleRequest !== null && deleteJobScheduleRequest !== undefined) {
+                if (deleteJobScheduleRequest instanceof DeleteJobScheduleRequest) {
+                    scheduleId = deleteJobScheduleRequest.scheduleId;
+                } else {
+                    scheduleId = deleteJobScheduleRequest['schedule_id'];
+                }
+            }
+
+        
+            if (scheduleId === null || scheduleId === undefined) {
+            throw new RequiredError('scheduleId','Required parameter scheduleId was null or undefined when calling deleteJobSchedule.');
+            }
+
+            options.pathParams = { 'schedule_id': scheduleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -23279,6 +23445,64 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询数据库定时任务策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listJobSchedules(listJobSchedulesRequest?: ListJobSchedulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/db-job/schedules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let scheduleType;
+            
+            let scheduleId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listJobSchedulesRequest !== null && listJobSchedulesRequest !== undefined) {
+                if (listJobSchedulesRequest instanceof ListJobSchedulesRequest) {
+                    scheduleType = listJobSchedulesRequest.scheduleType;
+                    scheduleId = listJobSchedulesRequest.scheduleId;
+                    offset = listJobSchedulesRequest.offset;
+                    limit = listJobSchedulesRequest.limit;
+                } else {
+                    scheduleType = listJobSchedulesRequest['schedule_type'];
+                    scheduleId = listJobSchedulesRequest['schedule_id'];
+                    offset = listJobSchedulesRequest['offset'];
+                    limit = listJobSchedulesRequest['limit'];
+                }
+            }
+
+        
+            if (scheduleType !== null && scheduleType !== undefined) {
+                localVarQueryParameter['schedule_type'] = scheduleType;
+            }
+            if (scheduleId !== null && scheduleId !== undefined) {
+                localVarQueryParameter['schedule_id'] = scheduleId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -24115,6 +24339,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改数据库定时任务策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyJobSchedule(modifyJobScheduleRequest?: ModifyJobScheduleRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/db-job/schedules/{schedule_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let scheduleId;
+
+            if (modifyJobScheduleRequest !== null && modifyJobScheduleRequest !== undefined) {
+                if (modifyJobScheduleRequest instanceof ModifyJobScheduleRequest) {
+                    scheduleId = modifyJobScheduleRequest.scheduleId;
+                    body = modifyJobScheduleRequest.body
+                } else {
+                    scheduleId = modifyJobScheduleRequest['schedule_id'];
+                    body = modifyJobScheduleRequest['body'];
+                }
+            }
+
+        
+            if (scheduleId === null || scheduleId === undefined) {
+            throw new RequiredError('scheduleId','Required parameter scheduleId was null or undefined when calling modifyJobSchedule.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'schedule_id': scheduleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
