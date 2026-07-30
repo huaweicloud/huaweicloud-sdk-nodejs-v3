@@ -8,6 +8,7 @@ export class NodeLabels {
     private 'os.modelarts.node/batch.name'?: string;
     private 'os.modelarts.node/batch.type'?: string;
     private 'os.modelarts.node/batch.count'?: string;
+    private 'os.modelarts.node/spod.id'?: string;
     private 'os.modelarts/resource.id'?: string;
     private 'os.modelarts/tenant.domain.id'?: string;
     private 'os.modelarts/tenant.project.id'?: string;
@@ -88,6 +89,16 @@ export class NodeLabels {
     }
     public get osModelartsNodeBatchCount(): string | undefined {
         return this['os.modelarts.node/batch.count'];
+    }
+    public withOsModelartsNodeSpodId(osModelartsNodeSpodId: string): NodeLabels {
+        this['os.modelarts.node/spod.id'] = osModelartsNodeSpodId;
+        return this;
+    }
+    public set osModelartsNodeSpodId(osModelartsNodeSpodId: string  | undefined) {
+        this['os.modelarts.node/spod.id'] = osModelartsNodeSpodId;
+    }
+    public get osModelartsNodeSpodId(): string | undefined {
+        return this['os.modelarts.node/spod.id'];
     }
     public withOsModelartsResourceId(osModelartsResourceId: string): NodeLabels {
         this['os.modelarts/resource.id'] = osModelartsResourceId;

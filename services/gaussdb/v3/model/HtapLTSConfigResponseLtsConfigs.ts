@@ -4,8 +4,8 @@ export class HtapLTSConfigResponseLtsConfigs {
     private 'log_type'?: string;
     private 'lts_group_id'?: string;
     private 'lts_stream_id'?: string;
-    public enabled?: string;
-    public constructor(logType?: string, ltsGroupId?: string, ltsStreamId?: string, enabled?: string) { 
+    public enabled?: boolean;
+    public constructor(logType?: string, ltsGroupId?: string, ltsStreamId?: string, enabled?: boolean) { 
         this['log_type'] = logType;
         this['lts_group_id'] = ltsGroupId;
         this['lts_stream_id'] = ltsStreamId;
@@ -41,7 +41,7 @@ export class HtapLTSConfigResponseLtsConfigs {
     public get ltsStreamId(): string | undefined {
         return this['lts_stream_id'];
     }
-    public withEnabled(enabled: string): HtapLTSConfigResponseLtsConfigs {
+    public withEnabled(enabled: boolean): HtapLTSConfigResponseLtsConfigs {
         this['enabled'] = enabled;
         return this;
     }

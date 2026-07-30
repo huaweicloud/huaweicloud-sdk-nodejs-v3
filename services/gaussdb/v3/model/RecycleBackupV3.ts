@@ -6,8 +6,8 @@ export class RecycleBackupV3 {
     private 'backup_name'?: string;
     public size?: number;
     public status?: string;
-    private 'begin_time'?: string;
-    private 'end_time'?: string;
+    private 'begin_time'?: number;
+    private 'end_time'?: number;
     public constructor() { 
     }
     public withBackupLevel(backupLevel: string): RecycleBackupV3 {
@@ -48,24 +48,24 @@ export class RecycleBackupV3 {
         this['status'] = status;
         return this;
     }
-    public withBeginTime(beginTime: string): RecycleBackupV3 {
+    public withBeginTime(beginTime: number): RecycleBackupV3 {
         this['begin_time'] = beginTime;
         return this;
     }
-    public set beginTime(beginTime: string  | undefined) {
+    public set beginTime(beginTime: number  | undefined) {
         this['begin_time'] = beginTime;
     }
-    public get beginTime(): string | undefined {
+    public get beginTime(): number | undefined {
         return this['begin_time'];
     }
-    public withEndTime(endTime: string): RecycleBackupV3 {
+    public withEndTime(endTime: number): RecycleBackupV3 {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string  | undefined) {
+    public set endTime(endTime: number  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime(): string | undefined {
+    public get endTime(): number | undefined {
         return this['end_time'];
     }
 }

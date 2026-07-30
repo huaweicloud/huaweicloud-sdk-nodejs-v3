@@ -1,12 +1,12 @@
-import { CreateRuleRequest } from './CreateRuleRequest';
+import { FullUpdateRuleRequest } from './FullUpdateRuleRequest';
 
 
 export class FullUpdateRulesRequest {
-    public rules?: Array<CreateRuleRequest>;
-    public constructor(rules?: Array<CreateRuleRequest>) { 
+    public rules?: Array<FullUpdateRuleRequest>;
+    public constructor(rules?: Array<FullUpdateRuleRequest>) { 
         this['rules'] = rules;
     }
-    public withRules(rules: Array<CreateRuleRequest>): FullUpdateRulesRequest {
+    public withRules(rules: Array<FullUpdateRuleRequest>): FullUpdateRulesRequest {
         this['rules'] = rules;
         return this;
     }

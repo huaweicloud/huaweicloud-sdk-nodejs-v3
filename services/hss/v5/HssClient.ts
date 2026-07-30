@@ -65,6 +65,25 @@ import { AgentStatusInfo } from './model/AgentStatusInfo';
 import { AgentStatusRes } from './model/AgentStatusRes';
 import { AgentVersion } from './model/AgentVersion';
 import { AgentVersionResponseInfo } from './model/AgentVersionResponseInfo';
+import { AiDescriptionRes } from './model/AiDescriptionRes';
+import { AiEnabledReqM } from './model/AiEnabledReqM';
+import { AiEnabledRes } from './model/AiEnabledRes';
+import { AiIsDefaultRes } from './model/AiIsDefaultRes';
+import { AiIsExclusiveRes } from './model/AiIsExclusiveRes';
+import { AiPolicyDescriptionReq } from './model/AiPolicyDescriptionReq';
+import { AiPolicyDescriptionRes } from './model/AiPolicyDescriptionRes';
+import { AiPolicyGroupIdReqM } from './model/AiPolicyGroupIdReqM';
+import { AiPolicyGroupIdRes } from './model/AiPolicyGroupIdRes';
+import { AiPolicyGroupInfo } from './model/AiPolicyGroupInfo';
+import { AiPolicyGroupNameReqM } from './model/AiPolicyGroupNameReqM';
+import { AiPolicyGroupNameRes } from './model/AiPolicyGroupNameRes';
+import { AiPolicyGroupTypeIdRes } from './model/AiPolicyGroupTypeIdRes';
+import { AiPolicyIdReqM } from './model/AiPolicyIdReqM';
+import { AiPolicyIdRes } from './model/AiPolicyIdRes';
+import { AiPolicyInfo } from './model/AiPolicyInfo';
+import { AiPolicyList } from './model/AiPolicyList';
+import { AiPolicyNameReqM } from './model/AiPolicyNameReqM';
+import { AiPolicyNameRes } from './model/AiPolicyNameRes';
 import { AlarmRiskInfo } from './model/AlarmRiskInfo';
 import { AlarmWhiteListRequestInfo } from './model/AlarmWhiteListRequestInfo';
 import { AlarmWhiteListResponseInfo } from './model/AlarmWhiteListResponseInfo';
@@ -186,6 +205,9 @@ import { BatchUpdateHostResourceRequestBody } from './model/BatchUpdateHostResou
 import { BatchUpdateHostResourceResponse } from './model/BatchUpdateHostResourceResponse';
 import { BatchUpgradeAgentDaemonsetRequest } from './model/BatchUpgradeAgentDaemonsetRequest';
 import { BatchUpgradeAgentDaemonsetResponse } from './model/BatchUpgradeAgentDaemonsetResponse';
+import { BindAgentPolicyRequest } from './model/BindAgentPolicyRequest';
+import { BindAgentPolicyRequestInfo } from './model/BindAgentPolicyRequestInfo';
+import { BindAgentPolicyResponse } from './model/BindAgentPolicyResponse';
 import { BlockedIpRequestInfo } from './model/BlockedIpRequestInfo';
 import { BlockedIpResponseInfo } from './model/BlockedIpResponseInfo';
 import { BuildCommandRiskDetailListResponseInfo } from './model/BuildCommandRiskDetailListResponseInfo';
@@ -348,6 +370,11 @@ import { ContainerName } from './model/ContainerName';
 import { ContainerNodeInfo } from './model/ContainerNodeInfo';
 import { ContainerPortInfo } from './model/ContainerPortInfo';
 import { ContainerStatus } from './model/ContainerStatus';
+import { ContentReqM } from './model/ContentReqM';
+import { ContentRes } from './model/ContentRes';
+import { CopyAiPolicyGroupRequest } from './model/CopyAiPolicyGroupRequest';
+import { CopyAiPolicyGroupRequestInfo } from './model/CopyAiPolicyGroupRequestInfo';
+import { CopyAiPolicyGroupResponse } from './model/CopyAiPolicyGroupResponse';
 import { CopyBaselinePolicyGroupRequest } from './model/CopyBaselinePolicyGroupRequest';
 import { CopyBaselinePolicyGroupRequestBody } from './model/CopyBaselinePolicyGroupRequestBody';
 import { CopyBaselinePolicyGroupResponse } from './model/CopyBaselinePolicyGroupResponse';
@@ -434,6 +461,9 @@ import { DeleteAccountRequestInfo } from './model/DeleteAccountRequestInfo';
 import { DeleteAccountResponse } from './model/DeleteAccountResponse';
 import { DeleteAgentDaemonsetRequest } from './model/DeleteAgentDaemonsetRequest';
 import { DeleteAgentDaemonsetResponse } from './model/DeleteAgentDaemonsetResponse';
+import { DeleteAiPolicyGroupsRequest } from './model/DeleteAiPolicyGroupsRequest';
+import { DeleteAiPolicyGroupsRequestInfo } from './model/DeleteAiPolicyGroupsRequestInfo';
+import { DeleteAiPolicyGroupsResponse } from './model/DeleteAiPolicyGroupsResponse';
 import { DeleteAntivirusPolicyRequest } from './model/DeleteAntivirusPolicyRequest';
 import { DeleteAntivirusPolicyRequestInfo } from './model/DeleteAntivirusPolicyRequestInfo';
 import { DeleteAntivirusPolicyResponse } from './model/DeleteAntivirusPolicyResponse';
@@ -500,6 +530,7 @@ import { Deleted } from './model/Deleted';
 import { DeletedPolicy } from './model/DeletedPolicy';
 import { DeployTemplateInfoScheduleInfo } from './model/DeployTemplateInfoScheduleInfo';
 import { Description } from './model/Description';
+import { DetailIsUsedRes } from './model/DetailIsUsedRes';
 import { Dictionary } from './model/Dictionary';
 import { DownloadAssetFileRequest } from './model/DownloadAssetFileRequest';
 import { DownloadAssetFileRequestBody } from './model/DownloadAssetFileRequestBody';
@@ -742,8 +773,16 @@ import { ListAiComponentDetailRequest } from './model/ListAiComponentDetailReque
 import { ListAiComponentDetailResponse } from './model/ListAiComponentDetailResponse';
 import { ListAiComponentStatisticsRequest } from './model/ListAiComponentStatisticsRequest';
 import { ListAiComponentStatisticsResponse } from './model/ListAiComponentStatisticsResponse';
+import { ListAiPoliciesRequest } from './model/ListAiPoliciesRequest';
+import { ListAiPoliciesResponse } from './model/ListAiPoliciesResponse';
+import { ListAiPolicyDetailRequest } from './model/ListAiPolicyDetailRequest';
+import { ListAiPolicyDetailResponse } from './model/ListAiPolicyDetailResponse';
+import { ListAiPolicyGroupsRequest } from './model/ListAiPolicyGroupsRequest';
+import { ListAiPolicyGroupsResponse } from './model/ListAiPolicyGroupsResponse';
 import { ListAlarmConfigRequest } from './model/ListAlarmConfigRequest';
 import { ListAlarmConfigResponse } from './model/ListAlarmConfigResponse';
+import { ListAlarmWhiteListHostDetailRequest } from './model/ListAlarmWhiteListHostDetailRequest';
+import { ListAlarmWhiteListHostDetailResponse } from './model/ListAlarmWhiteListHostDetailResponse';
 import { ListAlarmWhiteListRequest } from './model/ListAlarmWhiteListRequest';
 import { ListAlarmWhiteListResponse } from './model/ListAlarmWhiteListResponse';
 import { ListAllRiskConfigCheckRulesRequest } from './model/ListAllRiskConfigCheckRulesRequest';
@@ -1298,6 +1337,8 @@ import { NextStartTime } from './model/NextStartTime';
 import { NodeDetectRiskResponseInfo } from './model/NodeDetectRiskResponseInfo';
 import { NodeLabelInfoResponse } from './model/NodeLabelInfoResponse';
 import { NotEffectHostNum } from './model/NotEffectHostNum';
+import { ObjectNumRes } from './model/ObjectNumRes';
+import { ObjectTypeRes } from './model/ObjectTypeRes';
 import { OccurTime } from './model/OccurTime';
 import { Offset } from './model/Offset';
 import { OperateAntiVirusResultRequestInfo } from './model/OperateAntiVirusResultRequestInfo';
@@ -1381,6 +1422,7 @@ import { ProtectInfoCoverAreaInfo } from './model/ProtectInfoCoverAreaInfo';
 import { ProtectInfoQuotaInfo } from './model/ProtectInfoQuotaInfo';
 import { ProtectStatus } from './model/ProtectStatus';
 import { ProtectionInfoRequestInfo } from './model/ProtectionInfoRequestInfo';
+import { ProtectionObjectRes } from './model/ProtectionObjectRes';
 import { ProtectionPolicyInfo } from './model/ProtectionPolicyInfo';
 import { ProtectionProxyInfoRequestInfo } from './model/ProtectionProxyInfoRequestInfo';
 import { ProtectionServeInfo } from './model/ProtectionServeInfo';
@@ -1440,6 +1482,12 @@ import { ResultDetailResponseInfo } from './model/ResultDetailResponseInfo';
 import { ResultFileResponseInfo } from './model/ResultFileResponseInfo';
 import { ResultId } from './model/ResultId';
 import { ResultResourceResponseInfo } from './model/ResultResourceResponseInfo';
+import { ResumePauseAiPoliciesRequest } from './model/ResumePauseAiPoliciesRequest';
+import { ResumePauseAiPoliciesRequestInfo } from './model/ResumePauseAiPoliciesRequestInfo';
+import { ResumePauseAiPoliciesResponse } from './model/ResumePauseAiPoliciesResponse';
+import { ResumePauseAiPolicyGroupsRequest } from './model/ResumePauseAiPolicyGroupsRequest';
+import { ResumePauseAiPolicyGroupsRequestInfo } from './model/ResumePauseAiPolicyGroupsRequestInfo';
+import { ResumePauseAiPolicyGroupsResponse } from './model/ResumePauseAiPolicyGroupsResponse';
 import { ResumePauseCustomRuleConfigRequest } from './model/ResumePauseCustomRuleConfigRequest';
 import { ResumePauseCustomRuleConfigResponse } from './model/ResumePauseCustomRuleConfigResponse';
 import { ResumePauseCustomRuleIdsRequestInfo } from './model/ResumePauseCustomRuleIdsRequestInfo';
@@ -1879,9 +1927,15 @@ import { UnknownNum } from './model/UnknownNum';
 import { UnprotectHostNum } from './model/UnprotectHostNum';
 import { UpdateAgentDaemonsetRequest } from './model/UpdateAgentDaemonsetRequest';
 import { UpdateAgentDaemonsetResponse } from './model/UpdateAgentDaemonsetResponse';
+import { UpdateAiPolicyDetailRequest } from './model/UpdateAiPolicyDetailRequest';
+import { UpdateAiPolicyDetailRequestInfo } from './model/UpdateAiPolicyDetailRequestInfo';
+import { UpdateAiPolicyDetailResponse } from './model/UpdateAiPolicyDetailResponse';
 import { UpdateAlarmConfigRequest } from './model/UpdateAlarmConfigRequest';
 import { UpdateAlarmConfigRequestInfo } from './model/UpdateAlarmConfigRequestInfo';
 import { UpdateAlarmConfigResponse } from './model/UpdateAlarmConfigResponse';
+import { UpdateAlarmWhiteListHostRequest } from './model/UpdateAlarmWhiteListHostRequest';
+import { UpdateAlarmWhiteListHostResponse } from './model/UpdateAlarmWhiteListHostResponse';
+import { UpdateAlarmWhiteListRequestInfo } from './model/UpdateAlarmWhiteListRequestInfo';
 import { UpdateBackupHostInfoRequest } from './model/UpdateBackupHostInfoRequest';
 import { UpdateBackupHostInfoResponse } from './model/UpdateBackupHostInfoResponse';
 import { UpdateBackupHostRequestInfo } from './model/UpdateBackupHostRequestInfo';
@@ -6468,6 +6522,183 @@ export class HssClient {
     }
 
     /**
+     * Agent绑定策略ID。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary Agent绑定策略ID，当前仅西南-贵阳一支持
+     * @param {BindAgentPolicyRequestInfo} bindAgentPolicyRequestBody Agent绑定策略请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public bindAgentPolicy(bindAgentPolicyRequest?: BindAgentPolicyRequest): Promise<BindAgentPolicyResponse> {
+        const options = ParamCreater().bindAgentPolicy(bindAgentPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 复制策略组。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 复制策略组，当前仅西南-贵阳一支持
+     * @param {CopyAiPolicyGroupRequestInfo} copyAiPolicyGroupRequestBody 复制策略组请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public copyAiPolicyGroup(copyAiPolicyGroupRequest?: CopyAiPolicyGroupRequest): Promise<CopyAiPolicyGroupResponse> {
+        const options = ParamCreater().copyAiPolicyGroup(copyAiPolicyGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除策略组。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除策略组，当前仅西南-贵阳一支持
+     * @param {DeleteAiPolicyGroupsRequestInfo} deleteAiPolicyGroupsRequestBody 删除策略组 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAiPolicyGroups(deleteAiPolicyGroupsRequest?: DeleteAiPolicyGroupsRequest): Promise<DeleteAiPolicyGroupsResponse> {
+        const options = ParamCreater().deleteAiPolicyGroups(deleteAiPolicyGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询策略列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询策略列表，当前仅西南-贵阳一支持
+     * @param {string} policyGroupId **参数解释**： 策略组ID **约束限制**： 不涉及 **取值范围**： 字符长度1-20位 **默认取值**： 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAiPolicies(listAiPoliciesRequest?: ListAiPoliciesRequest): Promise<ListAiPoliciesResponse> {
+        const options = ParamCreater().listAiPolicies(listAiPoliciesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询策略详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询策略详情，当前仅西南-贵阳一支持
+     * @param {string} policyId **参数解释**： 策略组ID **约束限制**： 必填 **取值范围**： 最小值0，最大值9223372036854775807 **默认取值**： 不涉及 
+     * @param {string} policyName **参数解释**： 策略名称 **约束限制**： 必填 **取值范围**： - 0: 意图行为一致性检测 - 1: 命令执行控制 - 2: 文件访问控制 - 3: 敏感信息检测 - 4: 角色限定  **默认取值**： 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAiPolicyDetail(listAiPolicyDetailRequest?: ListAiPolicyDetailRequest): Promise<ListAiPolicyDetailResponse> {
+        const options = ParamCreater().listAiPolicyDetail(listAiPolicyDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询策略组列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询策略组列表，当前仅西南-贵阳一支持
+     * @param {string} [groupId] **参数解释**: 策略组ID **约束限制**: 不涉及 **取值范围**: 字符长度1-20位 **默认取值**: 不涉及 
+     * @param {string} [groupName] **参数解释**： 策略组名称 **约束限制**： 不涉及 **取值范围**： 字符长度1-128位 **默认取值**： 不涉及 
+     * @param {string} [protectionObject] **参数解释**： 防护对象 **约束限制**： 不涉及 **取值范围**： 字符长度1-128位 **默认取值**： 不涉及 
+     * @param {number} [objectType] **参数解释**: 对象类型 **约束限制**: 不涉及 **取值范围**: - 0：云服务 - 1：三方  **默认取值**: 不涉及 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAiPolicyGroups(listAiPolicyGroupsRequest?: ListAiPolicyGroupsRequest): Promise<ListAiPolicyGroupsResponse> {
+        const options = ParamCreater().listAiPolicyGroups(listAiPolicyGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 启用、停用策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启用、停用策略，当前仅西南-贵阳一支持
+     * @param {ResumePauseAiPoliciesRequestInfo} resumePauseAiPoliciesRequestBody 启用、停用策略请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resumePauseAiPolicies(resumePauseAiPoliciesRequest?: ResumePauseAiPoliciesRequest): Promise<ResumePauseAiPoliciesResponse> {
+        const options = ParamCreater().resumePauseAiPolicies(resumePauseAiPoliciesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 启用、停用策略组。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启用、停用策略组，当前仅西南-贵阳一支持
+     * @param {ResumePauseAiPolicyGroupsRequestInfo} resumePauseAiPolicyGroupsRequestBody 启用、停用策略组请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resumePauseAiPolicyGroups(resumePauseAiPolicyGroupsRequest?: ResumePauseAiPolicyGroupsRequest): Promise<ResumePauseAiPolicyGroupsResponse> {
+        const options = ParamCreater().resumePauseAiPolicyGroups(resumePauseAiPolicyGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改策略详情，该接口非常复杂，不建议通过API调用，推荐使用华为云console页面修改。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改策略详情，当前仅西南-贵阳一支持
+     * @param {UpdateAiPolicyDetailRequestInfo} updateAiPolicyDetailRequestBody 修改策略详情 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAiPolicyDetail(updateAiPolicyDetailRequest?: UpdateAiPolicyDetailRequest): Promise<UpdateAiPolicyDetailResponse> {
+        const options = ParamCreater().updateAiPolicyDetail(updateAiPolicyDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改“病毒查杀按次计费”开关状态。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -9101,6 +9332,48 @@ export class HssClient {
      */
     public updateCustomRuleConfig(updateCustomRuleConfigRequest?: UpdateCustomRuleConfigRequest): Promise<UpdateCustomRuleConfigResponse> {
         const options = ParamCreater().updateCustomRuleConfig(updateCustomRuleConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询告警白名单生详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询告警白名单生详情
+     * @param {string} ruleId **参数解释**： 规则ID **约束限制**： 必填 **取值范围**： 字符长度1-36位 **默认取值**： 不涉及 
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAlarmWhiteListHostDetail(listAlarmWhiteListHostDetailRequest?: ListAlarmWhiteListHostDetailRequest): Promise<ListAlarmWhiteListHostDetailResponse> {
+        const options = ParamCreater().listAlarmWhiteListHostDetail(listAlarmWhiteListHostDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 编辑告警白名单主机相关信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 编辑告警白名单生效主机
+     * @param {UpdateAlarmWhiteListRequestInfo} updateAlarmWhiteListHostRequestBody 修改告警白名单生效主机 
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAlarmWhiteListHost(updateAlarmWhiteListHostRequest?: UpdateAlarmWhiteListHostRequest): Promise<UpdateAlarmWhiteListHostResponse> {
+        const options = ParamCreater().updateAlarmWhiteListHost(updateAlarmWhiteListHostRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -12601,8 +12874,8 @@ export class HssClient {
      * @param {string} [assetValue] **参数解释**: 资产重要性 **约束限制**: 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**: 不涉及 
      * @param {string} [handleMethod] **参数解释**: 处理方式 **约束限制**: 不涉及 **取值范围**: 处理方式，包含如下:   - mark_as_handled：手动处理   - ignore：忽略   - add_to_alarm_whitelist：加入告警白名单   - manual_isolate_and_kill：手动隔离查杀   - auto_isolate_and_kill：自动隔离查杀   - unhandle：取消手动处理   - do_not_ignore：取消忽略   - remove_from_alarm_whitelist：删除告警白名单   - do_not_isolate_or_kill：取消隔离文件 **默认取值**: 不涉及 
      * @param {string} [userName] **参数解释**: 用户名 **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
-     * @param {number} [eventType] **参数解释**: 事件类型 **约束限制**: 不涉及 **取值范围**: 0（病毒查杀事件）、1（恶意文件处置事件） **默认取值**: 不涉及 
      * @param {string} [sortDir] **参数解释**: 排序的顺序 **约束限制**: 不涉及 **取值范围**:   - asc：正序   - desc：倒序  **默认取值**: 正序排序 
+     * @param {number} [eventType] **参数解释**: 事件类型 **约束限制**: 不涉及 **取值范围**: 0（病毒查杀事件）、1（恶意文件处置事件） **默认取值**: 不涉及 
      * @param {string} [sortKey] **参数解释**: 排序字段 **约束限制**: 不涉及 **取值范围**: handle_time（处置时间） **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -28096,6 +28369,396 @@ export const ParamCreater = function () {
         },
     
         /**
+         * Agent绑定策略ID。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        bindAgentPolicy(bindAgentPolicyRequest?: BindAgentPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/ai/agent/policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (bindAgentPolicyRequest !== null && bindAgentPolicyRequest !== undefined) {
+                if (bindAgentPolicyRequest instanceof BindAgentPolicyRequest) {
+                    body = bindAgentPolicyRequest.body
+                } else {
+                    body = bindAgentPolicyRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 复制策略组。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        copyAiPolicyGroup(copyAiPolicyGroupRequest?: CopyAiPolicyGroupRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/ai/policy/groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (copyAiPolicyGroupRequest !== null && copyAiPolicyGroupRequest !== undefined) {
+                if (copyAiPolicyGroupRequest instanceof CopyAiPolicyGroupRequest) {
+                    body = copyAiPolicyGroupRequest.body
+                } else {
+                    body = copyAiPolicyGroupRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除策略组。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAiPolicyGroups(deleteAiPolicyGroupsRequest?: DeleteAiPolicyGroupsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/{project_id}/ai/policy/groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deleteAiPolicyGroupsRequest !== null && deleteAiPolicyGroupsRequest !== undefined) {
+                if (deleteAiPolicyGroupsRequest instanceof DeleteAiPolicyGroupsRequest) {
+                    body = deleteAiPolicyGroupsRequest.body
+                } else {
+                    body = deleteAiPolicyGroupsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询策略列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAiPolicies(listAiPoliciesRequest?: ListAiPoliciesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/ai/policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let policyGroupId;
+
+            if (listAiPoliciesRequest !== null && listAiPoliciesRequest !== undefined) {
+                if (listAiPoliciesRequest instanceof ListAiPoliciesRequest) {
+                    policyGroupId = listAiPoliciesRequest.policyGroupId;
+                } else {
+                    policyGroupId = listAiPoliciesRequest['policy_group_id'];
+                }
+            }
+
+        
+            if (policyGroupId === null || policyGroupId === undefined) {
+                throw new RequiredError('policyGroupId','Required parameter policyGroupId was null or undefined when calling listAiPolicies.');
+            }
+            if (policyGroupId !== null && policyGroupId !== undefined) {
+                localVarQueryParameter['policy_group_id'] = policyGroupId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询策略详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAiPolicyDetail(listAiPolicyDetailRequest?: ListAiPolicyDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/ai/policy/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let policyId;
+            
+            let policyName;
+
+            if (listAiPolicyDetailRequest !== null && listAiPolicyDetailRequest !== undefined) {
+                if (listAiPolicyDetailRequest instanceof ListAiPolicyDetailRequest) {
+                    policyId = listAiPolicyDetailRequest.policyId;
+                    policyName = listAiPolicyDetailRequest.policyName;
+                } else {
+                    policyId = listAiPolicyDetailRequest['policy_id'];
+                    policyName = listAiPolicyDetailRequest['policy_name'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+                throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling listAiPolicyDetail.');
+            }
+            if (policyId !== null && policyId !== undefined) {
+                localVarQueryParameter['policy_id'] = policyId;
+            }
+            if (policyName === null || policyName === undefined) {
+                throw new RequiredError('policyName','Required parameter policyName was null or undefined when calling listAiPolicyDetail.');
+            }
+            if (policyName !== null && policyName !== undefined) {
+                localVarQueryParameter['policy_name'] = policyName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询策略组列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAiPolicyGroups(listAiPolicyGroupsRequest?: ListAiPolicyGroupsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/ai/policy/groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let groupId;
+            
+            let groupName;
+            
+            let protectionObject;
+            
+            let objectType;
+            
+            let offset;
+            
+            let limit;
+
+            if (listAiPolicyGroupsRequest !== null && listAiPolicyGroupsRequest !== undefined) {
+                if (listAiPolicyGroupsRequest instanceof ListAiPolicyGroupsRequest) {
+                    groupId = listAiPolicyGroupsRequest.groupId;
+                    groupName = listAiPolicyGroupsRequest.groupName;
+                    protectionObject = listAiPolicyGroupsRequest.protectionObject;
+                    objectType = listAiPolicyGroupsRequest.objectType;
+                    offset = listAiPolicyGroupsRequest.offset;
+                    limit = listAiPolicyGroupsRequest.limit;
+                } else {
+                    groupId = listAiPolicyGroupsRequest['group_id'];
+                    groupName = listAiPolicyGroupsRequest['group_name'];
+                    protectionObject = listAiPolicyGroupsRequest['protection_object'];
+                    objectType = listAiPolicyGroupsRequest['object_type'];
+                    offset = listAiPolicyGroupsRequest['offset'];
+                    limit = listAiPolicyGroupsRequest['limit'];
+                }
+            }
+
+        
+            if (groupId !== null && groupId !== undefined) {
+                localVarQueryParameter['group_id'] = groupId;
+            }
+            if (groupName !== null && groupName !== undefined) {
+                localVarQueryParameter['group_name'] = groupName;
+            }
+            if (protectionObject !== null && protectionObject !== undefined) {
+                localVarQueryParameter['protection_object'] = protectionObject;
+            }
+            if (objectType !== null && objectType !== undefined) {
+                localVarQueryParameter['object_type'] = objectType;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 启用、停用策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resumePauseAiPolicies(resumePauseAiPoliciesRequest?: ResumePauseAiPoliciesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/ai/policy/operate",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (resumePauseAiPoliciesRequest !== null && resumePauseAiPoliciesRequest !== undefined) {
+                if (resumePauseAiPoliciesRequest instanceof ResumePauseAiPoliciesRequest) {
+                    body = resumePauseAiPoliciesRequest.body
+                } else {
+                    body = resumePauseAiPoliciesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 启用、停用策略组。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resumePauseAiPolicyGroups(resumePauseAiPolicyGroupsRequest?: ResumePauseAiPolicyGroupsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/ai/policy/groups/operate",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (resumePauseAiPolicyGroupsRequest !== null && resumePauseAiPolicyGroupsRequest !== undefined) {
+                if (resumePauseAiPolicyGroupsRequest instanceof ResumePauseAiPolicyGroupsRequest) {
+                    body = resumePauseAiPolicyGroupsRequest.body
+                } else {
+                    body = resumePauseAiPolicyGroupsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改策略详情，该接口非常复杂，不建议通过API调用，推荐使用华为云console页面修改。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAiPolicyDetail(updateAiPolicyDetailRequest?: UpdateAiPolicyDetailRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/{project_id}/ai/policy/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateAiPolicyDetailRequest !== null && updateAiPolicyDetailRequest !== undefined) {
+                if (updateAiPolicyDetailRequest instanceof UpdateAiPolicyDetailRequest) {
+                    body = updateAiPolicyDetailRequest.body
+                } else {
+                    body = updateAiPolicyDetailRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改“病毒查杀按次计费”开关状态。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -35606,6 +36269,113 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询告警白名单生详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAlarmWhiteListHostDetail(listAlarmWhiteListHostDetailRequest?: ListAlarmWhiteListHostDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/event/white-list/rule/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let ruleId;
+            
+            let region;
+            
+            let enterpriseProjectId;
+
+            if (listAlarmWhiteListHostDetailRequest !== null && listAlarmWhiteListHostDetailRequest !== undefined) {
+                if (listAlarmWhiteListHostDetailRequest instanceof ListAlarmWhiteListHostDetailRequest) {
+                    ruleId = listAlarmWhiteListHostDetailRequest.ruleId;
+                    region = listAlarmWhiteListHostDetailRequest.region;
+                    enterpriseProjectId = listAlarmWhiteListHostDetailRequest.enterpriseProjectId;
+                } else {
+                    ruleId = listAlarmWhiteListHostDetailRequest['rule_id'];
+                    region = listAlarmWhiteListHostDetailRequest['region'];
+                    enterpriseProjectId = listAlarmWhiteListHostDetailRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (ruleId === null || ruleId === undefined) {
+                throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling listAlarmWhiteListHostDetail.');
+            }
+            if (ruleId !== null && ruleId !== undefined) {
+                localVarQueryParameter['rule_id'] = ruleId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 编辑告警白名单主机相关信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAlarmWhiteListHost(updateAlarmWhiteListHostRequest?: UpdateAlarmWhiteListHostRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/{project_id}/event/white-list/alarm",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let region;
+            
+            let enterpriseProjectId;
+
+            if (updateAlarmWhiteListHostRequest !== null && updateAlarmWhiteListHostRequest !== undefined) {
+                if (updateAlarmWhiteListHostRequest instanceof UpdateAlarmWhiteListHostRequest) {
+                    body = updateAlarmWhiteListHostRequest.body
+                    region = updateAlarmWhiteListHostRequest.region;
+                    enterpriseProjectId = updateAlarmWhiteListHostRequest.enterpriseProjectId;
+                } else {
+                    body = updateAlarmWhiteListHostRequest['body'];
+                    region = updateAlarmWhiteListHostRequest['region'];
+                    enterpriseProjectId = updateAlarmWhiteListHostRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -46250,9 +47020,9 @@ export const ParamCreater = function () {
             
             let userName;
             
-            let eventType;
-            
             let sortDir;
+            
+            let eventType;
             
             let sortKey;
 
@@ -46272,8 +47042,8 @@ export const ParamCreater = function () {
                     assetValue = listAntivirusHandleHistoryRequest.assetValue;
                     handleMethod = listAntivirusHandleHistoryRequest.handleMethod;
                     userName = listAntivirusHandleHistoryRequest.userName;
-                    eventType = listAntivirusHandleHistoryRequest.eventType;
                     sortDir = listAntivirusHandleHistoryRequest.sortDir;
+                    eventType = listAntivirusHandleHistoryRequest.eventType;
                     sortKey = listAntivirusHandleHistoryRequest.sortKey;
                 } else {
                     offset = listAntivirusHandleHistoryRequest['offset'];
@@ -46290,8 +47060,8 @@ export const ParamCreater = function () {
                     assetValue = listAntivirusHandleHistoryRequest['asset_value'];
                     handleMethod = listAntivirusHandleHistoryRequest['handle_method'];
                     userName = listAntivirusHandleHistoryRequest['user_name'];
-                    eventType = listAntivirusHandleHistoryRequest['event_type'];
                     sortDir = listAntivirusHandleHistoryRequest['sort_dir'];
+                    eventType = listAntivirusHandleHistoryRequest['event_type'];
                     sortKey = listAntivirusHandleHistoryRequest['sort_key'];
                 }
             }
@@ -46342,11 +47112,11 @@ export const ParamCreater = function () {
             if (userName !== null && userName !== undefined) {
                 localVarQueryParameter['user_name'] = userName;
             }
-            if (eventType !== null && eventType !== undefined) {
-                localVarQueryParameter['event_type'] = eventType;
-            }
             if (sortDir !== null && sortDir !== undefined) {
                 localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (eventType !== null && eventType !== undefined) {
+                localVarQueryParameter['event_type'] = eventType;
             }
             if (sortKey !== null && sortKey !== undefined) {
                 localVarQueryParameter['sort_key'] = sortKey;

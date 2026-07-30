@@ -1,34 +1,34 @@
 
 
 export class UpdateServerlessComputeAbilityPolicy {
-    private 'min_vcpus'?: number;
-    private 'max_vcpus'?: number;
+    private 'min_vcpus'?: string;
+    private 'max_vcpus'?: string;
     private 'need_update_nodes_compute_ability'?: boolean;
     private 'scale_out_switch'?: boolean;
     private 'max_readonly_node_count'?: number;
     private 'min_readonly_node_count'?: number;
-    public constructor(minVcpus?: number, maxVcpus?: number) { 
+    public constructor(minVcpus?: string, maxVcpus?: string) { 
         this['min_vcpus'] = minVcpus;
         this['max_vcpus'] = maxVcpus;
     }
-    public withMinVcpus(minVcpus: number): UpdateServerlessComputeAbilityPolicy {
+    public withMinVcpus(minVcpus: string): UpdateServerlessComputeAbilityPolicy {
         this['min_vcpus'] = minVcpus;
         return this;
     }
-    public set minVcpus(minVcpus: number  | undefined) {
+    public set minVcpus(minVcpus: string  | undefined) {
         this['min_vcpus'] = minVcpus;
     }
-    public get minVcpus(): number | undefined {
+    public get minVcpus(): string | undefined {
         return this['min_vcpus'];
     }
-    public withMaxVcpus(maxVcpus: number): UpdateServerlessComputeAbilityPolicy {
+    public withMaxVcpus(maxVcpus: string): UpdateServerlessComputeAbilityPolicy {
         this['max_vcpus'] = maxVcpus;
         return this;
     }
-    public set maxVcpus(maxVcpus: number  | undefined) {
+    public set maxVcpus(maxVcpus: string  | undefined) {
         this['max_vcpus'] = maxVcpus;
     }
-    public get maxVcpus(): number | undefined {
+    public get maxVcpus(): string | undefined {
         return this['max_vcpus'];
     }
     public withNeedUpdateNodesComputeAbility(needUpdateNodesComputeAbility: boolean): UpdateServerlessComputeAbilityPolicy {

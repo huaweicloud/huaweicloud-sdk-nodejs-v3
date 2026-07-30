@@ -113,6 +113,7 @@ export * from './model/FlexibleOriginsEngine';
 export * from './model/FlowLimitStrategy';
 export * from './model/ForceRedirect';
 export * from './model/ForceRedirectConfig';
+export * from './model/FullUpdateRuleRequest';
 export * from './model/FullUpdateRulesRequest';
 export * from './model/Hsts';
 export * from './model/HstsQuery';

@@ -7,6 +7,7 @@ import { AcceptScheduledEventRequest } from './model/AcceptScheduledEventRequest
 import { AcceptScheduledEventResponse } from './model/AcceptScheduledEventResponse';
 import { AdvancedConfig } from './model/AdvancedConfig';
 import { Affinity } from './model/Affinity';
+import { AffinityOS } from './model/AffinityOS';
 import { AffinityResponse } from './model/AffinityResponse';
 import { AffinityRule } from './model/AffinityRule';
 import { AffinityType } from './model/AffinityType';
@@ -749,6 +750,7 @@ import { RateLimitResponse } from './model/RateLimitResponse';
 import { RebootDevServerRequest } from './model/RebootDevServerRequest';
 import { RebootDevServerResponse } from './model/RebootDevServerResponse';
 import { RecoverRecord } from './model/RecoverRecord';
+import { RedeployConfig } from './model/RedeployConfig';
 import { RegisterImageRequest } from './model/RegisterImageRequest';
 import { RegisterImageResponse } from './model/RegisterImageResponse';
 import { ReinstallDevServerOSRequest } from './model/ReinstallDevServerOSRequest';
@@ -1250,7 +1252,7 @@ export class ModelArtsClient {
      *
      * @summary 批量绑定应用密钥
      * @param {string} serviceId **参数解释：** 服务ID，在[创建服务](CreateInferService.xml)时即可在返回体中获取，也可通过[查询服务列表](ListInferServices.xml)获取当前用户拥有的服务，其中service_id字段即为服务ID。 **约束限制：** 不涉及 **取值范围：** 服务ID **默认取值：** 不涉及
-     * @param {Array<BatchBindApiKeyRequestKeyIds>} keyIds **参数解释：** 请求批量绑定的api-key的id数组。 **约束限制：** 请求批量绑定api-key的id个数不超过10个。
+     * @param {BatchBindApiKeyRequest} batchBindInferApiKeysRequestBody **参数解释：** 给服务批量绑定api-key的请求体。 **约束限制：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1488,7 +1490,7 @@ export class ModelArtsClient {
      *
      * @summary 批量解绑应用密钥
      * @param {string} serviceId **参数解释：** 服务ID，在[创建服务](CreateInferService.xml)时即可在返回体中获取，也可通过[查询服务列表](ListInferServices.xml)获取当前用户拥有的服务，其中service_id字段即为服务ID。 **约束限制：** 不涉及。 **取值范围：** 服务ID。 **默认取值：** 不涉及。
-     * @param {Array<BatchUnBindApiKeyRequestKeyIds>} keyIds **参数解释：** 请求批量解绑的api-key的id数组。 **约束限制：** 请求批量解绑api-key的id个数不超过10个。
+     * @param {BatchUnBindApiKeyRequest} batchUnbindInferApiKeysRequestBody **参数解释：** 给服务批量解绑api-key的请求体。 **约束限制：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3190,7 +3192,7 @@ export class ModelArtsClient {
      * @summary 查询训练实验列表
      * @param {string} [workspaceId] 工作空间ID。[获取方法请参见[查询工作空间列表](ListWorkspace.xml)。](tag:hc)未创建工作空间时默认值为“0”，存在创建并使用的工作空间，以实际取值为准。
      * @param {number} [limit] 返回的数据条目数。
-     * @param {number} [offset] 数据条目偏移量。
+     * @param {number} [offset] **参数解释**：分页列表的起始页。 **约束限制**：最小为0。例如设置为0，则表示从第一页开始查询。 **取值范围**：不涉及。 **默认取值**：默认为0。
      * @param {string} [sortBy] **参数解释**：排序依据字段，例如sort_by&#x3D;update_time，则表示以条目的更新时间进行排序。 **约束限制**：不涉及。 **取值范围**： - update_time：更新时间。 - name：实验名称。 - create_time：创建时间。 **默认取值**：不涉及。
      * @param {'desc' | 'asc'} [order] 排序的方式。该字段必须与sort_by同时使用。 缺省值: desc 枚举值： - asc：表示升序排列， - desc：降序排列。
      * @param {*} [options] Override http request option.
@@ -3212,7 +3214,7 @@ export class ModelArtsClient {
      *
      * @summary 获取训练作业事件列表
      * @param {string} trainingJobId 训练作业ID。获取方法请参见[查询训练作业列表](ListTrainingJobs.xml)。
-     * @param {number} [offset] 数据条目偏移量。
+     * @param {number} [offset] **参数解释**：分页列表的起始页。 **约束限制**：最小为0。例如设置为0，则表示从第一页开始查询。 **取值范围**：不涉及。 **默认取值**：默认为0。
      * @param {number} [limit] 指定每一页返回的最大条目数，取值范围[1,100]，默认为50。
      * @param {'asc' | 'desc'} [order] instance order
      * @param {string} [startTime] 开始时间，需要与结束时间一起传入。
@@ -3589,7 +3591,7 @@ export class ModelArtsClient {
      * @summary 查询超参搜索所有trial的结果
      * @param {string} trainingJobId 训练作业ID。获取方法请参见[查询训练作业列表](ListTrainingJobs.xml)。
      * @param {number} [limit] 返回的数据条目数。
-     * @param {number} [offset] 数据条目偏移量。
+     * @param {number} [offset] **参数解释**：分页列表的起始页。 **约束限制**：最小为0。例如设置为0，则表示从第一页开始查询。 **取值范围**：不涉及。 **默认取值**：默认为0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6961,7 +6963,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v2/{project_id}/services/{service_id}/api-keys/batch-bind",
-                contentType: "application/x-www-form-urlencoded",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -6969,19 +6971,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            const localVarFormParams = new URLSearchParams();
+            let body: any;
             
             let serviceId;
-            let keyIds;
-            
 
             if (batchBindInferApiKeysRequest !== null && batchBindInferApiKeysRequest !== undefined) {
                 if (batchBindInferApiKeysRequest instanceof BatchBindInferApiKeysRequest) {
                     serviceId = batchBindInferApiKeysRequest.serviceId;
-                    keyIds = batchBindInferApiKeysRequest.body?.keyIds;
+                    body = batchBindInferApiKeysRequest.body
                 } else {
                     serviceId = batchBindInferApiKeysRequest['service_id'];
-                    keyIds = batchBindInferApiKeysRequest['body']['keyIds'];
+                    body = batchBindInferApiKeysRequest['body'];
                 }
             }
 
@@ -6989,14 +6989,12 @@ export const ParamCreater = function () {
             if (serviceId === null || serviceId === undefined) {
             throw new RequiredError('serviceId','Required parameter serviceId was null or undefined when calling batchBindInferApiKeys.');
             }
-            if (keyIds === null || keyIds === undefined) {
-            throw new RequiredError('keyIds','Required parameter keyIds was null or undefined when calling batchBindInferApiKeys.');
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
-            if (keyIds) {
-            
-                localVarFormParams.set('key_ids', keyIds.join(COLLECTION_FORMATS.csv));
-            }
-            options.data = localVarFormParams.toString();
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'service_id': serviceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -7501,7 +7499,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v2/{project_id}/services/{service_id}/api-keys/batch-unbind",
-                contentType: "application/x-www-form-urlencoded",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -7509,19 +7507,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            const localVarFormParams = new URLSearchParams();
+            let body: any;
             
             let serviceId;
-            let keyIds;
-            
 
             if (batchUnbindInferApiKeysRequest !== null && batchUnbindInferApiKeysRequest !== undefined) {
                 if (batchUnbindInferApiKeysRequest instanceof BatchUnbindInferApiKeysRequest) {
                     serviceId = batchUnbindInferApiKeysRequest.serviceId;
-                    keyIds = batchUnbindInferApiKeysRequest.body?.keyIds;
+                    body = batchUnbindInferApiKeysRequest.body
                 } else {
                     serviceId = batchUnbindInferApiKeysRequest['service_id'];
-                    keyIds = batchUnbindInferApiKeysRequest['body']['keyIds'];
+                    body = batchUnbindInferApiKeysRequest['body'];
                 }
             }
 
@@ -7529,14 +7525,12 @@ export const ParamCreater = function () {
             if (serviceId === null || serviceId === undefined) {
             throw new RequiredError('serviceId','Required parameter serviceId was null or undefined when calling batchUnbindInferApiKeys.');
             }
-            if (keyIds === null || keyIds === undefined) {
-            throw new RequiredError('keyIds','Required parameter keyIds was null or undefined when calling batchUnbindInferApiKeys.');
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
-            if (keyIds) {
-            
-                localVarFormParams.set('key_ids', keyIds.join(COLLECTION_FORMATS.csv));
-            }
-            options.data = localVarFormParams.toString();
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'service_id': serviceId, };
             options.headers = localVarHeaderParameter;
             return options;

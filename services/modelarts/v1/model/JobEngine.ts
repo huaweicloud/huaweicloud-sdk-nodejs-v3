@@ -6,6 +6,7 @@ export class JobEngine {
     private 'engine_version'?: string;
     private 'image_url'?: string;
     private 'install_sys_packages'?: boolean;
+    private 'image_repo_id'?: string;
     public constructor() { 
     }
     public withEngineId(engineId: string): JobEngine {
@@ -57,5 +58,15 @@ export class JobEngine {
     }
     public get installSysPackages(): boolean | undefined {
         return this['install_sys_packages'];
+    }
+    public withImageRepoId(imageRepoId: string): JobEngine {
+        this['image_repo_id'] = imageRepoId;
+        return this;
+    }
+    public set imageRepoId(imageRepoId: string  | undefined) {
+        this['image_repo_id'] = imageRepoId;
+    }
+    public get imageRepoId(): string | undefined {
+        return this['image_repo_id'];
     }
 }

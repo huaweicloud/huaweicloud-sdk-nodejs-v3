@@ -2,20 +2,33 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AssociatedResourceRule } from './model/AssociatedResourceRule';
+import { AssociatedResourceSetting } from './model/AssociatedResourceSetting';
+import { ChangeAssociatedResourceOpenStatusRequest } from './model/ChangeAssociatedResourceOpenStatusRequest';
+import { ChangeAssociatedResourceOpenStatusResponse } from './model/ChangeAssociatedResourceOpenStatusResponse';
+import { CreateAssociatedResourceRulesRequest } from './model/CreateAssociatedResourceRulesRequest';
+import { CreateAssociatedResourceRulesResponse } from './model/CreateAssociatedResourceRulesResponse';
 import { CreatePredefineTagsRequest } from './model/CreatePredefineTagsRequest';
 import { CreatePredefineTagsResponse } from './model/CreatePredefineTagsResponse';
 import { CreateResourceTagRequest } from './model/CreateResourceTagRequest';
 import { CreateResourceTagResponse } from './model/CreateResourceTagResponse';
 import { CreateTagRequest } from './model/CreateTagRequest';
+import { DeleteAssociatedResourceRuleRequest } from './model/DeleteAssociatedResourceRuleRequest';
+import { DeleteAssociatedResourceRuleResponse } from './model/DeleteAssociatedResourceRuleResponse';
 import { DeletePredefineTagsRequest } from './model/DeletePredefineTagsRequest';
 import { DeletePredefineTagsResponse } from './model/DeletePredefineTagsResponse';
 import { DeleteResourceTagRequest } from './model/DeleteResourceTagRequest';
 import { DeleteResourceTagResponse } from './model/DeleteResourceTagResponse';
 import { DeleteTagRequest } from './model/DeleteTagRequest';
+import { ErrorInfo } from './model/ErrorInfo';
 import { Errors } from './model/Errors';
 import { Link } from './model/Link';
 import { ListApiVersionsRequest } from './model/ListApiVersionsRequest';
 import { ListApiVersionsResponse } from './model/ListApiVersionsResponse';
+import { ListAssociatedResourceRulesRequest } from './model/ListAssociatedResourceRulesRequest';
+import { ListAssociatedResourceRulesResponse } from './model/ListAssociatedResourceRulesResponse';
+import { ListAssociatedResourceSettingsRequest } from './model/ListAssociatedResourceSettingsRequest';
+import { ListAssociatedResourceSettingsResponse } from './model/ListAssociatedResourceSettingsResponse';
 import { ListPredefineTagsRequest } from './model/ListPredefineTagsRequest';
 import { ListPredefineTagsResponse } from './model/ListPredefineTagsResponse';
 import { ListProvidersRequest } from './model/ListProvidersRequest';
@@ -29,21 +42,28 @@ import { ListTagValuesResponse } from './model/ListTagValuesResponse';
 import { ListTagsRequest } from './model/ListTagsRequest';
 import { ListTagsResponse } from './model/ListTagsResponse';
 import { ModifyPrefineTag } from './model/ModifyPrefineTag';
+import { PageInfo } from './model/PageInfo';
 import { PageInfoTagKeys } from './model/PageInfoTagKeys';
 import { PageInfoTagValues } from './model/PageInfoTagValues';
 import { PredefineTag } from './model/PredefineTag';
 import { PredefineTagRequest } from './model/PredefineTagRequest';
 import { ProviderResponseBody } from './model/ProviderResponseBody';
+import { ReqAssociatedResourceOpenStatus } from './model/ReqAssociatedResourceOpenStatus';
+import { ReqAssociatedResourceRule } from './model/ReqAssociatedResourceRule';
+import { ReqCreateAssociatedResourceRules } from './model/ReqCreateAssociatedResourceRules';
 import { ReqCreatePredefineTag } from './model/ReqCreatePredefineTag';
 import { ReqCreateTag } from './model/ReqCreateTag';
 import { ReqDeletePredefineTag } from './model/ReqDeletePredefineTag';
 import { ReqDeleteTag } from './model/ReqDeleteTag';
+import { ReqUpdateAssociatedResourceRules } from './model/ReqUpdateAssociatedResourceRules';
 import { ResourceTagBody } from './model/ResourceTagBody';
 import { ResourceTypeBody } from './model/ResourceTypeBody';
 import { Resources } from './model/Resources';
 import { ResqTagResource } from './model/ResqTagResource';
 import { ShowApiVersionRequest } from './model/ShowApiVersionRequest';
 import { ShowApiVersionResponse } from './model/ShowApiVersionResponse';
+import { ShowAssociatedResourceOpenStatusRequest } from './model/ShowAssociatedResourceOpenStatusRequest';
+import { ShowAssociatedResourceOpenStatusResponse } from './model/ShowAssociatedResourceOpenStatusResponse';
 import { ShowResourceTagRequest } from './model/ShowResourceTagRequest';
 import { ShowResourceTagResponse } from './model/ShowResourceTagResponse';
 import { ShowTagQuotaRequest } from './model/ShowTagQuotaRequest';
@@ -55,6 +75,8 @@ import { TagListErrorItem } from './model/TagListErrorItem';
 import { TagQuota } from './model/TagQuota';
 import { TagResponse } from './model/TagResponse';
 import { TagVo } from './model/TagVo';
+import { UpdateAssociatedResourceRulesRequest } from './model/UpdateAssociatedResourceRulesRequest';
+import { UpdateAssociatedResourceRulesResponse } from './model/UpdateAssociatedResourceRulesResponse';
 import { UpdatePredefineTagsRequest } from './model/UpdatePredefineTagsRequest';
 import { UpdatePredefineTagsResponse } from './model/UpdatePredefineTagsResponse';
 import { VersionDetail } from './model/VersionDetail';
@@ -74,6 +96,44 @@ export class TmsClient {
         return __dirname;
     }
 
+
+    /**
+     * 开通或关闭关联资源标签继承能力
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开通或关闭关联资源标签继承能力
+     * @param {ReqAssociatedResourceOpenStatus} changeAssociatedResourceOpenStatusRequestBody 开通或者关闭请求信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeAssociatedResourceOpenStatus(changeAssociatedResourceOpenStatusRequest?: ChangeAssociatedResourceOpenStatusRequest): Promise<ChangeAssociatedResourceOpenStatusResponse> {
+        const options = ParamCreater().changeAssociatedResourceOpenStatus(changeAssociatedResourceOpenStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 按照规则和region来批量启用规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量启用规则
+     * @param {ReqCreateAssociatedResourceRules} createAssociatedResourceRulesRequestBody 启用的规则信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAssociatedResourceRules(createAssociatedResourceRulesRequest?: CreateAssociatedResourceRulesRequest): Promise<CreateAssociatedResourceRulesResponse> {
+        const options = ParamCreater().createAssociatedResourceRules(createAssociatedResourceRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 用于创建预定标签。用户创建预定义标签后，可以使用预定义标签来给资源创建标签。该接口支持幂等特性和处理批量数据。
@@ -106,6 +166,26 @@ export class TmsClient {
      */
     public createResourceTag(createResourceTagRequest?: CreateResourceTagRequest): Promise<CreateResourceTagResponse> {
         const options = ParamCreater().createResourceTag(createResourceTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 通过指定setting_name和region_id来关闭指定的规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关闭规则
+     * @param {string} settingName 规则的配置名称。
+     * @param {Array<string>} regionId 要关闭的规则所在的region集合。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAssociatedResourceRule(deleteAssociatedResourceRuleRequest?: DeleteAssociatedResourceRuleRequest): Promise<DeleteAssociatedResourceRuleResponse> {
+        const options = ParamCreater().deleteAssociatedResourceRule(deleteAssociatedResourceRuleRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -162,6 +242,49 @@ export class TmsClient {
      */
     public listApiVersions(listApiVersionsRequest?: ListApiVersionsRequest): Promise<ListApiVersionsResponse> {
         const options = ParamCreater().listApiVersions();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询当前规则列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询当前规则列表
+     * @param {number} [limit] 查询记录数。
+     * @param {string} [marker] 分页位置标识（索引）。从marker指定索引的下一条数据开始查询。
+     * @param {string} [settingName] 规则的配置名称
+     * @param {string} [regionId] 规则的区域ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAssociatedResourceRules(listAssociatedResourceRulesRequest?: ListAssociatedResourceRulesRequest): Promise<ListAssociatedResourceRulesResponse> {
+        const options = ParamCreater().listAssociatedResourceRules(listAssociatedResourceRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询当前规则的配置列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询当前规则的配置列表
+     * @param {number} [limit] 查询记录数。
+     * @param {string} [marker] 分页位置标识（索引）。从marker指定索引的下一条数据开始查询。
+     * @param {string} [regionId] 规则的区域ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAssociatedResourceSettings(listAssociatedResourceSettingsRequest?: ListAssociatedResourceSettingsRequest): Promise<ListAssociatedResourceSettingsResponse> {
+        const options = ParamCreater().listAssociatedResourceSettings(listAssociatedResourceSettingsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -318,6 +441,24 @@ export class TmsClient {
     }
 
     /**
+     * 查询当前用户的关联资源标签继承能力的开通状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询当前用户的关联资源标签继承能力的开通状态
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAssociatedResourceOpenStatus(showAssociatedResourceOpenStatusRequest?: ShowAssociatedResourceOpenStatusRequest): Promise<ShowAssociatedResourceOpenStatusResponse> {
+        const options = ParamCreater().showAssociatedResourceOpenStatus();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询单个资源上的标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -357,6 +498,25 @@ export class TmsClient {
     }
 
     /**
+     * 更新规则。规则更新的信息会覆盖原有内容
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新规则
+     * @param {ReqUpdateAssociatedResourceRules} updateAssociatedResourceRulesRequestBody 更新的规则信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAssociatedResourceRules(updateAssociatedResourceRulesRequest?: UpdateAssociatedResourceRulesRequest): Promise<UpdateAssociatedResourceRulesResponse> {
+        const options = ParamCreater().updateAssociatedResourceRules(updateAssociatedResourceRulesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改预定义标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -378,6 +538,82 @@ export class TmsClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 开通或关闭关联资源标签继承能力
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeAssociatedResourceOpenStatus(changeAssociatedResourceOpenStatusRequest?: ChangeAssociatedResourceOpenStatusRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/tms/associated-resources/status",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (changeAssociatedResourceOpenStatusRequest !== null && changeAssociatedResourceOpenStatusRequest !== undefined) {
+                if (changeAssociatedResourceOpenStatusRequest instanceof ChangeAssociatedResourceOpenStatusRequest) {
+                    body = changeAssociatedResourceOpenStatusRequest.body
+                } else {
+                    body = changeAssociatedResourceOpenStatusRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 按照规则和region来批量启用规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAssociatedResourceRules(createAssociatedResourceRulesRequest?: CreateAssociatedResourceRulesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/tms/associated-resources/rules/batch-create",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createAssociatedResourceRulesRequest !== null && createAssociatedResourceRulesRequest !== undefined) {
+                if (createAssociatedResourceRulesRequest instanceof CreateAssociatedResourceRulesRequest) {
+                    body = createAssociatedResourceRulesRequest.body
+                } else {
+                    body = createAssociatedResourceRulesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 用于创建预定标签。用户创建预定义标签后，可以使用预定义标签来给资源创建标签。该接口支持幂等特性和处理批量数据。
@@ -451,6 +687,54 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 通过指定setting_name和region_id来关闭指定的规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAssociatedResourceRule(deleteAssociatedResourceRuleRequest?: DeleteAssociatedResourceRuleRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/tms/associated-resources/rules/{setting_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let settingName;
+            
+            let regionId;
+
+            if (deleteAssociatedResourceRuleRequest !== null && deleteAssociatedResourceRuleRequest !== undefined) {
+                if (deleteAssociatedResourceRuleRequest instanceof DeleteAssociatedResourceRuleRequest) {
+                    settingName = deleteAssociatedResourceRuleRequest.settingName;
+                    regionId = deleteAssociatedResourceRuleRequest.regionId;
+                } else {
+                    settingName = deleteAssociatedResourceRuleRequest['setting_name'];
+                    regionId = deleteAssociatedResourceRuleRequest['region_id'];
+                }
+            }
+
+        
+            if (settingName === null || settingName === undefined) {
+            throw new RequiredError('settingName','Required parameter settingName was null or undefined when calling deleteAssociatedResourceRule.');
+            }
+            if (regionId === null || regionId === undefined) {
+                throw new RequiredError('regionId','Required parameter regionId was null or undefined when calling deleteAssociatedResourceRule.');
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'setting_name': settingName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -548,6 +832,115 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询当前规则列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAssociatedResourceRules(listAssociatedResourceRulesRequest?: ListAssociatedResourceRulesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/tms/associated-resources/rules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let settingName;
+            
+            let regionId;
+
+            if (listAssociatedResourceRulesRequest !== null && listAssociatedResourceRulesRequest !== undefined) {
+                if (listAssociatedResourceRulesRequest instanceof ListAssociatedResourceRulesRequest) {
+                    limit = listAssociatedResourceRulesRequest.limit;
+                    marker = listAssociatedResourceRulesRequest.marker;
+                    settingName = listAssociatedResourceRulesRequest.settingName;
+                    regionId = listAssociatedResourceRulesRequest.regionId;
+                } else {
+                    limit = listAssociatedResourceRulesRequest['limit'];
+                    marker = listAssociatedResourceRulesRequest['marker'];
+                    settingName = listAssociatedResourceRulesRequest['setting_name'];
+                    regionId = listAssociatedResourceRulesRequest['region_id'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (settingName !== null && settingName !== undefined) {
+                localVarQueryParameter['setting_name'] = settingName;
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询当前规则的配置列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAssociatedResourceSettings(listAssociatedResourceSettingsRequest?: ListAssociatedResourceSettingsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/tms/associated-resources/settings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let regionId;
+
+            if (listAssociatedResourceSettingsRequest !== null && listAssociatedResourceSettingsRequest !== undefined) {
+                if (listAssociatedResourceSettingsRequest instanceof ListAssociatedResourceSettingsRequest) {
+                    limit = listAssociatedResourceSettingsRequest.limit;
+                    marker = listAssociatedResourceSettingsRequest.marker;
+                    regionId = listAssociatedResourceSettingsRequest.regionId;
+                } else {
+                    limit = listAssociatedResourceSettingsRequest['limit'];
+                    marker = listAssociatedResourceSettingsRequest['marker'];
+                    regionId = listAssociatedResourceSettingsRequest['region_id'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -930,6 +1323,27 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询当前用户的关联资源标签继承能力的开通状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAssociatedResourceOpenStatus() {
+            const options = {
+                method: "GET",
+                url: "/v2/tms/associated-resources/status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询单个资源上的标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1001,6 +1415,44 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新规则。规则更新的信息会覆盖原有内容
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAssociatedResourceRules(updateAssociatedResourceRulesRequest?: UpdateAssociatedResourceRulesRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/tms/associated-resources/rules/batch-update",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateAssociatedResourceRulesRequest !== null && updateAssociatedResourceRulesRequest !== undefined) {
+                if (updateAssociatedResourceRulesRequest instanceof UpdateAssociatedResourceRulesRequest) {
+                    body = updateAssociatedResourceRulesRequest.body
+                } else {
+                    body = updateAssociatedResourceRulesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

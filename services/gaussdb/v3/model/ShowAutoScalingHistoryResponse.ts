@@ -3,19 +3,19 @@ import { AutoScalingRecordInfo } from './AutoScalingRecordInfo';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowAutoScalingHistoryResponse extends SdkResponse {
-    private 'total_count'?: string;
+    private 'total_count'?: number;
     public records?: Array<AutoScalingRecordInfo>;
     public constructor() { 
         super();
     }
-    public withTotalCount(totalCount: string): ShowAutoScalingHistoryResponse {
+    public withTotalCount(totalCount: number): ShowAutoScalingHistoryResponse {
         this['total_count'] = totalCount;
         return this;
     }
-    public set totalCount(totalCount: string  | undefined) {
+    public set totalCount(totalCount: number  | undefined) {
         this['total_count'] = totalCount;
     }
-    public get totalCount(): string | undefined {
+    public get totalCount(): number | undefined {
         return this['total_count'];
     }
     public withRecords(records: Array<AutoScalingRecordInfo>): ShowAutoScalingHistoryResponse {

@@ -8,6 +8,7 @@ import { Compress } from './Compress';
 import { ErrorCodeCache } from './ErrorCodeCache';
 import { ErrorCodeRedirectRules } from './ErrorCodeRedirectRules';
 import { FlexibleOrigins } from './FlexibleOrigins';
+import { FlowLimitStrategy } from './FlowLimitStrategy';
 import { ForceRedirectConfig } from './ForceRedirectConfig';
 import { Hsts } from './Hsts';
 import { HttpPutBody } from './HttpPutBody';
@@ -68,6 +69,7 @@ export class Configs {
     private 'access_area_filter'?: Array<AccessAreaFilter>;
     private 'client_cert'?: ClientCert;
     private 'https_tls_version'?: HttpsTlsVersion;
+    private 'flow_limit_strategy'?: Array<FlowLimitStrategy>;
     public constructor() { 
     }
     public withBusinessType(businessType: string): Configs {
@@ -395,5 +397,15 @@ export class Configs {
     }
     public get httpsTlsVersion(): HttpsTlsVersion | undefined {
         return this['https_tls_version'];
+    }
+    public withFlowLimitStrategy(flowLimitStrategy: Array<FlowLimitStrategy>): Configs {
+        this['flow_limit_strategy'] = flowLimitStrategy;
+        return this;
+    }
+    public set flowLimitStrategy(flowLimitStrategy: Array<FlowLimitStrategy>  | undefined) {
+        this['flow_limit_strategy'] = flowLimitStrategy;
+    }
+    public get flowLimitStrategy(): Array<FlowLimitStrategy> | undefined {
+        return this['flow_limit_strategy'];
     }
 }

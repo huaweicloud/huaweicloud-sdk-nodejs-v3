@@ -6,6 +6,7 @@ export class GlobalVulInfo {
     private 'vul_id'?: string;
     private 'repair_necessity'?: string;
     public decription?: string;
+    public description?: string;
     public solution?: string;
     public url?: string;
     private 'history_number'?: number;
@@ -45,6 +46,10 @@ export class GlobalVulInfo {
     }
     public withDecription(decription: string): GlobalVulInfo {
         this['decription'] = decription;
+        return this;
+    }
+    public withDescription(description: string): GlobalVulInfo {
+        this['description'] = description;
         return this;
     }
     public withSolution(solution: string): GlobalVulInfo {

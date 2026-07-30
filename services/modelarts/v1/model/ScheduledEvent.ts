@@ -16,7 +16,9 @@ export class ScheduledEvent {
     public finishTime?: string;
     public notBefore?: string;
     public probeMsg?: string;
+    public jobProgress?: string;
     public redeployType?: Array<string>;
+    public underLyingInstanceId?: string;
     public constructor(id?: string, catalog?: string, type?: string, state?: string, instanceType?: string, instanceId?: string, nodeName?: string, publishTime?: string, redeployType?: Array<string>) { 
         this['id'] = id;
         this['catalog'] = catalog;
@@ -88,8 +90,16 @@ export class ScheduledEvent {
         this['probeMsg'] = probeMsg;
         return this;
     }
+    public withJobProgress(jobProgress: string): ScheduledEvent {
+        this['jobProgress'] = jobProgress;
+        return this;
+    }
     public withRedeployType(redeployType: Array<string>): ScheduledEvent {
         this['redeployType'] = redeployType;
+        return this;
+    }
+    public withUnderLyingInstanceId(underLyingInstanceId: string): ScheduledEvent {
+        this['underLyingInstanceId'] = underLyingInstanceId;
         return this;
     }
 }

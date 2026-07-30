@@ -4,7 +4,6 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowInstanceDatabasesForHtapResponse extends SdkResponse {
     public databases?: Array<string>;
     private 'total_count'?: number;
-    public timestamp?: number;
     public constructor() { 
         super();
     }
@@ -21,9 +20,5 @@ export class ShowInstanceDatabasesForHtapResponse extends SdkResponse {
     }
     public get totalCount(): number | undefined {
         return this['total_count'];
-    }
-    public withTimestamp(timestamp: number): ShowInstanceDatabasesForHtapResponse {
-        this['timestamp'] = timestamp;
-        return this;
     }
 }

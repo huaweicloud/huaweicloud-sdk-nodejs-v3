@@ -3,8 +3,8 @@ import { UpgradeDatabasesSingleInstance } from './UpgradeDatabasesSingleInstance
 
 export class BatchUpgradeDatabasesRequestBody {
     private 'databases_instance_infos'?: Array<UpgradeDatabasesSingleInstance>;
-    public delay?: string;
-    public constructor(databasesInstanceInfos?: Array<UpgradeDatabasesSingleInstance>, delay?: string) { 
+    public delay?: boolean;
+    public constructor(databasesInstanceInfos?: Array<UpgradeDatabasesSingleInstance>, delay?: boolean) { 
         this['databases_instance_infos'] = databasesInstanceInfos;
         this['delay'] = delay;
     }
@@ -18,7 +18,7 @@ export class BatchUpgradeDatabasesRequestBody {
     public get databasesInstanceInfos(): Array<UpgradeDatabasesSingleInstance> | undefined {
         return this['databases_instance_infos'];
     }
-    public withDelay(delay: string): BatchUpgradeDatabasesRequestBody {
+    public withDelay(delay: boolean): BatchUpgradeDatabasesRequestBody {
         this['delay'] = delay;
         return this;
     }

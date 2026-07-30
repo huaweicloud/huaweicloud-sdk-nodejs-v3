@@ -115,6 +115,7 @@ import { FlexibleOriginsEngine } from './model/FlexibleOriginsEngine';
 import { FlowLimitStrategy } from './model/FlowLimitStrategy';
 import { ForceRedirect } from './model/ForceRedirect';
 import { ForceRedirectConfig } from './model/ForceRedirectConfig';
+import { FullUpdateRuleRequest } from './model/FullUpdateRuleRequest';
 import { FullUpdateRulesRequest } from './model/FullUpdateRulesRequest';
 import { Hsts } from './model/Hsts';
 import { HstsQuery } from './model/HstsQuery';
@@ -1278,7 +1279,7 @@ export class CdnClient {
      *
      * @summary 查询域名模板应用记录。
      * @param {string} [tmlId] **参数解释：** 域名模板ID，可以通过查询域名模板列表接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {string} [tmlName] **参数解释：** 域名模板名称 **约束限制：** 不涉及 **取值范围：** - 1-100个字符 - 仅支持字母、数字、中文、下划线（_）、中横线（-） **默认取值：** 不涉及
+     * @param {string} [tmlName] **参数解释：** 域名模板名称 **约束限制：** 不涉及 **取值范围：** - 1-100个字符 - 仅支持字母、数字、中文、下划线（_）、中横线（-）  **默认取值：** 不涉及
      * @param {string} [operatorId] **参数解释：** 域名模板操作ID，可以通过本接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {number} [offset] **参数解释：** 查询的页码 **约束限制：** 不涉及 **取值范围：** 0-65535 **默认取值：** 0
      * @param {number} [limit] **参数解释：** 每页应用记录的数量 **约束限制：** 不涉及 **取值范围：** 1-10000 **默认取值：** 30
@@ -1536,9 +1537,9 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询域名模板列表
-     * @param {string} [tmlName] **参数解释：** 域名模板名称 **约束限制：** 不涉及 **取值范围：** - 1-100个字符 - 仅支持字母、数字、中文、下划线（_）、中横线（-） **默认取值：** 不涉及
+     * @param {string} [tmlName] **参数解释：** 域名模板名称 **约束限制：** 不涉及 **取值范围：** - 1-100个字符 - 仅支持字母、数字、中文、下划线（_）、中横线（-）  **默认取值：** 不涉及
      * @param {string} [tmlId] **参数解释：** 域名模板ID，可以通过本接口获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {number} [tmlType] **参数解释：** 域名模板类型 **约束限制：** 不涉及 **取值范围：** - 1: 系统预置模板 - 2: 租户自定义模板 **默认取值：** 不涉及
+     * @param {number} [tmlType] **参数解释：** 域名模板类型 **约束限制：** 不涉及 **取值范围：** - 1: 系统预置模板 - 2: 租户自定义模板  **默认取值：** 不涉及
      * @param {string} [limit] **参数解释：** 分页大小 **约束限制：** 不涉及 **取值范围：** 1-10000 **默认取值：** 30
      * @param {string} [offset] **参数解释：** 查询的页码 **约束限制：** 不涉及 **取值范围：** 0-65535 **默认取值：** 0
      * @param {*} [options] Override http request option.

@@ -1,11 +1,11 @@
 
 
 export class ModifyNodePriorityRequestBody {
-    public priority?: string;
-    public constructor(priority?: string) { 
+    public priority?: number;
+    public constructor(priority?: number) { 
         this['priority'] = priority;
     }
-    public withPriority(priority: string): ModifyNodePriorityRequestBody {
+    public withPriority(priority: number): ModifyNodePriorityRequestBody {
         this['priority'] = priority;
         return this;
     }

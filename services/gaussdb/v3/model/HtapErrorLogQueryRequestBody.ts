@@ -5,9 +5,9 @@ export class HtapErrorLogQueryRequestBody {
     private 'start_time'?: string;
     private 'end_time'?: string;
     public level?: string;
-    public limit?: number;
+    public limit?: string;
     private 'line_num'?: string;
-    public constructor(nodeId?: string, startTime?: string, endTime?: string, level?: string, limit?: number) { 
+    public constructor(nodeId?: string, startTime?: string, endTime?: string, level?: string, limit?: string) { 
         this['node_id'] = nodeId;
         this['start_time'] = startTime;
         this['end_time'] = endTime;
@@ -48,7 +48,7 @@ export class HtapErrorLogQueryRequestBody {
         this['level'] = level;
         return this;
     }
-    public withLimit(limit: number): HtapErrorLogQueryRequestBody {
+    public withLimit(limit: string): HtapErrorLogQueryRequestBody {
         this['limit'] = limit;
         return this;
     }

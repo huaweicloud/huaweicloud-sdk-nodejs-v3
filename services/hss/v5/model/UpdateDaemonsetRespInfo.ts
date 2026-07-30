@@ -2,6 +2,7 @@
 
 export class UpdateDaemonsetRespInfo {
     private 'failed_reson'?: string;
+    private 'failed_reason'?: string;
     private 'cluster_id'?: string;
     public constructor() { 
     }
@@ -14,6 +15,16 @@ export class UpdateDaemonsetRespInfo {
     }
     public get failedReson(): string | undefined {
         return this['failed_reson'];
+    }
+    public withFailedReason(failedReason: string): UpdateDaemonsetRespInfo {
+        this['failed_reason'] = failedReason;
+        return this;
+    }
+    public set failedReason(failedReason: string  | undefined) {
+        this['failed_reason'] = failedReason;
+    }
+    public get failedReason(): string | undefined {
+        return this['failed_reason'];
     }
     public withClusterId(clusterId: string): UpdateDaemonsetRespInfo {
         this['cluster_id'] = clusterId;

@@ -7,7 +7,7 @@ export class HtapProcessInfo {
     public state?: string;
     public database?: string;
     private 'sql_statement'?: string;
-    public duration?: string;
+    public duration?: number;
     public command?: string;
     public constructor() { 
     }
@@ -41,7 +41,7 @@ export class HtapProcessInfo {
     public get sqlStatement(): string | undefined {
         return this['sql_statement'];
     }
-    public withDuration(duration: string): HtapProcessInfo {
+    public withDuration(duration: number): HtapProcessInfo {
         this['duration'] = duration;
         return this;
     }

@@ -17,7 +17,9 @@ export class AcceptScheduledEventResponse extends SdkResponse {
     public finishTime?: string;
     public notBefore?: string;
     public probeMsg?: string;
+    public jobProgress?: string;
     public redeployType?: Array<string>;
+    public underLyingInstanceId?: string;
     private 'X-request-id'?: string;
     public constructor() { 
         super();
@@ -82,8 +84,16 @@ export class AcceptScheduledEventResponse extends SdkResponse {
         this['probeMsg'] = probeMsg;
         return this;
     }
+    public withJobProgress(jobProgress: string): AcceptScheduledEventResponse {
+        this['jobProgress'] = jobProgress;
+        return this;
+    }
     public withRedeployType(redeployType: Array<string>): AcceptScheduledEventResponse {
         this['redeployType'] = redeployType;
+        return this;
+    }
+    public withUnderLyingInstanceId(underLyingInstanceId: string): AcceptScheduledEventResponse {
+        this['underLyingInstanceId'] = underLyingInstanceId;
         return this;
     }
     public withXRequestId(xRequestId: string): AcceptScheduledEventResponse {

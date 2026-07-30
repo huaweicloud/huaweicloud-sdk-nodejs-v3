@@ -13,7 +13,7 @@ export class ShowInstanceEipResponse extends SdkResponse {
     private 'create_time'?: string;
     private 'bandwidth_id'?: string;
     private 'bandwidth_name'?: string;
-    private 'bandwidth_size'?: string;
+    private 'bandwidth_size'?: number;
     private 'bandwidth_share_type'?: string;
     public profile?: object;
     public constructor() { 
@@ -111,14 +111,14 @@ export class ShowInstanceEipResponse extends SdkResponse {
     public get bandwidthName(): string | undefined {
         return this['bandwidth_name'];
     }
-    public withBandwidthSize(bandwidthSize: string): ShowInstanceEipResponse {
+    public withBandwidthSize(bandwidthSize: number): ShowInstanceEipResponse {
         this['bandwidth_size'] = bandwidthSize;
         return this;
     }
-    public set bandwidthSize(bandwidthSize: string  | undefined) {
+    public set bandwidthSize(bandwidthSize: number  | undefined) {
         this['bandwidth_size'] = bandwidthSize;
     }
-    public get bandwidthSize(): string | undefined {
+    public get bandwidthSize(): number | undefined {
         return this['bandwidth_size'];
     }
     public withBandwidthShareType(bandwidthShareType: string): ShowInstanceEipResponse {

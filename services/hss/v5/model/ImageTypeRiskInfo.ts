@@ -3,6 +3,7 @@
 export class ImageTypeRiskInfo {
     public local?: number;
     public registriy?: number;
+    public registry?: number;
     public cicd?: number;
     public constructor() { 
     }
@@ -12,6 +13,10 @@ export class ImageTypeRiskInfo {
     }
     public withRegistriy(registriy: number): ImageTypeRiskInfo {
         this['registriy'] = registriy;
+        return this;
+    }
+    public withRegistry(registry: number): ImageTypeRiskInfo {
+        this['registry'] = registry;
         return this;
     }
     public withCicd(cicd: number): ImageTypeRiskInfo {

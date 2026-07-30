@@ -3,6 +3,7 @@
 export class ParameterConfigurationInfo {
     private 'datastore_version_name'?: string;
     private 'datastore_name'?: string;
+    private 'configuration_id'?: string;
     public created?: string;
     public updated?: string;
     public constructor() { 
@@ -26,6 +27,16 @@ export class ParameterConfigurationInfo {
     }
     public get datastoreName(): string | undefined {
         return this['datastore_name'];
+    }
+    public withConfigurationId(configurationId: string): ParameterConfigurationInfo {
+        this['configuration_id'] = configurationId;
+        return this;
+    }
+    public set configurationId(configurationId: string  | undefined) {
+        this['configuration_id'] = configurationId;
+    }
+    public get configurationId(): string | undefined {
+        return this['configuration_id'];
     }
     public withCreated(created: string): ParameterConfigurationInfo {
         this['created'] = created;

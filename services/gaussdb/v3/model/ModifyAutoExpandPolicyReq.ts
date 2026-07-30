@@ -5,7 +5,8 @@ export class ModifyAutoExpandPolicyReq {
     private 'limit_size'?: number;
     private 'trigger_available_percent'?: ModifyAutoExpandPolicyReqTriggerAvailablePercentEnum | number;
     private 'step_percent'?: number;
-    public constructor() { 
+    public constructor(switchOption?: boolean) { 
+        this['switch_option'] = switchOption;
     }
     public withSwitchOption(switchOption: boolean): ModifyAutoExpandPolicyReq {
         this['switch_option'] = switchOption;
