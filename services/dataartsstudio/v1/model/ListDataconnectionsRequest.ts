@@ -6,6 +6,7 @@ export class ListDataconnectionsRequest {
     public type?: string;
     public limit?: string;
     public offset?: string;
+    public ip?: string;
     public constructor(workspace?: string) { 
         this['workspace'] = workspace;
     }
@@ -27,6 +28,10 @@ export class ListDataconnectionsRequest {
     }
     public withOffset(offset: string): ListDataconnectionsRequest {
         this['offset'] = offset;
+        return this;
+    }
+    public withIp(ip: string): ListDataconnectionsRequest {
+        this['ip'] = ip;
         return this;
     }
 }

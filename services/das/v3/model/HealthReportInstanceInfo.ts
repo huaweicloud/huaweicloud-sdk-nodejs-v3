@@ -12,18 +12,7 @@ export class HealthReportInstanceInfo {
     private 'disk_type'?: string;
     public engine?: string;
     private 'engine_version'?: string;
-    public constructor(tenantId?: string, projectId?: string, instanceId?: string, masterNodeId?: string, instanceName?: string, cpu?: number, mem?: number, diskSize?: number, diskType?: string, engine?: string, engineVersion?: string) { 
-        this['tenant_id'] = tenantId;
-        this['project_id'] = projectId;
-        this['instance_id'] = instanceId;
-        this['master_node_id'] = masterNodeId;
-        this['instance_name'] = instanceName;
-        this['cpu'] = cpu;
-        this['mem'] = mem;
-        this['disk_size'] = diskSize;
-        this['disk_type'] = diskType;
-        this['engine'] = engine;
-        this['engine_version'] = engineVersion;
+    public constructor() { 
     }
     public withTenantId(tenantId: string): HealthReportInstanceInfo {
         this['tenant_id'] = tenantId;

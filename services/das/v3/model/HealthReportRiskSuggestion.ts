@@ -3,9 +3,7 @@
 export class HealthReportRiskSuggestion {
     private 'suggestion_code'?: string;
     private 'suggestion_content'?: string;
-    public constructor(suggestionCode?: string, suggestionContent?: string) { 
-        this['suggestion_code'] = suggestionCode;
-        this['suggestion_content'] = suggestionContent;
+    public constructor() { 
     }
     public withSuggestionCode(suggestionCode: string): HealthReportRiskSuggestion {
         this['suggestion_code'] = suggestionCode;

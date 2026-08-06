@@ -65,7 +65,9 @@ export enum SignRequestBodySigningAlgorithmEnum {
     ECDSA_SHA_256 = 'ECDSA_SHA_256',
     ECDSA_SHA_384 = 'ECDSA_SHA_384',
     ECDSA_SHA_512 = 'ECDSA_SHA_512',
-    SM2DSA_SM3 = 'SM2DSA_SM3'
+    SM2DSA_SM3 = 'SM2DSA_SM3',
+    ED25519_SHA_512 = 'ED25519_SHA_512',
+    ED25519_PH_SHA_512 = 'ED25519_PH_SHA_512'
 }
 /**
     * @export

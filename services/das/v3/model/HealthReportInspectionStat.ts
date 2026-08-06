@@ -5,10 +5,7 @@ export class HealthReportInspectionStat {
     private 'inspection_score'?: Array<HealthReportInspectionScore>;
     private 'analyze_success'?: boolean;
     private 'error_message'?: string;
-    public constructor(inspectionScore?: Array<HealthReportInspectionScore>, analyzeSuccess?: boolean, errorMessage?: string) { 
-        this['inspection_score'] = inspectionScore;
-        this['analyze_success'] = analyzeSuccess;
-        this['error_message'] = errorMessage;
+    public constructor() { 
     }
     public withInspectionScore(inspectionScore: Array<HealthReportInspectionScore>): HealthReportInspectionStat {
         this['inspection_score'] = inspectionScore;

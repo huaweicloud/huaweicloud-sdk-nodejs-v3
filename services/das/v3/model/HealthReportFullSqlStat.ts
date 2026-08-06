@@ -8,13 +8,7 @@ export class HealthReportFullSqlStat {
     private 'avg_cost_top_templates'?: Array<HealthReportSqlTemplate>;
     private 'analyze_success'?: boolean;
     private 'error_message'?: string;
-    public constructor(collectFullSql?: boolean, executeTopTemplates?: Array<HealthReportSqlTemplate>, sumRowsExaminedTopTemplates?: Array<HealthReportSqlTemplate>, avgCostTopTemplates?: Array<HealthReportSqlTemplate>, analyzeSuccess?: boolean, errorMessage?: string) { 
-        this['collect_full_sql'] = collectFullSql;
-        this['execute_top_templates'] = executeTopTemplates;
-        this['sum_rows_examined_top_templates'] = sumRowsExaminedTopTemplates;
-        this['avg_cost_top_templates'] = avgCostTopTemplates;
-        this['analyze_success'] = analyzeSuccess;
-        this['error_message'] = errorMessage;
+    public constructor() { 
     }
     public withCollectFullSql(collectFullSql: boolean): HealthReportFullSqlStat {
         this['collect_full_sql'] = collectFullSql;

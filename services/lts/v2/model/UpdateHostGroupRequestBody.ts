@@ -6,6 +6,8 @@ export class UpdateHostGroupRequestBody {
     private 'host_group_name'?: string;
     private 'host_id_list'?: Array<string>;
     private 'host_group_tag'?: Array<HostGroupTag>;
+    private 'agent_access_type'?: string;
+    public labels?: Array<string>;
     public constructor(hostGroupId?: string) { 
         this['host_group_id'] = hostGroupId;
     }
@@ -48,5 +50,19 @@ export class UpdateHostGroupRequestBody {
     }
     public get hostGroupTag(): Array<HostGroupTag> | undefined {
         return this['host_group_tag'];
+    }
+    public withAgentAccessType(agentAccessType: string): UpdateHostGroupRequestBody {
+        this['agent_access_type'] = agentAccessType;
+        return this;
+    }
+    public set agentAccessType(agentAccessType: string  | undefined) {
+        this['agent_access_type'] = agentAccessType;
+    }
+    public get agentAccessType(): string | undefined {
+        return this['agent_access_type'];
+    }
+    public withLabels(labels: Array<string>): UpdateHostGroupRequestBody {
+        this['labels'] = labels;
+        return this;
     }
 }

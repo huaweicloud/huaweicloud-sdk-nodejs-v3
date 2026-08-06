@@ -193,6 +193,9 @@ import { CreateIpReputationRuleResponseBodyAction } from './model/CreateIpReputa
 import { CreatePolicyRequest } from './model/CreatePolicyRequest';
 import { CreatePolicyRequestBody } from './model/CreatePolicyRequestBody';
 import { CreatePolicyResponse } from './model/CreatePolicyResponse';
+import { CreatePoolRequest } from './model/CreatePoolRequest';
+import { CreatePoolRequestBody } from './model/CreatePoolRequestBody';
+import { CreatePoolResponse } from './model/CreatePoolResponse';
 import { CreatePremiumHostRequest } from './model/CreatePremiumHostRequest';
 import { CreatePremiumHostRequestBody } from './model/CreatePremiumHostRequestBody';
 import { CreatePremiumHostResponse } from './model/CreatePremiumHostResponse';
@@ -257,6 +260,8 @@ import { DeleteIpReputationRuleResponse } from './model/DeleteIpReputationRuleRe
 import { DeleteIpReputationRuleResponseBodyAction } from './model/DeleteIpReputationRuleResponseBodyAction';
 import { DeletePolicyRequest } from './model/DeletePolicyRequest';
 import { DeletePolicyResponse } from './model/DeletePolicyResponse';
+import { DeletePoolRequest } from './model/DeletePoolRequest';
+import { DeletePoolResponse } from './model/DeletePoolResponse';
 import { DeletePremiumHostRequest } from './model/DeletePremiumHostRequest';
 import { DeletePremiumHostResponse } from './model/DeletePremiumHostResponse';
 import { DeletePrivacyRuleRequest } from './model/DeletePrivacyRuleRequest';
@@ -516,6 +521,8 @@ import { ShowPolicyGeoipMapRequest } from './model/ShowPolicyGeoipMapRequest';
 import { ShowPolicyGeoipMapResponse } from './model/ShowPolicyGeoipMapResponse';
 import { ShowPolicyRequest } from './model/ShowPolicyRequest';
 import { ShowPolicyResponse } from './model/ShowPolicyResponse';
+import { ShowPoolRequest } from './model/ShowPoolRequest';
+import { ShowPoolResponse } from './model/ShowPoolResponse';
 import { ShowPremiumHostRequest } from './model/ShowPremiumHostRequest';
 import { ShowPremiumHostResponse } from './model/ShowPremiumHostResponse';
 import { ShowPrivacyRuleRequest } from './model/ShowPrivacyRuleRequest';
@@ -1774,6 +1781,27 @@ export class WafClient {
     }
 
     /**
+     * 创建实例组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建实例组
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {CreatePoolRequestBody} createPoolRequestBody 创建实例组请求体
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPool(createPoolRequest?: CreatePoolRequest): Promise<CreatePoolResponse> {
+        const options = ParamCreater().createPool(createPoolRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建独享模式域名或者创建云模式ELB接入模式域名
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2259,6 +2287,27 @@ export class WafClient {
      */
     public deletePolicy(deletePolicyRequest?: DeletePolicyRequest): Promise<DeletePolicyResponse> {
         const options = ParamCreater().deletePolicy(deletePolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除实例组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除实例组
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} poolId **参数解释：** 实例组ID（通过调用WAF的ListPools接口获取所有实例组信息查询实例组ID） **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePool(deletePoolRequest?: DeletePoolRequest): Promise<DeletePoolResponse> {
+        const options = ParamCreater().deletePool(deletePoolRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2962,7 +3011,7 @@ export class WafClient {
      * @param {number} [page] **参数解释：** 分页查询时，返回第几页数据 **约束限制：** 不涉及 **取值范围：** page参数的实际有效范围取决于总数据量和pagesize的取值，不能大于总页数 **默认取值：** 1
      * @param {number} [pagesize] **参数解释：** 分页查询时，每页包含的结果条数 **约束限制：** 不涉及 **取值范围：** [0,100] **默认取值：** 10
      * @param {string} [name] **参数解释：** 模糊查询，实例组名称 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
-     * @param {Array<string>} [type] **参数解释：** 实例组类型 **约束限制：** 不涉及 **取值范围：** - elb 基础elb类型 - elb-v2 elb-v2类型 - elb-container -容器化elb类型 - elb-shadow saas化elb类型 - standard-container 反向代理独享引擎组（云内，承载租户专用） - standard-cloud 反向代理独享引擎组（云内） - standard 反向代理独享引擎组（云外） - detector-cloud 旁路检测独享引擎组（云内） - detector 旁路检测独享引擎组（云外） - standard-maf-cloud 大模型防火墙实例组类型 **默认取值：** 不涉及
+     * @param {Array<string>} [type] **参数解释：** 实例组类型 **约束限制：** 不涉及 **取值范围：** - elb: 基础elb类型 - elb-v2: elb-v2类型 - elb-shadow: saas化elb类型 - standard-container: 反向代理独享引擎组（云内，承载租户专用） - standard-cloud: 反向代理独享引擎组（云内） - standard: 反向代理独享引擎组（云外） - detector-cloud: 旁路检测独享引擎组（云内） - detector: 旁路检测独享引擎组（云外） **默认取值：** 不涉及
      * @param {string} [vpcId] **参数解释：** 实例组关联的vpc_id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {boolean} [detail] **参数解释：** 是否查询实例组详细信息 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
@@ -4193,6 +4242,27 @@ export class WafClient {
      */
     public showPolicyGeoipMap(showPolicyGeoipMapRequest?: ShowPolicyGeoipMapRequest): Promise<ShowPolicyGeoipMapResponse> {
         const options = ParamCreater().showPolicyGeoipMap(showPolicyGeoipMapRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例组详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例组详情
+     * @param {string} contentType **参数解释：** 内容类型 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** application/json;charset&#x3D;utf8
+     * @param {string} poolId **参数解释：** 实例组ID（通过调用WAF的ListPools接口获取所有实例组信息查询实例组ID） **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释：** 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目ID。若需要查询当前用户所有企业项目绑定的资源信息，请传参all_granted_eps。 **约束限制：** 不涉及 **取值范围：**  - 0：代表default企业项目  - all_granted_eps：代表所有企业项目  - 其它企业项目ID：长度为36个字符 **默认取值：** 0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPool(showPoolRequest?: ShowPoolRequest): Promise<ShowPoolResponse> {
+        const options = ParamCreater().showPool(showPoolRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8010,6 +8080,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建实例组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPool(createPoolRequest?: CreatePoolRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/premium-waf/pool",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let contentType;
+            
+            let enterpriseProjectId;
+
+            if (createPoolRequest !== null && createPoolRequest !== undefined) {
+                if (createPoolRequest instanceof CreatePoolRequest) {
+                    contentType = createPoolRequest.contentType;
+                    body = createPoolRequest.body
+                    enterpriseProjectId = createPoolRequest.enterpriseProjectId;
+                } else {
+                    contentType = createPoolRequest['Content-Type'];
+                    body = createPoolRequest['body'];
+                    enterpriseProjectId = createPoolRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建独享模式域名或者创建云模式ELB接入模式域名
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9274,6 +9397,58 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除实例组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePool(deletePoolRequest?: DeletePoolRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/premium-waf/pool/{pool_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let poolId;
+            
+            let enterpriseProjectId;
+
+            if (deletePoolRequest !== null && deletePoolRequest !== undefined) {
+                if (deletePoolRequest instanceof DeletePoolRequest) {
+                    contentType = deletePoolRequest.contentType;
+                    poolId = deletePoolRequest.poolId;
+                    enterpriseProjectId = deletePoolRequest.enterpriseProjectId;
+                } else {
+                    contentType = deletePoolRequest['Content-Type'];
+                    poolId = deletePoolRequest['pool_id'];
+                    enterpriseProjectId = deletePoolRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (poolId === null || poolId === undefined) {
+            throw new RequiredError('poolId','Required parameter poolId was null or undefined when calling deletePool.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'pool_id': poolId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -15057,6 +15232,58 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例组详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPool(showPoolRequest?: ShowPoolRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/premium-waf/pool/{pool_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let poolId;
+            
+            let enterpriseProjectId;
+
+            if (showPoolRequest !== null && showPoolRequest !== undefined) {
+                if (showPoolRequest instanceof ShowPoolRequest) {
+                    contentType = showPoolRequest.contentType;
+                    poolId = showPoolRequest.poolId;
+                    enterpriseProjectId = showPoolRequest.enterpriseProjectId;
+                } else {
+                    contentType = showPoolRequest['Content-Type'];
+                    poolId = showPoolRequest['pool_id'];
+                    enterpriseProjectId = showPoolRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (poolId === null || poolId === undefined) {
+            throw new RequiredError('poolId','Required parameter poolId was null or undefined when calling showPool.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'pool_id': poolId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

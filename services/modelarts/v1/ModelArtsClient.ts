@@ -2696,6 +2696,8 @@ export class ModelArtsClient {
      * @param {string} deploymentName **参数解释：** 部署名称，在创建部署时即可在返回体中获取，也可通过查询服务部署列表获取当前用户拥有的部署，其name字段即为部署名称。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} instanceName **参数解释：** 服务实例名字，可以为all，为all时去查询所有的服务实例。 **约束限制：** 不涉及。 **取值范围：** 服务实例名字。 **默认取值：** 不涉及。
      * @param {string} name **参数解释：** 服务实例pod名字，可以为all，为all时去查询所有的服务实例。 **约束限制：** 不涉及。 **取值范围：** 服务实例名字。 **默认取值：** 不涉及。
+     * @param {string} [startTime] **参数解释：** 查询开始时间，Unix时间戳（毫秒）。 **约束限制：** 需要与end_time同时传入或同时为空。不能早于end_time。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [endTime] **参数解释：** 查询结束时间，Unix时间戳（毫秒）。 **约束限制：** 需要与start_time同时传入或同时为空。不能早于start_time。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2744,6 +2746,9 @@ export class ModelArtsClient {
      * @summary 查询在线服务部署版本列表
      * @param {string} serviceId **参数解释：** 服务ID，在创建服务时即可在返回体中获取，也可通过查询服务列表接口获取当前用户拥有的服务，其中service_id字段即为服务ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} deploymentId **参数解释：** 部署ID，在[添加部署](CreateInferDeployment.xml)时即可在返回体中获取，也可通过[查询服务部署列表](ListInferDeployments.xml)获取当前用户拥有的部署，其中deployment_id字段即为部署ID。 **约束限制：** 不涉及。 **取值范围：** 部署ID。 **默认取值：** 不涉及。
+     * @param {string} [sortKey] **参数解释：** 排序字段。 **约束限制：** 不涉及。 **取值范围：** - create_at：按创建时间排序。 - update_at：按更新时间排序。 **默认取值：** update_at。
+     * @param {number} [limit] **参数解释：** 指定返回的最大条目数。 **约束限制：** 不涉及。 **取值范围：** [1,500] **默认取值：** 10。
+     * @param {number} [offset] **参数解释：** 分页列表查询的偏移量。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -10338,7 +10343,7 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let id;
             
@@ -10347,6 +10352,10 @@ export const ParamCreater = function () {
             let instanceName;
             
             let name;
+            
+            let startTime;
+            
+            let endTime;
 
             if (listInferDeploymentPodEventsRequest !== null && listInferDeploymentPodEventsRequest !== undefined) {
                 if (listInferDeploymentPodEventsRequest instanceof ListInferDeploymentPodEventsRequest) {
@@ -10354,11 +10363,15 @@ export const ParamCreater = function () {
                     deploymentName = listInferDeploymentPodEventsRequest.deploymentName;
                     instanceName = listInferDeploymentPodEventsRequest.instanceName;
                     name = listInferDeploymentPodEventsRequest.name;
+                    startTime = listInferDeploymentPodEventsRequest.startTime;
+                    endTime = listInferDeploymentPodEventsRequest.endTime;
                 } else {
                     id = listInferDeploymentPodEventsRequest['id'];
                     deploymentName = listInferDeploymentPodEventsRequest['deployment_name'];
                     instanceName = listInferDeploymentPodEventsRequest['instance_name'];
                     name = listInferDeploymentPodEventsRequest['name'];
+                    startTime = listInferDeploymentPodEventsRequest['start_time'];
+                    endTime = listInferDeploymentPodEventsRequest['end_time'];
                 }
             }
 
@@ -10375,7 +10388,14 @@ export const ParamCreater = function () {
             if (name === null || name === undefined) {
             throw new RequiredError('name','Required parameter name was null or undefined when calling listInferDeploymentPodEvents.');
             }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'id': id,'deployment_name': deploymentName,'instance_name': instanceName,'name': name, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -10497,19 +10517,31 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let serviceId;
             
             let deploymentId;
+            
+            let sortKey;
+            
+            let limit;
+            
+            let offset;
 
             if (listInferDeploymentVersionsRequest !== null && listInferDeploymentVersionsRequest !== undefined) {
                 if (listInferDeploymentVersionsRequest instanceof ListInferDeploymentVersionsRequest) {
                     serviceId = listInferDeploymentVersionsRequest.serviceId;
                     deploymentId = listInferDeploymentVersionsRequest.deploymentId;
+                    sortKey = listInferDeploymentVersionsRequest.sortKey;
+                    limit = listInferDeploymentVersionsRequest.limit;
+                    offset = listInferDeploymentVersionsRequest.offset;
                 } else {
                     serviceId = listInferDeploymentVersionsRequest['service_id'];
                     deploymentId = listInferDeploymentVersionsRequest['deployment_id'];
+                    sortKey = listInferDeploymentVersionsRequest['sort_key'];
+                    limit = listInferDeploymentVersionsRequest['limit'];
+                    offset = listInferDeploymentVersionsRequest['offset'];
                 }
             }
 
@@ -10520,7 +10552,17 @@ export const ParamCreater = function () {
             if (deploymentId === null || deploymentId === undefined) {
             throw new RequiredError('deploymentId','Required parameter deploymentId was null or undefined when calling listInferDeploymentVersions.');
             }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'service_id': serviceId,'deployment_id': deploymentId, };
             options.headers = localVarHeaderParameter;
             return options;

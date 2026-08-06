@@ -9,12 +9,14 @@ export class ConfigRegion {
     public static CN_NORTH_4 = new Region("cn-north-4", ["https://rms.myhuaweicloud.com"]);
     public static EU_WEST_101 = new Region("eu-west-101", ["https://rms.eu-west-101.myhuaweicloud.com"]);
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://rms.ru-moscow-1.myhuaweicloud.com"]);
+    public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://rms.my-kualalumpur-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
         "cn-north-4":ConfigRegion.CN_NORTH_4,
         "eu-west-101":ConfigRegion.EU_WEST_101,
-        "ru-moscow-1":ConfigRegion.RU_MOSCOW_1
+        "ru-moscow-1":ConfigRegion.RU_MOSCOW_1,
+        "my-kualalumpur-1":ConfigRegion.MY_KUALALUMPUR_1
     };
   
     public static valueOf(regionId: string) {

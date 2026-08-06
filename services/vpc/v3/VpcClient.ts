@@ -840,6 +840,8 @@ export class VpcClient {
      * @param {Array<string>} [allowedAddressPairs] **参数解释**： 端口的IP/Mac对列表。 **取值范围**： - allowed_address_pairs&#x3D;ip_address&#x3D;{ip_address}，其中{ip_address}填IP地址，如192.168.21.22。 - allowed_address_pairs&#x3D;mac_address&#x3D;{mac_address}，其中{mac_address}填MAC地址，如fa:16:3e:b1:da:62。
      * @param {string} [instanceId] **参数解释**： 端口所属的云服务实例ID，例如RDS实例ID。 **取值范围**： 不涉及。
      * @param {string} [instanceType] **参数解释**： 端口所属的云服务实例类型，例如“RDS”。 **取值范围**： 不涉及。
+     * @param {number} [limit] **参数解释**： 每页返回的个数。 **取值范围**： 0-2000。
+     * @param {string} [marker] **参数解释**： 分页查询起始的资源ID，为空时查询第一页。 **取值范围**： 带“-”的标准UUID格式。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3421,6 +3423,10 @@ export const ParamCreater = function () {
             let instanceId;
             
             let instanceType;
+            
+            let limit;
+            
+            let marker;
 
             if (listPortsRequest !== null && listPortsRequest !== undefined) {
                 if (listPortsRequest instanceof ListPortsRequest) {
@@ -3441,6 +3447,8 @@ export const ParamCreater = function () {
                     allowedAddressPairs = listPortsRequest.allowedAddressPairs;
                     instanceId = listPortsRequest.instanceId;
                     instanceType = listPortsRequest.instanceType;
+                    limit = listPortsRequest.limit;
+                    marker = listPortsRequest.marker;
                 } else {
                     id = listPortsRequest['id'];
                     name = listPortsRequest['name'];
@@ -3459,6 +3467,8 @@ export const ParamCreater = function () {
                     allowedAddressPairs = listPortsRequest['allowed_address_pairs'];
                     instanceId = listPortsRequest['instance_id'];
                     instanceType = listPortsRequest['instance_type'];
+                    limit = listPortsRequest['limit'];
+                    marker = listPortsRequest['marker'];
                 }
             }
 
@@ -3513,6 +3523,12 @@ export const ParamCreater = function () {
             }
             if (instanceType !== null && instanceType !== undefined) {
                 localVarQueryParameter['instance_type'] = instanceType;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
 
             options.queryParams = localVarQueryParameter;

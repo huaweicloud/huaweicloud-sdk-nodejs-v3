@@ -12,6 +12,7 @@ export class UpdateEmailTemplateRequestBody {
     private 'inspection_time'?: string;
     private 'send_time'?: string;
     private 'time_zone'?: string;
+    private 'service_uri'?: string;
     public constructor(templateId?: number) { 
         this['template_id'] = templateId;
     }
@@ -112,5 +113,15 @@ export class UpdateEmailTemplateRequestBody {
     }
     public get timeZone(): string | undefined {
         return this['time_zone'];
+    }
+    public withServiceUri(serviceUri: string): UpdateEmailTemplateRequestBody {
+        this['service_uri'] = serviceUri;
+        return this;
+    }
+    public set serviceUri(serviceUri: string  | undefined) {
+        this['service_uri'] = serviceUri;
+    }
+    public get serviceUri(): string | undefined {
+        return this['service_uri'];
     }
 }

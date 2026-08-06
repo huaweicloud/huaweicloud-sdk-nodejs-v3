@@ -563,12 +563,13 @@ import { InstanceHostDTO } from './model/InstanceHostDTO';
 import { InstanceNodeDTO } from './model/InstanceNodeDTO';
 import { InstanceOverviewDTO } from './model/InstanceOverviewDTO';
 import { InstanceOverviewVo } from './model/InstanceOverviewVo';
+import { JobAlarm } from './model/JobAlarm';
 import { JobAndNodeInfo } from './model/JobAndNodeInfo';
 import { JobInfoRequest } from './model/JobInfoRequest';
 import { JobInstance } from './model/JobInstance';
 import { JobLogRequest } from './model/JobLogRequest';
 import { JobParam } from './model/JobParam';
-import { JobResp } from './model/JobResp';
+import { JobResultV2 } from './model/JobResultV2';
 import { KerberosStatus } from './model/KerberosStatus';
 import { L1 } from './model/L1';
 import { L1Statistic } from './model/L1Statistic';
@@ -807,6 +808,8 @@ import { ListTableModelsRequest } from './model/ListTableModelsRequest';
 import { ListTableModelsResponse } from './model/ListTableModelsResponse';
 import { ListTableModelsResultData } from './model/ListTableModelsResultData';
 import { ListTableModelsResultDataValue } from './model/ListTableModelsResultDataValue';
+import { ListTaskTableReferenceDetailRequest } from './model/ListTaskTableReferenceDetailRequest';
+import { ListTaskTableReferenceDetailResponse } from './model/ListTaskTableReferenceDetailResponse';
 import { ListWorkspaceRolesRequest } from './model/ListWorkspaceRolesRequest';
 import { ListWorkspaceRolesResponse } from './model/ListWorkspaceRolesResponse';
 import { ListWorkspacesForUserRequest } from './model/ListWorkspacesForUserRequest';
@@ -1221,6 +1224,7 @@ import { TagRecordVO } from './model/TagRecordVO';
 import { TagRequest } from './model/TagRequest';
 import { TagVO } from './model/TagVO';
 import { TagsResultData } from './model/TagsResultData';
+import { TaskTableReferenceDetailResponse } from './model/TaskTableReferenceDetailResponse';
 import { TbGuid } from './model/TbGuid';
 import { TbLogicGuid } from './model/TbLogicGuid';
 import { TemplateListRO } from './model/TemplateListRO';
@@ -4981,6 +4985,7 @@ export class DataArtsStudioClient {
      * @param {string} [type] 数据连接类型,有HIVE,MYSQL,ORALCLE,DWS,HBASE等。
      * @param {string} [limit] 数据条数限制
      * @param {string} [offset] 偏移量
+     * @param {string} [ip] 数据连接中数据库的ip，支持模糊搜索
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5303,7 +5308,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询作业列表清单
+     * 查询作业列表清单，支持按作业类型、名称、ID、状态、标签、数据连接等条件筛选。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -5313,7 +5318,16 @@ export class DataArtsStudioClient {
      * @param {number} [offset] 分页参数：页数
      * @param {'REAL_TIME' | 'BATCH'} [jobType] 作业类型:  - REAL_TIME: 实时处理  - BATCH: 批处理
      * @param {string} [jobName] 作业名称
-     * @param {string} [tags] 作业标签
+     * @param {string} [jobId] 作业ID，支持多个ID逗号分隔查询，最多50个ID，总长度不超过1000字符。 每个ID必须为纯数字。
+     * @param {string} [status] 作业状态，支持多个状态逗号分隔查询。 批处理作业状态：  - SCHEDULING: 调度中  - STOPPED: 停止  - PAUSED: 暂停 实时作业状态：  - STARTING: 启动中  - NORMAL: 正常  - EXCEPTION: 异常  - STOPPING: 停止中  - STOPPED: 停止  - PAUSE: 暂停  - ABNORMAL: 异常
+     * @param {boolean} [needAlarms] 是否返回作业告警信息，默认为false。
+     * @param {string} [tags] 作业标签，多个标签逗号分隔。
+     * @param {boolean} [matchAllTags] 标签匹配模式：  - false: 任一标签匹配即返回（OR模式）  - true: 所有标签都匹配才返回（AND模式）
+     * @param {string} [connectionName] 数据连接名称，按数据连接筛选作业。
+     * @param {string} [sourceType] 源端数据连接类型，按源端数据类型筛选作业。
+     * @param {string} [sourceName] 源端数据连接名称，按源端数据名称筛选作业。
+     * @param {string} [sinkType] 目的端数据连接类型，按目的端数据类型筛选作业。
+     * @param {string} [sinkName] 目的端数据连接名称，按目的端数据名称筛选作业。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6489,6 +6503,37 @@ export class DataArtsStudioClient {
      */
     public listTableModels(listTableModelsRequest?: ListTableModelsRequest): Promise<ListTableModelsResponse> {
         const options = ParamCreater().listTableModels(listTableModelsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据表名查询该表被哪些作业引用的详细信息，支持按输入输出类型、工作空间等条件筛选。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询单表的作业表引用详情
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} tableName 表名。
+     * @param {string} dbType 数据库类型，仅支持DLI，HIVE，SPARK。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [dataBaseName] 数据库名称。
+     * @param {string} [clusterName] 集群名称。
+     * @param {0 | 1} [ioType] 输入输出类型： - 0: 读表 - 1: 写表
+     * @param {number} [offset] 分页的起始页，取值范围大于等于0。默认值: 0。
+     * @param {number} [limit] 分页返回结果，指定每页最大记录数。默认值: 20。
+     * @param {string} [workspaceName] 工作空间名称。
+     * @param {string} [owner] 作业责任人。
+     * @param {string} [executeUser] 作业执行用户。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTaskTableReferenceDetail(listTaskTableReferenceDetailRequest?: ListTaskTableReferenceDetailRequest): Promise<ListTaskTableReferenceDetailResponse> {
+        const options = ParamCreater().listTaskTableReferenceDetail(listTaskTableReferenceDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -20124,6 +20169,8 @@ export const ParamCreater = function () {
             let limit;
             
             let offset;
+            
+            let ip;
 
             if (listDataconnectionsRequest !== null && listDataconnectionsRequest !== undefined) {
                 if (listDataconnectionsRequest instanceof ListDataconnectionsRequest) {
@@ -20132,12 +20179,14 @@ export const ParamCreater = function () {
                     type = listDataconnectionsRequest.type;
                     limit = listDataconnectionsRequest.limit;
                     offset = listDataconnectionsRequest.offset;
+                    ip = listDataconnectionsRequest.ip;
                 } else {
                     workspace = listDataconnectionsRequest['workspace'];
                     name = listDataconnectionsRequest['name'];
                     type = listDataconnectionsRequest['type'];
                     limit = listDataconnectionsRequest['limit'];
                     offset = listDataconnectionsRequest['offset'];
+                    ip = listDataconnectionsRequest['ip'];
                 }
             }
 
@@ -20153,6 +20202,9 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (ip !== null && ip !== undefined) {
+                localVarQueryParameter['ip'] = ip;
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
@@ -21276,7 +21328,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询作业列表清单
+         * 查询作业列表清单，支持按作业类型、名称、ID、状态、标签、数据连接等条件筛选。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -21302,7 +21354,25 @@ export const ParamCreater = function () {
             
             let jobName;
             
+            let jobId;
+            
+            let status;
+            
+            let needAlarms;
+            
             let tags;
+            
+            let matchAllTags;
+            
+            let connectionName;
+            
+            let sourceType;
+            
+            let sourceName;
+            
+            let sinkType;
+            
+            let sinkName;
 
             if (listFactoryJobsRequest !== null && listFactoryJobsRequest !== undefined) {
                 if (listFactoryJobsRequest instanceof ListFactoryJobsRequest) {
@@ -21311,14 +21381,32 @@ export const ParamCreater = function () {
                     offset = listFactoryJobsRequest.offset;
                     jobType = listFactoryJobsRequest.jobType;
                     jobName = listFactoryJobsRequest.jobName;
+                    jobId = listFactoryJobsRequest.jobId;
+                    status = listFactoryJobsRequest.status;
+                    needAlarms = listFactoryJobsRequest.needAlarms;
                     tags = listFactoryJobsRequest.tags;
+                    matchAllTags = listFactoryJobsRequest.matchAllTags;
+                    connectionName = listFactoryJobsRequest.connectionName;
+                    sourceType = listFactoryJobsRequest.sourceType;
+                    sourceName = listFactoryJobsRequest.sourceName;
+                    sinkType = listFactoryJobsRequest.sinkType;
+                    sinkName = listFactoryJobsRequest.sinkName;
                 } else {
                     workspace = listFactoryJobsRequest['workspace'];
                     limit = listFactoryJobsRequest['limit'];
                     offset = listFactoryJobsRequest['offset'];
                     jobType = listFactoryJobsRequest['job_type'];
                     jobName = listFactoryJobsRequest['job_name'];
+                    jobId = listFactoryJobsRequest['job_id'];
+                    status = listFactoryJobsRequest['status'];
+                    needAlarms = listFactoryJobsRequest['need_alarms'];
                     tags = listFactoryJobsRequest['tags'];
+                    matchAllTags = listFactoryJobsRequest['match_all_tags'];
+                    connectionName = listFactoryJobsRequest['connection_name'];
+                    sourceType = listFactoryJobsRequest['source_type'];
+                    sourceName = listFactoryJobsRequest['source_name'];
+                    sinkType = listFactoryJobsRequest['sink_type'];
+                    sinkName = listFactoryJobsRequest['sink_name'];
                 }
             }
 
@@ -21335,8 +21423,35 @@ export const ParamCreater = function () {
             if (jobName !== null && jobName !== undefined) {
                 localVarQueryParameter['job_name'] = jobName;
             }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (needAlarms !== null && needAlarms !== undefined) {
+                localVarQueryParameter['need_alarms'] = needAlarms;
+            }
             if (tags !== null && tags !== undefined) {
                 localVarQueryParameter['tags'] = tags;
+            }
+            if (matchAllTags !== null && matchAllTags !== undefined) {
+                localVarQueryParameter['match_all_tags'] = matchAllTags;
+            }
+            if (connectionName !== null && connectionName !== undefined) {
+                localVarQueryParameter['connection_name'] = connectionName;
+            }
+            if (sourceType !== null && sourceType !== undefined) {
+                localVarQueryParameter['source_type'] = sourceType;
+            }
+            if (sourceName !== null && sourceName !== undefined) {
+                localVarQueryParameter['source_name'] = sourceName;
+            }
+            if (sinkType !== null && sinkType !== undefined) {
+                localVarQueryParameter['sink_type'] = sinkType;
+            }
+            if (sinkName !== null && sinkName !== undefined) {
+                localVarQueryParameter['sink_name'] = sinkName;
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);
@@ -25148,6 +25263,133 @@ export const ParamCreater = function () {
             }
             if (bizCatalogId !== null && bizCatalogId !== undefined) {
                 localVarQueryParameter['biz_catalog_id'] = bizCatalogId;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据表名查询该表被哪些作业引用的详细信息，支持按输入输出类型、工作空间等条件筛选。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTaskTableReferenceDetail(listTaskTableReferenceDetailRequest?: ListTaskTableReferenceDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/factory/task-table-references",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let tableName;
+            
+            let dbType;
+            
+            let xProjectId;
+            
+            let contentType;
+            
+            let dataBaseName;
+            
+            let clusterName;
+            
+            let ioType;
+            
+            let offset;
+            
+            let limit;
+            
+            let workspaceName;
+            
+            let owner;
+            
+            let executeUser;
+
+            if (listTaskTableReferenceDetailRequest !== null && listTaskTableReferenceDetailRequest !== undefined) {
+                if (listTaskTableReferenceDetailRequest instanceof ListTaskTableReferenceDetailRequest) {
+                    workspace = listTaskTableReferenceDetailRequest.workspace;
+                    tableName = listTaskTableReferenceDetailRequest.tableName;
+                    dbType = listTaskTableReferenceDetailRequest.dbType;
+                    xProjectId = listTaskTableReferenceDetailRequest.xProjectId;
+                    contentType = listTaskTableReferenceDetailRequest.contentType;
+                    dataBaseName = listTaskTableReferenceDetailRequest.dataBaseName;
+                    clusterName = listTaskTableReferenceDetailRequest.clusterName;
+                    ioType = listTaskTableReferenceDetailRequest.ioType;
+                    offset = listTaskTableReferenceDetailRequest.offset;
+                    limit = listTaskTableReferenceDetailRequest.limit;
+                    workspaceName = listTaskTableReferenceDetailRequest.workspaceName;
+                    owner = listTaskTableReferenceDetailRequest.owner;
+                    executeUser = listTaskTableReferenceDetailRequest.executeUser;
+                } else {
+                    workspace = listTaskTableReferenceDetailRequest['workspace'];
+                    tableName = listTaskTableReferenceDetailRequest['table_name'];
+                    dbType = listTaskTableReferenceDetailRequest['db_type'];
+                    xProjectId = listTaskTableReferenceDetailRequest['X-Project-Id'];
+                    contentType = listTaskTableReferenceDetailRequest['Content-Type'];
+                    dataBaseName = listTaskTableReferenceDetailRequest['data_base_name'];
+                    clusterName = listTaskTableReferenceDetailRequest['cluster_name'];
+                    ioType = listTaskTableReferenceDetailRequest['io_type'];
+                    offset = listTaskTableReferenceDetailRequest['offset'];
+                    limit = listTaskTableReferenceDetailRequest['limit'];
+                    workspaceName = listTaskTableReferenceDetailRequest['workspace_name'];
+                    owner = listTaskTableReferenceDetailRequest['owner'];
+                    executeUser = listTaskTableReferenceDetailRequest['execute_user'];
+                }
+            }
+
+        
+            if (tableName === null || tableName === undefined) {
+                throw new RequiredError('tableName','Required parameter tableName was null or undefined when calling listTaskTableReferenceDetail.');
+            }
+            if (tableName !== null && tableName !== undefined) {
+                localVarQueryParameter['table_name'] = tableName;
+            }
+            if (dbType === null || dbType === undefined) {
+                throw new RequiredError('dbType','Required parameter dbType was null or undefined when calling listTaskTableReferenceDetail.');
+            }
+            if (dbType !== null && dbType !== undefined) {
+                localVarQueryParameter['db_type'] = dbType;
+            }
+            if (dataBaseName !== null && dataBaseName !== undefined) {
+                localVarQueryParameter['data_base_name'] = dataBaseName;
+            }
+            if (clusterName !== null && clusterName !== undefined) {
+                localVarQueryParameter['cluster_name'] = clusterName;
+            }
+            if (ioType !== null && ioType !== undefined) {
+                localVarQueryParameter['io_type'] = ioType;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (workspaceName !== null && workspaceName !== undefined) {
+                localVarQueryParameter['workspace_name'] = workspaceName;
+            }
+            if (owner !== null && owner !== undefined) {
+                localVarQueryParameter['owner'] = owner;
+            }
+            if (executeUser !== null && executeUser !== undefined) {
+                localVarQueryParameter['execute_user'] = executeUser;
             }
             if (workspace !== undefined && workspace !== null) {
                 localVarHeaderParameter['workspace'] = String(workspace);

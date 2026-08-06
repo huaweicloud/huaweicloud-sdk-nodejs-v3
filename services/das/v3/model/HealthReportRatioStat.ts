@@ -6,12 +6,7 @@ export class HealthReportRatioStat {
     private 'critical_ratio'?: number;
     private 'medium_ratio'?: number;
     private 'light_ratio'?: number;
-    public constructor(metric?: string, maxValue?: number, criticalRatio?: number, mediumRatio?: number, lightRatio?: number) { 
-        this['metric'] = metric;
-        this['max_value'] = maxValue;
-        this['critical_ratio'] = criticalRatio;
-        this['medium_ratio'] = mediumRatio;
-        this['light_ratio'] = lightRatio;
+    public constructor() { 
     }
     public withMetric(metric: string): HealthReportRatioStat {
         this['metric'] = metric;

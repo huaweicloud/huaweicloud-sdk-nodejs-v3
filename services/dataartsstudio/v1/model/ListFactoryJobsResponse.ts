@@ -1,10 +1,10 @@
-import { JobResp } from './JobResp';
+import { JobResultV2 } from './JobResultV2';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListFactoryJobsResponse extends SdkResponse {
     public total?: number;
-    public jobs?: Array<JobResp>;
+    public jobs?: Array<JobResultV2>;
     public constructor() { 
         super();
     }
@@ -12,7 +12,7 @@ export class ListFactoryJobsResponse extends SdkResponse {
         this['total'] = total;
         return this;
     }
-    public withJobs(jobs: Array<JobResp>): ListFactoryJobsResponse {
+    public withJobs(jobs: Array<JobResultV2>): ListFactoryJobsResponse {
         this['jobs'] = jobs;
         return this;
     }

@@ -5,13 +5,10 @@ import { HealthReportSingleValueStat } from './HealthReportSingleValueStat';
 export class HealthReportDiskStat {
     private 'peak_stats'?: Array<HealthReportSingleValueStat>;
     private 'ratio_stats'?: Array<HealthReportRatioStat>;
+    private 'last_stat'?: Array<HealthReportSingleValueStat>;
     private 'analyze_success'?: boolean;
     private 'error_message'?: string;
-    public constructor(peakStats?: Array<HealthReportSingleValueStat>, ratioStats?: Array<HealthReportRatioStat>, analyzeSuccess?: boolean, errorMessage?: string) { 
-        this['peak_stats'] = peakStats;
-        this['ratio_stats'] = ratioStats;
-        this['analyze_success'] = analyzeSuccess;
-        this['error_message'] = errorMessage;
+    public constructor() { 
     }
     public withPeakStats(peakStats: Array<HealthReportSingleValueStat>): HealthReportDiskStat {
         this['peak_stats'] = peakStats;
@@ -32,6 +29,16 @@ export class HealthReportDiskStat {
     }
     public get ratioStats(): Array<HealthReportRatioStat> | undefined {
         return this['ratio_stats'];
+    }
+    public withLastStat(lastStat: Array<HealthReportSingleValueStat>): HealthReportDiskStat {
+        this['last_stat'] = lastStat;
+        return this;
+    }
+    public set lastStat(lastStat: Array<HealthReportSingleValueStat>  | undefined) {
+        this['last_stat'] = lastStat;
+    }
+    public get lastStat(): Array<HealthReportSingleValueStat> | undefined {
+        return this['last_stat'];
     }
     public withAnalyzeSuccess(analyzeSuccess: boolean): HealthReportDiskStat {
         this['analyze_success'] = analyzeSuccess;

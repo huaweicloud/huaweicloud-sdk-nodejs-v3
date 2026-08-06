@@ -14,19 +14,7 @@ export class HealthReportInspectionScore {
     private 'thread_running'?: number;
     private 'slow_sql_total'?: number;
     private 'lost_points_detail_list'?: Array<HealthReportLostPointsDetail>;
-    public constructor(score?: number, critical?: number, medium?: number, light?: number, cpuUsage?: number, memUsage?: number, spaceUsage?: number, connectionRate?: number, iopsUsage?: number, threadRunning?: number, slowSqlTotal?: number, lostPointsDetailList?: Array<HealthReportLostPointsDetail>) { 
-        this['score'] = score;
-        this['critical'] = critical;
-        this['medium'] = medium;
-        this['light'] = light;
-        this['cpu_usage'] = cpuUsage;
-        this['mem_usage'] = memUsage;
-        this['space_usage'] = spaceUsage;
-        this['connection_rate'] = connectionRate;
-        this['iops_usage'] = iopsUsage;
-        this['thread_running'] = threadRunning;
-        this['slow_sql_total'] = slowSqlTotal;
-        this['lost_points_detail_list'] = lostPointsDetailList;
+    public constructor() { 
     }
     public withScore(score: number): HealthReportInspectionScore {
         this['score'] = score;

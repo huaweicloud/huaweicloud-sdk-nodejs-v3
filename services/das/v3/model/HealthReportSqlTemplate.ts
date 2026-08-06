@@ -12,18 +12,7 @@ export class HealthReportSqlTemplate {
     private 'sum_rows_examined'?: number;
     private 'avg_rows_sent'?: number;
     private 'max_rows_sent'?: number;
-    public constructor(templateId?: string, template?: string, databases?: Array<string>, times?: number, avgQueryTime?: number, maxQueryTime?: number, avgRowsExamined?: number, maxRowsExamined?: number, sumRowsExamined?: number, avgRowsSent?: number, maxRowsSent?: number) { 
-        this['template_id'] = templateId;
-        this['template'] = template;
-        this['databases'] = databases;
-        this['times'] = times;
-        this['avg_query_time'] = avgQueryTime;
-        this['max_query_time'] = maxQueryTime;
-        this['avg_rows_examined'] = avgRowsExamined;
-        this['max_rows_examined'] = maxRowsExamined;
-        this['sum_rows_examined'] = sumRowsExamined;
-        this['avg_rows_sent'] = avgRowsSent;
-        this['max_rows_sent'] = maxRowsSent;
+    public constructor() { 
     }
     public withTemplateId(templateId: string): HealthReportSqlTemplate {
         this['template_id'] = templateId;

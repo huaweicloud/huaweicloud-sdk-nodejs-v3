@@ -1,3 +1,4 @@
+import { GetkeyRotationStatusResponseBodyKeyMaterials } from './GetkeyRotationStatusResponseBodyKeyMaterials';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -6,6 +7,7 @@ export class ShowKeyRotationStatusResponse extends SdkResponse {
     private 'rotation_interval'?: number;
     private 'last_rotation_time'?: string;
     private 'number_of_rotations'?: number;
+    private 'key_materials'?: Array<GetkeyRotationStatusResponseBodyKeyMaterials>;
     public constructor() { 
         super();
     }
@@ -48,5 +50,15 @@ export class ShowKeyRotationStatusResponse extends SdkResponse {
     }
     public get numberOfRotations(): number | undefined {
         return this['number_of_rotations'];
+    }
+    public withKeyMaterials(keyMaterials: Array<GetkeyRotationStatusResponseBodyKeyMaterials>): ShowKeyRotationStatusResponse {
+        this['key_materials'] = keyMaterials;
+        return this;
+    }
+    public set keyMaterials(keyMaterials: Array<GetkeyRotationStatusResponseBodyKeyMaterials>  | undefined) {
+        this['key_materials'] = keyMaterials;
+    }
+    public get keyMaterials(): Array<GetkeyRotationStatusResponseBodyKeyMaterials> | undefined {
+        return this['key_materials'];
     }
 }

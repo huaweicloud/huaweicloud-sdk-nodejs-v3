@@ -106,7 +106,12 @@ export enum CreateKeyRequestBodyKeySpecEnum {
     EC_P256 = 'EC_P256',
     EC_P384 = 'EC_P384',
     SECP256K1 = 'SECP256K1',
-    SM2 = 'SM2'
+    SM2 = 'SM2',
+    ED25519 = 'ED25519',
+    HMAC_256 = 'HMAC_256',
+    HMAC_384 = 'HMAC_384',
+    HMAC_512 = 'HMAC_512',
+    HMAC_SM3 = 'HMAC_SM3'
 }
 /**
     * @export

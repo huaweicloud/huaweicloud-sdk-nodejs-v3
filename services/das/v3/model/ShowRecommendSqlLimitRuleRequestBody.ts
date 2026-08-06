@@ -6,7 +6,9 @@ export class ShowRecommendSqlLimitRuleRequestBody {
     private 'taurus_recommendation_type'?: string;
     private 'recommend_count'?: number;
     private 'node_id'?: string;
-    public constructor() { 
+    public constructor(engineType?: string, recommendCount?: number) { 
+        this['engine_type'] = engineType;
+        this['recommend_count'] = recommendCount;
     }
     public withEngineType(engineType: string): ShowRecommendSqlLimitRuleRequestBody {
         this['engine_type'] = engineType;

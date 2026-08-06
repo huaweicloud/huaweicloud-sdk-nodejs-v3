@@ -2,12 +2,19 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowLockBlockingSwitchResponse extends SdkResponse {
+    public success?: boolean;
     private 'switch_on'?: boolean;
     private 'retention_hours'?: number;
+    public retry?: boolean;
+    private 'error_msg'?: string;
     private 'can_open'?: boolean;
     private 'cant_open_msg'?: string;
     public constructor() { 
         super();
+    }
+    public withSuccess(success: boolean): ShowLockBlockingSwitchResponse {
+        this['success'] = success;
+        return this;
     }
     public withSwitchOn(switchOn: boolean): ShowLockBlockingSwitchResponse {
         this['switch_on'] = switchOn;
@@ -28,6 +35,20 @@ export class ShowLockBlockingSwitchResponse extends SdkResponse {
     }
     public get retentionHours(): number | undefined {
         return this['retention_hours'];
+    }
+    public withRetry(retry: boolean): ShowLockBlockingSwitchResponse {
+        this['retry'] = retry;
+        return this;
+    }
+    public withErrorMsg(errorMsg: string): ShowLockBlockingSwitchResponse {
+        this['error_msg'] = errorMsg;
+        return this;
+    }
+    public set errorMsg(errorMsg: string  | undefined) {
+        this['error_msg'] = errorMsg;
+    }
+    public get errorMsg(): string | undefined {
+        return this['error_msg'];
     }
     public withCanOpen(canOpen: boolean): ShowLockBlockingSwitchResponse {
         this['can_open'] = canOpen;

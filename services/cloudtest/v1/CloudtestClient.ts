@@ -309,6 +309,10 @@ import { ListScattersUsingRequest } from './model/ListScattersUsingRequest';
 import { ListScattersUsingResponse } from './model/ListScattersUsingResponse';
 import { ListSubTaskCaseOverstockUsingRequest } from './model/ListSubTaskCaseOverstockUsingRequest';
 import { ListSubTaskCaseOverstockUsingResponse } from './model/ListSubTaskCaseOverstockUsingResponse';
+import { ListSubTasksByPostUsingRequest } from './model/ListSubTasksByPostUsingRequest';
+import { ListSubTasksByPostUsingResponse } from './model/ListSubTasksByPostUsingResponse';
+import { ListSubTestCaseByConditionsUsingRequest } from './model/ListSubTestCaseByConditionsUsingRequest';
+import { ListSubTestCaseByConditionsUsingResponse } from './model/ListSubTestCaseByConditionsUsingResponse';
 import { ListTaskAssignCasesRequest } from './model/ListTaskAssignCasesRequest';
 import { ListTaskAssignCasesResponse } from './model/ListTaskAssignCasesResponse';
 import { ListTaskResultsDetailRequest } from './model/ListTaskResultsDetailRequest';
@@ -587,8 +591,10 @@ import { ShowUserExecuteTestCaseInfoResponse } from './model/ShowUserExecuteTest
 import { SimpleIssueVo } from './model/SimpleIssueVo';
 import { SimpleResourceInfo } from './model/SimpleResourceInfo';
 import { StepImageVo } from './model/StepImageVo';
+import { SubTaskCaseQuery } from './model/SubTaskCaseQuery';
 import { SubTaskCaseSuccessLineDetailVo } from './model/SubTaskCaseSuccessLineDetailVo';
 import { SubTaskCaseSuccessLineVo } from './model/SubTaskCaseSuccessLineVo';
+import { SubTaskQueryByPageParams } from './model/SubTaskQueryByPageParams';
 import { SubtaskcaseOverstockDto } from './model/SubtaskcaseOverstockDto';
 import { SystemConfig } from './model/SystemConfig';
 import { TaskAssignCaseDetailVo } from './model/TaskAssignCaseDetailVo';
@@ -1945,6 +1951,46 @@ export class CloudtestClient {
      */
     public listSubTaskCaseOverstockUsing(listSubTaskCaseOverstockUsingRequest?: ListSubTaskCaseOverstockUsingRequest): Promise<ListSubTaskCaseOverstockUsingResponse> {
         const options = ParamCreater().listSubTaskCaseOverstockUsing(listSubTaskCaseOverstockUsingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据条件查询子任务集合
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据条件查询子任务集合
+     * @param {string} serviceId 服务id
+     * @param {SubTaskQueryByPageParams} listSubTasksByPostUsingRequestBody 子任务查询参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSubTasksByPostUsing(listSubTasksByPostUsingRequest?: ListSubTasksByPostUsingRequest): Promise<ListSubTasksByPostUsingResponse> {
+        const options = ParamCreater().listSubTasksByPostUsing(listSubTasksByPostUsingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量查询子任务用例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量查询子任务用例
+     * @param {string} serviceId 服务id
+     * @param {SubTaskCaseQuery} listSubTestCaseByConditionsUsingRequestBody 批量查询子任务用例的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSubTestCaseByConditionsUsing(listSubTestCaseByConditionsUsingRequest?: ListSubTestCaseByConditionsUsingRequest): Promise<ListSubTestCaseByConditionsUsingResponse> {
+        const options = ParamCreater().listSubTestCaseByConditionsUsing(listSubTestCaseByConditionsUsingRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7258,6 +7304,98 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'service_id': serviceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据条件查询子任务集合
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSubTasksByPostUsing(listSubTasksByPostUsingRequest?: ListSubTasksByPostUsingRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/projects/{service_id}/testsuite/results",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let serviceId;
+
+            if (listSubTasksByPostUsingRequest !== null && listSubTasksByPostUsingRequest !== undefined) {
+                if (listSubTasksByPostUsingRequest instanceof ListSubTasksByPostUsingRequest) {
+                    serviceId = listSubTasksByPostUsingRequest.serviceId;
+                    body = listSubTasksByPostUsingRequest.body
+                } else {
+                    serviceId = listSubTasksByPostUsingRequest['service_id'];
+                    body = listSubTasksByPostUsingRequest['body'];
+                }
+            }
+
+        
+            if (serviceId === null || serviceId === undefined) {
+            throw new RequiredError('serviceId','Required parameter serviceId was null or undefined when calling listSubTasksByPostUsing.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'service_id': serviceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量查询子任务用例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSubTestCaseByConditionsUsing(listSubTestCaseByConditionsUsingRequest?: ListSubTestCaseByConditionsUsingRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/projects/{service_id}/testsuite/results/cases",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let serviceId;
+
+            if (listSubTestCaseByConditionsUsingRequest !== null && listSubTestCaseByConditionsUsingRequest !== undefined) {
+                if (listSubTestCaseByConditionsUsingRequest instanceof ListSubTestCaseByConditionsUsingRequest) {
+                    serviceId = listSubTestCaseByConditionsUsingRequest.serviceId;
+                    body = listSubTestCaseByConditionsUsingRequest.body
+                } else {
+                    serviceId = listSubTestCaseByConditionsUsingRequest['service_id'];
+                    body = listSubTestCaseByConditionsUsingRequest['body'];
+                }
+            }
+
+        
+            if (serviceId === null || serviceId === undefined) {
+            throw new RequiredError('serviceId','Required parameter serviceId was null or undefined when calling listSubTestCaseByConditionsUsing.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'service_id': serviceId, };
             options.headers = localVarHeaderParameter;
             return options;

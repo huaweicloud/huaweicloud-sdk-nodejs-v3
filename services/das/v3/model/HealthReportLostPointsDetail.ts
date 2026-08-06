@@ -4,10 +4,7 @@ export class HealthReportLostPointsDetail {
     public metric?: string;
     private 'lost_points'?: number;
     private 'risk_level'?: string;
-    public constructor(metric?: string, lostPoints?: number, riskLevel?: string) { 
-        this['metric'] = metric;
-        this['lost_points'] = lostPoints;
-        this['risk_level'] = riskLevel;
+    public constructor() { 
     }
     public withMetric(metric: string): HealthReportLostPointsDetail {
         this['metric'] = metric;

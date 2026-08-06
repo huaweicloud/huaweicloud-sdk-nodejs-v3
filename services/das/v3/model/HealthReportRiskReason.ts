@@ -5,10 +5,7 @@ export class HealthReportRiskReason {
     private 'reason_code'?: string;
     private 'reason_content'?: string;
     public suggestions?: Array<HealthReportRiskSuggestion>;
-    public constructor(reasonCode?: string, reasonContent?: string, suggestions?: Array<HealthReportRiskSuggestion>) { 
-        this['reason_code'] = reasonCode;
-        this['reason_content'] = reasonContent;
-        this['suggestions'] = suggestions;
+    public constructor() { 
     }
     public withReasonCode(reasonCode: string): HealthReportRiskReason {
         this['reason_code'] = reasonCode;

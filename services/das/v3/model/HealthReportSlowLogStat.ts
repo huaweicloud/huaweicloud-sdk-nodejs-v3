@@ -9,14 +9,7 @@ export class HealthReportSlowLogStat {
     private 'rows_examined_exceeding'?: Array<HealthReportSqlTemplate>;
     private 'analyze_success'?: boolean;
     private 'error_message'?: string;
-    public constructor(collectSlowLog?: boolean, topExecuteSlowLogs?: Array<HealthReportSqlTemplate>, topAvgQueryTimeSlowLogs?: Array<HealthReportSqlTemplate>, topMaxQueryTimeSlowLogs?: Array<HealthReportSqlTemplate>, rowsExaminedExceeding?: Array<HealthReportSqlTemplate>, analyzeSuccess?: boolean, errorMessage?: string) { 
-        this['collect_slow_log'] = collectSlowLog;
-        this['top_execute_slow_logs'] = topExecuteSlowLogs;
-        this['top_avg_query_time_slow_logs'] = topAvgQueryTimeSlowLogs;
-        this['top_max_query_time_slow_logs'] = topMaxQueryTimeSlowLogs;
-        this['rows_examined_exceeding'] = rowsExaminedExceeding;
-        this['analyze_success'] = analyzeSuccess;
-        this['error_message'] = errorMessage;
+    public constructor() { 
     }
     public withCollectSlowLog(collectSlowLog: boolean): HealthReportSlowLogStat {
         this['collect_slow_log'] = collectSlowLog;

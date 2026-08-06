@@ -7,13 +7,7 @@ export class HealthReportSingleValueStat {
     public normalized?: number;
     public stage?: string;
     public timestamp?: number;
-    public constructor(metric?: string, value?: number, maxValue?: number, normalized?: number, stage?: string, timestamp?: number) { 
-        this['metric'] = metric;
-        this['value'] = value;
-        this['max_value'] = maxValue;
-        this['normalized'] = normalized;
-        this['stage'] = stage;
-        this['timestamp'] = timestamp;
+    public constructor() { 
     }
     public withMetric(metric: string): HealthReportSingleValueStat {
         this['metric'] = metric;

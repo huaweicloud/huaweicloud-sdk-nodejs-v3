@@ -6,6 +6,8 @@ export class LtslogInfo {
     private 'log_type'?: string;
     private 'log_desc'?: string;
     private 'access_url'?: string;
+    private 'report_interval'?: number;
+    private 'max_report_size'?: number;
     public constructor(status?: string, id?: string, logType?: string, logDesc?: string, accessUrl?: string) { 
         this['status'] = status;
         this['id'] = id;
@@ -50,5 +52,25 @@ export class LtslogInfo {
     }
     public get accessUrl(): string | undefined {
         return this['access_url'];
+    }
+    public withReportInterval(reportInterval: number): LtslogInfo {
+        this['report_interval'] = reportInterval;
+        return this;
+    }
+    public set reportInterval(reportInterval: number  | undefined) {
+        this['report_interval'] = reportInterval;
+    }
+    public get reportInterval(): number | undefined {
+        return this['report_interval'];
+    }
+    public withMaxReportSize(maxReportSize: number): LtslogInfo {
+        this['max_report_size'] = maxReportSize;
+        return this;
+    }
+    public set maxReportSize(maxReportSize: number  | undefined) {
+        this['max_report_size'] = maxReportSize;
+    }
+    public get maxReportSize(): number | undefined {
+        return this['max_report_size'];
     }
 }

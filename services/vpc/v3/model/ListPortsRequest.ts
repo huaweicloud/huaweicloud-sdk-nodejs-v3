@@ -18,6 +18,8 @@ export class ListPortsRequest {
     private 'allowed_address_pairs'?: Array<string>;
     private 'instance_id'?: string;
     private 'instance_type'?: string;
+    public limit?: number;
+    public marker?: string;
     public constructor() { 
     }
     public withId(id: Array<string>): ListPortsRequest {
@@ -165,5 +167,13 @@ export class ListPortsRequest {
     }
     public get instanceType(): string | undefined {
         return this['instance_type'];
+    }
+    public withLimit(limit: number): ListPortsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListPortsRequest {
+        this['marker'] = marker;
+        return this;
     }
 }

@@ -14,11 +14,17 @@ import { AddInstanceGroupResponse } from './model/AddInstanceGroupResponse';
 import { AddInstanceToGroupRequest } from './model/AddInstanceToGroupRequest';
 import { AddInstanceToGroupRequestBody } from './model/AddInstanceToGroupRequestBody';
 import { AddInstanceToGroupResponse } from './model/AddInstanceToGroupResponse';
+import { AddSqlLimitingRecordNewRequest } from './model/AddSqlLimitingRecordNewRequest';
+import { AddSqlLimitingRecordNewRequestBody } from './model/AddSqlLimitingRecordNewRequestBody';
+import { AddSqlLimitingRecordNewResponse } from './model/AddSqlLimitingRecordNewResponse';
 import { AdviceResult } from './model/AdviceResult';
 import { ApiListConnectionsInfoRespDasConnInfoList } from './model/ApiListConnectionsInfoRespDasConnInfoList';
 import { ApiSetMetricCodeThresholdReq } from './model/ApiSetMetricCodeThresholdReq';
 import { ApiVersion } from './model/ApiVersion';
 import { AutoIncrementUsageRespAutoIncrementUsageList } from './model/AutoIncrementUsageRespAutoIncrementUsageList';
+import { BatchDeleteConnectionNewRequest } from './model/BatchDeleteConnectionNewRequest';
+import { BatchDeleteConnectionNewRequestBody } from './model/BatchDeleteConnectionNewRequestBody';
+import { BatchDeleteConnectionNewResponse } from './model/BatchDeleteConnectionNewResponse';
 import { BatchInspectionLostPointsDetail } from './model/BatchInspectionLostPointsDetail';
 import { BatchInspectionReport } from './model/BatchInspectionReport';
 import { BatchSendEmailRequest } from './model/BatchSendEmailRequest';
@@ -30,6 +36,10 @@ import { BatchSubscribeReportResponse } from './model/BatchSubscribeReportRespon
 import { CancelShareConnectionsRequest } from './model/CancelShareConnectionsRequest';
 import { CancelShareConnectionsRequestBody } from './model/CancelShareConnectionsRequestBody';
 import { CancelShareConnectionsResponse } from './model/CancelShareConnectionsResponse';
+import { CancelShareNewRequest } from './model/CancelShareNewRequest';
+import { CancelShareNewRequestBody } from './model/CancelShareNewRequestBody';
+import { CancelShareNewRequestBodyUsers } from './model/CancelShareNewRequestBodyUsers';
+import { CancelShareNewResponse } from './model/CancelShareNewResponse';
 import { ChangeChargeModeBody } from './model/ChangeChargeModeBody';
 import { ChangeChargeModeRequest } from './model/ChangeChargeModeRequest';
 import { ChangeChargeModeResponse } from './model/ChangeChargeModeResponse';
@@ -50,6 +60,7 @@ import { CheckCredentialRequest } from './model/CheckCredentialRequest';
 import { CheckCredentialRequestBody } from './model/CheckCredentialRequestBody';
 import { CheckCredentialResponse } from './model/CheckCredentialResponse';
 import { CommonResponse } from './model/CommonResponse';
+import { ConnectionIdsItem } from './model/ConnectionIdsItem';
 import { CreateExportTaskReq } from './model/CreateExportTaskReq';
 import { CreateExportTaskResp } from './model/CreateExportTaskResp';
 import { CreateHealthReportReq } from './model/CreateHealthReportReq';
@@ -144,7 +155,13 @@ import { HealthReportSqlTemplate } from './model/HealthReportSqlTemplate';
 import { HealthReportSummaryInfo } from './model/HealthReportSummaryInfo';
 import { HealthReportTableSpaceIncrInfo } from './model/HealthReportTableSpaceIncrInfo';
 import { HealthReportTableSpaceInfo } from './model/HealthReportTableSpaceInfo';
+import { HealthReportTableSpaceNewStat } from './model/HealthReportTableSpaceNewStat';
+import { HealthReportTableSpaceQueryRapidGrowthTablesResp } from './model/HealthReportTableSpaceQueryRapidGrowthTablesResp';
+import { HealthReportTableSpaceQuerySpaceTopResp } from './model/HealthReportTableSpaceQuerySpaceTopResp';
+import { HealthReportTableSpaceQuerySpecialTablesResp } from './model/HealthReportTableSpaceQuerySpecialTablesResp';
 import { HealthReportTableSpaceStat } from './model/HealthReportTableSpaceStat';
+import { HealthReportTableSpaceTablesDto } from './model/HealthReportTableSpaceTablesDto';
+import { HealthReportTableSpaceTopDataDto } from './model/HealthReportTableSpaceTopDataDto';
 import { HealthReportTask } from './model/HealthReportTask';
 import { IndexAdviceInfo } from './model/IndexAdviceInfo';
 import { InnodbLock } from './model/InnodbLock';
@@ -165,6 +182,8 @@ import { ListCloudDbaInstancesRequest } from './model/ListCloudDbaInstancesReque
 import { ListCloudDbaInstancesResponse } from './model/ListCloudDbaInstancesResponse';
 import { ListConnectionsRequest } from './model/ListConnectionsRequest';
 import { ListConnectionsResponse } from './model/ListConnectionsResponse';
+import { ListDbNamesRequest } from './model/ListDbNamesRequest';
+import { ListDbNamesResponse } from './model/ListDbNamesResponse';
 import { ListDbUsersRequest } from './model/ListDbUsersRequest';
 import { ListDbUsersResponse } from './model/ListDbUsersResponse';
 import { ListEmailRecordRequest } from './model/ListEmailRecordRequest';
@@ -266,8 +285,12 @@ import { ShowAnalysisSessionStatusRequest } from './model/ShowAnalysisSessionSta
 import { ShowAnalysisSessionStatusResponse } from './model/ShowAnalysisSessionStatusResponse';
 import { ShowApiVersionRequest } from './model/ShowApiVersionRequest';
 import { ShowApiVersionResponse } from './model/ShowApiVersionResponse';
+import { ShowClouddbaGetSearchPathFlagNewRequest } from './model/ShowClouddbaGetSearchPathFlagNewRequest';
+import { ShowClouddbaGetSearchPathFlagNewResponse } from './model/ShowClouddbaGetSearchPathFlagNewResponse';
 import { ShowCredentialRequest } from './model/ShowCredentialRequest';
 import { ShowCredentialResponse } from './model/ShowCredentialResponse';
+import { ShowDasCloudDbaPriceRequest } from './model/ShowDasCloudDbaPriceRequest';
+import { ShowDasCloudDbaPriceResponse } from './model/ShowDasCloudDbaPriceResponse';
 import { ShowDasRecommendSqlLimitRuleRequest } from './model/ShowDasRecommendSqlLimitRuleRequest';
 import { ShowDasRecommendSqlLimitRuleResponse } from './model/ShowDasRecommendSqlLimitRuleResponse';
 import { ShowDbUserRequest } from './model/ShowDbUserRequest';
@@ -275,6 +298,8 @@ import { ShowDbUserResponse } from './model/ShowDbUserResponse';
 import { ShowDeadLockAnalysisResultRequest } from './model/ShowDeadLockAnalysisResultRequest';
 import { ShowDeadLockAnalysisResultRespSqlList } from './model/ShowDeadLockAnalysisResultRespSqlList';
 import { ShowDeadLockAnalysisResultResponse } from './model/ShowDeadLockAnalysisResultResponse';
+import { ShowDeadLockSwitchNewRequest } from './model/ShowDeadLockSwitchNewRequest';
+import { ShowDeadLockSwitchNewResponse } from './model/ShowDeadLockSwitchNewResponse';
 import { ShowDeadLockTopologyGraphRespConflictGroups } from './model/ShowDeadLockTopologyGraphRespConflictGroups';
 import { ShowDeadLockTopologyGraphRespEdges } from './model/ShowDeadLockTopologyGraphRespEdges';
 import { ShowDeadLockTopologyGraphRespLockedData } from './model/ShowDeadLockTopologyGraphRespLockedData';
@@ -283,18 +308,32 @@ import { ShowDeadLockTopologyGraphRespMeta } from './model/ShowDeadLockTopologyG
 import { ShowDeadLockTopologyGraphRespTransactions } from './model/ShowDeadLockTopologyGraphRespTransactions';
 import { ShowDeadLockTopologyRequest } from './model/ShowDeadLockTopologyRequest';
 import { ShowDeadLockTopologyResponse } from './model/ShowDeadLockTopologyResponse';
+import { ShowExportTaskInfoRequest } from './model/ShowExportTaskInfoRequest';
+import { ShowExportTaskInfoResponse } from './model/ShowExportTaskInfoResponse';
 import { ShowFullDeadLockListRequest } from './model/ShowFullDeadLockListRequest';
 import { ShowFullDeadLockListResponse } from './model/ShowFullDeadLockListResponse';
+import { ShowFullDeadLockSwitchNewRequest } from './model/ShowFullDeadLockSwitchNewRequest';
+import { ShowFullDeadLockSwitchNewResponse } from './model/ShowFullDeadLockSwitchNewResponse';
 import { ShowFullDeadLockSwitchRequest } from './model/ShowFullDeadLockSwitchRequest';
 import { ShowFullDeadLockSwitchResponse } from './model/ShowFullDeadLockSwitchResponse';
+import { ShowGlobalPrivacyNewRequest } from './model/ShowGlobalPrivacyNewRequest';
+import { ShowGlobalPrivacyNewResponse } from './model/ShowGlobalPrivacyNewResponse';
 import { ShowHealthReportSettingsRequest } from './model/ShowHealthReportSettingsRequest';
 import { ShowHealthReportSettingsResponse } from './model/ShowHealthReportSettingsResponse';
 import { ShowHistoryTransactionExportTaskInfoRequest } from './model/ShowHistoryTransactionExportTaskInfoRequest';
 import { ShowHistoryTransactionExportTaskInfoResponse } from './model/ShowHistoryTransactionExportTaskInfoResponse';
+import { ShowHistoryTransactionSwitchNewRequest } from './model/ShowHistoryTransactionSwitchNewRequest';
+import { ShowHistoryTransactionSwitchNewResponse } from './model/ShowHistoryTransactionSwitchNewResponse';
+import { ShowIndexUsageSwitchNewRequest } from './model/ShowIndexUsageSwitchNewRequest';
+import { ShowIndexUsageSwitchNewResponse } from './model/ShowIndexUsageSwitchNewResponse';
 import { ShowInstanceHealthReportRequest } from './model/ShowInstanceHealthReportRequest';
 import { ShowInstanceHealthReportResponse } from './model/ShowInstanceHealthReportResponse';
+import { ShowKillProcessTaskSwitchRequest } from './model/ShowKillProcessTaskSwitchRequest';
+import { ShowKillProcessTaskSwitchResponse } from './model/ShowKillProcessTaskSwitchResponse';
 import { ShowLatestDeadLockSnapshotRequest } from './model/ShowLatestDeadLockSnapshotRequest';
 import { ShowLatestDeadLockSnapshotResponse } from './model/ShowLatestDeadLockSnapshotResponse';
+import { ShowLatestInstanceHealthReportRequest } from './model/ShowLatestInstanceHealthReportRequest';
+import { ShowLatestInstanceHealthReportResponse } from './model/ShowLatestInstanceHealthReportResponse';
 import { ShowLockBlockingStatisticsRequest } from './model/ShowLockBlockingStatisticsRequest';
 import { ShowLockBlockingStatisticsResponse } from './model/ShowLockBlockingStatisticsResponse';
 import { ShowLockBlockingSwitchRequest } from './model/ShowLockBlockingSwitchRequest';
@@ -302,11 +341,17 @@ import { ShowLockBlockingSwitchResponse } from './model/ShowLockBlockingSwitchRe
 import { ShowLockBlockingTrendRequest } from './model/ShowLockBlockingTrendRequest';
 import { ShowLockBlockingTrendRespTrendList } from './model/ShowLockBlockingTrendRespTrendList';
 import { ShowLockBlockingTrendResponse } from './model/ShowLockBlockingTrendResponse';
+import { ShowLongHistoryTransactionSwitchNewRequest } from './model/ShowLongHistoryTransactionSwitchNewRequest';
+import { ShowLongHistoryTransactionSwitchNewResponse } from './model/ShowLongHistoryTransactionSwitchNewResponse';
 import { ShowMetricNamesSupportRequest } from './model/ShowMetricNamesSupportRequest';
 import { ShowMetricNamesSupportResponse } from './model/ShowMetricNamesSupportResponse';
+import { ShowNameListRequest } from './model/ShowNameListRequest';
+import { ShowNameListResponse } from './model/ShowNameListResponse';
 import { ShowQuotasRequest } from './model/ShowQuotasRequest';
 import { ShowQuotasResponse } from './model/ShowQuotasResponse';
 import { ShowRecommendSqlLimitRuleRequestBody } from './model/ShowRecommendSqlLimitRuleRequestBody';
+import { ShowSlowLogSwitchNewRequest } from './model/ShowSlowLogSwitchNewRequest';
+import { ShowSlowLogSwitchNewResponse } from './model/ShowSlowLogSwitchNewResponse';
 import { ShowSqlExecutionPlanRequest } from './model/ShowSqlExecutionPlanRequest';
 import { ShowSqlExecutionPlanResponse } from './model/ShowSqlExecutionPlanResponse';
 import { ShowSqlExplainRequest } from './model/ShowSqlExplainRequest';
@@ -315,12 +360,18 @@ import { ShowSqlLimitJobInfoRequest } from './model/ShowSqlLimitJobInfoRequest';
 import { ShowSqlLimitJobInfoResponse } from './model/ShowSqlLimitJobInfoResponse';
 import { ShowSqlLimitSwitchStatusRequest } from './model/ShowSqlLimitSwitchStatusRequest';
 import { ShowSqlLimitSwitchStatusResponse } from './model/ShowSqlLimitSwitchStatusResponse';
+import { ShowSqlLimitingSwitchNewRequest } from './model/ShowSqlLimitingSwitchNewRequest';
+import { ShowSqlLimitingSwitchNewResponse } from './model/ShowSqlLimitingSwitchNewResponse';
 import { ShowSqlSwitchStatusRequest } from './model/ShowSqlSwitchStatusRequest';
 import { ShowSqlSwitchStatusResponse } from './model/ShowSqlSwitchStatusResponse';
+import { ShowSupportedEnginesRequest } from './model/ShowSupportedEnginesRequest';
+import { ShowSupportedEnginesResponse } from './model/ShowSupportedEnginesResponse';
 import { ShowTransactionSwitchStatusRequest } from './model/ShowTransactionSwitchStatusRequest';
 import { ShowTransactionSwitchStatusResponse } from './model/ShowTransactionSwitchStatusResponse';
 import { ShowTuningRequest } from './model/ShowTuningRequest';
 import { ShowTuningResponse } from './model/ShowTuningResponse';
+import { ShowWhetherUseCloudDbaRequest } from './model/ShowWhetherUseCloudDbaRequest';
+import { ShowWhetherUseCloudDbaResponse } from './model/ShowWhetherUseCloudDbaResponse';
 import { SlowLog } from './model/SlowLog';
 import { SlowSqlStatistics } from './model/SlowSqlStatistics';
 import { SlowSqlTemplate } from './model/SlowSqlTemplate';
@@ -330,6 +381,9 @@ import { StartAnalysisSessionRequest } from './model/StartAnalysisSessionRequest
 import { StartAnalysisSessionRequestBody } from './model/StartAnalysisSessionRequestBody';
 import { StartAnalysisSessionResponse } from './model/StartAnalysisSessionResponse';
 import { SupportMetricNameListSupportMetricNames } from './model/SupportMetricNameListSupportMetricNames';
+import { SupportNetWorkTypeResponse } from './model/SupportNetWorkTypeResponse';
+import { SwitchFullsqlSwitchRequest } from './model/SwitchFullsqlSwitchRequest';
+import { SwitchFullsqlSwitchResponse } from './model/SwitchFullsqlSwitchResponse';
 import { SynchronizeInstancesReq } from './model/SynchronizeInstancesReq';
 import { SynchronizeInstancesRequest } from './model/SynchronizeInstancesRequest';
 import { SynchronizeInstancesResponse } from './model/SynchronizeInstancesResponse';
@@ -579,6 +633,45 @@ export class DasClient {
     }
 
     /**
+     * 新增SQL限流规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增SQL限流规则
+     * @param {string} instanceId 实例ID
+     * @param {AddSqlLimitingRecordNewRequestBody} addSqlLimitingRecordNewRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addSqlLimitingRecordNew(addSqlLimitingRecordNewRequest?: AddSqlLimitingRecordNewRequest): Promise<AddSqlLimitingRecordNewResponse> {
+        const options = ParamCreater().addSqlLimitingRecordNew(addSqlLimitingRecordNewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除连接
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除连接
+     * @param {BatchDeleteConnectionNewRequestBody} batchDeleteConnectionNewRequestBody 批量删除连接请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteConnectionNew(batchDeleteConnectionNewRequest?: BatchDeleteConnectionNewRequest): Promise<BatchDeleteConnectionNewResponse> {
+        const options = ParamCreater().batchDeleteConnectionNew(batchDeleteConnectionNewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量发送邮件
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -609,6 +702,25 @@ export class DasClient {
      */
     public batchSubscribeReport(batchSubscribeReportRequest?: BatchSubscribeReportRequest): Promise<BatchSubscribeReportResponse> {
         const options = ParamCreater().batchSubscribeReport(batchSubscribeReportRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 取消共享链接
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 取消共享链接
+     * @param {CancelShareNewRequestBody} cancelShareNewRequestBody 取消共享连接请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public cancelShareNew(cancelShareNewRequest?: CancelShareNewRequest): Promise<CancelShareNewResponse> {
+        const options = ParamCreater().cancelShareNew(cancelShareNewRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1303,6 +1415,26 @@ export class DasClient {
      */
     public listCloudDbaInstances(listCloudDbaInstancesRequest?: ListCloudDbaInstancesRequest): Promise<ListCloudDbaInstancesResponse> {
         const options = ParamCreater().listCloudDbaInstances(listCloudDbaInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取库名列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取库名列表
+     * @param {string} instanceId 实例ID
+     * @param {string} [engineType] 引擎类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDbNames(listDbNamesRequest?: ListDbNamesRequest): Promise<ListDbNamesResponse> {
+        const options = ParamCreater().listDbNames(listDbNamesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2140,6 +2272,25 @@ export class DasClient {
     }
 
     /**
+     * 查询searchpath开关状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询searchpath开关状态
+     * @param {string} connectionId 连接ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClouddbaGetSearchPathFlagNew(showClouddbaGetSearchPathFlagNewRequest?: ShowClouddbaGetSearchPathFlagNewRequest): Promise<ShowClouddbaGetSearchPathFlagNewResponse> {
+        const options = ParamCreater().showClouddbaGetSearchPathFlagNew(showClouddbaGetSearchPathFlagNewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询AK/SK。用于判断是否已保存AK/SK
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2150,6 +2301,24 @@ export class DasClient {
      */
     public showCredential(showCredentialRequest?: ShowCredentialRequest): Promise<ShowCredentialResponse> {
         const options = ParamCreater().showCredential();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开通配额询价
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开通配额询价
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDasCloudDbaPrice(showDasCloudDbaPriceRequest?: ShowDasCloudDbaPriceRequest): Promise<ShowDasCloudDbaPriceResponse> {
+        const options = ParamCreater().showDasCloudDbaPrice();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2225,6 +2394,26 @@ export class DasClient {
     }
 
     /**
+     * 查询死锁开关状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询死锁开关状态
+     * @param {string} [engineType] 引擎类型
+     * @param {string} [instanceId] 实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDeadLockSwitchNew(showDeadLockSwitchNewRequest?: ShowDeadLockSwitchNewRequest): Promise<ShowDeadLockSwitchNewResponse> {
+        const options = ParamCreater().showDeadLockSwitchNew(showDeadLockSwitchNewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取死锁拓扑图数据
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2237,6 +2426,25 @@ export class DasClient {
      */
     public showDeadLockTopology(showDeadLockTopologyRequest?: ShowDeadLockTopologyRequest): Promise<ShowDeadLockTopologyResponse> {
         const options = ParamCreater().showDeadLockTopology(showDeadLockTopologyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看全量SQL导出任务详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看全量SQL导出任务详情
+     * @param {number} taskId 任务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showExportTaskInfo(showExportTaskInfoRequest?: ShowExportTaskInfoRequest): Promise<ShowExportTaskInfoResponse> {
+        const options = ParamCreater().showExportTaskInfo(showExportTaskInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2289,6 +2497,43 @@ export class DasClient {
     }
 
     /**
+     * 获取全量死锁开关
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取全量死锁开关
+     * @param {string} instanceId 实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFullDeadLockSwitchNew(showFullDeadLockSwitchNewRequest?: ShowFullDeadLockSwitchNewRequest): Promise<ShowFullDeadLockSwitchNewResponse> {
+        const options = ParamCreater().showFullDeadLockSwitchNew(showFullDeadLockSwitchNewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取产品级别的安全协议
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取产品级别的安全协议
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showGlobalPrivacyNew(showGlobalPrivacyNewRequest?: ShowGlobalPrivacyNewRequest): Promise<ShowGlobalPrivacyNewResponse> {
+        const options = ParamCreater().showGlobalPrivacyNew();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查看实例诊断报告设置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2329,6 +2574,44 @@ export class DasClient {
     }
 
     /**
+     * 查询历史事务开关
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询历史事务开关
+     * @param {string} instanceId 实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showHistoryTransactionSwitchNew(showHistoryTransactionSwitchNewRequest?: ShowHistoryTransactionSwitchNewRequest): Promise<ShowHistoryTransactionSwitchNewResponse> {
+        const options = ParamCreater().showHistoryTransactionSwitchNew(showHistoryTransactionSwitchNewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询索引使用开关
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询索引使用开关
+     * @param {string} instanceId 实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showIndexUsageSwitchNew(showIndexUsageSwitchNewRequest?: ShowIndexUsageSwitchNewRequest): Promise<ShowIndexUsageSwitchNewResponse> {
+        const options = ParamCreater().showIndexUsageSwitchNew(showIndexUsageSwitchNewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取实例健康诊断报告内容。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2350,6 +2633,25 @@ export class DasClient {
     }
 
     /**
+     * 查询自治限流开关
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询自治限流开关
+     * @param {string} instanceId 实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showKillProcessTaskSwitch(showKillProcessTaskSwitchRequest?: ShowKillProcessTaskSwitchRequest): Promise<ShowKillProcessTaskSwitchResponse> {
+        const options = ParamCreater().showKillProcessTaskSwitch(showKillProcessTaskSwitchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取死锁的快照信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2363,6 +2665,25 @@ export class DasClient {
      */
     public showLatestDeadLockSnapshot(showLatestDeadLockSnapshotRequest?: ShowLatestDeadLockSnapshotRequest): Promise<ShowLatestDeadLockSnapshotResponse> {
         const options = ParamCreater().showLatestDeadLockSnapshot(showLatestDeadLockSnapshotRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取最新的数据库健康日报内容
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取最新的数据库健康日报内容
+     * @param {string} instanceId 实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLatestInstanceHealthReport(showLatestInstanceHealthReportRequest?: ShowLatestInstanceHealthReportRequest): Promise<ShowLatestInstanceHealthReportResponse> {
+        const options = ParamCreater().showLatestInstanceHealthReport(showLatestInstanceHealthReportRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2438,6 +2759,25 @@ export class DasClient {
     }
 
     /**
+     * 查询长事务开关
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询长事务开关
+     * @param {string} instanceId 实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showLongHistoryTransactionSwitchNew(showLongHistoryTransactionSwitchNewRequest?: ShowLongHistoryTransactionSwitchNewRequest): Promise<ShowLongHistoryTransactionSwitchNewResponse> {
+        const options = ParamCreater().showLongHistoryTransactionSwitchNew(showLongHistoryTransactionSwitchNewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 多节点单指标支持指标信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2457,6 +2797,27 @@ export class DasClient {
     }
 
     /**
+     * 查看库名列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看库名列表
+     * @param {string} connectionId 连接ID
+     * @param {string} [nodeType] 节点类型
+     * @param {string} [nodeId] 节点ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showNameList(showNameListRequest?: ShowNameListRequest): Promise<ShowNameListResponse> {
+        const options = ParamCreater().showNameList(showNameListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询云DBA配额
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2468,6 +2829,26 @@ export class DasClient {
      */
     public showQuotas(showQuotasRequest?: ShowQuotasRequest): Promise<ShowQuotasResponse> {
         const options = ParamCreater().showQuotas(showQuotasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询慢日志开关
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询慢日志开关
+     * @param {string} instanceId 实例ID
+     * @param {string} [engineType] 引擎类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSlowLogSwitchNew(showSlowLogSwitchNewRequest?: ShowSlowLogSwitchNewRequest): Promise<ShowSlowLogSwitchNewResponse> {
+        const options = ParamCreater().showSlowLogSwitchNew(showSlowLogSwitchNewRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2565,6 +2946,26 @@ export class DasClient {
     }
 
     /**
+     * 查询SQL限流开关
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询SQL限流开关
+     * @param {string} instanceId 实例ID
+     * @param {string} [engineType] 引擎类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSqlLimitingSwitchNew(showSqlLimitingSwitchNewRequest?: ShowSqlLimitingSwitchNewRequest): Promise<ShowSqlLimitingSwitchNewResponse> {
+        const options = ParamCreater().showSqlLimitingSwitchNew(showSqlLimitingSwitchNewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询DAS收集全量SQL和慢SQL的开关状态。该功能仅支持付费实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2579,6 +2980,24 @@ export class DasClient {
      */
     public showSqlSwitchStatus(showSqlSwitchStatusRequest?: ShowSqlSwitchStatusRequest): Promise<ShowSqlSwitchStatusResponse> {
         const options = ParamCreater().showSqlSwitchStatus(showSqlSwitchStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看支持的引擎类型
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看支持的引擎类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSupportedEngines(showSupportedEnginesRequest?: ShowSupportedEnginesRequest): Promise<ShowSupportedEnginesResponse> {
+        const options = ParamCreater().showSupportedEngines();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2630,6 +3049,26 @@ export class DasClient {
     }
 
     /**
+     * 判断该实例能否使用云DBA功能
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 判断该实例能否使用云DBA功能
+     * @param {string} [instanceId] 实例ID
+     * @param {string} [engineType] 引擎类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWhetherUseCloudDba(showWhetherUseCloudDbaRequest?: ShowWhetherUseCloudDbaRequest): Promise<ShowWhetherUseCloudDbaResponse> {
+        const options = ParamCreater().showWhetherUseCloudDba(showWhetherUseCloudDbaRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 开始会话分析
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2643,6 +3082,26 @@ export class DasClient {
      */
     public startAnalysisSession(startAnalysisSessionRequest?: StartAnalysisSessionRequest): Promise<StartAnalysisSessionResponse> {
         const options = ParamCreater().startAnalysisSession(startAnalysisSessionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启/关闭全量SQL开关
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启/关闭全量SQL开关
+     * @param {string} [engineType] 引擎类型
+     * @param {string} [instanceId] 实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchFullsqlSwitch(switchFullsqlSwitchRequest?: SwitchFullsqlSwitchRequest): Promise<SwitchFullsqlSwitchResponse> {
+        const options = ParamCreater().switchFullsqlSwitch(switchFullsqlSwitchRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3233,6 +3692,90 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 新增SQL限流规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addSqlLimitingRecordNew(addSqlLimitingRecordNewRequest?: AddSqlLimitingRecordNewRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/sql-limiting/add-sql-limiting-record",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (addSqlLimitingRecordNewRequest !== null && addSqlLimitingRecordNewRequest !== undefined) {
+                if (addSqlLimitingRecordNewRequest instanceof AddSqlLimitingRecordNewRequest) {
+                    instanceId = addSqlLimitingRecordNewRequest.instanceId;
+                    body = addSqlLimitingRecordNewRequest.body
+                } else {
+                    instanceId = addSqlLimitingRecordNewRequest['instance_id'];
+                    body = addSqlLimitingRecordNewRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling addSqlLimitingRecordNew.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除连接
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteConnectionNew(batchDeleteConnectionNewRequest?: BatchDeleteConnectionNewRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/batch-delete-connections",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchDeleteConnectionNewRequest !== null && batchDeleteConnectionNewRequest !== undefined) {
+                if (batchDeleteConnectionNewRequest instanceof BatchDeleteConnectionNewRequest) {
+                    body = batchDeleteConnectionNewRequest.body
+                } else {
+                    body = batchDeleteConnectionNewRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量发送邮件
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3294,6 +3837,44 @@ export const ParamCreater = function () {
                     body = batchSubscribeReportRequest.body
                 } else {
                     body = batchSubscribeReportRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 取消共享链接
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        cancelShareNew(cancelShareNewRequest?: CancelShareNewRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3.1/{project_id}/connections/cancel-share",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (cancelShareNewRequest !== null && cancelShareNewRequest !== undefined) {
+                if (cancelShareNewRequest instanceof CancelShareNewRequest) {
+                    body = cancelShareNewRequest.body
+                } else {
+                    body = cancelShareNewRequest['body'];
                 }
             }
 
@@ -5316,6 +5897,51 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取库名列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDbNames(listDbNamesRequest?: ListDbNamesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/databases/get-name-list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let engineType;
+
+            if (listDbNamesRequest !== null && listDbNamesRequest !== undefined) {
+                if (listDbNamesRequest instanceof ListDbNamesRequest) {
+                    instanceId = listDbNamesRequest.instanceId;
+                    engineType = listDbNamesRequest.engineType;
+                } else {
+                    instanceId = listDbNamesRequest['instance_id'];
+                    engineType = listDbNamesRequest['engine_type'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listDbNames.');
+            }
+            if (engineType !== null && engineType !== undefined) {
+                localVarQueryParameter['engine_type'] = engineType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7767,6 +8393,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询searchpath开关状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClouddbaGetSearchPathFlagNew(showClouddbaGetSearchPathFlagNewRequest?: ShowClouddbaGetSearchPathFlagNewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/connections/{connection_id}/clouddba-get-search-path-flag",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let connectionId;
+
+            if (showClouddbaGetSearchPathFlagNewRequest !== null && showClouddbaGetSearchPathFlagNewRequest !== undefined) {
+                if (showClouddbaGetSearchPathFlagNewRequest instanceof ShowClouddbaGetSearchPathFlagNewRequest) {
+                    connectionId = showClouddbaGetSearchPathFlagNewRequest.connectionId;
+                } else {
+                    connectionId = showClouddbaGetSearchPathFlagNewRequest['connection_id'];
+                }
+            }
+
+        
+            if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling showClouddbaGetSearchPathFlagNew.');
+            }
+
+            options.pathParams = { 'connection_id': connectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询AK/SK。用于判断是否已保存AK/SK
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7775,6 +8438,27 @@ export const ParamCreater = function () {
             const options = {
                 method: "GET",
                 url: "/v3/{project_id}/batch-inspection/get-credential",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开通配额询价
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDasCloudDbaPrice() {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/clouddba/inquiry-price",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -7969,6 +8653,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询死锁开关状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDeadLockSwitchNew(showDeadLockSwitchNewRequest?: ShowDeadLockSwitchNewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/dead-lock/switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let engineType;
+            
+            let instanceId;
+
+            if (showDeadLockSwitchNewRequest !== null && showDeadLockSwitchNewRequest !== undefined) {
+                if (showDeadLockSwitchNewRequest instanceof ShowDeadLockSwitchNewRequest) {
+                    engineType = showDeadLockSwitchNewRequest.engineType;
+                    instanceId = showDeadLockSwitchNewRequest.instanceId;
+                } else {
+                    engineType = showDeadLockSwitchNewRequest['engine_type'];
+                    instanceId = showDeadLockSwitchNewRequest['instance_id'];
+                }
+            }
+
+        
+            if (engineType !== null && engineType !== undefined) {
+                localVarQueryParameter['engine_type'] = engineType;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取死锁拓扑图数据
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8012,6 +8740,46 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'connection_id': connectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看全量SQL导出任务详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showExportTaskInfo(showExportTaskInfoRequest?: ShowExportTaskInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/fullsql/get-export-task-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let taskId;
+
+            if (showExportTaskInfoRequest !== null && showExportTaskInfoRequest !== undefined) {
+                if (showExportTaskInfoRequest instanceof ShowExportTaskInfoRequest) {
+                    taskId = showExportTaskInfoRequest.taskId;
+                } else {
+                    taskId = showExportTaskInfoRequest['task_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+                throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showExportTaskInfo.');
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8140,6 +8908,64 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取全量死锁开关
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFullDeadLockSwitchNew(showFullDeadLockSwitchNewRequest?: ShowFullDeadLockSwitchNewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/get-full-dead-lock-switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showFullDeadLockSwitchNewRequest !== null && showFullDeadLockSwitchNewRequest !== undefined) {
+                if (showFullDeadLockSwitchNewRequest instanceof ShowFullDeadLockSwitchNewRequest) {
+                    instanceId = showFullDeadLockSwitchNewRequest.instanceId;
+                } else {
+                    instanceId = showFullDeadLockSwitchNewRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showFullDeadLockSwitchNew.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取产品级别的安全协议
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showGlobalPrivacyNew() {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/policy/get-global-privacy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查看实例诊断报告设置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8232,6 +9058,80 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询历史事务开关
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showHistoryTransactionSwitchNew(showHistoryTransactionSwitchNewRequest?: ShowHistoryTransactionSwitchNewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/transaction/{instance_id}/get-history-transaction-switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showHistoryTransactionSwitchNewRequest !== null && showHistoryTransactionSwitchNewRequest !== undefined) {
+                if (showHistoryTransactionSwitchNewRequest instanceof ShowHistoryTransactionSwitchNewRequest) {
+                    instanceId = showHistoryTransactionSwitchNewRequest.instanceId;
+                } else {
+                    instanceId = showHistoryTransactionSwitchNewRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showHistoryTransactionSwitchNew.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询索引使用开关
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showIndexUsageSwitchNew(showIndexUsageSwitchNewRequest?: ShowIndexUsageSwitchNewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/index-usage/get-index-usage-switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showIndexUsageSwitchNewRequest !== null && showIndexUsageSwitchNewRequest !== undefined) {
+                if (showIndexUsageSwitchNewRequest instanceof ShowIndexUsageSwitchNewRequest) {
+                    instanceId = showIndexUsageSwitchNewRequest.instanceId;
+                } else {
+                    instanceId = showIndexUsageSwitchNewRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showIndexUsageSwitchNew.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取实例健康诊断报告内容。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8281,6 +9181,43 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询自治限流开关
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showKillProcessTaskSwitch(showKillProcessTaskSwitchRequest?: ShowKillProcessTaskSwitchRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/auto-flow/get-kill-process-task-switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showKillProcessTaskSwitchRequest !== null && showKillProcessTaskSwitchRequest !== undefined) {
+                if (showKillProcessTaskSwitchRequest instanceof ShowKillProcessTaskSwitchRequest) {
+                    instanceId = showKillProcessTaskSwitchRequest.instanceId;
+                } else {
+                    instanceId = showKillProcessTaskSwitchRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showKillProcessTaskSwitch.');
+            }
+
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -8337,6 +9274,43 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'connection_id': connectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取最新的数据库健康日报内容
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLatestInstanceHealthReport(showLatestInstanceHealthReportRequest?: ShowLatestInstanceHealthReportRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/health-report/{instance_id}/get-latest-instance-health-report",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showLatestInstanceHealthReportRequest !== null && showLatestInstanceHealthReportRequest !== undefined) {
+                if (showLatestInstanceHealthReportRequest instanceof ShowLatestInstanceHealthReportRequest) {
+                    instanceId = showLatestInstanceHealthReportRequest.instanceId;
+                } else {
+                    instanceId = showLatestInstanceHealthReportRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showLatestInstanceHealthReport.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8522,6 +9496,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询长事务开关
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showLongHistoryTransactionSwitchNew(showLongHistoryTransactionSwitchNewRequest?: ShowLongHistoryTransactionSwitchNewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/transaction/{instance_id}/get-long-history-transaction-switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showLongHistoryTransactionSwitchNewRequest !== null && showLongHistoryTransactionSwitchNewRequest !== undefined) {
+                if (showLongHistoryTransactionSwitchNewRequest instanceof ShowLongHistoryTransactionSwitchNewRequest) {
+                    instanceId = showLongHistoryTransactionSwitchNewRequest.instanceId;
+                } else {
+                    instanceId = showLongHistoryTransactionSwitchNewRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showLongHistoryTransactionSwitchNew.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 多节点单指标支持指标信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8558,6 +9569,58 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查看库名列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showNameList(showNameListRequest?: ShowNameListRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/connections/{connection_id}/databases/get-name-list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let connectionId;
+            
+            let nodeType;
+            
+            let nodeId;
+
+            if (showNameListRequest !== null && showNameListRequest !== undefined) {
+                if (showNameListRequest instanceof ShowNameListRequest) {
+                    connectionId = showNameListRequest.connectionId;
+                    nodeType = showNameListRequest.nodeType;
+                    nodeId = showNameListRequest.nodeId;
+                } else {
+                    connectionId = showNameListRequest['connection_id'];
+                    nodeType = showNameListRequest['node_type'];
+                    nodeId = showNameListRequest['node_id'];
+                }
+            }
+
+        
+            if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling showNameList.');
+            }
+            if (nodeType !== null && nodeType !== undefined) {
+                localVarQueryParameter['node_type'] = nodeType;
+            }
+            if (nodeId !== null && nodeId !== undefined) {
+                localVarQueryParameter['node_id'] = nodeId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'connection_id': connectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询云DBA配额
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8589,6 +9652,51 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询慢日志开关
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSlowLogSwitchNew(showSlowLogSwitchNewRequest?: ShowSlowLogSwitchNewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/slow-log/get-slow-log-switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let engineType;
+
+            if (showSlowLogSwitchNewRequest !== null && showSlowLogSwitchNewRequest !== undefined) {
+                if (showSlowLogSwitchNewRequest instanceof ShowSlowLogSwitchNewRequest) {
+                    instanceId = showSlowLogSwitchNewRequest.instanceId;
+                    engineType = showSlowLogSwitchNewRequest.engineType;
+                } else {
+                    instanceId = showSlowLogSwitchNewRequest['instance_id'];
+                    engineType = showSlowLogSwitchNewRequest['engine_type'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showSlowLogSwitchNew.');
+            }
+            if (engineType !== null && engineType !== undefined) {
+                localVarQueryParameter['engine_type'] = engineType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8835,6 +9943,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询SQL限流开关
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSqlLimitingSwitchNew(showSqlLimitingSwitchNewRequest?: ShowSqlLimitingSwitchNewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/sql-limiting/get-sql-limiting-switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let engineType;
+
+            if (showSqlLimitingSwitchNewRequest !== null && showSqlLimitingSwitchNewRequest !== undefined) {
+                if (showSqlLimitingSwitchNewRequest instanceof ShowSqlLimitingSwitchNewRequest) {
+                    instanceId = showSqlLimitingSwitchNewRequest.instanceId;
+                    engineType = showSqlLimitingSwitchNewRequest.engineType;
+                } else {
+                    instanceId = showSqlLimitingSwitchNewRequest['instance_id'];
+                    engineType = showSqlLimitingSwitchNewRequest['engine_type'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showSqlLimitingSwitchNew.');
+            }
+            if (engineType !== null && engineType !== undefined) {
+                localVarQueryParameter['engine_type'] = engineType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询DAS收集全量SQL和慢SQL的开关状态。该功能仅支持付费实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8895,6 +10048,27 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查看支持的引擎类型
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSupportedEngines() {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/engine/supported",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -9007,6 +10181,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 判断该实例能否使用云DBA功能
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showWhetherUseCloudDba(showWhetherUseCloudDbaRequest?: ShowWhetherUseCloudDbaRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/can-use-cloud-dba",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let engineType;
+
+            if (showWhetherUseCloudDbaRequest !== null && showWhetherUseCloudDbaRequest !== undefined) {
+                if (showWhetherUseCloudDbaRequest instanceof ShowWhetherUseCloudDbaRequest) {
+                    instanceId = showWhetherUseCloudDbaRequest.instanceId;
+                    engineType = showWhetherUseCloudDbaRequest.engineType;
+                } else {
+                    instanceId = showWhetherUseCloudDbaRequest['instance_id'];
+                    engineType = showWhetherUseCloudDbaRequest['engine_type'];
+                }
+            }
+
+        
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (engineType !== null && engineType !== undefined) {
+                localVarQueryParameter['engine_type'] = engineType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 开始会话分析
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9055,6 +10273,50 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'node_id': nodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启/关闭全量SQL开关
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchFullsqlSwitch(switchFullsqlSwitchRequest?: SwitchFullsqlSwitchRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/fullsql/switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let engineType;
+            
+            let instanceId;
+
+            if (switchFullsqlSwitchRequest !== null && switchFullsqlSwitchRequest !== undefined) {
+                if (switchFullsqlSwitchRequest instanceof SwitchFullsqlSwitchRequest) {
+                    engineType = switchFullsqlSwitchRequest.engineType;
+                    instanceId = switchFullsqlSwitchRequest.instanceId;
+                } else {
+                    engineType = switchFullsqlSwitchRequest['engine_type'];
+                    instanceId = switchFullsqlSwitchRequest['instance_id'];
+                }
+            }
+
+        
+            if (engineType !== null && engineType !== undefined) {
+                localVarQueryParameter['engine_type'] = engineType;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

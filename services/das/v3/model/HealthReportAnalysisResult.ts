@@ -6,11 +6,7 @@ export class HealthReportAnalysisResult {
     private 'risk_level'?: string;
     private 'risk_content'?: string;
     public reasons?: Array<HealthReportRiskReason>;
-    public constructor(riskCode?: string, riskLevel?: string, riskContent?: string, reasons?: Array<HealthReportRiskReason>) { 
-        this['risk_code'] = riskCode;
-        this['risk_level'] = riskLevel;
-        this['risk_content'] = riskContent;
-        this['reasons'] = reasons;
+    public constructor() { 
     }
     public withRiskCode(riskCode: string): HealthReportAnalysisResult {
         this['risk_code'] = riskCode;

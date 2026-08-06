@@ -3,6 +3,9 @@
 export class ListInferDeploymentVersionsRequest {
     private 'service_id'?: string;
     private 'deployment_id'?: string;
+    private 'sort_key'?: string;
+    public limit?: number;
+    public offset?: number;
     public constructor(serviceId?: string, deploymentId?: string) { 
         this['service_id'] = serviceId;
         this['deployment_id'] = deploymentId;
@@ -26,5 +29,23 @@ export class ListInferDeploymentVersionsRequest {
     }
     public get deploymentId(): string | undefined {
         return this['deployment_id'];
+    }
+    public withSortKey(sortKey: string): ListInferDeploymentVersionsRequest {
+        this['sort_key'] = sortKey;
+        return this;
+    }
+    public set sortKey(sortKey: string  | undefined) {
+        this['sort_key'] = sortKey;
+    }
+    public get sortKey(): string | undefined {
+        return this['sort_key'];
+    }
+    public withLimit(limit: number): ListInferDeploymentVersionsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListInferDeploymentVersionsRequest {
+        this['offset'] = offset;
+        return this;
     }
 }

@@ -12,6 +12,7 @@ export class AddEmailTemplateRequestBody {
     private 'inspection_time'?: string;
     private 'send_time'?: string;
     private 'time_zone'?: string;
+    private 'service_uri'?: string;
     public constructor(datastoreType?: string, templateName?: string, groupId?: Array<number>, healthRank?: Array<string>, inspectionTime?: string, sendTime?: string, timeZone?: string) { 
         this['datastore_type'] = datastoreType;
         this['template_name'] = templateName;
@@ -118,5 +119,15 @@ export class AddEmailTemplateRequestBody {
     }
     public get timeZone(): string | undefined {
         return this['time_zone'];
+    }
+    public withServiceUri(serviceUri: string): AddEmailTemplateRequestBody {
+        this['service_uri'] = serviceUri;
+        return this;
+    }
+    public set serviceUri(serviceUri: string  | undefined) {
+        this['service_uri'] = serviceUri;
+    }
+    public get serviceUri(): string | undefined {
+        return this['service_uri'];
     }
 }

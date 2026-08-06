@@ -3,8 +3,7 @@ import { HealthReportAnalysisResult } from './HealthReportAnalysisResult';
 
 export class HealthReportSummaryInfo {
     private 'analysis_results'?: Array<HealthReportAnalysisResult>;
-    public constructor(analysisResults?: Array<HealthReportAnalysisResult>) { 
-        this['analysis_results'] = analysisResults;
+    public constructor() { 
     }
     public withAnalysisResults(analysisResults: Array<HealthReportAnalysisResult>): HealthReportSummaryInfo {
         this['analysis_results'] = analysisResults;

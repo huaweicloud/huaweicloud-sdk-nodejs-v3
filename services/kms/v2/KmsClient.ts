@@ -18,9 +18,15 @@ import { CancelKeyDeletionRequest } from './model/CancelKeyDeletionRequest';
 import { CancelKeyDeletionResponse } from './model/CancelKeyDeletionResponse';
 import { CancelSelfGrantRequest } from './model/CancelSelfGrantRequest';
 import { CancelSelfGrantResponse } from './model/CancelSelfGrantResponse';
+import { CreateAccessPointRequest } from './model/CreateAccessPointRequest';
+import { CreateAccessPointRequestBody } from './model/CreateAccessPointRequestBody';
+import { CreateAccessPointResponse } from './model/CreateAccessPointResponse';
 import { CreateAliasRequest } from './model/CreateAliasRequest';
 import { CreateAliasRequestBody } from './model/CreateAliasRequestBody';
 import { CreateAliasResponse } from './model/CreateAliasResponse';
+import { CreateDatakeyCapsuleRequest } from './model/CreateDatakeyCapsuleRequest';
+import { CreateDatakeyCapsuleRequestBody } from './model/CreateDatakeyCapsuleRequestBody';
+import { CreateDatakeyCapsuleResponse } from './model/CreateDatakeyCapsuleResponse';
 import { CreateDatakeyRequest } from './model/CreateDatakeyRequest';
 import { CreateDatakeyRequestBody } from './model/CreateDatakeyRequestBody';
 import { CreateDatakeyResponse } from './model/CreateDatakeyResponse';
@@ -32,6 +38,9 @@ import { CreateEcDatakeyPairResponse } from './model/CreateEcDatakeyPairResponse
 import { CreateGrantRequest } from './model/CreateGrantRequest';
 import { CreateGrantRequestBody } from './model/CreateGrantRequestBody';
 import { CreateGrantResponse } from './model/CreateGrantResponse';
+import { CreateKeyPolicyRequest } from './model/CreateKeyPolicyRequest';
+import { CreateKeyPolicyRequestBody } from './model/CreateKeyPolicyRequestBody';
+import { CreateKeyPolicyResponse } from './model/CreateKeyPolicyResponse';
 import { CreateKeyRequest } from './model/CreateKeyRequest';
 import { CreateKeyRequestBody } from './model/CreateKeyRequestBody';
 import { CreateKeyResponse } from './model/CreateKeyResponse';
@@ -54,14 +63,22 @@ import { CreateRsaDatakeyPairResponse } from './model/CreateRsaDatakeyPairRespon
 import { DecryptDataRequest } from './model/DecryptDataRequest';
 import { DecryptDataRequestBody } from './model/DecryptDataRequestBody';
 import { DecryptDataResponse } from './model/DecryptDataResponse';
+import { DecryptDatakeyCapsuleRequest } from './model/DecryptDatakeyCapsuleRequest';
+import { DecryptDatakeyCapsuleRequestBody } from './model/DecryptDatakeyCapsuleRequestBody';
+import { DecryptDatakeyCapsuleRequestBodyAttestationDocument } from './model/DecryptDatakeyCapsuleRequestBodyAttestationDocument';
+import { DecryptDatakeyCapsuleResponse } from './model/DecryptDatakeyCapsuleResponse';
 import { DecryptDatakeyRequest } from './model/DecryptDatakeyRequest';
 import { DecryptDatakeyRequestBody } from './model/DecryptDatakeyRequestBody';
 import { DecryptDatakeyResponse } from './model/DecryptDatakeyResponse';
+import { DeleteAccessPointRequest } from './model/DeleteAccessPointRequest';
+import { DeleteAccessPointResponse } from './model/DeleteAccessPointResponse';
 import { DeleteAliasRequest } from './model/DeleteAliasRequest';
 import { DeleteAliasRequestBody } from './model/DeleteAliasRequestBody';
 import { DeleteAliasResponse } from './model/DeleteAliasResponse';
 import { DeleteImportedKeyMaterialRequest } from './model/DeleteImportedKeyMaterialRequest';
 import { DeleteImportedKeyMaterialResponse } from './model/DeleteImportedKeyMaterialResponse';
+import { DeleteKeyPolicyRequest } from './model/DeleteKeyPolicyRequest';
+import { DeleteKeyPolicyResponse } from './model/DeleteKeyPolicyResponse';
 import { DeleteKeyRequest } from './model/DeleteKeyRequest';
 import { DeleteKeyResponse } from './model/DeleteKeyResponse';
 import { DeleteKeyStoreRequest } from './model/DeleteKeyStoreRequest';
@@ -71,12 +88,18 @@ import { DeleteTagResponse } from './model/DeleteTagResponse';
 import { DeriveSharedSecretRequest } from './model/DeriveSharedSecretRequest';
 import { DeriveSharedSecretRequestBody } from './model/DeriveSharedSecretRequestBody';
 import { DeriveSharedSecretResponse } from './model/DeriveSharedSecretResponse';
+import { DisableAccessPointRequest } from './model/DisableAccessPointRequest';
+import { DisableAccessPointResponse } from './model/DisableAccessPointResponse';
 import { DisableKeyRequest } from './model/DisableKeyRequest';
 import { DisableKeyResponse } from './model/DisableKeyResponse';
 import { DisableKeyRotationRequest } from './model/DisableKeyRotationRequest';
 import { DisableKeyRotationResponse } from './model/DisableKeyRotationResponse';
 import { DisableKeyStoreRequest } from './model/DisableKeyStoreRequest';
 import { DisableKeyStoreResponse } from './model/DisableKeyStoreResponse';
+import { DownloadAccessPointPrivateKeyRequest } from './model/DownloadAccessPointPrivateKeyRequest';
+import { DownloadAccessPointPrivateKeyResponse } from './model/DownloadAccessPointPrivateKeyResponse';
+import { EnableAccessPointRequest } from './model/EnableAccessPointRequest';
+import { EnableAccessPointResponse } from './model/EnableAccessPointResponse';
 import { EnableKeyRequest } from './model/EnableKeyRequest';
 import { EnableKeyResponse } from './model/EnableKeyResponse';
 import { EnableKeyRotationRequest } from './model/EnableKeyRotationRequest';
@@ -94,6 +117,7 @@ import { GenerateMacRequest } from './model/GenerateMacRequest';
 import { GenerateMacRequestBody } from './model/GenerateMacRequestBody';
 import { GenerateMacResponse } from './model/GenerateMacResponse';
 import { GetParametersForImportRequestBody } from './model/GetParametersForImportRequestBody';
+import { GetkeyRotationStatusResponseBodyKeyMaterials } from './model/GetkeyRotationStatusResponseBodyKeyMaterials';
 import { Grants } from './model/Grants';
 import { ImportKeyMaterialRequest } from './model/ImportKeyMaterialRequest';
 import { ImportKeyMaterialRequestBody } from './model/ImportKeyMaterialRequestBody';
@@ -106,6 +130,10 @@ import { KeyStatusInfo } from './model/KeyStatusInfo';
 import { KeyStoreStateInfo } from './model/KeyStoreStateInfo';
 import { KeystoreDetails } from './model/KeystoreDetails';
 import { KeystoreInfo } from './model/KeystoreInfo';
+import { ListAccessPointRequest } from './model/ListAccessPointRequest';
+import { ListAccessPointResponse } from './model/ListAccessPointResponse';
+import { ListAccessPointResponseBodyAccessPoints } from './model/ListAccessPointResponseBodyAccessPoints';
+import { ListAccessPointResponseBodyPageInfo } from './model/ListAccessPointResponseBodyPageInfo';
 import { ListAliasResponseBody } from './model/ListAliasResponseBody';
 import { ListAliasesRequest } from './model/ListAliasesRequest';
 import { ListAliasesResponse } from './model/ListAliasesResponse';
@@ -114,6 +142,11 @@ import { ListGrantsRequestBody } from './model/ListGrantsRequestBody';
 import { ListGrantsResponse } from './model/ListGrantsResponse';
 import { ListKeyDetailRequest } from './model/ListKeyDetailRequest';
 import { ListKeyDetailResponse } from './model/ListKeyDetailResponse';
+import { ListKeyPolicyRequest } from './model/ListKeyPolicyRequest';
+import { ListKeyPolicyResponse } from './model/ListKeyPolicyResponse';
+import { ListKeyPolicyResponseBodyKeyspacePolicies } from './model/ListKeyPolicyResponseBodyKeyspacePolicies';
+import { ListKeyPolicyResponseBodyPolicy } from './model/ListKeyPolicyResponseBodyPolicy';
+import { ListKeyPolicyResponseBodyPolicyValidityPeriod } from './model/ListKeyPolicyResponseBodyPolicyValidityPeriod';
 import { ListKeyStoresRequest } from './model/ListKeyStoresRequest';
 import { ListKeyStoresResponse } from './model/ListKeyStoresResponse';
 import { ListKeysRequest } from './model/ListKeysRequest';
@@ -141,7 +174,13 @@ import { ReplicateKeyRequestBody } from './model/ReplicateKeyRequestBody';
 import { ReplicateKeyResponse } from './model/ReplicateKeyResponse';
 import { Resources } from './model/Resources';
 import { RevokeGrantRequestBody } from './model/RevokeGrantRequestBody';
+import { RotateOnDemandRequest } from './model/RotateOnDemandRequest';
+import { RotateOnDemandRequestBody } from './model/RotateOnDemandRequestBody';
+import { RotateOnDemandResponse } from './model/RotateOnDemandResponse';
 import { ScheduleKeyDeletionRequestBody } from './model/ScheduleKeyDeletionRequestBody';
+import { ShowKeyPolicyRequest } from './model/ShowKeyPolicyRequest';
+import { ShowKeyPolicyResponse } from './model/ShowKeyPolicyResponse';
+import { ShowKeyPolicyResponseBodyPolicy } from './model/ShowKeyPolicyResponseBodyPolicy';
 import { ShowKeyRotationStatusRequest } from './model/ShowKeyRotationStatusRequest';
 import { ShowKeyRotationStatusResponse } from './model/ShowKeyRotationStatusResponse';
 import { ShowKeyStoreRequest } from './model/ShowKeyStoreRequest';
@@ -169,6 +208,11 @@ import { UpdateKeyAliasResponse } from './model/UpdateKeyAliasResponse';
 import { UpdateKeyDescriptionRequest } from './model/UpdateKeyDescriptionRequest';
 import { UpdateKeyDescriptionRequestBody } from './model/UpdateKeyDescriptionRequestBody';
 import { UpdateKeyDescriptionResponse } from './model/UpdateKeyDescriptionResponse';
+import { UpdateKeyPolicyRequest } from './model/UpdateKeyPolicyRequest';
+import { UpdateKeyPolicyRequestBody } from './model/UpdateKeyPolicyRequestBody';
+import { UpdateKeyPolicyResponse } from './model/UpdateKeyPolicyResponse';
+import { UpdateKeyPolicyResponseBodyPolicy } from './model/UpdateKeyPolicyResponseBodyPolicy';
+import { UpdateKeyPolicyResponseBodyPolicyValidityPeriod } from './model/UpdateKeyPolicyResponseBodyPolicyValidityPeriod';
 import { UpdateKeyRotationIntervalRequest } from './model/UpdateKeyRotationIntervalRequest';
 import { UpdateKeyRotationIntervalRequestBody } from './model/UpdateKeyRotationIntervalRequestBody';
 import { UpdateKeyRotationIntervalResponse } from './model/UpdateKeyRotationIntervalResponse';
@@ -305,6 +349,25 @@ export class KmsClient {
     }
 
     /**
+     * 用于创建接入点
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建接入点
+     * @param {CreateAccessPointRequestBody} createAccessPointRequestBody **参数解释：** 创建接入点请求消息体 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAccessPoint(createAccessPointRequest?: CreateAccessPointRequest): Promise<CreateAccessPointResponse> {
+        const options = ParamCreater().createAccessPoint(createAccessPointRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -333,6 +396,25 @@ export class KmsClient {
      */
     public createDatakey(createDatakeyRequest?: CreateDatakeyRequest): Promise<CreateDatakeyResponse> {
         const options = ParamCreater().createDatakey(createDatakeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建密钥胶囊
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建密钥胶囊
+     * @param {CreateDatakeyCapsuleRequestBody} createDatakeyCapsuleRequestBody **参数解释：** 创建接入点请求消息体 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDatakeyCapsule(createDatakeyCapsuleRequest?: CreateDatakeyCapsuleRequest): Promise<CreateDatakeyCapsuleResponse> {
+        const options = ParamCreater().createDatakeyCapsule(createDatakeyCapsuleRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -413,6 +495,25 @@ export class KmsClient {
      */
     public createKey(createKeyRequest?: CreateKeyRequest): Promise<CreateKeyResponse> {
         const options = ParamCreater().createKey(createKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建密钥策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建密钥策略
+     * @param {CreateKeyPolicyRequestBody} createKeyPolicyRequestBody **参数解释：** 创建接入点请求消息体 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createKeyPolicy(createKeyPolicyRequest?: CreateKeyPolicyRequest): Promise<CreateKeyPolicyResponse> {
+        const options = ParamCreater().createKeyPolicy(createKeyPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -576,6 +677,44 @@ export class KmsClient {
     }
 
     /**
+     * 解密密钥胶囊
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解密密钥胶囊
+     * @param {DecryptDatakeyCapsuleRequestBody} decryptDatakeyCapsuleRequestBody **参数解释：** 创建接入点请求消息体 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public decryptDatakeyCapsule(decryptDatakeyCapsuleRequest?: DecryptDatakeyCapsuleRequest): Promise<DecryptDatakeyCapsuleResponse> {
+        const options = ParamCreater().decryptDatakeyCapsule(decryptDatakeyCapsuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除接入点
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除接入点
+     * @param {string} accessPointId **参数解释：** 接入点ID。 **约束限制：** 不涉及 **取值范围：** UUID格式，字符长度36-36。 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAccessPoint(deleteAccessPointRequest?: DeleteAccessPointRequest): Promise<DeleteAccessPointResponse> {
+        const options = ParamCreater().deleteAccessPoint(deleteAccessPointRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除别名
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -624,6 +763,25 @@ export class KmsClient {
      */
     public deleteKey(deleteKeyRequest?: DeleteKeyRequest): Promise<DeleteKeyResponse> {
         const options = ParamCreater().deleteKey(deleteKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除密钥策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除密钥策略
+     * @param {string} policyId **参数解释：** 密钥策略ID。 **约束限制：** 不涉及 **取值范围：** UUID格式，字符长度36-36。 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteKeyPolicy(deleteKeyPolicyRequest?: DeleteKeyPolicyRequest): Promise<DeleteKeyPolicyResponse> {
+        const options = ParamCreater().deleteKeyPolicy(deleteKeyPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -690,6 +848,25 @@ export class KmsClient {
     }
 
     /**
+     * 禁用接入点
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 禁用接入点
+     * @param {string} accessPointId **参数解释：** 接入点ID。 **约束限制：** 不涉及 **取值范围：** UUID格式，字符长度36-36。 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disableAccessPoint(disableAccessPointRequest?: DisableAccessPointRequest): Promise<DisableAccessPointResponse> {
+        const options = ParamCreater().disableAccessPoint(disableAccessPointRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 功能介绍：禁用密钥，密钥禁用后不可以使用。
      * - 说明：密钥为启用状态才能禁用密钥。
      * 
@@ -740,6 +917,44 @@ export class KmsClient {
      */
     public disableKeyStore(disableKeyStoreRequest?: DisableKeyStoreRequest): Promise<DisableKeyStoreResponse> {
         const options = ParamCreater().disableKeyStore(disableKeyStoreRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用于下载通用接入点私钥
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下载通用接入点私钥
+     * @param {string} accessPointId **参数解释：** 接入点ID。 **约束限制：** 不涉及 **取值范围：** UUID格式，字符长度36-36。 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadAccessPointPrivateKey(downloadAccessPointPrivateKeyRequest?: DownloadAccessPointPrivateKeyRequest): Promise<DownloadAccessPointPrivateKeyResponse> {
+        const options = ParamCreater().downloadAccessPointPrivateKey(downloadAccessPointPrivateKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 启用接入点
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启用接入点
+     * @param {string} accessPointId **参数解释：** 接入点ID。 **约束限制：** 不涉及 **取值范围：** UUID格式，字符长度36-36。 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public enableAccessPoint(enableAccessPointRequest?: EnableAccessPointRequest): Promise<EnableAccessPointResponse> {
+        const options = ParamCreater().enableAccessPoint(enableAccessPointRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -885,6 +1100,27 @@ export class KmsClient {
     }
 
     /**
+     * 用于查询接入点
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询接入点列表
+     * @param {string} keyspaceId **参数解释：** 密钥空间ID **约束限制：** 满足正则表达式^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$ **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [limit] **参数解释：** 分页参数，每一页显示的记录数 **约束限制：** 数字类型 **取值范围：** 1-100 **默认取值：** 50
+     * @param {string} [marker] **参数解释：** 分页参数，下一页的标志 **约束限制：** 满足正则表达式^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$ **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAccessPoint(listAccessPointRequest?: ListAccessPointRequest): Promise<ListAccessPointResponse> {
+        const options = ParamCreater().listAccessPoint(listAccessPointRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询一个密钥关联的所有别名
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -935,6 +1171,27 @@ export class KmsClient {
      */
     public listKeyDetail(listKeyDetailRequest?: ListKeyDetailRequest): Promise<ListKeyDetailResponse> {
         const options = ParamCreater().listKeyDetail(listKeyDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询密钥策略列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询密钥策略列表
+     * @param {string} keyspaceId **参数解释：** 密钥空间ID **约束限制：** 满足正则表达式^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$ **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [limit] **参数解释：** 分页参数，每一页显示的记录数 **约束限制：** 数字类型 **取值范围：** 1-100 **默认取值：** 50
+     * @param {string} [marker] **参数解释：** 分页参数，下一页的标志 **约束限制：** 满足正则表达式^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$ **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listKeyPolicy(listKeyPolicyRequest?: ListKeyPolicyRequest): Promise<ListKeyPolicyResponse> {
+        const options = ParamCreater().listKeyPolicy(listKeyPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1092,6 +1349,44 @@ export class KmsClient {
      */
     public replicateKey(replicateKeyRequest?: ReplicateKeyRequest): Promise<ReplicateKeyResponse> {
         const options = ParamCreater().replicateKey(replicateKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用于外部密钥的密钥材料，需要用户提前导入密钥材料后才能执行轮转
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 按需轮转密钥
+     * @param {RotateOnDemandRequestBody} rotateOnDemandRequestBody **参数解释：** 按需轮转请求消息体 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public rotateOnDemand(rotateOnDemandRequest?: RotateOnDemandRequest): Promise<RotateOnDemandResponse> {
+        const options = ParamCreater().rotateOnDemand(rotateOnDemandRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询密钥策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询密钥策略
+     * @param {string} policyId **参数解释：** 密钥策略ID。 **约束限制：** 不涉及 **取值范围：** UUID格式，字符长度36-36。 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showKeyPolicy(showKeyPolicyRequest?: ShowKeyPolicyRequest): Promise<ShowKeyPolicyResponse> {
+        const options = ParamCreater().showKeyPolicy(showKeyPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1267,6 +1562,26 @@ export class KmsClient {
      */
     public updateKeyDescription(updateKeyDescriptionRequest?: UpdateKeyDescriptionRequest): Promise<UpdateKeyDescriptionResponse> {
         const options = ParamCreater().updateKeyDescription(updateKeyDescriptionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新密钥策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新密钥策略
+     * @param {string} policyId **参数解释：** 密钥策略ID。 **约束限制：** 不涉及 **取值范围：** UUID格式，字符长度36-36。 **默认取值：** 不涉及
+     * @param {UpdateKeyPolicyRequestBody} updateKeyPolicyRequestBody **参数解释：** 创建接入点请求消息体 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateKeyPolicy(updateKeyPolicyRequest?: UpdateKeyPolicyRequest): Promise<UpdateKeyPolicyResponse> {
+        const options = ParamCreater().updateKeyPolicy(updateKeyPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1602,6 +1917,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 用于创建接入点
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAccessPoint(createAccessPointRequest?: CreateAccessPointRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/kms/access-points",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createAccessPointRequest !== null && createAccessPointRequest !== undefined) {
+                if (createAccessPointRequest instanceof CreateAccessPointRequest) {
+                    body = createAccessPointRequest.body
+                } else {
+                    body = createAccessPointRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1662,6 +2015,44 @@ export const ParamCreater = function () {
                     body = createDatakeyRequest.body
                 } else {
                     body = createDatakeyRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建密钥胶囊
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDatakeyCapsule(createDatakeyCapsuleRequest?: CreateDatakeyCapsuleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/kms/datakey-capsule/create",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createDatakeyCapsuleRequest !== null && createDatakeyCapsuleRequest !== undefined) {
+                if (createDatakeyCapsuleRequest instanceof CreateDatakeyCapsuleRequest) {
+                    body = createDatakeyCapsuleRequest.body
+                } else {
+                    body = createDatakeyCapsuleRequest['body'];
                 }
             }
 
@@ -1818,6 +2209,44 @@ export const ParamCreater = function () {
                     body = createKeyRequest.body
                 } else {
                     body = createKeyRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建密钥策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createKeyPolicy(createKeyPolicyRequest?: CreateKeyPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/kms/key-policies",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createKeyPolicyRequest !== null && createKeyPolicyRequest !== undefined) {
+                if (createKeyPolicyRequest instanceof CreateKeyPolicyRequest) {
+                    body = createKeyPolicyRequest.body
+                } else {
+                    body = createKeyPolicyRequest['body'];
                 }
             }
 
@@ -2147,6 +2576,81 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 解密密钥胶囊
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        decryptDatakeyCapsule(decryptDatakeyCapsuleRequest?: DecryptDatakeyCapsuleRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/kms/datakey-capsule/decrypt",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (decryptDatakeyCapsuleRequest !== null && decryptDatakeyCapsuleRequest !== undefined) {
+                if (decryptDatakeyCapsuleRequest instanceof DecryptDatakeyCapsuleRequest) {
+                    body = decryptDatakeyCapsuleRequest.body
+                } else {
+                    body = decryptDatakeyCapsuleRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除接入点
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAccessPoint(deleteAccessPointRequest?: DeleteAccessPointRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1.0/{project_id}/kms/access-points/{access_point_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let accessPointId;
+
+            if (deleteAccessPointRequest !== null && deleteAccessPointRequest !== undefined) {
+                if (deleteAccessPointRequest instanceof DeleteAccessPointRequest) {
+                    accessPointId = deleteAccessPointRequest.accessPointId;
+                } else {
+                    accessPointId = deleteAccessPointRequest['access_point_id'];
+                }
+            }
+
+        
+            if (accessPointId === null || accessPointId === undefined) {
+            throw new RequiredError('accessPointId','Required parameter accessPointId was null or undefined when calling deleteAccessPoint.');
+            }
+
+            options.pathParams = { 'access_point_id': accessPointId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除别名
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2256,6 +2760,43 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除密钥策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteKeyPolicy(deleteKeyPolicyRequest?: DeleteKeyPolicyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1.0/{project_id}/kms/key-policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let policyId;
+
+            if (deleteKeyPolicyRequest !== null && deleteKeyPolicyRequest !== undefined) {
+                if (deleteKeyPolicyRequest instanceof DeleteKeyPolicyRequest) {
+                    policyId = deleteKeyPolicyRequest.policyId;
+                } else {
+                    policyId = deleteKeyPolicyRequest['policy_id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling deleteKeyPolicy.');
+            }
+
+            options.pathParams = { 'policy_id': policyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2380,6 +2921,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 禁用接入点
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disableAccessPoint(disableAccessPointRequest?: DisableAccessPointRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/kms/access-points/{access_point_id}/disable",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let accessPointId;
+
+            if (disableAccessPointRequest !== null && disableAccessPointRequest !== undefined) {
+                if (disableAccessPointRequest instanceof DisableAccessPointRequest) {
+                    accessPointId = disableAccessPointRequest.accessPointId;
+                } else {
+                    accessPointId = disableAccessPointRequest['access_point_id'];
+                }
+            }
+
+        
+            if (accessPointId === null || accessPointId === undefined) {
+            throw new RequiredError('accessPointId','Required parameter accessPointId was null or undefined when calling disableAccessPoint.');
+            }
+
+            options.pathParams = { 'access_point_id': accessPointId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 功能介绍：禁用密钥，密钥禁用后不可以使用。
          * - 说明：密钥为启用状态才能禁用密钥。
          * 
@@ -2489,6 +3067,80 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'keystore_id': keystoreId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用于下载通用接入点私钥
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadAccessPointPrivateKey(downloadAccessPointPrivateKeyRequest?: DownloadAccessPointPrivateKeyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/kms/access-points/{access_point_id}/get-privatekey",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let accessPointId;
+
+            if (downloadAccessPointPrivateKeyRequest !== null && downloadAccessPointPrivateKeyRequest !== undefined) {
+                if (downloadAccessPointPrivateKeyRequest instanceof DownloadAccessPointPrivateKeyRequest) {
+                    accessPointId = downloadAccessPointPrivateKeyRequest.accessPointId;
+                } else {
+                    accessPointId = downloadAccessPointPrivateKeyRequest['access_point_id'];
+                }
+            }
+
+        
+            if (accessPointId === null || accessPointId === undefined) {
+            throw new RequiredError('accessPointId','Required parameter accessPointId was null or undefined when calling downloadAccessPointPrivateKey.');
+            }
+
+            options.pathParams = { 'access_point_id': accessPointId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 启用接入点
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        enableAccessPoint(enableAccessPointRequest?: EnableAccessPointRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/kms/access-points/{access_point_id}/enable",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let accessPointId;
+
+            if (enableAccessPointRequest !== null && enableAccessPointRequest !== undefined) {
+                if (enableAccessPointRequest instanceof EnableAccessPointRequest) {
+                    accessPointId = enableAccessPointRequest.accessPointId;
+                } else {
+                    accessPointId = enableAccessPointRequest['access_point_id'];
+                }
+            }
+
+        
+            if (accessPointId === null || accessPointId === undefined) {
+            throw new RequiredError('accessPointId','Required parameter accessPointId was null or undefined when calling enableAccessPoint.');
+            }
+
+            options.pathParams = { 'access_point_id': accessPointId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2763,6 +3415,60 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 用于查询接入点
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAccessPoint(listAccessPointRequest?: ListAccessPointRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/kms/access-points",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let keyspaceId;
+            
+            let limit;
+            
+            let marker;
+
+            if (listAccessPointRequest !== null && listAccessPointRequest !== undefined) {
+                if (listAccessPointRequest instanceof ListAccessPointRequest) {
+                    keyspaceId = listAccessPointRequest.keyspaceId;
+                    limit = listAccessPointRequest.limit;
+                    marker = listAccessPointRequest.marker;
+                } else {
+                    keyspaceId = listAccessPointRequest['keyspace_id'];
+                    limit = listAccessPointRequest['limit'];
+                    marker = listAccessPointRequest['marker'];
+                }
+            }
+
+        
+            if (keyspaceId === null || keyspaceId === undefined) {
+                throw new RequiredError('keyspaceId','Required parameter keyspaceId was null or undefined when calling listAccessPoint.');
+            }
+            if (keyspaceId !== null && keyspaceId !== undefined) {
+                localVarQueryParameter['keyspace_id'] = keyspaceId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询一个密钥关联的所有别名
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2885,6 +3591,60 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询密钥策略列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listKeyPolicy(listKeyPolicyRequest?: ListKeyPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/kms/key-policies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let keyspaceId;
+            
+            let limit;
+            
+            let marker;
+
+            if (listKeyPolicyRequest !== null && listKeyPolicyRequest !== undefined) {
+                if (listKeyPolicyRequest instanceof ListKeyPolicyRequest) {
+                    keyspaceId = listKeyPolicyRequest.keyspaceId;
+                    limit = listKeyPolicyRequest.limit;
+                    marker = listKeyPolicyRequest.marker;
+                } else {
+                    keyspaceId = listKeyPolicyRequest['keyspace_id'];
+                    limit = listKeyPolicyRequest['limit'];
+                    marker = listKeyPolicyRequest['marker'];
+                }
+            }
+
+        
+            if (keyspaceId === null || keyspaceId === undefined) {
+                throw new RequiredError('keyspaceId','Required parameter keyspaceId was null or undefined when calling listKeyPolicy.');
+            }
+            if (keyspaceId !== null && keyspaceId !== undefined) {
+                localVarQueryParameter['keyspace_id'] = keyspaceId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3207,6 +3967,81 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 用于外部密钥的密钥材料，需要用户提前导入密钥材料后才能执行轮转
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        rotateOnDemand(rotateOnDemandRequest?: RotateOnDemandRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/kms/rotate-on-demand",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (rotateOnDemandRequest !== null && rotateOnDemandRequest !== undefined) {
+                if (rotateOnDemandRequest instanceof RotateOnDemandRequest) {
+                    body = rotateOnDemandRequest.body
+                } else {
+                    body = rotateOnDemandRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询密钥策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showKeyPolicy(showKeyPolicyRequest?: ShowKeyPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/kms/key-policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let policyId;
+
+            if (showKeyPolicyRequest !== null && showKeyPolicyRequest !== undefined) {
+                if (showKeyPolicyRequest instanceof ShowKeyPolicyRequest) {
+                    policyId = showKeyPolicyRequest.policyId;
+                } else {
+                    policyId = showKeyPolicyRequest['policy_id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling showKeyPolicy.');
+            }
+
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 功能介绍：查询用户主密钥轮换状态。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3514,6 +4349,52 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新密钥策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateKeyPolicy(updateKeyPolicyRequest?: UpdateKeyPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1.0/{project_id}/kms/key-policies/{policy_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyId;
+
+            if (updateKeyPolicyRequest !== null && updateKeyPolicyRequest !== undefined) {
+                if (updateKeyPolicyRequest instanceof UpdateKeyPolicyRequest) {
+                    policyId = updateKeyPolicyRequest.policyId;
+                    body = updateKeyPolicyRequest.body
+                } else {
+                    policyId = updateKeyPolicyRequest['policy_id'];
+                    body = updateKeyPolicyRequest['body'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling updateKeyPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_id': policyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
