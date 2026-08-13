@@ -4,7 +4,7 @@ import { L7Rule } from './L7Rule';
 export class PolicyLabel {
     public id?: string;
     public name?: string;
-    public priority?: string;
+    public priority?: number;
     public action?: string;
     private 'admin_state_up'?: boolean;
     public rules?: Array<L7Rule>;
@@ -23,7 +23,7 @@ export class PolicyLabel {
         this['name'] = name;
         return this;
     }
-    public withPriority(priority: string): PolicyLabel {
+    public withPriority(priority: number): PolicyLabel {
         this['priority'] = priority;
         return this;
     }

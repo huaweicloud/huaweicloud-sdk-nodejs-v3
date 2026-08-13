@@ -3,6 +3,7 @@
 export class MetaData {
     private 'pack_type'?: MetaDataPackTypeEnum | string;
     public codec?: MetaDataCodecEnum | string;
+    private 'audio_codec'?: string;
     public duration?: number;
     private 'duration_ms'?: number;
     private 'video_size'?: number;
@@ -28,6 +29,16 @@ export class MetaData {
     public withCodec(codec: MetaDataCodecEnum | string): MetaData {
         this['codec'] = codec;
         return this;
+    }
+    public withAudioCodec(audioCodec: string): MetaData {
+        this['audio_codec'] = audioCodec;
+        return this;
+    }
+    public set audioCodec(audioCodec: string  | undefined) {
+        this['audio_codec'] = audioCodec;
+    }
+    public get audioCodec(): string | undefined {
+        return this['audio_codec'];
     }
     public withDuration(duration: number): MetaData {
         this['duration'] = duration;

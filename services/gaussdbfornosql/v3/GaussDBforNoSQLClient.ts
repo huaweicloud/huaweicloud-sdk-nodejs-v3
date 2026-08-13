@@ -432,6 +432,8 @@ import { SwitchIpGroupRequest } from './model/SwitchIpGroupRequest';
 import { SwitchIpGroupRequestBody } from './model/SwitchIpGroupRequestBody';
 import { SwitchIpGroupRequestBodyIpGroups } from './model/SwitchIpGroupRequestBodyIpGroups';
 import { SwitchIpGroupResponse } from './model/SwitchIpGroupResponse';
+import { SwitchOverDisasterRecoveryRequest } from './model/SwitchOverDisasterRecoveryRequest';
+import { SwitchOverDisasterRecoveryResponse } from './model/SwitchOverDisasterRecoveryResponse';
 import { SwitchOverRequest } from './model/SwitchOverRequest';
 import { SwitchOverResponse } from './model/SwitchOverResponse';
 import { SwitchSecondLevelMonitoringRequest } from './model/SwitchSecondLevelMonitoringRequest';
@@ -1417,7 +1419,7 @@ export class GaussDBforNoSQLClient {
      *
      * @summary 查询数据库规格
      * @param {string} [engineName] 数据库类型。   - 取值为“cassandra”，表示查询GeminiDB Cassandra数据库实例支持的规格。   - 取值为“mongodb”，表示查询GeminiDB Mongo数据库实例支持的规格。   - 取值为“influxdb”，表示查询GeminiDB Influx数据库实例支持的规格。   - 取值为“redis”，表示查询GeminiDB Redis数据库实例支持的规格。   - 如果不传该参数，默认为“cassandra”。
-     * @param {string} [mode] - 取值为“CloudNativeCluster”, 表示查询云原生部署模式支持的规格。 - 不传该参数表示查询数据库类型下的所有经典部署模式支持的规格。
+     * @param {string} [mode] - 取值为“CloudNativeCluster”, 表示查询云原生部署模式支持的规格。 - 取值为“EnhancedCluster”, 表示查询GeminiDB Influx经典部署模式集群增强版实例支持的规格。 - 不传该参数表示查询数据库类型下的所有经典部署模式支持的规格。
      * @param {string} [productType] 产品类型。   - Standard 标准型   - Capacity 容量型 当创建GeminiDB Redis云原生部署模式集群类型必传此参数。
      * @param {number} [offset] 索引位置，偏移量。   - 从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询）。   - 取值必须为数字，不能为负数。
      * @param {number} [limit] 查询规格信息上限值。   - 取值范围: 1~100。   - 不传该参数时，默认查询前100条规格信息。
@@ -3196,6 +3198,25 @@ export class GaussDBforNoSQLClient {
      */
     public switchOver(switchOverRequest?: SwitchOverRequest): Promise<SwitchOverResponse> {
         const options = ParamCreater().switchOver(switchOverRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 容灾实例倒换。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 容灾实例倒换
+     * @param {string} instanceId **参数解释：** 源实例ID或容灾实例ID。实例ID可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchOverDisasterRecovery(switchOverDisasterRecoveryRequest?: SwitchOverDisasterRecoveryRequest): Promise<SwitchOverDisasterRecoveryResponse> {
+        const options = ParamCreater().switchOverDisasterRecovery(switchOverDisasterRecoveryRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9910,6 +9931,43 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchOver.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 容灾实例倒换。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchOverDisasterRecovery(switchOverDisasterRecoveryRequest?: SwitchOverDisasterRecoveryRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/disaster-recovery/switchover",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (switchOverDisasterRecoveryRequest !== null && switchOverDisasterRecoveryRequest !== undefined) {
+                if (switchOverDisasterRecoveryRequest instanceof SwitchOverDisasterRecoveryRequest) {
+                    instanceId = switchOverDisasterRecoveryRequest.instanceId;
+                } else {
+                    instanceId = switchOverDisasterRecoveryRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchOverDisasterRecovery.');
             }
 
             options.pathParams = { 'instance_id': instanceId, };

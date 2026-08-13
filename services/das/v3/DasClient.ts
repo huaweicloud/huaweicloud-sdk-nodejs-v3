@@ -46,6 +46,9 @@ import { ChangeChargeModeResponse } from './model/ChangeChargeModeResponse';
 import { ChangeFullDeadLockSwitchRequest } from './model/ChangeFullDeadLockSwitchRequest';
 import { ChangeFullDeadLockSwitchRequestBody } from './model/ChangeFullDeadLockSwitchRequestBody';
 import { ChangeFullDeadLockSwitchResponse } from './model/ChangeFullDeadLockSwitchResponse';
+import { ChangePaymentModeForConsoleBody } from './model/ChangePaymentModeForConsoleBody';
+import { ChangePaymentModeNewRequest } from './model/ChangePaymentModeNewRequest';
+import { ChangePaymentModeNewResponse } from './model/ChangePaymentModeNewResponse';
 import { ChangeSqlLimitSwitchStatusBody } from './model/ChangeSqlLimitSwitchStatusBody';
 import { ChangeSqlLimitSwitchStatusRequest } from './model/ChangeSqlLimitSwitchStatusRequest';
 import { ChangeSqlLimitSwitchStatusResponse } from './model/ChangeSqlLimitSwitchStatusResponse';
@@ -729,11 +732,11 @@ export class DasClient {
     }
 
     /**
-     * 设置付费实例
+     * 设置实例付费/免费模式
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 设置付费模式
+     * @summary 设置实例付费/免费模式
      * @param {ChangeChargeModeBody} changeChargeModeRequestBody 请求体
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言
      * @param {*} [options] Override http request option.
@@ -762,6 +765,25 @@ export class DasClient {
      */
     public changeFullDeadLockSwitch(changeFullDeadLockSwitchRequest?: ChangeFullDeadLockSwitchRequest): Promise<ChangeFullDeadLockSwitchResponse> {
         const options = ParamCreater().changeFullDeadLockSwitch(changeFullDeadLockSwitchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 设置实例付费/免费模式
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置实例付费/免费模式
+     * @param {ChangePaymentModeForConsoleBody} changePaymentModeNewRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changePaymentModeNew(changePaymentModeNewRequest?: ChangePaymentModeNewRequest): Promise<ChangePaymentModeNewResponse> {
+        const options = ParamCreater().changePaymentModeNew(changePaymentModeNewRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3890,7 +3912,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 设置付费实例
+         * 设置实例付费/免费模式
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3983,6 +4005,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 设置实例付费/免费模式
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changePaymentModeNew(changePaymentModeNewRequest?: ChangePaymentModeNewRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/clouddba/change-payment-mode",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (changePaymentModeNewRequest !== null && changePaymentModeNewRequest !== undefined) {
+                if (changePaymentModeNewRequest instanceof ChangePaymentModeNewRequest) {
+                    body = changePaymentModeNewRequest.body
+                } else {
+                    body = changePaymentModeNewRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -10284,7 +10344,7 @@ export const ParamCreater = function () {
          */
         switchFullsqlSwitch(switchFullsqlSwitchRequest?: SwitchFullsqlSwitchRequest) {
             const options = {
-                method: "POST",
+                method: "GET",
                 url: "/v3/{project_id}/fullsql/switch",
                 contentType: "application/json",
                 queryParams: {},

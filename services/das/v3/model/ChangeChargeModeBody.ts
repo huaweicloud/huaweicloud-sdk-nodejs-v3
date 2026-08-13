@@ -3,6 +3,7 @@
 export class ChangeChargeModeBody {
     private 'instance_id_list'?: Array<string>;
     private 'datastore_type'?: string;
+    private 'payment_mode'?: boolean;
     public constructor(instanceIdList?: Array<string>, datastoreType?: string) { 
         this['instance_id_list'] = instanceIdList;
         this['datastore_type'] = datastoreType;
@@ -26,5 +27,15 @@ export class ChangeChargeModeBody {
     }
     public get datastoreType(): string | undefined {
         return this['datastore_type'];
+    }
+    public withPaymentMode(paymentMode: boolean): ChangeChargeModeBody {
+        this['payment_mode'] = paymentMode;
+        return this;
+    }
+    public set paymentMode(paymentMode: boolean  | undefined) {
+        this['payment_mode'] = paymentMode;
+    }
+    public get paymentMode(): boolean | undefined {
+        return this['payment_mode'];
     }
 }

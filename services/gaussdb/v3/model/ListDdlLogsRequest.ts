@@ -6,8 +6,8 @@ export class ListDdlLogsRequest {
     private 'node_id'?: string;
     public offset?: number;
     public limit?: number;
-    private 'start_time'?: string;
-    private 'end_time'?: string;
+    private 'start_time'?: number;
+    private 'end_time'?: number;
     public constructor(instanceId?: string, nodeId?: string) { 
         this['instance_id'] = instanceId;
         this['node_id'] = nodeId;
@@ -50,24 +50,24 @@ export class ListDdlLogsRequest {
         this['limit'] = limit;
         return this;
     }
-    public withStartTime(startTime: string): ListDdlLogsRequest {
+    public withStartTime(startTime: number): ListDdlLogsRequest {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string  | undefined) {
+    public set startTime(startTime: number  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime(): string | undefined {
+    public get startTime(): number | undefined {
         return this['start_time'];
     }
-    public withEndTime(endTime: string): ListDdlLogsRequest {
+    public withEndTime(endTime: number): ListDdlLogsRequest {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string  | undefined) {
+    public set endTime(endTime: number  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime(): string | undefined {
+    public get endTime(): number | undefined {
         return this['end_time'];
     }
 }

@@ -430,6 +430,8 @@ export * from './model/SwitchIpGroupRequest';
 export * from './model/SwitchIpGroupRequestBody';
 export * from './model/SwitchIpGroupRequestBodyIpGroups';
 export * from './model/SwitchIpGroupResponse';
+export * from './model/SwitchOverDisasterRecoveryRequest';
+export * from './model/SwitchOverDisasterRecoveryResponse';
 export * from './model/SwitchOverRequest';
 export * from './model/SwitchOverResponse';
 export * from './model/SwitchSecondLevelMonitoringRequest';
