@@ -173,6 +173,8 @@ import { CreateInferServiceRequest } from './model/CreateInferServiceRequest';
 import { CreateInferServiceResponse } from './model/CreateInferServiceResponse';
 import { CreateInferServiceTagRequest } from './model/CreateInferServiceTagRequest';
 import { CreateInferServiceTagResponse } from './model/CreateInferServiceTagResponse';
+import { CreateInferTempApiKeyRequest } from './model/CreateInferTempApiKeyRequest';
+import { CreateInferTempApiKeyResponse } from './model/CreateInferTempApiKeyResponse';
 import { CreateModelArtsAgencyRequest } from './model/CreateModelArtsAgencyRequest';
 import { CreateModelArtsAgencyResponse } from './model/CreateModelArtsAgencyResponse';
 import { CreateNetworkRequest } from './model/CreateNetworkRequest';
@@ -200,6 +202,7 @@ import { CreateRoceNetworkResponse } from './model/CreateRoceNetworkResponse';
 import { CreateSaveImageJobRequest } from './model/CreateSaveImageJobRequest';
 import { CreateSaveImageJobResponse } from './model/CreateSaveImageJobResponse';
 import { CreateTagRequest } from './model/CreateTagRequest';
+import { CreateTempApiKeyReq } from './model/CreateTempApiKeyReq';
 import { CreateTmsTagsRequest } from './model/CreateTmsTagsRequest';
 import { CreateTrainJobTagsRequest } from './model/CreateTrainJobTagsRequest';
 import { CreateTrainJobTagsResponse } from './model/CreateTrainJobTagsResponse';
@@ -323,6 +326,9 @@ import { DockerLvmConfig } from './model/DockerLvmConfig';
 import { Domain } from './model/Domain';
 import { Dump } from './model/Dump';
 import { DumpResponse } from './model/DumpResponse';
+import { ElbConnectionCreateRequest } from './model/ElbConnectionCreateRequest';
+import { ElbConnectionResponse } from './model/ElbConnectionResponse';
+import { ElbConnectionUpdateRequest } from './model/ElbConnectionUpdateRequest';
 import { Endpoints } from './model/Endpoints';
 import { EndpointsReq } from './model/EndpointsReq';
 import { EndpointsRes } from './model/EndpointsRes';
@@ -550,6 +556,7 @@ import { ListScheduledEventsRequest } from './model/ListScheduledEventsRequest';
 import { ListScheduledEventsResponse } from './model/ListScheduledEventsResponse';
 import { ListSearchAlgorithmsParams } from './model/ListSearchAlgorithmsParams';
 import { ListSearchAlgorithmsSearchAlgoList } from './model/ListSearchAlgorithmsSearchAlgoList';
+import { ListTagFilter } from './model/ListTagFilter';
 import { ListTrainingExperimentsRequest } from './model/ListTrainingExperimentsRequest';
 import { ListTrainingExperimentsResponse } from './model/ListTrainingExperimentsResponse';
 import { ListTrainingJobEventsRequest } from './model/ListTrainingJobEventsRequest';
@@ -576,7 +583,8 @@ import { LogDirResp } from './model/LogDirResp';
 import { LogExportConfig } from './model/LogExportConfig';
 import { LogExportPath } from './model/LogExportPath';
 import { LogExportPathResp } from './model/LogExportPathResp';
-import { LtsConfig } from './model/LtsConfig';
+import { LtsConfiguration } from './model/LtsConfiguration';
+import { LtsFiles } from './model/LtsFiles';
 import { LvmConfig } from './model/LvmConfig';
 import { MainContainerAllocatedResources } from './model/MainContainerAllocatedResources';
 import { MainContainerCustomizedFlavor } from './model/MainContainerCustomizedFlavor';
@@ -765,9 +773,11 @@ import { RenewLeaseResponse } from './model/RenewLeaseResponse';
 import { ReportEventBody } from './model/ReportEventBody';
 import { RequiredAffinity } from './model/RequiredAffinity';
 import { RequiredAffinityResp } from './model/RequiredAffinityResp';
+import { ReserveTime } from './model/ReserveTime';
 import { ResetNodesRequest } from './model/ResetNodesRequest';
 import { ResetNodesRequestNodeConfig } from './model/ResetNodesRequestNodeConfig';
 import { ResetNodesRequestRollingConfig } from './model/ResetNodesRequestRollingConfig';
+import { ResidualResources } from './model/ResidualResources';
 import { ResizeNodeInfo } from './model/ResizeNodeInfo';
 import { Resource } from './model/Resource';
 import { ResourceExtendParams } from './model/ResourceExtendParams';
@@ -785,6 +795,7 @@ import { ResourceMetricsMetadata } from './model/ResourceMetricsMetadata';
 import { ResourceQuota } from './model/ResourceQuota';
 import { ResourceRequirement } from './model/ResourceRequirement';
 import { ResourceRequirementVO } from './model/ResourceRequirementVO';
+import { RetentionPolicy } from './model/RetentionPolicy';
 import { RewardAttrs } from './model/RewardAttrs';
 import { RoleReplica } from './model/RoleReplica';
 import { RollingUpdate } from './model/RollingUpdate';
@@ -793,8 +804,9 @@ import { RootVolume } from './model/RootVolume';
 import { RunUserInfo } from './model/RunUserInfo';
 import { RunUserRequest } from './model/RunUserRequest';
 import { RunningRecord } from './model/RunningRecord';
-import { RuntimeConfig } from './model/RuntimeConfig';
+import { RuntimeConfigCreateRequest } from './model/RuntimeConfigCreateRequest';
 import { RuntimeConfigResponse } from './model/RuntimeConfigResponse';
+import { RuntimeConfigUpdateRequest } from './model/RuntimeConfigUpdateRequest';
 import { SSHReq } from './model/SSHReq';
 import { SSHResp } from './model/SSHResp';
 import { ScaleDownHyperinstanceRequest } from './model/ScaleDownHyperinstanceRequest';
@@ -839,8 +851,9 @@ import { ServiceCreateRequestTags } from './model/ServiceCreateRequestTags';
 import { ServiceEventResponse } from './model/ServiceEventResponse';
 import { ServiceIdName } from './model/ServiceIdName';
 import { ServiceInstanceResponse } from './model/ServiceInstanceResponse';
-import { ServiceInvoke } from './model/ServiceInvoke';
+import { ServiceInvokeCreateRequest } from './model/ServiceInvokeCreateRequest';
 import { ServiceInvokeResponse } from './model/ServiceInvokeResponse';
+import { ServiceInvokeUpdateRequest } from './model/ServiceInvokeUpdateRequest';
 import { ServiceItemResponseData } from './model/ServiceItemResponseData';
 import { ServiceLimit } from './model/ServiceLimit';
 import { ServiceLimitResponse } from './model/ServiceLimitResponse';
@@ -1045,6 +1058,7 @@ import { TaskAlgorithmRemote } from './model/TaskAlgorithmRemote';
 import { TaskAlgorithmRemoteObs } from './model/TaskAlgorithmRemoteObs';
 import { TaskEnv } from './model/TaskEnv';
 import { TaskHistory } from './model/TaskHistory';
+import { TaskIP } from './model/TaskIP';
 import { TaskLogExportPath } from './model/TaskLogExportPath';
 import { TaskResponse } from './model/TaskResponse';
 import { TaskResponseAlgorithm } from './model/TaskResponseAlgorithm';
@@ -1833,6 +1847,34 @@ export class ModelArtsClient {
      */
     public createInferServiceTag(createInferServiceTagRequest?: CreateInferServiceTagRequest): Promise<CreateInferServiceTagResponse> {
         const options = ParamCreater().createInferServiceTag(createInferServiceTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 本接口用于在系统中创建一个新的临时API_KEY，适用于需要为用户或应用程序生成临时访问凭证的场景。调用此接口前，确保已具备相应的创建权限，并提供必要的参数，如用户ID或应用程序ID。创建成功后，系统将生成一个唯一的API_KEY，并返回该API_KEY的详细信息，包括临时API_KEY值、创建时间等。如果提供的参数无效，将返回相应的异常信息，提示用户检查输入数据的有效性。
+     * 临时API KEY使用方法：
+     * **预测接口**加上两个header：
+     * X-Api-Key-Type&#x3D;temp
+     * Authorization&#x3D;临时API KEY
+     * **取值范围：**
+     * - normal：普通API KEY
+     * - temp：临时API KEY
+     * **默认取值：**
+     * normal。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建临时应用密钥
+     * @param {CreateTempApiKeyReq} createV2TempApiKeyRequestBody **参数解释：** 创建api-key的请求体。 **约束限制：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createInferTempApiKey(createInferTempApiKeyRequest?: CreateInferTempApiKeyRequest): Promise<CreateInferTempApiKeyResponse> {
+        const options = ParamCreater().createInferTempApiKey(createInferTempApiKeyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2914,6 +2956,7 @@ export class ModelArtsClient {
      * @param {string} [userName] **参数解释：** 创建者，即创建服务的用户名。 **约束限制：** 不涉及。 **取值范围：** 创建服务的用户名。 **默认取值：** 不涉及。
      * @param {string} [tags] **参数解释：** 标签，查询指定标签的服务，默认不过滤。根据标签过滤service参数，格式：每组tag之间使用英文逗号分隔，每个标签内的key和value使用英文竖划线分隔，例：tag_key1|tag_value1,tag_key2|tag_value2 **约束限制：** 不以逗号，竖划线开头，不以逗号结尾，不出现连续的竖划线和逗号，允许中文、西文、葡文等语言以及空格_.:/&#x3D;+-@特殊字符，且字符间以逗号或者竖划线分隔。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [assetId] **参数解释：** 资产ID，查询使用了指定资产的服务，默认不过滤。可通过[资产管理][模型列表]获取。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [nodeIp] **参数解释：** 节点IP地址，按节点IP地址查询该节点IP下POD对应的服务，默认不过滤。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {string} [sortDir] **参数解释：** 排序方式 **约束限制：** 不涉及。 **取值范围：** - ASC: 递增排序。 - DESC: 递减排序。 **默认取值：** DESC。
      * @param {number} [limit] **参数解释：** 指定返回的最大条目数。 **约束限制：** 不涉及。 **取值范围：** [1,500] **默认取值：** 10。
      * @param {number} [offset] **参数解释：** 分页列表查询的偏移量。 **约束限制：** offset必须是limit的整数倍。 **取值范围：** 不涉及。 **默认取值：** 0。
@@ -8278,6 +8321,53 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 本接口用于在系统中创建一个新的临时API_KEY，适用于需要为用户或应用程序生成临时访问凭证的场景。调用此接口前，确保已具备相应的创建权限，并提供必要的参数，如用户ID或应用程序ID。创建成功后，系统将生成一个唯一的API_KEY，并返回该API_KEY的详细信息，包括临时API_KEY值、创建时间等。如果提供的参数无效，将返回相应的异常信息，提示用户检查输入数据的有效性。
+         * 临时API KEY使用方法：
+         * **预测接口**加上两个header：
+         * X-Api-Key-Type&#x3D;temp
+         * Authorization&#x3D;临时API KEY
+         * **取值范围：**
+         * - normal：普通API KEY
+         * - temp：临时API KEY
+         * **默认取值：**
+         * normal。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createInferTempApiKey(createInferTempApiKeyRequest?: CreateInferTempApiKeyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/services/api-keys/temp",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createInferTempApiKeyRequest !== null && createInferTempApiKeyRequest !== undefined) {
+                if (createInferTempApiKeyRequest instanceof CreateInferTempApiKeyRequest) {
+                    body = createInferTempApiKeyRequest.body
+                } else {
+                    body = createInferTempApiKeyRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建ModelArts委托接口用于创建包含OBS、SWR、IEF等依赖服务的ModelArts委托。该接口适用于以下场景：当需要配置ModelArts访问OBS、SWR、IEF等服务的权限时，用户可通过此接口创建委托。使用该接口的前提条件是用户具备创建委托的权限，并且需要在IAM系统中具备相应的权限。创建完成后，ModelArts将被授权访问OBS、SWR、IEF等服务，从而能够正常执行数据存储、镜像拉取、模型部署等功能。若用户无权限创建委托或依赖服务未配置，接口将返回相应的错误信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11071,6 +11161,8 @@ export const ParamCreater = function () {
             
             let assetId;
             
+            let nodeIp;
+            
             let sortDir;
             
             let limit;
@@ -11092,6 +11184,7 @@ export const ParamCreater = function () {
                     userName = listInferServicesRequest.userName;
                     tags = listInferServicesRequest.tags;
                     assetId = listInferServicesRequest.assetId;
+                    nodeIp = listInferServicesRequest.nodeIp;
                     sortDir = listInferServicesRequest.sortDir;
                     limit = listInferServicesRequest.limit;
                     offset = listInferServicesRequest.offset;
@@ -11109,6 +11202,7 @@ export const ParamCreater = function () {
                     userName = listInferServicesRequest['user_name'];
                     tags = listInferServicesRequest['tags'];
                     assetId = listInferServicesRequest['asset_id'];
+                    nodeIp = listInferServicesRequest['node_ip'];
                     sortDir = listInferServicesRequest['sort_dir'];
                     limit = listInferServicesRequest['limit'];
                     offset = listInferServicesRequest['offset'];
@@ -11154,6 +11248,9 @@ export const ParamCreater = function () {
             }
             if (assetId !== null && assetId !== undefined) {
                 localVarQueryParameter['asset_id'] = assetId;
+            }
+            if (nodeIp !== null && nodeIp !== undefined) {
+                localVarQueryParameter['node_ip'] = nodeIp;
             }
             if (sortDir !== null && sortDir !== undefined) {
                 localVarQueryParameter['sort_dir'] = sortDir;

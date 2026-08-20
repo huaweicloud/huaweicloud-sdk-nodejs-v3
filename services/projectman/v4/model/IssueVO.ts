@@ -64,7 +64,7 @@ export class IssueVO {
     private 'collaborative_status'?: Array<string>;
     public project?: DomainVO;
     private 'child_issues'?: { [key: string]: IssueVO; };
-    private 'activate_times'?: number;
+    private 'activate_times'?: string;
     public baseline?: OptionVO;
     private 'business_domain'?: OptionVO;
     public children?: string;
@@ -98,14 +98,14 @@ export class IssueVO {
     private 'position_float'?: string;
     private 'processing_owner'?: string;
     private 'reason_analysis'?: string;
-    private 'regression_failure_number'?: number;
+    private 'regression_failure_number'?: string;
     private 'related_network_security'?: OptionVO;
     private 'repair_solution'?: string;
     private 'researchanddevelop_owner'?: string;
     public severity?: OptionVO;
     private 'sys_activation_reason'?: string;
     private 'sys_no_repair_reason'?: string;
-    private 'test_failures_times'?: number;
+    private 'test_failures_times'?: string;
     private 'test_owner'?: string;
     private 'test_report'?: string;
     private 'val_feature'?: OptionVO;
@@ -575,14 +575,14 @@ export class IssueVO {
     public get childIssues(): { [key: string]: IssueVO; } | undefined {
         return this['child_issues'];
     }
-    public withActivateTimes(activateTimes: number): IssueVO {
+    public withActivateTimes(activateTimes: string): IssueVO {
         this['activate_times'] = activateTimes;
         return this;
     }
-    public set activateTimes(activateTimes: number  | undefined) {
+    public set activateTimes(activateTimes: string  | undefined) {
         this['activate_times'] = activateTimes;
     }
-    public get activateTimes(): number | undefined {
+    public get activateTimes(): string | undefined {
         return this['activate_times'];
     }
     public withBaseline(baseline: OptionVO): IssueVO {
@@ -867,14 +867,14 @@ export class IssueVO {
     public get reasonAnalysis(): string | undefined {
         return this['reason_analysis'];
     }
-    public withRegressionFailureNumber(regressionFailureNumber: number): IssueVO {
+    public withRegressionFailureNumber(regressionFailureNumber: string): IssueVO {
         this['regression_failure_number'] = regressionFailureNumber;
         return this;
     }
-    public set regressionFailureNumber(regressionFailureNumber: number  | undefined) {
+    public set regressionFailureNumber(regressionFailureNumber: string  | undefined) {
         this['regression_failure_number'] = regressionFailureNumber;
     }
-    public get regressionFailureNumber(): number | undefined {
+    public get regressionFailureNumber(): string | undefined {
         return this['regression_failure_number'];
     }
     public withRelatedNetworkSecurity(relatedNetworkSecurity: OptionVO): IssueVO {
@@ -931,14 +931,14 @@ export class IssueVO {
     public get sysNoRepairReason(): string | undefined {
         return this['sys_no_repair_reason'];
     }
-    public withTestFailuresTimes(testFailuresTimes: number): IssueVO {
+    public withTestFailuresTimes(testFailuresTimes: string): IssueVO {
         this['test_failures_times'] = testFailuresTimes;
         return this;
     }
-    public set testFailuresTimes(testFailuresTimes: number  | undefined) {
+    public set testFailuresTimes(testFailuresTimes: string  | undefined) {
         this['test_failures_times'] = testFailuresTimes;
     }
-    public get testFailuresTimes(): number | undefined {
+    public get testFailuresTimes(): string | undefined {
         return this['test_failures_times'];
     }
     public withTestOwner(testOwner: string): IssueVO {

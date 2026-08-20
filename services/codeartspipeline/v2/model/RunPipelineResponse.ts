@@ -3,6 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class RunPipelineResponse extends SdkResponse {
     private 'pipeline_run_id'?: string;
+    private 'error_msg'?: string;
     public constructor() { 
         super();
     }
@@ -15,5 +16,15 @@ export class RunPipelineResponse extends SdkResponse {
     }
     public get pipelineRunId(): string | undefined {
         return this['pipeline_run_id'];
+    }
+    public withErrorMsg(errorMsg: string): RunPipelineResponse {
+        this['error_msg'] = errorMsg;
+        return this;
+    }
+    public set errorMsg(errorMsg: string  | undefined) {
+        this['error_msg'] = errorMsg;
+    }
+    public get errorMsg(): string | undefined {
+        return this['error_msg'];
     }
 }

@@ -769,6 +769,8 @@ import { ListSecurityDynamicMaskingPoliciesRequest } from './model/ListSecurityD
 import { ListSecurityDynamicMaskingPoliciesResponse } from './model/ListSecurityDynamicMaskingPoliciesResponse';
 import { ListSecurityMemberPermissionRequest } from './model/ListSecurityMemberPermissionRequest';
 import { ListSecurityMemberPermissionResponse } from './model/ListSecurityMemberPermissionResponse';
+import { ListSecurityMemberPermissionsByUserIdRequest } from './model/ListSecurityMemberPermissionsByUserIdRequest';
+import { ListSecurityMemberPermissionsByUserIdResponse } from './model/ListSecurityMemberPermissionsByUserIdResponse';
 import { ListSecurityMemberSyncTasksRequest } from './model/ListSecurityMemberSyncTasksRequest';
 import { ListSecurityMemberSyncTasksResponse } from './model/ListSecurityMemberSyncTasksResponse';
 import { ListSecurityMemberTablePermissionRequest } from './model/ListSecurityMemberTablePermissionRequest';
@@ -6091,6 +6093,41 @@ export class DataArtsStudioClient {
      */
     public listSecurityMemberPermission(listSecurityMemberPermissionRequest?: ListSecurityMemberPermissionRequest): Promise<ListSecurityMemberPermissionResponse> {
         const options = ParamCreater().listSecurityMemberPermission(listSecurityMemberPermissionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定用户权限清单。
+     * 
+     * 权限要求：dayu_admin / te_admin / 数据安全管理员可查询任意用户；普通用户仅可查询自身权限。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定用户权限清单
+     * @param {string} userId IAM用户id
+     * @param {string} workspace DataArts Studio工作空间ID
+     * @param {string} [userName] 用户名
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {'HIVE' | 'DWS' | 'DLI'} [datasourceType] 数据源类型 - HIVE数据源 - DWS数据源 - [DLI数据源](tag:nohcs)
+     * @param {string} [databaseName] 数据库名称
+     * @param {string} [schemaName] Schema名，正向模糊匹配
+     * @param {string} [tableName] 表名称
+     * @param {'SELF_ACCOUNT' | 'WORKSPACE_ACCOUNT'} [accountType] 权限账号类型 * SELF_ACCOUNT 个人账号权限 * WORKSPACE_ACCOUNT 空间调度账号权限
+     * @param {'REVOKE_FAILED' | 'TO_BE_REVOKE' | 'INACTIVE' | 'PERMANENTLY_ACTIVE' | 'ACTIVE' | 'EXPIRE_SOON'} [expireStatus] 权限状态,REVOKE_FAILED,TO_BE_REVOKE,INACTIVE,PERMANENTLY_ACTIVE,ACTIVE,EXPIRE_SOON
+     * @param {number} [startExpireTime] 过期时间开始时间戳，毫秒。
+     * @param {number} [endExpireTime] 过期时间结束时间戳，毫秒。
+     * @param {'EXPIRE_TIME'} [orderBy] 排序参数,EXPIRE_TIME
+     * @param {boolean} [orderByAsc] 升序/降序。true升序，false降序
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityMemberPermissionsByUserId(listSecurityMemberPermissionsByUserIdRequest?: ListSecurityMemberPermissionsByUserIdRequest): Promise<ListSecurityMemberPermissionsByUserIdResponse> {
+        const options = ParamCreater().listSecurityMemberPermissionsByUserId(listSecurityMemberPermissionsByUserIdRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -23920,6 +23957,144 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定用户权限清单。
+         * 
+         * 权限要求：dayu_admin / te_admin / 数据安全管理员可查询任意用户；普通用户仅可查询自身权限。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityMemberPermissionsByUserId(listSecurityMemberPermissionsByUserIdRequest?: ListSecurityMemberPermissionsByUserIdRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/security/member-permission/query/{user_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let userId;
+            
+            let workspace;
+            
+            let userName;
+            
+            let limit;
+            
+            let offset;
+            
+            let datasourceType;
+            
+            let databaseName;
+            
+            let schemaName;
+            
+            let tableName;
+            
+            let accountType;
+            
+            let expireStatus;
+            
+            let startExpireTime;
+            
+            let endExpireTime;
+            
+            let orderBy;
+            
+            let orderByAsc;
+
+            if (listSecurityMemberPermissionsByUserIdRequest !== null && listSecurityMemberPermissionsByUserIdRequest !== undefined) {
+                if (listSecurityMemberPermissionsByUserIdRequest instanceof ListSecurityMemberPermissionsByUserIdRequest) {
+                    userId = listSecurityMemberPermissionsByUserIdRequest.userId;
+                    workspace = listSecurityMemberPermissionsByUserIdRequest.workspace;
+                    userName = listSecurityMemberPermissionsByUserIdRequest.userName;
+                    limit = listSecurityMemberPermissionsByUserIdRequest.limit;
+                    offset = listSecurityMemberPermissionsByUserIdRequest.offset;
+                    datasourceType = listSecurityMemberPermissionsByUserIdRequest.datasourceType;
+                    databaseName = listSecurityMemberPermissionsByUserIdRequest.databaseName;
+                    schemaName = listSecurityMemberPermissionsByUserIdRequest.schemaName;
+                    tableName = listSecurityMemberPermissionsByUserIdRequest.tableName;
+                    accountType = listSecurityMemberPermissionsByUserIdRequest.accountType;
+                    expireStatus = listSecurityMemberPermissionsByUserIdRequest.expireStatus;
+                    startExpireTime = listSecurityMemberPermissionsByUserIdRequest.startExpireTime;
+                    endExpireTime = listSecurityMemberPermissionsByUserIdRequest.endExpireTime;
+                    orderBy = listSecurityMemberPermissionsByUserIdRequest.orderBy;
+                    orderByAsc = listSecurityMemberPermissionsByUserIdRequest.orderByAsc;
+                } else {
+                    userId = listSecurityMemberPermissionsByUserIdRequest['user_id'];
+                    workspace = listSecurityMemberPermissionsByUserIdRequest['workspace'];
+                    userName = listSecurityMemberPermissionsByUserIdRequest['user_name'];
+                    limit = listSecurityMemberPermissionsByUserIdRequest['limit'];
+                    offset = listSecurityMemberPermissionsByUserIdRequest['offset'];
+                    datasourceType = listSecurityMemberPermissionsByUserIdRequest['datasource_type'];
+                    databaseName = listSecurityMemberPermissionsByUserIdRequest['database_name'];
+                    schemaName = listSecurityMemberPermissionsByUserIdRequest['schema_name'];
+                    tableName = listSecurityMemberPermissionsByUserIdRequest['table_name'];
+                    accountType = listSecurityMemberPermissionsByUserIdRequest['account_type'];
+                    expireStatus = listSecurityMemberPermissionsByUserIdRequest['expire_status'];
+                    startExpireTime = listSecurityMemberPermissionsByUserIdRequest['start_expire_time'];
+                    endExpireTime = listSecurityMemberPermissionsByUserIdRequest['end_expire_time'];
+                    orderBy = listSecurityMemberPermissionsByUserIdRequest['order_by'];
+                    orderByAsc = listSecurityMemberPermissionsByUserIdRequest['order_by_asc'];
+                }
+            }
+
+        
+            if (userId === null || userId === undefined) {
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling listSecurityMemberPermissionsByUserId.');
+            }
+            if (userName !== null && userName !== undefined) {
+                localVarQueryParameter['user_name'] = userName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (datasourceType !== null && datasourceType !== undefined) {
+                localVarQueryParameter['datasource_type'] = datasourceType;
+            }
+            if (databaseName !== null && databaseName !== undefined) {
+                localVarQueryParameter['database_name'] = databaseName;
+            }
+            if (schemaName !== null && schemaName !== undefined) {
+                localVarQueryParameter['schema_name'] = schemaName;
+            }
+            if (tableName !== null && tableName !== undefined) {
+                localVarQueryParameter['table_name'] = tableName;
+            }
+            if (accountType !== null && accountType !== undefined) {
+                localVarQueryParameter['account_type'] = accountType;
+            }
+            if (expireStatus !== null && expireStatus !== undefined) {
+                localVarQueryParameter['expire_status'] = expireStatus;
+            }
+            if (startExpireTime !== null && startExpireTime !== undefined) {
+                localVarQueryParameter['start_expire_time'] = startExpireTime;
+            }
+            if (endExpireTime !== null && endExpireTime !== undefined) {
+                localVarQueryParameter['end_expire_time'] = endExpireTime;
+            }
+            if (orderBy !== null && orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (orderByAsc !== null && orderByAsc !== undefined) {
+                localVarQueryParameter['order_by_asc'] = orderByAsc;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'user_id': userId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

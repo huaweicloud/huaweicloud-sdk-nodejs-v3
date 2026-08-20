@@ -1,4 +1,4 @@
-import { InferFlavor } from './InferFlavor';
+import { NotebookFlavor } from './NotebookFlavor';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -12,7 +12,9 @@ export class ShowInferServiceClusterResponse extends SdkResponse {
     private 'project_id'?: string;
     private 'create_at'?: number;
     private 'update_at'?: number;
-    public flavors?: Array<InferFlavor>;
+    public flavors?: Array<NotebookFlavor>;
+    private 'pool_type'?: ShowInferServiceClusterResponsePoolTypeEnum | string;
+    private 'physical_pool_id'?: string;
     public constructor() { 
         super();
     }
@@ -94,9 +96,29 @@ export class ShowInferServiceClusterResponse extends SdkResponse {
     public get updateAt(): number | undefined {
         return this['update_at'];
     }
-    public withFlavors(flavors: Array<InferFlavor>): ShowInferServiceClusterResponse {
+    public withFlavors(flavors: Array<NotebookFlavor>): ShowInferServiceClusterResponse {
         this['flavors'] = flavors;
         return this;
+    }
+    public withPoolType(poolType: ShowInferServiceClusterResponsePoolTypeEnum | string): ShowInferServiceClusterResponse {
+        this['pool_type'] = poolType;
+        return this;
+    }
+    public set poolType(poolType: ShowInferServiceClusterResponsePoolTypeEnum | string  | undefined) {
+        this['pool_type'] = poolType;
+    }
+    public get poolType(): ShowInferServiceClusterResponsePoolTypeEnum | string | undefined {
+        return this['pool_type'];
+    }
+    public withPhysicalPoolId(physicalPoolId: string): ShowInferServiceClusterResponse {
+        this['physical_pool_id'] = physicalPoolId;
+        return this;
+    }
+    public set physicalPoolId(physicalPoolId: string  | undefined) {
+        this['physical_pool_id'] = physicalPoolId;
+    }
+    public get physicalPoolId(): string | undefined {
+        return this['physical_pool_id'];
     }
 }
 
@@ -123,4 +145,12 @@ export enum ShowInferServiceClusterResponseTypeEnum {
     MANAGED_ROMA = 'MANAGED_ROMA',
     DEDICATED = 'DEDICATED',
     DEDICATED_ROMA = 'DEDICATED_ROMA'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowInferServiceClusterResponsePoolTypeEnum {
+    LOGICAL = 'LOGICAL',
+    PHYSICAL = 'PHYSICAL'
 }

@@ -10,8 +10,11 @@ export class CreateSaveImageJobResponse extends SdkResponse {
     public status?: string;
     public message?: string;
     private 'create_time'?: number;
-    public constructor() { 
+    public constructor(name?: string, namespace?: string, tag?: string) { 
         super();
+        this['name'] = name;
+        this['namespace'] = namespace;
+        this['tag'] = tag;
     }
     public withName(name: string): CreateSaveImageJobResponse {
         this['name'] = name;

@@ -2,6 +2,7 @@
 
 export class LabelEntity {
     public id?: string;
+    private 'category_types'?: Array<string>;
     private 'label_type'?: string;
     public color?: string;
     public title?: string;
@@ -10,6 +11,16 @@ export class LabelEntity {
     public withId(id: string): LabelEntity {
         this['id'] = id;
         return this;
+    }
+    public withCategoryTypes(categoryTypes: Array<string>): LabelEntity {
+        this['category_types'] = categoryTypes;
+        return this;
+    }
+    public set categoryTypes(categoryTypes: Array<string>  | undefined) {
+        this['category_types'] = categoryTypes;
+    }
+    public get categoryTypes(): Array<string> | undefined {
+        return this['category_types'];
     }
     public withLabelType(labelType: string): LabelEntity {
         this['label_type'] = labelType;

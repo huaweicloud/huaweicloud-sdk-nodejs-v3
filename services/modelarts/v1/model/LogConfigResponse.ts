@@ -6,6 +6,7 @@ export class LogConfigResponse {
     private 'log_group_id'?: string;
     private 'log_stream_id'?: string;
     private 'deployment_id'?: string;
+    private 'failure_reason'?: string;
     public constructor(type?: string, status?: string) { 
         this['type'] = type;
         this['status'] = status;
@@ -47,5 +48,15 @@ export class LogConfigResponse {
     }
     public get deploymentId(): string | undefined {
         return this['deployment_id'];
+    }
+    public withFailureReason(failureReason: string): LogConfigResponse {
+        this['failure_reason'] = failureReason;
+        return this;
+    }
+    public set failureReason(failureReason: string  | undefined) {
+        this['failure_reason'] = failureReason;
+    }
+    public get failureReason(): string | undefined {
+        return this['failure_reason'];
     }
 }

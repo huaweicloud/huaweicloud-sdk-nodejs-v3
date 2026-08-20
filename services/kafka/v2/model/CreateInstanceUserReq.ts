@@ -4,7 +4,9 @@ export class CreateInstanceUserReq {
     private 'user_name'?: string;
     private 'user_desc'?: string;
     private 'user_passwd'?: string;
-    public constructor() { 
+    public constructor(userName?: string, userPasswd?: string) { 
+        this['user_name'] = userName;
+        this['user_passwd'] = userPasswd;
     }
     public withUserName(userName: string): CreateInstanceUserReq {
         this['user_name'] = userName;

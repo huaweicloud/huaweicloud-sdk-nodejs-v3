@@ -14,6 +14,7 @@ export class ListInferServicesRequest {
     private 'user_name'?: string;
     public tags?: string;
     private 'asset_id'?: string;
+    private 'node_ip'?: string;
     private 'sort_dir'?: string;
     public limit?: number;
     public offset?: number;
@@ -112,6 +113,16 @@ export class ListInferServicesRequest {
     }
     public get assetId(): string | undefined {
         return this['asset_id'];
+    }
+    public withNodeIp(nodeIp: string): ListInferServicesRequest {
+        this['node_ip'] = nodeIp;
+        return this;
+    }
+    public set nodeIp(nodeIp: string  | undefined) {
+        this['node_ip'] = nodeIp;
+    }
+    public get nodeIp(): string | undefined {
+        return this['node_ip'];
     }
     public withSortDir(sortDir: string): ListInferServicesRequest {
         this['sort_dir'] = sortDir;

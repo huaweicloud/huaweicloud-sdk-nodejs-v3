@@ -1,4 +1,5 @@
 import { Filter } from './Filter';
+import { ListTagFilter } from './ListTagFilter';
 
 
 export class JobSearches {
@@ -9,6 +10,8 @@ export class JobSearches {
     private 'group_by'?: string;
     private 'workspace_id'?: string;
     private 'train_type'?: string;
+    public tags?: Array<ListTagFilter>;
+    private 'host_ips'?: Array<string>;
     public filters?: Array<Filter>;
     public constructor() { 
     }
@@ -63,6 +66,20 @@ export class JobSearches {
     }
     public get trainType(): string | undefined {
         return this['train_type'];
+    }
+    public withTags(tags: Array<ListTagFilter>): JobSearches {
+        this['tags'] = tags;
+        return this;
+    }
+    public withHostIps(hostIps: Array<string>): JobSearches {
+        this['host_ips'] = hostIps;
+        return this;
+    }
+    public set hostIps(hostIps: Array<string>  | undefined) {
+        this['host_ips'] = hostIps;
+    }
+    public get hostIps(): Array<string> | undefined {
+        return this['host_ips'];
     }
     public withFilters(filters: Array<Filter>): JobSearches {
         this['filters'] = filters;

@@ -290,6 +290,7 @@ import { ShowKafkaProjectTagsRequest } from './model/ShowKafkaProjectTagsRequest
 import { ShowKafkaProjectTagsResponse } from './model/ShowKafkaProjectTagsResponse';
 import { ShowKafkaRebalanceLogRequest } from './model/ShowKafkaRebalanceLogRequest';
 import { ShowKafkaRebalanceLogResponse } from './model/ShowKafkaRebalanceLogResponse';
+import { ShowKafkaScalePreCheckInfoEntity } from './model/ShowKafkaScalePreCheckInfoEntity';
 import { ShowKafkaScalePreCheckInfoRequest } from './model/ShowKafkaScalePreCheckInfoRequest';
 import { ShowKafkaScalePreCheckInfoResponse } from './model/ShowKafkaScalePreCheckInfoResponse';
 import { ShowKafkaTagsRequest } from './model/ShowKafkaTagsRequest';
@@ -384,7 +385,6 @@ import { UpdateVolumeExpansionConfigRequest } from './model/UpdateVolumeExpansio
 import { UpdateVolumeExpansionConfigResponse } from './model/UpdateVolumeExpansionConfigResponse';
 import { UpgradeInstanceReq } from './model/UpgradeInstanceReq';
 import { UpgradeInstanceRequest } from './model/UpgradeInstanceRequest';
-import { UpgradeInstanceResp } from './model/UpgradeInstanceResp';
 import { UpgradeInstanceResponse } from './model/UpgradeInstanceResponse';
 import { ValidateConnectorConnectivityRequest } from './model/ValidateConnectorConnectivityRequest';
 import { ValidateConnectorConnectivityResponse } from './model/ValidateConnectorConnectivityResponse';
@@ -998,7 +998,7 @@ export class KafkaClient {
      *
      * @summary 查询实例的后台任务列表
      * @param {string} instanceId 实例ID。
-     * @param {number} [offset] 开启查询的任务编号。
+     * @param {number} [start] 开启查询的任务编号。
      * @param {number} [limit] 查询的任务个数。
      * @param {string} [beginTime] 查询任务的最小时间，格式为YYYYMMDDHHmmss。
      * @param {string} [endTime] 查询任务的最大时间，格式为YYYYMMDDHHmmss。
@@ -4249,7 +4249,7 @@ export const ParamCreater = function () {
             
             let instanceId;
             
-            let offset;
+            let start;
             
             let limit;
             
@@ -4260,13 +4260,13 @@ export const ParamCreater = function () {
             if (listBackgroundTasksRequest !== null && listBackgroundTasksRequest !== undefined) {
                 if (listBackgroundTasksRequest instanceof ListBackgroundTasksRequest) {
                     instanceId = listBackgroundTasksRequest.instanceId;
-                    offset = listBackgroundTasksRequest.offset;
+                    start = listBackgroundTasksRequest.start;
                     limit = listBackgroundTasksRequest.limit;
                     beginTime = listBackgroundTasksRequest.beginTime;
                     endTime = listBackgroundTasksRequest.endTime;
                 } else {
                     instanceId = listBackgroundTasksRequest['instance_id'];
-                    offset = listBackgroundTasksRequest['offset'];
+                    start = listBackgroundTasksRequest['start'];
                     limit = listBackgroundTasksRequest['limit'];
                     beginTime = listBackgroundTasksRequest['begin_time'];
                     endTime = listBackgroundTasksRequest['end_time'];
@@ -4277,8 +4277,8 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listBackgroundTasks.');
             }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
+            if (start !== null && start !== undefined) {
+                localVarQueryParameter['start'] = start;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;

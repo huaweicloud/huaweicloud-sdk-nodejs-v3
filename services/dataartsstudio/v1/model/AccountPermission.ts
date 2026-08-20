@@ -18,6 +18,7 @@ export class AccountPermission {
     private 'project_id'?: string;
     private 'row_level_security'?: string;
     private 'row_level_security_desc'?: string;
+    private 'renewal_status'?: AccountPermissionRenewalStatusEnum | string;
     private 'schema_name'?: string;
     private 'table_name'?: string;
     private 'workspace_id'?: string;
@@ -195,6 +196,16 @@ export class AccountPermission {
     public get rowLevelSecurityDesc(): string | undefined {
         return this['row_level_security_desc'];
     }
+    public withRenewalStatus(renewalStatus: AccountPermissionRenewalStatusEnum | string): AccountPermission {
+        this['renewal_status'] = renewalStatus;
+        return this;
+    }
+    public set renewalStatus(renewalStatus: AccountPermissionRenewalStatusEnum | string  | undefined) {
+        this['renewal_status'] = renewalStatus;
+    }
+    public get renewalStatus(): AccountPermissionRenewalStatusEnum | string | undefined {
+        return this['renewal_status'];
+    }
     public withSchemaName(schemaName: string): AccountPermission {
         this['schema_name'] = schemaName;
         return this;
@@ -261,4 +272,13 @@ export enum AccountPermissionPermissionActionEnum {
     LOCK = 'LOCK',
     READ = 'READ',
     WRITE = 'WRITE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AccountPermissionRenewalStatusEnum {
+    ORDER_WAITING_APPROVE = 'ORDER_WAITING_APPROVE',
+    NO_ORDER = 'NO_ORDER',
+    ORDER_REJECT = 'ORDER_REJECT'
 }

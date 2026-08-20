@@ -1,6 +1,6 @@
 import { GroupConfig } from './GroupConfig';
-import { LtsConfig } from './LtsConfig';
-import { RuntimeConfig } from './RuntimeConfig';
+import { LtsConfiguration } from './LtsConfiguration';
+import { RuntimeConfigUpdateRequest } from './RuntimeConfigUpdateRequest';
 import { ScheduleConfig } from './ScheduleConfig';
 import { UpgradeConfig } from './UpgradeConfig';
 
@@ -12,10 +12,10 @@ export class ServiceUpdateRequest {
     public version?: string;
     public description?: string;
     private 'group_configs'?: Array<GroupConfig>;
-    private 'runtime_config'?: RuntimeConfig;
+    private 'runtime_config'?: RuntimeConfigUpdateRequest;
     private 'upgrade_config'?: UpgradeConfig;
     private 'lts_strategy'?: string;
-    private 'log_configs'?: Array<LtsConfig>;
+    private 'log_configs'?: Array<LtsConfiguration>;
     public tags?: string;
     private 'workspace_id'?: string;
     public schedule?: Array<ScheduleConfig>;
@@ -59,14 +59,14 @@ export class ServiceUpdateRequest {
     public get groupConfigs(): Array<GroupConfig> | undefined {
         return this['group_configs'];
     }
-    public withRuntimeConfig(runtimeConfig: RuntimeConfig): ServiceUpdateRequest {
+    public withRuntimeConfig(runtimeConfig: RuntimeConfigUpdateRequest): ServiceUpdateRequest {
         this['runtime_config'] = runtimeConfig;
         return this;
     }
-    public set runtimeConfig(runtimeConfig: RuntimeConfig  | undefined) {
+    public set runtimeConfig(runtimeConfig: RuntimeConfigUpdateRequest  | undefined) {
         this['runtime_config'] = runtimeConfig;
     }
-    public get runtimeConfig(): RuntimeConfig | undefined {
+    public get runtimeConfig(): RuntimeConfigUpdateRequest | undefined {
         return this['runtime_config'];
     }
     public withUpgradeConfig(upgradeConfig: UpgradeConfig): ServiceUpdateRequest {
@@ -89,14 +89,14 @@ export class ServiceUpdateRequest {
     public get ltsStrategy(): string | undefined {
         return this['lts_strategy'];
     }
-    public withLogConfigs(logConfigs: Array<LtsConfig>): ServiceUpdateRequest {
+    public withLogConfigs(logConfigs: Array<LtsConfiguration>): ServiceUpdateRequest {
         this['log_configs'] = logConfigs;
         return this;
     }
-    public set logConfigs(logConfigs: Array<LtsConfig>  | undefined) {
+    public set logConfigs(logConfigs: Array<LtsConfiguration>  | undefined) {
         this['log_configs'] = logConfigs;
     }
-    public get logConfigs(): Array<LtsConfig> | undefined {
+    public get logConfigs(): Array<LtsConfiguration> | undefined {
         return this['log_configs'];
     }
     public withTags(tags: string): ServiceUpdateRequest {

@@ -5,6 +5,8 @@ import { LogExportConfig } from './LogExportConfig';
 import { LogExportPath } from './LogExportPath';
 import { Notification } from './Notification';
 import { OutputModel } from './OutputModel';
+import { ReserveTime } from './ReserveTime';
+import { RetentionPolicy } from './RetentionPolicy';
 import { SchedulePolicy } from './SchedulePolicy';
 import { SpecResource } from './SpecResource';
 import { SpecVolumes } from './SpecVolumes';
@@ -15,6 +17,7 @@ export class Spec {
     public volumes?: Array<SpecVolumes>;
     private 'log_export_path'?: LogExportPath;
     private 'auto_stop'?: AutoStop;
+    public retention?: RetentionPolicy;
     private 'schedule_policy'?: SchedulePolicy;
     private 'log_export_config'?: LogExportConfig;
     public notification?: Notification;
@@ -22,6 +25,7 @@ export class Spec {
     private 'output_model'?: OutputModel;
     private 'asset_model'?: AssetModel;
     private 'asset_id'?: string;
+    private 'reserved_time'?: ReserveTime;
     public constructor() { 
     }
     public withResource(resource: SpecResource): Spec {
@@ -51,6 +55,10 @@ export class Spec {
     }
     public get autoStop(): AutoStop | undefined {
         return this['auto_stop'];
+    }
+    public withRetention(retention: RetentionPolicy): Spec {
+        this['retention'] = retention;
+        return this;
     }
     public withSchedulePolicy(schedulePolicy: SchedulePolicy): Spec {
         this['schedule_policy'] = schedulePolicy;
@@ -115,5 +123,15 @@ export class Spec {
     }
     public get assetId(): string | undefined {
         return this['asset_id'];
+    }
+    public withReservedTime(reservedTime: ReserveTime): Spec {
+        this['reserved_time'] = reservedTime;
+        return this;
+    }
+    public set reservedTime(reservedTime: ReserveTime  | undefined) {
+        this['reserved_time'] = reservedTime;
+    }
+    public get reservedTime(): ReserveTime | undefined {
+        return this['reserved_time'];
     }
 }

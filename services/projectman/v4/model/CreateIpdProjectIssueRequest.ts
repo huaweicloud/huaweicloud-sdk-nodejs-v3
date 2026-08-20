@@ -1,9 +1,9 @@
-import { CreateIpdProjectIssueRequestBody } from './CreateIpdProjectIssueRequestBody';
+import { CreateIpdProjectIssueParam } from './CreateIpdProjectIssueParam';
 
 
 export class CreateIpdProjectIssueRequest {
     private 'project_id'?: string;
-    public body?: CreateIpdProjectIssueRequestBody;
+    public body?: CreateIpdProjectIssueParam;
     public constructor(projectId?: string) { 
         this['project_id'] = projectId;
     }
@@ -17,7 +17,7 @@ export class CreateIpdProjectIssueRequest {
     public get projectId(): string | undefined {
         return this['project_id'];
     }
-    public withBody(body: CreateIpdProjectIssueRequestBody): CreateIpdProjectIssueRequest {
+    public withBody(body: CreateIpdProjectIssueParam): CreateIpdProjectIssueRequest {
         this['body'] = body;
         return this;
     }

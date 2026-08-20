@@ -5,9 +5,9 @@ export class InstanceRecycleInfo {
     public status?: string;
     public name?: string;
     public engine?: string;
-    private 'in_recycle_time'?: string;
+    private 'in_recycle_time'?: number;
     private 'save_time'?: number;
-    private 'auto_delete_time'?: string;
+    private 'auto_delete_time'?: number;
     private 'cost_per_hour'?: number;
     private 'error_message'?: string;
     private 'product_id'?: string;
@@ -35,14 +35,14 @@ export class InstanceRecycleInfo {
         this['engine'] = engine;
         return this;
     }
-    public withInRecycleTime(inRecycleTime: string): InstanceRecycleInfo {
+    public withInRecycleTime(inRecycleTime: number): InstanceRecycleInfo {
         this['in_recycle_time'] = inRecycleTime;
         return this;
     }
-    public set inRecycleTime(inRecycleTime: string  | undefined) {
+    public set inRecycleTime(inRecycleTime: number  | undefined) {
         this['in_recycle_time'] = inRecycleTime;
     }
-    public get inRecycleTime(): string | undefined {
+    public get inRecycleTime(): number | undefined {
         return this['in_recycle_time'];
     }
     public withSaveTime(saveTime: number): InstanceRecycleInfo {
@@ -55,14 +55,14 @@ export class InstanceRecycleInfo {
     public get saveTime(): number | undefined {
         return this['save_time'];
     }
-    public withAutoDeleteTime(autoDeleteTime: string): InstanceRecycleInfo {
+    public withAutoDeleteTime(autoDeleteTime: number): InstanceRecycleInfo {
         this['auto_delete_time'] = autoDeleteTime;
         return this;
     }
-    public set autoDeleteTime(autoDeleteTime: string  | undefined) {
+    public set autoDeleteTime(autoDeleteTime: number  | undefined) {
         this['auto_delete_time'] = autoDeleteTime;
     }
-    public get autoDeleteTime(): string | undefined {
+    public get autoDeleteTime(): number | undefined {
         return this['auto_delete_time'];
     }
     public withCostPerHour(costPerHour: number): InstanceRecycleInfo {

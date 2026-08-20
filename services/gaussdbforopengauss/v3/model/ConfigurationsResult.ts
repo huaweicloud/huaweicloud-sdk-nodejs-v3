@@ -6,15 +6,17 @@ export class ConfigurationsResult {
     public description?: string;
     private 'datastore_version'?: string;
     private 'datastore_name'?: string;
+    private 'node_type'?: string;
     private 'ha_mode'?: string;
     public created?: string;
     public updated?: string;
     private 'user_defined'?: boolean;
-    public constructor(id?: string, name?: string, datastoreVersion?: string, datastoreName?: string, haMode?: string, created?: string, updated?: string, userDefined?: boolean) { 
+    public constructor(id?: string, name?: string, datastoreVersion?: string, datastoreName?: string, nodeType?: string, haMode?: string, created?: string, updated?: string, userDefined?: boolean) { 
         this['id'] = id;
         this['name'] = name;
         this['datastore_version'] = datastoreVersion;
         this['datastore_name'] = datastoreName;
+        this['node_type'] = nodeType;
         this['ha_mode'] = haMode;
         this['created'] = created;
         this['updated'] = updated;
@@ -51,6 +53,16 @@ export class ConfigurationsResult {
     }
     public get datastoreName(): string | undefined {
         return this['datastore_name'];
+    }
+    public withNodeType(nodeType: string): ConfigurationsResult {
+        this['node_type'] = nodeType;
+        return this;
+    }
+    public set nodeType(nodeType: string  | undefined) {
+        this['node_type'] = nodeType;
+    }
+    public get nodeType(): string | undefined {
+        return this['node_type'];
     }
     public withHaMode(haMode: string): ConfigurationsResult {
         this['ha_mode'] = haMode;

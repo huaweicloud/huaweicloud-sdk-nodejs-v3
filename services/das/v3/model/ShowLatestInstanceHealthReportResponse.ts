@@ -22,6 +22,7 @@ export class ShowLatestInstanceHealthReportResponse extends SdkResponse {
     private 'slow_log_stat'?: HealthReportSlowLogStat;
     private 'full_sql_stat'?: HealthReportFullSqlStat;
     private 'inspection_stat'?: HealthReportInspectionStat;
+    private 'error_message'?: string;
     public constructor() { 
         super();
     }
@@ -138,5 +139,15 @@ export class ShowLatestInstanceHealthReportResponse extends SdkResponse {
     }
     public get inspectionStat(): HealthReportInspectionStat | undefined {
         return this['inspection_stat'];
+    }
+    public withErrorMessage(errorMessage: string): ShowLatestInstanceHealthReportResponse {
+        this['error_message'] = errorMessage;
+        return this;
+    }
+    public set errorMessage(errorMessage: string  | undefined) {
+        this['error_message'] = errorMessage;
+    }
+    public get errorMessage(): string | undefined {
+        return this['error_message'];
     }
 }

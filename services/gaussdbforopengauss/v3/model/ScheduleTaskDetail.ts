@@ -8,7 +8,7 @@ export class ScheduleTaskDetail {
     private 'start_time'?: string;
     private 'instance_id'?: string;
     private 'instance_name'?: string;
-    private 'task_content'?: object;
+    private 'task_content'?: string;
     public constructor() { 
     }
     public withTaskId(taskId: string): ScheduleTaskDetail {
@@ -75,14 +75,14 @@ export class ScheduleTaskDetail {
     public get instanceName(): string | undefined {
         return this['instance_name'];
     }
-    public withTaskContent(taskContent: object): ScheduleTaskDetail {
+    public withTaskContent(taskContent: string): ScheduleTaskDetail {
         this['task_content'] = taskContent;
         return this;
     }
-    public set taskContent(taskContent: object  | undefined) {
+    public set taskContent(taskContent: string  | undefined) {
         this['task_content'] = taskContent;
     }
-    public get taskContent(): object | undefined {
+    public get taskContent(): string | undefined {
         return this['task_content'];
     }
 }

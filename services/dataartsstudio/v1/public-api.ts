@@ -766,6 +766,8 @@ export * from './model/ListSecurityDynamicMaskingPoliciesRequest';
 export * from './model/ListSecurityDynamicMaskingPoliciesResponse';
 export * from './model/ListSecurityMemberPermissionRequest';
 export * from './model/ListSecurityMemberPermissionResponse';
+export * from './model/ListSecurityMemberPermissionsByUserIdRequest';
+export * from './model/ListSecurityMemberPermissionsByUserIdResponse';
 export * from './model/ListSecurityMemberSyncTasksRequest';
 export * from './model/ListSecurityMemberSyncTasksResponse';
 export * from './model/ListSecurityMemberTablePermissionRequest';

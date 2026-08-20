@@ -1,13 +1,46 @@
 
 
 export class UserVO {
+    private 'user_id'?: string;
+    private 'user_num_id'?: number;
+    private 'user_name'?: string;
     private 'domain_id'?: string;
     private 'domain_name'?: string;
     private 'nick_name'?: string;
-    private 'user_id'?: string;
-    private 'user_name'?: string;
-    private 'user_num_id'?: number;
+    private 'role_id'?: string;
+    private 'role_name'?: string;
+    private 'role_code'?: string;
     public constructor() { 
+    }
+    public withUserId(userId: string): UserVO {
+        this['user_id'] = userId;
+        return this;
+    }
+    public set userId(userId: string  | undefined) {
+        this['user_id'] = userId;
+    }
+    public get userId(): string | undefined {
+        return this['user_id'];
+    }
+    public withUserNumId(userNumId: number): UserVO {
+        this['user_num_id'] = userNumId;
+        return this;
+    }
+    public set userNumId(userNumId: number  | undefined) {
+        this['user_num_id'] = userNumId;
+    }
+    public get userNumId(): number | undefined {
+        return this['user_num_id'];
+    }
+    public withUserName(userName: string): UserVO {
+        this['user_name'] = userName;
+        return this;
+    }
+    public set userName(userName: string  | undefined) {
+        this['user_name'] = userName;
+    }
+    public get userName(): string | undefined {
+        return this['user_name'];
     }
     public withDomainId(domainId: string): UserVO {
         this['domain_id'] = domainId;
@@ -39,34 +72,34 @@ export class UserVO {
     public get nickName(): string | undefined {
         return this['nick_name'];
     }
-    public withUserId(userId: string): UserVO {
-        this['user_id'] = userId;
+    public withRoleId(roleId: string): UserVO {
+        this['role_id'] = roleId;
         return this;
     }
-    public set userId(userId: string  | undefined) {
-        this['user_id'] = userId;
+    public set roleId(roleId: string  | undefined) {
+        this['role_id'] = roleId;
     }
-    public get userId(): string | undefined {
-        return this['user_id'];
+    public get roleId(): string | undefined {
+        return this['role_id'];
     }
-    public withUserName(userName: string): UserVO {
-        this['user_name'] = userName;
+    public withRoleName(roleName: string): UserVO {
+        this['role_name'] = roleName;
         return this;
     }
-    public set userName(userName: string  | undefined) {
-        this['user_name'] = userName;
+    public set roleName(roleName: string  | undefined) {
+        this['role_name'] = roleName;
     }
-    public get userName(): string | undefined {
-        return this['user_name'];
+    public get roleName(): string | undefined {
+        return this['role_name'];
     }
-    public withUserNumId(userNumId: number): UserVO {
-        this['user_num_id'] = userNumId;
+    public withRoleCode(roleCode: string): UserVO {
+        this['role_code'] = roleCode;
         return this;
     }
-    public set userNumId(userNumId: number  | undefined) {
-        this['user_num_id'] = userNumId;
+    public set roleCode(roleCode: string  | undefined) {
+        this['role_code'] = roleCode;
     }
-    public get userNumId(): number | undefined {
-        return this['user_num_id'];
+    public get roleCode(): string | undefined {
+        return this['role_code'];
     }
 }

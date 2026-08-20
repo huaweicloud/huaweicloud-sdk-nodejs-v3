@@ -2,6 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowDomainStatsResponse extends SdkResponse {
+    private 'group_by'?: string;
     private 'start_time'?: number;
     private 'end_time'?: number;
     private 'stat_type'?: string;
@@ -10,6 +11,16 @@ export class ShowDomainStatsResponse extends SdkResponse {
     public result?: { [key: string]: object; };
     public constructor() { 
         super();
+    }
+    public withGroupBy(groupBy: string): ShowDomainStatsResponse {
+        this['group_by'] = groupBy;
+        return this;
+    }
+    public set groupBy(groupBy: string  | undefined) {
+        this['group_by'] = groupBy;
+    }
+    public get groupBy(): string | undefined {
+        return this['group_by'];
     }
     public withStartTime(startTime: number): ShowDomainStatsResponse {
         this['start_time'] = startTime;

@@ -124,7 +124,6 @@ import { ShowBackgroundTaskRequest } from './model/ShowBackgroundTaskRequest';
 import { ShowBackgroundTaskResponse } from './model/ShowBackgroundTaskResponse';
 import { ShowCesHierarchyRequest } from './model/ShowCesHierarchyRequest';
 import { ShowCesHierarchyResponse } from './model/ShowCesHierarchyResponse';
-import { ShowCeshierarchyRespChildren } from './model/ShowCeshierarchyRespChildren';
 import { ShowCeshierarchyRespDimensions } from './model/ShowCeshierarchyRespDimensions';
 import { ShowCeshierarchyRespExchanges } from './model/ShowCeshierarchyRespExchanges';
 import { ShowCeshierarchyRespGroups } from './model/ShowCeshierarchyRespGroups';
@@ -389,7 +388,7 @@ export class RabbitMQClient {
      *
      * @summary 查询实例的后台任务列表
      * @param {string} instanceId 实例ID。
-     * @param {number} [offset] 开启查询的任务编号。
+     * @param {number} [start] 开启查询的任务编号。
      * @param {number} [limit] 查询的任务个数。
      * @param {string} [beginTime] 查询任务的最小时间，格式为YYYYMMDDHHmmss。
      * @param {string} [endTime] 查询任务的最大时间，格式为YYYYMMDDHHmmss。
@@ -1170,7 +1169,7 @@ export class RabbitMQClient {
      * @summary 查询指定Queue详情
      * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用[查询所有实例列表](ListInstancesDetails.xml)接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} vhost **参数解释**：  Vhost名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {string} queue **参数解释**：  分页查询偏移量，表示从此偏移量开始查询。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0。
+     * @param {string} queue **参数解释**： Queue名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1672,7 +1671,7 @@ export const ParamCreater = function () {
             
             let instanceId;
             
-            let offset;
+            let start;
             
             let limit;
             
@@ -1683,13 +1682,13 @@ export const ParamCreater = function () {
             if (listBackgroundTasksRequest !== null && listBackgroundTasksRequest !== undefined) {
                 if (listBackgroundTasksRequest instanceof ListBackgroundTasksRequest) {
                     instanceId = listBackgroundTasksRequest.instanceId;
-                    offset = listBackgroundTasksRequest.offset;
+                    start = listBackgroundTasksRequest.start;
                     limit = listBackgroundTasksRequest.limit;
                     beginTime = listBackgroundTasksRequest.beginTime;
                     endTime = listBackgroundTasksRequest.endTime;
                 } else {
                     instanceId = listBackgroundTasksRequest['instance_id'];
-                    offset = listBackgroundTasksRequest['offset'];
+                    start = listBackgroundTasksRequest['start'];
                     limit = listBackgroundTasksRequest['limit'];
                     beginTime = listBackgroundTasksRequest['begin_time'];
                     endTime = listBackgroundTasksRequest['end_time'];
@@ -1700,8 +1699,8 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listBackgroundTasks.');
             }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
+            if (start !== null && start !== undefined) {
+                localVarQueryParameter['start'] = start;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;

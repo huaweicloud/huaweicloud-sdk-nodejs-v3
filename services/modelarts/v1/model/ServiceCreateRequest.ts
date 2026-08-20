@@ -1,6 +1,6 @@
 import { GroupConfig } from './GroupConfig';
-import { LtsConfig } from './LtsConfig';
-import { RuntimeConfig } from './RuntimeConfig';
+import { LtsConfiguration } from './LtsConfiguration';
+import { RuntimeConfigCreateRequest } from './RuntimeConfigCreateRequest';
 import { ScheduleConfig } from './ScheduleConfig';
 import { ServiceCreateRequestTags } from './ServiceCreateRequestTags';
 import { UpgradeConfig } from './UpgradeConfig';
@@ -13,10 +13,10 @@ export class ServiceCreateRequest {
     public type?: string;
     private 'deploy_type'?: string;
     private 'group_configs'?: Array<GroupConfig>;
-    private 'runtime_config'?: RuntimeConfig;
+    private 'runtime_config'?: RuntimeConfigCreateRequest;
     private 'upgrade_config'?: UpgradeConfig;
     private 'lts_strategy'?: string;
-    private 'log_configs'?: Array<LtsConfig>;
+    private 'log_configs'?: Array<LtsConfiguration>;
     public tags?: Array<ServiceCreateRequestTags>;
     private 'workspace_id'?: string;
     public schedule?: Array<ScheduleConfig>;
@@ -24,7 +24,7 @@ export class ServiceCreateRequest {
     private 'deploy_timeout_minutes'?: number;
     private 'task_type'?: string;
     private 'workload_type'?: string;
-    public constructor(name?: string, type?: string, deployType?: string, groupConfigs?: Array<GroupConfig>, runtimeConfig?: RuntimeConfig, customMetricsPath?: string) { 
+    public constructor(name?: string, type?: string, deployType?: string, groupConfigs?: Array<GroupConfig>, runtimeConfig?: RuntimeConfigCreateRequest, customMetricsPath?: string) { 
         this['name'] = name;
         this['type'] = type;
         this['deploy_type'] = deployType;
@@ -68,14 +68,14 @@ export class ServiceCreateRequest {
     public get groupConfigs(): Array<GroupConfig> | undefined {
         return this['group_configs'];
     }
-    public withRuntimeConfig(runtimeConfig: RuntimeConfig): ServiceCreateRequest {
+    public withRuntimeConfig(runtimeConfig: RuntimeConfigCreateRequest): ServiceCreateRequest {
         this['runtime_config'] = runtimeConfig;
         return this;
     }
-    public set runtimeConfig(runtimeConfig: RuntimeConfig  | undefined) {
+    public set runtimeConfig(runtimeConfig: RuntimeConfigCreateRequest  | undefined) {
         this['runtime_config'] = runtimeConfig;
     }
-    public get runtimeConfig(): RuntimeConfig | undefined {
+    public get runtimeConfig(): RuntimeConfigCreateRequest | undefined {
         return this['runtime_config'];
     }
     public withUpgradeConfig(upgradeConfig: UpgradeConfig): ServiceCreateRequest {
@@ -98,14 +98,14 @@ export class ServiceCreateRequest {
     public get ltsStrategy(): string | undefined {
         return this['lts_strategy'];
     }
-    public withLogConfigs(logConfigs: Array<LtsConfig>): ServiceCreateRequest {
+    public withLogConfigs(logConfigs: Array<LtsConfiguration>): ServiceCreateRequest {
         this['log_configs'] = logConfigs;
         return this;
     }
-    public set logConfigs(logConfigs: Array<LtsConfig>  | undefined) {
+    public set logConfigs(logConfigs: Array<LtsConfiguration>  | undefined) {
         this['log_configs'] = logConfigs;
     }
-    public get logConfigs(): Array<LtsConfig> | undefined {
+    public get logConfigs(): Array<LtsConfiguration> | undefined {
         return this['log_configs'];
     }
     public withTags(tags: Array<ServiceCreateRequestTags>): ServiceCreateRequest {

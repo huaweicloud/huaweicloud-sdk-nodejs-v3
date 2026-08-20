@@ -1,4 +1,3 @@
-import { ShowCeshierarchyRespChildren } from './ShowCeshierarchyRespChildren';
 
 
 export class ShowCeshierarchyRespDimensions {
@@ -6,7 +5,6 @@ export class ShowCeshierarchyRespDimensions {
     public metrics?: Array<string>;
     private 'key_name'?: Array<string>;
     private 'dim_router'?: Array<string>;
-    public children?: Array<ShowCeshierarchyRespChildren>;
     public constructor() { 
     }
     public withName(name: string): ShowCeshierarchyRespDimensions {
@@ -36,9 +34,5 @@ export class ShowCeshierarchyRespDimensions {
     }
     public get dimRouter(): Array<string> | undefined {
         return this['dim_router'];
-    }
-    public withChildren(children: Array<ShowCeshierarchyRespChildren>): ShowCeshierarchyRespDimensions {
-        this['children'] = children;
-        return this;
     }
 }

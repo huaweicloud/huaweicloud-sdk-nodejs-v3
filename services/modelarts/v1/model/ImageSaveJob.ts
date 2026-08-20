@@ -5,7 +5,10 @@ export class ImageSaveJob {
     public namespace?: string;
     public tag?: string;
     public description?: string;
-    public constructor() { 
+    public constructor(name?: string, namespace?: string, tag?: string) { 
+        this['name'] = name;
+        this['namespace'] = namespace;
+        this['tag'] = tag;
     }
     public withName(name: string): ImageSaveJob {
         this['name'] = name;

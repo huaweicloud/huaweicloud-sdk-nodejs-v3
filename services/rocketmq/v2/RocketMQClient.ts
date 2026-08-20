@@ -167,6 +167,8 @@ import { ResizeInstanceForRocketMqRequest } from './model/ResizeInstanceForRocke
 import { ResizeInstanceForRocketMqResponse } from './model/ResizeInstanceForRocketMqResponse';
 import { ResizeInstanceRequest } from './model/ResizeInstanceRequest';
 import { ResizeInstanceResponse } from './model/ResizeInstanceResponse';
+import { RestartInstanceRequest } from './model/RestartInstanceRequest';
+import { RestartInstanceResponse } from './model/RestartInstanceResponse';
 import { RestoreRecycleInstanceRequest } from './model/RestoreRecycleInstanceRequest';
 import { RestoreRecycleInstanceResponse } from './model/RestoreRecycleInstanceResponse';
 import { RocketMQConfigReq } from './model/RocketMQConfigReq';
@@ -724,7 +726,7 @@ export class RocketMQClient {
      *
      * @summary 查询实例的后台任务列表
      * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {number} [offset] **参数解释**： 开启查询的任务编号。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 不涉及。
+     * @param {number} [start] **参数解释**： 开启查询的任务编号。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 不涉及。
      * @param {number} [limit] **参数解释**： 查询数量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} [beginTime] **参数解释**： 查询任务的最小时间，格式为YYYYMMDDHHmmss。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 不涉及。
      * @param {string} [endTime] **参数解释**： 查询任务的最大时间，格式为YYYYMMDDHHmmss。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
@@ -1251,6 +1253,26 @@ export class RocketMQClient {
      */
     public resizeInstanceForRocketMq(resizeInstanceForRocketMqRequest?: ResizeInstanceForRocketMqRequest): Promise<ResizeInstanceForRocketMqResponse> {
         const options = ParamCreater().resizeInstanceForRocketMq(resizeInstanceForRocketMqRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 重启指定实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重启指定实例
+     * @param {string} engine **参数解释**： 消息引擎类型。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} instanceId **参数解释**： 实例ID。获取方法如下：调用“查询所有实例列表”接口，从响应体中获取实例ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public restartInstance(restartInstanceRequest?: RestartInstanceRequest): Promise<RestartInstanceResponse> {
+        const options = ParamCreater().restartInstance(restartInstanceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3127,7 +3149,7 @@ export const ParamCreater = function () {
             
             let instanceId;
             
-            let offset;
+            let start;
             
             let limit;
             
@@ -3138,13 +3160,13 @@ export const ParamCreater = function () {
             if (listBackgroundTasksRequest !== null && listBackgroundTasksRequest !== undefined) {
                 if (listBackgroundTasksRequest instanceof ListBackgroundTasksRequest) {
                     instanceId = listBackgroundTasksRequest.instanceId;
-                    offset = listBackgroundTasksRequest.offset;
+                    start = listBackgroundTasksRequest.start;
                     limit = listBackgroundTasksRequest.limit;
                     beginTime = listBackgroundTasksRequest.beginTime;
                     endTime = listBackgroundTasksRequest.endTime;
                 } else {
                     instanceId = listBackgroundTasksRequest['instance_id'];
-                    offset = listBackgroundTasksRequest['offset'];
+                    start = listBackgroundTasksRequest['start'];
                     limit = listBackgroundTasksRequest['limit'];
                     beginTime = listBackgroundTasksRequest['begin_time'];
                     endTime = listBackgroundTasksRequest['end_time'];
@@ -3155,8 +3177,8 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listBackgroundTasks.');
             }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
+            if (start !== null && start !== undefined) {
+                localVarQueryParameter['start'] = start;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -4587,6 +4609,50 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 重启指定实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        restartInstance(restartInstanceRequest?: RestartInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/{engine}/instances/{instance_id}/restart",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let engine;
+            
+            let instanceId;
+
+            if (restartInstanceRequest !== null && restartInstanceRequest !== undefined) {
+                if (restartInstanceRequest instanceof RestartInstanceRequest) {
+                    engine = restartInstanceRequest.engine;
+                    instanceId = restartInstanceRequest.instanceId;
+                } else {
+                    engine = restartInstanceRequest['engine'];
+                    instanceId = restartInstanceRequest['instance_id'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+            throw new RequiredError('engine','Required parameter engine was null or undefined when calling restartInstance.');
+            }
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling restartInstance.');
+            }
+
+            options.pathParams = { 'engine': engine,'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

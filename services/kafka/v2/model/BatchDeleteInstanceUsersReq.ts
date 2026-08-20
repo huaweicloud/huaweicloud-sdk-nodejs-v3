@@ -3,7 +3,9 @@
 export class BatchDeleteInstanceUsersReq {
     public action?: BatchDeleteInstanceUsersReqActionEnum | string;
     public users?: Array<string>;
-    public constructor() { 
+    public constructor(action?: string, users?: Array<string>) { 
+        this['action'] = action;
+        this['users'] = users;
     }
     public withAction(action: BatchDeleteInstanceUsersReqActionEnum | string): BatchDeleteInstanceUsersReq {
         this['action'] = action;

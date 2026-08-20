@@ -1,14 +1,13 @@
 
 
 export class BatchDeleteMessageDiagnosisRespResults {
-    public result?: boolean;
+    public success?: boolean;
     public id?: string;
-    public constructor(result?: boolean, id?: string) { 
-        this['result'] = result;
+    public constructor(id?: string) { 
         this['id'] = id;
     }
-    public withResult(result: boolean): BatchDeleteMessageDiagnosisRespResults {
-        this['result'] = result;
+    public withSuccess(success: boolean): BatchDeleteMessageDiagnosisRespResults {
+        this['success'] = success;
         return this;
     }
     public withId(id: string): BatchDeleteMessageDiagnosisRespResults {

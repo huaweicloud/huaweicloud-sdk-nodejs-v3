@@ -9,6 +9,7 @@ export class ListEnginePropertiesEntity {
     private 'max_bandwidth_per_broker'?: string;
     private 'min_storage_per_node'?: string;
     private 'max_tps_per_broker'?: string;
+    private 'engine_versions'?: string;
     private 'product_alias'?: string;
     public constructor() { 
     }
@@ -91,6 +92,16 @@ export class ListEnginePropertiesEntity {
     }
     public get maxTpsPerBroker(): string | undefined {
         return this['max_tps_per_broker'];
+    }
+    public withEngineVersions(engineVersions: string): ListEnginePropertiesEntity {
+        this['engine_versions'] = engineVersions;
+        return this;
+    }
+    public set engineVersions(engineVersions: string  | undefined) {
+        this['engine_versions'] = engineVersions;
+    }
+    public get engineVersions(): string | undefined {
+        return this['engine_versions'];
     }
     public withProductAlias(productAlias: string): ListEnginePropertiesEntity {
         this['product_alias'] = productAlias;

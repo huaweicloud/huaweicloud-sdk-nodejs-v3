@@ -122,7 +122,6 @@ export * from './model/ShowBackgroundTaskRequest';
 export * from './model/ShowBackgroundTaskResponse';
 export * from './model/ShowCesHierarchyRequest';
 export * from './model/ShowCesHierarchyResponse';
-export * from './model/ShowCeshierarchyRespChildren';
 export * from './model/ShowCeshierarchyRespDimensions';
 export * from './model/ShowCeshierarchyRespExchanges';
 export * from './model/ShowCeshierarchyRespGroups';

@@ -5,9 +5,7 @@ export class ListExportTasksRequest {
     public offset?: number;
     private 'task_id'?: string;
     private 'task_name'?: string;
-    public constructor(taskId?: string, taskName?: string) { 
-        this['task_id'] = taskId;
-        this['task_name'] = taskName;
+    public constructor() { 
     }
     public withLimit(limit: number): ListExportTasksRequest {
         this['limit'] = limit;

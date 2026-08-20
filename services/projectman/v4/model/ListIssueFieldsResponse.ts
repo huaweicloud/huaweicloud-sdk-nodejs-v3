@@ -1,11 +1,11 @@
-import { FieldVO } from './FieldVO';
+import { FieldLongDateVO } from './FieldLongDateVO';
 import { PageVO } from './PageVO';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListIssueFieldsResponse extends SdkResponse {
     public page?: PageVO;
-    public result?: Array<FieldVO>;
+    public result?: Array<FieldLongDateVO>;
     public constructor() { 
         super();
     }
@@ -13,7 +13,7 @@ export class ListIssueFieldsResponse extends SdkResponse {
         this['page'] = page;
         return this;
     }
-    public withResult(result: Array<FieldVO>): ListIssueFieldsResponse {
+    public withResult(result: Array<FieldLongDateVO>): ListIssueFieldsResponse {
         this['result'] = result;
         return this;
     }

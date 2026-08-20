@@ -1,3 +1,4 @@
+import { ElbConnectionResponse } from './ElbConnectionResponse';
 import { FuseConfig } from './FuseConfig';
 
 
@@ -17,6 +18,7 @@ export class ServiceInvokeResponse {
     private 'request_retry_cnt_max'?: number;
     private 'request_retry_interval_ms'?: number;
     private 'fuse_configs'?: FuseConfig;
+    private 'elb_connection'?: ElbConnectionResponse;
     public constructor(port?: number, protocol?: string, authType?: string) { 
         this['port'] = port;
         this['protocol'] = protocol;
@@ -153,5 +155,15 @@ export class ServiceInvokeResponse {
     }
     public get fuseConfigs(): FuseConfig | undefined {
         return this['fuse_configs'];
+    }
+    public withElbConnection(elbConnection: ElbConnectionResponse): ServiceInvokeResponse {
+        this['elb_connection'] = elbConnection;
+        return this;
+    }
+    public set elbConnection(elbConnection: ElbConnectionResponse  | undefined) {
+        this['elb_connection'] = elbConnection;
+    }
+    public get elbConnection(): ElbConnectionResponse | undefined {
+        return this['elb_connection'];
     }
 }

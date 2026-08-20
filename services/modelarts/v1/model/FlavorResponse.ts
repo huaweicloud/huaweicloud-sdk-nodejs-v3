@@ -6,6 +6,8 @@ export class FlavorResponse {
     private 'pool_id'?: string;
     private 'flavor_id'?: string;
     private 'flavor_name'?: string;
+    private 'support_engines'?: string;
+    private 'support_groups'?: string;
     private 'max_num'?: number;
     private 'flavor_type'?: string;
     public billing?: BillingInfo;
@@ -42,6 +44,26 @@ export class FlavorResponse {
     }
     public get flavorName(): string | undefined {
         return this['flavor_name'];
+    }
+    public withSupportEngines(supportEngines: string): FlavorResponse {
+        this['support_engines'] = supportEngines;
+        return this;
+    }
+    public set supportEngines(supportEngines: string  | undefined) {
+        this['support_engines'] = supportEngines;
+    }
+    public get supportEngines(): string | undefined {
+        return this['support_engines'];
+    }
+    public withSupportGroups(supportGroups: string): FlavorResponse {
+        this['support_groups'] = supportGroups;
+        return this;
+    }
+    public set supportGroups(supportGroups: string  | undefined) {
+        this['support_groups'] = supportGroups;
+    }
+    public get supportGroups(): string | undefined {
+        return this['support_groups'];
     }
     public withMaxNum(maxNum: number): FlavorResponse {
         this['max_num'] = maxNum;

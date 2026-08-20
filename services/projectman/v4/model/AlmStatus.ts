@@ -19,6 +19,7 @@ export class AlmStatus {
     private 'created_date'?: number;
     private 'modified_date'?: number;
     private 'modified_by'?: string;
+    private 'linkage_node_fields'?: boolean;
     public constructor() { 
     }
     public withId(id: string): AlmStatus {
@@ -146,5 +147,15 @@ export class AlmStatus {
     }
     public get modifiedBy(): string | undefined {
         return this['modified_by'];
+    }
+    public withLinkageNodeFields(linkageNodeFields: boolean): AlmStatus {
+        this['linkage_node_fields'] = linkageNodeFields;
+        return this;
+    }
+    public set linkageNodeFields(linkageNodeFields: boolean  | undefined) {
+        this['linkage_node_fields'] = linkageNodeFields;
+    }
+    public get linkageNodeFields(): boolean | undefined {
+        return this['linkage_node_fields'];
     }
 }

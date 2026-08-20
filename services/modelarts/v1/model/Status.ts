@@ -1,4 +1,5 @@
 import { RunningRecord } from './RunningRecord';
+import { TaskIP } from './TaskIP';
 import { TaskStatuses } from './TaskStatuses';
 
 
@@ -11,6 +12,8 @@ export class Status {
     private 'start_time'?: number;
     private 'task_statuses'?: Array<TaskStatuses>;
     private 'running_records'?: Array<RunningRecord>;
+    private 'retention_time'?: number;
+    private 'task_ips'?: Array<TaskIP>;
     public constructor() { 
     }
     public withPhase(phase: string): Status {
@@ -74,5 +77,25 @@ export class Status {
     }
     public get runningRecords(): Array<RunningRecord> | undefined {
         return this['running_records'];
+    }
+    public withRetentionTime(retentionTime: number): Status {
+        this['retention_time'] = retentionTime;
+        return this;
+    }
+    public set retentionTime(retentionTime: number  | undefined) {
+        this['retention_time'] = retentionTime;
+    }
+    public get retentionTime(): number | undefined {
+        return this['retention_time'];
+    }
+    public withTaskIps(taskIps: Array<TaskIP>): Status {
+        this['task_ips'] = taskIps;
+        return this;
+    }
+    public set taskIps(taskIps: Array<TaskIP>  | undefined) {
+        this['task_ips'] = taskIps;
+    }
+    public get taskIps(): Array<TaskIP> | undefined {
+        return this['task_ips'];
     }
 }

@@ -16,8 +16,6 @@ import { BatchMovePipelineToGroupRequest } from './model/BatchMovePipelineToGrou
 import { BatchMovePipelineToGroupResponse } from './model/BatchMovePipelineToGroupResponse';
 import { BatchShowPipelinesLatestStatusRequest } from './model/BatchShowPipelinesLatestStatusRequest';
 import { BatchShowPipelinesLatestStatusResponse } from './model/BatchShowPipelinesLatestStatusResponse';
-import { BatchShowPipelinesStatusRequest } from './model/BatchShowPipelinesStatusRequest';
-import { BatchShowPipelinesStatusResponse } from './model/BatchShowPipelinesStatusResponse';
 import { BusinessTypePluginsQueryDTO } from './model/BusinessTypePluginsQueryDTO';
 import { CodeEvent } from './model/CodeEvent';
 import { CodeSource } from './model/CodeSource';
@@ -66,12 +64,29 @@ import { DeleteRuleRequest } from './model/DeleteRuleRequest';
 import { DeleteRuleResponse } from './model/DeleteRuleResponse';
 import { DeleteStrategyRequest } from './model/DeleteStrategyRequest';
 import { DeleteStrategyResponse } from './model/DeleteStrategyResponse';
+import { Endpoint } from './model/Endpoint';
+import { EndpointAuthorizationBody } from './model/EndpointAuthorizationBody';
+import { EndpointCreatorInfo } from './model/EndpointCreatorInfo';
+import { EndpointList } from './model/EndpointList';
+import { EndpointProxyParam } from './model/EndpointProxyParam';
+import { ErrorInfo } from './model/ErrorInfo';
+import { ExtensionExecution } from './model/ExtensionExecution';
+import { ExtensionExecutionStep } from './model/ExtensionExecutionStep';
 import { ExtensionExtendProp } from './model/ExtensionExtendProp';
+import { ExtensionModule } from './model/ExtensionModule';
+import { ExtensionModuleList } from './model/ExtensionModuleList';
+import { ExtensionModuleProperties } from './model/ExtensionModuleProperties';
+import { ExtensionParameter } from './model/ExtensionParameter';
+import { ExtensionParameterDisplaySettings } from './model/ExtensionParameterDisplaySettings';
+import { ExtensionParameterValidation } from './model/ExtensionParameterValidation';
+import { ExtensionRadioOption } from './model/ExtensionRadioOption';
 import { ExtensionValidation } from './model/ExtensionValidation';
 import { FullStagePluginsRelationVOAddables } from './model/FullStagePluginsRelationVOAddables';
 import { FullStagePluginsRelationVOAllSteps } from './model/FullStagePluginsRelationVOAllSteps';
 import { FullStagePluginsRelationVOFullStagePluginsItemList } from './model/FullStagePluginsRelationVOFullStagePluginsItemList';
 import { FullStagePluginsRelationVOPluginsList } from './model/FullStagePluginsRelationVOPluginsList';
+import { InvokeEndpointProxyRequest } from './model/InvokeEndpointProxyRequest';
+import { InvokeEndpointProxyResponse } from './model/InvokeEndpointProxyResponse';
 import { JobRun } from './model/JobRun';
 import { ListActionsPipelineRunsByRunIdsRequest } from './model/ListActionsPipelineRunsByRunIdsRequest';
 import { ListActionsPipelineRunsByRunIdsResponse } from './model/ListActionsPipelineRunsByRunIdsResponse';
@@ -83,6 +98,10 @@ import { ListBasePluginsNewPostRequest } from './model/ListBasePluginsNewPostReq
 import { ListBasePluginsNewPostResponse } from './model/ListBasePluginsNewPostResponse';
 import { ListBasePluginsRequest } from './model/ListBasePluginsRequest';
 import { ListBasePluginsResponse } from './model/ListBasePluginsResponse';
+import { ListEndpointsDetailsRequest } from './model/ListEndpointsDetailsRequest';
+import { ListEndpointsDetailsResponse } from './model/ListEndpointsDetailsResponse';
+import { ListModulesDetailRequest } from './model/ListModulesDetailRequest';
+import { ListModulesDetailResponse } from './model/ListModulesDetailResponse';
 import { ListPLuginVersionRequest } from './model/ListPLuginVersionRequest';
 import { ListPLuginVersionResponse } from './model/ListPLuginVersionResponse';
 import { ListPipelineQuery } from './model/ListPipelineQuery';
@@ -141,7 +160,6 @@ import { PipelineByTemplateDTO } from './model/PipelineByTemplateDTO';
 import { PipelineByTemplateDTOVariables } from './model/PipelineByTemplateDTOVariables';
 import { PipelineConcurrencyMgmt } from './model/PipelineConcurrencyMgmt';
 import { PipelineDTO } from './model/PipelineDTO';
-import { PipelineExecuteStates } from './model/PipelineExecuteStates';
 import { PipelineGroupBindDTO } from './model/PipelineGroupBindDTO';
 import { PipelineGroupBindDTOPipelines } from './model/PipelineGroupBindDTOPipelines';
 import { PipelineGroupCreateDTO } from './model/PipelineGroupCreateDTO';
@@ -258,7 +276,6 @@ import { ShowTemplateDetailResponse } from './model/ShowTemplateDetailResponse';
 import { Source } from './model/Source';
 import { StagePluginsQueryDTO } from './model/StagePluginsQueryDTO';
 import { StageRun } from './model/StageRun';
-import { Stages } from './model/Stages';
 import { StartNewPipelineRequest } from './model/StartNewPipelineRequest';
 import { StartNewPipelineResponse } from './model/StartNewPipelineResponse';
 import { StartPipelineBuildParams } from './model/StartPipelineBuildParams';
@@ -375,25 +392,6 @@ export class CodeArtsPipelineClient {
      */
     public batchShowPipelinesLatestStatus(batchShowPipelinesLatestStatusRequest?: BatchShowPipelinesLatestStatusRequest): Promise<BatchShowPipelinesLatestStatusResponse> {
         const options = ParamCreater().batchShowPipelinesLatestStatus(batchShowPipelinesLatestStatusRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 批量获取流水线状态和阶段信息
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 批量获取流水线状态
-     * @param {string} pipelineIds 要获取状态的流水线ID，用逗号隔开
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public batchShowPipelinesStatus(batchShowPipelinesStatusRequest?: BatchShowPipelinesStatusRequest): Promise<BatchShowPipelinesStatusResponse> {
-        const options = ParamCreater().batchShowPipelinesStatus(batchShowPipelinesStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -837,6 +835,55 @@ export class CodeArtsPipelineClient {
      */
     public listBasePluginsNewPost(listBasePluginsNewPostRequest?: ListBasePluginsNewPostRequest): Promise<ListBasePluginsNewPostResponse> {
         const options = ParamCreater().listBasePluginsNewPost(listBasePluginsNewPostRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询扩展点列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询扩展点列表
+     * @param {string} projectUuid 项目uuid
+     * @param {string} regionName 区域名
+     * @param {string} [moduleId] 模块id
+     * @param {number} [offset] 页码
+     * @param {number} [limit] 每页显示数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listEndpointsDetails(listEndpointsDetailsRequest?: ListEndpointsDetailsRequest): Promise<ListEndpointsDetailsResponse> {
+        const options = ParamCreater().listEndpointsDetails(listEndpointsDetailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询插件列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询插件列表
+     * @param {Array<string>} locations 扩展点
+     * @param {string} [projectUuid] 项目uuid
+     * @param {string} [regionName] 区域名
+     * @param {string} [name] 名称
+     * @param {string} [productLine] 产品线
+     * @param {Array<string>} [tags] 标签
+     * @param {number} [offset] 页码
+     * @param {number} [limit] 每页显示数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listModulesDetail(listModulesDetailRequest?: ListModulesDetailRequest): Promise<ListModulesDetailResponse> {
+        const options = ParamCreater().listModulesDetail(listModulesDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1984,6 +2031,25 @@ export class CodeArtsPipelineClient {
     }
 
     /**
+     * 代理调用外部服务接口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 代理调用外部服务接口
+     * @param {EndpointProxyParam} endpointProxyParam endpointProxyParam
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public invokeEndpointProxy(invokeEndpointProxyRequest?: InvokeEndpointProxyRequest): Promise<InvokeEndpointProxyResponse> {
+        const options = ParamCreater().invokeEndpointProxy(invokeEndpointProxyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除gitcode流水线运行详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2239,46 +2305,6 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 批量获取流水线状态和阶段信息
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        batchShowPipelinesStatus(batchShowPipelinesStatusRequest?: BatchShowPipelinesStatusRequest) {
-            const options = {
-                method: "GET",
-                url: "/v3/pipelines/status",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let pipelineIds;
-
-            if (batchShowPipelinesStatusRequest !== null && batchShowPipelinesStatusRequest !== undefined) {
-                if (batchShowPipelinesStatusRequest instanceof BatchShowPipelinesStatusRequest) {
-                    pipelineIds = batchShowPipelinesStatusRequest.pipelineIds;
-                } else {
-                    pipelineIds = batchShowPipelinesStatusRequest['pipeline_ids'];
-                }
-            }
-
-        
-            if (pipelineIds === null || pipelineIds === undefined) {
-                throw new RequiredError('pipelineIds','Required parameter pipelineIds was null or undefined when calling batchShowPipelinesStatus.');
-            }
-            if (pipelineIds !== null && pipelineIds !== undefined) {
-                localVarQueryParameter['pipeline_ids'] = pipelineIds;
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3317,6 +3343,166 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询扩展点列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listEndpointsDetails(listEndpointsDetailsRequest?: ListEndpointsDetailsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/serviceconnection/endpoints",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectUuid;
+            
+            let regionName;
+            
+            let moduleId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listEndpointsDetailsRequest !== null && listEndpointsDetailsRequest !== undefined) {
+                if (listEndpointsDetailsRequest instanceof ListEndpointsDetailsRequest) {
+                    projectUuid = listEndpointsDetailsRequest.projectUuid;
+                    regionName = listEndpointsDetailsRequest.regionName;
+                    moduleId = listEndpointsDetailsRequest.moduleId;
+                    offset = listEndpointsDetailsRequest.offset;
+                    limit = listEndpointsDetailsRequest.limit;
+                } else {
+                    projectUuid = listEndpointsDetailsRequest['project_uuid'];
+                    regionName = listEndpointsDetailsRequest['region_name'];
+                    moduleId = listEndpointsDetailsRequest['module_id'];
+                    offset = listEndpointsDetailsRequest['offset'];
+                    limit = listEndpointsDetailsRequest['limit'];
+                }
+            }
+
+        
+            if (projectUuid === null || projectUuid === undefined) {
+                throw new RequiredError('projectUuid','Required parameter projectUuid was null or undefined when calling listEndpointsDetails.');
+            }
+            if (projectUuid !== null && projectUuid !== undefined) {
+                localVarQueryParameter['project_uuid'] = projectUuid;
+            }
+            if (regionName === null || regionName === undefined) {
+                throw new RequiredError('regionName','Required parameter regionName was null or undefined when calling listEndpointsDetails.');
+            }
+            if (regionName !== null && regionName !== undefined) {
+                localVarQueryParameter['region_name'] = regionName;
+            }
+            if (moduleId !== null && moduleId !== undefined) {
+                localVarQueryParameter['module_id'] = moduleId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询插件列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listModulesDetail(listModulesDetailRequest?: ListModulesDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/extensions/modules",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let locations;
+            
+            let projectUuid;
+            
+            let regionName;
+            
+            let name;
+            
+            let productLine;
+            
+            let tags;
+            
+            let offset;
+            
+            let limit;
+
+            if (listModulesDetailRequest !== null && listModulesDetailRequest !== undefined) {
+                if (listModulesDetailRequest instanceof ListModulesDetailRequest) {
+                    locations = listModulesDetailRequest.locations;
+                    projectUuid = listModulesDetailRequest.projectUuid;
+                    regionName = listModulesDetailRequest.regionName;
+                    name = listModulesDetailRequest.name;
+                    productLine = listModulesDetailRequest.productLine;
+                    tags = listModulesDetailRequest.tags;
+                    offset = listModulesDetailRequest.offset;
+                    limit = listModulesDetailRequest.limit;
+                } else {
+                    locations = listModulesDetailRequest['locations'];
+                    projectUuid = listModulesDetailRequest['project_uuid'];
+                    regionName = listModulesDetailRequest['region_name'];
+                    name = listModulesDetailRequest['name'];
+                    productLine = listModulesDetailRequest['productLine'];
+                    tags = listModulesDetailRequest['tags'];
+                    offset = listModulesDetailRequest['offset'];
+                    limit = listModulesDetailRequest['limit'];
+                }
+            }
+
+        
+            if (locations === null || locations === undefined) {
+                throw new RequiredError('locations','Required parameter locations was null or undefined when calling listModulesDetail.');
+            }
+            if (locations !== null && locations !== undefined) {
+                localVarQueryParameter['locations'] = locations;
+            }
+            if (projectUuid !== null && projectUuid !== undefined) {
+                localVarQueryParameter['project_uuid'] = projectUuid;
+            }
+            if (regionName !== null && regionName !== undefined) {
+                localVarQueryParameter['region_name'] = regionName;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (productLine !== null && productLine !== undefined) {
+                localVarQueryParameter['productLine'] = productLine;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6137,6 +6323,44 @@ export const ParamCreater = function () {
             options.data = localVarFormParams;
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 代理调用外部服务接口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        invokeEndpointProxy(invokeEndpointProxyRequest?: InvokeEndpointProxyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/serviceconnection/endpointproxy",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (invokeEndpointProxyRequest !== null && invokeEndpointProxyRequest !== undefined) {
+                if (invokeEndpointProxyRequest instanceof InvokeEndpointProxyRequest) {
+                    body = invokeEndpointProxyRequest.body
+                } else {
+                    body = invokeEndpointProxyRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

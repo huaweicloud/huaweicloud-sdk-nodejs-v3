@@ -6,6 +6,7 @@ export class Queue {
     private 'broker_offset'?: number;
     private 'consumer_offset'?: number;
     private 'last_message_time'?: number;
+    private 'client_id'?: string;
     public constructor() { 
     }
     public withId(id: number): Queue {
@@ -45,5 +46,15 @@ export class Queue {
     }
     public get lastMessageTime(): number | undefined {
         return this['last_message_time'];
+    }
+    public withClientId(clientId: string): Queue {
+        this['client_id'] = clientId;
+        return this;
+    }
+    public set clientId(clientId: string  | undefined) {
+        this['client_id'] = clientId;
+    }
+    public get clientId(): string | undefined {
+        return this['client_id'];
     }
 }

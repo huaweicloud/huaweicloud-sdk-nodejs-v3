@@ -2,7 +2,7 @@
 
 export class CreateConnectorReq {
     public specification?: CreateConnectorReqSpecificationEnum | string;
-    private 'node_cnt'?: string;
+    private 'node_cnt'?: number;
     private 'spec_code'?: string;
     public constructor() { 
     }
@@ -10,14 +10,14 @@ export class CreateConnectorReq {
         this['specification'] = specification;
         return this;
     }
-    public withNodeCnt(nodeCnt: string): CreateConnectorReq {
+    public withNodeCnt(nodeCnt: number): CreateConnectorReq {
         this['node_cnt'] = nodeCnt;
         return this;
     }
-    public set nodeCnt(nodeCnt: string  | undefined) {
+    public set nodeCnt(nodeCnt: number  | undefined) {
         this['node_cnt'] = nodeCnt;
     }
-    public get nodeCnt(): string | undefined {
+    public get nodeCnt(): number | undefined {
         return this['node_cnt'];
     }
     public withSpecCode(specCode: string): CreateConnectorReq {

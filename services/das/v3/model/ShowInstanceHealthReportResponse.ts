@@ -1,8 +1,8 @@
-import { HealthReportDiskStat } from './HealthReportDiskStat';
+import { HealthReportDiskStatInfo } from './HealthReportDiskStatInfo';
 import { HealthReportFullSqlStat } from './HealthReportFullSqlStat';
 import { HealthReportInspectionStat } from './HealthReportInspectionStat';
 import { HealthReportInstanceInfo } from './HealthReportInstanceInfo';
-import { HealthReportPerformanceStat } from './HealthReportPerformanceStat';
+import { HealthReportPerformanceStatInfo } from './HealthReportPerformanceStatInfo';
 import { HealthReportSlowLogStat } from './HealthReportSlowLogStat';
 import { HealthReportSummaryInfo } from './HealthReportSummaryInfo';
 import { HealthReportTableSpaceStat } from './HealthReportTableSpaceStat';
@@ -16,8 +16,8 @@ export class ShowInstanceHealthReportResponse extends SdkResponse {
     private 'task_id'?: string;
     private 'summary_info'?: HealthReportSummaryInfo;
     private 'instance_info'?: HealthReportInstanceInfo;
-    private 'performance_stat'?: HealthReportPerformanceStat;
-    private 'disk_stat'?: HealthReportDiskStat;
+    private 'performance_stat'?: HealthReportPerformanceStatInfo;
+    private 'disk_stat'?: HealthReportDiskStatInfo;
     private 'table_space_stat'?: HealthReportTableSpaceStat;
     private 'slow_log_stat'?: HealthReportSlowLogStat;
     private 'full_sql_stat'?: HealthReportFullSqlStat;
@@ -80,24 +80,24 @@ export class ShowInstanceHealthReportResponse extends SdkResponse {
     public get instanceInfo(): HealthReportInstanceInfo | undefined {
         return this['instance_info'];
     }
-    public withPerformanceStat(performanceStat: HealthReportPerformanceStat): ShowInstanceHealthReportResponse {
+    public withPerformanceStat(performanceStat: HealthReportPerformanceStatInfo): ShowInstanceHealthReportResponse {
         this['performance_stat'] = performanceStat;
         return this;
     }
-    public set performanceStat(performanceStat: HealthReportPerformanceStat  | undefined) {
+    public set performanceStat(performanceStat: HealthReportPerformanceStatInfo  | undefined) {
         this['performance_stat'] = performanceStat;
     }
-    public get performanceStat(): HealthReportPerformanceStat | undefined {
+    public get performanceStat(): HealthReportPerformanceStatInfo | undefined {
         return this['performance_stat'];
     }
-    public withDiskStat(diskStat: HealthReportDiskStat): ShowInstanceHealthReportResponse {
+    public withDiskStat(diskStat: HealthReportDiskStatInfo): ShowInstanceHealthReportResponse {
         this['disk_stat'] = diskStat;
         return this;
     }
-    public set diskStat(diskStat: HealthReportDiskStat  | undefined) {
+    public set diskStat(diskStat: HealthReportDiskStatInfo  | undefined) {
         this['disk_stat'] = diskStat;
     }
-    public get diskStat(): HealthReportDiskStat | undefined {
+    public get diskStat(): HealthReportDiskStatInfo | undefined {
         return this['disk_stat'];
     }
     public withTableSpaceStat(tableSpaceStat: HealthReportTableSpaceStat): ShowInstanceHealthReportResponse {

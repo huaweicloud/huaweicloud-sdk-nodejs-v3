@@ -1,12 +1,14 @@
-import { ListPluginExtensionsRequestBody } from './ListPluginExtensionsRequestBody';
 
 
 export class ListPluginExtensionsRequest {
     private 'X-Language'?: ListPluginExtensionsRequestXLanguageEnum | string;
     private 'instance_id'?: string;
-    public body?: ListPluginExtensionsRequestBody;
-    public constructor(instanceId?: string) { 
+    private 'db_name'?: string;
+    private 'plugin_name'?: string;
+    public constructor(instanceId?: string, dbName?: string, pluginName?: string) { 
         this['instance_id'] = instanceId;
+        this['db_name'] = dbName;
+        this['plugin_name'] = pluginName;
     }
     public withXLanguage(xLanguage: ListPluginExtensionsRequestXLanguageEnum | string): ListPluginExtensionsRequest {
         this['X-Language'] = xLanguage;
@@ -28,9 +30,25 @@ export class ListPluginExtensionsRequest {
     public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withBody(body: ListPluginExtensionsRequestBody): ListPluginExtensionsRequest {
-        this['body'] = body;
+    public withDbName(dbName: string): ListPluginExtensionsRequest {
+        this['db_name'] = dbName;
         return this;
+    }
+    public set dbName(dbName: string  | undefined) {
+        this['db_name'] = dbName;
+    }
+    public get dbName(): string | undefined {
+        return this['db_name'];
+    }
+    public withPluginName(pluginName: string): ListPluginExtensionsRequest {
+        this['plugin_name'] = pluginName;
+        return this;
+    }
+    public set pluginName(pluginName: string  | undefined) {
+        this['plugin_name'] = pluginName;
+    }
+    public get pluginName(): string | undefined {
+        return this['plugin_name'];
     }
 }
 

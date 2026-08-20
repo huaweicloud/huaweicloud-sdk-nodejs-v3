@@ -7,7 +7,6 @@ export class ListCdnDomainTopRefersRequest {
     private 'stat_type'?: string;
     private 'service_area'?: string;
     private 'enterprise_project_id'?: string;
-    private 'include_ratio'?: boolean;
     public constructor(startTime?: number, endTime?: number, domainName?: string, statType?: string) { 
         this['start_time'] = startTime;
         this['end_time'] = endTime;
@@ -73,15 +72,5 @@ export class ListCdnDomainTopRefersRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
-    }
-    public withIncludeRatio(includeRatio: boolean): ListCdnDomainTopRefersRequest {
-        this['include_ratio'] = includeRatio;
-        return this;
-    }
-    public set includeRatio(includeRatio: boolean  | undefined) {
-        this['include_ratio'] = includeRatio;
-    }
-    public get includeRatio(): boolean | undefined {
-        return this['include_ratio'];
     }
 }

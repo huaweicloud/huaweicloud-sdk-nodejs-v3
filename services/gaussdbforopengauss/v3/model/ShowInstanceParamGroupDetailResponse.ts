@@ -3,6 +3,7 @@ import { ConfigurationParameterResult } from './ConfigurationParameterResult';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowInstanceParamGroupDetailResponse extends SdkResponse {
+    public id?: string;
     private 'datastore_version'?: string;
     private 'datastore_name'?: string;
     public created?: string;
@@ -10,6 +11,10 @@ export class ShowInstanceParamGroupDetailResponse extends SdkResponse {
     private 'configuration_parameters'?: Array<ConfigurationParameterResult>;
     public constructor() { 
         super();
+    }
+    public withId(id: string): ShowInstanceParamGroupDetailResponse {
+        this['id'] = id;
+        return this;
     }
     public withDatastoreVersion(datastoreVersion: string): ShowInstanceParamGroupDetailResponse {
         this['datastore_version'] = datastoreVersion;

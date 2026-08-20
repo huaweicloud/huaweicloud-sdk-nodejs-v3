@@ -473,7 +473,7 @@ export class CdnClient {
     }
 
     /**
-     * 创建统计数据异步导出任务，目前支持话单数据导出、top url导出
+     * 创建统计数据异步导出任务，目前支持话单数据导出、top url导出。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -575,7 +575,7 @@ export class CdnClient {
     }
 
     /**
-     * create subscription task
+     * 创建运营报表订阅任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -693,12 +693,12 @@ export class CdnClient {
     }
 
     /**
-     * delete subscription task
+     * 删除运营报表订阅任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除运营报表订阅任务
-     * @param {number} id 订阅任务id
+     * @param {number} id **参数解释：** 订阅任务id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -747,14 +747,14 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 下载区域运营商指标数据表格文件
-     * @param {number} startTime 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下： - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
-     * @param {number} endTime 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下： - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00) - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
-     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
+     * @param {number} startTime **参数解释：** 查询起始时间戳 **约束限制：** 需与结束时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - 若查询1小时时间粒度（即interval为3600）数据，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - 若查询1天时间粒度（即interval为86400）数据，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00) **默认取值：** 不涉及
+     * @param {number} endTime **参数解释：** 查询结束时间戳 **约束限制：** 需与起始时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，end_time设置为整5分钟时刻点，如：1631240100000）对应2021-09-10 10:15:00） - 若查询1小时时间粒度（即interval为3600）数据，end_time设置为整小时时刻点，如：1631239200000（对应2021-09-10 10:00:00） - 若查询1天时间粒度（即interval为86400）数据，end_time设置为东8区零点时刻点，如：1631203200000（对应2021-09-10 00:00:00） **默认取值：** 不涉及
+     * @param {string} domainName **参数解释：** 域名列表 &gt; 如果域名在查询时间段内无数据，结果将不返回该域名的信息  **约束限制：** 仅支持查询已经在CDN创建成功的域名 **取值范围：** - all表示查询名下全部域名 - 多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com **默认取值：** 不涉及
      * @param {string} excelType 统计数据表格类型,目前支持 - 区域用量统计数据(excel_type_usage) - 区域访问情况统计数据(excel_type_access) - 区域情况统计数据（excel_type_region） - 区域运营商情况统计数据(excel_type_carrier) - 国家情况统计数据(excel_type_country) - top_url统计数据(excel_type_top_url)
-     * @param {number} [interval] - 查询时间间隔，单位：秒，取值说明： - 300(5分钟)：最大查询跨度2天 - 3600(1小时)：最大查询跨度7天 - 86400(1天)：最大查询跨度31天 - 如果不传，默认取对应时间跨度的最小间隔。
-     * @param {string} [country] - 国家&amp;地区编码，多个以英文逗号分隔，all表示全部，取值见附录 - 访问运营商统计数据时不能填写 - 访问top_url数据时不能填写 - 访问区域情况数据时只能填写cn(中国)
-     * @param {string} [excelLanguage] 创建表格语言，支持zh(中文)，en(英文)两种，如果不传默认为zh
-     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
+     * @param {number} [interval] **参数解释：** 查询时间粒度 **约束限制：** - 查询跨度不超过1天时，支持5分钟粒度、1小时粒度 - 查询跨度不超过7天时，支持5分钟、1小时粒度、1天粒度 - 查询跨度不超过31天时，支持1小时粒度、1天粒度  **取值范围：** - 300：采样时间间隔为5分钟，单位：秒 - 3600：采样时间间隔为1小时，单位：秒 - 86400：采样时间间隔为1天，单位：秒 **默认取值：** 默认取对应查询时间跨度的最小时间间隔 &gt; 时间跨度小于等于7天，最小时间间隔为300；时间跨度大于7天，最小时间间隔为3600
+     * @param {string} [country] **参数解释：** 国家&amp;地区编码 **约束限制：** - 查询运营商统计数据时，不传该参数 - 查询top_url数据时，不传该参数 - 查询区域情况数据时，该参数只能传cn(中国)  **取值范围：** - 多个以英文逗号分隔 - all表示全部，取值见附录 **默认取值：** 不涉及
+     * @param {string} [excelLanguage] **参数解释：** 创建表格语言 **约束限制：** 不涉及 **取值范围：** - zh：中文 - en：英文 **默认取值：** zh：中文
+     * @param {string} [enterpriseProjectId] **参数解释：** 企业项目id &gt; 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id  **约束限制：** - 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目 - 当使用子账号调用接口时，该参数必传 **取值范围：** all表示所有项目 **默认取值：** 不涉及
      * @param {string} [region] - 地区区域,当country为cn（中国）时有效 - 访问运营商统计数据时不能填写 - 访问国家统计数据时不能填写 - 访问top_url数据时不能填写
      * @param {string} [carrier] - 运营商编码 - 访问区域统计数据时不能填写 - 访问国家统计数据时不能填写 - 访问top_url数据时不能填写
      * @param {*} [options] Override http request option.
@@ -785,14 +785,14 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 下载统计指标数据表格文件
-     * @param {number} startTime 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下： - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
-     * @param {number} endTime 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下： - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00) - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
-     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
+     * @param {number} startTime **参数解释：** 查询起始时间戳 **约束限制：** 需与结束时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - 若查询1小时时间粒度（即interval为3600）数据，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - 若查询1天时间粒度（即interval为86400）数据，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00) **默认取值：** 不涉及
+     * @param {number} endTime **参数解释：** 查询结束时间戳 **约束限制：** 需与起始时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，end_time设置为整5分钟时刻点，如：1631240100000）对应2021-09-10 10:15:00） - 若查询1小时时间粒度（即interval为3600）数据，end_time设置为整小时时刻点，如：1631239200000（对应2021-09-10 10:00:00） - 若查询1天时间粒度（即interval为86400）数据，end_time设置为东8区零点时刻点，如：1631203200000（对应2021-09-10 00:00:00） **默认取值：** 不涉及
+     * @param {string} domainName **参数解释：** 域名列表 &gt; 如果域名在查询时间段内无数据，结果将不返回该域名的信息  **约束限制：** 仅支持查询已经在CDN创建成功的域名 **取值范围：** - all表示查询名下全部域名 - 多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com **默认取值：** 不涉及
      * @param {string} excelType 统计数据表格类型,目前支持 - 用量统计数据(excel_type_usage) - 访问情况统计数据(excel_type_access) - 回源情况统计数据（excel_type_origin） - http_code统计数据(excel_type_http_code)
-     * @param {string} [excelLanguage] 创建表格语言，支持zh(中文)，en(英文)两种，如果不传默认为zh
-     * @param {string} [serviceArea] 服务区域：mainland_china(中国大陆)，outside_mainland_china(中国大陆境外)，默认为mainland_china，当查询回源类指标时该参数无效。
-     * @param {number} [interval] - 查询时间间隔，单位：秒，取值说明： - 300(5分钟)：最大查询跨度2天 - 3600(1小时)：最大查询跨度7天 - 86400(1天)：最大查询跨度31天 - 如果不传，默认取对应时间跨度的最小间隔。
-     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
+     * @param {string} [excelLanguage] **参数解释：** 创建表格语言 **约束限制：** 不涉及 **取值范围：** - zh：中文 - en：英文 **默认取值：** zh：中文
+     * @param {string} [serviceArea] **参数解释：** 服务范围 **约束限制：** 当查询回源类指标时，该参数无效 **取值范围：** - mainland_china：中国大陆 - outside_mainland_china：中国大陆境外 **默认取值：** - mainland_china：中国大陆
+     * @param {number} [interval] **参数解释：** 查询时间粒度 **约束限制：** - 查询跨度不超过1天时，支持5分钟粒度、1小时粒度 - 查询跨度不超过7天时，支持5分钟、1小时粒度、1天粒度 - 查询跨度不超过31天时，支持1小时粒度、1天粒度  **取值范围：** - 300：采样时间间隔为5分钟，单位：秒 - 3600：采样时间间隔为1小时，单位：秒 - 86400：采样时间间隔为1天，单位：秒 **默认取值：** 默认取对应查询时间跨度的最小时间间隔 &gt; 时间跨度小于等于7天，最小时间间隔为300；时间跨度大于7天，最小时间间隔为3600
+     * @param {string} [enterpriseProjectId] **参数解释：** 企业项目id &gt; 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id  **约束限制：** - 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目 - 当使用子账号调用接口时，该参数必传 **取值范围：** all表示所有项目 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -826,12 +826,12 @@ export class CdnClient {
     }
 
     /**
-     * CDN数据导出
+     * CDN数据导出。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary CDN数据导出
-     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
+     * @param {string} [enterpriseProjectId] **参数解释：** 企业项目id &gt; 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id  **约束限制：** - 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目 - 当使用子账号调用接口时，该参数必传 **取值范围：** all表示所有项目 **默认取值：** 不涉及
      * @param {ExportVo} [exportVo] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -894,19 +894,19 @@ export class CdnClient {
     }
 
     /**
-     * - 查询域名top ip统计分析数据
+     * 查询域名top ip统计分析数据，支持查询流量、请求数指标。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询域名top ip统计分析数据
-     * @param {number} startTime 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下： - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
-     * @param {number} endTime 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下： - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00) - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
-     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
-     * @param {string} statType -  参数类型支持：flux(流量),req_num(请求数)
-     * @param {string} [groupBy] 数据分组方式，可选domain，默认不分组
-     * @param {string} [serviceArea] 服务区域：mainland_china(大陆)，outside_mainland_china(海外)，默认为mainland_china
-     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
-     * @param {boolean} [includeRatio] 是否包含百分比数据，默认false
+     * @param {number} startTime **参数解释：** 查询起始时间戳 **约束限制：** 需与结束时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - 若查询1小时时间粒度（即interval为3600）数据，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - 若查询1天时间粒度（即interval为86400）数据，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00) **默认取值：** 不涉及
+     * @param {number} endTime **参数解释：** 查询结束时间戳 **约束限制：** 需与起始时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，end_time设置为整5分钟时刻点，如：1631240100000）对应2021-09-10 10:15:00） - 若查询1小时时间粒度（即interval为3600）数据，end_time设置为整小时时刻点，如：1631239200000（对应2021-09-10 10:00:00） - 若查询1天时间粒度（即interval为86400）数据，end_time设置为东8区零点时刻点，如：1631203200000（对应2021-09-10 00:00:00） **默认取值：** 不涉及
+     * @param {string} domainName **参数解释：** 域名列表 &gt; 如果域名在查询时间段内无数据，结果将不返回该域名的信息  **约束限制：** 仅支持查询已经在CDN创建成功的域名 **取值范围：** - all表示查询名下全部域名 - 多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com **默认取值：** 不涉及
+     * @param {string} statType **参数解释：** 统计指标类型 **约束限制：** 不涉及 **取值范围：** - flux：流量 - req_num：请求数 **默认取值：** 不涉及
+     * @param {string} [groupBy] **参数解释：** 数据分组方式 **约束限制：** 不涉及 **取值范围：** domain：按域名分组 **默认取值：** 默认不分组
+     * @param {string} [serviceArea] **参数解释：** 服务范围 **约束限制：** 不涉及 **取值范围：** - mainland_china：中国大陆 - outside_mainland_china：中国大陆境外 **默认取值：** mainland_china：中国大陆
+     * @param {string} [enterpriseProjectId] **参数解释：** 企业项目id &gt; 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id  **约束限制：** - 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目 - 当使用子账号调用接口时，该参数必传 **取值范围：** all表示所有项目 **默认取值：** 不涉及
+     * @param {boolean} [includeRatio] **参数解释：** 是否包含百分比数据 **约束限制：** 不涉及 **取值范围：** - true：包含百分比数据 - false：不包含百分比数据 **默认取值：** false：不包含百分比数据
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -920,18 +920,18 @@ export class CdnClient {
     }
 
     /**
-     * - 查询域名top 回源URL数据
+     * 查询域名top 回源URL数据，支持查询流量、请求数指标。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询域名top回源URL数据
-     * @param {number} startTime 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下： - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
-     * @param {number} endTime 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下： - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00) - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
-     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
-     * @param {string} statType -  参数类型支持：flux(流量),req_num(请求数)
-     * @param {string} [groupBy] 数据分组方式，可选domain，默认不分组
-     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
-     * @param {boolean} [includeRatio] 是否包含百分比数据，默认false
+     * @param {number} startTime **参数解释：** 查询起始时间戳 **约束限制：** 需与结束时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - 若查询1小时时间粒度（即interval为3600）数据，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - 若查询1天时间粒度（即interval为86400）数据，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00) **默认取值：** 不涉及
+     * @param {number} endTime **参数解释：** 查询结束时间戳 **约束限制：** 需与起始时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，end_time设置为整5分钟时刻点，如：1631240100000）对应2021-09-10 10:15:00） - 若查询1小时时间粒度（即interval为3600）数据，end_time设置为整小时时刻点，如：1631239200000（对应2021-09-10 10:00:00） - 若查询1天时间粒度（即interval为86400）数据，end_time设置为东8区零点时刻点，如：1631203200000（对应2021-09-10 00:00:00） **默认取值：** 不涉及
+     * @param {string} domainName **参数解释：** 域名列表 &gt; 如果域名在查询时间段内无数据，结果将不返回该域名的信息  **约束限制：** 仅支持查询已经在CDN创建成功的域名 **取值范围：** - all表示查询名下全部域名 - 多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com **默认取值：** 不涉及
+     * @param {string} statType **参数解释：** 统计指标类型 **约束限制：** 不涉及 **取值范围：** - flux：流量 - req_num：请求数 **默认取值：** 不涉及
+     * @param {string} [groupBy] **参数解释：** 数据分组方式 **约束限制：** 不涉及 **取值范围：** domain：按域名分组 **默认取值：** 默认不分组
+     * @param {string} [enterpriseProjectId] **参数解释：** 企业项目id &gt; 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id  **约束限制：** - 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目 - 当使用子账号调用接口时，该参数必传 **取值范围：** all表示所有项目 **默认取值：** 不涉及
+     * @param {boolean} [includeRatio] **参数解释：** 是否包含百分比数据 **约束限制：** 不涉及 **取值范围：** - true：包含百分比数据 - false：不包含百分比数据 **默认取值：** false：不包含百分比数据
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -945,17 +945,17 @@ export class CdnClient {
     }
 
     /**
-     * 查询TOP100 Path访问明细
+     * 查询TOP100 Path访问明细。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询TOP100 Path访问明细
-     * @param {number} startTime 查询起始时间戳，只能传0点毫秒时间戳
-     * @param {number} endTime 查询结束时间戳，只能传0点毫秒时间戳
-     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
-     * @param {string} statType - 参数类型支持：flux(流量),req_num(请求数)
-     * @param {string} [serviceArea] 服务区域：mainland_china(大陆)，outside_mainland_china(海外)，默认为global(全球)
-     * @param {string} [userDomainId] 域名所属用户的domain_id。
+     * @param {number} startTime **参数解释：** 查询起始时间戳 **约束限制：** 该参数只能传0点毫秒时间戳 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} endTime **参数解释：** 查询结束时间戳 **约束限制：** 该参数只能传0点毫秒时间戳 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} domainName **参数解释：** 域名列表 &gt; 如果域名在查询时间段内无数据，结果将不返回该域名的信息  **约束限制：** 仅支持查询已经在CDN创建成功的域名 **取值范围：** - all表示查询名下全部域名 - 多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com **默认取值：** 不涉及
+     * @param {string} statType **参数解释：** 统计指标类型 **约束限制：** 不涉及 **取值范围：** - flux：流量 - req_num：请求数 **默认取值：** 不涉及
+     * @param {string} [serviceArea] **参数解释：** 服务范围 **约束限制：** 不涉及 **取值范围：** - mainland_china：中国大陆 - outside_mainland_china：中国大陆境外 - global：全球 **默认取值：** global：全球
+     * @param {string} [userDomainId] **参数解释：** 域名所属账号的domain_id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -969,24 +969,20 @@ export class CdnClient {
     }
 
     /**
-     * - 查询TOP100 referer数据。
-     * 
+     * 查询TOP100 referer明细数据，支持查询流量、请求数指标的明细数据。
      * - 支持查询90天内的数据。
-     * 
      * - 查询跨度不能超过31天。
-     * 
      * - 单租户调用频率：2次/s。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询统计TOP100 referer数据明细
-     * @param {number} startTime 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下： - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
-     * @param {number} endTime 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下： - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00) - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
-     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
-     * @param {string} statType - 统计指标类型 - 目前只支持flux（流量），req_num（请求数）
-     * @param {string} [serviceArea] 服务区域：mainland_china(大陆)，outside_mainland_china(海外)，默认为global(全球)
-     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
-     * @param {boolean} [includeRatio] 是否包含百分比数据，默认false
+     * @param {number} startTime **参数解释：** 查询起始时间戳 **约束限制：** 该参数只能传0点毫秒时间戳 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} endTime **参数解释：** 查询结束时间戳 **约束限制：** 该参数只能传0点毫秒时间戳 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} domainName **参数解释：** 域名列表 &gt; 如果域名在查询时间段内无数据，结果将不返回该域名的信息  **约束限制：** 仅支持查询已经在CDN创建成功的域名 **取值范围：** - all表示查询名下全部域名 - 多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com **默认取值：** 不涉及
+     * @param {string} statType **参数解释：** 统计指标类型 **约束限制：** 不涉及 **取值范围：** - flux：流量 - req_num：请求数 **默认取值：** 不涉及
+     * @param {string} [serviceArea] **参数解释：** 服务范围 **约束限制：** 不涉及 **取值范围：** - mainland_china：中国大陆 - outside_mainland_china：中国大陆境外 - global：全球 **默认取值：** global：全球
+     * @param {string} [enterpriseProjectId] **参数解释：** 企业项目id &gt; 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id  **约束限制：** - 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目 - 当使用子账号调用接口时，该参数必传 **取值范围：** all表示所有项目 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1000,19 +996,19 @@ export class CdnClient {
     }
 
     /**
-     * - 统计分析TOP UA统计数据
+     * 统计分析TOP UA统计数据，支持查询流量、请求数指标。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询域名top ua统计分析数据
-     * @param {number} startTime 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下： - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
-     * @param {number} endTime 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下： - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00) - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
-     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
-     * @param {string} statType -  参数类型支持：flux(流量),req_num(请求数)
-     * @param {string} [groupBy] 数据分组方式，可选domain，默认不分组
-     * @param {string} [serviceArea] 服务区域：mainland_china(大陆)，outside_mainland_china(海外)，默认为mainland_china
-     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
-     * @param {boolean} [includeRatio] 是否包含百分比数据，默认false
+     * @param {number} startTime **参数解释：** 查询起始时间戳 **约束限制：** 需与结束时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - 若查询1小时时间粒度（即interval为3600）数据，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - 若查询1天时间粒度（即interval为86400）数据，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00) **默认取值：** 不涉及
+     * @param {number} endTime **参数解释：** 查询结束时间戳 **约束限制：** 需与起始时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，end_time设置为整5分钟时刻点，如：1631240100000）对应2021-09-10 10:15:00） - 若查询1小时时间粒度（即interval为3600）数据，end_time设置为整小时时刻点，如：1631239200000（对应2021-09-10 10:00:00） - 若查询1天时间粒度（即interval为86400）数据，end_time设置为东8区零点时刻点，如：1631203200000（对应2021-09-10 00:00:00） **默认取值：** 不涉及
+     * @param {string} domainName **参数解释：** 域名列表 &gt; 如果域名在查询时间段内无数据，结果将不返回该域名的信息  **约束限制：** 仅支持查询已经在CDN创建成功的域名 **取值范围：** - all表示查询名下全部域名 - 多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com **默认取值：** 不涉及
+     * @param {string} statType **参数解释：** 统计指标类型 **约束限制：** 不涉及 **取值范围：** - flux：流量 - req_num：请求数 **默认取值：** 不涉及
+     * @param {string} [groupBy] **参数解释：** 数据分组方式 **约束限制：** 不涉及 **取值范围：** domain：按域名分组 **默认取值：** 默认不分组
+     * @param {string} [serviceArea] **参数解释：** 服务范围 **约束限制：** 不涉及 **取值范围：** - mainland_china：中国大陆 - outside_mainland_china：中国大陆境外 **默认取值：** mainland_china：中国大陆
+     * @param {string} [enterpriseProjectId] **参数解释：** 企业项目id &gt; 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id  **约束限制：** - 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目 - 当使用子账号调用接口时，该参数必传 **取值范围：** all表示所有项目 **默认取值：** 不涉及
+     * @param {boolean} [includeRatio] **参数解释：** 是否包含百分比数据 **约束限制：** 不涉及 **取值范围：** - true：包含百分比数据 - false：不包含百分比数据 **默认取值：** false：不包含百分比数据
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1026,22 +1022,21 @@ export class CdnClient {
     }
 
     /**
-     * - 按域名维度查询每天客户端访问详情统计。
+     * 按域名维度查询每天客户端访问详情统计。
      * - 支持查询90天内的数据。
-     * - ip_num查询跨度只支持1天,uv查询跨度只支持5分钟。
      * - 起始时间和结束时间，左闭右开，需要同时指定。如查询2022-07-12 00:00:00 到 2022-07-13 00:00:00 的数据，表示取 [2022-07-12 00:00:00, 2022-07-13 00:00:00)的统计数据。
-     * - ip_num开始时间、结束时间必须传毫秒级时间戳，必须为凌晨0点整时刻点，如果传的不是凌晨0点整时刻点，返回数据可能与预期不一致。
+     * - uv查询时间粒度只支持5分钟。
      * - uv必须为5分钟整时刻点，如：0分、5分、10分、15分等，如果传的不是5分钟时刻点，返回数据可能与预期不一致
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 按域名维度查询每天客户端访问详情统计
-     * @param {number} startTime 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下： - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
-     * @param {number} endTime 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下： - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00) - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
-     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
-     * @param {string} statType -  客户端访问资源指标类别：  - ip_num (去重后ip访问数量) - uv(五分钟内的访问独立IP数，一个独立ip记一次。)
-     * @param {string} [serviceArea] 服务区域：mainland_china(大陆)，outside_mainland_china(海外)，默认为mainland_china
-     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
+     * @param {number} startTime **参数解释：** 查询起始时间戳 **约束限制：** 需与结束时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - 若查询1小时时间粒度（即interval为3600）数据，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - 若查询1天时间粒度（即interval为86400）数据，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00) **默认取值：** 不涉及
+     * @param {number} endTime **参数解释：** 查询结束时间戳 **约束限制：** 需与起始时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，end_time设置为整5分钟时刻点，如：1631240100000）对应2021-09-10 10:15:00） - 若查询1小时时间粒度（即interval为3600）数据，end_time设置为整小时时刻点，如：1631239200000（对应2021-09-10 10:00:00） - 若查询1天时间粒度（即interval为86400）数据，end_time设置为东8区零点时刻点，如：1631203200000（对应2021-09-10 00:00:00） **默认取值：** 不涉及
+     * @param {string} domainName **参数解释：** 域名列表 &gt; 如果域名在查询时间段内无数据，结果将不返回该域名的信息  **约束限制：** 仅支持查询已经在CDN创建成功的域名 **取值范围：** - all表示查询名下全部域名 - 多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com **默认取值：** 不涉及
+     * @param {string} statType **参数解释：** 客户端访问资源指标类别 **约束限制：** 不涉及 **取值范围：** - uv：5分钟内访问加速域名的IP数，同一个IP访问域名多次时记1次 **默认取值：** 不涉及
+     * @param {string} [serviceArea] **参数解释：** 服务范围 **约束限制：** 不涉及 **取值范围：** - mainland_china：中国大陆 - outside_mainland_china：中国大陆境外 **默认取值：** mainland_china：中国大陆
+     * @param {string} [enterpriseProjectId] **参数解释：** 企业项目id &gt; 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id  **约束限制：** - 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目 - 当使用子账号调用接口时，该参数必传 **取值范围：** all表示所有项目 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1104,15 +1099,17 @@ export class CdnClient {
     }
 
     /**
-     * 分页查询统计数据异步导出任务，按修改时间降序排列，当任务状态为success时，返回参数中会包含download_link
+     * 分页查询统计数据异步导出任务。
+     * - 按修改时间降序排列
+     * - 当任务状态为success时，返回参数中会包含下载链接（download_link）
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 分页查询统计数据异步导出
-     * @param {string} taskId 任务id
-     * @param {string} taskName 任务名称
-     * @param {number} [limit] - 每页显示的条目数量, 默认为10
-     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0，默认为0
+     * @param {number} [limit] **参数解释：** 每页显示的条目数量 **约束限制：** 不涉及 **取值范围：** 0-100 **默认取值：** 10
+     * @param {number} [offset] **参数解释：** 偏移量 &gt; 表示从此偏移量开始查询  **约束限制：** 不涉及 **取值范围：** offset大于等于0 **默认取值：** 0
+     * @param {string} [taskId] **参数解释：** 任务id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [taskName] **参数解释：** 任务名称 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1188,13 +1185,13 @@ export class CdnClient {
     }
 
     /**
-     * query subscription task
+     * 查询运营报表订阅任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 分页查询运营报表订阅任务
-     * @param {number} [limit] - 每页显示的条目数量，默认值为5, 传入空或0时，会按默认处理
-     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0，默认为0
+     * @param {number} [limit] **参数解释：** 每页显示的条目数量 **约束限制：** 不涉及 **取值范围：** 0-100 **默认取值：** 5 &gt; 传入空或0时，会按默认处理
+     * @param {number} [offset] **参数解释：** 偏移量 &gt; 表示从此偏移量开始查询  **约束限制：** 不涉及 **取值范围：** offset大于等于0 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1227,15 +1224,8 @@ export class CdnClient {
     }
 
     /**
-     * - 设置用户计费模式。
-     * 
-     * - 服务区域仅支持mainland_china（国内）
-     * 
-     * - 计费模式仅支持设置flux（流量），v2及以上客户支持bw（带宽）
-     * 
-     * - 加速类型仅支持base（基础加速）
-     * 
-     * - 单租户调用频率：10次/min。
+     * 设置用户计费模式。
+     * - 单租户调用频率：10次/min
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1254,7 +1244,7 @@ export class CdnClient {
     }
 
     /**
-     * - 设置统计配置。
+     * 设置统计配置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1313,12 +1303,12 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询域名带宽峰值类数据
-     * @param {number} startTime 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下： - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
-     * @param {number} endTime 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下： - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00) - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
-     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
+     * @param {number} startTime **参数解释：** 查询起始时间戳 **约束限制：** 需与结束时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - 若查询1小时时间粒度（即interval为3600）数据，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - 若查询1天时间粒度（即interval为86400）数据，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00) **默认取值：** 不涉及
+     * @param {number} endTime **参数解释：** 查询结束时间戳 **约束限制：** 需与起始时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，end_time设置为整5分钟时刻点，如：1631240100000）对应2021-09-10 10:15:00） - 若查询1小时时间粒度（即interval为3600）数据，end_time设置为整小时时刻点，如：1631239200000（对应2021-09-10 10:00:00） - 若查询1天时间粒度（即interval为86400）数据，end_time设置为东8区零点时刻点，如：1631203200000（对应2021-09-10 00:00:00） **默认取值：** 不涉及
+     * @param {string} domainName **参数解释：** 域名列表 &gt; 如果域名在查询时间段内无数据，结果将不返回该域名的信息  **约束限制：** 仅支持查询已经在CDN创建成功的域名 **取值范围：** - all表示查询名下全部域名 - 多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com **默认取值：** 不涉及
      * @param {string} calcType 查询类别，目前支持bw_95（95峰值带宽），bw_peak（日峰值月平均带宽），bw_95_average(95月平均带宽)
-     * @param {string} [serviceArea] 服务区域：mainland_china(中国大陆)，outside_mainland_china(中国大陆境外)，默认为mainland_china，当查询回源类指标时该参数无效。
-     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
+     * @param {string} [serviceArea] **参数解释：** 服务范围 **约束限制：** 当查询回源类指标时，该参数无效 **取值范围：** - mainland_china：中国大陆 - outside_mainland_china：中国大陆境外 **默认取值：** - mainland_china：中国大陆
+     * @param {string} [enterpriseProjectId] **参数解释：** 企业项目id &gt; 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id  **约束限制：** - 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目 - 当使用子账号调用接口时，该参数必传 **取值范围：** all表示所有项目 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1355,22 +1345,15 @@ export class CdnClient {
     }
 
     /**
-     * - 查询用户计费模式。
-     * 
-     * - 服务区域仅支持mainland_china（国内，默认）和outside_mainland_china（海外）
-     * 
-     * - 计费模式状态支持active（已生效），upcoming（待生效）两种状态，默认为active(已生效)
-     * 
-     * - 加速类型仅支持base（基础加速）
-     * 
+     * 查询用户计费模式。
      * - 单租户调用频率：5次/s。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询用户计费模式
-     * @param {string} productType 加速类型，base（基础加速）
-     * @param {string} [status] 查询计费模式状态，active（已生效），upcoming（待生效），不传默认为active(已生效)
-     * @param {string} [serviceArea] 服务区域，mainland_china（国内），outside_mainland_china（海外），不传默认为mainland_china(国内)
+     * @param {string} productType **参数解释：** 加速类型 **约束限制：** 不涉及 **取值范围：** - base：基础加速 **默认取值：** 不涉及
+     * @param {string} [status] **参数解释：** 查询计费模式状态 **约束限制：** 不涉及 **取值范围：** - active：已生效 - upcoming：待生效 **默认取值：** active：已生效
+     * @param {string} [serviceArea] **参数解释：** 服务范围 **约束限制：** 不涉及 **取值范围：** - mainland_china：中国大陆 - outside_mainland_china：中国大陆境外 **默认取值：** mainland_china：中国大陆
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1384,19 +1367,19 @@ export class CdnClient {
     }
 
     /**
-     * CDN查询域名国家统计数据明细
+     * CDN查询域名国家统计数据明细。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary CDN查询域名国家统计数据明细
-     * @param {string} action 动作名称，可选summary、detail。 - summary：查询汇总数据 - detail：查询数据详情。
-     * @param {number} startTime 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下： - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
-     * @param {number} endTime 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下： - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00) - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
-     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
-     * @param {string} statType - 网络资源消耗   - bw（带宽）   - flux（流量） - 访问情况   - req_num（请求总数） - HTTP状态码（组合指标）   - http_code_2xx(状态码汇总2xx)   - http_code_3xx(状态码汇总3xx)   - http_code_4xx(状态码汇总4xx)   - http_code_5xx(状态码汇总5xx)   - status_code_2xx(状态码详情2xx)   - status_code_3xx(状态码详情3xx)   - status_code_4xx(状态码详情4xx)   - status_code_5xx(状态码详情5xx)
-     * @param {string} [country] - 国家&amp;地区编码，多个以英文逗号分隔，all表示全部，取值见附录 - 访问运营商统计数据时不能填写 - 访问top_url数据时不能填写 - 访问区域情况数据时只能填写cn(中国)
-     * @param {string} [groupBy] 数据分组方式，多个以英文逗号分隔，可选domain（域名）、country（国家）、province（省份，仅国家为中国时有效）、isp（区域运营商），默认不分组
-     * @param {string} [userDomainId] 域名所属用户的domain_id。
+     * @param {string} action **参数解释：** 查询数据类型 **约束限制：** 不涉及 **取值范围：** - summary：查询汇总数据 - detail：查询明细数据 **默认取值：** 不涉及
+     * @param {number} startTime **参数解释：** 查询起始时间戳 **约束限制：** 需与结束时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - 若查询1小时时间粒度（即interval为3600）数据，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - 若查询1天时间粒度（即interval为86400）数据，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00) **默认取值：** 不涉及
+     * @param {number} endTime **参数解释：** 查询结束时间戳 **约束限制：** 需与起始时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，end_time设置为整5分钟时刻点，如：1631240100000）对应2021-09-10 10:15:00） - 若查询1小时时间粒度（即interval为3600）数据，end_time设置为整小时时刻点，如：1631239200000（对应2021-09-10 10:00:00） - 若查询1天时间粒度（即interval为86400）数据，end_time设置为东8区零点时刻点，如：1631203200000（对应2021-09-10 00:00:00） **默认取值：** 不涉及
+     * @param {string} domainName **参数解释：** 域名列表 &gt; 如果域名在查询时间段内无数据，结果将不返回该域名的信息  **约束限制：** 仅支持查询已经在CDN创建成功的域名 **取值范围：** - all表示查询名下全部域名 - 多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com **默认取值：** 不涉及
+     * @param {string} statType **参数解释：** 统计指标类型 **约束限制：** 不涉及 **取值范围：** - 网络资源消耗   - bw：带宽   - flux：流量 - 访问情况   - req_num：请求总数 - HTTP状态码（组合指标）   - http_code_2xx：状态码汇总2xx   - http_code_3xx：状态码汇总3xx   - http_code_4xx：状态码汇总4xx   - http_code_5xx：状态码汇总5xx   - status_code_2xx：状态码详情2xx   - status_code_3xx：状态码详情3xx   - status_code_4xx：状态码详情4xx   - status_code_5xx：状态码详情5xx **默认取值：** 不涉及
+     * @param {string} [country] **参数解释：** 国家&amp;地区编码 **约束限制：** - 查询运营商统计数据时，不传该参数 - 查询top_url数据时，不传该参数 - 查询区域情况数据时，该参数只能传cn(中国)  **取值范围：** - 多个以英文逗号分隔 - all表示全部，取值见附录 **默认取值：** 不涉及
+     * @param {string} [groupBy] **参数解释：** 数据分组方式 **约束限制：** 不涉及 **取值范围：** - 多个以英文逗号分隔 - domain：按域名分组 - country：按国际&amp;地区分组 - province：按省份分组 - isp：按运营商分组 **默认取值：** 默认不分组
+     * @param {string} [userDomainId] **参数解释：** 域名所属账号的domain_id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1451,35 +1434,30 @@ export class CdnClient {
     }
 
     /**
+     * 查询域名的汇总统计数据或明细数据。支持域名、国家及地区、省份、运营商分组查询，支持查询域名的带宽、流量、请求数、HTTP状态码等指标。
      * - 支持查询90天内的数据。
-     * 
      * - 支持多指标同时查询，不超过5个。
-     * 
      * - 最多同时指定20个域名。
-     * 
      * - 起始时间和结束时间需要同时指定，左闭右开，毫秒级时间戳，且时间点必须为与查询时间间隔参数匹配的整时刻点。比如查询时间间隔为5分钟时，起始时间和结束时间必须为5分钟整时刻点，如：0分、5分、10分、15分等，如果时间点与时间间隔不匹配，返回数据可能与预期不一致。统一用开始时间表示一个时间段，如：2019-01-24 20:15:00 表示取 [20:15:00, 20:20:00)的统计数据，且左闭右开。
-     * 
-     * - action取值：location_detail,location_summary
-     * 
      * - 流量类指标单位统一为Byte（字节）、带宽类指标单位统一为bit/s（比特/秒）、请求数类和状态码类指标单位统一为次数。用于查询指定域名、指定统计指标的区域运营商明细数据。
-     * 
      * - 单租户调用频率：15次/s。
+     * - QPS(每秒请求数)：当action传location_detail、stat_type传req_num时，可自行根据接口返回值计算QPS(每秒请求数)，计算方法：单个查询粒度内的请求数/查询时间粒度(interval)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 按区域运营商查询域名统计数据
-     * @param {string} action 动作名称，可选location_summary、location_detail。 - location_summary：查询汇总数据 - location_detail：查询数据详情。
-     * @param {number} startTime 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下： - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
-     * @param {number} endTime 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下： - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00) - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
-     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
-     * @param {string} statType - 网络资源消耗   - bw（带宽）   - flux（流量） - 访问情况   - req_num（请求总数） - HTTP状态码（组合指标）   - http_code_2xx(状态码汇总2xx)   - http_code_3xx(状态码汇总3xx)   - http_code_4xx(状态码汇总4xx)   - http_code_5xx(状态码汇总5xx)   - status_code_2xx(状态码详情2xx)   - status_code_3xx(状态码详情3xx)   - status_code_4xx(状态码详情4xx)   - status_code_5xx(状态码详情5xx)
-     * @param {string} [ipVersion] - 传输协议：IPv4或IPv6,不支持同时指定  - 如果不传，默认取全部
-     * @param {number} [interval] 查询时间间隔，单位：秒，取值说明： - 300(5分钟)：最大查询跨度2天 - 3600(1小时)：最大查询跨度7天 - 86400(1天)：最大查询跨度31天 - 如果不传，默认取对应时间跨度的最小间隔。
-     * @param {string} [country] - 国家&amp;地区编码，多个以英文逗号分隔，all表示全部，取值见附录 - 访问运营商统计数据时不能填写 - 访问top_url数据时不能填写 - 访问区域情况数据时只能填写cn(中国)
-     * @param {string} [province] 省份编码，当country为cn（中国）时有效，多个以英文逗号分隔，all表示全部，取值见附录
-     * @param {string} [isp] 运营商编码，多个以英文逗号分隔，all表示全部，取值见附录
-     * @param {string} [groupBy] 数据分组方式，多个以英文逗号分隔，可选domain（域名）、country（国家）、province（省份，仅国家为中国时有效）、isp（区域运营商），默认不分组
-     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
+     * @param {string} action **参数解释：** 查询数据类型 **约束限制：** 不涉及 **取值范围：** - location_summary：查询汇总数据 - location_detail：查询明细数据 **默认取值：** 不涉及
+     * @param {number} startTime **参数解释：** 查询起始时间戳 **约束限制：** 需与结束时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - 若查询1小时时间粒度（即interval为3600）数据，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - 若查询1天时间粒度（即interval为86400）数据，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00) **默认取值：** 不涉及
+     * @param {number} endTime **参数解释：** 查询结束时间戳 **约束限制：** 需与起始时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，end_time设置为整5分钟时刻点，如：1631240100000）对应2021-09-10 10:15:00） - 若查询1小时时间粒度（即interval为3600）数据，end_time设置为整小时时刻点，如：1631239200000（对应2021-09-10 10:00:00） - 若查询1天时间粒度（即interval为86400）数据，end_time设置为东8区零点时刻点，如：1631203200000（对应2021-09-10 00:00:00） **默认取值：** 不涉及
+     * @param {string} domainName **参数解释：** 域名列表 &gt; 如果域名在查询时间段内无数据，结果将不返回该域名的信息  **约束限制：** 仅支持查询已经在CDN创建成功的域名 **取值范围：** - all表示查询名下全部域名 - 多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com **默认取值：** 不涉及
+     * @param {string} statType **参数解释：** 统计指标类型 **约束限制：** 不涉及 **取值范围：** - 网络资源消耗   - bw：带宽   - flux：流量 - 访问情况   - req_num：请求总数 - HTTP状态码（组合指标）   - http_code_2xx：状态码汇总2xx   - http_code_3xx：状态码汇总3xx   - http_code_4xx：状态码汇总4xx   - http_code_5xx：状态码汇总5xx   - status_code_2xx：状态码详情2xx   - status_code_3xx：状态码详情3xx   - status_code_4xx：状态码详情4xx   - status_code_5xx：状态码详情5xx **默认取值：** 不涉及
+     * @param {string} [ipVersion] **参数解释：** 客户端传输协议 **约束限制：** 仅支持选择单一协议，不可同时配置IPv4、IPv6 **取值范围：** - IPv4 - IPv6 - 如果不传，默认查询全部 **默认取值：** 不涉及
+     * @param {number} [interval] **参数解释：** 查询时间粒度 **约束限制：** - 查询跨度不超过1天时，支持5分钟粒度、1小时粒度 - 查询跨度不超过7天时，支持5分钟、1小时粒度、1天粒度 - 查询跨度不超过31天时，支持1小时粒度、1天粒度  **取值范围：** - 300：采样时间间隔为5分钟，单位：秒 - 3600：采样时间间隔为1小时，单位：秒 - 86400：采样时间间隔为1天，单位：秒 **默认取值：** 默认取对应查询时间跨度的最小时间间隔 &gt; 时间跨度小于等于7天，最小时间间隔为300；时间跨度大于7天，最小时间间隔为3600
+     * @param {string} [country] **参数解释：** 国家&amp;地区编码 **约束限制：** - 查询运营商统计数据时，不传该参数 - 查询top_url数据时，不传该参数 - 查询区域情况数据时，该参数只能传cn(中国)  **取值范围：** - 多个以英文逗号分隔 - all表示全部，取值见附录 **默认取值：** 不涉及
+     * @param {string} [province] **参数解释：** 省份编码 **约束限制：** 当country为cn（中国）时，该参数生效 **取值范围：** - 多个以英文逗号分隔 - all表示全部，取值见附录 **默认取值：** 不涉及
+     * @param {string} [isp] **参数解释：** 运营商编码 **约束限制：** 不涉及 **取值范围：** - 多个以英文逗号分隔 - all表示全部，取值见附录 **默认取值：** 不涉及
+     * @param {string} [groupBy] **参数解释：** 数据分组方式 **约束限制：** 不涉及 **取值范围：** - 多个以英文逗号分隔 - domain：按域名分组 - country：按国际&amp;地区分组 - province：按省份分组 - isp：按运营商分组 **默认取值：** 默认不分组
+     * @param {string} [enterpriseProjectId] **参数解释：** 企业项目id &gt; 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id  **约束限制：** - 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目 - 当使用子账号调用接口时，该参数必传 **取值范围：** all表示所有项目 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1493,32 +1471,27 @@ export class CdnClient {
     }
 
     /**
+     * 查询域名流量、带宽、请求数、HTTP状态码等指标的汇总数据及明细数据。
      * - 支持查询90天内的数据。
-     * 
      * - 支持多指标同时查询，不超过5个。
-     * 
      * - 最多同时指定20个域名。
-     * 
      * - 起始时间和结束时间需要同时指定，左闭右开，毫秒级时间戳，且时间点必须为与查询时间间隔参数匹配的整时刻点。比如查询时间间隔为5分钟时，起始时间和结束时间必须为5分钟整时刻点，如：0分、5分、10分、15分等，如果时间点与时间间隔不匹配，返回数据可能与预期不一致。统一用开始时间表示一个时间段，如：2019-01-24 20:15:00 表示取 [20:15:00, 20:20:00)的统计数据，且左闭右开。
-     * 
-     * - action取值：detail,summary
-     * 
      * - 流量类指标单位统一为Byte（字节）、带宽类指标单位统一为bit/s（比特/秒）、请求数类和状态码类指标单位统一为次数。用于查询指定域名、指定统计指标的明细数据。
-     * 
      * - 单租户调用频率：15次/s。
+     * - QPS(每秒请求数)：当action传detail、stat_type传req_num时，可自行根据接口返回值计算QPS(每秒请求数)，计算方法：单个查询粒度内的请求数/查询时间粒度(interval)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询域名统计数据
-     * @param {string} action 动作名称，可选summary、detail。 - summary：查询汇总数据 - detail：查询数据详情。
-     * @param {number} startTime 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下： - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
-     * @param {number} endTime 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下： - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00) - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
-     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
-     * @param {string} statType - 网络资源消耗：   - bw（带宽）   - flux（流量）   - bs_bw（回源带宽）   - bs_flux（回源流量） - 访问情况   - req_num（请求总数）   - hit_num（请求命中次数）   - bs_num（回源总数）   - bs_fail_num（回源失败数）   - hit_flux（命中流量） - HTTP状态码（组合指标）   - http_code_2xx（状态码汇总2xx）   - http_code_3xx（状态码汇总3xx）   - http_code_4xx（状态码汇总4xx）   - http_code_5xx（状态码汇总5xx）   - bs_http_code_2xx（回源状态码汇总2xx）   - bs_http_code_3xx（回源状态码汇总3xx）   - bs_http_code_4xx（回源状态码汇总4xx）   - bs_http_code_5xx（回源状态码汇总5xx）   - status_code_2xx（状态码详情2xx）   - status_code_3xx（状态码详情3xx）   - status_code_4xx（状态码详情4xx）   - status_code_5xx（状态码详情5xx）   - bs_status_code_2xx（回源状态码详情2xx）   - bs_status_code_3xx（回源状态码详情3xx）   - bs_status_code_4xx（回源状态码详情4xx）   - bs_status_code_5xx（回源状态码详情5xx）   - status_code和bs_status_code不能一起查询
-     * @param {number} [interval] 查询时间间隔，单位：秒，取值说明： - 300(5分钟)：最大查询跨度2天 - 3600(1小时)：最大查询跨度7天 - 86400(1天)：最大查询跨度31天 - 如果不传，默认取对应时间跨度的最小间隔。
-     * @param {string} [groupBy] 数据分组方式，可选domain，默认不分组
-     * @param {string} [serviceArea] 服务区域：mainland_china(中国大陆)，outside_mainland_china(中国大陆境外)，默认为mainland_china，当查询回源类指标时该参数无效。
-     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
+     * @param {string} action **参数解释：** 查询数据类型 **约束限制：** 不涉及 **取值范围：** - summary：查询汇总数据 - detail：查询明细数据 **默认取值：** 不涉及
+     * @param {number} startTime **参数解释：** 查询起始时间戳 **约束限制：** 需与结束时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - 若查询1小时时间粒度（即interval为3600）数据，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - 若查询1天时间粒度（即interval为86400）数据，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00) **默认取值：** 不涉及
+     * @param {number} endTime **参数解释：** 查询结束时间戳 **约束限制：** 需与起始时间戳同时指定，左闭右开 **取值范围：** - 若查询5分钟时间粒度（即interval为300）数据，end_time设置为整5分钟时刻点，如：1631240100000）对应2021-09-10 10:15:00） - 若查询1小时时间粒度（即interval为3600）数据，end_time设置为整小时时刻点，如：1631239200000（对应2021-09-10 10:00:00） - 若查询1天时间粒度（即interval为86400）数据，end_time设置为东8区零点时刻点，如：1631203200000（对应2021-09-10 00:00:00） **默认取值：** 不涉及
+     * @param {string} domainName **参数解释：** 域名列表 &gt; 如果域名在查询时间段内无数据，结果将不返回该域名的信息  **约束限制：** 仅支持查询已经在CDN创建成功的域名 **取值范围：** - all表示查询名下全部域名 - 多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com **默认取值：** 不涉及
+     * @param {string} statType **参数解释：** 统计指标类型 **约束限制：** HTTP状态码中的status_code指标和bs_status_code指标不能一起查询 **取值范围：** - 网络资源消耗   - bw：带宽   - flux：流量   - bs_bw：回源带宽   - bs_flux：回源流量 - 访问情况   - req_num：请求总数   - hit_num：请求命中次数   - bs_num：回源总数   - bs_fail_num：回源失败数   - hit_flux：命中流量 - HTTP状态码：组合指标   - http_code_2xx：状态码汇总2xx   - http_code_3xx：状态码汇总3xx   - http_code_4xx：状态码汇总4xx   - http_code_5xx：状态码汇总5xx   - bs_http_code_2xx：回源状态码汇总2xx   - bs_http_code_3xx：回源状态码汇总3xx   - bs_http_code_4xx：回源状态码汇总4xx   - bs_http_code_5xx：回源状态码汇总5xx   - status_code_2xx：状态码详情2xx   - status_code_3xx：状态码详情3xx   - status_code_4xx：状态码详情4xx   - status_code_5xx：状态码详情5xx   - bs_status_code_2xx：回源状态码详情2xx   - bs_status_code_3xx：回源状态码详情3xx   - bs_status_code_4xx：回源状态码详情4xx   - bs_status_code_5xx：回源状态码详情5xx **默认取值：** 不涉及
+     * @param {number} [interval] **参数解释：** 查询时间粒度 **约束限制：** - 查询跨度不超过1天时，支持5分钟粒度、1小时粒度 - 查询跨度不超过7天时，支持5分钟、1小时粒度、1天粒度 - 查询跨度不超过31天时，支持1小时粒度、1天粒度  **取值范围：** - 300：采样时间间隔为5分钟，单位：秒 - 3600：采样时间间隔为1小时，单位：秒 - 86400：采样时间间隔为1天，单位：秒 **默认取值：** 默认取对应查询时间跨度的最小时间间隔 &gt; 时间跨度小于等于7天，最小时间间隔为300；时间跨度大于7天，最小时间间隔为3600
+     * @param {string} [groupBy] **参数解释：** 数据分组方式 **约束限制：** 不涉及 **取值范围：** domain：按域名分组 **默认取值：** 默认不分组
+     * @param {string} [serviceArea] **参数解释：** 服务范围 **约束限制：** 当查询回源类指标和状态码详情类指标时该参数无效 **取值范围：** - mainland_china：中国大陆 - outside_mainland_china：中国大陆境外 - global：全球 **默认取值：** mainland_china：中国大陆
+     * @param {string} [enterpriseProjectId] **参数解释：** 企业项目id &gt; 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id  **约束限制：** - 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目 - 当使用子账号调用接口时，该参数必传 **取值范围：** all表示所有项目 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1628,17 +1601,20 @@ export class CdnClient {
     }
 
     /**
-     * 查询日志下载链接，支持查询30天内的日志信息。
+     * 查询日志下载链接。
+     * - 支持查询30天内的日志信息
+     * - 单用户每秒请求不超过20次
+     * - API整体请求每秒不超过200，否则会被限流
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 日志查询
-     * @param {string} domainName 只支持单个域名，如：www.test1.com。
-     * @param {number} [startTime] 查询开始时间，时间格式为整点毫秒时间戳，此参数传空值时默认为当天0点。
-     * @param {number} [endTime] 查询结束时间（不包含结束时间），时间格式为整点毫秒时间戳，与开始时间的最大跨度为30天，此参数传空值时默认为开始时间加1天。
-     * @param {number} [pageSize] 单页最大数量，取值范围为1-10000，默认值：10。
-     * @param {number} [pageNumber] 当前查询第几页，取值范围为1-65535，默认值：1。
-     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {string} domainName **参数解释：** 域名 **约束限制：** 只支持单个域名，如：www.test1.com **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} [startTime] **参数解释：** 查询开始时间 **约束限制：** 不涉及 **取值范围：** 时间格式为整点毫秒时间戳 **默认取值：** 当天0点
+     * @param {number} [endTime] **参数解释：** 查询结束时间 **约束限制：** 不涉及 **取值范围：** - 不包含结束时间 - 与开始时间的最大跨度为30天 - 时间格式为整点毫秒时间戳 **默认取值：** 开始时间加1天
+     * @param {number} [pageSize] **参数解释：** 查询时单页数量 **约束限制：** 不涉及 **取值范围：** 1-10000 **默认取值：** 10
+     * @param {number} [pageNumber] **参数解释：** 当前查询第几页 **约束限制：** 不涉及 **取值范围：** 1-65535 **默认取值：** 1
+     * @param {string} [enterpriseProjectId] **参数解释：** 企业项目id &gt; 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id  **约束限制：** - 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目 - 当使用子账号调用接口时，该参数必传 **取值范围：** all表示所有项目 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1670,7 +1646,7 @@ export class CdnClient {
     }
 
     /**
-     * 查询CDN特殊用户接口
+     * 查询CDN特殊用户。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1688,16 +1664,14 @@ export class CdnClient {
     }
 
     /**
-     * - 配置类型：目前支持，
-     * - 0：热点统计。
-     * - 1：ces上报。
+     * 查询热点统计、CES上报配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询统计配置
-     * @param {number} configType - 配置类型 - 目前支持0：热点统计，1：ces上报
+     * @param {number} configType **参数解释：** 配置类型 **约束限制：** 不涉及 **取值范围：** - 0：热点统计 - 1：ces上报 **默认取值：** 不涉及
      * @param {number} [limit] **参数解释：** 分页查询每页的数量 **约束限制：** 不涉及 **取值范围：** 1-1000 **默认取值：** 10
-     * @param {number} [offset] **参数解释：** 查询偏移量，表示跳过多少个数据开始查询 **约束限制：** 不涉及 **取值范围：** 0-65535 **默认取值：** 0
+     * @param {number} [offset] **参数解释：** 查询偏移量 &gt; 表示跳过多少个数据开始查询  **约束限制：** 不涉及 **取值范围：** 0-65535 **默认取值：** 0
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1750,9 +1724,9 @@ export class CdnClient {
      * @param {number} startTime - 查询起始时间戳，时间戳应设置需为整点时间戳，设置方式如下： - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
      * @param {number} endTime - 查询结束时间戳，时间戳应设置需为整点时间戳，设置方式如下： - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
      * @param {string} statType - 统计类型 - 目前只支持bw（带宽），flux（流量），req_num（请求总数）
-     * @param {string} [serviceArea] 服务区域：mainland_china(中国大陆)，outside_mainland_china(中国大陆境外)，默认为mainland_china，当查询回源类指标时该参数无效。
-     * @param {number} [limit] top域名查询数量,默认为20,最大为500，最小为0
-     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
+     * @param {string} [serviceArea] **参数解释：** 服务范围 **约束限制：** 当查询回源类指标时，该参数无效 **取值范围：** - mainland_china：中国大陆 - outside_mainland_china：中国大陆境外 **默认取值：** - mainland_china：中国大陆
+     * @param {number} [limit] **参数解释：** top域名查询数量 **约束限制：** 不涉及 **取值范围：** 0-500 **默认取值：** 20
+     * @param {string} [enterpriseProjectId] **参数解释：** 企业项目id &gt; 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id  **约束限制：** - 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目 - 当使用子账号调用接口时，该参数必传 **取值范围：** all表示所有项目 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1766,29 +1740,23 @@ export class CdnClient {
     }
 
     /**
-     * - 查询TOP100 URL明细。
-     * 
+     * 查询TOP100 URL明细数据，支持查询流量、请求数指标的明细数据。
      * - 支持查询90天内的数据。
-     * 
      * - 查询跨度不能超过31天。
-     * 
      * - 起始时间和结束时间，左闭右开，需要同时指定。如查询2021-10-24 00:00:00 到 2021-10-25 00:00:00 的数据，表示取 [2021-10-24 00:00:00, 2021-10-25 00:00:00)的统计数据。
-     * 
      * - 开始时间、结束时间必须传毫秒级时间戳，且必须为凌晨0点整时刻点，如果传的不是凌晨0点整时刻点，返回数据可能与预期不一致。
-     * 
      * - 流量类指标单位统一为Byte（字节）、请求数类指标单位统一为次数。用于查询指定域名、指定统计指标的明细数据。
-     * 
      * - 单租户调用频率：5次/s。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询TOP100 URL明细
-     * @param {number} startTime 查询起始时间戳，只能传0点毫秒时间戳
-     * @param {number} endTime 查询结束时间戳，只能传0点毫秒时间戳
-     * @param {string} domainName 域名列表，多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com all表示查询名下全部域名。如果域名在查询时间段内无数据，结果将不返回该域名的信息。
-     * @param {string} statType - 参数类型支持：flux(流量),req_num(请求数)
-     * @param {string} [serviceArea] 服务区域：mainland_china(大陆)，outside_mainland_china(海外)，默认为global(全球)
-     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子账号调用接口时，该参数必传。
+     * @param {number} startTime **参数解释：** 查询起始时间戳 **约束限制：** 该参数只能传0点毫秒时间戳 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} endTime **参数解释：** 查询结束时间戳 **约束限制：** 该参数只能传0点毫秒时间戳 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} domainName **参数解释：** 域名列表 &gt; 如果域名在查询时间段内无数据，结果将不返回该域名的信息  **约束限制：** 仅支持查询已经在CDN创建成功的域名 **取值范围：** - all表示查询名下全部域名 - 多个域名以逗号（半角）分隔，如：www.test1.com,www.test2.com **默认取值：** 不涉及
+     * @param {string} statType **参数解释：** 统计指标类型 **约束限制：** 不涉及 **取值范围：** - flux：流量 - req_num：请求数 **默认取值：** 不涉及
+     * @param {string} [serviceArea] **参数解释：** 服务范围 **约束限制：** 不涉及 **取值范围：** - mainland_china：中国大陆 - outside_mainland_china：中国大陆境外 - global：全球 **默认取值：** global：全球
+     * @param {string} [enterpriseProjectId] **参数解释：** 企业项目id &gt; 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id  **约束限制：** - 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目 - 当使用子账号调用接口时，该参数必传 **取值范围：** all表示所有项目 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1991,12 +1959,12 @@ export class CdnClient {
     }
 
     /**
-     * modify subscription task
+     * 修改运营报表订阅任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改运营报表订阅任务
-     * @param {number} id 订阅任务id
+     * @param {number} id **参数解释：** 订阅任务id **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {SubscriptionTaskVo} [subscriptionTaskVo] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2356,7 +2324,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建统计数据异步导出任务，目前支持话单数据导出、top url导出
+         * 创建统计数据异步导出任务，目前支持话单数据导出、top url导出。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2568,7 +2536,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * create subscription task
+         * 创建运营报表订阅任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2803,7 +2771,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * delete subscription task
+         * 删除运营报表订阅任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3160,7 +3128,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * CDN数据导出
+         * CDN数据导出。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3335,7 +3303,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * - 查询域名top ip统计分析数据
+         * 查询域名top ip统计分析数据，支持查询流量、请求数指标。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3433,7 +3401,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * - 查询域名top 回源URL数据
+         * 查询域名top 回源URL数据，支持查询流量、请求数指标。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3524,7 +3492,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询TOP100 Path访问明细
+         * 查询TOP100 Path访问明细。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3608,12 +3576,9 @@ export const ParamCreater = function () {
         },
     
         /**
-         * - 查询TOP100 referer数据。
-         * 
+         * 查询TOP100 referer明细数据，支持查询流量、请求数指标的明细数据。
          * - 支持查询90天内的数据。
-         * 
          * - 查询跨度不能超过31天。
-         * 
          * - 单租户调用频率：2次/s。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3641,8 +3606,6 @@ export const ParamCreater = function () {
             let serviceArea;
             
             let enterpriseProjectId;
-            
-            let includeRatio;
 
             if (listCdnDomainTopRefersRequest !== null && listCdnDomainTopRefersRequest !== undefined) {
                 if (listCdnDomainTopRefersRequest instanceof ListCdnDomainTopRefersRequest) {
@@ -3652,7 +3615,6 @@ export const ParamCreater = function () {
                     statType = listCdnDomainTopRefersRequest.statType;
                     serviceArea = listCdnDomainTopRefersRequest.serviceArea;
                     enterpriseProjectId = listCdnDomainTopRefersRequest.enterpriseProjectId;
-                    includeRatio = listCdnDomainTopRefersRequest.includeRatio;
                 } else {
                     startTime = listCdnDomainTopRefersRequest['start_time'];
                     endTime = listCdnDomainTopRefersRequest['end_time'];
@@ -3660,7 +3622,6 @@ export const ParamCreater = function () {
                     statType = listCdnDomainTopRefersRequest['stat_type'];
                     serviceArea = listCdnDomainTopRefersRequest['service_area'];
                     enterpriseProjectId = listCdnDomainTopRefersRequest['enterprise_project_id'];
-                    includeRatio = listCdnDomainTopRefersRequest['include_ratio'];
                 }
             }
 
@@ -3695,9 +3656,6 @@ export const ParamCreater = function () {
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
-            if (includeRatio !== null && includeRatio !== undefined) {
-                localVarQueryParameter['include_ratio'] = includeRatio;
-            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -3705,7 +3663,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * - 统计分析TOP UA统计数据
+         * 统计分析TOP UA统计数据，支持查询流量、请求数指标。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3803,11 +3761,10 @@ export const ParamCreater = function () {
         },
     
         /**
-         * - 按域名维度查询每天客户端访问详情统计。
+         * 按域名维度查询每天客户端访问详情统计。
          * - 支持查询90天内的数据。
-         * - ip_num查询跨度只支持1天,uv查询跨度只支持5分钟。
          * - 起始时间和结束时间，左闭右开，需要同时指定。如查询2022-07-12 00:00:00 到 2022-07-13 00:00:00 的数据，表示取 [2022-07-12 00:00:00, 2022-07-13 00:00:00)的统计数据。
-         * - ip_num开始时间、结束时间必须传毫秒级时间戳，必须为凌晨0点整时刻点，如果传的不是凌晨0点整时刻点，返回数据可能与预期不一致。
+         * - uv查询时间粒度只支持5分钟。
          * - uv必须为5分钟整时刻点，如：0分、5分、10分、15分等，如果传的不是5分钟时刻点，返回数据可能与预期不一致
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4040,7 +3997,9 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 分页查询统计数据异步导出任务，按修改时间降序排列，当任务状态为success时，返回参数中会包含download_link
+         * 分页查询统计数据异步导出任务。
+         * - 按修改时间降序排列
+         * - 当任务状态为success时，返回参数中会包含下载链接（download_link）
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4056,46 +4015,40 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let taskId;
-            
-            let taskName;
-            
             let limit;
             
             let offset;
+            
+            let taskId;
+            
+            let taskName;
 
             if (listExportTasksRequest !== null && listExportTasksRequest !== undefined) {
                 if (listExportTasksRequest instanceof ListExportTasksRequest) {
-                    taskId = listExportTasksRequest.taskId;
-                    taskName = listExportTasksRequest.taskName;
                     limit = listExportTasksRequest.limit;
                     offset = listExportTasksRequest.offset;
+                    taskId = listExportTasksRequest.taskId;
+                    taskName = listExportTasksRequest.taskName;
                 } else {
-                    taskId = listExportTasksRequest['task_id'];
-                    taskName = listExportTasksRequest['task_name'];
                     limit = listExportTasksRequest['limit'];
                     offset = listExportTasksRequest['offset'];
+                    taskId = listExportTasksRequest['task_id'];
+                    taskName = listExportTasksRequest['task_name'];
                 }
             }
 
         
-            if (taskId === null || taskId === undefined) {
-                throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling listExportTasks.');
-            }
-            if (taskId !== null && taskId !== undefined) {
-                localVarQueryParameter['task_id'] = taskId;
-            }
-            if (taskName === null || taskName === undefined) {
-                throw new RequiredError('taskName','Required parameter taskName was null or undefined when calling listExportTasks.');
-            }
-            if (taskName !== null && taskName !== undefined) {
-                localVarQueryParameter['task_name'] = taskName;
-            }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
+            }
+            if (taskName !== null && taskName !== undefined) {
+                localVarQueryParameter['task_name'] = taskName;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4241,7 +4194,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * query subscription task
+         * 查询运营报表订阅任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4320,15 +4273,8 @@ export const ParamCreater = function () {
         },
     
         /**
-         * - 设置用户计费模式。
-         * 
-         * - 服务区域仅支持mainland_china（国内）
-         * 
-         * - 计费模式仅支持设置flux（流量），v2及以上客户支持bw（带宽）
-         * 
-         * - 加速类型仅支持base（基础加速）
-         * 
-         * - 单租户调用频率：10次/min。
+         * 设置用户计费模式。
+         * - 单租户调用频率：10次/min
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4366,7 +4312,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * - 设置统计配置。
+         * 设置统计配置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4627,14 +4573,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * - 查询用户计费模式。
-         * 
-         * - 服务区域仅支持mainland_china（国内，默认）和outside_mainland_china（海外）
-         * 
-         * - 计费模式状态支持active（已生效），upcoming（待生效）两种状态，默认为active(已生效)
-         * 
-         * - 加速类型仅支持base（基础加速）
-         * 
+         * 查询用户计费模式。
          * - 单租户调用频率：5次/s。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4689,7 +4628,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * CDN查询域名国家统计数据明细
+         * CDN查询域名国家统计数据明细。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4887,19 +4826,14 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询域名的汇总统计数据或明细数据。支持域名、国家及地区、省份、运营商分组查询，支持查询域名的带宽、流量、请求数、HTTP状态码等指标。
          * - 支持查询90天内的数据。
-         * 
          * - 支持多指标同时查询，不超过5个。
-         * 
          * - 最多同时指定20个域名。
-         * 
          * - 起始时间和结束时间需要同时指定，左闭右开，毫秒级时间戳，且时间点必须为与查询时间间隔参数匹配的整时刻点。比如查询时间间隔为5分钟时，起始时间和结束时间必须为5分钟整时刻点，如：0分、5分、10分、15分等，如果时间点与时间间隔不匹配，返回数据可能与预期不一致。统一用开始时间表示一个时间段，如：2019-01-24 20:15:00 表示取 [20:15:00, 20:20:00)的统计数据，且左闭右开。
-         * 
-         * - action取值：location_detail,location_summary
-         * 
          * - 流量类指标单位统一为Byte（字节）、带宽类指标单位统一为bit/s（比特/秒）、请求数类和状态码类指标单位统一为次数。用于查询指定域名、指定统计指标的区域运营商明细数据。
-         * 
          * - 单租户调用频率：15次/s。
+         * - QPS(每秒请求数)：当action传location_detail、stat_type传req_num时，可自行根据接口返回值计算QPS(每秒请求数)，计算方法：单个查询粒度内的请求数/查询时间粒度(interval)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5028,19 +4962,14 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询域名流量、带宽、请求数、HTTP状态码等指标的汇总数据及明细数据。
          * - 支持查询90天内的数据。
-         * 
          * - 支持多指标同时查询，不超过5个。
-         * 
          * - 最多同时指定20个域名。
-         * 
          * - 起始时间和结束时间需要同时指定，左闭右开，毫秒级时间戳，且时间点必须为与查询时间间隔参数匹配的整时刻点。比如查询时间间隔为5分钟时，起始时间和结束时间必须为5分钟整时刻点，如：0分、5分、10分、15分等，如果时间点与时间间隔不匹配，返回数据可能与预期不一致。统一用开始时间表示一个时间段，如：2019-01-24 20:15:00 表示取 [20:15:00, 20:20:00)的统计数据，且左闭右开。
-         * 
-         * - action取值：detail,summary
-         * 
          * - 流量类指标单位统一为Byte（字节）、带宽类指标单位统一为bit/s（比特/秒）、请求数类和状态码类指标单位统一为次数。用于查询指定域名、指定统计指标的明细数据。
-         * 
          * - 单租户调用频率：15次/s。
+         * - QPS(每秒请求数)：当action传detail、stat_type传req_num时，可自行根据接口返回值计算QPS(每秒请求数)，计算方法：单个查询粒度内的请求数/查询时间粒度(interval)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5440,7 +5369,10 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询日志下载链接，支持查询30天内的日志信息。
+         * 查询日志下载链接。
+         * - 支持查询30天内的日志信息
+         * - 单用户每秒请求不超过20次
+         * - API整体请求每秒不超过200，否则会被限流
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5536,7 +5468,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询CDN特殊用户接口
+         * 查询CDN特殊用户。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5557,9 +5489,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * - 配置类型：目前支持，
-         * - 0：热点统计。
-         * - 1：ces上报。
+         * 查询热点统计、CES上报配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5746,18 +5676,12 @@ export const ParamCreater = function () {
         },
     
         /**
-         * - 查询TOP100 URL明细。
-         * 
+         * 查询TOP100 URL明细数据，支持查询流量、请求数指标的明细数据。
          * - 支持查询90天内的数据。
-         * 
          * - 查询跨度不能超过31天。
-         * 
          * - 起始时间和结束时间，左闭右开，需要同时指定。如查询2021-10-24 00:00:00 到 2021-10-25 00:00:00 的数据，表示取 [2021-10-24 00:00:00, 2021-10-25 00:00:00)的统计数据。
-         * 
          * - 开始时间、结束时间必须传毫秒级时间戳，且必须为凌晨0点整时刻点，如果传的不是凌晨0点整时刻点，返回数据可能与预期不一致。
-         * 
          * - 流量类指标单位统一为Byte（字节）、请求数类指标单位统一为次数。用于查询指定域名、指定统计指标的明细数据。
-         * 
          * - 单租户调用频率：5次/s。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -6296,7 +6220,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * modify subscription task
+         * 修改运营报表订阅任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

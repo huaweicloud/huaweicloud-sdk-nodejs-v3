@@ -165,6 +165,8 @@ export * from './model/ResizeInstanceForRocketMqRequest';
 export * from './model/ResizeInstanceForRocketMqResponse';
 export * from './model/ResizeInstanceRequest';
 export * from './model/ResizeInstanceResponse';
+export * from './model/RestartInstanceRequest';
+export * from './model/RestartInstanceResponse';
 export * from './model/RestoreRecycleInstanceRequest';
 export * from './model/RestoreRecycleInstanceResponse';
 export * from './model/RocketMQConfigReq';

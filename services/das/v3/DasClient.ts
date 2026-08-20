@@ -111,6 +111,10 @@ import { DeleteSqlLimitRulesRequest } from './model/DeleteSqlLimitRulesRequest';
 import { DeleteSqlLimitRulesResponse } from './model/DeleteSqlLimitRulesResponse';
 import { EmailRecord } from './model/EmailRecord';
 import { EmailTemplate } from './model/EmailTemplate';
+import { ExecuteExportTaskRequest } from './model/ExecuteExportTaskRequest';
+import { ExecuteExportTaskResponse } from './model/ExecuteExportTaskResponse';
+import { ExecuteImportTaskRequest } from './model/ExecuteImportTaskRequest';
+import { ExecuteImportTaskResponse } from './model/ExecuteImportTaskResponse';
 import { ExecutionPlan } from './model/ExecutionPlan';
 import { Explain } from './model/Explain';
 import { ExportFullSqlDetailsRequest } from './model/ExportFullSqlDetailsRequest';
@@ -143,12 +147,14 @@ import { FullSqlTask } from './model/FullSqlTask';
 import { GetTransactionListRespTransactionInfoList } from './model/GetTransactionListRespTransactionInfoList';
 import { HealthReportAnalysisResult } from './model/HealthReportAnalysisResult';
 import { HealthReportDiskStat } from './model/HealthReportDiskStat';
+import { HealthReportDiskStatInfo } from './model/HealthReportDiskStatInfo';
 import { HealthReportFullSqlStat } from './model/HealthReportFullSqlStat';
 import { HealthReportInspectionScore } from './model/HealthReportInspectionScore';
 import { HealthReportInspectionStat } from './model/HealthReportInspectionStat';
 import { HealthReportInstanceInfo } from './model/HealthReportInstanceInfo';
 import { HealthReportLostPointsDetail } from './model/HealthReportLostPointsDetail';
 import { HealthReportPerformanceStat } from './model/HealthReportPerformanceStat';
+import { HealthReportPerformanceStatInfo } from './model/HealthReportPerformanceStatInfo';
 import { HealthReportRatioStat } from './model/HealthReportRatioStat';
 import { HealthReportRiskReason } from './model/HealthReportRiskReason';
 import { HealthReportRiskSuggestion } from './model/HealthReportRiskSuggestion';
@@ -487,6 +493,50 @@ export class DasClient {
      */
     public createShareConnections(createShareConnectionsRequest?: CreateShareConnectionsRequest): Promise<CreateShareConnectionsResponse> {
         const options = ParamCreater().createShareConnections(createShareConnectionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 立即执行导出任务，
+     * 用于用户立即执行导出任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 立即执行导出任务
+     * @param {string} connectionId 连接ID
+     * @param {string} jobId 导出任务ID
+     * @param {string} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeExportTask(executeExportTaskRequest?: ExecuteExportTaskRequest): Promise<ExecuteExportTaskResponse> {
+        const options = ParamCreater().executeExportTask(executeExportTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 立即执行导入任务，
+     * 用于用户立即执行导入任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 立即执行导入任务
+     * @param {string} connectionId 连接ID
+     * @param {string} jobId 导入任务ID
+     * @param {string} [xLanguage] 语言
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeImportTask(executeImportTaskRequest?: ExecuteImportTaskRequest): Promise<ExecuteImportTaskResponse> {
+        const options = ParamCreater().executeImportTask(executeImportTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3398,6 +3448,110 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 立即执行导出任务，
+         * 用于用户立即执行导出任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeExportTask(executeExportTaskRequest?: ExecuteExportTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/connections/{connection_id}/export-tasks/{job_id}/execute",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let connectionId;
+            
+            let jobId;
+            
+            let xLanguage;
+
+            if (executeExportTaskRequest !== null && executeExportTaskRequest !== undefined) {
+                if (executeExportTaskRequest instanceof ExecuteExportTaskRequest) {
+                    connectionId = executeExportTaskRequest.connectionId;
+                    jobId = executeExportTaskRequest.jobId;
+                    xLanguage = executeExportTaskRequest.xLanguage;
+                } else {
+                    connectionId = executeExportTaskRequest['connection_id'];
+                    jobId = executeExportTaskRequest['job_id'];
+                    xLanguage = executeExportTaskRequest['X-Language'];
+                }
+            }
+
+        
+            if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling executeExportTask.');
+            }
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling executeExportTask.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'connection_id': connectionId,'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 立即执行导入任务，
+         * 用于用户立即执行导入任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeImportTask(executeImportTaskRequest?: ExecuteImportTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/connections/{connection_id}/import-tasks/{job_id}/execute",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let connectionId;
+            
+            let jobId;
+            
+            let xLanguage;
+
+            if (executeImportTaskRequest !== null && executeImportTaskRequest !== undefined) {
+                if (executeImportTaskRequest instanceof ExecuteImportTaskRequest) {
+                    connectionId = executeImportTaskRequest.connectionId;
+                    jobId = executeImportTaskRequest.jobId;
+                    xLanguage = executeImportTaskRequest.xLanguage;
+                } else {
+                    connectionId = executeImportTaskRequest['connection_id'];
+                    jobId = executeImportTaskRequest['job_id'];
+                    xLanguage = executeImportTaskRequest['X-Language'];
+                }
+            }
+
+        
+            if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling executeImportTask.');
+            }
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling executeImportTask.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'connection_id': connectionId,'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

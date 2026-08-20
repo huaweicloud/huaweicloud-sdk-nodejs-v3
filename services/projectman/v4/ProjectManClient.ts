@@ -13,7 +13,13 @@ import { AddMemberRequestV4 } from './model/AddMemberRequestV4';
 import { AddMemberV4Request } from './model/AddMemberV4Request';
 import { AddMemberV4Response } from './model/AddMemberV4Response';
 import { AlmStatus } from './model/AlmStatus';
+import { AssociateIpdIssuesResp } from './model/AssociateIpdIssuesResp';
+import { AssociateIpdThirdPartyRequest } from './model/AssociateIpdThirdPartyRequest';
+import { AssociateIpdThirdPartyResponse } from './model/AssociateIpdThirdPartyResponse';
 import { AssociateIssueDetail } from './model/AssociateIssueDetail';
+import { AssociateIssuesRequest } from './model/AssociateIssuesRequest';
+import { AssociateIssuesResponse } from './model/AssociateIssuesResponse';
+import { AssociateRespDetail } from './model/AssociateRespDetail';
 import { AssociatedTestCase } from './model/AssociatedTestCase';
 import { AttachWikiDetail } from './model/AttachWikiDetail';
 import { AttachmentEntity } from './model/AttachmentEntity';
@@ -23,6 +29,16 @@ import { BatchAddMembersV4Request } from './model/BatchAddMembersV4Request';
 import { BatchAddMembersV4RequestBody } from './model/BatchAddMembersV4RequestBody';
 import { BatchAddMembersV4Response } from './model/BatchAddMembersV4Response';
 import { BatchAssociatedIssue } from './model/BatchAssociatedIssue';
+import { BatchBaselineIpdIssuesParam } from './model/BatchBaselineIpdIssuesParam';
+import { BatchBaselineIpdIssuesParamAttribute } from './model/BatchBaselineIpdIssuesParamAttribute';
+import { BatchBaselineIpdIssuesRequest } from './model/BatchBaselineIpdIssuesRequest';
+import { BatchBaselineIpdIssuesResponse } from './model/BatchBaselineIpdIssuesResponse';
+import { BatchBaselineIssueResponseResult } from './model/BatchBaselineIssueResponseResult';
+import { BatchCreateIssueSnapitemsRequest } from './model/BatchCreateIssueSnapitemsRequest';
+import { BatchCreateIssueSnapitemsResponse } from './model/BatchCreateIssueSnapitemsResponse';
+import { BatchCreateSnapshotRequest } from './model/BatchCreateSnapshotRequest';
+import { BatchCreateSnapshotRequestIssues } from './model/BatchCreateSnapshotRequestIssues';
+import { BatchCreateSnapshotResponseResult } from './model/BatchCreateSnapshotResponseResult';
 import { BatchDeleteIssuesRequestV4 } from './model/BatchDeleteIssuesRequestV4';
 import { BatchDeleteIssuesV4Request } from './model/BatchDeleteIssuesV4Request';
 import { BatchDeleteIssuesV4Response } from './model/BatchDeleteIssuesV4Response';
@@ -32,14 +48,22 @@ import { BatchDeleteIterationsV4Response } from './model/BatchDeleteIterationsV4
 import { BatchDeleteMembersV4Request } from './model/BatchDeleteMembersV4Request';
 import { BatchDeleteMembersV4RequestBody } from './model/BatchDeleteMembersV4RequestBody';
 import { BatchDeleteMembersV4Response } from './model/BatchDeleteMembersV4Response';
+import { BatchDeleteSnapshotRecordVO } from './model/BatchDeleteSnapshotRecordVO';
+import { BatchDeleteSnapshotsRequest } from './model/BatchDeleteSnapshotsRequest';
+import { BatchDeleteSnapshotsResponse } from './model/BatchDeleteSnapshotsResponse';
 import { BatchListAssociatedIssuesRequest } from './model/BatchListAssociatedIssuesRequest';
 import { BatchListAssociatedIssuesResponse } from './model/BatchListAssociatedIssuesResponse';
 import { BatchUpdateChildNickNamesRequest } from './model/BatchUpdateChildNickNamesRequest';
 import { BatchUpdateChildNickNamesResponse } from './model/BatchUpdateChildNickNamesResponse';
 import { BatchUpdateChildUserNickNamesRequestBody } from './model/BatchUpdateChildUserNickNamesRequestBody';
+import { BatchUpdateSnapshotDeletableFlagRequest } from './model/BatchUpdateSnapshotDeletableFlagRequest';
+import { BatchUpdateSnapshotDeletableFlagResponse } from './model/BatchUpdateSnapshotDeletableFlagResponse';
+import { BatchUpdateSnapshotDeletableVO } from './model/BatchUpdateSnapshotDeletableVO';
 import { BugStatisticResponseV4 } from './model/BugStatisticResponseV4';
+import { COEntity } from './model/COEntity';
 import { CancelProjectDomainRequest } from './model/CancelProjectDomainRequest';
 import { CancelProjectDomainResponse } from './model/CancelProjectDomainResponse';
+import { CcbEntity } from './model/CcbEntity';
 import { Chart } from './model/Chart';
 import { CheckProjectNameRequestV4 } from './model/CheckProjectNameRequestV4';
 import { CheckProjectNameV4Request } from './model/CheckProjectNameV4Request';
@@ -50,11 +74,15 @@ import { ConditionVO } from './model/ConditionVO';
 import { CreateCustomfieldV1Req } from './model/CreateCustomfieldV1Req';
 import { CreateCustomfieldsRequest } from './model/CreateCustomfieldsRequest';
 import { CreateCustomfieldsResponse } from './model/CreateCustomfieldsResponse';
+import { CreateIpdLabelRequest } from './model/CreateIpdLabelRequest';
+import { CreateIpdLabelResponse } from './model/CreateIpdLabelResponse';
+import { CreateIpdProcessInstanceRequest } from './model/CreateIpdProcessInstanceRequest';
+import { CreateIpdProcessInstanceResponse } from './model/CreateIpdProcessInstanceResponse';
 import { CreateIpdProjectIssueAttachmentRequest } from './model/CreateIpdProjectIssueAttachmentRequest';
 import { CreateIpdProjectIssueAttachmentRequestBody } from './model/CreateIpdProjectIssueAttachmentRequestBody';
 import { CreateIpdProjectIssueAttachmentResponse } from './model/CreateIpdProjectIssueAttachmentResponse';
+import { CreateIpdProjectIssueParam } from './model/CreateIpdProjectIssueParam';
 import { CreateIpdProjectIssueRequest } from './model/CreateIpdProjectIssueRequest';
-import { CreateIpdProjectIssueRequestBody } from './model/CreateIpdProjectIssueRequestBody';
 import { CreateIpdProjectIssueResponse } from './model/CreateIpdProjectIssueResponse';
 import { CreateIssueRequestV4 } from './model/CreateIssueRequestV4';
 import { CreateIssueResponseV4Domain } from './model/CreateIssueResponseV4Domain';
@@ -65,6 +93,10 @@ import { CreateIssueV4Response } from './model/CreateIssueV4Response';
 import { CreateIterationRequestV4 } from './model/CreateIterationRequestV4';
 import { CreateIterationV4Request } from './model/CreateIterationV4Request';
 import { CreateIterationV4Response } from './model/CreateIterationV4Response';
+import { CreateProcessInstanceReq } from './model/CreateProcessInstanceReq';
+import { CreateProcessInstanceReqCcbs } from './model/CreateProcessInstanceReqCcbs';
+import { CreateProcessInstanceReqCos } from './model/CreateProcessInstanceReqCos';
+import { CreateProcessInstanceReqOpinions } from './model/CreateProcessInstanceReqOpinions';
 import { CreateProjectDomainRequest } from './model/CreateProjectDomainRequest';
 import { CreateProjectDomainRequestBody } from './model/CreateProjectDomainRequestBody';
 import { CreateProjectDomainResponse } from './model/CreateProjectDomainResponse';
@@ -77,9 +109,14 @@ import { CreateProjectV4RequestBody } from './model/CreateProjectV4RequestBody';
 import { CreateProjectV4Response } from './model/CreateProjectV4Response';
 import { CreateScrumPlanToProjectRequest } from './model/CreateScrumPlanToProjectRequest';
 import { CreateScrumPlanToProjectResponse } from './model/CreateScrumPlanToProjectResponse';
+import { CreateSnapshotResult } from './model/CreateSnapshotResult';
+import { CreateSprintSnapshotsRequest } from './model/CreateSprintSnapshotsRequest';
+import { CreateSprintSnapshotsResponse } from './model/CreateSprintSnapshotsResponse';
 import { CreateSystemIssueRequestV4 } from './model/CreateSystemIssueRequestV4';
 import { CreateSystemIssueV4Request } from './model/CreateSystemIssueV4Request';
 import { CreateSystemIssueV4Response } from './model/CreateSystemIssueV4Response';
+import { CreateThirdPartyAssociateDTO } from './model/CreateThirdPartyAssociateDTO';
+import { CreateThirdPartyAssociateVO } from './model/CreateThirdPartyAssociateVO';
 import { Creator } from './model/Creator';
 import { CustomFeildRecord } from './model/CustomFeildRecord';
 import { CustomField } from './model/CustomField';
@@ -87,6 +124,10 @@ import { DeleteAttachmentRequest } from './model/DeleteAttachmentRequest';
 import { DeleteAttachmentResponse } from './model/DeleteAttachmentResponse';
 import { DeleteIpdImageInIssueRequest } from './model/DeleteIpdImageInIssueRequest';
 import { DeleteIpdImageInIssueResponse } from './model/DeleteIpdImageInIssueResponse';
+import { DeleteIpdLabelRequest } from './model/DeleteIpdLabelRequest';
+import { DeleteIpdLabelResponse } from './model/DeleteIpdLabelResponse';
+import { DeleteIpdThirdPartyRequest } from './model/DeleteIpdThirdPartyRequest';
+import { DeleteIpdThirdPartyResponse } from './model/DeleteIpdThirdPartyResponse';
 import { DeleteIssueV4Request } from './model/DeleteIssueV4Request';
 import { DeleteIssueV4Response } from './model/DeleteIssueV4Response';
 import { DeleteIterationV4Request } from './model/DeleteIterationV4Request';
@@ -97,6 +138,8 @@ import { DeleteProjectV4Request } from './model/DeleteProjectV4Request';
 import { DeleteProjectV4Response } from './model/DeleteProjectV4Response';
 import { DeleteScrumPlanInProjectRequest } from './model/DeleteScrumPlanInProjectRequest';
 import { DeleteScrumPlanInProjectResponse } from './model/DeleteScrumPlanInProjectResponse';
+import { DeleteThirdPartyAssociateResponseResult } from './model/DeleteThirdPartyAssociateResponseResult';
+import { DeleteThirdPartyAssociateVO } from './model/DeleteThirdPartyAssociateVO';
 import { DemandStatisticResponseV4 } from './model/DemandStatisticResponseV4';
 import { DomainVO } from './model/DomainVO';
 import { DownloadAttachmentRequest } from './model/DownloadAttachmentRequest';
@@ -107,13 +150,17 @@ import { DownloadIpdImageInIssueRequest } from './model/DownloadIpdImageInIssueR
 import { DownloadIpdImageInIssueResponse } from './model/DownloadIpdImageInIssueResponse';
 import { DownloadIpdIssueAttachmentRequest } from './model/DownloadIpdIssueAttachmentRequest';
 import { DownloadIpdIssueAttachmentResponse } from './model/DownloadIpdIssueAttachmentResponse';
+import { FailureDetail } from './model/FailureDetail';
 import { FieldCodeValuePair } from './model/FieldCodeValuePair';
+import { FieldLongDateVO } from './model/FieldLongDateVO';
 import { FieldVO } from './model/FieldVO';
 import { GetProjectInfoV4ResultProject } from './model/GetProjectInfoV4ResultProject';
 import { GetProjectInfoV4ResultProjectCreator } from './model/GetProjectInfoV4ResultProjectCreator';
 import { IPDStatusVO } from './model/IPDStatusVO';
 import { IssueAccessory } from './model/IssueAccessory';
+import { IssueAssociateVO } from './model/IssueAssociateVO';
 import { IssueAttrHistoryRecord } from './model/IssueAttrHistoryRecord';
+import { IssueBaselineResult } from './model/IssueBaselineResult';
 import { IssueCommentV4 } from './model/IssueCommentV4';
 import { IssueCompletionRateResponseV4 } from './model/IssueCompletionRateResponseV4';
 import { IssueCompletionRateV4IssueCompletionRates } from './model/IssueCompletionRateV4IssueCompletionRates';
@@ -147,10 +194,15 @@ import { IssueStatus } from './model/IssueStatus';
 import { IssueStatusResponseV4 } from './model/IssueStatusResponseV4';
 import { IssueUser } from './model/IssueUser';
 import { IssueVO } from './model/IssueVO';
+import { IssuesAssociationRespResult } from './model/IssuesAssociationRespResult';
 import { IterationHistory } from './model/IterationHistory';
 import { IterationHistoryDetails } from './model/IterationHistoryDetails';
 import { IterationHistoryOperator } from './model/IterationHistoryOperator';
+import { LabelCreateResult } from './model/LabelCreateResult';
 import { LabelEntity } from './model/LabelEntity';
+import { LabelListResponse } from './model/LabelListResponse';
+import { LabelParam } from './model/LabelParam';
+import { LabelUpdateResult } from './model/LabelUpdateResult';
 import { ListAssociatedIssuesRequest } from './model/ListAssociatedIssuesRequest';
 import { ListAssociatedIssuesResponse } from './model/ListAssociatedIssuesResponse';
 import { ListAssociatedTestCasesRequest } from './model/ListAssociatedTestCasesRequest';
@@ -163,10 +215,16 @@ import { ListDomainNotAddedProjectsV4Request } from './model/ListDomainNotAddedP
 import { ListDomainNotAddedProjectsV4Response } from './model/ListDomainNotAddedProjectsV4Response';
 import { ListDomainNotAddedProjectsV4ResponseBodyCreator } from './model/ListDomainNotAddedProjectsV4ResponseBodyCreator';
 import { ListDomainNotAddedProjectsV4ResponseBodyProjects } from './model/ListDomainNotAddedProjectsV4ResponseBodyProjects';
+import { ListIpdLabelsRequest } from './model/ListIpdLabelsRequest';
+import { ListIpdLabelsResponse } from './model/ListIpdLabelsResponse';
 import { ListIpdProjectIssuesRequest } from './model/ListIpdProjectIssuesRequest';
 import { ListIpdProjectIssuesResponse } from './model/ListIpdProjectIssuesResponse';
+import { ListIpdReviewFormsByIssueIdRequest } from './model/ListIpdReviewFormsByIssueIdRequest';
+import { ListIpdReviewFormsByIssueIdResponse } from './model/ListIpdReviewFormsByIssueIdResponse';
 import { ListIssueAssociatedCommitsRequest } from './model/ListIssueAssociatedCommitsRequest';
 import { ListIssueAssociatedCommitsResponse } from './model/ListIssueAssociatedCommitsResponse';
+import { ListIssueBySnapIdsRequest } from './model/ListIssueBySnapIdsRequest';
+import { ListIssueBySnapIdsResponse } from './model/ListIssueBySnapIdsResponse';
 import { ListIssueCommentsV4Request } from './model/ListIssueCommentsV4Request';
 import { ListIssueCommentsV4Response } from './model/ListIssueCommentsV4Response';
 import { ListIssueCustomFieldsRequest } from './model/ListIssueCustomFieldsRequest';
@@ -179,6 +237,8 @@ import { ListIssueRecordsV4Request } from './model/ListIssueRecordsV4Request';
 import { ListIssueRecordsV4Response } from './model/ListIssueRecordsV4Response';
 import { ListIssueRequestV4 } from './model/ListIssueRequestV4';
 import { ListIssueRequestV4CustomFields } from './model/ListIssueRequestV4CustomFields';
+import { ListIssueSprintSnapshotsRequest } from './model/ListIssueSprintSnapshotsRequest';
+import { ListIssueSprintSnapshotsResponse } from './model/ListIssueSprintSnapshotsResponse';
 import { ListIssueStatuesRequest } from './model/ListIssueStatuesRequest';
 import { ListIssueStatuesResponse } from './model/ListIssueStatuesResponse';
 import { ListIssuesSfV4Request } from './model/ListIssuesSfV4Request';
@@ -241,10 +301,31 @@ import { OptionVO } from './model/OptionVO';
 import { PageInfoVO } from './model/PageInfoVO';
 import { PageVO } from './model/PageVO';
 import { PlanVO } from './model/PlanVO';
+import { ProcessInstanceResponseResult } from './model/ProcessInstanceResponseResult';
+import { ProcessInstanceResponseResultAssignee } from './model/ProcessInstanceResponseResultAssignee';
+import { ProcessInstanceResponseResultCcbs } from './model/ProcessInstanceResponseResultCcbs';
+import { ProcessInstanceResponseResultCos } from './model/ProcessInstanceResponseResultCos';
+import { ProcessInstanceResponseResultCreatedBy } from './model/ProcessInstanceResponseResultCreatedBy';
+import { ProcessInstanceResponseResultCreatedBy1 } from './model/ProcessInstanceResponseResultCreatedBy1';
+import { ProcessInstanceResponseResultCurrOwner } from './model/ProcessInstanceResponseResultCurrOwner';
+import { ProcessInstanceResponseResultIssuePriority } from './model/ProcessInstanceResponseResultIssuePriority';
+import { ProcessInstanceResponseResultIssueStatus } from './model/ProcessInstanceResponseResultIssueStatus';
+import { ProcessInstanceResponseResultModifiedBy } from './model/ProcessInstanceResponseResultModifiedBy';
+import { ProcessInstanceResponseResultOpinions } from './model/ProcessInstanceResponseResultOpinions';
+import { ProcessInstanceResponseResultReviewConfig } from './model/ProcessInstanceResponseResultReviewConfig';
+import { ProcessInstanceResponseResultStatus } from './model/ProcessInstanceResponseResultStatus';
 import { ProjectChildModule } from './model/ProjectChildModule';
 import { ProjectModule } from './model/ProjectModule';
+import { PutIpdChangeReviewFormV2Request } from './model/PutIpdChangeReviewFormV2Request';
+import { PutIpdChangeReviewFormV2Response } from './model/PutIpdChangeReviewFormV2Response';
+import { QueryIssueAssociatedItemRequest } from './model/QueryIssueAssociatedItemRequest';
+import { QueryIssueAssociatedItemResponse } from './model/QueryIssueAssociatedItemResponse';
 import { RemoveProjectRequest } from './model/RemoveProjectRequest';
 import { RemoveProjectResponse } from './model/RemoveProjectResponse';
+import { ReviewCommentEntity } from './model/ReviewCommentEntity';
+import { ReviewEntity } from './model/ReviewEntity';
+import { ReviewOpinionEntity } from './model/ReviewOpinionEntity';
+import { ReviewUpdateBodyV2 } from './model/ReviewUpdateBodyV2';
 import { ScrumCustomField } from './model/ScrumCustomField';
 import { ScrumStatusFlowDirectToVo } from './model/ScrumStatusFlowDirectToVo';
 import { ScrumStatusFlowVo } from './model/ScrumStatusFlowVo';
@@ -263,6 +344,14 @@ import { ShowCurUserRoleRequest } from './model/ShowCurUserRoleRequest';
 import { ShowCurUserRoleResponse } from './model/ShowCurUserRoleResponse';
 import { ShowIpdAttachmentByWorkItemIdRequest } from './model/ShowIpdAttachmentByWorkItemIdRequest';
 import { ShowIpdAttachmentByWorkItemIdResponse } from './model/ShowIpdAttachmentByWorkItemIdResponse';
+import { ShowIpdFieldsV2Request } from './model/ShowIpdFieldsV2Request';
+import { ShowIpdFieldsV2Response } from './model/ShowIpdFieldsV2Response';
+import { ShowIpdProcessInstancesResponseResult } from './model/ShowIpdProcessInstancesResponseResult';
+import { ShowIpdProcessInstancesResponseResultOpinions } from './model/ShowIpdProcessInstancesResponseResultOpinions';
+import { ShowIpdProcessInstancesResponseResultProcessInstances } from './model/ShowIpdProcessInstancesResponseResultProcessInstances';
+import { ShowIpdProcessInstancesResponseResultStatus } from './model/ShowIpdProcessInstancesResponseResultStatus';
+import { ShowIpdThirdPartyAssociatedRequest } from './model/ShowIpdThirdPartyAssociatedRequest';
+import { ShowIpdThirdPartyAssociatedResponse } from './model/ShowIpdThirdPartyAssociatedResponse';
 import { ShowIssueCompletionRateRequest } from './model/ShowIssueCompletionRateRequest';
 import { ShowIssueCompletionRateResponse } from './model/ShowIssueCompletionRateResponse';
 import { ShowIssueConfigFieldsRequest } from './model/ShowIssueConfigFieldsRequest';
@@ -294,14 +383,25 @@ import { ShowWorkflowTemplateResponse } from './model/ShowWorkflowTemplateRespon
 import { SimpleProject } from './model/SimpleProject';
 import { SimpleUser } from './model/SimpleUser';
 import { SimpleUserIn } from './model/SimpleUserIn';
+import { SnapshotIssueRequest } from './model/SnapshotIssueRequest';
+import { SnapshotsVO } from './model/SnapshotsVO';
 import { SortInfo } from './model/SortInfo';
+import { SprintSnapshotsCreateParam } from './model/SprintSnapshotsCreateParam';
 import { StatusAttribute } from './model/StatusAttribute';
+import { StatusEntity } from './model/StatusEntity';
 import { StatusFlowDirectToVo } from './model/StatusFlowDirectToVo';
 import { StatusVo } from './model/StatusVo';
 import { TemplateListV4ResponseBodyTemplates } from './model/TemplateListV4ResponseBodyTemplates';
+import { ThirdPartyAssociatedDTO } from './model/ThirdPartyAssociatedDTO';
+import { ThirdPartyAssociatedResult } from './model/ThirdPartyAssociatedResult';
+import { ThirdPartyAssociatedResultData } from './model/ThirdPartyAssociatedResultData';
 import { TransferWorkItemFlowRequest } from './model/TransferWorkItemFlowRequest';
 import { TransferWorkItemFlowResponse } from './model/TransferWorkItemFlowResponse';
 import { UpdateChildUserNickNameRequestBody } from './model/UpdateChildUserNickNameRequestBody';
+import { UpdateIpdLabelRequest } from './model/UpdateIpdLabelRequest';
+import { UpdateIpdLabelResponse } from './model/UpdateIpdLabelResponse';
+import { UpdateIpdThirdPartyRequest } from './model/UpdateIpdThirdPartyRequest';
+import { UpdateIpdThirdPartyResponse } from './model/UpdateIpdThirdPartyResponse';
 import { UpdateIssueV4Request } from './model/UpdateIssueV4Request';
 import { UpdateIssueV4Response } from './model/UpdateIssueV4Response';
 import { UpdateIterationRequestV4 } from './model/UpdateIterationRequestV4';
@@ -322,6 +422,8 @@ import { UpdateProjectV4Request } from './model/UpdateProjectV4Request';
 import { UpdateProjectV4Response } from './model/UpdateProjectV4Response';
 import { UpdateScrumPlanInProjectRequest } from './model/UpdateScrumPlanInProjectRequest';
 import { UpdateScrumPlanInProjectResponse } from './model/UpdateScrumPlanInProjectResponse';
+import { UpdateThirdPartyAssociateResponseResult } from './model/UpdateThirdPartyAssociateResponseResult';
+import { UpdateThirdPartyAssociateVO } from './model/UpdateThirdPartyAssociateVO';
 import { UpdateUserNickNameRequestV4 } from './model/UpdateUserNickNameRequestV4';
 import { UploadAttachmentsRequest } from './model/UploadAttachmentsRequest';
 import { UploadAttachmentsRequestBody } from './model/UploadAttachmentsRequestBody';
@@ -333,6 +435,7 @@ import { UploadIssueImgRequest } from './model/UploadIssueImgRequest';
 import { UploadIssueImgRequestBody } from './model/UploadIssueImgRequestBody';
 import { UploadIssueImgResponse } from './model/UploadIssueImgResponse';
 import { UserEntity } from './model/UserEntity';
+import { UserObject } from './model/UserObject';
 import { UserRequest } from './model/UserRequest';
 import { UserStatusStatistic } from './model/UserStatusStatistic';
 import { UserVO } from './model/UserVO';
@@ -940,13 +1043,178 @@ export class ProjectManClient {
     }
 
     /**
+     * 需要给IPD项目下的工作项关联外部链接时，可调用此接口，用户可以通过项目ID和工作项ID，传入需要绑定的外部链接的名称和地址，给该工作项关联外部链接。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新建并关联外部链接
+     * @param {string} projectId 项目32位ID，项目唯一标识，通过查询IPD项目列表获取，响应消息体中的project_id字段的值就是项目ID。
+     * @param {string} issueId 工作项唯一ID。可以通过查询工作项列表或者查询树状工作项获取，响应消息体中的ID字段的值就是工作项ID。
+     * @param {CreateThirdPartyAssociateVO} [associateIpdThirdPartyRequestBody] 给工作项关联外部链接时传入的对象。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public associateIpdThirdParty(associateIpdThirdPartyRequest?: AssociateIpdThirdPartyRequest): Promise<AssociateIpdThirdPartyResponse> {
+        const options = ParamCreater().associateIpdThirdParty(associateIpdThirdPartyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 支持动态关联或取消工作项间的父子层级及其他关联关系，用户可以根据不同的参数明确是关联或者取消，也可以根据参数明确关联的类型，比如关联父、子工作项或者关联其他工作项。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 工作项关联/取消关联
+     * @param {string} projectId 项目32位ID，项目唯一标识。通过查询IPD项目列表获取，响应消息体中的id字段的值就是项目ID。
+     * @param {string} issueId 工作项唯一ID。可以通过查询工作项列表或者查询树状工作项接口获取，响应消息体中的id字段的值就是工作项ID。
+     * @param {string} dstDomainId 目标项目的32位UUID，项目唯一标识。通过查询IPD项目列表获取，响应消息体中的id字段的值就是项目ID。非跨项目场景，与请求路径中的project_id一致。
+     * @param {IssueAssociateVO} associateVO 关联数据信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public associateIssues(associateIssuesRequest?: AssociateIssuesRequest): Promise<AssociateIssuesResponse> {
+        const options = ParamCreater().associateIssues(associateIssuesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 需要批量基线IPD项目下的工作项时，可调用此接口。用户可以根据待基线的工作项ID数组对工作项进行批量基线。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量基线工作项
+     * @param {string} projectId 项目32位ID，项目唯一标识。通过查询IPD项目列表获取，响应消息体中的id字段的值就是项目ID。
+     * @param {BatchBaselineIpdIssuesParam} batchBaselineIpdIssuesRequestBody 批量基线/取消基线工作项参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchBaselineIpdIssues(batchBaselineIpdIssuesRequest?: BatchBaselineIpdIssuesRequest): Promise<BatchBaselineIpdIssuesResponse> {
+        const options = ParamCreater().batchBaselineIpdIssues(batchBaselineIpdIssuesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 为IPD工作项批量创建快照时，可调用此接口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量创建工作项快照
+     * @param {string} projectId 项目32位ID，项目唯一标识。通过查询IPD项目列表获取，响应消息体中的id字段的值就是项目ID。
+     * @param {BatchCreateSnapshotRequest} batchCreateIssueSnapitemsRequestBody 需要创建快照的工作项基本信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateIssueSnapitems(batchCreateIssueSnapitemsRequest?: BatchCreateIssueSnapitemsRequest): Promise<BatchCreateIssueSnapitemsResponse> {
+        const options = ParamCreater().batchCreateIssueSnapitems(batchCreateIssueSnapitemsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据传入的快照ID列表批量删除快照。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除快照
+     * @param {string} projectId 项目32位ID，项目唯一标识。通过查询IPD项目列表获取，响应消息体中的id字段的值就是项目ID。
+     * @param {BatchDeleteSnapshotRecordVO} batchDeleteSnapshotsRequestBody 批量删除快照请求对象。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteSnapshots(batchDeleteSnapshotsRequest?: BatchDeleteSnapshotsRequest): Promise<BatchDeleteSnapshotsResponse> {
+        const options = ParamCreater().batchDeleteSnapshots(batchDeleteSnapshotsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量更新快照的可删除标识状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量更新快照可删除标识
+     * @param {string} projectId 项目32位ID，项目唯一标识。通过查询IPD项目列表获取，响应消息体中的id字段的值就是项目ID。
+     * @param {BatchUpdateSnapshotDeletableVO} batchUpdateSnapshotDeletableFlagRequestBody 批量删除快照请求对象。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateSnapshotDeletableFlag(batchUpdateSnapshotDeletableFlagRequest?: BatchUpdateSnapshotDeletableFlagRequest): Promise<BatchUpdateSnapshotDeletableFlagResponse> {
+        const options = ParamCreater().batchUpdateSnapshotDeletableFlag(batchUpdateSnapshotDeletableFlagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建标签
+     * @param {string} projectId 项目32位ID，项目唯一标识。通过查询IPD项目列表获取，响应消息体中的id字段的值就是项目ID。
+     * @param {LabelParam} createIpdLabelRequestBody 标签创建参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createIpdLabel(createIpdLabelRequest?: CreateIpdLabelRequest): Promise<CreateIpdLabelResponse> {
+        const options = ParamCreater().createIpdLabel(createIpdLabelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建变更评审单，适用于基线评审（BR）和通用评审（GR）单
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建变更评审单（BR/GR）
+     * @param {string} projectId 项目32位ID，项目唯一标识。通过查询IPD项目列表获取，响应消息体中的id字段的值就是项目ID。
+     * @param {CreateProcessInstanceReq} createIpdProcessInstanceRequestBody 变更评审创建请求体
+     * @param {string} [operateType] 操作类型
+     * @param {string} [domainId] 提出项目的domainId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createIpdProcessInstance(createIpdProcessInstanceRequest?: CreateIpdProcessInstanceRequest): Promise<CreateIpdProcessInstanceResponse> {
+        const options = ParamCreater().createIpdProcessInstance(createIpdProcessInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建IPD项目的工作项
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建工作项
      * @param {string} projectId devcloud项目的32位id
-     * @param {CreateIpdProjectIssueRequestBody} createIpdProjectIssueRequestBody 创建issue实体对象
+     * @param {CreateIpdProjectIssueParam} createIpdProjectIssueRequestBody 创建issue实体对象
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -981,6 +1249,26 @@ export class ProjectManClient {
     }
 
     /**
+     * 为指定的发布/迭代及其中的工作项创建一个快照。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建计划管理快照
+     * @param {string} projectId 项目32位ID，项目唯一标识。通过查询IPD项目列表获取，响应消息体中的id字段的值就是项目ID。
+     * @param {SprintSnapshotsCreateParam} [createSprintSnapshotsRequestBody] 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSprintSnapshots(createSprintSnapshotsRequest?: CreateSprintSnapshotsRequest): Promise<CreateSprintSnapshotsResponse> {
+        const options = ParamCreater().createSprintSnapshots(createSprintSnapshotsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除工作项描述中的图片
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1002,6 +1290,47 @@ export class ProjectManClient {
     }
 
     /**
+     * 删除标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除标签
+     * @param {string} projectId 项目Id
+     * @param {string} labelId 标签Id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteIpdLabel(deleteIpdLabelRequest?: DeleteIpdLabelRequest): Promise<DeleteIpdLabelResponse> {
+        const options = ParamCreater().deleteIpdLabel(deleteIpdLabelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 需要删除IPD项目下的工作项对应的外部链接时，可调用此接口，用户可以通过项目ID和工作项ID确定工作项，传入需要删除的外部链接唯一标识ID，此ID可以通过查询外部链接获得，删除该工作项的某条外部链接。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除外部链接
+     * @param {string} projectId 项目32位ID，项目唯一标识，通过查询IPD项目列表获取，响应消息体中的project_id字段的值就是项目ID。
+     * @param {string} issueId 工作项唯一ID。可以通过查询工作项列表或者查询树状工作项获取，响应消息体中的ID字段的值就是工作项ID。
+     * @param {DeleteThirdPartyAssociateVO} [deleteIpdThirdPartyRequestBody] 外部链接唯一标识ID，此ID可以通过查询外部链接获得。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteIpdThirdParty(deleteIpdThirdPartyRequest?: DeleteIpdThirdPartyRequest): Promise<DeleteIpdThirdPartyResponse> {
+        const options = ParamCreater().deleteIpdThirdParty(deleteIpdThirdPartyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 下载工作项描述中的图片
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1015,6 +1344,28 @@ export class ProjectManClient {
      */
     public downloadIpdImageInIssue(downloadIpdImageInIssueRequest?: DownloadIpdImageInIssueRequest): Promise<DownloadIpdImageInIssueResponse> {
         const options = ParamCreater().downloadIpdImageInIssue(downloadIpdImageInIssueRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询标签列表，不分页，支持按标题搜索。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询标签列表
+     * @param {string} projectId 项目32位ID，项目唯一标识。通过查询IPD项目列表获取，响应消息体中的id字段的值就是项目ID。
+     * @param {'feature' | 'raw requirement' | 'requirement' | 'task' | 'bug'} [labelType] 标签归属的工作项分类，不传该参数时默认查询所有类型下的标签。不推荐使用此参数，建议使用category_types参数。
+     * @param {string} [title] 标签名称
+     * @param {string} [categoryTypes] 工作项类型编码。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listIpdLabels(listIpdLabelsRequest?: ListIpdLabelsRequest): Promise<ListIpdLabelsResponse> {
+        const options = ParamCreater().listIpdLabels(listIpdLabelsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1047,6 +1398,46 @@ export class ProjectManClient {
     }
 
     /**
+     * 根据工作项ID查询关联的评审单列表。支持查询的评审单类型包括：变更评审、通用评审、基线评审。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据工作项ID查询关联的评审单列表
+     * @param {string} projectId 项目32位ID，项目唯一标识。通过查询IPD项目列表获取，响应消息体中的id字段的值就是项目ID。
+     * @param {string} issueId 工作项唯一ID。可以通过查询工作项列表或者查询树状工作项接口获取，响应消息体中的id字段的值就是工作项ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listIpdReviewFormsByIssueId(listIpdReviewFormsByIssueIdRequest?: ListIpdReviewFormsByIssueIdRequest): Promise<ListIpdReviewFormsByIssueIdResponse> {
+        const options = ParamCreater().listIpdReviewFormsByIssueId(listIpdReviewFormsByIssueIdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据快照ID查询该快照的工作项信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据快照ID查询工作项信息
+     * @param {string} projectId 项目32位ID，项目唯一标识。通过查询IPD项目列表获取，响应消息体中的id字段的值就是项目ID。
+     * @param {SnapshotIssueRequest} [listIssueBySnapIdsRequestBody] 根据快照id查询工作项信息请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listIssueBySnapIds(listIssueBySnapIdsRequest?: ListIssueBySnapIdsRequest): Promise<ListIssueBySnapIdsResponse> {
+        const options = ParamCreater().listIssueBySnapIds(listIssueBySnapIdsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 工作项类型中查询字段模板列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1069,6 +1460,26 @@ export class ProjectManClient {
     }
 
     /**
+     * 根据工作项ID查询工作项快照列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询工作项计划管理快照列表
+     * @param {string} projectId 项目32位ID，项目唯一标识。通过查询IPD项目列表获取，响应消息体中的id字段的值就是项目ID。
+     * @param {string} issueId 工作项唯一ID。可以通过查询工作项列表或者查询树状工作项接口获取，响应消息体中的id字段的值就是工作项ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listIssueSprintSnapshots(listIssueSprintSnapshotsRequest?: ListIssueSprintSnapshotsRequest): Promise<ListIssueSprintSnapshotsResponse> {
+        const options = ParamCreater().listIssueSprintSnapshots(listIssueSprintSnapshotsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据工作项查询工作项下的状态信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1081,6 +1492,95 @@ export class ProjectManClient {
      */
     public listIssueStatues(listIssueStatuesRequest?: ListIssueStatuesRequest): Promise<ListIssueStatuesResponse> {
         const options = ParamCreater().listIssueStatues(listIssueStatuesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新变更评审单，传参方式与portal页面一致。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新IPD变更评审单
+     * @param {string} projectId 项目32位ID，项目唯一标识。通过查询IPD项目列表获取，响应消息体中的id字段的值就是项目ID。
+     * @param {string} reviewId 评审单ID，评审单唯一标识。通过查询评审单列表（BR/GR）接口获取，响应消息体中的id字段的值就是评审单ID。
+     * @param {ReviewUpdateBodyV2} putIpdChangeReviewFormV2RequestBody 变更评审更新请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public putIpdChangeReviewFormV2(putIpdChangeReviewFormV2Request?: PutIpdChangeReviewFormV2Request): Promise<PutIpdChangeReviewFormV2Response> {
+        const options = ParamCreater().putIpdChangeReviewFormV2(putIpdChangeReviewFormV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据项目ID和工作项ID，查询该工作项的所有关联关系（包括父子关系、协同上下游、普通关联等），支持分页查询、关系字段过滤和跨项目关联查询。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询工作项关联项
+     * @param {string} projectId 项目32位ID，项目唯一标识。通过查询IPD项目列表获取，响应消息体中的id字段的值就是项目ID。
+     * @param {string} issueId 工作项唯一ID。可以通过查询工作项列表或者查询树状工作项接口获取，响应消息体中的id字段的值就是工作项ID。
+     * @param {string} issueType 工作项类型。
+     * @param {string} [domainId] 项目空间ID，可以通过查询IPD项目列表接口获取，响应消息体中的domain_id字段的值就是项目空间ID。
+     * @param {string} [targetProjectId] 目标项目的32位uuid，项目唯一标识，通过查询IPD项目列表获取，响应消息体中的project_id字段的值就是项目ID。
+     * @param {string} [linkFieldCode] 关联字段的字段编码。
+     * @param {string} [pageNo] 分页参数，当前页。
+     * @param {string} [pageSize] 分页参数，页长。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public queryIssueAssociatedItem(queryIssueAssociatedItemRequest?: QueryIssueAssociatedItemRequest): Promise<QueryIssueAssociatedItemResponse> {
+        const options = ParamCreater().queryIssueAssociatedItem(queryIssueAssociatedItemRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询创建工作项实例时可用的字段配置信息，包含系统字段和项目自定义字段。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询工作项实例字段列表
+     * @param {string} projectId 项目32位ID，项目唯一标识。通过查询IPD项目列表获取，响应消息体中的id字段的值就是项目ID。
+     * @param {string} categoryId 工作项类型ID，工作项类型的唯一标识。 不同项目模型下可选值不同： - IPD-系统设备类：10021（RR）、10065（SF）、10020（IR）、10022（SR）、10029（AR）、10027（Task）、10033（Bug） - IPD-独立软件类：10021（RR）、10065（SF）、10020（IR）、10023（US）、10027（Task）、10033（Bug） - IPD-自运营软件/云服务类：10001（Epic）、10028（FE）、10021（RR）、10023（US）、10027（Task）、10033（Bug）
+     * @param {string} [categoryLayerId] 层级字段ID。用于过滤层级类型的字段，当需要按层级结构筛选字段时传入。
+     * @param {string} [targetProjectId] 目标项目32位ID，项目唯一标识。通过查询IPD项目列表获取，响应消息体中的id字段的值就是项目ID。当需要查询其他项目的字段配置时传入。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showIpdFieldsV2(showIpdFieldsV2Request?: ShowIpdFieldsV2Request): Promise<ShowIpdFieldsV2Response> {
+        const options = ParamCreater().showIpdFieldsV2(showIpdFieldsV2Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 需要获取IPD项目下工作项对应的外部链接列表时，可调用此接口，用户可以通过项目ID和工作项ID查询该工作项关联的所有外部链接。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询外部链接
+     * @param {string} issueId 工作项唯一ID。可以通过查询工作项列表或者查询树状工作项获取，响应消息体中的ID字段的值就是工作项ID。
+     * @param {string} projectId 项目32位ID，项目唯一标识，通过查询IPD项目列表获取，响应消息体中的project_id字段的值就是项目ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showIpdThirdPartyAssociated(showIpdThirdPartyAssociatedRequest?: ShowIpdThirdPartyAssociatedRequest): Promise<ShowIpdThirdPartyAssociatedResponse> {
+        const options = ParamCreater().showIpdThirdPartyAssociated(showIpdThirdPartyAssociatedRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1163,6 +1663,48 @@ export class ProjectManClient {
      */
     public transferWorkItemFlow(transferWorkItemFlowRequest?: TransferWorkItemFlowRequest): Promise<TransferWorkItemFlowResponse> {
         const options = ParamCreater().transferWorkItemFlow(transferWorkItemFlowRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新标签，支持更新标题和颜色。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新标签
+     * @param {string} projectId 项目32位ID，项目唯一标识。通过查询IPD项目列表获取，响应消息体中的id字段的值就是项目ID。
+     * @param {string} labelId 标签ID，标签唯一标识。 可以通过查询标签列表接口获取，响应消息体中的id字段的值就是标签ID。
+     * @param {LabelParam} updateIpdLabelRequestBody 标签更新参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateIpdLabel(updateIpdLabelRequest?: UpdateIpdLabelRequest): Promise<UpdateIpdLabelResponse> {
+        const options = ParamCreater().updateIpdLabel(updateIpdLabelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 需要修改IPD项目下的工作项对应的外部链接时，可调用此接口，用户可以通过项目ID和工作项ID确定工作项，传入需要修改的外部链接唯一标识ID，此ID可以通过查询外部链接接口获得，以及修改后的名称和地址，修改该工作项的某条外部链接的名称和地址。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改外部链接
+     * @param {string} projectId 项目32位ID，项目唯一标识，通过查询IPD项目列表获取，响应消息体中的project_id字段的值就是项目ID。
+     * @param {string} issueId 工作项唯一ID。可以通过查询工作项列表或者查询树状工作项获取，响应消息体中的ID字段的值就是工作项ID。
+     * @param {UpdateThirdPartyAssociateVO} [updateIpdThirdPartyRequestBody] 更新工作项关联的外部链接时传入的对象。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateIpdThirdParty(updateIpdThirdPartyRequest?: UpdateIpdThirdPartyRequest): Promise<UpdateIpdThirdPartyResponse> {
+        const options = ParamCreater().updateIpdThirdParty(updateIpdThirdPartyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3584,6 +4126,411 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 需要给IPD项目下的工作项关联外部链接时，可调用此接口，用户可以通过项目ID和工作项ID，传入需要绑定的外部链接的名称和地址，给该工作项关联外部链接。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        associateIpdThirdParty(associateIpdThirdPartyRequest?: AssociateIpdThirdPartyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/projects/{project_id}/issues/{issue_id}/associate-third-party",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+            
+            let issueId;
+
+            if (associateIpdThirdPartyRequest !== null && associateIpdThirdPartyRequest !== undefined) {
+                if (associateIpdThirdPartyRequest instanceof AssociateIpdThirdPartyRequest) {
+                    projectId = associateIpdThirdPartyRequest.projectId;
+                    issueId = associateIpdThirdPartyRequest.issueId;
+                    body = associateIpdThirdPartyRequest.body
+                } else {
+                    projectId = associateIpdThirdPartyRequest['project_id'];
+                    issueId = associateIpdThirdPartyRequest['issue_id'];
+                    body = associateIpdThirdPartyRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling associateIpdThirdParty.');
+            }
+            if (issueId === null || issueId === undefined) {
+            throw new RequiredError('issueId','Required parameter issueId was null or undefined when calling associateIpdThirdParty.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId,'issue_id': issueId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 支持动态关联或取消工作项间的父子层级及其他关联关系，用户可以根据不同的参数明确是关联或者取消，也可以根据参数明确关联的类型，比如关联父、子工作项或者关联其他工作项。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        associateIssues(associateIssuesRequest?: AssociateIssuesRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/ipdprojectservice/projects/{project_id}/issues/{issue_id}/associated-item",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let projectId;
+            
+            let issueId;
+            
+            let dstDomainId;
+
+            if (associateIssuesRequest !== null && associateIssuesRequest !== undefined) {
+                if (associateIssuesRequest instanceof AssociateIssuesRequest) {
+                    projectId = associateIssuesRequest.projectId;
+                    issueId = associateIssuesRequest.issueId;
+                    dstDomainId = associateIssuesRequest.dstDomainId;
+                    body = associateIssuesRequest.body
+                } else {
+                    projectId = associateIssuesRequest['project_id'];
+                    issueId = associateIssuesRequest['issue_id'];
+                    dstDomainId = associateIssuesRequest['dst_domain_id'];
+                    body = associateIssuesRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling associateIssues.');
+            }
+            if (issueId === null || issueId === undefined) {
+            throw new RequiredError('issueId','Required parameter issueId was null or undefined when calling associateIssues.');
+            }
+            if (dstDomainId === null || dstDomainId === undefined) {
+                throw new RequiredError('dstDomainId','Required parameter dstDomainId was null or undefined when calling associateIssues.');
+            }
+            if (dstDomainId !== null && dstDomainId !== undefined) {
+                localVarQueryParameter['dst_domain_id'] = dstDomainId;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId,'issue_id': issueId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 需要批量基线IPD项目下的工作项时，可调用此接口。用户可以根据待基线的工作项ID数组对工作项进行批量基线。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchBaselineIpdIssues(batchBaselineIpdIssuesRequest?: BatchBaselineIpdIssuesRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/ipdprojectservice/projects/{project_id}/issues/batch-update",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (batchBaselineIpdIssuesRequest !== null && batchBaselineIpdIssuesRequest !== undefined) {
+                if (batchBaselineIpdIssuesRequest instanceof BatchBaselineIpdIssuesRequest) {
+                    projectId = batchBaselineIpdIssuesRequest.projectId;
+                    body = batchBaselineIpdIssuesRequest.body
+                } else {
+                    projectId = batchBaselineIpdIssuesRequest['project_id'];
+                    body = batchBaselineIpdIssuesRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling batchBaselineIpdIssues.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 为IPD工作项批量创建快照时，可调用此接口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateIssueSnapitems(batchCreateIssueSnapitemsRequest?: BatchCreateIssueSnapitemsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/ipdprojectservice/projects/{project_id}/baseline-snapshots/create/batch",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (batchCreateIssueSnapitemsRequest !== null && batchCreateIssueSnapitemsRequest !== undefined) {
+                if (batchCreateIssueSnapitemsRequest instanceof BatchCreateIssueSnapitemsRequest) {
+                    projectId = batchCreateIssueSnapitemsRequest.projectId;
+                    body = batchCreateIssueSnapitemsRequest.body
+                } else {
+                    projectId = batchCreateIssueSnapitemsRequest['project_id'];
+                    body = batchCreateIssueSnapitemsRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling batchCreateIssueSnapitems.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据传入的快照ID列表批量删除快照。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteSnapshots(batchDeleteSnapshotsRequest?: BatchDeleteSnapshotsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/ipdprojectservice/projects/{project_id}/baseline-snapshots/batch",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (batchDeleteSnapshotsRequest !== null && batchDeleteSnapshotsRequest !== undefined) {
+                if (batchDeleteSnapshotsRequest instanceof BatchDeleteSnapshotsRequest) {
+                    projectId = batchDeleteSnapshotsRequest.projectId;
+                    body = batchDeleteSnapshotsRequest.body
+                } else {
+                    projectId = batchDeleteSnapshotsRequest['project_id'];
+                    body = batchDeleteSnapshotsRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling batchDeleteSnapshots.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量更新快照的可删除标识状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdateSnapshotDeletableFlag(batchUpdateSnapshotDeletableFlagRequest?: BatchUpdateSnapshotDeletableFlagRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/ipdprojectservice/projects/{project_id}/baseline-snapshots/deletions",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (batchUpdateSnapshotDeletableFlagRequest !== null && batchUpdateSnapshotDeletableFlagRequest !== undefined) {
+                if (batchUpdateSnapshotDeletableFlagRequest instanceof BatchUpdateSnapshotDeletableFlagRequest) {
+                    projectId = batchUpdateSnapshotDeletableFlagRequest.projectId;
+                    body = batchUpdateSnapshotDeletableFlagRequest.body
+                } else {
+                    projectId = batchUpdateSnapshotDeletableFlagRequest['project_id'];
+                    body = batchUpdateSnapshotDeletableFlagRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling batchUpdateSnapshotDeletableFlag.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createIpdLabel(createIpdLabelRequest?: CreateIpdLabelRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/ipdprojectservice/projects/{project_id}/tags",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (createIpdLabelRequest !== null && createIpdLabelRequest !== undefined) {
+                if (createIpdLabelRequest instanceof CreateIpdLabelRequest) {
+                    projectId = createIpdLabelRequest.projectId;
+                    body = createIpdLabelRequest.body
+                } else {
+                    projectId = createIpdLabelRequest['project_id'];
+                    body = createIpdLabelRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling createIpdLabel.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建变更评审单，适用于基线评审（BR）和通用评审（GR）单
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createIpdProcessInstance(createIpdProcessInstanceRequest?: CreateIpdProcessInstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/ipdprojectservice/projects/{project_id}/process-instances",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let projectId;
+            
+            let operateType;
+            
+            let domainId;
+
+            if (createIpdProcessInstanceRequest !== null && createIpdProcessInstanceRequest !== undefined) {
+                if (createIpdProcessInstanceRequest instanceof CreateIpdProcessInstanceRequest) {
+                    projectId = createIpdProcessInstanceRequest.projectId;
+                    body = createIpdProcessInstanceRequest.body
+                    operateType = createIpdProcessInstanceRequest.operateType;
+                    domainId = createIpdProcessInstanceRequest.domainId;
+                } else {
+                    projectId = createIpdProcessInstanceRequest['project_id'];
+                    body = createIpdProcessInstanceRequest['body'];
+                    operateType = createIpdProcessInstanceRequest['operate_type'];
+                    domainId = createIpdProcessInstanceRequest['domain_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling createIpdProcessInstance.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (operateType !== null && operateType !== undefined) {
+                localVarQueryParameter['operate_type'] = operateType;
+            }
+            if (domainId !== null && domainId !== undefined) {
+                localVarQueryParameter['domain_id'] = domainId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建IPD项目的工作项
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3688,6 +4635,49 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 为指定的发布/迭代及其中的工作项创建一个快照。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSprintSnapshots(createSprintSnapshotsRequest?: CreateSprintSnapshotsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/ipdprojectservice/projects/{project_id}/plan/snapshots",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (createSprintSnapshotsRequest !== null && createSprintSnapshotsRequest !== undefined) {
+                if (createSprintSnapshotsRequest instanceof CreateSprintSnapshotsRequest) {
+                    projectId = createSprintSnapshotsRequest.projectId;
+                    body = createSprintSnapshotsRequest.body
+                } else {
+                    projectId = createSprintSnapshotsRequest['project_id'];
+                    body = createSprintSnapshotsRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling createSprintSnapshots.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除工作项描述中的图片
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3746,6 +4736,100 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteIpdLabel(deleteIpdLabelRequest?: DeleteIpdLabelRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/ipdprojectservice/projects/{project_id}/tags/{label_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectId;
+            
+            let labelId;
+
+            if (deleteIpdLabelRequest !== null && deleteIpdLabelRequest !== undefined) {
+                if (deleteIpdLabelRequest instanceof DeleteIpdLabelRequest) {
+                    projectId = deleteIpdLabelRequest.projectId;
+                    labelId = deleteIpdLabelRequest.labelId;
+                } else {
+                    projectId = deleteIpdLabelRequest['project_id'];
+                    labelId = deleteIpdLabelRequest['label_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling deleteIpdLabel.');
+            }
+            if (labelId === null || labelId === undefined) {
+            throw new RequiredError('labelId','Required parameter labelId was null or undefined when calling deleteIpdLabel.');
+            }
+
+            options.pathParams = { 'project_id': projectId,'label_id': labelId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 需要删除IPD项目下的工作项对应的外部链接时，可调用此接口，用户可以通过项目ID和工作项ID确定工作项，传入需要删除的外部链接唯一标识ID，此ID可以通过查询外部链接获得，删除该工作项的某条外部链接。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteIpdThirdParty(deleteIpdThirdPartyRequest?: DeleteIpdThirdPartyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/projects/{project_id}/issues/{issue_id}/associate-third-party",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+            
+            let issueId;
+
+            if (deleteIpdThirdPartyRequest !== null && deleteIpdThirdPartyRequest !== undefined) {
+                if (deleteIpdThirdPartyRequest instanceof DeleteIpdThirdPartyRequest) {
+                    projectId = deleteIpdThirdPartyRequest.projectId;
+                    issueId = deleteIpdThirdPartyRequest.issueId;
+                    body = deleteIpdThirdPartyRequest.body
+                } else {
+                    projectId = deleteIpdThirdPartyRequest['project_id'];
+                    issueId = deleteIpdThirdPartyRequest['issue_id'];
+                    body = deleteIpdThirdPartyRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling deleteIpdThirdParty.');
+            }
+            if (issueId === null || issueId === undefined) {
+            throw new RequiredError('issueId','Required parameter issueId was null or undefined when calling deleteIpdThirdParty.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId,'issue_id': issueId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 下载工作项描述中的图片
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3795,6 +4879,65 @@ export const ParamCreater = function () {
             }
             if (fileName !== null && fileName !== undefined) {
                 localVarQueryParameter['file_name'] = fileName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询标签列表，不分页，支持按标题搜索。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listIpdLabels(listIpdLabelsRequest?: ListIpdLabelsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/ipdprojectservice/projects/{project_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let labelType;
+            
+            let title;
+            
+            let categoryTypes;
+
+            if (listIpdLabelsRequest !== null && listIpdLabelsRequest !== undefined) {
+                if (listIpdLabelsRequest instanceof ListIpdLabelsRequest) {
+                    projectId = listIpdLabelsRequest.projectId;
+                    labelType = listIpdLabelsRequest.labelType;
+                    title = listIpdLabelsRequest.title;
+                    categoryTypes = listIpdLabelsRequest.categoryTypes;
+                } else {
+                    projectId = listIpdLabelsRequest['project_id'];
+                    labelType = listIpdLabelsRequest['label_type'];
+                    title = listIpdLabelsRequest['title'];
+                    categoryTypes = listIpdLabelsRequest['category_types'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listIpdLabels.');
+            }
+            if (labelType !== null && labelType !== undefined) {
+                localVarQueryParameter['label_type'] = labelType;
+            }
+            if (title !== null && title !== undefined) {
+                localVarQueryParameter['title'] = title;
+            }
+            if (categoryTypes !== null && categoryTypes !== undefined) {
+                localVarQueryParameter['category_types'] = categoryTypes;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3882,6 +5025,93 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据工作项ID查询关联的评审单列表。支持查询的评审单类型包括：变更评审、通用评审、基线评审。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listIpdReviewFormsByIssueId(listIpdReviewFormsByIssueIdRequest?: ListIpdReviewFormsByIssueIdRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/ipdprojectservice/projects/{project_id}/process-instances/query/{issue_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectId;
+            
+            let issueId;
+
+            if (listIpdReviewFormsByIssueIdRequest !== null && listIpdReviewFormsByIssueIdRequest !== undefined) {
+                if (listIpdReviewFormsByIssueIdRequest instanceof ListIpdReviewFormsByIssueIdRequest) {
+                    projectId = listIpdReviewFormsByIssueIdRequest.projectId;
+                    issueId = listIpdReviewFormsByIssueIdRequest.issueId;
+                } else {
+                    projectId = listIpdReviewFormsByIssueIdRequest['project_id'];
+                    issueId = listIpdReviewFormsByIssueIdRequest['issue_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listIpdReviewFormsByIssueId.');
+            }
+            if (issueId === null || issueId === undefined) {
+            throw new RequiredError('issueId','Required parameter issueId was null or undefined when calling listIpdReviewFormsByIssueId.');
+            }
+
+            options.pathParams = { 'project_id': projectId,'issue_id': issueId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据快照ID查询该快照的工作项信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listIssueBySnapIds(listIssueBySnapIdsRequest?: ListIssueBySnapIdsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/ipdprojectservice/projects/{project_id}/baseline-snapshots/query-with-ids",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+
+            if (listIssueBySnapIdsRequest !== null && listIssueBySnapIdsRequest !== undefined) {
+                if (listIssueBySnapIdsRequest instanceof ListIssueBySnapIdsRequest) {
+                    projectId = listIssueBySnapIdsRequest.projectId;
+                    body = listIssueBySnapIdsRequest.body
+                } else {
+                    projectId = listIssueBySnapIdsRequest['project_id'];
+                    body = listIssueBySnapIdsRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listIssueBySnapIds.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 工作项类型中查询字段模板列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3947,6 +5177,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据工作项ID查询工作项快照列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listIssueSprintSnapshots(listIssueSprintSnapshotsRequest?: ListIssueSprintSnapshotsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/ipdprojectservice/projects/{project_id}/plan/snapshots/issues/{issue_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectId;
+            
+            let issueId;
+
+            if (listIssueSprintSnapshotsRequest !== null && listIssueSprintSnapshotsRequest !== undefined) {
+                if (listIssueSprintSnapshotsRequest instanceof ListIssueSprintSnapshotsRequest) {
+                    projectId = listIssueSprintSnapshotsRequest.projectId;
+                    issueId = listIssueSprintSnapshotsRequest.issueId;
+                } else {
+                    projectId = listIssueSprintSnapshotsRequest['project_id'];
+                    issueId = listIssueSprintSnapshotsRequest['issue_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listIssueSprintSnapshots.');
+            }
+            if (issueId === null || issueId === undefined) {
+            throw new RequiredError('issueId','Required parameter issueId was null or undefined when calling listIssueSprintSnapshots.');
+            }
+
+            options.pathParams = { 'project_id': projectId,'issue_id': issueId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据工作项查询工作项下的状态信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3986,6 +5260,252 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'project_id': projectId,'category_id': categoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新变更评审单，传参方式与portal页面一致。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        putIpdChangeReviewFormV2(putIpdChangeReviewFormV2Request?: PutIpdChangeReviewFormV2Request) {
+            const options = {
+                method: "PUT",
+                url: "/v2/ipdprojectservice/projects/{project_id}/review/{review_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+            
+            let reviewId;
+
+            if (putIpdChangeReviewFormV2Request !== null && putIpdChangeReviewFormV2Request !== undefined) {
+                if (putIpdChangeReviewFormV2Request instanceof PutIpdChangeReviewFormV2Request) {
+                    projectId = putIpdChangeReviewFormV2Request.projectId;
+                    reviewId = putIpdChangeReviewFormV2Request.reviewId;
+                    body = putIpdChangeReviewFormV2Request.body
+                } else {
+                    projectId = putIpdChangeReviewFormV2Request['project_id'];
+                    reviewId = putIpdChangeReviewFormV2Request['review_id'];
+                    body = putIpdChangeReviewFormV2Request['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling putIpdChangeReviewFormV2.');
+            }
+            if (reviewId === null || reviewId === undefined) {
+            throw new RequiredError('reviewId','Required parameter reviewId was null or undefined when calling putIpdChangeReviewFormV2.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId,'review_id': reviewId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据项目ID和工作项ID，查询该工作项的所有关联关系（包括父子关系、协同上下游、普通关联等），支持分页查询、关系字段过滤和跨项目关联查询。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        queryIssueAssociatedItem(queryIssueAssociatedItemRequest?: QueryIssueAssociatedItemRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/ipdprojectservice/projects/{project_id}/issues/{issue_id}/associated-item",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let issueId;
+            
+            let issueType;
+            
+            let domainId;
+            
+            let targetProjectId;
+            
+            let linkFieldCode;
+            
+            let pageNo;
+            
+            let pageSize;
+
+            if (queryIssueAssociatedItemRequest !== null && queryIssueAssociatedItemRequest !== undefined) {
+                if (queryIssueAssociatedItemRequest instanceof QueryIssueAssociatedItemRequest) {
+                    projectId = queryIssueAssociatedItemRequest.projectId;
+                    issueId = queryIssueAssociatedItemRequest.issueId;
+                    issueType = queryIssueAssociatedItemRequest.issueType;
+                    domainId = queryIssueAssociatedItemRequest.domainId;
+                    targetProjectId = queryIssueAssociatedItemRequest.targetProjectId;
+                    linkFieldCode = queryIssueAssociatedItemRequest.linkFieldCode;
+                    pageNo = queryIssueAssociatedItemRequest.pageNo;
+                    pageSize = queryIssueAssociatedItemRequest.pageSize;
+                } else {
+                    projectId = queryIssueAssociatedItemRequest['project_id'];
+                    issueId = queryIssueAssociatedItemRequest['issue_id'];
+                    issueType = queryIssueAssociatedItemRequest['issue_type'];
+                    domainId = queryIssueAssociatedItemRequest['domain_id'];
+                    targetProjectId = queryIssueAssociatedItemRequest['target_project_id'];
+                    linkFieldCode = queryIssueAssociatedItemRequest['link_field_code'];
+                    pageNo = queryIssueAssociatedItemRequest['page_no'];
+                    pageSize = queryIssueAssociatedItemRequest['page_size'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling queryIssueAssociatedItem.');
+            }
+            if (issueId === null || issueId === undefined) {
+            throw new RequiredError('issueId','Required parameter issueId was null or undefined when calling queryIssueAssociatedItem.');
+            }
+            if (issueType === null || issueType === undefined) {
+                throw new RequiredError('issueType','Required parameter issueType was null or undefined when calling queryIssueAssociatedItem.');
+            }
+            if (issueType !== null && issueType !== undefined) {
+                localVarQueryParameter['issue_type'] = issueType;
+            }
+            if (domainId !== null && domainId !== undefined) {
+                localVarQueryParameter['domain_id'] = domainId;
+            }
+            if (targetProjectId !== null && targetProjectId !== undefined) {
+                localVarQueryParameter['target_project_id'] = targetProjectId;
+            }
+            if (linkFieldCode !== null && linkFieldCode !== undefined) {
+                localVarQueryParameter['link_field_code'] = linkFieldCode;
+            }
+            if (pageNo !== null && pageNo !== undefined) {
+                localVarQueryParameter['page_no'] = pageNo;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId,'issue_id': issueId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询创建工作项实例时可用的字段配置信息，包含系统字段和项目自定义字段。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showIpdFieldsV2(showIpdFieldsV2Request?: ShowIpdFieldsV2Request) {
+            const options = {
+                method: "GET",
+                url: "/v1/ipdprojectservice/projects/{project_id}/categories/{category_id}/fields",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectId;
+            
+            let categoryId;
+            
+            let categoryLayerId;
+            
+            let targetProjectId;
+
+            if (showIpdFieldsV2Request !== null && showIpdFieldsV2Request !== undefined) {
+                if (showIpdFieldsV2Request instanceof ShowIpdFieldsV2Request) {
+                    projectId = showIpdFieldsV2Request.projectId;
+                    categoryId = showIpdFieldsV2Request.categoryId;
+                    categoryLayerId = showIpdFieldsV2Request.categoryLayerId;
+                    targetProjectId = showIpdFieldsV2Request.targetProjectId;
+                } else {
+                    projectId = showIpdFieldsV2Request['project_id'];
+                    categoryId = showIpdFieldsV2Request['category_id'];
+                    categoryLayerId = showIpdFieldsV2Request['category_layer_id'];
+                    targetProjectId = showIpdFieldsV2Request['target_project_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showIpdFieldsV2.');
+            }
+            if (categoryId === null || categoryId === undefined) {
+            throw new RequiredError('categoryId','Required parameter categoryId was null or undefined when calling showIpdFieldsV2.');
+            }
+            if (categoryLayerId !== null && categoryLayerId !== undefined) {
+                localVarQueryParameter['category_layer_id'] = categoryLayerId;
+            }
+            if (targetProjectId !== null && targetProjectId !== undefined) {
+                localVarQueryParameter['target_project_id'] = targetProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId,'category_id': categoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 需要获取IPD项目下工作项对应的外部链接列表时，可调用此接口，用户可以通过项目ID和工作项ID查询该工作项关联的所有外部链接。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showIpdThirdPartyAssociated(showIpdThirdPartyAssociatedRequest?: ShowIpdThirdPartyAssociatedRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/projects/{project_id}/issues/{issue_id}/associate-third-party",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let issueId;
+            
+            let projectId;
+
+            if (showIpdThirdPartyAssociatedRequest !== null && showIpdThirdPartyAssociatedRequest !== undefined) {
+                if (showIpdThirdPartyAssociatedRequest instanceof ShowIpdThirdPartyAssociatedRequest) {
+                    issueId = showIpdThirdPartyAssociatedRequest.issueId;
+                    projectId = showIpdThirdPartyAssociatedRequest.projectId;
+                } else {
+                    issueId = showIpdThirdPartyAssociatedRequest['issue_id'];
+                    projectId = showIpdThirdPartyAssociatedRequest['project_id'];
+                }
+            }
+
+        
+            if (issueId === null || issueId === undefined) {
+            throw new RequiredError('issueId','Required parameter issueId was null or undefined when calling showIpdThirdPartyAssociated.');
+            }
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showIpdThirdPartyAssociated.');
+            }
+
+            options.pathParams = { 'issue_id': issueId,'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4187,6 +5707,109 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新标签，支持更新标题和颜色。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateIpdLabel(updateIpdLabelRequest?: UpdateIpdLabelRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/ipdprojectservice/projects/{project_id}/tags/{label_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+            
+            let labelId;
+
+            if (updateIpdLabelRequest !== null && updateIpdLabelRequest !== undefined) {
+                if (updateIpdLabelRequest instanceof UpdateIpdLabelRequest) {
+                    projectId = updateIpdLabelRequest.projectId;
+                    labelId = updateIpdLabelRequest.labelId;
+                    body = updateIpdLabelRequest.body
+                } else {
+                    projectId = updateIpdLabelRequest['project_id'];
+                    labelId = updateIpdLabelRequest['label_id'];
+                    body = updateIpdLabelRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling updateIpdLabel.');
+            }
+            if (labelId === null || labelId === undefined) {
+            throw new RequiredError('labelId','Required parameter labelId was null or undefined when calling updateIpdLabel.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId,'label_id': labelId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 需要修改IPD项目下的工作项对应的外部链接时，可调用此接口，用户可以通过项目ID和工作项ID确定工作项，传入需要修改的外部链接唯一标识ID，此ID可以通过查询外部链接接口获得，以及修改后的名称和地址，修改该工作项的某条外部链接的名称和地址。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateIpdThirdParty(updateIpdThirdPartyRequest?: UpdateIpdThirdPartyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/projects/{project_id}/issues/{issue_id}/associate-third-party",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectId;
+            
+            let issueId;
+
+            if (updateIpdThirdPartyRequest !== null && updateIpdThirdPartyRequest !== undefined) {
+                if (updateIpdThirdPartyRequest instanceof UpdateIpdThirdPartyRequest) {
+                    projectId = updateIpdThirdPartyRequest.projectId;
+                    issueId = updateIpdThirdPartyRequest.issueId;
+                    body = updateIpdThirdPartyRequest.body
+                } else {
+                    projectId = updateIpdThirdPartyRequest['project_id'];
+                    issueId = updateIpdThirdPartyRequest['issue_id'];
+                    body = updateIpdThirdPartyRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling updateIpdThirdParty.');
+            }
+            if (issueId === null || issueId === undefined) {
+            throw new RequiredError('issueId','Required parameter issueId was null or undefined when calling updateIpdThirdParty.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_id': projectId,'issue_id': issueId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

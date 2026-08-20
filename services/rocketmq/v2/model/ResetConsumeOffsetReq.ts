@@ -2,8 +2,8 @@
 
 export class ResetConsumeOffsetReq {
     public topic?: string;
-    public timestamp?: string;
-    public constructor(topic?: string, timestamp?: string) { 
+    public timestamp?: number;
+    public constructor(topic?: string, timestamp?: number) { 
         this['topic'] = topic;
         this['timestamp'] = timestamp;
     }
@@ -11,7 +11,7 @@ export class ResetConsumeOffsetReq {
         this['topic'] = topic;
         return this;
     }
-    public withTimestamp(timestamp: string): ResetConsumeOffsetReq {
+    public withTimestamp(timestamp: number): ResetConsumeOffsetReq {
         this['timestamp'] = timestamp;
         return this;
     }

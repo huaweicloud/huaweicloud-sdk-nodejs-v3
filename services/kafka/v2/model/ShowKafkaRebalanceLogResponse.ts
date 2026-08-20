@@ -3,13 +3,15 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowKafkaRebalanceLogResponse extends SdkResponse {
     public id?: string;
-    public instanceId?: string;
+    private 'instance_id'?: string;
     public status?: string;
-    public logStreamId?: string;
-    public logGroupId?: string;
-    public dashboardId?: string;
-    public createAt?: string;
-    public updateAt?: string;
+    private 'log_stream_id'?: string;
+    private 'log_group_id'?: string;
+    private 'dashboard_id'?: string;
+    private 'log_type'?: string;
+    private 'log_file_name'?: string;
+    private 'created_at'?: number;
+    private 'updated_at'?: number;
     public constructor() { 
         super();
     }
@@ -18,31 +20,87 @@ export class ShowKafkaRebalanceLogResponse extends SdkResponse {
         return this;
     }
     public withInstanceId(instanceId: string): ShowKafkaRebalanceLogResponse {
-        this['instanceId'] = instanceId;
+        this['instance_id'] = instanceId;
         return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
     }
     public withStatus(status: string): ShowKafkaRebalanceLogResponse {
         this['status'] = status;
         return this;
     }
     public withLogStreamId(logStreamId: string): ShowKafkaRebalanceLogResponse {
-        this['logStreamId'] = logStreamId;
+        this['log_stream_id'] = logStreamId;
         return this;
+    }
+    public set logStreamId(logStreamId: string  | undefined) {
+        this['log_stream_id'] = logStreamId;
+    }
+    public get logStreamId(): string | undefined {
+        return this['log_stream_id'];
     }
     public withLogGroupId(logGroupId: string): ShowKafkaRebalanceLogResponse {
-        this['logGroupId'] = logGroupId;
+        this['log_group_id'] = logGroupId;
         return this;
+    }
+    public set logGroupId(logGroupId: string  | undefined) {
+        this['log_group_id'] = logGroupId;
+    }
+    public get logGroupId(): string | undefined {
+        return this['log_group_id'];
     }
     public withDashboardId(dashboardId: string): ShowKafkaRebalanceLogResponse {
-        this['dashboardId'] = dashboardId;
+        this['dashboard_id'] = dashboardId;
         return this;
     }
-    public withCreateAt(createAt: string): ShowKafkaRebalanceLogResponse {
-        this['createAt'] = createAt;
+    public set dashboardId(dashboardId: string  | undefined) {
+        this['dashboard_id'] = dashboardId;
+    }
+    public get dashboardId(): string | undefined {
+        return this['dashboard_id'];
+    }
+    public withLogType(logType: string): ShowKafkaRebalanceLogResponse {
+        this['log_type'] = logType;
         return this;
     }
-    public withUpdateAt(updateAt: string): ShowKafkaRebalanceLogResponse {
-        this['updateAt'] = updateAt;
+    public set logType(logType: string  | undefined) {
+        this['log_type'] = logType;
+    }
+    public get logType(): string | undefined {
+        return this['log_type'];
+    }
+    public withLogFileName(logFileName: string): ShowKafkaRebalanceLogResponse {
+        this['log_file_name'] = logFileName;
         return this;
+    }
+    public set logFileName(logFileName: string  | undefined) {
+        this['log_file_name'] = logFileName;
+    }
+    public get logFileName(): string | undefined {
+        return this['log_file_name'];
+    }
+    public withCreatedAt(createdAt: number): ShowKafkaRebalanceLogResponse {
+        this['created_at'] = createdAt;
+        return this;
+    }
+    public set createdAt(createdAt: number  | undefined) {
+        this['created_at'] = createdAt;
+    }
+    public get createdAt(): number | undefined {
+        return this['created_at'];
+    }
+    public withUpdatedAt(updatedAt: number): ShowKafkaRebalanceLogResponse {
+        this['updated_at'] = updatedAt;
+        return this;
+    }
+    public set updatedAt(updatedAt: number  | undefined) {
+        this['updated_at'] = updatedAt;
+    }
+    public get updatedAt(): number | undefined {
+        return this['updated_at'];
     }
 }

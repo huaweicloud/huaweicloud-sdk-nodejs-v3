@@ -15,6 +15,7 @@ export class ServiceVersionResponse {
     private 'lts_strategy'?: string;
     private 'lts_status'?: string;
     private 'lts_event_status'?: string;
+    private 'lts_file_status'?: string;
     private 'log_configs'?: Array<LogConfigResponse>;
     private 'deploy_timeout_minutes'?: number;
     public constructor() { 
@@ -100,6 +101,16 @@ export class ServiceVersionResponse {
     }
     public get ltsEventStatus(): string | undefined {
         return this['lts_event_status'];
+    }
+    public withLtsFileStatus(ltsFileStatus: string): ServiceVersionResponse {
+        this['lts_file_status'] = ltsFileStatus;
+        return this;
+    }
+    public set ltsFileStatus(ltsFileStatus: string  | undefined) {
+        this['lts_file_status'] = ltsFileStatus;
+    }
+    public get ltsFileStatus(): string | undefined {
+        return this['lts_file_status'];
     }
     public withLogConfigs(logConfigs: Array<LogConfigResponse>): ServiceVersionResponse {
         this['log_configs'] = logConfigs;

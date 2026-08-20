@@ -1,8 +1,8 @@
 
 
 export class GroupMessageOffsetsDetailEntity {
-    public partition?: string;
-    private 'message_current_offset'?: string;
+    public partition?: number;
+    private 'message_current_offset'?: number;
     public topic?: string;
     private 'message_log_start_offset'?: number;
     public lag?: number;
@@ -12,18 +12,18 @@ export class GroupMessageOffsetsDetailEntity {
     private 'client_id'?: string;
     public constructor() { 
     }
-    public withPartition(partition: string): GroupMessageOffsetsDetailEntity {
+    public withPartition(partition: number): GroupMessageOffsetsDetailEntity {
         this['partition'] = partition;
         return this;
     }
-    public withMessageCurrentOffset(messageCurrentOffset: string): GroupMessageOffsetsDetailEntity {
+    public withMessageCurrentOffset(messageCurrentOffset: number): GroupMessageOffsetsDetailEntity {
         this['message_current_offset'] = messageCurrentOffset;
         return this;
     }
-    public set messageCurrentOffset(messageCurrentOffset: string  | undefined) {
+    public set messageCurrentOffset(messageCurrentOffset: number  | undefined) {
         this['message_current_offset'] = messageCurrentOffset;
     }
-    public get messageCurrentOffset(): string | undefined {
+    public get messageCurrentOffset(): number | undefined {
         return this['message_current_offset'];
     }
     public withTopic(topic: string): GroupMessageOffsetsDetailEntity {
