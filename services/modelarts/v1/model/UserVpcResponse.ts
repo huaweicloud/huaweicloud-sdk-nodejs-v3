@@ -7,6 +7,8 @@ export class UserVpcResponse {
     private 'connect_cidrs'?: string;
     private 'port_id'?: Array<string>;
     private 'port_ip'?: string;
+    private 'nat_id'?: string;
+    private 'eip_id'?: string;
     public constructor() { 
     }
     public withVpcId(vpcId: string): UserVpcResponse {
@@ -68,5 +70,25 @@ export class UserVpcResponse {
     }
     public get portIp(): string | undefined {
         return this['port_ip'];
+    }
+    public withNatId(natId: string): UserVpcResponse {
+        this['nat_id'] = natId;
+        return this;
+    }
+    public set natId(natId: string  | undefined) {
+        this['nat_id'] = natId;
+    }
+    public get natId(): string | undefined {
+        return this['nat_id'];
+    }
+    public withEipId(eipId: string): UserVpcResponse {
+        this['eip_id'] = eipId;
+        return this;
+    }
+    public set eipId(eipId: string  | undefined) {
+        this['eip_id'] = eipId;
+    }
+    public get eipId(): string | undefined {
+        return this['eip_id'];
     }
 }

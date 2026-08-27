@@ -1,21 +1,21 @@
-import { PolicyGroupForList } from './PolicyGroupForList';
+import { PolicyGroupForBaseList } from './PolicyGroupForBaseList';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListPolicyGroupResponse extends SdkResponse {
-    private 'policy_groups'?: Array<PolicyGroupForList>;
+    private 'policy_groups'?: Array<PolicyGroupForBaseList>;
     private 'total_count'?: number;
     public constructor() { 
         super();
     }
-    public withPolicyGroups(policyGroups: Array<PolicyGroupForList>): ListPolicyGroupResponse {
+    public withPolicyGroups(policyGroups: Array<PolicyGroupForBaseList>): ListPolicyGroupResponse {
         this['policy_groups'] = policyGroups;
         return this;
     }
-    public set policyGroups(policyGroups: Array<PolicyGroupForList>  | undefined) {
+    public set policyGroups(policyGroups: Array<PolicyGroupForBaseList>  | undefined) {
         this['policy_groups'] = policyGroups;
     }
-    public get policyGroups(): Array<PolicyGroupForList> | undefined {
+    public get policyGroups(): Array<PolicyGroupForBaseList> | undefined {
         return this['policy_groups'];
     }
     public withTotalCount(totalCount: number): ListPolicyGroupResponse {

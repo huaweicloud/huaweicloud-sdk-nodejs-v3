@@ -41,6 +41,7 @@ export class ListWorkspacesResponse extends SdkResponse {
     private 'is_authorized_install_agent'?: boolean;
     private 'is_support_ipv6'?: boolean;
     private 'enable_user_create_snapshot'?: boolean;
+    private 'complete_time'?: string;
     public constructor() { 
         super();
     }
@@ -359,6 +360,16 @@ export class ListWorkspacesResponse extends SdkResponse {
     }
     public get enableUserCreateSnapshot(): boolean | undefined {
         return this['enable_user_create_snapshot'];
+    }
+    public withCompleteTime(completeTime: string): ListWorkspacesResponse {
+        this['complete_time'] = completeTime;
+        return this;
+    }
+    public set completeTime(completeTime: string  | undefined) {
+        this['complete_time'] = completeTime;
+    }
+    public get completeTime(): string | undefined {
+        return this['complete_time'];
     }
 }
 

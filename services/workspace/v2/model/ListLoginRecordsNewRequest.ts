@@ -12,6 +12,7 @@ export class ListLoginRecordsNewRequest {
     public limit?: number;
     private 'min_network_rtt'?: number;
     private 'max_network_rtt'?: number;
+    public domain?: string;
     public constructor() { 
     }
     public withStartTime(startTime: string): ListLoginRecordsNewRequest {
@@ -111,5 +112,9 @@ export class ListLoginRecordsNewRequest {
     }
     public get maxNetworkRtt(): number | undefined {
         return this['max_network_rtt'];
+    }
+    public withDomain(domain: string): ListLoginRecordsNewRequest {
+        this['domain'] = domain;
+        return this;
     }
 }

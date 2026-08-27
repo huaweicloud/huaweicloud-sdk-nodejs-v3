@@ -2,6 +2,7 @@ import { AffinityType } from './AffinityType';
 import { CustomHooks } from './CustomHooks';
 import { EndpointsReq } from './EndpointsReq';
 import { NotebookCustomSpec } from './NotebookCustomSpec';
+import { PublicNetworkConfig } from './PublicNetworkConfig';
 import { VolumeMountRequest } from './VolumeMountRequest';
 
 
@@ -17,6 +18,7 @@ export class NotebookUpdateRequest {
     public affinity?: AffinityType;
     private 'dew_secret_name'?: string;
     private 'data_volumes'?: Array<VolumeMountRequest>;
+    private 'public_network_config'?: PublicNetworkConfig;
     public constructor() { 
     }
     public withDescription(description: string): NotebookUpdateRequest {
@@ -92,5 +94,15 @@ export class NotebookUpdateRequest {
     }
     public get dataVolumes(): Array<VolumeMountRequest> | undefined {
         return this['data_volumes'];
+    }
+    public withPublicNetworkConfig(publicNetworkConfig: PublicNetworkConfig): NotebookUpdateRequest {
+        this['public_network_config'] = publicNetworkConfig;
+        return this;
+    }
+    public set publicNetworkConfig(publicNetworkConfig: PublicNetworkConfig  | undefined) {
+        this['public_network_config'] = publicNetworkConfig;
+    }
+    public get publicNetworkConfig(): PublicNetworkConfig | undefined {
+        return this['public_network_config'];
     }
 }

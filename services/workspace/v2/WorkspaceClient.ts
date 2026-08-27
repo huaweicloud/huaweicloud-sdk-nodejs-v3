@@ -49,11 +49,14 @@ import { AddressInfo } from './model/AddressInfo';
 import { AgenciesInfo } from './model/AgenciesInfo';
 import { AgenciesPermissionInfo } from './model/AgenciesPermissionInfo';
 import { AgentInfo } from './model/AgentInfo';
+import { AgentInstanceInfo } from './model/AgentInstanceInfo';
+import { AgentRisk } from './model/AgentRisk';
 import { AgentsCondition } from './model/AgentsCondition';
 import { AlarmCondition } from './model/AlarmCondition';
 import { AlarmHistoryItem } from './model/AlarmHistoryItem';
 import { AlarmMetric } from './model/AlarmMetric';
 import { AlarmMetricDimension } from './model/AlarmMetricDimension';
+import { ApiType } from './model/ApiType';
 import { AppInstallJob } from './model/AppInstallJob';
 import { AppRule } from './model/AppRule';
 import { AppSourceType } from './model/AppSourceType';
@@ -69,7 +72,12 @@ import { ApplyDesktopsInternetRsp } from './model/ApplyDesktopsInternetRsp';
 import { ApplyInternetReq } from './model/ApplyInternetReq';
 import { ApplyInternetRequest } from './model/ApplyInternetRequest';
 import { ApplyInternetResponse } from './model/ApplyInternetResponse';
+import { ApplyModelConfigReq } from './model/ApplyModelConfigReq';
+import { ApplyModelConfigRequest } from './model/ApplyModelConfigRequest';
+import { ApplyModelConfigResponse } from './model/ApplyModelConfigResponse';
 import { ApplyObject } from './model/ApplyObject';
+import { ApplyObjectDetailInfo } from './model/ApplyObjectDetailInfo';
+import { ApplyObjectInfo } from './model/ApplyObjectInfo';
 import { ApplyObjects } from './model/ApplyObjects';
 import { ApplyRuleInfo } from './model/ApplyRuleInfo';
 import { ApplySharedVpcDedicatedParam } from './model/ApplySharedVpcDedicatedParam';
@@ -94,6 +102,7 @@ import { AttachInstancesReq } from './model/AttachInstancesReq';
 import { AttachInstancesRequest } from './model/AttachInstancesRequest';
 import { AttachInstancesResponse } from './model/AttachInstancesResponse';
 import { AttachInstancesUserInfo } from './model/AttachInstancesUserInfo';
+import { AttachModelGroupInfo } from './model/AttachModelGroupInfo';
 import { AttachStatistics } from './model/AttachStatistics';
 import { AttachUsersInfo } from './model/AttachUsersInfo';
 import { AuthAssistEnum } from './model/AuthAssistEnum';
@@ -109,7 +118,9 @@ import { AvailabilityZoneInfo } from './model/AvailabilityZoneInfo';
 import { AzInfo } from './model/AzInfo';
 import { BackupInfo } from './model/BackupInfo';
 import { BaseError } from './model/BaseError';
+import { BaseModeInfo } from './model/BaseModeInfo';
 import { BaseResponse } from './model/BaseResponse';
+import { BaseRsp } from './model/BaseRsp';
 import { BaseThirdDomainController } from './model/BaseThirdDomainController';
 import { BatchActionDesktopsReq } from './model/BatchActionDesktopsReq';
 import { BatchAddDesktopsTagsReq } from './model/BatchAddDesktopsTagsReq';
@@ -122,14 +133,23 @@ import { BatchAttachInstancesReq } from './model/BatchAttachInstancesReq';
 import { BatchAttachInstancesRequest } from './model/BatchAttachInstancesRequest';
 import { BatchAttachInstancesResponse } from './model/BatchAttachInstancesResponse';
 import { BatchAutoInstallAppsReq } from './model/BatchAutoInstallAppsReq';
+import { BatchBindProvidersReq } from './model/BatchBindProvidersReq';
+import { BatchBindProvidersRequest } from './model/BatchBindProvidersRequest';
+import { BatchBindProvidersResponse } from './model/BatchBindProvidersResponse';
 import { BatchChangeDesktopNetworkReq } from './model/BatchChangeDesktopNetworkReq';
 import { BatchChangeDesktopNetworkRequest } from './model/BatchChangeDesktopNetworkRequest';
 import { BatchChangeDesktopNetworkResponse } from './model/BatchChangeDesktopNetworkResponse';
 import { BatchChangeTagsRequest } from './model/BatchChangeTagsRequest';
 import { BatchChangeTagsResponse } from './model/BatchChangeTagsResponse';
+import { BatchCheckDesktopRejoinDomainRequest } from './model/BatchCheckDesktopRejoinDomainRequest';
+import { BatchCheckDesktopRejoinDomainResponse } from './model/BatchCheckDesktopRejoinDomainResponse';
+import { BatchCheckRejoinDomainReq } from './model/BatchCheckRejoinDomainReq';
+import { BatchCheckRejoinDomainResult } from './model/BatchCheckRejoinDomainResult';
 import { BatchCreateDesktopSnapshotReq } from './model/BatchCreateDesktopSnapshotReq';
 import { BatchCreateDesktopSnapshotRequest } from './model/BatchCreateDesktopSnapshotRequest';
 import { BatchCreateDesktopSnapshotResponse } from './model/BatchCreateDesktopSnapshotResponse';
+import { BatchCreateModelRequest } from './model/BatchCreateModelRequest';
+import { BatchCreateModelResponse } from './model/BatchCreateModelResponse';
 import { BatchCreateUsersReq } from './model/BatchCreateUsersReq';
 import { BatchCreateUsersRequest } from './model/BatchCreateUsersRequest';
 import { BatchCreateUsersResponse } from './model/BatchCreateUsersResponse';
@@ -154,8 +174,13 @@ import { BatchDeleteDesktopsTagsRequest } from './model/BatchDeleteDesktopsTagsR
 import { BatchDeleteDesktopsTagsResponse } from './model/BatchDeleteDesktopsTagsResponse';
 import { BatchDeleteJobsRequest } from './model/BatchDeleteJobsRequest';
 import { BatchDeleteJobsResponse } from './model/BatchDeleteJobsResponse';
+import { BatchDeleteModelRequest } from './model/BatchDeleteModelRequest';
+import { BatchDeleteModelResponse } from './model/BatchDeleteModelResponse';
 import { BatchDeleteOtpDevicesRequest } from './model/BatchDeleteOtpDevicesRequest';
 import { BatchDeleteOtpDevicesResponse } from './model/BatchDeleteOtpDevicesResponse';
+import { BatchDeleteProvidersReq } from './model/BatchDeleteProvidersReq';
+import { BatchDeleteProvidersRequest } from './model/BatchDeleteProvidersRequest';
+import { BatchDeleteProvidersResponse } from './model/BatchDeleteProvidersResponse';
 import { BatchDeleteScheduledTasksRequest } from './model/BatchDeleteScheduledTasksRequest';
 import { BatchDeleteScheduledTasksResponse } from './model/BatchDeleteScheduledTasksResponse';
 import { BatchDeleteScreenRecordsRequest } from './model/BatchDeleteScreenRecordsRequest';
@@ -195,8 +220,10 @@ import { BatchModifyQosVolumesResponse } from './model/BatchModifyQosVolumesResp
 import { BatchOperateAppRulesReq } from './model/BatchOperateAppRulesReq';
 import { BatchOperateAppsReq } from './model/BatchOperateAppsReq';
 import { BatchOperateJobsReq } from './model/BatchOperateJobsReq';
+import { BatchOperationFailedItem } from './model/BatchOperationFailedItem';
 import { BatchRebuildDesktopsSystemDiskRequest } from './model/BatchRebuildDesktopsSystemDiskRequest';
 import { BatchRebuildDesktopsSystemDiskResponse } from './model/BatchRebuildDesktopsSystemDiskResponse';
+import { BatchRejoinDomainReq } from './model/BatchRejoinDomainReq';
 import { BatchResInquiryResult } from './model/BatchResInquiryResult';
 import { BatchRestoreDesktopSnapshotRequest } from './model/BatchRestoreDesktopSnapshotRequest';
 import { BatchRestoreDesktopSnapshotResponse } from './model/BatchRestoreDesktopSnapshotResponse';
@@ -206,6 +233,8 @@ import { BatchRunDesktopsResponse } from './model/BatchRunDesktopsResponse';
 import { BatchSetMaintenanceModeReq } from './model/BatchSetMaintenanceModeReq';
 import { BatchUpdateAppAuthorizationsRequest } from './model/BatchUpdateAppAuthorizationsRequest';
 import { BatchUpdateAppAuthorizationsResponse } from './model/BatchUpdateAppAuthorizationsResponse';
+import { BatchUpdateDesktopDomainRequest } from './model/BatchUpdateDesktopDomainRequest';
+import { BatchUpdateDesktopDomainResponse } from './model/BatchUpdateDesktopDomainResponse';
 import { BatchUpdateTargetOfPolicyGroupRequest } from './model/BatchUpdateTargetOfPolicyGroupRequest';
 import { BatchUpdateTargetOfPolicyGroupResponse } from './model/BatchUpdateTargetOfPolicyGroupResponse';
 import { BillingResult } from './model/BillingResult';
@@ -303,6 +332,10 @@ import { CreateDomainNewReq } from './model/CreateDomainNewReq';
 import { CreateDomainNewRequest } from './model/CreateDomainNewRequest';
 import { CreateDomainNewResponse } from './model/CreateDomainNewResponse';
 import { CreateExclusiveHostsReq } from './model/CreateExclusiveHostsReq';
+import { CreateModelGroupReq } from './model/CreateModelGroupReq';
+import { CreateModelGroupRequest } from './model/CreateModelGroupRequest';
+import { CreateModelGroupResponse } from './model/CreateModelGroupResponse';
+import { CreateModelReq } from './model/CreateModelReq';
 import { CreateOrderReq } from './model/CreateOrderReq';
 import { CreateOrderRequest } from './model/CreateOrderRequest';
 import { CreateOrderResponse } from './model/CreateOrderResponse';
@@ -312,6 +345,9 @@ import { CreatePolicyGroupResponse } from './model/CreatePolicyGroupResponse';
 import { CreatePolicyTemplateReq } from './model/CreatePolicyTemplateReq';
 import { CreatePolicyTemplateRequest } from './model/CreatePolicyTemplateRequest';
 import { CreatePolicyTemplateResponse } from './model/CreatePolicyTemplateResponse';
+import { CreateProviderReq } from './model/CreateProviderReq';
+import { CreateProviderRequest } from './model/CreateProviderRequest';
+import { CreateProviderResponse } from './model/CreateProviderResponse';
 import { CreateRemoteAssistanceRequest } from './model/CreateRemoteAssistanceRequest';
 import { CreateRemoteAssistanceResponse } from './model/CreateRemoteAssistanceResponse';
 import { CreateResizeOrderRequestBody } from './model/CreateResizeOrderRequestBody';
@@ -321,6 +357,7 @@ import { CreateResourcePackagesOrderResponse } from './model/CreateResourcePacka
 import { CreateScheduledTasksReq } from './model/CreateScheduledTasksReq';
 import { CreateScheduledTasksRequest } from './model/CreateScheduledTasksRequest';
 import { CreateScheduledTasksResponse } from './model/CreateScheduledTasksResponse';
+import { CreateScheduledUpgradeTaskRequestBody } from './model/CreateScheduledUpgradeTaskRequestBody';
 import { CreateScriptReq } from './model/CreateScriptReq';
 import { CreateScriptRequest } from './model/CreateScriptRequest';
 import { CreateScriptResponse } from './model/CreateScriptResponse';
@@ -332,11 +369,16 @@ import { CreateSubscribeUserInfo } from './model/CreateSubscribeUserInfo';
 import { CreateTagReq } from './model/CreateTagReq';
 import { CreateTagRequest } from './model/CreateTagRequest';
 import { CreateTagResponse } from './model/CreateTagResponse';
+import { CreateTenantUpgradeStrategyRequest } from './model/CreateTenantUpgradeStrategyRequest';
+import { CreateTenantUpgradeStrategyRequestBody } from './model/CreateTenantUpgradeStrategyRequestBody';
+import { CreateTenantUpgradeStrategyResponse } from './model/CreateTenantUpgradeStrategyResponse';
 import { CreateTerminalsBindingDesktopsInfo } from './model/CreateTerminalsBindingDesktopsInfo';
 import { CreateTerminalsBindingDesktopsRequest } from './model/CreateTerminalsBindingDesktopsRequest';
 import { CreateTerminalsBindingDesktopsRequestBody } from './model/CreateTerminalsBindingDesktopsRequestBody';
 import { CreateTerminalsBindingDesktopsResponse } from './model/CreateTerminalsBindingDesktopsResponse';
 import { CreateUosDomainInfo } from './model/CreateUosDomainInfo';
+import { CreateUpgradeScheduleTaskRequest } from './model/CreateUpgradeScheduleTaskRequest';
+import { CreateUpgradeScheduleTaskResponse } from './model/CreateUpgradeScheduleTaskResponse';
 import { CreateUserGroupReq } from './model/CreateUserGroupReq';
 import { CreateUserGroupRequest } from './model/CreateUserGroupRequest';
 import { CreateUserGroupResponse } from './model/CreateUserGroupResponse';
@@ -368,12 +410,18 @@ import { DeleteDesktopsReq } from './model/DeleteDesktopsReq';
 import { DeleteExportTaskRequestBody } from './model/DeleteExportTaskRequestBody';
 import { DeleteExportTasksRequest } from './model/DeleteExportTasksRequest';
 import { DeleteExportTasksResponse } from './model/DeleteExportTasksResponse';
+import { DeleteImChannelRequest } from './model/DeleteImChannelRequest';
+import { DeleteImChannelResponse } from './model/DeleteImChannelResponse';
 import { DeleteMetricNotifyRuleRequest } from './model/DeleteMetricNotifyRuleRequest';
 import { DeleteMetricNotifyRuleResponse } from './model/DeleteMetricNotifyRuleResponse';
+import { DeleteModelGroupRequest } from './model/DeleteModelGroupRequest';
+import { DeleteModelGroupResponse } from './model/DeleteModelGroupResponse';
 import { DeleteOuRequest } from './model/DeleteOuRequest';
 import { DeleteOuResponse } from './model/DeleteOuResponse';
 import { DeletePolicyGroupRequest } from './model/DeletePolicyGroupRequest';
 import { DeletePolicyGroupResponse } from './model/DeletePolicyGroupResponse';
+import { DeleteProviderRequest } from './model/DeleteProviderRequest';
+import { DeleteProviderResponse } from './model/DeleteProviderResponse';
 import { DeleteRestrictedRuleRequest } from './model/DeleteRestrictedRuleRequest';
 import { DeleteRestrictedRuleResponse } from './model/DeleteRestrictedRuleResponse';
 import { DeleteScheduledTasksReq } from './model/DeleteScheduledTasksReq';
@@ -388,10 +436,16 @@ import { DeleteSubnetBandwidthRequest } from './model/DeleteSubnetBandwidthReque
 import { DeleteSubnetBandwidthResponse } from './model/DeleteSubnetBandwidthResponse';
 import { DeleteTagRequest } from './model/DeleteTagRequest';
 import { DeleteTagResponse } from './model/DeleteTagResponse';
+import { DeleteTenantUpgradeStrategyRequest } from './model/DeleteTenantUpgradeStrategyRequest';
+import { DeleteTenantUpgradeStrategyRequestBody } from './model/DeleteTenantUpgradeStrategyRequestBody';
+import { DeleteTenantUpgradeStrategyResponse } from './model/DeleteTenantUpgradeStrategyResponse';
 import { DeleteTerminalsBindingDesktopsRequest } from './model/DeleteTerminalsBindingDesktopsRequest';
 import { DeleteTerminalsBindingDesktopsRequestBody } from './model/DeleteTerminalsBindingDesktopsRequestBody';
 import { DeleteTerminalsBindingDesktopsResponse } from './model/DeleteTerminalsBindingDesktopsResponse';
 import { DeleteTerminalsBindingDesktopsResult } from './model/DeleteTerminalsBindingDesktopsResult';
+import { DeleteUpgradeTaskRequest } from './model/DeleteUpgradeTaskRequest';
+import { DeleteUpgradeTaskRequestBody } from './model/DeleteUpgradeTaskRequestBody';
+import { DeleteUpgradeTaskResponse } from './model/DeleteUpgradeTaskResponse';
 import { DeleteUserGroupRequest } from './model/DeleteUserGroupRequest';
 import { DeleteUserGroupResponse } from './model/DeleteUserGroupResponse';
 import { DeleteUserRequest } from './model/DeleteUserRequest';
@@ -422,6 +476,8 @@ import { DesktopToImageReq } from './model/DesktopToImageReq';
 import { DesktopUsedHoursInfo } from './model/DesktopUsedHoursInfo';
 import { DesktopUsedInfo } from './model/DesktopUsedInfo';
 import { DesktopUserDetail } from './model/DesktopUserDetail';
+import { DesktopVersionInfo } from './model/DesktopVersionInfo';
+import { DesktopVersionStatistic } from './model/DesktopVersionStatistic';
 import { DetachInstancesDesktopInfo } from './model/DetachInstancesDesktopInfo';
 import { DetachInstancesReq } from './model/DetachInstancesReq';
 import { DetachInstancesRequest } from './model/DetachInstancesRequest';
@@ -476,6 +532,9 @@ import { ExecuteScriptByDesktopTagResponse } from './model/ExecuteScriptByDeskto
 import { ExecuteScriptOrCommandReq } from './model/ExecuteScriptOrCommandReq';
 import { ExecuteScriptOrCommandRequest } from './model/ExecuteScriptOrCommandRequest';
 import { ExecuteScriptOrCommandResponse } from './model/ExecuteScriptOrCommandResponse';
+import { ExecuteTriggerUpgradeRequest } from './model/ExecuteTriggerUpgradeRequest';
+import { ExecuteTriggerUpgradeRequestBody } from './model/ExecuteTriggerUpgradeRequestBody';
+import { ExecuteTriggerUpgradeResponse } from './model/ExecuteTriggerUpgradeResponse';
 import { ExpandDesktopPoolOrderReq } from './model/ExpandDesktopPoolOrderReq';
 import { ExpandDesktopPoolReq } from './model/ExpandDesktopPoolReq';
 import { ExpandDesktopPoolRequest } from './model/ExpandDesktopPoolRequest';
@@ -504,6 +563,10 @@ import { ExportDesktopListNewRequest } from './model/ExportDesktopListNewRequest
 import { ExportDesktopListNewResponse } from './model/ExportDesktopListNewResponse';
 import { ExportDesktopUsageMetricNewRequest } from './model/ExportDesktopUsageMetricNewRequest';
 import { ExportDesktopUsageMetricNewResponse } from './model/ExportDesktopUsageMetricNewResponse';
+import { ExportDesktopVersionListRequest } from './model/ExportDesktopVersionListRequest';
+import { ExportDesktopVersionListResponse } from './model/ExportDesktopVersionListResponse';
+import { ExportHostsDetailRequest } from './model/ExportHostsDetailRequest';
+import { ExportHostsDetailResponse } from './model/ExportHostsDetailResponse';
 import { ExportIpTemplateRequest } from './model/ExportIpTemplateRequest';
 import { ExportIpTemplateResponse } from './model/ExportIpTemplateResponse';
 import { ExportPolicyGroupsReq } from './model/ExportPolicyGroupsReq';
@@ -512,6 +575,8 @@ import { ExportPolicyGroupsResponse } from './model/ExportPolicyGroupsResponse';
 import { ExportScheduledTasksRecordsRequest } from './model/ExportScheduledTasksRecordsRequest';
 import { ExportScheduledTasksRecordsResponse } from './model/ExportScheduledTasksRecordsResponse';
 import { ExportTaskItem } from './model/ExportTaskItem';
+import { ExportTenantUpgradeStrategiesRequest } from './model/ExportTenantUpgradeStrategiesRequest';
+import { ExportTenantUpgradeStrategiesResponse } from './model/ExportTenantUpgradeStrategiesResponse';
 import { ExportTerminalsBindingDesktopsInfoNewRequest } from './model/ExportTerminalsBindingDesktopsInfoNewRequest';
 import { ExportTerminalsBindingDesktopsInfoNewResponse } from './model/ExportTerminalsBindingDesktopsInfoNewResponse';
 import { ExportTerminalsBindingDesktopsTemplateRequest } from './model/ExportTerminalsBindingDesktopsTemplateRequest';
@@ -520,6 +585,9 @@ import { ExportUserConnectionNewRequest } from './model/ExportUserConnectionNewR
 import { ExportUserConnectionNewResponse } from './model/ExportUserConnectionNewResponse';
 import { ExportUserGroupUsersNewRequest } from './model/ExportUserGroupUsersNewRequest';
 import { ExportUserGroupUsersNewResponse } from './model/ExportUserGroupUsersNewResponse';
+import { ExportUserGroupsNewReq } from './model/ExportUserGroupsNewReq';
+import { ExportUserGroupsNewRequest } from './model/ExportUserGroupsNewRequest';
+import { ExportUserGroupsNewResponse } from './model/ExportUserGroupsNewResponse';
 import { ExportUserGroupsRequest } from './model/ExportUserGroupsRequest';
 import { ExportUserGroupsResponse } from './model/ExportUserGroupsResponse';
 import { ExportUserListTemplateRequest } from './model/ExportUserListTemplateRequest';
@@ -546,6 +614,8 @@ import { HourPackageResource } from './model/HourPackageResource';
 import { I18n } from './model/I18n';
 import { I18nLanguage } from './model/I18nLanguage';
 import { IdpMetadataInfo } from './model/IdpMetadataInfo';
+import { ImChannelConfig } from './model/ImChannelConfig';
+import { ImChannelItem } from './model/ImChannelItem';
 import { Image } from './model/Image';
 import { ImageInfo } from './model/ImageInfo';
 import { ImportCertRequest } from './model/ImportCertRequest';
@@ -565,6 +635,8 @@ import { InconsistentTypeEnum } from './model/InconsistentTypeEnum';
 import { InstallAppRequest } from './model/InstallAppRequest';
 import { InstallAppResponse } from './model/InstallAppResponse';
 import { InstallType } from './model/InstallType';
+import { InstanceModelGroupItem } from './model/InstanceModelGroupItem';
+import { InstanceModelProviderConfig } from './model/InstanceModelProviderConfig';
 import { InstanceStatusStatistics } from './model/InstanceStatusStatistics';
 import { InterfacesConfig } from './model/InterfacesConfig';
 import { InterfacesRequest } from './model/InterfacesRequest';
@@ -589,6 +661,8 @@ import { ListAdOusRequest } from './model/ListAdOusRequest';
 import { ListAdOusResponse } from './model/ListAdOusResponse';
 import { ListAgenciesRequest } from './model/ListAgenciesRequest';
 import { ListAgenciesResponse } from './model/ListAgenciesResponse';
+import { ListAgentInstancesRequest } from './model/ListAgentInstancesRequest';
+import { ListAgentInstancesResponse } from './model/ListAgentInstancesResponse';
 import { ListAgentsInstallConditionRequest } from './model/ListAgentsInstallConditionRequest';
 import { ListAgentsInstallConditionResponse } from './model/ListAgentsInstallConditionResponse';
 import { ListAlarmStatisticsRequest } from './model/ListAlarmStatisticsRequest';
@@ -603,6 +677,8 @@ import { ListAppRuleRequest } from './model/ListAppRuleRequest';
 import { ListAppRuleResponse } from './model/ListAppRuleResponse';
 import { ListAppUserAccessDataRequest } from './model/ListAppUserAccessDataRequest';
 import { ListAppUserAccessDataResponse } from './model/ListAppUserAccessDataResponse';
+import { ListApplyObjectsRequest } from './model/ListApplyObjectsRequest';
+import { ListApplyObjectsResponse } from './model/ListApplyObjectsResponse';
 import { ListAppsRequest } from './model/ListAppsRequest';
 import { ListAppsResponse } from './model/ListAppsResponse';
 import { ListAvailabilityZonesRequest } from './model/ListAvailabilityZonesRequest';
@@ -629,8 +705,12 @@ import { ListDesktopPoolsRequest } from './model/ListDesktopPoolsRequest';
 import { ListDesktopPoolsResponse } from './model/ListDesktopPoolsResponse';
 import { ListDesktopSnapshotRequest } from './model/ListDesktopSnapshotRequest';
 import { ListDesktopSnapshotResponse } from './model/ListDesktopSnapshotResponse';
+import { ListDesktopStatisticsByVersionRequest } from './model/ListDesktopStatisticsByVersionRequest';
+import { ListDesktopStatisticsByVersionResponse } from './model/ListDesktopStatisticsByVersionResponse';
 import { ListDesktopUsageMetricRequest } from './model/ListDesktopUsageMetricRequest';
 import { ListDesktopUsageMetricResponse } from './model/ListDesktopUsageMetricResponse';
+import { ListDesktopVersionRequest } from './model/ListDesktopVersionRequest';
+import { ListDesktopVersionResponse } from './model/ListDesktopVersionResponse';
 import { ListDesktopsByTagsRequest } from './model/ListDesktopsByTagsRequest';
 import { ListDesktopsByTagsResponse } from './model/ListDesktopsByTagsResponse';
 import { ListDesktopsConnectStatusRequest } from './model/ListDesktopsConnectStatusRequest';
@@ -660,10 +740,16 @@ import { ListHostsRspHostProperties } from './model/ListHostsRspHostProperties';
 import { ListHostsRspHostPropertiesAvailableInstanceCapacities } from './model/ListHostsRspHostPropertiesAvailableInstanceCapacities';
 import { ListHourPackagesTypeRequest } from './model/ListHourPackagesTypeRequest';
 import { ListHourPackagesTypeResponse } from './model/ListHourPackagesTypeResponse';
+import { ListImChannelsRequest } from './model/ListImChannelsRequest';
+import { ListImChannelsResponse } from './model/ListImChannelsResponse';
 import { ListImagesRequest } from './model/ListImagesRequest';
 import { ListImagesResponse } from './model/ListImagesResponse';
 import { ListInconsistentStaticsRequest } from './model/ListInconsistentStaticsRequest';
 import { ListInconsistentStaticsResponse } from './model/ListInconsistentStaticsResponse';
+import { ListInstanceModelGroupsRequest } from './model/ListInstanceModelGroupsRequest';
+import { ListInstanceModelGroupsResponse } from './model/ListInstanceModelGroupsResponse';
+import { ListInstanceStatisticsRequest } from './model/ListInstanceStatisticsRequest';
+import { ListInstanceStatisticsResponse } from './model/ListInstanceStatisticsResponse';
 import { ListInstancesStatusRequest } from './model/ListInstancesStatusRequest';
 import { ListInstancesStatusResponse } from './model/ListInstancesStatusResponse';
 import { ListInternetRequest } from './model/ListInternetRequest';
@@ -688,6 +774,14 @@ import { ListMetricsRequest } from './model/ListMetricsRequest';
 import { ListMetricsResponse } from './model/ListMetricsResponse';
 import { ListMetricsTrendRequest } from './model/ListMetricsTrendRequest';
 import { ListMetricsTrendResponse } from './model/ListMetricsTrendResponse';
+import { ListModelGroupProvidersRequest } from './model/ListModelGroupProvidersRequest';
+import { ListModelGroupProvidersResponse } from './model/ListModelGroupProvidersResponse';
+import { ListModelGroupResourcesRequest } from './model/ListModelGroupResourcesRequest';
+import { ListModelGroupResourcesResponse } from './model/ListModelGroupResourcesResponse';
+import { ListModelGroupsRequest } from './model/ListModelGroupsRequest';
+import { ListModelGroupsResponse } from './model/ListModelGroupsResponse';
+import { ListModelsRequest } from './model/ListModelsRequest';
+import { ListModelsResponse } from './model/ListModelsResponse';
 import { ListNatGatewaysRequest } from './model/ListNatGatewaysRequest';
 import { ListNatGatewaysResponse } from './model/ListNatGatewaysResponse';
 import { ListNatMappingConfigsRequest } from './model/ListNatMappingConfigsRequest';
@@ -716,6 +810,13 @@ import { ListProductsRequest } from './model/ListProductsRequest';
 import { ListProductsResponse } from './model/ListProductsResponse';
 import { ListProjectTagsRequest } from './model/ListProjectTagsRequest';
 import { ListProjectTagsResponse } from './model/ListProjectTagsResponse';
+import { ListProviderTemplatesRequest } from './model/ListProviderTemplatesRequest';
+import { ListProviderTemplatesResponse } from './model/ListProviderTemplatesResponse';
+import { ListProvidersRequest } from './model/ListProvidersRequest';
+import { ListProvidersResponse } from './model/ListProvidersResponse';
+import { ListRemoteModelsReq } from './model/ListRemoteModelsReq';
+import { ListRemoteProviderModelsRequest } from './model/ListRemoteProviderModelsRequest';
+import { ListRemoteProviderModelsResponse } from './model/ListRemoteProviderModelsResponse';
 import { ListResourcePackagesRequest } from './model/ListResourcePackagesRequest';
 import { ListResourcePackagesResponse } from './model/ListResourcePackagesResponse';
 import { ListRestrictedRuleRequest } from './model/ListRestrictedRuleRequest';
@@ -755,10 +856,16 @@ import { ListSubscribeAiAssistantUsersRequest } from './model/ListSubscribeAiAss
 import { ListSubscribeAiAssistantUsersResponse } from './model/ListSubscribeAiAssistantUsersResponse';
 import { ListTargetOfPolicyGroupRequest } from './model/ListTargetOfPolicyGroupRequest';
 import { ListTargetOfPolicyGroupResponse } from './model/ListTargetOfPolicyGroupResponse';
+import { ListTaskApplyObjectsRequest } from './model/ListTaskApplyObjectsRequest';
+import { ListTaskApplyObjectsResponse } from './model/ListTaskApplyObjectsResponse';
 import { ListTenantConfigsRequest } from './model/ListTenantConfigsRequest';
 import { ListTenantConfigsResponse } from './model/ListTenantConfigsResponse';
 import { ListTenantProfilesRequest } from './model/ListTenantProfilesRequest';
 import { ListTenantProfilesResponse } from './model/ListTenantProfilesResponse';
+import { ListTenantUpgradeStrategiesRequest } from './model/ListTenantUpgradeStrategiesRequest';
+import { ListTenantUpgradeStrategiesResponse } from './model/ListTenantUpgradeStrategiesResponse';
+import { ListTenantVersionConfigRequest } from './model/ListTenantVersionConfigRequest';
+import { ListTenantVersionConfigResponse } from './model/ListTenantVersionConfigResponse';
 import { ListTerminalsBindingDesktopsConfigRequest } from './model/ListTerminalsBindingDesktopsConfigRequest';
 import { ListTerminalsBindingDesktopsConfigResponse } from './model/ListTerminalsBindingDesktopsConfigResponse';
 import { ListTerminalsBindingDesktopsRequest } from './model/ListTerminalsBindingDesktopsRequest';
@@ -767,6 +874,8 @@ import { ListTimeZonesRequest } from './model/ListTimeZonesRequest';
 import { ListTimeZonesResponse } from './model/ListTimeZonesResponse';
 import { ListUnusedDesktopsRequest } from './model/ListUnusedDesktopsRequest';
 import { ListUnusedDesktopsResponse } from './model/ListUnusedDesktopsResponse';
+import { ListUpgradeTasksRequest } from './model/ListUpgradeTasksRequest';
+import { ListUpgradeTasksResponse } from './model/ListUpgradeTasksResponse';
 import { ListUsedDesktopInfoReq } from './model/ListUsedDesktopInfoReq';
 import { ListUsedDesktopInfoRequest } from './model/ListUsedDesktopInfoRequest';
 import { ListUsedDesktopInfoResponse } from './model/ListUsedDesktopInfoResponse';
@@ -792,12 +901,30 @@ import { ListWksEdgeSitesRequest } from './model/ListWksEdgeSitesRequest';
 import { ListWksEdgeSitesResponse } from './model/ListWksEdgeSitesResponse';
 import { ListWorkspacesRequest } from './model/ListWorkspacesRequest';
 import { ListWorkspacesResponse } from './model/ListWorkspacesResponse';
+import { LoginCaptchaConfig } from './model/LoginCaptchaConfig';
 import { LogoffDesktopsReq } from './model/LogoffDesktopsReq';
 import { MapObject } from './model/MapObject';
 import { Match } from './model/Match';
 import { Metric } from './model/Metric';
 import { MetricNotifyRule } from './model/MetricNotifyRule';
 import { MetricsWithTime } from './model/MetricsWithTime';
+import { ModelBatchCreateReq } from './model/ModelBatchCreateReq';
+import { ModelBatchDeleteReq } from './model/ModelBatchDeleteReq';
+import { ModelBatchDeleteRespFailedDetails } from './model/ModelBatchDeleteRespFailedDetails';
+import { ModelCompat } from './model/ModelCompat';
+import { ModelConfigFailedItem } from './model/ModelConfigFailedItem';
+import { ModelConfigItem } from './model/ModelConfigItem';
+import { ModelCost } from './model/ModelCost';
+import { ModelGroupItemVO } from './model/ModelGroupItemVO';
+import { ModelGroupProviderDetailResp } from './model/ModelGroupProviderDetailResp';
+import { ModelGroupProviderItemResp } from './model/ModelGroupProviderItemResp';
+import { ModelGroupProviderSimpleResp } from './model/ModelGroupProviderSimpleResp';
+import { ModelGroupResourceItemResp } from './model/ModelGroupResourceItemResp';
+import { ModelInfo } from './model/ModelInfo';
+import { ModelInfoForListResp } from './model/ModelInfoForListResp';
+import { ModelInfoForResp } from './model/ModelInfoForResp';
+import { ModelItemResp } from './model/ModelItemResp';
+import { ModelPageResp } from './model/ModelPageResp';
 import { ModifyDesktopAttributesReq } from './model/ModifyDesktopAttributesReq';
 import { ModifyDesktopAttributesReqDesktop } from './model/ModifyDesktopAttributesReqDesktop';
 import { ModifyEnterpriseIdReq } from './model/ModifyEnterpriseIdReq';
@@ -888,6 +1015,7 @@ import { PoliciesSeamlessOptions } from './model/PoliciesSeamlessOptions';
 import { PoliciesUserProfile } from './model/PoliciesUserProfile';
 import { PoliciesUserProfileOptions } from './model/PoliciesUserProfileOptions';
 import { PolicyGroup } from './model/PolicyGroup';
+import { PolicyGroupForBaseList } from './model/PolicyGroupForBaseList';
 import { PolicyGroupForCreate } from './model/PolicyGroupForCreate';
 import { PolicyGroupForList } from './model/PolicyGroupForList';
 import { PolicyGroupForTemplate } from './model/PolicyGroupForTemplate';
@@ -900,6 +1028,9 @@ import { Product } from './model/Product';
 import { ProductInfo } from './model/ProductInfo';
 import { ProductResult } from './model/ProductResult';
 import { ProductRule } from './model/ProductRule';
+import { ProviderCustomConfig } from './model/ProviderCustomConfig';
+import { ProviderInfoVO } from './model/ProviderInfoVO';
+import { ProviderTemplateInfo } from './model/ProviderTemplateInfo';
 import { PublicIp } from './model/PublicIp';
 import { Qos } from './model/Qos';
 import { QueryDesktopByTagReq } from './model/QueryDesktopByTagReq';
@@ -915,9 +1046,14 @@ import { Record } from './model/Record';
 import { RecordAuditRule } from './model/RecordAuditRule';
 import { RegisterDomainRequest } from './model/RegisterDomainRequest';
 import { RegisterDomainResponse } from './model/RegisterDomainResponse';
+import { RemoveModelConfigReq } from './model/RemoveModelConfigReq';
+import { RemoveModelConfigRequest } from './model/RemoveModelConfigRequest';
+import { RemoveModelConfigResponse } from './model/RemoveModelConfigResponse';
 import { ResendEmailReq } from './model/ResendEmailReq';
 import { ResetRandomPasswordRequest } from './model/ResetRandomPasswordRequest';
 import { ResetRandomPasswordResponse } from './model/ResetRandomPasswordResponse';
+import { ResetSiteAuthConfigRequest } from './model/ResetSiteAuthConfigRequest';
+import { ResetSiteAuthConfigResponse } from './model/ResetSiteAuthConfigResponse';
 import { ResizeDesktopData } from './model/ResizeDesktopData';
 import { ResizeDesktopJobResponse } from './model/ResizeDesktopJobResponse';
 import { ResizeDesktopPoolJobResponse } from './model/ResizeDesktopPoolJobResponse';
@@ -945,13 +1081,14 @@ import { RunActionsOnGroupResponse } from './model/RunActionsOnGroupResponse';
 import { RunActionsOnWorkspaceJobRequest } from './model/RunActionsOnWorkspaceJobRequest';
 import { RunActionsOnWorkspaceJobResponse } from './model/RunActionsOnWorkspaceJobResponse';
 import { Saml2AuthConfig } from './model/Saml2AuthConfig';
+import { SaveImChannelsReq } from './model/SaveImChannelsReq';
+import { SaveImChannelsRequest } from './model/SaveImChannelsRequest';
+import { SaveImChannelsResponse } from './model/SaveImChannelsResponse';
 import { ScheduledTask } from './model/ScheduledTask';
 import { ScheduledTaskConfig } from './model/ScheduledTaskConfig';
 import { ScheduledTasksRecords } from './model/ScheduledTasksRecords';
 import { ScheduledTasksRecordsDetails } from './model/ScheduledTasksRecordsDetails';
 import { ScreenRecordDetail } from './model/ScreenRecordDetail';
-import { ScreenRecordsConfigResultReq } from './model/ScreenRecordsConfigResultReq';
-import { ScreenRecordsConfigResultReqConfigs } from './model/ScreenRecordsConfigResultReqConfigs';
 import { Script } from './model/Script';
 import { ScriptExecutionTask } from './model/ScriptExecutionTask';
 import { ScriptRecordSimpleInfo } from './model/ScriptRecordSimpleInfo';
@@ -1018,6 +1155,14 @@ import { ShowHibernateTypeRequest } from './model/ShowHibernateTypeRequest';
 import { ShowHibernateTypeResponse } from './model/ShowHibernateTypeResponse';
 import { ShowJobRequest } from './model/ShowJobRequest';
 import { ShowJobResponse } from './model/ShowJobResponse';
+import { ShowModelGroupRequest } from './model/ShowModelGroupRequest';
+import { ShowModelGroupResp } from './model/ShowModelGroupResp';
+import { ShowModelGroupResponse } from './model/ShowModelGroupResponse';
+import { ShowModelRequest } from './model/ShowModelRequest';
+import { ShowModelResponse } from './model/ShowModelResponse';
+import { ShowProviderRequest } from './model/ShowProviderRequest';
+import { ShowProviderResp } from './model/ShowProviderResp';
+import { ShowProviderResponse } from './model/ShowProviderResponse';
 import { ShowQuotaDetailsRequest } from './model/ShowQuotaDetailsRequest';
 import { ShowQuotaDetailsResponse } from './model/ShowQuotaDetailsResponse';
 import { ShowQuotasRequest } from './model/ShowQuotasRequest';
@@ -1042,6 +1187,10 @@ import { ShowSysprepInfoRequest } from './model/ShowSysprepInfoRequest';
 import { ShowSysprepInfoResponse } from './model/ShowSysprepInfoResponse';
 import { ShowTagByDesktopIdRequest } from './model/ShowTagByDesktopIdRequest';
 import { ShowTagByDesktopIdResponse } from './model/ShowTagByDesktopIdResponse';
+import { ShowTenantVersionConfigRequest } from './model/ShowTenantVersionConfigRequest';
+import { ShowTenantVersionConfigResponse } from './model/ShowTenantVersionConfigResponse';
+import { ShowUpgradeTaskDetailRequest } from './model/ShowUpgradeTaskDetailRequest';
+import { ShowUpgradeTaskDetailResponse } from './model/ShowUpgradeTaskDetailResponse';
 import { ShowUserAccessStagesRequest } from './model/ShowUserAccessStagesRequest';
 import { ShowUserAccessStagesResponse } from './model/ShowUserAccessStagesResponse';
 import { ShowUsingSubnetsRequest } from './model/ShowUsingSubnetsRequest';
@@ -1087,6 +1236,10 @@ import { TagResource } from './model/TagResource';
 import { Tags } from './model/Tags';
 import { TagsReq } from './model/TagsReq';
 import { Target } from './model/Target';
+import { TaskApplyObjectDetailInfo } from './model/TaskApplyObjectDetailInfo';
+import { TaskApplyObjectInfo } from './model/TaskApplyObjectInfo';
+import { TenantUpgradeStrategyDetailRsp } from './model/TenantUpgradeStrategyDetailRsp';
+import { TenantVersionInfo } from './model/TenantVersionInfo';
 import { TerminalsBindingDesktopsConfig } from './model/TerminalsBindingDesktopsConfig';
 import { TerminalsBindingDesktopsInfo } from './model/TerminalsBindingDesktopsInfo';
 import { ThirdPartyAuthConfig } from './model/ThirdPartyAuthConfig';
@@ -1154,6 +1307,12 @@ import { UpdateHostsResponse } from './model/UpdateHostsResponse';
 import { UpdateMetricNotifyRuleReq } from './model/UpdateMetricNotifyRuleReq';
 import { UpdateMetricNotifyRuleRequest } from './model/UpdateMetricNotifyRuleRequest';
 import { UpdateMetricNotifyRuleResponse } from './model/UpdateMetricNotifyRuleResponse';
+import { UpdateModelGroupReq } from './model/UpdateModelGroupReq';
+import { UpdateModelGroupRequest } from './model/UpdateModelGroupRequest';
+import { UpdateModelGroupResponse } from './model/UpdateModelGroupResponse';
+import { UpdateModelReq } from './model/UpdateModelReq';
+import { UpdateModelRequest } from './model/UpdateModelRequest';
+import { UpdateModelResponse } from './model/UpdateModelResponse';
 import { UpdateNatMappingConfig } from './model/UpdateNatMappingConfig';
 import { UpdateNatMappingConfigsReq } from './model/UpdateNatMappingConfigsReq';
 import { UpdateNatMappingConfigsRequest } from './model/UpdateNatMappingConfigsRequest';
@@ -1164,13 +1323,19 @@ import { UpdatePoliciesOfPolicyGroupRequest } from './model/UpdatePoliciesOfPoli
 import { UpdatePoliciesOfPolicyGroupResponse } from './model/UpdatePoliciesOfPolicyGroupResponse';
 import { UpdatePolicyGroupRequest } from './model/UpdatePolicyGroupRequest';
 import { UpdatePolicyGroupResponse } from './model/UpdatePolicyGroupResponse';
+import { UpdateProviderReq } from './model/UpdateProviderReq';
+import { UpdateProviderRequest } from './model/UpdateProviderRequest';
+import { UpdateProviderResponse } from './model/UpdateProviderResponse';
 import { UpdateScheduledTasksReq } from './model/UpdateScheduledTasksReq';
 import { UpdateScheduledTasksRequest } from './model/UpdateScheduledTasksRequest';
 import { UpdateScheduledTasksResponse } from './model/UpdateScheduledTasksResponse';
+import { UpdateScheduledUpgradeTaskRequestBody } from './model/UpdateScheduledUpgradeTaskRequestBody';
 import { UpdateScreenRecordsRequest } from './model/UpdateScreenRecordsRequest';
 import { UpdateScreenRecordsRequestBody } from './model/UpdateScreenRecordsRequestBody';
 import { UpdateScreenRecordsResponse } from './model/UpdateScreenRecordsResponse';
 import { UpdateScreenRecordsTrafficLimitConfigRequest } from './model/UpdateScreenRecordsTrafficLimitConfigRequest';
+import { UpdateScreenRecordsTrafficLimitConfigRequestBody } from './model/UpdateScreenRecordsTrafficLimitConfigRequestBody';
+import { UpdateScreenRecordsTrafficLimitConfigRequestBodyConfigs } from './model/UpdateScreenRecordsTrafficLimitConfigRequestBodyConfigs';
 import { UpdateScreenRecordsTrafficLimitConfigResponse } from './model/UpdateScreenRecordsTrafficLimitConfigResponse';
 import { UpdateScriptReq } from './model/UpdateScriptReq';
 import { UpdateScriptRequest } from './model/UpdateScriptRequest';
@@ -1178,6 +1343,9 @@ import { UpdateScriptResponse } from './model/UpdateScriptResponse';
 import { UpdateShareSpaceConfigReq } from './model/UpdateShareSpaceConfigReq';
 import { UpdateShareSpaceConfigRequest } from './model/UpdateShareSpaceConfigRequest';
 import { UpdateShareSpaceConfigResponse } from './model/UpdateShareSpaceConfigResponse';
+import { UpdateStrategyApplyObjectsRequest } from './model/UpdateStrategyApplyObjectsRequest';
+import { UpdateStrategyApplyObjectsRequestBody } from './model/UpdateStrategyApplyObjectsRequestBody';
+import { UpdateStrategyApplyObjectsResponse } from './model/UpdateStrategyApplyObjectsResponse';
 import { UpdateSubnetBandwidthControlListReq } from './model/UpdateSubnetBandwidthControlListReq';
 import { UpdateSubnetBandwidthControlListRequest } from './model/UpdateSubnetBandwidthControlListRequest';
 import { UpdateSubnetBandwidthControlListResponse } from './model/UpdateSubnetBandwidthControlListResponse';
@@ -1192,12 +1360,17 @@ import { UpdateTenantConfigRequest } from './model/UpdateTenantConfigRequest';
 import { UpdateTenantConfigResponse } from './model/UpdateTenantConfigResponse';
 import { UpdateTenantProfileRequest } from './model/UpdateTenantProfileRequest';
 import { UpdateTenantProfileResponse } from './model/UpdateTenantProfileResponse';
+import { UpdateTenantUpgradeStrategyRequest } from './model/UpdateTenantUpgradeStrategyRequest';
+import { UpdateTenantUpgradeStrategyRequestBody } from './model/UpdateTenantUpgradeStrategyRequestBody';
+import { UpdateTenantUpgradeStrategyResponse } from './model/UpdateTenantUpgradeStrategyResponse';
 import { UpdateTerminalsBindingDesktopsConfigRequest } from './model/UpdateTerminalsBindingDesktopsConfigRequest';
 import { UpdateTerminalsBindingDesktopsConfigResponse } from './model/UpdateTerminalsBindingDesktopsConfigResponse';
 import { UpdateTerminalsBindingDesktopsRequest } from './model/UpdateTerminalsBindingDesktopsRequest';
 import { UpdateTerminalsBindingDesktopsRequestBody } from './model/UpdateTerminalsBindingDesktopsRequestBody';
 import { UpdateTerminalsBindingDesktopsResponse } from './model/UpdateTerminalsBindingDesktopsResponse';
 import { UpdateUosDomainInfo } from './model/UpdateUosDomainInfo';
+import { UpdateUpgradeTaskRequest } from './model/UpdateUpgradeTaskRequest';
+import { UpdateUpgradeTaskResponse } from './model/UpdateUpgradeTaskResponse';
 import { UpdateUploadedAppRequest } from './model/UpdateUploadedAppRequest';
 import { UpdateUploadedAppResponse } from './model/UpdateUploadedAppResponse';
 import { UpdateUserGroupRequest } from './model/UpdateUserGroupRequest';
@@ -1206,6 +1379,7 @@ import { UpdateUserInfoRequest } from './model/UpdateUserInfoRequest';
 import { UpdateUserInfoResponse } from './model/UpdateUserInfoResponse';
 import { UpdateWorkspaceRequest } from './model/UpdateWorkspaceRequest';
 import { UpdateWorkspaceResponse } from './model/UpdateWorkspaceResponse';
+import { UpgradeScheduledTaskVO } from './model/UpgradeScheduledTaskVO';
 import { UploadAppReq } from './model/UploadAppReq';
 import { UploadAppRequest } from './model/UploadAppRequest';
 import { UploadAppResponse } from './model/UploadAppResponse';
@@ -1227,6 +1401,9 @@ import { ValidateDomainControllerResponse } from './model/ValidateDomainControll
 import { Vdi } from './model/Vdi';
 import { VdiDisconnectHibernateOptions } from './model/VdiDisconnectHibernateOptions';
 import { VdiNoOperationHibernateOptions } from './model/VdiNoOperationHibernateOptions';
+import { VerifyProviderReq } from './model/VerifyProviderReq';
+import { VerifyProviderRequest } from './model/VerifyProviderRequest';
+import { VerifyProviderResponse } from './model/VerifyProviderResponse';
 import { VirtualChannel } from './model/VirtualChannel';
 import { VirtualChannelOptions } from './model/VirtualChannelOptions';
 import { VmOperateResult } from './model/VmOperateResult';
@@ -1485,6 +1662,84 @@ export class WorkspaceClient {
      */
     public listAgencies(listAgenciesRequest?: ListAgenciesRequest): Promise<ListAgenciesResponse> {
         const options = ParamCreater().listAgencies(listAgenciesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询 Agent 实例列表，支持多条件筛选、排序和分页。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询 Agent 实例列表
+     * @param {Array<string>} [aiAgentType] Agent 类型，支持多选（OR 逻辑）：OpenClaw / OfficeClaw / HermesAgent
+     * @param {Array<string>} [regionId] 区域 ID，支持多选（OR 逻辑）
+     * @param {Array<string>} [agentStatus] Agent 运行状态，支持多选（OR 逻辑）： - UNREACHABLE：连续3次心跳丢失（90秒无上报），触发告警 - ERROR：Agent进程健康检查连续失败3次或进程异常退出，尝试自动重启 - OFFLINE：桌面关机或重建中，停止心跳检测 - RUNNING：心跳正常且Agent进程健康检查通过
+     * @param {Array<string>} [desktopStatus] 桌面运行状态，支持多选（OR 逻辑）： - ACTIVE：运行中 - SHUTOFF：已关机 - HIBERNATED：已休眠 - ERROR：故障
+     * @param {Array<string>} [desktopConnection] 桌面连接状态，支持多选（OR 逻辑）： - UNREGISTER：桌面未注册（关机后也会出现） - REGISTERED：桌面已注册，等待用户连接 - CONNECTED：用户已连接，正在使用桌面 - DISCONNECTED：桌面与客户端断开会话
+     * @param {string} [modelGroupId] 已授权的模型分组 ID（单选）
+     * @param {Array<string>} [channelConfigStatus] 通道配置状态，支持多选（OR 逻辑）： - UNCONFIGURED：未配置 - APPLYING：配置中 - CONFIGURED：已配置 - FAILED：配置失败
+     * @param {string} [instanceName] 实例名称（模糊搜索）
+     * @param {string} [instanceId] 实例 ID（精确搜索）
+     * @param {string} [desktopId] 云桌面 ID（精确搜索）
+     * @param {Date} [createTimeStart] 创建时间范围-开始
+     * @param {Date} [createTimeEnd] 创建时间范围-结束
+     * @param {string} [tags] 标签过滤，格式：key1&#x3D;val1,key2&#x3D;val2，多个键值对用逗号分隔
+     * @param {Array<string>} [riskType] 风险类型过滤，支持多选（OR 逻辑）： - MODEL_CONFIG_INCONSISTENT：模型配置不一致 - IM_CHANNEL_CONFIG_INCONSISTENT：IM通道配置不一致
+     * @param {Array<string>} [modelConfigStatus] 模型配置状态，支持多选（OR 逻辑）： - UNCONFIGURED：未配置 - APPLYING：配置中 - CONFIGURED：已配置 - FAILED：配置失败
+     * @param {string} [agentVersion] Agent 版本号（精确搜索）
+     * @param {string} [sortField] 排序字段：create_time（默认）/ instance_name / agent_status / heartbeat_time
+     * @param {string} [sortOrder] 排序方向：DESC（默认）/ ASC
+     * @param {number} [offset] 偏移量，从0开始
+     * @param {number} [limit] 每页条数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAgentInstances(listAgentInstancesRequest?: ListAgentInstancesRequest): Promise<ListAgentInstancesResponse> {
+        const options = ParamCreater().listAgentInstances(listAgentInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据 Agent 实例 ID 查询其关联的所有模型分组，按优先级升序排列，支持分页。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询 Agent 实例关联的模型分组列表
+     * @param {string} instanceId Agent 实例 ID
+     * @param {number} [offset] 偏移量，从0开始
+     * @param {number} [limit] 每页条数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceModelGroups(listInstanceModelGroupsRequest?: ListInstanceModelGroupsRequest): Promise<ListInstanceModelGroupsResponse> {
+        const options = ParamCreater().listInstanceModelGroups(listInstanceModelGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询 Agent 实例统计信息，包括桌面总数、未配置模型桌面数、未配置通道桌面数、存在风险桌面数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询 Agent 实例统计信息
+     * @param {string} [aiAgentType] Agent 类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceStatistics(listInstanceStatisticsRequest?: ListInstanceStatisticsRequest): Promise<ListInstanceStatisticsResponse> {
+        const options = ParamCreater().listInstanceStatistics(listInstanceStatisticsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2548,11 +2803,13 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询CA证书列表
+     * @param {number} [limit] 每页显示的数量。
+     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listCerts(listCertsRequest?: ListCertsRequest): Promise<ListCertsResponse> {
-        const options = ParamCreater().listCerts();
+        const options = ParamCreater().listCerts(listCertsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2592,6 +2849,25 @@ export class WorkspaceClient {
      */
     public showCertDetail(showCertDetailRequest?: ShowCertDetailRequest): Promise<ShowCertDetailResponse> {
         const options = ParamCreater().showCertDetail(showCertDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于批量检查桌面是否支持重新加入AD域。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量检查加域
+     * @param {BatchCheckRejoinDomainReq} batchCheckRejoinDomainRequestBody 批量检查加域请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCheckDesktopRejoinDomain(batchCheckDesktopRejoinDomainRequest?: BatchCheckDesktopRejoinDomainRequest): Promise<BatchCheckDesktopRejoinDomainResponse> {
+        const options = ParamCreater().batchCheckDesktopRejoinDomain(batchCheckDesktopRejoinDomainRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2717,6 +2993,7 @@ export class WorkspaceClient {
      * @param {number} [limit] 用于分页查询，返回登录记录数量限制,取值范围0-1000。如果不指定，默认为20。
      * @param {number} [minNetworkRtt] 查询端到端时延的最小值。
      * @param {number} [maxNetworkRtt] 查询端到端时延的最大值。
+     * @param {string} [domain] 域名筛选条件，用于根据域名筛选用户连接记录。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2950,6 +3227,25 @@ export class WorkspaceClient {
     }
 
     /**
+     * 该接口用于Windows桌面批量重新加入AD域，一般用于解决桌面脱域的情况使用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量重新加入AD域
+     * @param {BatchRejoinDomainReq} batchUpdateDesktopDomainRequestBody 批量重新加域请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateDesktopDomain(batchUpdateDesktopDomainRequest?: BatchUpdateDesktopDomainRequest): Promise<BatchUpdateDesktopDomainResponse> {
+        const options = ParamCreater().batchUpdateDesktopDomain(batchUpdateDesktopDomainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 取消远程协助。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3106,6 +3402,30 @@ export class WorkspaceClient {
     }
 
     /**
+     * 根据agent版本号、操作系统类型、桌面名称、用户名等条件导出桌面版本列表的Excel文件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导出该版本的桌面列表
+     * @param {string} agentVersion 桌面agent版本号（精确匹配）。
+     * @param {string} osType 桌面操作系统类型。
+     * @param {'zh_CN' | 'en_US'} language 语言。  - zh_CN：中文 - en_US：英文
+     * @param {string} [desktopId] 桌面ID。
+     * @param {string} [desktopName] 桌面名称（支持模糊匹配）。
+     * @param {string} [username] 用户名（支持模糊匹配）。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportDesktopVersionList(exportDesktopVersionListRequest?: ExportDesktopVersionListRequest): Promise<ExportDesktopVersionListResponse> {
+        const options = ParamCreater().exportDesktopVersionList(exportDesktopVersionListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 展示桌面安装监控插件详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3173,6 +3493,50 @@ export class WorkspaceClient {
     }
 
     /**
+     * 查询每个桌面版本下的桌面数量统计信息，支持按版本号过滤。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询桌面版本统计信息
+     * @param {Array<string>} [versions] 桌面版本号列表，用于过滤指定版本的桌面统计。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDesktopStatisticsByVersion(listDesktopStatisticsByVersionRequest?: ListDesktopStatisticsByVersionRequest): Promise<ListDesktopStatisticsByVersionResponse> {
+        const options = ParamCreater().listDesktopStatisticsByVersion(listDesktopStatisticsByVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据agent版本号、操作系统类型、桌面名称、用户名等条件查询桌面版本信息列表，支持分页查询。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询该版本的桌面列表
+     * @param {string} agentVersion 桌面agent版本号（精确匹配）。
+     * @param {string} osType 桌面操作系统类型。
+     * @param {string} [desktopId] 桌面ID。
+     * @param {string} [desktopName] 桌面名称（支持模糊匹配）。
+     * @param {string} [username] 用户名（支持模糊匹配）。
+     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
+     * @param {number} [limit] 用于分页查询，每页数量，默认10，最大100。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDesktopVersion(listDesktopVersionRequest?: ListDesktopVersionRequest): Promise<ListDesktopVersionResponse> {
+        const options = ParamCreater().listDesktopVersion(listDesktopVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于查询桌面虚拟机列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3183,6 +3547,7 @@ export class WorkspaceClient {
      * @param {string} [desktopIp] 桌面IP地址。
      * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
      * @param {number} [limit] 用于分页查询，取值范围0-1000，默认值1000。
+     * @param {1 | 2 | 3} [domainStatus] 加域状态。|- 1 正常。 2 脱域。 3 未上报。
      * @param {string} [poolId] 桌面池ID,多个桌面池ID用逗号隔开。
      * @param {string} [enterpriseProjectId] 企业项目ID。
      * @param {string} [desktopType] 桌面类型，为空时查所有桌面。查询多个类型时用,隔开。 - DEDICATED：普通桌面，包括专享桌面、专属桌面等。 - SHARED: 多用户共享桌面。
@@ -3233,6 +3598,7 @@ export class WorkspaceClient {
      * @summary 查询桌面详情列表
      * @param {string} [status] 桌面状态。  - ACTIVE：运行中。 - SHUTOFF：关机。 - ERROR：异常。 - HIBERNATED：休眠。
      * @param {string} [userName] 桌面所属用户，当传user_names时，本字段不生效。
+     * @param {string} [userId] 用户ID。
      * @param {Array<string>} [userNames] 桌面所属用户，批量筛选，最多不超过100个用户。
      * @param {'created' | 'computer_name'} [sortField] 排序字段名称，需要结合sort_type字段一起使用。 - created 创建时间。 - computer_name 桌面名称。
      * @param {'ASC' | 'DESC'} [sortType] 排序类型，默认升序，需要结合sort_field字段一起使用。 - ASC 升序。 - DESC 降序。
@@ -3243,6 +3609,7 @@ export class WorkspaceClient {
      * @param {number} [limit] 用于分页查询，取值范围0-500，默认值500。
      * @param {Array<string>} [desktopId] 桌面ID。
      * @param {string} [desktopType] 桌面类型，为空时查所有桌面。 - DEDICATED：普通桌面，包括专享桌面、专属桌面等 - POOLED：池桌面，即桌面池里的桌面
+     * @param {1 | 2 | 3} [domainStatus] 加域状态。|- 1 正常。 2 脱域。 3 未上报。
      * @param {string} [tag] 桌面的标签。样例：  - key1&#x3D;value1。 - key1&#x3D;value1，key2&#x3D;value2。
      * @param {string} [poolId] 桌面池ID,多个桌面池ID用逗号隔开。
      * @param {boolean} [userAttached] 是否分配了用户。
@@ -3254,6 +3621,7 @@ export class WorkspaceClient {
      * @param {string} [subnetId] 桌面的子网ID。
      * @param {boolean} [isSupportInternet] 是否支持上网。
      * @param {string} [availabilityZone] 查询可用区。
+     * @param {string} [agentVersion] agent版本。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3902,6 +4270,7 @@ export class WorkspaceClient {
      * @param {Array<string>} [desktopId] 桌面ID。
      * @param {string} [desktopType] 桌面类型，为空时查所有桌面。 - DEDICATED：普通桌面，包括专享桌面、专属桌面等 - POOLED：池桌面，即桌面池里的桌面
      * @param {string} [tag] 桌面的标签。样例：  - key1&#x3D;value1。 - key1&#x3D;value1，key2&#x3D;value2。
+     * @param {1 | 2 | 3} [domainStatus] 加域状态。|- 1 正常。 2 脱域。 3 未上报。
      * @param {boolean} [userAttached] 是否分配了用户。
      * @param {string} [enterpriseProjectId] 企业项目ID。
      * @param {string} [imageId] 镜像ID。
@@ -4236,6 +4605,7 @@ export class WorkspaceClient {
      * @summary 导出桌面列表
      * @param {'zh_CN' | 'en_US'} language 语言。  - zh_CN：中文 - en_US：英文
      * @param {string} [computerName] 桌面名。
+     * @param {Array<string>} [computerNames] 桌面名列表
      * @param {string} [desktopIp] 桌面IP地址。
      * @param {string} [desktopId] 桌面ID。
      * @param {string} [tag] 桌面的标签。标签的键和标签的值用“&#x3D;”连接。
@@ -4245,13 +4615,18 @@ export class WorkspaceClient {
      * @param {Array<string>} [userNames] 桌面所属用户，批量筛选，最多不超过100个用户。
      * @param {'created' | 'computer_name'} [sortField] 排序字段名称，需要结合sort_type字段一起使用。 - created 创建时间。 - computer_name 桌面名称。
      * @param {'ASC' | 'DESC'} [sortType] 排序类型，默认升序，需要结合sort_field字段一起使用。 - ASC 升序。 - DESC 降序。
-     * @param {string} [poolId] 桌面池ID,多个桌面池ID用逗号隔开。
      * @param {boolean} [userAttached] 是否分配了用户。
      * @param {string} [imageId] 镜像ID。
      * @param {string} [chargeMode] 计费模式，0：包周期，1：按需。
      * @param {boolean} [inMaintenanceMode] 按照维护模式过滤。
      * @param {string} [subnetId] 桌面的子网ID。
      * @param {string} [connectionStatusVersion] 连接状态版本，默认值为OLD。 - NEW：新版本 - OLD：老版本
+     * @param {string} [poolId] 桌面池ID,多个桌面池ID用逗号隔开。
+     * @param {boolean} [includePool] 是否只导出桌面池桌面。 - true：只导出桌面池桌面，此时可配合pool_name、pool_type、pool_in_maintenance_mode过滤参数对桌面池进行过滤 - false：只导出普通桌面，忽略其他pool_name、pool_type、pool_in_maintenance_mode过滤参数参数
+     * @param {string} [poolName] 桌面池名称。
+     * @param {'DYNAMIC' | 'STATIC'} [poolType] 桌面池类型，DYNAMIC：动态池，STATIC：静态池。
+     * @param {boolean} [poolInMaintenanceMode] 按照维护状态过滤。
+     * @param {string} [poolEnterpriseProjectId] 按照企业项目ID过滤桌面池。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4456,6 +4831,7 @@ export class WorkspaceClient {
      * @summary 查询用户组中的用户
      * @param {string} groupId 用户组ID。
      * @param {string} [userName] 用户名支持模糊查询。
+     * @param {Array<string>} [userNames] 用户名列表，支持多用户名查询。
      * @param {string} [description] 用户描述支持模糊查询。
      * @param {'USER_ACTIVATE' | 'ADMIN_ACTIVATE'} [activeType] 激活类型。 - USER_ACTIVATE：用户激活 - ADMIN_ACTIVATE：管理员激活
      * @param {string} [enterpriseProjectId] 企业项目ID。
@@ -4521,6 +4897,7 @@ export class WorkspaceClient {
      * @summary 导出用户组的用户
      * @param {string} groupId 桌面用户组ID。
      * @param {string} [userName] 用户名支持模糊查询。
+     * @param {Array<string>} [userNames] 用户名列表，支持多用户名查询。
      * @param {string} [description] 用户描述支持模糊查询。
      * @param {'USER_ACTIVATE' | 'ADMIN_ACTIVATE'} [activeType] 激活类型。 - USER_ACTIVATE：用户激活 - ADMIN_ACTIVATE：管理员激活
      * @param {string} [groupName] 用户组名。
@@ -4531,6 +4908,38 @@ export class WorkspaceClient {
      */
     public exportUserGroupUsersNew(exportUserGroupUsersNewRequest?: ExportUserGroupUsersNewRequest): Promise<ExportUserGroupUsersNewResponse> {
         const options = ParamCreater().exportUserGroupUsersNew(exportUserGroupUsersNewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 导出云办公主机列表的详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导出云办公主机列表
+     * @param {'zh_CN' | 'en_US'} language 语言。  - zh_CN：中文 - en_US：英文
+     * @param {string} [name] 云办公主机名称。
+     * @param {string} [availabilityZone] 云办公主机所属区域。
+     * @param {string} [hostId] 云办公主机的id。
+     * @param {string} [enterpriseProjectId] 企业项目ID。
+     * @param {string} [hostType] 类型。
+     * @param {string} [hostTypeName] 云办公主机类型名称。
+     * @param {'available' | 'fault' | 'released'} [state] 云办公主机状态，available-可用的，fault-错误的，released-释放的。
+     * @param {number} [limit] 每页显示的数量。
+     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
+     * @param {string} [marker] 上一页显示的最后记录的id，与offset同时使用时不生效。
+     * @param {string} [changesSince] 过滤指定时间起状态变更的专属主机。 日期和时间戳的格式为ISO 8601：CCYY-MM-DDThh:mm:ss±hh:mm 如果包含“hh:mm”值，则将时区作为UTC的偏移量返回。例如，“2015-08-27T09:49:58-05:00”。如果您省略时区，则假定为UTC时区。
+     * @param {'instance_total' | 'available_vcpus' | 'available_memory'} [sortField] 排序字段名称，需要结合sort_type字段一起使用。 - instance_total 云办公主机上的实例总数 - available_vcpus 云办公主机可用的vCPU核数 - available_memory 云办公主机可用的内存大小
+     * @param {'ASC' | 'DESC'} [sortType] 排序类型，默认升序，需要结合sort_field字段一起使用。 - ASC 升序。 - DESC 降序。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportHostsDetail(exportHostsDetailRequest?: ExportHostsDetailRequest): Promise<ExportHostsDetailResponse> {
+        const options = ParamCreater().exportHostsDetail(exportHostsDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4555,6 +4964,8 @@ export class WorkspaceClient {
      * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
      * @param {string} [marker] 上一页显示的最后记录的id，与offset同时使用时不生效。
      * @param {string} [changesSince] 过滤指定时间起状态变更的专属主机。 日期和时间戳的格式为ISO 8601：CCYY-MM-DDThh:mm:ss±hh:mm 如果包含“hh:mm”值，则将时区作为UTC的偏移量返回。例如，“2015-08-27T09:49:58-05:00”。如果您省略时区，则假定为UTC时区。
+     * @param {'instance_total' | 'available_vcpus' | 'available_memory'} [sortField] 排序字段名称，需要结合sort_type字段一起使用。 - instance_total 云办公主机上的实例总数 - available_vcpus 云办公主机可用的vCPU核数 - available_memory 云办公主机可用的内存大小
+     * @param {'ASC' | 'DESC'} [sortType] 排序类型，默认升序，需要结合sort_field字段一起使用。 - ASC 升序。 - DESC 降序。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4574,6 +4985,10 @@ export class WorkspaceClient {
      *
      * @summary 查询云办公主机包含桌面信息
      * @param {string} hostId 云办公主机id。
+     * @param {'vcpu' | 'memory'} [sortField] 排序字段名称，需要结合sort_type字段一起使用。 - vcpu CPU核数 - memory 内存大小
+     * @param {'ASC' | 'DESC'} [sortType] 排序类型，默认升序，需要结合sort_field字段一起使用。 - ASC 升序。 - DESC 降序。
+     * @param {number} [limit] 每页显示的数量。
+     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4598,6 +5013,64 @@ export class WorkspaceClient {
      */
     public updateHosts(updateHostsRequest?: UpdateHostsRequest): Promise<UpdateHostsResponse> {
         const options = ParamCreater().updateHosts(updateHostsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除指定 Agent 实例上某个平台的 IM 通道配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除 IM 通道配置
+     * @param {string} id Agent 实例主键 ID
+     * @param {string} platform IM 平台类型：wecom / feishu / dingtalk-connector
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteImChannel(deleteImChannelRequest?: DeleteImChannelRequest): Promise<DeleteImChannelResponse> {
+        const options = ParamCreater().deleteImChannel(deleteImChannelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据 Agent 实例主键 ID 查询其配置的 IM 通道列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询 IM 通道配置列表
+     * @param {string} id Agent 实例主键 ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listImChannels(listImChannelsRequest?: ListImChannelsRequest): Promise<ListImChannelsResponse> {
+        const options = ParamCreater().listImChannels(listImChannelsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 配置 IM 通道（钉钉/企业微信/飞书/wework）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下发 IM 通道配置
+     * @param {SaveImChannelsReq} saveImChannelsRequestBody 配置 IM 通道请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public saveImChannels(saveImChannelsRequest?: SaveImChannelsRequest): Promise<SaveImChannelsResponse> {
+        const options = ParamCreater().saveImChannels(saveImChannelsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4841,6 +5314,330 @@ export class WorkspaceClient {
      */
     public showJob(showJobRequest?: ShowJobRequest): Promise<ShowJobResponse> {
         const options = ParamCreater().showJob(showJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量关联模型分组与资源。支持根据模型分组关联桌面/桌面标签，也支持根据桌面/桌面标签关联模型分组。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量关联模型分组与资源（桌面/桌面标签）
+     * @param {ApplyModelConfigReq} applyModelConfigRequestBody 应用模型分组到资源的请求内容。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public applyModelConfig(applyModelConfigRequest?: ApplyModelConfigRequest): Promise<ApplyModelConfigResponse> {
+        const options = ParamCreater().applyModelConfig(applyModelConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量移除模型分组与资源（桌面/桌面标签）的关联。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量移除模型分组与资源的关联
+     * @param {RemoveModelConfigReq} removeModelConfigRequestBody 移除模型分组授权的请求内容。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public removeModelConfig(removeModelConfigRequest?: RemoveModelConfigRequest): Promise<RemoveModelConfigResponse> {
+        const options = ParamCreater().removeModelConfig(removeModelConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量添加供应商关联到指定模型分组。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量绑定供应商到模型组
+     * @param {string} groupId 模型组id。
+     * @param {BatchBindProvidersReq} batchBindProvidersRequestBody 批量绑定供应商的请求内容。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchBindProviders(batchBindProvidersRequest?: BatchBindProvidersRequest): Promise<BatchBindProvidersResponse> {
+        const options = ParamCreater().batchBindProviders(batchBindProvidersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量移除供应商关联，当全部成功时返回200，部分成功时返回207。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量解绑供应商从模型组
+     * @param {string} groupId 模型组id。
+     * @param {BatchDeleteProvidersReq} batchDeleteProvidersRequestBody 批量解绑供应商的请求内容。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteProviders(batchDeleteProvidersRequest?: BatchDeleteProvidersRequest): Promise<BatchDeleteProvidersResponse> {
+        const options = ParamCreater().batchDeleteProviders(batchDeleteProvidersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 新增模型组，支持同时关联供应商。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增模型组
+     * @param {CreateModelGroupReq} createModelGroupRequestBody 新增模型组的请求内容。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createModelGroup(createModelGroupRequest?: CreateModelGroupRequest): Promise<CreateModelGroupResponse> {
+        const options = ParamCreater().createModelGroup(createModelGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除模型组。如果模型组已被Agent实例或桌面标签授权绑定，禁止删除，返回422错误。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除模型组
+     * @param {string} groupId 模型组id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteModelGroup(deleteModelGroupRequest?: DeleteModelGroupRequest): Promise<DeleteModelGroupResponse> {
+        const options = ParamCreater().deleteModelGroup(deleteModelGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分页查询模型组关联的供应商。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询模型组关联的供应商列表
+     * @param {string} groupId 模型组id。
+     * @param {number} [offset] 偏移量，默认0。
+     * @param {number} [limit] 分页大小，默认20。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listModelGroupProviders(listModelGroupProvidersRequest?: ListModelGroupProvidersRequest): Promise<ListModelGroupProvidersResponse> {
+        const options = ParamCreater().listModelGroupProviders(listModelGroupProvidersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分页查询模型分组关联的应用对象（Agent实例或桌面标签）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询模型分组关联的应用对象列表
+     * @param {string} groupId 模型组id。
+     * @param {number} [offset] 偏移量，默认0。
+     * @param {number} [limit] 分页大小，默认20。
+     * @param {'DESKTOP' | 'DESKTOP_TAG'} [resourceType] 资源类型过滤（DESKTOP/DESKTOP_TAG，可选）。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listModelGroupResources(listModelGroupResourcesRequest?: ListModelGroupResourcesRequest): Promise<ListModelGroupResourcesResponse> {
+        const options = ParamCreater().listModelGroupResources(listModelGroupResourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询模型组列表，支持模糊搜索。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询模型组列表
+     * @param {number} [offset] 偏移量，默认0。
+     * @param {number} [limit] 分页大小，默认20。
+     * @param {string} [name] 分组名称（模糊匹配）。
+     * @param {'draft' | 'active' | 'inactive' | 'deprecated'} [status] 分组状态（draft-草稿，active-活跃，inactive-停用，deprecated-废弃）。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listModelGroups(listModelGroupsRequest?: ListModelGroupsRequest): Promise<ListModelGroupsResponse> {
+        const options = ParamCreater().listModelGroups(listModelGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询模型组详情，包含关联的供应商简化信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询模型组详情
+     * @param {string} groupId 模型组id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showModelGroup(showModelGroupRequest?: ShowModelGroupRequest): Promise<ShowModelGroupResponse> {
+        const options = ParamCreater().showModelGroup(showModelGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新模型组信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新模型组
+     * @param {string} groupId 模型组id。
+     * @param {UpdateModelGroupReq} updateModelGroupRequestBody 更新模型组的请求内容。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateModelGroup(updateModelGroupRequest?: UpdateModelGroupRequest): Promise<UpdateModelGroupResponse> {
+        const options = ParamCreater().updateModelGroup(updateModelGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量创建模型（供应商已存在后追加新增模型）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量新增模型
+     * @param {string} providerId 供应商id。
+     * @param {ModelBatchCreateReq} batchCreateModelRequestBody 批量新增模型的请求内容。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateModel(batchCreateModelRequest?: BatchCreateModelRequest): Promise<BatchCreateModelResponse> {
+        const options = ParamCreater().batchCreateModel(batchCreateModelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除模型（支持部分失败）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除模型
+     * @param {string} providerId 供应商id。
+     * @param {ModelBatchDeleteReq} batchDeleteModelRequestBody 批量删除模型的请求内容。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteModel(batchDeleteModelRequest?: BatchDeleteModelRequest): Promise<BatchDeleteModelResponse> {
+        const options = ParamCreater().batchDeleteModel(batchDeleteModelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取指定供应商下的模型列表，支持分页。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询模型列表
+     * @param {string} providerId 供应商id。
+     * @param {number} [limit] 每页数量，默认10。
+     * @param {number} [offset] 偏移量，默认0。
+     * @param {string} [groupId] 分组ID筛选。
+     * @param {string} [name] 名称模糊搜索。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listModels(listModelsRequest?: ListModelsRequest): Promise<ListModelsResponse> {
+        const options = ParamCreater().listModels(listModelsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取模型详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询模型详情
+     * @param {string} providerId 供应商id。
+     * @param {string} modelId 模型id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showModel(showModelRequest?: ShowModelRequest): Promise<ShowModelResponse> {
+        const options = ParamCreater().showModel(showModelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新模型信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新模型
+     * @param {string} providerId 供应商id。
+     * @param {string} modelId 模型id。
+     * @param {UpdateModelReq} updateModelRequestBody 更新模型的请求内容。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateModel(updateModelRequest?: UpdateModelRequest): Promise<UpdateModelResponse> {
+        const options = ParamCreater().updateModel(updateModelRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5882,6 +6679,8 @@ export class WorkspaceClient {
      *
      * @summary 查询按需资源包列表
      * @param {string} [resourceSpecCode] 资源包的资源规格编码。
+     * @param {number} [limit] 每页显示的数量。
+     * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5949,6 +6748,163 @@ export class WorkspaceClient {
      */
     public updateTenantProfile(updateTenantProfileRequest?: UpdateTenantProfileRequest): Promise<UpdateTenantProfileResponse> {
         const options = ParamCreater().updateTenantProfile(updateTenantProfileRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建供应商，支持同时批量创建关联的模型。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增供应商配置
+     * @param {CreateProviderReq} createProviderRequestBody 新增供应商的请求内容。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createProvider(createProviderRequest?: CreateProviderRequest): Promise<CreateProviderResponse> {
+        const options = ParamCreater().createProvider(createProviderRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除供应商。删除成功后自动删除下属所有模型记录；触发模型重新下发事件。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除供应商配置
+     * @param {string} providerId 供应商id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteProvider(deleteProviderRequest?: DeleteProviderRequest): Promise<DeleteProviderResponse> {
+        const options = ParamCreater().deleteProvider(deleteProviderRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取内置供应商模板列表（hw_maas、deepseek）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询供应商模板列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProviderTemplates(listProviderTemplatesRequest?: ListProviderTemplatesRequest): Promise<ListProviderTemplatesResponse> {
+        const options = ParamCreater().listProviderTemplates();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取供应商列表，支持分页和多维度筛选。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询供应商配置列表
+     * @param {number} [limit] 每页数量，默认10，最大100。
+     * @param {number} [offset] 偏移量，默认0。
+     * @param {string} [groupId] 按分组筛选（关联查询）。
+     * @param {'connected' | 'disconnected' | 'unverified'} [status] 状态筛选（connected-已连接，disconnected-已断开，unverified-未验证）。
+     * @param {string} [providerType] 供应商类型筛选。
+     * @param {string} [name] 名称模糊搜索。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProviders(listProvidersRequest?: ListProvidersRequest): Promise<ListProvidersResponse> {
+        const options = ParamCreater().listProviders(listProvidersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据供应商配置查询第三方平台的可用模型列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询供应商远程模型列表
+     * @param {ListRemoteModelsReq} listRemoteProviderModelsRequestBody 查询远程模型的请求内容。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRemoteProviderModels(listRemoteProviderModelsRequest?: ListRemoteProviderModelsRequest): Promise<ListRemoteProviderModelsResponse> {
+        const options = ParamCreater().listRemoteProviderModels(listRemoteProviderModelsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取供应商详情，包含关联的分组列表和下属模型列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询供应商详情
+     * @param {string} providerId 供应商id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProvider(showProviderRequest?: ShowProviderRequest): Promise<ShowProviderResponse> {
+        const options = ParamCreater().showProvider(showProviderRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新供应商信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新供应商配置
+     * @param {string} providerId 供应商id。
+     * @param {UpdateProviderReq} updateProviderRequestBody 更新供应商的请求内容。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateProvider(updateProviderRequest?: UpdateProviderRequest): Promise<UpdateProviderResponse> {
+        const options = ParamCreater().updateProvider(updateProviderRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 验证供应商连通性和 API Key 有效性。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 验证供应商配置
+     * @param {VerifyProviderReq} verifyProviderRequestBody 验证供应商的请求内容。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public verifyProvider(verifyProviderRequest?: VerifyProviderRequest): Promise<VerifyProviderResponse> {
+        const options = ParamCreater().verifyProvider(verifyProviderRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6238,6 +7194,162 @@ export class WorkspaceClient {
     }
 
     /**
+     * 创建升级任务，支持配置定时任务、执行策略、灰度策略、应用对象等。
+     * - 任务名称在当前项目下唯一
+     * - 创建后默认按配置的定时规则执行
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建升级定时任务
+     * @param {CreateScheduledUpgradeTaskRequestBody} createUpgradeScheduleTaskRequestBody 新增升级任务请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createUpgradeScheduleTask(createUpgradeScheduleTaskRequest?: CreateUpgradeScheduleTaskRequest): Promise<CreateUpgradeScheduleTaskResponse> {
+        const options = ParamCreater().createUpgradeScheduleTask(createUpgradeScheduleTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除指定的升级任务。
+     * - 同时删除任务关联的应用对象信息
+     * - 删除后不可恢复
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除升级任务
+     * @param {DeleteUpgradeTaskRequestBody} deleteUpgradeTaskRequestBody 批量删除升级任务请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteUpgradeTask(deleteUpgradeTaskRequest?: DeleteUpgradeTaskRequest): Promise<DeleteUpgradeTaskResponse> {
+        const options = ParamCreater().deleteUpgradeTask(deleteUpgradeTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据配置参数触发桌面升级任务。
+     * - 支持强制升级、版本指定、超时控制及通知功能
+     * - 触发后立即执行，不受定时任务调度
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 触发升级任务
+     * @param {ExecuteTriggerUpgradeRequestBody} executeTriggerUpgradeRequestBody 触发升级请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeTriggerUpgrade(executeTriggerUpgradeRequest?: ExecuteTriggerUpgradeRequest): Promise<ExecuteTriggerUpgradeResponse> {
+        const options = ParamCreater().executeTriggerUpgrade(executeTriggerUpgradeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分页查询指定任务下的应用对象列表。
+     * - 支持按应用对象名称模糊匹配
+     * - 按任务ID精确匹配
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询升级任务应用对象列表
+     * @param {string} taskId 任务ID（精确查询）
+     * @param {string} [objectName] 应用对象名称（支持模糊查询）
+     * @param {number} [offset] 偏移量，默认0
+     * @param {number} [limit] 每页数量，默认10，最大100
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTaskApplyObjects(listTaskApplyObjectsRequest?: ListTaskApplyObjectsRequest): Promise<ListTaskApplyObjectsResponse> {
+        const options = ParamCreater().listTaskApplyObjects(listTaskApplyObjectsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分页查询升级任务列表。
+     * - 支持按任务名称（模糊）、任务类型、执行周期类型、启用状态、上次执行状态条件查询
+     * - 默认按创建时间倒序排序
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询升级任务列表
+     * @param {string} [taskId] 任务id
+     * @param {string} [taskName] 任务名称（支持模糊查询）
+     * @param {number} [taskType] 任务类型：0-云桌面 1-应用服务器 2-镜像
+     * @param {'FIXED_TIME' | 'DAY' | 'WEEK' | 'MONTH'} [scheduledType] 执行周期类型：FIXED_TIME-指定时间 DAY-按天 WEEK-按周 MONTH-按月
+     * @param {number} [isEnable] 启用状态：0-未启用 1-启用
+     * @param {string} [lastExecuteStatus] 上次执行状态
+     * @param {number} [offset] 偏移量，默认0
+     * @param {number} [limit] 每页数量，默认10，最大100
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listUpgradeTasks(listUpgradeTasksRequest?: ListUpgradeTasksRequest): Promise<ListUpgradeTasksResponse> {
+        const options = ParamCreater().listUpgradeTasks(listUpgradeTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据任务ID查询升级任务详情。
+     * - 包括定时配置、执行策略、灰度配置、应用对象等完整信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询升级任务详情
+     * @param {string} taskId 任务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showUpgradeTaskDetail(showUpgradeTaskDetailRequest?: ShowUpgradeTaskDetailRequest): Promise<ShowUpgradeTaskDetailResponse> {
+        const options = ParamCreater().showUpgradeTaskDetail(showUpgradeTaskDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改升级任务配置。
+     * - 仅传入的字段会被更新，未传入的字段保持不变
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改升级任务
+     * @param {string} taskId 任务ID
+     * @param {UpdateScheduledUpgradeTaskRequestBody} updateUpgradeTaskRequestBody 更新升级任务请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateUpgradeTask(updateUpgradeTaskRequest?: UpdateUpgradeTaskRequest): Promise<UpdateUpgradeTaskResponse> {
+        const options = ParamCreater().updateUpgradeTask(updateUpgradeTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量删除录屏记录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6309,6 +7421,7 @@ export class WorkspaceClient {
      * @param {number} [limit] 用于分页查询，返回录屏记录数量的限制。默认100。范围0~1000。
      * @param {number} [offset] 用于分页查询，查询的起始记录序号，从0开始。
      * @param {string} [desktopId] 根据桌面ID过滤结果。
+     * @param {string} [desktopNames] 桌面名称列表，多个名称用英文逗号分割，最多支持100个桌面名称
      * @param {string} [username] 根据用户名称过滤结果。
      * @param {string} [status] 录屏状态。 - RECORDING：录制中。 - REC_COMPLETED：录制完成。 - UPLOADING：上传中。 - UPLOAD_COMPLETED：上传完成。
      * @param {string} [type] 录屏类型。 - FULL：全程录屏。 - INTERVAL：间隔录屏。 - OPERATION：用户操作录屏。 - SESSION：监听会话生命周期录屏。
@@ -6394,7 +7507,7 @@ export class WorkspaceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新站点录屏限速配置
-     * @param {ScreenRecordsConfigResultReq} [screenRecordsConfigRequestBody] 请求体。
+     * @param {UpdateScreenRecordsTrafficLimitConfigRequestBody} [updateScreenRecordsTrafficLimitConfigRequestBody] 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6840,6 +7953,25 @@ export class WorkspaceClient {
     }
 
     /**
+     * 重置站点认证信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重置站点认证信息
+     * @param {string} siteId 站点ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resetSiteAuthConfig(resetSiteAuthConfigRequest?: ResetSiteAuthConfigRequest): Promise<ResetSiteAuthConfigResponse> {
+        const options = ParamCreater().resetSiteAuthConfig(resetSiteAuthConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 用于修改站点接入方式。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -7087,6 +8219,7 @@ export class WorkspaceClient {
      * @param {string} startTime 查询起始时间(0时区) 云服务每天凌晨02:00进行聚合运算前一天00:00:00~23:59:59的使用时长,并将周期范围内的数据聚合到周期边界上 跨天的记录会按照统计周期进行计算 假设一天内桌面登录多次，09:00~12:00,13:00~21:00,22:00~01:00(次日): 则当天的累计使用时长数据会被汇聚到23:59:59这个点;总使用时长为 3hours(09:00~12:00)+8hours(13:00~21:00)+2hours(22:00~00:00) 如果查询的from-to不足一个周期内，可能造成查询到数据为空；
      * @param {string} endTime 查询截止时间(0时区)。
      * @param {string} [resourceName] 资源名称(模糊匹配)。
+     * @param {string} [resourceId] 资源ID(精确匹配)。
      * @param {number} [minIdleDays] 最小空闲天数。
      * @param {number} [maxIdleDays] 最大空闲天数 min_idle_days、max_idle_days都非空时,max_idle_days必须大于等于min_idle_days否则可能查询不到数据
      * @param {number} [usageMinHours] 使用时长(hour)最小值。
@@ -7401,6 +8534,7 @@ export class WorkspaceClient {
      * @param {string} startTime 查询起始时间(0时区) 云服务每天凌晨02:00进行聚合运算前一天00:00:00~23:59:59的使用时长,并将周期范围内的数据聚合到周期边界上 跨天的记录会按照统计周期进行计算 假设一天内桌面登录多次，09:00~12:00,13:00~21:00,22:00~01:00(次日): 则当天的累计使用时长数据会被汇聚到23:59:59这个点;总使用时长为 3hours(09:00~12:00)+8hours(13:00~21:00)+2hours(22:00~00:00) 如果查询的from-to不足一个周期内，可能造成查询到数据为空；
      * @param {string} endTime 查询截止时间(0时区)。
      * @param {string} [resourceName] 资源名称(模糊匹配)。
+     * @param {string} [resourceId] 资源ID(精确匹配)。
      * @param {number} [minIdleDays] 最小空闲天数。
      * @param {number} [maxIdleDays] 最大空闲天数 min_idle_days、max_idle_days都非空时,max_idle_days必须大于等于min_idle_days否则可能查询不到数据
      * @param {number} [usageMinHours] 使用时长(hour)最小值。
@@ -7497,6 +8631,216 @@ export class WorkspaceClient {
      */
     public updateTenantConfig(updateTenantConfigRequest?: UpdateTenantConfigRequest): Promise<UpdateTenantConfigResponse> {
         const options = ParamCreater().updateTenantConfig(updateTenantConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建升级策略，同时支持关联应用对象。
+     * - 策略名称在当前项目下唯一
+     * - 创建后默认按优先级参与升级匹配
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建升级策略
+     * @param {CreateTenantUpgradeStrategyRequestBody} createTenantUpgradeStrategyRequestBody 新增升级策略请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTenantUpgradeStrategy(createTenantUpgradeStrategyRequest?: CreateTenantUpgradeStrategyRequest): Promise<CreateTenantUpgradeStrategyResponse> {
+        const options = ParamCreater().createTenantUpgradeStrategy(createTenantUpgradeStrategyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除升级策略。
+     * - 同时删除策略关联的应用对象信息
+     * - 删除后不可恢复
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除升级策略
+     * @param {DeleteTenantUpgradeStrategyRequestBody} deleteTenantUpgradeStrategyRequestBody 批量删除升级策略请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTenantUpgradeStrategy(deleteTenantUpgradeStrategyRequest?: DeleteTenantUpgradeStrategyRequest): Promise<DeleteTenantUpgradeStrategyResponse> {
+        const options = ParamCreater().deleteTenantUpgradeStrategy(deleteTenantUpgradeStrategyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 异步导出升级策略数据。
+     * - 支持按策略名称、策略类型、是否强制升级、启用状态条件筛选
+     * - 返回导出任务ID，通过任务ID查询导出结果
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导出升级策略列表
+     * @param {'zh_CN' | 'en_US'} language 语言。   - zh_CN：中文 - en_US：英文
+     * @param {string} [strategyName] 策略名称（支持模糊查询）
+     * @param {number} [strategyType] 策略类型：0-服务端 1-客户端
+     * @param {number} [isForceUpgrade] 是否强制升级：0-否 1-是
+     * @param {number} [status] 启用状态：0-禁用 1-启用
+     * @param {number} [strategyPriority] 协议策略优先级
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportTenantUpgradeStrategies(exportTenantUpgradeStrategiesRequest?: ExportTenantUpgradeStrategiesRequest): Promise<ExportTenantUpgradeStrategiesResponse> {
+        const options = ParamCreater().exportTenantUpgradeStrategies(exportTenantUpgradeStrategiesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分页查询指定策略下的应用对象列表。
+     * - 支持按应用对象名称模糊匹配
+     * - 按策略ID精确匹配
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询升级策略应用对象列表
+     * @param {string} strategyId 策略ID（精确查询）
+     * @param {string} [objectName] 应用对象名称（支持模糊查询）
+     * @param {string} [objectType] 应用对象类型，包括DESKTOP、ALL_DESKTOPS、DESKTOP_POOL、DESKTOP_TAG、ALL_USERS、USER、USER_GROUP
+     * @param {number} [offset] 偏移量，默认0
+     * @param {number} [limit] 每页数量，默认10，最大100
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listApplyObjects(listApplyObjectsRequest?: ListApplyObjectsRequest): Promise<ListApplyObjectsResponse> {
+        const options = ParamCreater().listApplyObjects(listApplyObjectsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分页查询升级策略列表。
+     * - 支持按策略名称（模糊/精确）、策略类型、是否强制升级、启用状态、优先级条件查询
+     * - 默认按优先级升序排序
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询升级策略列表
+     * @param {boolean} [isAccurateName] 是否精确匹配名称
+     * @param {string} [strategyName] 策略名称（支持模糊查询）
+     * @param {number} [strategyType] 策略类型：0-服务端 1-客户端
+     * @param {number} [isForceUpgrade] 是否强制升级：0-否 1-是
+     * @param {number} [status] 启用状态：0-禁用 1-启用
+     * @param {number} [strategyPriority] 协议策略优先级
+     * @param {number} [offset] 偏移量，默认0
+     * @param {number} [limit] 每页数量，默认10，最大100
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTenantUpgradeStrategies(listTenantUpgradeStrategiesRequest?: ListTenantUpgradeStrategiesRequest): Promise<ListTenantUpgradeStrategiesResponse> {
+        const options = ParamCreater().listTenantUpgradeStrategies(listTenantUpgradeStrategiesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量操作指定策略关联的应用对象。
+     * - 支持批量删除和批量新增两种操作类型
+     * - operate_type为1时执行批量删除，operate_type为2时执行批量新增
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量更新升级策略应用对象
+     * @param {string} strategyId 策略ID
+     * @param {UpdateStrategyApplyObjectsRequestBody} updateStrategyApplyObjectsRequestBody 批量操作策略应用对象请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateStrategyApplyObjects(updateStrategyApplyObjectsRequest?: UpdateStrategyApplyObjectsRequest): Promise<UpdateStrategyApplyObjectsResponse> {
+        const options = ParamCreater().updateStrategyApplyObjects(updateStrategyApplyObjectsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改升级策略，同时支持更新关联的应用对象信息。
+     * - 仅传入的字段会被更新，未传入的字段保持不变
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改升级策略
+     * @param {string} strategyId 策略ID
+     * @param {UpdateTenantUpgradeStrategyRequestBody} updateTenantUpgradeStrategyRequestBody 更新升级策略请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTenantUpgradeStrategy(updateTenantUpgradeStrategyRequest?: UpdateTenantUpgradeStrategyRequest): Promise<UpdateTenantUpgradeStrategyResponse> {
+        const options = ParamCreater().updateTenantUpgradeStrategy(updateTenantUpgradeStrategyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询版本列表，支持按版本类型、版本号、操作系统类型、发布时间段、版本状态、版本说明条件查询。版本说明模糊查询会同时搜索SRE配置的版本说明和租户自定义的版本说明。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询版本列表
+     * @param {number} versionType 版本类型：0-服务端 1-客户端（必传）
+     * @param {string} [version] 版本号（支持模糊查询）
+     * @param {number} [osType] 操作系统类型：0-windows 1-android 2-mac 3-linux_UOS 4-linux_ubuntu 5-linux_Kylin 6-linux
+     * @param {string} [versionStatus] 版本状态：PREVIEW-预览 RELEASED-已发布 OFFLINE-已下线 OBSOLETE-已废弃
+     * @param {string} [publishTimeBegin] 发布时间开始（格式：yyyy-MM-dd HH:mm:ss）
+     * @param {string} [publishTimeEnd] 发布时间结束（格式：yyyy-MM-dd HH:mm:ss）
+     * @param {string} [releaseNote] 版本说明（支持模糊查询，会同时搜索SRE配置的版本说明和租户自定义的版本说明）
+     * @param {number} [offset] 偏移量，默认0
+     * @param {number} [limit] 每页数量，默认10，最大20000
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTenantVersionConfig(listTenantVersionConfigRequest?: ListTenantVersionConfigRequest): Promise<ListTenantVersionConfigResponse> {
+        const options = ParamCreater().listTenantVersionConfig(listTenantVersionConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询版本详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询版本详情
+     * @param {string} versionConfigId 版本配置ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTenantVersionConfig(showTenantVersionConfigRequest?: ShowTenantVersionConfigRequest): Promise<ShowTenantVersionConfigResponse> {
+        const options = ParamCreater().showTenantVersionConfig(showTenantVersionConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8054,6 +9398,25 @@ export class WorkspaceClient {
      */
     public setUserEventsLtsConfigurations(setUserEventsLtsConfigurationsRequest?: SetUserEventsLtsConfigurationsRequest): Promise<SetUserEventsLtsConfigurationsResponse> {
         const options = ParamCreater().setUserEventsLtsConfigurations(setUserEventsLtsConfigurationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 以excel文件形式导出用户组。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导出用户组
+     * @param {ExportUserGroupsNewReq} exportUserGroupsNewRequestBody 导出用户组请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportUserGroupsNew(exportUserGroupsNewRequest?: ExportUserGroupsNewRequest): Promise<ExportUserGroupsNewResponse> {
+        const options = ParamCreater().exportUserGroupsNew(exportUserGroupsNewRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8962,6 +10325,265 @@ export const ParamCreater = function () {
             }
             if (action !== null && action !== undefined) {
                 localVarQueryParameter['action'] = action;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询 Agent 实例列表，支持多条件筛选、排序和分页。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAgentInstances(listAgentInstancesRequest?: ListAgentInstancesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let aiAgentType;
+            
+            let regionId;
+            
+            let agentStatus;
+            
+            let desktopStatus;
+            
+            let desktopConnection;
+            
+            let modelGroupId;
+            
+            let channelConfigStatus;
+            
+            let instanceName;
+            
+            let instanceId;
+            
+            let desktopId;
+            
+            let createTimeStart;
+            
+            let createTimeEnd;
+            
+            let tags;
+            
+            let riskType;
+            
+            let modelConfigStatus;
+            
+            let agentVersion;
+            
+            let sortField;
+            
+            let sortOrder;
+            
+            let offset;
+            
+            let limit;
+
+            if (listAgentInstancesRequest !== null && listAgentInstancesRequest !== undefined) {
+                if (listAgentInstancesRequest instanceof ListAgentInstancesRequest) {
+                    aiAgentType = listAgentInstancesRequest.aiAgentType;
+                    regionId = listAgentInstancesRequest.regionId;
+                    agentStatus = listAgentInstancesRequest.agentStatus;
+                    desktopStatus = listAgentInstancesRequest.desktopStatus;
+                    desktopConnection = listAgentInstancesRequest.desktopConnection;
+                    modelGroupId = listAgentInstancesRequest.modelGroupId;
+                    channelConfigStatus = listAgentInstancesRequest.channelConfigStatus;
+                    instanceName = listAgentInstancesRequest.instanceName;
+                    instanceId = listAgentInstancesRequest.instanceId;
+                    desktopId = listAgentInstancesRequest.desktopId;
+                    createTimeStart = listAgentInstancesRequest.createTimeStart;
+                    createTimeEnd = listAgentInstancesRequest.createTimeEnd;
+                    tags = listAgentInstancesRequest.tags;
+                    riskType = listAgentInstancesRequest.riskType;
+                    modelConfigStatus = listAgentInstancesRequest.modelConfigStatus;
+                    agentVersion = listAgentInstancesRequest.agentVersion;
+                    sortField = listAgentInstancesRequest.sortField;
+                    sortOrder = listAgentInstancesRequest.sortOrder;
+                    offset = listAgentInstancesRequest.offset;
+                    limit = listAgentInstancesRequest.limit;
+                } else {
+                    aiAgentType = listAgentInstancesRequest['ai_agent_type'];
+                    regionId = listAgentInstancesRequest['region_id'];
+                    agentStatus = listAgentInstancesRequest['agent_status'];
+                    desktopStatus = listAgentInstancesRequest['desktop_status'];
+                    desktopConnection = listAgentInstancesRequest['desktop_connection'];
+                    modelGroupId = listAgentInstancesRequest['model_group_id'];
+                    channelConfigStatus = listAgentInstancesRequest['channel_config_status'];
+                    instanceName = listAgentInstancesRequest['instance_name'];
+                    instanceId = listAgentInstancesRequest['instance_id'];
+                    desktopId = listAgentInstancesRequest['desktop_id'];
+                    createTimeStart = listAgentInstancesRequest['create_time_start'];
+                    createTimeEnd = listAgentInstancesRequest['create_time_end'];
+                    tags = listAgentInstancesRequest['tags'];
+                    riskType = listAgentInstancesRequest['risk_type'];
+                    modelConfigStatus = listAgentInstancesRequest['model_config_status'];
+                    agentVersion = listAgentInstancesRequest['agent_version'];
+                    sortField = listAgentInstancesRequest['sort_field'];
+                    sortOrder = listAgentInstancesRequest['sort_order'];
+                    offset = listAgentInstancesRequest['offset'];
+                    limit = listAgentInstancesRequest['limit'];
+                }
+            }
+
+        
+            if (aiAgentType !== null && aiAgentType !== undefined) {
+                localVarQueryParameter['ai_agent_type'] = aiAgentType;
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+            if (agentStatus !== null && agentStatus !== undefined) {
+                localVarQueryParameter['agent_status'] = agentStatus;
+            }
+            if (desktopStatus !== null && desktopStatus !== undefined) {
+                localVarQueryParameter['desktop_status'] = desktopStatus;
+            }
+            if (desktopConnection !== null && desktopConnection !== undefined) {
+                localVarQueryParameter['desktop_connection'] = desktopConnection;
+            }
+            if (modelGroupId !== null && modelGroupId !== undefined) {
+                localVarQueryParameter['model_group_id'] = modelGroupId;
+            }
+            if (channelConfigStatus !== null && channelConfigStatus !== undefined) {
+                localVarQueryParameter['channel_config_status'] = channelConfigStatus;
+            }
+            if (instanceName !== null && instanceName !== undefined) {
+                localVarQueryParameter['instance_name'] = instanceName;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (desktopId !== null && desktopId !== undefined) {
+                localVarQueryParameter['desktop_id'] = desktopId;
+            }
+            if (createTimeStart !== null && createTimeStart !== undefined) {
+                localVarQueryParameter['create_time_start'] = createTimeStart;
+            }
+            if (createTimeEnd !== null && createTimeEnd !== undefined) {
+                localVarQueryParameter['create_time_end'] = createTimeEnd;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+            if (riskType !== null && riskType !== undefined) {
+                localVarQueryParameter['risk_type'] = riskType;
+            }
+            if (modelConfigStatus !== null && modelConfigStatus !== undefined) {
+                localVarQueryParameter['model_config_status'] = modelConfigStatus;
+            }
+            if (agentVersion !== null && agentVersion !== undefined) {
+                localVarQueryParameter['agent_version'] = agentVersion;
+            }
+            if (sortField !== null && sortField !== undefined) {
+                localVarQueryParameter['sort_field'] = sortField;
+            }
+            if (sortOrder !== null && sortOrder !== undefined) {
+                localVarQueryParameter['sort_order'] = sortOrder;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据 Agent 实例 ID 查询其关联的所有模型分组，按优先级升序排列，支持分页。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceModelGroups(listInstanceModelGroupsRequest?: ListInstanceModelGroupsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/instances/{instance_id}/model-groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceModelGroupsRequest !== null && listInstanceModelGroupsRequest !== undefined) {
+                if (listInstanceModelGroupsRequest instanceof ListInstanceModelGroupsRequest) {
+                    instanceId = listInstanceModelGroupsRequest.instanceId;
+                    offset = listInstanceModelGroupsRequest.offset;
+                    limit = listInstanceModelGroupsRequest.limit;
+                } else {
+                    instanceId = listInstanceModelGroupsRequest['instance_id'];
+                    offset = listInstanceModelGroupsRequest['offset'];
+                    limit = listInstanceModelGroupsRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceModelGroups.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询 Agent 实例统计信息，包括桌面总数、未配置模型桌面数、未配置通道桌面数、存在风险桌面数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceStatistics(listInstanceStatisticsRequest?: ListInstanceStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/instances/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let aiAgentType;
+
+            if (listInstanceStatisticsRequest !== null && listInstanceStatisticsRequest !== undefined) {
+                if (listInstanceStatisticsRequest instanceof ListInstanceStatisticsRequest) {
+                    aiAgentType = listInstanceStatisticsRequest.aiAgentType;
+                } else {
+                    aiAgentType = listInstanceStatisticsRequest['ai_agent_type'];
+                }
+            }
+
+        
+            if (aiAgentType !== null && aiAgentType !== undefined) {
+                localVarQueryParameter['ai_agent_type'] = aiAgentType;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -11123,7 +12745,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listCerts() {
+        listCerts(listCertsRequest?: ListCertsRequest) {
             const options = {
                 method: "GET",
                 url: "/v2/{project_id}/certmanager/private-certificate-authorities",
@@ -11133,8 +12755,31 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
 
+            if (listCertsRequest !== null && listCertsRequest !== undefined) {
+                if (listCertsRequest instanceof ListCertsRequest) {
+                    limit = listCertsRequest.limit;
+                    offset = listCertsRequest.offset;
+                } else {
+                    limit = listCertsRequest['limit'];
+                    offset = listCertsRequest['offset'];
+                }
+            }
 
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -11216,6 +12861,44 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cert_id': certId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于批量检查桌面是否支持重新加入AD域。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCheckDesktopRejoinDomain(batchCheckDesktopRejoinDomainRequest?: BatchCheckDesktopRejoinDomainRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/desktops/batch-rejoin-domain/check",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchCheckDesktopRejoinDomainRequest !== null && batchCheckDesktopRejoinDomainRequest !== undefined) {
+                if (batchCheckDesktopRejoinDomainRequest instanceof BatchCheckDesktopRejoinDomainRequest) {
+                    body = batchCheckDesktopRejoinDomainRequest.body
+                } else {
+                    body = batchCheckDesktopRejoinDomainRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -11478,6 +13161,8 @@ export const ParamCreater = function () {
             let minNetworkRtt;
             
             let maxNetworkRtt;
+            
+            let domain;
 
             if (listLoginRecordsNewRequest !== null && listLoginRecordsNewRequest !== undefined) {
                 if (listLoginRecordsNewRequest instanceof ListLoginRecordsNewRequest) {
@@ -11492,6 +13177,7 @@ export const ParamCreater = function () {
                     limit = listLoginRecordsNewRequest.limit;
                     minNetworkRtt = listLoginRecordsNewRequest.minNetworkRtt;
                     maxNetworkRtt = listLoginRecordsNewRequest.maxNetworkRtt;
+                    domain = listLoginRecordsNewRequest.domain;
                 } else {
                     startTime = listLoginRecordsNewRequest['start_time'];
                     endTime = listLoginRecordsNewRequest['end_time'];
@@ -11504,6 +13190,7 @@ export const ParamCreater = function () {
                     limit = listLoginRecordsNewRequest['limit'];
                     minNetworkRtt = listLoginRecordsNewRequest['min_network_rtt'];
                     maxNetworkRtt = listLoginRecordsNewRequest['max_network_rtt'];
+                    domain = listLoginRecordsNewRequest['domain'];
                 }
             }
 
@@ -11540,6 +13227,9 @@ export const ParamCreater = function () {
             }
             if (maxNetworkRtt !== null && maxNetworkRtt !== undefined) {
                 localVarQueryParameter['max_network_rtt'] = maxNetworkRtt;
+            }
+            if (domain !== null && domain !== undefined) {
+                localVarQueryParameter['domain'] = domain;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -12036,6 +13726,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口用于Windows桌面批量重新加入AD域，一般用于解决桌面脱域的情况使用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdateDesktopDomain(batchUpdateDesktopDomainRequest?: BatchUpdateDesktopDomainRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/desktops/batch-rejoin-domain",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchUpdateDesktopDomainRequest !== null && batchUpdateDesktopDomainRequest !== undefined) {
+                if (batchUpdateDesktopDomainRequest instanceof BatchUpdateDesktopDomainRequest) {
+                    body = batchUpdateDesktopDomainRequest.body
+                } else {
+                    body = batchUpdateDesktopDomainRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 取消远程协助。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12367,6 +14095,87 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据agent版本号、操作系统类型、桌面名称、用户名等条件导出桌面版本列表的Excel文件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportDesktopVersionList(exportDesktopVersionListRequest?: ExportDesktopVersionListRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/desktops/list-by-version/export",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let agentVersion;
+            
+            let osType;
+            
+            let language;
+            
+            let desktopId;
+            
+            let desktopName;
+            
+            let username;
+
+            if (exportDesktopVersionListRequest !== null && exportDesktopVersionListRequest !== undefined) {
+                if (exportDesktopVersionListRequest instanceof ExportDesktopVersionListRequest) {
+                    agentVersion = exportDesktopVersionListRequest.agentVersion;
+                    osType = exportDesktopVersionListRequest.osType;
+                    language = exportDesktopVersionListRequest.language;
+                    desktopId = exportDesktopVersionListRequest.desktopId;
+                    desktopName = exportDesktopVersionListRequest.desktopName;
+                    username = exportDesktopVersionListRequest.username;
+                } else {
+                    agentVersion = exportDesktopVersionListRequest['agent_version'];
+                    osType = exportDesktopVersionListRequest['os_type'];
+                    language = exportDesktopVersionListRequest['language'];
+                    desktopId = exportDesktopVersionListRequest['desktop_id'];
+                    desktopName = exportDesktopVersionListRequest['desktop_name'];
+                    username = exportDesktopVersionListRequest['username'];
+                }
+            }
+
+        
+            if (agentVersion === null || agentVersion === undefined) {
+                throw new RequiredError('agentVersion','Required parameter agentVersion was null or undefined when calling exportDesktopVersionList.');
+            }
+            if (agentVersion !== null && agentVersion !== undefined) {
+                localVarQueryParameter['agent_version'] = agentVersion;
+            }
+            if (osType === null || osType === undefined) {
+                throw new RequiredError('osType','Required parameter osType was null or undefined when calling exportDesktopVersionList.');
+            }
+            if (osType !== null && osType !== undefined) {
+                localVarQueryParameter['os_type'] = osType;
+            }
+            if (language === null || language === undefined) {
+                throw new RequiredError('language','Required parameter language was null or undefined when calling exportDesktopVersionList.');
+            }
+            if (language !== null && language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
+            if (desktopId !== null && desktopId !== undefined) {
+                localVarQueryParameter['desktop_id'] = desktopId;
+            }
+            if (desktopName !== null && desktopName !== undefined) {
+                localVarQueryParameter['desktop_name'] = desktopName;
+            }
+            if (username !== null && username !== undefined) {
+                localVarQueryParameter['username'] = username;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 展示桌面安装监控插件详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12549,6 +14358,128 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询每个桌面版本下的桌面数量统计信息，支持按版本号过滤。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDesktopStatisticsByVersion(listDesktopStatisticsByVersionRequest?: ListDesktopStatisticsByVersionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/desktops/statistics/by-version",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let versions;
+
+            if (listDesktopStatisticsByVersionRequest !== null && listDesktopStatisticsByVersionRequest !== undefined) {
+                if (listDesktopStatisticsByVersionRequest instanceof ListDesktopStatisticsByVersionRequest) {
+                    versions = listDesktopStatisticsByVersionRequest.versions;
+                } else {
+                    versions = listDesktopStatisticsByVersionRequest['versions'];
+                }
+            }
+
+        
+            if (versions !== null && versions !== undefined) {
+                localVarQueryParameter['versions'] = versions;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据agent版本号、操作系统类型、桌面名称、用户名等条件查询桌面版本信息列表，支持分页查询。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDesktopVersion(listDesktopVersionRequest?: ListDesktopVersionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/desktops/list-by-version",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let agentVersion;
+            
+            let osType;
+            
+            let desktopId;
+            
+            let desktopName;
+            
+            let username;
+            
+            let offset;
+            
+            let limit;
+
+            if (listDesktopVersionRequest !== null && listDesktopVersionRequest !== undefined) {
+                if (listDesktopVersionRequest instanceof ListDesktopVersionRequest) {
+                    agentVersion = listDesktopVersionRequest.agentVersion;
+                    osType = listDesktopVersionRequest.osType;
+                    desktopId = listDesktopVersionRequest.desktopId;
+                    desktopName = listDesktopVersionRequest.desktopName;
+                    username = listDesktopVersionRequest.username;
+                    offset = listDesktopVersionRequest.offset;
+                    limit = listDesktopVersionRequest.limit;
+                } else {
+                    agentVersion = listDesktopVersionRequest['agent_version'];
+                    osType = listDesktopVersionRequest['os_type'];
+                    desktopId = listDesktopVersionRequest['desktop_id'];
+                    desktopName = listDesktopVersionRequest['desktop_name'];
+                    username = listDesktopVersionRequest['username'];
+                    offset = listDesktopVersionRequest['offset'];
+                    limit = listDesktopVersionRequest['limit'];
+                }
+            }
+
+        
+            if (agentVersion === null || agentVersion === undefined) {
+                throw new RequiredError('agentVersion','Required parameter agentVersion was null or undefined when calling listDesktopVersion.');
+            }
+            if (agentVersion !== null && agentVersion !== undefined) {
+                localVarQueryParameter['agent_version'] = agentVersion;
+            }
+            if (osType === null || osType === undefined) {
+                throw new RequiredError('osType','Required parameter osType was null or undefined when calling listDesktopVersion.');
+            }
+            if (osType !== null && osType !== undefined) {
+                localVarQueryParameter['os_type'] = osType;
+            }
+            if (desktopId !== null && desktopId !== undefined) {
+                localVarQueryParameter['desktop_id'] = desktopId;
+            }
+            if (desktopName !== null && desktopName !== undefined) {
+                localVarQueryParameter['desktop_name'] = desktopName;
+            }
+            if (username !== null && username !== undefined) {
+                localVarQueryParameter['username'] = username;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于查询桌面虚拟机列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12575,6 +14506,8 @@ export const ParamCreater = function () {
             
             let limit;
             
+            let domainStatus;
+            
             let poolId;
             
             let enterpriseProjectId;
@@ -12598,6 +14531,7 @@ export const ParamCreater = function () {
                     desktopIp = listDesktopsRequest.desktopIp;
                     offset = listDesktopsRequest.offset;
                     limit = listDesktopsRequest.limit;
+                    domainStatus = listDesktopsRequest.domainStatus;
                     poolId = listDesktopsRequest.poolId;
                     enterpriseProjectId = listDesktopsRequest.enterpriseProjectId;
                     desktopType = listDesktopsRequest.desktopType;
@@ -12612,6 +14546,7 @@ export const ParamCreater = function () {
                     desktopIp = listDesktopsRequest['desktop_ip'];
                     offset = listDesktopsRequest['offset'];
                     limit = listDesktopsRequest['limit'];
+                    domainStatus = listDesktopsRequest['domain_status'];
                     poolId = listDesktopsRequest['pool_id'];
                     enterpriseProjectId = listDesktopsRequest['enterprise_project_id'];
                     desktopType = listDesktopsRequest['desktop_type'];
@@ -12638,6 +14573,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (domainStatus !== null && domainStatus !== undefined) {
+                localVarQueryParameter['domain_status'] = domainStatus;
             }
             if (poolId !== null && poolId !== undefined) {
                 localVarQueryParameter['pool_id'] = poolId;
@@ -12748,6 +14686,8 @@ export const ParamCreater = function () {
             
             let userName;
             
+            let userId;
+            
             let userNames;
             
             let sortField;
@@ -12767,6 +14707,8 @@ export const ParamCreater = function () {
             let desktopId;
             
             let desktopType;
+            
+            let domainStatus;
             
             let tag;
             
@@ -12789,11 +14731,14 @@ export const ParamCreater = function () {
             let isSupportInternet;
             
             let availabilityZone;
+            
+            let agentVersion;
 
             if (listDesktopsDetailRequest !== null && listDesktopsDetailRequest !== undefined) {
                 if (listDesktopsDetailRequest instanceof ListDesktopsDetailRequest) {
                     status = listDesktopsDetailRequest.status;
                     userName = listDesktopsDetailRequest.userName;
+                    userId = listDesktopsDetailRequest.userId;
                     userNames = listDesktopsDetailRequest.userNames;
                     sortField = listDesktopsDetailRequest.sortField;
                     sortType = listDesktopsDetailRequest.sortType;
@@ -12804,6 +14749,7 @@ export const ParamCreater = function () {
                     limit = listDesktopsDetailRequest.limit;
                     desktopId = listDesktopsDetailRequest.desktopId;
                     desktopType = listDesktopsDetailRequest.desktopType;
+                    domainStatus = listDesktopsDetailRequest.domainStatus;
                     tag = listDesktopsDetailRequest.tag;
                     poolId = listDesktopsDetailRequest.poolId;
                     userAttached = listDesktopsDetailRequest.userAttached;
@@ -12815,9 +14761,11 @@ export const ParamCreater = function () {
                     subnetId = listDesktopsDetailRequest.subnetId;
                     isSupportInternet = listDesktopsDetailRequest.isSupportInternet;
                     availabilityZone = listDesktopsDetailRequest.availabilityZone;
+                    agentVersion = listDesktopsDetailRequest.agentVersion;
                 } else {
                     status = listDesktopsDetailRequest['status'];
                     userName = listDesktopsDetailRequest['user_name'];
+                    userId = listDesktopsDetailRequest['user_id'];
                     userNames = listDesktopsDetailRequest['user_names'];
                     sortField = listDesktopsDetailRequest['sort_field'];
                     sortType = listDesktopsDetailRequest['sort_type'];
@@ -12828,6 +14776,7 @@ export const ParamCreater = function () {
                     limit = listDesktopsDetailRequest['limit'];
                     desktopId = listDesktopsDetailRequest['desktop_id'];
                     desktopType = listDesktopsDetailRequest['desktop_type'];
+                    domainStatus = listDesktopsDetailRequest['domain_status'];
                     tag = listDesktopsDetailRequest['tag'];
                     poolId = listDesktopsDetailRequest['pool_id'];
                     userAttached = listDesktopsDetailRequest['user_attached'];
@@ -12839,6 +14788,7 @@ export const ParamCreater = function () {
                     subnetId = listDesktopsDetailRequest['subnet_id'];
                     isSupportInternet = listDesktopsDetailRequest['is_support_internet'];
                     availabilityZone = listDesktopsDetailRequest['availability_zone'];
+                    agentVersion = listDesktopsDetailRequest['agent_version'];
                 }
             }
 
@@ -12848,6 +14798,9 @@ export const ParamCreater = function () {
             }
             if (userName !== null && userName !== undefined) {
                 localVarQueryParameter['user_name'] = userName;
+            }
+            if (userId !== null && userId !== undefined) {
+                localVarQueryParameter['user_id'] = userId;
             }
             if (userNames !== null && userNames !== undefined) {
                 localVarQueryParameter['user_names'] = userNames;
@@ -12878,6 +14831,9 @@ export const ParamCreater = function () {
             }
             if (desktopType !== null && desktopType !== undefined) {
                 localVarQueryParameter['desktop_type'] = desktopType;
+            }
+            if (domainStatus !== null && domainStatus !== undefined) {
+                localVarQueryParameter['domain_status'] = domainStatus;
             }
             if (tag !== null && tag !== undefined) {
                 localVarQueryParameter['tag'] = tag;
@@ -12911,6 +14867,9 @@ export const ParamCreater = function () {
             }
             if (availabilityZone !== null && availabilityZone !== undefined) {
                 localVarQueryParameter['availability_zone'] = availabilityZone;
+            }
+            if (agentVersion !== null && agentVersion !== undefined) {
+                localVarQueryParameter['agent_version'] = agentVersion;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -14319,6 +16278,8 @@ export const ParamCreater = function () {
             
             let tag;
             
+            let domainStatus;
+            
             let userAttached;
             
             let enterpriseProjectId;
@@ -14356,6 +16317,7 @@ export const ParamCreater = function () {
                     desktopId = listPoolDesktopsDetailRequest.desktopId;
                     desktopType = listPoolDesktopsDetailRequest.desktopType;
                     tag = listPoolDesktopsDetailRequest.tag;
+                    domainStatus = listPoolDesktopsDetailRequest.domainStatus;
                     userAttached = listPoolDesktopsDetailRequest.userAttached;
                     enterpriseProjectId = listPoolDesktopsDetailRequest.enterpriseProjectId;
                     imageId = listPoolDesktopsDetailRequest.imageId;
@@ -14382,6 +16344,7 @@ export const ParamCreater = function () {
                     desktopId = listPoolDesktopsDetailRequest['desktop_id'];
                     desktopType = listPoolDesktopsDetailRequest['desktop_type'];
                     tag = listPoolDesktopsDetailRequest['tag'];
+                    domainStatus = listPoolDesktopsDetailRequest['domain_status'];
                     userAttached = listPoolDesktopsDetailRequest['user_attached'];
                     enterpriseProjectId = listPoolDesktopsDetailRequest['enterprise_project_id'];
                     imageId = listPoolDesktopsDetailRequest['image_id'];
@@ -14440,6 +16403,9 @@ export const ParamCreater = function () {
             }
             if (tag !== null && tag !== undefined) {
                 localVarQueryParameter['tag'] = tag;
+            }
+            if (domainStatus !== null && domainStatus !== undefined) {
+                localVarQueryParameter['domain_status'] = domainStatus;
             }
             if (userAttached !== null && userAttached !== undefined) {
                 localVarQueryParameter['user_attached'] = userAttached;
@@ -15203,6 +17169,8 @@ export const ParamCreater = function () {
             
             let computerName;
             
+            let computerNames;
+            
             let desktopIp;
             
             let desktopId;
@@ -15221,8 +17189,6 @@ export const ParamCreater = function () {
             
             let sortType;
             
-            let poolId;
-            
             let userAttached;
             
             let imageId;
@@ -15234,11 +17200,24 @@ export const ParamCreater = function () {
             let subnetId;
             
             let connectionStatusVersion;
+            
+            let poolId;
+            
+            let includePool;
+            
+            let poolName;
+            
+            let poolType;
+            
+            let poolInMaintenanceMode;
+            
+            let poolEnterpriseProjectId;
 
             if (exportDesktopListNewRequest !== null && exportDesktopListNewRequest !== undefined) {
                 if (exportDesktopListNewRequest instanceof ExportDesktopListNewRequest) {
                     language = exportDesktopListNewRequest.language;
                     computerName = exportDesktopListNewRequest.computerName;
+                    computerNames = exportDesktopListNewRequest.computerNames;
                     desktopIp = exportDesktopListNewRequest.desktopIp;
                     desktopId = exportDesktopListNewRequest.desktopId;
                     tag = exportDesktopListNewRequest.tag;
@@ -15248,16 +17227,22 @@ export const ParamCreater = function () {
                     userNames = exportDesktopListNewRequest.userNames;
                     sortField = exportDesktopListNewRequest.sortField;
                     sortType = exportDesktopListNewRequest.sortType;
-                    poolId = exportDesktopListNewRequest.poolId;
                     userAttached = exportDesktopListNewRequest.userAttached;
                     imageId = exportDesktopListNewRequest.imageId;
                     chargeMode = exportDesktopListNewRequest.chargeMode;
                     inMaintenanceMode = exportDesktopListNewRequest.inMaintenanceMode;
                     subnetId = exportDesktopListNewRequest.subnetId;
                     connectionStatusVersion = exportDesktopListNewRequest.connectionStatusVersion;
+                    poolId = exportDesktopListNewRequest.poolId;
+                    includePool = exportDesktopListNewRequest.includePool;
+                    poolName = exportDesktopListNewRequest.poolName;
+                    poolType = exportDesktopListNewRequest.poolType;
+                    poolInMaintenanceMode = exportDesktopListNewRequest.poolInMaintenanceMode;
+                    poolEnterpriseProjectId = exportDesktopListNewRequest.poolEnterpriseProjectId;
                 } else {
                     language = exportDesktopListNewRequest['language'];
                     computerName = exportDesktopListNewRequest['computer_name'];
+                    computerNames = exportDesktopListNewRequest['computer_names'];
                     desktopIp = exportDesktopListNewRequest['desktop_ip'];
                     desktopId = exportDesktopListNewRequest['desktop_id'];
                     tag = exportDesktopListNewRequest['tag'];
@@ -15267,13 +17252,18 @@ export const ParamCreater = function () {
                     userNames = exportDesktopListNewRequest['user_names'];
                     sortField = exportDesktopListNewRequest['sort_field'];
                     sortType = exportDesktopListNewRequest['sort_type'];
-                    poolId = exportDesktopListNewRequest['pool_id'];
                     userAttached = exportDesktopListNewRequest['user_attached'];
                     imageId = exportDesktopListNewRequest['image_id'];
                     chargeMode = exportDesktopListNewRequest['charge_mode'];
                     inMaintenanceMode = exportDesktopListNewRequest['in_maintenance_mode'];
                     subnetId = exportDesktopListNewRequest['subnet_id'];
                     connectionStatusVersion = exportDesktopListNewRequest['connection_status_version'];
+                    poolId = exportDesktopListNewRequest['pool_id'];
+                    includePool = exportDesktopListNewRequest['include_pool'];
+                    poolName = exportDesktopListNewRequest['pool_name'];
+                    poolType = exportDesktopListNewRequest['pool_type'];
+                    poolInMaintenanceMode = exportDesktopListNewRequest['pool_in_maintenance_mode'];
+                    poolEnterpriseProjectId = exportDesktopListNewRequest['pool_enterprise_project_id'];
                 }
             }
 
@@ -15286,6 +17276,9 @@ export const ParamCreater = function () {
             }
             if (computerName !== null && computerName !== undefined) {
                 localVarQueryParameter['computer_name'] = computerName;
+            }
+            if (computerNames !== null && computerNames !== undefined) {
+                localVarQueryParameter['computer_names'] = computerNames;
             }
             if (desktopIp !== null && desktopIp !== undefined) {
                 localVarQueryParameter['desktop_ip'] = desktopIp;
@@ -15314,9 +17307,6 @@ export const ParamCreater = function () {
             if (sortType !== null && sortType !== undefined) {
                 localVarQueryParameter['sort_type'] = sortType;
             }
-            if (poolId !== null && poolId !== undefined) {
-                localVarQueryParameter['pool_id'] = poolId;
-            }
             if (userAttached !== null && userAttached !== undefined) {
                 localVarQueryParameter['user_attached'] = userAttached;
             }
@@ -15334,6 +17324,24 @@ export const ParamCreater = function () {
             }
             if (connectionStatusVersion !== null && connectionStatusVersion !== undefined) {
                 localVarQueryParameter['connection_status_version'] = connectionStatusVersion;
+            }
+            if (poolId !== null && poolId !== undefined) {
+                localVarQueryParameter['pool_id'] = poolId;
+            }
+            if (includePool !== null && includePool !== undefined) {
+                localVarQueryParameter['include_pool'] = includePool;
+            }
+            if (poolName !== null && poolName !== undefined) {
+                localVarQueryParameter['pool_name'] = poolName;
+            }
+            if (poolType !== null && poolType !== undefined) {
+                localVarQueryParameter['pool_type'] = poolType;
+            }
+            if (poolInMaintenanceMode !== null && poolInMaintenanceMode !== undefined) {
+                localVarQueryParameter['pool_in_maintenance_mode'] = poolInMaintenanceMode;
+            }
+            if (poolEnterpriseProjectId !== null && poolEnterpriseProjectId !== undefined) {
+                localVarQueryParameter['pool_enterprise_project_id'] = poolEnterpriseProjectId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -15780,6 +17788,8 @@ export const ParamCreater = function () {
             
             let userName;
             
+            let userNames;
+            
             let description;
             
             let activeType;
@@ -15794,6 +17804,7 @@ export const ParamCreater = function () {
                 if (listUsersOfGroupRequest instanceof ListUsersOfGroupRequest) {
                     groupId = listUsersOfGroupRequest.groupId;
                     userName = listUsersOfGroupRequest.userName;
+                    userNames = listUsersOfGroupRequest.userNames;
                     description = listUsersOfGroupRequest.description;
                     activeType = listUsersOfGroupRequest.activeType;
                     enterpriseProjectId = listUsersOfGroupRequest.enterpriseProjectId;
@@ -15802,6 +17813,7 @@ export const ParamCreater = function () {
                 } else {
                     groupId = listUsersOfGroupRequest['group_id'];
                     userName = listUsersOfGroupRequest['user_name'];
+                    userNames = listUsersOfGroupRequest['user_names'];
                     description = listUsersOfGroupRequest['description'];
                     activeType = listUsersOfGroupRequest['active_type'];
                     enterpriseProjectId = listUsersOfGroupRequest['enterprise_project_id'];
@@ -15816,6 +17828,9 @@ export const ParamCreater = function () {
             }
             if (userName !== null && userName !== undefined) {
                 localVarQueryParameter['user_name'] = userName;
+            }
+            if (userNames !== null && userNames !== undefined) {
+                localVarQueryParameter['user_names'] = userNames;
             }
             if (description !== null && description !== undefined) {
                 localVarQueryParameter['description'] = description;
@@ -15952,6 +17967,8 @@ export const ParamCreater = function () {
             
             let userName;
             
+            let userNames;
+            
             let description;
             
             let activeType;
@@ -15966,6 +17983,7 @@ export const ParamCreater = function () {
                 if (exportUserGroupUsersNewRequest instanceof ExportUserGroupUsersNewRequest) {
                     groupId = exportUserGroupUsersNewRequest.groupId;
                     userName = exportUserGroupUsersNewRequest.userName;
+                    userNames = exportUserGroupUsersNewRequest.userNames;
                     description = exportUserGroupUsersNewRequest.description;
                     activeType = exportUserGroupUsersNewRequest.activeType;
                     groupName = exportUserGroupUsersNewRequest.groupName;
@@ -15974,6 +17992,7 @@ export const ParamCreater = function () {
                 } else {
                     groupId = exportUserGroupUsersNewRequest['group_id'];
                     userName = exportUserGroupUsersNewRequest['user_name'];
+                    userNames = exportUserGroupUsersNewRequest['user_names'];
                     description = exportUserGroupUsersNewRequest['description'];
                     activeType = exportUserGroupUsersNewRequest['active_type'];
                     groupName = exportUserGroupUsersNewRequest['group_name'];
@@ -15988,6 +18007,9 @@ export const ParamCreater = function () {
             }
             if (userName !== null && userName !== undefined) {
                 localVarQueryParameter['user_name'] = userName;
+            }
+            if (userNames !== null && userNames !== undefined) {
+                localVarQueryParameter['user_names'] = userNames;
             }
             if (description !== null && description !== undefined) {
                 localVarQueryParameter['description'] = description;
@@ -16007,6 +18029,137 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 导出云办公主机列表的详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportHostsDetail(exportHostsDetailRequest?: ExportHostsDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/hosts/export",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let language;
+            
+            let name;
+            
+            let availabilityZone;
+            
+            let hostId;
+            
+            let enterpriseProjectId;
+            
+            let hostType;
+            
+            let hostTypeName;
+            
+            let state;
+            
+            let limit;
+            
+            let offset;
+            
+            let marker;
+            
+            let changesSince;
+            
+            let sortField;
+            
+            let sortType;
+
+            if (exportHostsDetailRequest !== null && exportHostsDetailRequest !== undefined) {
+                if (exportHostsDetailRequest instanceof ExportHostsDetailRequest) {
+                    language = exportHostsDetailRequest.language;
+                    name = exportHostsDetailRequest.name;
+                    availabilityZone = exportHostsDetailRequest.availabilityZone;
+                    hostId = exportHostsDetailRequest.hostId;
+                    enterpriseProjectId = exportHostsDetailRequest.enterpriseProjectId;
+                    hostType = exportHostsDetailRequest.hostType;
+                    hostTypeName = exportHostsDetailRequest.hostTypeName;
+                    state = exportHostsDetailRequest.state;
+                    limit = exportHostsDetailRequest.limit;
+                    offset = exportHostsDetailRequest.offset;
+                    marker = exportHostsDetailRequest.marker;
+                    changesSince = exportHostsDetailRequest.changesSince;
+                    sortField = exportHostsDetailRequest.sortField;
+                    sortType = exportHostsDetailRequest.sortType;
+                } else {
+                    language = exportHostsDetailRequest['language'];
+                    name = exportHostsDetailRequest['name'];
+                    availabilityZone = exportHostsDetailRequest['availability_zone'];
+                    hostId = exportHostsDetailRequest['host_id'];
+                    enterpriseProjectId = exportHostsDetailRequest['enterprise_project_id'];
+                    hostType = exportHostsDetailRequest['host_type'];
+                    hostTypeName = exportHostsDetailRequest['host_type_name'];
+                    state = exportHostsDetailRequest['state'];
+                    limit = exportHostsDetailRequest['limit'];
+                    offset = exportHostsDetailRequest['offset'];
+                    marker = exportHostsDetailRequest['marker'];
+                    changesSince = exportHostsDetailRequest['changes_since'];
+                    sortField = exportHostsDetailRequest['sort_field'];
+                    sortType = exportHostsDetailRequest['sort_type'];
+                }
+            }
+
+        
+            if (language === null || language === undefined) {
+                throw new RequiredError('language','Required parameter language was null or undefined when calling exportHostsDetail.');
+            }
+            if (language !== null && language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (availabilityZone !== null && availabilityZone !== undefined) {
+                localVarQueryParameter['availability_zone'] = availabilityZone;
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (hostType !== null && hostType !== undefined) {
+                localVarQueryParameter['host_type'] = hostType;
+            }
+            if (hostTypeName !== null && hostTypeName !== undefined) {
+                localVarQueryParameter['host_type_name'] = hostTypeName;
+            }
+            if (state !== null && state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (changesSince !== null && changesSince !== undefined) {
+                localVarQueryParameter['changes_since'] = changesSince;
+            }
+            if (sortField !== null && sortField !== undefined) {
+                localVarQueryParameter['sort_field'] = sortField;
+            }
+            if (sortType !== null && sortType !== undefined) {
+                localVarQueryParameter['sort_type'] = sortType;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -16049,6 +18202,10 @@ export const ParamCreater = function () {
             let marker;
             
             let changesSince;
+            
+            let sortField;
+            
+            let sortType;
 
             if (listHostsDetailRequest !== null && listHostsDetailRequest !== undefined) {
                 if (listHostsDetailRequest instanceof ListHostsDetailRequest) {
@@ -16063,6 +18220,8 @@ export const ParamCreater = function () {
                     offset = listHostsDetailRequest.offset;
                     marker = listHostsDetailRequest.marker;
                     changesSince = listHostsDetailRequest.changesSince;
+                    sortField = listHostsDetailRequest.sortField;
+                    sortType = listHostsDetailRequest.sortType;
                 } else {
                     name = listHostsDetailRequest['name'];
                     availabilityZone = listHostsDetailRequest['availability_zone'];
@@ -16075,6 +18234,8 @@ export const ParamCreater = function () {
                     offset = listHostsDetailRequest['offset'];
                     marker = listHostsDetailRequest['marker'];
                     changesSince = listHostsDetailRequest['changes_since'];
+                    sortField = listHostsDetailRequest['sort_field'];
+                    sortType = listHostsDetailRequest['sort_type'];
                 }
             }
 
@@ -16112,6 +18273,12 @@ export const ParamCreater = function () {
             if (changesSince !== null && changesSince !== undefined) {
                 localVarQueryParameter['changes_since'] = changesSince;
             }
+            if (sortField !== null && sortField !== undefined) {
+                localVarQueryParameter['sort_field'] = sortField;
+            }
+            if (sortType !== null && sortType !== undefined) {
+                localVarQueryParameter['sort_type'] = sortType;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -16133,15 +18300,31 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let hostId;
+            
+            let sortField;
+            
+            let sortType;
+            
+            let limit;
+            
+            let offset;
 
             if (listServersByHostIdRequest !== null && listServersByHostIdRequest !== undefined) {
                 if (listServersByHostIdRequest instanceof ListServersByHostIdRequest) {
                     hostId = listServersByHostIdRequest.hostId;
+                    sortField = listServersByHostIdRequest.sortField;
+                    sortType = listServersByHostIdRequest.sortType;
+                    limit = listServersByHostIdRequest.limit;
+                    offset = listServersByHostIdRequest.offset;
                 } else {
                     hostId = listServersByHostIdRequest['host_id'];
+                    sortField = listServersByHostIdRequest['sort_field'];
+                    sortType = listServersByHostIdRequest['sort_type'];
+                    limit = listServersByHostIdRequest['limit'];
+                    offset = listServersByHostIdRequest['offset'];
                 }
             }
 
@@ -16149,7 +18332,20 @@ export const ParamCreater = function () {
             if (hostId === null || hostId === undefined) {
             throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling listServersByHostId.');
             }
+            if (sortField !== null && sortField !== undefined) {
+                localVarQueryParameter['sort_field'] = sortField;
+            }
+            if (sortType !== null && sortType !== undefined) {
+                localVarQueryParameter['sort_type'] = sortType;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'host_id': hostId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -16179,6 +18375,125 @@ export const ParamCreater = function () {
                     body = updateHostsRequest.body
                 } else {
                     body = updateHostsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除指定 Agent 实例上某个平台的 IM 通道配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteImChannel(deleteImChannelRequest?: DeleteImChannelRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/ai-agents/{id}/im-channels/{platform}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+            
+            let platform;
+
+            if (deleteImChannelRequest !== null && deleteImChannelRequest !== undefined) {
+                if (deleteImChannelRequest instanceof DeleteImChannelRequest) {
+                    id = deleteImChannelRequest.id;
+                    platform = deleteImChannelRequest.platform;
+                } else {
+                    id = deleteImChannelRequest['id'];
+                    platform = deleteImChannelRequest['platform'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteImChannel.');
+            }
+            if (platform === null || platform === undefined) {
+            throw new RequiredError('platform','Required parameter platform was null or undefined when calling deleteImChannel.');
+            }
+
+            options.pathParams = { 'id': id,'platform': platform, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据 Agent 实例主键 ID 查询其配置的 IM 通道列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listImChannels(listImChannelsRequest?: ListImChannelsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/{id}/im-channels",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (listImChannelsRequest !== null && listImChannelsRequest !== undefined) {
+                if (listImChannelsRequest instanceof ListImChannelsRequest) {
+                    id = listImChannelsRequest.id;
+                } else {
+                    id = listImChannelsRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling listImChannels.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 配置 IM 通道（钉钉/企业微信/飞书/wework）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        saveImChannels(saveImChannelsRequest?: SaveImChannelsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/im-channels",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (saveImChannelsRequest !== null && saveImChannelsRequest !== undefined) {
+                if (saveImChannelsRequest instanceof SaveImChannelsRequest) {
+                    body = saveImChannelsRequest.body
+                } else {
+                    body = saveImChannelsRequest['body'];
                 }
             }
 
@@ -16750,6 +19065,756 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量关联模型分组与资源。支持根据模型分组关联桌面/桌面标签，也支持根据桌面/桌面标签关联模型分组。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        applyModelConfig(applyModelConfigRequest?: ApplyModelConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/model-configs/apply",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (applyModelConfigRequest !== null && applyModelConfigRequest !== undefined) {
+                if (applyModelConfigRequest instanceof ApplyModelConfigRequest) {
+                    body = applyModelConfigRequest.body
+                } else {
+                    body = applyModelConfigRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量移除模型分组与资源（桌面/桌面标签）的关联。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        removeModelConfig(removeModelConfigRequest?: RemoveModelConfigRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/ai-agents/model-configs/apply",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (removeModelConfigRequest !== null && removeModelConfigRequest !== undefined) {
+                if (removeModelConfigRequest instanceof RemoveModelConfigRequest) {
+                    body = removeModelConfigRequest.body
+                } else {
+                    body = removeModelConfigRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量添加供应商关联到指定模型分组。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchBindProviders(batchBindProvidersRequest?: BatchBindProvidersRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/model-groups/{group_id}/providers/batch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let groupId;
+
+            if (batchBindProvidersRequest !== null && batchBindProvidersRequest !== undefined) {
+                if (batchBindProvidersRequest instanceof BatchBindProvidersRequest) {
+                    groupId = batchBindProvidersRequest.groupId;
+                    body = batchBindProvidersRequest.body
+                } else {
+                    groupId = batchBindProvidersRequest['group_id'];
+                    body = batchBindProvidersRequest['body'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling batchBindProviders.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量移除供应商关联，当全部成功时返回200，部分成功时返回207。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteProviders(batchDeleteProvidersRequest?: BatchDeleteProvidersRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/model-groups/{group_id}/providers/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let groupId;
+
+            if (batchDeleteProvidersRequest !== null && batchDeleteProvidersRequest !== undefined) {
+                if (batchDeleteProvidersRequest instanceof BatchDeleteProvidersRequest) {
+                    groupId = batchDeleteProvidersRequest.groupId;
+                    body = batchDeleteProvidersRequest.body
+                } else {
+                    groupId = batchDeleteProvidersRequest['group_id'];
+                    body = batchDeleteProvidersRequest['body'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling batchDeleteProviders.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 新增模型组，支持同时关联供应商。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createModelGroup(createModelGroupRequest?: CreateModelGroupRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/model-groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createModelGroupRequest !== null && createModelGroupRequest !== undefined) {
+                if (createModelGroupRequest instanceof CreateModelGroupRequest) {
+                    body = createModelGroupRequest.body
+                } else {
+                    body = createModelGroupRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除模型组。如果模型组已被Agent实例或桌面标签授权绑定，禁止删除，返回422错误。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteModelGroup(deleteModelGroupRequest?: DeleteModelGroupRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/ai-agents/model-groups/{group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let groupId;
+
+            if (deleteModelGroupRequest !== null && deleteModelGroupRequest !== undefined) {
+                if (deleteModelGroupRequest instanceof DeleteModelGroupRequest) {
+                    groupId = deleteModelGroupRequest.groupId;
+                } else {
+                    groupId = deleteModelGroupRequest['group_id'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling deleteModelGroup.');
+            }
+
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分页查询模型组关联的供应商。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listModelGroupProviders(listModelGroupProvidersRequest?: ListModelGroupProvidersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/model-groups/{group_id}/providers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let groupId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listModelGroupProvidersRequest !== null && listModelGroupProvidersRequest !== undefined) {
+                if (listModelGroupProvidersRequest instanceof ListModelGroupProvidersRequest) {
+                    groupId = listModelGroupProvidersRequest.groupId;
+                    offset = listModelGroupProvidersRequest.offset;
+                    limit = listModelGroupProvidersRequest.limit;
+                } else {
+                    groupId = listModelGroupProvidersRequest['group_id'];
+                    offset = listModelGroupProvidersRequest['offset'];
+                    limit = listModelGroupProvidersRequest['limit'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listModelGroupProviders.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分页查询模型分组关联的应用对象（Agent实例或桌面标签）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listModelGroupResources(listModelGroupResourcesRequest?: ListModelGroupResourcesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/model-groups/{group_id}/resources",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let groupId;
+            
+            let offset;
+            
+            let limit;
+            
+            let resourceType;
+
+            if (listModelGroupResourcesRequest !== null && listModelGroupResourcesRequest !== undefined) {
+                if (listModelGroupResourcesRequest instanceof ListModelGroupResourcesRequest) {
+                    groupId = listModelGroupResourcesRequest.groupId;
+                    offset = listModelGroupResourcesRequest.offset;
+                    limit = listModelGroupResourcesRequest.limit;
+                    resourceType = listModelGroupResourcesRequest.resourceType;
+                } else {
+                    groupId = listModelGroupResourcesRequest['group_id'];
+                    offset = listModelGroupResourcesRequest['offset'];
+                    limit = listModelGroupResourcesRequest['limit'];
+                    resourceType = listModelGroupResourcesRequest['resource_type'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listModelGroupResources.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (resourceType !== null && resourceType !== undefined) {
+                localVarQueryParameter['resource_type'] = resourceType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询模型组列表，支持模糊搜索。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listModelGroups(listModelGroupsRequest?: ListModelGroupsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/model-groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+            
+            let name;
+            
+            let status;
+
+            if (listModelGroupsRequest !== null && listModelGroupsRequest !== undefined) {
+                if (listModelGroupsRequest instanceof ListModelGroupsRequest) {
+                    offset = listModelGroupsRequest.offset;
+                    limit = listModelGroupsRequest.limit;
+                    name = listModelGroupsRequest.name;
+                    status = listModelGroupsRequest.status;
+                } else {
+                    offset = listModelGroupsRequest['offset'];
+                    limit = listModelGroupsRequest['limit'];
+                    name = listModelGroupsRequest['name'];
+                    status = listModelGroupsRequest['status'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询模型组详情，包含关联的供应商简化信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showModelGroup(showModelGroupRequest?: ShowModelGroupRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/model-groups/{group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let groupId;
+
+            if (showModelGroupRequest !== null && showModelGroupRequest !== undefined) {
+                if (showModelGroupRequest instanceof ShowModelGroupRequest) {
+                    groupId = showModelGroupRequest.groupId;
+                } else {
+                    groupId = showModelGroupRequest['group_id'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling showModelGroup.');
+            }
+
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新模型组信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateModelGroup(updateModelGroupRequest?: UpdateModelGroupRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/ai-agents/model-groups/{group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let groupId;
+
+            if (updateModelGroupRequest !== null && updateModelGroupRequest !== undefined) {
+                if (updateModelGroupRequest instanceof UpdateModelGroupRequest) {
+                    groupId = updateModelGroupRequest.groupId;
+                    body = updateModelGroupRequest.body
+                } else {
+                    groupId = updateModelGroupRequest['group_id'];
+                    body = updateModelGroupRequest['body'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateModelGroup.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量创建模型（供应商已存在后追加新增模型）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateModel(batchCreateModelRequest?: BatchCreateModelRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/model-providers/{provider_id}/models/batch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let providerId;
+
+            if (batchCreateModelRequest !== null && batchCreateModelRequest !== undefined) {
+                if (batchCreateModelRequest instanceof BatchCreateModelRequest) {
+                    providerId = batchCreateModelRequest.providerId;
+                    body = batchCreateModelRequest.body
+                } else {
+                    providerId = batchCreateModelRequest['provider_id'];
+                    body = batchCreateModelRequest['body'];
+                }
+            }
+
+        
+            if (providerId === null || providerId === undefined) {
+            throw new RequiredError('providerId','Required parameter providerId was null or undefined when calling batchCreateModel.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'provider_id': providerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除模型（支持部分失败）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteModel(batchDeleteModelRequest?: BatchDeleteModelRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/model-providers/{provider_id}/models/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let providerId;
+
+            if (batchDeleteModelRequest !== null && batchDeleteModelRequest !== undefined) {
+                if (batchDeleteModelRequest instanceof BatchDeleteModelRequest) {
+                    providerId = batchDeleteModelRequest.providerId;
+                    body = batchDeleteModelRequest.body
+                } else {
+                    providerId = batchDeleteModelRequest['provider_id'];
+                    body = batchDeleteModelRequest['body'];
+                }
+            }
+
+        
+            if (providerId === null || providerId === undefined) {
+            throw new RequiredError('providerId','Required parameter providerId was null or undefined when calling batchDeleteModel.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'provider_id': providerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取指定供应商下的模型列表，支持分页。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listModels(listModelsRequest?: ListModelsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/model-providers/{provider_id}/models",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let providerId;
+            
+            let limit;
+            
+            let offset;
+            
+            let groupId;
+            
+            let name;
+
+            if (listModelsRequest !== null && listModelsRequest !== undefined) {
+                if (listModelsRequest instanceof ListModelsRequest) {
+                    providerId = listModelsRequest.providerId;
+                    limit = listModelsRequest.limit;
+                    offset = listModelsRequest.offset;
+                    groupId = listModelsRequest.groupId;
+                    name = listModelsRequest.name;
+                } else {
+                    providerId = listModelsRequest['provider_id'];
+                    limit = listModelsRequest['limit'];
+                    offset = listModelsRequest['offset'];
+                    groupId = listModelsRequest['group_id'];
+                    name = listModelsRequest['name'];
+                }
+            }
+
+        
+            if (providerId === null || providerId === undefined) {
+            throw new RequiredError('providerId','Required parameter providerId was null or undefined when calling listModels.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (groupId !== null && groupId !== undefined) {
+                localVarQueryParameter['group_id'] = groupId;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'provider_id': providerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取模型详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showModel(showModelRequest?: ShowModelRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/model-providers/{provider_id}/models/{model_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let providerId;
+            
+            let modelId;
+
+            if (showModelRequest !== null && showModelRequest !== undefined) {
+                if (showModelRequest instanceof ShowModelRequest) {
+                    providerId = showModelRequest.providerId;
+                    modelId = showModelRequest.modelId;
+                } else {
+                    providerId = showModelRequest['provider_id'];
+                    modelId = showModelRequest['model_id'];
+                }
+            }
+
+        
+            if (providerId === null || providerId === undefined) {
+            throw new RequiredError('providerId','Required parameter providerId was null or undefined when calling showModel.');
+            }
+            if (modelId === null || modelId === undefined) {
+            throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling showModel.');
+            }
+
+            options.pathParams = { 'provider_id': providerId,'model_id': modelId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新模型信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateModel(updateModelRequest?: UpdateModelRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/ai-agents/model-providers/{provider_id}/models/{model_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let providerId;
+            
+            let modelId;
+
+            if (updateModelRequest !== null && updateModelRequest !== undefined) {
+                if (updateModelRequest instanceof UpdateModelRequest) {
+                    providerId = updateModelRequest.providerId;
+                    modelId = updateModelRequest.modelId;
+                    body = updateModelRequest.body
+                } else {
+                    providerId = updateModelRequest['provider_id'];
+                    modelId = updateModelRequest['model_id'];
+                    body = updateModelRequest['body'];
+                }
+            }
+
+        
+            if (providerId === null || providerId === undefined) {
+            throw new RequiredError('providerId','Required parameter providerId was null or undefined when calling updateModel.');
+            }
+            if (modelId === null || modelId === undefined) {
+            throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling updateModel.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'provider_id': providerId,'model_id': modelId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -19172,18 +22237,32 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let resourceSpecCode;
+            
+            let limit;
+            
+            let offset;
 
             if (listResourcePackagesRequest !== null && listResourcePackagesRequest !== undefined) {
                 if (listResourcePackagesRequest instanceof ListResourcePackagesRequest) {
                     resourceSpecCode = listResourcePackagesRequest.resourceSpecCode;
+                    limit = listResourcePackagesRequest.limit;
+                    offset = listResourcePackagesRequest.offset;
                 } else {
                     resourceSpecCode = listResourcePackagesRequest['resource_spec_code'];
+                    limit = listResourcePackagesRequest['limit'];
+                    offset = listResourcePackagesRequest['offset'];
                 }
             }
 
         
             if (resourceSpecCode !== null && resourceSpecCode !== undefined) {
                 localVarQueryParameter['resource_spec_code'] = resourceSpecCode;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -19315,6 +22394,333 @@ export const ParamCreater = function () {
                     body = updateTenantProfileRequest.body
                 } else {
                     body = updateTenantProfileRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建供应商，支持同时批量创建关联的模型。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createProvider(createProviderRequest?: CreateProviderRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/model-providers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createProviderRequest !== null && createProviderRequest !== undefined) {
+                if (createProviderRequest instanceof CreateProviderRequest) {
+                    body = createProviderRequest.body
+                } else {
+                    body = createProviderRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除供应商。删除成功后自动删除下属所有模型记录；触发模型重新下发事件。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteProvider(deleteProviderRequest?: DeleteProviderRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/ai-agents/model-providers/{provider_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let providerId;
+
+            if (deleteProviderRequest !== null && deleteProviderRequest !== undefined) {
+                if (deleteProviderRequest instanceof DeleteProviderRequest) {
+                    providerId = deleteProviderRequest.providerId;
+                } else {
+                    providerId = deleteProviderRequest['provider_id'];
+                }
+            }
+
+        
+            if (providerId === null || providerId === undefined) {
+            throw new RequiredError('providerId','Required parameter providerId was null or undefined when calling deleteProvider.');
+            }
+
+            options.pathParams = { 'provider_id': providerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取内置供应商模板列表（hw_maas、deepseek）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProviderTemplates() {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/model-provider-templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取供应商列表，支持分页和多维度筛选。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProviders(listProvidersRequest?: ListProvidersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/model-providers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+            
+            let groupId;
+            
+            let status;
+            
+            let providerType;
+            
+            let name;
+
+            if (listProvidersRequest !== null && listProvidersRequest !== undefined) {
+                if (listProvidersRequest instanceof ListProvidersRequest) {
+                    limit = listProvidersRequest.limit;
+                    offset = listProvidersRequest.offset;
+                    groupId = listProvidersRequest.groupId;
+                    status = listProvidersRequest.status;
+                    providerType = listProvidersRequest.providerType;
+                    name = listProvidersRequest.name;
+                } else {
+                    limit = listProvidersRequest['limit'];
+                    offset = listProvidersRequest['offset'];
+                    groupId = listProvidersRequest['group_id'];
+                    status = listProvidersRequest['status'];
+                    providerType = listProvidersRequest['provider_type'];
+                    name = listProvidersRequest['name'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (groupId !== null && groupId !== undefined) {
+                localVarQueryParameter['group_id'] = groupId;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (providerType !== null && providerType !== undefined) {
+                localVarQueryParameter['provider_type'] = providerType;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据供应商配置查询第三方平台的可用模型列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRemoteProviderModels(listRemoteProviderModelsRequest?: ListRemoteProviderModelsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/model-providers/remote-models/query",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (listRemoteProviderModelsRequest !== null && listRemoteProviderModelsRequest !== undefined) {
+                if (listRemoteProviderModelsRequest instanceof ListRemoteProviderModelsRequest) {
+                    body = listRemoteProviderModelsRequest.body
+                } else {
+                    body = listRemoteProviderModelsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取供应商详情，包含关联的分组列表和下属模型列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProvider(showProviderRequest?: ShowProviderRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/model-providers/{provider_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let providerId;
+
+            if (showProviderRequest !== null && showProviderRequest !== undefined) {
+                if (showProviderRequest instanceof ShowProviderRequest) {
+                    providerId = showProviderRequest.providerId;
+                } else {
+                    providerId = showProviderRequest['provider_id'];
+                }
+            }
+
+        
+            if (providerId === null || providerId === undefined) {
+            throw new RequiredError('providerId','Required parameter providerId was null or undefined when calling showProvider.');
+            }
+
+            options.pathParams = { 'provider_id': providerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新供应商信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateProvider(updateProviderRequest?: UpdateProviderRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/ai-agents/model-providers/{provider_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let providerId;
+
+            if (updateProviderRequest !== null && updateProviderRequest !== undefined) {
+                if (updateProviderRequest instanceof UpdateProviderRequest) {
+                    providerId = updateProviderRequest.providerId;
+                    body = updateProviderRequest.body
+                } else {
+                    providerId = updateProviderRequest['provider_id'];
+                    body = updateProviderRequest['body'];
+                }
+            }
+
+        
+            if (providerId === null || providerId === undefined) {
+            throw new RequiredError('providerId','Required parameter providerId was null or undefined when calling updateProvider.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'provider_id': providerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 验证供应商连通性和 API Key 有效性。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        verifyProvider(verifyProviderRequest?: VerifyProviderRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/model-providers/verify",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (verifyProviderRequest !== null && verifyProviderRequest !== undefined) {
+                if (verifyProviderRequest instanceof VerifyProviderRequest) {
+                    body = verifyProviderRequest.body
+                } else {
+                    body = verifyProviderRequest['body'];
                 }
             }
 
@@ -19955,6 +23361,360 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建升级任务，支持配置定时任务、执行策略、灰度策略、应用对象等。
+         * - 任务名称在当前项目下唯一
+         * - 创建后默认按配置的定时规则执行
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createUpgradeScheduleTask(createUpgradeScheduleTaskRequest?: CreateUpgradeScheduleTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/upgrade-task",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createUpgradeScheduleTaskRequest !== null && createUpgradeScheduleTaskRequest !== undefined) {
+                if (createUpgradeScheduleTaskRequest instanceof CreateUpgradeScheduleTaskRequest) {
+                    body = createUpgradeScheduleTaskRequest.body
+                } else {
+                    body = createUpgradeScheduleTaskRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除指定的升级任务。
+         * - 同时删除任务关联的应用对象信息
+         * - 删除后不可恢复
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteUpgradeTask(deleteUpgradeTaskRequest?: DeleteUpgradeTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/upgrade-task/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deleteUpgradeTaskRequest !== null && deleteUpgradeTaskRequest !== undefined) {
+                if (deleteUpgradeTaskRequest instanceof DeleteUpgradeTaskRequest) {
+                    body = deleteUpgradeTaskRequest.body
+                } else {
+                    body = deleteUpgradeTaskRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据配置参数触发桌面升级任务。
+         * - 支持强制升级、版本指定、超时控制及通知功能
+         * - 触发后立即执行，不受定时任务调度
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeTriggerUpgrade(executeTriggerUpgradeRequest?: ExecuteTriggerUpgradeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/upgrade-task/execute",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (executeTriggerUpgradeRequest !== null && executeTriggerUpgradeRequest !== undefined) {
+                if (executeTriggerUpgradeRequest instanceof ExecuteTriggerUpgradeRequest) {
+                    body = executeTriggerUpgradeRequest.body
+                } else {
+                    body = executeTriggerUpgradeRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分页查询指定任务下的应用对象列表。
+         * - 支持按应用对象名称模糊匹配
+         * - 按任务ID精确匹配
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTaskApplyObjects(listTaskApplyObjectsRequest?: ListTaskApplyObjectsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/upgrade-task/{task_id}/apply-objects",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let taskId;
+            
+            let objectName;
+            
+            let offset;
+            
+            let limit;
+
+            if (listTaskApplyObjectsRequest !== null && listTaskApplyObjectsRequest !== undefined) {
+                if (listTaskApplyObjectsRequest instanceof ListTaskApplyObjectsRequest) {
+                    taskId = listTaskApplyObjectsRequest.taskId;
+                    objectName = listTaskApplyObjectsRequest.objectName;
+                    offset = listTaskApplyObjectsRequest.offset;
+                    limit = listTaskApplyObjectsRequest.limit;
+                } else {
+                    taskId = listTaskApplyObjectsRequest['task_id'];
+                    objectName = listTaskApplyObjectsRequest['object_name'];
+                    offset = listTaskApplyObjectsRequest['offset'];
+                    limit = listTaskApplyObjectsRequest['limit'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling listTaskApplyObjects.');
+            }
+            if (objectName !== null && objectName !== undefined) {
+                localVarQueryParameter['object_name'] = objectName;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分页查询升级任务列表。
+         * - 支持按任务名称（模糊）、任务类型、执行周期类型、启用状态、上次执行状态条件查询
+         * - 默认按创建时间倒序排序
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listUpgradeTasks(listUpgradeTasksRequest?: ListUpgradeTasksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/upgrade-tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let taskId;
+            
+            let taskName;
+            
+            let taskType;
+            
+            let scheduledType;
+            
+            let isEnable;
+            
+            let lastExecuteStatus;
+            
+            let offset;
+            
+            let limit;
+
+            if (listUpgradeTasksRequest !== null && listUpgradeTasksRequest !== undefined) {
+                if (listUpgradeTasksRequest instanceof ListUpgradeTasksRequest) {
+                    taskId = listUpgradeTasksRequest.taskId;
+                    taskName = listUpgradeTasksRequest.taskName;
+                    taskType = listUpgradeTasksRequest.taskType;
+                    scheduledType = listUpgradeTasksRequest.scheduledType;
+                    isEnable = listUpgradeTasksRequest.isEnable;
+                    lastExecuteStatus = listUpgradeTasksRequest.lastExecuteStatus;
+                    offset = listUpgradeTasksRequest.offset;
+                    limit = listUpgradeTasksRequest.limit;
+                } else {
+                    taskId = listUpgradeTasksRequest['task_id'];
+                    taskName = listUpgradeTasksRequest['task_name'];
+                    taskType = listUpgradeTasksRequest['task_type'];
+                    scheduledType = listUpgradeTasksRequest['scheduled_type'];
+                    isEnable = listUpgradeTasksRequest['is_enable'];
+                    lastExecuteStatus = listUpgradeTasksRequest['last_execute_status'];
+                    offset = listUpgradeTasksRequest['offset'];
+                    limit = listUpgradeTasksRequest['limit'];
+                }
+            }
+
+        
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
+            }
+            if (taskName !== null && taskName !== undefined) {
+                localVarQueryParameter['task_name'] = taskName;
+            }
+            if (taskType !== null && taskType !== undefined) {
+                localVarQueryParameter['task_type'] = taskType;
+            }
+            if (scheduledType !== null && scheduledType !== undefined) {
+                localVarQueryParameter['scheduled_type'] = scheduledType;
+            }
+            if (isEnable !== null && isEnable !== undefined) {
+                localVarQueryParameter['is_enable'] = isEnable;
+            }
+            if (lastExecuteStatus !== null && lastExecuteStatus !== undefined) {
+                localVarQueryParameter['last_execute_status'] = lastExecuteStatus;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据任务ID查询升级任务详情。
+         * - 包括定时配置、执行策略、灰度配置、应用对象等完整信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showUpgradeTaskDetail(showUpgradeTaskDetailRequest?: ShowUpgradeTaskDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/upgrade-task/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let taskId;
+
+            if (showUpgradeTaskDetailRequest !== null && showUpgradeTaskDetailRequest !== undefined) {
+                if (showUpgradeTaskDetailRequest instanceof ShowUpgradeTaskDetailRequest) {
+                    taskId = showUpgradeTaskDetailRequest.taskId;
+                } else {
+                    taskId = showUpgradeTaskDetailRequest['task_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showUpgradeTaskDetail.');
+            }
+
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改升级任务配置。
+         * - 仅传入的字段会被更新，未传入的字段保持不变
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateUpgradeTask(updateUpgradeTaskRequest?: UpdateUpgradeTaskRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/upgrade-task/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let taskId;
+
+            if (updateUpgradeTaskRequest !== null && updateUpgradeTaskRequest !== undefined) {
+                if (updateUpgradeTaskRequest instanceof UpdateUpgradeTaskRequest) {
+                    taskId = updateUpgradeTaskRequest.taskId;
+                    body = updateUpgradeTaskRequest.body
+                } else {
+                    taskId = updateUpgradeTaskRequest['task_id'];
+                    body = updateUpgradeTaskRequest['body'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling updateUpgradeTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量删除录屏记录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -20127,6 +23887,8 @@ export const ParamCreater = function () {
             
             let desktopId;
             
+            let desktopNames;
+            
             let username;
             
             let status;
@@ -20146,6 +23908,7 @@ export const ParamCreater = function () {
                     limit = listScreenRecordsRequest.limit;
                     offset = listScreenRecordsRequest.offset;
                     desktopId = listScreenRecordsRequest.desktopId;
+                    desktopNames = listScreenRecordsRequest.desktopNames;
                     username = listScreenRecordsRequest.username;
                     status = listScreenRecordsRequest.status;
                     type = listScreenRecordsRequest.type;
@@ -20157,6 +23920,7 @@ export const ParamCreater = function () {
                     limit = listScreenRecordsRequest['limit'];
                     offset = listScreenRecordsRequest['offset'];
                     desktopId = listScreenRecordsRequest['desktop_id'];
+                    desktopNames = listScreenRecordsRequest['desktop_names'];
                     username = listScreenRecordsRequest['username'];
                     status = listScreenRecordsRequest['status'];
                     type = listScreenRecordsRequest['type'];
@@ -20176,6 +23940,9 @@ export const ParamCreater = function () {
             }
             if (desktopId !== null && desktopId !== undefined) {
                 localVarQueryParameter['desktop_id'] = desktopId;
+            }
+            if (desktopNames !== null && desktopNames !== undefined) {
+                localVarQueryParameter['desktop_names'] = desktopNames;
             }
             if (username !== null && username !== undefined) {
                 localVarQueryParameter['username'] = username;
@@ -20301,7 +24068,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "PUT",
                 url: "/v2/{project_id}/screen-records/{record_id}",
-                contentType: "application/json",
+                contentType: "application/json;charset=utf-8",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -20327,7 +24094,7 @@ export const ParamCreater = function () {
             if (recordId === null || recordId === undefined) {
             throw new RequiredError('recordId','Required parameter recordId was null or undefined when calling updateScreenRecords.');
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'record_id': recordId, };
@@ -21395,6 +25162,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 重置站点认证信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resetSiteAuthConfig(resetSiteAuthConfigRequest?: ResetSiteAuthConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/sites/{site_id}/reset-auth-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let siteId;
+
+            if (resetSiteAuthConfigRequest !== null && resetSiteAuthConfigRequest !== undefined) {
+                if (resetSiteAuthConfigRequest instanceof ResetSiteAuthConfigRequest) {
+                    siteId = resetSiteAuthConfigRequest.siteId;
+                } else {
+                    siteId = resetSiteAuthConfigRequest['site_id'];
+                }
+            }
+
+        
+            if (siteId === null || siteId === undefined) {
+            throw new RequiredError('siteId','Required parameter siteId was null or undefined when calling resetSiteAuthConfig.');
+            }
+
+            options.pathParams = { 'site_id': siteId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 用于修改站点接入方式。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -21997,6 +25801,8 @@ export const ParamCreater = function () {
             
             let resourceName;
             
+            let resourceId;
+            
             let minIdleDays;
             
             let maxIdleDays;
@@ -22020,6 +25826,7 @@ export const ParamCreater = function () {
                     startTime = listDesktopUsageMetricRequest.startTime;
                     endTime = listDesktopUsageMetricRequest.endTime;
                     resourceName = listDesktopUsageMetricRequest.resourceName;
+                    resourceId = listDesktopUsageMetricRequest.resourceId;
                     minIdleDays = listDesktopUsageMetricRequest.minIdleDays;
                     maxIdleDays = listDesktopUsageMetricRequest.maxIdleDays;
                     usageMinHours = listDesktopUsageMetricRequest.usageMinHours;
@@ -22033,6 +25840,7 @@ export const ParamCreater = function () {
                     startTime = listDesktopUsageMetricRequest['start_time'];
                     endTime = listDesktopUsageMetricRequest['end_time'];
                     resourceName = listDesktopUsageMetricRequest['resource_name'];
+                    resourceId = listDesktopUsageMetricRequest['resource_id'];
                     minIdleDays = listDesktopUsageMetricRequest['min_idle_days'];
                     maxIdleDays = listDesktopUsageMetricRequest['max_idle_days'];
                     usageMinHours = listDesktopUsageMetricRequest['usage_min_hours'];
@@ -22060,6 +25868,9 @@ export const ParamCreater = function () {
             }
             if (resourceName !== null && resourceName !== undefined) {
                 localVarQueryParameter['resource_name'] = resourceName;
+            }
+            if (resourceId !== null && resourceId !== undefined) {
+                localVarQueryParameter['resource_id'] = resourceId;
             }
             if (minIdleDays !== null && minIdleDays !== undefined) {
                 localVarQueryParameter['min_idle_days'] = minIdleDays;
@@ -22827,6 +26638,8 @@ export const ParamCreater = function () {
             
             let resourceName;
             
+            let resourceId;
+            
             let minIdleDays;
             
             let maxIdleDays;
@@ -22846,6 +26659,7 @@ export const ParamCreater = function () {
                     startTime = exportDesktopUsageMetricNewRequest.startTime;
                     endTime = exportDesktopUsageMetricNewRequest.endTime;
                     resourceName = exportDesktopUsageMetricNewRequest.resourceName;
+                    resourceId = exportDesktopUsageMetricNewRequest.resourceId;
                     minIdleDays = exportDesktopUsageMetricNewRequest.minIdleDays;
                     maxIdleDays = exportDesktopUsageMetricNewRequest.maxIdleDays;
                     usageMinHours = exportDesktopUsageMetricNewRequest.usageMinHours;
@@ -22857,6 +26671,7 @@ export const ParamCreater = function () {
                     startTime = exportDesktopUsageMetricNewRequest['start_time'];
                     endTime = exportDesktopUsageMetricNewRequest['end_time'];
                     resourceName = exportDesktopUsageMetricNewRequest['resource_name'];
+                    resourceId = exportDesktopUsageMetricNewRequest['resource_id'];
                     minIdleDays = exportDesktopUsageMetricNewRequest['min_idle_days'];
                     maxIdleDays = exportDesktopUsageMetricNewRequest['max_idle_days'];
                     usageMinHours = exportDesktopUsageMetricNewRequest['usage_min_hours'];
@@ -22882,6 +26697,9 @@ export const ParamCreater = function () {
             }
             if (resourceName !== null && resourceName !== undefined) {
                 localVarQueryParameter['resource_name'] = resourceName;
+            }
+            if (resourceId !== null && resourceId !== undefined) {
+                localVarQueryParameter['resource_id'] = resourceId;
             }
             if (minIdleDays !== null && minIdleDays !== undefined) {
                 localVarQueryParameter['min_idle_days'] = minIdleDays;
@@ -23111,6 +26929,547 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建升级策略，同时支持关联应用对象。
+         * - 策略名称在当前项目下唯一
+         * - 创建后默认按优先级参与升级匹配
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTenantUpgradeStrategy(createTenantUpgradeStrategyRequest?: CreateTenantUpgradeStrategyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/upgrade-strategy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createTenantUpgradeStrategyRequest !== null && createTenantUpgradeStrategyRequest !== undefined) {
+                if (createTenantUpgradeStrategyRequest instanceof CreateTenantUpgradeStrategyRequest) {
+                    body = createTenantUpgradeStrategyRequest.body
+                } else {
+                    body = createTenantUpgradeStrategyRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除升级策略。
+         * - 同时删除策略关联的应用对象信息
+         * - 删除后不可恢复
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteTenantUpgradeStrategy(deleteTenantUpgradeStrategyRequest?: DeleteTenantUpgradeStrategyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/upgrade-strategy/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deleteTenantUpgradeStrategyRequest !== null && deleteTenantUpgradeStrategyRequest !== undefined) {
+                if (deleteTenantUpgradeStrategyRequest instanceof DeleteTenantUpgradeStrategyRequest) {
+                    body = deleteTenantUpgradeStrategyRequest.body
+                } else {
+                    body = deleteTenantUpgradeStrategyRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 异步导出升级策略数据。
+         * - 支持按策略名称、策略类型、是否强制升级、启用状态条件筛选
+         * - 返回导出任务ID，通过任务ID查询导出结果
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportTenantUpgradeStrategies(exportTenantUpgradeStrategiesRequest?: ExportTenantUpgradeStrategiesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/upgrade-strategies/export",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let language;
+            
+            let strategyName;
+            
+            let strategyType;
+            
+            let isForceUpgrade;
+            
+            let status;
+            
+            let strategyPriority;
+
+            if (exportTenantUpgradeStrategiesRequest !== null && exportTenantUpgradeStrategiesRequest !== undefined) {
+                if (exportTenantUpgradeStrategiesRequest instanceof ExportTenantUpgradeStrategiesRequest) {
+                    language = exportTenantUpgradeStrategiesRequest.language;
+                    strategyName = exportTenantUpgradeStrategiesRequest.strategyName;
+                    strategyType = exportTenantUpgradeStrategiesRequest.strategyType;
+                    isForceUpgrade = exportTenantUpgradeStrategiesRequest.isForceUpgrade;
+                    status = exportTenantUpgradeStrategiesRequest.status;
+                    strategyPriority = exportTenantUpgradeStrategiesRequest.strategyPriority;
+                } else {
+                    language = exportTenantUpgradeStrategiesRequest['language'];
+                    strategyName = exportTenantUpgradeStrategiesRequest['strategy_name'];
+                    strategyType = exportTenantUpgradeStrategiesRequest['strategy_type'];
+                    isForceUpgrade = exportTenantUpgradeStrategiesRequest['is_force_upgrade'];
+                    status = exportTenantUpgradeStrategiesRequest['status'];
+                    strategyPriority = exportTenantUpgradeStrategiesRequest['strategy_priority'];
+                }
+            }
+
+        
+            if (language === null || language === undefined) {
+                throw new RequiredError('language','Required parameter language was null or undefined when calling exportTenantUpgradeStrategies.');
+            }
+            if (language !== null && language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
+            if (strategyName !== null && strategyName !== undefined) {
+                localVarQueryParameter['strategy_name'] = strategyName;
+            }
+            if (strategyType !== null && strategyType !== undefined) {
+                localVarQueryParameter['strategy_type'] = strategyType;
+            }
+            if (isForceUpgrade !== null && isForceUpgrade !== undefined) {
+                localVarQueryParameter['is_force_upgrade'] = isForceUpgrade;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (strategyPriority !== null && strategyPriority !== undefined) {
+                localVarQueryParameter['strategy_priority'] = strategyPriority;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分页查询指定策略下的应用对象列表。
+         * - 支持按应用对象名称模糊匹配
+         * - 按策略ID精确匹配
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listApplyObjects(listApplyObjectsRequest?: ListApplyObjectsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/upgrade-strategy/{strategy_id}/apply-objects",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let strategyId;
+            
+            let objectName;
+            
+            let objectType;
+            
+            let offset;
+            
+            let limit;
+
+            if (listApplyObjectsRequest !== null && listApplyObjectsRequest !== undefined) {
+                if (listApplyObjectsRequest instanceof ListApplyObjectsRequest) {
+                    strategyId = listApplyObjectsRequest.strategyId;
+                    objectName = listApplyObjectsRequest.objectName;
+                    objectType = listApplyObjectsRequest.objectType;
+                    offset = listApplyObjectsRequest.offset;
+                    limit = listApplyObjectsRequest.limit;
+                } else {
+                    strategyId = listApplyObjectsRequest['strategy_id'];
+                    objectName = listApplyObjectsRequest['object_name'];
+                    objectType = listApplyObjectsRequest['object_type'];
+                    offset = listApplyObjectsRequest['offset'];
+                    limit = listApplyObjectsRequest['limit'];
+                }
+            }
+
+        
+            if (strategyId === null || strategyId === undefined) {
+            throw new RequiredError('strategyId','Required parameter strategyId was null or undefined when calling listApplyObjects.');
+            }
+            if (objectName !== null && objectName !== undefined) {
+                localVarQueryParameter['object_name'] = objectName;
+            }
+            if (objectType !== null && objectType !== undefined) {
+                localVarQueryParameter['object_type'] = objectType;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'strategy_id': strategyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分页查询升级策略列表。
+         * - 支持按策略名称（模糊/精确）、策略类型、是否强制升级、启用状态、优先级条件查询
+         * - 默认按优先级升序排序
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTenantUpgradeStrategies(listTenantUpgradeStrategiesRequest?: ListTenantUpgradeStrategiesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/upgrade-strategies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let isAccurateName;
+            
+            let strategyName;
+            
+            let strategyType;
+            
+            let isForceUpgrade;
+            
+            let status;
+            
+            let strategyPriority;
+            
+            let offset;
+            
+            let limit;
+
+            if (listTenantUpgradeStrategiesRequest !== null && listTenantUpgradeStrategiesRequest !== undefined) {
+                if (listTenantUpgradeStrategiesRequest instanceof ListTenantUpgradeStrategiesRequest) {
+                    isAccurateName = listTenantUpgradeStrategiesRequest.isAccurateName;
+                    strategyName = listTenantUpgradeStrategiesRequest.strategyName;
+                    strategyType = listTenantUpgradeStrategiesRequest.strategyType;
+                    isForceUpgrade = listTenantUpgradeStrategiesRequest.isForceUpgrade;
+                    status = listTenantUpgradeStrategiesRequest.status;
+                    strategyPriority = listTenantUpgradeStrategiesRequest.strategyPriority;
+                    offset = listTenantUpgradeStrategiesRequest.offset;
+                    limit = listTenantUpgradeStrategiesRequest.limit;
+                } else {
+                    isAccurateName = listTenantUpgradeStrategiesRequest['is_accurate_name'];
+                    strategyName = listTenantUpgradeStrategiesRequest['strategy_name'];
+                    strategyType = listTenantUpgradeStrategiesRequest['strategy_type'];
+                    isForceUpgrade = listTenantUpgradeStrategiesRequest['is_force_upgrade'];
+                    status = listTenantUpgradeStrategiesRequest['status'];
+                    strategyPriority = listTenantUpgradeStrategiesRequest['strategy_priority'];
+                    offset = listTenantUpgradeStrategiesRequest['offset'];
+                    limit = listTenantUpgradeStrategiesRequest['limit'];
+                }
+            }
+
+        
+            if (isAccurateName !== null && isAccurateName !== undefined) {
+                localVarQueryParameter['is_accurate_name'] = isAccurateName;
+            }
+            if (strategyName !== null && strategyName !== undefined) {
+                localVarQueryParameter['strategy_name'] = strategyName;
+            }
+            if (strategyType !== null && strategyType !== undefined) {
+                localVarQueryParameter['strategy_type'] = strategyType;
+            }
+            if (isForceUpgrade !== null && isForceUpgrade !== undefined) {
+                localVarQueryParameter['is_force_upgrade'] = isForceUpgrade;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (strategyPriority !== null && strategyPriority !== undefined) {
+                localVarQueryParameter['strategy_priority'] = strategyPriority;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量操作指定策略关联的应用对象。
+         * - 支持批量删除和批量新增两种操作类型
+         * - operate_type为1时执行批量删除，operate_type为2时执行批量新增
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateStrategyApplyObjects(updateStrategyApplyObjectsRequest?: UpdateStrategyApplyObjectsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/upgrade-strategy/{strategy_id}/apply-objects",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let strategyId;
+
+            if (updateStrategyApplyObjectsRequest !== null && updateStrategyApplyObjectsRequest !== undefined) {
+                if (updateStrategyApplyObjectsRequest instanceof UpdateStrategyApplyObjectsRequest) {
+                    strategyId = updateStrategyApplyObjectsRequest.strategyId;
+                    body = updateStrategyApplyObjectsRequest.body
+                } else {
+                    strategyId = updateStrategyApplyObjectsRequest['strategy_id'];
+                    body = updateStrategyApplyObjectsRequest['body'];
+                }
+            }
+
+        
+            if (strategyId === null || strategyId === undefined) {
+            throw new RequiredError('strategyId','Required parameter strategyId was null or undefined when calling updateStrategyApplyObjects.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'strategy_id': strategyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改升级策略，同时支持更新关联的应用对象信息。
+         * - 仅传入的字段会被更新，未传入的字段保持不变
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateTenantUpgradeStrategy(updateTenantUpgradeStrategyRequest?: UpdateTenantUpgradeStrategyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/upgrade-strategy/{strategy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let strategyId;
+
+            if (updateTenantUpgradeStrategyRequest !== null && updateTenantUpgradeStrategyRequest !== undefined) {
+                if (updateTenantUpgradeStrategyRequest instanceof UpdateTenantUpgradeStrategyRequest) {
+                    strategyId = updateTenantUpgradeStrategyRequest.strategyId;
+                    body = updateTenantUpgradeStrategyRequest.body
+                } else {
+                    strategyId = updateTenantUpgradeStrategyRequest['strategy_id'];
+                    body = updateTenantUpgradeStrategyRequest['body'];
+                }
+            }
+
+        
+            if (strategyId === null || strategyId === undefined) {
+            throw new RequiredError('strategyId','Required parameter strategyId was null or undefined when calling updateTenantUpgradeStrategy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'strategy_id': strategyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询版本列表，支持按版本类型、版本号、操作系统类型、发布时间段、版本状态、版本说明条件查询。版本说明模糊查询会同时搜索SRE配置的版本说明和租户自定义的版本说明。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTenantVersionConfig(listTenantVersionConfigRequest?: ListTenantVersionConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/version-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let versionType;
+            
+            let version;
+            
+            let osType;
+            
+            let versionStatus;
+            
+            let publishTimeBegin;
+            
+            let publishTimeEnd;
+            
+            let releaseNote;
+            
+            let offset;
+            
+            let limit;
+
+            if (listTenantVersionConfigRequest !== null && listTenantVersionConfigRequest !== undefined) {
+                if (listTenantVersionConfigRequest instanceof ListTenantVersionConfigRequest) {
+                    versionType = listTenantVersionConfigRequest.versionType;
+                    version = listTenantVersionConfigRequest.version;
+                    osType = listTenantVersionConfigRequest.osType;
+                    versionStatus = listTenantVersionConfigRequest.versionStatus;
+                    publishTimeBegin = listTenantVersionConfigRequest.publishTimeBegin;
+                    publishTimeEnd = listTenantVersionConfigRequest.publishTimeEnd;
+                    releaseNote = listTenantVersionConfigRequest.releaseNote;
+                    offset = listTenantVersionConfigRequest.offset;
+                    limit = listTenantVersionConfigRequest.limit;
+                } else {
+                    versionType = listTenantVersionConfigRequest['version_type'];
+                    version = listTenantVersionConfigRequest['version'];
+                    osType = listTenantVersionConfigRequest['os_type'];
+                    versionStatus = listTenantVersionConfigRequest['version_status'];
+                    publishTimeBegin = listTenantVersionConfigRequest['publish_time_begin'];
+                    publishTimeEnd = listTenantVersionConfigRequest['publish_time_end'];
+                    releaseNote = listTenantVersionConfigRequest['release_note'];
+                    offset = listTenantVersionConfigRequest['offset'];
+                    limit = listTenantVersionConfigRequest['limit'];
+                }
+            }
+
+        
+            if (versionType === null || versionType === undefined) {
+                throw new RequiredError('versionType','Required parameter versionType was null or undefined when calling listTenantVersionConfig.');
+            }
+            if (versionType !== null && versionType !== undefined) {
+                localVarQueryParameter['version_type'] = versionType;
+            }
+            if (version !== null && version !== undefined) {
+                localVarQueryParameter['version'] = version;
+            }
+            if (osType !== null && osType !== undefined) {
+                localVarQueryParameter['os_type'] = osType;
+            }
+            if (versionStatus !== null && versionStatus !== undefined) {
+                localVarQueryParameter['version_status'] = versionStatus;
+            }
+            if (publishTimeBegin !== null && publishTimeBegin !== undefined) {
+                localVarQueryParameter['publish_time_begin'] = publishTimeBegin;
+            }
+            if (publishTimeEnd !== null && publishTimeEnd !== undefined) {
+                localVarQueryParameter['publish_time_end'] = publishTimeEnd;
+            }
+            if (releaseNote !== null && releaseNote !== undefined) {
+                localVarQueryParameter['release_note'] = releaseNote;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询版本详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTenantVersionConfig(showTenantVersionConfigRequest?: ShowTenantVersionConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/version-config/{version_config_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let versionConfigId;
+
+            if (showTenantVersionConfigRequest !== null && showTenantVersionConfigRequest !== undefined) {
+                if (showTenantVersionConfigRequest instanceof ShowTenantVersionConfigRequest) {
+                    versionConfigId = showTenantVersionConfigRequest.versionConfigId;
+                } else {
+                    versionConfigId = showTenantVersionConfigRequest['version_config_id'];
+                }
+            }
+
+        
+            if (versionConfigId === null || versionConfigId === undefined) {
+            throw new RequiredError('versionConfigId','Required parameter versionConfigId was null or undefined when calling showTenantVersionConfig.');
+            }
+
+            options.pathParams = { 'version_config_id': versionConfigId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -24434,6 +28793,44 @@ export const ParamCreater = function () {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 以excel文件形式导出用户组。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportUserGroupsNew(exportUserGroupsNewRequest?: ExportUserGroupsNewRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/groups/export",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (exportUserGroupsNewRequest !== null && exportUserGroupsNewRequest !== undefined) {
+                if (exportUserGroupsNewRequest instanceof ExportUserGroupsNewRequest) {
+                    body = exportUserGroupsNewRequest.body
+                } else {
+                    body = exportUserGroupsNewRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;

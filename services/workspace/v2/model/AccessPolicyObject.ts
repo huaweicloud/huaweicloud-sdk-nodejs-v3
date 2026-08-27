@@ -4,6 +4,7 @@ export class AccessPolicyObject {
     private 'object_id'?: string;
     private 'object_name'?: string;
     private 'object_type'?: AccessPolicyObjectObjectTypeEnum | string;
+    private 'object_domain'?: string;
     public constructor() { 
     }
     public withObjectId(objectId: string): AccessPolicyObject {
@@ -35,6 +36,16 @@ export class AccessPolicyObject {
     }
     public get objectType(): AccessPolicyObjectObjectTypeEnum | string | undefined {
         return this['object_type'];
+    }
+    public withObjectDomain(objectDomain: string): AccessPolicyObject {
+        this['object_domain'] = objectDomain;
+        return this;
+    }
+    public set objectDomain(objectDomain: string  | undefined) {
+        this['object_domain'] = objectDomain;
+    }
+    public get objectDomain(): string | undefined {
+        return this['object_domain'];
     }
 }
 

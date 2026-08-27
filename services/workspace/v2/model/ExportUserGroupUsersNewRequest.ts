@@ -3,6 +3,7 @@
 export class ExportUserGroupUsersNewRequest {
     private 'group_id'?: string;
     private 'user_name'?: string;
+    private 'user_names'?: Array<string>;
     public description?: string;
     private 'active_type'?: ExportUserGroupUsersNewRequestActiveTypeEnum | string;
     private 'group_name'?: string;
@@ -30,6 +31,16 @@ export class ExportUserGroupUsersNewRequest {
     }
     public get userName(): string | undefined {
         return this['user_name'];
+    }
+    public withUserNames(userNames: Array<string>): ExportUserGroupUsersNewRequest {
+        this['user_names'] = userNames;
+        return this;
+    }
+    public set userNames(userNames: Array<string>  | undefined) {
+        this['user_names'] = userNames;
+    }
+    public get userNames(): Array<string> | undefined {
+        return this['user_names'];
     }
     public withDescription(description: string): ExportUserGroupUsersNewRequest {
         this['description'] = description;

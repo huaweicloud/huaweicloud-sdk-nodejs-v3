@@ -2,6 +2,7 @@
 
 export class ListUsersOfGroupRequest {
     private 'user_name'?: string;
+    private 'user_names'?: Array<string>;
     private 'group_id'?: string;
     public description?: string;
     private 'active_type'?: ListUsersOfGroupRequestActiveTypeEnum | string;
@@ -20,6 +21,16 @@ export class ListUsersOfGroupRequest {
     }
     public get userName(): string | undefined {
         return this['user_name'];
+    }
+    public withUserNames(userNames: Array<string>): ListUsersOfGroupRequest {
+        this['user_names'] = userNames;
+        return this;
+    }
+    public set userNames(userNames: Array<string>  | undefined) {
+        this['user_names'] = userNames;
+    }
+    public get userNames(): Array<string> | undefined {
+        return this['user_names'];
     }
     public withGroupId(groupId: string): ListUsersOfGroupRequest {
         this['group_id'] = groupId;

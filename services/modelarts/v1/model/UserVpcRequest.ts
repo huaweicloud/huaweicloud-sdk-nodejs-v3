@@ -5,6 +5,8 @@ export class UserVpcRequest {
     private 'subnet_id'?: string;
     private 'security_group_ids'?: Array<string>;
     private 'connect_cidrs'?: Array<string>;
+    private 'nat_id'?: string;
+    private 'eip_id'?: string;
     public constructor(vpcId?: string, subnetId?: string, securityGroupIds?: Array<string>) { 
         this['vpc_id'] = vpcId;
         this['subnet_id'] = subnetId;
@@ -49,5 +51,25 @@ export class UserVpcRequest {
     }
     public get connectCidrs(): Array<string> | undefined {
         return this['connect_cidrs'];
+    }
+    public withNatId(natId: string): UserVpcRequest {
+        this['nat_id'] = natId;
+        return this;
+    }
+    public set natId(natId: string  | undefined) {
+        this['nat_id'] = natId;
+    }
+    public get natId(): string | undefined {
+        return this['nat_id'];
+    }
+    public withEipId(eipId: string): UserVpcRequest {
+        this['eip_id'] = eipId;
+        return this;
+    }
+    public set eipId(eipId: string  | undefined) {
+        this['eip_id'] = eipId;
+    }
+    public get eipId(): string | undefined {
+        return this['eip_id'];
     }
 }

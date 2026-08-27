@@ -3,6 +3,7 @@
 export class Entitie {
     private 'server_id'?: string;
     private 'nic_id'?: string;
+    private 'errorcode_message'?: string;
     public constructor() { 
     }
     public withServerId(serverId: string): Entitie {
@@ -24,5 +25,15 @@ export class Entitie {
     }
     public get nicId(): string | undefined {
         return this['nic_id'];
+    }
+    public withErrorcodeMessage(errorcodeMessage: string): Entitie {
+        this['errorcode_message'] = errorcodeMessage;
+        return this;
+    }
+    public set errorcodeMessage(errorcodeMessage: string  | undefined) {
+        this['errorcode_message'] = errorcodeMessage;
+    }
+    public get errorcodeMessage(): string | undefined {
+        return this['errorcode_message'];
     }
 }

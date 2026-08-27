@@ -7,6 +7,8 @@ export class ExecuteScriptOrCommandReq {
     private 'gray_fail_threshold'?: number;
     private 'resource_ids'?: Array<string>;
     private 'script_ids'?: Array<string>;
+    public command?: string;
+    private 'command_type'?: string;
     private 'execution_timeout'?: number;
     public constructor() { 
     }
@@ -69,6 +71,20 @@ export class ExecuteScriptOrCommandReq {
     }
     public get scriptIds(): Array<string> | undefined {
         return this['script_ids'];
+    }
+    public withCommand(command: string): ExecuteScriptOrCommandReq {
+        this['command'] = command;
+        return this;
+    }
+    public withCommandType(commandType: string): ExecuteScriptOrCommandReq {
+        this['command_type'] = commandType;
+        return this;
+    }
+    public set commandType(commandType: string  | undefined) {
+        this['command_type'] = commandType;
+    }
+    public get commandType(): string | undefined {
+        return this['command_type'];
     }
     public withExecutionTimeout(executionTimeout: number): ExecuteScriptOrCommandReq {
         this['execution_timeout'] = executionTimeout;

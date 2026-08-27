@@ -1,10 +1,10 @@
-import { FlavorResponse } from './FlavorResponse';
+import { FlavorResponseWithSupport } from './FlavorResponseWithSupport';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowTrainingJobFlavorsResponse extends SdkResponse {
     private 'total_count'?: number;
-    public flavors?: Array<FlavorResponse>;
+    public flavors?: Array<FlavorResponseWithSupport>;
     public constructor() { 
         super();
     }
@@ -18,7 +18,7 @@ export class ShowTrainingJobFlavorsResponse extends SdkResponse {
     public get totalCount(): number | undefined {
         return this['total_count'];
     }
-    public withFlavors(flavors: Array<FlavorResponse>): ShowTrainingJobFlavorsResponse {
+    public withFlavors(flavors: Array<FlavorResponseWithSupport>): ShowTrainingJobFlavorsResponse {
         this['flavors'] = flavors;
         return this;
     }

@@ -1,4 +1,4 @@
-import { NotebookFlavor } from './NotebookFlavor';
+import { InferFlavor } from './InferFlavor';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -12,7 +12,7 @@ export class ShowInferServiceClusterResponse extends SdkResponse {
     private 'project_id'?: string;
     private 'create_at'?: number;
     private 'update_at'?: number;
-    public flavors?: Array<NotebookFlavor>;
+    public flavors?: Array<InferFlavor>;
     private 'pool_type'?: ShowInferServiceClusterResponsePoolTypeEnum | string;
     private 'physical_pool_id'?: string;
     public constructor() { 
@@ -96,7 +96,7 @@ export class ShowInferServiceClusterResponse extends SdkResponse {
     public get updateAt(): number | undefined {
         return this['update_at'];
     }
-    public withFlavors(flavors: Array<NotebookFlavor>): ShowInferServiceClusterResponse {
+    public withFlavors(flavors: Array<InferFlavor>): ShowInferServiceClusterResponse {
         this['flavors'] = flavors;
         return this;
     }

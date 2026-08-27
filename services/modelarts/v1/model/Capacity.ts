@@ -4,6 +4,8 @@ import { Value } from './Value';
 export class Capacity {
     public value?: Value;
     public maxValue?: Value;
+    public allValue?: Value;
+    public allMaxValue?: Value;
     public timestamp?: string;
     public window?: string;
     public constructor() { 
@@ -14,6 +16,14 @@ export class Capacity {
     }
     public withMaxValue(maxValue: Value): Capacity {
         this['maxValue'] = maxValue;
+        return this;
+    }
+    public withAllValue(allValue: Value): Capacity {
+        this['allValue'] = allValue;
+        return this;
+    }
+    public withAllMaxValue(allMaxValue: Value): Capacity {
+        this['allMaxValue'] = allMaxValue;
         return this;
     }
     public withTimestamp(timestamp: string): Capacity {

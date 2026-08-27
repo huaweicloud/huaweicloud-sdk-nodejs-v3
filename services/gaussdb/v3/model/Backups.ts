@@ -15,6 +15,7 @@ export class Backups {
     private 'instance_name'?: string;
     private 'backup_level'?: BackupsBackupLevelEnum | string;
     public description?: string;
+    private 'backup_mode'?: string;
     public constructor() { 
     }
     public withId(id: string): Backups {
@@ -104,6 +105,16 @@ export class Backups {
     public withDescription(description: string): Backups {
         this['description'] = description;
         return this;
+    }
+    public withBackupMode(backupMode: string): Backups {
+        this['backup_mode'] = backupMode;
+        return this;
+    }
+    public set backupMode(backupMode: string  | undefined) {
+        this['backup_mode'] = backupMode;
+    }
+    public get backupMode(): string | undefined {
+        return this['backup_mode'];
     }
 }
 

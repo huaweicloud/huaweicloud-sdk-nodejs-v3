@@ -16,6 +16,7 @@ export class ListPoolDesktopsDetailRequest {
     private 'desktop_id'?: Array<string>;
     private 'desktop_type'?: string;
     public tag?: string;
+    private 'domain_status'?: ListPoolDesktopsDetailRequestDomainStatusEnum | number;
     private 'user_attached'?: boolean;
     private 'enterprise_project_id'?: string;
     private 'image_id'?: string;
@@ -155,6 +156,16 @@ export class ListPoolDesktopsDetailRequest {
         this['tag'] = tag;
         return this;
     }
+    public withDomainStatus(domainStatus: ListPoolDesktopsDetailRequestDomainStatusEnum | number): ListPoolDesktopsDetailRequest {
+        this['domain_status'] = domainStatus;
+        return this;
+    }
+    public set domainStatus(domainStatus: ListPoolDesktopsDetailRequestDomainStatusEnum | number  | undefined) {
+        this['domain_status'] = domainStatus;
+    }
+    public get domainStatus(): ListPoolDesktopsDetailRequestDomainStatusEnum | number | undefined {
+        return this['domain_status'];
+    }
     public withUserAttached(userAttached: boolean): ListPoolDesktopsDetailRequest {
         this['user_attached'] = userAttached;
         return this;
@@ -277,4 +288,13 @@ export enum ListPoolDesktopsDetailRequestSortFieldEnum {
 export enum ListPoolDesktopsDetailRequestSortTypeEnum {
     ASC = 'ASC',
     DESC = 'DESC'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListPoolDesktopsDetailRequestDomainStatusEnum {
+    NUMBER_1 = 1,
+    NUMBER_2 = 2,
+    NUMBER_3 = 3
 }

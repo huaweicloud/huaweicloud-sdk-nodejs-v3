@@ -2,6 +2,7 @@
 
 export class ExportDesktopListNewRequest {
     private 'computer_name'?: string;
+    private 'computer_names'?: Array<string>;
     private 'desktop_ip'?: string;
     private 'desktop_id'?: string;
     public tag?: string;
@@ -12,13 +13,18 @@ export class ExportDesktopListNewRequest {
     private 'user_names'?: Array<string>;
     private 'sort_field'?: ExportDesktopListNewRequestSortFieldEnum | string;
     private 'sort_type'?: ExportDesktopListNewRequestSortTypeEnum | string;
-    private 'pool_id'?: string;
     private 'user_attached'?: boolean;
     private 'image_id'?: string;
     private 'charge_mode'?: string;
     private 'in_maintenance_mode'?: boolean;
     private 'subnet_id'?: string;
     private 'connection_status_version'?: string;
+    private 'pool_id'?: string;
+    private 'include_pool'?: boolean;
+    private 'pool_name'?: string;
+    private 'pool_type'?: ExportDesktopListNewRequestPoolTypeEnum | string;
+    private 'pool_in_maintenance_mode'?: boolean;
+    private 'pool_enterprise_project_id'?: string;
     public constructor(language?: string) { 
         this['language'] = language;
     }
@@ -31,6 +37,16 @@ export class ExportDesktopListNewRequest {
     }
     public get computerName(): string | undefined {
         return this['computer_name'];
+    }
+    public withComputerNames(computerNames: Array<string>): ExportDesktopListNewRequest {
+        this['computer_names'] = computerNames;
+        return this;
+    }
+    public set computerNames(computerNames: Array<string>  | undefined) {
+        this['computer_names'] = computerNames;
+    }
+    public get computerNames(): Array<string> | undefined {
+        return this['computer_names'];
     }
     public withDesktopIp(desktopIp: string): ExportDesktopListNewRequest {
         this['desktop_ip'] = desktopIp;
@@ -114,16 +130,6 @@ export class ExportDesktopListNewRequest {
     public get sortType(): ExportDesktopListNewRequestSortTypeEnum | string | undefined {
         return this['sort_type'];
     }
-    public withPoolId(poolId: string): ExportDesktopListNewRequest {
-        this['pool_id'] = poolId;
-        return this;
-    }
-    public set poolId(poolId: string  | undefined) {
-        this['pool_id'] = poolId;
-    }
-    public get poolId(): string | undefined {
-        return this['pool_id'];
-    }
     public withUserAttached(userAttached: boolean): ExportDesktopListNewRequest {
         this['user_attached'] = userAttached;
         return this;
@@ -184,6 +190,66 @@ export class ExportDesktopListNewRequest {
     public get connectionStatusVersion(): string | undefined {
         return this['connection_status_version'];
     }
+    public withPoolId(poolId: string): ExportDesktopListNewRequest {
+        this['pool_id'] = poolId;
+        return this;
+    }
+    public set poolId(poolId: string  | undefined) {
+        this['pool_id'] = poolId;
+    }
+    public get poolId(): string | undefined {
+        return this['pool_id'];
+    }
+    public withIncludePool(includePool: boolean): ExportDesktopListNewRequest {
+        this['include_pool'] = includePool;
+        return this;
+    }
+    public set includePool(includePool: boolean  | undefined) {
+        this['include_pool'] = includePool;
+    }
+    public get includePool(): boolean | undefined {
+        return this['include_pool'];
+    }
+    public withPoolName(poolName: string): ExportDesktopListNewRequest {
+        this['pool_name'] = poolName;
+        return this;
+    }
+    public set poolName(poolName: string  | undefined) {
+        this['pool_name'] = poolName;
+    }
+    public get poolName(): string | undefined {
+        return this['pool_name'];
+    }
+    public withPoolType(poolType: ExportDesktopListNewRequestPoolTypeEnum | string): ExportDesktopListNewRequest {
+        this['pool_type'] = poolType;
+        return this;
+    }
+    public set poolType(poolType: ExportDesktopListNewRequestPoolTypeEnum | string  | undefined) {
+        this['pool_type'] = poolType;
+    }
+    public get poolType(): ExportDesktopListNewRequestPoolTypeEnum | string | undefined {
+        return this['pool_type'];
+    }
+    public withPoolInMaintenanceMode(poolInMaintenanceMode: boolean): ExportDesktopListNewRequest {
+        this['pool_in_maintenance_mode'] = poolInMaintenanceMode;
+        return this;
+    }
+    public set poolInMaintenanceMode(poolInMaintenanceMode: boolean  | undefined) {
+        this['pool_in_maintenance_mode'] = poolInMaintenanceMode;
+    }
+    public get poolInMaintenanceMode(): boolean | undefined {
+        return this['pool_in_maintenance_mode'];
+    }
+    public withPoolEnterpriseProjectId(poolEnterpriseProjectId: string): ExportDesktopListNewRequest {
+        this['pool_enterprise_project_id'] = poolEnterpriseProjectId;
+        return this;
+    }
+    public set poolEnterpriseProjectId(poolEnterpriseProjectId: string  | undefined) {
+        this['pool_enterprise_project_id'] = poolEnterpriseProjectId;
+    }
+    public get poolEnterpriseProjectId(): string | undefined {
+        return this['pool_enterprise_project_id'];
+    }
 }
 
 /**
@@ -209,4 +275,12 @@ export enum ExportDesktopListNewRequestSortFieldEnum {
 export enum ExportDesktopListNewRequestSortTypeEnum {
     ASC = 'ASC',
     DESC = 'DESC'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ExportDesktopListNewRequestPoolTypeEnum {
+    DYNAMIC = 'DYNAMIC',
+    STATIC = 'STATIC'
 }

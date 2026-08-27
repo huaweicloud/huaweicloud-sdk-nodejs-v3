@@ -3662,6 +3662,8 @@ export class HssClient {
      * @param {string} [agentStatus] **参数解释**: Agent状态 **约束限制**: 不涉及 **取值范围**: 包含如下6种。 - installed ：已安装。 - not_installed ：未安装。 - online ：在线。 - offline ：离线。 - install_failed ：安装失败。 - installing ：安装中。 **默认取值**: 不涉及 
      * @param {string} [protectStatus] **参数解释**: 防护状态 **约束限制**: 不涉及 **取值范围**: 包含如下2种。   - closed：关闭   - opened：开启  **默认取值**: 不涉及 
      * @param {string} [containerTags] **参数解释**: 用来识别cce节点或者自建节点的标签 **约束限制**: 不涉及 **取值范围**: 包含如下3种。   - cce：cce节点   - self：自建节点   - other：其他节点  **默认取值**: 不涉及 
+     * @param {boolean} [containerNode] **参数解释**: 查询是否是容器节点 **约束限制**: 不涉及 **取值范围**: - true：是容器节点 - false：非容器节点  **默认取值**: false 
+     * @param {string} [version] **参数解释**: 节点开启的防护版本 **约束限制**: 不涉及 **取值范围**: - hss.version.null ：无。 - hss.version.basic ：基础版。 - hss.version.advanced ：专业版。 - hss.version.enterprise ：企业版。 - hss.version.premium ：旗舰版。 - hss.version.wtp ：网页防篡改版。 - hss.version.container.enterprise：容器版。              **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -20097,6 +20099,10 @@ export const ParamCreater = function () {
             let protectStatus;
             
             let containerTags;
+            
+            let containerNode;
+            
+            let version;
 
             if (listContainerNodesRequest !== null && listContainerNodesRequest !== undefined) {
                 if (listContainerNodesRequest instanceof ListContainerNodesRequest) {
@@ -20108,6 +20114,8 @@ export const ParamCreater = function () {
                     agentStatus = listContainerNodesRequest.agentStatus;
                     protectStatus = listContainerNodesRequest.protectStatus;
                     containerTags = listContainerNodesRequest.containerTags;
+                    containerNode = listContainerNodesRequest.containerNode;
+                    version = listContainerNodesRequest.version;
                 } else {
                     region = listContainerNodesRequest['region'];
                     enterpriseProjectId = listContainerNodesRequest['enterprise_project_id'];
@@ -20117,6 +20125,8 @@ export const ParamCreater = function () {
                     agentStatus = listContainerNodesRequest['agent_status'];
                     protectStatus = listContainerNodesRequest['protect_status'];
                     containerTags = listContainerNodesRequest['container_tags'];
+                    containerNode = listContainerNodesRequest['container_node'];
+                    version = listContainerNodesRequest['version'];
                 }
             }
 
@@ -20141,6 +20151,12 @@ export const ParamCreater = function () {
             }
             if (containerTags !== null && containerTags !== undefined) {
                 localVarQueryParameter['container_tags'] = containerTags;
+            }
+            if (containerNode !== null && containerNode !== undefined) {
+                localVarQueryParameter['container_node'] = containerNode;
+            }
+            if (version !== null && version !== undefined) {
+                localVarQueryParameter['version'] = version;
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);

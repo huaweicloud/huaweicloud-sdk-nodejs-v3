@@ -5,6 +5,7 @@ import { MysqlRestorePoint } from './MysqlRestorePoint';
 import { MysqlTags } from './MysqlTags';
 import { MysqlTdeInfo } from './MysqlTdeInfo';
 import { MysqlVolume } from './MysqlVolume';
+import { MysqlVolumeAutoExpandPolicy } from './MysqlVolumeAutoExpandPolicy';
 
 
 export class MysqlInstanceRequest {
@@ -31,6 +32,8 @@ export class MysqlInstanceRequest {
     private 'dedicated_resource_id'?: string;
     private 'restore_point'?: MysqlRestorePoint;
     private 'tde_info'?: MysqlTdeInfo;
+    private 'enable_binlog'?: boolean;
+    private 'volume_auto_expand'?: MysqlVolumeAutoExpandPolicy;
     public constructor(chargeInfo?: MysqlChargeInfo, region?: string, name?: string, datastore?: MysqlDatastoreInReq, mode?: string, flavorRef?: string, vpcId?: string, subnetId?: string, password?: string, backupStrategy?: MysqlBackupStrategy, availabilityZoneMode?: string, slaveCount?: number) { 
         this['charge_info'] = chargeInfo;
         this['region'] = region;
@@ -232,5 +235,25 @@ export class MysqlInstanceRequest {
     }
     public get tdeInfo(): MysqlTdeInfo | undefined {
         return this['tde_info'];
+    }
+    public withEnableBinlog(enableBinlog: boolean): MysqlInstanceRequest {
+        this['enable_binlog'] = enableBinlog;
+        return this;
+    }
+    public set enableBinlog(enableBinlog: boolean  | undefined) {
+        this['enable_binlog'] = enableBinlog;
+    }
+    public get enableBinlog(): boolean | undefined {
+        return this['enable_binlog'];
+    }
+    public withVolumeAutoExpand(volumeAutoExpand: MysqlVolumeAutoExpandPolicy): MysqlInstanceRequest {
+        this['volume_auto_expand'] = volumeAutoExpand;
+        return this;
+    }
+    public set volumeAutoExpand(volumeAutoExpand: MysqlVolumeAutoExpandPolicy  | undefined) {
+        this['volume_auto_expand'] = volumeAutoExpand;
+    }
+    public get volumeAutoExpand(): MysqlVolumeAutoExpandPolicy | undefined {
+        return this['volume_auto_expand'];
     }
 }

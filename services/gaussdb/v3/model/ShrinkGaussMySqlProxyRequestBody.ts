@@ -2,6 +2,7 @@
 
 export class ShrinkGaussMySqlProxyRequestBody {
     private 'node_num'?: number;
+    private 'node_ids'?: Array<string>;
     public constructor(nodeNum?: number) { 
         this['node_num'] = nodeNum;
     }
@@ -14,5 +15,15 @@ export class ShrinkGaussMySqlProxyRequestBody {
     }
     public get nodeNum(): number | undefined {
         return this['node_num'];
+    }
+    public withNodeIds(nodeIds: Array<string>): ShrinkGaussMySqlProxyRequestBody {
+        this['node_ids'] = nodeIds;
+        return this;
+    }
+    public set nodeIds(nodeIds: Array<string>  | undefined) {
+        this['node_ids'] = nodeIds;
+    }
+    public get nodeIds(): Array<string> | undefined {
+        return this['node_ids'];
     }
 }

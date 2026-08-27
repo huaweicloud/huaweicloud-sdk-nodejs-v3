@@ -40,6 +40,7 @@ export class MysqlInstanceInfoDetailUnifyStatus {
     private 'dedicated_resource_id'?: string;
     public proxies?: Array<MysqlProxyInfo>;
     private 'tde_info'?: MysqlTdeInfo;
+    private 'eos_tag'?: boolean;
     public constructor(id?: string, name?: string, projectId?: string) { 
         this['id'] = id;
         this['name'] = name;
@@ -292,5 +293,15 @@ export class MysqlInstanceInfoDetailUnifyStatus {
     }
     public get tdeInfo(): MysqlTdeInfo | undefined {
         return this['tde_info'];
+    }
+    public withEosTag(eosTag: boolean): MysqlInstanceInfoDetailUnifyStatus {
+        this['eos_tag'] = eosTag;
+        return this;
+    }
+    public set eosTag(eosTag: boolean  | undefined) {
+        this['eos_tag'] = eosTag;
+    }
+    public get eosTag(): boolean | undefined {
+        return this['eos_tag'];
     }
 }

@@ -4,6 +4,7 @@ export class ListScreenRecordsRequest {
     public limit?: number;
     public offset?: number;
     private 'desktop_id'?: string;
+    private 'desktop_names'?: string;
     public username?: string;
     public status?: string;
     public type?: string;
@@ -30,6 +31,16 @@ export class ListScreenRecordsRequest {
     }
     public get desktopId(): string | undefined {
         return this['desktop_id'];
+    }
+    public withDesktopNames(desktopNames: string): ListScreenRecordsRequest {
+        this['desktop_names'] = desktopNames;
+        return this;
+    }
+    public set desktopNames(desktopNames: string  | undefined) {
+        this['desktop_names'] = desktopNames;
+    }
+    public get desktopNames(): string | undefined {
+        return this['desktop_names'];
     }
     public withUsername(username: string): ListScreenRecordsRequest {
         this['username'] = username;

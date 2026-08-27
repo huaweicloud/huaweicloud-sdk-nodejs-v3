@@ -3,6 +3,7 @@
 export class EnlargeProxyRequest {
     private 'node_num'?: number;
     private 'proxy_id'?: string;
+    private 'proxy_nodes_az_list'?: Array<string>;
     public constructor(nodeNum?: number) { 
         this['node_num'] = nodeNum;
     }
@@ -25,5 +26,15 @@ export class EnlargeProxyRequest {
     }
     public get proxyId(): string | undefined {
         return this['proxy_id'];
+    }
+    public withProxyNodesAzList(proxyNodesAzList: Array<string>): EnlargeProxyRequest {
+        this['proxy_nodes_az_list'] = proxyNodesAzList;
+        return this;
+    }
+    public set proxyNodesAzList(proxyNodesAzList: Array<string>  | undefined) {
+        this['proxy_nodes_az_list'] = proxyNodesAzList;
+    }
+    public get proxyNodesAzList(): Array<string> | undefined {
+        return this['proxy_nodes_az_list'];
     }
 }

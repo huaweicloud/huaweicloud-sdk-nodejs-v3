@@ -13,6 +13,7 @@ export class Workload {
     public jobUUID?: string;
     public flavor?: string;
     public status?: string;
+    public userName?: string;
     public resourceRequirement?: WorkloadResourceRequirement;
     public priority?: string;
     public runningDuration?: number;
@@ -67,6 +68,10 @@ export class Workload {
     }
     public withStatus(status: string): Workload {
         this['status'] = status;
+        return this;
+    }
+    public withUserName(userName: string): Workload {
+        this['userName'] = userName;
         return this;
     }
     public withResourceRequirement(resourceRequirement: WorkloadResourceRequirement): Workload {

@@ -21,6 +21,7 @@ export class Flavor {
     public vcpus?: number;
     public gpu?: GPUsInfo;
     public ascend?: AscendInfo;
+    private 'support_eni'?: boolean;
     public constructor() { 
     }
     public withArch(arch: string): Flavor {
@@ -114,5 +115,15 @@ export class Flavor {
     public withAscend(ascend: AscendInfo): Flavor {
         this['ascend'] = ascend;
         return this;
+    }
+    public withSupportEni(supportEni: boolean): Flavor {
+        this['support_eni'] = supportEni;
+        return this;
+    }
+    public set supportEni(supportEni: boolean  | undefined) {
+        this['support_eni'] = supportEni;
+    }
+    public get supportEni(): boolean | undefined {
+        return this['support_eni'];
     }
 }

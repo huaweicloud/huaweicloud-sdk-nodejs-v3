@@ -119,6 +119,9 @@ import { CreateOtaPackageRequest } from './model/CreateOtaPackageRequest';
 import { CreateOtaPackageResponse } from './model/CreateOtaPackageResponse';
 import { CreateProductRequest } from './model/CreateProductRequest';
 import { CreateProductResponse } from './model/CreateProductResponse';
+import { CreateProtocolConfigDTO } from './model/CreateProtocolConfigDTO';
+import { CreateProtocolConfigRequest } from './model/CreateProtocolConfigRequest';
+import { CreateProtocolConfigResponse } from './model/CreateProtocolConfigResponse';
 import { CreateProvisioningTemplate } from './model/CreateProvisioningTemplate';
 import { CreateProvisioningTemplateRequest } from './model/CreateProvisioningTemplateRequest';
 import { CreateProvisioningTemplateResponse } from './model/CreateProvisioningTemplateResponse';
@@ -184,6 +187,8 @@ import { DeleteOtaPackageRequest } from './model/DeleteOtaPackageRequest';
 import { DeleteOtaPackageResponse } from './model/DeleteOtaPackageResponse';
 import { DeleteProductRequest } from './model/DeleteProductRequest';
 import { DeleteProductResponse } from './model/DeleteProductResponse';
+import { DeleteProtocolConfigRequest } from './model/DeleteProtocolConfigRequest';
+import { DeleteProtocolConfigResponse } from './model/DeleteProtocolConfigResponse';
 import { DeleteProvisioningTemplateRequest } from './model/DeleteProvisioningTemplateRequest';
 import { DeleteProvisioningTemplateResponse } from './model/DeleteProvisioningTemplateResponse';
 import { DeleteQueueRequest } from './model/DeleteQueueRequest';
@@ -229,6 +234,7 @@ import { ErrorInfoDTO } from './model/ErrorInfoDTO';
 import { ExportTask } from './model/ExportTask';
 import { FileLocation } from './model/FileLocation';
 import { FlowControlPolicyInfo } from './model/FlowControlPolicyInfo';
+import { FrameDecodeConfig } from './model/FrameDecodeConfig';
 import { FreezeDeviceRequest } from './model/FreezeDeviceRequest';
 import { FreezeDeviceResponse } from './model/FreezeDeviceResponse';
 import { FunctionDTO } from './model/FunctionDTO';
@@ -292,6 +298,8 @@ import { ListProductsRequest } from './model/ListProductsRequest';
 import { ListProductsResponse } from './model/ListProductsResponse';
 import { ListPropertiesRequest } from './model/ListPropertiesRequest';
 import { ListPropertiesResponse } from './model/ListPropertiesResponse';
+import { ListProtocolConfigsRequest } from './model/ListProtocolConfigsRequest';
+import { ListProtocolConfigsResponse } from './model/ListProtocolConfigsResponse';
 import { ListProvisioningTemplatesRequest } from './model/ListProvisioningTemplatesRequest';
 import { ListProvisioningTemplatesResponse } from './model/ListProvisioningTemplatesResponse';
 import { ListResourcesByTagsRequest } from './model/ListResourcesByTagsRequest';
@@ -329,6 +337,7 @@ import { PolicyTargetBase } from './model/PolicyTargetBase';
 import { ProductSummary } from './model/ProductSummary';
 import { PropertiesDTO } from './model/PropertiesDTO';
 import { PropertyFilter } from './model/PropertyFilter';
+import { ProtocolConfigBase } from './model/ProtocolConfigBase';
 import { ProvisioningTemplateBody } from './model/ProvisioningTemplateBody';
 import { ProvisioningTemplateSimple } from './model/ProvisioningTemplateSimple';
 import { QueryDeviceProxySimplify } from './model/QueryDeviceProxySimplify';
@@ -419,6 +428,8 @@ import { ShowOtaPackageRequest } from './model/ShowOtaPackageRequest';
 import { ShowOtaPackageResponse } from './model/ShowOtaPackageResponse';
 import { ShowProductRequest } from './model/ShowProductRequest';
 import { ShowProductResponse } from './model/ShowProductResponse';
+import { ShowProtocolConfigRequest } from './model/ShowProtocolConfigRequest';
+import { ShowProtocolConfigResponse } from './model/ShowProtocolConfigResponse';
 import { ShowProvisioningTemplateRequest } from './model/ShowProvisioningTemplateRequest';
 import { ShowProvisioningTemplateResponse } from './model/ShowProvisioningTemplateResponse';
 import { ShowQueueRequest } from './model/ShowQueueRequest';
@@ -513,6 +524,9 @@ import { UpdateProductRequest } from './model/UpdateProductRequest';
 import { UpdateProductResponse } from './model/UpdateProductResponse';
 import { UpdatePropertiesRequest } from './model/UpdatePropertiesRequest';
 import { UpdatePropertiesResponse } from './model/UpdatePropertiesResponse';
+import { UpdateProtocolConfigDTO } from './model/UpdateProtocolConfigDTO';
+import { UpdateProtocolConfigRequest } from './model/UpdateProtocolConfigRequest';
+import { UpdateProtocolConfigResponse } from './model/UpdateProtocolConfigResponse';
 import { UpdateProvisioningTemplate } from './model/UpdateProvisioningTemplate';
 import { UpdateProvisioningTemplateRequest } from './model/UpdateProvisioningTemplateRequest';
 import { UpdateProvisioningTemplateResponse } from './model/UpdateProvisioningTemplateResponse';
@@ -3552,6 +3566,109 @@ export class IoTDAClient {
      */
     public updateProperties(updatePropertiesRequest?: UpdatePropertiesRequest): Promise<UpdatePropertiesResponse> {
         const options = ParamCreater().updateProperties(updatePropertiesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 提供创建泛协议配置的功能，仅企业版白名单支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建泛协议配置
+     * @param {CreateProtocolConfigDTO} createProtocolConfigRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createProtocolConfig(createProtocolConfigRequest?: CreateProtocolConfigRequest): Promise<CreateProtocolConfigResponse> {
+        const options = ParamCreater().createProtocolConfig(createProtocolConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 提供删除泛协议配置的功能，仅企业版白名单支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除泛协议配置
+     * @param {string} protocolId **参数说明**：泛协议配置ID。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteProtocolConfig(deleteProtocolConfigRequest?: DeleteProtocolConfigRequest): Promise<DeleteProtocolConfigResponse> {
+        const options = ParamCreater().deleteProtocolConfig(deleteProtocolConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 提供查询泛协议配置列表的功能，仅企业版白名单支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询泛协议配置列表
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {number} [limit] 分页查询时每页显示的记录数，默认值为10，取值范围1-50的整数。
+     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。
+     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProtocolConfigs(listProtocolConfigsRequest?: ListProtocolConfigsRequest): Promise<ListProtocolConfigsResponse> {
+        const options = ParamCreater().listProtocolConfigs(listProtocolConfigsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 提供查询泛协议配置详情的功能，仅企业版白名单支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询泛协议配置详情
+     * @param {string} protocolId **参数说明**：泛协议配置ID。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProtocolConfig(showProtocolConfigRequest?: ShowProtocolConfigRequest): Promise<ShowProtocolConfigResponse> {
+        const options = ParamCreater().showProtocolConfig(showProtocolConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 提供更新泛协议配置的功能，仅企业版白名单支持。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新泛协议配置
+     * @param {string} protocolId **参数说明**：泛协议配置ID。
+     * @param {UpdateProtocolConfigDTO} updateProtocolConfigRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，建议携带该参数，在使用专业版时必须携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID，具体获取方式请参考[[查看实例详情](https://support.huaweicloud.com/usermanual-iothub/iot_01_0079.html#section1)](tag:hws) [[查看实例详情](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0079.html#section1)](tag:hws_hk)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateProtocolConfig(updateProtocolConfigRequest?: UpdateProtocolConfigRequest): Promise<UpdateProtocolConfigResponse> {
+        const options = ParamCreater().updateProtocolConfig(updateProtocolConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -11674,6 +11791,250 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'device_id': deviceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 提供创建泛协议配置的功能，仅企业版白名单支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createProtocolConfig(createProtocolConfigRequest?: CreateProtocolConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/protocol-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (createProtocolConfigRequest !== null && createProtocolConfigRequest !== undefined) {
+                if (createProtocolConfigRequest instanceof CreateProtocolConfigRequest) {
+                    body = createProtocolConfigRequest.body
+                    instanceId = createProtocolConfigRequest.instanceId;
+                } else {
+                    body = createProtocolConfigRequest['body'];
+                    instanceId = createProtocolConfigRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 提供删除泛协议配置的功能，仅企业版白名单支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteProtocolConfig(deleteProtocolConfigRequest?: DeleteProtocolConfigRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/iot/{project_id}/protocol-configs/{protocol_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let protocolId;
+            
+            let instanceId;
+
+            if (deleteProtocolConfigRequest !== null && deleteProtocolConfigRequest !== undefined) {
+                if (deleteProtocolConfigRequest instanceof DeleteProtocolConfigRequest) {
+                    protocolId = deleteProtocolConfigRequest.protocolId;
+                    instanceId = deleteProtocolConfigRequest.instanceId;
+                } else {
+                    protocolId = deleteProtocolConfigRequest['protocol_id'];
+                    instanceId = deleteProtocolConfigRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (protocolId === null || protocolId === undefined) {
+            throw new RequiredError('protocolId','Required parameter protocolId was null or undefined when calling deleteProtocolConfig.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'protocol_id': protocolId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 提供查询泛协议配置列表的功能，仅企业版白名单支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProtocolConfigs(listProtocolConfigsRequest?: ListProtocolConfigsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/protocol-configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let limit;
+            
+            let marker;
+            
+            let offset;
+
+            if (listProtocolConfigsRequest !== null && listProtocolConfigsRequest !== undefined) {
+                if (listProtocolConfigsRequest instanceof ListProtocolConfigsRequest) {
+                    instanceId = listProtocolConfigsRequest.instanceId;
+                    limit = listProtocolConfigsRequest.limit;
+                    marker = listProtocolConfigsRequest.marker;
+                    offset = listProtocolConfigsRequest.offset;
+                } else {
+                    instanceId = listProtocolConfigsRequest['Instance-Id'];
+                    limit = listProtocolConfigsRequest['limit'];
+                    marker = listProtocolConfigsRequest['marker'];
+                    offset = listProtocolConfigsRequest['offset'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 提供查询泛协议配置详情的功能，仅企业版白名单支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProtocolConfig(showProtocolConfigRequest?: ShowProtocolConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/protocol-configs/{protocol_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let protocolId;
+            
+            let instanceId;
+
+            if (showProtocolConfigRequest !== null && showProtocolConfigRequest !== undefined) {
+                if (showProtocolConfigRequest instanceof ShowProtocolConfigRequest) {
+                    protocolId = showProtocolConfigRequest.protocolId;
+                    instanceId = showProtocolConfigRequest.instanceId;
+                } else {
+                    protocolId = showProtocolConfigRequest['protocol_id'];
+                    instanceId = showProtocolConfigRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (protocolId === null || protocolId === undefined) {
+            throw new RequiredError('protocolId','Required parameter protocolId was null or undefined when calling showProtocolConfig.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'protocol_id': protocolId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 提供更新泛协议配置的功能，仅企业版白名单支持。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateProtocolConfig(updateProtocolConfigRequest?: UpdateProtocolConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/iot/{project_id}/protocol-configs/{protocol_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let protocolId;
+            
+            let instanceId;
+
+            if (updateProtocolConfigRequest !== null && updateProtocolConfigRequest !== undefined) {
+                if (updateProtocolConfigRequest instanceof UpdateProtocolConfigRequest) {
+                    protocolId = updateProtocolConfigRequest.protocolId;
+                    body = updateProtocolConfigRequest.body
+                    instanceId = updateProtocolConfigRequest.instanceId;
+                } else {
+                    protocolId = updateProtocolConfigRequest['protocol_id'];
+                    body = updateProtocolConfigRequest['body'];
+                    instanceId = updateProtocolConfigRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (protocolId === null || protocolId === undefined) {
+            throw new RequiredError('protocolId','Required parameter protocolId was null or undefined when calling updateProtocolConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'protocol_id': protocolId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -3,6 +3,7 @@
 export class ListDesktopsDetailRequest {
     public status?: string;
     private 'user_name'?: string;
+    private 'user_id'?: string;
     private 'user_names'?: Array<string>;
     private 'sort_field'?: ListDesktopsDetailRequestSortFieldEnum | string;
     private 'sort_type'?: ListDesktopsDetailRequestSortTypeEnum | string;
@@ -13,6 +14,7 @@ export class ListDesktopsDetailRequest {
     public limit?: number;
     private 'desktop_id'?: Array<string>;
     private 'desktop_type'?: string;
+    private 'domain_status'?: ListDesktopsDetailRequestDomainStatusEnum | number;
     public tag?: string;
     private 'pool_id'?: string;
     private 'user_attached'?: boolean;
@@ -24,6 +26,7 @@ export class ListDesktopsDetailRequest {
     private 'subnet_id'?: string;
     private 'is_support_internet'?: boolean;
     private 'availability_zone'?: string;
+    private 'agent_version'?: string;
     public constructor() { 
     }
     public withStatus(status: string): ListDesktopsDetailRequest {
@@ -39,6 +42,16 @@ export class ListDesktopsDetailRequest {
     }
     public get userName(): string | undefined {
         return this['user_name'];
+    }
+    public withUserId(userId: string): ListDesktopsDetailRequest {
+        this['user_id'] = userId;
+        return this;
+    }
+    public set userId(userId: string  | undefined) {
+        this['user_id'] = userId;
+    }
+    public get userId(): string | undefined {
+        return this['user_id'];
     }
     public withUserNames(userNames: Array<string>): ListDesktopsDetailRequest {
         this['user_names'] = userNames;
@@ -127,6 +140,16 @@ export class ListDesktopsDetailRequest {
     }
     public get desktopType(): string | undefined {
         return this['desktop_type'];
+    }
+    public withDomainStatus(domainStatus: ListDesktopsDetailRequestDomainStatusEnum | number): ListDesktopsDetailRequest {
+        this['domain_status'] = domainStatus;
+        return this;
+    }
+    public set domainStatus(domainStatus: ListDesktopsDetailRequestDomainStatusEnum | number  | undefined) {
+        this['domain_status'] = domainStatus;
+    }
+    public get domainStatus(): ListDesktopsDetailRequestDomainStatusEnum | number | undefined {
+        return this['domain_status'];
     }
     public withTag(tag: string): ListDesktopsDetailRequest {
         this['tag'] = tag;
@@ -232,6 +255,16 @@ export class ListDesktopsDetailRequest {
     public get availabilityZone(): string | undefined {
         return this['availability_zone'];
     }
+    public withAgentVersion(agentVersion: string): ListDesktopsDetailRequest {
+        this['agent_version'] = agentVersion;
+        return this;
+    }
+    public set agentVersion(agentVersion: string  | undefined) {
+        this['agent_version'] = agentVersion;
+    }
+    public get agentVersion(): string | undefined {
+        return this['agent_version'];
+    }
 }
 
 /**
@@ -249,4 +282,13 @@ export enum ListDesktopsDetailRequestSortFieldEnum {
 export enum ListDesktopsDetailRequestSortTypeEnum {
     ASC = 'ASC',
     DESC = 'DESC'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListDesktopsDetailRequestDomainStatusEnum {
+    NUMBER_1 = 1,
+    NUMBER_2 = 2,
+    NUMBER_3 = 3
 }

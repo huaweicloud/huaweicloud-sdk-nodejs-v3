@@ -5,7 +5,7 @@ export class DownLoadFileInfoItem {
     private 'file_name'?: string;
     private 'file_size'?: number;
     private 'download_url'?: string;
-    private 'expire_time'?: string;
+    private 'expire_time'?: number;
     public constructor() { 
     }
     public withId(id: string): DownLoadFileInfoItem {
@@ -42,14 +42,14 @@ export class DownLoadFileInfoItem {
     public get downloadUrl(): string | undefined {
         return this['download_url'];
     }
-    public withExpireTime(expireTime: string): DownLoadFileInfoItem {
+    public withExpireTime(expireTime: number): DownLoadFileInfoItem {
         this['expire_time'] = expireTime;
         return this;
     }
-    public set expireTime(expireTime: string  | undefined) {
+    public set expireTime(expireTime: number  | undefined) {
         this['expire_time'] = expireTime;
     }
-    public get expireTime(): string | undefined {
+    public get expireTime(): number | undefined {
         return this['expire_time'];
     }
 }

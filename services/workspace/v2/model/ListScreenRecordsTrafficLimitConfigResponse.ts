@@ -1,10 +1,10 @@
-import { ScreenRecordsConfigResultReqConfigs } from './ScreenRecordsConfigResultReqConfigs';
+import { UpdateScreenRecordsTrafficLimitConfigRequestBodyConfigs } from './UpdateScreenRecordsTrafficLimitConfigRequestBodyConfigs';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListScreenRecordsTrafficLimitConfigResponse extends SdkResponse {
     private 'total_count'?: number;
-    public configs?: Array<ScreenRecordsConfigResultReqConfigs>;
+    public configs?: Array<UpdateScreenRecordsTrafficLimitConfigRequestBodyConfigs>;
     public constructor() { 
         super();
     }
@@ -18,7 +18,7 @@ export class ListScreenRecordsTrafficLimitConfigResponse extends SdkResponse {
     public get totalCount(): number | undefined {
         return this['total_count'];
     }
-    public withConfigs(configs: Array<ScreenRecordsConfigResultReqConfigs>): ListScreenRecordsTrafficLimitConfigResponse {
+    public withConfigs(configs: Array<UpdateScreenRecordsTrafficLimitConfigRequestBodyConfigs>): ListScreenRecordsTrafficLimitConfigResponse {
         this['configs'] = configs;
         return this;
     }

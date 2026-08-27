@@ -3,6 +3,7 @@ import { CustomHooks } from './CustomHooks';
 import { EndpointsReq } from './EndpointsReq';
 import { LeaseReq } from './LeaseReq';
 import { NotebookCustomSpec } from './NotebookCustomSpec';
+import { PublicNetworkConfig } from './PublicNetworkConfig';
 import { RunUserRequest } from './RunUserRequest';
 import { UserVpcRequest } from './UserVpcRequest';
 import { VolumeMountRequest } from './VolumeMountRequest';
@@ -26,6 +27,7 @@ export class NotebookCreateRequest {
     private 'data_volumes'?: Array<VolumeMountRequest>;
     private 'user_vpc'?: UserVpcRequest;
     public duration?: number;
+    private 'public_network_config'?: PublicNetworkConfig;
     public constructor(imageId?: string, name?: string, volume?: VolumeMountRequest) { 
         this['image_id'] = imageId;
         this['name'] = name;
@@ -140,6 +142,16 @@ export class NotebookCreateRequest {
     public withDuration(duration: number): NotebookCreateRequest {
         this['duration'] = duration;
         return this;
+    }
+    public withPublicNetworkConfig(publicNetworkConfig: PublicNetworkConfig): NotebookCreateRequest {
+        this['public_network_config'] = publicNetworkConfig;
+        return this;
+    }
+    public set publicNetworkConfig(publicNetworkConfig: PublicNetworkConfig  | undefined) {
+        this['public_network_config'] = publicNetworkConfig;
+    }
+    public get publicNetworkConfig(): PublicNetworkConfig | undefined {
+        return this['public_network_config'];
     }
 }
 

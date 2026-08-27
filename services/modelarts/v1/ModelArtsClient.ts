@@ -54,6 +54,7 @@ import { AuthorizationResponse } from './model/AuthorizationResponse';
 import { AutoSearch } from './model/AutoSearch';
 import { AutoSearchAlgoConfigParameter } from './model/AutoSearchAlgoConfigParameter';
 import { AutoStop } from './model/AutoStop';
+import { Available } from './model/Available';
 import { BatchActionDevServerIds } from './model/BatchActionDevServerIds';
 import { BatchBindApiKeyRequest } from './model/BatchBindApiKeyRequest';
 import { BatchBindApiKeyRequestKeyIds } from './model/BatchBindApiKeyRequestKeyIds';
@@ -74,6 +75,9 @@ import { BatchDeletePoolTagsRequest } from './model/BatchDeletePoolTagsRequest';
 import { BatchDeletePoolTagsResponse } from './model/BatchDeletePoolTagsResponse';
 import { BatchDevServersActionRequest } from './model/BatchDevServersActionRequest';
 import { BatchDevServersActionResponse } from './model/BatchDevServersActionResponse';
+import { BatchDrainPoolNodesReq } from './model/BatchDrainPoolNodesReq';
+import { BatchDrainPoolNodesRequest } from './model/BatchDrainPoolNodesRequest';
+import { BatchDrainPoolNodesResponse } from './model/BatchDrainPoolNodesResponse';
 import { BatchLockPoolNodesRequest } from './model/BatchLockPoolNodesRequest';
 import { BatchLockPoolNodesRequestBody } from './model/BatchLockPoolNodesRequestBody';
 import { BatchLockPoolNodesResponse } from './model/BatchLockPoolNodesResponse';
@@ -352,6 +356,7 @@ import { FlavorDetail } from './model/FlavorDetail';
 import { FlavorInfo } from './model/FlavorInfo';
 import { FlavorInfoResponse } from './model/FlavorInfoResponse';
 import { FlavorResponse } from './model/FlavorResponse';
+import { FlavorResponseWithSupport } from './model/FlavorResponseWithSupport';
 import { FrozenInfo } from './model/FrozenInfo';
 import { FuseConfig } from './model/FuseConfig';
 import { GPUInfo } from './model/GPUInfo';
@@ -748,6 +753,7 @@ import { PoolUpdateRequest } from './model/PoolUpdateRequest';
 import { PredictUrlResponse } from './model/PredictUrlResponse';
 import { PreferredAffinity } from './model/PreferredAffinity';
 import { PreferredSchedulingTerm } from './model/PreferredSchedulingTerm';
+import { PublicNetworkConfig } from './model/PublicNetworkConfig';
 import { QueryHyperinstanceTagsRequest } from './model/QueryHyperinstanceTagsRequest';
 import { QueryHyperinstanceTagsResponse } from './model/QueryHyperinstanceTagsResponse';
 import { QueryTmsResourceCountRequest } from './model/QueryTmsResourceCountRequest';
@@ -788,9 +794,8 @@ import { ResourceFlavorListMetadata } from './model/ResourceFlavorListMetadata';
 import { ResourceFlavorMetadata } from './model/ResourceFlavorMetadata';
 import { ResourceFlavorSpec } from './model/ResourceFlavorSpec';
 import { ResourceFlavorSpecDataVolume } from './model/ResourceFlavorSpecDataVolume';
-import { ResourceFlavorSpecGpu } from './model/ResourceFlavorSpecGpu';
-import { ResourceFlavorSpecNpu } from './model/ResourceFlavorSpecNpu';
 import { ResourceFlavorStatus } from './model/ResourceFlavorStatus';
+import { ResourceFlavorXpu } from './model/ResourceFlavorXpu';
 import { ResourceMetricsMetadata } from './model/ResourceMetricsMetadata';
 import { ResourceQuota } from './model/ResourceQuota';
 import { ResourceRequirement } from './model/ResourceRequirement';
@@ -1186,6 +1191,7 @@ import { WorkflowSubgraphResp } from './model/WorkflowSubgraphResp';
 import { WorkflowTodo } from './model/WorkflowTodo';
 import { WorkflowUpdate } from './model/WorkflowUpdate';
 import { Workload } from './model/Workload';
+import { WorkloadInfo } from './model/WorkloadInfo';
 import { WorkloadListStatisticsStatistics } from './model/WorkloadListStatisticsStatistics';
 import { WorkloadNodeVO } from './model/WorkloadNodeVO';
 import { WorkloadResourceRequirement } from './model/WorkloadResourceRequirement';
@@ -1230,6 +1236,26 @@ export class ModelArtsClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Lite Server服务器挂载磁盘接口用于将额外的磁盘挂载到Lite Server服务器上。该接口适用于以下场景：当用户需要扩展Lite Server服务器的存储空间以满足更大的数据存储需求时，可以通过此接口将指定的磁盘挂载到服务器上。使用该接口的前提条件是Lite Server服务器已创建且处于运行状态、或者停止状态，用户具有挂载磁盘的权限，且指定的磁盘已存在且未被其他服务器使用。挂载操作完成后，磁盘将成功挂载到Lite Server服务器上，用户可以访问和使用新增的存储空间。若Lite Server服务器不存在、指定的磁盘不存在或已被使用，或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary Lite Server服务器挂载磁盘
+     * @param {string} id **参数解释**：Lite Server实例ID。 **约束限制**：不涉及。 **取值范围**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **默认取值**：不涉及。
+     * @param {AttachServerVolumeRequest} attachDevServerVolumeRequestBody **参数解释**：DevServer服务器挂载磁盘请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public attachDevServerVolume(attachDevServerVolumeRequest?: AttachDevServerVolumeRequest): Promise<AttachDevServerVolumeResponse> {
+        const options = ParamCreater().attachDevServerVolume(attachDevServerVolumeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1398,6 +1424,45 @@ export class ModelArtsClient {
     }
 
     /**
+     * 批量操作Lite Server实例接口用于对多个Lite Server实例进行统一操作，如启动、停止、重启或删除等。该接口适用于以下场景：当需要对多个Lite Server实例进行相同的操作，例如在维护期间批量停止实例、更新配置后批量重启实例或清理不再需要的实例时，用户可通过此接口高效地完成批量操作。使用该接口的前提条件是目标Lite Server实例已存在且用户具有相应的操作权限。操作完成后，所有指定的Lite Server实例将根据请求完成相应的状态变更或被移除，相关资源和配置也将被相应调整或清理。若目标Lite Server实例不存在、用户无权限操作或请求参数不正确，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量操作Lite Server实例
+     * @param {DevServerBatchRequest} batchDevServersActionRequestBody **参数解释**：Lite Server实例批量操作请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDevServersAction(batchDevServersActionRequest?: BatchDevServersActionRequest): Promise<BatchDevServersActionResponse> {
+        const options = ParamCreater().batchDevServersAction(batchDevServersActionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 节点批量排水接口用于集中停止指定节点的业务处理能力并释放相关资源。该接口适用于以下场景：当系统需进行紧急故障隔离、资源回收、版本升级或维护操作时，用户可通过此接口批量暂停目标节点的业务流量，确保操作期间服务稳定性。使用该接口的前提条件包括：目标节点已存在且用户具备管理员权限，节点需处于运行状态且未被锁定，资源池需满足排水后容量约束（如最小可用节点数），同时需提供有效的节点列表及排水策略（如立即排水或延迟排水）作为输入参数。操作完成后，指定节点将停止接收新任务并逐步释放资源，原有业务数据将根据策略保留或迁移。若节点不存在、用户权限不足、节点状态异常（如维护中）、资源池容量不足或输入参数缺失，接口将返回对应错误信息（如404未找到节点、403权限拒绝、400参数校验失败等）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 节点批量排水
+     * @param {string} poolName **参数解释**：资源池ID。取值资源池详情的metadata.name字段。 **约束限制**：不涉及。 **取值范围**：只能以小写字母开头，数字、中划线组成，不能以中划线结尾，且长度为36-63个字符。 **默认取值**：不涉及。
+     * @param {BatchDrainPoolNodesReq} batchDrainPoolNodesReq **参数解释**：批量对节点进行排水的请求体。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDrainPoolNodes(batchDrainPoolNodesRequest?: BatchDrainPoolNodesRequest): Promise<BatchDrainPoolNodesResponse> {
+        const options = ParamCreater().batchDrainPoolNodes(batchDrainPoolNodesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量对节点功能上锁接口用于批量对指定节点的功能进行上锁操作，被上锁的功能在控制台将无法正常使用。该接口适用于以下场景：当需要临时禁用某些节点的功能以防止误操作、进行系统维护或测试时，用户可通过此接口批量对节点功能进行上锁。使用该接口的前提条件是节点功能已存在且用户具有管理员权限。上锁操作完成后，指定节点的功能将在控制台被禁用，无法进行相关操作。若节点功能不存在、用户无权限操作或请求参数无效，接口将返回相应的错误信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1558,6 +1623,26 @@ export class ModelArtsClient {
     }
 
     /**
+     * Lite Server服务器绑定的EIP接口用于将弹性公网IP（EIP）绑定到Lite Server服务器上。该接口适用于以下场景：当用户需要为Lite Server服务器分配一个固定的公网IP地址，以便从外部网络访问服务器时，可以通过此接口将指定的EIP绑定到服务器上。使用该接口的前提条件是Lite Server服务器已创建且处于运行状态，用户具有绑定EIP的权限，且指定的EIP已存在且未被其他资源使用。绑定操作完成后，EIP将成功绑定到Lite Server服务器上，服务器可以通过该EIP从外部网络访问。若Lite Server服务器不存在、已处于停止状态、指定的EIP不存在或已被使用，或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary Lite Server服务器绑定EIP
+     * @param {string} id **参数解释**：Lite Server ID。 **约束限制**：必填。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
+     * @param {ServerBindPublicIPRequest} bindDevServerPublicIPRequestBody **参数解释**：Lite Server服务器挂载EIP请求体。 **约束限制**：必填。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public bindDevServerPublicIP(bindDevServerPublicIPRequest?: BindDevServerPublicIPRequest): Promise<BindDevServerPublicIPResponse> {
+        const options = ParamCreater().bindDevServerPublicIP(bindDevServerPublicIPRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 本接口用于将生成的apikey与指定服务进行绑定，适用于应用程序需要调用特定服务的场景。调用此接口前，确保已成功创建服务实例，并获取到有效的apikey。绑定成功后，apikey将作为服务调用时的身份验证凭证，确保仅授权用户能够访问该服务。如果尝试绑定已失效的apikey，将返回相应的异常信息，提示用户检查apikey的有效性和绑定状态。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1613,6 +1698,46 @@ export class ModelArtsClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 切换Lite Server服务器操作系统镜像接口用于更换Lite Server服务器当前使用的操作系统镜像。该接口适用于以下场景：当用户需要更换操作系统以适应不同的开发或测试需求时，可以通过此接口切换指定的Lite Server服务器操作系统镜像。使用该接口的前提条件是Lite Server服务器已存在且处于停止状态，用户具有切换操作系统的权限。切换操作完成后，Lite Server服务器将安装新的操作系统镜像，并重新进入运行状态，若Lite Server服务器不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 切换Lite Server服务器操作系统镜像
+     * @param {string} id **参数解释**：Lite Server实例ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {ServerOsRequest} changeDevServerOSRequestBody **参数解释**：切换Lite Server服务器操作系统镜像请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeDevServerOS(changeDevServerOSRequest?: ChangeDevServerOSRequest): Promise<ChangeDevServerOSResponse> {
+        const options = ParamCreater().changeDevServerOS(changeDevServerOSRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 切换Lite Server超节点服务器操作系统镜像接口用于更换Lite Server超节点服务器当前使用的操作系统镜像。该接口适用于以下场景：当用户需要更换操作系统以适应不同的开发或测试需求时，可以通过此接口切换指定的Lite Server超节点服务器操作系统镜像。使用该接口的前提条件是Lite Server超节点服务器已存在且处于停止状态，用户具有切换操作系统的权限。切换操作完成后，Lite Server超节点服务器将安装新的操作系统镜像，并重新进入运行状态，若Lite Server超节点服务器不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 切换Lite Server超节点服务器操作系统镜像
+     * @param {string} id **参数解释**：Lite Server实例超节点ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {ServerOsRequest} changeHyperinstanceOSRequestBody **参数解释**：切换Lite Server超节点服务器操作系统镜像请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeHyperinstanceOS(changeHyperinstanceOSRequest?: ChangeHyperinstanceOSRequest): Promise<ChangeHyperinstanceOSResponse> {
+        const options = ParamCreater().changeHyperinstanceOS(changeHyperinstanceOSRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1752,6 +1877,83 @@ export class ModelArtsClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建Lite Server接口用于创建LiteServer弹性云服务器、裸金属服务器及超节点服务器。该接口适用于以下场景：用户需要根据业务需求快速部署和配置不同类型的服务器资源。使用该接口的前提条件是用户已登录且具有创建Lite Server的权限，并且需要提供服务器类型、规格、网络配置等必要参数。创建操作完成后，系统将返回新创建的Lite Server实例信息，包括实例ID、状态等。若用户无权限、参数配置错误或资源不足，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建Lite Server
+     * @param {ServerCreateRequest} createDevServerRequestBody **参数解释**：创建Lite Server的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDevServer(createDevServerRequest?: CreateDevServerRequest): Promise<CreateDevServerResponse> {
+        const options = ParamCreater().createDevServer(createDevServerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建Lite Server任务接口用于在Lite Server上创建新的任务。该接口适用于以下场景：当用户需要在Lite Server上启动新的开发、测试或部署任务时，可以通过此接口创建并配置任务。使用该接口的前提条件是用户具有创建任务的权限，并且提供的任务配置参数符合要求。创建操作完成后，新的Lite Server任务将被成功创建，并返回任务ID和其他相关信息。若用户无权限操作、提供的参数不正确或系统资源不足，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建Lite Server任务
+     * @param {DevServerJobCreateRequest} createDevServerJobRequestBody **参数解释**：创建DevServerJob的请求体。 **约束限制**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDevServerJob(createDevServerJobRequest?: CreateDevServerJobRequest): Promise<CreateDevServerJobResponse> {
+        const options = ParamCreater().createDevServerJob(createDevServerJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建Hyper Cluster接口用于在系统中创建一个新的Hyper Cluster。该接口适用于以下场景：当用户需要使用超节点网络时，可以通过此接口创建Hyper Cluster。使用该接口的前提条件是用户已登录并具有创建Hyper Cluster的权限，且系统中已配置了必要的资源。创建操作完成后，将生成一个新的超节点网络，并返回超节点网络的详细信息，包括ID、名称、子网信息等。若用户无权限操作、系统中缺少必要的资源或配置参数无效，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建Hyper Cluster
+     * @param {HyperClusterCreateRequest} createHyperClusterRequestBody **参数解释**：创建Hyper Cluster的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createHyperCluster(createHyperClusterRequest?: CreateHyperClusterRequest): Promise<CreateHyperClusterResponse> {
+        const options = ParamCreater().createHyperCluster(createHyperClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建Lite Server超节点标签接口用于为Lite Server超节点添加自定义标签。该接口适用于以下场景：当用户需要对Lite Server超节点进行分类管理或标记特定信息时，可以通过此接口为指定的超节点创建标签。使用该接口的前提条件是Lite Server超节点已存在，用户具有创建标签的权限。创建操作完成后，标签将被成功添加到指定的超节点上，用户可以通过标签进行快速查找和管理。若Lite Server超节点不存在、标签已存在或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建Lite Server超节点标签
+     * @param {string} id **参数解释**：Lite Server 超节点ID。
+     * @param {TagRequest} createHyperinstanceTagsRequestBody **参数解释**：创建Lite Server超节点标签请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createHyperinstanceTags(createHyperinstanceTagsRequest?: CreateHyperinstanceTagsRequest): Promise<CreateHyperinstanceTagsResponse> {
+        const options = ParamCreater().createHyperinstanceTags(createHyperinstanceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -2003,6 +2205,25 @@ export class ModelArtsClient {
     }
 
     /**
+     * 创建RoCE网络接口用于在系统中创建一个新的RoCE网络。该接口适用于以下场景：当用户需要为高性能计算或低延迟应用创建专用的RoCE网络时，可以通过此接口创建并配置RoCE网络。使用该接口的前提条件是用户已登录并具有创建RoCE网络的权限，且系统中已配置了必要的网络资源。创建操作完成后，将生成一个新的RoCE网络，并返回网络的详细信息，包括网络ID、子网信息、配置参数等。若用户无权限操作、系统中缺少必要的网络资源或网络配置参数无效，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建RoCE网络
+     * @param {ServerRoceNetworkRequest} createRoceNetworkRequestBody **参数解释**：创建RoCE网络请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRoceNetwork(createRoceNetworkRequest?: CreateRoceNetworkRequest): Promise<CreateRoceNetworkResponse> {
+        const options = ParamCreater().createRoceNetwork(createRoceNetworkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建训练作业镜像保存任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2135,6 +2356,103 @@ export class ModelArtsClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除Lite Server实例接口用于移除已创建的Lite Server实例。该接口适用于以下场景：当Lite Server按需实例不再需要使用时或者创建失败的实例以及处于ERROR状态时，用户可通过此接口删除指定的Lite Server实例。使用该接口的前提条件是Lite Server实例已存在且用户具有管理员权限。删除操作完成后，Lite Server实例将被永久移除，相关资源也将被清理。若Lite Server实例不存在或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除Lite Server实例
+     * @param {string} id **参数解释**：Lite Server ID。 **约束限制**：必填。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDevServer(deleteDevServerRequest?: DeleteDevServerRequest): Promise<DeleteDevServerResponse> {
+        const options = ParamCreater().deleteDevServer(deleteDevServerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除Lite Server Job接口用于批量移除已创建的Lite Server Job。该接口适用于以下场景：当多个Lite Server Job已完成、配置错误或需要清理资源时，用户可以通过此接口批量删除指定的Lite Server Job。使用该接口的前提条件是目标Lite Server Job已存在且用户具有管理员权限。删除操作完成后，指定的Lite Server Job将被永久移除，相关资源和配置也将被清理。若目标Lite Server Job不存在、用户无权限操作或请求参数不正确，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除Lite Server Job
+     * @param {ServerJobDeleteRequest} deleteDevServerJobsRequestBody **参数解释**：删除DevServerJob的请求体 **约束限制**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDevServerJobs(deleteDevServerJobsRequest?: DeleteDevServerJobsRequest): Promise<DeleteDevServerJobsResponse> {
+        const options = ParamCreater().deleteDevServerJobs(deleteDevServerJobsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除Hyper Cluster实例接口用于移除已创建的Hyper Cluster。该接口适用于以下场景：当超节点网络配置错误或需要清理资源时，用户可通过此接口删除指定的超节点网络。使用该接口的前提条件是Hyper Cluster实例已存在且用户具有管理员权限。删除操作完成后，超节点网络将被永久移除，相关资源和配置也将被清理。若Hyper Cluster实例不存在或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除Hyper Cluster实例
+     * @param {string} id **参数解释**：Hyper Cluster ID。 **约束限制**：必填。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
+     * @param {string} [type] **参数解释**：Hyper Cluster的类型。 **约束限制**：可选。 **取值范围**： - HPS：默认值，查询HPS机型的Hyper Cluster。 - ECS：查询ECS机型的Hyper Cluster。  **默认取值**：HPS。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteHyperCluster(deleteHyperClusterRequest?: DeleteHyperClusterRequest): Promise<DeleteHyperClusterResponse> {
+        const options = ParamCreater().deleteHyperCluster(deleteHyperClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除Lite Server超节点实例接口用于删除按需超节点实例同时移除处于ERROR状态的Lite Server超节点实例。该接口适用于以下场景：当超节点实例因创建失败、或其他原因进入ERROR状态；按需超节点实例，用户可以通过此接口删除指定的超节点实例。使用该接口的前提条件是用户已登录并具有删除超节点实例的权限，且指定的超节点实例是按需且处于运行状态、或者处于ERROR状态。删除操作完成后，指定的超节点实例将被永久移除，相关资源也将被清理。若指定的超节点实例不存在、未处于ERROR状态或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除Lite Server超节点实例
+     * @param {string} id **参数解释**：Lite Server 超节点ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteHyperinstance(deleteHyperinstanceRequest?: DeleteHyperinstanceRequest): Promise<DeleteHyperinstanceResponse> {
+        const options = ParamCreater().deleteHyperinstance(deleteHyperinstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除Lite Server超节点标签接口用于移除已创建的Lite Server超节点标签。该接口适用于以下场景：当用户需要清理不再需要的标签或修正标签错误时，可以通过此接口删除指定的超节点标签。使用该接口的前提条件是Lite Server超节点已存在，且该超节点上已存在要删除的标签，用户具有删除标签的权限。删除操作完成后，指定的标签将从超节点上移除，超节点的其他配置和数据保持不变。若Lite Server超节点不存在、标签不存在或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除Lite Server超节点标签
+     * @param {string} id **参数解释**：Lite Server 超节点ID。
+     * @param {TagRequest} deleteHyperinstanceTagsRequestBody **参数解释**：删除Lite Server超节点标签请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteHyperinstanceTags(deleteHyperinstanceTagsRequest?: DeleteHyperinstanceTagsRequest): Promise<DeleteHyperinstanceTagsResponse> {
+        const options = ParamCreater().deleteHyperinstanceTags(deleteHyperinstanceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -2447,6 +2765,26 @@ export class ModelArtsClient {
     }
 
     /**
+     * Lite Server服务器卸载磁盘接口用于从Lite Server服务器上卸载已挂载的磁盘。该接口适用于以下场景：当用户需要释放存储资源或重新分配磁盘时，可以通过此接口卸载指定的磁盘。使用该接口的前提条件是Lite Server服务器已创建且处于运行状态、或者停止状态，用户具有卸载磁盘的权限，且指定的磁盘已挂载到服务器上。卸载操作完成后，磁盘将从Lite Server服务器上成功卸载，用户可以将其挂载到其他服务器或进行其他操作。若Lite Server服务器不存在、指定的磁盘未挂载到服务器上，或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary Lite Server服务器卸载磁盘
+     * @param {string} id **参数解释**：Lite Server实例ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} volumeId **参数解释**：要卸载的磁盘ID。 **约束限制**：[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public detachDevServerVolume(detachDevServerVolumeRequest?: DetachDevServerVolumeRequest): Promise<DetachDevServerVolumeResponse> {
+        const options = ParamCreater().detachDevServerVolume(detachDevServerVolumeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 动态卸载Notebook存储接口用于从运行中的Notebook实例中卸载已挂载的动态存储实例。
      * 
      * 适用场景：用户需要清理或重新组织Notebook实例的挂载资源时，可通过此接口卸载指定的存储实例。使用该接口的前提条件是用户已登录系统并具有访问目标Notebook实例的权限，同时Notebook实例必须处于运行状态且存储实例处于MOUNTED / UNMOUNT_FAILED / MOUNT_FAILED状态。调用该接口后，系统将卸载指定的存储实例，Notebook容器将无法再操作存储中的文件或对象，但存储中的文件或对象保持不变。若用户无权限访问指定实例或Notebook实例未运行，接口将返回相应的错误信息。
@@ -2491,6 +2829,141 @@ export class ModelArtsClient {
     }
 
     /**
+     * 查询Lite Server镜像详情接口用于获取指定Lite Server镜像的详细信息。该接口适用于以下场景：当用户需要了解某个Lite Server镜像的具体配置和属性，以便在创建或调整Lite Server实例时选择合适的镜像时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询镜像详情的权限，且指定的镜像已存在。查询操作完成后，接口将返回指定Lite Server镜像的详细信息，包括镜像ID、名称、操作系统、版本、创建时间等。若用户无权限操作、指定的镜像不存在或镜像ID无效，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Lite Server镜像详情
+     * @param {string} id **参数解释**：镜像ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getDevServerImage(getDevServerImageRequest?: GetDevServerImageRequest): Promise<GetDevServerImageResponse> {
+        const options = ParamCreater().getDevServerImage(getDevServerImageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Lite Server Job详情接口用于获取指定Lite Server Job的详细信息。该接口适用于以下场景：当用户需要查看某个Lite Server Job的执行状态、配置参数、日志信息等详细数据时，可以通过此接口获取相关信息。使用该接口的前提条件是目标Lite Server Job已存在且用户具有查看权限。查询操作完成后，接口将返回指定Lite Server Job的详细信息，包括但不限于Job ID、状态、创建时间、执行时间、配置参数和日志等。若目标Lite Server Job不存在或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Lite Server Job详情
+     * @param {string} id **参数解释**：Lite Server job id。 **约束限制**：必填。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getDevServerJob(getDevServerJobRequest?: GetDevServerJobRequest): Promise<GetDevServerJobResponse> {
+        const options = ParamCreater().getDevServerJob(getDevServerJobRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据服务id获取Lite Server部署服务详情。该接口适用于以下场景：当用户需要查看部署服务详情，以便查看已部署服务的状态、api等信息时，可以通过此接口获取服务详情。使用该接口的前提条件是用户具有查看服务的权限。查询操作完成后，接口将返回此部署服务的详细信息，包括名称、状态、描述、所用模型、实例详情等信息。若用户无权限操作或无相应id，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取Lite Server 部署服务详情
+     * @param {string} id **参数解释**：部署服务的id。 **约束限制**：字母、数字和中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getDevServerJobService(getDevServerJobServiceRequest?: GetDevServerJobServiceRequest): Promise<GetDevServerJobServiceResponse> {
+        const options = ParamCreater().getDevServerJobService(getDevServerJobServiceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取Lite Server Job模板详情接口用于获取指定Lite Server Job模板的详细信息。该接口适用于以下场景：当用户需要查看某个特定Job模板的详细配置，以便了解其参数设置、使用说明等信息时，可以通过此接口获取模板详情。查询操作完成后，接口将返回指定模板的详细信息，包括模板ID、名称、描述、配置参数等。若目标模板不存在，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取Lite Server Job模板详情
+     * @param {string} id **参数解释**：Lite Server任务模板id。 **约束限制**：1 - 64字符，字母、数字和中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getDevServerJobTemplate(getDevServerJobTemplateRequest?: GetDevServerJobTemplateRequest): Promise<GetDevServerJobTemplateResponse> {
+        const options = ParamCreater().getDevServerJobTemplate(getDevServerJobTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Operation详情接口用于获取指定Operation的详细信息。该接口适用于以下场景：当用户需要了解某个Operation的具体执行情况和状态，以便进行故障排查或操作审计时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询Operation详情的权限，且指定的Operation已存在。查询操作完成后，接口将返回指定Operation的详细信息，包括Operation ID、操作类型、执行状态、开始时间、结束时间、操作结果等。若用户无权限操作、指定的Operation不存在或Operation ID无效，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Operation详情
+     * @param {string} id **参数解释**：Lite Server实例ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} operationId **参数解释**：Operation ID。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getDevServerOperation(getDevServerOperationRequest?: GetDevServerOperationRequest): Promise<GetDevServerOperationResponse> {
+        const options = ParamCreater().getDevServerOperation(getDevServerOperationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Hyper Cluster实例详情接口用于获取指定Hyper Cluster实例的详细信息。该接口适用于以下场景：当用户需要了解某个超节点网络的具体配置和状态，以便进行管理和监控时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询Hyper Cluster详情的权限，且指定的超节点网络已存在。查询操作完成后，接口将返回指定超节点网络的详细信息，包括ID、名称、子网信息等。若用户无权限操作、指定的超节点网络不存在或ID无效，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Hyper Cluster实例详情
+     * @param {string} id **参数解释**：Hyper Cluster ID。 **约束限制**：必填。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
+     * @param {string} [type] **参数解释**：Hyper Cluster的类型。 **约束限制**：可选。 **取值范围**： - HPS：默认值，查询HPS机型的Hyper Cluster。 - ECS：查询ECS机型的Hyper Cluster。  **默认取值**：HPS。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getHyperCluster(getHyperClusterRequest?: GetHyperClusterRequest): Promise<GetHyperClusterResponse> {
+        const options = ParamCreater().getHyperCluster(getHyperClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定超节点实例详情接口用于获取特定Lite Server超节点实例的详细信息。该接口适用于以下场景：当用户需要查看某个具体超节点实例的配置、状态和使用情况时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询超节点实例的权限，且指定的超节点实例已存在。查询操作完成后，接口将返回指定超节点实例的详细信息，包括实例ID、操作系统、运行状态、资源使用情况等。若用户无权限操作、指定的超节点实例不存在或实例ID无效，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定超节点实例详情
+     * @param {string} id **参数解释**：Lite Server实例ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getHyperinstance(getHyperinstanceRequest?: GetHyperinstanceRequest): Promise<GetHyperinstanceResponse> {
+        const options = ParamCreater().getHyperinstance(getHyperinstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询Operation详情接口用于获取指定Operation的详细信息。该接口适用于以下场景：当用户需要了解某个Operation的具体执行情况和状态，以便进行故障排查或操作审计时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询Operation详情的权限，且指定的Operation已存在。查询操作完成后，接口将返回指定Operation的详细信息，包括Operation ID、操作类型、执行状态、开始时间、结束时间、操作结果等。若用户无权限操作、指定的Operation不存在或Operation ID无效，接口将返回相应的错误信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2503,6 +2976,45 @@ export class ModelArtsClient {
      */
     public getHyperinstanceOperation(getHyperinstanceOperationRequest?: GetHyperinstanceOperationRequest): Promise<GetHyperinstanceOperationResponse> {
         const options = ParamCreater().getHyperinstanceOperation(getHyperinstanceOperationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Lite Server超节点扩缩容支持规格列表及容量测算接口用于获取Lite Server超节点支持的扩缩容规格列表，并进行容量测算。该接口适用于以下场景：当用户需要了解Lite Server超节点支持的扩缩容选项，以便在调整超节点资源时选择合适的规格，并评估扩缩容后的资源需求时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询超节点扩缩容规格的权限，且指定的超节点已存在。查询操作完成后，接口将返回支持的扩缩容规格列表及容量测算结果，包括规格ID、CPU、内存、存储等详细配置和扩缩容后的资源使用情况。若用户无权限操作、指定的超节点不存在或系统中没有可用的扩缩容规格，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Lite Server超节点扩缩容支持规格列表及容量测算
+     * @param {string} id **参数解释**：Lite Server超节点ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getScaleEvaluationsDevServer(getScaleEvaluationsDevServerRequest?: GetScaleEvaluationsDevServerRequest): Promise<GetScaleEvaluationsDevServerResponse> {
+        const options = ParamCreater().getScaleEvaluationsDevServer(getScaleEvaluationsDevServerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例的Tor信息接口用于获取指定实例的Top-of-Rack（Tor）交换机相关信息。该接口适用于以下场景：当用户需要了解实例连接的Tor交换机的详细信息，以便进行网络配置时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询实例Tor信息的权限，且指定的实例已存在。查询操作完成后，接口将返回指定实例的Tor信息。若用户无权限操作、指定的实例不存在或实例未连接到Tor交换机，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例的Tor信息
+     * @param {string} [id] **参数解释**：Lite Server实例ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [resourceId] **参数解释**：Lite Server实例对应的资源ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getTopologies(getTopologiesRequest?: GetTopologiesRequest): Promise<GetTopologiesResponse> {
+        const options = ParamCreater().getTopologies(getTopologiesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2528,6 +3040,169 @@ export class ModelArtsClient {
      */
     public listAlgorithms(listAlgorithmsRequest?: ListAlgorithmsRequest): Promise<ListAlgorithmsResponse> {
         const options = ParamCreater().listAlgorithms(listAlgorithmsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询租户Lite Server列表接口用于获取指定租户的所有Lite Server实例信息。该接口适用于以下场景：当用户需要查看其租户下所有Lite Server实例的详细信息，以便进行管理和监控时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询租户Lite Server列表的权限。查询操作完成后，接口将返回租户下所有Lite Server实例的详细信息，包括实例ID、名称、状态、资源配置等。若用户无权限操作或租户下没有Lite Server实例，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询租户Lite Server列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAllDevServers(listAllDevServersRequest?: ListAllDevServersRequest): Promise<ListAllDevServersResponse> {
+        const options = ParamCreater().listAllDevServers();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询租户Hyperinstance列表接口用于获取指定租户的所有Hyperinstance实例信息。该接口适用于以下场景：当用户需要查看其租户下所有Hyperinstance实例的详细信息，以便进行管理和监控时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询租户Hyperinstance列表的权限。查询操作完成后，接口将返回租户下所有Hyperinstance实例的详细信息，包括实例ID、名称、状态、资源配置等。若用户无权限操作或租户下没有Hyperinstance实例，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询租户Hyperinstance列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAllHyperinstances(listAllHyperinstancesRequest?: ListAllHyperinstancesRequest): Promise<ListAllHyperinstancesResponse> {
+        const options = ParamCreater().listAllHyperinstances();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询规格列表接口用于获取系统中所有可用的资源规格信息。该接口适用于以下场景：当用户需要了解可用的资源规格，以便在创建或调整Lite Server实例时选择合适的配置时，可以通过此接口获取规格列表。使用该接口的前提条件是用户已登录并具有查询规格的权限。查询操作完成后，接口将返回所有可用的资源规格信息，包括规格ID、CPU、内存、存储等详细配置。若用户无权限操作或系统中没有可用的资源规格，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询规格列表
+     * @param {string} [serverType] **参数解释**：服务类型。 **约束限制**：不涉及。 **取值范围**： - BMS：资源类型为裸金属服务器 - ECS：资源类型为弹性云服务器 - HPS：资源类型为超节点服务器  **默认取值**：不涉及。
+     * @param {string} [arch] **参数解释**：规格的CPU架构。 **约束限制**：不涉及。 **取值范围**： - X86：CPU架构为X86 - ARM：CPU架构为ARM **默认取值**：不涉及。
+     * @param {string} [chargingMode] **参数解释**：计费模式。 **约束限制**：不涉及。 **取值范围**： - PRE_PAID：计费模式为包年/包月 - POST_PAID：计费模式为按需计费 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDevServerFlavors(listDevServerFlavorsRequest?: ListDevServerFlavorsRequest): Promise<ListDevServerFlavorsResponse> {
+        const options = ParamCreater().listDevServerFlavors(listDevServerFlavorsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Lite Server镜像列表接口用于获取系统中所有可用的Lite Server镜像信息。该接口适用于以下场景：当用户需要了解可用的Lite Server镜像，以便在创建或调整Lite Server实例时选择合适的镜像时，可以通过此接口获取镜像列表。使用该接口的前提条件是用户已登录并具有查询镜像列表的权限。查询操作完成后，接口将返回所有可用的Lite Server镜像信息，包括镜像ID、名称、架构类型等。若用户无权限操作或系统中没有可用的镜像，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Lite Server镜像列表
+     * @param {string} [serverType] **参数解释**：server_type。 **约束限制**：不涉及。 **取值范围**：  - BMS  - ECS  - HPS **默认取值**：不涉及。
+     * @param {string} [flavorName] **参数解释**：规格名称。 **约束限制**：^.{1,128}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDevServerImages(listDevServerImagesRequest?: ListDevServerImagesRequest): Promise<ListDevServerImagesResponse> {
+        const options = ParamCreater().listDevServerImages(listDevServerImagesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取Lite Server Job模板列表接口用于获取可用的Lite Server Job模板列表。该接口适用于以下场景：当用户需要查看可用的Job模板，以便选择合适的模板来创建新的Lite Server任务时，可以通过此接口获取模板列表。查询操作完成后，接口将返回所有可用的Lite Server Job模板列表，包括模板ID、名称、描述等信息。若系统中无可用模板，接口将返回相应的信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取Lite Server Job模板列表
+     * @param {string} [id] **参数解释**：DevServerJob的模板id。 **约束限制**：1 - 64字符，字母、数字和中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [name] **参数解释**：DevServerJob的模板name。 **约束限制**：字母、数字和中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [type] **参数解释**：DevServerJob的模板类型。 **约束限制**：字母、数字和中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDevServerJobTemplates(listDevServerJobTemplatesRequest?: ListDevServerJobTemplatesRequest): Promise<ListDevServerJobTemplatesResponse> {
+        const options = ParamCreater().listDevServerJobTemplates(listDevServerJobTemplatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Lite Server Job列表接口用于获取Lite Server Job的列表信息，并支持按照状态、ID等相关字段进行过滤。该接口适用于以下场景：当用户需要查看多个Lite Server Job的概要信息，例如在监控作业状态、排查问题或进行日常管理时，可以通过此接口获取符合过滤条件的Job列表。使用该接口的前提条件是用户具有查看权限。查询操作完成后，接口将返回符合条件的Lite Server Job列表，包括每个Job的ID、状态、创建时间等基本信息。若用户无权限操作或请求参数不正确，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Lite Server Job列表
+     * @param {string} [id] **参数解释**：Lite Server job id。 **约束限制**：无。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
+     * @param {string} [name] **参数解释**：Lite Server job的name。 **约束限制**：无。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [type] **参数解释**：Lite Server job的类型。 **约束限制**：无。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [status] **参数解释**：Lite Server job的状态。 **约束限制**：无。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {boolean} [visible] **参数解释**：是否可见。 **约束限制**：bool。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDevServerJobs(listDevServerJobsRequest?: ListDevServerJobsRequest): Promise<ListDevServerJobsResponse> {
+        const options = ParamCreater().listDevServerJobs(listDevServerJobsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询已绑定的EIP接口用于获取已绑定到Lite Server服务器上的弹性公网IP（EIP）信息。该接口适用于以下场景：当用户需要查看Lite Server服务器上已绑定的EIP及其详细信息时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询EIP的权限，且指定的Lite Server服务器已存在。查询操作完成后，接口将返回已绑定到Lite Server服务器上的EIP的详细信息，包括EIP地址、绑定时间、状态等。若Lite Server服务器不存在、未绑定EIP或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询已绑定的EIP
+     * @param {string} id **参数解释**：Lite Server ID。 **约束限制**：必填。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDevServerPublicIP(listDevServerPublicIPRequest?: ListDevServerPublicIPRequest): Promise<ListDevServerPublicIPResponse> {
+        const options = ParamCreater().listDevServerPublicIP(listDevServerPublicIPRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询用户所有Lite Server实例列表接口用于获取用户名下所有Lite Server实例的详细信息。该接口适用于以下场景：用户需要查看其所有Lite Server实例的状态、配置等信息，以便进行资源管理和监控。使用该接口的前提条件是用户已登录且具有查看Lite Server实例的权限。调用此接口后，系统将返回用户名下所有Lite Server实例的列表，包括实例ID、名称、状态、创建时间等信息。若用户无权限或未登录，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户所有Lite Server实例列表
+     * @param {string} [owner] **参数解释**：实例归属的用户ID。 **约束限制**：可选。 **取值范围**：1 - 64字符，小写字母、数字和中划线。在大账号/有admin权限场景下生效，值通常为当前登录用户ID。 **默认取值**：不涉及。
+     * @param {'ASC' | 'DESC'} [sortDir] **参数解释**：排序方式。 **约束限制**：可选。 **取值范围**： - ASC：升序 - DESC：降序 **默认取值**：ASC。
+     * @param {string} [sortKey] **参数解释**：排序字段。 **约束限制**：可选。 **取值范围**： - createTime：默认值，创建时间。 - updateTime：更新时间。 **默认取值**：createTime。
+     * @param {number} [limit] **参数解释**：每一页的数量。 **约束限制**：可选。 **取值范围**：0 - 1024 **默认取值**：10。
+     * @param {number} [offset] **参数解释**：分页记录的起始位置偏移量。 **约束限制**：可选。 **取值范围**：0 - 2147483647 **默认取值**：0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDevServers(listDevServersRequest?: ListDevServersRequest): Promise<ListDevServersResponse> {
+        const options = ParamCreater().listDevServers(listDevServersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2596,6 +3271,66 @@ export class ModelArtsClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Hyper Cluster详情列表接口用于获取所有Hyper Cluster的详细信息。该接口适用于以下场景：当用户需要了解系统中所有超节点网络的配置和状态时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询Hyper Cluster详情的权限。查询操作完成后，接口将返回所有超节点网络的详细信息，包括ID、名称、子网信息等。若用户无权限操作或系统中没有Hyper Cluster，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Hyper Cluster详情列表
+     * @param {string} [type] **参数解释**：Hyper Cluster的类型。 **约束限制**：可选。 **取值范围**： - HPS：默认值，查询HPS机型的Hyper Cluster。 - ECS：查询ECS机型的Hyper Cluster。  **默认取值**：HPS。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHyperCluster(listHyperClusterRequest?: ListHyperClusterRequest): Promise<ListHyperClusterResponse> {
+        const options = ParamCreater().listHyperCluster(listHyperClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询超节点hyperinstance-clusters逻辑容量测算结果接口用于获取指定超节点集群的逻辑容量测算结果。该接口适用于以下场景：当用户需要了解超节点集群的资源使用情况和容量规划，以便进行资源管理和优化时，可以通过此接口获取逻辑容量测算结果。使用该接口的前提条件是用户已登录并具有查询超节点集群逻辑容量的权限，且指定的超节点集群已存在。查询操作完成后，接口将返回指定超节点集群的逻辑容量测算结果，包括可用容量信息。若用户无权限操作、指定的超节点集群不存在或集群ID无效，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询超节点hyperinstance-clusters逻辑容量测算结果
+     * @param {HyperinstanceClustersCapacityRequest} listHyperinstanceClustersCapacityRequestBody **参数解释**：容量查询请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHyperinstanceClustersCapacity(listHyperinstanceClustersCapacityRequest?: ListHyperinstanceClustersCapacityRequest): Promise<ListHyperinstanceClustersCapacityResponse> {
+        const options = ParamCreater().listHyperinstanceClustersCapacity(listHyperinstanceClustersCapacityRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询用户所有超节点实例详情接口用于获取用户所有Lite Server超节点实例的详细信息。该接口适用于以下场景：当用户需要查看其所有超节点实例的配置、状态和使用情况时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询超节点实例的权限。查询操作完成后，接口将返回所有超节点实例的详细信息，包括实例ID、操作系统、运行状态、资源使用情况等。若用户无权限操作或没有超节点实例，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户所有超节点实例详情
+     * @param {'ASC' | 'DESC'} [sortDir] **参数解释**：排序方式。 **约束限制**：不涉及。 **取值范围**：枚举值如下：  - ASC升序。  - DESC降序。 **默认取值**：不涉及。
+     * @param {string} [sortKey] **参数解释**：排序字段。 **约束限制**：不涉及。 **取值范围**：枚举值如下：  - createTime：默认值，创建时间。  - updateTime：更新时间。 **默认取值**：不涉及。
+     * @param {number} [limit] **参数解释**：每一页的数量。 **约束限制**：不涉及。 **取值范围**：[1,1024]。 **默认取值**：10。
+     * @param {number} [offset] **参数解释**：分页记录的起始位置偏移量。 **约束限制**：不涉及。 **取值范围**：[0,2147483647]。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHyperinstances(listHyperinstancesRequest?: ListHyperinstancesRequest): Promise<ListHyperinstancesResponse> {
+        const options = ParamCreater().listHyperinstances(listHyperinstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3497,6 +4232,44 @@ export class ModelArtsClient {
     }
 
     /**
+     * 查询Lite Server超节点标签接口用于获取Lite Server超节点上的所有标签信息。该接口适用于以下场景：当用户需要查看或管理Lite Server超节点的标签时，可以通过此接口查询指定超节点上的所有标签。使用该接口的前提条件是Lite Server超节点已存在，用户具有查询标签的权限。查询操作完成后，接口将返回超节点上的所有标签信息，包括标签名称和相关属性。若Lite Server超节点不存在或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Lite Server超节点标签
+     * @param {string} id **参数解释**：Lite Server 超节点ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public queryHyperinstanceTags(queryHyperinstanceTagsRequest?: QueryHyperinstanceTagsRequest): Promise<QueryHyperinstanceTagsResponse> {
+        const options = ParamCreater().queryHyperinstanceTags(queryHyperinstanceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 重启Lite Server实例接口用于重启正在运行的Lite Server实例。该接口适用于以下场景：当用户需要重启实例以应用配置更改、解决运行问题或进行系统维护时，可以通过此接口重启指定的Lite Server实例。使用该接口的前提条件是Lite Server实例已创建且处于运行状态，用户具有重启实例的权限。重启操作完成后，Lite Server实例将重新启动并进入运行状态，用户可以继续使用实例提供的服务。若Lite Server实例不存在、已处于停止状态或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重启Lite Server实例
+     * @param {string} id **参数解释**：Lite Server实例ID。 **约束限制**：不涉及。 **取值范围**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public rebootDevServer(rebootDevServerRequest?: RebootDevServerRequest): Promise<RebootDevServerResponse> {
+        const options = ParamCreater().rebootDevServer(rebootDevServerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 注册自定义镜像接口用于将用户自定义的镜像注册到ModelArts镜像管理。该接口适用于以下场景：当用户需要将自己的自定义镜像（如特定算法环境、工具链或配置）集成到ModelArts平台时，可通过此接口将镜像注册到镜像管理中以便后续使用。使用该接口的前提条件是用户具备ModelArts镜像管理权限，并且需要提供有效的镜像地址和符合要求的镜像格式。注册操作完成后，自定义镜像将被成功添加到ModelArts镜像列表中，用户可以在后续任务中选择使用该镜像。若镜像地址无效、镜像格式不符合要求或用户无权限操作，接口将返回相应的错误信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3508,6 +4281,66 @@ export class ModelArtsClient {
      */
     public registerImage(registerImageRequest?: RegisterImageRequest): Promise<RegisterImageResponse> {
         const options = ParamCreater().registerImage(registerImageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 重装Lite Server服务器操作系统镜像接口用于重新安装Lite Server服务器的操作系统镜像。该接口适用于以下场景：当用户需要更新操作系统版本、修复系统故障或重新配置系统环境时，可以通过此接口重装指定的Lite Server服务器操作系统镜像。使用该接口的前提条件是Lite Server服务器已存在且处于停止状态，用户具有重装操作系统的权限。重装操作完成后，Lite Server服务器将安装新的操作系统镜像，并重新进入运行状态，若Lite Server服务器不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重装Lite Server服务器操作系统镜像
+     * @param {string} id **参数解释**：Lite Server实例ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {ServerOsRequest} reinstallDevServerOSRequestBody **参数解释**：重装Lite Server服务器操作系统镜像请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public reinstallDevServerOS(reinstallDevServerOSRequest?: ReinstallDevServerOSRequest): Promise<ReinstallDevServerOSResponse> {
+        const options = ParamCreater().reinstallDevServerOS(reinstallDevServerOSRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 缩容Lite Server超节点接口用于减少Lite Server超节点的资源容量。该接口适用于以下场景：当用户需要降低Lite Server超节点的资源使用，以节省成本或优化资源分配时，可以通过此接口进行缩容。使用该接口的前提条件是用户已登录并具有缩容超节点的权限，且指定的超节点已存在且处于运行状态。缩容操作完成后，超节点的资源容量将根据指定的规格进行调整，用户可以立即使用减少后的资源。若用户无权限操作、指定的超节点不存在、超节点已处于最小容量或指定的缩容规格无效，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 缩容Lite Server超节点
+     * @param {string} id **参数解释**：Lite Server超节点ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {ServerScaleDownRequest} scaleDownHyperinstanceRequestBody **参数解释**：缩容Lite Server超节点请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public scaleDownHyperinstance(scaleDownHyperinstanceRequest?: ScaleDownHyperinstanceRequest): Promise<ScaleDownHyperinstanceResponse> {
+        const options = ParamCreater().scaleDownHyperinstance(scaleDownHyperinstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 扩容Lite Server超节点接口用于增加Lite Server超节点的资源容量。该接口适用于以下场景：当用户需要提升Lite Server超节点的性能，以支持更多的负载或更大的数据处理需求时，可以通过此接口进行扩容。使用该接口的前提条件是用户已登录并具有扩容超节点的权限，且指定的超节点已存在且处于运行状态。扩容操作完成后，超节点的资源容量将根据指定的规格进行调整，用户可以立即使用增加的资源。若用户无权限操作、指定的超节点不存在、超节点已处于最大容量或指定的扩容规格无效，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 扩容Lite Server超节点
+     * @param {string} id **参数解释**：Lite Server超节点ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {ServerHyperScaleUpRequest} scaleUpHyperinstanceRequestBody **参数解释**：扩容Lite Server超节点请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public scaleUpHyperinstance(scaleUpHyperinstanceRequest?: ScaleUpHyperinstanceRequest): Promise<ScaleUpHyperinstanceResponse> {
+        const options = ParamCreater().scaleUpHyperinstance(scaleUpHyperinstanceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3683,6 +4516,25 @@ export class ModelArtsClient {
      */
     public showAutoSearchYamlTemplatesInfo(showAutoSearchYamlTemplatesInfoRequest?: ShowAutoSearchYamlTemplatesInfoRequest): Promise<ShowAutoSearchYamlTemplatesInfoResponse> {
         const options = ParamCreater().showAutoSearchYamlTemplatesInfo();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Lite Server实例详情接口用于获取指定Lite Server实例的详细信息。该接口适用于以下场景：用户需要查看特定Lite Server实例的配置、状态、网络信息等详细数据，以便进行故障排查、资源管理和监控。使用该接口的前提条件是用户已登录且具有查看Lite Server实例的权限，并且需要提供有效的实例ID。查询操作完成后，系统将返回指定Lite Server实例的详细信息，包括实例ID、名称、状态、配置、网络配置等。若用户无权限、实例ID无效或实例不存在，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Lite Server实例详情
+     * @param {string} id **参数解释**：Lite Server ID。 **约束限制**：必填。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDevServer(showDevServerRequest?: ShowDevServerRequest): Promise<ShowDevServerResponse> {
+        const options = ParamCreater().showDevServer(showDevServerRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4413,6 +5265,45 @@ export class ModelArtsClient {
     }
 
     /**
+     * 启动Lite Server实例接口用于启动已创建但未运行的Lite Server实例。该接口适用于以下场景：当用户需要开始使用Lite Server实例进行开发或测试时，可以通过此接口启动指定的Lite Server实例。使用该接口的前提条件是Lite Server实例已创建且处于停止状态，用户具有启动实例的权限。若Lite Server实例不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启动Lite Server实例
+     * @param {string} id **参数解释**：Lite Server实例ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {ServerStartRequest} [startDevServerRequestBody] **参数解释**：Lite Server服务器启动请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startDevServer(startDevServerRequest?: StartDevServerRequest): Promise<StartDevServerResponse> {
+        const options = ParamCreater().startDevServer(startDevServerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 启动Lite Server超节点服务器接口用于启动已创建但未运行的Lite Server超节点服务器。该接口适用于以下场景：当用户需要开始使用Lite Server超节点服务器进行开发或测试时，可以通过此接口启动指定的超节点服务器。使用该接口的前提条件是Lite Server超节点服务器已创建且处于停止状态，用户具有启动超节点服务器的权限。启动操作完成后，超节点服务器将进入运行状态，用户可以访问和使用服务器提供的服务。若Lite Server超节点服务器不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启动Lite Server超节点服务器
+     * @param {string} id **参数解释**：Lite Server超节点ID。 **约束限制**：不涉及。 **取值范围**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startHyperinstance(startHyperinstanceRequest?: StartHyperinstanceRequest): Promise<StartHyperinstanceResponse> {
+        const options = ParamCreater().startHyperinstance(startHyperinstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 使部署从“停止”或“失败”状态进入“部署中”状态，适用于用户需要重新启动已停止或启动失败的部署的情况。调用此接口前，部署状态必须为“停止”或“失败”，且用户需具有启动部署的权限。调用成功后，部署状态将变为“部署中”，系统将开始执行部署流程，包括资源准备、配置加载等。如果部署当前状态不是“停止”或“失败”，或用户没有启动部署的权限，调用将返回错误。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4447,6 +5338,44 @@ export class ModelArtsClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 停止Lite Server实例接口用于停止正在运行的Lite Server实例。该接口适用于以下场景：当用户需要停止Lite Server实例，以节省资源或进行维护时，可以通过此接口停止指定的Lite Server实例。使用该接口的前提条件是Lite Server实例已创建且处于运行状态，用户具有停止实例的权限。若Lite Server实例不存在、已处于停止状态或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 停止Lite Server实例
+     * @param {string} id **参数解释**：Lite Server实例ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public stopDevServer(stopDevServerRequest?: StopDevServerRequest): Promise<StopDevServerResponse> {
+        const options = ParamCreater().stopDevServer(stopDevServerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 停止Lite Server超节点服务器接口用于停止正在运行的Lite Server超节点服务器。该接口适用于以下场景：当用户需要暂停使用Lite Server超节点服务器，以节省资源或进行维护时，可以通过此接口停止指定的超节点服务器。使用该接口的前提条件是Lite Server超节点服务器已创建且处于运行状态或者停止失败状态，用户具有停止超节点服务器的权限。停止操作完成后，超节点服务器将进入停止状态，不再提供服务。若Lite Server超节点服务器不存在、已处于停止状态或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 停止Lite Server超节点服务器
+     * @param {string} id **参数解释**：Lite Server超节点ID。 **约束限制**：不涉及。 **取值范围**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public stopHyperinstance(stopHyperinstanceRequest?: StopHyperinstanceRequest): Promise<StopHyperinstanceResponse> {
+        const options = ParamCreater().stopHyperinstance(stopHyperinstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -4533,6 +5462,29 @@ export class ModelArtsClient {
     }
 
     /**
+     * 实时同步用户Lite Server实例状态接口用于实时获取并同步用户Lite Server实例的当前状态。该接口适用于以下场景：用户需要实时监控其Lite Server实例的运行状态，确保实例正常运行或及时发现并处理异常情况。使用该接口的前提条件是用户已登录并具有相应的权限，且Lite Server实例已创建并处于运行状态。接口调用成功后，将返回Lite Server实例的最新状态信息，包括但不限于实例ID、运行状态、资源使用情况等。若用户无权限操作或Lite Server实例不存在，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 实时同步用户指定Lite Server实例状态
+     * @param {string} [owner] **参数解释**：实例归属的用户ID。 **约束限制**：可选。 **取值范围**：1 - 64字符，小写字母、数字和中划线。在大账号/有admin权限场景下生效，值通常为当前登录用户ID。 **默认取值**：不涉及。
+     * @param {'ASC' | 'DESC'} [sortDir] **参数解释**：排序方式。 **约束限制**：可选。 **取值范围**： - ASC：升序 - DESC：降序 **默认取值**：ASC。
+     * @param {string} [sortKey] **参数解释**：排序字段。 **约束限制**：可选。 **取值范围**： - createTime：默认值，创建时间。 - updateTime：更新时间。 **默认取值**：createTime。
+     * @param {number} [offset] **参数解释**：分页记录的起始位置偏移量。 **约束限制**：可选。 **取值范围**：0 - 2147483647 **默认取值**：0。
+     * @param {number} [limit] **参数解释**：每一页的数量。 **约束限制**：可选。 **取值范围**：0 - 1024 **默认取值**：10。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public syncDevServers(syncDevServersRequest?: SyncDevServersRequest): Promise<SyncDevServersResponse> {
+        const options = ParamCreater().syncDevServers(syncDevServersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 同步镜像状态接口用于修正镜像状态的异常情况。该接口适用于以下场景：当镜像状态因误操作、网络问题或系统故障等原因出现异常时，用户可通过此接口同步镜像的最新状态。使用该接口的前提条件是镜像已存在且用户具有相应的操作权限。同步操作完成后，镜像的状态将被更新为最新的正确状态，相关资源和配置也将被同步。若镜像不存在、用户无权限操作或同步过程中出现错误，接口将返回相应的错误信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4583,6 +5535,26 @@ export class ModelArtsClient {
      */
     public updateAuthMode(updateAuthModeRequest?: UpdateAuthModeRequest): Promise<UpdateAuthModeResponse> {
         const options = ParamCreater().updateAuthMode(updateAuthModeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改DevServer实例名称接口用于更改已创建的DevServer实例的名称。该接口适用于以下场景：当用户需要对DevServer实例进行重命名以更好地反映实例的功能或用途时，或者在实例名称不再符合当前项目命名规范时进行更新。使用该接口的前提条件是DevServer实例已存在且用户具有对该实例的管理权限。修改操作完成后，实例的新名称将立即生效，并在所有相关视图和记录中更新。若DevServer实例不存在、用户无权限操作或新名称不符合命名规则，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改Lite Server实例名称
+     * @param {string} id **参数解释**：DevServer ID。 **约束限制**：必填。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
+     * @param {UpdateServerRequest} updateDevServerRequestBody **参数解释**：更新DevServer名称的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDevServer(updateDevServerRequest?: UpdateDevServerRequest): Promise<UpdateDevServerResponse> {
+        const options = ParamCreater().updateDevServer(updateDevServerRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4921,952 +5893,6 @@ export class ModelArtsClient {
     }
 
     /**
-     * Lite Server服务器挂载磁盘接口用于将额外的磁盘挂载到Lite Server服务器上。该接口适用于以下场景：当用户需要扩展Lite Server服务器的存储空间以满足更大的数据存储需求时，可以通过此接口将指定的磁盘挂载到服务器上。使用该接口的前提条件是Lite Server服务器已创建且处于运行状态、或者停止状态，用户具有挂载磁盘的权限，且指定的磁盘已存在且未被其他服务器使用。挂载操作完成后，磁盘将成功挂载到Lite Server服务器上，用户可以访问和使用新增的存储空间。若Lite Server服务器不存在、指定的磁盘不存在或已被使用，或用户无权限操作，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary Lite Server服务器挂载磁盘
-     * @param {string} id **参数解释**：Lite Server实例ID。 **约束限制**：不涉及。 **取值范围**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **默认取值**：不涉及。
-     * @param {AttachServerVolumeRequest} attachDevServerVolumeRequestBody **参数解释**：DevServer服务器挂载磁盘请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public attachDevServerVolume(attachDevServerVolumeRequest?: AttachDevServerVolumeRequest): Promise<AttachDevServerVolumeResponse> {
-        const options = ParamCreater().attachDevServerVolume(attachDevServerVolumeRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 批量操作Lite Server实例接口用于对多个Lite Server实例进行统一操作，如启动、停止、重启或删除等。该接口适用于以下场景：当需要对多个Lite Server实例进行相同的操作，例如在维护期间批量停止实例、更新配置后批量重启实例或清理不再需要的实例时，用户可通过此接口高效地完成批量操作。使用该接口的前提条件是目标Lite Server实例已存在且用户具有相应的操作权限。操作完成后，所有指定的Lite Server实例将根据请求完成相应的状态变更或被移除，相关资源和配置也将被相应调整或清理。若目标Lite Server实例不存在、用户无权限操作或请求参数不正确，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 批量操作Lite Server实例
-     * @param {DevServerBatchRequest} batchDevServersActionRequestBody **参数解释**：Lite Server实例批量操作请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public batchDevServersAction(batchDevServersActionRequest?: BatchDevServersActionRequest): Promise<BatchDevServersActionResponse> {
-        const options = ParamCreater().batchDevServersAction(batchDevServersActionRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * Lite Server服务器绑定的EIP接口用于将弹性公网IP（EIP）绑定到Lite Server服务器上。该接口适用于以下场景：当用户需要为Lite Server服务器分配一个固定的公网IP地址，以便从外部网络访问服务器时，可以通过此接口将指定的EIP绑定到服务器上。使用该接口的前提条件是Lite Server服务器已创建且处于运行状态，用户具有绑定EIP的权限，且指定的EIP已存在且未被其他资源使用。绑定操作完成后，EIP将成功绑定到Lite Server服务器上，服务器可以通过该EIP从外部网络访问。若Lite Server服务器不存在、已处于停止状态、指定的EIP不存在或已被使用，或用户无权限操作，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary Lite Server服务器绑定EIP
-     * @param {string} id **参数解释**：Lite Server ID。 **约束限制**：必填。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
-     * @param {ServerBindPublicIPRequest} bindDevServerPublicIPRequestBody **参数解释**：Lite Server服务器挂载EIP请求体。 **约束限制**：必填。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public bindDevServerPublicIP(bindDevServerPublicIPRequest?: BindDevServerPublicIPRequest): Promise<BindDevServerPublicIPResponse> {
-        const options = ParamCreater().bindDevServerPublicIP(bindDevServerPublicIPRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 切换Lite Server服务器操作系统镜像接口用于更换Lite Server服务器当前使用的操作系统镜像。该接口适用于以下场景：当用户需要更换操作系统以适应不同的开发或测试需求时，可以通过此接口切换指定的Lite Server服务器操作系统镜像。使用该接口的前提条件是Lite Server服务器已存在且处于停止状态，用户具有切换操作系统的权限。切换操作完成后，Lite Server服务器将安装新的操作系统镜像，并重新进入运行状态，若Lite Server服务器不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 切换Lite Server服务器操作系统镜像
-     * @param {string} id **参数解释**：Lite Server实例ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {ServerOsRequest} changeDevServerOSRequestBody **参数解释**：切换Lite Server服务器操作系统镜像请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public changeDevServerOS(changeDevServerOSRequest?: ChangeDevServerOSRequest): Promise<ChangeDevServerOSResponse> {
-        const options = ParamCreater().changeDevServerOS(changeDevServerOSRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 切换Lite Server超节点服务器操作系统镜像接口用于更换Lite Server超节点服务器当前使用的操作系统镜像。该接口适用于以下场景：当用户需要更换操作系统以适应不同的开发或测试需求时，可以通过此接口切换指定的Lite Server超节点服务器操作系统镜像。使用该接口的前提条件是Lite Server超节点服务器已存在且处于停止状态，用户具有切换操作系统的权限。切换操作完成后，Lite Server超节点服务器将安装新的操作系统镜像，并重新进入运行状态，若Lite Server超节点服务器不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 切换Lite Server超节点服务器操作系统镜像
-     * @param {string} id **参数解释**：Lite Server实例超节点ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {ServerOsRequest} changeHyperinstanceOSRequestBody **参数解释**：切换Lite Server超节点服务器操作系统镜像请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public changeHyperinstanceOS(changeHyperinstanceOSRequest?: ChangeHyperinstanceOSRequest): Promise<ChangeHyperinstanceOSResponse> {
-        const options = ParamCreater().changeHyperinstanceOS(changeHyperinstanceOSRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建Lite Server接口用于创建LiteServer弹性云服务器、裸金属服务器及超节点服务器。该接口适用于以下场景：用户需要根据业务需求快速部署和配置不同类型的服务器资源。使用该接口的前提条件是用户已登录且具有创建Lite Server的权限，并且需要提供服务器类型、规格、网络配置等必要参数。创建操作完成后，系统将返回新创建的Lite Server实例信息，包括实例ID、状态等。若用户无权限、参数配置错误或资源不足，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建Lite Server
-     * @param {ServerCreateRequest} createDevServerRequestBody **参数解释**：创建Lite Server的请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createDevServer(createDevServerRequest?: CreateDevServerRequest): Promise<CreateDevServerResponse> {
-        const options = ParamCreater().createDevServer(createDevServerRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建Lite Server任务接口用于在Lite Server上创建新的任务。该接口适用于以下场景：当用户需要在Lite Server上启动新的开发、测试或部署任务时，可以通过此接口创建并配置任务。使用该接口的前提条件是用户具有创建任务的权限，并且提供的任务配置参数符合要求。创建操作完成后，新的Lite Server任务将被成功创建，并返回任务ID和其他相关信息。若用户无权限操作、提供的参数不正确或系统资源不足，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建Lite Server任务
-     * @param {DevServerJobCreateRequest} createDevServerJobRequestBody **参数解释**：创建DevServerJob的请求体。 **约束限制**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createDevServerJob(createDevServerJobRequest?: CreateDevServerJobRequest): Promise<CreateDevServerJobResponse> {
-        const options = ParamCreater().createDevServerJob(createDevServerJobRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建Hyper Cluster接口用于在系统中创建一个新的Hyper Cluster。该接口适用于以下场景：当用户需要使用超节点网络时，可以通过此接口创建Hyper Cluster。使用该接口的前提条件是用户已登录并具有创建Hyper Cluster的权限，且系统中已配置了必要的资源。创建操作完成后，将生成一个新的超节点网络，并返回超节点网络的详细信息，包括ID、名称、子网信息等。若用户无权限操作、系统中缺少必要的资源或配置参数无效，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建Hyper Cluster
-     * @param {HyperClusterCreateRequest} createHyperClusterRequestBody **参数解释**：创建Hyper Cluster的请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createHyperCluster(createHyperClusterRequest?: CreateHyperClusterRequest): Promise<CreateHyperClusterResponse> {
-        const options = ParamCreater().createHyperCluster(createHyperClusterRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建Lite Server超节点标签接口用于为Lite Server超节点添加自定义标签。该接口适用于以下场景：当用户需要对Lite Server超节点进行分类管理或标记特定信息时，可以通过此接口为指定的超节点创建标签。使用该接口的前提条件是Lite Server超节点已存在，用户具有创建标签的权限。创建操作完成后，标签将被成功添加到指定的超节点上，用户可以通过标签进行快速查找和管理。若Lite Server超节点不存在、标签已存在或用户无权限操作，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建Lite Server超节点标签
-     * @param {string} id **参数解释**：Lite Server 超节点ID。
-     * @param {TagRequest} createHyperinstanceTagsRequestBody **参数解释**：创建Lite Server超节点标签请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createHyperinstanceTags(createHyperinstanceTagsRequest?: CreateHyperinstanceTagsRequest): Promise<CreateHyperinstanceTagsResponse> {
-        const options = ParamCreater().createHyperinstanceTags(createHyperinstanceTagsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建RoCE网络接口用于在系统中创建一个新的RoCE网络。该接口适用于以下场景：当用户需要为高性能计算或低延迟应用创建专用的RoCE网络时，可以通过此接口创建并配置RoCE网络。使用该接口的前提条件是用户已登录并具有创建RoCE网络的权限，且系统中已配置了必要的网络资源。创建操作完成后，将生成一个新的RoCE网络，并返回网络的详细信息，包括网络ID、子网信息、配置参数等。若用户无权限操作、系统中缺少必要的网络资源或网络配置参数无效，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建RoCE网络
-     * @param {ServerRoceNetworkRequest} createRoceNetworkRequestBody **参数解释**：创建RoCE网络请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createRoceNetwork(createRoceNetworkRequest?: CreateRoceNetworkRequest): Promise<CreateRoceNetworkResponse> {
-        const options = ParamCreater().createRoceNetwork(createRoceNetworkRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除Lite Server实例接口用于移除已创建的Lite Server实例。该接口适用于以下场景：当Lite Server按需实例不再需要使用时或者创建失败的实例以及处于ERROR状态时，用户可通过此接口删除指定的Lite Server实例。使用该接口的前提条件是Lite Server实例已存在且用户具有管理员权限。删除操作完成后，Lite Server实例将被永久移除，相关资源也将被清理。若Lite Server实例不存在或用户无权限操作，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除Lite Server实例
-     * @param {string} id **参数解释**：Lite Server ID。 **约束限制**：必填。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteDevServer(deleteDevServerRequest?: DeleteDevServerRequest): Promise<DeleteDevServerResponse> {
-        const options = ParamCreater().deleteDevServer(deleteDevServerRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 批量删除Lite Server Job接口用于批量移除已创建的Lite Server Job。该接口适用于以下场景：当多个Lite Server Job已完成、配置错误或需要清理资源时，用户可以通过此接口批量删除指定的Lite Server Job。使用该接口的前提条件是目标Lite Server Job已存在且用户具有管理员权限。删除操作完成后，指定的Lite Server Job将被永久移除，相关资源和配置也将被清理。若目标Lite Server Job不存在、用户无权限操作或请求参数不正确，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 批量删除Lite Server Job
-     * @param {ServerJobDeleteRequest} deleteDevServerJobsRequestBody **参数解释**：删除DevServerJob的请求体 **约束限制**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteDevServerJobs(deleteDevServerJobsRequest?: DeleteDevServerJobsRequest): Promise<DeleteDevServerJobsResponse> {
-        const options = ParamCreater().deleteDevServerJobs(deleteDevServerJobsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除Hyper Cluster实例接口用于移除已创建的Hyper Cluster。该接口适用于以下场景：当超节点网络配置错误或需要清理资源时，用户可通过此接口删除指定的超节点网络。使用该接口的前提条件是Hyper Cluster实例已存在且用户具有管理员权限。删除操作完成后，超节点网络将被永久移除，相关资源和配置也将被清理。若Hyper Cluster实例不存在或用户无权限操作，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除Hyper Cluster实例
-     * @param {string} id **参数解释**：Hyper Cluster ID。 **约束限制**：必填。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
-     * @param {string} [type] **参数解释**：Hyper Cluster的类型。 **约束限制**：可选。 **取值范围**： - HPS：默认值，查询HPS机型的Hyper Cluster。 - ECS：查询ECS机型的Hyper Cluster。  **默认取值**：HPS。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteHyperCluster(deleteHyperClusterRequest?: DeleteHyperClusterRequest): Promise<DeleteHyperClusterResponse> {
-        const options = ParamCreater().deleteHyperCluster(deleteHyperClusterRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除Lite Server超节点实例接口用于删除按需超节点实例同时移除处于ERROR状态的Lite Server超节点实例。该接口适用于以下场景：当超节点实例因创建失败、或其他原因进入ERROR状态；按需超节点实例，用户可以通过此接口删除指定的超节点实例。使用该接口的前提条件是用户已登录并具有删除超节点实例的权限，且指定的超节点实例是按需且处于运行状态、或者处于ERROR状态。删除操作完成后，指定的超节点实例将被永久移除，相关资源也将被清理。若指定的超节点实例不存在、未处于ERROR状态或用户无权限操作，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除Lite Server超节点实例
-     * @param {string} id **参数解释**：Lite Server 超节点ID。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteHyperinstance(deleteHyperinstanceRequest?: DeleteHyperinstanceRequest): Promise<DeleteHyperinstanceResponse> {
-        const options = ParamCreater().deleteHyperinstance(deleteHyperinstanceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除Lite Server超节点标签接口用于移除已创建的Lite Server超节点标签。该接口适用于以下场景：当用户需要清理不再需要的标签或修正标签错误时，可以通过此接口删除指定的超节点标签。使用该接口的前提条件是Lite Server超节点已存在，且该超节点上已存在要删除的标签，用户具有删除标签的权限。删除操作完成后，指定的标签将从超节点上移除，超节点的其他配置和数据保持不变。若Lite Server超节点不存在、标签不存在或用户无权限操作，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除Lite Server超节点标签
-     * @param {string} id **参数解释**：Lite Server 超节点ID。
-     * @param {TagRequest} deleteHyperinstanceTagsRequestBody **参数解释**：删除Lite Server超节点标签请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteHyperinstanceTags(deleteHyperinstanceTagsRequest?: DeleteHyperinstanceTagsRequest): Promise<DeleteHyperinstanceTagsResponse> {
-        const options = ParamCreater().deleteHyperinstanceTags(deleteHyperinstanceTagsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * Lite Server服务器卸载磁盘接口用于从Lite Server服务器上卸载已挂载的磁盘。该接口适用于以下场景：当用户需要释放存储资源或重新分配磁盘时，可以通过此接口卸载指定的磁盘。使用该接口的前提条件是Lite Server服务器已创建且处于运行状态、或者停止状态，用户具有卸载磁盘的权限，且指定的磁盘已挂载到服务器上。卸载操作完成后，磁盘将从Lite Server服务器上成功卸载，用户可以将其挂载到其他服务器或进行其他操作。若Lite Server服务器不存在、指定的磁盘未挂载到服务器上，或用户无权限操作，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary Lite Server服务器卸载磁盘
-     * @param {string} id **参数解释**：Lite Server实例ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {string} volumeId **参数解释**：要卸载的磁盘ID。 **约束限制**：[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public detachDevServerVolume(detachDevServerVolumeRequest?: DetachDevServerVolumeRequest): Promise<DetachDevServerVolumeResponse> {
-        const options = ParamCreater().detachDevServerVolume(detachDevServerVolumeRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询Lite Server镜像详情接口用于获取指定Lite Server镜像的详细信息。该接口适用于以下场景：当用户需要了解某个Lite Server镜像的具体配置和属性，以便在创建或调整Lite Server实例时选择合适的镜像时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询镜像详情的权限，且指定的镜像已存在。查询操作完成后，接口将返回指定Lite Server镜像的详细信息，包括镜像ID、名称、操作系统、版本、创建时间等。若用户无权限操作、指定的镜像不存在或镜像ID无效，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询Lite Server镜像详情
-     * @param {string} id **参数解释**：镜像ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public getDevServerImage(getDevServerImageRequest?: GetDevServerImageRequest): Promise<GetDevServerImageResponse> {
-        const options = ParamCreater().getDevServerImage(getDevServerImageRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询Lite Server Job详情接口用于获取指定Lite Server Job的详细信息。该接口适用于以下场景：当用户需要查看某个Lite Server Job的执行状态、配置参数、日志信息等详细数据时，可以通过此接口获取相关信息。使用该接口的前提条件是目标Lite Server Job已存在且用户具有查看权限。查询操作完成后，接口将返回指定Lite Server Job的详细信息，包括但不限于Job ID、状态、创建时间、执行时间、配置参数和日志等。若目标Lite Server Job不存在或用户无权限操作，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询Lite Server Job详情
-     * @param {string} id **参数解释**：Lite Server job id。 **约束限制**：必填。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public getDevServerJob(getDevServerJobRequest?: GetDevServerJobRequest): Promise<GetDevServerJobResponse> {
-        const options = ParamCreater().getDevServerJob(getDevServerJobRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 根据服务id获取Lite Server部署服务详情。该接口适用于以下场景：当用户需要查看部署服务详情，以便查看已部署服务的状态、api等信息时，可以通过此接口获取服务详情。使用该接口的前提条件是用户具有查看服务的权限。查询操作完成后，接口将返回此部署服务的详细信息，包括名称、状态、描述、所用模型、实例详情等信息。若用户无权限操作或无相应id，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取Lite Server 部署服务详情
-     * @param {string} id **参数解释**：部署服务的id。 **约束限制**：字母、数字和中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public getDevServerJobService(getDevServerJobServiceRequest?: GetDevServerJobServiceRequest): Promise<GetDevServerJobServiceResponse> {
-        const options = ParamCreater().getDevServerJobService(getDevServerJobServiceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取Lite Server Job模板详情接口用于获取指定Lite Server Job模板的详细信息。该接口适用于以下场景：当用户需要查看某个特定Job模板的详细配置，以便了解其参数设置、使用说明等信息时，可以通过此接口获取模板详情。查询操作完成后，接口将返回指定模板的详细信息，包括模板ID、名称、描述、配置参数等。若目标模板不存在，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取Lite Server Job模板详情
-     * @param {string} id **参数解释**：Lite Server任务模板id。 **约束限制**：1 - 64字符，字母、数字和中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public getDevServerJobTemplate(getDevServerJobTemplateRequest?: GetDevServerJobTemplateRequest): Promise<GetDevServerJobTemplateResponse> {
-        const options = ParamCreater().getDevServerJobTemplate(getDevServerJobTemplateRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询Operation详情接口用于获取指定Operation的详细信息。该接口适用于以下场景：当用户需要了解某个Operation的具体执行情况和状态，以便进行故障排查或操作审计时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询Operation详情的权限，且指定的Operation已存在。查询操作完成后，接口将返回指定Operation的详细信息，包括Operation ID、操作类型、执行状态、开始时间、结束时间、操作结果等。若用户无权限操作、指定的Operation不存在或Operation ID无效，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询Operation详情
-     * @param {string} id **参数解释**：Lite Server实例ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {string} operationId **参数解释**：Operation ID。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public getDevServerOperation(getDevServerOperationRequest?: GetDevServerOperationRequest): Promise<GetDevServerOperationResponse> {
-        const options = ParamCreater().getDevServerOperation(getDevServerOperationRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询Hyper Cluster实例详情接口用于获取指定Hyper Cluster实例的详细信息。该接口适用于以下场景：当用户需要了解某个超节点网络的具体配置和状态，以便进行管理和监控时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询Hyper Cluster详情的权限，且指定的超节点网络已存在。查询操作完成后，接口将返回指定超节点网络的详细信息，包括ID、名称、子网信息等。若用户无权限操作、指定的超节点网络不存在或ID无效，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询Hyper Cluster实例详情
-     * @param {string} id **参数解释**：Hyper Cluster ID。 **约束限制**：必填。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
-     * @param {string} [type] **参数解释**：Hyper Cluster的类型。 **约束限制**：可选。 **取值范围**： - HPS：默认值，查询HPS机型的Hyper Cluster。 - ECS：查询ECS机型的Hyper Cluster。  **默认取值**：HPS。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public getHyperCluster(getHyperClusterRequest?: GetHyperClusterRequest): Promise<GetHyperClusterResponse> {
-        const options = ParamCreater().getHyperCluster(getHyperClusterRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询指定超节点实例详情接口用于获取特定Lite Server超节点实例的详细信息。该接口适用于以下场景：当用户需要查看某个具体超节点实例的配置、状态和使用情况时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询超节点实例的权限，且指定的超节点实例已存在。查询操作完成后，接口将返回指定超节点实例的详细信息，包括实例ID、操作系统、运行状态、资源使用情况等。若用户无权限操作、指定的超节点实例不存在或实例ID无效，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询指定超节点实例详情
-     * @param {string} id **参数解释**：Lite Server实例ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public getHyperinstance(getHyperinstanceRequest?: GetHyperinstanceRequest): Promise<GetHyperinstanceResponse> {
-        const options = ParamCreater().getHyperinstance(getHyperinstanceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询Lite Server超节点扩缩容支持规格列表及容量测算接口用于获取Lite Server超节点支持的扩缩容规格列表，并进行容量测算。该接口适用于以下场景：当用户需要了解Lite Server超节点支持的扩缩容选项，以便在调整超节点资源时选择合适的规格，并评估扩缩容后的资源需求时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询超节点扩缩容规格的权限，且指定的超节点已存在。查询操作完成后，接口将返回支持的扩缩容规格列表及容量测算结果，包括规格ID、CPU、内存、存储等详细配置和扩缩容后的资源使用情况。若用户无权限操作、指定的超节点不存在或系统中没有可用的扩缩容规格，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询Lite Server超节点扩缩容支持规格列表及容量测算
-     * @param {string} id **参数解释**：Lite Server超节点ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public getScaleEvaluationsDevServer(getScaleEvaluationsDevServerRequest?: GetScaleEvaluationsDevServerRequest): Promise<GetScaleEvaluationsDevServerResponse> {
-        const options = ParamCreater().getScaleEvaluationsDevServer(getScaleEvaluationsDevServerRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询实例的Tor信息接口用于获取指定实例的Top-of-Rack（Tor）交换机相关信息。该接口适用于以下场景：当用户需要了解实例连接的Tor交换机的详细信息，以便进行网络配置时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询实例Tor信息的权限，且指定的实例已存在。查询操作完成后，接口将返回指定实例的Tor信息。若用户无权限操作、指定的实例不存在或实例未连接到Tor交换机，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询实例的Tor信息
-     * @param {string} [id] **参数解释**：Lite Server实例ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {string} [resourceId] **参数解释**：Lite Server实例对应的资源ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public getTopologies(getTopologiesRequest?: GetTopologiesRequest): Promise<GetTopologiesResponse> {
-        const options = ParamCreater().getTopologies(getTopologiesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询租户Lite Server列表接口用于获取指定租户的所有Lite Server实例信息。该接口适用于以下场景：当用户需要查看其租户下所有Lite Server实例的详细信息，以便进行管理和监控时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询租户Lite Server列表的权限。查询操作完成后，接口将返回租户下所有Lite Server实例的详细信息，包括实例ID、名称、状态、资源配置等。若用户无权限操作或租户下没有Lite Server实例，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询租户Lite Server列表
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAllDevServers(listAllDevServersRequest?: ListAllDevServersRequest): Promise<ListAllDevServersResponse> {
-        const options = ParamCreater().listAllDevServers();
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询租户Hyperinstance列表接口用于获取指定租户的所有Hyperinstance实例信息。该接口适用于以下场景：当用户需要查看其租户下所有Hyperinstance实例的详细信息，以便进行管理和监控时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询租户Hyperinstance列表的权限。查询操作完成后，接口将返回租户下所有Hyperinstance实例的详细信息，包括实例ID、名称、状态、资源配置等。若用户无权限操作或租户下没有Hyperinstance实例，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询租户Hyperinstance列表
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAllHyperinstances(listAllHyperinstancesRequest?: ListAllHyperinstancesRequest): Promise<ListAllHyperinstancesResponse> {
-        const options = ParamCreater().listAllHyperinstances();
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询规格列表接口用于获取系统中所有可用的资源规格信息。该接口适用于以下场景：当用户需要了解可用的资源规格，以便在创建或调整Lite Server实例时选择合适的配置时，可以通过此接口获取规格列表。使用该接口的前提条件是用户已登录并具有查询规格的权限。查询操作完成后，接口将返回所有可用的资源规格信息，包括规格ID、CPU、内存、存储等详细配置。若用户无权限操作或系统中没有可用的资源规格，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询规格列表
-     * @param {string} [serverType] **参数解释**：服务类型。 **约束限制**：不涉及。 **取值范围**： - BMS：资源类型为裸金属服务器 - ECS：资源类型为弹性云服务器 - HPS：资源类型为超节点服务器  **默认取值**：不涉及。
-     * @param {string} [arch] **参数解释**：规格的CPU架构。 **约束限制**：不涉及。 **取值范围**： - X86：CPU架构为X86 - ARM：CPU架构为ARM **默认取值**：不涉及。
-     * @param {string} [chargingMode] **参数解释**：计费模式。 **约束限制**：不涉及。 **取值范围**： - PRE_PAID：计费模式为包年/包月 - POST_PAID：计费模式为按需计费 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listDevServerFlavors(listDevServerFlavorsRequest?: ListDevServerFlavorsRequest): Promise<ListDevServerFlavorsResponse> {
-        const options = ParamCreater().listDevServerFlavors(listDevServerFlavorsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询Lite Server镜像列表接口用于获取系统中所有可用的Lite Server镜像信息。该接口适用于以下场景：当用户需要了解可用的Lite Server镜像，以便在创建或调整Lite Server实例时选择合适的镜像时，可以通过此接口获取镜像列表。使用该接口的前提条件是用户已登录并具有查询镜像列表的权限。查询操作完成后，接口将返回所有可用的Lite Server镜像信息，包括镜像ID、名称、架构类型等。若用户无权限操作或系统中没有可用的镜像，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询Lite Server镜像列表
-     * @param {string} [serverType] **参数解释**：server_type。 **约束限制**：不涉及。 **取值范围**：  - BMS  - ECS  - HPS **默认取值**：不涉及。
-     * @param {string} [flavorName] **参数解释**：规格名称。 **约束限制**：^.{1,128}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listDevServerImages(listDevServerImagesRequest?: ListDevServerImagesRequest): Promise<ListDevServerImagesResponse> {
-        const options = ParamCreater().listDevServerImages(listDevServerImagesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取Lite Server Job模板列表接口用于获取可用的Lite Server Job模板列表。该接口适用于以下场景：当用户需要查看可用的Job模板，以便选择合适的模板来创建新的Lite Server任务时，可以通过此接口获取模板列表。查询操作完成后，接口将返回所有可用的Lite Server Job模板列表，包括模板ID、名称、描述等信息。若系统中无可用模板，接口将返回相应的信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取Lite Server Job模板列表
-     * @param {string} [id] **参数解释**：DevServerJob的模板id。 **约束限制**：1 - 64字符，字母、数字和中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {string} [name] **参数解释**：DevServerJob的模板name。 **约束限制**：字母、数字和中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {string} [type] **参数解释**：DevServerJob的模板类型。 **约束限制**：字母、数字和中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listDevServerJobTemplates(listDevServerJobTemplatesRequest?: ListDevServerJobTemplatesRequest): Promise<ListDevServerJobTemplatesResponse> {
-        const options = ParamCreater().listDevServerJobTemplates(listDevServerJobTemplatesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询Lite Server Job列表接口用于获取Lite Server Job的列表信息，并支持按照状态、ID等相关字段进行过滤。该接口适用于以下场景：当用户需要查看多个Lite Server Job的概要信息，例如在监控作业状态、排查问题或进行日常管理时，可以通过此接口获取符合过滤条件的Job列表。使用该接口的前提条件是用户具有查看权限。查询操作完成后，接口将返回符合条件的Lite Server Job列表，包括每个Job的ID、状态、创建时间等基本信息。若用户无权限操作或请求参数不正确，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询Lite Server Job列表
-     * @param {string} [id] **参数解释**：Lite Server job id。 **约束限制**：无。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
-     * @param {string} [name] **参数解释**：Lite Server job的name。 **约束限制**：无。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {string} [type] **参数解释**：Lite Server job的类型。 **约束限制**：无。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {string} [status] **参数解释**：Lite Server job的状态。 **约束限制**：无。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {boolean} [visible] **参数解释**：是否可见。 **约束限制**：bool。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listDevServerJobs(listDevServerJobsRequest?: ListDevServerJobsRequest): Promise<ListDevServerJobsResponse> {
-        const options = ParamCreater().listDevServerJobs(listDevServerJobsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询已绑定的EIP接口用于获取已绑定到Lite Server服务器上的弹性公网IP（EIP）信息。该接口适用于以下场景：当用户需要查看Lite Server服务器上已绑定的EIP及其详细信息时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询EIP的权限，且指定的Lite Server服务器已存在。查询操作完成后，接口将返回已绑定到Lite Server服务器上的EIP的详细信息，包括EIP地址、绑定时间、状态等。若Lite Server服务器不存在、未绑定EIP或用户无权限操作，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询已绑定的EIP
-     * @param {string} id **参数解释**：Lite Server ID。 **约束限制**：必填。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listDevServerPublicIP(listDevServerPublicIPRequest?: ListDevServerPublicIPRequest): Promise<ListDevServerPublicIPResponse> {
-        const options = ParamCreater().listDevServerPublicIP(listDevServerPublicIPRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询用户所有Lite Server实例列表接口用于获取用户名下所有Lite Server实例的详细信息。该接口适用于以下场景：用户需要查看其所有Lite Server实例的状态、配置等信息，以便进行资源管理和监控。使用该接口的前提条件是用户已登录且具有查看Lite Server实例的权限。调用此接口后，系统将返回用户名下所有Lite Server实例的列表，包括实例ID、名称、状态、创建时间等信息。若用户无权限或未登录，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询用户所有Lite Server实例列表
-     * @param {string} [owner] **参数解释**：实例归属的用户ID。 **约束限制**：可选。 **取值范围**：1 - 64字符，小写字母、数字和中划线。在大账号/有admin权限场景下生效，值通常为当前登录用户ID。 **默认取值**：不涉及。
-     * @param {'ASC' | 'DESC'} [sortDir] **参数解释**：排序方式。 **约束限制**：可选。 **取值范围**： - ASC：升序 - DESC：降序 **默认取值**：ASC。
-     * @param {string} [sortKey] **参数解释**：排序字段。 **约束限制**：可选。 **取值范围**： - createTime：默认值，创建时间。 - updateTime：更新时间。 **默认取值**：createTime。
-     * @param {number} [limit] **参数解释**：每一页的数量。 **约束限制**：可选。 **取值范围**：0 - 1024 **默认取值**：10。
-     * @param {number} [offset] **参数解释**：分页记录的起始位置偏移量。 **约束限制**：可选。 **取值范围**：0 - 2147483647 **默认取值**：0。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listDevServers(listDevServersRequest?: ListDevServersRequest): Promise<ListDevServersResponse> {
-        const options = ParamCreater().listDevServers(listDevServersRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询Hyper Cluster详情列表接口用于获取所有Hyper Cluster的详细信息。该接口适用于以下场景：当用户需要了解系统中所有超节点网络的配置和状态时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询Hyper Cluster详情的权限。查询操作完成后，接口将返回所有超节点网络的详细信息，包括ID、名称、子网信息等。若用户无权限操作或系统中没有Hyper Cluster，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询Hyper Cluster详情列表
-     * @param {string} [type] **参数解释**：Hyper Cluster的类型。 **约束限制**：可选。 **取值范围**： - HPS：默认值，查询HPS机型的Hyper Cluster。 - ECS：查询ECS机型的Hyper Cluster。  **默认取值**：HPS。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listHyperCluster(listHyperClusterRequest?: ListHyperClusterRequest): Promise<ListHyperClusterResponse> {
-        const options = ParamCreater().listHyperCluster(listHyperClusterRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询超节点hyperinstance-clusters逻辑容量测算结果接口用于获取指定超节点集群的逻辑容量测算结果。该接口适用于以下场景：当用户需要了解超节点集群的资源使用情况和容量规划，以便进行资源管理和优化时，可以通过此接口获取逻辑容量测算结果。使用该接口的前提条件是用户已登录并具有查询超节点集群逻辑容量的权限，且指定的超节点集群已存在。查询操作完成后，接口将返回指定超节点集群的逻辑容量测算结果，包括可用容量信息。若用户无权限操作、指定的超节点集群不存在或集群ID无效，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询超节点hyperinstance-clusters逻辑容量测算结果
-     * @param {HyperinstanceClustersCapacityRequest} listHyperinstanceClustersCapacityRequestBody **参数解释**：容量查询请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listHyperinstanceClustersCapacity(listHyperinstanceClustersCapacityRequest?: ListHyperinstanceClustersCapacityRequest): Promise<ListHyperinstanceClustersCapacityResponse> {
-        const options = ParamCreater().listHyperinstanceClustersCapacity(listHyperinstanceClustersCapacityRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询用户所有超节点实例详情接口用于获取用户所有Lite Server超节点实例的详细信息。该接口适用于以下场景：当用户需要查看其所有超节点实例的配置、状态和使用情况时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询超节点实例的权限。查询操作完成后，接口将返回所有超节点实例的详细信息，包括实例ID、操作系统、运行状态、资源使用情况等。若用户无权限操作或没有超节点实例，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询用户所有超节点实例详情
-     * @param {'ASC' | 'DESC'} [sortDir] **参数解释**：排序方式。 **约束限制**：不涉及。 **取值范围**：枚举值如下：  - ASC升序。  - DESC降序。 **默认取值**：不涉及。
-     * @param {string} [sortKey] **参数解释**：排序字段。 **约束限制**：不涉及。 **取值范围**：枚举值如下：  - createTime：默认值，创建时间。  - updateTime：更新时间。 **默认取值**：不涉及。
-     * @param {number} [limit] **参数解释**：每一页的数量。 **约束限制**：不涉及。 **取值范围**：[1,1024]。 **默认取值**：10。
-     * @param {number} [offset] **参数解释**：分页记录的起始位置偏移量。 **约束限制**：不涉及。 **取值范围**：[0,2147483647]。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listHyperinstances(listHyperinstancesRequest?: ListHyperinstancesRequest): Promise<ListHyperinstancesResponse> {
-        const options = ParamCreater().listHyperinstances(listHyperinstancesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询Lite Server超节点标签接口用于获取Lite Server超节点上的所有标签信息。该接口适用于以下场景：当用户需要查看或管理Lite Server超节点的标签时，可以通过此接口查询指定超节点上的所有标签。使用该接口的前提条件是Lite Server超节点已存在，用户具有查询标签的权限。查询操作完成后，接口将返回超节点上的所有标签信息，包括标签名称和相关属性。若Lite Server超节点不存在或用户无权限操作，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询Lite Server超节点标签
-     * @param {string} id **参数解释**：Lite Server 超节点ID。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public queryHyperinstanceTags(queryHyperinstanceTagsRequest?: QueryHyperinstanceTagsRequest): Promise<QueryHyperinstanceTagsResponse> {
-        const options = ParamCreater().queryHyperinstanceTags(queryHyperinstanceTagsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 重启Lite Server实例接口用于重启正在运行的Lite Server实例。该接口适用于以下场景：当用户需要重启实例以应用配置更改、解决运行问题或进行系统维护时，可以通过此接口重启指定的Lite Server实例。使用该接口的前提条件是Lite Server实例已创建且处于运行状态，用户具有重启实例的权限。重启操作完成后，Lite Server实例将重新启动并进入运行状态，用户可以继续使用实例提供的服务。若Lite Server实例不存在、已处于停止状态或用户无权限操作，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 重启Lite Server实例
-     * @param {string} id **参数解释**：Lite Server实例ID。 **约束限制**：不涉及。 **取值范围**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public rebootDevServer(rebootDevServerRequest?: RebootDevServerRequest): Promise<RebootDevServerResponse> {
-        const options = ParamCreater().rebootDevServer(rebootDevServerRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 重装Lite Server服务器操作系统镜像接口用于重新安装Lite Server服务器的操作系统镜像。该接口适用于以下场景：当用户需要更新操作系统版本、修复系统故障或重新配置系统环境时，可以通过此接口重装指定的Lite Server服务器操作系统镜像。使用该接口的前提条件是Lite Server服务器已存在且处于停止状态，用户具有重装操作系统的权限。重装操作完成后，Lite Server服务器将安装新的操作系统镜像，并重新进入运行状态，若Lite Server服务器不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 重装Lite Server服务器操作系统镜像
-     * @param {string} id **参数解释**：Lite Server实例ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {ServerOsRequest} reinstallDevServerOSRequestBody **参数解释**：重装Lite Server服务器操作系统镜像请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public reinstallDevServerOS(reinstallDevServerOSRequest?: ReinstallDevServerOSRequest): Promise<ReinstallDevServerOSResponse> {
-        const options = ParamCreater().reinstallDevServerOS(reinstallDevServerOSRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 缩容Lite Server超节点接口用于减少Lite Server超节点的资源容量。该接口适用于以下场景：当用户需要降低Lite Server超节点的资源使用，以节省成本或优化资源分配时，可以通过此接口进行缩容。使用该接口的前提条件是用户已登录并具有缩容超节点的权限，且指定的超节点已存在且处于运行状态。缩容操作完成后，超节点的资源容量将根据指定的规格进行调整，用户可以立即使用减少后的资源。若用户无权限操作、指定的超节点不存在、超节点已处于最小容量或指定的缩容规格无效，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 缩容Lite Server超节点
-     * @param {string} id **参数解释**：Lite Server超节点ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {ServerScaleDownRequest} scaleDownHyperinstanceRequestBody **参数解释**：缩容Lite Server超节点请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public scaleDownHyperinstance(scaleDownHyperinstanceRequest?: ScaleDownHyperinstanceRequest): Promise<ScaleDownHyperinstanceResponse> {
-        const options = ParamCreater().scaleDownHyperinstance(scaleDownHyperinstanceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 扩容Lite Server超节点接口用于增加Lite Server超节点的资源容量。该接口适用于以下场景：当用户需要提升Lite Server超节点的性能，以支持更多的负载或更大的数据处理需求时，可以通过此接口进行扩容。使用该接口的前提条件是用户已登录并具有扩容超节点的权限，且指定的超节点已存在且处于运行状态。扩容操作完成后，超节点的资源容量将根据指定的规格进行调整，用户可以立即使用增加的资源。若用户无权限操作、指定的超节点不存在、超节点已处于最大容量或指定的扩容规格无效，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 扩容Lite Server超节点
-     * @param {string} id **参数解释**：Lite Server超节点ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {ServerHyperScaleUpRequest} scaleUpHyperinstanceRequestBody **参数解释**：扩容Lite Server超节点请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public scaleUpHyperinstance(scaleUpHyperinstanceRequest?: ScaleUpHyperinstanceRequest): Promise<ScaleUpHyperinstanceResponse> {
-        const options = ParamCreater().scaleUpHyperinstance(scaleUpHyperinstanceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询Lite Server实例详情接口用于获取指定Lite Server实例的详细信息。该接口适用于以下场景：用户需要查看特定Lite Server实例的配置、状态、网络信息等详细数据，以便进行故障排查、资源管理和监控。使用该接口的前提条件是用户已登录且具有查看Lite Server实例的权限，并且需要提供有效的实例ID。查询操作完成后，系统将返回指定Lite Server实例的详细信息，包括实例ID、名称、状态、配置、网络配置等。若用户无权限、实例ID无效或实例不存在，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询Lite Server实例详情
-     * @param {string} id **参数解释**：Lite Server ID。 **约束限制**：必填。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showDevServer(showDevServerRequest?: ShowDevServerRequest): Promise<ShowDevServerResponse> {
-        const options = ParamCreater().showDevServer(showDevServerRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 启动Lite Server实例接口用于启动已创建但未运行的Lite Server实例。该接口适用于以下场景：当用户需要开始使用Lite Server实例进行开发或测试时，可以通过此接口启动指定的Lite Server实例。使用该接口的前提条件是Lite Server实例已创建且处于停止状态，用户具有启动实例的权限。若Lite Server实例不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 启动Lite Server实例
-     * @param {string} id **参数解释**：Lite Server实例ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {ServerStartRequest} [startDevServerRequestBody] **参数解释**：Lite Server服务器启动请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public startDevServer(startDevServerRequest?: StartDevServerRequest): Promise<StartDevServerResponse> {
-        const options = ParamCreater().startDevServer(startDevServerRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 启动Lite Server超节点服务器接口用于启动已创建但未运行的Lite Server超节点服务器。该接口适用于以下场景：当用户需要开始使用Lite Server超节点服务器进行开发或测试时，可以通过此接口启动指定的超节点服务器。使用该接口的前提条件是Lite Server超节点服务器已创建且处于停止状态，用户具有启动超节点服务器的权限。启动操作完成后，超节点服务器将进入运行状态，用户可以访问和使用服务器提供的服务。若Lite Server超节点服务器不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 启动Lite Server超节点服务器
-     * @param {string} id **参数解释**：Lite Server超节点ID。 **约束限制**：不涉及。 **取值范围**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public startHyperinstance(startHyperinstanceRequest?: StartHyperinstanceRequest): Promise<StartHyperinstanceResponse> {
-        const options = ParamCreater().startHyperinstance(startHyperinstanceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 停止Lite Server实例接口用于停止正在运行的Lite Server实例。该接口适用于以下场景：当用户需要停止Lite Server实例，以节省资源或进行维护时，可以通过此接口停止指定的Lite Server实例。使用该接口的前提条件是Lite Server实例已创建且处于运行状态，用户具有停止实例的权限。若Lite Server实例不存在、已处于停止状态或用户无权限操作，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 停止Lite Server实例
-     * @param {string} id **参数解释**：Lite Server实例ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public stopDevServer(stopDevServerRequest?: StopDevServerRequest): Promise<StopDevServerResponse> {
-        const options = ParamCreater().stopDevServer(stopDevServerRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 停止Lite Server超节点服务器接口用于停止正在运行的Lite Server超节点服务器。该接口适用于以下场景：当用户需要暂停使用Lite Server超节点服务器，以节省资源或进行维护时，可以通过此接口停止指定的超节点服务器。使用该接口的前提条件是Lite Server超节点服务器已创建且处于运行状态或者停止失败状态，用户具有停止超节点服务器的权限。停止操作完成后，超节点服务器将进入停止状态，不再提供服务。若Lite Server超节点服务器不存在、已处于停止状态或用户无权限操作，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 停止Lite Server超节点服务器
-     * @param {string} id **参数解释**：Lite Server超节点ID。 **约束限制**：不涉及。 **取值范围**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **默认取值**：不涉及。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public stopHyperinstance(stopHyperinstanceRequest?: StopHyperinstanceRequest): Promise<StopHyperinstanceResponse> {
-        const options = ParamCreater().stopHyperinstance(stopHyperinstanceRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-Request-Id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 实时同步用户Lite Server实例状态接口用于实时获取并同步用户Lite Server实例的当前状态。该接口适用于以下场景：用户需要实时监控其Lite Server实例的运行状态，确保实例正常运行或及时发现并处理异常情况。使用该接口的前提条件是用户已登录并具有相应的权限，且Lite Server实例已创建并处于运行状态。接口调用成功后，将返回Lite Server实例的最新状态信息，包括但不限于实例ID、运行状态、资源使用情况等。若用户无权限操作或Lite Server实例不存在，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 实时同步用户指定Lite Server实例状态
-     * @param {string} [owner] **参数解释**：实例归属的用户ID。 **约束限制**：可选。 **取值范围**：1 - 64字符，小写字母、数字和中划线。在大账号/有admin权限场景下生效，值通常为当前登录用户ID。 **默认取值**：不涉及。
-     * @param {'ASC' | 'DESC'} [sortDir] **参数解释**：排序方式。 **约束限制**：可选。 **取值范围**： - ASC：升序 - DESC：降序 **默认取值**：ASC。
-     * @param {string} [sortKey] **参数解释**：排序字段。 **约束限制**：可选。 **取值范围**： - createTime：默认值，创建时间。 - updateTime：更新时间。 **默认取值**：createTime。
-     * @param {number} [offset] **参数解释**：分页记录的起始位置偏移量。 **约束限制**：可选。 **取值范围**：0 - 2147483647 **默认取值**：0。
-     * @param {number} [limit] **参数解释**：每一页的数量。 **约束限制**：可选。 **取值范围**：0 - 1024 **默认取值**：10。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public syncDevServers(syncDevServersRequest?: SyncDevServersRequest): Promise<SyncDevServersResponse> {
-        const options = ParamCreater().syncDevServers(syncDevServersRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 修改DevServer实例名称接口用于更改已创建的DevServer实例的名称。该接口适用于以下场景：当用户需要对DevServer实例进行重命名以更好地反映实例的功能或用途时，或者在实例名称不再符合当前项目命名规范时进行更新。使用该接口的前提条件是DevServer实例已存在且用户具有对该实例的管理权限。修改操作完成后，实例的新名称将立即生效，并在所有相关视图和记录中更新。若DevServer实例不存在、用户无权限操作或新名称不符合命名规则，接口将返回相应的错误信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 修改Lite Server实例名称
-     * @param {string} id **参数解释**：DevServer ID。 **约束限制**：必填。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
-     * @param {UpdateServerRequest} updateDevServerRequestBody **参数解释**：更新DevServer名称的请求体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateDevServer(updateDevServerRequest?: UpdateDevServerRequest): Promise<UpdateDevServerResponse> {
-        const options = ParamCreater().updateDevServer(updateDevServerRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 通过运行的实例保存成容器镜像接口用于将正在运行的实例保存为容器镜像。该接口适用于以下场景：用户需要保存当前运行环境以便后续使用或开发时，可通过此接口将实例保存为镜像。使用该接口的前提条件是用户已登录系统并具有访问目标实例的权限，同时实例必须处于运行状态。调用该接口后，系统将保存实例的当前状态为容器镜像，包括安装的依赖包和插件。若用户无权限访问指定实例或实例未运行，接口将返回相应的错误信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5982,11 +6008,16 @@ export class ModelArtsClient {
      * @param {string} [sortKey] **参数解释**：排序的字段，多个字段使用(“,”)逗号分隔。 **约束限制**：不涉及。 **取值范围**：长度限制为128个字符，支持大小写字母、数字、中划线、下划线和逗号。 **默认取值**：不涉及。
      * @param {'CREATE_FAILED' | 'CREATING' | 'DELETED' | 'DELETE_FAILED' | 'DELETING' | 'ERROR' | 'FROZEN' | 'INIT' | 'RUNNING' | 'SNAPSHOTTING' | 'STARTING' | 'START_FAILED' | 'STOPPED' | 'STOPPING'} [status] **参数解释**：实例状态。 **约束限制**：不涉及。 **取值范围**：枚举类型，取值如下： - INIT：初始化 - CREATING：创建中 - STARTING：启动中 - STOPPING：停止中 - DELETING：删除中 - RUNNING：运行中 - STOPPED：已停止 - SNAPSHOTTING：快照中(保存镜像时的状态) - CREATE_FAILED：创建失败 - START_FAILED：启动失败 - DELETE_FAILED：删除失败 - ERROR：错误 - DELETED：已删除 - FROZEN：冻结  **默认取值**：不涉及。
      * @param {string} [workspaceId] **参数解释**：工作空间ID。获取方法请参见[[查询工作空间列表](ListWorkspace.xml)](tag:hc,hk)。未创建工作空间时默认值为“0”，存在创建并使用的工作空间，以实际取值为准。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：0。
-     * @param {string} [flavor] **参数解释**：实例的机器规格。如下规格仅供参考，实际支持的规格以具体区域为准。 modelarts.vm.cpu.2u：Intel CPU通用规格，用于快速数据探索和实验。 modelarts.vm.cpu.8u：Intel CPU算力增强型，适用于密集计算场景下运算。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [flavor] **参数解释**：实例的机器规格编码，支持模糊匹配查询。如下规格仅供参考，实际支持的规格以具体区域为准。 modelarts.vm.cpu.2u：Intel CPU通用规格，用于快速数据探索和实验。 modelarts.vm.cpu.8u：Intel CPU算力增强型，适用于密集计算场景下运算。 **约束限制**：不支持专属资源池的自定义规格查询。 **取值范围**：长度限制1-256字符，支持数字、大小写字母、小数点、下划线或中划线。 **默认取值**：不涉及。
      * @param {string} [imageId] **参数解释**：待创建Notebook实例的镜像，需要指定镜像ID。ID格式为通用唯一识别码（Universally Unique Identifier，简称UUID）。镜像的ID可通过调用[[查询支持的镜像列表](https://support.huaweicloud.com/api-modelarts/ListImage.html)](tag:hc)[[查询支持的镜像列表](https://support.huaweicloud.com/intl/zh-cn/api-modelarts/ListImage.html)](tag:hk)接口获取。 **约束限制**：不涉及。 **取值范围**：调用[[查询支持的镜像列表](https://support.huaweicloud.com/api-modelarts/ListImage.html)](tag:hc)[[查询支持的镜像列表](https://support.huaweicloud.com/intl/zh-cn/api-modelarts/ListImage.html)](tag:hk)接口获取的合法镜像ID列表。 **默认取值**：不涉及。
      * @param {string} [id] **参数解释**：Notebook实例ID。ID格式为通用唯一识别码（Universally Unique Identifier，简称UUID），可通过调用[[查询Notebook实例列表接口](https://support.huaweicloud.com/api-modelarts/ListNotebooks.html#section0)](tag:hc)[[查询Notebook实例列表接口](https://support.huaweicloud.com/intl/zh-cn/api-modelarts/ListNotebooks.html#section0)](tag:hk)获取。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：不涉及。
      * @param {string} [billing] **参数解释**：实例计费类型。 **约束限制**：不涉及。 **取值范围**：枚举类型，取值如下： - COMPUTE：计算资源计费 - STORAGE：存储资源计费 - ALL：所有计费类型  **默认取值**：不涉及。
-     * @param {string} [tags] **参数解释**：实例标签信息。 **约束限制**：不涉及。 **取值范围**：不以逗号，竖划线开头，不以逗号结尾，不出现连续的竖划线和逗号，允许中文、西文、葡文等语言以及空格_.:/&#x3D;+-@特殊字符，且字符间以逗号或者竖划线分割。 **默认取值**：不涉及。
+     * @param {string} [tags] **参数解释**：实例标签信息。 **约束限制**：不涉及。 **取值范围**：不以逗号，竖划线开头，不以逗号结尾，不出现连续的竖划线和逗号，允许中文、西文、葡文等语言以及空格_.:/&#x3D;+-@特殊字符，且字符间以逗号或者竖划线分割。例：tag_key1|tag_value1,tag_key2|tag_value2。 **默认取值**：不涉及。
+     * @param {string} [swrPath] **参数解释**：SWR镜像路径，该参数是针对返回参数NotebookResp中Image的swr_path属性进行模糊匹配查询。 **约束限制**：不涉及。 **取值范围**：长度限制2048个字符，支持数字、大小写字母、下划线、中划线、点号、冒号和斜杠，0-2048个字符。 **默认取值**：不涉及。
+     * @param {string} [poolName] **参数解释**：专属资源池名称，支持模糊匹配查询。 **约束限制**：不涉及。 **取值范围**：长度限制1-64字符，支持数字、大小写字母和中划线。 **默认取值**：不涉及。
+     * @param {string} [description] **参数解释**：实例描述信息，支持模糊匹配查询。 **约束限制**：不涉及。 **取值范围**：长度限制为512字符，不可包含特殊字符&lt;&gt;。 **默认取值**：不涉及。
+     * @param {string} [ip] **参数解释**：节点IP。 **约束限制**：不涉及。 **取值范围**：正确的IPv4地址，暂不支持IPv6地址。 **默认取值**：不涉及。
+     * @param {string} [username] **参数解释**：实例创建用户名称，支持模糊匹配查询。 **约束限制**：不涉及。 **取值范围**：长度限制1-256字符，支持数字、大小写字母、小数点、下划线或中划线。 **默认取值**：不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6083,11 +6114,16 @@ export class ModelArtsClient {
      * @param {string} [sortKey] **参数解释**：排序的字段，多个字段使用(“,”)逗号分隔。 **约束限制**：不涉及。 **取值范围**：长度限制为128个字符，支持大小写字母、数字、中划线、下划线和逗号。 **默认取值**：不涉及。
      * @param {'CREATE_FAILED' | 'CREATING' | 'DELETED' | 'DELETE_FAILED' | 'DELETING' | 'ERROR' | 'FROZEN' | 'INIT' | 'RUNNING' | 'SNAPSHOTTING' | 'STARTING' | 'START_FAILED' | 'STOPPED' | 'STOPPING'} [status] **参数解释**：实例状态。 **约束限制**：不涉及。 **取值范围**：枚举类型，取值如下： - INIT：初始化 - CREATING：创建中 - STARTING：启动中 - STOPPING：停止中 - DELETING：删除中 - RUNNING：运行中 - STOPPED：已停止 - SNAPSHOTTING：快照中(保存镜像时的状态) - CREATE_FAILED：创建失败 - START_FAILED：启动失败 - DELETE_FAILED：删除失败 - ERROR：错误 - DELETED：已删除 - FROZEN：冻结  **默认取值**：不涉及。
      * @param {string} [workspaceId] **参数解释**：工作空间ID。获取方法请参见[[查询工作空间列表](ListWorkspace.xml)](tag:hc,hk)。未创建工作空间时默认值为“0”，存在创建并使用的工作空间，以实际取值为准。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：0。
-     * @param {string} [flavor] **参数解释**：实例的机器规格。如下规格仅供参考，实际支持的规格以具体区域为准。 modelarts.vm.cpu.2u：Intel CPU通用规格，用于快速数据探索和实验。 modelarts.vm.cpu.8u：Intel CPU算力增强型，适用于密集计算场景下运算。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [flavor] **参数解释**：实例的机器规格编码，支持模糊匹配查询。如下规格仅供参考，实际支持的规格以具体区域为准。 modelarts.vm.cpu.2u：Intel CPU通用规格，用于快速数据探索和实验。 modelarts.vm.cpu.8u：Intel CPU算力增强型，适用于密集计算场景下运算。 **约束限制**：不支持专属资源池的自定义规格查询。 **取值范围**：长度限制1-256字符，支持数字、大小写字母、小数点、下划线或中划线。 **默认取值**：不涉及。
      * @param {string} [imageId] **参数解释**：待创建Notebook实例的镜像，需要指定镜像ID。ID格式为通用唯一识别码（Universally Unique Identifier，简称UUID）。镜像的ID可通过调用[[查询支持的镜像列表](https://support.huaweicloud.com/api-modelarts/ListImage.html)](tag:hc)[[查询支持的镜像列表](https://support.huaweicloud.com/intl/zh-cn/api-modelarts/ListImage.html)](tag:hk)接口获取。 **约束限制**：不涉及。 **取值范围**：调用[[查询支持的镜像列表](https://support.huaweicloud.com/api-modelarts/ListImage.html)](tag:hc)[[查询支持的镜像列表](https://support.huaweicloud.com/intl/zh-cn/api-modelarts/ListImage.html)](tag:hk)接口获取的合法镜像ID列表。 **默认取值**：不涉及。
      * @param {string} [id] **参数解释**：Notebook实例ID。ID格式为通用唯一识别码（Universally Unique Identifier，简称UUID），可通过调用[[查询Notebook实例列表接口](https://support.huaweicloud.com/api-modelarts/ListNotebooks.html#section0)](tag:hc)[[查询Notebook实例列表接口](https://support.huaweicloud.com/intl/zh-cn/api-modelarts/ListNotebooks.html#section0)](tag:hk)获取。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：不涉及。
      * @param {string} [billing] **参数解释**：实例计费类型。 **约束限制**：不涉及。 **取值范围**：枚举类型，取值如下： - COMPUTE：计算资源计费 - STORAGE：存储资源计费 - ALL：所有计费类型  **默认取值**：不涉及。
-     * @param {string} [tags] **参数解释**：实例标签信息。 **约束限制**：不涉及。 **取值范围**：不以逗号，竖划线开头，不以逗号结尾，不出现连续的竖划线和逗号，允许中文、西文、葡文等语言以及空格_.:/&#x3D;+-@特殊字符，且字符间以逗号或者竖划线分割。 **默认取值**：不涉及。
+     * @param {string} [tags] **参数解释**：实例标签信息。 **约束限制**：不涉及。 **取值范围**：不以逗号，竖划线开头，不以逗号结尾，不出现连续的竖划线和逗号，允许中文、西文、葡文等语言以及空格_.:/&#x3D;+-@特殊字符，且字符间以逗号或者竖划线分割。例：tag_key1|tag_value1,tag_key2|tag_value2。 **默认取值**：不涉及。
+     * @param {string} [swrPath] **参数解释**：SWR镜像路径，该参数是针对返回参数NotebookResp中Image的swr_path属性进行模糊匹配查询。 **约束限制**：不涉及。 **取值范围**：长度限制2048个字符，支持数字、大小写字母、下划线、中划线、点号、冒号和斜杠，0-2048个字符。 **默认取值**：不涉及。
+     * @param {string} [poolName] **参数解释**：专属资源池名称，支持模糊匹配查询。 **约束限制**：不涉及。 **取值范围**：长度限制1-64字符，支持数字、大小写字母和中划线。 **默认取值**：不涉及。
+     * @param {string} [description] **参数解释**：实例描述信息，支持模糊匹配查询。 **约束限制**：不涉及。 **取值范围**：长度限制为512字符，不可包含特殊字符&lt;&gt;。 **默认取值**：不涉及。
+     * @param {string} [ip] **参数解释**：节点IP。 **约束限制**：不涉及。 **取值范围**：正确的IPv4地址，暂不支持IPv6地址。 **默认取值**：不涉及。
+     * @param {string} [username] **参数解释**：实例创建用户名称，支持模糊匹配查询。 **约束限制**：不涉及。 **取值范围**：长度限制1-256字符，支持数字、大小写字母、小数点、下划线或中划线。 **默认取值**：不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6952,6 +6988,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * Lite Server服务器挂载磁盘接口用于将额外的磁盘挂载到Lite Server服务器上。该接口适用于以下场景：当用户需要扩展Lite Server服务器的存储空间以满足更大的数据存储需求时，可以通过此接口将指定的磁盘挂载到服务器上。使用该接口的前提条件是Lite Server服务器已创建且处于运行状态、或者停止状态，用户具有挂载磁盘的权限，且指定的磁盘已存在且未被其他服务器使用。挂载操作完成后，磁盘将成功挂载到Lite Server服务器上，用户可以访问和使用新增的存储空间。若Lite Server服务器不存在、指定的磁盘不存在或已被使用，或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        attachDevServerVolume(attachDevServerVolumeRequest?: AttachDevServerVolumeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dev-servers/{id}/attachvolume",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (attachDevServerVolumeRequest !== null && attachDevServerVolumeRequest !== undefined) {
+                if (attachDevServerVolumeRequest instanceof AttachDevServerVolumeRequest) {
+                    id = attachDevServerVolumeRequest.id;
+                    body = attachDevServerVolumeRequest.body
+                } else {
+                    id = attachDevServerVolumeRequest['id'];
+                    body = attachDevServerVolumeRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling attachDevServerVolume.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 动态挂载Notebook存储接口支持将存储动态挂载到运行中的Notebook实例的指定文件目录。调用该接口后，系统将在Notebook实例中**异步**挂载指定的存储实例，挂载完成后用户可在容器中以文件系统方式读写存储实例中的文件。若用户无权限访问指定实例或Notebook实例未运行，接口将返回相应的错误信息。
          * 
          * 支持的存储类型：
@@ -7296,6 +7378,90 @@ export const ParamCreater = function () {
         
             if (poolName === null || poolName === undefined) {
             throw new RequiredError('poolName','Required parameter poolName was null or undefined when calling batchDeletePoolTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'pool_name': poolName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量操作Lite Server实例接口用于对多个Lite Server实例进行统一操作，如启动、停止、重启或删除等。该接口适用于以下场景：当需要对多个Lite Server实例进行相同的操作，例如在维护期间批量停止实例、更新配置后批量重启实例或清理不再需要的实例时，用户可通过此接口高效地完成批量操作。使用该接口的前提条件是目标Lite Server实例已存在且用户具有相应的操作权限。操作完成后，所有指定的Lite Server实例将根据请求完成相应的状态变更或被移除，相关资源和配置也将被相应调整或清理。若目标Lite Server实例不存在、用户无权限操作或请求参数不正确，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDevServersAction(batchDevServersActionRequest?: BatchDevServersActionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dev-servers/action",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchDevServersActionRequest !== null && batchDevServersActionRequest !== undefined) {
+                if (batchDevServersActionRequest instanceof BatchDevServersActionRequest) {
+                    body = batchDevServersActionRequest.body
+                } else {
+                    body = batchDevServersActionRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 节点批量排水接口用于集中停止指定节点的业务处理能力并释放相关资源。该接口适用于以下场景：当系统需进行紧急故障隔离、资源回收、版本升级或维护操作时，用户可通过此接口批量暂停目标节点的业务流量，确保操作期间服务稳定性。使用该接口的前提条件包括：目标节点已存在且用户具备管理员权限，节点需处于运行状态且未被锁定，资源池需满足排水后容量约束（如最小可用节点数），同时需提供有效的节点列表及排水策略（如立即排水或延迟排水）作为输入参数。操作完成后，指定节点将停止接收新任务并逐步释放资源，原有业务数据将根据策略保留或迁移。若节点不存在、用户权限不足、节点状态异常（如维护中）、资源池容量不足或输入参数缺失，接口将返回对应错误信息（如404未找到节点、403权限拒绝、400参数校验失败等）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDrainPoolNodes(batchDrainPoolNodesRequest?: BatchDrainPoolNodesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/pools/{pool_name}/nodes/batch-drain",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let poolName;
+
+            if (batchDrainPoolNodesRequest !== null && batchDrainPoolNodesRequest !== undefined) {
+                if (batchDrainPoolNodesRequest instanceof BatchDrainPoolNodesRequest) {
+                    poolName = batchDrainPoolNodesRequest.poolName;
+                    body = batchDrainPoolNodesRequest.body
+                } else {
+                    poolName = batchDrainPoolNodesRequest['pool_name'];
+                    body = batchDrainPoolNodesRequest['body'];
+                }
+            }
+
+        
+            if (poolName === null || poolName === undefined) {
+            throw new RequiredError('poolName','Required parameter poolName was null or undefined when calling batchDrainPoolNodes.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7677,6 +7843,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * Lite Server服务器绑定的EIP接口用于将弹性公网IP（EIP）绑定到Lite Server服务器上。该接口适用于以下场景：当用户需要为Lite Server服务器分配一个固定的公网IP地址，以便从外部网络访问服务器时，可以通过此接口将指定的EIP绑定到服务器上。使用该接口的前提条件是Lite Server服务器已创建且处于运行状态，用户具有绑定EIP的权限，且指定的EIP已存在且未被其他资源使用。绑定操作完成后，EIP将成功绑定到Lite Server服务器上，服务器可以通过该EIP从外部网络访问。若Lite Server服务器不存在、已处于停止状态、指定的EIP不存在或已被使用，或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        bindDevServerPublicIP(bindDevServerPublicIPRequest?: BindDevServerPublicIPRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dev-servers/{id}/publicips",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (bindDevServerPublicIPRequest !== null && bindDevServerPublicIPRequest !== undefined) {
+                if (bindDevServerPublicIPRequest instanceof BindDevServerPublicIPRequest) {
+                    id = bindDevServerPublicIPRequest.id;
+                    body = bindDevServerPublicIPRequest.body
+                } else {
+                    id = bindDevServerPublicIPRequest['id'];
+                    body = bindDevServerPublicIPRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling bindDevServerPublicIP.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 本接口用于将生成的apikey与指定服务进行绑定，适用于应用程序需要调用特定服务的场景。调用此接口前，确保已成功创建服务实例，并获取到有效的apikey。绑定成功后，apikey将作为服务调用时的身份验证凭证，确保仅授权用户能够访问该服务。如果尝试绑定已失效的apikey，将返回相应的异常信息，提示用户检查apikey的有效性和绑定状态。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7806,6 +8018,98 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'algorithm_id': algorithmId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 切换Lite Server服务器操作系统镜像接口用于更换Lite Server服务器当前使用的操作系统镜像。该接口适用于以下场景：当用户需要更换操作系统以适应不同的开发或测试需求时，可以通过此接口切换指定的Lite Server服务器操作系统镜像。使用该接口的前提条件是Lite Server服务器已存在且处于停止状态，用户具有切换操作系统的权限。切换操作完成后，Lite Server服务器将安装新的操作系统镜像，并重新进入运行状态，若Lite Server服务器不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeDevServerOS(changeDevServerOSRequest?: ChangeDevServerOSRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dev-servers/{id}/changeos",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (changeDevServerOSRequest !== null && changeDevServerOSRequest !== undefined) {
+                if (changeDevServerOSRequest instanceof ChangeDevServerOSRequest) {
+                    id = changeDevServerOSRequest.id;
+                    body = changeDevServerOSRequest.body
+                } else {
+                    id = changeDevServerOSRequest['id'];
+                    body = changeDevServerOSRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling changeDevServerOS.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 切换Lite Server超节点服务器操作系统镜像接口用于更换Lite Server超节点服务器当前使用的操作系统镜像。该接口适用于以下场景：当用户需要更换操作系统以适应不同的开发或测试需求时，可以通过此接口切换指定的Lite Server超节点服务器操作系统镜像。使用该接口的前提条件是Lite Server超节点服务器已存在且处于停止状态，用户具有切换操作系统的权限。切换操作完成后，Lite Server超节点服务器将安装新的操作系统镜像，并重新进入运行状态，若Lite Server超节点服务器不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeHyperinstanceOS(changeHyperinstanceOSRequest?: ChangeHyperinstanceOSRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}/changeos",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (changeHyperinstanceOSRequest !== null && changeHyperinstanceOSRequest !== undefined) {
+                if (changeHyperinstanceOSRequest instanceof ChangeHyperinstanceOSRequest) {
+                    id = changeHyperinstanceOSRequest.id;
+                    body = changeHyperinstanceOSRequest.body
+                } else {
+                    id = changeHyperinstanceOSRequest['id'];
+                    body = changeHyperinstanceOSRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling changeHyperinstanceOS.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8104,6 +8408,166 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建Lite Server接口用于创建LiteServer弹性云服务器、裸金属服务器及超节点服务器。该接口适用于以下场景：用户需要根据业务需求快速部署和配置不同类型的服务器资源。使用该接口的前提条件是用户已登录且具有创建Lite Server的权限，并且需要提供服务器类型、规格、网络配置等必要参数。创建操作完成后，系统将返回新创建的Lite Server实例信息，包括实例ID、状态等。若用户无权限、参数配置错误或资源不足，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDevServer(createDevServerRequest?: CreateDevServerRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dev-servers",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createDevServerRequest !== null && createDevServerRequest !== undefined) {
+                if (createDevServerRequest instanceof CreateDevServerRequest) {
+                    body = createDevServerRequest.body
+                } else {
+                    body = createDevServerRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建Lite Server任务接口用于在Lite Server上创建新的任务。该接口适用于以下场景：当用户需要在Lite Server上启动新的开发、测试或部署任务时，可以通过此接口创建并配置任务。使用该接口的前提条件是用户具有创建任务的权限，并且提供的任务配置参数符合要求。创建操作完成后，新的Lite Server任务将被成功创建，并返回任务ID和其他相关信息。若用户无权限操作、提供的参数不正确或系统资源不足，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDevServerJob(createDevServerJobRequest?: CreateDevServerJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dev-servers/jobs",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createDevServerJobRequest !== null && createDevServerJobRequest !== undefined) {
+                if (createDevServerJobRequest instanceof CreateDevServerJobRequest) {
+                    body = createDevServerJobRequest.body
+                } else {
+                    body = createDevServerJobRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建Hyper Cluster接口用于在系统中创建一个新的Hyper Cluster。该接口适用于以下场景：当用户需要使用超节点网络时，可以通过此接口创建Hyper Cluster。使用该接口的前提条件是用户已登录并具有创建Hyper Cluster的权限，且系统中已配置了必要的资源。创建操作完成后，将生成一个新的超节点网络，并返回超节点网络的详细信息，包括ID、名称、子网信息等。若用户无权限操作、系统中缺少必要的资源或配置参数无效，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createHyperCluster(createHyperClusterRequest?: CreateHyperClusterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dev-servers/hyper-clusters",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createHyperClusterRequest !== null && createHyperClusterRequest !== undefined) {
+                if (createHyperClusterRequest instanceof CreateHyperClusterRequest) {
+                    body = createHyperClusterRequest.body
+                } else {
+                    body = createHyperClusterRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建Lite Server超节点标签接口用于为Lite Server超节点添加自定义标签。该接口适用于以下场景：当用户需要对Lite Server超节点进行分类管理或标记特定信息时，可以通过此接口为指定的超节点创建标签。使用该接口的前提条件是Lite Server超节点已存在，用户具有创建标签的权限。创建操作完成后，标签将被成功添加到指定的超节点上，用户可以通过标签进行快速查找和管理。若Lite Server超节点不存在、标签已存在或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createHyperinstanceTags(createHyperinstanceTagsRequest?: CreateHyperinstanceTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}/tags/create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (createHyperinstanceTagsRequest !== null && createHyperinstanceTagsRequest !== undefined) {
+                if (createHyperinstanceTagsRequest instanceof CreateHyperinstanceTagsRequest) {
+                    id = createHyperinstanceTagsRequest.id;
+                    body = createHyperinstanceTagsRequest.body
+                } else {
+                    id = createHyperinstanceTagsRequest['id'];
+                    body = createHyperinstanceTagsRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling createHyperinstanceTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -8639,6 +9103,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建RoCE网络接口用于在系统中创建一个新的RoCE网络。该接口适用于以下场景：当用户需要为高性能计算或低延迟应用创建专用的RoCE网络时，可以通过此接口创建并配置RoCE网络。使用该接口的前提条件是用户已登录并具有创建RoCE网络的权限，且系统中已配置了必要的网络资源。创建操作完成后，将生成一个新的RoCE网络，并返回网络的详细信息，包括网络ID、子网信息、配置参数等。若用户无权限操作、系统中缺少必要的网络资源或网络配置参数无效，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRoceNetwork(createRoceNetworkRequest?: CreateRoceNetworkRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dev-servers/networks",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createRoceNetworkRequest !== null && createRoceNetworkRequest !== undefined) {
+                if (createRoceNetworkRequest instanceof CreateRoceNetworkRequest) {
+                    body = createRoceNetworkRequest.body
+                } else {
+                    body = createRoceNetworkRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建训练作业镜像保存任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8919,6 +9421,209 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除Lite Server实例接口用于移除已创建的Lite Server实例。该接口适用于以下场景：当Lite Server按需实例不再需要使用时或者创建失败的实例以及处于ERROR状态时，用户可通过此接口删除指定的Lite Server实例。使用该接口的前提条件是Lite Server实例已存在且用户具有管理员权限。删除操作完成后，Lite Server实例将被永久移除，相关资源也将被清理。若Lite Server实例不存在或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDevServer(deleteDevServerRequest?: DeleteDevServerRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/dev-servers/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (deleteDevServerRequest !== null && deleteDevServerRequest !== undefined) {
+                if (deleteDevServerRequest instanceof DeleteDevServerRequest) {
+                    id = deleteDevServerRequest.id;
+                } else {
+                    id = deleteDevServerRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteDevServer.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除Lite Server Job接口用于批量移除已创建的Lite Server Job。该接口适用于以下场景：当多个Lite Server Job已完成、配置错误或需要清理资源时，用户可以通过此接口批量删除指定的Lite Server Job。使用该接口的前提条件是目标Lite Server Job已存在且用户具有管理员权限。删除操作完成后，指定的Lite Server Job将被永久移除，相关资源和配置也将被清理。若目标Lite Server Job不存在、用户无权限操作或请求参数不正确，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDevServerJobs(deleteDevServerJobsRequest?: DeleteDevServerJobsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/dev-servers/jobs",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (deleteDevServerJobsRequest !== null && deleteDevServerJobsRequest !== undefined) {
+                if (deleteDevServerJobsRequest instanceof DeleteDevServerJobsRequest) {
+                    body = deleteDevServerJobsRequest.body
+                } else {
+                    body = deleteDevServerJobsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除Hyper Cluster实例接口用于移除已创建的Hyper Cluster。该接口适用于以下场景：当超节点网络配置错误或需要清理资源时，用户可通过此接口删除指定的超节点网络。使用该接口的前提条件是Hyper Cluster实例已存在且用户具有管理员权限。删除操作完成后，超节点网络将被永久移除，相关资源和配置也将被清理。若Hyper Cluster实例不存在或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteHyperCluster(deleteHyperClusterRequest?: DeleteHyperClusterRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/dev-servers/hyper-clusters/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let id;
+            
+            let type;
+
+            if (deleteHyperClusterRequest !== null && deleteHyperClusterRequest !== undefined) {
+                if (deleteHyperClusterRequest instanceof DeleteHyperClusterRequest) {
+                    id = deleteHyperClusterRequest.id;
+                    type = deleteHyperClusterRequest.type;
+                } else {
+                    id = deleteHyperClusterRequest['id'];
+                    type = deleteHyperClusterRequest['type'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteHyperCluster.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除Lite Server超节点实例接口用于删除按需超节点实例同时移除处于ERROR状态的Lite Server超节点实例。该接口适用于以下场景：当超节点实例因创建失败、或其他原因进入ERROR状态；按需超节点实例，用户可以通过此接口删除指定的超节点实例。使用该接口的前提条件是用户已登录并具有删除超节点实例的权限，且指定的超节点实例是按需且处于运行状态、或者处于ERROR状态。删除操作完成后，指定的超节点实例将被永久移除，相关资源也将被清理。若指定的超节点实例不存在、未处于ERROR状态或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteHyperinstance(deleteHyperinstanceRequest?: DeleteHyperinstanceRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (deleteHyperinstanceRequest !== null && deleteHyperinstanceRequest !== undefined) {
+                if (deleteHyperinstanceRequest instanceof DeleteHyperinstanceRequest) {
+                    id = deleteHyperinstanceRequest.id;
+                } else {
+                    id = deleteHyperinstanceRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteHyperinstance.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除Lite Server超节点标签接口用于移除已创建的Lite Server超节点标签。该接口适用于以下场景：当用户需要清理不再需要的标签或修正标签错误时，可以通过此接口删除指定的超节点标签。使用该接口的前提条件是Lite Server超节点已存在，且该超节点上已存在要删除的标签，用户具有删除标签的权限。删除操作完成后，指定的标签将从超节点上移除，超节点的其他配置和数据保持不变。若Lite Server超节点不存在、标签不存在或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteHyperinstanceTags(deleteHyperinstanceTagsRequest?: DeleteHyperinstanceTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}/tags/delete",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (deleteHyperinstanceTagsRequest !== null && deleteHyperinstanceTagsRequest !== undefined) {
+                if (deleteHyperinstanceTagsRequest instanceof DeleteHyperinstanceTagsRequest) {
+                    id = deleteHyperinstanceTagsRequest.id;
+                    body = deleteHyperinstanceTagsRequest.body
+                } else {
+                    id = deleteHyperinstanceTagsRequest['id'];
+                    body = deleteHyperinstanceTagsRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteHyperinstanceTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -9614,6 +10319,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * Lite Server服务器卸载磁盘接口用于从Lite Server服务器上卸载已挂载的磁盘。该接口适用于以下场景：当用户需要释放存储资源或重新分配磁盘时，可以通过此接口卸载指定的磁盘。使用该接口的前提条件是Lite Server服务器已创建且处于运行状态、或者停止状态，用户具有卸载磁盘的权限，且指定的磁盘已挂载到服务器上。卸载操作完成后，磁盘将从Lite Server服务器上成功卸载，用户可以将其挂载到其他服务器或进行其他操作。若Lite Server服务器不存在、指定的磁盘未挂载到服务器上，或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        detachDevServerVolume(detachDevServerVolumeRequest?: DetachDevServerVolumeRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/dev-servers/{id}/detachvolume/{volume_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+            
+            let volumeId;
+
+            if (detachDevServerVolumeRequest !== null && detachDevServerVolumeRequest !== undefined) {
+                if (detachDevServerVolumeRequest instanceof DetachDevServerVolumeRequest) {
+                    id = detachDevServerVolumeRequest.id;
+                    volumeId = detachDevServerVolumeRequest.volumeId;
+                } else {
+                    id = detachDevServerVolumeRequest['id'];
+                    volumeId = detachDevServerVolumeRequest['volume_id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling detachDevServerVolume.');
+            }
+            if (volumeId === null || volumeId === undefined) {
+            throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling detachDevServerVolume.');
+            }
+
+            options.pathParams = { 'id': id,'volume_id': volumeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 动态卸载Notebook存储接口用于从运行中的Notebook实例中卸载已挂载的动态存储实例。
          * 
          * 适用场景：用户需要清理或重新组织Notebook实例的挂载资源时，可通过此接口卸载指定的存储实例。使用该接口的前提条件是用户已登录系统并具有访问目标Notebook实例的权限，同时Notebook实例必须处于运行状态且存储实例处于MOUNTED / UNMOUNT_FAILED / MOUNT_FAILED状态。调用该接口后，系统将卸载指定的存储实例，Notebook容器将无法再操作存储中的文件或对象，但存储中的文件或对象保持不变。若用户无权限访问指定实例或Notebook实例未运行，接口将返回相应的错误信息。
@@ -9718,6 +10467,280 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询Lite Server镜像详情接口用于获取指定Lite Server镜像的详细信息。该接口适用于以下场景：当用户需要了解某个Lite Server镜像的具体配置和属性，以便在创建或调整Lite Server实例时选择合适的镜像时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询镜像详情的权限，且指定的镜像已存在。查询操作完成后，接口将返回指定Lite Server镜像的详细信息，包括镜像ID、名称、操作系统、版本、创建时间等。若用户无权限操作、指定的镜像不存在或镜像ID无效，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getDevServerImage(getDevServerImageRequest?: GetDevServerImageRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/images/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (getDevServerImageRequest !== null && getDevServerImageRequest !== undefined) {
+                if (getDevServerImageRequest instanceof GetDevServerImageRequest) {
+                    id = getDevServerImageRequest.id;
+                } else {
+                    id = getDevServerImageRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling getDevServerImage.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Lite Server Job详情接口用于获取指定Lite Server Job的详细信息。该接口适用于以下场景：当用户需要查看某个Lite Server Job的执行状态、配置参数、日志信息等详细数据时，可以通过此接口获取相关信息。使用该接口的前提条件是目标Lite Server Job已存在且用户具有查看权限。查询操作完成后，接口将返回指定Lite Server Job的详细信息，包括但不限于Job ID、状态、创建时间、执行时间、配置参数和日志等。若目标Lite Server Job不存在或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getDevServerJob(getDevServerJobRequest?: GetDevServerJobRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/jobs/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (getDevServerJobRequest !== null && getDevServerJobRequest !== undefined) {
+                if (getDevServerJobRequest instanceof GetDevServerJobRequest) {
+                    id = getDevServerJobRequest.id;
+                } else {
+                    id = getDevServerJobRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling getDevServerJob.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据服务id获取Lite Server部署服务详情。该接口适用于以下场景：当用户需要查看部署服务详情，以便查看已部署服务的状态、api等信息时，可以通过此接口获取服务详情。使用该接口的前提条件是用户具有查看服务的权限。查询操作完成后，接口将返回此部署服务的详细信息，包括名称、状态、描述、所用模型、实例详情等信息。若用户无权限操作或无相应id，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getDevServerJobService(getDevServerJobServiceRequest?: GetDevServerJobServiceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/jobs/services/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (getDevServerJobServiceRequest !== null && getDevServerJobServiceRequest !== undefined) {
+                if (getDevServerJobServiceRequest instanceof GetDevServerJobServiceRequest) {
+                    id = getDevServerJobServiceRequest.id;
+                } else {
+                    id = getDevServerJobServiceRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling getDevServerJobService.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取Lite Server Job模板详情接口用于获取指定Lite Server Job模板的详细信息。该接口适用于以下场景：当用户需要查看某个特定Job模板的详细配置，以便了解其参数设置、使用说明等信息时，可以通过此接口获取模板详情。查询操作完成后，接口将返回指定模板的详细信息，包括模板ID、名称、描述、配置参数等。若目标模板不存在，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getDevServerJobTemplate(getDevServerJobTemplateRequest?: GetDevServerJobTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/jobs/templates/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (getDevServerJobTemplateRequest !== null && getDevServerJobTemplateRequest !== undefined) {
+                if (getDevServerJobTemplateRequest instanceof GetDevServerJobTemplateRequest) {
+                    id = getDevServerJobTemplateRequest.id;
+                } else {
+                    id = getDevServerJobTemplateRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling getDevServerJobTemplate.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Operation详情接口用于获取指定Operation的详细信息。该接口适用于以下场景：当用户需要了解某个Operation的具体执行情况和状态，以便进行故障排查或操作审计时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询Operation详情的权限，且指定的Operation已存在。查询操作完成后，接口将返回指定Operation的详细信息，包括Operation ID、操作类型、执行状态、开始时间、结束时间、操作结果等。若用户无权限操作、指定的Operation不存在或Operation ID无效，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getDevServerOperation(getDevServerOperationRequest?: GetDevServerOperationRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/{id}/operation/{operation_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+            
+            let operationId;
+
+            if (getDevServerOperationRequest !== null && getDevServerOperationRequest !== undefined) {
+                if (getDevServerOperationRequest instanceof GetDevServerOperationRequest) {
+                    id = getDevServerOperationRequest.id;
+                    operationId = getDevServerOperationRequest.operationId;
+                } else {
+                    id = getDevServerOperationRequest['id'];
+                    operationId = getDevServerOperationRequest['operation_id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling getDevServerOperation.');
+            }
+            if (operationId === null || operationId === undefined) {
+            throw new RequiredError('operationId','Required parameter operationId was null or undefined when calling getDevServerOperation.');
+            }
+
+            options.pathParams = { 'id': id,'operation_id': operationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Hyper Cluster实例详情接口用于获取指定Hyper Cluster实例的详细信息。该接口适用于以下场景：当用户需要了解某个超节点网络的具体配置和状态，以便进行管理和监控时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询Hyper Cluster详情的权限，且指定的超节点网络已存在。查询操作完成后，接口将返回指定超节点网络的详细信息，包括ID、名称、子网信息等。若用户无权限操作、指定的超节点网络不存在或ID无效，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getHyperCluster(getHyperClusterRequest?: GetHyperClusterRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/hyper-clusters/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let id;
+            
+            let type;
+
+            if (getHyperClusterRequest !== null && getHyperClusterRequest !== undefined) {
+                if (getHyperClusterRequest instanceof GetHyperClusterRequest) {
+                    id = getHyperClusterRequest.id;
+                    type = getHyperClusterRequest.type;
+                } else {
+                    id = getHyperClusterRequest['id'];
+                    type = getHyperClusterRequest['type'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling getHyperCluster.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定超节点实例详情接口用于获取特定Lite Server超节点实例的详细信息。该接口适用于以下场景：当用户需要查看某个具体超节点实例的配置、状态和使用情况时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询超节点实例的权限，且指定的超节点实例已存在。查询操作完成后，接口将返回指定超节点实例的详细信息，包括实例ID、操作系统、运行状态、资源使用情况等。若用户无权限操作、指定的超节点实例不存在或实例ID无效，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getHyperinstance(getHyperinstanceRequest?: GetHyperinstanceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (getHyperinstanceRequest !== null && getHyperinstanceRequest !== undefined) {
+                if (getHyperinstanceRequest instanceof GetHyperinstanceRequest) {
+                    id = getHyperinstanceRequest.id;
+                } else {
+                    id = getHyperinstanceRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling getHyperinstance.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询Operation详情接口用于获取指定Operation的详细信息。该接口适用于以下场景：当用户需要了解某个Operation的具体执行情况和状态，以便进行故障排查或操作审计时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询Operation详情的权限，且指定的Operation已存在。查询操作完成后，接口将返回指定Operation的详细信息，包括Operation ID、操作类型、执行状态、开始时间、结束时间、操作结果等。若用户无权限操作、指定的Operation不存在或Operation ID无效，接口将返回相应的错误信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9757,6 +10780,87 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'id': id,'operation_id': operationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Lite Server超节点扩缩容支持规格列表及容量测算接口用于获取Lite Server超节点支持的扩缩容规格列表，并进行容量测算。该接口适用于以下场景：当用户需要了解Lite Server超节点支持的扩缩容选项，以便在调整超节点资源时选择合适的规格，并评估扩缩容后的资源需求时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询超节点扩缩容规格的权限，且指定的超节点已存在。查询操作完成后，接口将返回支持的扩缩容规格列表及容量测算结果，包括规格ID、CPU、内存、存储等详细配置和扩缩容后的资源使用情况。若用户无权限操作、指定的超节点不存在或系统中没有可用的扩缩容规格，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getScaleEvaluationsDevServer(getScaleEvaluationsDevServerRequest?: GetScaleEvaluationsDevServerRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}/scale-evaluations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (getScaleEvaluationsDevServerRequest !== null && getScaleEvaluationsDevServerRequest !== undefined) {
+                if (getScaleEvaluationsDevServerRequest instanceof GetScaleEvaluationsDevServerRequest) {
+                    id = getScaleEvaluationsDevServerRequest.id;
+                } else {
+                    id = getScaleEvaluationsDevServerRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling getScaleEvaluationsDevServer.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例的Tor信息接口用于获取指定实例的Top-of-Rack（Tor）交换机相关信息。该接口适用于以下场景：当用户需要了解实例连接的Tor交换机的详细信息，以便进行网络配置时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询实例Tor信息的权限，且指定的实例已存在。查询操作完成后，接口将返回指定实例的Tor信息。若用户无权限操作、指定的实例不存在或实例未连接到Tor交换机，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getTopologies(getTopologiesRequest?: GetTopologiesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/instance-physical-topologies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let id;
+            
+            let resourceId;
+
+            if (getTopologiesRequest !== null && getTopologiesRequest !== undefined) {
+                if (getTopologiesRequest instanceof GetTopologiesRequest) {
+                    id = getTopologiesRequest.id;
+                    resourceId = getTopologiesRequest.resourceId;
+                } else {
+                    id = getTopologiesRequest['id'];
+                    resourceId = getTopologiesRequest['resource_id'];
+                }
+            }
+
+        
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (resourceId !== null && resourceId !== undefined) {
+                localVarQueryParameter['resource_id'] = resourceId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -9833,6 +10937,361 @@ export const ParamCreater = function () {
             }
             if (workspaceId !== null && workspaceId !== undefined) {
                 localVarQueryParameter['workspace_id'] = workspaceId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户Lite Server列表接口用于获取指定租户的所有Lite Server实例信息。该接口适用于以下场景：当用户需要查看其租户下所有Lite Server实例的详细信息，以便进行管理和监控时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询租户Lite Server列表的权限。查询操作完成后，接口将返回租户下所有Lite Server实例的详细信息，包括实例ID、名称、状态、资源配置等。若用户无权限操作或租户下没有Lite Server实例，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAllDevServers() {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/all",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户Hyperinstance列表接口用于获取指定租户的所有Hyperinstance实例信息。该接口适用于以下场景：当用户需要查看其租户下所有Hyperinstance实例的详细信息，以便进行管理和监控时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询租户Hyperinstance列表的权限。查询操作完成后，接口将返回租户下所有Hyperinstance实例的详细信息，包括实例ID、名称、状态、资源配置等。若用户无权限操作或租户下没有Hyperinstance实例，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAllHyperinstances() {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/hyperinstance/all",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询规格列表接口用于获取系统中所有可用的资源规格信息。该接口适用于以下场景：当用户需要了解可用的资源规格，以便在创建或调整Lite Server实例时选择合适的配置时，可以通过此接口获取规格列表。使用该接口的前提条件是用户已登录并具有查询规格的权限。查询操作完成后，接口将返回所有可用的资源规格信息，包括规格ID、CPU、内存、存储等详细配置。若用户无权限操作或系统中没有可用的资源规格，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDevServerFlavors(listDevServerFlavorsRequest?: ListDevServerFlavorsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/flavors",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let serverType;
+            
+            let arch;
+            
+            let chargingMode;
+
+            if (listDevServerFlavorsRequest !== null && listDevServerFlavorsRequest !== undefined) {
+                if (listDevServerFlavorsRequest instanceof ListDevServerFlavorsRequest) {
+                    serverType = listDevServerFlavorsRequest.serverType;
+                    arch = listDevServerFlavorsRequest.arch;
+                    chargingMode = listDevServerFlavorsRequest.chargingMode;
+                } else {
+                    serverType = listDevServerFlavorsRequest['server_type'];
+                    arch = listDevServerFlavorsRequest['arch'];
+                    chargingMode = listDevServerFlavorsRequest['charging_mode'];
+                }
+            }
+
+        
+            if (serverType !== null && serverType !== undefined) {
+                localVarQueryParameter['server_type'] = serverType;
+            }
+            if (arch !== null && arch !== undefined) {
+                localVarQueryParameter['arch'] = arch;
+            }
+            if (chargingMode !== null && chargingMode !== undefined) {
+                localVarQueryParameter['charging_mode'] = chargingMode;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Lite Server镜像列表接口用于获取系统中所有可用的Lite Server镜像信息。该接口适用于以下场景：当用户需要了解可用的Lite Server镜像，以便在创建或调整Lite Server实例时选择合适的镜像时，可以通过此接口获取镜像列表。使用该接口的前提条件是用户已登录并具有查询镜像列表的权限。查询操作完成后，接口将返回所有可用的Lite Server镜像信息，包括镜像ID、名称、架构类型等。若用户无权限操作或系统中没有可用的镜像，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDevServerImages(listDevServerImagesRequest?: ListDevServerImagesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/images",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let serverType;
+            
+            let flavorName;
+
+            if (listDevServerImagesRequest !== null && listDevServerImagesRequest !== undefined) {
+                if (listDevServerImagesRequest instanceof ListDevServerImagesRequest) {
+                    serverType = listDevServerImagesRequest.serverType;
+                    flavorName = listDevServerImagesRequest.flavorName;
+                } else {
+                    serverType = listDevServerImagesRequest['server_type'];
+                    flavorName = listDevServerImagesRequest['flavor_name'];
+                }
+            }
+
+        
+            if (serverType !== null && serverType !== undefined) {
+                localVarQueryParameter['server_type'] = serverType;
+            }
+            if (flavorName !== null && flavorName !== undefined) {
+                localVarQueryParameter['flavor_name'] = flavorName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取Lite Server Job模板列表接口用于获取可用的Lite Server Job模板列表。该接口适用于以下场景：当用户需要查看可用的Job模板，以便选择合适的模板来创建新的Lite Server任务时，可以通过此接口获取模板列表。查询操作完成后，接口将返回所有可用的Lite Server Job模板列表，包括模板ID、名称、描述等信息。若系统中无可用模板，接口将返回相应的信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDevServerJobTemplates(listDevServerJobTemplatesRequest?: ListDevServerJobTemplatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/jobs/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let id;
+            
+            let name;
+            
+            let type;
+
+            if (listDevServerJobTemplatesRequest !== null && listDevServerJobTemplatesRequest !== undefined) {
+                if (listDevServerJobTemplatesRequest instanceof ListDevServerJobTemplatesRequest) {
+                    id = listDevServerJobTemplatesRequest.id;
+                    name = listDevServerJobTemplatesRequest.name;
+                    type = listDevServerJobTemplatesRequest.type;
+                } else {
+                    id = listDevServerJobTemplatesRequest['id'];
+                    name = listDevServerJobTemplatesRequest['name'];
+                    type = listDevServerJobTemplatesRequest['type'];
+                }
+            }
+
+        
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Lite Server Job列表接口用于获取Lite Server Job的列表信息，并支持按照状态、ID等相关字段进行过滤。该接口适用于以下场景：当用户需要查看多个Lite Server Job的概要信息，例如在监控作业状态、排查问题或进行日常管理时，可以通过此接口获取符合过滤条件的Job列表。使用该接口的前提条件是用户具有查看权限。查询操作完成后，接口将返回符合条件的Lite Server Job列表，包括每个Job的ID、状态、创建时间等基本信息。若用户无权限操作或请求参数不正确，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDevServerJobs(listDevServerJobsRequest?: ListDevServerJobsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/jobs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let id;
+            
+            let name;
+            
+            let type;
+            
+            let status;
+            
+            let visible;
+
+            if (listDevServerJobsRequest !== null && listDevServerJobsRequest !== undefined) {
+                if (listDevServerJobsRequest instanceof ListDevServerJobsRequest) {
+                    id = listDevServerJobsRequest.id;
+                    name = listDevServerJobsRequest.name;
+                    type = listDevServerJobsRequest.type;
+                    status = listDevServerJobsRequest.status;
+                    visible = listDevServerJobsRequest.visible;
+                } else {
+                    id = listDevServerJobsRequest['id'];
+                    name = listDevServerJobsRequest['name'];
+                    type = listDevServerJobsRequest['type'];
+                    status = listDevServerJobsRequest['status'];
+                    visible = listDevServerJobsRequest['visible'];
+                }
+            }
+
+        
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (visible !== null && visible !== undefined) {
+                localVarQueryParameter['visible'] = visible;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询已绑定的EIP接口用于获取已绑定到Lite Server服务器上的弹性公网IP（EIP）信息。该接口适用于以下场景：当用户需要查看Lite Server服务器上已绑定的EIP及其详细信息时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询EIP的权限，且指定的Lite Server服务器已存在。查询操作完成后，接口将返回已绑定到Lite Server服务器上的EIP的详细信息，包括EIP地址、绑定时间、状态等。若Lite Server服务器不存在、未绑定EIP或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDevServerPublicIP(listDevServerPublicIPRequest?: ListDevServerPublicIPRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/{id}/publicips",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (listDevServerPublicIPRequest !== null && listDevServerPublicIPRequest !== undefined) {
+                if (listDevServerPublicIPRequest instanceof ListDevServerPublicIPRequest) {
+                    id = listDevServerPublicIPRequest.id;
+                } else {
+                    id = listDevServerPublicIPRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling listDevServerPublicIP.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用户所有Lite Server实例列表接口用于获取用户名下所有Lite Server实例的详细信息。该接口适用于以下场景：用户需要查看其所有Lite Server实例的状态、配置等信息，以便进行资源管理和监控。使用该接口的前提条件是用户已登录且具有查看Lite Server实例的权限。调用此接口后，系统将返回用户名下所有Lite Server实例的列表，包括实例ID、名称、状态、创建时间等信息。若用户无权限或未登录，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDevServers(listDevServersRequest?: ListDevServersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let owner;
+            
+            let sortDir;
+            
+            let sortKey;
+            
+            let limit;
+            
+            let offset;
+
+            if (listDevServersRequest !== null && listDevServersRequest !== undefined) {
+                if (listDevServersRequest instanceof ListDevServersRequest) {
+                    owner = listDevServersRequest.owner;
+                    sortDir = listDevServersRequest.sortDir;
+                    sortKey = listDevServersRequest.sortKey;
+                    limit = listDevServersRequest.limit;
+                    offset = listDevServersRequest.offset;
+                } else {
+                    owner = listDevServersRequest['owner'];
+                    sortDir = listDevServersRequest['sort_dir'];
+                    sortKey = listDevServersRequest['sort_key'];
+                    limit = listDevServersRequest['limit'];
+                    offset = listDevServersRequest['offset'];
+                }
+            }
+
+        
+            if (owner !== null && owner !== undefined) {
+                localVarQueryParameter['owner'] = owner;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -9994,6 +11453,139 @@ export const ParamCreater = function () {
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Hyper Cluster详情列表接口用于获取所有Hyper Cluster的详细信息。该接口适用于以下场景：当用户需要了解系统中所有超节点网络的配置和状态时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询Hyper Cluster详情的权限。查询操作完成后，接口将返回所有超节点网络的详细信息，包括ID、名称、子网信息等。若用户无权限操作或系统中没有Hyper Cluster，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listHyperCluster(listHyperClusterRequest?: ListHyperClusterRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/hyper-clusters",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let type;
+
+            if (listHyperClusterRequest !== null && listHyperClusterRequest !== undefined) {
+                if (listHyperClusterRequest instanceof ListHyperClusterRequest) {
+                    type = listHyperClusterRequest.type;
+                } else {
+                    type = listHyperClusterRequest['type'];
+                }
+            }
+
+        
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询超节点hyperinstance-clusters逻辑容量测算结果接口用于获取指定超节点集群的逻辑容量测算结果。该接口适用于以下场景：当用户需要了解超节点集群的资源使用情况和容量规划，以便进行资源管理和优化时，可以通过此接口获取逻辑容量测算结果。使用该接口的前提条件是用户已登录并具有查询超节点集群逻辑容量的权限，且指定的超节点集群已存在。查询操作完成后，接口将返回指定超节点集群的逻辑容量测算结果，包括可用容量信息。若用户无权限操作、指定的超节点集群不存在或集群ID无效，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listHyperinstanceClustersCapacity(listHyperinstanceClustersCapacityRequest?: ListHyperinstanceClustersCapacityRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dev-servers/hyperinstance/cluster-capacity-evaluations",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (listHyperinstanceClustersCapacityRequest !== null && listHyperinstanceClustersCapacityRequest !== undefined) {
+                if (listHyperinstanceClustersCapacityRequest instanceof ListHyperinstanceClustersCapacityRequest) {
+                    body = listHyperinstanceClustersCapacityRequest.body
+                } else {
+                    body = listHyperinstanceClustersCapacityRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用户所有超节点实例详情接口用于获取用户所有Lite Server超节点实例的详细信息。该接口适用于以下场景：当用户需要查看其所有超节点实例的配置、状态和使用情况时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询超节点实例的权限。查询操作完成后，接口将返回所有超节点实例的详细信息，包括实例ID、操作系统、运行状态、资源使用情况等。若用户无权限操作或没有超节点实例，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listHyperinstances(listHyperinstancesRequest?: ListHyperinstancesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/hyperinstance",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let sortDir;
+            
+            let sortKey;
+            
+            let limit;
+            
+            let offset;
+
+            if (listHyperinstancesRequest !== null && listHyperinstancesRequest !== undefined) {
+                if (listHyperinstancesRequest instanceof ListHyperinstancesRequest) {
+                    sortDir = listHyperinstancesRequest.sortDir;
+                    sortKey = listHyperinstancesRequest.sortKey;
+                    limit = listHyperinstancesRequest.limit;
+                    offset = listHyperinstancesRequest.offset;
+                } else {
+                    sortDir = listHyperinstancesRequest['sort_dir'];
+                    sortKey = listHyperinstancesRequest['sort_key'];
+                    limit = listHyperinstancesRequest['limit'];
+                    offset = listHyperinstancesRequest['offset'];
+                }
+            }
+
+        
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -12635,6 +14227,80 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询Lite Server超节点标签接口用于获取Lite Server超节点上的所有标签信息。该接口适用于以下场景：当用户需要查看或管理Lite Server超节点的标签时，可以通过此接口查询指定超节点上的所有标签。使用该接口的前提条件是Lite Server超节点已存在，用户具有查询标签的权限。查询操作完成后，接口将返回超节点上的所有标签信息，包括标签名称和相关属性。若Lite Server超节点不存在或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        queryHyperinstanceTags(queryHyperinstanceTagsRequest?: QueryHyperinstanceTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (queryHyperinstanceTagsRequest !== null && queryHyperinstanceTagsRequest !== undefined) {
+                if (queryHyperinstanceTagsRequest instanceof QueryHyperinstanceTagsRequest) {
+                    id = queryHyperinstanceTagsRequest.id;
+                } else {
+                    id = queryHyperinstanceTagsRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling queryHyperinstanceTags.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 重启Lite Server实例接口用于重启正在运行的Lite Server实例。该接口适用于以下场景：当用户需要重启实例以应用配置更改、解决运行问题或进行系统维护时，可以通过此接口重启指定的Lite Server实例。使用该接口的前提条件是Lite Server实例已创建且处于运行状态，用户具有重启实例的权限。重启操作完成后，Lite Server实例将重新启动并进入运行状态，用户可以继续使用实例提供的服务。若Lite Server实例不存在、已处于停止状态或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        rebootDevServer(rebootDevServerRequest?: RebootDevServerRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/dev-servers/{id}/reboot",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (rebootDevServerRequest !== null && rebootDevServerRequest !== undefined) {
+                if (rebootDevServerRequest instanceof RebootDevServerRequest) {
+                    id = rebootDevServerRequest.id;
+                } else {
+                    id = rebootDevServerRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling rebootDevServer.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 注册自定义镜像接口用于将用户自定义的镜像注册到ModelArts镜像管理。该接口适用于以下场景：当用户需要将自己的自定义镜像（如特定算法环境、工具链或配置）集成到ModelArts平台时，可通过此接口将镜像注册到镜像管理中以便后续使用。使用该接口的前提条件是用户具备ModelArts镜像管理权限，并且需要提供有效的镜像地址和符合要求的镜像格式。注册操作完成后，自定义镜像将被成功添加到ModelArts镜像列表中，用户可以在后续任务中选择使用该镜像。若镜像地址无效、镜像格式不符合要求或用户无权限操作，接口将返回相应的错误信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12668,6 +14334,144 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 重装Lite Server服务器操作系统镜像接口用于重新安装Lite Server服务器的操作系统镜像。该接口适用于以下场景：当用户需要更新操作系统版本、修复系统故障或重新配置系统环境时，可以通过此接口重装指定的Lite Server服务器操作系统镜像。使用该接口的前提条件是Lite Server服务器已存在且处于停止状态，用户具有重装操作系统的权限。重装操作完成后，Lite Server服务器将安装新的操作系统镜像，并重新进入运行状态，若Lite Server服务器不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        reinstallDevServerOS(reinstallDevServerOSRequest?: ReinstallDevServerOSRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dev-servers/{id}/reinstallos",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (reinstallDevServerOSRequest !== null && reinstallDevServerOSRequest !== undefined) {
+                if (reinstallDevServerOSRequest instanceof ReinstallDevServerOSRequest) {
+                    id = reinstallDevServerOSRequest.id;
+                    body = reinstallDevServerOSRequest.body
+                } else {
+                    id = reinstallDevServerOSRequest['id'];
+                    body = reinstallDevServerOSRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling reinstallDevServerOS.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 缩容Lite Server超节点接口用于减少Lite Server超节点的资源容量。该接口适用于以下场景：当用户需要降低Lite Server超节点的资源使用，以节省成本或优化资源分配时，可以通过此接口进行缩容。使用该接口的前提条件是用户已登录并具有缩容超节点的权限，且指定的超节点已存在且处于运行状态。缩容操作完成后，超节点的资源容量将根据指定的规格进行调整，用户可以立即使用减少后的资源。若用户无权限操作、指定的超节点不存在、超节点已处于最小容量或指定的缩容规格无效，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        scaleDownHyperinstance(scaleDownHyperinstanceRequest?: ScaleDownHyperinstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}/live-scale-down",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (scaleDownHyperinstanceRequest !== null && scaleDownHyperinstanceRequest !== undefined) {
+                if (scaleDownHyperinstanceRequest instanceof ScaleDownHyperinstanceRequest) {
+                    id = scaleDownHyperinstanceRequest.id;
+                    body = scaleDownHyperinstanceRequest.body
+                } else {
+                    id = scaleDownHyperinstanceRequest['id'];
+                    body = scaleDownHyperinstanceRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling scaleDownHyperinstance.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 扩容Lite Server超节点接口用于增加Lite Server超节点的资源容量。该接口适用于以下场景：当用户需要提升Lite Server超节点的性能，以支持更多的负载或更大的数据处理需求时，可以通过此接口进行扩容。使用该接口的前提条件是用户已登录并具有扩容超节点的权限，且指定的超节点已存在且处于运行状态。扩容操作完成后，超节点的资源容量将根据指定的规格进行调整，用户可以立即使用增加的资源。若用户无权限操作、指定的超节点不存在、超节点已处于最大容量或指定的扩容规格无效，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        scaleUpHyperinstance(scaleUpHyperinstanceRequest?: ScaleUpHyperinstanceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}/live-scale-up",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (scaleUpHyperinstanceRequest !== null && scaleUpHyperinstanceRequest !== undefined) {
+                if (scaleUpHyperinstanceRequest instanceof ScaleUpHyperinstanceRequest) {
+                    id = scaleUpHyperinstanceRequest.id;
+                    body = scaleUpHyperinstanceRequest.body
+                } else {
+                    id = scaleUpHyperinstanceRequest['id'];
+                    body = scaleUpHyperinstanceRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling scaleUpHyperinstance.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -13012,6 +14816,43 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Lite Server实例详情接口用于获取指定Lite Server实例的详细信息。该接口适用于以下场景：用户需要查看特定Lite Server实例的配置、状态、网络信息等详细数据，以便进行故障排查、资源管理和监控。使用该接口的前提条件是用户已登录且具有查看Lite Server实例的权限，并且需要提供有效的实例ID。查询操作完成后，系统将返回指定Lite Server实例的详细信息，包括实例ID、名称、状态、配置、网络配置等。若用户无权限、实例ID无效或实例不存在，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDevServer(showDevServerRequest?: ShowDevServerRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (showDevServerRequest !== null && showDevServerRequest !== undefined) {
+                if (showDevServerRequest instanceof ShowDevServerRequest) {
+                    id = showDevServerRequest.id;
+                } else {
+                    id = showDevServerRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling showDevServer.');
+            }
+
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -14457,6 +16298,86 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 启动Lite Server实例接口用于启动已创建但未运行的Lite Server实例。该接口适用于以下场景：当用户需要开始使用Lite Server实例进行开发或测试时，可以通过此接口启动指定的Lite Server实例。使用该接口的前提条件是Lite Server实例已创建且处于停止状态，用户具有启动实例的权限。若Lite Server实例不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        startDevServer(startDevServerRequest?: StartDevServerRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/dev-servers/{id}/start",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (startDevServerRequest !== null && startDevServerRequest !== undefined) {
+                if (startDevServerRequest instanceof StartDevServerRequest) {
+                    id = startDevServerRequest.id;
+                    body = startDevServerRequest.body
+                } else {
+                    id = startDevServerRequest['id'];
+                    body = startDevServerRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling startDevServer.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 启动Lite Server超节点服务器接口用于启动已创建但未运行的Lite Server超节点服务器。该接口适用于以下场景：当用户需要开始使用Lite Server超节点服务器进行开发或测试时，可以通过此接口启动指定的超节点服务器。使用该接口的前提条件是Lite Server超节点服务器已创建且处于停止状态，用户具有启动超节点服务器的权限。启动操作完成后，超节点服务器将进入运行状态，用户可以访问和使用服务器提供的服务。若Lite Server超节点服务器不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        startHyperinstance(startHyperinstanceRequest?: StartHyperinstanceRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}/start",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (startHyperinstanceRequest !== null && startHyperinstanceRequest !== undefined) {
+                if (startHyperinstanceRequest instanceof StartHyperinstanceRequest) {
+                    id = startHyperinstanceRequest.id;
+                } else {
+                    id = startHyperinstanceRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling startHyperinstance.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 使部署从“停止”或“失败”状态进入“部署中”状态，适用于用户需要重新启动已停止或启动失败的部署的情况。调用此接口前，部署状态必须为“停止”或“失败”，且用户需具有启动部署的权限。调用成功后，部署状态将变为“部署中”，系统将开始执行部署流程，包括资源准备、配置加载等。如果部署当前状态不是“停止”或“失败”，或用户没有启动部署的权限，调用将返回错误。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14533,6 +16454,80 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'service_id': serviceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 停止Lite Server实例接口用于停止正在运行的Lite Server实例。该接口适用于以下场景：当用户需要停止Lite Server实例，以节省资源或进行维护时，可以通过此接口停止指定的Lite Server实例。使用该接口的前提条件是Lite Server实例已创建且处于运行状态，用户具有停止实例的权限。若Lite Server实例不存在、已处于停止状态或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        stopDevServer(stopDevServerRequest?: StopDevServerRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/dev-servers/{id}/stop",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (stopDevServerRequest !== null && stopDevServerRequest !== undefined) {
+                if (stopDevServerRequest instanceof StopDevServerRequest) {
+                    id = stopDevServerRequest.id;
+                } else {
+                    id = stopDevServerRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling stopDevServer.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 停止Lite Server超节点服务器接口用于停止正在运行的Lite Server超节点服务器。该接口适用于以下场景：当用户需要暂停使用Lite Server超节点服务器，以节省资源或进行维护时，可以通过此接口停止指定的超节点服务器。使用该接口的前提条件是Lite Server超节点服务器已创建且处于运行状态或者停止失败状态，用户具有停止超节点服务器的权限。停止操作完成后，超节点服务器将进入停止状态，不再提供服务。若Lite Server超节点服务器不存在、已处于停止状态或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        stopHyperinstance(stopHyperinstanceRequest?: StopHyperinstanceRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}/stop",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (stopHyperinstanceRequest !== null && stopHyperinstanceRequest !== undefined) {
+                if (stopHyperinstanceRequest instanceof StopHyperinstanceRequest) {
+                    id = stopHyperinstanceRequest.id;
+                } else {
+                    id = stopHyperinstanceRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling stopHyperinstance.');
+            }
+
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -14725,6 +16720,71 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 实时同步用户Lite Server实例状态接口用于实时获取并同步用户Lite Server实例的当前状态。该接口适用于以下场景：用户需要实时监控其Lite Server实例的运行状态，确保实例正常运行或及时发现并处理异常情况。使用该接口的前提条件是用户已登录并具有相应的权限，且Lite Server实例已创建并处于运行状态。接口调用成功后，将返回Lite Server实例的最新状态信息，包括但不限于实例ID、运行状态、资源使用情况等。若用户无权限操作或Lite Server实例不存在，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        syncDevServers(syncDevServersRequest?: SyncDevServersRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/dev-servers/sync",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let owner;
+            
+            let sortDir;
+            
+            let sortKey;
+            
+            let offset;
+            
+            let limit;
+
+            if (syncDevServersRequest !== null && syncDevServersRequest !== undefined) {
+                if (syncDevServersRequest instanceof SyncDevServersRequest) {
+                    owner = syncDevServersRequest.owner;
+                    sortDir = syncDevServersRequest.sortDir;
+                    sortKey = syncDevServersRequest.sortKey;
+                    offset = syncDevServersRequest.offset;
+                    limit = syncDevServersRequest.limit;
+                } else {
+                    owner = syncDevServersRequest['owner'];
+                    sortDir = syncDevServersRequest['sort_dir'];
+                    sortKey = syncDevServersRequest['sort_key'];
+                    offset = syncDevServersRequest['offset'];
+                    limit = syncDevServersRequest['limit'];
+                }
+            }
+
+        
+            if (owner !== null && owner !== undefined) {
+                localVarQueryParameter['owner'] = owner;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 同步镜像状态接口用于修正镜像状态的异常情况。该接口适用于以下场景：当镜像状态因误操作、网络问题或系统故障等原因出现异常时，用户可通过此接口同步镜像的最新状态。使用该接口的前提条件是镜像已存在且用户具有相应的操作权限。同步操作完成后，镜像的状态将被更新为最新的正确状态，相关资源和配置也将被同步。若镜像不存在、用户无权限操作或同步过程中出现错误，接口将返回相应的错误信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14839,6 +16899,52 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改DevServer实例名称接口用于更改已创建的DevServer实例的名称。该接口适用于以下场景：当用户需要对DevServer实例进行重命名以更好地反映实例的功能或用途时，或者在实例名称不再符合当前项目命名规范时进行更新。使用该接口的前提条件是DevServer实例已存在且用户具有对该实例的管理权限。修改操作完成后，实例的新名称将立即生效，并在所有相关视图和记录中更新。若DevServer实例不存在、用户无权限操作或新名称不符合命名规则，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDevServer(updateDevServerRequest?: UpdateDevServerRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/dev-servers/{id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (updateDevServerRequest !== null && updateDevServerRequest !== undefined) {
+                if (updateDevServerRequest instanceof UpdateDevServerRequest) {
+                    id = updateDevServerRequest.id;
+                    body = updateDevServerRequest.body
+                } else {
+                    id = updateDevServerRequest['id'];
+                    body = updateDevServerRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateDevServer.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -15637,2030 +17743,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * Lite Server服务器挂载磁盘接口用于将额外的磁盘挂载到Lite Server服务器上。该接口适用于以下场景：当用户需要扩展Lite Server服务器的存储空间以满足更大的数据存储需求时，可以通过此接口将指定的磁盘挂载到服务器上。使用该接口的前提条件是Lite Server服务器已创建且处于运行状态、或者停止状态，用户具有挂载磁盘的权限，且指定的磁盘已存在且未被其他服务器使用。挂载操作完成后，磁盘将成功挂载到Lite Server服务器上，用户可以访问和使用新增的存储空间。若Lite Server服务器不存在、指定的磁盘不存在或已被使用，或用户无权限操作，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        attachDevServerVolume(attachDevServerVolumeRequest?: AttachDevServerVolumeRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/dev-servers/{id}/attachvolume",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let id;
-
-            if (attachDevServerVolumeRequest !== null && attachDevServerVolumeRequest !== undefined) {
-                if (attachDevServerVolumeRequest instanceof AttachDevServerVolumeRequest) {
-                    id = attachDevServerVolumeRequest.id;
-                    body = attachDevServerVolumeRequest.body
-                } else {
-                    id = attachDevServerVolumeRequest['id'];
-                    body = attachDevServerVolumeRequest['body'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling attachDevServerVolume.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 批量操作Lite Server实例接口用于对多个Lite Server实例进行统一操作，如启动、停止、重启或删除等。该接口适用于以下场景：当需要对多个Lite Server实例进行相同的操作，例如在维护期间批量停止实例、更新配置后批量重启实例或清理不再需要的实例时，用户可通过此接口高效地完成批量操作。使用该接口的前提条件是目标Lite Server实例已存在且用户具有相应的操作权限。操作完成后，所有指定的Lite Server实例将根据请求完成相应的状态变更或被移除，相关资源和配置也将被相应调整或清理。若目标Lite Server实例不存在、用户无权限操作或请求参数不正确，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        batchDevServersAction(batchDevServersActionRequest?: BatchDevServersActionRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/dev-servers/action",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (batchDevServersActionRequest !== null && batchDevServersActionRequest !== undefined) {
-                if (batchDevServersActionRequest instanceof BatchDevServersActionRequest) {
-                    body = batchDevServersActionRequest.body
-                } else {
-                    body = batchDevServersActionRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * Lite Server服务器绑定的EIP接口用于将弹性公网IP（EIP）绑定到Lite Server服务器上。该接口适用于以下场景：当用户需要为Lite Server服务器分配一个固定的公网IP地址，以便从外部网络访问服务器时，可以通过此接口将指定的EIP绑定到服务器上。使用该接口的前提条件是Lite Server服务器已创建且处于运行状态，用户具有绑定EIP的权限，且指定的EIP已存在且未被其他资源使用。绑定操作完成后，EIP将成功绑定到Lite Server服务器上，服务器可以通过该EIP从外部网络访问。若Lite Server服务器不存在、已处于停止状态、指定的EIP不存在或已被使用，或用户无权限操作，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        bindDevServerPublicIP(bindDevServerPublicIPRequest?: BindDevServerPublicIPRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/dev-servers/{id}/publicips",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let id;
-
-            if (bindDevServerPublicIPRequest !== null && bindDevServerPublicIPRequest !== undefined) {
-                if (bindDevServerPublicIPRequest instanceof BindDevServerPublicIPRequest) {
-                    id = bindDevServerPublicIPRequest.id;
-                    body = bindDevServerPublicIPRequest.body
-                } else {
-                    id = bindDevServerPublicIPRequest['id'];
-                    body = bindDevServerPublicIPRequest['body'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling bindDevServerPublicIP.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 切换Lite Server服务器操作系统镜像接口用于更换Lite Server服务器当前使用的操作系统镜像。该接口适用于以下场景：当用户需要更换操作系统以适应不同的开发或测试需求时，可以通过此接口切换指定的Lite Server服务器操作系统镜像。使用该接口的前提条件是Lite Server服务器已存在且处于停止状态，用户具有切换操作系统的权限。切换操作完成后，Lite Server服务器将安装新的操作系统镜像，并重新进入运行状态，若Lite Server服务器不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        changeDevServerOS(changeDevServerOSRequest?: ChangeDevServerOSRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/dev-servers/{id}/changeos",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let id;
-
-            if (changeDevServerOSRequest !== null && changeDevServerOSRequest !== undefined) {
-                if (changeDevServerOSRequest instanceof ChangeDevServerOSRequest) {
-                    id = changeDevServerOSRequest.id;
-                    body = changeDevServerOSRequest.body
-                } else {
-                    id = changeDevServerOSRequest['id'];
-                    body = changeDevServerOSRequest['body'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling changeDevServerOS.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 切换Lite Server超节点服务器操作系统镜像接口用于更换Lite Server超节点服务器当前使用的操作系统镜像。该接口适用于以下场景：当用户需要更换操作系统以适应不同的开发或测试需求时，可以通过此接口切换指定的Lite Server超节点服务器操作系统镜像。使用该接口的前提条件是Lite Server超节点服务器已存在且处于停止状态，用户具有切换操作系统的权限。切换操作完成后，Lite Server超节点服务器将安装新的操作系统镜像，并重新进入运行状态，若Lite Server超节点服务器不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        changeHyperinstanceOS(changeHyperinstanceOSRequest?: ChangeHyperinstanceOSRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}/changeos",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let id;
-
-            if (changeHyperinstanceOSRequest !== null && changeHyperinstanceOSRequest !== undefined) {
-                if (changeHyperinstanceOSRequest instanceof ChangeHyperinstanceOSRequest) {
-                    id = changeHyperinstanceOSRequest.id;
-                    body = changeHyperinstanceOSRequest.body
-                } else {
-                    id = changeHyperinstanceOSRequest['id'];
-                    body = changeHyperinstanceOSRequest['body'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling changeHyperinstanceOS.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建Lite Server接口用于创建LiteServer弹性云服务器、裸金属服务器及超节点服务器。该接口适用于以下场景：用户需要根据业务需求快速部署和配置不同类型的服务器资源。使用该接口的前提条件是用户已登录且具有创建Lite Server的权限，并且需要提供服务器类型、规格、网络配置等必要参数。创建操作完成后，系统将返回新创建的Lite Server实例信息，包括实例ID、状态等。若用户无权限、参数配置错误或资源不足，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createDevServer(createDevServerRequest?: CreateDevServerRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/dev-servers",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createDevServerRequest !== null && createDevServerRequest !== undefined) {
-                if (createDevServerRequest instanceof CreateDevServerRequest) {
-                    body = createDevServerRequest.body
-                } else {
-                    body = createDevServerRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建Lite Server任务接口用于在Lite Server上创建新的任务。该接口适用于以下场景：当用户需要在Lite Server上启动新的开发、测试或部署任务时，可以通过此接口创建并配置任务。使用该接口的前提条件是用户具有创建任务的权限，并且提供的任务配置参数符合要求。创建操作完成后，新的Lite Server任务将被成功创建，并返回任务ID和其他相关信息。若用户无权限操作、提供的参数不正确或系统资源不足，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createDevServerJob(createDevServerJobRequest?: CreateDevServerJobRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/dev-servers/jobs",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createDevServerJobRequest !== null && createDevServerJobRequest !== undefined) {
-                if (createDevServerJobRequest instanceof CreateDevServerJobRequest) {
-                    body = createDevServerJobRequest.body
-                } else {
-                    body = createDevServerJobRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建Hyper Cluster接口用于在系统中创建一个新的Hyper Cluster。该接口适用于以下场景：当用户需要使用超节点网络时，可以通过此接口创建Hyper Cluster。使用该接口的前提条件是用户已登录并具有创建Hyper Cluster的权限，且系统中已配置了必要的资源。创建操作完成后，将生成一个新的超节点网络，并返回超节点网络的详细信息，包括ID、名称、子网信息等。若用户无权限操作、系统中缺少必要的资源或配置参数无效，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createHyperCluster(createHyperClusterRequest?: CreateHyperClusterRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/dev-servers/hyper-clusters",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createHyperClusterRequest !== null && createHyperClusterRequest !== undefined) {
-                if (createHyperClusterRequest instanceof CreateHyperClusterRequest) {
-                    body = createHyperClusterRequest.body
-                } else {
-                    body = createHyperClusterRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建Lite Server超节点标签接口用于为Lite Server超节点添加自定义标签。该接口适用于以下场景：当用户需要对Lite Server超节点进行分类管理或标记特定信息时，可以通过此接口为指定的超节点创建标签。使用该接口的前提条件是Lite Server超节点已存在，用户具有创建标签的权限。创建操作完成后，标签将被成功添加到指定的超节点上，用户可以通过标签进行快速查找和管理。若Lite Server超节点不存在、标签已存在或用户无权限操作，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createHyperinstanceTags(createHyperinstanceTagsRequest?: CreateHyperinstanceTagsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}/tags/create",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let id;
-
-            if (createHyperinstanceTagsRequest !== null && createHyperinstanceTagsRequest !== undefined) {
-                if (createHyperinstanceTagsRequest instanceof CreateHyperinstanceTagsRequest) {
-                    id = createHyperinstanceTagsRequest.id;
-                    body = createHyperinstanceTagsRequest.body
-                } else {
-                    id = createHyperinstanceTagsRequest['id'];
-                    body = createHyperinstanceTagsRequest['body'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling createHyperinstanceTags.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建RoCE网络接口用于在系统中创建一个新的RoCE网络。该接口适用于以下场景：当用户需要为高性能计算或低延迟应用创建专用的RoCE网络时，可以通过此接口创建并配置RoCE网络。使用该接口的前提条件是用户已登录并具有创建RoCE网络的权限，且系统中已配置了必要的网络资源。创建操作完成后，将生成一个新的RoCE网络，并返回网络的详细信息，包括网络ID、子网信息、配置参数等。若用户无权限操作、系统中缺少必要的网络资源或网络配置参数无效，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createRoceNetwork(createRoceNetworkRequest?: CreateRoceNetworkRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/dev-servers/networks",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createRoceNetworkRequest !== null && createRoceNetworkRequest !== undefined) {
-                if (createRoceNetworkRequest instanceof CreateRoceNetworkRequest) {
-                    body = createRoceNetworkRequest.body
-                } else {
-                    body = createRoceNetworkRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除Lite Server实例接口用于移除已创建的Lite Server实例。该接口适用于以下场景：当Lite Server按需实例不再需要使用时或者创建失败的实例以及处于ERROR状态时，用户可通过此接口删除指定的Lite Server实例。使用该接口的前提条件是Lite Server实例已存在且用户具有管理员权限。删除操作完成后，Lite Server实例将被永久移除，相关资源也将被清理。若Lite Server实例不存在或用户无权限操作，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteDevServer(deleteDevServerRequest?: DeleteDevServerRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v1/{project_id}/dev-servers/{id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let id;
-
-            if (deleteDevServerRequest !== null && deleteDevServerRequest !== undefined) {
-                if (deleteDevServerRequest instanceof DeleteDevServerRequest) {
-                    id = deleteDevServerRequest.id;
-                } else {
-                    id = deleteDevServerRequest['id'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteDevServer.');
-            }
-
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 批量删除Lite Server Job接口用于批量移除已创建的Lite Server Job。该接口适用于以下场景：当多个Lite Server Job已完成、配置错误或需要清理资源时，用户可以通过此接口批量删除指定的Lite Server Job。使用该接口的前提条件是目标Lite Server Job已存在且用户具有管理员权限。删除操作完成后，指定的Lite Server Job将被永久移除，相关资源和配置也将被清理。若目标Lite Server Job不存在、用户无权限操作或请求参数不正确，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteDevServerJobs(deleteDevServerJobsRequest?: DeleteDevServerJobsRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v1/{project_id}/dev-servers/jobs",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (deleteDevServerJobsRequest !== null && deleteDevServerJobsRequest !== undefined) {
-                if (deleteDevServerJobsRequest instanceof DeleteDevServerJobsRequest) {
-                    body = deleteDevServerJobsRequest.body
-                } else {
-                    body = deleteDevServerJobsRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除Hyper Cluster实例接口用于移除已创建的Hyper Cluster。该接口适用于以下场景：当超节点网络配置错误或需要清理资源时，用户可通过此接口删除指定的超节点网络。使用该接口的前提条件是Hyper Cluster实例已存在且用户具有管理员权限。删除操作完成后，超节点网络将被永久移除，相关资源和配置也将被清理。若Hyper Cluster实例不存在或用户无权限操作，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteHyperCluster(deleteHyperClusterRequest?: DeleteHyperClusterRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v1/{project_id}/dev-servers/hyper-clusters/{id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let id;
-            
-            let type;
-
-            if (deleteHyperClusterRequest !== null && deleteHyperClusterRequest !== undefined) {
-                if (deleteHyperClusterRequest instanceof DeleteHyperClusterRequest) {
-                    id = deleteHyperClusterRequest.id;
-                    type = deleteHyperClusterRequest.type;
-                } else {
-                    id = deleteHyperClusterRequest['id'];
-                    type = deleteHyperClusterRequest['type'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteHyperCluster.');
-            }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除Lite Server超节点实例接口用于删除按需超节点实例同时移除处于ERROR状态的Lite Server超节点实例。该接口适用于以下场景：当超节点实例因创建失败、或其他原因进入ERROR状态；按需超节点实例，用户可以通过此接口删除指定的超节点实例。使用该接口的前提条件是用户已登录并具有删除超节点实例的权限，且指定的超节点实例是按需且处于运行状态、或者处于ERROR状态。删除操作完成后，指定的超节点实例将被永久移除，相关资源也将被清理。若指定的超节点实例不存在、未处于ERROR状态或用户无权限操作，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteHyperinstance(deleteHyperinstanceRequest?: DeleteHyperinstanceRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let id;
-
-            if (deleteHyperinstanceRequest !== null && deleteHyperinstanceRequest !== undefined) {
-                if (deleteHyperinstanceRequest instanceof DeleteHyperinstanceRequest) {
-                    id = deleteHyperinstanceRequest.id;
-                } else {
-                    id = deleteHyperinstanceRequest['id'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteHyperinstance.');
-            }
-
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除Lite Server超节点标签接口用于移除已创建的Lite Server超节点标签。该接口适用于以下场景：当用户需要清理不再需要的标签或修正标签错误时，可以通过此接口删除指定的超节点标签。使用该接口的前提条件是Lite Server超节点已存在，且该超节点上已存在要删除的标签，用户具有删除标签的权限。删除操作完成后，指定的标签将从超节点上移除，超节点的其他配置和数据保持不变。若Lite Server超节点不存在、标签不存在或用户无权限操作，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        deleteHyperinstanceTags(deleteHyperinstanceTagsRequest?: DeleteHyperinstanceTagsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}/tags/delete",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let id;
-
-            if (deleteHyperinstanceTagsRequest !== null && deleteHyperinstanceTagsRequest !== undefined) {
-                if (deleteHyperinstanceTagsRequest instanceof DeleteHyperinstanceTagsRequest) {
-                    id = deleteHyperinstanceTagsRequest.id;
-                    body = deleteHyperinstanceTagsRequest.body
-                } else {
-                    id = deleteHyperinstanceTagsRequest['id'];
-                    body = deleteHyperinstanceTagsRequest['body'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteHyperinstanceTags.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * Lite Server服务器卸载磁盘接口用于从Lite Server服务器上卸载已挂载的磁盘。该接口适用于以下场景：当用户需要释放存储资源或重新分配磁盘时，可以通过此接口卸载指定的磁盘。使用该接口的前提条件是Lite Server服务器已创建且处于运行状态、或者停止状态，用户具有卸载磁盘的权限，且指定的磁盘已挂载到服务器上。卸载操作完成后，磁盘将从Lite Server服务器上成功卸载，用户可以将其挂载到其他服务器或进行其他操作。若Lite Server服务器不存在、指定的磁盘未挂载到服务器上，或用户无权限操作，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        detachDevServerVolume(detachDevServerVolumeRequest?: DetachDevServerVolumeRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v1/{project_id}/dev-servers/{id}/detachvolume/{volume_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let id;
-            
-            let volumeId;
-
-            if (detachDevServerVolumeRequest !== null && detachDevServerVolumeRequest !== undefined) {
-                if (detachDevServerVolumeRequest instanceof DetachDevServerVolumeRequest) {
-                    id = detachDevServerVolumeRequest.id;
-                    volumeId = detachDevServerVolumeRequest.volumeId;
-                } else {
-                    id = detachDevServerVolumeRequest['id'];
-                    volumeId = detachDevServerVolumeRequest['volume_id'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling detachDevServerVolume.');
-            }
-            if (volumeId === null || volumeId === undefined) {
-            throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling detachDevServerVolume.');
-            }
-
-            options.pathParams = { 'id': id,'volume_id': volumeId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询Lite Server镜像详情接口用于获取指定Lite Server镜像的详细信息。该接口适用于以下场景：当用户需要了解某个Lite Server镜像的具体配置和属性，以便在创建或调整Lite Server实例时选择合适的镜像时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询镜像详情的权限，且指定的镜像已存在。查询操作完成后，接口将返回指定Lite Server镜像的详细信息，包括镜像ID、名称、操作系统、版本、创建时间等。若用户无权限操作、指定的镜像不存在或镜像ID无效，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        getDevServerImage(getDevServerImageRequest?: GetDevServerImageRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/images/{id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let id;
-
-            if (getDevServerImageRequest !== null && getDevServerImageRequest !== undefined) {
-                if (getDevServerImageRequest instanceof GetDevServerImageRequest) {
-                    id = getDevServerImageRequest.id;
-                } else {
-                    id = getDevServerImageRequest['id'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling getDevServerImage.');
-            }
-
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询Lite Server Job详情接口用于获取指定Lite Server Job的详细信息。该接口适用于以下场景：当用户需要查看某个Lite Server Job的执行状态、配置参数、日志信息等详细数据时，可以通过此接口获取相关信息。使用该接口的前提条件是目标Lite Server Job已存在且用户具有查看权限。查询操作完成后，接口将返回指定Lite Server Job的详细信息，包括但不限于Job ID、状态、创建时间、执行时间、配置参数和日志等。若目标Lite Server Job不存在或用户无权限操作，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        getDevServerJob(getDevServerJobRequest?: GetDevServerJobRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/jobs/{id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let id;
-
-            if (getDevServerJobRequest !== null && getDevServerJobRequest !== undefined) {
-                if (getDevServerJobRequest instanceof GetDevServerJobRequest) {
-                    id = getDevServerJobRequest.id;
-                } else {
-                    id = getDevServerJobRequest['id'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling getDevServerJob.');
-            }
-
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 根据服务id获取Lite Server部署服务详情。该接口适用于以下场景：当用户需要查看部署服务详情，以便查看已部署服务的状态、api等信息时，可以通过此接口获取服务详情。使用该接口的前提条件是用户具有查看服务的权限。查询操作完成后，接口将返回此部署服务的详细信息，包括名称、状态、描述、所用模型、实例详情等信息。若用户无权限操作或无相应id，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        getDevServerJobService(getDevServerJobServiceRequest?: GetDevServerJobServiceRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/jobs/services/{id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let id;
-
-            if (getDevServerJobServiceRequest !== null && getDevServerJobServiceRequest !== undefined) {
-                if (getDevServerJobServiceRequest instanceof GetDevServerJobServiceRequest) {
-                    id = getDevServerJobServiceRequest.id;
-                } else {
-                    id = getDevServerJobServiceRequest['id'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling getDevServerJobService.');
-            }
-
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取Lite Server Job模板详情接口用于获取指定Lite Server Job模板的详细信息。该接口适用于以下场景：当用户需要查看某个特定Job模板的详细配置，以便了解其参数设置、使用说明等信息时，可以通过此接口获取模板详情。查询操作完成后，接口将返回指定模板的详细信息，包括模板ID、名称、描述、配置参数等。若目标模板不存在，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        getDevServerJobTemplate(getDevServerJobTemplateRequest?: GetDevServerJobTemplateRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/jobs/templates/{id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let id;
-
-            if (getDevServerJobTemplateRequest !== null && getDevServerJobTemplateRequest !== undefined) {
-                if (getDevServerJobTemplateRequest instanceof GetDevServerJobTemplateRequest) {
-                    id = getDevServerJobTemplateRequest.id;
-                } else {
-                    id = getDevServerJobTemplateRequest['id'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling getDevServerJobTemplate.');
-            }
-
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询Operation详情接口用于获取指定Operation的详细信息。该接口适用于以下场景：当用户需要了解某个Operation的具体执行情况和状态，以便进行故障排查或操作审计时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询Operation详情的权限，且指定的Operation已存在。查询操作完成后，接口将返回指定Operation的详细信息，包括Operation ID、操作类型、执行状态、开始时间、结束时间、操作结果等。若用户无权限操作、指定的Operation不存在或Operation ID无效，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        getDevServerOperation(getDevServerOperationRequest?: GetDevServerOperationRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/{id}/operation/{operation_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let id;
-            
-            let operationId;
-
-            if (getDevServerOperationRequest !== null && getDevServerOperationRequest !== undefined) {
-                if (getDevServerOperationRequest instanceof GetDevServerOperationRequest) {
-                    id = getDevServerOperationRequest.id;
-                    operationId = getDevServerOperationRequest.operationId;
-                } else {
-                    id = getDevServerOperationRequest['id'];
-                    operationId = getDevServerOperationRequest['operation_id'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling getDevServerOperation.');
-            }
-            if (operationId === null || operationId === undefined) {
-            throw new RequiredError('operationId','Required parameter operationId was null or undefined when calling getDevServerOperation.');
-            }
-
-            options.pathParams = { 'id': id,'operation_id': operationId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询Hyper Cluster实例详情接口用于获取指定Hyper Cluster实例的详细信息。该接口适用于以下场景：当用户需要了解某个超节点网络的具体配置和状态，以便进行管理和监控时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询Hyper Cluster详情的权限，且指定的超节点网络已存在。查询操作完成后，接口将返回指定超节点网络的详细信息，包括ID、名称、子网信息等。若用户无权限操作、指定的超节点网络不存在或ID无效，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        getHyperCluster(getHyperClusterRequest?: GetHyperClusterRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/hyper-clusters/{id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let id;
-            
-            let type;
-
-            if (getHyperClusterRequest !== null && getHyperClusterRequest !== undefined) {
-                if (getHyperClusterRequest instanceof GetHyperClusterRequest) {
-                    id = getHyperClusterRequest.id;
-                    type = getHyperClusterRequest.type;
-                } else {
-                    id = getHyperClusterRequest['id'];
-                    type = getHyperClusterRequest['type'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling getHyperCluster.');
-            }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询指定超节点实例详情接口用于获取特定Lite Server超节点实例的详细信息。该接口适用于以下场景：当用户需要查看某个具体超节点实例的配置、状态和使用情况时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询超节点实例的权限，且指定的超节点实例已存在。查询操作完成后，接口将返回指定超节点实例的详细信息，包括实例ID、操作系统、运行状态、资源使用情况等。若用户无权限操作、指定的超节点实例不存在或实例ID无效，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        getHyperinstance(getHyperinstanceRequest?: GetHyperinstanceRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let id;
-
-            if (getHyperinstanceRequest !== null && getHyperinstanceRequest !== undefined) {
-                if (getHyperinstanceRequest instanceof GetHyperinstanceRequest) {
-                    id = getHyperinstanceRequest.id;
-                } else {
-                    id = getHyperinstanceRequest['id'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling getHyperinstance.');
-            }
-
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询Lite Server超节点扩缩容支持规格列表及容量测算接口用于获取Lite Server超节点支持的扩缩容规格列表，并进行容量测算。该接口适用于以下场景：当用户需要了解Lite Server超节点支持的扩缩容选项，以便在调整超节点资源时选择合适的规格，并评估扩缩容后的资源需求时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询超节点扩缩容规格的权限，且指定的超节点已存在。查询操作完成后，接口将返回支持的扩缩容规格列表及容量测算结果，包括规格ID、CPU、内存、存储等详细配置和扩缩容后的资源使用情况。若用户无权限操作、指定的超节点不存在或系统中没有可用的扩缩容规格，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        getScaleEvaluationsDevServer(getScaleEvaluationsDevServerRequest?: GetScaleEvaluationsDevServerRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}/scale-evaluations",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let id;
-
-            if (getScaleEvaluationsDevServerRequest !== null && getScaleEvaluationsDevServerRequest !== undefined) {
-                if (getScaleEvaluationsDevServerRequest instanceof GetScaleEvaluationsDevServerRequest) {
-                    id = getScaleEvaluationsDevServerRequest.id;
-                } else {
-                    id = getScaleEvaluationsDevServerRequest['id'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling getScaleEvaluationsDevServer.');
-            }
-
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询实例的Tor信息接口用于获取指定实例的Top-of-Rack（Tor）交换机相关信息。该接口适用于以下场景：当用户需要了解实例连接的Tor交换机的详细信息，以便进行网络配置时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询实例Tor信息的权限，且指定的实例已存在。查询操作完成后，接口将返回指定实例的Tor信息。若用户无权限操作、指定的实例不存在或实例未连接到Tor交换机，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        getTopologies(getTopologiesRequest?: GetTopologiesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/instance-physical-topologies",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let id;
-            
-            let resourceId;
-
-            if (getTopologiesRequest !== null && getTopologiesRequest !== undefined) {
-                if (getTopologiesRequest instanceof GetTopologiesRequest) {
-                    id = getTopologiesRequest.id;
-                    resourceId = getTopologiesRequest.resourceId;
-                } else {
-                    id = getTopologiesRequest['id'];
-                    resourceId = getTopologiesRequest['resource_id'];
-                }
-            }
-
-        
-            if (id !== null && id !== undefined) {
-                localVarQueryParameter['id'] = id;
-            }
-            if (resourceId !== null && resourceId !== undefined) {
-                localVarQueryParameter['resource_id'] = resourceId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询租户Lite Server列表接口用于获取指定租户的所有Lite Server实例信息。该接口适用于以下场景：当用户需要查看其租户下所有Lite Server实例的详细信息，以便进行管理和监控时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询租户Lite Server列表的权限。查询操作完成后，接口将返回租户下所有Lite Server实例的详细信息，包括实例ID、名称、状态、资源配置等。若用户无权限操作或租户下没有Lite Server实例，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listAllDevServers() {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/all",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询租户Hyperinstance列表接口用于获取指定租户的所有Hyperinstance实例信息。该接口适用于以下场景：当用户需要查看其租户下所有Hyperinstance实例的详细信息，以便进行管理和监控时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询租户Hyperinstance列表的权限。查询操作完成后，接口将返回租户下所有Hyperinstance实例的详细信息，包括实例ID、名称、状态、资源配置等。若用户无权限操作或租户下没有Hyperinstance实例，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listAllHyperinstances() {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/hyperinstance/all",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询规格列表接口用于获取系统中所有可用的资源规格信息。该接口适用于以下场景：当用户需要了解可用的资源规格，以便在创建或调整Lite Server实例时选择合适的配置时，可以通过此接口获取规格列表。使用该接口的前提条件是用户已登录并具有查询规格的权限。查询操作完成后，接口将返回所有可用的资源规格信息，包括规格ID、CPU、内存、存储等详细配置。若用户无权限操作或系统中没有可用的资源规格，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listDevServerFlavors(listDevServerFlavorsRequest?: ListDevServerFlavorsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/flavors",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let serverType;
-            
-            let arch;
-            
-            let chargingMode;
-
-            if (listDevServerFlavorsRequest !== null && listDevServerFlavorsRequest !== undefined) {
-                if (listDevServerFlavorsRequest instanceof ListDevServerFlavorsRequest) {
-                    serverType = listDevServerFlavorsRequest.serverType;
-                    arch = listDevServerFlavorsRequest.arch;
-                    chargingMode = listDevServerFlavorsRequest.chargingMode;
-                } else {
-                    serverType = listDevServerFlavorsRequest['server_type'];
-                    arch = listDevServerFlavorsRequest['arch'];
-                    chargingMode = listDevServerFlavorsRequest['charging_mode'];
-                }
-            }
-
-        
-            if (serverType !== null && serverType !== undefined) {
-                localVarQueryParameter['server_type'] = serverType;
-            }
-            if (arch !== null && arch !== undefined) {
-                localVarQueryParameter['arch'] = arch;
-            }
-            if (chargingMode !== null && chargingMode !== undefined) {
-                localVarQueryParameter['charging_mode'] = chargingMode;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询Lite Server镜像列表接口用于获取系统中所有可用的Lite Server镜像信息。该接口适用于以下场景：当用户需要了解可用的Lite Server镜像，以便在创建或调整Lite Server实例时选择合适的镜像时，可以通过此接口获取镜像列表。使用该接口的前提条件是用户已登录并具有查询镜像列表的权限。查询操作完成后，接口将返回所有可用的Lite Server镜像信息，包括镜像ID、名称、架构类型等。若用户无权限操作或系统中没有可用的镜像，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listDevServerImages(listDevServerImagesRequest?: ListDevServerImagesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/images",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let serverType;
-            
-            let flavorName;
-
-            if (listDevServerImagesRequest !== null && listDevServerImagesRequest !== undefined) {
-                if (listDevServerImagesRequest instanceof ListDevServerImagesRequest) {
-                    serverType = listDevServerImagesRequest.serverType;
-                    flavorName = listDevServerImagesRequest.flavorName;
-                } else {
-                    serverType = listDevServerImagesRequest['server_type'];
-                    flavorName = listDevServerImagesRequest['flavor_name'];
-                }
-            }
-
-        
-            if (serverType !== null && serverType !== undefined) {
-                localVarQueryParameter['server_type'] = serverType;
-            }
-            if (flavorName !== null && flavorName !== undefined) {
-                localVarQueryParameter['flavor_name'] = flavorName;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取Lite Server Job模板列表接口用于获取可用的Lite Server Job模板列表。该接口适用于以下场景：当用户需要查看可用的Job模板，以便选择合适的模板来创建新的Lite Server任务时，可以通过此接口获取模板列表。查询操作完成后，接口将返回所有可用的Lite Server Job模板列表，包括模板ID、名称、描述等信息。若系统中无可用模板，接口将返回相应的信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listDevServerJobTemplates(listDevServerJobTemplatesRequest?: ListDevServerJobTemplatesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/jobs/templates",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let id;
-            
-            let name;
-            
-            let type;
-
-            if (listDevServerJobTemplatesRequest !== null && listDevServerJobTemplatesRequest !== undefined) {
-                if (listDevServerJobTemplatesRequest instanceof ListDevServerJobTemplatesRequest) {
-                    id = listDevServerJobTemplatesRequest.id;
-                    name = listDevServerJobTemplatesRequest.name;
-                    type = listDevServerJobTemplatesRequest.type;
-                } else {
-                    id = listDevServerJobTemplatesRequest['id'];
-                    name = listDevServerJobTemplatesRequest['name'];
-                    type = listDevServerJobTemplatesRequest['type'];
-                }
-            }
-
-        
-            if (id !== null && id !== undefined) {
-                localVarQueryParameter['id'] = id;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询Lite Server Job列表接口用于获取Lite Server Job的列表信息，并支持按照状态、ID等相关字段进行过滤。该接口适用于以下场景：当用户需要查看多个Lite Server Job的概要信息，例如在监控作业状态、排查问题或进行日常管理时，可以通过此接口获取符合过滤条件的Job列表。使用该接口的前提条件是用户具有查看权限。查询操作完成后，接口将返回符合条件的Lite Server Job列表，包括每个Job的ID、状态、创建时间等基本信息。若用户无权限操作或请求参数不正确，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listDevServerJobs(listDevServerJobsRequest?: ListDevServerJobsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/jobs",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let id;
-            
-            let name;
-            
-            let type;
-            
-            let status;
-            
-            let visible;
-
-            if (listDevServerJobsRequest !== null && listDevServerJobsRequest !== undefined) {
-                if (listDevServerJobsRequest instanceof ListDevServerJobsRequest) {
-                    id = listDevServerJobsRequest.id;
-                    name = listDevServerJobsRequest.name;
-                    type = listDevServerJobsRequest.type;
-                    status = listDevServerJobsRequest.status;
-                    visible = listDevServerJobsRequest.visible;
-                } else {
-                    id = listDevServerJobsRequest['id'];
-                    name = listDevServerJobsRequest['name'];
-                    type = listDevServerJobsRequest['type'];
-                    status = listDevServerJobsRequest['status'];
-                    visible = listDevServerJobsRequest['visible'];
-                }
-            }
-
-        
-            if (id !== null && id !== undefined) {
-                localVarQueryParameter['id'] = id;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-            if (status !== null && status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-            if (visible !== null && visible !== undefined) {
-                localVarQueryParameter['visible'] = visible;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询已绑定的EIP接口用于获取已绑定到Lite Server服务器上的弹性公网IP（EIP）信息。该接口适用于以下场景：当用户需要查看Lite Server服务器上已绑定的EIP及其详细信息时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询EIP的权限，且指定的Lite Server服务器已存在。查询操作完成后，接口将返回已绑定到Lite Server服务器上的EIP的详细信息，包括EIP地址、绑定时间、状态等。若Lite Server服务器不存在、未绑定EIP或用户无权限操作，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listDevServerPublicIP(listDevServerPublicIPRequest?: ListDevServerPublicIPRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/{id}/publicips",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let id;
-
-            if (listDevServerPublicIPRequest !== null && listDevServerPublicIPRequest !== undefined) {
-                if (listDevServerPublicIPRequest instanceof ListDevServerPublicIPRequest) {
-                    id = listDevServerPublicIPRequest.id;
-                } else {
-                    id = listDevServerPublicIPRequest['id'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling listDevServerPublicIP.');
-            }
-
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询用户所有Lite Server实例列表接口用于获取用户名下所有Lite Server实例的详细信息。该接口适用于以下场景：用户需要查看其所有Lite Server实例的状态、配置等信息，以便进行资源管理和监控。使用该接口的前提条件是用户已登录且具有查看Lite Server实例的权限。调用此接口后，系统将返回用户名下所有Lite Server实例的列表，包括实例ID、名称、状态、创建时间等信息。若用户无权限或未登录，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listDevServers(listDevServersRequest?: ListDevServersRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let owner;
-            
-            let sortDir;
-            
-            let sortKey;
-            
-            let limit;
-            
-            let offset;
-
-            if (listDevServersRequest !== null && listDevServersRequest !== undefined) {
-                if (listDevServersRequest instanceof ListDevServersRequest) {
-                    owner = listDevServersRequest.owner;
-                    sortDir = listDevServersRequest.sortDir;
-                    sortKey = listDevServersRequest.sortKey;
-                    limit = listDevServersRequest.limit;
-                    offset = listDevServersRequest.offset;
-                } else {
-                    owner = listDevServersRequest['owner'];
-                    sortDir = listDevServersRequest['sort_dir'];
-                    sortKey = listDevServersRequest['sort_key'];
-                    limit = listDevServersRequest['limit'];
-                    offset = listDevServersRequest['offset'];
-                }
-            }
-
-        
-            if (owner !== null && owner !== undefined) {
-                localVarQueryParameter['owner'] = owner;
-            }
-            if (sortDir !== null && sortDir !== undefined) {
-                localVarQueryParameter['sort_dir'] = sortDir;
-            }
-            if (sortKey !== null && sortKey !== undefined) {
-                localVarQueryParameter['sort_key'] = sortKey;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询Hyper Cluster详情列表接口用于获取所有Hyper Cluster的详细信息。该接口适用于以下场景：当用户需要了解系统中所有超节点网络的配置和状态时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询Hyper Cluster详情的权限。查询操作完成后，接口将返回所有超节点网络的详细信息，包括ID、名称、子网信息等。若用户无权限操作或系统中没有Hyper Cluster，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listHyperCluster(listHyperClusterRequest?: ListHyperClusterRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/hyper-clusters",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let type;
-
-            if (listHyperClusterRequest !== null && listHyperClusterRequest !== undefined) {
-                if (listHyperClusterRequest instanceof ListHyperClusterRequest) {
-                    type = listHyperClusterRequest.type;
-                } else {
-                    type = listHyperClusterRequest['type'];
-                }
-            }
-
-        
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询超节点hyperinstance-clusters逻辑容量测算结果接口用于获取指定超节点集群的逻辑容量测算结果。该接口适用于以下场景：当用户需要了解超节点集群的资源使用情况和容量规划，以便进行资源管理和优化时，可以通过此接口获取逻辑容量测算结果。使用该接口的前提条件是用户已登录并具有查询超节点集群逻辑容量的权限，且指定的超节点集群已存在。查询操作完成后，接口将返回指定超节点集群的逻辑容量测算结果，包括可用容量信息。若用户无权限操作、指定的超节点集群不存在或集群ID无效，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listHyperinstanceClustersCapacity(listHyperinstanceClustersCapacityRequest?: ListHyperinstanceClustersCapacityRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/dev-servers/hyperinstance/cluster-capacity-evaluations",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (listHyperinstanceClustersCapacityRequest !== null && listHyperinstanceClustersCapacityRequest !== undefined) {
-                if (listHyperinstanceClustersCapacityRequest instanceof ListHyperinstanceClustersCapacityRequest) {
-                    body = listHyperinstanceClustersCapacityRequest.body
-                } else {
-                    body = listHyperinstanceClustersCapacityRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询用户所有超节点实例详情接口用于获取用户所有Lite Server超节点实例的详细信息。该接口适用于以下场景：当用户需要查看其所有超节点实例的配置、状态和使用情况时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询超节点实例的权限。查询操作完成后，接口将返回所有超节点实例的详细信息，包括实例ID、操作系统、运行状态、资源使用情况等。若用户无权限操作或没有超节点实例，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listHyperinstances(listHyperinstancesRequest?: ListHyperinstancesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/hyperinstance",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let sortDir;
-            
-            let sortKey;
-            
-            let limit;
-            
-            let offset;
-
-            if (listHyperinstancesRequest !== null && listHyperinstancesRequest !== undefined) {
-                if (listHyperinstancesRequest instanceof ListHyperinstancesRequest) {
-                    sortDir = listHyperinstancesRequest.sortDir;
-                    sortKey = listHyperinstancesRequest.sortKey;
-                    limit = listHyperinstancesRequest.limit;
-                    offset = listHyperinstancesRequest.offset;
-                } else {
-                    sortDir = listHyperinstancesRequest['sort_dir'];
-                    sortKey = listHyperinstancesRequest['sort_key'];
-                    limit = listHyperinstancesRequest['limit'];
-                    offset = listHyperinstancesRequest['offset'];
-                }
-            }
-
-        
-            if (sortDir !== null && sortDir !== undefined) {
-                localVarQueryParameter['sort_dir'] = sortDir;
-            }
-            if (sortKey !== null && sortKey !== undefined) {
-                localVarQueryParameter['sort_key'] = sortKey;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询Lite Server超节点标签接口用于获取Lite Server超节点上的所有标签信息。该接口适用于以下场景：当用户需要查看或管理Lite Server超节点的标签时，可以通过此接口查询指定超节点上的所有标签。使用该接口的前提条件是Lite Server超节点已存在，用户具有查询标签的权限。查询操作完成后，接口将返回超节点上的所有标签信息，包括标签名称和相关属性。若Lite Server超节点不存在或用户无权限操作，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        queryHyperinstanceTags(queryHyperinstanceTagsRequest?: QueryHyperinstanceTagsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}/tags",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let id;
-
-            if (queryHyperinstanceTagsRequest !== null && queryHyperinstanceTagsRequest !== undefined) {
-                if (queryHyperinstanceTagsRequest instanceof QueryHyperinstanceTagsRequest) {
-                    id = queryHyperinstanceTagsRequest.id;
-                } else {
-                    id = queryHyperinstanceTagsRequest['id'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling queryHyperinstanceTags.');
-            }
-
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 重启Lite Server实例接口用于重启正在运行的Lite Server实例。该接口适用于以下场景：当用户需要重启实例以应用配置更改、解决运行问题或进行系统维护时，可以通过此接口重启指定的Lite Server实例。使用该接口的前提条件是Lite Server实例已创建且处于运行状态，用户具有重启实例的权限。重启操作完成后，Lite Server实例将重新启动并进入运行状态，用户可以继续使用实例提供的服务。若Lite Server实例不存在、已处于停止状态或用户无权限操作，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        rebootDevServer(rebootDevServerRequest?: RebootDevServerRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1/{project_id}/dev-servers/{id}/reboot",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let id;
-
-            if (rebootDevServerRequest !== null && rebootDevServerRequest !== undefined) {
-                if (rebootDevServerRequest instanceof RebootDevServerRequest) {
-                    id = rebootDevServerRequest.id;
-                } else {
-                    id = rebootDevServerRequest['id'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling rebootDevServer.');
-            }
-
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 重装Lite Server服务器操作系统镜像接口用于重新安装Lite Server服务器的操作系统镜像。该接口适用于以下场景：当用户需要更新操作系统版本、修复系统故障或重新配置系统环境时，可以通过此接口重装指定的Lite Server服务器操作系统镜像。使用该接口的前提条件是Lite Server服务器已存在且处于停止状态，用户具有重装操作系统的权限。重装操作完成后，Lite Server服务器将安装新的操作系统镜像，并重新进入运行状态，若Lite Server服务器不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        reinstallDevServerOS(reinstallDevServerOSRequest?: ReinstallDevServerOSRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/dev-servers/{id}/reinstallos",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let id;
-
-            if (reinstallDevServerOSRequest !== null && reinstallDevServerOSRequest !== undefined) {
-                if (reinstallDevServerOSRequest instanceof ReinstallDevServerOSRequest) {
-                    id = reinstallDevServerOSRequest.id;
-                    body = reinstallDevServerOSRequest.body
-                } else {
-                    id = reinstallDevServerOSRequest['id'];
-                    body = reinstallDevServerOSRequest['body'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling reinstallDevServerOS.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 缩容Lite Server超节点接口用于减少Lite Server超节点的资源容量。该接口适用于以下场景：当用户需要降低Lite Server超节点的资源使用，以节省成本或优化资源分配时，可以通过此接口进行缩容。使用该接口的前提条件是用户已登录并具有缩容超节点的权限，且指定的超节点已存在且处于运行状态。缩容操作完成后，超节点的资源容量将根据指定的规格进行调整，用户可以立即使用减少后的资源。若用户无权限操作、指定的超节点不存在、超节点已处于最小容量或指定的缩容规格无效，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        scaleDownHyperinstance(scaleDownHyperinstanceRequest?: ScaleDownHyperinstanceRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}/live-scale-down",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let id;
-
-            if (scaleDownHyperinstanceRequest !== null && scaleDownHyperinstanceRequest !== undefined) {
-                if (scaleDownHyperinstanceRequest instanceof ScaleDownHyperinstanceRequest) {
-                    id = scaleDownHyperinstanceRequest.id;
-                    body = scaleDownHyperinstanceRequest.body
-                } else {
-                    id = scaleDownHyperinstanceRequest['id'];
-                    body = scaleDownHyperinstanceRequest['body'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling scaleDownHyperinstance.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 扩容Lite Server超节点接口用于增加Lite Server超节点的资源容量。该接口适用于以下场景：当用户需要提升Lite Server超节点的性能，以支持更多的负载或更大的数据处理需求时，可以通过此接口进行扩容。使用该接口的前提条件是用户已登录并具有扩容超节点的权限，且指定的超节点已存在且处于运行状态。扩容操作完成后，超节点的资源容量将根据指定的规格进行调整，用户可以立即使用增加的资源。若用户无权限操作、指定的超节点不存在、超节点已处于最大容量或指定的扩容规格无效，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        scaleUpHyperinstance(scaleUpHyperinstanceRequest?: ScaleUpHyperinstanceRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}/live-scale-up",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let id;
-
-            if (scaleUpHyperinstanceRequest !== null && scaleUpHyperinstanceRequest !== undefined) {
-                if (scaleUpHyperinstanceRequest instanceof ScaleUpHyperinstanceRequest) {
-                    id = scaleUpHyperinstanceRequest.id;
-                    body = scaleUpHyperinstanceRequest.body
-                } else {
-                    id = scaleUpHyperinstanceRequest['id'];
-                    body = scaleUpHyperinstanceRequest['body'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling scaleUpHyperinstance.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询Lite Server实例详情接口用于获取指定Lite Server实例的详细信息。该接口适用于以下场景：用户需要查看特定Lite Server实例的配置、状态、网络信息等详细数据，以便进行故障排查、资源管理和监控。使用该接口的前提条件是用户已登录且具有查看Lite Server实例的权限，并且需要提供有效的实例ID。查询操作完成后，系统将返回指定Lite Server实例的详细信息，包括实例ID、名称、状态、配置、网络配置等。若用户无权限、实例ID无效或实例不存在，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showDevServer(showDevServerRequest?: ShowDevServerRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/dev-servers/{id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let id;
-
-            if (showDevServerRequest !== null && showDevServerRequest !== undefined) {
-                if (showDevServerRequest instanceof ShowDevServerRequest) {
-                    id = showDevServerRequest.id;
-                } else {
-                    id = showDevServerRequest['id'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling showDevServer.');
-            }
-
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 启动Lite Server实例接口用于启动已创建但未运行的Lite Server实例。该接口适用于以下场景：当用户需要开始使用Lite Server实例进行开发或测试时，可以通过此接口启动指定的Lite Server实例。使用该接口的前提条件是Lite Server实例已创建且处于停止状态，用户具有启动实例的权限。若Lite Server实例不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        startDevServer(startDevServerRequest?: StartDevServerRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1/{project_id}/dev-servers/{id}/start",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let id;
-
-            if (startDevServerRequest !== null && startDevServerRequest !== undefined) {
-                if (startDevServerRequest instanceof StartDevServerRequest) {
-                    id = startDevServerRequest.id;
-                    body = startDevServerRequest.body
-                } else {
-                    id = startDevServerRequest['id'];
-                    body = startDevServerRequest['body'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling startDevServer.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 启动Lite Server超节点服务器接口用于启动已创建但未运行的Lite Server超节点服务器。该接口适用于以下场景：当用户需要开始使用Lite Server超节点服务器进行开发或测试时，可以通过此接口启动指定的超节点服务器。使用该接口的前提条件是Lite Server超节点服务器已创建且处于停止状态，用户具有启动超节点服务器的权限。启动操作完成后，超节点服务器将进入运行状态，用户可以访问和使用服务器提供的服务。若Lite Server超节点服务器不存在、已处于运行状态或用户无权限操作，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        startHyperinstance(startHyperinstanceRequest?: StartHyperinstanceRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}/start",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let id;
-
-            if (startHyperinstanceRequest !== null && startHyperinstanceRequest !== undefined) {
-                if (startHyperinstanceRequest instanceof StartHyperinstanceRequest) {
-                    id = startHyperinstanceRequest.id;
-                } else {
-                    id = startHyperinstanceRequest['id'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling startHyperinstance.');
-            }
-
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 停止Lite Server实例接口用于停止正在运行的Lite Server实例。该接口适用于以下场景：当用户需要停止Lite Server实例，以节省资源或进行维护时，可以通过此接口停止指定的Lite Server实例。使用该接口的前提条件是Lite Server实例已创建且处于运行状态，用户具有停止实例的权限。若Lite Server实例不存在、已处于停止状态或用户无权限操作，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        stopDevServer(stopDevServerRequest?: StopDevServerRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1/{project_id}/dev-servers/{id}/stop",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let id;
-
-            if (stopDevServerRequest !== null && stopDevServerRequest !== undefined) {
-                if (stopDevServerRequest instanceof StopDevServerRequest) {
-                    id = stopDevServerRequest.id;
-                } else {
-                    id = stopDevServerRequest['id'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling stopDevServer.');
-            }
-
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 停止Lite Server超节点服务器接口用于停止正在运行的Lite Server超节点服务器。该接口适用于以下场景：当用户需要暂停使用Lite Server超节点服务器，以节省资源或进行维护时，可以通过此接口停止指定的超节点服务器。使用该接口的前提条件是Lite Server超节点服务器已创建且处于运行状态或者停止失败状态，用户具有停止超节点服务器的权限。停止操作完成后，超节点服务器将进入停止状态，不再提供服务。若Lite Server超节点服务器不存在、已处于停止状态或用户无权限操作，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        stopHyperinstance(stopHyperinstanceRequest?: StopHyperinstanceRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}/stop",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let id;
-
-            if (stopHyperinstanceRequest !== null && stopHyperinstanceRequest !== undefined) {
-                if (stopHyperinstanceRequest instanceof StopHyperinstanceRequest) {
-                    id = stopHyperinstanceRequest.id;
-                } else {
-                    id = stopHyperinstanceRequest['id'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling stopHyperinstance.');
-            }
-
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 实时同步用户Lite Server实例状态接口用于实时获取并同步用户Lite Server实例的当前状态。该接口适用于以下场景：用户需要实时监控其Lite Server实例的运行状态，确保实例正常运行或及时发现并处理异常情况。使用该接口的前提条件是用户已登录并具有相应的权限，且Lite Server实例已创建并处于运行状态。接口调用成功后，将返回Lite Server实例的最新状态信息，包括但不限于实例ID、运行状态、资源使用情况等。若用户无权限操作或Lite Server实例不存在，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        syncDevServers(syncDevServersRequest?: SyncDevServersRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1/{project_id}/dev-servers/sync",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let owner;
-            
-            let sortDir;
-            
-            let sortKey;
-            
-            let offset;
-            
-            let limit;
-
-            if (syncDevServersRequest !== null && syncDevServersRequest !== undefined) {
-                if (syncDevServersRequest instanceof SyncDevServersRequest) {
-                    owner = syncDevServersRequest.owner;
-                    sortDir = syncDevServersRequest.sortDir;
-                    sortKey = syncDevServersRequest.sortKey;
-                    offset = syncDevServersRequest.offset;
-                    limit = syncDevServersRequest.limit;
-                } else {
-                    owner = syncDevServersRequest['owner'];
-                    sortDir = syncDevServersRequest['sort_dir'];
-                    sortKey = syncDevServersRequest['sort_key'];
-                    offset = syncDevServersRequest['offset'];
-                    limit = syncDevServersRequest['limit'];
-                }
-            }
-
-        
-            if (owner !== null && owner !== undefined) {
-                localVarQueryParameter['owner'] = owner;
-            }
-            if (sortDir !== null && sortDir !== undefined) {
-                localVarQueryParameter['sort_dir'] = sortDir;
-            }
-            if (sortKey !== null && sortKey !== undefined) {
-                localVarQueryParameter['sort_key'] = sortKey;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 修改DevServer实例名称接口用于更改已创建的DevServer实例的名称。该接口适用于以下场景：当用户需要对DevServer实例进行重命名以更好地反映实例的功能或用途时，或者在实例名称不再符合当前项目命名规范时进行更新。使用该接口的前提条件是DevServer实例已存在且用户具有对该实例的管理权限。修改操作完成后，实例的新名称将立即生效，并在所有相关视图和记录中更新。若DevServer实例不存在、用户无权限操作或新名称不符合命名规则，接口将返回相应的错误信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateDevServer(updateDevServerRequest?: UpdateDevServerRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v1/{project_id}/dev-servers/{id}",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-            
-            let id;
-
-            if (updateDevServerRequest !== null && updateDevServerRequest !== undefined) {
-                if (updateDevServerRequest instanceof UpdateDevServerRequest) {
-                    id = updateDevServerRequest.id;
-                    body = updateDevServerRequest.body
-                } else {
-                    id = updateDevServerRequest['id'];
-                    body = updateDevServerRequest['body'];
-                }
-            }
-
-        
-            if (id === null || id === undefined) {
-            throw new RequiredError('id','Required parameter id was null or undefined when calling updateDevServer.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'id': id, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 通过运行的实例保存成容器镜像接口用于将正在运行的实例保存为容器镜像。该接口适用于以下场景：用户需要保存当前运行环境以便后续使用或开发时，可通过此接口将实例保存为镜像。使用该接口的前提条件是用户已登录系统并具有访问目标实例的权限，同时实例必须处于运行状态。调用该接口后，系统将保存实例的当前状态为容器镜像，包括安装的依赖包和插件。若用户无权限访问指定实例或实例未运行，接口将返回相应的错误信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -17932,6 +18014,16 @@ export const ParamCreater = function () {
             let billing;
             
             let tags;
+            
+            let swrPath;
+            
+            let poolName;
+            
+            let description;
+            
+            let ip;
+            
+            let username;
 
             if (listAllNotebooksRequest !== null && listAllNotebooksRequest !== undefined) {
                 if (listAllNotebooksRequest instanceof ListAllNotebooksRequest) {
@@ -17950,6 +18042,11 @@ export const ParamCreater = function () {
                     id = listAllNotebooksRequest.id;
                     billing = listAllNotebooksRequest.billing;
                     tags = listAllNotebooksRequest.tags;
+                    swrPath = listAllNotebooksRequest.swrPath;
+                    poolName = listAllNotebooksRequest.poolName;
+                    description = listAllNotebooksRequest.description;
+                    ip = listAllNotebooksRequest.ip;
+                    username = listAllNotebooksRequest.username;
                 } else {
                     feature = listAllNotebooksRequest['feature'];
                     limit = listAllNotebooksRequest['limit'];
@@ -17966,6 +18063,11 @@ export const ParamCreater = function () {
                     id = listAllNotebooksRequest['id'];
                     billing = listAllNotebooksRequest['billing'];
                     tags = listAllNotebooksRequest['tags'];
+                    swrPath = listAllNotebooksRequest['swr_path'];
+                    poolName = listAllNotebooksRequest['pool_name'];
+                    description = listAllNotebooksRequest['description'];
+                    ip = listAllNotebooksRequest['ip'];
+                    username = listAllNotebooksRequest['username'];
                 }
             }
 
@@ -18014,6 +18116,21 @@ export const ParamCreater = function () {
             }
             if (tags !== null && tags !== undefined) {
                 localVarQueryParameter['tags'] = tags;
+            }
+            if (swrPath !== null && swrPath !== undefined) {
+                localVarQueryParameter['swr_path'] = swrPath;
+            }
+            if (poolName !== null && poolName !== undefined) {
+                localVarQueryParameter['pool_name'] = poolName;
+            }
+            if (description !== null && description !== undefined) {
+                localVarQueryParameter['description'] = description;
+            }
+            if (ip !== null && ip !== undefined) {
+                localVarQueryParameter['ip'] = ip;
+            }
+            if (username !== null && username !== undefined) {
+                localVarQueryParameter['username'] = username;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -18258,6 +18375,16 @@ export const ParamCreater = function () {
             let billing;
             
             let tags;
+            
+            let swrPath;
+            
+            let poolName;
+            
+            let description;
+            
+            let ip;
+            
+            let username;
 
             if (listNotebooksRequest !== null && listNotebooksRequest !== undefined) {
                 if (listNotebooksRequest instanceof ListNotebooksRequest) {
@@ -18276,6 +18403,11 @@ export const ParamCreater = function () {
                     id = listNotebooksRequest.id;
                     billing = listNotebooksRequest.billing;
                     tags = listNotebooksRequest.tags;
+                    swrPath = listNotebooksRequest.swrPath;
+                    poolName = listNotebooksRequest.poolName;
+                    description = listNotebooksRequest.description;
+                    ip = listNotebooksRequest.ip;
+                    username = listNotebooksRequest.username;
                 } else {
                     feature = listNotebooksRequest['feature'];
                     limit = listNotebooksRequest['limit'];
@@ -18292,6 +18424,11 @@ export const ParamCreater = function () {
                     id = listNotebooksRequest['id'];
                     billing = listNotebooksRequest['billing'];
                     tags = listNotebooksRequest['tags'];
+                    swrPath = listNotebooksRequest['swr_path'];
+                    poolName = listNotebooksRequest['pool_name'];
+                    description = listNotebooksRequest['description'];
+                    ip = listNotebooksRequest['ip'];
+                    username = listNotebooksRequest['username'];
                 }
             }
 
@@ -18340,6 +18477,21 @@ export const ParamCreater = function () {
             }
             if (tags !== null && tags !== undefined) {
                 localVarQueryParameter['tags'] = tags;
+            }
+            if (swrPath !== null && swrPath !== undefined) {
+                localVarQueryParameter['swr_path'] = swrPath;
+            }
+            if (poolName !== null && poolName !== undefined) {
+                localVarQueryParameter['pool_name'] = poolName;
+            }
+            if (description !== null && description !== undefined) {
+                localVarQueryParameter['description'] = description;
+            }
+            if (ip !== null && ip !== undefined) {
+                localVarQueryParameter['ip'] = ip;
+            }
+            if (username !== null && username !== undefined) {
+                localVarQueryParameter['username'] = username;
             }
 
             options.queryParams = localVarQueryParameter;

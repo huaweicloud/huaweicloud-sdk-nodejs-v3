@@ -13,6 +13,7 @@ export class TaskDetailInfo {
     private 'ended_time'?: string;
     private 'fail_reason'?: string;
     private 'show_detail'?: boolean;
+    private 'extend_fields'?: { [key: string]: object; };
     public constructor() { 
     }
     public withInstanceId(instanceId: string): TaskDetailInfo {
@@ -122,5 +123,15 @@ export class TaskDetailInfo {
     }
     public get showDetail(): boolean | undefined {
         return this['show_detail'];
+    }
+    public withExtendFields(extendFields: { [key: string]: object; }): TaskDetailInfo {
+        this['extend_fields'] = extendFields;
+        return this;
+    }
+    public set extendFields(extendFields: { [key: string]: object; }  | undefined) {
+        this['extend_fields'] = extendFields;
+    }
+    public get extendFields(): { [key: string]: object; } | undefined {
+        return this['extend_fields'];
     }
 }

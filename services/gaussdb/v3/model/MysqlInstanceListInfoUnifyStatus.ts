@@ -33,6 +33,7 @@ export class MysqlInstanceListInfoUnifyStatus {
     private 'charge_info'?: MysqlChargeInfo;
     private 'dedicated_resource_id'?: string;
     public tags?: Array<InstanceTagItem>;
+    private 'eos_tag'?: boolean;
     public constructor(id?: string, name?: string) { 
         this['id'] = id;
         this['name'] = name;
@@ -230,5 +231,15 @@ export class MysqlInstanceListInfoUnifyStatus {
     public withTags(tags: Array<InstanceTagItem>): MysqlInstanceListInfoUnifyStatus {
         this['tags'] = tags;
         return this;
+    }
+    public withEosTag(eosTag: boolean): MysqlInstanceListInfoUnifyStatus {
+        this['eos_tag'] = eosTag;
+        return this;
+    }
+    public set eosTag(eosTag: boolean  | undefined) {
+        this['eos_tag'] = eosTag;
+    }
+    public get eosTag(): boolean | undefined {
+        return this['eos_tag'];
     }
 }

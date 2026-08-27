@@ -1,11 +1,11 @@
-import { ScreenRecordsConfigResultReq } from './ScreenRecordsConfigResultReq';
+import { UpdateScreenRecordsTrafficLimitConfigRequestBody } from './UpdateScreenRecordsTrafficLimitConfigRequestBody';
 
 
 export class UpdateScreenRecordsTrafficLimitConfigRequest {
-    public body?: ScreenRecordsConfigResultReq;
+    public body?: UpdateScreenRecordsTrafficLimitConfigRequestBody;
     public constructor() { 
     }
-    public withBody(body: ScreenRecordsConfigResultReq): UpdateScreenRecordsTrafficLimitConfigRequest {
+    public withBody(body: UpdateScreenRecordsTrafficLimitConfigRequestBody): UpdateScreenRecordsTrafficLimitConfigRequest {
         this['body'] = body;
         return this;
     }

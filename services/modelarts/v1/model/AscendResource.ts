@@ -6,6 +6,7 @@ export class AscendResource {
     public type?: string;
     private 'ai_core'?: string;
     private 'ai_cpu'?: string;
+    private 'type_alias'?: string;
     public constructor() { 
     }
     public withNpu(npu: number): AscendResource {
@@ -45,5 +46,15 @@ export class AscendResource {
     }
     public get aiCpu(): string | undefined {
         return this['ai_cpu'];
+    }
+    public withTypeAlias(typeAlias: string): AscendResource {
+        this['type_alias'] = typeAlias;
+        return this;
+    }
+    public set typeAlias(typeAlias: string  | undefined) {
+        this['type_alias'] = typeAlias;
+    }
+    public get typeAlias(): string | undefined {
+        return this['type_alias'];
     }
 }

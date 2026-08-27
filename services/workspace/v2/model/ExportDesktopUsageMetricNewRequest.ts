@@ -4,6 +4,7 @@ export class ExportDesktopUsageMetricNewRequest {
     private 'start_time'?: string;
     private 'end_time'?: string;
     private 'resource_name'?: string;
+    private 'resource_id'?: string;
     private 'min_idle_days'?: number;
     private 'max_idle_days'?: number;
     private 'usage_min_hours'?: number;
@@ -44,6 +45,16 @@ export class ExportDesktopUsageMetricNewRequest {
     }
     public get resourceName(): string | undefined {
         return this['resource_name'];
+    }
+    public withResourceId(resourceId: string): ExportDesktopUsageMetricNewRequest {
+        this['resource_id'] = resourceId;
+        return this;
+    }
+    public set resourceId(resourceId: string  | undefined) {
+        this['resource_id'] = resourceId;
+    }
+    public get resourceId(): string | undefined {
+        return this['resource_id'];
     }
     public withMinIdleDays(minIdleDays: number): ExportDesktopUsageMetricNewRequest {
         this['min_idle_days'] = minIdleDays;

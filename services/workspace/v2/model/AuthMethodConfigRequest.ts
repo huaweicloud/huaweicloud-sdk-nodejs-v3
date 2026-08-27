@@ -1,4 +1,5 @@
 import { AuthTypeEnum } from './AuthTypeEnum';
+import { LoginCaptchaConfig } from './LoginCaptchaConfig';
 import { RadiusGatewayConfig } from './RadiusGatewayConfig';
 import { Saml2AuthConfig } from './Saml2AuthConfig';
 import { ThirdPartyAuthConfig } from './ThirdPartyAuthConfig';
@@ -13,6 +14,7 @@ export class AuthMethodConfigRequest {
     private 'emergency_login_mode'?: string;
     private 'saml2_auth_config'?: Saml2AuthConfig;
     private 'sms_login_enabled'?: boolean;
+    private 'login_captcha'?: LoginCaptchaConfig;
     public constructor() { 
     }
     public withId(id: string): AuthMethodConfigRequest {
@@ -88,5 +90,15 @@ export class AuthMethodConfigRequest {
     }
     public get smsLoginEnabled(): boolean | undefined {
         return this['sms_login_enabled'];
+    }
+    public withLoginCaptcha(loginCaptcha: LoginCaptchaConfig): AuthMethodConfigRequest {
+        this['login_captcha'] = loginCaptcha;
+        return this;
+    }
+    public set loginCaptcha(loginCaptcha: LoginCaptchaConfig  | undefined) {
+        this['login_captcha'] = loginCaptcha;
+    }
+    public get loginCaptcha(): LoginCaptchaConfig | undefined {
+        return this['login_captcha'];
     }
 }

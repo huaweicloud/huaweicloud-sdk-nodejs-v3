@@ -8,9 +8,11 @@ export class ListDdlLogsRequest {
     public limit?: number;
     private 'start_time'?: number;
     private 'end_time'?: number;
-    public constructor(instanceId?: string, nodeId?: string) { 
+    public constructor(instanceId?: string, nodeId?: string, startTime?: number, endTime?: number) { 
         this['instance_id'] = instanceId;
         this['node_id'] = nodeId;
+        this['start_time'] = startTime;
+        this['end_time'] = endTime;
     }
     public withXLanguage(xLanguage: string): ListDdlLogsRequest {
         this['X-Language'] = xLanguage;

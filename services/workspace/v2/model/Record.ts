@@ -23,6 +23,7 @@ export class Record {
     private 'source_ip'?: string;
     private 'public_ip'?: string;
     private 'enterprise_project_id'?: string;
+    private 'desktop_id'?: string;
     public constructor() { 
     }
     public withTenantId(tenantId: string): Record {
@@ -232,5 +233,15 @@ export class Record {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withDesktopId(desktopId: string): Record {
+        this['desktop_id'] = desktopId;
+        return this;
+    }
+    public set desktopId(desktopId: string  | undefined) {
+        this['desktop_id'] = desktopId;
+    }
+    public get desktopId(): string | undefined {
+        return this['desktop_id'];
     }
 }

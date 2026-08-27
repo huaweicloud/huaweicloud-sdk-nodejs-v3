@@ -12,6 +12,8 @@ export class ListHostsDetailRequest {
     public offset?: number;
     public marker?: string;
     private 'changes_since'?: string;
+    private 'sort_field'?: ListHostsDetailRequestSortFieldEnum | string;
+    private 'sort_type'?: ListHostsDetailRequestSortTypeEnum | string;
     public constructor() { 
     }
     public withName(name: string): ListHostsDetailRequest {
@@ -94,6 +96,26 @@ export class ListHostsDetailRequest {
     public get changesSince(): string | undefined {
         return this['changes_since'];
     }
+    public withSortField(sortField: ListHostsDetailRequestSortFieldEnum | string): ListHostsDetailRequest {
+        this['sort_field'] = sortField;
+        return this;
+    }
+    public set sortField(sortField: ListHostsDetailRequestSortFieldEnum | string  | undefined) {
+        this['sort_field'] = sortField;
+    }
+    public get sortField(): ListHostsDetailRequestSortFieldEnum | string | undefined {
+        return this['sort_field'];
+    }
+    public withSortType(sortType: ListHostsDetailRequestSortTypeEnum | string): ListHostsDetailRequest {
+        this['sort_type'] = sortType;
+        return this;
+    }
+    public set sortType(sortType: ListHostsDetailRequestSortTypeEnum | string  | undefined) {
+        this['sort_type'] = sortType;
+    }
+    public get sortType(): ListHostsDetailRequestSortTypeEnum | string | undefined {
+        return this['sort_type'];
+    }
 }
 
 /**
@@ -104,4 +126,21 @@ export enum ListHostsDetailRequestStateEnum {
     AVAILABLE = 'available',
     FAULT = 'fault',
     RELEASED = 'released'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListHostsDetailRequestSortFieldEnum {
+    INSTANCE_TOTAL = 'instance_total',
+    AVAILABLE_VCPUS = 'available_vcpus',
+    AVAILABLE_MEMORY = 'available_memory'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListHostsDetailRequestSortTypeEnum {
+    ASC = 'ASC',
+    DESC = 'DESC'
 }

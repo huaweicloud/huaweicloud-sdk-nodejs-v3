@@ -1,6 +1,5 @@
 import { ResourceFlavorSpecDataVolume } from './ResourceFlavorSpecDataVolume';
-import { ResourceFlavorSpecGpu } from './ResourceFlavorSpecGpu';
-import { ResourceFlavorSpecNpu } from './ResourceFlavorSpecNpu';
+import { ResourceFlavorXpu } from './ResourceFlavorXpu';
 
 
 export class ResourceFlavorSpec {
@@ -8,8 +7,8 @@ export class ResourceFlavorSpec {
     public cpuArch?: string;
     public cpu?: string;
     public memory?: string;
-    public gpu?: ResourceFlavorSpecGpu;
-    public npu?: ResourceFlavorSpecNpu;
+    public gpu?: ResourceFlavorXpu;
+    public npu?: ResourceFlavorXpu;
     public dataVolume?: Array<ResourceFlavorSpecDataVolume>;
     public billingModes?: Array<number>;
     public billingCode?: string;
@@ -32,11 +31,11 @@ export class ResourceFlavorSpec {
         this['memory'] = memory;
         return this;
     }
-    public withGpu(gpu: ResourceFlavorSpecGpu): ResourceFlavorSpec {
+    public withGpu(gpu: ResourceFlavorXpu): ResourceFlavorSpec {
         this['gpu'] = gpu;
         return this;
     }
-    public withNpu(npu: ResourceFlavorSpecNpu): ResourceFlavorSpec {
+    public withNpu(npu: ResourceFlavorXpu): ResourceFlavorSpec {
         this['npu'] = npu;
         return this;
     }

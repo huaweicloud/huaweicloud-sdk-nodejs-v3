@@ -2,8 +2,7 @@
 
 export class BatchUnBindApiKeyRequestKeyIds {
     private 'key_id'?: string;
-    public constructor(keyId?: string) { 
-        this['key_id'] = keyId;
+    public constructor() { 
     }
     public withKeyId(keyId: string): BatchUnBindApiKeyRequestKeyIds {
         this['key_id'] = keyId;

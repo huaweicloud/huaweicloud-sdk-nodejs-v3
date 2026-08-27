@@ -2,6 +2,8 @@
 
 export class ListResourcePackagesRequest {
     private 'resource_spec_code'?: string;
+    public limit?: number;
+    public offset?: number;
     public constructor() { 
     }
     public withResourceSpecCode(resourceSpecCode: string): ListResourcePackagesRequest {
@@ -13,5 +15,13 @@ export class ListResourcePackagesRequest {
     }
     public get resourceSpecCode(): string | undefined {
         return this['resource_spec_code'];
+    }
+    public withLimit(limit: number): ListResourcePackagesRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListResourcePackagesRequest {
+        this['offset'] = offset;
+        return this;
     }
 }

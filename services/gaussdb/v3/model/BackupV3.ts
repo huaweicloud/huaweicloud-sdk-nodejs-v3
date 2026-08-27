@@ -16,6 +16,7 @@ export class BackupV3 {
     private 'backup_method'?: string;
     private 'use_detail'?: string;
     private 'time_zone'?: string;
+    private 'backup_mode'?: string;
     public constructor() { 
     }
     public withId(id: string): BackupV3 {
@@ -125,5 +126,15 @@ export class BackupV3 {
     }
     public get timeZone(): string | undefined {
         return this['time_zone'];
+    }
+    public withBackupMode(backupMode: string): BackupV3 {
+        this['backup_mode'] = backupMode;
+        return this;
+    }
+    public set backupMode(backupMode: string  | undefined) {
+        this['backup_mode'] = backupMode;
+    }
+    public get backupMode(): string | undefined {
+        return this['backup_mode'];
     }
 }

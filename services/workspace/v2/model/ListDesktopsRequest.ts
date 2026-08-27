@@ -6,6 +6,7 @@ export class ListDesktopsRequest {
     private 'desktop_ip'?: string;
     public offset?: number;
     public limit?: number;
+    private 'domain_status'?: ListDesktopsRequestDomainStatusEnum | number;
     private 'pool_id'?: string;
     private 'enterprise_project_id'?: string;
     private 'desktop_type'?: string;
@@ -53,6 +54,16 @@ export class ListDesktopsRequest {
     public withLimit(limit: number): ListDesktopsRequest {
         this['limit'] = limit;
         return this;
+    }
+    public withDomainStatus(domainStatus: ListDesktopsRequestDomainStatusEnum | number): ListDesktopsRequest {
+        this['domain_status'] = domainStatus;
+        return this;
+    }
+    public set domainStatus(domainStatus: ListDesktopsRequestDomainStatusEnum | number  | undefined) {
+        this['domain_status'] = domainStatus;
+    }
+    public get domainStatus(): ListDesktopsRequestDomainStatusEnum | number | undefined {
+        return this['domain_status'];
     }
     public withPoolId(poolId: string): ListDesktopsRequest {
         this['pool_id'] = poolId;
@@ -122,4 +133,14 @@ export class ListDesktopsRequest {
         this['tag'] = tag;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListDesktopsRequestDomainStatusEnum {
+    NUMBER_1 = 1,
+    NUMBER_2 = 2,
+    NUMBER_3 = 3
 }

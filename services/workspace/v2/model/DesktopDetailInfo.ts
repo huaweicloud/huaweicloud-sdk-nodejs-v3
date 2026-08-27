@@ -23,6 +23,7 @@ export class DesktopDetailInfo {
     public flavor?: FlavorInfo;
     public status?: string;
     private 'task_status'?: string;
+    private 'domain_status'?: number;
     private 'in_maintenance_mode'?: boolean;
     public created?: string;
     private 'security_groups'?: Array<SecurityGroupInfo>;
@@ -57,6 +58,7 @@ export class DesktopDetailInfo {
     private 'is_freeze'?: boolean;
     public isolated?: boolean;
     public domain?: string;
+    private 'agent_version'?: string;
     public constructor() { 
     }
     public withDesktopId(desktopId: string): DesktopDetailInfo {
@@ -162,6 +164,16 @@ export class DesktopDetailInfo {
     }
     public get taskStatus(): string | undefined {
         return this['task_status'];
+    }
+    public withDomainStatus(domainStatus: number): DesktopDetailInfo {
+        this['domain_status'] = domainStatus;
+        return this;
+    }
+    public set domainStatus(domainStatus: number  | undefined) {
+        this['domain_status'] = domainStatus;
+    }
+    public get domainStatus(): number | undefined {
+        return this['domain_status'];
     }
     public withInMaintenanceMode(inMaintenanceMode: boolean): DesktopDetailInfo {
         this['in_maintenance_mode'] = inMaintenanceMode;
@@ -460,6 +472,16 @@ export class DesktopDetailInfo {
     public withDomain(domain: string): DesktopDetailInfo {
         this['domain'] = domain;
         return this;
+    }
+    public withAgentVersion(agentVersion: string): DesktopDetailInfo {
+        this['agent_version'] = agentVersion;
+        return this;
+    }
+    public set agentVersion(agentVersion: string  | undefined) {
+        this['agent_version'] = agentVersion;
+    }
+    public get agentVersion(): string | undefined {
+        return this['agent_version'];
     }
 }
 

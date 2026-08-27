@@ -8,6 +8,7 @@ export class PoliciesRecordAudit {
     private 'obs_bucket_source'?: string;
     private 'obs_bucket_name'?: string;
     private 'retention_duration'?: number;
+    private 'reminder_frequency'?: number;
     public constructor() { 
     }
     public withEnable(enable: boolean): PoliciesRecordAudit {
@@ -57,5 +58,15 @@ export class PoliciesRecordAudit {
     }
     public get retentionDuration(): number | undefined {
         return this['retention_duration'];
+    }
+    public withReminderFrequency(reminderFrequency: number): PoliciesRecordAudit {
+        this['reminder_frequency'] = reminderFrequency;
+        return this;
+    }
+    public set reminderFrequency(reminderFrequency: number  | undefined) {
+        this['reminder_frequency'] = reminderFrequency;
+    }
+    public get reminderFrequency(): number | undefined {
+        return this['reminder_frequency'];
     }
 }

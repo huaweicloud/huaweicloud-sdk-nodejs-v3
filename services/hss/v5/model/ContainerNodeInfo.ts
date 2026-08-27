@@ -22,6 +22,8 @@ export class ContainerNodeInfo {
     public intrusion?: number;
     private 'policy_group_id'?: string;
     private 'policy_group_name'?: string;
+    private 'is_container_node'?: boolean;
+    public version?: string;
     public constructor() { 
     }
     public withAgentId(agentId: string): ContainerNodeInfo {
@@ -215,5 +217,19 @@ export class ContainerNodeInfo {
     }
     public get policyGroupName(): string | undefined {
         return this['policy_group_name'];
+    }
+    public withIsContainerNode(isContainerNode: boolean): ContainerNodeInfo {
+        this['is_container_node'] = isContainerNode;
+        return this;
+    }
+    public set isContainerNode(isContainerNode: boolean  | undefined) {
+        this['is_container_node'] = isContainerNode;
+    }
+    public get isContainerNode(): boolean | undefined {
+        return this['is_container_node'];
+    }
+    public withVersion(version: string): ContainerNodeInfo {
+        this['version'] = version;
+        return this;
     }
 }

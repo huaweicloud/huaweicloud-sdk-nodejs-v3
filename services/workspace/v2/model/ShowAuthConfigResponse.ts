@@ -1,3 +1,4 @@
+import { LoginCaptchaConfig } from './LoginCaptchaConfig';
 import { RadiusGatewayConfigInfo } from './RadiusGatewayConfigInfo';
 import { Saml2AuthConfig } from './Saml2AuthConfig';
 import { ThirdPartyAuthConfig } from './ThirdPartyAuthConfig';
@@ -13,6 +14,7 @@ export class ShowAuthConfigResponse extends SdkResponse {
     private 'third_party_auth_config'?: Array<ThirdPartyAuthConfig>;
     private 'emergency_login_mode'?: string;
     private 'sms_login_enabled'?: boolean;
+    private 'login_captcha'?: LoginCaptchaConfig;
     private 'saml2_auth_config'?: Saml2AuthConfig;
     public constructor() { 
         super();
@@ -84,6 +86,16 @@ export class ShowAuthConfigResponse extends SdkResponse {
     }
     public get smsLoginEnabled(): boolean | undefined {
         return this['sms_login_enabled'];
+    }
+    public withLoginCaptcha(loginCaptcha: LoginCaptchaConfig): ShowAuthConfigResponse {
+        this['login_captcha'] = loginCaptcha;
+        return this;
+    }
+    public set loginCaptcha(loginCaptcha: LoginCaptchaConfig  | undefined) {
+        this['login_captcha'] = loginCaptcha;
+    }
+    public get loginCaptcha(): LoginCaptchaConfig | undefined {
+        return this['login_captcha'];
     }
     public withSaml2AuthConfig(saml2AuthConfig: Saml2AuthConfig): ShowAuthConfigResponse {
         this['saml2_auth_config'] = saml2AuthConfig;

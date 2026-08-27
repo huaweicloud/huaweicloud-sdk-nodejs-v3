@@ -16,6 +16,11 @@ export class ListAllNotebooksRequest {
     public id?: string;
     public billing?: string;
     public tags?: string;
+    private 'swr_path'?: string;
+    private 'pool_name'?: string;
+    public description?: string;
+    public ip?: string;
+    public username?: string;
     public constructor() { 
     }
     public withFeature(feature: ListAllNotebooksRequestFeatureEnum | string): ListAllNotebooksRequest {
@@ -106,6 +111,38 @@ export class ListAllNotebooksRequest {
     }
     public withTags(tags: string): ListAllNotebooksRequest {
         this['tags'] = tags;
+        return this;
+    }
+    public withSwrPath(swrPath: string): ListAllNotebooksRequest {
+        this['swr_path'] = swrPath;
+        return this;
+    }
+    public set swrPath(swrPath: string  | undefined) {
+        this['swr_path'] = swrPath;
+    }
+    public get swrPath(): string | undefined {
+        return this['swr_path'];
+    }
+    public withPoolName(poolName: string): ListAllNotebooksRequest {
+        this['pool_name'] = poolName;
+        return this;
+    }
+    public set poolName(poolName: string  | undefined) {
+        this['pool_name'] = poolName;
+    }
+    public get poolName(): string | undefined {
+        return this['pool_name'];
+    }
+    public withDescription(description: string): ListAllNotebooksRequest {
+        this['description'] = description;
+        return this;
+    }
+    public withIp(ip: string): ListAllNotebooksRequest {
+        this['ip'] = ip;
+        return this;
+    }
+    public withUsername(username: string): ListAllNotebooksRequest {
+        this['username'] = username;
         return this;
     }
 }

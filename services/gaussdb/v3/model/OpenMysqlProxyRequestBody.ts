@@ -8,7 +8,9 @@ export class OpenMysqlProxyRequestBody {
     private 'proxy_mode'?: OpenMysqlProxyRequestBodyProxyModeEnum | string;
     private 'route_mode'?: number;
     private 'nodes_read_weight'?: Array<NodesWeight>;
+    private 'proxy_nodes_az_list'?: Array<string>;
     private 'subnet_id'?: string;
+    private 'proxy_ip'?: string;
     private 'new_node_auto_add_status'?: string;
     private 'new_node_weight'?: number;
     public constructor(flavorRef?: string, nodeNum?: number) { 
@@ -75,6 +77,16 @@ export class OpenMysqlProxyRequestBody {
     public get nodesReadWeight(): Array<NodesWeight> | undefined {
         return this['nodes_read_weight'];
     }
+    public withProxyNodesAzList(proxyNodesAzList: Array<string>): OpenMysqlProxyRequestBody {
+        this['proxy_nodes_az_list'] = proxyNodesAzList;
+        return this;
+    }
+    public set proxyNodesAzList(proxyNodesAzList: Array<string>  | undefined) {
+        this['proxy_nodes_az_list'] = proxyNodesAzList;
+    }
+    public get proxyNodesAzList(): Array<string> | undefined {
+        return this['proxy_nodes_az_list'];
+    }
     public withSubnetId(subnetId: string): OpenMysqlProxyRequestBody {
         this['subnet_id'] = subnetId;
         return this;
@@ -84,6 +96,16 @@ export class OpenMysqlProxyRequestBody {
     }
     public get subnetId(): string | undefined {
         return this['subnet_id'];
+    }
+    public withProxyIp(proxyIp: string): OpenMysqlProxyRequestBody {
+        this['proxy_ip'] = proxyIp;
+        return this;
+    }
+    public set proxyIp(proxyIp: string  | undefined) {
+        this['proxy_ip'] = proxyIp;
+    }
+    public get proxyIp(): string | undefined {
+        return this['proxy_ip'];
     }
     public withNewNodeAutoAddStatus(newNodeAutoAddStatus: string): OpenMysqlProxyRequestBody {
         this['new_node_auto_add_status'] = newNodeAutoAddStatus;

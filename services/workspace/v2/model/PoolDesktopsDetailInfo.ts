@@ -24,6 +24,7 @@ export class PoolDesktopsDetailInfo {
     public flavor?: FlavorInfo;
     public status?: string;
     private 'task_status'?: string;
+    private 'domain_status'?: number;
     private 'in_maintenance_mode'?: boolean;
     public created?: string;
     private 'security_groups'?: Array<SecurityGroupInfo>;
@@ -58,6 +59,7 @@ export class PoolDesktopsDetailInfo {
     private 'is_freeze'?: boolean;
     public isolated?: boolean;
     public domain?: string;
+    private 'agent_version'?: string;
     private 'inconsistent_types'?: Array<string>;
     public constructor() { 
     }
@@ -164,6 +166,16 @@ export class PoolDesktopsDetailInfo {
     }
     public get taskStatus(): string | undefined {
         return this['task_status'];
+    }
+    public withDomainStatus(domainStatus: number): PoolDesktopsDetailInfo {
+        this['domain_status'] = domainStatus;
+        return this;
+    }
+    public set domainStatus(domainStatus: number  | undefined) {
+        this['domain_status'] = domainStatus;
+    }
+    public get domainStatus(): number | undefined {
+        return this['domain_status'];
     }
     public withInMaintenanceMode(inMaintenanceMode: boolean): PoolDesktopsDetailInfo {
         this['in_maintenance_mode'] = inMaintenanceMode;
@@ -462,6 +474,16 @@ export class PoolDesktopsDetailInfo {
     public withDomain(domain: string): PoolDesktopsDetailInfo {
         this['domain'] = domain;
         return this;
+    }
+    public withAgentVersion(agentVersion: string): PoolDesktopsDetailInfo {
+        this['agent_version'] = agentVersion;
+        return this;
+    }
+    public set agentVersion(agentVersion: string  | undefined) {
+        this['agent_version'] = agentVersion;
+    }
+    public get agentVersion(): string | undefined {
+        return this['agent_version'];
     }
     public withInconsistentTypes(inconsistentTypes: Array<string>): PoolDesktopsDetailInfo {
         this['inconsistent_types'] = inconsistentTypes;
