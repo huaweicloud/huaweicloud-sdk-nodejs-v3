@@ -7,6 +7,8 @@ import { AddCaseResultFourRequest } from './model/AddCaseResultFourRequest';
 import { AddCaseResultFourResponse } from './model/AddCaseResultFourResponse';
 import { AddFeatureRequest } from './model/AddFeatureRequest';
 import { AddFeatureResponse } from './model/AddFeatureResponse';
+import { AddOrUpdateTestsuiteInfoUsingRequest } from './model/AddOrUpdateTestsuiteInfoUsingRequest';
+import { AddOrUpdateTestsuiteInfoUsingResponse } from './model/AddOrUpdateTestsuiteInfoUsingResponse';
 import { AddRelationsInfo } from './model/AddRelationsInfo';
 import { AddResourceInfo } from './model/AddResourceInfo';
 import { AddTestCaseCommentRequest } from './model/AddTestCaseCommentRequest';
@@ -16,11 +18,15 @@ import { AddTestCaseResultLogInfo } from './model/AddTestCaseResultLogInfo';
 import { AddTestCaseResultLogRequest } from './model/AddTestCaseResultLogRequest';
 import { AddTestCaseResultLogResponse } from './model/AddTestCaseResultLogResponse';
 import { AddTestItemInfo } from './model/AddTestItemInfo';
+import { AdvancedConfig } from './model/AdvancedConfig';
 import { AlarmStatisticsQuery } from './model/AlarmStatisticsQuery';
 import { AlarmTemplateInfo } from './model/AlarmTemplateInfo';
+import { AlertConfigVo } from './model/AlertConfigVo';
+import { AlertExpression } from './model/AlertExpression';
 import { AlertGroup } from './model/AlertGroup';
 import { AlertLevel } from './model/AlertLevel';
 import { AlertStatisticsDto } from './model/AlertStatisticsDto';
+import { AlertTemplate } from './model/AlertTemplate';
 import { AlertTemplateVo } from './model/AlertTemplateVo';
 import { ApiError } from './model/ApiError';
 import { ArrayNode } from './model/ArrayNode';
@@ -55,6 +61,7 @@ import { BasicAWInfo } from './model/BasicAWInfo';
 import { BasicAw } from './model/BasicAw';
 import { BasicAwCata } from './model/BasicAwCata';
 import { BasicAwRes } from './model/BasicAwRes';
+import { BasicInfoVo } from './model/BasicInfoVo';
 import { BatchAddCaseResultInTaskRequest } from './model/BatchAddCaseResultInTaskRequest';
 import { BatchAddCaseResultInTaskResponse } from './model/BatchAddCaseResultInTaskResponse';
 import { BatchAddRelationsByOneCaseRequest } from './model/BatchAddRelationsByOneCaseRequest';
@@ -80,7 +87,9 @@ import { BatchUpdateTestCasesInDiffVersionRequest } from './model/BatchUpdateTes
 import { BatchUpdateTestCasesInDiffVersionResponse } from './model/BatchUpdateTestCasesInDiffVersionResponse';
 import { BatchUpdateVersionTestCasesRequest } from './model/BatchUpdateVersionTestCasesRequest';
 import { BatchUpdateVersionTestCasesResponse } from './model/BatchUpdateVersionTestCasesResponse';
+import { BlockAlert } from './model/BlockAlert';
 import { BranchVersionInfo } from './model/BranchVersionInfo';
+import { BuildProduct } from './model/BuildProduct';
 import { CaseAutomationDetailsVo } from './model/CaseAutomationDetailsVo';
 import { CaseAwInstance } from './model/CaseAwInstance';
 import { CaseCompletionRateVo } from './model/CaseCompletionRateVo';
@@ -94,6 +103,10 @@ import { CaseRemoveInfo } from './model/CaseRemoveInfo';
 import { CheckPermissionRequest } from './model/CheckPermissionRequest';
 import { CheckPermissionResponse } from './model/CheckPermissionResponse';
 import { CheckPoint } from './model/CheckPoint';
+import { CloudAlarmDto } from './model/CloudAlarmDto';
+import { CloudTestCaseInfo } from './model/CloudTestCaseInfo';
+import { CloudTestCaseOperationInfo } from './model/CloudTestCaseOperationInfo';
+import { CloudTestSuiteBasicInfo } from './model/CloudTestSuiteBasicInfo';
 import { CommRequestAssetExportParam } from './model/CommRequestAssetExportParam';
 import { CommRequestAssetTree } from './model/CommRequestAssetTree';
 import { CommRequestBackUpMindmapParam } from './model/CommRequestBackUpMindmapParam';
@@ -111,6 +124,7 @@ import { CommRequestTemplatePageParam } from './model/CommRequestTemplatePagePar
 import { CommRequestTestCasePageParam } from './model/CommRequestTestCasePageParam';
 import { CommRequestTestPointPageParam } from './model/CommRequestTestPointPageParam';
 import { CommRequestUpdateAssetTreeParam } from './model/CommRequestUpdateAssetTreeParam';
+import { CommonDto } from './model/CommonDto';
 import { CommonResponseErrorAvailableConfig } from './model/CommonResponseErrorAvailableConfig';
 import { CommonResponseErrorObject } from './model/CommonResponseErrorObject';
 import { CommonResponseErrorOfAPITest } from './model/CommonResponseErrorOfAPITest';
@@ -182,6 +196,7 @@ import { DeleteRelationsByOneCaseRequest } from './model/DeleteRelationsByOneCas
 import { DeleteRelationsByOneCaseResponse } from './model/DeleteRelationsByOneCaseResponse';
 import { DeleteServiceRequest } from './model/DeleteServiceRequest';
 import { DeleteServiceResponse } from './model/DeleteServiceResponse';
+import { DeleteTaskParams } from './model/DeleteTaskParams';
 import { DeleteTemplateByIdRequest } from './model/DeleteTemplateByIdRequest';
 import { DeleteTemplateByIdResponse } from './model/DeleteTemplateByIdResponse';
 import { DeleteTestCaseCommentRequest } from './model/DeleteTestCaseCommentRequest';
@@ -189,6 +204,8 @@ import { DeleteTestCaseCommentResponse } from './model/DeleteTestCaseCommentResp
 import { DeleteTestCaseInfo } from './model/DeleteTestCaseInfo';
 import { DeleteTestReportCustomDetailByUriRequest } from './model/DeleteTestReportCustomDetailByUriRequest';
 import { DeleteTestReportCustomDetailByUriResponse } from './model/DeleteTestReportCustomDetailByUriResponse';
+import { DeleteTestsuiteInfosUsingRequest } from './model/DeleteTestsuiteInfosUsingRequest';
+import { DeleteTestsuiteInfosUsingResponse } from './model/DeleteTestsuiteInfosUsingResponse';
 import { DepParamInstance } from './model/DepParamInstance';
 import { DesignSummaryVo } from './model/DesignSummaryVo';
 import { DetailTestTypeCasePassRateVo } from './model/DetailTestTypeCasePassRateVo';
@@ -201,14 +218,17 @@ import { DownloadStepImageNewRequest } from './model/DownloadStepImageNewRequest
 import { DownloadStepImageNewResponse } from './model/DownloadStepImageNewResponse';
 import { ElementResourceChangeExternalVo } from './model/ElementResourceChangeExternalVo';
 import { Environment } from './model/Environment';
+import { ErrorAlert } from './model/ErrorAlert';
 import { ErrorCaseInfoBean } from './model/ErrorCaseInfoBean';
 import { ErrorDetailInfo } from './model/ErrorDetailInfo';
 import { ErrorInfo } from './model/ErrorInfo';
 import { EtlRequestBody } from './model/EtlRequestBody';
 import { ExecuteInfoVo } from './model/ExecuteInfoVo';
+import { ExecuteStrategiesVo } from './model/ExecuteStrategiesVo';
 import { ExecuteSummaryVo } from './model/ExecuteSummaryVo';
 import { ExecuteTaskInfo } from './model/ExecuteTaskInfo';
 import { ExecuteTaskVo } from './model/ExecuteTaskVo';
+import { ExecutionTime } from './model/ExecutionTime';
 import { ExportFactorRequest } from './model/ExportFactorRequest';
 import { ExportFactorResponse } from './model/ExportFactorResponse';
 import { ExtendAuthorInfo } from './model/ExtendAuthorInfo';
@@ -222,9 +242,11 @@ import { ExternalTestCaseVo } from './model/ExternalTestCaseVo';
 import { ExternalUserCaseAndDefect } from './model/ExternalUserCaseAndDefect';
 import { ExternalUserExecuteInfo } from './model/ExternalUserExecuteInfo';
 import { ExtraInfo } from './model/ExtraInfo';
+import { FailedAlert } from './model/FailedAlert';
 import { GenerateReportInfo } from './model/GenerateReportInfo';
 import { GetDefaultTemplateParam } from './model/GetDefaultTemplateParam';
 import { GetPublicLibAndAwsResp } from './model/GetPublicLibAndAwsResp';
+import { HttpVo } from './model/HttpVo';
 import { IdAndNameAndValueVo } from './model/IdAndNameAndValueVo';
 import { ImportAssetRequest } from './model/ImportAssetRequest';
 import { ImportAssetRequestBody } from './model/ImportAssetRequestBody';
@@ -234,6 +256,7 @@ import { ImportFactorRequestBody } from './model/ImportFactorRequestBody';
 import { ImportFactorResponse } from './model/ImportFactorResponse';
 import { InitExecuteTaskInfo } from './model/InitExecuteTaskInfo';
 import { IntegerIdAndNameVo } from './model/IntegerIdAndNameVo';
+import { IpGroup } from './model/IpGroup';
 import { IssueCoverRateVo } from './model/IssueCoverRateVo';
 import { IssueListFilterInfo } from './model/IssueListFilterInfo';
 import { IssueListPiFilterInfo } from './model/IssueListPiFilterInfo';
@@ -362,6 +385,7 @@ import { MindmapPageParamV3 } from './model/MindmapPageParamV3';
 import { MindmapRecycle } from './model/MindmapRecycle';
 import { MindmapRecyclePageParam } from './model/MindmapRecyclePageParam';
 import { MockInfo } from './model/MockInfo';
+import { ModelError } from './model/ModelError';
 import { MsgInfoQuery } from './model/MsgInfoQuery';
 import { MsgInfoVo } from './model/MsgInfoVo';
 import { NameAndId } from './model/NameAndId';
@@ -369,18 +393,24 @@ import { NameAndIdVo } from './model/NameAndIdVo';
 import { NameAndValueAndCodeVo } from './model/NameAndValueAndCodeVo';
 import { NameAndValueVo } from './model/NameAndValueVo';
 import { Number } from './model/Number';
+import { OperateNotice } from './model/OperateNotice';
 import { OprReportInfo } from './model/OprReportInfo';
 import { PackageUsage } from './model/PackageUsage';
 import { PageResultBasicAWInfo } from './model/PageResultBasicAWInfo';
 import { PageResults } from './model/PageResults';
 import { PiFilterInfo } from './model/PiFilterInfo';
 import { PiInfo } from './model/PiInfo';
+import { PingVo } from './model/PingVo';
 import { PlanCycle } from './model/PlanCycle';
 import { PopUpInfo } from './model/PopUpInfo';
+import { PreTestCaseInfo } from './model/PreTestCaseInfo';
 import { ProgressVo } from './model/ProgressVo';
 import { ProjectFieldConfigOptionVo } from './model/ProjectFieldConfigOptionVo';
 import { ProjectFieldConfigVo } from './model/ProjectFieldConfigVo';
 import { ProjectTestCaseFieldVo } from './model/ProjectTestCaseFieldVo';
+import { ProtocolReqVo } from './model/ProtocolReqVo';
+import { ProtocolResVo } from './model/ProtocolResVo';
+import { ProtocolTestVo } from './model/ProtocolTestVo';
 import { PublicAwLib } from './model/PublicAwLib';
 import { PublicAwLibRes } from './model/PublicAwLibRes';
 import { QueryCaseResultInfo } from './model/QueryCaseResultInfo';
@@ -407,6 +437,7 @@ import { ReportSummaryVo } from './model/ReportSummaryVo';
 import { RequirementOverviewVo } from './model/RequirementOverviewVo';
 import { RequirementsOverviewVo } from './model/RequirementsOverviewVo';
 import { ResourceChangeExternalVo } from './model/ResourceChangeExternalVo';
+import { ResourcePool } from './model/ResourcePool';
 import { ResourcePoolVo } from './model/ResourcePoolVo';
 import { ResultStepVo } from './model/ResultStepVo';
 import { ResultValueAttachmentFileVo } from './model/ResultValueAttachmentFileVo';
@@ -583,6 +614,8 @@ import { ShowTestcaseByPageRequest } from './model/ShowTestcaseByPageRequest';
 import { ShowTestcaseByPageResponse } from './model/ShowTestcaseByPageResponse';
 import { ShowTestpointByPageRequest } from './model/ShowTestpointByPageRequest';
 import { ShowTestpointByPageResponse } from './model/ShowTestpointByPageResponse';
+import { ShowTestsuiteInfoUsingRequest } from './model/ShowTestsuiteInfoUsingRequest';
+import { ShowTestsuiteInfoUsingResponse } from './model/ShowTestsuiteInfoUsingResponse';
 import { ShowUserAccessInfoRequest } from './model/ShowUserAccessInfoRequest';
 import { ShowUserAccessInfoResponse } from './model/ShowUserAccessInfoResponse';
 import { ShowUserExecuteTestCaseInfoRequest } from './model/ShowUserExecuteTestCaseInfoRequest';
@@ -590,6 +623,8 @@ import { ShowUserExecuteTestCaseInfoRequestBody } from './model/ShowUserExecuteT
 import { ShowUserExecuteTestCaseInfoResponse } from './model/ShowUserExecuteTestCaseInfoResponse';
 import { SimpleIssueVo } from './model/SimpleIssueVo';
 import { SimpleResourceInfo } from './model/SimpleResourceInfo';
+import { StartTestsuiteUsingRequest } from './model/StartTestsuiteUsingRequest';
+import { StartTestsuiteUsingResponse } from './model/StartTestsuiteUsingResponse';
 import { StepImageVo } from './model/StepImageVo';
 import { SubTaskCaseQuery } from './model/SubTaskCaseQuery';
 import { SubTaskCaseSuccessLineDetailVo } from './model/SubTaskCaseSuccessLineDetailVo';
@@ -597,12 +632,19 @@ import { SubTaskCaseSuccessLineVo } from './model/SubTaskCaseSuccessLineVo';
 import { SubTaskQueryByPageParams } from './model/SubTaskQueryByPageParams';
 import { SubtaskcaseOverstockDto } from './model/SubtaskcaseOverstockDto';
 import { SystemConfig } from './model/SystemConfig';
+import { TaskActionParamsV5 } from './model/TaskActionParamsV5';
 import { TaskAssignCaseDetailVo } from './model/TaskAssignCaseDetailVo';
 import { TaskAssignCaseVo } from './model/TaskAssignCaseVo';
+import { TaskBasicInfoVo } from './model/TaskBasicInfoVo';
 import { TaskCaseResponseTimeDetailVo } from './model/TaskCaseResponseTimeDetailVo';
+import { TaskErrorPolicy } from './model/TaskErrorPolicy';
+import { TaskExtParam } from './model/TaskExtParam';
+import { TaskInfoV4VoReq } from './model/TaskInfoV4VoReq';
 import { TaskListVo } from './model/TaskListVo';
+import { TaskPolicy } from './model/TaskPolicy';
 import { TaskResultDetailVo } from './model/TaskResultDetailVo';
 import { TaskResultVo } from './model/TaskResultVo';
+import { TaskTimeoutPolicy } from './model/TaskTimeoutPolicy';
 import { TaskVo } from './model/TaskVo';
 import { TasksQueryInfo } from './model/TasksQueryInfo';
 import { Template } from './model/Template';
@@ -610,6 +652,7 @@ import { TemplatePageParam } from './model/TemplatePageParam';
 import { TemplateV2 } from './model/TemplateV2';
 import { TestCase } from './model/TestCase';
 import { TestCaseAttachmentInfo } from './model/TestCaseAttachmentInfo';
+import { TestCaseBasicInfo } from './model/TestCaseBasicInfo';
 import { TestCaseCommentInfo } from './model/TestCaseCommentInfo';
 import { TestCaseCommentVo } from './model/TestCaseCommentVo';
 import { TestCaseDetailVo } from './model/TestCaseDetailVo';
@@ -617,10 +660,13 @@ import { TestCaseExecuteBean } from './model/TestCaseExecuteBean';
 import { TestCaseInfo } from './model/TestCaseInfo';
 import { TestCaseListVo } from './model/TestCaseListVo';
 import { TestCasePageParam } from './model/TestCasePageParam';
+import { TestCasePolicy } from './model/TestCasePolicy';
 import { TestCaseReviewVo } from './model/TestCaseReviewVo';
 import { TestCaseStepInfo } from './model/TestCaseStepInfo';
 import { TestCaseStepResultInfo } from './model/TestCaseStepResultInfo';
 import { TestCaseStepVo } from './model/TestCaseStepVo';
+import { TestCaseTemplateVo } from './model/TestCaseTemplateVo';
+import { TestCaseTimeoutPolicy } from './model/TestCaseTimeoutPolicy';
 import { TestCaseVo } from './model/TestCaseVo';
 import { TestCasesQueryInfo } from './model/TestCasesQueryInfo';
 import { TestItemVo } from './model/TestItemVo';
@@ -645,6 +691,7 @@ import { TestVersionVo } from './model/TestVersionVo';
 import { TestcasePlanQueryParam } from './model/TestcasePlanQueryParam';
 import { TestcasePlanVo } from './model/TestcasePlanVo';
 import { TestcaseResult } from './model/TestcaseResult';
+import { TimeoutAlert } from './model/TimeoutAlert';
 import { TmssStep } from './model/TmssStep';
 import { TmssTestcase } from './model/TmssTestcase';
 import { UpdateAssetTreeParam } from './model/UpdateAssetTreeParam';
@@ -674,6 +721,8 @@ import { UpdateTestCaseResultRequestBody } from './model/UpdateTestCaseResultReq
 import { UpdateTestCaseResultResponse } from './model/UpdateTestCaseResultResponse';
 import { UpdateTestReportCustomDetailByUriRequest } from './model/UpdateTestReportCustomDetailByUriRequest';
 import { UpdateTestReportCustomDetailByUriResponse } from './model/UpdateTestReportCustomDetailByUriResponse';
+import { UpdateTestsuiteInfoUsingRequest } from './model/UpdateTestsuiteInfoUsingRequest';
+import { UpdateTestsuiteInfoUsingResponse } from './model/UpdateTestsuiteInfoUsingResponse';
 import { UpdateUserDnsMappingRequest } from './model/UpdateUserDnsMappingRequest';
 import { UpdateUserDnsMappingResponse } from './model/UpdateUserDnsMappingResponse';
 import { UpdateVersionTestCaseRequest } from './model/UpdateVersionTestCaseRequest';
@@ -690,6 +739,8 @@ import { UsageInfos } from './model/UsageInfos';
 import { ValidateRule } from './model/ValidateRule';
 import { VariableRes } from './model/VariableRes';
 import { VersionTestCasesChangeStatisticsVo } from './model/VersionTestCasesChangeStatisticsVo';
+import { Warn } from './model/Warn';
+import { WiseEye } from './model/WiseEye';
 import { WorkItemInfo } from './model/WorkItemInfo';
 import { WorkItemVo } from './model/WorkItemVo';
 
@@ -724,6 +775,26 @@ export class CloudtestClient {
      */
     public addCaseResultFour(addCaseResultFourRequest?: AddCaseResultFourRequest): Promise<AddCaseResultFourResponse> {
         const options = ParamCreater().addCaseResultFour(addCaseResultFourRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 添加测试套
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加测试套
+     * @param {string} serviceId 服务id
+     * @param {TaskInfoV4VoReq} addOrUpdateTestsuiteInfoUsingRequestBody 任务数据实体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addOrUpdateTestsuiteInfoUsing(addOrUpdateTestsuiteInfoUsingRequest?: AddOrUpdateTestsuiteInfoUsingRequest): Promise<AddOrUpdateTestsuiteInfoUsingResponse> {
+        const options = ParamCreater().addOrUpdateTestsuiteInfoUsing(addOrUpdateTestsuiteInfoUsingRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1353,6 +1424,26 @@ export class CloudtestClient {
      */
     public deleteTestReportCustomDetailByUri(deleteTestReportCustomDetailByUriRequest?: DeleteTestReportCustomDetailByUriRequest): Promise<DeleteTestReportCustomDetailByUriResponse> {
         const options = ParamCreater().deleteTestReportCustomDetailByUri(deleteTestReportCustomDetailByUriRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据任务Id列表批量删除任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据任务Id列表批量删除任务
+     * @param {string} serviceId 服务id
+     * @param {DeleteTaskParams} deleteTestsuiteInfosUsingRequestBody 根据任务Id列表批量删除任务的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTestsuiteInfosUsing(deleteTestsuiteInfosUsingRequest?: DeleteTestsuiteInfosUsingRequest): Promise<DeleteTestsuiteInfosUsingResponse> {
+        const options = ParamCreater().deleteTestsuiteInfosUsing(deleteTestsuiteInfosUsingRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3453,6 +3544,27 @@ export class CloudtestClient {
     }
 
     /**
+     * 根据任务id查询任务
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据任务id查询任务
+     * @param {string} serviceId 服务id
+     * @param {string} suiteId 任务id
+     * @param {string} [planId] 测试计划Id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTestsuiteInfoUsing(showTestsuiteInfoUsingRequest?: ShowTestsuiteInfoUsingRequest): Promise<ShowTestsuiteInfoUsingResponse> {
+        const options = ParamCreater().showTestsuiteInfoUsing(showTestsuiteInfoUsingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取租户订单信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3484,6 +3596,27 @@ export class CloudtestClient {
      */
     public showUserExecuteTestCaseInfo(showUserExecuteTestCaseInfoRequest?: ShowUserExecuteTestCaseInfoRequest): Promise<ShowUserExecuteTestCaseInfoResponse> {
         const options = ParamCreater().showUserExecuteTestCaseInfo(showUserExecuteTestCaseInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 启动测试套
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启动测试套
+     * @param {string} serviceId 服务id
+     * @param {string} suiteId 任务id
+     * @param {TaskActionParamsV5} startTestsuiteUsingRequestBody 保存任务配置的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startTestsuiteUsing(startTestsuiteUsingRequest?: StartTestsuiteUsingRequest): Promise<StartTestsuiteUsingResponse> {
+        const options = ParamCreater().startTestsuiteUsing(startTestsuiteUsingRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3653,6 +3786,27 @@ export class CloudtestClient {
      */
     public updateTestReportCustomDetailByUri(updateTestReportCustomDetailByUriRequest?: UpdateTestReportCustomDetailByUriRequest): Promise<UpdateTestReportCustomDetailByUriResponse> {
         const options = ParamCreater().updateTestReportCustomDetailByUri(updateTestReportCustomDetailByUriRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新测试套
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新测试套
+     * @param {string} serviceId 服务id
+     * @param {string} suiteId 任务id
+     * @param {TaskInfoV4VoReq} updateTestsuiteInfoUsingRequestBody 更新测试套的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTestsuiteInfoUsing(updateTestsuiteInfoUsingRequest?: UpdateTestsuiteInfoUsingRequest): Promise<UpdateTestsuiteInfoUsingResponse> {
+        const options = ParamCreater().updateTestsuiteInfoUsing(updateTestsuiteInfoUsingRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4353,6 +4507,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'project_id': projectId,'version_uri': versionUri,'case_uri': caseUri, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 添加测试套
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addOrUpdateTestsuiteInfoUsing(addOrUpdateTestsuiteInfoUsingRequest?: AddOrUpdateTestsuiteInfoUsingRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/projects/{service_id}/testsuite",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let serviceId;
+
+            if (addOrUpdateTestsuiteInfoUsingRequest !== null && addOrUpdateTestsuiteInfoUsingRequest !== undefined) {
+                if (addOrUpdateTestsuiteInfoUsingRequest instanceof AddOrUpdateTestsuiteInfoUsingRequest) {
+                    serviceId = addOrUpdateTestsuiteInfoUsingRequest.serviceId;
+                    body = addOrUpdateTestsuiteInfoUsingRequest.body
+                } else {
+                    serviceId = addOrUpdateTestsuiteInfoUsingRequest['service_id'];
+                    body = addOrUpdateTestsuiteInfoUsingRequest['body'];
+                }
+            }
+
+        
+            if (serviceId === null || serviceId === undefined) {
+            throw new RequiredError('serviceId','Required parameter serviceId was null or undefined when calling addOrUpdateTestsuiteInfoUsing.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'service_id': serviceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5828,6 +6028,52 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'project_id': projectId,'version_uri': versionUri,'report_uri': reportUri,'custom_info_uri': customInfoUri, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据任务Id列表批量删除任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteTestsuiteInfosUsing(deleteTestsuiteInfosUsingRequest?: DeleteTestsuiteInfosUsingRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/projects/{service_id}/testsuite",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let serviceId;
+
+            if (deleteTestsuiteInfosUsingRequest !== null && deleteTestsuiteInfosUsingRequest !== undefined) {
+                if (deleteTestsuiteInfosUsingRequest instanceof DeleteTestsuiteInfosUsingRequest) {
+                    serviceId = deleteTestsuiteInfosUsingRequest.serviceId;
+                    body = deleteTestsuiteInfosUsingRequest.body
+                } else {
+                    serviceId = deleteTestsuiteInfosUsingRequest['service_id'];
+                    body = deleteTestsuiteInfosUsingRequest['body'];
+                }
+            }
+
+        
+            if (serviceId === null || serviceId === undefined) {
+            throw new RequiredError('serviceId','Required parameter serviceId was null or undefined when calling deleteTestsuiteInfosUsing.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'service_id': serviceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -10875,6 +11121,58 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据任务id查询任务
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTestsuiteInfoUsing(showTestsuiteInfoUsingRequest?: ShowTestsuiteInfoUsingRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/projects/{service_id}/testsuite/{suite_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let serviceId;
+            
+            let suiteId;
+            
+            let planId;
+
+            if (showTestsuiteInfoUsingRequest !== null && showTestsuiteInfoUsingRequest !== undefined) {
+                if (showTestsuiteInfoUsingRequest instanceof ShowTestsuiteInfoUsingRequest) {
+                    serviceId = showTestsuiteInfoUsingRequest.serviceId;
+                    suiteId = showTestsuiteInfoUsingRequest.suiteId;
+                    planId = showTestsuiteInfoUsingRequest.planId;
+                } else {
+                    serviceId = showTestsuiteInfoUsingRequest['service_id'];
+                    suiteId = showTestsuiteInfoUsingRequest['suite_id'];
+                    planId = showTestsuiteInfoUsingRequest['planId'];
+                }
+            }
+
+        
+            if (serviceId === null || serviceId === undefined) {
+            throw new RequiredError('serviceId','Required parameter serviceId was null or undefined when calling showTestsuiteInfoUsing.');
+            }
+            if (suiteId === null || suiteId === undefined) {
+            throw new RequiredError('suiteId','Required parameter suiteId was null or undefined when calling showTestsuiteInfoUsing.');
+            }
+            if (planId !== null && planId !== undefined) {
+                localVarQueryParameter['planId'] = planId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'service_id': serviceId,'suite_id': suiteId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取租户订单信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10953,6 +11251,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 启动测试套
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        startTestsuiteUsing(startTestsuiteUsingRequest?: StartTestsuiteUsingRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/projects/{service_id}/testsuite/{suite_id}/start",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let serviceId;
+            
+            let suiteId;
+
+            if (startTestsuiteUsingRequest !== null && startTestsuiteUsingRequest !== undefined) {
+                if (startTestsuiteUsingRequest instanceof StartTestsuiteUsingRequest) {
+                    serviceId = startTestsuiteUsingRequest.serviceId;
+                    suiteId = startTestsuiteUsingRequest.suiteId;
+                    body = startTestsuiteUsingRequest.body
+                } else {
+                    serviceId = startTestsuiteUsingRequest['service_id'];
+                    suiteId = startTestsuiteUsingRequest['suite_id'];
+                    body = startTestsuiteUsingRequest['body'];
+                }
+            }
+
+        
+            if (serviceId === null || serviceId === undefined) {
+            throw new RequiredError('serviceId','Required parameter serviceId was null or undefined when calling startTestsuiteUsing.');
+            }
+            if (suiteId === null || suiteId === undefined) {
+            throw new RequiredError('suiteId','Required parameter suiteId was null or undefined when calling startTestsuiteUsing.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'service_id': serviceId,'suite_id': suiteId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -11385,6 +11736,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'project_id': projectId,'version_uri': versionUri,'report_uri': reportUri,'custom_info_uri': customInfoUri, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新测试套
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateTestsuiteInfoUsing(updateTestsuiteInfoUsingRequest?: UpdateTestsuiteInfoUsingRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/projects/{service_id}/testsuite/{suite_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let serviceId;
+            
+            let suiteId;
+
+            if (updateTestsuiteInfoUsingRequest !== null && updateTestsuiteInfoUsingRequest !== undefined) {
+                if (updateTestsuiteInfoUsingRequest instanceof UpdateTestsuiteInfoUsingRequest) {
+                    serviceId = updateTestsuiteInfoUsingRequest.serviceId;
+                    suiteId = updateTestsuiteInfoUsingRequest.suiteId;
+                    body = updateTestsuiteInfoUsingRequest.body
+                } else {
+                    serviceId = updateTestsuiteInfoUsingRequest['service_id'];
+                    suiteId = updateTestsuiteInfoUsingRequest['suite_id'];
+                    body = updateTestsuiteInfoUsingRequest['body'];
+                }
+            }
+
+        
+            if (serviceId === null || serviceId === undefined) {
+            throw new RequiredError('serviceId','Required parameter serviceId was null or undefined when calling updateTestsuiteInfoUsing.');
+            }
+            if (suiteId === null || suiteId === undefined) {
+            throw new RequiredError('suiteId','Required parameter suiteId was null or undefined when calling updateTestsuiteInfoUsing.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'service_id': serviceId,'suite_id': suiteId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

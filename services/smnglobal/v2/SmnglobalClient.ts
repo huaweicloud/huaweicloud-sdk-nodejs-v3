@@ -4,20 +4,32 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { CreateSubscriptionUserRequest } from './model/CreateSubscriptionUserRequest';
 import { CreateSubscriptionUserRequestBody } from './model/CreateSubscriptionUserRequestBody';
+import { CreateSubscriptionUserRequestCallnotifyEndpointInfo } from './model/CreateSubscriptionUserRequestCallnotifyEndpointInfo';
+import { CreateSubscriptionUserRequestDingTalkBotEndpointInfo } from './model/CreateSubscriptionUserRequestDingTalkBotEndpointInfo';
+import { CreateSubscriptionUserRequestDingdingEndpointInfo } from './model/CreateSubscriptionUserRequestDingdingEndpointInfo';
 import { CreateSubscriptionUserRequestEmailEndpointInfo } from './model/CreateSubscriptionUserRequestEmailEndpointInfo';
+import { CreateSubscriptionUserRequestFeishuEndpointInfo } from './model/CreateSubscriptionUserRequestFeishuEndpointInfo';
 import { CreateSubscriptionUserRequestHttpEndpointInfo } from './model/CreateSubscriptionUserRequestHttpEndpointInfo';
 import { CreateSubscriptionUserRequestHttpsEndpointInfo } from './model/CreateSubscriptionUserRequestHttpsEndpointInfo';
 import { CreateSubscriptionUserRequestSmsEndpointInfo } from './model/CreateSubscriptionUserRequestSmsEndpointInfo';
+import { CreateSubscriptionUserRequestWechatEndpointInfo } from './model/CreateSubscriptionUserRequestWechatEndpointInfo';
+import { CreateSubscriptionUserRequestWelinkEndpointInfo } from './model/CreateSubscriptionUserRequestWelinkEndpointInfo';
 import { CreateSubscriptionUserResponse } from './model/CreateSubscriptionUserResponse';
 import { DeleteSubscriptionUserRequest } from './model/DeleteSubscriptionUserRequest';
 import { DeleteSubscriptionUserResponse } from './model/DeleteSubscriptionUserResponse';
 import { ListSubscriptionUserRequest } from './model/ListSubscriptionUserRequest';
 import { ListSubscriptionUserResponse } from './model/ListSubscriptionUserResponse';
+import { ListSubscriptionUserResponseCallnotifyEndpointInfo } from './model/ListSubscriptionUserResponseCallnotifyEndpointInfo';
+import { ListSubscriptionUserResponseDingTalkBotEndpointInfo } from './model/ListSubscriptionUserResponseDingTalkBotEndpointInfo';
+import { ListSubscriptionUserResponseDingdingEndpointInfo } from './model/ListSubscriptionUserResponseDingdingEndpointInfo';
 import { ListSubscriptionUserResponseEmailEndpointInfo } from './model/ListSubscriptionUserResponseEmailEndpointInfo';
+import { ListSubscriptionUserResponseFeishuEndpointInfo } from './model/ListSubscriptionUserResponseFeishuEndpointInfo';
 import { ListSubscriptionUserResponseHttpEndpointInfo } from './model/ListSubscriptionUserResponseHttpEndpointInfo';
 import { ListSubscriptionUserResponseHttpsEndpointInfo } from './model/ListSubscriptionUserResponseHttpsEndpointInfo';
 import { ListSubscriptionUserResponseItemInfo } from './model/ListSubscriptionUserResponseItemInfo';
 import { ListSubscriptionUserResponseSmsEndpointInfo } from './model/ListSubscriptionUserResponseSmsEndpointInfo';
+import { ListSubscriptionUserResponseWechatEndpointInfo } from './model/ListSubscriptionUserResponseWechatEndpointInfo';
+import { ListSubscriptionUserResponseWelinkEndpointInfo } from './model/ListSubscriptionUserResponseWelinkEndpointInfo';
 import { UpdateSubscriptionUserRequest } from './model/UpdateSubscriptionUserRequest';
 import { UpdateSubscriptionUserRequestBody } from './model/UpdateSubscriptionUserRequestBody';
 import { UpdateSubscriptionUserResponse } from './model/UpdateSubscriptionUserResponse';
@@ -39,7 +51,7 @@ export class SmnglobalClient {
 
 
     /**
-     * 添加订阅用户。如果订阅用户的状态为未确认，则会向订阅用户发送一条确认订阅消息。订阅用户点击订阅链接确认订阅后，则订阅用户的状态变更为已确认，同时会向订阅用户发送一条取消订阅消息，便于订阅用户随时可以取消订阅。订阅用户点击取消订阅链接后，则订阅用户的状态变更为已取消，同时会向订阅用户发送一条重新订阅消息，便于订阅用户可以重新订阅。
+     * 添加订阅用户。如果订阅用户的状态为未确认，则会向订阅用户发送一条确认订阅消息。订阅用户点击订阅链接确认订阅后，则订阅用户的状态变更为已确认，同时会向订阅用户发送一条取消订阅消息，便于订阅用户随时可以取消订阅。订阅用户点击取消订阅链接后，则订阅用户的状态变更为已取消，同时会向订阅用户发送一条重新订阅消息，便于订阅用户可以重新订阅。该接口属于全局api，调用时需要进行全局授权，即X-Auth-Token需要传入domain级别的token。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -83,9 +95,9 @@ export class SmnglobalClient {
      *
      * @summary 查询订阅用户列表
      * @param {string} [name] 订阅用户名称。
-     * @param {'http' | 'https' | 'sms' | 'email'} [protocol] 协议。 http：HTTP终端 https：HTTPS终端 sms：短信 email：邮件
+     * @param {'http' | 'https' | 'sms' | 'email' | 'callnotify' | 'wechat' | 'dingding' | 'feishu' | 'welink' | 'ding_talk_bot'} [protocol] 协议。 http：HTTP终端 https：HTTPS终端 sms：短信 email：邮件 callnotify: 语音 wechat: 企业微信机器人 dingding: 钉钉群机器人 feishu: 飞书群机器人 welink: WeLink群机器人 ding_talk_bot: 个人钉钉协议
      * @param {'UNCONFIRMED' | 'CONFIRMED' | 'CANCELLED'} [status] 订阅用户状态。 UNCONFIRMED：未确认 CONFIRMED：已确认 CANCELLED：已取消
-     * @param {string} [group] 订阅用户分组。
+     * @param {string} [group] 订阅用户分组。该字段支持模糊查询。
      * @param {number} [offset] 偏移量。偏移量为一个大于0小于资源总个数的整数，表示查询该偏移量后面的所有的资源，默认值为0。
      * @param {number} [limit] 查询数量限制。取值范围：1~100，取值一般为10，20，50。功能说明：每页返回的资源个数。默认值为100。
      * @param {*} [options] Override http request option.
@@ -125,7 +137,7 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 添加订阅用户。如果订阅用户的状态为未确认，则会向订阅用户发送一条确认订阅消息。订阅用户点击订阅链接确认订阅后，则订阅用户的状态变更为已确认，同时会向订阅用户发送一条取消订阅消息，便于订阅用户随时可以取消订阅。订阅用户点击取消订阅链接后，则订阅用户的状态变更为已取消，同时会向订阅用户发送一条重新订阅消息，便于订阅用户可以重新订阅。
+         * 添加订阅用户。如果订阅用户的状态为未确认，则会向订阅用户发送一条确认订阅消息。订阅用户点击订阅链接确认订阅后，则订阅用户的状态变更为已确认，同时会向订阅用户发送一条取消订阅消息，便于订阅用户随时可以取消订阅。订阅用户点击取消订阅链接后，则订阅用户的状态变更为已取消，同时会向订阅用户发送一条重新订阅消息，便于订阅用户可以重新订阅。该接口属于全局api，调用时需要进行全局授权，即X-Auth-Token需要传入domain级别的token。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

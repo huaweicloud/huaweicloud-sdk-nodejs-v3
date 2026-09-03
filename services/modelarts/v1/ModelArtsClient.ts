@@ -39,6 +39,8 @@ import { Allocated } from './model/Allocated';
 import { AllowedAddressPairs } from './model/AllowedAddressPairs';
 import { ApiKeyFailureResponse } from './model/ApiKeyFailureResponse';
 import { ApiKeyResponseV2 } from './model/ApiKeyResponseV2';
+import { ArtifactInfo } from './model/ArtifactInfo';
+import { ArtifactsPublish } from './model/ArtifactsPublish';
 import { AscendInfo } from './model/AscendInfo';
 import { AscendResource } from './model/AscendResource';
 import { AssetModel } from './model/AssetModel';
@@ -69,10 +71,15 @@ import { BatchDeleteInferIntranetConnectionsRequest } from './model/BatchDeleteI
 import { BatchDeleteInferIntranetConnectionsResponse } from './model/BatchDeleteInferIntranetConnectionsResponse';
 import { BatchDeleteInferServicesRequest } from './model/BatchDeleteInferServicesRequest';
 import { BatchDeleteInferServicesResponse } from './model/BatchDeleteInferServicesResponse';
+import { BatchDeleteJobItem } from './model/BatchDeleteJobItem';
+import { BatchDeleteJobMetadata } from './model/BatchDeleteJobMetadata';
+import { BatchDeleteJobsReq } from './model/BatchDeleteJobsReq';
 import { BatchDeletePoolNodesRequest } from './model/BatchDeletePoolNodesRequest';
 import { BatchDeletePoolNodesResponse } from './model/BatchDeletePoolNodesResponse';
 import { BatchDeletePoolTagsRequest } from './model/BatchDeletePoolTagsRequest';
 import { BatchDeletePoolTagsResponse } from './model/BatchDeletePoolTagsResponse';
+import { BatchDeleteTrainingJobRequest } from './model/BatchDeleteTrainingJobRequest';
+import { BatchDeleteTrainingJobResponse } from './model/BatchDeleteTrainingJobResponse';
 import { BatchDevServersActionRequest } from './model/BatchDevServersActionRequest';
 import { BatchDevServersActionResponse } from './model/BatchDevServersActionResponse';
 import { BatchDrainPoolNodesReq } from './model/BatchDrainPoolNodesReq';
@@ -140,8 +147,15 @@ import { Constraint } from './model/Constraint';
 import { ConstraintResp } from './model/ConstraintResp';
 import { ContainerHooks } from './model/ContainerHooks';
 import { ContentInfo } from './model/ContentInfo';
+import { ContinueTask } from './model/ContinueTask';
+import { ContinueTrainTask } from './model/ContinueTrainTask';
 import { CountInferServicesByTagsRequest } from './model/CountInferServicesByTagsRequest';
 import { CountInferServicesByTagsResponse } from './model/CountInferServicesByTagsResponse';
+import { CountResourceInstancesReq } from './model/CountResourceInstancesReq';
+import { CountResourceInstancesReqMatches } from './model/CountResourceInstancesReqMatches';
+import { CountResourceInstancesReqTags } from './model/CountResourceInstancesReqTags';
+import { CountTrainingJobsByTagsRequest } from './model/CountTrainingJobsByTagsRequest';
+import { CountTrainingJobsByTagsResponse } from './model/CountTrainingJobsByTagsResponse';
 import { Cpu } from './model/Cpu';
 import { CreateAlgorithmRequest } from './model/CreateAlgorithmRequest';
 import { CreateAlgorithmResponse } from './model/CreateAlgorithmResponse';
@@ -248,6 +262,7 @@ import { DataSourceResp } from './model/DataSourceResp';
 import { DataVolumeItem } from './model/DataVolumeItem';
 import { DataVolumesReq } from './model/DataVolumesReq';
 import { DataVolumesRes } from './model/DataVolumesRes';
+import { DatasetConfig } from './model/DatasetConfig';
 import { DeleteAlgorithmRequest } from './model/DeleteAlgorithmRequest';
 import { DeleteAlgorithmResponse } from './model/DeleteAlgorithmResponse';
 import { DeleteAuthorizationsRequest } from './model/DeleteAuthorizationsRequest';
@@ -358,6 +373,8 @@ import { FlavorInfoResponse } from './model/FlavorInfoResponse';
 import { FlavorResponse } from './model/FlavorResponse';
 import { FlavorResponseWithSupport } from './model/FlavorResponseWithSupport';
 import { FrozenInfo } from './model/FrozenInfo';
+import { FtMetric } from './model/FtMetric';
+import { FtMetricData } from './model/FtMetricData';
 import { FuseConfig } from './model/FuseConfig';
 import { GPUInfo } from './model/GPUInfo';
 import { GPUResource } from './model/GPUResource';
@@ -497,6 +514,8 @@ import { ListFeaturesRequest } from './model/ListFeaturesRequest';
 import { ListFeaturesResponse } from './model/ListFeaturesResponse';
 import { ListFlavorsRequest } from './model/ListFlavorsRequest';
 import { ListFlavorsResponse } from './model/ListFlavorsResponse';
+import { ListFtArtifactsRequest } from './model/ListFtArtifactsRequest';
+import { ListFtArtifactsResponse } from './model/ListFtArtifactsResponse';
 import { ListHyperClusterRequest } from './model/ListHyperClusterRequest';
 import { ListHyperClusterResponse } from './model/ListHyperClusterResponse';
 import { ListHyperinstanceClustersCapacityRequest } from './model/ListHyperinstanceClustersCapacityRequest';
@@ -568,8 +587,12 @@ import { ListTrainingJobEventsRequest } from './model/ListTrainingJobEventsReque
 import { ListTrainingJobEventsResponse } from './model/ListTrainingJobEventsResponse';
 import { ListTrainingJobStagesRequest } from './model/ListTrainingJobStagesRequest';
 import { ListTrainingJobStagesResponse } from './model/ListTrainingJobStagesResponse';
+import { ListTrainingJobTagsRequest } from './model/ListTrainingJobTagsRequest';
+import { ListTrainingJobTagsResponse } from './model/ListTrainingJobTagsResponse';
 import { ListTrainingJobTasksRequest } from './model/ListTrainingJobTasksRequest';
 import { ListTrainingJobTasksResponse } from './model/ListTrainingJobTasksResponse';
+import { ListTrainingJobsByTagsRequest } from './model/ListTrainingJobsByTagsRequest';
+import { ListTrainingJobsByTagsResponse } from './model/ListTrainingJobsByTagsResponse';
 import { ListTrainingJobsRequest } from './model/ListTrainingJobsRequest';
 import { ListTrainingJobsResponse } from './model/ListTrainingJobsResponse';
 import { ListWorkflowExecutionsRequest } from './model/ListWorkflowExecutionsRequest';
@@ -594,6 +617,7 @@ import { LvmConfig } from './model/LvmConfig';
 import { MainContainerAllocatedResources } from './model/MainContainerAllocatedResources';
 import { MainContainerCustomizedFlavor } from './model/MainContainerCustomizedFlavor';
 import { MasJobConfig } from './model/MasJobConfig';
+import { Match } from './model/Match';
 import { Memory } from './model/Memory';
 import { MetricObject } from './model/MetricObject';
 import { MetricTableItem } from './model/MetricTableItem';
@@ -606,6 +630,11 @@ import { ModelArtsAgencyRequest } from './model/ModelArtsAgencyRequest';
 import { ModelResource } from './model/ModelResource';
 import { ModifyInferIntranetConnectionsRequest } from './model/ModifyInferIntranetConnectionsRequest';
 import { ModifyInferIntranetConnectionsResponse } from './model/ModifyInferIntranetConnectionsResponse';
+import { ModifyTrainingQuotaItem } from './model/ModifyTrainingQuotaItem';
+import { ModifyTrainingQuotaRequest } from './model/ModifyTrainingQuotaRequest';
+import { ModifyTrainingQuotasRequest } from './model/ModifyTrainingQuotasRequest';
+import { ModifyTrainingQuotasResponse } from './model/ModifyTrainingQuotasResponse';
+import { MutiValueTag } from './model/MutiValueTag';
 import { NFSSummary } from './model/NFSSummary';
 import { Network } from './model/Network';
 import { NetworkConnection } from './model/NetworkConnection';
@@ -753,7 +782,11 @@ import { PoolUpdateRequest } from './model/PoolUpdateRequest';
 import { PredictUrlResponse } from './model/PredictUrlResponse';
 import { PreferredAffinity } from './model/PreferredAffinity';
 import { PreferredSchedulingTerm } from './model/PreferredSchedulingTerm';
+import { ProjectTag } from './model/ProjectTag';
 import { PublicNetworkConfig } from './model/PublicNetworkConfig';
+import { PublishArtifactsBody } from './model/PublishArtifactsBody';
+import { PublishFtArtifactsRequest } from './model/PublishFtArtifactsRequest';
+import { PublishFtArtifactsResponse } from './model/PublishFtArtifactsResponse';
 import { QueryHyperinstanceTagsRequest } from './model/QueryHyperinstanceTagsRequest';
 import { QueryHyperinstanceTagsResponse } from './model/QueryHyperinstanceTagsResponse';
 import { QueryTmsResourceCountRequest } from './model/QueryTmsResourceCountRequest';
@@ -796,6 +829,8 @@ import { ResourceFlavorSpec } from './model/ResourceFlavorSpec';
 import { ResourceFlavorSpecDataVolume } from './model/ResourceFlavorSpecDataVolume';
 import { ResourceFlavorStatus } from './model/ResourceFlavorStatus';
 import { ResourceFlavorXpu } from './model/ResourceFlavorXpu';
+import { ResourceInstance } from './model/ResourceInstance';
+import { ResourceInstancesFilterReq } from './model/ResourceInstancesFilterReq';
 import { ResourceMetricsMetadata } from './model/ResourceMetricsMetadata';
 import { ResourceQuota } from './model/ResourceQuota';
 import { ResourceRequirement } from './model/ResourceRequirement';
@@ -896,6 +931,10 @@ import { ShowDevServerRequest } from './model/ShowDevServerRequest';
 import { ShowDevServerResponse } from './model/ShowDevServerResponse';
 import { ShowDynamicStorageRequest } from './model/ShowDynamicStorageRequest';
 import { ShowDynamicStorageResponse } from './model/ShowDynamicStorageResponse';
+import { ShowFtDetailRequest } from './model/ShowFtDetailRequest';
+import { ShowFtDetailResponse } from './model/ShowFtDetailResponse';
+import { ShowFtMetricsRequest } from './model/ShowFtMetricsRequest';
+import { ShowFtMetricsResponse } from './model/ShowFtMetricsResponse';
 import { ShowImageRequest } from './model/ShowImageRequest';
 import { ShowImageResponse } from './model/ShowImageResponse';
 import { ShowInferDeploymentHpaRequest } from './model/ShowInferDeploymentHpaRequest';
@@ -962,16 +1001,22 @@ import { ShowTrainJobTagsRequest } from './model/ShowTrainJobTagsRequest';
 import { ShowTrainJobTagsResponse } from './model/ShowTrainJobTagsResponse';
 import { ShowTrainingExperimentDetailsRequest } from './model/ShowTrainingExperimentDetailsRequest';
 import { ShowTrainingExperimentDetailsResponse } from './model/ShowTrainingExperimentDetailsResponse';
+import { ShowTrainingFlavorMaxAvailableResourceRequest } from './model/ShowTrainingFlavorMaxAvailableResourceRequest';
+import { ShowTrainingFlavorMaxAvailableResourceResponse } from './model/ShowTrainingFlavorMaxAvailableResourceResponse';
 import { ShowTrainingJobDetailsRequest } from './model/ShowTrainingJobDetailsRequest';
 import { ShowTrainingJobDetailsResponse } from './model/ShowTrainingJobDetailsResponse';
 import { ShowTrainingJobEnginesRequest } from './model/ShowTrainingJobEnginesRequest';
 import { ShowTrainingJobEnginesResponse } from './model/ShowTrainingJobEnginesResponse';
 import { ShowTrainingJobFlavorsRequest } from './model/ShowTrainingJobFlavorsRequest';
 import { ShowTrainingJobFlavorsResponse } from './model/ShowTrainingJobFlavorsResponse';
+import { ShowTrainingJobLogsFromAomRequest } from './model/ShowTrainingJobLogsFromAomRequest';
+import { ShowTrainingJobLogsFromAomResponse } from './model/ShowTrainingJobLogsFromAomResponse';
 import { ShowTrainingJobLogsPreviewRequest } from './model/ShowTrainingJobLogsPreviewRequest';
 import { ShowTrainingJobLogsPreviewResponse } from './model/ShowTrainingJobLogsPreviewResponse';
 import { ShowTrainingJobMetricsRequest } from './model/ShowTrainingJobMetricsRequest';
 import { ShowTrainingJobMetricsResponse } from './model/ShowTrainingJobMetricsResponse';
+import { ShowTrainingJobRoutePlanRequest } from './model/ShowTrainingJobRoutePlanRequest';
+import { ShowTrainingJobRoutePlanResponse } from './model/ShowTrainingJobRoutePlanResponse';
 import { ShowTrainingQuotasRequest } from './model/ShowTrainingQuotasRequest';
 import { ShowTrainingQuotasResponse } from './model/ShowTrainingQuotasResponse';
 import { ShowWorkflowExecutionRequest } from './model/ShowWorkflowExecutionRequest';
@@ -1145,6 +1190,8 @@ import { ValidateAuthResults } from './model/ValidateAuthResults';
 import { ValidateAuthorizationRequest } from './model/ValidateAuthorizationRequest';
 import { ValidateAuthorizationRequestBody } from './model/ValidateAuthorizationRequestBody';
 import { ValidateAuthorizationResponse } from './model/ValidateAuthorizationResponse';
+import { ValidateTrainingJobNameRequest } from './model/ValidateTrainingJobNameRequest';
+import { ValidateTrainingJobNameResponse } from './model/ValidateTrainingJobNameResponse';
 import { Value } from './model/Value';
 import { ViewWorkspaceResponseGrants } from './model/ViewWorkspaceResponseGrants';
 import { VolumeExtendParams } from './model/VolumeExtendParams';
@@ -1196,6 +1243,7 @@ import { WorkloadListStatisticsStatistics } from './model/WorkloadListStatistics
 import { WorkloadNodeVO } from './model/WorkloadNodeVO';
 import { WorkloadResourceRequirement } from './model/WorkloadResourceRequirement';
 import { WorkloadStatistics } from './model/WorkloadStatistics';
+import { WorkloadStatisticsInfo } from './model/WorkloadStatisticsInfo';
 import { WorkloadStatisticsStatus } from './model/WorkloadStatisticsStatus';
 import { WorkspaceQuotasResponse } from './model/WorkspaceQuotasResponse';
 import { WorkspaceQuotasUpdateResponse } from './model/WorkspaceQuotasUpdateResponse';
@@ -1416,6 +1464,26 @@ export class ModelArtsClient {
      */
     public batchDeletePoolTags(batchDeletePoolTagsRequest?: BatchDeletePoolTagsRequest): Promise<BatchDeletePoolTagsResponse> {
         const options = ParamCreater().batchDeletePoolTags(batchDeletePoolTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除训练作业接口用于一次性从ModelArts平台上移除多个已创建的训练作业。
+     * 该接口适用于以下场景：当用户需要集中清理多个已完成或不再需要的训练作业时，可以通过此接口批量删除，避免逐个调用删除接口。使用该接口的前提条件是待删除的训练作业均已存在、属于同一工作空间，且用户具有删除训练作业的权限。删除操作完成后，训练作业将从平台中永久移除，相关资源和配置也将被清理。若待删除作业数量超过100、作业不存在、作业不属于同一工作空间或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除训练作业
+     * @param {BatchDeleteJobsReq} body **参数解释**：批量删除训练作业的请求体。 **约束限制**：单次请求最多删除100个训练作业，且所有作业必须属于同一工作空间。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteTrainingJob(batchDeleteTrainingJobRequest?: BatchDeleteTrainingJobRequest): Promise<BatchDeleteTrainingJobResponse> {
+        const options = ParamCreater().batchDeleteTrainingJob(batchDeleteTrainingJobRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1816,6 +1884,28 @@ export class ModelArtsClient {
      */
     public countInferServicesByTags(countInferServicesByTagsRequest?: CountInferServicesByTagsRequest): Promise<CountInferServicesByTagsResponse> {
         const options = ParamCreater().countInferServicesByTags(countInferServicesByTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 按标签统计训练作业资源数量接口用于根据标签等条件查询当前项目下符合条件的训练作业总数。
+     * 该接口适用于以下场景：当用户需要按标签键值、资源名称等条件统计训练作业数量时，可以通过此接口进行查询。使用该接口的前提条件是用户已登录并具有查看训练作业标签的权限。查询操作完成后，平台将返回符合条件的训练作业总数。若用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 按标签统计训练作业资源数量
+     * @param {CountResourceInstancesReq} body **参数解释**：过滤训练作业资源的请求体。 **约束限制**：不涉及。
+     * @param {number} [limit] **参数解释**：返回的数据条目数。 **约束限制**：不涉及。 **取值范围**：1 ~ 1000。 **默认取值**：1000。
+     * @param {number} [offset] **参数解释**：偏移量，表示从第几条数据开始查询。 **约束限制**：不涉及。 **取值范围**：不小于0。 **默认取值**：0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countTrainingJobsByTags(countTrainingJobsByTagsRequest?: CountTrainingJobsByTagsRequest): Promise<CountTrainingJobsByTagsResponse> {
+        const options = ParamCreater().countTrainingJobsByTags(countTrainingJobsByTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3276,6 +3366,32 @@ export class ModelArtsClient {
     }
 
     /**
+     * 查询精调训练任务产物列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询精调训练任务产物列表
+     * @param {string} trainingJobId 训练作业ID。获取方法请参见[查询训练作业列表](ListTrainingJobs.xml)。
+     * @param {number} [steps] 步数。
+     * @param {number} [epoch] 轮数。
+     * @param {number} [loss] loss值。
+     * @param {string} [status] 状态。
+     * @param {boolean} [orderByCreateTimeAsc] 是否按照创建时间排序。
+     * @param {number} [limit] 返回的数据条目数。
+     * @param {number} [offset] 数据条目偏移量。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFtArtifacts(listFtArtifactsRequest?: ListFtArtifactsRequest): Promise<ListFtArtifactsResponse> {
+        const options = ParamCreater().listFtArtifacts(listFtArtifactsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询Hyper Cluster详情列表接口用于获取所有Hyper Cluster的详细信息。该接口适用于以下场景：当用户需要了解系统中所有超节点网络的配置和状态时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询Hyper Cluster详情的权限。查询操作完成后，接口将返回所有超节点网络的详细信息，包括ID、名称、子网信息等。若用户无权限操作或系统中没有Hyper Cluster，接口将返回相应的错误信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4038,6 +4154,27 @@ export class ModelArtsClient {
     }
 
     /**
+     * 查询项目下训练作业标签列表接口用于获取指定项目下所有训练作业已使用的标签集合，按标签key聚合，每个key下包含所有不同的value。
+     * 该接口适用于以下场景：当用户需要了解项目下训练作业已使用的所有标签键值对，以便进行标签筛选、资源分类或管理时，可以通过此接口获取标签列表。使用该接口的前提条件是用户具有查看标签的权限。查询操作完成后，平台将返回项目下所有训练作业标签的聚合结果，按key分组，每个key下列出该key出现过的所有不同value。若用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询项目下训练作业标签列表
+     * @param {number} [limit] **参数解释**：每页返回的标签key数量。 **约束限制**：不涉及。 **取值范围**：1 - 1000。 **默认取值**：1000。
+     * @param {number} [offset] **参数解释**：分页查询的偏移量。 **约束限制**：不涉及。 **取值范围**：大于等于0。 **默认取值**：0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTrainingJobTags(listTrainingJobTagsRequest?: ListTrainingJobTagsRequest): Promise<ListTrainingJobTagsResponse> {
+        const options = ParamCreater().listTrainingJobTags(listTrainingJobTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询训练作业调度的实例IP、节点IP等信息，可通过schedule_count参数查询具体的某一次调度的实例信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4069,6 +4206,28 @@ export class ModelArtsClient {
      */
     public listTrainingJobs(listTrainingJobsRequest?: ListTrainingJobsRequest): Promise<ListTrainingJobsResponse> {
         const options = ParamCreater().listTrainingJobs(listTrainingJobsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询训练作业资源列表接口用于按标签、资源名称等条件筛选项目下符合条件的训练作业资源，并返回每个作业的标签信息。
+     * 该接口适用于以下场景：当用户需要通过标签或资源名称筛选训练作业，以进行资源分类管理或批量操作时，可以通过此接口获取符合条件的作业资源列表。使用该接口的前提条件是用户具有查看标签的权限。查询操作完成后，平台将返回符合条件的作业资源列表及总数。若标签格式不合法、标签key重复或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询训练作业资源列表（按标签筛选）
+     * @param {ResourceInstancesFilterReq} body **参数解释**：查询训练作业资源列表的请求体。 **约束限制**：tags中同一个key的values不能重复，不同key之间不能重复。matches最多支持1个，且key必须为resource_name。
+     * @param {number} [limit] **参数解释**：每页返回的资源数量。 **约束限制**：不涉及。 **取值范围**：1 - 1000。 **默认取值**：1000。
+     * @param {number} [offset] **参数解释**：分页查询的偏移量。 **约束限制**：不涉及。 **取值范围**：大于等于0。 **默认取值**：0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTrainingJobsByTags(listTrainingJobsByTagsRequest?: ListTrainingJobsByTagsRequest): Promise<ListTrainingJobsByTagsResponse> {
+        const options = ParamCreater().listTrainingJobsByTags(listTrainingJobsByTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4140,6 +4299,26 @@ export class ModelArtsClient {
      */
     public modifyInferIntranetConnections(modifyInferIntranetConnectionsRequest?: ModifyInferIntranetConnectionsRequest): Promise<ModifyInferIntranetConnectionsResponse> {
         const options = ParamCreater().modifyInferIntranetConnections(modifyInferIntranetConnectionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改训练配额接口用于修改用户在ModelArts服务中的训练资源配额信息。
+     * 该接口适用于以下场景：当管理员需要调整用户的训练资源配额（如作业个数配额、自动老化开关、配额告警通知等）时，可以通过此接口进行修改。使用该接口的前提条件是用户已登录并具有修改配额的权限。修改成功后，用户的训练资源配额将被更新。若用户无权限或配额信息无效，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改训练配额
+     * @param {ModifyTrainingQuotaRequest} body **参数解释**：修改训练配额的请求体。 **约束限制**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifyTrainingQuotas(modifyTrainingQuotasRequest?: ModifyTrainingQuotasRequest): Promise<ModifyTrainingQuotasResponse> {
+        const options = ParamCreater().modifyTrainingQuotas(modifyTrainingQuotasRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4224,6 +4403,26 @@ export class ModelArtsClient {
      */
     public patchPool(patchPoolRequest?: PatchPoolRequest): Promise<PatchPoolResponse> {
         const options = ParamCreater().patchPool(patchPoolRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 训练任务运行成功后，将产生的模型信息发布到资产中心。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 发布精调训练产物为模型资产
+     * @param {string} trainingJobId 训练作业ID。获取方法请参见[查询训练作业列表](ListTrainingJobs.xml)。
+     * @param {PublishArtifactsBody} publishFtArtifactsRequestBody 发布精调训练产物请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public publishFtArtifacts(publishFtArtifactsRequest?: PublishFtArtifactsRequest): Promise<PublishFtArtifactsResponse> {
+        const options = ParamCreater().publishFtArtifacts(publishFtArtifactsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4557,6 +4756,45 @@ export class ModelArtsClient {
      */
     public showDynamicStorage(showDynamicStorageRequest?: ShowDynamicStorageRequest): Promise<ShowDynamicStorageResponse> {
         const options = ParamCreater().showDynamicStorage(showDynamicStorageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询精调训练作业详情接口用于获取ModelArts平台上指定训练作业的详细信息。
+     * 该接口适用于以下场景：当用户需要查看特定训练作业的运行状态和配置信息时，可以通过此接口获取作业详情。使用该接口的前提条件是用户已知训练作业ID，并具有查看作业详情的权限。查询操作完成后，平台将返回包含训练作业的状态、配置、日志等详细信息。若训练作业ID不存在或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询精调训练作业详情
+     * @param {string} trainingJobId 训练作业ID。获取方法请参见[查询训练作业列表](ListTrainingJobs.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFtDetail(showFtDetailRequest?: ShowFtDetailRequest): Promise<ShowFtDetailResponse> {
+        const options = ParamCreater().showFtDetail(showFtDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询精调训练任务指标信息，如：训练loss等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询精调训练任务指标信息
+     * @param {string} trainingJobId 训练作业ID。获取方法请参见[查询训练作业列表](ListTrainingJobs.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFtMetrics(showFtMetricsRequest?: ShowFtMetricsRequest): Promise<ShowFtMetricsResponse> {
+        const options = ParamCreater().showFtMetrics(showFtMetricsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5091,6 +5329,27 @@ export class ModelArtsClient {
     }
 
     /**
+     * 查询资源池规格最大可用资源接口用于获取指定资源池中指定资源规格可分配的最大CPU和内存资源。
+     * 该接口适用于以下场景：当用户需要在创建训练作业前了解资源池中某规格的可用资源上限，以便合理选择规格和节点数时，可以通过此接口进行查询。使用该接口的前提条件是用户已知资源池ID和资源规格ID，并具有查看训练资源的权限。查询操作完成后，平台将返回该规格在资源池中的最大可用CPU核数和内存大小。若资源池或规格不存在、或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源池规格最大可用资源
+     * @param {string} flavorId **参数解释**：资源规格ID。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} poolId **参数解释**：资源池ID。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTrainingFlavorMaxAvailableResource(showTrainingFlavorMaxAvailableResourceRequest?: ShowTrainingFlavorMaxAvailableResourceRequest): Promise<ShowTrainingFlavorMaxAvailableResourceResponse> {
+        const options = ParamCreater().showTrainingFlavorMaxAvailableResource(showTrainingFlavorMaxAvailableResourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询训练作业详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5147,6 +5406,30 @@ export class ModelArtsClient {
     }
 
     /**
+     * 查询训练作业指定任务的日志接口用于获取ModelArts平台上指定训练作业任务的实时运行日志。
+     * 该接口适用于以下场景：当用户需要查看特定训练任务的运行日志以便排查问题或监控训练进度时，可以通过此接口获取日志内容。使用该接口的前提条件是用户已知训练作业ID和任务ID，并具有查看日志的权限。查询操作完成后，平台将返回包含日志内容、起止行号等信息。若训练作业ID或任务ID不存在、任务未生成日志或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询训练作业指定任务的日志
+     * @param {string} trainingJobId 训练作业ID。获取方法请参见[查询训练作业列表](ListTrainingJobs.xml)。
+     * @param {string} taskId 训练作业的任务名称。可从训练作业详情中的status.tasks字段中获取。
+     * @param {string} [baseLine] **参数解释**：日志查询的基线行号，用于分页查询。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：不涉及（从最新日志开始查询）。
+     * @param {number} [lines] **参数解释**：返回的日志行数。 **约束限制**：不涉及。 **取值范围**：1 ~ 500。 **默认取值**：50。
+     * @param {'asc' | 'desc'} [order] **参数解释**：日志排序方式。 **约束限制**：不涉及。 **取值范围**：枚举值如下： - asc：升序（从旧到新） - desc：降序（从新到旧） **默认取值**：desc。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTrainingJobLogsFromAom(showTrainingJobLogsFromAomRequest?: ShowTrainingJobLogsFromAomRequest): Promise<ShowTrainingJobLogsFromAomResponse> {
+        const options = ParamCreater().showTrainingJobLogsFromAom(showTrainingJobLogsFromAomRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询训练作业指定任务的日志（预览）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5179,6 +5462,26 @@ export class ModelArtsClient {
      */
     public showTrainingJobMetrics(showTrainingJobMetricsRequest?: ShowTrainingJobMetricsRequest): Promise<ShowTrainingJobMetricsResponse> {
         const options = ParamCreater().showTrainingJobMetrics(showTrainingJobMetricsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询训练作业的路由规划信息接口用于获取指定训练作业在Ascend规格专属资源池下的路由规划（rank映射）结果。
+     * 该接口适用于以下场景：当用户在Ascend 910规格专属资源池上创建了多节点（节点数不少于3）训练作业，且需要查询作业实际生效的rank映射关系以进行性能调优或问题定位时，可以通过此接口获取路由规划信息。使用该接口的前提条件是用户已知训练作业ID，并具有查看作业详情的权限。查询操作完成后，平台将返回该作业的路由规划状态与rank映射结果。若训练作业不满足路由规划条件（非Ascend 910规格或节点数少于3），接口将返回状态为failed的默认rank映射结果；若训练作业ID不存在或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询训练作业的路由规划信息
+     * @param {string} trainingJobId 训练作业ID。获取方法请参见[查询训练作业列表](ListTrainingJobs.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTrainingJobRoutePlan(showTrainingJobRoutePlanRequest?: ShowTrainingJobRoutePlanRequest): Promise<ShowTrainingJobRoutePlanResponse> {
+        const options = ParamCreater().showTrainingJobRoutePlan(showTrainingJobRoutePlanRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5717,6 +6020,27 @@ export class ModelArtsClient {
      */
     public validateAuthorization(validateAuthorizationRequest?: ValidateAuthorizationRequest): Promise<ValidateAuthorizationResponse> {
         const options = ParamCreater().validateAuthorization(validateAuthorizationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 校验训练作业名称接口用于校验ModelArts平台上创建训练作业的名称是否重复。
+     * 该接口适用于以下场景：当用户需要创建训练作业时，可以通过此接口校验训练作业名称是否存在，新创建的名称不存在时才能创建成功。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 校验训练作业名称
+     * @param {string} jobName **参数解释**：训练作业名称。 **约束限制**：1 - 64字符，字母、数字、下划线和中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [workspaceId] **参数解释**：工作空间ID。获取方法请参见[[查询工作空间列表](ListWorkspace.xml)](tag:hc,hk)。未创建工作空间时默认值为“0”，存在创建并使用的工作空间，以实际取值为准。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public validateTrainingJobName(validateTrainingJobNameRequest?: ValidateTrainingJobNameRequest): Promise<ValidateTrainingJobNameResponse> {
+        const options = ParamCreater().validateTrainingJobName(validateTrainingJobNameRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7391,6 +7715,45 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量删除训练作业接口用于一次性从ModelArts平台上移除多个已创建的训练作业。
+         * 该接口适用于以下场景：当用户需要集中清理多个已完成或不再需要的训练作业时，可以通过此接口批量删除，避免逐个调用删除接口。使用该接口的前提条件是待删除的训练作业均已存在、属于同一工作空间，且用户具有删除训练作业的权限。删除操作完成后，训练作业将从平台中永久移除，相关资源和配置也将被清理。若待删除作业数量超过100、作业不存在、作业不属于同一工作空间或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteTrainingJob(batchDeleteTrainingJobRequest?: BatchDeleteTrainingJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/training-jobs/batch-delete",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchDeleteTrainingJobRequest !== null && batchDeleteTrainingJobRequest !== undefined) {
+                if (batchDeleteTrainingJobRequest instanceof BatchDeleteTrainingJobRequest) {
+                    body = batchDeleteTrainingJobRequest.body
+                } else {
+                    body = batchDeleteTrainingJobRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量操作Lite Server实例接口用于对多个Lite Server实例进行统一操作，如启动、停止、重启或删除等。该接口适用于以下场景：当需要对多个Lite Server实例进行相同的操作，例如在维护期间批量停止实例、更新配置后批量重启实例或清理不再需要的实例时，用户可通过此接口高效地完成批量操作。使用该接口的前提条件是目标Lite Server实例已存在且用户具有相应的操作权限。操作完成后，所有指定的Lite Server实例将根据请求完成相应的状态变更或被移除，相关资源和配置也将被相应调整或清理。若目标Lite Server实例不存在、用户无权限操作或请求参数不正确，接口将返回相应的错误信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8290,6 +8653,60 @@ export const ParamCreater = function () {
                 localVarQueryParameter['workspace_id'] = workspaceId;
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 按标签统计训练作业资源数量接口用于根据标签等条件查询当前项目下符合条件的训练作业总数。
+         * 该接口适用于以下场景：当用户需要按标签键值、资源名称等条件统计训练作业数量时，可以通过此接口进行查询。使用该接口的前提条件是用户已登录并具有查看训练作业标签的权限。查询操作完成后，平台将返回符合条件的训练作业总数。若用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countTrainingJobsByTags(countTrainingJobsByTagsRequest?: CountTrainingJobsByTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/modelarts-training-job/resource-instances/count",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let limit;
+            
+            let offset;
+
+            if (countTrainingJobsByTagsRequest !== null && countTrainingJobsByTagsRequest !== undefined) {
+                if (countTrainingJobsByTagsRequest instanceof CountTrainingJobsByTagsRequest) {
+                    body = countTrainingJobsByTagsRequest.body
+                    limit = countTrainingJobsByTagsRequest.limit;
+                    offset = countTrainingJobsByTagsRequest.offset;
+                } else {
+                    body = countTrainingJobsByTagsRequest['body'];
+                    limit = countTrainingJobsByTagsRequest['limit'];
+                    offset = countTrainingJobsByTagsRequest['offset'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
@@ -11461,6 +11878,93 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询精调训练任务产物列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFtArtifacts(listFtArtifactsRequest?: ListFtArtifactsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/training-jobs/{training_job_id}/ft-artifacts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let trainingJobId;
+            
+            let steps;
+            
+            let epoch;
+            
+            let loss;
+            
+            let status;
+            
+            let orderByCreateTimeAsc;
+            
+            let limit;
+            
+            let offset;
+
+            if (listFtArtifactsRequest !== null && listFtArtifactsRequest !== undefined) {
+                if (listFtArtifactsRequest instanceof ListFtArtifactsRequest) {
+                    trainingJobId = listFtArtifactsRequest.trainingJobId;
+                    steps = listFtArtifactsRequest.steps;
+                    epoch = listFtArtifactsRequest.epoch;
+                    loss = listFtArtifactsRequest.loss;
+                    status = listFtArtifactsRequest.status;
+                    orderByCreateTimeAsc = listFtArtifactsRequest.orderByCreateTimeAsc;
+                    limit = listFtArtifactsRequest.limit;
+                    offset = listFtArtifactsRequest.offset;
+                } else {
+                    trainingJobId = listFtArtifactsRequest['training_job_id'];
+                    steps = listFtArtifactsRequest['steps'];
+                    epoch = listFtArtifactsRequest['epoch'];
+                    loss = listFtArtifactsRequest['loss'];
+                    status = listFtArtifactsRequest['status'];
+                    orderByCreateTimeAsc = listFtArtifactsRequest['order_by_create_time_asc'];
+                    limit = listFtArtifactsRequest['limit'];
+                    offset = listFtArtifactsRequest['offset'];
+                }
+            }
+
+        
+            if (trainingJobId === null || trainingJobId === undefined) {
+            throw new RequiredError('trainingJobId','Required parameter trainingJobId was null or undefined when calling listFtArtifacts.');
+            }
+            if (steps !== null && steps !== undefined) {
+                localVarQueryParameter['steps'] = steps;
+            }
+            if (epoch !== null && epoch !== undefined) {
+                localVarQueryParameter['epoch'] = epoch;
+            }
+            if (loss !== null && loss !== undefined) {
+                localVarQueryParameter['loss'] = loss;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (orderByCreateTimeAsc !== null && orderByCreateTimeAsc !== undefined) {
+                localVarQueryParameter['order_by_create_time_asc'] = orderByCreateTimeAsc;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'training_job_id': trainingJobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询Hyper Cluster详情列表接口用于获取所有Hyper Cluster的详细信息。该接口适用于以下场景：当用户需要了解系统中所有超节点网络的配置和状态时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询Hyper Cluster详情的权限。查询操作完成后，接口将返回所有超节点网络的详细信息，包括ID、名称、子网信息等。若用户无权限操作或系统中没有Hyper Cluster，接口将返回相应的错误信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -13723,6 +14227,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询项目下训练作业标签列表接口用于获取指定项目下所有训练作业已使用的标签集合，按标签key聚合，每个key下包含所有不同的value。
+         * 该接口适用于以下场景：当用户需要了解项目下训练作业已使用的所有标签键值对，以便进行标签筛选、资源分类或管理时，可以通过此接口获取标签列表。使用该接口的前提条件是用户具有查看标签的权限。查询操作完成后，平台将返回项目下所有训练作业标签的聚合结果，按key分组，每个key下列出该key出现过的所有不同value。若用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTrainingJobTags(listTrainingJobTagsRequest?: ListTrainingJobTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/modelarts-training-job/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+
+            if (listTrainingJobTagsRequest !== null && listTrainingJobTagsRequest !== undefined) {
+                if (listTrainingJobTagsRequest instanceof ListTrainingJobTagsRequest) {
+                    limit = listTrainingJobTagsRequest.limit;
+                    offset = listTrainingJobTagsRequest.offset;
+                } else {
+                    limit = listTrainingJobTagsRequest['limit'];
+                    offset = listTrainingJobTagsRequest['offset'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询训练作业调度的实例IP、节点IP等信息，可通过schedule_count参数查询具体的某一次调度的实例信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -13801,6 +14350,60 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询训练作业资源列表接口用于按标签、资源名称等条件筛选项目下符合条件的训练作业资源，并返回每个作业的标签信息。
+         * 该接口适用于以下场景：当用户需要通过标签或资源名称筛选训练作业，以进行资源分类管理或批量操作时，可以通过此接口获取符合条件的作业资源列表。使用该接口的前提条件是用户具有查看标签的权限。查询操作完成后，平台将返回符合条件的作业资源列表及总数。若标签格式不合法、标签key重复或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTrainingJobsByTags(listTrainingJobsByTagsRequest?: ListTrainingJobsByTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/modelarts-training-job/resource-instances/filter",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let limit;
+            
+            let offset;
+
+            if (listTrainingJobsByTagsRequest !== null && listTrainingJobsByTagsRequest !== undefined) {
+                if (listTrainingJobsByTagsRequest instanceof ListTrainingJobsByTagsRequest) {
+                    body = listTrainingJobsByTagsRequest.body
+                    limit = listTrainingJobsByTagsRequest.limit;
+                    offset = listTrainingJobsByTagsRequest.offset;
+                } else {
+                    body = listTrainingJobsByTagsRequest['body'];
+                    limit = listTrainingJobsByTagsRequest['limit'];
+                    offset = listTrainingJobsByTagsRequest['offset'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -14018,6 +14621,45 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改训练配额接口用于修改用户在ModelArts服务中的训练资源配额信息。
+         * 该接口适用于以下场景：当管理员需要调整用户的训练资源配额（如作业个数配额、自动老化开关、配额告警通知等）时，可以通过此接口进行修改。使用该接口的前提条件是用户已登录并具有修改配额的权限。修改成功后，用户的训练资源配额将被更新。若用户无权限或配额信息无效，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifyTrainingQuotas(modifyTrainingQuotasRequest?: ModifyTrainingQuotasRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/training-quotas",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (modifyTrainingQuotasRequest !== null && modifyTrainingQuotasRequest !== undefined) {
+                if (modifyTrainingQuotasRequest instanceof ModifyTrainingQuotasRequest) {
+                    body = modifyTrainingQuotasRequest.body
+                } else {
+                    body = modifyTrainingQuotasRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 训练事件上报给业务面
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14222,6 +14864,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'pool_name': poolName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 训练任务运行成功后，将产生的模型信息发布到资产中心。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        publishFtArtifacts(publishFtArtifactsRequest?: PublishFtArtifactsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/training-jobs/{training_job_id}/ft-artifacts/publish",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let trainingJobId;
+
+            if (publishFtArtifactsRequest !== null && publishFtArtifactsRequest !== undefined) {
+                if (publishFtArtifactsRequest instanceof PublishFtArtifactsRequest) {
+                    trainingJobId = publishFtArtifactsRequest.trainingJobId;
+                    body = publishFtArtifactsRequest.body
+                } else {
+                    trainingJobId = publishFtArtifactsRequest['training_job_id'];
+                    body = publishFtArtifactsRequest['body'];
+                }
+            }
+
+        
+            if (trainingJobId === null || trainingJobId === undefined) {
+            throw new RequiredError('trainingJobId','Required parameter trainingJobId was null or undefined when calling publishFtArtifacts.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'training_job_id': trainingJobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -14899,6 +15587,81 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'storage_id': storageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询精调训练作业详情接口用于获取ModelArts平台上指定训练作业的详细信息。
+         * 该接口适用于以下场景：当用户需要查看特定训练作业的运行状态和配置信息时，可以通过此接口获取作业详情。使用该接口的前提条件是用户已知训练作业ID，并具有查看作业详情的权限。查询操作完成后，平台将返回包含训练作业的状态、配置、日志等详细信息。若训练作业ID不存在或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFtDetail(showFtDetailRequest?: ShowFtDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/training-jobs/{training_job_id}/ft-detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let trainingJobId;
+
+            if (showFtDetailRequest !== null && showFtDetailRequest !== undefined) {
+                if (showFtDetailRequest instanceof ShowFtDetailRequest) {
+                    trainingJobId = showFtDetailRequest.trainingJobId;
+                } else {
+                    trainingJobId = showFtDetailRequest['training_job_id'];
+                }
+            }
+
+        
+            if (trainingJobId === null || trainingJobId === undefined) {
+            throw new RequiredError('trainingJobId','Required parameter trainingJobId was null or undefined when calling showFtDetail.');
+            }
+
+            options.pathParams = { 'training_job_id': trainingJobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询精调训练任务指标信息，如：训练loss等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFtMetrics(showFtMetricsRequest?: ShowFtMetricsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/training-jobs/{training_job_id}/ft-metrics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let trainingJobId;
+
+            if (showFtMetricsRequest !== null && showFtMetricsRequest !== undefined) {
+                if (showFtMetricsRequest instanceof ShowFtMetricsRequest) {
+                    trainingJobId = showFtMetricsRequest.trainingJobId;
+                } else {
+                    trainingJobId = showFtMetricsRequest['training_job_id'];
+                }
+            }
+
+        
+            if (trainingJobId === null || trainingJobId === undefined) {
+            throw new RequiredError('trainingJobId','Required parameter trainingJobId was null or undefined when calling showFtMetrics.');
+            }
+
+            options.pathParams = { 'training_job_id': trainingJobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -15959,6 +16722,57 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询资源池规格最大可用资源接口用于获取指定资源池中指定资源规格可分配的最大CPU和内存资源。
+         * 该接口适用于以下场景：当用户需要在创建训练作业前了解资源池中某规格的可用资源上限，以便合理选择规格和节点数时，可以通过此接口进行查询。使用该接口的前提条件是用户已知资源池ID和资源规格ID，并具有查看训练资源的权限。查询操作完成后，平台将返回该规格在资源池中的最大可用CPU核数和内存大小。若资源池或规格不存在、或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTrainingFlavorMaxAvailableResource(showTrainingFlavorMaxAvailableResourceRequest?: ShowTrainingFlavorMaxAvailableResourceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/training-pool-flavors",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let flavorId;
+            
+            let poolId;
+
+            if (showTrainingFlavorMaxAvailableResourceRequest !== null && showTrainingFlavorMaxAvailableResourceRequest !== undefined) {
+                if (showTrainingFlavorMaxAvailableResourceRequest instanceof ShowTrainingFlavorMaxAvailableResourceRequest) {
+                    flavorId = showTrainingFlavorMaxAvailableResourceRequest.flavorId;
+                    poolId = showTrainingFlavorMaxAvailableResourceRequest.poolId;
+                } else {
+                    flavorId = showTrainingFlavorMaxAvailableResourceRequest['flavor_id'];
+                    poolId = showTrainingFlavorMaxAvailableResourceRequest['pool_id'];
+                }
+            }
+
+        
+            if (flavorId === null || flavorId === undefined) {
+                throw new RequiredError('flavorId','Required parameter flavorId was null or undefined when calling showTrainingFlavorMaxAvailableResource.');
+            }
+            if (flavorId !== null && flavorId !== undefined) {
+                localVarQueryParameter['flavor_id'] = flavorId;
+            }
+            if (poolId === null || poolId === undefined) {
+                throw new RequiredError('poolId','Required parameter poolId was null or undefined when calling showTrainingFlavorMaxAvailableResource.');
+            }
+            if (poolId !== null && poolId !== undefined) {
+                localVarQueryParameter['pool_id'] = poolId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询训练作业详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -16054,6 +16868,73 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询训练作业指定任务的日志接口用于获取ModelArts平台上指定训练作业任务的实时运行日志。
+         * 该接口适用于以下场景：当用户需要查看特定训练任务的运行日志以便排查问题或监控训练进度时，可以通过此接口获取日志内容。使用该接口的前提条件是用户已知训练作业ID和任务ID，并具有查看日志的权限。查询操作完成后，平台将返回包含日志内容、起止行号等信息。若训练作业ID或任务ID不存在、任务未生成日志或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTrainingJobLogsFromAom(showTrainingJobLogsFromAomRequest?: ShowTrainingJobLogsFromAomRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/training-jobs/{training_job_id}/logs/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let trainingJobId;
+            
+            let taskId;
+            
+            let baseLine;
+            
+            let lines;
+            
+            let order;
+
+            if (showTrainingJobLogsFromAomRequest !== null && showTrainingJobLogsFromAomRequest !== undefined) {
+                if (showTrainingJobLogsFromAomRequest instanceof ShowTrainingJobLogsFromAomRequest) {
+                    trainingJobId = showTrainingJobLogsFromAomRequest.trainingJobId;
+                    taskId = showTrainingJobLogsFromAomRequest.taskId;
+                    baseLine = showTrainingJobLogsFromAomRequest.baseLine;
+                    lines = showTrainingJobLogsFromAomRequest.lines;
+                    order = showTrainingJobLogsFromAomRequest.order;
+                } else {
+                    trainingJobId = showTrainingJobLogsFromAomRequest['training_job_id'];
+                    taskId = showTrainingJobLogsFromAomRequest['task_id'];
+                    baseLine = showTrainingJobLogsFromAomRequest['base_line'];
+                    lines = showTrainingJobLogsFromAomRequest['lines'];
+                    order = showTrainingJobLogsFromAomRequest['order'];
+                }
+            }
+
+        
+            if (trainingJobId === null || trainingJobId === undefined) {
+            throw new RequiredError('trainingJobId','Required parameter trainingJobId was null or undefined when calling showTrainingJobLogsFromAom.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showTrainingJobLogsFromAom.');
+            }
+            if (baseLine !== null && baseLine !== undefined) {
+                localVarQueryParameter['base_line'] = baseLine;
+            }
+            if (lines !== null && lines !== undefined) {
+                localVarQueryParameter['lines'] = lines;
+            }
+            if (order !== null && order !== undefined) {
+                localVarQueryParameter['order'] = order;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'training_job_id': trainingJobId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询训练作业指定任务的日志（预览）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -16137,6 +17018,44 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'training_job_id': trainingJobId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询训练作业的路由规划信息接口用于获取指定训练作业在Ascend规格专属资源池下的路由规划（rank映射）结果。
+         * 该接口适用于以下场景：当用户在Ascend 910规格专属资源池上创建了多节点（节点数不少于3）训练作业，且需要查询作业实际生效的rank映射关系以进行性能调优或问题定位时，可以通过此接口获取路由规划信息。使用该接口的前提条件是用户已知训练作业ID，并具有查看作业详情的权限。查询操作完成后，平台将返回该作业的路由规划状态与rank映射结果。若训练作业不满足路由规划条件（非Ascend 910规格或节点数少于3），接口将返回状态为failed的默认rank映射结果；若训练作业ID不存在或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTrainingJobRoutePlan(showTrainingJobRoutePlanRequest?: ShowTrainingJobRoutePlanRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/training-jobs/{training_job_id}/route_plan",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let trainingJobId;
+
+            if (showTrainingJobRoutePlanRequest !== null && showTrainingJobRoutePlanRequest !== undefined) {
+                if (showTrainingJobRoutePlanRequest instanceof ShowTrainingJobRoutePlanRequest) {
+                    trainingJobId = showTrainingJobRoutePlanRequest.trainingJobId;
+                } else {
+                    trainingJobId = showTrainingJobRoutePlanRequest['training_job_id'];
+                }
+            }
+
+        
+            if (trainingJobId === null || trainingJobId === undefined) {
+            throw new RequiredError('trainingJobId','Required parameter trainingJobId was null or undefined when calling showTrainingJobRoutePlan.');
+            }
+
+            options.pathParams = { 'training_job_id': trainingJobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -17321,6 +18240,54 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 校验训练作业名称接口用于校验ModelArts平台上创建训练作业的名称是否重复。
+         * 该接口适用于以下场景：当用户需要创建训练作业时，可以通过此接口校验训练作业名称是否存在，新创建的名称不存在时才能创建成功。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        validateTrainingJobName(validateTrainingJobNameRequest?: ValidateTrainingJobNameRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/training-job-names",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let jobName;
+            
+            let workspaceId;
+
+            if (validateTrainingJobNameRequest !== null && validateTrainingJobNameRequest !== undefined) {
+                if (validateTrainingJobNameRequest instanceof ValidateTrainingJobNameRequest) {
+                    jobName = validateTrainingJobNameRequest.jobName;
+                    workspaceId = validateTrainingJobNameRequest.workspaceId;
+                } else {
+                    jobName = validateTrainingJobNameRequest['job_name'];
+                    workspaceId = validateTrainingJobNameRequest['workspace_id'];
+                }
+            }
+
+        
+            if (jobName === null || jobName === undefined) {
+                throw new RequiredError('jobName','Required parameter jobName was null or undefined when calling validateTrainingJobName.');
+            }
+            if (jobName !== null && jobName !== undefined) {
+                localVarQueryParameter['job_name'] = jobName;
+            }
+            if (workspaceId !== null && workspaceId !== undefined) {
+                localVarQueryParameter['workspace_id'] = workspaceId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -25,6 +25,7 @@ export class AgentInstanceInfo {
     public risks?: Array<AgentRisk>;
     private 'agent_version'?: string;
     private 'enterprise_project_id'?: string;
+    private 'security_policy_control'?: number;
     public constructor() { 
     }
     public withId(id: string): AgentInstanceInfo {
@@ -244,5 +245,15 @@ export class AgentInstanceInfo {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withSecurityPolicyControl(securityPolicyControl: number): AgentInstanceInfo {
+        this['security_policy_control'] = securityPolicyControl;
+        return this;
+    }
+    public set securityPolicyControl(securityPolicyControl: number  | undefined) {
+        this['security_policy_control'] = securityPolicyControl;
+    }
+    public get securityPolicyControl(): number | undefined {
+        return this['security_policy_control'];
     }
 }

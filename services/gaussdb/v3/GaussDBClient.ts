@@ -291,8 +291,10 @@ import { ErrorTable } from './model/ErrorTable';
 import { EventEntity } from './model/EventEntity';
 import { EventInstances } from './model/EventInstances';
 import { EventJobResult } from './model/EventJobResult';
+import { EventScheduleWindow } from './model/EventScheduleWindow';
 import { ExecuteIntelligentKillSessionRequest } from './model/ExecuteIntelligentKillSessionRequest';
 import { ExecuteIntelligentKillSessionResponse } from './model/ExecuteIntelligentKillSessionResponse';
+import { ExecuteWindow } from './model/ExecuteWindow';
 import { ExpandGaussMySqlInstanceVolumeRequest } from './model/ExpandGaussMySqlInstanceVolumeRequest';
 import { ExpandGaussMySqlInstanceVolumeResponse } from './model/ExpandGaussMySqlInstanceVolumeResponse';
 import { ExpandGaussMySqlProxyRequest } from './model/ExpandGaussMySqlProxyRequest';
@@ -991,6 +993,7 @@ import { UpdateTransactionSplitStatusResponse } from './model/UpdateTransactionS
 import { UpgradeConfigurationRequest } from './model/UpgradeConfigurationRequest';
 import { UpgradeConfigurationRequestBody } from './model/UpgradeConfigurationRequestBody';
 import { UpgradeConfigurationResponse } from './model/UpgradeConfigurationResponse';
+import { UpgradeDatabasePrecheckResult } from './model/UpgradeDatabasePrecheckResult';
 import { UpgradeDatabaseRequest } from './model/UpgradeDatabaseRequest';
 import { UpgradeDatabasesSingleInstance } from './model/UpgradeDatabasesSingleInstance';
 import { UpgradeGaussMySqlInstanceDatabaseRequest } from './model/UpgradeGaussMySqlInstanceDatabaseRequest';

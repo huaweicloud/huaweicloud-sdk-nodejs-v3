@@ -26,6 +26,7 @@ export class ListDesktopsDetailRequest {
     private 'subnet_id'?: string;
     private 'is_support_internet'?: boolean;
     private 'availability_zone'?: string;
+    private 'without_any_tag'?: boolean;
     private 'agent_version'?: string;
     public constructor() { 
     }
@@ -254,6 +255,16 @@ export class ListDesktopsDetailRequest {
     }
     public get availabilityZone(): string | undefined {
         return this['availability_zone'];
+    }
+    public withWithoutAnyTag(withoutAnyTag: boolean): ListDesktopsDetailRequest {
+        this['without_any_tag'] = withoutAnyTag;
+        return this;
+    }
+    public set withoutAnyTag(withoutAnyTag: boolean  | undefined) {
+        this['without_any_tag'] = withoutAnyTag;
+    }
+    public get withoutAnyTag(): boolean | undefined {
+        return this['without_any_tag'];
     }
     public withAgentVersion(agentVersion: string): ListDesktopsDetailRequest {
         this['agent_version'] = agentVersion;

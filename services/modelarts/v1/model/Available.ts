@@ -3,7 +3,7 @@ import { Value } from './Value';
 
 export class Available {
     public value?: Value;
-    public maxValue?: object;
+    public maxValue?: Value;
     public timestamp?: string;
     public window?: string;
     public constructor() { 
@@ -12,7 +12,7 @@ export class Available {
         this['value'] = value;
         return this;
     }
-    public withMaxValue(maxValue: object): Available {
+    public withMaxValue(maxValue: Value): Available {
         this['maxValue'] = maxValue;
         return this;
     }

@@ -1,7 +1,13 @@
+import { ListSubscriptionUserResponseCallnotifyEndpointInfo } from './ListSubscriptionUserResponseCallnotifyEndpointInfo';
+import { ListSubscriptionUserResponseDingTalkBotEndpointInfo } from './ListSubscriptionUserResponseDingTalkBotEndpointInfo';
+import { ListSubscriptionUserResponseDingdingEndpointInfo } from './ListSubscriptionUserResponseDingdingEndpointInfo';
 import { ListSubscriptionUserResponseEmailEndpointInfo } from './ListSubscriptionUserResponseEmailEndpointInfo';
+import { ListSubscriptionUserResponseFeishuEndpointInfo } from './ListSubscriptionUserResponseFeishuEndpointInfo';
 import { ListSubscriptionUserResponseHttpEndpointInfo } from './ListSubscriptionUserResponseHttpEndpointInfo';
 import { ListSubscriptionUserResponseHttpsEndpointInfo } from './ListSubscriptionUserResponseHttpsEndpointInfo';
 import { ListSubscriptionUserResponseSmsEndpointInfo } from './ListSubscriptionUserResponseSmsEndpointInfo';
+import { ListSubscriptionUserResponseWechatEndpointInfo } from './ListSubscriptionUserResponseWechatEndpointInfo';
+import { ListSubscriptionUserResponseWelinkEndpointInfo } from './ListSubscriptionUserResponseWelinkEndpointInfo';
 
 
 export class ListSubscriptionUserResponseItemInfo {
@@ -16,6 +22,12 @@ export class ListSubscriptionUserResponseItemInfo {
     public https?: ListSubscriptionUserResponseHttpsEndpointInfo;
     public sms?: ListSubscriptionUserResponseSmsEndpointInfo;
     public email?: ListSubscriptionUserResponseEmailEndpointInfo;
+    public callnotify?: ListSubscriptionUserResponseCallnotifyEndpointInfo;
+    public wechat?: ListSubscriptionUserResponseWechatEndpointInfo;
+    public dingding?: ListSubscriptionUserResponseDingdingEndpointInfo;
+    public feishu?: ListSubscriptionUserResponseFeishuEndpointInfo;
+    public welink?: ListSubscriptionUserResponseWelinkEndpointInfo;
+    private 'ding_talk_bot'?: ListSubscriptionUserResponseDingTalkBotEndpointInfo;
     public constructor(id?: string, domainId?: string, name?: string, status?: string, group?: Array<string>, createTime?: string, updateTime?: string) { 
         this['id'] = id;
         this['domain_id'] = domainId;
@@ -86,5 +98,35 @@ export class ListSubscriptionUserResponseItemInfo {
     public withEmail(email: ListSubscriptionUserResponseEmailEndpointInfo): ListSubscriptionUserResponseItemInfo {
         this['email'] = email;
         return this;
+    }
+    public withCallnotify(callnotify: ListSubscriptionUserResponseCallnotifyEndpointInfo): ListSubscriptionUserResponseItemInfo {
+        this['callnotify'] = callnotify;
+        return this;
+    }
+    public withWechat(wechat: ListSubscriptionUserResponseWechatEndpointInfo): ListSubscriptionUserResponseItemInfo {
+        this['wechat'] = wechat;
+        return this;
+    }
+    public withDingding(dingding: ListSubscriptionUserResponseDingdingEndpointInfo): ListSubscriptionUserResponseItemInfo {
+        this['dingding'] = dingding;
+        return this;
+    }
+    public withFeishu(feishu: ListSubscriptionUserResponseFeishuEndpointInfo): ListSubscriptionUserResponseItemInfo {
+        this['feishu'] = feishu;
+        return this;
+    }
+    public withWelink(welink: ListSubscriptionUserResponseWelinkEndpointInfo): ListSubscriptionUserResponseItemInfo {
+        this['welink'] = welink;
+        return this;
+    }
+    public withDingTalkBot(dingTalkBot: ListSubscriptionUserResponseDingTalkBotEndpointInfo): ListSubscriptionUserResponseItemInfo {
+        this['ding_talk_bot'] = dingTalkBot;
+        return this;
+    }
+    public set dingTalkBot(dingTalkBot: ListSubscriptionUserResponseDingTalkBotEndpointInfo  | undefined) {
+        this['ding_talk_bot'] = dingTalkBot;
+    }
+    public get dingTalkBot(): ListSubscriptionUserResponseDingTalkBotEndpointInfo | undefined {
+        return this['ding_talk_bot'];
     }
 }

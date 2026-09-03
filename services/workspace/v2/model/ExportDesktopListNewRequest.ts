@@ -6,6 +6,7 @@ export class ExportDesktopListNewRequest {
     private 'desktop_ip'?: string;
     private 'desktop_id'?: string;
     public tag?: string;
+    private 'without_any_tag'?: boolean;
     public language?: ExportDesktopListNewRequestLanguageEnum | string;
     private 'enterprise_project_id'?: string;
     private 'desktop_type'?: string;
@@ -71,6 +72,16 @@ export class ExportDesktopListNewRequest {
     public withTag(tag: string): ExportDesktopListNewRequest {
         this['tag'] = tag;
         return this;
+    }
+    public withWithoutAnyTag(withoutAnyTag: boolean): ExportDesktopListNewRequest {
+        this['without_any_tag'] = withoutAnyTag;
+        return this;
+    }
+    public set withoutAnyTag(withoutAnyTag: boolean  | undefined) {
+        this['without_any_tag'] = withoutAnyTag;
+    }
+    public get withoutAnyTag(): boolean | undefined {
+        return this['without_any_tag'];
     }
     public withLanguage(language: ExportDesktopListNewRequestLanguageEnum | string): ExportDesktopListNewRequest {
         this['language'] = language;

@@ -13,9 +13,13 @@ import { BatchDeleteVolumeTagsResponse } from './model/BatchDeleteVolumeTagsResp
 import { BatchResizeVolumeRequestBody } from './model/BatchResizeVolumeRequestBody';
 import { BatchResizeVolumesRequest } from './model/BatchResizeVolumesRequest';
 import { BatchResizeVolumesResponse } from './model/BatchResizeVolumesResponse';
+import { BssParam2 } from './model/BssParam2';
 import { BssParamForCreateVolume } from './model/BssParamForCreateVolume';
 import { BssParamForResizeVolume } from './model/BssParamForResizeVolume';
 import { BssParamForRetypeVolume } from './model/BssParamForRetypeVolume';
+import { ChangeVolumeChargeModeRequest } from './model/ChangeVolumeChargeModeRequest';
+import { ChangeVolumeChargeModeRequestBody } from './model/ChangeVolumeChargeModeRequestBody';
+import { ChangeVolumeChargeModeResponse } from './model/ChangeVolumeChargeModeResponse';
 import { CinderAcceptVolumeTransferOption } from './model/CinderAcceptVolumeTransferOption';
 import { CinderAcceptVolumeTransferRequest } from './model/CinderAcceptVolumeTransferRequest';
 import { CinderAcceptVolumeTransferRequestBody } from './model/CinderAcceptVolumeTransferRequestBody';
@@ -233,6 +237,25 @@ export class EvsClient {
      */
     public batchResizeVolumes(batchResizeVolumesRequest?: BatchResizeVolumesRequest): Promise<BatchResizeVolumesResponse> {
         const options = ParamCreater().batchResizeVolumes(batchResizeVolumesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 将挂载状态下的云硬盘的计费模式有按需转成包周期，且到期时间和挂载的虚拟机保持一致。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改云硬盘计费模式
+     * @param {ChangeVolumeChargeModeRequestBody} changeVolumeChargeModeRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeVolumeChargeMode(changeVolumeChargeModeRequest?: ChangeVolumeChargeModeRequest): Promise<ChangeVolumeChargeModeResponse> {
+        const options = ParamCreater().changeVolumeChargeMode(changeVolumeChargeModeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1089,6 +1112,44 @@ export const ParamCreater = function () {
                     body = batchResizeVolumesRequest.body
                 } else {
                     body = batchResizeVolumesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将挂载状态下的云硬盘的计费模式有按需转成包周期，且到期时间和挂载的虚拟机保持一致。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeVolumeChargeMode(changeVolumeChargeModeRequest?: ChangeVolumeChargeModeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/cloudvolumes/change-charge-mode",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (changeVolumeChargeModeRequest !== null && changeVolumeChargeModeRequest !== undefined) {
+                if (changeVolumeChargeModeRequest instanceof ChangeVolumeChargeModeRequest) {
+                    body = changeVolumeChargeModeRequest.body
+                } else {
+                    body = changeVolumeChargeModeRequest['body'];
                 }
             }
 

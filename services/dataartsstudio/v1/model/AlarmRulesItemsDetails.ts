@@ -30,6 +30,8 @@ export class AlarmRulesItemsDetails {
     private 'send_interval'?: number;
     private 'duty_schedule_id'?: number;
     private 'smn_config_id'?: string;
+    private 'enable_recovery'?: boolean;
+    private 'enable_persistent_alarm'?: boolean;
     public constructor() { 
     }
     public withName(name: string): AlarmRulesItemsDetails {
@@ -277,5 +279,25 @@ export class AlarmRulesItemsDetails {
     }
     public get smnConfigId(): string | undefined {
         return this['smn_config_id'];
+    }
+    public withEnableRecovery(enableRecovery: boolean): AlarmRulesItemsDetails {
+        this['enable_recovery'] = enableRecovery;
+        return this;
+    }
+    public set enableRecovery(enableRecovery: boolean  | undefined) {
+        this['enable_recovery'] = enableRecovery;
+    }
+    public get enableRecovery(): boolean | undefined {
+        return this['enable_recovery'];
+    }
+    public withEnablePersistentAlarm(enablePersistentAlarm: boolean): AlarmRulesItemsDetails {
+        this['enable_persistent_alarm'] = enablePersistentAlarm;
+        return this;
+    }
+    public set enablePersistentAlarm(enablePersistentAlarm: boolean  | undefined) {
+        this['enable_persistent_alarm'] = enablePersistentAlarm;
+    }
+    public get enablePersistentAlarm(): boolean | undefined {
+        return this['enable_persistent_alarm'];
     }
 }

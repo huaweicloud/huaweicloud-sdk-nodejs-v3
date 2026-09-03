@@ -1,18 +1,18 @@
-import { WorkloadStatistics } from './WorkloadStatistics';
+import { WorkloadStatisticsInfo } from './WorkloadStatisticsInfo';
 
 
 export class WorkloadInfo {
-    public allocated?: WorkloadStatistics;
-    public queue?: WorkloadStatistics;
+    public allocated?: WorkloadStatisticsInfo;
+    public queue?: WorkloadStatisticsInfo;
     public timestamp?: string;
     public window?: string;
     public constructor() { 
     }
-    public withAllocated(allocated: WorkloadStatistics): WorkloadInfo {
+    public withAllocated(allocated: WorkloadStatisticsInfo): WorkloadInfo {
         this['allocated'] = allocated;
         return this;
     }
-    public withQueue(queue: WorkloadStatistics): WorkloadInfo {
+    public withQueue(queue: WorkloadStatisticsInfo): WorkloadInfo {
         this['queue'] = queue;
         return this;
     }

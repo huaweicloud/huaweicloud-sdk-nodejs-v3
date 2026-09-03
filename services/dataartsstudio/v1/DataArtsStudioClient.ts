@@ -1085,10 +1085,16 @@ import { ShowEntityInfoByGuidResponse } from './model/ShowEntityInfoByGuidRespon
 import { ShowFactLogicTableByIdRequest } from './model/ShowFactLogicTableByIdRequest';
 import { ShowFactLogicTableByIdResponse } from './model/ShowFactLogicTableByIdResponse';
 import { ShowFactLogicTableByIdResultData } from './model/ShowFactLogicTableByIdResultData';
+import { ShowFactoryDependInstancesRequest } from './model/ShowFactoryDependInstancesRequest';
+import { ShowFactoryDependInstancesRespDependInstancesInfo } from './model/ShowFactoryDependInstancesRespDependInstancesInfo';
+import { ShowFactoryDependInstancesResponse } from './model/ShowFactoryDependInstancesResponse';
 import { ShowFactoryEnvRequest } from './model/ShowFactoryEnvRequest';
 import { ShowFactoryEnvResponse } from './model/ShowFactoryEnvResponse';
 import { ShowFactoryFullTextRequest } from './model/ShowFactoryFullTextRequest';
 import { ShowFactoryFullTextResponse } from './model/ShowFactoryFullTextResponse';
+import { ShowFactoryJobDependInstancesRequest } from './model/ShowFactoryJobDependInstancesRequest';
+import { ShowFactoryJobDependInstancesResponse } from './model/ShowFactoryJobDependInstancesResponse';
+import { ShowFactoryJobDependInstancesResponseBody } from './model/ShowFactoryJobDependInstancesResponseBody';
 import { ShowFactoryPackageDetailRequest } from './model/ShowFactoryPackageDetailRequest';
 import { ShowFactoryPackageDetailResponse } from './model/ShowFactoryPackageDetailResponse';
 import { ShowFactorySupplementDataRequest } from './model/ShowFactorySupplementDataRequest';
@@ -8180,6 +8186,31 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 查询实例的上下游依赖
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例的上下游依赖
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {number} instanceId 作业实例id，可通过作业实例列表接口获取。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [relation] 支持选择查询实例的直接上游、直接下游或者是直接上下游，取值为 parent、child、both，默认为both。 - parent：直接上游实例 - child：直接下游实例 - both：直接上下游实例
+     * @param {number} [depth] 默认值为1, depth是上下游依赖查询的层级深度，例如 depth&#x3D;1 只查直接依赖，depth&#x3D;2 查到依赖的依赖。单次查询可返回的最大深度为50层。
+     * @param {boolean} [latest] 默认值为true, 当latest&#x3D;true的时候，控制是否只返回每个依赖任务的最新实例，true 时只返回endTime 最晚的执行记录，false 时返回所有历史实例。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFactoryDependInstances(showFactoryDependInstancesRequest?: ShowFactoryDependInstancesRequest): Promise<ShowFactoryDependInstancesResponse> {
+        const options = ParamCreater().showFactoryDependInstances(showFactoryDependInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询环境变量信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -8227,6 +8258,29 @@ export class DataArtsStudioClient {
      */
     public showFactoryFullText(showFactoryFullTextRequest?: ShowFactoryFullTextRequest): Promise<ShowFactoryFullTextResponse> {
         const options = ParamCreater().showFactoryFullText(showFactoryFullTextRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 提供对外接口，查看作业的上下游依赖关系及责任人。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看作业的上下游依赖关系
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} jobName 作业名称。指定要查询上下游依赖关系的目标作业名称。 作业名称在创建作业时由用户指定，可通过\&quot;查询作业列表\&quot;接口获取。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {string} [relation] 查询的依赖方向。用于指定查询作业的直接上游、直接下游或同时查询上下游关系。 取值范围： - parent：查询直接上游作业，即当前作业依赖的作业。 - child：查询直接下游作业，即依赖当前作业的作业。 - both：同时查询直接上游和直接下游作业。 默认取值：both
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFactoryJobDependInstances(showFactoryJobDependInstancesRequest?: ShowFactoryJobDependInstancesRequest): Promise<ShowFactoryJobDependInstancesResponse> {
+        const options = ParamCreater().showFactoryJobDependInstances(showFactoryJobDependInstancesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -30394,6 +30448,86 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例的上下游依赖
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFactoryDependInstances(showFactoryDependInstancesRequest?: ShowFactoryDependInstancesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/factory/instances/{instance_id}/depend-instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let instanceId;
+            
+            let xProjectId;
+            
+            let contentType;
+            
+            let relation;
+            
+            let depth;
+            
+            let latest;
+
+            if (showFactoryDependInstancesRequest !== null && showFactoryDependInstancesRequest !== undefined) {
+                if (showFactoryDependInstancesRequest instanceof ShowFactoryDependInstancesRequest) {
+                    workspace = showFactoryDependInstancesRequest.workspace;
+                    instanceId = showFactoryDependInstancesRequest.instanceId;
+                    xProjectId = showFactoryDependInstancesRequest.xProjectId;
+                    contentType = showFactoryDependInstancesRequest.contentType;
+                    relation = showFactoryDependInstancesRequest.relation;
+                    depth = showFactoryDependInstancesRequest.depth;
+                    latest = showFactoryDependInstancesRequest.latest;
+                } else {
+                    workspace = showFactoryDependInstancesRequest['workspace'];
+                    instanceId = showFactoryDependInstancesRequest['instance_id'];
+                    xProjectId = showFactoryDependInstancesRequest['X-Project-Id'];
+                    contentType = showFactoryDependInstancesRequest['Content-Type'];
+                    relation = showFactoryDependInstancesRequest['relation'];
+                    depth = showFactoryDependInstancesRequest['depth'];
+                    latest = showFactoryDependInstancesRequest['latest'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showFactoryDependInstances.');
+            }
+            if (relation !== null && relation !== undefined) {
+                localVarQueryParameter['relation'] = relation;
+            }
+            if (depth !== null && depth !== undefined) {
+                localVarQueryParameter['depth'] = depth;
+            }
+            if (latest !== null && latest !== undefined) {
+                localVarQueryParameter['latest'] = latest;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询环境变量信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -30584,6 +30718,72 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 提供对外接口，查看作业的上下游依赖关系及责任人。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFactoryJobDependInstances(showFactoryJobDependInstancesRequest?: ShowFactoryJobDependInstancesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/factory/jobs/{job_name}/depend",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let jobName;
+            
+            let xProjectId;
+            
+            let contentType;
+            
+            let relation;
+
+            if (showFactoryJobDependInstancesRequest !== null && showFactoryJobDependInstancesRequest !== undefined) {
+                if (showFactoryJobDependInstancesRequest instanceof ShowFactoryJobDependInstancesRequest) {
+                    workspace = showFactoryJobDependInstancesRequest.workspace;
+                    jobName = showFactoryJobDependInstancesRequest.jobName;
+                    xProjectId = showFactoryJobDependInstancesRequest.xProjectId;
+                    contentType = showFactoryJobDependInstancesRequest.contentType;
+                    relation = showFactoryJobDependInstancesRequest.relation;
+                } else {
+                    workspace = showFactoryJobDependInstancesRequest['workspace'];
+                    jobName = showFactoryJobDependInstancesRequest['job_name'];
+                    xProjectId = showFactoryJobDependInstancesRequest['X-Project-Id'];
+                    contentType = showFactoryJobDependInstancesRequest['Content-Type'];
+                    relation = showFactoryJobDependInstancesRequest['relation'];
+                }
+            }
+
+        
+            if (jobName === null || jobName === undefined) {
+            throw new RequiredError('jobName','Required parameter jobName was null or undefined when calling showFactoryJobDependInstances.');
+            }
+            if (relation !== null && relation !== undefined) {
+                localVarQueryParameter['relation'] = relation;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'job_name': jobName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

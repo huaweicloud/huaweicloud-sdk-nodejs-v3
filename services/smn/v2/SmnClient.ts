@@ -169,6 +169,7 @@ import { StatisticsDetail } from './model/StatisticsDetail';
 import { SubscribeTopicRequest } from './model/SubscribeTopicRequest';
 import { SubscribeTopicResponse } from './model/SubscribeTopicResponse';
 import { SubscriptionExtension } from './model/SubscriptionExtension';
+import { SubscriptionExtensionResponse } from './model/SubscriptionExtensionResponse';
 import { SubscriptionsFilterPolicy } from './model/SubscriptionsFilterPolicy';
 import { SumCountDetail } from './model/SumCountDetail';
 import { TagMatch } from './model/TagMatch';
@@ -408,9 +409,9 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 确认订阅
-     * @param {string} token 确认订阅Token信息。
-     * @param {string} [topicUrn] Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
-     * @param {string} [endpoint] 订阅终端地址。
+     * @param {string} token 确认订阅Token信息。（订阅链接中携带的token信息）
+     * @param {string} [topicUrn] Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。当订阅类型为短信或邮件时，与token、endpoint参数组合使用，三个参数中设置任意两个或全部设置均可确认订阅成功；当订阅类型为其他时，该参数必填，需与token同时设置。
+     * @param {string} [endpoint] 订阅终端地址。仅当订阅类型为短信或邮件时可设置，与token、topic_urn参数组合使用，三个参数中设置任意两个或全部设置均可确认订阅成功。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -736,7 +737,7 @@ export class SmnClient {
         const options = ParamCreater().downloadHttpCert(downloadHttpCertRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['content-type'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -755,7 +756,7 @@ export class SmnClient {
         const options = ParamCreater().downloadHttpSignCert(downloadHttpSignCertRequest);
 
          // @ts-ignore
-        options['responseHeaders'] = ['content-type'];
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -1025,8 +1026,8 @@ export class SmnClient {
      *
      * @summary 查询主题的发送详情
      * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
-     * @param {string} startTime 起始时间
-     * @param {string} endTime 结束时间
+     * @param {string} startTime 起始时间，取UTC时区的整点时间(支持查询近31天的计量数据)。
+     * @param {string} endTime 结束时间，取UTC时区的整点时间(支持查询近31天的计量数据)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1240,9 +1241,9 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 订阅主题
-     * @param {string} token 订阅主题Token信息。
-     * @param {string} [topicUrn] Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
-     * @param {string} [endpoint] 订阅终端地址。
+     * @param {string} token 确认订阅Token信息。（订阅链接中携带的token信息）
+     * @param {string} [topicUrn] Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。当订阅类型为短信或邮件时，与token、endpoint参数组合使用，三个参数中设置任意两个或全部设置均可确认订阅成功；当订阅类型为其他时，该参数必填，需与token同时设置。
+     * @param {string} [endpoint] 订阅终端地址。仅当订阅类型为短信或邮件时可设置，与token、topic_urn参数组合使用，三个参数中设置任意两个或全部设置均可确认订阅成功。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

@@ -9,6 +9,8 @@ export class HealthReportTableSpaceNewStat {
     private 'rapid_growth_tables_resp'?: Array<HealthReportTableSpaceQueryRapidGrowthTablesResp>;
     private 'no_primary_tables_resp'?: Array<HealthReportTableSpaceQuerySpecialTablesResp>;
     private 'no_index_tables_resp'?: Array<HealthReportTableSpaceQuerySpecialTablesResp>;
+    private 'analyze_success'?: boolean;
+    private 'error_message'?: string;
     public constructor() { 
     }
     public withDatabaseTopResp(databaseTopResp: Array<HealthReportTableSpaceQuerySpaceTopResp>): HealthReportTableSpaceNewStat {
@@ -60,5 +62,25 @@ export class HealthReportTableSpaceNewStat {
     }
     public get noIndexTablesResp(): Array<HealthReportTableSpaceQuerySpecialTablesResp> | undefined {
         return this['no_index_tables_resp'];
+    }
+    public withAnalyzeSuccess(analyzeSuccess: boolean): HealthReportTableSpaceNewStat {
+        this['analyze_success'] = analyzeSuccess;
+        return this;
+    }
+    public set analyzeSuccess(analyzeSuccess: boolean  | undefined) {
+        this['analyze_success'] = analyzeSuccess;
+    }
+    public get analyzeSuccess(): boolean | undefined {
+        return this['analyze_success'];
+    }
+    public withErrorMessage(errorMessage: string): HealthReportTableSpaceNewStat {
+        this['error_message'] = errorMessage;
+        return this;
+    }
+    public set errorMessage(errorMessage: string  | undefined) {
+        this['error_message'] = errorMessage;
+    }
+    public get errorMessage(): string | undefined {
+        return this['error_message'];
     }
 }

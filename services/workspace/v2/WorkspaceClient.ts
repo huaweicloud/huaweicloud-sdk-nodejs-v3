@@ -96,6 +96,9 @@ import { AssistAuthMethodConfigRequest } from './model/AssistAuthMethodConfigReq
 import { AssociateDesktopsEipReq } from './model/AssociateDesktopsEipReq';
 import { AssociateDesktopsEipRequest } from './model/AssociateDesktopsEipRequest';
 import { AssociateDesktopsEipResponse } from './model/AssociateDesktopsEipResponse';
+import { AttachDesktopPoolUserReq } from './model/AttachDesktopPoolUserReq';
+import { AttachDesktopPoolUserRequest } from './model/AttachDesktopPoolUserRequest';
+import { AttachDesktopPoolUserResponse } from './model/AttachDesktopPoolUserResponse';
 import { AttachDesktopPoolsInfo } from './model/AttachDesktopPoolsInfo';
 import { AttachInstancesDesktopInfo } from './model/AttachInstancesDesktopInfo';
 import { AttachInstancesReq } from './model/AttachInstancesReq';
@@ -212,6 +215,10 @@ import { BatchInstallAgentRequest } from './model/BatchInstallAgentRequest';
 import { BatchInstallAgentResponse } from './model/BatchInstallAgentResponse';
 import { BatchInstallAppsRequest } from './model/BatchInstallAppsRequest';
 import { BatchInstallAppsResponse } from './model/BatchInstallAppsResponse';
+import { BatchListSkillPackageItem } from './model/BatchListSkillPackageItem';
+import { BatchListSkillPackagesReq } from './model/BatchListSkillPackagesReq';
+import { BatchListSkillPackagesRequest } from './model/BatchListSkillPackagesRequest';
+import { BatchListSkillPackagesResponse } from './model/BatchListSkillPackagesResponse';
 import { BatchLogoffDesktopsRequest } from './model/BatchLogoffDesktopsRequest';
 import { BatchLogoffDesktopsResponse } from './model/BatchLogoffDesktopsResponse';
 import { BatchModifyQosVolumesReq } from './model/BatchModifyQosVolumesReq';
@@ -238,6 +245,7 @@ import { BatchUpdateDesktopDomainResponse } from './model/BatchUpdateDesktopDoma
 import { BatchUpdateTargetOfPolicyGroupRequest } from './model/BatchUpdateTargetOfPolicyGroupRequest';
 import { BatchUpdateTargetOfPolicyGroupResponse } from './model/BatchUpdateTargetOfPolicyGroupResponse';
 import { BillingResult } from './model/BillingResult';
+import { BindingFailedDetail } from './model/BindingFailedDetail';
 import { BucketStore } from './model/BucketStore';
 import { CancelRemoteAssistanceRequest } from './model/CancelRemoteAssistanceRequest';
 import { CancelRemoteAssistanceResponse } from './model/CancelRemoteAssistanceResponse';
@@ -331,6 +339,9 @@ import { CreateDesktopUserResponse } from './model/CreateDesktopUserResponse';
 import { CreateDomainNewReq } from './model/CreateDomainNewReq';
 import { CreateDomainNewRequest } from './model/CreateDomainNewRequest';
 import { CreateDomainNewResponse } from './model/CreateDomainNewResponse';
+import { CreateDownloadUrlReq } from './model/CreateDownloadUrlReq';
+import { CreateDownloadUrlRequest } from './model/CreateDownloadUrlRequest';
+import { CreateDownloadUrlResponse } from './model/CreateDownloadUrlResponse';
 import { CreateExclusiveHostsReq } from './model/CreateExclusiveHostsReq';
 import { CreateModelGroupReq } from './model/CreateModelGroupReq';
 import { CreateModelGroupRequest } from './model/CreateModelGroupRequest';
@@ -361,6 +372,16 @@ import { CreateScheduledUpgradeTaskRequestBody } from './model/CreateScheduledUp
 import { CreateScriptReq } from './model/CreateScriptReq';
 import { CreateScriptRequest } from './model/CreateScriptRequest';
 import { CreateScriptResponse } from './model/CreateScriptResponse';
+import { CreateSkillBindingReq } from './model/CreateSkillBindingReq';
+import { CreateSkillBindingsRequest } from './model/CreateSkillBindingsRequest';
+import { CreateSkillBindingsResponse } from './model/CreateSkillBindingsResponse';
+import { CreateSkillPackage } from './model/CreateSkillPackage';
+import { CreateSkillPackageReq } from './model/CreateSkillPackageReq';
+import { CreateSkillPackageRequest } from './model/CreateSkillPackageRequest';
+import { CreateSkillPackageResponse } from './model/CreateSkillPackageResponse';
+import { CreateSkillReq } from './model/CreateSkillReq';
+import { CreateSkillRequest } from './model/CreateSkillRequest';
+import { CreateSkillResponse } from './model/CreateSkillResponse';
 import { CreateSubnetBandwidthChangeOrderRequest } from './model/CreateSubnetBandwidthChangeOrderRequest';
 import { CreateSubnetBandwidthChangeOrderRequestBody } from './model/CreateSubnetBandwidthChangeOrderRequestBody';
 import { CreateSubnetBandwidthChangeOrderResponse } from './model/CreateSubnetBandwidthChangeOrderResponse';
@@ -379,11 +400,15 @@ import { CreateTerminalsBindingDesktopsResponse } from './model/CreateTerminalsB
 import { CreateUosDomainInfo } from './model/CreateUosDomainInfo';
 import { CreateUpgradeScheduleTaskRequest } from './model/CreateUpgradeScheduleTaskRequest';
 import { CreateUpgradeScheduleTaskResponse } from './model/CreateUpgradeScheduleTaskResponse';
+import { CreateUploadUrlsReq } from './model/CreateUploadUrlsReq';
+import { CreateUploadUrlsRequest } from './model/CreateUploadUrlsRequest';
+import { CreateUploadUrlsResponse } from './model/CreateUploadUrlsResponse';
 import { CreateUserGroupReq } from './model/CreateUserGroupReq';
 import { CreateUserGroupRequest } from './model/CreateUserGroupRequest';
 import { CreateUserGroupResponse } from './model/CreateUserGroupResponse';
 import { CreateUserRequest } from './model/CreateUserRequest';
 import { CrlConfigurationData } from './model/CrlConfigurationData';
+import { CurrentPackageInfo } from './model/CurrentPackageInfo';
 import { DataPointInfo } from './model/DataPointInfo';
 import { Datapoints } from './model/Datapoints';
 import { DelOtpDevicesReq } from './model/DelOtpDevicesReq';
@@ -431,6 +456,13 @@ import { DeleteScriptRequest } from './model/DeleteScriptRequest';
 import { DeleteScriptResponse } from './model/DeleteScriptResponse';
 import { DeleteSiteRequest } from './model/DeleteSiteRequest';
 import { DeleteSiteResponse } from './model/DeleteSiteResponse';
+import { DeleteSkillBindingReq } from './model/DeleteSkillBindingReq';
+import { DeleteSkillBindingsRequest } from './model/DeleteSkillBindingsRequest';
+import { DeleteSkillBindingsResponse } from './model/DeleteSkillBindingsResponse';
+import { DeleteSkillPackageRequest } from './model/DeleteSkillPackageRequest';
+import { DeleteSkillPackageResponse } from './model/DeleteSkillPackageResponse';
+import { DeleteSkillRequest } from './model/DeleteSkillRequest';
+import { DeleteSkillResponse } from './model/DeleteSkillResponse';
 import { DeleteSubJobsReq } from './model/DeleteSubJobsReq';
 import { DeleteSubnetBandwidthRequest } from './model/DeleteSubnetBandwidthRequest';
 import { DeleteSubnetBandwidthResponse } from './model/DeleteSubnetBandwidthResponse';
@@ -546,6 +578,10 @@ import { ExpandDesktopPoolVolumesResponse } from './model/ExpandDesktopPoolVolum
 import { ExpandDesktopVolumeRequest } from './model/ExpandDesktopVolumeRequest';
 import { ExpandDesktopVolumeResponse } from './model/ExpandDesktopVolumeResponse';
 import { ExpandDesktopsVolumesReq } from './model/ExpandDesktopsVolumesReq';
+import { ExpandPackageRegionResp } from './model/ExpandPackageRegionResp';
+import { ExpandSkillPackageRegionReq } from './model/ExpandSkillPackageRegionReq';
+import { ExpandSkillPackageRegionRequest } from './model/ExpandSkillPackageRegionRequest';
+import { ExpandSkillPackageRegionResponse } from './model/ExpandSkillPackageRegionResponse';
 import { ExpandVolumeReq } from './model/ExpandVolumeReq';
 import { ExpandVolumesReq } from './model/ExpandVolumesReq';
 import { ExpandVolumesRequest } from './model/ExpandVolumesRequest';
@@ -634,9 +670,11 @@ import { ImportUserListResponse } from './model/ImportUserListResponse';
 import { InconsistentTypeEnum } from './model/InconsistentTypeEnum';
 import { InstallAppRequest } from './model/InstallAppRequest';
 import { InstallAppResponse } from './model/InstallAppResponse';
+import { InstallStatusEnum } from './model/InstallStatusEnum';
 import { InstallType } from './model/InstallType';
 import { InstanceModelGroupItem } from './model/InstanceModelGroupItem';
 import { InstanceModelProviderConfig } from './model/InstanceModelProviderConfig';
+import { InstanceSkillItemVO } from './model/InstanceSkillItemVO';
 import { InstanceStatusStatistics } from './model/InstanceStatusStatistics';
 import { InterfacesConfig } from './model/InterfacesConfig';
 import { InterfacesRequest } from './model/InterfacesRequest';
@@ -687,6 +725,12 @@ import { ListAzsRequest } from './model/ListAzsRequest';
 import { ListAzsResponse } from './model/ListAzsResponse';
 import { ListCertsRequest } from './model/ListCertsRequest';
 import { ListCertsResponse } from './model/ListCertsResponse';
+import { ListCommonSkillPackagesRequest } from './model/ListCommonSkillPackagesRequest';
+import { ListCommonSkillPackagesResponse } from './model/ListCommonSkillPackagesResponse';
+import { ListCommonSkillResourcesRequest } from './model/ListCommonSkillResourcesRequest';
+import { ListCommonSkillResourcesResponse } from './model/ListCommonSkillResourcesResponse';
+import { ListCommonSkillsRequest } from './model/ListCommonSkillsRequest';
+import { ListCommonSkillsResponse } from './model/ListCommonSkillsResponse';
 import { ListDesktopActionsRequest } from './model/ListDesktopActionsRequest';
 import { ListDesktopActionsResponse } from './model/ListDesktopActionsResponse';
 import { ListDesktopByTagsRequest } from './model/ListDesktopByTagsRequest';
@@ -748,6 +792,8 @@ import { ListInconsistentStaticsRequest } from './model/ListInconsistentStaticsR
 import { ListInconsistentStaticsResponse } from './model/ListInconsistentStaticsResponse';
 import { ListInstanceModelGroupsRequest } from './model/ListInstanceModelGroupsRequest';
 import { ListInstanceModelGroupsResponse } from './model/ListInstanceModelGroupsResponse';
+import { ListInstanceSkillsRequest } from './model/ListInstanceSkillsRequest';
+import { ListInstanceSkillsResponse } from './model/ListInstanceSkillsResponse';
 import { ListInstanceStatisticsRequest } from './model/ListInstanceStatisticsRequest';
 import { ListInstanceStatisticsResponse } from './model/ListInstanceStatisticsResponse';
 import { ListInstancesStatusRequest } from './model/ListInstancesStatusRequest';
@@ -841,6 +887,8 @@ import { ListScriptsRequest } from './model/ListScriptsRequest';
 import { ListScriptsResponse } from './model/ListScriptsResponse';
 import { ListSecurityGroupsRequest } from './model/ListSecurityGroupsRequest';
 import { ListSecurityGroupsResponse } from './model/ListSecurityGroupsResponse';
+import { ListSecurityPolicyControlResourcesRequest } from './model/ListSecurityPolicyControlResourcesRequest';
+import { ListSecurityPolicyControlResourcesResponse } from './model/ListSecurityPolicyControlResourcesResponse';
 import { ListServersByHostIdRequest } from './model/ListServersByHostIdRequest';
 import { ListServersByHostIdResponse } from './model/ListServersByHostIdResponse';
 import { ListServersRspServers } from './model/ListServersRspServers';
@@ -848,6 +896,12 @@ import { ListSharerProductsRequest } from './model/ListSharerProductsRequest';
 import { ListSharerProductsResponse } from './model/ListSharerProductsResponse';
 import { ListSiteConfigsRequest } from './model/ListSiteConfigsRequest';
 import { ListSiteConfigsResponse } from './model/ListSiteConfigsResponse';
+import { ListSkillPackagesRequest } from './model/ListSkillPackagesRequest';
+import { ListSkillPackagesResponse } from './model/ListSkillPackagesResponse';
+import { ListSkillResourcesRequest } from './model/ListSkillResourcesRequest';
+import { ListSkillResourcesResponse } from './model/ListSkillResourcesResponse';
+import { ListSkillsRequest } from './model/ListSkillsRequest';
+import { ListSkillsResponse } from './model/ListSkillsResponse';
 import { ListSubnetBandwidthsRequest } from './model/ListSubnetBandwidthsRequest';
 import { ListSubnetBandwidthsResponse } from './model/ListSubnetBandwidthsResponse';
 import { ListSubnetsRequest } from './model/ListSubnetsRequest';
@@ -955,6 +1009,8 @@ import { OsTypeEnum } from './model/OsTypeEnum';
 import { OtpConfigInfo } from './model/OtpConfigInfo';
 import { OtpDevice } from './model/OtpDevice';
 import { OuNameInfo } from './model/OuNameInfo';
+import { PackageRegionWithStatusInfo } from './model/PackageRegionWithStatusInfo';
+import { PackageStatusEnum } from './model/PackageStatusEnum';
 import { PageResp } from './model/PageResp';
 import { PathRule } from './model/PathRule';
 import { PeriodBatchUpChangeResourceRsp } from './model/PeriodBatchUpChangeResourceRsp';
@@ -1044,11 +1100,15 @@ import { RebuildDesktopsReq } from './model/RebuildDesktopsReq';
 import { ReceiveModeEnum } from './model/ReceiveModeEnum';
 import { Record } from './model/Record';
 import { RecordAuditRule } from './model/RecordAuditRule';
+import { RegionFailedDetail } from './model/RegionFailedDetail';
 import { RegisterDomainRequest } from './model/RegisterDomainRequest';
 import { RegisterDomainResponse } from './model/RegisterDomainResponse';
 import { RemoveModelConfigReq } from './model/RemoveModelConfigReq';
 import { RemoveModelConfigRequest } from './model/RemoveModelConfigRequest';
 import { RemoveModelConfigResponse } from './model/RemoveModelConfigResponse';
+import { RemovePackageRegionReq } from './model/RemovePackageRegionReq';
+import { RemoveSkillPackageRegionRequest } from './model/RemoveSkillPackageRegionRequest';
+import { RemoveSkillPackageRegionResponse } from './model/RemoveSkillPackageRegionResponse';
 import { ResendEmailReq } from './model/ResendEmailReq';
 import { ResetRandomPasswordRequest } from './model/ResetRandomPasswordRequest';
 import { ResetRandomPasswordResponse } from './model/ResetRandomPasswordResponse';
@@ -1098,6 +1158,7 @@ import { ScriptTaskInfoTaskScripts } from './model/ScriptTaskInfoTaskScripts';
 import { SecurityGroup } from './model/SecurityGroup';
 import { SecurityGroupIdInfo } from './model/SecurityGroupIdInfo';
 import { SecurityGroupInfo } from './model/SecurityGroupInfo';
+import { SecurityPolicyControlResourceItemVO } from './model/SecurityPolicyControlResourceItemVO';
 import { SendDesktopPoolNotificationsReq } from './model/SendDesktopPoolNotificationsReq';
 import { SendDesktopPoolNotificationsRequest } from './model/SendDesktopPoolNotificationsRequest';
 import { SendDesktopPoolNotificationsResponse } from './model/SendDesktopPoolNotificationsResponse';
@@ -1132,6 +1193,11 @@ import { ShowAzDetailsRequest } from './model/ShowAzDetailsRequest';
 import { ShowAzDetailsResponse } from './model/ShowAzDetailsResponse';
 import { ShowCertDetailRequest } from './model/ShowCertDetailRequest';
 import { ShowCertDetailResponse } from './model/ShowCertDetailResponse';
+import { ShowCommonSkillPackageRequest } from './model/ShowCommonSkillPackageRequest';
+import { ShowCommonSkillPackageResponse } from './model/ShowCommonSkillPackageResponse';
+import { ShowCommonSkillRequest } from './model/ShowCommonSkillRequest';
+import { ShowCommonSkillResp } from './model/ShowCommonSkillResp';
+import { ShowCommonSkillResponse } from './model/ShowCommonSkillResponse';
 import { ShowDesktopDetailRequest } from './model/ShowDesktopDetailRequest';
 import { ShowDesktopDetailResponse } from './model/ShowDesktopDetailResponse';
 import { ShowDesktopMonitorDataRequest } from './model/ShowDesktopMonitorDataRequest';
@@ -1181,6 +1247,12 @@ import { ShowScriptRecordDetailRequest } from './model/ShowScriptRecordDetailReq
 import { ShowScriptRecordDetailResponse } from './model/ShowScriptRecordDetailResponse';
 import { ShowShareSpaceConfigRequest } from './model/ShowShareSpaceConfigRequest';
 import { ShowShareSpaceConfigResponse } from './model/ShowShareSpaceConfigResponse';
+import { ShowSkillPackageRequest } from './model/ShowSkillPackageRequest';
+import { ShowSkillPackageResp } from './model/ShowSkillPackageResp';
+import { ShowSkillPackageResponse } from './model/ShowSkillPackageResponse';
+import { ShowSkillRequest } from './model/ShowSkillRequest';
+import { ShowSkillResp } from './model/ShowSkillResp';
+import { ShowSkillResponse } from './model/ShowSkillResponse';
 import { ShowSubnetBandwidthControlListRequest } from './model/ShowSubnetBandwidthControlListRequest';
 import { ShowSubnetBandwidthControlListResponse } from './model/ShowSubnetBandwidthControlListResponse';
 import { ShowSysprepInfoRequest } from './model/ShowSysprepInfoRequest';
@@ -1209,6 +1281,15 @@ import { SiteConfigsRequest } from './model/SiteConfigsRequest';
 import { SiteConfigsResponse } from './model/SiteConfigsResponse';
 import { SiteInfo } from './model/SiteInfo';
 import { SiteQuotaNoLimit } from './model/SiteQuotaNoLimit';
+import { SkillCategoryEnum } from './model/SkillCategoryEnum';
+import { SkillListItemVO } from './model/SkillListItemVO';
+import { SkillOwnerTypeEnum } from './model/SkillOwnerTypeEnum';
+import { SkillPackageItemVO } from './model/SkillPackageItemVO';
+import { SkillPackageRegionItem } from './model/SkillPackageRegionItem';
+import { SkillPackageSummary } from './model/SkillPackageSummary';
+import { SkillResourceItemVO } from './model/SkillResourceItemVO';
+import { SkillSourceEnum } from './model/SkillSourceEnum';
+import { SkillStatusEnum } from './model/SkillStatusEnum';
 import { SoldOutInfo } from './model/SoldOutInfo';
 import { StopScriptExecutionReq } from './model/StopScriptExecutionReq';
 import { StopScriptExecutionRequest } from './model/StopScriptExecutionRequest';
@@ -1340,9 +1421,18 @@ import { UpdateScreenRecordsTrafficLimitConfigResponse } from './model/UpdateScr
 import { UpdateScriptReq } from './model/UpdateScriptReq';
 import { UpdateScriptRequest } from './model/UpdateScriptRequest';
 import { UpdateScriptResponse } from './model/UpdateScriptResponse';
+import { UpdateSecurityPolicyControlReq } from './model/UpdateSecurityPolicyControlReq';
+import { UpdateSecurityPolicyControlRequest } from './model/UpdateSecurityPolicyControlRequest';
+import { UpdateSecurityPolicyControlResponse } from './model/UpdateSecurityPolicyControlResponse';
 import { UpdateShareSpaceConfigReq } from './model/UpdateShareSpaceConfigReq';
 import { UpdateShareSpaceConfigRequest } from './model/UpdateShareSpaceConfigRequest';
 import { UpdateShareSpaceConfigResponse } from './model/UpdateShareSpaceConfigResponse';
+import { UpdateSkillPackageReq } from './model/UpdateSkillPackageReq';
+import { UpdateSkillPackageRequest } from './model/UpdateSkillPackageRequest';
+import { UpdateSkillPackageResponse } from './model/UpdateSkillPackageResponse';
+import { UpdateSkillReq } from './model/UpdateSkillReq';
+import { UpdateSkillRequest } from './model/UpdateSkillRequest';
+import { UpdateSkillResponse } from './model/UpdateSkillResponse';
 import { UpdateStrategyApplyObjectsRequest } from './model/UpdateStrategyApplyObjectsRequest';
 import { UpdateStrategyApplyObjectsRequestBody } from './model/UpdateStrategyApplyObjectsRequestBody';
 import { UpdateStrategyApplyObjectsResponse } from './model/UpdateStrategyApplyObjectsResponse';
@@ -1383,6 +1473,8 @@ import { UpgradeScheduledTaskVO } from './model/UpgradeScheduledTaskVO';
 import { UploadAppReq } from './model/UploadAppReq';
 import { UploadAppRequest } from './model/UploadAppRequest';
 import { UploadAppResponse } from './model/UploadAppResponse';
+import { UploadStatusEnum } from './model/UploadStatusEnum';
+import { UploadUrlItem } from './model/UploadUrlItem';
 import { User } from './model/User';
 import { UserAccessStage } from './model/UserAccessStage';
 import { UserDetail } from './model/UserDetail';
@@ -1406,6 +1498,7 @@ import { VerifyProviderRequest } from './model/VerifyProviderRequest';
 import { VerifyProviderResponse } from './model/VerifyProviderResponse';
 import { VirtualChannel } from './model/VirtualChannel';
 import { VirtualChannelOptions } from './model/VirtualChannelOptions';
+import { VisibilityScopeEnum } from './model/VisibilityScopeEnum';
 import { VmOperateResult } from './model/VmOperateResult';
 import { Volume } from './model/Volume';
 import { VolumeAddInfo } from './model/VolumeAddInfo';
@@ -2914,6 +3007,50 @@ export class WorkspaceClient {
     }
 
     /**
+     * 企业租户查询公共技能列表（只读），支持按分类、状态过滤。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询公共技能列表（只读）
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {number} [offset] 偏移量，默认0。
+     * @param {number} [limit] 分页大小，默认20。
+     * @param {string} [category] 技能分类。
+     * @param {string} [status] 技能状态。
+     * @param {string} [skillName] 技能名称（模糊匹配slug、display_name和alias_name）。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCommonSkills(listCommonSkillsRequest?: ListCommonSkillsRequest): Promise<ListCommonSkillsResponse> {
+        const options = ParamCreater().listCommonSkills(listCommonSkillsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 企业租户查询公共技能详情（只读）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询公共技能详情（只读）
+     * @param {string} skillId 技能标识。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCommonSkill(showCommonSkillRequest?: ShowCommonSkillRequest): Promise<ShowCommonSkillResponse> {
+        const options = ParamCreater().showCommonSkill(showCommonSkillRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于导出连接记录，待废弃。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3621,6 +3758,7 @@ export class WorkspaceClient {
      * @param {string} [subnetId] 桌面的子网ID。
      * @param {boolean} [isSupportInternet] 是否支持上网。
      * @param {string} [availabilityZone] 查询可用区。
+     * @param {boolean} [withoutAnyTag] 是否过滤不带标签的桌面，为true时只返回不带任何标签的桌面。
      * @param {string} [agentVersion] agent版本。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3998,6 +4136,26 @@ export class WorkspaceClient {
      */
     public addDesktopPoolVolumes(addDesktopPoolVolumesRequest?: AddDesktopPoolVolumesRequest): Promise<AddDesktopPoolVolumesResponse> {
         const options = ParamCreater().addDesktopPoolVolumes(addDesktopPoolVolumesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 将用户绑定到桌面池。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 桌面池绑定用户
+     * @param {string} poolId 桌面池ID。
+     * @param {AttachDesktopPoolUserReq} attachDesktopPoolUserRequestBody 桌面池绑定用户请求。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public attachDesktopPoolUser(attachDesktopPoolUserRequest?: AttachDesktopPoolUserRequest): Promise<AttachDesktopPoolUserResponse> {
+        const options = ParamCreater().attachDesktopPoolUser(attachDesktopPoolUserRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4608,7 +4766,8 @@ export class WorkspaceClient {
      * @param {Array<string>} [computerNames] 桌面名列表
      * @param {string} [desktopIp] 桌面IP地址。
      * @param {string} [desktopId] 桌面ID。
-     * @param {string} [tag] 桌面的标签。标签的键和标签的值用“&#x3D;”连接。
+     * @param {string} [tag] 桌面的标签。标签的键和标签的值用”&#x3D;”连接。
+     * @param {boolean} [withoutAnyTag] 是否过滤不带标签的桌面，为true时只返回不带任何标签的桌面。
      * @param {string} [enterpriseProjectId] 企业项目ID。
      * @param {string} [desktopType] 桌面类型，为空时查所有桌面。 - DEDICATED：普通桌面，包括专享桌面、专属桌面等 - POOLED：池桌面，即桌面池里的桌面
      * @param {string} [status] 桌面状态。  - ACTIVE：运行中。 - SHUTOFF：关机。 - ERROR：异常。 - HIBERNATED：休眠。
@@ -8027,6 +8186,521 @@ export class WorkspaceClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量绑定技能到实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建技能绑定
+     * @param {CreateSkillBindingReq} createSkillBindingsRequestBody 创建技能绑定的请求内容。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {string} [xClientToken] 幂等性标识，UUID格式。 创建类接口携带该请求头，服务端据此实现幂等控制；响应头返回相同值。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSkillBindings(createSkillBindingsRequest?: CreateSkillBindingsRequest): Promise<CreateSkillBindingsResponse> {
+        const options = ParamCreater().createSkillBindings(createSkillBindingsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量解绑技能。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除技能绑定
+     * @param {DeleteSkillBindingReq} deleteSkillBindingsRequestBody 删除技能绑定的请求内容。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSkillBindings(deleteSkillBindingsRequest?: DeleteSkillBindingsRequest): Promise<DeleteSkillBindingsResponse> {
+        const options = ParamCreater().deleteSkillBindings(deleteSkillBindingsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询公共技能绑定的资源列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询公共技能绑定的资源列表
+     * @param {string} skillId 技能标识。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {string} [version] 技能版本号。
+     * @param {number} [offset] 偏移量，默认0。
+     * @param {number} [limit] 分页大小，默认20。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCommonSkillResources(listCommonSkillResourcesRequest?: ListCommonSkillResourcesRequest): Promise<ListCommonSkillResourcesResponse> {
+        const options = ParamCreater().listCommonSkillResources(listCommonSkillResourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例绑定的技能列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例绑定的技能列表
+     * @param {string} instanceId 实例标识。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {number} [offset] 偏移量，默认0。
+     * @param {number} [limit] 分页大小，默认20。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceSkills(listInstanceSkillsRequest?: ListInstanceSkillsRequest): Promise<ListInstanceSkillsResponse> {
+        const options = ParamCreater().listInstanceSkills(listInstanceSkillsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询安全策略管控的资源列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询安全策略管控资源列表
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {number} [offset] 偏移量，默认0。
+     * @param {number} [limit] 分页大小，默认20。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityPolicyControlResources(listSecurityPolicyControlResourcesRequest?: ListSecurityPolicyControlResourcesRequest): Promise<ListSecurityPolicyControlResourcesResponse> {
+        const options = ParamCreater().listSecurityPolicyControlResources(listSecurityPolicyControlResourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询企业自研技能绑定的资源列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询企业技能绑定的资源列表
+     * @param {string} skillId 技能标识。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {string} [version] 技能版本号。
+     * @param {number} [offset] 偏移量，默认0。
+     * @param {number} [limit] 分页大小，默认20。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSkillResources(listSkillResourcesRequest?: ListSkillResourcesRequest): Promise<ListSkillResourcesResponse> {
+        const options = ParamCreater().listSkillResources(listSkillResourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量更新实例的安全策略管控状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新安全策略管控
+     * @param {UpdateSecurityPolicyControlReq} updateSecurityPolicyControlRequestBody 更新安全策略管控的请求内容。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSecurityPolicyControl(updateSecurityPolicyControlRequest?: UpdateSecurityPolicyControlRequest): Promise<UpdateSecurityPolicyControlResponse> {
+        const options = ParamCreater().updateSecurityPolicyControl(updateSecurityPolicyControlRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据技能ID列表批量查询当前生效的技能包信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量查询技能包
+     * @param {BatchListSkillPackagesReq} batchListSkillPackagesRequestBody 批量查询技能包的请求内容。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchListSkillPackages(batchListSkillPackagesRequest?: BatchListSkillPackagesRequest): Promise<BatchListSkillPackagesResponse> {
+        const options = ParamCreater().batchListSkillPackages(batchListSkillPackagesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 生成企业自研技能包的OBS预签名下载地址。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 生成下载地址
+     * @param {string} skillId 技能标识。
+     * @param {string} packageId 技能包标识。
+     * @param {CreateDownloadUrlReq} createDownloadUrlRequestBody 获取下载地址的请求内容。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {string} [xClientToken] 幂等性标识，UUID格式。 创建类接口携带该请求头，服务端据此实现幂等控制；响应头返回相同值。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDownloadUrl(createDownloadUrlRequest?: CreateDownloadUrlRequest): Promise<CreateDownloadUrlResponse> {
+        const options = ParamCreater().createDownloadUrl(createDownloadUrlRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 为企业自研技能上传新版本技能包。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建技能包
+     * @param {string} skillId 技能标识。
+     * @param {CreateSkillPackageReq} createSkillPackageRequestBody 创建技能包的请求内容。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {string} [xClientToken] 幂等性标识，UUID格式。 创建类接口携带该请求头，服务端据此实现幂等控制；响应头返回相同值。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSkillPackage(createSkillPackageRequest?: CreateSkillPackageRequest): Promise<CreateSkillPackageResponse> {
+        const options = ParamCreater().createSkillPackage(createSkillPackageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 生成OBS预签名上传地址，用于企业自研技能包上传。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 生成上传地址
+     * @param {CreateUploadUrlsReq} createUploadUrlsRequestBody 生成上传地址的请求内容。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {string} [xClientToken] 幂等性标识，UUID格式。 创建类接口携带该请求头，服务端据此实现幂等控制；响应头返回相同值。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createUploadUrls(createUploadUrlsRequest?: CreateUploadUrlsRequest): Promise<CreateUploadUrlsResponse> {
+        const options = ParamCreater().createUploadUrls(createUploadUrlsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除企业自研技能的技能包。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除技能包
+     * @param {string} skillId 技能标识。
+     * @param {string} packageId 技能包标识。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSkillPackage(deleteSkillPackageRequest?: DeleteSkillPackageRequest): Promise<DeleteSkillPackageResponse> {
+        const options = ParamCreater().deleteSkillPackage(deleteSkillPackageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 为企业自研技能包扩展新的OBS区域。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 扩展技能包区域
+     * @param {string} skillId 技能标识。
+     * @param {string} packageId 技能包标识。
+     * @param {ExpandSkillPackageRegionReq} expandSkillPackageRegionRequestBody 扩展技能包区域的请求内容。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public expandSkillPackageRegion(expandSkillPackageRegionRequest?: ExpandSkillPackageRegionRequest): Promise<ExpandSkillPackageRegionResponse> {
+        const options = ParamCreater().expandSkillPackageRegion(expandSkillPackageRegionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 企业租户查询公共技能的技能包列表（只读）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询公共技能包列表（只读）
+     * @param {string} skillId 技能标识。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {number} [offset] 偏移量，默认0。
+     * @param {number} [limit] 分页大小，默认20。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCommonSkillPackages(listCommonSkillPackagesRequest?: ListCommonSkillPackagesRequest): Promise<ListCommonSkillPackagesResponse> {
+        const options = ParamCreater().listCommonSkillPackages(listCommonSkillPackagesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询企业自研技能的技能包列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询技能包列表
+     * @param {string} skillId 技能标识。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {number} [offset] 偏移量，默认0。
+     * @param {number} [limit] 分页大小，默认20。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSkillPackages(listSkillPackagesRequest?: ListSkillPackagesRequest): Promise<ListSkillPackagesResponse> {
+        const options = ParamCreater().listSkillPackages(listSkillPackagesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量移除企业自研技能包的OBS区域。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 移除技能包区域
+     * @param {string} skillId 技能标识。
+     * @param {string} packageId 技能包标识。
+     * @param {RemovePackageRegionReq} removeSkillPackageRegionRequestBody 移除技能包区域的请求内容。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public removeSkillPackageRegion(removeSkillPackageRegionRequest?: RemoveSkillPackageRegionRequest): Promise<RemoveSkillPackageRegionResponse> {
+        const options = ParamCreater().removeSkillPackageRegion(removeSkillPackageRegionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 企业租户查询公共技能的技能包详情（只读）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询公共技能包详情（只读）
+     * @param {string} skillId 技能标识。
+     * @param {string} packageId 技能包标识。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCommonSkillPackage(showCommonSkillPackageRequest?: ShowCommonSkillPackageRequest): Promise<ShowCommonSkillPackageResponse> {
+        const options = ParamCreater().showCommonSkillPackage(showCommonSkillPackageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询企业自研技能的技能包详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询技能包详情
+     * @param {string} skillId 技能标识。
+     * @param {string} packageId 技能包标识。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSkillPackage(showSkillPackageRequest?: ShowSkillPackageRequest): Promise<ShowSkillPackageResponse> {
+        const options = ParamCreater().showSkillPackage(showSkillPackageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新企业自研技能的技能包信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新技能包
+     * @param {string} skillId 技能标识。
+     * @param {string} packageId 技能包标识。
+     * @param {UpdateSkillPackageReq} updateSkillPackageRequestBody 更新技能包的请求内容。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSkillPackage(updateSkillPackageRequest?: UpdateSkillPackageRequest): Promise<UpdateSkillPackageResponse> {
+        const options = ParamCreater().updateSkillPackage(updateSkillPackageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建企业自研技能，支持同时上传技能包。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建企业自研技能
+     * @param {CreateSkillReq} createSkillRequestBody 创建企业自研技能的请求内容。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {string} [xClientToken] 幂等性标识，UUID格式。 创建类接口携带该请求头，服务端据此实现幂等控制；响应头返回相同值。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSkill(createSkillRequest?: CreateSkillRequest): Promise<CreateSkillResponse> {
+        const options = ParamCreater().createSkill(createSkillRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除企业自研技能。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除企业自研技能
+     * @param {string} skillId 技能标识。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSkill(deleteSkillRequest?: DeleteSkillRequest): Promise<DeleteSkillResponse> {
+        const options = ParamCreater().deleteSkill(deleteSkillRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询企业自研技能列表，支持按分类、状态过滤。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询企业自研技能列表
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {number} [offset] 偏移量，默认0。
+     * @param {number} [limit] 分页大小，默认20。
+     * @param {string} [category] 技能分类。
+     * @param {string} [status] 技能状态。
+     * @param {string} [skillName] 技能名称（模糊匹配slug、display_name和alias_name）。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSkills(listSkillsRequest?: ListSkillsRequest): Promise<ListSkillsResponse> {
+        const options = ParamCreater().listSkills(listSkillsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询企业自研技能详情，包含技能包摘要列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询企业自研技能详情
+     * @param {string} skillId 技能标识。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSkill(showSkillRequest?: ShowSkillRequest): Promise<ShowSkillResponse> {
+        const options = ParamCreater().showSkill(showSkillRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新企业自研技能信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新企业自研技能
+     * @param {string} skillId 技能标识。
+     * @param {UpdateSkillReq} updateSkillRequestBody 更新企业自研技能的请求内容。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 语言，用于国际化。 - en-us：英文 - zh-cn：中文
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSkill(updateSkillRequest?: UpdateSkillRequest): Promise<UpdateSkillResponse> {
+        const options = ParamCreater().updateSkill(updateSkillRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-Request-Id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -12980,6 +13654,122 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 企业租户查询公共技能列表（只读），支持按分类、状态过滤。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCommonSkills(listCommonSkillsRequest?: ListCommonSkillsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/common-skills",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+            
+            let category;
+            
+            let status;
+            
+            let skillName;
+
+            if (listCommonSkillsRequest !== null && listCommonSkillsRequest !== undefined) {
+                if (listCommonSkillsRequest instanceof ListCommonSkillsRequest) {
+                    xLanguage = listCommonSkillsRequest.xLanguage;
+                    offset = listCommonSkillsRequest.offset;
+                    limit = listCommonSkillsRequest.limit;
+                    category = listCommonSkillsRequest.category;
+                    status = listCommonSkillsRequest.status;
+                    skillName = listCommonSkillsRequest.skillName;
+                } else {
+                    xLanguage = listCommonSkillsRequest['X-Language'];
+                    offset = listCommonSkillsRequest['offset'];
+                    limit = listCommonSkillsRequest['limit'];
+                    category = listCommonSkillsRequest['category'];
+                    status = listCommonSkillsRequest['status'];
+                    skillName = listCommonSkillsRequest['skill_name'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (skillName !== null && skillName !== undefined) {
+                localVarQueryParameter['skill_name'] = skillName;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 企业租户查询公共技能详情（只读）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCommonSkill(showCommonSkillRequest?: ShowCommonSkillRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/common-skills/{skill_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let skillId;
+            
+            let xLanguage;
+
+            if (showCommonSkillRequest !== null && showCommonSkillRequest !== undefined) {
+                if (showCommonSkillRequest instanceof ShowCommonSkillRequest) {
+                    skillId = showCommonSkillRequest.skillId;
+                    xLanguage = showCommonSkillRequest.xLanguage;
+                } else {
+                    skillId = showCommonSkillRequest['skill_id'];
+                    xLanguage = showCommonSkillRequest['X-Language'];
+                }
+            }
+
+        
+            if (skillId === null || skillId === undefined) {
+            throw new RequiredError('skillId','Required parameter skillId was null or undefined when calling showCommonSkill.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'skill_id': skillId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于导出连接记录，待废弃。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14732,6 +15522,8 @@ export const ParamCreater = function () {
             
             let availabilityZone;
             
+            let withoutAnyTag;
+            
             let agentVersion;
 
             if (listDesktopsDetailRequest !== null && listDesktopsDetailRequest !== undefined) {
@@ -14761,6 +15553,7 @@ export const ParamCreater = function () {
                     subnetId = listDesktopsDetailRequest.subnetId;
                     isSupportInternet = listDesktopsDetailRequest.isSupportInternet;
                     availabilityZone = listDesktopsDetailRequest.availabilityZone;
+                    withoutAnyTag = listDesktopsDetailRequest.withoutAnyTag;
                     agentVersion = listDesktopsDetailRequest.agentVersion;
                 } else {
                     status = listDesktopsDetailRequest['status'];
@@ -14788,6 +15581,7 @@ export const ParamCreater = function () {
                     subnetId = listDesktopsDetailRequest['subnet_id'];
                     isSupportInternet = listDesktopsDetailRequest['is_support_internet'];
                     availabilityZone = listDesktopsDetailRequest['availability_zone'];
+                    withoutAnyTag = listDesktopsDetailRequest['without_any_tag'];
                     agentVersion = listDesktopsDetailRequest['agent_version'];
                 }
             }
@@ -14867,6 +15661,9 @@ export const ParamCreater = function () {
             }
             if (availabilityZone !== null && availabilityZone !== undefined) {
                 localVarQueryParameter['availability_zone'] = availabilityZone;
+            }
+            if (withoutAnyTag !== null && withoutAnyTag !== undefined) {
+                localVarQueryParameter['without_any_tag'] = withoutAnyTag;
             }
             if (agentVersion !== null && agentVersion !== undefined) {
                 localVarQueryParameter['agent_version'] = agentVersion;
@@ -15655,6 +16452,52 @@ export const ParamCreater = function () {
         
             if (poolId === null || poolId === undefined) {
             throw new RequiredError('poolId','Required parameter poolId was null or undefined when calling addDesktopPoolVolumes.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'pool_id': poolId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将用户绑定到桌面池。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        attachDesktopPoolUser(attachDesktopPoolUserRequest?: AttachDesktopPoolUserRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/desktop-pools/{pool_id}/attach",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let poolId;
+
+            if (attachDesktopPoolUserRequest !== null && attachDesktopPoolUserRequest !== undefined) {
+                if (attachDesktopPoolUserRequest instanceof AttachDesktopPoolUserRequest) {
+                    poolId = attachDesktopPoolUserRequest.poolId;
+                    body = attachDesktopPoolUserRequest.body
+                } else {
+                    poolId = attachDesktopPoolUserRequest['pool_id'];
+                    body = attachDesktopPoolUserRequest['body'];
+                }
+            }
+
+        
+            if (poolId === null || poolId === undefined) {
+            throw new RequiredError('poolId','Required parameter poolId was null or undefined when calling attachDesktopPoolUser.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -17177,6 +18020,8 @@ export const ParamCreater = function () {
             
             let tag;
             
+            let withoutAnyTag;
+            
             let enterpriseProjectId;
             
             let desktopType;
@@ -17221,6 +18066,7 @@ export const ParamCreater = function () {
                     desktopIp = exportDesktopListNewRequest.desktopIp;
                     desktopId = exportDesktopListNewRequest.desktopId;
                     tag = exportDesktopListNewRequest.tag;
+                    withoutAnyTag = exportDesktopListNewRequest.withoutAnyTag;
                     enterpriseProjectId = exportDesktopListNewRequest.enterpriseProjectId;
                     desktopType = exportDesktopListNewRequest.desktopType;
                     status = exportDesktopListNewRequest.status;
@@ -17246,6 +18092,7 @@ export const ParamCreater = function () {
                     desktopIp = exportDesktopListNewRequest['desktop_ip'];
                     desktopId = exportDesktopListNewRequest['desktop_id'];
                     tag = exportDesktopListNewRequest['tag'];
+                    withoutAnyTag = exportDesktopListNewRequest['without_any_tag'];
                     enterpriseProjectId = exportDesktopListNewRequest['enterprise_project_id'];
                     desktopType = exportDesktopListNewRequest['desktop_type'];
                     status = exportDesktopListNewRequest['status'];
@@ -17288,6 +18135,9 @@ export const ParamCreater = function () {
             }
             if (tag !== null && tag !== undefined) {
                 localVarQueryParameter['tag'] = tag;
+            }
+            if (withoutAnyTag !== null && withoutAnyTag !== undefined) {
+                localVarQueryParameter['without_any_tag'] = withoutAnyTag;
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
@@ -25332,6 +26182,1330 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'site_id': siteId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量绑定技能到实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSkillBindings(createSkillBindingsRequest?: CreateSkillBindingsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/skill-bindings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+            
+            let xClientToken;
+
+            if (createSkillBindingsRequest !== null && createSkillBindingsRequest !== undefined) {
+                if (createSkillBindingsRequest instanceof CreateSkillBindingsRequest) {
+                    body = createSkillBindingsRequest.body
+                    xLanguage = createSkillBindingsRequest.xLanguage;
+                    xClientToken = createSkillBindingsRequest.xClientToken;
+                } else {
+                    body = createSkillBindingsRequest['body'];
+                    xLanguage = createSkillBindingsRequest['X-Language'];
+                    xClientToken = createSkillBindingsRequest['X-Client-Token'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            if (xClientToken !== undefined && xClientToken !== null) {
+                localVarHeaderParameter['X-Client-Token'] = String(xClientToken);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量解绑技能。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSkillBindings(deleteSkillBindingsRequest?: DeleteSkillBindingsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/skill-bindings/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (deleteSkillBindingsRequest !== null && deleteSkillBindingsRequest !== undefined) {
+                if (deleteSkillBindingsRequest instanceof DeleteSkillBindingsRequest) {
+                    body = deleteSkillBindingsRequest.body
+                    xLanguage = deleteSkillBindingsRequest.xLanguage;
+                } else {
+                    body = deleteSkillBindingsRequest['body'];
+                    xLanguage = deleteSkillBindingsRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询公共技能绑定的资源列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCommonSkillResources(listCommonSkillResourcesRequest?: ListCommonSkillResourcesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/common-skills/{skill_id}/resources",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let skillId;
+            
+            let xLanguage;
+            
+            let version;
+            
+            let offset;
+            
+            let limit;
+
+            if (listCommonSkillResourcesRequest !== null && listCommonSkillResourcesRequest !== undefined) {
+                if (listCommonSkillResourcesRequest instanceof ListCommonSkillResourcesRequest) {
+                    skillId = listCommonSkillResourcesRequest.skillId;
+                    xLanguage = listCommonSkillResourcesRequest.xLanguage;
+                    version = listCommonSkillResourcesRequest.version;
+                    offset = listCommonSkillResourcesRequest.offset;
+                    limit = listCommonSkillResourcesRequest.limit;
+                } else {
+                    skillId = listCommonSkillResourcesRequest['skill_id'];
+                    xLanguage = listCommonSkillResourcesRequest['X-Language'];
+                    version = listCommonSkillResourcesRequest['version'];
+                    offset = listCommonSkillResourcesRequest['offset'];
+                    limit = listCommonSkillResourcesRequest['limit'];
+                }
+            }
+
+        
+            if (skillId === null || skillId === undefined) {
+            throw new RequiredError('skillId','Required parameter skillId was null or undefined when calling listCommonSkillResources.');
+            }
+            if (version !== null && version !== undefined) {
+                localVarQueryParameter['version'] = version;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'skill_id': skillId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例绑定的技能列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceSkills(listInstanceSkillsRequest?: ListInstanceSkillsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/instances/{instance_id}/skills",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (listInstanceSkillsRequest !== null && listInstanceSkillsRequest !== undefined) {
+                if (listInstanceSkillsRequest instanceof ListInstanceSkillsRequest) {
+                    instanceId = listInstanceSkillsRequest.instanceId;
+                    xLanguage = listInstanceSkillsRequest.xLanguage;
+                    offset = listInstanceSkillsRequest.offset;
+                    limit = listInstanceSkillsRequest.limit;
+                } else {
+                    instanceId = listInstanceSkillsRequest['instance_id'];
+                    xLanguage = listInstanceSkillsRequest['X-Language'];
+                    offset = listInstanceSkillsRequest['offset'];
+                    limit = listInstanceSkillsRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceSkills.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询安全策略管控的资源列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityPolicyControlResources(listSecurityPolicyControlResourcesRequest?: ListSecurityPolicyControlResourcesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/security-policy-control/resources",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (listSecurityPolicyControlResourcesRequest !== null && listSecurityPolicyControlResourcesRequest !== undefined) {
+                if (listSecurityPolicyControlResourcesRequest instanceof ListSecurityPolicyControlResourcesRequest) {
+                    xLanguage = listSecurityPolicyControlResourcesRequest.xLanguage;
+                    offset = listSecurityPolicyControlResourcesRequest.offset;
+                    limit = listSecurityPolicyControlResourcesRequest.limit;
+                } else {
+                    xLanguage = listSecurityPolicyControlResourcesRequest['X-Language'];
+                    offset = listSecurityPolicyControlResourcesRequest['offset'];
+                    limit = listSecurityPolicyControlResourcesRequest['limit'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询企业自研技能绑定的资源列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSkillResources(listSkillResourcesRequest?: ListSkillResourcesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/skills/{skill_id}/resources",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let skillId;
+            
+            let xLanguage;
+            
+            let version;
+            
+            let offset;
+            
+            let limit;
+
+            if (listSkillResourcesRequest !== null && listSkillResourcesRequest !== undefined) {
+                if (listSkillResourcesRequest instanceof ListSkillResourcesRequest) {
+                    skillId = listSkillResourcesRequest.skillId;
+                    xLanguage = listSkillResourcesRequest.xLanguage;
+                    version = listSkillResourcesRequest.version;
+                    offset = listSkillResourcesRequest.offset;
+                    limit = listSkillResourcesRequest.limit;
+                } else {
+                    skillId = listSkillResourcesRequest['skill_id'];
+                    xLanguage = listSkillResourcesRequest['X-Language'];
+                    version = listSkillResourcesRequest['version'];
+                    offset = listSkillResourcesRequest['offset'];
+                    limit = listSkillResourcesRequest['limit'];
+                }
+            }
+
+        
+            if (skillId === null || skillId === undefined) {
+            throw new RequiredError('skillId','Required parameter skillId was null or undefined when calling listSkillResources.');
+            }
+            if (version !== null && version !== undefined) {
+                localVarQueryParameter['version'] = version;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'skill_id': skillId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量更新实例的安全策略管控状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSecurityPolicyControl(updateSecurityPolicyControlRequest?: UpdateSecurityPolicyControlRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/skills/security-policy-control",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (updateSecurityPolicyControlRequest !== null && updateSecurityPolicyControlRequest !== undefined) {
+                if (updateSecurityPolicyControlRequest instanceof UpdateSecurityPolicyControlRequest) {
+                    body = updateSecurityPolicyControlRequest.body
+                    xLanguage = updateSecurityPolicyControlRequest.xLanguage;
+                } else {
+                    body = updateSecurityPolicyControlRequest['body'];
+                    xLanguage = updateSecurityPolicyControlRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据技能ID列表批量查询当前生效的技能包信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchListSkillPackages(batchListSkillPackagesRequest?: BatchListSkillPackagesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/skill-packages/batch-query",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (batchListSkillPackagesRequest !== null && batchListSkillPackagesRequest !== undefined) {
+                if (batchListSkillPackagesRequest instanceof BatchListSkillPackagesRequest) {
+                    body = batchListSkillPackagesRequest.body
+                    xLanguage = batchListSkillPackagesRequest.xLanguage;
+                } else {
+                    body = batchListSkillPackagesRequest['body'];
+                    xLanguage = batchListSkillPackagesRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 生成企业自研技能包的OBS预签名下载地址。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDownloadUrl(createDownloadUrlRequest?: CreateDownloadUrlRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/skills/{skill_id}/packages/{package_id}/download-url",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let skillId;
+            
+            let packageId;
+            
+            let xLanguage;
+            
+            let xClientToken;
+
+            if (createDownloadUrlRequest !== null && createDownloadUrlRequest !== undefined) {
+                if (createDownloadUrlRequest instanceof CreateDownloadUrlRequest) {
+                    skillId = createDownloadUrlRequest.skillId;
+                    packageId = createDownloadUrlRequest.packageId;
+                    body = createDownloadUrlRequest.body
+                    xLanguage = createDownloadUrlRequest.xLanguage;
+                    xClientToken = createDownloadUrlRequest.xClientToken;
+                } else {
+                    skillId = createDownloadUrlRequest['skill_id'];
+                    packageId = createDownloadUrlRequest['package_id'];
+                    body = createDownloadUrlRequest['body'];
+                    xLanguage = createDownloadUrlRequest['X-Language'];
+                    xClientToken = createDownloadUrlRequest['X-Client-Token'];
+                }
+            }
+
+        
+            if (skillId === null || skillId === undefined) {
+            throw new RequiredError('skillId','Required parameter skillId was null or undefined when calling createDownloadUrl.');
+            }
+            if (packageId === null || packageId === undefined) {
+            throw new RequiredError('packageId','Required parameter packageId was null or undefined when calling createDownloadUrl.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            if (xClientToken !== undefined && xClientToken !== null) {
+                localVarHeaderParameter['X-Client-Token'] = String(xClientToken);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'skill_id': skillId,'package_id': packageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 为企业自研技能上传新版本技能包。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSkillPackage(createSkillPackageRequest?: CreateSkillPackageRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/skills/{skill_id}/packages",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let skillId;
+            
+            let xLanguage;
+            
+            let xClientToken;
+
+            if (createSkillPackageRequest !== null && createSkillPackageRequest !== undefined) {
+                if (createSkillPackageRequest instanceof CreateSkillPackageRequest) {
+                    skillId = createSkillPackageRequest.skillId;
+                    body = createSkillPackageRequest.body
+                    xLanguage = createSkillPackageRequest.xLanguage;
+                    xClientToken = createSkillPackageRequest.xClientToken;
+                } else {
+                    skillId = createSkillPackageRequest['skill_id'];
+                    body = createSkillPackageRequest['body'];
+                    xLanguage = createSkillPackageRequest['X-Language'];
+                    xClientToken = createSkillPackageRequest['X-Client-Token'];
+                }
+            }
+
+        
+            if (skillId === null || skillId === undefined) {
+            throw new RequiredError('skillId','Required parameter skillId was null or undefined when calling createSkillPackage.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            if (xClientToken !== undefined && xClientToken !== null) {
+                localVarHeaderParameter['X-Client-Token'] = String(xClientToken);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'skill_id': skillId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 生成OBS预签名上传地址，用于企业自研技能包上传。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createUploadUrls(createUploadUrlsRequest?: CreateUploadUrlsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/skill-packages/upload-urls",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+            
+            let xClientToken;
+
+            if (createUploadUrlsRequest !== null && createUploadUrlsRequest !== undefined) {
+                if (createUploadUrlsRequest instanceof CreateUploadUrlsRequest) {
+                    body = createUploadUrlsRequest.body
+                    xLanguage = createUploadUrlsRequest.xLanguage;
+                    xClientToken = createUploadUrlsRequest.xClientToken;
+                } else {
+                    body = createUploadUrlsRequest['body'];
+                    xLanguage = createUploadUrlsRequest['X-Language'];
+                    xClientToken = createUploadUrlsRequest['X-Client-Token'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            if (xClientToken !== undefined && xClientToken !== null) {
+                localVarHeaderParameter['X-Client-Token'] = String(xClientToken);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除企业自研技能的技能包。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSkillPackage(deleteSkillPackageRequest?: DeleteSkillPackageRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/ai-agents/skills/{skill_id}/packages/{package_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let skillId;
+            
+            let packageId;
+            
+            let xLanguage;
+
+            if (deleteSkillPackageRequest !== null && deleteSkillPackageRequest !== undefined) {
+                if (deleteSkillPackageRequest instanceof DeleteSkillPackageRequest) {
+                    skillId = deleteSkillPackageRequest.skillId;
+                    packageId = deleteSkillPackageRequest.packageId;
+                    xLanguage = deleteSkillPackageRequest.xLanguage;
+                } else {
+                    skillId = deleteSkillPackageRequest['skill_id'];
+                    packageId = deleteSkillPackageRequest['package_id'];
+                    xLanguage = deleteSkillPackageRequest['X-Language'];
+                }
+            }
+
+        
+            if (skillId === null || skillId === undefined) {
+            throw new RequiredError('skillId','Required parameter skillId was null or undefined when calling deleteSkillPackage.');
+            }
+            if (packageId === null || packageId === undefined) {
+            throw new RequiredError('packageId','Required parameter packageId was null or undefined when calling deleteSkillPackage.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'skill_id': skillId,'package_id': packageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 为企业自研技能包扩展新的OBS区域。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        expandSkillPackageRegion(expandSkillPackageRegionRequest?: ExpandSkillPackageRegionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/skills/{skill_id}/packages/{package_id}/regions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let skillId;
+            
+            let packageId;
+            
+            let xLanguage;
+
+            if (expandSkillPackageRegionRequest !== null && expandSkillPackageRegionRequest !== undefined) {
+                if (expandSkillPackageRegionRequest instanceof ExpandSkillPackageRegionRequest) {
+                    skillId = expandSkillPackageRegionRequest.skillId;
+                    packageId = expandSkillPackageRegionRequest.packageId;
+                    body = expandSkillPackageRegionRequest.body
+                    xLanguage = expandSkillPackageRegionRequest.xLanguage;
+                } else {
+                    skillId = expandSkillPackageRegionRequest['skill_id'];
+                    packageId = expandSkillPackageRegionRequest['package_id'];
+                    body = expandSkillPackageRegionRequest['body'];
+                    xLanguage = expandSkillPackageRegionRequest['X-Language'];
+                }
+            }
+
+        
+            if (skillId === null || skillId === undefined) {
+            throw new RequiredError('skillId','Required parameter skillId was null or undefined when calling expandSkillPackageRegion.');
+            }
+            if (packageId === null || packageId === undefined) {
+            throw new RequiredError('packageId','Required parameter packageId was null or undefined when calling expandSkillPackageRegion.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'skill_id': skillId,'package_id': packageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 企业租户查询公共技能的技能包列表（只读）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCommonSkillPackages(listCommonSkillPackagesRequest?: ListCommonSkillPackagesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/common-skills/{skill_id}/packages",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let skillId;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (listCommonSkillPackagesRequest !== null && listCommonSkillPackagesRequest !== undefined) {
+                if (listCommonSkillPackagesRequest instanceof ListCommonSkillPackagesRequest) {
+                    skillId = listCommonSkillPackagesRequest.skillId;
+                    xLanguage = listCommonSkillPackagesRequest.xLanguage;
+                    offset = listCommonSkillPackagesRequest.offset;
+                    limit = listCommonSkillPackagesRequest.limit;
+                } else {
+                    skillId = listCommonSkillPackagesRequest['skill_id'];
+                    xLanguage = listCommonSkillPackagesRequest['X-Language'];
+                    offset = listCommonSkillPackagesRequest['offset'];
+                    limit = listCommonSkillPackagesRequest['limit'];
+                }
+            }
+
+        
+            if (skillId === null || skillId === undefined) {
+            throw new RequiredError('skillId','Required parameter skillId was null or undefined when calling listCommonSkillPackages.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'skill_id': skillId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询企业自研技能的技能包列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSkillPackages(listSkillPackagesRequest?: ListSkillPackagesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/skills/{skill_id}/packages",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let skillId;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+
+            if (listSkillPackagesRequest !== null && listSkillPackagesRequest !== undefined) {
+                if (listSkillPackagesRequest instanceof ListSkillPackagesRequest) {
+                    skillId = listSkillPackagesRequest.skillId;
+                    xLanguage = listSkillPackagesRequest.xLanguage;
+                    offset = listSkillPackagesRequest.offset;
+                    limit = listSkillPackagesRequest.limit;
+                } else {
+                    skillId = listSkillPackagesRequest['skill_id'];
+                    xLanguage = listSkillPackagesRequest['X-Language'];
+                    offset = listSkillPackagesRequest['offset'];
+                    limit = listSkillPackagesRequest['limit'];
+                }
+            }
+
+        
+            if (skillId === null || skillId === undefined) {
+            throw new RequiredError('skillId','Required parameter skillId was null or undefined when calling listSkillPackages.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'skill_id': skillId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量移除企业自研技能包的OBS区域。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        removeSkillPackageRegion(removeSkillPackageRegionRequest?: RemoveSkillPackageRegionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/skills/{skill_id}/packages/{package_id}/regions/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let skillId;
+            
+            let packageId;
+            
+            let xLanguage;
+
+            if (removeSkillPackageRegionRequest !== null && removeSkillPackageRegionRequest !== undefined) {
+                if (removeSkillPackageRegionRequest instanceof RemoveSkillPackageRegionRequest) {
+                    skillId = removeSkillPackageRegionRequest.skillId;
+                    packageId = removeSkillPackageRegionRequest.packageId;
+                    body = removeSkillPackageRegionRequest.body
+                    xLanguage = removeSkillPackageRegionRequest.xLanguage;
+                } else {
+                    skillId = removeSkillPackageRegionRequest['skill_id'];
+                    packageId = removeSkillPackageRegionRequest['package_id'];
+                    body = removeSkillPackageRegionRequest['body'];
+                    xLanguage = removeSkillPackageRegionRequest['X-Language'];
+                }
+            }
+
+        
+            if (skillId === null || skillId === undefined) {
+            throw new RequiredError('skillId','Required parameter skillId was null or undefined when calling removeSkillPackageRegion.');
+            }
+            if (packageId === null || packageId === undefined) {
+            throw new RequiredError('packageId','Required parameter packageId was null or undefined when calling removeSkillPackageRegion.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'skill_id': skillId,'package_id': packageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 企业租户查询公共技能的技能包详情（只读）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCommonSkillPackage(showCommonSkillPackageRequest?: ShowCommonSkillPackageRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/common-skills/{skill_id}/packages/{package_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let skillId;
+            
+            let packageId;
+            
+            let xLanguage;
+
+            if (showCommonSkillPackageRequest !== null && showCommonSkillPackageRequest !== undefined) {
+                if (showCommonSkillPackageRequest instanceof ShowCommonSkillPackageRequest) {
+                    skillId = showCommonSkillPackageRequest.skillId;
+                    packageId = showCommonSkillPackageRequest.packageId;
+                    xLanguage = showCommonSkillPackageRequest.xLanguage;
+                } else {
+                    skillId = showCommonSkillPackageRequest['skill_id'];
+                    packageId = showCommonSkillPackageRequest['package_id'];
+                    xLanguage = showCommonSkillPackageRequest['X-Language'];
+                }
+            }
+
+        
+            if (skillId === null || skillId === undefined) {
+            throw new RequiredError('skillId','Required parameter skillId was null or undefined when calling showCommonSkillPackage.');
+            }
+            if (packageId === null || packageId === undefined) {
+            throw new RequiredError('packageId','Required parameter packageId was null or undefined when calling showCommonSkillPackage.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'skill_id': skillId,'package_id': packageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询企业自研技能的技能包详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSkillPackage(showSkillPackageRequest?: ShowSkillPackageRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/skills/{skill_id}/packages/{package_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let skillId;
+            
+            let packageId;
+            
+            let xLanguage;
+
+            if (showSkillPackageRequest !== null && showSkillPackageRequest !== undefined) {
+                if (showSkillPackageRequest instanceof ShowSkillPackageRequest) {
+                    skillId = showSkillPackageRequest.skillId;
+                    packageId = showSkillPackageRequest.packageId;
+                    xLanguage = showSkillPackageRequest.xLanguage;
+                } else {
+                    skillId = showSkillPackageRequest['skill_id'];
+                    packageId = showSkillPackageRequest['package_id'];
+                    xLanguage = showSkillPackageRequest['X-Language'];
+                }
+            }
+
+        
+            if (skillId === null || skillId === undefined) {
+            throw new RequiredError('skillId','Required parameter skillId was null or undefined when calling showSkillPackage.');
+            }
+            if (packageId === null || packageId === undefined) {
+            throw new RequiredError('packageId','Required parameter packageId was null or undefined when calling showSkillPackage.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'skill_id': skillId,'package_id': packageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新企业自研技能的技能包信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSkillPackage(updateSkillPackageRequest?: UpdateSkillPackageRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/ai-agents/skills/{skill_id}/packages/{package_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let skillId;
+            
+            let packageId;
+            
+            let xLanguage;
+
+            if (updateSkillPackageRequest !== null && updateSkillPackageRequest !== undefined) {
+                if (updateSkillPackageRequest instanceof UpdateSkillPackageRequest) {
+                    skillId = updateSkillPackageRequest.skillId;
+                    packageId = updateSkillPackageRequest.packageId;
+                    body = updateSkillPackageRequest.body
+                    xLanguage = updateSkillPackageRequest.xLanguage;
+                } else {
+                    skillId = updateSkillPackageRequest['skill_id'];
+                    packageId = updateSkillPackageRequest['package_id'];
+                    body = updateSkillPackageRequest['body'];
+                    xLanguage = updateSkillPackageRequest['X-Language'];
+                }
+            }
+
+        
+            if (skillId === null || skillId === undefined) {
+            throw new RequiredError('skillId','Required parameter skillId was null or undefined when calling updateSkillPackage.');
+            }
+            if (packageId === null || packageId === undefined) {
+            throw new RequiredError('packageId','Required parameter packageId was null or undefined when calling updateSkillPackage.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'skill_id': skillId,'package_id': packageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建企业自研技能，支持同时上传技能包。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSkill(createSkillRequest?: CreateSkillRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/ai-agents/skills",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+            
+            let xClientToken;
+
+            if (createSkillRequest !== null && createSkillRequest !== undefined) {
+                if (createSkillRequest instanceof CreateSkillRequest) {
+                    body = createSkillRequest.body
+                    xLanguage = createSkillRequest.xLanguage;
+                    xClientToken = createSkillRequest.xClientToken;
+                } else {
+                    body = createSkillRequest['body'];
+                    xLanguage = createSkillRequest['X-Language'];
+                    xClientToken = createSkillRequest['X-Client-Token'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            if (xClientToken !== undefined && xClientToken !== null) {
+                localVarHeaderParameter['X-Client-Token'] = String(xClientToken);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除企业自研技能。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSkill(deleteSkillRequest?: DeleteSkillRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/ai-agents/skills/{skill_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let skillId;
+            
+            let xLanguage;
+
+            if (deleteSkillRequest !== null && deleteSkillRequest !== undefined) {
+                if (deleteSkillRequest instanceof DeleteSkillRequest) {
+                    skillId = deleteSkillRequest.skillId;
+                    xLanguage = deleteSkillRequest.xLanguage;
+                } else {
+                    skillId = deleteSkillRequest['skill_id'];
+                    xLanguage = deleteSkillRequest['X-Language'];
+                }
+            }
+
+        
+            if (skillId === null || skillId === undefined) {
+            throw new RequiredError('skillId','Required parameter skillId was null or undefined when calling deleteSkill.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'skill_id': skillId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询企业自研技能列表，支持按分类、状态过滤。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSkills(listSkillsRequest?: ListSkillsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/skills",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let offset;
+            
+            let limit;
+            
+            let category;
+            
+            let status;
+            
+            let skillName;
+
+            if (listSkillsRequest !== null && listSkillsRequest !== undefined) {
+                if (listSkillsRequest instanceof ListSkillsRequest) {
+                    xLanguage = listSkillsRequest.xLanguage;
+                    offset = listSkillsRequest.offset;
+                    limit = listSkillsRequest.limit;
+                    category = listSkillsRequest.category;
+                    status = listSkillsRequest.status;
+                    skillName = listSkillsRequest.skillName;
+                } else {
+                    xLanguage = listSkillsRequest['X-Language'];
+                    offset = listSkillsRequest['offset'];
+                    limit = listSkillsRequest['limit'];
+                    category = listSkillsRequest['category'];
+                    status = listSkillsRequest['status'];
+                    skillName = listSkillsRequest['skill_name'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (skillName !== null && skillName !== undefined) {
+                localVarQueryParameter['skill_name'] = skillName;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询企业自研技能详情，包含技能包摘要列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSkill(showSkillRequest?: ShowSkillRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/ai-agents/skills/{skill_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let skillId;
+            
+            let xLanguage;
+
+            if (showSkillRequest !== null && showSkillRequest !== undefined) {
+                if (showSkillRequest instanceof ShowSkillRequest) {
+                    skillId = showSkillRequest.skillId;
+                    xLanguage = showSkillRequest.xLanguage;
+                } else {
+                    skillId = showSkillRequest['skill_id'];
+                    xLanguage = showSkillRequest['X-Language'];
+                }
+            }
+
+        
+            if (skillId === null || skillId === undefined) {
+            throw new RequiredError('skillId','Required parameter skillId was null or undefined when calling showSkill.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'skill_id': skillId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新企业自研技能信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSkill(updateSkillRequest?: UpdateSkillRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/ai-agents/skills/{skill_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let skillId;
+            
+            let xLanguage;
+
+            if (updateSkillRequest !== null && updateSkillRequest !== undefined) {
+                if (updateSkillRequest instanceof UpdateSkillRequest) {
+                    skillId = updateSkillRequest.skillId;
+                    body = updateSkillRequest.body
+                    xLanguage = updateSkillRequest.xLanguage;
+                } else {
+                    skillId = updateSkillRequest['skill_id'];
+                    body = updateSkillRequest['body'];
+                    xLanguage = updateSkillRequest['X-Language'];
+                }
+            }
+
+        
+            if (skillId === null || skillId === undefined) {
+            throw new RequiredError('skillId','Required parameter skillId was null or undefined when calling updateSkill.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'skill_id': skillId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

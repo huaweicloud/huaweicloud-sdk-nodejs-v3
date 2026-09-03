@@ -167,6 +167,7 @@ export * from './model/StatisticsDetail';
 export * from './model/SubscribeTopicRequest';
 export * from './model/SubscribeTopicResponse';
 export * from './model/SubscriptionExtension';
+export * from './model/SubscriptionExtensionResponse';
 export * from './model/SubscriptionsFilterPolicy';
 export * from './model/SumCountDetail';
 export * from './model/TagMatch';

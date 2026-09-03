@@ -43,7 +43,13 @@ export enum ListSubscriptionUserRequestProtocolEnum {
     HTTP = 'http',
     HTTPS = 'https',
     SMS = 'sms',
-    EMAIL = 'email'
+    EMAIL = 'email',
+    CALLNOTIFY = 'callnotify',
+    WECHAT = 'wechat',
+    DINGDING = 'dingding',
+    FEISHU = 'feishu',
+    WELINK = 'welink',
+    DING_TALK_BOT = 'ding_talk_bot'
 }
 /**
     * @export

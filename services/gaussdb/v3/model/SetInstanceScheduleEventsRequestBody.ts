@@ -1,10 +1,11 @@
 import { EventInstances } from './EventInstances';
+import { EventScheduleWindow } from './EventScheduleWindow';
 
 
 export class SetInstanceScheduleEventsRequestBody {
     private 'operation_type'?: string;
     private 'event_instances'?: Array<EventInstances>;
-    private 'event_schedule_window'?: object;
+    private 'event_schedule_window'?: EventScheduleWindow;
     public constructor(operationType?: string, eventInstances?: Array<EventInstances>) { 
         this['operation_type'] = operationType;
         this['event_instances'] = eventInstances;
@@ -29,14 +30,14 @@ export class SetInstanceScheduleEventsRequestBody {
     public get eventInstances(): Array<EventInstances> | undefined {
         return this['event_instances'];
     }
-    public withEventScheduleWindow(eventScheduleWindow: object): SetInstanceScheduleEventsRequestBody {
+    public withEventScheduleWindow(eventScheduleWindow: EventScheduleWindow): SetInstanceScheduleEventsRequestBody {
         this['event_schedule_window'] = eventScheduleWindow;
         return this;
     }
-    public set eventScheduleWindow(eventScheduleWindow: object  | undefined) {
+    public set eventScheduleWindow(eventScheduleWindow: EventScheduleWindow  | undefined) {
         this['event_schedule_window'] = eventScheduleWindow;
     }
-    public get eventScheduleWindow(): object | undefined {
+    public get eventScheduleWindow(): EventScheduleWindow | undefined {
         return this['event_schedule_window'];
     }
 }

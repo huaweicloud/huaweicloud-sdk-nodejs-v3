@@ -1,4 +1,5 @@
 import { EventEntity } from './EventEntity';
+import { ExecuteWindow } from './ExecuteWindow';
 
 
 export class ScheduleEventInfo {
@@ -16,7 +17,7 @@ export class ScheduleEventInfo {
     public type?: string;
     private 'extend_info'?: string;
     private 'execute_time'?: string;
-    private 'execution_time_window'?: object;
+    private 'execution_time_window'?: ExecuteWindow;
     private 'event_entities'?: Array<EventEntity>;
     public constructor() { 
     }
@@ -118,14 +119,14 @@ export class ScheduleEventInfo {
     public get executeTime(): string | undefined {
         return this['execute_time'];
     }
-    public withExecutionTimeWindow(executionTimeWindow: object): ScheduleEventInfo {
+    public withExecutionTimeWindow(executionTimeWindow: ExecuteWindow): ScheduleEventInfo {
         this['execution_time_window'] = executionTimeWindow;
         return this;
     }
-    public set executionTimeWindow(executionTimeWindow: object  | undefined) {
+    public set executionTimeWindow(executionTimeWindow: ExecuteWindow  | undefined) {
         this['execution_time_window'] = executionTimeWindow;
     }
-    public get executionTimeWindow(): object | undefined {
+    public get executionTimeWindow(): ExecuteWindow | undefined {
         return this['execution_time_window'];
     }
     public withEventEntities(eventEntities: Array<EventEntity>): ScheduleEventInfo {
