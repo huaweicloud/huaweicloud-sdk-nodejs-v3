@@ -74,6 +74,9 @@ import { ApproverVO } from './model/ApproverVO';
 import { ArchitectureStatistic } from './model/ArchitectureStatistic';
 import { AssociateClassificationToEntityRequest } from './model/AssociateClassificationToEntityRequest';
 import { AssociateClassificationToEntityResponse } from './model/AssociateClassificationToEntityResponse';
+import { AssociateConnectionClusterReq } from './model/AssociateConnectionClusterReq';
+import { AssociateConnectionClusterRequest } from './model/AssociateConnectionClusterRequest';
+import { AssociateConnectionClusterResponse } from './model/AssociateConnectionClusterResponse';
 import { AssociateSecurityLevelToEntitieRequest } from './model/AssociateSecurityLevelToEntitieRequest';
 import { AssociateSecurityLevelToEntitieResponse } from './model/AssociateSecurityLevelToEntitieResponse';
 import { AtlasAssetEntity } from './model/AtlasAssetEntity';
@@ -89,8 +92,6 @@ import { AuthorizeActionApiToInstanceRequest } from './model/AuthorizeActionApiT
 import { AuthorizeActionApiToInstanceResponse } from './model/AuthorizeActionApiToInstanceResponse';
 import { AuthorizeApiToInstanceRequest } from './model/AuthorizeApiToInstanceRequest';
 import { AuthorizeApiToInstanceResponse } from './model/AuthorizeApiToInstanceResponse';
-import { AuthorizeDataConnectionRequest } from './model/AuthorizeDataConnectionRequest';
-import { AuthorizeDataConnectionResponse } from './model/AuthorizeDataConnectionResponse';
 import { BackendConfig } from './model/BackendConfig';
 import { BackendConstant } from './model/BackendConstant';
 import { BackendRequestPara } from './model/BackendRequestPara';
@@ -106,6 +107,9 @@ import { BatchAssociateClassificationToEntitiesRequest } from './model/BatchAsso
 import { BatchAssociateClassificationToEntitiesResponse } from './model/BatchAssociateClassificationToEntitiesResponse';
 import { BatchAssociateSecurityLevelToEntitiesRequest } from './model/BatchAssociateSecurityLevelToEntitiesRequest';
 import { BatchAssociateSecurityLevelToEntitiesResponse } from './model/BatchAssociateSecurityLevelToEntitiesResponse';
+import { BatchBindMigrationResourceToWorkspaceRequest } from './model/BatchBindMigrationResourceToWorkspaceRequest';
+import { BatchBindMigrationResourceToWorkspaceRequestBody } from './model/BatchBindMigrationResourceToWorkspaceRequestBody';
+import { BatchBindMigrationResourceToWorkspaceResponse } from './model/BatchBindMigrationResourceToWorkspaceResponse';
 import { BatchCreateDesignTableModelsFromLogicRequest } from './model/BatchCreateDesignTableModelsFromLogicRequest';
 import { BatchCreateDesignTableModelsFromLogicResponse } from './model/BatchCreateDesignTableModelsFromLogicResponse';
 import { BatchCreateSecurityPermissionSetMembersRequest } from './model/BatchCreateSecurityPermissionSetMembersRequest';
@@ -135,6 +139,9 @@ import { BatchDeleteSecuritySecrecyLevelsRequest } from './model/BatchDeleteSecu
 import { BatchDeleteSecuritySecrecyLevelsResponse } from './model/BatchDeleteSecuritySecrecyLevelsResponse';
 import { BatchDeleteTemplatesRequest } from './model/BatchDeleteTemplatesRequest';
 import { BatchDeleteTemplatesResponse } from './model/BatchDeleteTemplatesResponse';
+import { BatchDeleteWorkspacesRequest } from './model/BatchDeleteWorkspacesRequest';
+import { BatchDeleteWorkspacesRequestBody } from './model/BatchDeleteWorkspacesRequestBody';
+import { BatchDeleteWorkspacesResponse } from './model/BatchDeleteWorkspacesResponse';
 import { BatchOfflineRequest } from './model/BatchOfflineRequest';
 import { BatchOfflineResponse } from './model/BatchOfflineResponse';
 import { BatchOfflineResultData } from './model/BatchOfflineResultData';
@@ -222,6 +229,9 @@ import { ConfirmApprovalsResultData } from './model/ConfirmApprovalsResultData';
 import { ConfirmMessageRequest } from './model/ConfirmMessageRequest';
 import { ConfirmMessageResponse } from './model/ConfirmMessageResponse';
 import { Connection } from './model/Connection';
+import { ConnectionClusterInfo } from './model/ConnectionClusterInfo';
+import { ConnectionsHost } from './model/ConnectionsHost';
+import { ConnectionsRoute } from './model/ConnectionsRoute';
 import { ConsistencyRuleDetailForOpenApi } from './model/ConsistencyRuleDetailForOpenApi';
 import { CountAllModelsRequest } from './model/CountAllModelsRequest';
 import { CountAllModelsResponse } from './model/CountAllModelsResponse';
@@ -249,11 +259,20 @@ import { CreateBizMetricResultData } from './model/CreateBizMetricResultData';
 import { CreateCatalogRequest } from './model/CreateCatalogRequest';
 import { CreateCatalogResponse } from './model/CreateCatalogResponse';
 import { CreateCatalogResultData } from './model/CreateCatalogResultData';
+import { CreateClusterReq } from './model/CreateClusterReq';
+import { CreateClusterRequest } from './model/CreateClusterRequest';
+import { CreateClusterResponse } from './model/CreateClusterResponse';
 import { CreateCodeTableRequest } from './model/CreateCodeTableRequest';
 import { CreateCodeTableResponse } from './model/CreateCodeTableResponse';
 import { CreateCodeTableResultData } from './model/CreateCodeTableResultData';
+import { CreateConnectionReq } from './model/CreateConnectionReq';
+import { CreateConnectionRoutesReq } from './model/CreateConnectionRoutesReq';
 import { CreateConnectionsRequest } from './model/CreateConnectionsRequest';
 import { CreateConnectionsResponse } from './model/CreateConnectionsResponse';
+import { CreateDatasourceConnectionRequest } from './model/CreateDatasourceConnectionRequest';
+import { CreateDatasourceConnectionResponse } from './model/CreateDatasourceConnectionResponse';
+import { CreateDatasourceConnectionRoutesRequest } from './model/CreateDatasourceConnectionRoutesRequest';
+import { CreateDatasourceConnectionRoutesResponse } from './model/CreateDatasourceConnectionRoutesResponse';
 import { CreateDesignAggregationLogicTableRequest } from './model/CreateDesignAggregationLogicTableRequest';
 import { CreateDesignAggregationLogicTableResponse } from './model/CreateDesignAggregationLogicTableResponse';
 import { CreateDesignAtomicIndexRequest } from './model/CreateDesignAtomicIndexRequest';
@@ -401,6 +420,10 @@ import { DeleteCodeTableRequest } from './model/DeleteCodeTableRequest';
 import { DeleteCodeTableResponse } from './model/DeleteCodeTableResponse';
 import { DeleteDataconnectionRequest } from './model/DeleteDataconnectionRequest';
 import { DeleteDataconnectionResponse } from './model/DeleteDataconnectionResponse';
+import { DeleteDatasourceConnectionRequest } from './model/DeleteDatasourceConnectionRequest';
+import { DeleteDatasourceConnectionResponse } from './model/DeleteDatasourceConnectionResponse';
+import { DeleteDatasourceConnectionRoutesRequest } from './model/DeleteDatasourceConnectionRoutesRequest';
+import { DeleteDatasourceConnectionRoutesResponse } from './model/DeleteDatasourceConnectionRoutesResponse';
 import { DeleteDesignAggregationLogicTableRequest } from './model/DeleteDesignAggregationLogicTableRequest';
 import { DeleteDesignAggregationLogicTableResponse } from './model/DeleteDesignAggregationLogicTableResponse';
 import { DeleteDesignAtomicIndexRequest } from './model/DeleteDesignAtomicIndexRequest';
@@ -475,6 +498,8 @@ import { DirectoryDTO } from './model/DirectoryDTO';
 import { DirectoryVO } from './model/DirectoryVO';
 import { DisStream } from './model/DisStream';
 import { DlsAdmin } from './model/DlsAdmin';
+import { DownloadTaskLogRequest } from './model/DownloadTaskLogRequest';
+import { DownloadTaskLogResponse } from './model/DownloadTaskLogResponse';
 import { DsExportResultVOData } from './model/DsExportResultVOData';
 import { DsProcessImportResultVO } from './model/DsProcessImportResultVO';
 import { DwName } from './model/DwName';
@@ -568,6 +593,7 @@ import { JobAndNodeInfo } from './model/JobAndNodeInfo';
 import { JobInfoRequest } from './model/JobInfoRequest';
 import { JobInstance } from './model/JobInstance';
 import { JobLogRequest } from './model/JobLogRequest';
+import { JobMonitorInfo } from './model/JobMonitorInfo';
 import { JobParam } from './model/JobParam';
 import { JobResultV2 } from './model/JobResultV2';
 import { KerberosStatus } from './model/KerberosStatus';
@@ -643,6 +669,7 @@ import { ListConditionRequest } from './model/ListConditionRequest';
 import { ListConditionResponse } from './model/ListConditionResponse';
 import { ListConditionResultData } from './model/ListConditionResultData';
 import { ListConditionResultDataValue } from './model/ListConditionResultDataValue';
+import { ListConnectionsDetail } from './model/ListConnectionsDetail';
 import { ListConsistencyTaskRequest } from './model/ListConsistencyTaskRequest';
 import { ListConsistencyTaskResponse } from './model/ListConsistencyTaskResponse';
 import { ListDataArtsStudioInstancesRequest } from './model/ListDataArtsStudioInstancesRequest';
@@ -661,6 +688,8 @@ import { ListDatabasesRequest } from './model/ListDatabasesRequest';
 import { ListDatabasesResponse } from './model/ListDatabasesResponse';
 import { ListDataconnectionsRequest } from './model/ListDataconnectionsRequest';
 import { ListDataconnectionsResponse } from './model/ListDataconnectionsResponse';
+import { ListDatasourceConnectionsRequest } from './model/ListDatasourceConnectionsRequest';
+import { ListDatasourceConnectionsResponse } from './model/ListDatasourceConnectionsResponse';
 import { ListDerivativeIndexesRequest } from './model/ListDerivativeIndexesRequest';
 import { ListDerivativeIndexesResponse } from './model/ListDerivativeIndexesResponse';
 import { ListDesignDataLayersRequest } from './model/ListDesignDataLayersRequest';
@@ -810,6 +839,8 @@ import { ListTableModelsRequest } from './model/ListTableModelsRequest';
 import { ListTableModelsResponse } from './model/ListTableModelsResponse';
 import { ListTableModelsResultData } from './model/ListTableModelsResultData';
 import { ListTableModelsResultDataValue } from './model/ListTableModelsResultDataValue';
+import { ListTaskLogsRequest } from './model/ListTaskLogsRequest';
+import { ListTaskLogsResponse } from './model/ListTaskLogsResponse';
 import { ListTaskTableReferenceDetailRequest } from './model/ListTaskTableReferenceDetailRequest';
 import { ListTaskTableReferenceDetailResponse } from './model/ListTaskTableReferenceDetailResponse';
 import { ListWorkspaceRolesRequest } from './model/ListWorkspaceRolesRequest';
@@ -839,6 +870,8 @@ import { MigrateApiRequest } from './model/MigrateApiRequest';
 import { MigrateApiResponse } from './model/MigrateApiResponse';
 import { MigrateCatalogRequest } from './model/MigrateCatalogRequest';
 import { MigrateCatalogResponse } from './model/MigrateCatalogResponse';
+import { MigrationBindResource } from './model/MigrationBindResource';
+import { MigrationBindWorkspace } from './model/MigrationBindWorkspace';
 import { ModelLevel } from './model/ModelLevel';
 import { ModelStatisticVO } from './model/ModelStatisticVO';
 import { ModifyCustomizedFieldsRequest } from './model/ModifyCustomizedFieldsRequest';
@@ -846,6 +879,7 @@ import { ModifyCustomizedFieldsResponse } from './model/ModifyCustomizedFieldsRe
 import { ModifyCustomizedFieldsResultData } from './model/ModifyCustomizedFieldsResultData';
 import { ModifySecurityAdminRequest } from './model/ModifySecurityAdminRequest';
 import { ModifySecurityAdminResponse } from './model/ModifySecurityAdminResponse';
+import { MonitorTaskInfo } from './model/MonitorTaskInfo';
 import { Namespace } from './model/Namespace';
 import { Node } from './model/Node';
 import { NodeLineageGuids } from './model/NodeLineageGuids';
@@ -1068,6 +1102,8 @@ import { ShowDataconnectionRequest } from './model/ShowDataconnectionRequest';
 import { ShowDataconnectionResponse } from './model/ShowDataconnectionResponse';
 import { ShowDatamapLineageRequest } from './model/ShowDatamapLineageRequest';
 import { ShowDatamapLineageResponse } from './model/ShowDatamapLineageResponse';
+import { ShowDatasourceConnectionRequest } from './model/ShowDatasourceConnectionRequest';
+import { ShowDatasourceConnectionResponse } from './model/ShowDatasourceConnectionResponse';
 import { ShowDerivativeIndexByIdRequest } from './model/ShowDerivativeIndexByIdRequest';
 import { ShowDerivativeIndexByIdResponse } from './model/ShowDerivativeIndexByIdResponse';
 import { ShowDesignOperationResultRequest } from './model/ShowDesignOperationResultRequest';
@@ -1107,6 +1143,8 @@ import { ShowInstanceLogRequest } from './model/ShowInstanceLogRequest';
 import { ShowInstanceLogResponse } from './model/ShowInstanceLogResponse';
 import { ShowInstanceResultRequest } from './model/ShowInstanceResultRequest';
 import { ShowInstanceResultResponse } from './model/ShowInstanceResultResponse';
+import { ShowJobMonitorInfoRequest } from './model/ShowJobMonitorInfoRequest';
+import { ShowJobMonitorInfoResponse } from './model/ShowJobMonitorInfoResponse';
 import { ShowLineageBulkRequest } from './model/ShowLineageBulkRequest';
 import { ShowLineageBulkResponse } from './model/ShowLineageBulkResponse';
 import { ShowLineageRequest } from './model/ShowLineageRequest';
@@ -1130,6 +1168,8 @@ import { ShowQualityTaskDetailRequest } from './model/ShowQualityTaskDetailReque
 import { ShowQualityTaskDetailResponse } from './model/ShowQualityTaskDetailResponse';
 import { ShowQueuesRequest } from './model/ShowQueuesRequest';
 import { ShowQueuesResponse } from './model/ShowQueuesResponse';
+import { ShowRealTimeJobDetailsRequest } from './model/ShowRealTimeJobDetailsRequest';
+import { ShowRealTimeJobDetailsResponse } from './model/ShowRealTimeJobDetailsResponse';
 import { ShowRelationByIdRequest } from './model/ShowRelationByIdRequest';
 import { ShowRelationByIdResponse } from './model/ShowRelationByIdResponse';
 import { ShowRelationByIdResultData } from './model/ShowRelationByIdResultData';
@@ -1186,6 +1226,8 @@ import { ShowWorkspaceDetailByIdRequest } from './model/ShowWorkspaceDetailByIdR
 import { ShowWorkspaceDetailByIdResponse } from './model/ShowWorkspaceDetailByIdResponse';
 import { SmnTopic } from './model/SmnTopic';
 import { SmnTopicRequest } from './model/SmnTopicRequest';
+import { SnapshotProgressInfo } from './model/SnapshotProgressInfo';
+import { SnapshotTableProgressInfo } from './model/SnapshotTableProgressInfo';
 import { Sort } from './model/Sort';
 import { StandElementFieldVO } from './model/StandElementFieldVO';
 import { StandElementFieldVOList } from './model/StandElementFieldVOList';
@@ -1232,6 +1274,9 @@ import { TagRecordVO } from './model/TagRecordVO';
 import { TagRequest } from './model/TagRequest';
 import { TagVO } from './model/TagVO';
 import { TagsResultData } from './model/TagsResultData';
+import { TaskDetailInfo } from './model/TaskDetailInfo';
+import { TaskLogFile } from './model/TaskLogFile';
+import { TaskLogsContent } from './model/TaskLogsContent';
 import { TaskTableReferenceDetailResponse } from './model/TaskTableReferenceDetailResponse';
 import { TbGuid } from './model/TbGuid';
 import { TbLogicGuid } from './model/TbLogicGuid';
@@ -1257,12 +1302,15 @@ import { UpdateCodeTableResponse } from './model/UpdateCodeTableResponse';
 import { UpdateCodeTableValuesRequest } from './model/UpdateCodeTableValuesRequest';
 import { UpdateCodeTableValuesResponse } from './model/UpdateCodeTableValuesResponse';
 import { UpdateCodeTableValuesResultData } from './model/UpdateCodeTableValuesResultData';
+import { UpdateConnectionHostReq } from './model/UpdateConnectionHostReq';
 import { UpdateDataServiceInstanceLtsLogRequest } from './model/UpdateDataServiceInstanceLtsLogRequest';
 import { UpdateDataServiceInstanceLtsLogResponse } from './model/UpdateDataServiceInstanceLtsLogResponse';
 import { UpdateDataServiceInstanceObsLogRequest } from './model/UpdateDataServiceInstanceObsLogRequest';
 import { UpdateDataServiceInstanceObsLogResponse } from './model/UpdateDataServiceInstanceObsLogResponse';
 import { UpdateDataconnectionRequest } from './model/UpdateDataconnectionRequest';
 import { UpdateDataconnectionResponse } from './model/UpdateDataconnectionResponse';
+import { UpdateDatasourceConnectionHostMessageRequest } from './model/UpdateDatasourceConnectionHostMessageRequest';
+import { UpdateDatasourceConnectionHostMessageResponse } from './model/UpdateDatasourceConnectionHostMessageResponse';
 import { UpdateDesignAggregationLogicTableRequest } from './model/UpdateDesignAggregationLogicTableRequest';
 import { UpdateDesignAggregationLogicTableResponse } from './model/UpdateDesignAggregationLogicTableResponse';
 import { UpdateDesignAtomicIndexRequest } from './model/UpdateDesignAtomicIndexRequest';
@@ -1329,11 +1377,14 @@ import { UpdateTaskInfoRequest } from './model/UpdateTaskInfoRequest';
 import { UpdateTaskInfoResponse } from './model/UpdateTaskInfoResponse';
 import { UpdateTemplateRequest } from './model/UpdateTemplateRequest';
 import { UpdateTemplateResponse } from './model/UpdateTemplateResponse';
+import { UpdateWorkSpaceOldRequest } from './model/UpdateWorkSpaceOldRequest';
+import { UpdateWorkSpaceOldResponse } from './model/UpdateWorkSpaceOldResponse';
 import { UpdateWorkSpaceUserOrGroupRequest } from './model/UpdateWorkSpaceUserOrGroupRequest';
 import { UpdateWorkSpaceUserOrGroupResponse } from './model/UpdateWorkSpaceUserOrGroupResponse';
 import { UpdateWorkspaceRequest } from './model/UpdateWorkspaceRequest';
 import { UpdateWorkspaceResponse } from './model/UpdateWorkspaceResponse';
 import { UrlDTO } from './model/UrlDTO';
+import { WorkspaceDto } from './model/WorkspaceDto';
 import { WorkspaceTransformVO } from './model/WorkspaceTransformVO';
 import { WorkspaceVO } from './model/WorkspaceVO';
 import { Workspacebody } from './model/Workspacebody';
@@ -1426,7 +1477,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加工作空间用户
-     * @param {string} workspaceId 工作空间id
+     * @param {string} workspaceId 工作空间ID
      * @param {ApigWorkspaceUserDto} addUserParams 添加用户信息body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1481,6 +1532,28 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 该API用于在已创建的资源组网络连接中绑定集群。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 绑定集群
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} connectionId 连接ID，用于标识资源组网络连接的UUID。
+     * @param {AssociateConnectionClusterReq} associateConnectionClusterRequestBody 需要使用资源组网络连接的集群名列表。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public associateConnectionCluster(associateConnectionClusterRequest?: AssociateConnectionClusterRequest): Promise<AssociateConnectionClusterResponse> {
+        const options = ParamCreater().associateConnectionCluster(associateConnectionClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 关联资产到密级，资产关联指定密级
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1494,26 +1567,6 @@ export class DataArtsStudioClient {
      */
     public associateSecurityLevelToEntitie(associateSecurityLevelToEntitieRequest?: AssociateSecurityLevelToEntitieRequest): Promise<AssociateSecurityLevelToEntitieResponse> {
         const options = ParamCreater().associateSecurityLevelToEntitie(associateSecurityLevelToEntitieRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 数据连接跨空间授权。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 数据连接跨空间授权
-     * @param {string} dataConnectionId 需要授权的数据连接id。
-     * @param {string} [workspaceId] 需要授权的工作空间id。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public authorizeDataConnection(authorizeDataConnectionRequest?: AuthorizeDataConnectionRequest): Promise<AuthorizeDataConnectionResponse> {
-        const options = ParamCreater().authorizeDataConnection(authorizeDataConnectionRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1596,6 +1649,27 @@ export class DataArtsStudioClient {
      */
     public batchAssociateSecurityLevelToEntities(batchAssociateSecurityLevelToEntitiesRequest?: BatchAssociateSecurityLevelToEntitiesRequest): Promise<BatchAssociateSecurityLevelToEntitiesResponse> {
         const options = ParamCreater().batchAssociateSecurityLevelToEntities(batchAssociateSecurityLevelToEntitiesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量关联或取消关联数据集成资源到工作空间，通过workspaces中的action字段区分操作类型。action为band表示关联，action为remove表示取消关联。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量关联或取消关联数据集成资源到工作空间
+     * @param {string} instanceId DataArts Studio实例ID。
+     * @param {BatchBindMigrationResourceToWorkspaceRequestBody} batchBindMigrationResourceToWorkspaceRequestBody 批量关联或取消关联数据集成资源到工作空间请求体。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchBindMigrationResourceToWorkspace(batchBindMigrationResourceToWorkspaceRequest?: BatchBindMigrationResourceToWorkspaceRequest): Promise<BatchBindMigrationResourceToWorkspaceResponse> {
+        const options = ParamCreater().batchBindMigrationResourceToWorkspace(batchBindMigrationResourceToWorkspaceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1835,6 +1909,26 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 删除工作空间
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除工作空间
+     * @param {string} instanceId DataArts Studio实例ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {BatchDeleteWorkspacesRequestBody} batchDeleteWorkspacesRequestBody 删除工作空间请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteWorkspaces(batchDeleteWorkspacesRequest?: BatchDeleteWorkspacesRequest): Promise<BatchDeleteWorkspacesResponse> {
+        const options = ParamCreater().batchDeleteWorkspaces(batchDeleteWorkspacesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量下线。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1958,7 +2052,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 撤销任务包
+     * 目前支持发布包管理中相关包的撤销，支持撤销多个任务包。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2347,6 +2441,28 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 该API用于创建集群，该集群将会绑定用户指定的计算资源。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建集群
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} instanceId DataArts Studio实例ID。
+     * @param {CreateClusterReq} createClusterRequestBody 创建集群请求body体。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCluster(createClusterRequest?: CreateClusterRequest): Promise<CreateClusterResponse> {
+        const options = ParamCreater().createCluster(createClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建码表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2381,6 +2497,50 @@ export class DataArtsStudioClient {
      */
     public createConnections(createConnectionsRequest?: CreateConnectionsRequest): Promise<CreateConnectionsResponse> {
         const options = ParamCreater().createConnections(createConnectionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于创建与其他服务的资源组网络连接。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建资源组网络连接
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} instanceId DataArts Studio实例ID。
+     * @param {CreateConnectionReq} createDatasourceConnectionRequestBody 创建资源组网络连接的请求body体。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDatasourceConnection(createDatasourceConnectionRequest?: CreateDatasourceConnectionRequest): Promise<CreateDatasourceConnectionResponse> {
+        const options = ParamCreater().createDatasourceConnection(createDatasourceConnectionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于给资源组网络连接添加路由。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建路由
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} connectionId 连接ID，用于标识资源组网络连接的UUID。
+     * @param {CreateConnectionRoutesReq} createDatasourceConnectionRoutesRequestBody 创建路由的请求body体。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDatasourceConnectionRoutes(createDatasourceConnectionRoutesRequest?: CreateDatasourceConnectionRoutesRequest): Promise<CreateDatasourceConnectionRoutesResponse> {
+        const options = ParamCreater().createDatasourceConnectionRoutes(createDatasourceConnectionRoutesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2607,7 +2767,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 创建补数据实例
+     * 创建一个补数据实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2653,7 +2813,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建工作空间
-     * @param {string} instanceId DataArtsStudio实例id
+     * @param {string} instanceId DataArts Studio实例ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {CreateWorkspaceParams} createWorkspaceParams 创建工作空间信息body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3356,6 +3516,50 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 该API用于删除已创建的DLI资源组网络连接。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除资源组网络连接
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} instanceId DataArts Studio实例ID。
+     * @param {string} connectionId 连接ID，用于标识资源组网络连接的UUID。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDatasourceConnection(deleteDatasourceConnectionRequest?: DeleteDatasourceConnectionRequest): Promise<DeleteDatasourceConnectionResponse> {
+        const options = ParamCreater().deleteDatasourceConnection(deleteDatasourceConnectionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于删除资源组网络连接添加的路由。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除路由
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} connectionId 连接ID，用于标识资源组网络连接的UUID。
+     * @param {string} routeName 路由名称。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDatasourceConnectionRoutes(deleteDatasourceConnectionRoutesRequest?: DeleteDatasourceConnectionRoutesRequest): Promise<DeleteDatasourceConnectionRoutesResponse> {
+        const options = ParamCreater().deleteDatasourceConnectionRoutes(deleteDatasourceConnectionRoutesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量删除汇总表，只能删除状态为草稿、已线下、已驳回的表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3875,7 +4079,7 @@ export class DataArtsStudioClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除工作空间用户
-     * @param {string} workspaceId 工作空间id
+     * @param {string} workspaceId 工作空间ID
      * @param {ApigDelUserParams} delUserParams 待删除的工作空间用户信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3890,7 +4094,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 发布任务包
+     * 目前支持发布包管理中相关包的发布，支持发布多个任务包。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3903,6 +4107,29 @@ export class DataArtsStudioClient {
      */
     public deployFactoryPackages(deployFactoryPackagesRequest?: DeployFactoryPackagesRequest): Promise<DeployFactoryPackagesResponse> {
         const options = ParamCreater().deployFactoryPackages(deployFactoryPackagesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取range范围的日志内容，最多10MB。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下载实时处理集成作业日志
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} taskId 作业任务ID。
+     * @param {string} path 需要下载内容的文件路径。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [range] 下载文件内容范围，如0-100，表示下载0-100字节范围的内容。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadTaskLog(downloadTaskLogRequest?: DownloadTaskLogRequest): Promise<DownloadTaskLogResponse> {
+        const options = ParamCreater().downloadTaskLog(downloadTaskLogRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5007,6 +5234,30 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 该API用于查询该用户已创建的DLI资源组网络连接列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源组网络连接列表
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} instanceId DataArts Studio实例ID。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {number} [limit] 查询最大连接个数，默认100。
+     * @param {string} [name] 连接名称，精确匹配。
+     * @param {number} [offset] 查询结果偏移量，默认为0（连接以创建时间进行排序）。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDatasourceConnections(listDatasourceConnectionsRequest?: ListDatasourceConnectionsRequest): Promise<ListDatasourceConnectionsResponse> {
+        const options = ParamCreater().listDatasourceConnections(listDatasourceConnectionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 通过中英文名称、创建者、审核人、状态、修改时间、l3Id分页查找衍生指标信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5238,7 +5489,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询告警通知记录
+     * 此接口可以查询指定时间段内的告警通知记录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -5287,7 +5538,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询指定作业的实例列表
+     * 根据作业名称精确查询作业实例列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -5377,7 +5628,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询发布包列表
+     * 用于查询发布包的列表信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -5454,7 +5705,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询任务完成情况
+     * 查询任务完成情况。包括今天，昨天以及近7天的平均任务完成情况。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -5474,7 +5725,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询实例运行状态
+     * 此接口可以查询实例运行状态，包括当天、昨天、前天以及近7天的实例状态情况。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -6554,7 +6805,29 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 根据表名查询该表被哪些作业引用的详细信息，支持按输入输出类型、工作空间等条件筛选。
+     * 查询实时处理集成作业日志列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实时处理集成作业日志列表
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} taskId 作业任务ID。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [path] 目录路径。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTaskLogs(listTaskLogsRequest?: ListTaskLogsRequest): Promise<ListTaskLogsResponse> {
+        const options = ParamCreater().listTaskLogs(listTaskLogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询表被作业（调度中）引用详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -6887,7 +7160,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 支持重跑作业实例以及上下游的作业实例。
+     * 支持重跑作业实例以及上下游的作业实例。该接口功能处于邀测阶段，后续将随功能公测逐步开放。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -7362,6 +7635,7 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 此接口可以设置作业标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -8029,6 +8303,28 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 该API用于查询该用户已创建的DLI资源组网络连接。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源组网络连接
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} instanceId DataArts Studio实例ID。
+     * @param {string} connectionId 连接ID，用于标识资源组网络连接的UUID。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDatasourceConnection(showDatasourceConnectionRequest?: ShowDatasourceConnectionRequest): Promise<ShowDatasourceConnectionResponse> {
+        const options = ParamCreater().showDatasourceConnection(showDatasourceConnectionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 通过ID获取衍生详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -8289,7 +8585,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询指定发布包详情
+     * 用于查询指定的发布包详情信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -8310,7 +8606,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询补数据实例
+     * 查询补数据实例列表，支持分页查询。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -8427,6 +8723,27 @@ export class DataArtsStudioClient {
      */
     public showInstanceResult(showInstanceResultRequest?: ShowInstanceResultRequest): Promise<ShowInstanceResultResponse> {
         const options = ParamCreater().showInstanceResult(showInstanceResultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实时处理集成作业的子任务监控指标结果，包括各子任务的吞吐量、延迟等运行指标。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实时处理集成作业监控指标
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} taskId 作业任务ID。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showJobMonitorInfo(showJobMonitorInfoRequest?: ShowJobMonitorInfoRequest): Promise<ShowJobMonitorInfoResponse> {
+        const options = ParamCreater().showJobMonitorInfo(showJobMonitorInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8639,6 +8956,28 @@ export class DataArtsStudioClient {
      */
     public showQueues(showQueuesRequest?: ShowQueuesRequest): Promise<ShowQueuesResponse> {
         const options = ParamCreater().showQueues(showQueuesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实时作业的详细监控信息，包括作业运行状态、引擎版本、追踪URL及各子任务详情。
+     * 仅支持一键入湖（OneClickCDC）类型的实时作业。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实时作业详情
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} jobName 作业名称。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRealTimeJobDetails(showRealTimeJobDetailsRequest?: ShowRealTimeJobDetailsRequest): Promise<ShowRealTimeJobDetailsResponse> {
+        const options = ParamCreater().showRealTimeJobDetails(showRealTimeJobDetailsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9169,7 +9508,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 停止补数据实例
+     * 停止指定的补数据实例。只有补数据实例的状态是运行中，才能停止补数据实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -9390,6 +9729,29 @@ export class DataArtsStudioClient {
     }
 
     /**
+     * 该API用于在DLI资源组网络连接中修改数据源主机信息，仅支持全量覆盖。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改资源组网络连接的主机信息
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} instanceId DataArts Studio实例ID。
+     * @param {string} connectionId 连接ID，用于标识资源组网络连接的UUID。
+     * @param {UpdateConnectionHostReq} updateDatasourceConnectionHostMessageRequestBody 修改主机信息的请求body体。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDatasourceConnectionHostMessage(updateDatasourceConnectionHostMessageRequest?: UpdateDatasourceConnectionHostMessageRequest): Promise<UpdateDatasourceConnectionHostMessageResponse> {
+        const options = ParamCreater().updateDatasourceConnectionHostMessage(updateDatasourceConnectionHostMessageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新汇总表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -9589,7 +9951,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 修改作业名称
+     * 对作业名称进行重命名操作。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -10010,6 +10372,27 @@ export class DataArtsStudioClient {
      */
     public updateTemplate(updateTemplateRequest?: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
         const options = ParamCreater().updateTemplate(updateTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改工作空间
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改工作空间
+     * @param {string} instanceId DataArts Studio实例ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} workspaceId 工作空间ID
+     * @param {WorkspaceDto} workspaceDto 修改工作空间请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateWorkSpaceOld(updateWorkSpaceOldRequest?: UpdateWorkSpaceOldRequest): Promise<UpdateWorkSpaceOldResponse> {
+        const options = ParamCreater().updateWorkSpaceOld(updateWorkSpaceOldRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -10800,6 +11183,66 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于在已创建的资源组网络连接中绑定集群。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        associateConnectionCluster(associateConnectionClusterRequest?: AssociateConnectionClusterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/migration/connections/{connection_id}/associate-cluster",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let connectionId;
+            
+            let xProjectId;
+
+            if (associateConnectionClusterRequest !== null && associateConnectionClusterRequest !== undefined) {
+                if (associateConnectionClusterRequest instanceof AssociateConnectionClusterRequest) {
+                    workspace = associateConnectionClusterRequest.workspace;
+                    connectionId = associateConnectionClusterRequest.connectionId;
+                    body = associateConnectionClusterRequest.body
+                    xProjectId = associateConnectionClusterRequest.xProjectId;
+                } else {
+                    workspace = associateConnectionClusterRequest['workspace'];
+                    connectionId = associateConnectionClusterRequest['connection_id'];
+                    body = associateConnectionClusterRequest['body'];
+                    xProjectId = associateConnectionClusterRequest['X-Project-Id'];
+                }
+            }
+
+        
+            if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling associateConnectionCluster.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'connection_id': connectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 关联资产到密级，资产关联指定密级
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10850,53 +11293,6 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'guid': guid, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 数据连接跨空间授权。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        authorizeDataConnection(authorizeDataConnectionRequest?: AuthorizeDataConnectionRequest) {
-            const options = {
-                method: "POST",
-                url: "/v1/{project_id}/datasources/authorize_datasource",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let dataConnectionId;
-            
-            let workspaceId;
-
-            if (authorizeDataConnectionRequest !== null && authorizeDataConnectionRequest !== undefined) {
-                if (authorizeDataConnectionRequest instanceof AuthorizeDataConnectionRequest) {
-                    dataConnectionId = authorizeDataConnectionRequest.dataConnectionId;
-                    workspaceId = authorizeDataConnectionRequest.workspaceId;
-                } else {
-                    dataConnectionId = authorizeDataConnectionRequest['data_connection_id'];
-                    workspaceId = authorizeDataConnectionRequest['workspace_id'];
-                }
-            }
-
-        
-            if (dataConnectionId === null || dataConnectionId === undefined) {
-                throw new RequiredError('dataConnectionId','Required parameter dataConnectionId was null or undefined when calling authorizeDataConnection.');
-            }
-            if (dataConnectionId !== null && dataConnectionId !== undefined) {
-                localVarQueryParameter['data_connection_id'] = dataConnectionId;
-            }
-            if (workspaceId !== null && workspaceId !== undefined) {
-                localVarQueryParameter['workspace_id'] = workspaceId;
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -11088,6 +11484,59 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量关联或取消关联数据集成资源到工作空间，通过workspaces中的action字段区分操作类型。action为band表示关联，action为remove表示取消关联。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchBindMigrationResourceToWorkspace(batchBindMigrationResourceToWorkspaceRequest?: BatchBindMigrationResourceToWorkspaceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/{instance_id}/migration/batch-bind-workspace",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xProjectId;
+
+            if (batchBindMigrationResourceToWorkspaceRequest !== null && batchBindMigrationResourceToWorkspaceRequest !== undefined) {
+                if (batchBindMigrationResourceToWorkspaceRequest instanceof BatchBindMigrationResourceToWorkspaceRequest) {
+                    instanceId = batchBindMigrationResourceToWorkspaceRequest.instanceId;
+                    body = batchBindMigrationResourceToWorkspaceRequest.body
+                    xProjectId = batchBindMigrationResourceToWorkspaceRequest.xProjectId;
+                } else {
+                    instanceId = batchBindMigrationResourceToWorkspaceRequest['instance_id'];
+                    body = batchBindMigrationResourceToWorkspaceRequest['body'];
+                    xProjectId = batchBindMigrationResourceToWorkspaceRequest['X-Project-Id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling batchBindMigrationResourceToWorkspace.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -11646,6 +12095,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除工作空间
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteWorkspaces(batchDeleteWorkspacesRequest?: BatchDeleteWorkspacesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/{instance_id}/workspaces/batch-delete",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (batchDeleteWorkspacesRequest !== null && batchDeleteWorkspacesRequest !== undefined) {
+                if (batchDeleteWorkspacesRequest instanceof BatchDeleteWorkspacesRequest) {
+                    instanceId = batchDeleteWorkspacesRequest.instanceId;
+                    body = batchDeleteWorkspacesRequest.body
+                } else {
+                    instanceId = batchDeleteWorkspacesRequest['instance_id'];
+                    body = batchDeleteWorkspacesRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling batchDeleteWorkspaces.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量下线。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11937,7 +12432,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 撤销任务包
+         * 目前支持发布包管理中相关包的撤销，支持撤销多个任务包。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -12935,6 +13430,66 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于创建集群，该集群将会绑定用户指定的计算资源。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createCluster(createClusterRequest?: CreateClusterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/migration/instances/{instance_id}/clusters",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let instanceId;
+            
+            let xProjectId;
+
+            if (createClusterRequest !== null && createClusterRequest !== undefined) {
+                if (createClusterRequest instanceof CreateClusterRequest) {
+                    workspace = createClusterRequest.workspace;
+                    instanceId = createClusterRequest.instanceId;
+                    body = createClusterRequest.body
+                    xProjectId = createClusterRequest.xProjectId;
+                } else {
+                    workspace = createClusterRequest['workspace'];
+                    instanceId = createClusterRequest['instance_id'];
+                    body = createClusterRequest['body'];
+                    xProjectId = createClusterRequest['X-Project-Id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createCluster.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建码表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -13034,6 +13589,126 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于创建与其他服务的资源组网络连接。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDatasourceConnection(createDatasourceConnectionRequest?: CreateDatasourceConnectionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/migration/instances/{instance_id}/connections",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let instanceId;
+            
+            let xProjectId;
+
+            if (createDatasourceConnectionRequest !== null && createDatasourceConnectionRequest !== undefined) {
+                if (createDatasourceConnectionRequest instanceof CreateDatasourceConnectionRequest) {
+                    workspace = createDatasourceConnectionRequest.workspace;
+                    instanceId = createDatasourceConnectionRequest.instanceId;
+                    body = createDatasourceConnectionRequest.body
+                    xProjectId = createDatasourceConnectionRequest.xProjectId;
+                } else {
+                    workspace = createDatasourceConnectionRequest['workspace'];
+                    instanceId = createDatasourceConnectionRequest['instance_id'];
+                    body = createDatasourceConnectionRequest['body'];
+                    xProjectId = createDatasourceConnectionRequest['X-Project-Id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createDatasourceConnection.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于给资源组网络连接添加路由。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createDatasourceConnectionRoutes(createDatasourceConnectionRoutesRequest?: CreateDatasourceConnectionRoutesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/migration/connections/{connection_id}/routes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let connectionId;
+            
+            let xProjectId;
+
+            if (createDatasourceConnectionRoutesRequest !== null && createDatasourceConnectionRoutesRequest !== undefined) {
+                if (createDatasourceConnectionRoutesRequest instanceof CreateDatasourceConnectionRoutesRequest) {
+                    workspace = createDatasourceConnectionRoutesRequest.workspace;
+                    connectionId = createDatasourceConnectionRoutesRequest.connectionId;
+                    body = createDatasourceConnectionRoutesRequest.body
+                    xProjectId = createDatasourceConnectionRoutesRequest.xProjectId;
+                } else {
+                    workspace = createDatasourceConnectionRoutesRequest['workspace'];
+                    connectionId = createDatasourceConnectionRoutesRequest['connection_id'];
+                    body = createDatasourceConnectionRoutesRequest['body'];
+                    xProjectId = createDatasourceConnectionRoutesRequest['X-Project-Id'];
+                }
+            }
+
+        
+            if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling createDatasourceConnectionRoutes.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'connection_id': connectionId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -13616,7 +14291,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建补数据实例
+         * 创建一个补数据实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -15442,6 +16117,122 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于删除已创建的DLI资源组网络连接。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDatasourceConnection(deleteDatasourceConnectionRequest?: DeleteDatasourceConnectionRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/migration/instances/{instance_id}/connections/{connection_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspace;
+            
+            let instanceId;
+            
+            let connectionId;
+            
+            let xProjectId;
+
+            if (deleteDatasourceConnectionRequest !== null && deleteDatasourceConnectionRequest !== undefined) {
+                if (deleteDatasourceConnectionRequest instanceof DeleteDatasourceConnectionRequest) {
+                    workspace = deleteDatasourceConnectionRequest.workspace;
+                    instanceId = deleteDatasourceConnectionRequest.instanceId;
+                    connectionId = deleteDatasourceConnectionRequest.connectionId;
+                    xProjectId = deleteDatasourceConnectionRequest.xProjectId;
+                } else {
+                    workspace = deleteDatasourceConnectionRequest['workspace'];
+                    instanceId = deleteDatasourceConnectionRequest['instance_id'];
+                    connectionId = deleteDatasourceConnectionRequest['connection_id'];
+                    xProjectId = deleteDatasourceConnectionRequest['X-Project-Id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteDatasourceConnection.');
+            }
+            if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling deleteDatasourceConnection.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'connection_id': connectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于删除资源组网络连接添加的路由。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteDatasourceConnectionRoutes(deleteDatasourceConnectionRoutesRequest?: DeleteDatasourceConnectionRoutesRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/migration/connections/{connection_id}/routes/{route_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspace;
+            
+            let connectionId;
+            
+            let routeName;
+            
+            let xProjectId;
+
+            if (deleteDatasourceConnectionRoutesRequest !== null && deleteDatasourceConnectionRoutesRequest !== undefined) {
+                if (deleteDatasourceConnectionRoutesRequest instanceof DeleteDatasourceConnectionRoutesRequest) {
+                    workspace = deleteDatasourceConnectionRoutesRequest.workspace;
+                    connectionId = deleteDatasourceConnectionRoutesRequest.connectionId;
+                    routeName = deleteDatasourceConnectionRoutesRequest.routeName;
+                    xProjectId = deleteDatasourceConnectionRoutesRequest.xProjectId;
+                } else {
+                    workspace = deleteDatasourceConnectionRoutesRequest['workspace'];
+                    connectionId = deleteDatasourceConnectionRoutesRequest['connection_id'];
+                    routeName = deleteDatasourceConnectionRoutesRequest['route_name'];
+                    xProjectId = deleteDatasourceConnectionRoutesRequest['X-Project-Id'];
+                }
+            }
+
+        
+            if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling deleteDatasourceConnectionRoutes.');
+            }
+            if (routeName === null || routeName === undefined) {
+            throw new RequiredError('routeName','Required parameter routeName was null or undefined when calling deleteDatasourceConnectionRoutes.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+
+            options.pathParams = { 'connection_id': connectionId,'route_name': routeName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量删除汇总表，只能删除状态为草稿、已线下、已驳回的表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -16802,7 +17593,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 发布任务包
+         * 目前支持发布包管理中相关包的发布，支持发布多个任务包。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -16846,6 +17637,75 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取range范围的日志内容，最多10MB。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadTaskLog(downloadTaskLogRequest?: DownloadTaskLogRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/migration/tasks/{task_id}/logs/download",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let taskId;
+            
+            let path;
+            
+            let xProjectId;
+            
+            let range;
+
+            if (downloadTaskLogRequest !== null && downloadTaskLogRequest !== undefined) {
+                if (downloadTaskLogRequest instanceof DownloadTaskLogRequest) {
+                    workspace = downloadTaskLogRequest.workspace;
+                    taskId = downloadTaskLogRequest.taskId;
+                    path = downloadTaskLogRequest.path;
+                    xProjectId = downloadTaskLogRequest.xProjectId;
+                    range = downloadTaskLogRequest.range;
+                } else {
+                    workspace = downloadTaskLogRequest['workspace'];
+                    taskId = downloadTaskLogRequest['task_id'];
+                    path = downloadTaskLogRequest['path'];
+                    xProjectId = downloadTaskLogRequest['X-Project-Id'];
+                    range = downloadTaskLogRequest['range'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling downloadTaskLog.');
+            }
+            if (path === null || path === undefined) {
+                throw new RequiredError('path','Required parameter path was null or undefined when calling downloadTaskLog.');
+            }
+            if (path !== null && path !== undefined) {
+                localVarQueryParameter['path'] = path;
+            }
+            if (range !== null && range !== undefined) {
+                localVarQueryParameter['range'] = range;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -20307,6 +21167,79 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于查询该用户已创建的DLI资源组网络连接列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDatasourceConnections(listDatasourceConnectionsRequest?: ListDatasourceConnectionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/migration/instances/{instance_id}/connections",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let instanceId;
+            
+            let xProjectId;
+            
+            let limit;
+            
+            let name;
+            
+            let offset;
+
+            if (listDatasourceConnectionsRequest !== null && listDatasourceConnectionsRequest !== undefined) {
+                if (listDatasourceConnectionsRequest instanceof ListDatasourceConnectionsRequest) {
+                    workspace = listDatasourceConnectionsRequest.workspace;
+                    instanceId = listDatasourceConnectionsRequest.instanceId;
+                    xProjectId = listDatasourceConnectionsRequest.xProjectId;
+                    limit = listDatasourceConnectionsRequest.limit;
+                    name = listDatasourceConnectionsRequest.name;
+                    offset = listDatasourceConnectionsRequest.offset;
+                } else {
+                    workspace = listDatasourceConnectionsRequest['workspace'];
+                    instanceId = listDatasourceConnectionsRequest['instance_id'];
+                    xProjectId = listDatasourceConnectionsRequest['X-Project-Id'];
+                    limit = listDatasourceConnectionsRequest['limit'];
+                    name = listDatasourceConnectionsRequest['name'];
+                    offset = listDatasourceConnectionsRequest['offset'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listDatasourceConnections.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 通过中英文名称、创建者、审核人、状态、修改时间、l3Id分页查找衍生指标信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -21160,7 +22093,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询告警通知记录
+         * 此接口可以查询指定时间段内的告警通知记录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -21311,7 +22244,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询指定作业的实例列表
+         * 根据作业名称精确查询作业实例列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -21654,7 +22587,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询发布包列表
+         * 用于查询发布包的列表信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -21910,7 +22843,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询任务完成情况
+         * 查询任务完成情况。包括今天，昨天以及近7天的平均任务完成情况。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -21954,7 +22887,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询实例运行状态
+         * 此接口可以查询实例运行状态，包括当天、昨天、前天以及近7天的实例状态情况。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -25509,7 +26442,66 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 根据表名查询该表被哪些作业引用的详细信息，支持按输入输出类型、工作空间等条件筛选。
+         * 查询实时处理集成作业日志列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTaskLogs(listTaskLogsRequest?: ListTaskLogsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/migration/tasks/{task_id}/logs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let taskId;
+            
+            let xProjectId;
+            
+            let path;
+
+            if (listTaskLogsRequest !== null && listTaskLogsRequest !== undefined) {
+                if (listTaskLogsRequest instanceof ListTaskLogsRequest) {
+                    workspace = listTaskLogsRequest.workspace;
+                    taskId = listTaskLogsRequest.taskId;
+                    xProjectId = listTaskLogsRequest.xProjectId;
+                    path = listTaskLogsRequest.path;
+                } else {
+                    workspace = listTaskLogsRequest['workspace'];
+                    taskId = listTaskLogsRequest['task_id'];
+                    xProjectId = listTaskLogsRequest['X-Project-Id'];
+                    path = listTaskLogsRequest['path'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling listTaskLogs.');
+            }
+            if (path !== null && path !== undefined) {
+                localVarQueryParameter['path'] = path;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询表被作业（调度中）引用详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -26418,7 +27410,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 支持重跑作业实例以及上下游的作业实例。
+         * 支持重跑作业实例以及上下游的作业实例。该接口功能处于邀测阶段，后续将随功能公测逐步开放。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -28038,6 +29030,7 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 此接口可以设置作业标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -30013,6 +31006,64 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于查询该用户已创建的DLI资源组网络连接。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDatasourceConnection(showDatasourceConnectionRequest?: ShowDatasourceConnectionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/migration/instances/{instance_id}/connections/{connection_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspace;
+            
+            let instanceId;
+            
+            let connectionId;
+            
+            let xProjectId;
+
+            if (showDatasourceConnectionRequest !== null && showDatasourceConnectionRequest !== undefined) {
+                if (showDatasourceConnectionRequest instanceof ShowDatasourceConnectionRequest) {
+                    workspace = showDatasourceConnectionRequest.workspace;
+                    instanceId = showDatasourceConnectionRequest.instanceId;
+                    connectionId = showDatasourceConnectionRequest.connectionId;
+                    xProjectId = showDatasourceConnectionRequest.xProjectId;
+                } else {
+                    workspace = showDatasourceConnectionRequest['workspace'];
+                    instanceId = showDatasourceConnectionRequest['instance_id'];
+                    connectionId = showDatasourceConnectionRequest['connection_id'];
+                    xProjectId = showDatasourceConnectionRequest['X-Project-Id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showDatasourceConnection.');
+            }
+            if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling showDatasourceConnection.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'connection_id': connectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 通过ID获取衍生详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -30789,7 +31840,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询指定发布包详情
+         * 用于查询指定的发布包详情信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -30840,7 +31891,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询补数据实例
+         * 查询补数据实例列表，支持分页查询。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -31249,6 +32300,57 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实时处理集成作业的子任务监控指标结果，包括各子任务的吞吐量、延迟等运行指标。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showJobMonitorInfo(showJobMonitorInfoRequest?: ShowJobMonitorInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/migration/tasks/{task_id}/monitor",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspace;
+            
+            let taskId;
+            
+            let xProjectId;
+
+            if (showJobMonitorInfoRequest !== null && showJobMonitorInfoRequest !== undefined) {
+                if (showJobMonitorInfoRequest instanceof ShowJobMonitorInfoRequest) {
+                    workspace = showJobMonitorInfoRequest.workspace;
+                    taskId = showJobMonitorInfoRequest.taskId;
+                    xProjectId = showJobMonitorInfoRequest.xProjectId;
+                } else {
+                    workspace = showJobMonitorInfoRequest['workspace'];
+                    taskId = showJobMonitorInfoRequest['task_id'];
+                    xProjectId = showJobMonitorInfoRequest['X-Project-Id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showJobMonitorInfo.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+
+            options.pathParams = { 'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -31769,6 +32871,58 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['instance'] = String(instance);
             }
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实时作业的详细监控信息，包括作业运行状态、引擎版本、追踪URL及各子任务详情。
+         * 仅支持一键入湖（OneClickCDC）类型的实时作业。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRealTimeJobDetails(showRealTimeJobDetailsRequest?: ShowRealTimeJobDetailsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/factory/real-time-jobs/{job_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let workspace;
+            
+            let jobName;
+            
+            let xProjectId;
+
+            if (showRealTimeJobDetailsRequest !== null && showRealTimeJobDetailsRequest !== undefined) {
+                if (showRealTimeJobDetailsRequest instanceof ShowRealTimeJobDetailsRequest) {
+                    workspace = showRealTimeJobDetailsRequest.workspace;
+                    jobName = showRealTimeJobDetailsRequest.jobName;
+                    xProjectId = showRealTimeJobDetailsRequest.xProjectId;
+                } else {
+                    workspace = showRealTimeJobDetailsRequest['workspace'];
+                    jobName = showRealTimeJobDetailsRequest['job_name'];
+                    xProjectId = showRealTimeJobDetailsRequest['X-Project-Id'];
+                }
+            }
+
+        
+            if (jobName === null || jobName === undefined) {
+            throw new RequiredError('jobName','Required parameter jobName was null or undefined when calling showRealTimeJobDetails.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+
+            options.pathParams = { 'job_name': jobName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -33033,7 +34187,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 停止补数据实例
+         * 停止指定的补数据实例。只有补数据实例的状态是运行中，才能停止补数据实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -33632,6 +34786,73 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于在DLI资源组网络连接中修改数据源主机信息，仅支持全量覆盖。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDatasourceConnectionHostMessage(updateDatasourceConnectionHostMessageRequest?: UpdateDatasourceConnectionHostMessageRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/migration/instances/{instance_id}/connections/{connection_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let instanceId;
+            
+            let connectionId;
+            
+            let xProjectId;
+
+            if (updateDatasourceConnectionHostMessageRequest !== null && updateDatasourceConnectionHostMessageRequest !== undefined) {
+                if (updateDatasourceConnectionHostMessageRequest instanceof UpdateDatasourceConnectionHostMessageRequest) {
+                    workspace = updateDatasourceConnectionHostMessageRequest.workspace;
+                    instanceId = updateDatasourceConnectionHostMessageRequest.instanceId;
+                    connectionId = updateDatasourceConnectionHostMessageRequest.connectionId;
+                    body = updateDatasourceConnectionHostMessageRequest.body
+                    xProjectId = updateDatasourceConnectionHostMessageRequest.xProjectId;
+                } else {
+                    workspace = updateDatasourceConnectionHostMessageRequest['workspace'];
+                    instanceId = updateDatasourceConnectionHostMessageRequest['instance_id'];
+                    connectionId = updateDatasourceConnectionHostMessageRequest['connection_id'];
+                    body = updateDatasourceConnectionHostMessageRequest['body'];
+                    xProjectId = updateDatasourceConnectionHostMessageRequest['X-Project-Id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateDatasourceConnectionHostMessage.');
+            }
+            if (connectionId === null || connectionId === undefined) {
+            throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling updateDatasourceConnectionHostMessage.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'connection_id': connectionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新汇总表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -34177,7 +35398,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改作业名称
+         * 对作业名称进行重命名操作。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -35290,6 +36511,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改工作空间
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateWorkSpaceOld(updateWorkSpaceOldRequest?: UpdateWorkSpaceOldRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/{instance_id}/workspace/{workspace_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let workspaceId;
+
+            if (updateWorkSpaceOldRequest !== null && updateWorkSpaceOldRequest !== undefined) {
+                if (updateWorkSpaceOldRequest instanceof UpdateWorkSpaceOldRequest) {
+                    instanceId = updateWorkSpaceOldRequest.instanceId;
+                    workspaceId = updateWorkSpaceOldRequest.workspaceId;
+                    body = updateWorkSpaceOldRequest.body
+                } else {
+                    instanceId = updateWorkSpaceOldRequest['instance_id'];
+                    workspaceId = updateWorkSpaceOldRequest['workspace_id'];
+                    body = updateWorkSpaceOldRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateWorkSpaceOld.');
+            }
+            if (workspaceId === null || workspaceId === undefined) {
+            throw new RequiredError('workspaceId','Required parameter workspaceId was null or undefined when calling updateWorkSpaceOld.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'workspace_id': workspaceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -25,6 +25,10 @@ import { AllowedAddressPair } from './model/AllowedAddressPair';
 import { AssociateSubnetFirewallRequest } from './model/AssociateSubnetFirewallRequest';
 import { AssociateSubnetFirewallRequestBody } from './model/AssociateSubnetFirewallRequestBody';
 import { AssociateSubnetFirewallResponse } from './model/AssociateSubnetFirewallResponse';
+import { AttachSubNetworkInterfaceOption } from './model/AttachSubNetworkInterfaceOption';
+import { AttachSubNetworkInterfaceRequest } from './model/AttachSubNetworkInterfaceRequest';
+import { AttachSubNetworkInterfaceRequestBody } from './model/AttachSubNetworkInterfaceRequestBody';
+import { AttachSubNetworkInterfaceResponse } from './model/AttachSubNetworkInterfaceResponse';
 import { BatchCreateClouddcnSubnetsTagsRequest } from './model/BatchCreateClouddcnSubnetsTagsRequest';
 import { BatchCreateClouddcnSubnetsTagsResponse } from './model/BatchCreateClouddcnSubnetsTagsResponse';
 import { BatchCreateFirewallTagsRequest } from './model/BatchCreateFirewallTagsRequest';
@@ -44,6 +48,9 @@ import { BatchCreateSubNetworkInterfaceOption } from './model/BatchCreateSubNetw
 import { BatchCreateSubNetworkInterfaceRequest } from './model/BatchCreateSubNetworkInterfaceRequest';
 import { BatchCreateSubNetworkInterfaceRequestBody } from './model/BatchCreateSubNetworkInterfaceRequestBody';
 import { BatchCreateSubNetworkInterfaceResponse } from './model/BatchCreateSubNetworkInterfaceResponse';
+import { BatchCreateSubNetworkInterfaceTagsRequest } from './model/BatchCreateSubNetworkInterfaceTagsRequest';
+import { BatchCreateSubNetworkInterfaceTagsRequestBody } from './model/BatchCreateSubNetworkInterfaceTagsRequestBody';
+import { BatchCreateSubNetworkInterfaceTagsResponse } from './model/BatchCreateSubNetworkInterfaceTagsResponse';
 import { BatchDeleteClouddcnSubnetsTagsRequest } from './model/BatchDeleteClouddcnSubnetsTagsRequest';
 import { BatchDeleteClouddcnSubnetsTagsResponse } from './model/BatchDeleteClouddcnSubnetsTagsResponse';
 import { BatchDeleteFirewallTagsRequest } from './model/BatchDeleteFirewallTagsRequest';
@@ -55,6 +62,9 @@ import { BatchDeletePortTagsResponse } from './model/BatchDeletePortTagsResponse
 import { BatchDeleteRequestBody } from './model/BatchDeleteRequestBody';
 import { BatchDeleteRequestBodySysTags } from './model/BatchDeleteRequestBodySysTags';
 import { BatchDeleteRequestBodyTags } from './model/BatchDeleteRequestBodyTags';
+import { BatchDeleteSubNetworkInterfaceTagsRequest } from './model/BatchDeleteSubNetworkInterfaceTagsRequest';
+import { BatchDeleteSubNetworkInterfaceTagsRequestBody } from './model/BatchDeleteSubNetworkInterfaceTagsRequestBody';
+import { BatchDeleteSubNetworkInterfaceTagsResponse } from './model/BatchDeleteSubNetworkInterfaceTagsResponse';
 import { BindingVifDetails } from './model/BindingVifDetails';
 import { CloudResource } from './model/CloudResource';
 import { ClouddcnResource } from './model/ClouddcnResource';
@@ -65,6 +75,9 @@ import { CountFirewallsByTagsResponse } from './model/CountFirewallsByTagsRespon
 import { CountPortsByTagsRequest } from './model/CountPortsByTagsRequest';
 import { CountPortsByTagsRequestBody } from './model/CountPortsByTagsRequestBody';
 import { CountPortsByTagsResponse } from './model/CountPortsByTagsResponse';
+import { CountSubNetworkInterfacesByTagsRequest } from './model/CountSubNetworkInterfacesByTagsRequest';
+import { CountSubNetworkInterfacesByTagsRequestBody } from './model/CountSubNetworkInterfacesByTagsRequestBody';
+import { CountSubNetworkInterfacesByTagsResponse } from './model/CountSubNetworkInterfacesByTagsResponse';
 import { CreateAddressGroupOption } from './model/CreateAddressGroupOption';
 import { CreateAddressGroupRequest } from './model/CreateAddressGroupRequest';
 import { CreateAddressGroupRequestBody } from './model/CreateAddressGroupRequestBody';
@@ -95,6 +108,9 @@ import { CreateSubNetworkInterfaceOption } from './model/CreateSubNetworkInterfa
 import { CreateSubNetworkInterfaceRequest } from './model/CreateSubNetworkInterfaceRequest';
 import { CreateSubNetworkInterfaceRequestBody } from './model/CreateSubNetworkInterfaceRequestBody';
 import { CreateSubNetworkInterfaceResponse } from './model/CreateSubNetworkInterfaceResponse';
+import { CreateSubNetworkInterfaceTagRequest } from './model/CreateSubNetworkInterfaceTagRequest';
+import { CreateSubNetworkInterfaceTagRequestBody } from './model/CreateSubNetworkInterfaceTagRequestBody';
+import { CreateSubNetworkInterfaceTagResponse } from './model/CreateSubNetworkInterfaceTagResponse';
 import { CreateTrafficMirrorFilterOption } from './model/CreateTrafficMirrorFilterOption';
 import { CreateTrafficMirrorFilterRequest } from './model/CreateTrafficMirrorFilterRequest';
 import { CreateTrafficMirrorFilterRequestBody } from './model/CreateTrafficMirrorFilterRequestBody';
@@ -136,6 +152,8 @@ import { DeleteSecurityGroupRuleRequest } from './model/DeleteSecurityGroupRuleR
 import { DeleteSecurityGroupRuleResponse } from './model/DeleteSecurityGroupRuleResponse';
 import { DeleteSubNetworkInterfaceRequest } from './model/DeleteSubNetworkInterfaceRequest';
 import { DeleteSubNetworkInterfaceResponse } from './model/DeleteSubNetworkInterfaceResponse';
+import { DeleteSubNetworkInterfaceTagRequest } from './model/DeleteSubNetworkInterfaceTagRequest';
+import { DeleteSubNetworkInterfaceTagResponse } from './model/DeleteSubNetworkInterfaceTagResponse';
 import { DeleteTrafficMirrorFilterRequest } from './model/DeleteTrafficMirrorFilterRequest';
 import { DeleteTrafficMirrorFilterResponse } from './model/DeleteTrafficMirrorFilterResponse';
 import { DeleteTrafficMirrorFilterRuleRequest } from './model/DeleteTrafficMirrorFilterRuleRequest';
@@ -147,6 +165,8 @@ import { DeleteVirsubnetCidrReservationResponse } from './model/DeleteVirsubnetC
 import { DeleteVpcRequest } from './model/DeleteVpcRequest';
 import { DeleteVpcResponse } from './model/DeleteVpcResponse';
 import { Dependency } from './model/Dependency';
+import { DetachSubNetworkInterfaceRequest } from './model/DetachSubNetworkInterfaceRequest';
+import { DetachSubNetworkInterfaceResponse } from './model/DetachSubNetworkInterfaceResponse';
 import { DisassociateSubnetFirewallRequest } from './model/DisassociateSubnetFirewallRequest';
 import { DisassociateSubnetFirewallRequestBody } from './model/DisassociateSubnetFirewallRequestBody';
 import { DisassociateSubnetFirewallResponse } from './model/DisassociateSubnetFirewallResponse';
@@ -195,6 +215,11 @@ import { ListSecurityGroupRulesRequest } from './model/ListSecurityGroupRulesReq
 import { ListSecurityGroupRulesResponse } from './model/ListSecurityGroupRulesResponse';
 import { ListSecurityGroupsRequest } from './model/ListSecurityGroupsRequest';
 import { ListSecurityGroupsResponse } from './model/ListSecurityGroupsResponse';
+import { ListSubNetworkInterfaceTagsRequest } from './model/ListSubNetworkInterfaceTagsRequest';
+import { ListSubNetworkInterfaceTagsResponse } from './model/ListSubNetworkInterfaceTagsResponse';
+import { ListSubNetworkInterfacesByTagsRequest } from './model/ListSubNetworkInterfacesByTagsRequest';
+import { ListSubNetworkInterfacesByTagsRequestBody } from './model/ListSubNetworkInterfacesByTagsRequestBody';
+import { ListSubNetworkInterfacesByTagsResponse } from './model/ListSubNetworkInterfacesByTagsResponse';
 import { ListSubNetworkInterfacesRequest } from './model/ListSubNetworkInterfacesRequest';
 import { ListSubNetworkInterfacesResponse } from './model/ListSubNetworkInterfacesResponse';
 import { ListTag } from './model/ListTag';
@@ -261,6 +286,8 @@ import { ShowSecurityGroupRuleRequest } from './model/ShowSecurityGroupRuleReque
 import { ShowSecurityGroupRuleResponse } from './model/ShowSecurityGroupRuleResponse';
 import { ShowSubNetworkInterfaceRequest } from './model/ShowSubNetworkInterfaceRequest';
 import { ShowSubNetworkInterfaceResponse } from './model/ShowSubNetworkInterfaceResponse';
+import { ShowSubNetworkInterfaceTagsRequest } from './model/ShowSubNetworkInterfaceTagsRequest';
+import { ShowSubNetworkInterfaceTagsResponse } from './model/ShowSubNetworkInterfaceTagsResponse';
 import { ShowSubNetworkInterfacesQuantityRequest } from './model/ShowSubNetworkInterfacesQuantityRequest';
 import { ShowSubNetworkInterfacesQuantityResponse } from './model/ShowSubNetworkInterfacesQuantityResponse';
 import { ShowTrafficMirrorFilterRequest } from './model/ShowTrafficMirrorFilterRequest';
@@ -390,6 +417,25 @@ export class VpcClient {
     }
 
     /**
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 挂载辅助弹性网卡
+     * @param {string} subNetworkInterfaceId **参数解释**： 辅助弹性网卡的资源ID。 **取值范围**： 不涉及。
+     * @param {AttachSubNetworkInterfaceRequestBody} attachSubNetworkInterfaceRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public attachSubNetworkInterface(attachSubNetworkInterfaceRequest?: AttachSubNetworkInterfaceRequest): Promise<AttachSubNetworkInterfaceResponse> {
+        const options = ParamCreater().attachSubNetworkInterface(attachSubNetworkInterfaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 为指定的端口批量添加标签。
      * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
      * 
@@ -450,6 +496,27 @@ export class VpcClient {
     }
 
     /**
+     * 为指定的辅助弹性网卡资源实例批量添加标签。
+     * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量添加辅助弹性网卡资源标签
+     * @param {string} subNetworkInterfaceId **参数解释**： 辅助弹性网卡唯一标识。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {BatchCreateSubNetworkInterfaceTagsRequestBody} [batchCreateSubNetworkInterfaceTagsRequestBody] This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateSubNetworkInterfaceTags(batchCreateSubNetworkInterfaceTagsRequest?: BatchCreateSubNetworkInterfaceTagsRequest): Promise<BatchCreateSubNetworkInterfaceTagsResponse> {
+        const options = ParamCreater().batchCreateSubNetworkInterfaceTags(batchCreateSubNetworkInterfaceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 为指定的端口资源实例批量删除标签。
      * 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
      * 
@@ -471,6 +538,27 @@ export class VpcClient {
     }
 
     /**
+     * 为指定的辅助弹性网卡资源实例批量删除标签。
+     * 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除辅助弹性网卡资源标签
+     * @param {string} subNetworkInterfaceId **参数解释**： 辅助弹性网卡唯一标识。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {BatchDeleteSubNetworkInterfaceTagsRequestBody} [batchDeleteSubNetworkInterfaceTagsRequestBody] This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteSubNetworkInterfaceTags(batchDeleteSubNetworkInterfaceTagsRequest?: BatchDeleteSubNetworkInterfaceTagsRequest): Promise<BatchDeleteSubNetworkInterfaceTagsResponse> {
+        const options = ParamCreater().batchDeleteSubNetworkInterfaceTags(batchDeleteSubNetworkInterfaceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 使用标签过滤查询端口实例数量。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -482,6 +570,25 @@ export class VpcClient {
      */
     public countPortsByTags(countPortsByTagsRequest?: CountPortsByTagsRequest): Promise<CountPortsByTagsResponse> {
         const options = ParamCreater().countPortsByTags(countPortsByTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 使用标签过滤查询辅助弹性网卡实例数量。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询辅助弹性网卡资源实例数量
+     * @param {CountSubNetworkInterfacesByTagsRequestBody} [countSubNetworkInterfacesByTagsRequestBody] This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countSubNetworkInterfacesByTags(countSubNetworkInterfacesByTagsRequest?: CountSubNetworkInterfacesByTagsRequest): Promise<CountSubNetworkInterfacesByTagsResponse> {
+        const options = ParamCreater().countSubNetworkInterfacesByTags(countSubNetworkInterfacesByTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -560,6 +667,27 @@ export class VpcClient {
      */
     public createSubNetworkInterface(createSubNetworkInterfaceRequest?: CreateSubNetworkInterfaceRequest): Promise<CreateSubNetworkInterfaceResponse> {
         const options = ParamCreater().createSubNetworkInterface(createSubNetworkInterfaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 给指定辅助弹性网卡资源实例增加标签信息。
+     * 此接口为幂等接口：创建时，如果创建的标签之前已经存在（key相同），则覆盖之前的标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加辅助弹性网卡资源标签
+     * @param {string} subNetworkInterfaceId **参数解释**： 辅助弹性网卡唯一标识。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {CreateSubNetworkInterfaceTagRequestBody} createSubNetworkInterfaceTagRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSubNetworkInterfaceTag(createSubNetworkInterfaceTagRequest?: CreateSubNetworkInterfaceTagRequest): Promise<CreateSubNetworkInterfaceTagResponse> {
+        const options = ParamCreater().createSubNetworkInterfaceTag(createSubNetworkInterfaceTagRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -722,6 +850,27 @@ export class VpcClient {
     }
 
     /**
+     * 删除指定辅助弹性网卡资源实例的标签信息
+     * 该接口为幂等接口：删除的key不存在报404，key不能为空或者空字符串。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除辅助弹性网卡资源标签
+     * @param {string} subNetworkInterfaceId **参数解释**： 辅助弹性网卡唯一标识。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} tagKey **参数解释**： 标签键。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSubNetworkInterfaceTag(deleteSubNetworkInterfaceTagRequest?: DeleteSubNetworkInterfaceTagRequest): Promise<DeleteSubNetworkInterfaceTagResponse> {
+        const options = ParamCreater().deleteSubNetworkInterfaceTag(deleteSubNetworkInterfaceTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除流量镜像筛选条件
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -790,6 +939,25 @@ export class VpcClient {
      */
     public deleteVirsubnetCidrReservation(deleteVirsubnetCidrReservationRequest?: DeleteVirsubnetCidrReservationRequest): Promise<DeleteVirsubnetCidrReservationResponse> {
         const options = ParamCreater().deleteVirsubnetCidrReservation(deleteVirsubnetCidrReservationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 辅助弹性网卡支持从云服务器网卡之间迁移，用户可以通过此接口从云服务器网卡中解绑辅助弹性网卡，再绑定辅助弹性网卡到其他云服务器网卡上。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 卸载辅助弹性网卡
+     * @param {string} subNetworkInterfaceId **参数解释**： 辅助弹性网卡的资源ID。 **取值范围**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public detachSubNetworkInterface(detachSubNetworkInterfaceRequest?: DetachSubNetworkInterfaceRequest): Promise<DetachSubNetworkInterfaceResponse> {
+        const options = ParamCreater().detachSubNetworkInterface(detachSubNetworkInterfaceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -932,6 +1100,24 @@ export class VpcClient {
     }
 
     /**
+     * 查询租户在指定项目下，辅助弹性网卡资源的所有标签信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询辅助弹性网卡项目标签
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSubNetworkInterfaceTags(listSubNetworkInterfaceTagsRequest?: ListSubNetworkInterfaceTagsRequest): Promise<ListSubNetworkInterfaceTagsResponse> {
+        const options = ParamCreater().listSubNetworkInterfaceTags();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询辅助弹性网卡列表，单次查询最多返回2000条数据
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -951,6 +1137,27 @@ export class VpcClient {
      */
     public listSubNetworkInterfaces(listSubNetworkInterfacesRequest?: ListSubNetworkInterfacesRequest): Promise<ListSubNetworkInterfacesResponse> {
         const options = ParamCreater().listSubNetworkInterfaces(listSubNetworkInterfacesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 使用标签过滤，查询辅助弹性网卡实例列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询辅助弹性网卡资源实例列表
+     * @param {string} [limit] **参数解释**： 查询记录数。 **约束限制**： 不涉及。 **取值范围**： 1-1000 **默认取值**： 1000
+     * @param {number} [offset] **参数解释**： 索引位置，从第一条数据偏移offset条数据后开始查询。 **约束限制**： 必须为数字，不能为负数。 **取值范围**： 不涉及。 **默认取值**： 默认为0（偏移0条数据，表示从第一条数据开始查询）。
+     * @param {ListSubNetworkInterfacesByTagsRequestBody} [listSubNetworkInterfacesByTagsRequestBody] This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSubNetworkInterfacesByTags(listSubNetworkInterfacesByTagsRequest?: ListSubNetworkInterfacesByTagsRequest): Promise<ListSubNetworkInterfacesByTagsResponse> {
+        const options = ParamCreater().listSubNetworkInterfacesByTags(listSubNetworkInterfacesByTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1266,6 +1473,25 @@ export class VpcClient {
      */
     public showSubNetworkInterface(showSubNetworkInterfaceRequest?: ShowSubNetworkInterfaceRequest): Promise<ShowSubNetworkInterfaceResponse> {
         const options = ParamCreater().showSubNetworkInterface(showSubNetworkInterfaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定辅助弹性网卡实例的标签信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询辅助弹性网卡资源标签
+     * @param {string} subNetworkInterfaceId **参数解释**： 辅助弹性网卡唯一标识。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSubNetworkInterfaceTags(showSubNetworkInterfaceTagsRequest?: ShowSubNetworkInterfaceTagsRequest): Promise<ShowSubNetworkInterfaceTagsResponse> {
+        const options = ParamCreater().showSubNetworkInterfaceTags(showSubNetworkInterfaceTagsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2506,6 +2732,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        attachSubNetworkInterface(attachSubNetworkInterfaceRequest?: AttachSubNetworkInterfaceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/vpc/sub-network-interfaces/{sub_network_interface_id}/attach",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let subNetworkInterfaceId;
+
+            if (attachSubNetworkInterfaceRequest !== null && attachSubNetworkInterfaceRequest !== undefined) {
+                if (attachSubNetworkInterfaceRequest instanceof AttachSubNetworkInterfaceRequest) {
+                    subNetworkInterfaceId = attachSubNetworkInterfaceRequest.subNetworkInterfaceId;
+                    body = attachSubNetworkInterfaceRequest.body
+                } else {
+                    subNetworkInterfaceId = attachSubNetworkInterfaceRequest['sub_network_interface_id'];
+                    body = attachSubNetworkInterfaceRequest['body'];
+                }
+            }
+
+        
+            if (subNetworkInterfaceId === null || subNetworkInterfaceId === undefined) {
+            throw new RequiredError('subNetworkInterfaceId','Required parameter subNetworkInterfaceId was null or undefined when calling attachSubNetworkInterface.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'sub_network_interface_id': subNetworkInterfaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 为指定的端口批量添加标签。
          * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
          * 
@@ -2634,6 +2905,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 为指定的辅助弹性网卡资源实例批量添加标签。
+         * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateSubNetworkInterfaceTags(batchCreateSubNetworkInterfaceTagsRequest?: BatchCreateSubNetworkInterfaceTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/sub-network-interfaces/{sub_network_interface_id}/tags/create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let subNetworkInterfaceId;
+
+            if (batchCreateSubNetworkInterfaceTagsRequest !== null && batchCreateSubNetworkInterfaceTagsRequest !== undefined) {
+                if (batchCreateSubNetworkInterfaceTagsRequest instanceof BatchCreateSubNetworkInterfaceTagsRequest) {
+                    subNetworkInterfaceId = batchCreateSubNetworkInterfaceTagsRequest.subNetworkInterfaceId;
+                    body = batchCreateSubNetworkInterfaceTagsRequest.body
+                } else {
+                    subNetworkInterfaceId = batchCreateSubNetworkInterfaceTagsRequest['sub_network_interface_id'];
+                    body = batchCreateSubNetworkInterfaceTagsRequest['body'];
+                }
+            }
+
+        
+            if (subNetworkInterfaceId === null || subNetworkInterfaceId === undefined) {
+            throw new RequiredError('subNetworkInterfaceId','Required parameter subNetworkInterfaceId was null or undefined when calling batchCreateSubNetworkInterfaceTags.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'sub_network_interface_id': subNetworkInterfaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 为指定的端口资源实例批量删除标签。
          * 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
          * 
@@ -2678,6 +2993,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 为指定的辅助弹性网卡资源实例批量删除标签。
+         * 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteSubNetworkInterfaceTags(batchDeleteSubNetworkInterfaceTagsRequest?: BatchDeleteSubNetworkInterfaceTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/sub-network-interfaces/{sub_network_interface_id}/tags/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let subNetworkInterfaceId;
+
+            if (batchDeleteSubNetworkInterfaceTagsRequest !== null && batchDeleteSubNetworkInterfaceTagsRequest !== undefined) {
+                if (batchDeleteSubNetworkInterfaceTagsRequest instanceof BatchDeleteSubNetworkInterfaceTagsRequest) {
+                    subNetworkInterfaceId = batchDeleteSubNetworkInterfaceTagsRequest.subNetworkInterfaceId;
+                    body = batchDeleteSubNetworkInterfaceTagsRequest.body
+                } else {
+                    subNetworkInterfaceId = batchDeleteSubNetworkInterfaceTagsRequest['sub_network_interface_id'];
+                    body = batchDeleteSubNetworkInterfaceTagsRequest['body'];
+                }
+            }
+
+        
+            if (subNetworkInterfaceId === null || subNetworkInterfaceId === undefined) {
+            throw new RequiredError('subNetworkInterfaceId','Required parameter subNetworkInterfaceId was null or undefined when calling batchDeleteSubNetworkInterfaceTags.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'sub_network_interface_id': subNetworkInterfaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 使用标签过滤查询端口实例数量。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2701,6 +3060,41 @@ export const ParamCreater = function () {
                     body = countPortsByTagsRequest.body
                 } else {
                     body = countPortsByTagsRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 使用标签过滤查询辅助弹性网卡实例数量。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countSubNetworkInterfacesByTags(countSubNetworkInterfacesByTagsRequest?: CountSubNetworkInterfacesByTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/sub-network-interfaces/resource-instances/count",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (countSubNetworkInterfacesByTagsRequest !== null && countSubNetworkInterfacesByTagsRequest !== undefined) {
+                if (countSubNetworkInterfacesByTagsRequest instanceof CountSubNetworkInterfacesByTagsRequest) {
+                    body = countSubNetworkInterfacesByTagsRequest.body
+                } else {
+                    body = countSubNetworkInterfacesByTagsRequest['body'];
                 }
             }
 
@@ -2869,6 +3263,53 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 给指定辅助弹性网卡资源实例增加标签信息。
+         * 此接口为幂等接口：创建时，如果创建的标签之前已经存在（key相同），则覆盖之前的标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSubNetworkInterfaceTag(createSubNetworkInterfaceTagRequest?: CreateSubNetworkInterfaceTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/sub-network-interfaces/{sub_network_interface_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let subNetworkInterfaceId;
+
+            if (createSubNetworkInterfaceTagRequest !== null && createSubNetworkInterfaceTagRequest !== undefined) {
+                if (createSubNetworkInterfaceTagRequest instanceof CreateSubNetworkInterfaceTagRequest) {
+                    subNetworkInterfaceId = createSubNetworkInterfaceTagRequest.subNetworkInterfaceId;
+                    body = createSubNetworkInterfaceTagRequest.body
+                } else {
+                    subNetworkInterfaceId = createSubNetworkInterfaceTagRequest['sub_network_interface_id'];
+                    body = createSubNetworkInterfaceTagRequest['body'];
+                }
+            }
+
+        
+            if (subNetworkInterfaceId === null || subNetworkInterfaceId === undefined) {
+            throw new RequiredError('subNetworkInterfaceId','Required parameter subNetworkInterfaceId was null or undefined when calling createSubNetworkInterfaceTag.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'sub_network_interface_id': subNetworkInterfaceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3182,6 +3623,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除指定辅助弹性网卡资源实例的标签信息
+         * 该接口为幂等接口：删除的key不存在报404，key不能为空或者空字符串。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSubNetworkInterfaceTag(deleteSubNetworkInterfaceTagRequest?: DeleteSubNetworkInterfaceTagRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/sub-network-interfaces/{sub_network_interface_id}/tags/{tag_key}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let subNetworkInterfaceId;
+            
+            let tagKey;
+
+            if (deleteSubNetworkInterfaceTagRequest !== null && deleteSubNetworkInterfaceTagRequest !== undefined) {
+                if (deleteSubNetworkInterfaceTagRequest instanceof DeleteSubNetworkInterfaceTagRequest) {
+                    subNetworkInterfaceId = deleteSubNetworkInterfaceTagRequest.subNetworkInterfaceId;
+                    tagKey = deleteSubNetworkInterfaceTagRequest.tagKey;
+                } else {
+                    subNetworkInterfaceId = deleteSubNetworkInterfaceTagRequest['sub_network_interface_id'];
+                    tagKey = deleteSubNetworkInterfaceTagRequest['tag_key'];
+                }
+            }
+
+        
+            if (subNetworkInterfaceId === null || subNetworkInterfaceId === undefined) {
+            throw new RequiredError('subNetworkInterfaceId','Required parameter subNetworkInterfaceId was null or undefined when calling deleteSubNetworkInterfaceTag.');
+            }
+            if (tagKey === null || tagKey === undefined) {
+            throw new RequiredError('tagKey','Required parameter tagKey was null or undefined when calling deleteSubNetworkInterfaceTag.');
+            }
+
+            options.pathParams = { 'sub_network_interface_id': subNetworkInterfaceId,'tag_key': tagKey, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除流量镜像筛选条件
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3325,6 +3811,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'virsubnet_cidr_reservation_id': virsubnetCidrReservationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 辅助弹性网卡支持从云服务器网卡之间迁移，用户可以通过此接口从云服务器网卡中解绑辅助弹性网卡，再绑定辅助弹性网卡到其他云服务器网卡上。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        detachSubNetworkInterface(detachSubNetworkInterfaceRequest?: DetachSubNetworkInterfaceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/vpc/sub-network-interfaces/{sub_network_interface_id}/detach",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let subNetworkInterfaceId;
+
+            if (detachSubNetworkInterfaceRequest !== null && detachSubNetworkInterfaceRequest !== undefined) {
+                if (detachSubNetworkInterfaceRequest instanceof DetachSubNetworkInterfaceRequest) {
+                    subNetworkInterfaceId = detachSubNetworkInterfaceRequest.subNetworkInterfaceId;
+                } else {
+                    subNetworkInterfaceId = detachSubNetworkInterfaceRequest['sub_network_interface_id'];
+                }
+            }
+
+        
+            if (subNetworkInterfaceId === null || subNetworkInterfaceId === undefined) {
+            throw new RequiredError('subNetworkInterfaceId','Required parameter subNetworkInterfaceId was null or undefined when calling detachSubNetworkInterface.');
+            }
+
+            options.pathParams = { 'sub_network_interface_id': subNetworkInterfaceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3787,6 +4310,27 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询租户在指定项目下，辅助弹性网卡资源的所有标签信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSubNetworkInterfaceTags() {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/sub-network-interfaces/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询辅助弹性网卡列表，单次查询最多返回2000条数据
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3874,6 +4418,56 @@ export const ParamCreater = function () {
                 localVarQueryParameter['parent_id'] = parentId;
             }
 
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 使用标签过滤，查询辅助弹性网卡实例列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSubNetworkInterfacesByTags(listSubNetworkInterfacesByTagsRequest?: ListSubNetworkInterfacesByTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/sub-network-interfaces/resource-instances/filter",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let limit;
+            
+            let offset;
+
+            if (listSubNetworkInterfacesByTagsRequest !== null && listSubNetworkInterfacesByTagsRequest !== undefined) {
+                if (listSubNetworkInterfacesByTagsRequest instanceof ListSubNetworkInterfacesByTagsRequest) {
+                    limit = listSubNetworkInterfacesByTagsRequest.limit;
+                    offset = listSubNetworkInterfacesByTagsRequest.offset;
+                    body = listSubNetworkInterfacesByTagsRequest.body
+                } else {
+                    limit = listSubNetworkInterfacesByTagsRequest['limit'];
+                    offset = listSubNetworkInterfacesByTagsRequest['offset'];
+                    body = listSubNetworkInterfacesByTagsRequest['body'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
@@ -4729,6 +5323,43 @@ export const ParamCreater = function () {
         
             if (subNetworkInterfaceId === null || subNetworkInterfaceId === undefined) {
             throw new RequiredError('subNetworkInterfaceId','Required parameter subNetworkInterfaceId was null or undefined when calling showSubNetworkInterface.');
+            }
+
+            options.pathParams = { 'sub_network_interface_id': subNetworkInterfaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定辅助弹性网卡实例的标签信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSubNetworkInterfaceTags(showSubNetworkInterfaceTagsRequest?: ShowSubNetworkInterfaceTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/sub-network-interfaces/{sub_network_interface_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let subNetworkInterfaceId;
+
+            if (showSubNetworkInterfaceTagsRequest !== null && showSubNetworkInterfaceTagsRequest !== undefined) {
+                if (showSubNetworkInterfaceTagsRequest instanceof ShowSubNetworkInterfaceTagsRequest) {
+                    subNetworkInterfaceId = showSubNetworkInterfaceTagsRequest.subNetworkInterfaceId;
+                } else {
+                    subNetworkInterfaceId = showSubNetworkInterfaceTagsRequest['sub_network_interface_id'];
+                }
+            }
+
+        
+            if (subNetworkInterfaceId === null || subNetworkInterfaceId === undefined) {
+            throw new RequiredError('subNetworkInterfaceId','Required parameter subNetworkInterfaceId was null or undefined when calling showSubNetworkInterfaceTags.');
             }
 
             options.pathParams = { 'sub_network_interface_id': subNetworkInterfaceId, };

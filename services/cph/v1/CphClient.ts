@@ -6,6 +6,13 @@ import { AddImageMemberRequest } from './model/AddImageMemberRequest';
 import { AddImageMemberRequestBody } from './model/AddImageMemberRequestBody';
 import { AddImageMemberResponse } from './model/AddImageMemberResponse';
 import { Address } from './model/Address';
+import { AttachShareFilesystemRequest } from './model/AttachShareFilesystemRequest';
+import { AttachShareFilesystemRequestBody } from './model/AttachShareFilesystemRequestBody';
+import { AttachShareFilesystemResponse } from './model/AttachShareFilesystemResponse';
+import { AttachShareFilesystemResponseBody200Jobs } from './model/AttachShareFilesystemResponseBody200Jobs';
+import { AuthorizeScheduledEventRequest } from './model/AuthorizeScheduledEventRequest';
+import { AuthorizeScheduledEventRequestBody } from './model/AuthorizeScheduledEventRequestBody';
+import { AuthorizeScheduledEventResponse } from './model/AuthorizeScheduledEventResponse';
 import { Bandwidth } from './model/Bandwidth';
 import { BatchCreateTagsRequest } from './model/BatchCreateTagsRequest';
 import { BatchCreateTagsRequestBody } from './model/BatchCreateTagsRequestBody';
@@ -66,6 +73,9 @@ import { DeleteShareAppsResponse } from './model/DeleteShareAppsResponse';
 import { DeleteShareFilesRequest } from './model/DeleteShareFilesRequest';
 import { DeleteShareFilesRequestBody } from './model/DeleteShareFilesRequestBody';
 import { DeleteShareFilesResponse } from './model/DeleteShareFilesResponse';
+import { DetachShareFilesystemRequest } from './model/DetachShareFilesystemRequest';
+import { DetachShareFilesystemRequestBody } from './model/DetachShareFilesystemRequestBody';
+import { DetachShareFilesystemResponse } from './model/DetachShareFilesystemResponse';
 import { EncodeServer } from './model/EncodeServer';
 import { EncodeServerAccessInfo } from './model/EncodeServerAccessInfo';
 import { EncodeServerJob } from './model/EncodeServerJob';
@@ -81,10 +91,16 @@ import { InstallApkResponse } from './model/InstallApkResponse';
 import { Job } from './model/Job';
 import { ListCloudPhoneImagesRequest } from './model/ListCloudPhoneImagesRequest';
 import { ListCloudPhoneImagesResponse } from './model/ListCloudPhoneImagesResponse';
+import { ListCloudPhoneImagesResponseBodyPageInfo } from './model/ListCloudPhoneImagesResponseBodyPageInfo';
 import { ListCloudPhoneModelsRequest } from './model/ListCloudPhoneModelsRequest';
 import { ListCloudPhoneModelsResponse } from './model/ListCloudPhoneModelsResponse';
+import { ListCloudPhoneServerModelOfferingsRequest } from './model/ListCloudPhoneServerModelOfferingsRequest';
+import { ListCloudPhoneServerModelOfferingsResponse } from './model/ListCloudPhoneServerModelOfferingsResponse';
 import { ListCloudPhoneServerModelsRequest } from './model/ListCloudPhoneServerModelsRequest';
 import { ListCloudPhoneServerModelsResponse } from './model/ListCloudPhoneServerModelsResponse';
+import { ListCloudPhoneServerModelsResponseBodyPageInfo } from './model/ListCloudPhoneServerModelsResponseBodyPageInfo';
+import { ListCloudPhoneServersModelOfferingsResponseBodyModels } from './model/ListCloudPhoneServersModelOfferingsResponseBodyModels';
+import { ListCloudPhoneServersModelOfferingsResponseBodyPageInfo } from './model/ListCloudPhoneServersModelOfferingsResponseBodyPageInfo';
 import { ListCloudPhoneServersRequest } from './model/ListCloudPhoneServersRequest';
 import { ListCloudPhoneServersResponse } from './model/ListCloudPhoneServersResponse';
 import { ListCloudPhonesRequest } from './model/ListCloudPhonesRequest';
@@ -106,6 +122,12 @@ import { ListResourceInstancesRequestBody } from './model/ListResourceInstancesR
 import { ListResourceInstancesResponse } from './model/ListResourceInstancesResponse';
 import { ListResourceTagsRequest } from './model/ListResourceTagsRequest';
 import { ListResourceTagsResponse } from './model/ListResourceTagsResponse';
+import { ListScheduledEventsRequest } from './model/ListScheduledEventsRequest';
+import { ListScheduledEventsResponse } from './model/ListScheduledEventsResponse';
+import { ListScheduledEventsResponseBodyScheduledEvents } from './model/ListScheduledEventsResponseBodyScheduledEvents';
+import { ListShareAppsSnapshotRequest } from './model/ListShareAppsSnapshotRequest';
+import { ListShareAppsSnapshotResponse } from './model/ListShareAppsSnapshotResponse';
+import { ListShareAppsSnapshotResponseBodyShareApps } from './model/ListShareAppsSnapshotResponseBodyShareApps';
 import { ListShareFilesRequest } from './model/ListShareFilesRequest';
 import { ListShareFilesResponse } from './model/ListShareFilesResponse';
 import { Match } from './model/Match';
@@ -135,6 +157,7 @@ import { PushShareFilesResponse } from './model/PushShareFilesResponse';
 import { ResetCloudPhoneRequest } from './model/ResetCloudPhoneRequest';
 import { ResetCloudPhoneRequestBody } from './model/ResetCloudPhoneRequestBody';
 import { ResetCloudPhoneResponse } from './model/ResetCloudPhoneResponse';
+import { ResetPhoneProperty } from './model/ResetPhoneProperty';
 import { Resource } from './model/Resource';
 import { RestartCloudPhoneRequest } from './model/RestartCloudPhoneRequest';
 import { RestartCloudPhoneRequestBody } from './model/RestartCloudPhoneRequestBody';
@@ -195,6 +218,9 @@ import { UpdateKeypairResponse } from './model/UpdateKeypairResponse';
 import { UpdatePhoneNameRequest } from './model/UpdatePhoneNameRequest';
 import { UpdatePhoneNameRequestBody } from './model/UpdatePhoneNameRequestBody';
 import { UpdatePhoneNameResponse } from './model/UpdatePhoneNameResponse';
+import { UpdateScheduledEventRequest } from './model/UpdateScheduledEventRequest';
+import { UpdateScheduledEventRequestBody } from './model/UpdateScheduledEventRequestBody';
+import { UpdateScheduledEventResponse } from './model/UpdateScheduledEventResponse';
 import { UpdateServerNameRequest } from './model/UpdateServerNameRequest';
 import { UpdateServerNameRequestBody } from './model/UpdateServerNameRequestBody';
 import { UpdateServerNameResponse } from './model/UpdateServerNameResponse';
@@ -239,12 +265,51 @@ export class CphClient {
     }
 
     /**
+     * 将指定的共享文件系统挂载到多个云手机服务器。单个共享文件系统同时挂载的服务器数量建议不超过50台。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 挂载共享文件系统
+     * @param {AttachShareFilesystemRequestBody} attachShareFilesystemRequestBody 挂载共享文件系统请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public attachShareFilesystem(attachShareFilesystemRequest?: AttachShareFilesystemRequest): Promise<AttachShareFilesystemResponse> {
+        const options = ParamCreater().attachShareFilesystem(attachShareFilesystemRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 授权计划事件。当系统上报计划事件时，需要对服务器进行“授权维护”操作。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 授权计划事件
+     * @param {string} eventId 计划事件id。
+     * @param {AuthorizeScheduledEventRequestBody} [acceptScheduledEventRequestBody] 授权计划事件请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public authorizeScheduledEvent(authorizeScheduledEventRequest?: AuthorizeScheduledEventRequest): Promise<AuthorizeScheduledEventResponse> {
+        const options = ParamCreater().authorizeScheduledEvent(authorizeScheduledEventRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量添加标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加标签
-     * @param {'cph-server'} resourceType 资源类型。  - cph-server，云手机服务器
+     * @param {'cph-server' | 'elastic-cloud-phone'} resourceType 资源类型。  - cph-server，云手机服务器 [- elastic-cloud-phone, 弹性云手机实例](tag:hws_test)
      * @param {string} resourceId 资源ID。
      * @param {BatchCreateTagsRequestBody} batchCreateTagsRequestBody 批量创建标签请求体
      * @param {*} [options] Override http request option.
@@ -265,7 +330,7 @@ export class CphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除标签
-     * @param {'cph-server'} resourceType 资源类型。  - cph-server，云手机服务器
+     * @param {'cph-server' | 'elastic-cloud-phone'} resourceType 资源类型。  - cph-server，云手机服务器 [- elastic-cloud-phone, 弹性云手机实例](tag:hws_test)
      * @param {string} resourceId 资源ID。
      * @param {BatchDeleteTagsRequestBody} batchDeleteTagsRequestBody 批量删除标签请求体
      * @param {*} [options] Override http request option.
@@ -281,7 +346,7 @@ export class CphClient {
     }
 
     /**
-     * 批量导出云手机中的数据。该接口为异步接口。[接口调用前请先确保已完成CPH服务操作OBS桶的委托授权。委托CPH操作OBS桶请参见[委托CPH操作OBS桶](https://support.huaweicloud.com/bestpractice-cph/cph_bp_0050.html)。](tag:hws)
+     * 批量导出云手机中的数据，不支持导出共享应用及其数据文件。该接口为异步接口。[接口调用前请先确保已完成CPH服务操作OBS桶的委托授权。委托CPH操作OBS桶请参见[委托CPH操作OBS桶](https://support.huaweicloud.com/bestpractice-cph/cph_bp_0050.html)。](tag:hws)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -381,7 +446,7 @@ export class CphClient {
     }
 
     /**
-     * 该接口创建的服务器仅包含服务器和服务器的镜像，不包含云手机实例和镜像等内容。若需要创建包含云手机实例的服务器，请使用创建云手机服务器接口。
+     * 该接口创建的服务器仅包含服务器和服务器的镜像，不包含云手机实例和镜像等内容。若需创建包含云手机实例的服务器，请使用创建云手机服务器接口。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -518,6 +583,25 @@ export class CphClient {
     }
 
     /**
+     * 卸载多个云手机服务器上的共享文件系统
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 卸载共享文件系统
+     * @param {DetachShareFilesystemRequestBody} detachShareFilesystemRequestBody 卸载共享文件系统请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public detachShareFilesystem(detachShareFilesystemRequest?: DetachShareFilesystemRequest): Promise<DetachShareFilesystemResponse> {
+        const options = ParamCreater().detachShareFilesystem(detachShareFilesystemRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 扩容云手机数据盘大小
      * [- 注意: 本接口会产生扩容新增容量的费用，新增容量不算入服务器免费存储额度内。](tag:hc,hk,cmcc,ctc)
      * 
@@ -563,6 +647,8 @@ export class CphClient {
      *
      * @summary 查询手机镜像
      * @param {string} [imageType] 镜像类型 公共镜像：public 私有镜像：private 共享镜像：share 所有类型镜像：all
+     * @param {string} [marker] 分页标记。
+     * @param {number} [limit] 每页返回的镜像个数。取值范围：1~500（默认值为500），一般设置为10、20、50。 当image_type传all时，分页返回顺序按公共镜像：public 私有镜像，private 共享镜像：share
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -597,12 +683,34 @@ export class CphClient {
     }
 
     /**
+     * 查询客户有权限的可用区，及可用区内支持的服务器规格售卖状态列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询云手机服务器规格售卖状态列表
+     * @param {string} [marker] 分页标记。从marker指定的下一条数据开始查询。
+     * @param {number} [limit] 最小值1，最大值1000，默认为100。返回的结果中记录数不超过limit值。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCloudPhoneServerModelOfferings(listCloudPhoneServerModelOfferingsRequest?: ListCloudPhoneServerModelOfferingsRequest): Promise<ListCloudPhoneServerModelOfferingsResponse> {
+        const options = ParamCreater().listCloudPhoneServerModelOfferings(listCloudPhoneServerModelOfferingsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询云手机服务器的规格列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询云手机服务器规格列表
      * @param {number} [productType] 产品类型。 - 0：云手机 - 1：云手游
+     * @param {string} [marker] 分页标记。
+     * @param {number} [limit] 每页返回的服务器规格个数。取值范围：1~100（默认值为100），一般设置为10、20、50。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -698,6 +806,8 @@ export class CphClient {
      *
      * @summary 获取镜像已共享账号列表
      * @param {string} imageId 镜像id。
+     * @param {string} [marker] 分页标记。
+     * @param {number} [limit] 每页返回的共享账号个数。取值范围：1~100（默认值为100），一般设置为10、20、50。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -765,7 +875,7 @@ export class CphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询项目标签
-     * @param {'cph-server'} resourceType 资源类型。  - cph-server，云手机服务器
+     * @param {'cph-server' | 'elastic-cloud-phone'} resourceType 资源类型。  - cph-server，云手机服务器 [- elastic-cloud-phone, 弹性云手机实例](tag:hws_test)
      * @param {number} [limit] 每页返回的资源个数。取值范围：1~100（默认值为100），一般设置为10、20、50。
      * @param {number} [offset] 索引位置，从第一条数据偏移offset条数据后开始查询，默认为0（偏移0条数据，表示从第一条数据开始查询）,必须为数字，不能为负数
      * @param {*} [options] Override http request option.
@@ -786,7 +896,7 @@ export class CphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源实例
-     * @param {'cph-server'} resourceType 资源类型。  - cph-server，云手机服务器
+     * @param {'cph-server' | 'elastic-cloud-phone'} resourceType 资源类型。  - cph-server，云手机服务器 [- elastic-cloud-phone, 弹性云手机实例](tag:hws_test)
      * @param {ListResourceInstancesRequestBody} listResourceInstancesRequestBody 批量创建删除标签请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -806,13 +916,66 @@ export class CphClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源标签
-     * @param {'cph-server'} resourceType 资源类型。  - cph-server，云手机服务器
+     * @param {'cph-server' | 'elastic-cloud-phone'} resourceType 资源类型。  - cph-server，云手机服务器 [- elastic-cloud-phone, 弹性云手机实例](tag:hws_test)
      * @param {string} resourceId 资源ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listResourceTags(listResourceTagsRequest?: ListResourceTagsRequest): Promise<ListResourceTagsResponse> {
         const options = ParamCreater().listResourceTags(listResourceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询服务器计划事件列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询计划事件列表
+     * @param {number} [limit] 每页返回的事件个数。取值范围：1~100（默认值为10）
+     * @param {string} [marker] 分页标记。从marker指定的下一条数据开始查询。
+     * @param {string} [eventId] 计划事件id。
+     * @param {string} [serverId] 云手机服务器的唯一标识。
+     * @param {string} [publishSince] 事件发布开始时间，按照时间范围过滤。
+     * @param {string} [publishUntil] 事件发布结束时间，按照时间范围过滤。
+     * @param {Array<string>} [state] 计划事件状态。支持多值查询过滤。 取值范围： inquiring: 待授权、 scheduled：待执行、 executing：执行中、 completed：执行成功、 failed：执行失败、 canceled：取消
+     * @param {Array<string>} [type] 计划事件类型。支持多值查询过滤。取值范围： localdisk-recovery：本地盘换盘、 system-maintenance：系统维护
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listScheduledEvents(listScheduledEventsRequest?: ListScheduledEventsRequest): Promise<ListScheduledEventsResponse> {
+        const options = ParamCreater().listScheduledEvents(listScheduledEventsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口查询云手机服务器上最新采集的已安装的共享应用快照，采集在云手机服务器上定时每两小时执行一次。
+     * 注意存在以下限制：
+     * 1.云手机服务器安装不同的共享应用数量不能超过10000个，超过限制不会采集该服务器数据。
+     * 2.推送安装的共享应用包名只包含大小写字母、数字、下划线、点，不能以数字和下划线开头，点不能作为结尾且包名中至少有一个点，点后必须以字母开头，长度不超过128。不符合该限制的共享应用包名不会采集。
+     * 3.推送安装的共享应用版本只包含字母、数字、连字符、下划线、点，无空格，不能以连字符、点开头，长度不超过32。不符合该限制的共享应用包版本不会采集。
+     * 4.同一个服务器上同一个已安装的共享应用版本建议不要超过60个。超过会影响该应用的采集。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询服务器已安装共享应用列表
+     * @param {string} serverId 云手机服务器的唯一标识。
+     * @param {number} [limit] 每页返回的资源个数。取值范围：1~500（默认值为100）。
+     * @param {string} [marker] 分页标记。
+     * @param {string} [packageName] 应用包名称，只包含大小写字母、数字、下划线、点，不能以数字和下划线开头，点不能作为结尾且包名中至少有一个点，长度不超过128
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listShareAppsSnapshot(listShareAppsSnapshotRequest?: ListShareAppsSnapshotRequest): Promise<ListShareAppsSnapshotResponse> {
+        const options = ParamCreater().listShareAppsSnapshot(listShareAppsSnapshotRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1094,7 +1257,7 @@ export class CphClient {
     }
 
     /**
-     * 用户收到共享镜像后，选择接受或拒绝共享镜像。未接受的共享镜像无法使用。
+     * 用户收到共享镜像后，选择接受或者拒绝共享镜像。未接受的共享镜像无法使用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1153,6 +1316,26 @@ export class CphClient {
     }
 
     /**
+     * 更新计划事件的执行开始时间。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改计划事件预约时间
+     * @param {string} eventId 计划事件id。
+     * @param {UpdateScheduledEventRequestBody} [updateScheduledEventRequestBody] 修改计划事件预约时间请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateScheduledEvent(updateScheduledEventRequest?: UpdateScheduledEventRequest): Promise<UpdateScheduledEventResponse> {
+        const options = ParamCreater().updateScheduledEvent(updateScheduledEventRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据serverId修改serverName。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1174,7 +1357,7 @@ export class CphClient {
 
     /**
      * 在云手机中安装apk。系统会将指定的apk文件下载后直接安装到云手机中。
-     * 支持安装单apk应用和多apk应用。可使用install命令安装单apk应用，一次只支持安装一个apk，如果一次传多个apk只有第一个安装成功；可使用install-multiple命令安装多apk应用（多apk应用为单个应用拆分成多个apk），一次只支持同一个应用的多个apk。该接口为异步接口。[接口调用前请先确保已完成CPH服务操作OBS桶的委托授权。委托CPH操作OBS桶请参见[委托CPH操作OBS桶](https://support.huaweicloud.com/bestpractice-cph/cph_bp_0050.html)。](tag:hws)
+     * 支持安装单apk应用和多apk应用。可使用install命令安装单apk应用，一次只支持安装一个apk，只能传一个apk；可使用install-multiple命令安装多apk应用（多apk应用为单个应用拆分成多个apk），一次只支持同一个应用的多个apk。该接口为异步接口。[接口调用前请先确保已完成CPH服务操作OBS桶的委托授权。委托CPH操作OBS桶请参见[委托CPH操作OBS桶](https://support.huaweicloud.com/bestpractice-cph/cph_bp_0050.html)。](tag:hws)
      * - 管理面性能有限，对相同服务器批量执行的ADB命令，将会阻塞云手机其他任务执行。
      * - 允许安装的apk大小限制为2G（即不可将obs桶内大于2G的apk安装到手机中），超过限制将返回错误。
      * 
@@ -1328,6 +1511,87 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 将指定的共享文件系统挂载到多个云手机服务器。单个共享文件系统同时挂载的服务器数量建议不超过50台。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        attachShareFilesystem(attachShareFilesystemRequest?: AttachShareFilesystemRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/servers/attach-share-filesystem",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (attachShareFilesystemRequest !== null && attachShareFilesystemRequest !== undefined) {
+                if (attachShareFilesystemRequest instanceof AttachShareFilesystemRequest) {
+                    body = attachShareFilesystemRequest.body
+                } else {
+                    body = attachShareFilesystemRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 授权计划事件。当系统上报计划事件时，需要对服务器进行“授权维护”操作。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        authorizeScheduledEvent(authorizeScheduledEventRequest?: AuthorizeScheduledEventRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cloud-phone/scheduled-events/{event_id}/authorize",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let eventId;
+
+            if (authorizeScheduledEventRequest !== null && authorizeScheduledEventRequest !== undefined) {
+                if (authorizeScheduledEventRequest instanceof AuthorizeScheduledEventRequest) {
+                    eventId = authorizeScheduledEventRequest.eventId;
+                    body = authorizeScheduledEventRequest.body
+                } else {
+                    eventId = authorizeScheduledEventRequest['event_id'];
+                    body = authorizeScheduledEventRequest['body'];
+                }
+            }
+
+        
+            if (eventId === null || eventId === undefined) {
+            throw new RequiredError('eventId','Required parameter eventId was null or undefined when calling authorizeScheduledEvent.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'event_id': eventId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量添加标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1434,7 +1698,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量导出云手机中的数据。该接口为异步接口。[接口调用前请先确保已完成CPH服务操作OBS桶的委托授权。委托CPH操作OBS桶请参见[委托CPH操作OBS桶](https://support.huaweicloud.com/bestpractice-cph/cph_bp_0050.html)。](tag:hws)
+         * 批量导出云手机中的数据，不支持导出共享应用及其数据文件。该接口为异步接口。[接口调用前请先确保已完成CPH服务操作OBS桶的委托授权。委托CPH操作OBS桶请参见[委托CPH操作OBS桶](https://support.huaweicloud.com/bestpractice-cph/cph_bp_0050.html)。](tag:hws)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1636,7 +1900,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口创建的服务器仅包含服务器和服务器的镜像，不包含云手机实例和镜像等内容。若需要创建包含云手机实例的服务器，请使用创建云手机服务器接口。
+         * 该接口创建的服务器仅包含服务器和服务器的镜像，不包含云手机实例和镜像等内容。若需创建包含云手机实例的服务器，请使用创建云手机服务器接口。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1910,6 +2174,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 卸载多个云手机服务器上的共享文件系统
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        detachShareFilesystem(detachShareFilesystemRequest?: DetachShareFilesystemRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/servers/detach-share-filesystem",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (detachShareFilesystemRequest !== null && detachShareFilesystemRequest !== undefined) {
+                if (detachShareFilesystemRequest instanceof DetachShareFilesystemRequest) {
+                    body = detachShareFilesystemRequest.body
+                } else {
+                    body = detachShareFilesystemRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 扩容云手机数据盘大小
          * [- 注意: 本接口会产生扩容新增容量的费用，新增容量不算入服务器免费存储额度内。](tag:hc,hk,cmcc,ctc)
          * 
@@ -2004,18 +2306,32 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let imageType;
+            
+            let marker;
+            
+            let limit;
 
             if (listCloudPhoneImagesRequest !== null && listCloudPhoneImagesRequest !== undefined) {
                 if (listCloudPhoneImagesRequest instanceof ListCloudPhoneImagesRequest) {
                     imageType = listCloudPhoneImagesRequest.imageType;
+                    marker = listCloudPhoneImagesRequest.marker;
+                    limit = listCloudPhoneImagesRequest.limit;
                 } else {
                     imageType = listCloudPhoneImagesRequest['image_type'];
+                    marker = listCloudPhoneImagesRequest['marker'];
+                    limit = listCloudPhoneImagesRequest['limit'];
                 }
             }
 
         
             if (imageType !== null && imageType !== undefined) {
                 localVarQueryParameter['image_type'] = imageType;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2075,6 +2391,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询客户有权限的可用区，及可用区内支持的服务器规格售卖状态列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCloudPhoneServerModelOfferings(listCloudPhoneServerModelOfferingsRequest?: ListCloudPhoneServerModelOfferingsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/server-model-offerings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let marker;
+            
+            let limit;
+
+            if (listCloudPhoneServerModelOfferingsRequest !== null && listCloudPhoneServerModelOfferingsRequest !== undefined) {
+                if (listCloudPhoneServerModelOfferingsRequest instanceof ListCloudPhoneServerModelOfferingsRequest) {
+                    marker = listCloudPhoneServerModelOfferingsRequest.marker;
+                    limit = listCloudPhoneServerModelOfferingsRequest.limit;
+                } else {
+                    marker = listCloudPhoneServerModelOfferingsRequest['marker'];
+                    limit = listCloudPhoneServerModelOfferingsRequest['limit'];
+                }
+            }
+
+        
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询云手机服务器的规格列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2092,18 +2452,32 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let productType;
+            
+            let marker;
+            
+            let limit;
 
             if (listCloudPhoneServerModelsRequest !== null && listCloudPhoneServerModelsRequest !== undefined) {
                 if (listCloudPhoneServerModelsRequest instanceof ListCloudPhoneServerModelsRequest) {
                     productType = listCloudPhoneServerModelsRequest.productType;
+                    marker = listCloudPhoneServerModelsRequest.marker;
+                    limit = listCloudPhoneServerModelsRequest.limit;
                 } else {
                     productType = listCloudPhoneServerModelsRequest['product_type'];
+                    marker = listCloudPhoneServerModelsRequest['marker'];
+                    limit = listCloudPhoneServerModelsRequest['limit'];
                 }
             }
 
         
             if (productType !== null && productType !== undefined) {
                 localVarQueryParameter['product_type'] = productType;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2358,15 +2732,23 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let imageId;
+            
+            let marker;
+            
+            let limit;
 
             if (listImageMembersRequest !== null && listImageMembersRequest !== undefined) {
                 if (listImageMembersRequest instanceof ListImageMembersRequest) {
                     imageId = listImageMembersRequest.imageId;
+                    marker = listImageMembersRequest.marker;
+                    limit = listImageMembersRequest.limit;
                 } else {
                     imageId = listImageMembersRequest['image_id'];
+                    marker = listImageMembersRequest['marker'];
+                    limit = listImageMembersRequest['limit'];
                 }
             }
 
@@ -2374,7 +2756,14 @@ export const ParamCreater = function () {
             if (imageId === null || imageId === undefined) {
             throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling listImageMembers.');
             }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'image_id': imageId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -2669,6 +3058,156 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询服务器计划事件列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listScheduledEvents(listScheduledEventsRequest?: ListScheduledEventsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cloud-phone/scheduled-events",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let eventId;
+            
+            let serverId;
+            
+            let publishSince;
+            
+            let publishUntil;
+            
+            let state;
+            
+            let type;
+
+            if (listScheduledEventsRequest !== null && listScheduledEventsRequest !== undefined) {
+                if (listScheduledEventsRequest instanceof ListScheduledEventsRequest) {
+                    limit = listScheduledEventsRequest.limit;
+                    marker = listScheduledEventsRequest.marker;
+                    eventId = listScheduledEventsRequest.eventId;
+                    serverId = listScheduledEventsRequest.serverId;
+                    publishSince = listScheduledEventsRequest.publishSince;
+                    publishUntil = listScheduledEventsRequest.publishUntil;
+                    state = listScheduledEventsRequest.state;
+                    type = listScheduledEventsRequest.type;
+                } else {
+                    limit = listScheduledEventsRequest['limit'];
+                    marker = listScheduledEventsRequest['marker'];
+                    eventId = listScheduledEventsRequest['event_id'];
+                    serverId = listScheduledEventsRequest['server_id'];
+                    publishSince = listScheduledEventsRequest['publish_since'];
+                    publishUntil = listScheduledEventsRequest['publish_until'];
+                    state = listScheduledEventsRequest['state'];
+                    type = listScheduledEventsRequest['type'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (eventId !== null && eventId !== undefined) {
+                localVarQueryParameter['event_id'] = eventId;
+            }
+            if (serverId !== null && serverId !== undefined) {
+                localVarQueryParameter['server_id'] = serverId;
+            }
+            if (publishSince !== null && publishSince !== undefined) {
+                localVarQueryParameter['publish_since'] = publishSince;
+            }
+            if (publishUntil !== null && publishUntil !== undefined) {
+                localVarQueryParameter['publish_until'] = publishUntil;
+            }
+            if (state !== null && state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口查询云手机服务器上最新采集的已安装的共享应用快照，采集在云手机服务器上定时每两小时执行一次。
+         * 注意存在以下限制：
+         * 1.云手机服务器安装不同的共享应用数量不能超过10000个，超过限制不会采集该服务器数据。
+         * 2.推送安装的共享应用包名只包含大小写字母、数字、下划线、点，不能以数字和下划线开头，点不能作为结尾且包名中至少有一个点，点后必须以字母开头，长度不超过128。不符合该限制的共享应用包名不会采集。
+         * 3.推送安装的共享应用版本只包含字母、数字、连字符、下划线、点，无空格，不能以连字符、点开头，长度不超过32。不符合该限制的共享应用包版本不会采集。
+         * 4.同一个服务器上同一个已安装的共享应用版本建议不要超过60个。超过会影响该应用的采集。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listShareAppsSnapshot(listShareAppsSnapshotRequest?: ListShareAppsSnapshotRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/servers/{server_id}/share-apps-snapshot",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let serverId;
+            
+            let limit;
+            
+            let marker;
+            
+            let packageName;
+
+            if (listShareAppsSnapshotRequest !== null && listShareAppsSnapshotRequest !== undefined) {
+                if (listShareAppsSnapshotRequest instanceof ListShareAppsSnapshotRequest) {
+                    serverId = listShareAppsSnapshotRequest.serverId;
+                    limit = listShareAppsSnapshotRequest.limit;
+                    marker = listShareAppsSnapshotRequest.marker;
+                    packageName = listShareAppsSnapshotRequest.packageName;
+                } else {
+                    serverId = listShareAppsSnapshotRequest['server_id'];
+                    limit = listShareAppsSnapshotRequest['limit'];
+                    marker = listShareAppsSnapshotRequest['marker'];
+                    packageName = listShareAppsSnapshotRequest['package_name'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling listShareAppsSnapshot.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (packageName !== null && packageName !== undefined) {
+                localVarQueryParameter['package_name'] = packageName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'server_id': serverId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3245,7 +3784,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用户收到共享镜像后，选择接受或拒绝共享镜像。未接受的共享镜像无法使用。
+         * 用户收到共享镜像后，选择接受或者拒绝共享镜像。未接受的共享镜像无法使用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3375,6 +3914,49 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 更新计划事件的执行开始时间。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateScheduledEvent(updateScheduledEventRequest?: UpdateScheduledEventRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/cloud-phone/scheduled-events/{event_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let eventId;
+
+            if (updateScheduledEventRequest !== null && updateScheduledEventRequest !== undefined) {
+                if (updateScheduledEventRequest instanceof UpdateScheduledEventRequest) {
+                    eventId = updateScheduledEventRequest.eventId;
+                    body = updateScheduledEventRequest.body
+                } else {
+                    eventId = updateScheduledEventRequest['event_id'];
+                    body = updateScheduledEventRequest['body'];
+                }
+            }
+
+        
+            if (eventId === null || eventId === undefined) {
+            throw new RequiredError('eventId','Required parameter eventId was null or undefined when calling updateScheduledEvent.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'event_id': eventId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据serverId修改serverName。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3422,7 +4004,7 @@ export const ParamCreater = function () {
     
         /**
          * 在云手机中安装apk。系统会将指定的apk文件下载后直接安装到云手机中。
-         * 支持安装单apk应用和多apk应用。可使用install命令安装单apk应用，一次只支持安装一个apk，如果一次传多个apk只有第一个安装成功；可使用install-multiple命令安装多apk应用（多apk应用为单个应用拆分成多个apk），一次只支持同一个应用的多个apk。该接口为异步接口。[接口调用前请先确保已完成CPH服务操作OBS桶的委托授权。委托CPH操作OBS桶请参见[委托CPH操作OBS桶](https://support.huaweicloud.com/bestpractice-cph/cph_bp_0050.html)。](tag:hws)
+         * 支持安装单apk应用和多apk应用。可使用install命令安装单apk应用，一次只支持安装一个apk，只能传一个apk；可使用install-multiple命令安装多apk应用（多apk应用为单个应用拆分成多个apk），一次只支持同一个应用的多个apk。该接口为异步接口。[接口调用前请先确保已完成CPH服务操作OBS桶的委托授权。委托CPH操作OBS桶请参见[委托CPH操作OBS桶](https://support.huaweicloud.com/bestpractice-cph/cph_bp_0050.html)。](tag:hws)
          * - 管理面性能有限，对相同服务器批量执行的ADB命令，将会阻塞云手机其他任务执行。
          * - 允许安装的apk大小限制为2G（即不可将obs桶内大于2G的apk安装到手机中），超过限制将返回错误。
          * 

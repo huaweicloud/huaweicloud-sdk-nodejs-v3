@@ -16,6 +16,7 @@ export class ShowCloudPhoneDetailResponse extends SdkResponse {
     public status?: number;
     private 'access_infos'?: Array<PhoneAccessInfo>;
     public property?: string;
+    private 'custom_property'?: { [key: string]: string; };
     public metadata?: ShowCloudPhoneDetailResponseBodyMetadata;
     private 'phone_data_volume'?: PhoneDataVolume;
     public imei?: string;
@@ -126,6 +127,16 @@ export class ShowCloudPhoneDetailResponse extends SdkResponse {
     public withProperty(property: string): ShowCloudPhoneDetailResponse {
         this['property'] = property;
         return this;
+    }
+    public withCustomProperty(customProperty: { [key: string]: string; }): ShowCloudPhoneDetailResponse {
+        this['custom_property'] = customProperty;
+        return this;
+    }
+    public set customProperty(customProperty: { [key: string]: string; }  | undefined) {
+        this['custom_property'] = customProperty;
+    }
+    public get customProperty(): { [key: string]: string; } | undefined {
+        return this['custom_property'];
     }
     public withMetadata(metadata: ShowCloudPhoneDetailResponseBodyMetadata): ShowCloudPhoneDetailResponse {
         this['metadata'] = metadata;

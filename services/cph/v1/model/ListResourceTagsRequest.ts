@@ -34,5 +34,6 @@ export class ListResourceTagsRequest {
     * @enum {string}
     */
 export enum ListResourceTagsRequestResourceTypeEnum {
-    CPH_SERVER = 'cph-server'
+    CPH_SERVER = 'cph-server',
+    ELASTIC_CLOUD_PHONE = 'elastic-cloud-phone'
 }

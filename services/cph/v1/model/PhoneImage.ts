@@ -8,6 +8,7 @@ export class PhoneImage {
     private 'image_label'?: string;
     private 'image_id'?: string;
     private 'is_support_encrypt'?: boolean;
+    private 'receive_status'?: number;
     public constructor() { 
     }
     public withImageName(imageName: string): PhoneImage {
@@ -79,5 +80,15 @@ export class PhoneImage {
     }
     public get isSupportEncrypt(): boolean | undefined {
         return this['is_support_encrypt'];
+    }
+    public withReceiveStatus(receiveStatus: number): PhoneImage {
+        this['receive_status'] = receiveStatus;
+        return this;
+    }
+    public set receiveStatus(receiveStatus: number  | undefined) {
+        this['receive_status'] = receiveStatus;
+    }
+    public get receiveStatus(): number | undefined {
+        return this['receive_status'];
     }
 }

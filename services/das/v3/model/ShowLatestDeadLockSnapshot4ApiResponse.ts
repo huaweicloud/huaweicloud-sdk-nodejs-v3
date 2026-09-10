@@ -1,11 +1,11 @@
-import { MySQLDeadLock } from './MySQLDeadLock';
+import { MySQLLatestDeadLock } from './MySQLLatestDeadLock';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowLatestDeadLockSnapshot4ApiResponse extends SdkResponse {
     private 'find_lock'?: boolean;
     private 'happen_time'?: number;
-    private 'mysql_dead_lock'?: MySQLDeadLock;
+    private 'mysql_dead_lock'?: MySQLLatestDeadLock;
     public constructor() { 
         super();
     }
@@ -29,14 +29,14 @@ export class ShowLatestDeadLockSnapshot4ApiResponse extends SdkResponse {
     public get happenTime(): number | undefined {
         return this['happen_time'];
     }
-    public withMysqlDeadLock(mysqlDeadLock: MySQLDeadLock): ShowLatestDeadLockSnapshot4ApiResponse {
+    public withMysqlDeadLock(mysqlDeadLock: MySQLLatestDeadLock): ShowLatestDeadLockSnapshot4ApiResponse {
         this['mysql_dead_lock'] = mysqlDeadLock;
         return this;
     }
-    public set mysqlDeadLock(mysqlDeadLock: MySQLDeadLock  | undefined) {
+    public set mysqlDeadLock(mysqlDeadLock: MySQLLatestDeadLock  | undefined) {
         this['mysql_dead_lock'] = mysqlDeadLock;
     }
-    public get mysqlDeadLock(): MySQLDeadLock | undefined {
+    public get mysqlDeadLock(): MySQLLatestDeadLock | undefined {
         return this['mysql_dead_lock'];
     }
 }

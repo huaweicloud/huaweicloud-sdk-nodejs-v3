@@ -2,6 +2,8 @@
 
 export class ListCloudPhoneImagesRequest {
     private 'image_type'?: string;
+    public marker?: string;
+    public limit?: number;
     public constructor() { 
     }
     public withImageType(imageType: string): ListCloudPhoneImagesRequest {
@@ -13,5 +15,13 @@ export class ListCloudPhoneImagesRequest {
     }
     public get imageType(): string | undefined {
         return this['image_type'];
+    }
+    public withMarker(marker: string): ListCloudPhoneImagesRequest {
+        this['marker'] = marker;
+        return this;
+    }
+    public withLimit(limit: number): ListCloudPhoneImagesRequest {
+        this['limit'] = limit;
+        return this;
     }
 }

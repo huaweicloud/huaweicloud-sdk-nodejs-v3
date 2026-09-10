@@ -1,11 +1,22 @@
 
 
 export class TbPosInfo {
+    private 'schema_name'?: string;
     private 'origin_name'?: string;
     public name?: string;
     public start?: number;
     public end?: number;
     public constructor() { 
+    }
+    public withSchemaName(schemaName: string): TbPosInfo {
+        this['schema_name'] = schemaName;
+        return this;
+    }
+    public set schemaName(schemaName: string  | undefined) {
+        this['schema_name'] = schemaName;
+    }
+    public get schemaName(): string | undefined {
+        return this['schema_name'];
     }
     public withOriginName(originName: string): TbPosInfo {
         this['origin_name'] = originName;

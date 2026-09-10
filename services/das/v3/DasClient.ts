@@ -419,6 +419,7 @@ import { MetaLockInfo } from './model/MetaLockInfo';
 import { MetadataLock } from './model/MetadataLock';
 import { MultiNodesSingleMetricMetrics } from './model/MultiNodesSingleMetricMetrics';
 import { MySQLDeadLock } from './model/MySQLDeadLock';
+import { MySQLLatestDeadLock } from './model/MySQLLatestDeadLock';
 import { MySQLTransaction } from './model/MySQLTransaction';
 import { NodeInfo } from './model/NodeInfo';
 import { NodeWdrDto } from './model/NodeWdrDto';

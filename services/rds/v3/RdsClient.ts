@@ -9,6 +9,7 @@ import { AddLogConfigs } from './model/AddLogConfigs';
 import { AddMsdtcRequestBody } from './model/AddMsdtcRequestBody';
 import { AddPostgresqlHbaConfRequest } from './model/AddPostgresqlHbaConfRequest';
 import { AddPostgresqlHbaConfResponse } from './model/AddPostgresqlHbaConfResponse';
+import { AgencyRole } from './model/AgencyRole';
 import { Agreement } from './model/Agreement';
 import { AllowDbPrivilegeRequest } from './model/AllowDbPrivilegeRequest';
 import { AllowDbPrivilegeResponse } from './model/AllowDbPrivilegeResponse';
@@ -93,6 +94,8 @@ import { CheckInstanceForUpgradeResponse } from './model/CheckInstanceForUpgrade
 import { CheckWeakPasswordRequest } from './model/CheckWeakPasswordRequest';
 import { CheckWeakpwdRequest } from './model/CheckWeakpwdRequest';
 import { CheckWeakpwdResponse } from './model/CheckWeakpwdResponse';
+import { CollectInstanceStatisticRequest } from './model/CollectInstanceStatisticRequest';
+import { CollectInstanceStatisticResponse } from './model/CollectInstanceStatisticResponse';
 import { CollectPublicationMonitorRequest } from './model/CollectPublicationMonitorRequest';
 import { CollectPublicationMonitorResponse } from './model/CollectPublicationMonitorResponse';
 import { CollectSubscriptionMonitorRequest } from './model/CollectSubscriptionMonitorRequest';
@@ -307,11 +310,15 @@ import { FailoverStrategyRequest } from './model/FailoverStrategyRequest';
 import { Flavor } from './model/Flavor';
 import { FollowerMigrateRequest } from './model/FollowerMigrateRequest';
 import { GenerateAuditlogDownloadLinkRequest } from './model/GenerateAuditlogDownloadLinkRequest';
+import { GetAvailableVpcsRequest } from './model/GetAvailableVpcsRequest';
+import { GetAvailableVpcsResponse } from './model/GetAvailableVpcsResponse';
 import { GetBackupDownloadLinkFiles } from './model/GetBackupDownloadLinkFiles';
 import { GetInstancesNoIndexTablesRequest } from './model/GetInstancesNoIndexTablesRequest';
 import { GetInstancesNoIndexTablesResponse } from './model/GetInstancesNoIndexTablesResponse';
 import { GetInstancesOpsMetricNamesRequest } from './model/GetInstancesOpsMetricNamesRequest';
 import { GetInstancesOpsMetricNamesResponse } from './model/GetInstancesOpsMetricNamesResponse';
+import { GetInstancesOpsResourceUsageRequest } from './model/GetInstancesOpsResourceUsageRequest';
+import { GetInstancesOpsResourceUsageResponse } from './model/GetInstancesOpsResourceUsageResponse';
 import { GetJobInfoResponseBodyJob } from './model/GetJobInfoResponseBodyJob';
 import { GetJobInfoResponseBodyJobEntities } from './model/GetJobInfoResponseBodyJobEntities';
 import { GetJobInfoResponseBodyJobEntitiesInstance } from './model/GetJobInfoResponseBodyJobEntitiesInstance';
@@ -339,6 +346,7 @@ import { InstancePublicatiosInfo } from './model/InstancePublicatiosInfo';
 import { InstanceRequest } from './model/InstanceRequest';
 import { InstanceResponse } from './model/InstanceResponse';
 import { InstanceRestartRequsetBody } from './model/InstanceRestartRequsetBody';
+import { InstanceState } from './model/InstanceState';
 import { InstancesWeight } from './model/InstancesWeight';
 import { IntelligentKillSessionHistory } from './model/IntelligentKillSessionHistory';
 import { IntelligentKillSessionReq } from './model/IntelligentKillSessionReq';
@@ -372,6 +380,8 @@ import { ListBusinessPartnersRequest } from './model/ListBusinessPartnersRequest
 import { ListBusinessPartnersResponse } from './model/ListBusinessPartnersResponse';
 import { ListCollationsRequest } from './model/ListCollationsRequest';
 import { ListCollationsResponse } from './model/ListCollationsResponse';
+import { ListComputeResourceRequest } from './model/ListComputeResourceRequest';
+import { ListComputeResourceResponse } from './model/ListComputeResourceResponse';
 import { ListConfigurationApplyHistoriesRequest } from './model/ListConfigurationApplyHistoriesRequest';
 import { ListConfigurationApplyHistoriesResponse } from './model/ListConfigurationApplyHistoriesResponse';
 import { ListConfigurationsRequest } from './model/ListConfigurationsRequest';
@@ -438,6 +448,8 @@ import { ListInstancesConfigurationsResponse } from './model/ListInstancesConfig
 import { ListInstancesInfoDiagnosisRequest } from './model/ListInstancesInfoDiagnosisRequest';
 import { ListInstancesInfoDiagnosisResponse } from './model/ListInstancesInfoDiagnosisResponse';
 import { ListInstancesRequest } from './model/ListInstancesRequest';
+import { ListInstancesResourceMetricsRequest } from './model/ListInstancesResourceMetricsRequest';
+import { ListInstancesResourceMetricsResponse } from './model/ListInstancesResourceMetricsResponse';
 import { ListInstancesResponse } from './model/ListInstancesResponse';
 import { ListInstancesSupportFastRestoreRequest } from './model/ListInstancesSupportFastRestoreRequest';
 import { ListInstancesSupportFastRestoreRequestBody } from './model/ListInstancesSupportFastRestoreRequestBody';
@@ -462,6 +474,9 @@ import { ListOffSiteInstancesRequest } from './model/ListOffSiteInstancesRequest
 import { ListOffSiteInstancesResponse } from './model/ListOffSiteInstancesResponse';
 import { ListOffSiteRestoreTimesRequest } from './model/ListOffSiteRestoreTimesRequest';
 import { ListOffSiteRestoreTimesResponse } from './model/ListOffSiteRestoreTimesResponse';
+import { ListOperateRecordRequest } from './model/ListOperateRecordRequest';
+import { ListOperateRecordRequestBody } from './model/ListOperateRecordRequestBody';
+import { ListOperateRecordResponse } from './model/ListOperateRecordResponse';
 import { ListPackLogInfosRequest } from './model/ListPackLogInfosRequest';
 import { ListPackLogInfosResponse } from './model/ListPackLogInfosResponse';
 import { ListPostgresqlDatabaseSchemasRequest } from './model/ListPostgresqlDatabaseSchemasRequest';
@@ -610,6 +625,7 @@ import { OffSiteBackupPolicy } from './model/OffSiteBackupPolicy';
 import { OffsiteBackupInstance } from './model/OffsiteBackupInstance';
 import { OpenProxyRequest } from './model/OpenProxyRequest';
 import { OperateEventReq } from './model/OperateEventReq';
+import { OperateRecord } from './model/OperateRecord';
 import { OperateUsedJobSchedule } from './model/OperateUsedJobSchedule';
 import { OperateUsedJobScheduleCreate } from './model/OperateUsedJobScheduleCreate';
 import { OperateUsedJobScheduleModify } from './model/OperateUsedJobScheduleModify';
@@ -658,6 +674,8 @@ import { PublicationTableFilterInfoResponse } from './model/PublicationTableFilt
 import { PublicationTableInfoRequest } from './model/PublicationTableInfoRequest';
 import { PublicationTableInfoResponse } from './model/PublicationTableInfoResponse';
 import { PwdResetRequest } from './model/PwdResetRequest';
+import { QueryAutoSqlLimitingRequest } from './model/QueryAutoSqlLimitingRequest';
+import { QueryAutoSqlLimitingResponse } from './model/QueryAutoSqlLimitingResponse';
 import { QueryDRInfoRequest } from './model/QueryDRInfoRequest';
 import { QueryNewBackupEncryptionRequest } from './model/QueryNewBackupEncryptionRequest';
 import { QueryNewBackupEncryptionResponse } from './model/QueryNewBackupEncryptionResponse';
@@ -688,7 +706,10 @@ import { ResetViewSqlStatisticsRequest } from './model/ResetViewSqlStatisticsReq
 import { ResetViewSqlStatisticsResponse } from './model/ResetViewSqlStatisticsResponse';
 import { ResizeFlavorObject } from './model/ResizeFlavorObject';
 import { ResizeFlavorRequest } from './model/ResizeFlavorRequest';
+import { ResourceMonitoringInfo } from './model/ResourceMonitoringInfo';
+import { ResourcePackageInfo } from './model/ResourcePackageInfo';
 import { ResourceTag } from './model/ResourceTag';
+import { ResourceUsage } from './model/ResourceUsage';
 import { Resources } from './model/Resources';
 import { RestartConfiguration } from './model/RestartConfiguration';
 import { RestartDbAgentJobRequest } from './model/RestartDbAgentJobRequest';
@@ -795,7 +816,10 @@ import { SetSensitiveSlowLogResponse } from './model/SetSensitiveSlowLogResponse
 import { SetTransferPolicyRequest } from './model/SetTransferPolicyRequest';
 import { SetTransferPolicyRequestBody } from './model/SetTransferPolicyRequestBody';
 import { SetTransferPolicyResponse } from './model/SetTransferPolicyResponse';
+import { ShareBackupDatastore } from './model/ShareBackupDatastore';
 import { ShareBackups } from './model/ShareBackups';
+import { ShowAgencyPolicyRequest } from './model/ShowAgencyPolicyRequest';
+import { ShowAgencyPolicyResponse } from './model/ShowAgencyPolicyResponse';
 import { ShowApiVersionRequest } from './model/ShowApiVersionRequest';
 import { ShowApiVersionResponse } from './model/ShowApiVersionResponse';
 import { ShowAuditlogDownloadLinkRequest } from './model/ShowAuditlogDownloadLinkRequest';
@@ -885,6 +909,8 @@ import { ShowRestartPolicyResponse } from './model/ShowRestartPolicyResponse';
 import { ShowRestoreTablesRequest } from './model/ShowRestoreTablesRequest';
 import { ShowRestoreTablesRequestBody } from './model/ShowRestoreTablesRequestBody';
 import { ShowRestoreTablesResponse } from './model/ShowRestoreTablesResponse';
+import { ShowRiskInfoRequest } from './model/ShowRiskInfoRequest';
+import { ShowRiskInfoResponse } from './model/ShowRiskInfoResponse';
 import { ShowSecondLevelMonitoringRequest } from './model/ShowSecondLevelMonitoringRequest';
 import { ShowSecondLevelMonitoringResponse } from './model/ShowSecondLevelMonitoringResponse';
 import { ShowSqlDiagnosisRequest } from './model/ShowSqlDiagnosisRequest';
@@ -953,6 +979,7 @@ import { StopInstanceRequest } from './model/StopInstanceRequest';
 import { StopInstanceResponse } from './model/StopInstanceResponse';
 import { Storage } from './model/Storage';
 import { SubTaskInfo } from './model/SubTaskInfo';
+import { Subnet } from './model/Subnet';
 import { Subscription4InstanceInfo } from './model/Subscription4InstanceInfo';
 import { Subscription4PublicationInfo } from './model/Subscription4PublicationInfo';
 import { SubscriptionOption } from './model/SubscriptionOption';
@@ -1094,6 +1121,7 @@ import { ValidateInstanceConnectionRequestBody } from './model/ValidateInstanceC
 import { ValidateInstanceConnectionResponse } from './model/ValidateInstanceConnectionResponse';
 import { Volume } from './model/Volume';
 import { VolumeForInstanceResponse } from './model/VolumeForInstanceResponse';
+import { Vpc } from './model/Vpc';
 
 export class RdsClient {
     public static newBuilder(): ClientBuilder<RdsClient> {
@@ -1470,6 +1498,26 @@ export class RdsClient {
      */
     public checkWeakpwd(checkWeakpwdRequest?: CheckWeakpwdRequest): Promise<CheckWeakpwdResponse> {
         const options = ParamCreater().checkWeakpwd(checkWeakpwdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 总览页面实例统计
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 总览页面实例统计
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {'mysql' | 'postgresql' | 'sqlserver'} [engine] 引擎类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public collectInstanceStatistic(collectInstanceStatisticRequest?: CollectInstanceStatisticRequest): Promise<CollectInstanceStatisticResponse> {
+        const options = ParamCreater().collectInstanceStatistic(collectInstanceStatisticRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2211,6 +2259,27 @@ export class RdsClient {
     }
 
     /**
+     * 获取资源包详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取资源包详情
+     * @param {number} [limit] 分页查询，大小，默认为10
+     * @param {number} [offset] 分页查询，偏移量，默认为0
+     * @param {string} [engine] 引擎名称： mysql、sqlserver、postgresql
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listComputeResource(listComputeResourceRequest?: ListComputeResourceRequest): Promise<ListComputeResourceResponse> {
+        const options = ParamCreater().listComputeResource(listComputeResourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询参数组应用历史
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2739,6 +2808,30 @@ export class RdsClient {
     }
 
     /**
+     * 查询监控大盘列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询监控大盘列表
+     * @param {'mysql' | 'postgresql' | 'sqlserver'} engine 引擎类型
+     * @param {string} [searchField] 搜索字段
+     * @param {string} [offset] 索引位置，偏移量
+     * @param {string} [limit] 查询数据条数
+     * @param {'DESC' | 'ASC'} [order] 排序方式
+     * @param {'instance_name' | 'status' | 'type' | 'cpu_usage' | 'memory_usage' | 'disk_usage' | 'tps' | 'qps' | 'iops' | 'active_connections' | 'slow_sql'} [sortField] 排序字段
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstancesResourceMetrics(listInstancesResourceMetricsRequest?: ListInstancesResourceMetricsRequest): Promise<ListInstancesResourceMetricsResponse> {
+        const options = ParamCreater().listInstancesResourceMetrics(listInstancesResourceMetricsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量获取实例是否能在库表恢复时使用极速恢复。
      * 
      * - 调用接口前，您需要了解API 认证鉴权。
@@ -2913,6 +3006,26 @@ export class RdsClient {
      */
     public listOffSiteRestoreTimes(listOffSiteRestoreTimesRequest?: ListOffSiteRestoreTimesRequest): Promise<ListOffSiteRestoreTimesResponse> {
         const options = ParamCreater().listOffSiteRestoreTimes(listOffSiteRestoreTimesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定实例的操作记录
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定实例的操作记录
+     * @param {string} instanceId 实例id
+     * @param {ListOperateRecordRequestBody} body 查询操作记录请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listOperateRecord(listOperateRecordRequest?: ListOperateRecordRequest): Promise<ListOperateRecordResponse> {
+        const options = ParamCreater().listOperateRecord(listOperateRecordRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4812,6 +4925,25 @@ export class RdsClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定实例的风险版本信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定实例的风险版本信息
+     * @param {string} instanceId 实例id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRiskInfo(showRiskInfoRequest?: ShowRiskInfoRequest): Promise<ShowRiskInfoResponse> {
+        const options = ParamCreater().showRiskInfo(showRiskInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -6991,6 +7123,47 @@ export class RdsClient {
     }
 
     /**
+     * 查询资源利用率
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源利用率
+     * @param {string} instanceId 实例ID
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {'cpu' | 'mem' | 'disk' | 'disk_week' | 'io'} [resourceType] 资源类型。取值范围：cpu、mem、disk、disk_week、io。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getInstancesOpsResourceUsage(getInstancesOpsResourceUsageRequest?: GetInstancesOpsResourceUsageRequest): Promise<GetInstancesOpsResourceUsageResponse> {
+        const options = ParamCreater().getInstancesOpsResourceUsage(getInstancesOpsResourceUsageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询自治限流规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询自治限流规则
+     * @param {string} instanceId 实例ID
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public queryAutoSqlLimiting(queryAutoSqlLimitingRequest?: QueryAutoSqlLimitingRequest): Promise<QueryAutoSqlLimitingResponse> {
+        const options = ParamCreater().queryAutoSqlLimiting(queryAutoSqlLimitingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 触发审计日志轮转
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -7004,6 +7177,26 @@ export class RdsClient {
      */
     public rotateAuditLog(rotateAuditLogRequest?: RotateAuditLogRequest): Promise<RotateAuditLogResponse> {
         const options = ParamCreater().rotateAuditLog(rotateAuditLogRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询可收缩委托策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询可收缩委托策略
+     * @param {string} agencyName 委托名称。目前仅支持RDSAccessProjectResource。
+     * @param {string} [xLanguage] 语言。默认en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAgencyPolicy(showAgencyPolicyRequest?: ShowAgencyPolicyRequest): Promise<ShowAgencyPolicyResponse> {
+        const options = ParamCreater().showAgencyPolicy(showAgencyPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8311,6 +8504,27 @@ export class RdsClient {
 
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * 根据实例ID和管理网子网信息，返回可用的数据子网。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据实例ID和管理网子网信息，返回可用的数据子网
+     * @param {string} instanceId 主实例ID
+     * @param {string} [vpcId] 如果传入vpc_id, 则只返回该VPC下的可用子网
+     * @param {string} [vpcName] 如果传入vpc_name, 则只返回该name对应的VPC下的可用子网
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getAvailableVpcs(getAvailableVpcsRequest?: GetAvailableVpcsRequest): Promise<GetAvailableVpcsResponse> {
+        const options = ParamCreater().getAvailableVpcs(getAvailableVpcsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-TRACE-ID'];
+
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
@@ -9165,6 +9379,50 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 总览页面实例统计
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        collectInstanceStatistic(collectInstanceStatisticRequest?: CollectInstanceStatisticRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/statistic",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let engine;
+
+            if (collectInstanceStatisticRequest !== null && collectInstanceStatisticRequest !== undefined) {
+                if (collectInstanceStatisticRequest instanceof CollectInstanceStatisticRequest) {
+                    xLanguage = collectInstanceStatisticRequest.xLanguage;
+                    engine = collectInstanceStatisticRequest.engine;
+                } else {
+                    xLanguage = collectInstanceStatisticRequest['X-Language'];
+                    engine = collectInstanceStatisticRequest['engine'];
+                }
+            }
+
+        
+            if (engine !== null && engine !== undefined) {
+                localVarQueryParameter['engine'] = engine;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -10998,6 +11256,57 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取资源包详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listComputeResource(listComputeResourceRequest?: ListComputeResourceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/resource-package",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+            
+            let engine;
+
+            if (listComputeResourceRequest !== null && listComputeResourceRequest !== undefined) {
+                if (listComputeResourceRequest instanceof ListComputeResourceRequest) {
+                    limit = listComputeResourceRequest.limit;
+                    offset = listComputeResourceRequest.offset;
+                    engine = listComputeResourceRequest.engine;
+                } else {
+                    limit = listComputeResourceRequest['limit'];
+                    offset = listComputeResourceRequest['offset'];
+                    engine = listComputeResourceRequest['engine'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (engine !== null && engine !== undefined) {
+                localVarQueryParameter['engine'] = engine;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询参数组应用历史
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12545,6 +12854,81 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询监控大盘列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstancesResourceMetrics(listInstancesResourceMetricsRequest?: ListInstancesResourceMetricsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/resource-monitoring",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let engine;
+            
+            let searchField;
+            
+            let offset;
+            
+            let limit;
+            
+            let order;
+            
+            let sortField;
+
+            if (listInstancesResourceMetricsRequest !== null && listInstancesResourceMetricsRequest !== undefined) {
+                if (listInstancesResourceMetricsRequest instanceof ListInstancesResourceMetricsRequest) {
+                    engine = listInstancesResourceMetricsRequest.engine;
+                    searchField = listInstancesResourceMetricsRequest.searchField;
+                    offset = listInstancesResourceMetricsRequest.offset;
+                    limit = listInstancesResourceMetricsRequest.limit;
+                    order = listInstancesResourceMetricsRequest.order;
+                    sortField = listInstancesResourceMetricsRequest.sortField;
+                } else {
+                    engine = listInstancesResourceMetricsRequest['engine'];
+                    searchField = listInstancesResourceMetricsRequest['search_field'];
+                    offset = listInstancesResourceMetricsRequest['offset'];
+                    limit = listInstancesResourceMetricsRequest['limit'];
+                    order = listInstancesResourceMetricsRequest['order'];
+                    sortField = listInstancesResourceMetricsRequest['sort_field'];
+                }
+            }
+
+        
+            if (engine === null || engine === undefined) {
+                throw new RequiredError('engine','Required parameter engine was null or undefined when calling listInstancesResourceMetrics.');
+            }
+            if (engine !== null && engine !== undefined) {
+                localVarQueryParameter['engine'] = engine;
+            }
+            if (searchField !== null && searchField !== undefined) {
+                localVarQueryParameter['search_field'] = searchField;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (order !== null && order !== undefined) {
+                localVarQueryParameter['order'] = order;
+            }
+            if (sortField !== null && sortField !== undefined) {
+                localVarQueryParameter['sort_field'] = sortField;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量获取实例是否能在库表恢复时使用极速恢复。
          * 
          * - 调用接口前，您需要了解API 认证鉴权。
@@ -13043,6 +13427,52 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定实例的操作记录
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listOperateRecord(listOperateRecordRequest?: ListOperateRecordRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/operate-record",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (listOperateRecordRequest !== null && listOperateRecordRequest !== undefined) {
+                if (listOperateRecordRequest instanceof ListOperateRecordRequest) {
+                    instanceId = listOperateRecordRequest.instanceId;
+                    body = listOperateRecordRequest.body
+                } else {
+                    instanceId = listOperateRecordRequest['instance_id'];
+                    body = listOperateRecordRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listOperateRecord.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -17753,6 +18183,43 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定实例的风险版本信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRiskInfo(showRiskInfoRequest?: ShowRiskInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/show-risk-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (showRiskInfoRequest !== null && showRiskInfoRequest !== undefined) {
+                if (showRiskInfoRequest instanceof ShowRiskInfoRequest) {
+                    instanceId = showRiskInfoRequest.instanceId;
+                } else {
+                    instanceId = showRiskInfoRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showRiskInfo.');
+            }
+
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -23129,6 +23596,102 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询资源利用率
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getInstancesOpsResourceUsage(getInstancesOpsResourceUsageRequest?: GetInstancesOpsResourceUsageRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/ops/resource-usage",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let xLanguage;
+            
+            let resourceType;
+
+            if (getInstancesOpsResourceUsageRequest !== null && getInstancesOpsResourceUsageRequest !== undefined) {
+                if (getInstancesOpsResourceUsageRequest instanceof GetInstancesOpsResourceUsageRequest) {
+                    instanceId = getInstancesOpsResourceUsageRequest.instanceId;
+                    xLanguage = getInstancesOpsResourceUsageRequest.xLanguage;
+                    resourceType = getInstancesOpsResourceUsageRequest.resourceType;
+                } else {
+                    instanceId = getInstancesOpsResourceUsageRequest['instance_id'];
+                    xLanguage = getInstancesOpsResourceUsageRequest['X-Language'];
+                    resourceType = getInstancesOpsResourceUsageRequest['resource_type'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling getInstancesOpsResourceUsage.');
+            }
+            if (resourceType !== null && resourceType !== undefined) {
+                localVarQueryParameter['resource_type'] = resourceType;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询自治限流规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        queryAutoSqlLimiting(queryAutoSqlLimitingRequest?: QueryAutoSqlLimitingRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/ops/auto-sql-limiting",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (queryAutoSqlLimitingRequest !== null && queryAutoSqlLimitingRequest !== undefined) {
+                if (queryAutoSqlLimitingRequest instanceof QueryAutoSqlLimitingRequest) {
+                    instanceId = queryAutoSqlLimitingRequest.instanceId;
+                    xLanguage = queryAutoSqlLimitingRequest.xLanguage;
+                } else {
+                    instanceId = queryAutoSqlLimitingRequest['instance_id'];
+                    xLanguage = queryAutoSqlLimitingRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling queryAutoSqlLimiting.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 触发审计日志轮转
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -23177,6 +23740,50 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询可收缩委托策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAgencyPolicy(showAgencyPolicyRequest?: ShowAgencyPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/agency/{agency_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let agencyName;
+            
+            let xLanguage;
+
+            if (showAgencyPolicyRequest !== null && showAgencyPolicyRequest !== undefined) {
+                if (showAgencyPolicyRequest instanceof ShowAgencyPolicyRequest) {
+                    agencyName = showAgencyPolicyRequest.agencyName;
+                    xLanguage = showAgencyPolicyRequest.xLanguage;
+                } else {
+                    agencyName = showAgencyPolicyRequest['agency_name'];
+                    xLanguage = showAgencyPolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (agencyName === null || agencyName === undefined) {
+            throw new RequiredError('agencyName','Required parameter agencyName was null or undefined when calling showAgencyPolicy.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'agency_name': agencyName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -26513,6 +27120,58 @@ export const ParamCreater = function () {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling resetViewSqlStatistics.');
             }
 
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据实例ID和管理网子网信息，返回可用的数据子网。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getAvailableVpcs(getAvailableVpcsRequest?: GetAvailableVpcsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/available-vpcs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let vpcId;
+            
+            let vpcName;
+
+            if (getAvailableVpcsRequest !== null && getAvailableVpcsRequest !== undefined) {
+                if (getAvailableVpcsRequest instanceof GetAvailableVpcsRequest) {
+                    instanceId = getAvailableVpcsRequest.instanceId;
+                    vpcId = getAvailableVpcsRequest.vpcId;
+                    vpcName = getAvailableVpcsRequest.vpcName;
+                } else {
+                    instanceId = getAvailableVpcsRequest['instance_id'];
+                    vpcId = getAvailableVpcsRequest['vpc_id'];
+                    vpcName = getAvailableVpcsRequest['vpc_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling getAvailableVpcs.');
+            }
+            if (vpcId !== null && vpcId !== undefined) {
+                localVarQueryParameter['vpc_id'] = vpcId;
+            }
+            if (vpcName !== null && vpcName !== undefined) {
+                localVarQueryParameter['vpc_name'] = vpcName;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;

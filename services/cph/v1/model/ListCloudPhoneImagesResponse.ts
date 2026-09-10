@@ -1,3 +1,4 @@
+import { ListCloudPhoneImagesResponseBodyPageInfo } from './ListCloudPhoneImagesResponseBodyPageInfo';
 import { PhoneImage } from './PhoneImage';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -5,6 +6,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListCloudPhoneImagesResponse extends SdkResponse {
     private 'request_id'?: string;
     private 'phone_images'?: Array<PhoneImage>;
+    private 'page_info'?: ListCloudPhoneImagesResponseBodyPageInfo;
     public constructor() { 
         super();
     }
@@ -27,5 +29,15 @@ export class ListCloudPhoneImagesResponse extends SdkResponse {
     }
     public get phoneImages(): Array<PhoneImage> | undefined {
         return this['phone_images'];
+    }
+    public withPageInfo(pageInfo: ListCloudPhoneImagesResponseBodyPageInfo): ListCloudPhoneImagesResponse {
+        this['page_info'] = pageInfo;
+        return this;
+    }
+    public set pageInfo(pageInfo: ListCloudPhoneImagesResponseBodyPageInfo  | undefined) {
+        this['page_info'] = pageInfo;
+    }
+    public get pageInfo(): ListCloudPhoneImagesResponseBodyPageInfo | undefined {
+        return this['page_info'];
     }
 }

@@ -1,5 +1,5 @@
 import { AllowedAddressPair } from './AllowedAddressPair';
-import { ResourceTag } from './ResourceTag';
+import { ResponseTag } from './ResponseTag';
 
 
 export class SubNetworkInterface {
@@ -14,16 +14,17 @@ export class SubNetworkInterface {
     private 'vpc_id'?: string;
     private 'vlan_id'?: number;
     private 'security_groups'?: Array<string>;
-    public tags?: Array<ResourceTag>;
+    public tags?: Array<ResponseTag>;
     private 'project_id'?: string;
     private 'created_at'?: Date;
+    private 'updated_at'?: Date;
     private 'allowed_address_pairs'?: Array<AllowedAddressPair>;
     public state?: string;
     private 'instance_id'?: string;
     private 'instance_type'?: string;
     public scope?: string;
     private 'security_enabled'?: boolean;
-    public constructor(id?: string, virsubnetId?: string, privateIpAddress?: string, ipv6IpAddress?: string, macAddress?: string, parentDeviceId?: string, parentId?: string, description?: string, vpcId?: string, vlanId?: number, securityGroups?: Array<string>, tags?: Array<ResourceTag>, projectId?: string, createdAt?: Date, allowedAddressPairs?: Array<AllowedAddressPair>, state?: string, instanceId?: string, instanceType?: string, scope?: string, securityEnabled?: boolean) { 
+    public constructor(id?: string, virsubnetId?: string, privateIpAddress?: string, ipv6IpAddress?: string, macAddress?: string, parentDeviceId?: string, parentId?: string, description?: string, vpcId?: string, vlanId?: number, securityGroups?: Array<string>, tags?: Array<ResponseTag>, projectId?: string, createdAt?: Date, updatedAt?: Date, allowedAddressPairs?: Array<AllowedAddressPair>, state?: string, instanceId?: string, instanceType?: string, scope?: string, securityEnabled?: boolean) { 
         this['id'] = id;
         this['virsubnet_id'] = virsubnetId;
         this['private_ip_address'] = privateIpAddress;
@@ -38,6 +39,7 @@ export class SubNetworkInterface {
         this['tags'] = tags;
         this['project_id'] = projectId;
         this['created_at'] = createdAt;
+        this['updated_at'] = updatedAt;
         this['allowed_address_pairs'] = allowedAddressPairs;
         this['state'] = state;
         this['instance_id'] = instanceId;
@@ -143,7 +145,7 @@ export class SubNetworkInterface {
     public get securityGroups(): Array<string> | undefined {
         return this['security_groups'];
     }
-    public withTags(tags: Array<ResourceTag>): SubNetworkInterface {
+    public withTags(tags: Array<ResponseTag>): SubNetworkInterface {
         this['tags'] = tags;
         return this;
     }
@@ -166,6 +168,16 @@ export class SubNetworkInterface {
     }
     public get createdAt(): Date | undefined {
         return this['created_at'];
+    }
+    public withUpdatedAt(updatedAt: Date): SubNetworkInterface {
+        this['updated_at'] = updatedAt;
+        return this;
+    }
+    public set updatedAt(updatedAt: Date  | undefined) {
+        this['updated_at'] = updatedAt;
+    }
+    public get updatedAt(): Date | undefined {
+        return this['updated_at'];
     }
     public withAllowedAddressPairs(allowedAddressPairs: Array<AllowedAddressPair>): SubNetworkInterface {
         this['allowed_address_pairs'] = allowedAddressPairs;

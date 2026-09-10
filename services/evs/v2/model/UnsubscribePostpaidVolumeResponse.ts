@@ -1,13 +1,12 @@
-import { UnsubscribeVolumeResponseBody } from './UnsubscribeVolumeResponseBody';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UnsubscribePostpaidVolumeResponse extends SdkResponse {
-    public body?: Array<UnsubscribeVolumeResponseBody>;
+    public body?: object;
     public constructor() { 
         super();
     }
-    public withBody(body: Array<UnsubscribeVolumeResponseBody>): UnsubscribePostpaidVolumeResponse {
+    public withBody(body: object): UnsubscribePostpaidVolumeResponse {
         this['body'] = body;
         return this;
     }

@@ -417,6 +417,7 @@ export * from './model/MetaLockInfo';
 export * from './model/MetadataLock';
 export * from './model/MultiNodesSingleMetricMetrics';
 export * from './model/MySQLDeadLock';
+export * from './model/MySQLLatestDeadLock';
 export * from './model/MySQLTransaction';
 export * from './model/NodeInfo';
 export * from './model/NodeWdrDto';

@@ -2,7 +2,8 @@
 
 export class ShowSqlAutoSqlLimitingReq {
     private 'node_ids'?: Array<string>;
-    public constructor() { 
+    public constructor(nodeIds?: Array<string>) { 
+        this['node_ids'] = nodeIds;
     }
     public withNodeIds(nodeIds: Array<string>): ShowSqlAutoSqlLimitingReq {
         this['node_ids'] = nodeIds;

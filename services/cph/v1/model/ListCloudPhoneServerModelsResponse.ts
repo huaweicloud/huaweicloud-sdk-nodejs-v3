@@ -1,3 +1,4 @@
+import { ListCloudPhoneServerModelsResponseBodyPageInfo } from './ListCloudPhoneServerModelsResponseBodyPageInfo';
 import { ServerModel } from './ServerModel';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -5,6 +6,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListCloudPhoneServerModelsResponse extends SdkResponse {
     private 'request_id'?: string;
     private 'server_models'?: Array<ServerModel>;
+    private 'page_info'?: ListCloudPhoneServerModelsResponseBodyPageInfo;
     public constructor() { 
         super();
     }
@@ -27,5 +29,15 @@ export class ListCloudPhoneServerModelsResponse extends SdkResponse {
     }
     public get serverModels(): Array<ServerModel> | undefined {
         return this['server_models'];
+    }
+    public withPageInfo(pageInfo: ListCloudPhoneServerModelsResponseBodyPageInfo): ListCloudPhoneServerModelsResponse {
+        this['page_info'] = pageInfo;
+        return this;
+    }
+    public set pageInfo(pageInfo: ListCloudPhoneServerModelsResponseBodyPageInfo  | undefined) {
+        this['page_info'] = pageInfo;
+    }
+    public get pageInfo(): ListCloudPhoneServerModelsResponseBodyPageInfo | undefined {
+        return this['page_info'];
     }
 }

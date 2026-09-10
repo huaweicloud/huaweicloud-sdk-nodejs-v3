@@ -2,6 +2,8 @@
 
 export class ListImageMembersRequest {
     private 'image_id'?: string;
+    public marker?: string;
+    public limit?: number;
     public constructor(imageId?: string) { 
         this['image_id'] = imageId;
     }
@@ -14,5 +16,13 @@ export class ListImageMembersRequest {
     }
     public get imageId(): string | undefined {
         return this['image_id'];
+    }
+    public withMarker(marker: string): ListImageMembersRequest {
+        this['marker'] = marker;
+        return this;
+    }
+    public withLimit(limit: number): ListImageMembersRequest {
+        this['limit'] = limit;
+        return this;
     }
 }

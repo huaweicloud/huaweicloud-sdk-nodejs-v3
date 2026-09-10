@@ -1,3 +1,4 @@
+import { ShareBackupDatastore } from './ShareBackupDatastore';
 
 
 export class ShareBackups {
@@ -12,7 +13,7 @@ export class ShareBackups {
     private 'instance_id'?: string;
     private 'instance_name'?: string;
     private 'instance_status'?: string;
-    public datastore?: object;
+    public datastore?: ShareBackupDatastore;
     private 'user_name'?: string;
     public constructor() { 
     }
@@ -96,7 +97,7 @@ export class ShareBackups {
     public get instanceStatus(): string | undefined {
         return this['instance_status'];
     }
-    public withDatastore(datastore: object): ShareBackups {
+    public withDatastore(datastore: ShareBackupDatastore): ShareBackups {
         this['datastore'] = datastore;
         return this;
     }

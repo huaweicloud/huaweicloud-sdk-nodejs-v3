@@ -40,5 +40,6 @@ export class BatchCreateTagsRequest {
     * @enum {string}
     */
 export enum BatchCreateTagsRequestResourceTypeEnum {
-    CPH_SERVER = 'cph-server'
+    CPH_SERVER = 'cph-server',
+    ELASTIC_CLOUD_PHONE = 'elastic-cloud-phone'
 }

@@ -28,5 +28,6 @@ export class ListResourceInstancesRequest {
     * @enum {string}
     */
 export enum ListResourceInstancesRequestResourceTypeEnum {
-    CPH_SERVER = 'cph-server'
+    CPH_SERVER = 'cph-server',
+    ELASTIC_CLOUD_PHONE = 'elastic-cloud-phone'
 }

@@ -45,6 +45,9 @@ import { AscendInfo } from './model/AscendInfo';
 import { AscendResource } from './model/AscendResource';
 import { AssetModel } from './model/AssetModel';
 import { AssetModelResp } from './model/AssetModelResp';
+import { AttachDevServerPortRequest } from './model/AttachDevServerPortRequest';
+import { AttachDevServerPortResponse } from './model/AttachDevServerPortResponse';
+import { AttachDevServerPortsRequestBody } from './model/AttachDevServerPortsRequestBody';
 import { AttachDevServerVolumeRequest } from './model/AttachDevServerVolumeRequest';
 import { AttachDevServerVolumeResponse } from './model/AttachDevServerVolumeResponse';
 import { AttachDynamicStorageRequest } from './model/AttachDynamicStorageRequest';
@@ -329,6 +332,8 @@ import { DeleteWorkflowSubscriptionResponse } from './model/DeleteWorkflowSubscr
 import { DeleteWorkspaceRequest } from './model/DeleteWorkspaceRequest';
 import { DeleteWorkspaceResponse } from './model/DeleteWorkspaceResponse';
 import { DeploymentTaskLimit } from './model/DeploymentTaskLimit';
+import { DetachDevServerPortRequest } from './model/DetachDevServerPortRequest';
+import { DetachDevServerPortResponse } from './model/DetachDevServerPortResponse';
 import { DetachDevServerVolumeRequest } from './model/DetachDevServerVolumeRequest';
 import { DetachDevServerVolumeResponse } from './model/DetachDevServerVolumeResponse';
 import { DetachDynamicStorageRequest } from './model/DetachDynamicStorageRequest';
@@ -595,6 +600,8 @@ import { ListTrainingJobsByTagsRequest } from './model/ListTrainingJobsByTagsReq
 import { ListTrainingJobsByTagsResponse } from './model/ListTrainingJobsByTagsResponse';
 import { ListTrainingJobsRequest } from './model/ListTrainingJobsRequest';
 import { ListTrainingJobsResponse } from './model/ListTrainingJobsResponse';
+import { ListUsersRequest } from './model/ListUsersRequest';
+import { ListUsersResponse } from './model/ListUsersResponse';
 import { ListWorkflowExecutionsRequest } from './model/ListWorkflowExecutionsRequest';
 import { ListWorkflowExecutionsResponse } from './model/ListWorkflowExecutionsResponse';
 import { ListWorkflowStepExecutionRequest } from './model/ListWorkflowStepExecutionRequest';
@@ -1182,6 +1189,7 @@ import { UpdateWorkspaceRequest } from './model/UpdateWorkspaceRequest';
 import { UpdateWorkspaceResponse } from './model/UpdateWorkspaceResponse';
 import { UpgradeConfig } from './model/UpgradeConfig';
 import { UpgradeConfigResponse } from './model/UpgradeConfigResponse';
+import { UserInfo } from './model/UserInfo';
 import { UserResponse } from './model/UserResponse';
 import { UserTags } from './model/UserTags';
 import { UserVpcRequest } from './model/UserVpcRequest';
@@ -1284,6 +1292,26 @@ export class ModelArtsClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Lite Server服务器挂载网卡
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary Lite Server服务器挂载网卡
+     * @param {string} id **参数解释**：DevServer实例ID。 **约束限制**：必填。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
+     * @param {AttachDevServerPortsRequestBody} [attachDevServerPortsRequestBody] **参数解释**：挂载网卡的请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public attachDevServerPort(attachDevServerPortRequest?: AttachDevServerPortRequest): Promise<AttachDevServerPortResponse> {
+        const options = ParamCreater().attachDevServerPort(attachDevServerPortRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -2855,6 +2883,26 @@ export class ModelArtsClient {
     }
 
     /**
+     * Lite Server服务器卸载网卡接口用于从服务器中移除指定的网络接口卡。该接口适用于以下场景：当服务器需要进行硬件维护、资源回收或网络配置调整时，用户可通过此接口卸载不再使用的网卡设备。使用该接口的前提条件是目标网卡已正确安装并处于可操作状态，且用户具有系统管理员权限。卸载操作完成后，网卡将从服务器配置中移除，相关驱动和网络参数也将被清除。若目标网卡不存在、用户权限不足或服务器处于运行状态，接口将返回对应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary Lite Server服务器卸载网卡
+     * @param {string} id **参数解释**：lite Server实例ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
+     * @param {string} portId **参数解释**：要卸载的网卡ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：1 - 64字符。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public detachDevServerPort(detachDevServerPortRequest?: DetachDevServerPortRequest): Promise<DetachDevServerPortResponse> {
+        const options = ParamCreater().detachDevServerPort(detachDevServerPortRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * Lite Server服务器卸载磁盘接口用于从Lite Server服务器上卸载已挂载的磁盘。该接口适用于以下场景：当用户需要释放存储资源或重新分配磁盘时，可以通过此接口卸载指定的磁盘。使用该接口的前提条件是Lite Server服务器已创建且处于运行状态、或者停止状态，用户具有卸载磁盘的权限，且指定的磁盘已挂载到服务器上。卸载操作完成后，磁盘将从Lite Server服务器上成功卸载，用户可以将其挂载到其他服务器或进行其他操作。若Lite Server服务器不存在、指定的磁盘未挂载到服务器上，或用户无权限操作，接口将返回相应的错误信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4228,6 +4276,24 @@ export class ModelArtsClient {
      */
     public listTrainingJobsByTags(listTrainingJobsByTagsRequest?: ListTrainingJobsByTagsRequest): Promise<ListTrainingJobsByTagsResponse> {
         const options = ParamCreater().listTrainingJobsByTags(listTrainingJobsByTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询用户列表接口用于获取系统中用户的列表信息。该接口适用于以下场景：当需要查看系统中所有用户或根据特定条件筛选用户时，管理员或系统可以通过此接口查询用户列表。使用该接口的前提条件是用户已存在且查询者具有相应的权限。查询操作完成后，接口将返回符合条件的用户列表；若系统中无用户或查询者无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listUsers(listUsersRequest?: ListUsersRequest): Promise<ListUsersResponse> {
+        const options = ParamCreater().listUsers();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7307,6 +7373,49 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'event_id': eventId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Lite Server服务器挂载网卡
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        attachDevServerPort(attachDevServerPortRequest?: AttachDevServerPortRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dev-servers/{id}/attach-ports",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let id;
+
+            if (attachDevServerPortRequest !== null && attachDevServerPortRequest !== undefined) {
+                if (attachDevServerPortRequest instanceof AttachDevServerPortRequest) {
+                    id = attachDevServerPortRequest.id;
+                    body = attachDevServerPortRequest.body
+                } else {
+                    id = attachDevServerPortRequest['id'];
+                    body = attachDevServerPortRequest['body'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling attachDevServerPort.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -10731,6 +10840,50 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'workspace_id': workspaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Lite Server服务器卸载网卡接口用于从服务器中移除指定的网络接口卡。该接口适用于以下场景：当服务器需要进行硬件维护、资源回收或网络配置调整时，用户可通过此接口卸载不再使用的网卡设备。使用该接口的前提条件是目标网卡已正确安装并处于可操作状态，且用户具有系统管理员权限。卸载操作完成后，网卡将从服务器配置中移除，相关驱动和网络参数也将被清除。若目标网卡不存在、用户权限不足或服务器处于运行状态，接口将返回对应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        detachDevServerPort(detachDevServerPortRequest?: DetachDevServerPortRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/dev-servers/{id}/detach-ports/{port_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+            
+            let portId;
+
+            if (detachDevServerPortRequest !== null && detachDevServerPortRequest !== undefined) {
+                if (detachDevServerPortRequest instanceof DetachDevServerPortRequest) {
+                    id = detachDevServerPortRequest.id;
+                    portId = detachDevServerPortRequest.portId;
+                } else {
+                    id = detachDevServerPortRequest['id'];
+                    portId = detachDevServerPortRequest['port_id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling detachDevServerPort.');
+            }
+            if (portId === null || portId === undefined) {
+            throw new RequiredError('portId','Required parameter portId was null or undefined when calling detachDevServerPort.');
+            }
+
+            options.pathParams = { 'id': id,'port_id': portId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -14404,6 +14557,27 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用户列表接口用于获取系统中用户的列表信息。该接口适用于以下场景：当需要查看系统中所有用户或根据特定条件筛选用户时，管理员或系统可以通过此接口查询用户列表。使用该接口的前提条件是用户已存在且查询者具有相应的权限。查询操作完成后，接口将返回符合条件的用户列表；若系统中无用户或查询者无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listUsers() {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/workspaces/users/list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

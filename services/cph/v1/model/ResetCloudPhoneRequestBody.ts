@@ -1,10 +1,10 @@
-import { PhoneProperty } from './PhoneProperty';
+import { ResetPhoneProperty } from './ResetPhoneProperty';
 
 
 export class ResetCloudPhoneRequestBody {
     private 'image_id'?: string;
-    public phones?: Array<PhoneProperty>;
-    public constructor(phones?: Array<PhoneProperty>) { 
+    public phones?: Array<ResetPhoneProperty>;
+    public constructor(phones?: Array<ResetPhoneProperty>) { 
         this['phones'] = phones;
     }
     public withImageId(imageId: string): ResetCloudPhoneRequestBody {
@@ -17,7 +17,7 @@ export class ResetCloudPhoneRequestBody {
     public get imageId(): string | undefined {
         return this['image_id'];
     }
-    public withPhones(phones: Array<PhoneProperty>): ResetCloudPhoneRequestBody {
+    public withPhones(phones: Array<ResetPhoneProperty>): ResetCloudPhoneRequestBody {
         this['phones'] = phones;
         return this;
     }

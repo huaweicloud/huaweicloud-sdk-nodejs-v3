@@ -40,5 +40,6 @@ export class BatchDeleteTagsRequest {
     * @enum {string}
     */
 export enum BatchDeleteTagsRequestResourceTypeEnum {
-    CPH_SERVER = 'cph-server'
+    CPH_SERVER = 'cph-server',
+    ELASTIC_CLOUD_PHONE = 'elastic-cloud-phone'
 }

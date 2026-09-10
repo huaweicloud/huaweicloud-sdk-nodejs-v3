@@ -1,7 +1,7 @@
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
-export class AuthorizeDataConnectionResponse extends SdkResponse {
+export class DownloadTaskLogResponse extends SdkResponse {
     public constructor() { 
         super();
     }

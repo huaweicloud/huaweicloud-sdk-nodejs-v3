@@ -5,12 +5,16 @@ export class ShowAnalysisSessionResultRespSqlTemplates {
     private 'sql_template'?: string;
     private 'database_name'?: string;
     private 'total_count'?: number;
+    private 'avg_execute_time'?: number;
+    private 'total_execute_time'?: number;
     private 'top_state_duration_list'?: Array<ShowAnalysisSessionResultRespTopStateDuration>;
     private 'top_transaction_duration_list'?: Array<ShowAnalysisSessionResultRespTopStateDuration>;
-    public constructor(sqlTemplate?: string, databaseName?: string, totalCount?: number, topStateDurationList?: Array<ShowAnalysisSessionResultRespTopStateDuration>, topTransactionDurationList?: Array<ShowAnalysisSessionResultRespTopStateDuration>) { 
+    public constructor(sqlTemplate?: string, databaseName?: string, totalCount?: number, avgExecuteTime?: number, totalExecuteTime?: number, topStateDurationList?: Array<ShowAnalysisSessionResultRespTopStateDuration>, topTransactionDurationList?: Array<ShowAnalysisSessionResultRespTopStateDuration>) { 
         this['sql_template'] = sqlTemplate;
         this['database_name'] = databaseName;
         this['total_count'] = totalCount;
+        this['avg_execute_time'] = avgExecuteTime;
+        this['total_execute_time'] = totalExecuteTime;
         this['top_state_duration_list'] = topStateDurationList;
         this['top_transaction_duration_list'] = topTransactionDurationList;
     }
@@ -43,6 +47,26 @@ export class ShowAnalysisSessionResultRespSqlTemplates {
     }
     public get totalCount(): number | undefined {
         return this['total_count'];
+    }
+    public withAvgExecuteTime(avgExecuteTime: number): ShowAnalysisSessionResultRespSqlTemplates {
+        this['avg_execute_time'] = avgExecuteTime;
+        return this;
+    }
+    public set avgExecuteTime(avgExecuteTime: number  | undefined) {
+        this['avg_execute_time'] = avgExecuteTime;
+    }
+    public get avgExecuteTime(): number | undefined {
+        return this['avg_execute_time'];
+    }
+    public withTotalExecuteTime(totalExecuteTime: number): ShowAnalysisSessionResultRespSqlTemplates {
+        this['total_execute_time'] = totalExecuteTime;
+        return this;
+    }
+    public set totalExecuteTime(totalExecuteTime: number  | undefined) {
+        this['total_execute_time'] = totalExecuteTime;
+    }
+    public get totalExecuteTime(): number | undefined {
+        return this['total_execute_time'];
     }
     public withTopStateDurationList(topStateDurationList: Array<ShowAnalysisSessionResultRespTopStateDuration>): ShowAnalysisSessionResultRespSqlTemplates {
         this['top_state_duration_list'] = topStateDurationList;
