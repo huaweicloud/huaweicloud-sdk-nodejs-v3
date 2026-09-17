@@ -729,7 +729,7 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 下载证书
-     * @param {string} certificateId 证书文件ID名称，格式为SMN-{RegionID}-{UUID}.pem
+     * @param {string} certificateId 证书文件ID名称，格式为SMN_{RegionID}_{UUID}.pem
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -748,7 +748,7 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 下载HTTP签名证书
-     * @param {string} certificateId 证书文件ID名称，格式为SMN-{RegionID}-{UUID}.pem
+     * @param {string} certificateId 证书文件ID名称，格式为SMN_{RegionID}_{UUID}.pem
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

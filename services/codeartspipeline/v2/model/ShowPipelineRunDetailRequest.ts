@@ -3,6 +3,7 @@
 export class ShowPipelineRunDetailRequest {
     private 'pipeline_id'?: string;
     private 'pipeline_run_id'?: string;
+    private 'pipeline_run_number'?: string;
     public constructor(pipelineId?: string) { 
         this['pipeline_id'] = pipelineId;
     }
@@ -25,5 +26,15 @@ export class ShowPipelineRunDetailRequest {
     }
     public get pipelineRunId(): string | undefined {
         return this['pipeline_run_id'];
+    }
+    public withPipelineRunNumber(pipelineRunNumber: string): ShowPipelineRunDetailRequest {
+        this['pipeline_run_number'] = pipelineRunNumber;
+        return this;
+    }
+    public set pipelineRunNumber(pipelineRunNumber: string  | undefined) {
+        this['pipeline_run_number'] = pipelineRunNumber;
+    }
+    public get pipelineRunNumber(): string | undefined {
+        return this['pipeline_run_number'];
     }
 }

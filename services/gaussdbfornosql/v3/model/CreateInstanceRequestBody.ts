@@ -2,6 +2,7 @@ import { AvailabilityZoneDetail } from './AvailabilityZoneDetail';
 import { BackupStrategyOption } from './BackupStrategyOption';
 import { ChargeInfoOption } from './ChargeInfoOption';
 import { CreateInstanceFlavorOption } from './CreateInstanceFlavorOption';
+import { DRInfo } from './DRInfo';
 import { DatastoreOption } from './DatastoreOption';
 import { LbAccessControlSettings } from './LbAccessControlSettings';
 import { RestoreInfo } from './RestoreInfo';
@@ -27,6 +28,7 @@ export class CreateInstanceRequestBody {
     private 'ssl_option'?: string;
     private 'charge_info'?: ChargeInfoOption;
     private 'restore_info'?: RestoreInfo;
+    private 'dr_info'?: DRInfo;
     public port?: string;
     private 'availability_zone_detail'?: AvailabilityZoneDetail;
     private 'lb_access_control_settings'?: LbAccessControlSettings;
@@ -195,6 +197,16 @@ export class CreateInstanceRequestBody {
     }
     public get restoreInfo(): RestoreInfo | undefined {
         return this['restore_info'];
+    }
+    public withDrInfo(drInfo: DRInfo): CreateInstanceRequestBody {
+        this['dr_info'] = drInfo;
+        return this;
+    }
+    public set drInfo(drInfo: DRInfo  | undefined) {
+        this['dr_info'] = drInfo;
+    }
+    public get drInfo(): DRInfo | undefined {
+        return this['dr_info'];
     }
     public withPort(port: string): CreateInstanceRequestBody {
         this['port'] = port;

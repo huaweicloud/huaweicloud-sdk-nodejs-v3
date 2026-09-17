@@ -6,6 +6,8 @@ export class BatchListEdgeAppsRequest {
     public limit?: number;
     private 'app_type'?: BatchListEdgeAppsRequestAppTypeEnum | string;
     private 'function_type'?: BatchListEdgeAppsRequestFunctionTypeEnum | string;
+    private 'function_types'?: Array<string>;
+    public protocol?: string;
     public constructor() { 
     }
     public withEdgeAppId(edgeAppId: string): BatchListEdgeAppsRequest {
@@ -46,6 +48,20 @@ export class BatchListEdgeAppsRequest {
     public get functionType(): BatchListEdgeAppsRequestFunctionTypeEnum | string | undefined {
         return this['function_type'];
     }
+    public withFunctionTypes(functionTypes: Array<string>): BatchListEdgeAppsRequest {
+        this['function_types'] = functionTypes;
+        return this;
+    }
+    public set functionTypes(functionTypes: Array<string>  | undefined) {
+        this['function_types'] = functionTypes;
+    }
+    public get functionTypes(): Array<string> | undefined {
+        return this['function_types'];
+    }
+    public withProtocol(protocol: string): BatchListEdgeAppsRequest {
+        this['protocol'] = protocol;
+        return this;
+    }
 }
 
 /**
@@ -67,5 +83,6 @@ export enum BatchListEdgeAppsRequestFunctionTypeEnum {
     ON_PREMISE_INTEGRATION = 'ON_PREMISE_INTEGRATION',
     GATEWAY_MANAGER = 'GATEWAY_MANAGER',
     COMPOSITE_APPLICATION = 'COMPOSITE_APPLICATION',
-    DATA_COLLECTION = 'DATA_COLLECTION'
+    DATA_COLLECTION = 'DATA_COLLECTION',
+    MODEL_INFERENCE = 'MODEL_INFERENCE'
 }

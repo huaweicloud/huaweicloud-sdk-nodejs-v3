@@ -20,6 +20,13 @@ export class PipelineDTO {
     public id?: string;
     private 'concurrency_control'?: PipelineConcurrencyMgmt;
     private 'security_level'?: number;
+    private 'disable_release_branch_management'?: boolean;
+    private 'execution_plans'?: Array<object>;
+    private 'project_id'?: string;
+    private 'cancel_strategy'?: object;
+    private 'confidentiality_code'?: string;
+    private 'agency_name'?: string;
+    private 'variable_group_ids'?: Array<string>;
     public constructor(name?: string, isPublish?: boolean, definition?: string) { 
         this['name'] = name;
         this['is_publish'] = isPublish;
@@ -116,5 +123,75 @@ export class PipelineDTO {
     }
     public get securityLevel(): number | undefined {
         return this['security_level'];
+    }
+    public withDisableReleaseBranchManagement(disableReleaseBranchManagement: boolean): PipelineDTO {
+        this['disable_release_branch_management'] = disableReleaseBranchManagement;
+        return this;
+    }
+    public set disableReleaseBranchManagement(disableReleaseBranchManagement: boolean  | undefined) {
+        this['disable_release_branch_management'] = disableReleaseBranchManagement;
+    }
+    public get disableReleaseBranchManagement(): boolean | undefined {
+        return this['disable_release_branch_management'];
+    }
+    public withExecutionPlans(executionPlans: Array<object>): PipelineDTO {
+        this['execution_plans'] = executionPlans;
+        return this;
+    }
+    public set executionPlans(executionPlans: Array<object>  | undefined) {
+        this['execution_plans'] = executionPlans;
+    }
+    public get executionPlans(): Array<object> | undefined {
+        return this['execution_plans'];
+    }
+    public withProjectId(projectId: string): PipelineDTO {
+        this['project_id'] = projectId;
+        return this;
+    }
+    public set projectId(projectId: string  | undefined) {
+        this['project_id'] = projectId;
+    }
+    public get projectId(): string | undefined {
+        return this['project_id'];
+    }
+    public withCancelStrategy(cancelStrategy: object): PipelineDTO {
+        this['cancel_strategy'] = cancelStrategy;
+        return this;
+    }
+    public set cancelStrategy(cancelStrategy: object  | undefined) {
+        this['cancel_strategy'] = cancelStrategy;
+    }
+    public get cancelStrategy(): object | undefined {
+        return this['cancel_strategy'];
+    }
+    public withConfidentialityCode(confidentialityCode: string): PipelineDTO {
+        this['confidentiality_code'] = confidentialityCode;
+        return this;
+    }
+    public set confidentialityCode(confidentialityCode: string  | undefined) {
+        this['confidentiality_code'] = confidentialityCode;
+    }
+    public get confidentialityCode(): string | undefined {
+        return this['confidentiality_code'];
+    }
+    public withAgencyName(agencyName: string): PipelineDTO {
+        this['agency_name'] = agencyName;
+        return this;
+    }
+    public set agencyName(agencyName: string  | undefined) {
+        this['agency_name'] = agencyName;
+    }
+    public get agencyName(): string | undefined {
+        return this['agency_name'];
+    }
+    public withVariableGroupIds(variableGroupIds: Array<string>): PipelineDTO {
+        this['variable_group_ids'] = variableGroupIds;
+        return this;
+    }
+    public set variableGroupIds(variableGroupIds: Array<string>  | undefined) {
+        this['variable_group_ids'] = variableGroupIds;
+    }
+    public get variableGroupIds(): Array<string> | undefined {
+        return this['variable_group_ids'];
     }
 }

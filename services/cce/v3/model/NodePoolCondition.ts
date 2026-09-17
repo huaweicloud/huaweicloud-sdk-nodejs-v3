@@ -49,5 +49,6 @@ export enum NodePoolConditionTypeEnum {
     RESOURCEINSUFFICIENT = 'ResourceInsufficient',
     UNEXPECTEDERROR = 'UnexpectedError',
     LOCKEDBYORDER = 'LockedByOrder',
-    ERROR = 'Error'
+    ERROR = 'Error',
+    UNEXPECTEDPERIODNODESINCLUDED = 'UnexpectedPeriodNodesIncluded'
 }

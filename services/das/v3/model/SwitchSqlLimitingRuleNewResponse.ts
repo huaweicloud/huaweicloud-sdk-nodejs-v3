@@ -1,0 +1,19 @@
+
+import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
+
+export class SwitchSqlLimitingRuleNewResponse extends SdkResponse {
+    private 'switch_on'?: string;
+    public constructor() { 
+        super();
+    }
+    public withSwitchOn(switchOn: string): SwitchSqlLimitingRuleNewResponse {
+        this['switch_on'] = switchOn;
+        return this;
+    }
+    public set switchOn(switchOn: string  | undefined) {
+        this['switch_on'] = switchOn;
+    }
+    public get switchOn(): string | undefined {
+        return this['switch_on'];
+    }
+}

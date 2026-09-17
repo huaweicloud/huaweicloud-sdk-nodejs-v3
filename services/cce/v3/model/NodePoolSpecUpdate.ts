@@ -1,6 +1,7 @@
 import { ExtensionScaleGroup } from './ExtensionScaleGroup';
 import { NodeManagement } from './NodeManagement';
 import { NodePoolNodeAutoscaling } from './NodePoolNodeAutoscaling';
+import { NodePoolRepairPolicy } from './NodePoolRepairPolicy';
 import { NodeSpecUpdate } from './NodeSpecUpdate';
 
 
@@ -9,6 +10,7 @@ export class NodePoolSpecUpdate {
     public initialNodeCount?: number;
     public ignoreInitialNodeCount?: boolean;
     public autoscaling?: NodePoolNodeAutoscaling;
+    public repairPolicy?: NodePoolRepairPolicy;
     public nodeManagementUpdate?: NodeManagement;
     public customSecurityGroups?: Array<string>;
     public taintPolicyOnExistingNodes?: string;
@@ -32,6 +34,10 @@ export class NodePoolSpecUpdate {
     }
     public withAutoscaling(autoscaling: NodePoolNodeAutoscaling): NodePoolSpecUpdate {
         this['autoscaling'] = autoscaling;
+        return this;
+    }
+    public withRepairPolicy(repairPolicy: NodePoolRepairPolicy): NodePoolSpecUpdate {
+        this['repairPolicy'] = repairPolicy;
         return this;
     }
     public withNodeManagementUpdate(nodeManagementUpdate: NodeManagement): NodePoolSpecUpdate {

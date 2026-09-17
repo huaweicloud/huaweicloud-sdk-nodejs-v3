@@ -13,8 +13,12 @@ import { CountAllResourcesResponse } from './model/CountAllResourcesResponse';
 import { CreateGroupsResponse } from './model/CreateGroupsResponse';
 import { CreateResourceGroupRequest } from './model/CreateResourceGroupRequest';
 import { CreateResourceGroupResponse } from './model/CreateResourceGroupResponse';
+import { CreateStoredQueryRequest } from './model/CreateStoredQueryRequest';
+import { CreateStoredQueryResponse } from './model/CreateStoredQueryResponse';
 import { DeleteResourceGroupRequest } from './model/DeleteResourceGroupRequest';
 import { DeleteResourceGroupResponse } from './model/DeleteResourceGroupResponse';
+import { DeleteStoredQueryRequest } from './model/DeleteStoredQueryRequest';
+import { DeleteStoredQueryResponse } from './model/DeleteStoredQueryResponse';
 import { GenericResourceGroupRequestBody } from './model/GenericResourceGroupRequestBody';
 import { ListAllProvidersRequest } from './model/ListAllProvidersRequest';
 import { ListAllProvidersResponse } from './model/ListAllProvidersResponse';
@@ -26,16 +30,26 @@ import { ListResourceGroupsRequest } from './model/ListResourceGroupsRequest';
 import { ListResourceGroupsResponse } from './model/ListResourceGroupsResponse';
 import { ListResourcesRequest } from './model/ListResourcesRequest';
 import { ListResourcesResponse } from './model/ListResourcesResponse';
+import { ListSchemasRequest } from './model/ListSchemasRequest';
+import { ListSchemasResponse } from './model/ListSchemasResponse';
+import { ListStoredQueriesRequest } from './model/ListStoredQueriesRequest';
+import { ListStoredQueriesResponse } from './model/ListStoredQueriesResponse';
 import { PageInfo } from './model/PageInfo';
+import { QueryIdItem } from './model/QueryIdItem';
+import { QueryInfo } from './model/QueryInfo';
+import { QueryRunRequestBody } from './model/QueryRunRequestBody';
 import { RemoveResourceFromGroupRequest } from './model/RemoveResourceFromGroupRequest';
 import { RemoveResourceFromGroupResponse } from './model/RemoveResourceFromGroupResponse';
 import { ResourceEntity } from './model/ResourceEntity';
 import { ResourceProviderResponse } from './model/ResourceProviderResponse';
 import { ResourceRelation } from './model/ResourceRelation';
+import { ResourceSchemaResponse } from './model/ResourceSchemaResponse';
 import { ResourceSummaryResponseItem } from './model/ResourceSummaryResponseItem';
 import { ResourceSummaryResponseItemRegions } from './model/ResourceSummaryResponseItemRegions';
 import { ResourceSummaryResponseItemTypes } from './model/ResourceSummaryResponseItemTypes';
 import { ResourceTypeResponse } from './model/ResourceTypeResponse';
+import { RunQueryRequest } from './model/RunQueryRequest';
+import { RunQueryResponse } from './model/RunQueryResponse';
 import { ShowResourceByIdRequest } from './model/ShowResourceByIdRequest';
 import { ShowResourceByIdResponse } from './model/ShowResourceByIdResponse';
 import { ShowResourceDetailRequest } from './model/ShowResourceDetailRequest';
@@ -44,10 +58,16 @@ import { ShowResourceGroupRequest } from './model/ShowResourceGroupRequest';
 import { ShowResourceGroupResponse } from './model/ShowResourceGroupResponse';
 import { ShowResourceRelationsRequest } from './model/ShowResourceRelationsRequest';
 import { ShowResourceRelationsResponse } from './model/ShowResourceRelationsResponse';
+import { ShowStoredQueryRequest } from './model/ShowStoredQueryRequest';
+import { ShowStoredQueryResponse } from './model/ShowStoredQueryResponse';
+import { StoredQuery } from './model/StoredQuery';
+import { StoredQueryRequestBody } from './model/StoredQueryRequestBody';
 import { TagDetail } from './model/TagDetail';
 import { UpdateResourceGroupRequest } from './model/UpdateResourceGroupRequest';
 import { UpdateResourceGroupRequestBody } from './model/UpdateResourceGroupRequestBody';
 import { UpdateResourceGroupResponse } from './model/UpdateResourceGroupResponse';
+import { UpdateStoredQueryRequest } from './model/UpdateStoredQueryRequest';
+import { UpdateStoredQueryResponse } from './model/UpdateStoredQueryResponse';
 
 export class RcClient {
     public static newBuilder(): ClientBuilder<RcClient> {
@@ -195,6 +215,143 @@ export class RcClient {
      */
     public updateResourceGroup(updateResourceGroupRequest?: UpdateResourceGroupRequest): Promise<UpdateResourceGroupResponse> {
         const options = ParamCreater().updateResourceGroup(updateResourceGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Create Resource Query Language
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建高级查询
+     * @param {StoredQueryRequestBody} storedQueryRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createStoredQuery(createStoredQueryRequest?: CreateStoredQueryRequest): Promise<CreateStoredQueryResponse> {
+        const options = ParamCreater().createStoredQuery(createStoredQueryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Select resources by SQL
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除高级查询
+     * @param {string} queryId 查询ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteStoredQuery(deleteStoredQueryRequest?: DeleteStoredQueryRequest): Promise<DeleteStoredQueryResponse> {
+        const options = ParamCreater().deleteStoredQuery(deleteStoredQueryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * List Schemas
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举高级查询Schema
+     * @param {number} [limit] 最大的返回数量
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSchemas(listSchemasRequest?: ListSchemasRequest): Promise<ListSchemasResponse> {
+        const options = ParamCreater().listSchemas(listSchemasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * List Resource Query Language
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列出高级查询
+     * @param {number} [limit] 最大的返回数量
+     * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {string} [name] ResourceQL 名字
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listStoredQueries(listStoredQueriesRequest?: ListStoredQueriesRequest): Promise<ListStoredQueriesResponse> {
+        const options = ParamCreater().listStoredQueries(listStoredQueriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Run Resource Query Language
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 运行高级查询
+     * @param {QueryRunRequestBody} [queryRunRequestBody] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public runQuery(runQueryRequest?: RunQueryRequest): Promise<RunQueryResponse> {
+        const options = ParamCreater().runQuery(runQueryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Show Resource Query Language
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询单个高级查询
+     * @param {string} queryId 查询ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStoredQuery(showStoredQueryRequest?: ShowStoredQueryRequest): Promise<ShowStoredQueryResponse> {
+        const options = ParamCreater().showStoredQuery(showStoredQueryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Update Resource Query Language
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新单个高级查询
+     * @param {string} queryId 查询ID
+     * @param {StoredQueryRequestBody} storedQueryRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateStoredQuery(updateStoredQueryRequest?: UpdateStoredQueryRequest): Promise<UpdateStoredQueryResponse> {
+        const options = ParamCreater().updateStoredQuery(updateStoredQueryRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -358,6 +515,7 @@ export class RcClient {
      * @param {{ [key: string]: Array<string>; }} [tag] 标签
      * @param {number} [limit] 最大的返回数量
      * @param {string} [marker] 分页参数，通过上一个请求中返回的marker信息作为输入，获取当前页
+     * @param {string} [groupId] 资源组ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -702,6 +860,294 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Create Resource Query Language
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createStoredQuery(createStoredQueryRequest?: CreateStoredQueryRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/resource-center/stored-queries",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createStoredQueryRequest !== null && createStoredQueryRequest !== undefined) {
+                if (createStoredQueryRequest instanceof CreateStoredQueryRequest) {
+                    body = createStoredQueryRequest.body
+                } else {
+                    body = createStoredQueryRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Select resources by SQL
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteStoredQuery(deleteStoredQueryRequest?: DeleteStoredQueryRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/resource-center/stored-queries/{query_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let queryId;
+
+            if (deleteStoredQueryRequest !== null && deleteStoredQueryRequest !== undefined) {
+                if (deleteStoredQueryRequest instanceof DeleteStoredQueryRequest) {
+                    queryId = deleteStoredQueryRequest.queryId;
+                } else {
+                    queryId = deleteStoredQueryRequest['query_id'];
+                }
+            }
+
+        
+            if (queryId === null || queryId === undefined) {
+            throw new RequiredError('queryId','Required parameter queryId was null or undefined when calling deleteStoredQuery.');
+            }
+
+            options.pathParams = { 'query_id': queryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * List Schemas
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSchemas(listSchemasRequest?: ListSchemasRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-center/schemas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+
+            if (listSchemasRequest !== null && listSchemasRequest !== undefined) {
+                if (listSchemasRequest instanceof ListSchemasRequest) {
+                    limit = listSchemasRequest.limit;
+                    marker = listSchemasRequest.marker;
+                } else {
+                    limit = listSchemasRequest['limit'];
+                    marker = listSchemasRequest['marker'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * List Resource Query Language
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listStoredQueries(listStoredQueriesRequest?: ListStoredQueriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-center/stored-queries",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let name;
+
+            if (listStoredQueriesRequest !== null && listStoredQueriesRequest !== undefined) {
+                if (listStoredQueriesRequest instanceof ListStoredQueriesRequest) {
+                    limit = listStoredQueriesRequest.limit;
+                    marker = listStoredQueriesRequest.marker;
+                    name = listStoredQueriesRequest.name;
+                } else {
+                    limit = listStoredQueriesRequest['limit'];
+                    marker = listStoredQueriesRequest['marker'];
+                    name = listStoredQueriesRequest['name'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Run Resource Query Language
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        runQuery(runQueryRequest?: RunQueryRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/resource-center/run-query",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (runQueryRequest !== null && runQueryRequest !== undefined) {
+                if (runQueryRequest instanceof RunQueryRequest) {
+                    body = runQueryRequest.body
+                } else {
+                    body = runQueryRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Show Resource Query Language
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStoredQuery(showStoredQueryRequest?: ShowStoredQueryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/resource-center/stored-queries/{query_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let queryId;
+
+            if (showStoredQueryRequest !== null && showStoredQueryRequest !== undefined) {
+                if (showStoredQueryRequest instanceof ShowStoredQueryRequest) {
+                    queryId = showStoredQueryRequest.queryId;
+                } else {
+                    queryId = showStoredQueryRequest['query_id'];
+                }
+            }
+
+        
+            if (queryId === null || queryId === undefined) {
+            throw new RequiredError('queryId','Required parameter queryId was null or undefined when calling showStoredQuery.');
+            }
+
+            options.pathParams = { 'query_id': queryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Update Resource Query Language
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateStoredQuery(updateStoredQueryRequest?: UpdateStoredQueryRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/resource-center/stored-queries/{query_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let queryId;
+
+            if (updateStoredQueryRequest !== null && updateStoredQueryRequest !== undefined) {
+                if (updateStoredQueryRequest instanceof UpdateStoredQueryRequest) {
+                    queryId = updateStoredQueryRequest.queryId;
+                    body = updateStoredQueryRequest.body
+                } else {
+                    queryId = updateStoredQueryRequest['query_id'];
+                    body = updateStoredQueryRequest['body'];
+                }
+            }
+
+        
+            if (queryId === null || queryId === undefined) {
+            throw new RequiredError('queryId','Required parameter queryId was null or undefined when calling updateStoredQuery.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'query_id': queryId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1164,6 +1610,8 @@ export const ParamCreater = function () {
             let limit;
             
             let marker;
+            
+            let groupId;
 
             if (listResourcesRequest !== null && listResourcesRequest !== undefined) {
                 if (listResourcesRequest instanceof ListResourcesRequest) {
@@ -1174,6 +1622,7 @@ export const ParamCreater = function () {
                     tag = listResourcesRequest.tag;
                     limit = listResourcesRequest.limit;
                     marker = listResourcesRequest.marker;
+                    groupId = listResourcesRequest.groupId;
                 } else {
                     provider = listResourcesRequest['provider'];
                     type = listResourcesRequest['type'];
@@ -1182,6 +1631,7 @@ export const ParamCreater = function () {
                     tag = listResourcesRequest['tag'];
                     limit = listResourcesRequest['limit'];
                     marker = listResourcesRequest['marker'];
+                    groupId = listResourcesRequest['group_id'];
                 }
             }
 
@@ -1206,6 +1656,9 @@ export const ParamCreater = function () {
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
+            }
+            if (groupId !== null && groupId !== undefined) {
+                localVarQueryParameter['group_id'] = groupId;
             }
 
             options.queryParams = localVarQueryParameter;

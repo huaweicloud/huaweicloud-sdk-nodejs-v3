@@ -1,8 +1,10 @@
+import { RetryPipelineRequest } from './RetryPipelineRequest';
 
 
 export class RetryPipelineRunRequest {
     private 'pipeline_id'?: string;
     private 'pipeline_run_id'?: string;
+    public body?: RetryPipelineRequest;
     public constructor(pipelineId?: string, pipelineRunId?: string) { 
         this['pipeline_id'] = pipelineId;
         this['pipeline_run_id'] = pipelineRunId;
@@ -26,5 +28,9 @@ export class RetryPipelineRunRequest {
     }
     public get pipelineRunId(): string | undefined {
         return this['pipeline_run_id'];
+    }
+    public withBody(body: RetryPipelineRequest): RetryPipelineRunRequest {
+        this['body'] = body;
+        return this;
     }
 }

@@ -6,8 +6,8 @@ export class DeleteResourceGroupResponse extends SdkResponse {
     private 'domain_id'?: string;
     private 'group_name'?: string;
     public description?: string;
-    private 'create_time'?: string;
-    private 'update_time'?: string;
+    public created?: string;
+    public updated?: string;
     public constructor() { 
         super();
     }
@@ -45,24 +45,12 @@ export class DeleteResourceGroupResponse extends SdkResponse {
         this['description'] = description;
         return this;
     }
-    public withCreateTime(createTime: string): DeleteResourceGroupResponse {
-        this['create_time'] = createTime;
+    public withCreated(created: string): DeleteResourceGroupResponse {
+        this['created'] = created;
         return this;
     }
-    public set createTime(createTime: string  | undefined) {
-        this['create_time'] = createTime;
-    }
-    public get createTime(): string | undefined {
-        return this['create_time'];
-    }
-    public withUpdateTime(updateTime: string): DeleteResourceGroupResponse {
-        this['update_time'] = updateTime;
+    public withUpdated(updated: string): DeleteResourceGroupResponse {
+        this['updated'] = updated;
         return this;
-    }
-    public set updateTime(updateTime: string  | undefined) {
-        this['update_time'] = updateTime;
-    }
-    public get updateTime(): string | undefined {
-        return this['update_time'];
     }
 }

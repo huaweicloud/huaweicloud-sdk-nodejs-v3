@@ -9,6 +9,7 @@ export class CreateScheduleResponse extends SdkResponse {
     public name?: string;
     private 'cycle_type'?: string;
     public enabled?: boolean;
+    private 'reset_current_task'?: boolean;
     private 'start_time'?: number;
     private 'end_time'?: number;
     public priority?: number;
@@ -54,6 +55,16 @@ export class CreateScheduleResponse extends SdkResponse {
     public withEnabled(enabled: boolean): CreateScheduleResponse {
         this['enabled'] = enabled;
         return this;
+    }
+    public withResetCurrentTask(resetCurrentTask: boolean): CreateScheduleResponse {
+        this['reset_current_task'] = resetCurrentTask;
+        return this;
+    }
+    public set resetCurrentTask(resetCurrentTask: boolean  | undefined) {
+        this['reset_current_task'] = resetCurrentTask;
+    }
+    public get resetCurrentTask(): boolean | undefined {
+        return this['reset_current_task'];
     }
     public withStartTime(startTime: number): CreateScheduleResponse {
         this['start_time'] = startTime;

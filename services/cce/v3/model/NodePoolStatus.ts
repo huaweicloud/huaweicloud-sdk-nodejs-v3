@@ -7,6 +7,8 @@ export class NodePoolStatus {
     public creatingNode?: number;
     public deletingNode?: number;
     public activeNode?: number;
+    public repairingNode?: number;
+    public repairFailedNode?: number;
     public configurationSyncedNodeCount?: number;
     public phase?: NodePoolStatusPhaseEnum | string;
     public jobId?: string;
@@ -28,6 +30,14 @@ export class NodePoolStatus {
     }
     public withActiveNode(activeNode: number): NodePoolStatus {
         this['activeNode'] = activeNode;
+        return this;
+    }
+    public withRepairingNode(repairingNode: number): NodePoolStatus {
+        this['repairingNode'] = repairingNode;
+        return this;
+    }
+    public withRepairFailedNode(repairFailedNode: number): NodePoolStatus {
+        this['repairFailedNode'] = repairFailedNode;
         return this;
     }
     public withConfigurationSyncedNodeCount(configurationSyncedNodeCount: number): NodePoolStatus {

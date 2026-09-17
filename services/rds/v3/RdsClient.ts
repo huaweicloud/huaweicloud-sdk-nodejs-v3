@@ -909,6 +909,7 @@ import { ShowRestartPolicyResponse } from './model/ShowRestartPolicyResponse';
 import { ShowRestoreTablesRequest } from './model/ShowRestoreTablesRequest';
 import { ShowRestoreTablesRequestBody } from './model/ShowRestoreTablesRequestBody';
 import { ShowRestoreTablesResponse } from './model/ShowRestoreTablesResponse';
+import { ShowRiskInfoEngineRiskDesc } from './model/ShowRiskInfoEngineRiskDesc';
 import { ShowRiskInfoRequest } from './model/ShowRiskInfoRequest';
 import { ShowRiskInfoResponse } from './model/ShowRiskInfoResponse';
 import { ShowSecondLevelMonitoringRequest } from './model/ShowSecondLevelMonitoringRequest';
@@ -940,7 +941,7 @@ import { SlowLogStatisticsForLtsRequest } from './model/SlowLogStatisticsForLtsR
 import { SlowlogDownloadInfo } from './model/SlowlogDownloadInfo';
 import { SlowlogDownloadRequest } from './model/SlowlogDownloadRequest';
 import { SlowlogForLtsRequest } from './model/SlowlogForLtsRequest';
-import { Spaces } from './model/Spaces';
+import { Space } from './model/Space';
 import { SparseBackupPolicy } from './model/SparseBackupPolicy';
 import { SparseBackupPolicyForUpdate } from './model/SparseBackupPolicyForUpdate';
 import { SqlDiagnosisResult } from './model/SqlDiagnosisResult';

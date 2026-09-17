@@ -3,6 +3,7 @@
 export class BatchListDcDsRequest {
     private 'edge_node_id'?: string;
     private 'module_id'?: string;
+    public name?: string;
     public offset?: number;
     public limit?: number;
     public constructor(edgeNodeId?: string) { 
@@ -27,6 +28,10 @@ export class BatchListDcDsRequest {
     }
     public get moduleId(): string | undefined {
         return this['module_id'];
+    }
+    public withName(name: string): BatchListDcDsRequest {
+        this['name'] = name;
+        return this;
     }
     public withOffset(offset: number): BatchListDcDsRequest {
         this['offset'] = offset;

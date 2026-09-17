@@ -22,6 +22,8 @@ export class CreateEdgeNodeResponse extends SdkResponse {
     private 'automatic_upgrade'?: string;
     private 'device_data_record'?: DeviceDataRecord;
     private 'metric_report'?: string;
+    private 'iotda_south_access'?: string;
+    private 'os_type'?: string;
     public constructor() { 
         super();
     }
@@ -180,5 +182,25 @@ export class CreateEdgeNodeResponse extends SdkResponse {
     }
     public get metricReport(): string | undefined {
         return this['metric_report'];
+    }
+    public withIotdaSouthAccess(iotdaSouthAccess: string): CreateEdgeNodeResponse {
+        this['iotda_south_access'] = iotdaSouthAccess;
+        return this;
+    }
+    public set iotdaSouthAccess(iotdaSouthAccess: string  | undefined) {
+        this['iotda_south_access'] = iotdaSouthAccess;
+    }
+    public get iotdaSouthAccess(): string | undefined {
+        return this['iotda_south_access'];
+    }
+    public withOsType(osType: string): CreateEdgeNodeResponse {
+        this['os_type'] = osType;
+        return this;
+    }
+    public set osType(osType: string  | undefined) {
+        this['os_type'] = osType;
+    }
+    public get osType(): string | undefined {
+        return this['os_type'];
     }
 }

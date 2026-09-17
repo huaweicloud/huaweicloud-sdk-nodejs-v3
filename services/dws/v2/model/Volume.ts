@@ -3,6 +3,7 @@
 export class Volume {
     public volume?: string;
     public capacity?: number;
+    public iops?: number;
     public constructor(volume?: string) { 
         this['volume'] = volume;
     }
@@ -12,6 +13,10 @@ export class Volume {
     }
     public withCapacity(capacity: number): Volume {
         this['capacity'] = capacity;
+        return this;
+    }
+    public withIops(iops: number): Volume {
+        this['iops'] = iops;
         return this;
     }
 }

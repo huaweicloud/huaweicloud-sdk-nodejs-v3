@@ -6,6 +6,7 @@ export class CreateEdgeApplicationRequestDTO {
     public description?: string;
     private 'function_type'?: CreateEdgeApplicationRequestDTOFunctionTypeEnum | string;
     public protocol?: string;
+    private 'delivered_app'?: boolean;
     public constructor(edgeAppId?: string) { 
         this['edge_app_id'] = edgeAppId;
     }
@@ -47,6 +48,16 @@ export class CreateEdgeApplicationRequestDTO {
         this['protocol'] = protocol;
         return this;
     }
+    public withDeliveredApp(deliveredApp: boolean): CreateEdgeApplicationRequestDTO {
+        this['delivered_app'] = deliveredApp;
+        return this;
+    }
+    public set deliveredApp(deliveredApp: boolean  | undefined) {
+        this['delivered_app'] = deliveredApp;
+    }
+    public get deliveredApp(): boolean | undefined {
+        return this['delivered_app'];
+    }
 }
 
 /**
@@ -59,5 +70,6 @@ export enum CreateEdgeApplicationRequestDTOFunctionTypeEnum {
     ON_PREMISE_INTEGRATION = 'ON_PREMISE_INTEGRATION',
     GATEWAY_MANAGER = 'GATEWAY_MANAGER',
     COMPOSITE_APPLICATION = 'COMPOSITE_APPLICATION',
-    DATA_COLLECTION = 'DATA_COLLECTION'
+    DATA_COLLECTION = 'DATA_COLLECTION',
+    MODEL_INFERENCE = 'MODEL_INFERENCE'
 }

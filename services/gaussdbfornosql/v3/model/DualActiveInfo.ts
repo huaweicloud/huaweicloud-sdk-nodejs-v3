@@ -6,7 +6,7 @@ export class DualActiveInfo {
     private 'destination_instance_id'?: string;
     private 'destination_region'?: string;
     private 'destination_instance_name'?: string;
-    private 'destination_instance_node_num'?: string;
+    private 'destination_instance_node_num'?: number;
     private 'destination_instance_spec_code'?: string;
     public constructor() { 
     }
@@ -48,14 +48,14 @@ export class DualActiveInfo {
     public get destinationInstanceName(): string | undefined {
         return this['destination_instance_name'];
     }
-    public withDestinationInstanceNodeNum(destinationInstanceNodeNum: string): DualActiveInfo {
+    public withDestinationInstanceNodeNum(destinationInstanceNodeNum: number): DualActiveInfo {
         this['destination_instance_node_num'] = destinationInstanceNodeNum;
         return this;
     }
-    public set destinationInstanceNodeNum(destinationInstanceNodeNum: string  | undefined) {
+    public set destinationInstanceNodeNum(destinationInstanceNodeNum: number  | undefined) {
         this['destination_instance_node_num'] = destinationInstanceNodeNum;
     }
-    public get destinationInstanceNodeNum(): string | undefined {
+    public get destinationInstanceNodeNum(): number | undefined {
         return this['destination_instance_node_num'];
     }
     public withDestinationInstanceSpecCode(destinationInstanceSpecCode: string): DualActiveInfo {

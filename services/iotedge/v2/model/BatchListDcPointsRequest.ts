@@ -7,6 +7,7 @@ export class BatchListDcPointsRequest {
     public name?: string;
     public property?: string;
     private 'device_id'?: string;
+    public active?: boolean;
     public offset?: number;
     public limit?: number;
     public constructor(edgeNodeId?: string, dsId?: string) { 
@@ -60,6 +61,10 @@ export class BatchListDcPointsRequest {
     }
     public get deviceId(): string | undefined {
         return this['device_id'];
+    }
+    public withActive(active: boolean): BatchListDcPointsRequest {
+        this['active'] = active;
+        return this;
     }
     public withOffset(offset: number): BatchListDcPointsRequest {
         this['offset'] = offset;

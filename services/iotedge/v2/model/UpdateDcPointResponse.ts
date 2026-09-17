@@ -11,6 +11,7 @@ export class UpdateDcPointResponse extends SdkResponse {
     private 'data_type'?: string;
     private 'ds_id'?: string;
     private 'processing_config'?: ProcessingConfigDTO;
+    public active?: boolean;
     private 'create_time'?: string;
     private 'update_time'?: string;
     public constructor() { 
@@ -83,6 +84,10 @@ export class UpdateDcPointResponse extends SdkResponse {
     }
     public get processingConfig(): ProcessingConfigDTO | undefined {
         return this['processing_config'];
+    }
+    public withActive(active: boolean): UpdateDcPointResponse {
+        this['active'] = active;
+        return this;
     }
     public withCreateTime(createTime: string): UpdateDcPointResponse {
         this['create_time'] = createTime;

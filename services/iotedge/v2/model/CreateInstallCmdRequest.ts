@@ -4,6 +4,7 @@ import { CreateInstallCmdRequestDTO } from './CreateInstallCmdRequestDTO';
 export class CreateInstallCmdRequest {
     private 'edge_node_id'?: string;
     public arch?: string;
+    private 'enable_tpm'?: boolean;
     public body?: CreateInstallCmdRequestDTO;
     public constructor(edgeNodeId?: string, arch?: string) { 
         this['edge_node_id'] = edgeNodeId;
@@ -22,6 +23,16 @@ export class CreateInstallCmdRequest {
     public withArch(arch: string): CreateInstallCmdRequest {
         this['arch'] = arch;
         return this;
+    }
+    public withEnableTpm(enableTpm: boolean): CreateInstallCmdRequest {
+        this['enable_tpm'] = enableTpm;
+        return this;
+    }
+    public set enableTpm(enableTpm: boolean  | undefined) {
+        this['enable_tpm'] = enableTpm;
+    }
+    public get enableTpm(): boolean | undefined {
+        return this['enable_tpm'];
     }
     public withBody(body: CreateInstallCmdRequestDTO): CreateInstallCmdRequest {
         this['body'] = body;

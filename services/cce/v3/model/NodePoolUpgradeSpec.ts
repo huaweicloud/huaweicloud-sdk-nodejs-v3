@@ -1,4 +1,4 @@
-import { NodeTemplate } from './NodeTemplate';
+import { UpgradeNodePoolSpecNodeTemplate } from './UpgradeNodePoolSpecNodeTemplate';
 
 
 export class NodePoolUpgradeSpec {
@@ -8,7 +8,7 @@ export class NodePoolUpgradeSpec {
     public skippedNodes?: Array<string>;
     public nodeIDs?: Array<string>;
     public nodePoolID?: string;
-    public nodeTemplate?: NodeTemplate;
+    public nodeTemplate?: UpgradeNodePoolSpecNodeTemplate;
     public constructor(nodePoolID?: string) { 
         this['nodePoolID'] = nodePoolID;
     }
@@ -36,7 +36,7 @@ export class NodePoolUpgradeSpec {
         this['nodePoolID'] = nodePoolID;
         return this;
     }
-    public withNodeTemplate(nodeTemplate: NodeTemplate): NodePoolUpgradeSpec {
+    public withNodeTemplate(nodeTemplate: UpgradeNodePoolSpecNodeTemplate): NodePoolUpgradeSpec {
         this['nodeTemplate'] = nodeTemplate;
         return this;
     }

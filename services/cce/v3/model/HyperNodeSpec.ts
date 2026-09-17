@@ -4,7 +4,7 @@ import { NodeTemplateInHyperNode } from './NodeTemplateInHyperNode';
 export class HyperNodeSpec {
     public flavor?: string;
     public nodepoolID?: string;
-    public nodeTemplate?: Array<NodeTemplateInHyperNode>;
+    public nodeTemplate?: NodeTemplateInHyperNode;
     public chargeMode?: string;
     public constructor() { 
     }
@@ -16,7 +16,7 @@ export class HyperNodeSpec {
         this['nodepoolID'] = nodepoolID;
         return this;
     }
-    public withNodeTemplate(nodeTemplate: Array<NodeTemplateInHyperNode>): HyperNodeSpec {
+    public withNodeTemplate(nodeTemplate: NodeTemplateInHyperNode): HyperNodeSpec {
         this['nodeTemplate'] = nodeTemplate;
         return this;
     }

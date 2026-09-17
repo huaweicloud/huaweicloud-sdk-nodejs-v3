@@ -4,6 +4,7 @@ export class EdgeModuleDTO {
     private 'edge_app_id'?: string;
     private 'app_version'?: string;
     public state?: EdgeModuleDTOStateEnum | string;
+    private 'liveness_state'?: string;
     private 'control_status'?: string;
     private 'node_id'?: string;
     private 'module_name'?: string;
@@ -37,6 +38,16 @@ export class EdgeModuleDTO {
     public withState(state: EdgeModuleDTOStateEnum | string): EdgeModuleDTO {
         this['state'] = state;
         return this;
+    }
+    public withLivenessState(livenessState: string): EdgeModuleDTO {
+        this['liveness_state'] = livenessState;
+        return this;
+    }
+    public set livenessState(livenessState: string  | undefined) {
+        this['liveness_state'] = livenessState;
+    }
+    public get livenessState(): string | undefined {
+        return this['liveness_state'];
     }
     public withControlStatus(controlStatus: string): EdgeModuleDTO {
         this['control_status'] = controlStatus;
@@ -129,6 +140,8 @@ export enum EdgeModuleDTOStateEnum {
     PENDING_DELETE = 'PENDING_DELETE',
     DELETE_FAILED = 'DELETE_FAILED',
     RUNNING = 'RUNNING',
+    UPGRADE_PRELOADING = 'UPGRADE_PRELOADING',
+    UPGRADE_PRELOADED = 'UPGRADE_PRELOADED',
     FAILED = 'FAILED',
     SUCCEEDED = 'SUCCEEDED',
     UNKNOWN = 'UNKNOWN',
@@ -154,5 +167,6 @@ export enum EdgeModuleDTOFunctionTypeEnum {
     ON_PREMISE_INTEGRATION = 'ON_PREMISE_INTEGRATION',
     GATEWAY_MANAGER = 'GATEWAY_MANAGER',
     COMPOSITE_APPLICATION = 'COMPOSITE_APPLICATION',
-    DATA_COLLECTION = 'DATA_COLLECTION'
+    DATA_COLLECTION = 'DATA_COLLECTION',
+    MODEL_INFERENCE = 'MODEL_INFERENCE'
 }

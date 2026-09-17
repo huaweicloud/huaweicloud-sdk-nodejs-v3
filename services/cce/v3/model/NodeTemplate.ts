@@ -10,6 +10,7 @@ import { Storage } from './Storage';
 import { Taint } from './Taint';
 import { UserTag } from './UserTag';
 import { Volume } from './Volume';
+import { VolumeConfig } from './VolumeConfig';
 
 
 export class NodeTemplate {
@@ -17,6 +18,7 @@ export class NodeTemplate {
     public az?: string;
     public os?: string;
     public login?: Login;
+    public volumeConfig?: VolumeConfig;
     public rootVolume?: Volume;
     public dataVolumes?: Array<Volume>;
     public storage?: Storage;
@@ -54,6 +56,10 @@ export class NodeTemplate {
     }
     public withLogin(login: Login): NodeTemplate {
         this['login'] = login;
+        return this;
+    }
+    public withVolumeConfig(volumeConfig: VolumeConfig): NodeTemplate {
+        this['volumeConfig'] = volumeConfig;
         return this;
     }
     public withRootVolume(rootVolume: Volume): NodeTemplate {

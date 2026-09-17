@@ -10,7 +10,7 @@ export class BatchCreateSecurityGroupRulesOption {
     private 'remote_group_id'?: string;
     private 'remote_address_group_id'?: string;
     public action?: string;
-    public priority?: string;
+    public priority?: number;
     public enabled?: boolean;
     public constructor(direction?: string) { 
         this['direction'] = direction;
@@ -69,7 +69,7 @@ export class BatchCreateSecurityGroupRulesOption {
         this['action'] = action;
         return this;
     }
-    public withPriority(priority: string): BatchCreateSecurityGroupRulesOption {
+    public withPriority(priority: number): BatchCreateSecurityGroupRulesOption {
         this['priority'] = priority;
         return this;
     }

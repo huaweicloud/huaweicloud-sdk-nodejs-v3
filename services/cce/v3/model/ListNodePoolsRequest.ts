@@ -4,6 +4,7 @@ export class ListNodePoolsRequest {
     private 'cluster_id'?: string;
     private 'Content-Type'?: string;
     public showDefaultNodePool?: string;
+    public advanceStatus?: boolean;
     public constructor(clusterId?: string, contentType?: string) { 
         this['cluster_id'] = clusterId;
         this['Content-Type'] = contentType;
@@ -30,6 +31,10 @@ export class ListNodePoolsRequest {
     }
     public withShowDefaultNodePool(showDefaultNodePool: string): ListNodePoolsRequest {
         this['showDefaultNodePool'] = showDefaultNodePool;
+        return this;
+    }
+    public withAdvanceStatus(advanceStatus: boolean): ListNodePoolsRequest {
+        this['advanceStatus'] = advanceStatus;
         return this;
     }
 }

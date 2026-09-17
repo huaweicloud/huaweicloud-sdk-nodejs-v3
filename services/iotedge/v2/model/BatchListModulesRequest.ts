@@ -6,6 +6,9 @@ export class BatchListModulesRequest {
     public limit?: number;
     private 'app_type'?: BatchListModulesRequestAppTypeEnum | string;
     private 'function_type'?: BatchListModulesRequestFunctionTypeEnum | string;
+    private 'function_types'?: Array<string>;
+    private 'protocol_types'?: Array<string>;
+    private 'module_name'?: string;
     public constructor(edgeNodeId?: string) { 
         this['edge_node_id'] = edgeNodeId;
     }
@@ -47,6 +50,36 @@ export class BatchListModulesRequest {
     public get functionType(): BatchListModulesRequestFunctionTypeEnum | string | undefined {
         return this['function_type'];
     }
+    public withFunctionTypes(functionTypes: Array<string>): BatchListModulesRequest {
+        this['function_types'] = functionTypes;
+        return this;
+    }
+    public set functionTypes(functionTypes: Array<string>  | undefined) {
+        this['function_types'] = functionTypes;
+    }
+    public get functionTypes(): Array<string> | undefined {
+        return this['function_types'];
+    }
+    public withProtocolTypes(protocolTypes: Array<string>): BatchListModulesRequest {
+        this['protocol_types'] = protocolTypes;
+        return this;
+    }
+    public set protocolTypes(protocolTypes: Array<string>  | undefined) {
+        this['protocol_types'] = protocolTypes;
+    }
+    public get protocolTypes(): Array<string> | undefined {
+        return this['protocol_types'];
+    }
+    public withModuleName(moduleName: string): BatchListModulesRequest {
+        this['module_name'] = moduleName;
+        return this;
+    }
+    public set moduleName(moduleName: string  | undefined) {
+        this['module_name'] = moduleName;
+    }
+    public get moduleName(): string | undefined {
+        return this['module_name'];
+    }
 }
 
 /**
@@ -65,5 +98,9 @@ export enum BatchListModulesRequestAppTypeEnum {
 export enum BatchListModulesRequestFunctionTypeEnum {
     DATA_PROCESSING = 'DATA_PROCESSING',
     PROTOCOL_PARSING = 'PROTOCOL_PARSING',
-    ON_PREMISE_INTEGRATION = 'ON_PREMISE_INTEGRATION'
+    ON_PREMISE_INTEGRATION = 'ON_PREMISE_INTEGRATION',
+    GATEWAY_MANAGER = 'GATEWAY_MANAGER',
+    COMPOSITE_APPLICATION = 'COMPOSITE_APPLICATION',
+    DATA_COLLECTION = 'DATA_COLLECTION',
+    MODEL_INFERENCE = 'MODEL_INFERENCE'
 }

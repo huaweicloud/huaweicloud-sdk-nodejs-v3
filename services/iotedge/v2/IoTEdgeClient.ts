@@ -18,6 +18,7 @@ import { AddGeneralOtTemplateRequest } from './model/AddGeneralOtTemplateRequest
 import { AddGeneralOtTemplateResponse } from './model/AddGeneralOtTemplateResponse';
 import { AddOtTemplatesRequest } from './model/AddOtTemplatesRequest';
 import { AddOtTemplatesResponse } from './model/AddOtTemplatesResponse';
+import { AssociateNodeRequestBody } from './model/AssociateNodeRequestBody';
 import { AuthAkSkInfo } from './model/AuthAkSkInfo';
 import { AuthorizeNa2NodesRequestDTO } from './model/AuthorizeNa2NodesRequestDTO';
 import { BasePathDTO } from './model/BasePathDTO';
@@ -25,6 +26,8 @@ import { BatchAssociateNaToNodesRequest } from './model/BatchAssociateNaToNodesR
 import { BatchAssociateNaToNodesResponse } from './model/BatchAssociateNaToNodesResponse';
 import { BatchConfirmConfigsNewRequest } from './model/BatchConfirmConfigsNewRequest';
 import { BatchConfirmConfigsNewResponse } from './model/BatchConfirmConfigsNewResponse';
+import { BatchConfirmConfigsRequest } from './model/BatchConfirmConfigsRequest';
+import { BatchConfirmConfigsResponse } from './model/BatchConfirmConfigsResponse';
 import { BatchImportConfigRequestBody } from './model/BatchImportConfigRequestBody';
 import { BatchImportConfigsRequest } from './model/BatchImportConfigsRequest';
 import { BatchImportConfigsRequestBody } from './model/BatchImportConfigsRequestBody';
@@ -45,7 +48,10 @@ import { BatchListModulesRequest } from './model/BatchListModulesRequest';
 import { BatchListModulesResponse } from './model/BatchListModulesResponse';
 import { BatchListOtTemplatesRequest } from './model/BatchListOtTemplatesRequest';
 import { BatchListOtTemplatesResponse } from './model/BatchListOtTemplatesResponse';
+import { BindNodeRequest } from './model/BindNodeRequest';
+import { BindNodeResponse } from './model/BindNodeResponse';
 import { CertificateLocalPathDTO } from './model/CertificateLocalPathDTO';
+import { ChannelDTO } from './model/ChannelDTO';
 import { ConfirmIaConfigRequestBody } from './model/ConfirmIaConfigRequestBody';
 import { ConfirmIaConfigsRequestBody } from './model/ConfirmIaConfigsRequestBody';
 import { ContainerConfigsDTO } from './model/ContainerConfigsDTO';
@@ -55,6 +61,10 @@ import { ContainerPortDTO } from './model/ContainerPortDTO';
 import { ContainerSettingsDTO } from './model/ContainerSettingsDTO';
 import { ContainerSettingsReqDTO } from './model/ContainerSettingsReqDTO';
 import { CreateAppConfigsTemplatesReqDTO } from './model/CreateAppConfigsTemplatesReqDTO';
+import { CreateChannelRequestDTO } from './model/CreateChannelRequestDTO';
+import { CreateClientNodeRequest } from './model/CreateClientNodeRequest';
+import { CreateClientNodeRequestDTO } from './model/CreateClientNodeRequestDTO';
+import { CreateClientNodeResponse } from './model/CreateClientNodeResponse';
 import { CreateDcDsReqDTO } from './model/CreateDcDsReqDTO';
 import { CreateDcPointReqDTO } from './model/CreateDcPointReqDTO';
 import { CreateDcPointRequest } from './model/CreateDcPointRequest';
@@ -74,16 +84,28 @@ import { CreateEdgeNodeResponse } from './model/CreateEdgeNodeResponse';
 import { CreateExternalEntityReqDTO } from './model/CreateExternalEntityReqDTO';
 import { CreateExternalEntityRequest } from './model/CreateExternalEntityRequest';
 import { CreateExternalEntityResponse } from './model/CreateExternalEntityResponse';
+import { CreateInfluxDB2ChannelDetail } from './model/CreateInfluxDB2ChannelDetail';
 import { CreateInstallCmdRequest } from './model/CreateInstallCmdRequest';
 import { CreateInstallCmdRequestDTO } from './model/CreateInstallCmdRequestDTO';
 import { CreateInstallCmdResponse } from './model/CreateInstallCmdResponse';
+import { CreateIoTDBChannelDetail } from './model/CreateIoTDBChannelDetail';
 import { CreateModuleRequest } from './model/CreateModuleRequest';
 import { CreateModuleResponse } from './model/CreateModuleResponse';
+import { CreateMqttChannelDetail } from './model/CreateMqttChannelDetail';
 import { CreateOtTemplatesReqDTO } from './model/CreateOtTemplatesReqDTO';
+import { CreatePulsarChannelDetail } from './model/CreatePulsarChannelDetail';
+import { CreatePushChannelRequest } from './model/CreatePushChannelRequest';
+import { CreatePushChannelResponse } from './model/CreatePushChannelResponse';
+import { CreateReinstallCmdRequest } from './model/CreateReinstallCmdRequest';
+import { CreateReinstallCmdRequestBody } from './model/CreateReinstallCmdRequestBody';
+import { CreateReinstallCmdResponse } from './model/CreateReinstallCmdResponse';
 import { CreateRouterReqDTO } from './model/CreateRouterReqDTO';
 import { CreateScheduleReqDTO } from './model/CreateScheduleReqDTO';
 import { CreateScheduleRequest } from './model/CreateScheduleRequest';
 import { CreateScheduleResponse } from './model/CreateScheduleResponse';
+import { CreateUpgradeCmdRequest } from './model/CreateUpgradeCmdRequest';
+import { CreateUpgradeCmdResponse } from './model/CreateUpgradeCmdResponse';
+import { DNSConfigDTO } from './model/DNSConfigDTO';
 import { DailyDto } from './model/DailyDto';
 import { DeleteAppConfigsTemplateRequest } from './model/DeleteAppConfigsTemplateRequest';
 import { DeleteAppConfigsTemplateResponse } from './model/DeleteAppConfigsTemplateResponse';
@@ -113,6 +135,8 @@ import { DeleteNaRequest } from './model/DeleteNaRequest';
 import { DeleteNaResponse } from './model/DeleteNaResponse';
 import { DeleteOtTemplateRequest } from './model/DeleteOtTemplateRequest';
 import { DeleteOtTemplateResponse } from './model/DeleteOtTemplateResponse';
+import { DeletePushChannelRequest } from './model/DeletePushChannelRequest';
+import { DeletePushChannelResponse } from './model/DeletePushChannelResponse';
 import { DeleteScheduleRequest } from './model/DeleteScheduleRequest';
 import { DeleteScheduleResponse } from './model/DeleteScheduleResponse';
 import { DeviceAuthInfoDTO } from './model/DeviceAuthInfoDTO';
@@ -122,6 +146,17 @@ import { DeviceControlReleaseReqDTO } from './model/DeviceControlReleaseReqDTO';
 import { DeviceControlSetReqDTO } from './model/DeviceControlSetReqDTO';
 import { DeviceDataRecord } from './model/DeviceDataRecord';
 import { DeviceDefaultValues } from './model/DeviceDefaultValues';
+import { DeviceInfluxDB2NodeChannelPushInfoDetail } from './model/DeviceInfluxDB2NodeChannelPushInfoDetail';
+import { DeviceInfluxDB2PushInfo } from './model/DeviceInfluxDB2PushInfo';
+import { DeviceIoTDBNodeChannelPushInfoDetail } from './model/DeviceIoTDBNodeChannelPushInfoDetail';
+import { DeviceIoTDBPushInfo } from './model/DeviceIoTDBPushInfo';
+import { DeviceIoTDBPushInfoDetail } from './model/DeviceIoTDBPushInfoDetail';
+import { DeviceMqttNodeChannelPushInfoDetail } from './model/DeviceMqttNodeChannelPushInfoDetail';
+import { DeviceMqttPushInfo } from './model/DeviceMqttPushInfo';
+import { DeviceMqttPushInfoDetail } from './model/DeviceMqttPushInfoDetail';
+import { DevicePulsarNodeChannelPushInfoDetail } from './model/DevicePulsarNodeChannelPushInfoDetail';
+import { DevicePulsarPushInfo } from './model/DevicePulsarPushInfo';
+import { DevicePulsarPushInfoDetail } from './model/DevicePulsarPushInfoDetail';
 import { EdgeAppInstanceDTO } from './model/EdgeAppInstanceDTO';
 import { EdgeDeviceAuthInfo } from './model/EdgeDeviceAuthInfo';
 import { EdgeModuleDTO } from './model/EdgeModuleDTO';
@@ -140,8 +175,30 @@ import { HttpGetDTO } from './model/HttpGetDTO';
 import { ImportPointsRequest } from './model/ImportPointsRequest';
 import { ImportPointsRequestBody } from './model/ImportPointsRequestBody';
 import { ImportPointsResponse } from './model/ImportPointsResponse';
+import { InfluxDB2ConnectionInfo } from './model/InfluxDB2ConnectionInfo';
+import { InfluxDB2NodeChannelDetailDTO } from './model/InfluxDB2NodeChannelDetailDTO';
+import { InfluxDB2NodeChannelPushInfoRsp } from './model/InfluxDB2NodeChannelPushInfoRsp';
+import { InfluxDB2PushInfo } from './model/InfluxDB2PushInfo';
+import { InvokeDeleteProxyRequest } from './model/InvokeDeleteProxyRequest';
+import { InvokeDeleteProxyResponse } from './model/InvokeDeleteProxyResponse';
+import { InvokeGetProxyRequest } from './model/InvokeGetProxyRequest';
+import { InvokeGetProxyResponse } from './model/InvokeGetProxyResponse';
 import { InvokeModuleMsgRequest } from './model/InvokeModuleMsgRequest';
 import { InvokeModuleMsgResponse } from './model/InvokeModuleMsgResponse';
+import { InvokePatchProxyRequest } from './model/InvokePatchProxyRequest';
+import { InvokePatchProxyResponse } from './model/InvokePatchProxyResponse';
+import { InvokePostProxyRequest } from './model/InvokePostProxyRequest';
+import { InvokePostProxyResponse } from './model/InvokePostProxyResponse';
+import { InvokePutProxyRequest } from './model/InvokePutProxyRequest';
+import { InvokePutProxyResponse } from './model/InvokePutProxyResponse';
+import { IoTDBChannelDetailDTO } from './model/IoTDBChannelDetailDTO';
+import { IoTDBConnectionInfo } from './model/IoTDBConnectionInfo';
+import { IoTDBConnectionInfoResp } from './model/IoTDBConnectionInfoResp';
+import { IoTDBNodeChannelDetailDTO } from './model/IoTDBNodeChannelDetailDTO';
+import { IoTDBNodeChannelPushInfoResp } from './model/IoTDBNodeChannelPushInfoResp';
+import { IoTDBPushInfo } from './model/IoTDBPushInfo';
+import { IoTDBPushInfoResp } from './model/IoTDBPushInfoResp';
+import { ItMqttConnectionInfo } from './model/ItMqttConnectionInfo';
 import { ListDevicesRequest } from './model/ListDevicesRequest';
 import { ListDevicesResponse } from './model/ListDevicesResponse';
 import { ListEdgeNodesRequest } from './model/ListEdgeNodesRequest';
@@ -156,11 +213,20 @@ import { ListNasRequest } from './model/ListNasRequest';
 import { ListNasResponse } from './model/ListNasResponse';
 import { ListPropertyActiveControlsRequest } from './model/ListPropertyActiveControlsRequest';
 import { ListPropertyActiveControlsResponse } from './model/ListPropertyActiveControlsResponse';
+import { ListPushChannelsRequest } from './model/ListPushChannelsRequest';
+import { ListPushChannelsResponse } from './model/ListPushChannelsResponse';
 import { ListRoutesRequest } from './model/ListRoutesRequest';
 import { ListRoutesResponse } from './model/ListRoutesResponse';
 import { LogConfigDTO } from './model/LogConfigDTO';
 import { ModuleContainerSettingsResDTO } from './model/ModuleContainerSettingsResDTO';
+import { MqttChannelDetailDTO } from './model/MqttChannelDetailDTO';
 import { MqttConnectionInfo } from './model/MqttConnectionInfo';
+import { MqttConnectionInfoResp } from './model/MqttConnectionInfoResp';
+import { MqttNodeChannelConnectionInfoResp } from './model/MqttNodeChannelConnectionInfoResp';
+import { MqttNodeChannelDetailDTO } from './model/MqttNodeChannelDetailDTO';
+import { MqttNodeChannelPushInfoRsp } from './model/MqttNodeChannelPushInfoRsp';
+import { MqttPushInfo } from './model/MqttPushInfo';
+import { MqttPushInfoResp } from './model/MqttPushInfoResp';
 import { NPUDetailsDTO } from './model/NPUDetailsDTO';
 import { Nic } from './model/Nic';
 import { NpuUsedInfoDTO } from './model/NpuUsedInfoDTO';
@@ -169,8 +235,17 @@ import { PageInfoDTO } from './model/PageInfoDTO';
 import { PointCleanDTO } from './model/PointCleanDTO';
 import { PointScalingDTO } from './model/PointScalingDTO';
 import { PointValidityingDTO } from './model/PointValidityingDTO';
+import { PreUpgradeProbeDTO } from './model/PreUpgradeProbeDTO';
 import { ProbeDTO } from './model/ProbeDTO';
 import { ProcessingConfigDTO } from './model/ProcessingConfigDTO';
+import { PulsarChannelDetailDTO } from './model/PulsarChannelDetailDTO';
+import { PulsarConnectionInfo } from './model/PulsarConnectionInfo';
+import { PulsarConnectionInfoResp } from './model/PulsarConnectionInfoResp';
+import { PulsarNodeChannelConnectionInfoResp } from './model/PulsarNodeChannelConnectionInfoResp';
+import { PulsarNodeChannelDetailDTO } from './model/PulsarNodeChannelDetailDTO';
+import { PulsarNodeChannelPushInfoRsp } from './model/PulsarNodeChannelPushInfoRsp';
+import { PulsarPushInfo } from './model/PulsarPushInfo';
+import { PulsarPushInfoResp } from './model/PulsarPushInfoResp';
 import { QueryAppConfigsTemplateBriefRespDTO } from './model/QueryAppConfigsTemplateBriefRespDTO';
 import { QueryApplicationBriefResponseDTO } from './model/QueryApplicationBriefResponseDTO';
 import { QueryAuthorizedNodeDTO } from './model/QueryAuthorizedNodeDTO';
@@ -185,6 +260,7 @@ import { ResourceConfigDTO } from './model/ResourceConfigDTO';
 import { ResourceDTO } from './model/ResourceDTO';
 import { RouterDetailRespDTO } from './model/RouterDetailRespDTO';
 import { RouterRespDTO } from './model/RouterRespDTO';
+import { RuntimeInfoDTO } from './model/RuntimeInfoDTO';
 import { ScheduleTask } from './model/ScheduleTask';
 import { SetDeviceControlDefaultValuesRequest } from './model/SetDeviceControlDefaultValuesRequest';
 import { SetDeviceControlDefaultValuesResponse } from './model/SetDeviceControlDefaultValuesResponse';
@@ -202,6 +278,8 @@ import { ShowEdgeNodeHostsInfoRequest } from './model/ShowEdgeNodeHostsInfoReque
 import { ShowEdgeNodeHostsInfoResponse } from './model/ShowEdgeNodeHostsInfoResponse';
 import { ShowEdgeNodeRequest } from './model/ShowEdgeNodeRequest';
 import { ShowEdgeNodeResponse } from './model/ShowEdgeNodeResponse';
+import { ShowEdgeNodeSoftwareVersionRequest } from './model/ShowEdgeNodeSoftwareVersionRequest';
+import { ShowEdgeNodeSoftwareVersionResponse } from './model/ShowEdgeNodeSoftwareVersionResponse';
 import { ShowIaConfigRequest } from './model/ShowIaConfigRequest';
 import { ShowIaConfigResponse } from './model/ShowIaConfigResponse';
 import { ShowModuleRequest } from './model/ShowModuleRequest';
@@ -220,8 +298,11 @@ import { ShowProductConfigRequest } from './model/ShowProductConfigRequest';
 import { ShowProductConfigResponse } from './model/ShowProductConfigResponse';
 import { SynchronizeDcConfigsRequest } from './model/SynchronizeDcConfigsRequest';
 import { SynchronizeDcConfigsResponse } from './model/SynchronizeDcConfigsResponse';
+import { TPMInfoDTO } from './model/TPMInfoDTO';
 import { TcpSocketDTO } from './model/TcpSocketDTO';
 import { TimeSpans } from './model/TimeSpans';
+import { UpdateClientNodeRequest } from './model/UpdateClientNodeRequest';
+import { UpdateClientNodeResponse } from './model/UpdateClientNodeResponse';
 import { UpdateDcDsReqDTO } from './model/UpdateDcDsReqDTO';
 import { UpdateDcDsRequest } from './model/UpdateDcDsRequest';
 import { UpdateDcDsResponse } from './model/UpdateDcDsResponse';
@@ -254,16 +335,24 @@ import { UpdateModuleShadowResponse } from './model/UpdateModuleShadowResponse';
 import { UpdateModuleShadowsRequestBody } from './model/UpdateModuleShadowsRequestBody';
 import { UpdateModuleStateRequest } from './model/UpdateModuleStateRequest';
 import { UpdateModuleStateResponse } from './model/UpdateModuleStateResponse';
+import { UpdateMqttNodeChannelConnectionInfo } from './model/UpdateMqttNodeChannelConnectionInfo';
+import { UpdateMqttNodeChannelDetail } from './model/UpdateMqttNodeChannelDetail';
+import { UpdateMqttNodeChannelPushInfoDTO } from './model/UpdateMqttNodeChannelPushInfoDTO';
 import { UpdateNaRequest } from './model/UpdateNaRequest';
 import { UpdateNaRequestDTO } from './model/UpdateNaRequestDTO';
 import { UpdateNaResponse } from './model/UpdateNaResponse';
+import { UpdateNodeChannelRequestDTO } from './model/UpdateNodeChannelRequestDTO';
 import { UpdateNodeReqDTO } from './model/UpdateNodeReqDTO';
 import { UpdateOfflineCacheConfigsDTO } from './model/UpdateOfflineCacheConfigsDTO';
+import { UpdatePulsarNodeChannelConnectionInfo } from './model/UpdatePulsarNodeChannelConnectionInfo';
+import { UpdatePulsarNodeChannelDetail } from './model/UpdatePulsarNodeChannelDetail';
+import { UpdatePulsarNodeChannelPushInfoDTO } from './model/UpdatePulsarNodeChannelPushInfoDTO';
 import { UpdateRoutesRequest } from './model/UpdateRoutesRequest';
 import { UpdateRoutesResponse } from './model/UpdateRoutesResponse';
 import { UpdateScheduleReqDTO } from './model/UpdateScheduleReqDTO';
 import { UpdateScheduleRequest } from './model/UpdateScheduleRequest';
 import { UpdateScheduleResponse } from './model/UpdateScheduleResponse';
+import { UpgradeProbeTimeoutConfigDTO } from './model/UpgradeProbeTimeoutConfigDTO';
 import { VolumeDTO } from './model/VolumeDTO';
 
 export class IoTEdgeClient {
@@ -309,6 +398,7 @@ export class IoTEdgeClient {
      * @summary 生成边缘节点安装命令
      * @param {string} edgeNodeId 边缘节点ID
      * @param {string} arch 节点架构
+     * @param {boolean} [enableTpm] 是否启用TPM
      * @param {CreateInstallCmdRequestDTO} [createInstallCmdRequestBody] 指定边缘节点的更新主备配置的请求的结构体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -323,13 +413,53 @@ export class IoTEdgeClient {
     }
 
     /**
+     * 生成边缘节点重新安装命令，命令有效时间30分钟，超过后需要重新生成
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 生成边缘节点重新安装命令
+     * @param {string} edgeNodeId 边缘节点ID
+     * @param {CreateReinstallCmdRequestBody} createReinstallCmdRequestBody request
+     * @param {boolean} [enableTpm] 是否启用TPM
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createReinstallCmd(createReinstallCmdRequest?: CreateReinstallCmdRequest): Promise<CreateReinstallCmdResponse> {
+        const options = ParamCreater().createReinstallCmd(createReinstallCmdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 生成边缘节点升级命令，命令有效时间30分钟，超过后需要重新生成
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 生成边缘节点升级命令
+     * @param {string} edgeNodeId 节点id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createUpgradeCmd(createUpgradeCmdRequest?: CreateUpgradeCmdRequest): Promise<CreateUpgradeCmdResponse> {
+        const options = ParamCreater().createUpgradeCmd(createUpgradeCmdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除指定边缘节点
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除边缘节点
      * @param {string} edgeNodeId 边缘节点ID
-     * @param {boolean} [deleteExternalNode] 是否同时删除外部节点（仅对高级版有效），默认为false不删除IEF侧的边缘节点
+     * @param {boolean} [deleteExternalNode] 是否同时删除外部节点（仅对专业版有效），默认为false不删除IEF侧的边缘节点
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -349,11 +479,12 @@ export class IoTEdgeClient {
      *
      * @summary 查询边缘节点列表
      * @param {string} [name] 节点名称
-     * @param {string} [state] 节点状态,OFFLINE|ONLINE|UNINSTALLED|INSTALLED|DELETING|UPGRADING
+     * @param {string} [state] 节点状态,OFFLINE|ONLINE|UNINSTALLED|INSTALLED|DELETING|UPGRADING|FROZEN
      * @param {string} [type] 节点所属资源类型，advanced|standard
      * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {string} [spaceId] 资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的设备列表，不携带该参数则会查询该用户下所有设备列表。
      * @param {Array<string>} [nodeIds] 节点id列表,查询ID在给的节点ID列表内的节点信息
+     * @param {string} [appId] 应用ID，查询部署了该应用的节点列表。
      * @param {number} [offset] 查询的起始位置，取值范围为非负整数，默认为0
      * @param {number} [limit] 每页记录数，默认值为10，取值区间为1-1000
      * @param {*} [options] Override http request option.
@@ -419,6 +550,86 @@ export class IoTEdgeClient {
      */
     public updateEdgeNode(updateEdgeNodeRequest?: UpdateEdgeNodeRequest): Promise<UpdateEdgeNodeResponse> {
         const options = ParamCreater().updateEdgeNode(updateEdgeNodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分配推送通道到客户端节点
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 分配推送通道到客户端节点
+     * @param {string} channelId 边缘推送通道ID
+     * @param {CreateClientNodeRequestDTO} createClientNodeRequestBody 更新推送通道结构体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createClientNode(createClientNodeRequest?: CreateClientNodeRequest): Promise<CreateClientNodeResponse> {
+        const options = ParamCreater().createClientNode(createClientNodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改已分配节点通道的详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改已分配节点通道的详情
+     * @param {string} channelId 边缘推送通道ID
+     * @param {string} nodeId 边缘节点ID
+     * @param {UpdateNodeChannelRequestDTO} updatePushNodeChannelRequestBody 更新推送通道结构体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateClientNode(updateClientNodeRequest?: UpdateClientNodeRequest): Promise<UpdateClientNodeResponse> {
+        const options = ParamCreater().updateClientNode(updateClientNodeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询当前边缘软件版本
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询当前边缘软件版本
+     * @param {string} edgeNodeId 节点id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showEdgeNodeSoftwareVersion(showEdgeNodeSoftwareVersionRequest?: ShowEdgeNodeSoftwareVersionRequest): Promise<ShowEdgeNodeSoftwareVersionResponse> {
+        const options = ParamCreater().showEdgeNodeSoftwareVersion(showEdgeNodeSoftwareVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 绑定节点-专业版
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 绑定节点-专业版
+     * @param {string} resourceId 资源id
+     * @param {AssociateNodeRequestBody} bindNodeRequestBody request
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public bindNode(bindNodeRequest?: BindNodeRequest): Promise<BindNodeResponse> {
+        const options = ParamCreater().bindNode(bindNodeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -557,8 +768,10 @@ export class IoTEdgeClient {
      *
      * @summary 查询设备列表
      * @param {string} edgeNodeId 边缘节点ID
-     * @param {string} [gatewayId] 父设备ID,对应之前的gatewayId的概念，传该参数时代表查询网关下的子设备，不传代表查询网关直连设备
+     * @param {string} [gatewayId] 父设备ID,对应之前的gatewayId的概念，传该参数时代表查询网关下的子设备，不传代表节点下的
      * @param {string} [deviceName] 设备名称
+     * @param {string} [moduleId] 设备所属的模块id
+     * @param {string} [deviceId] 设备ID
      * @param {number} [offset] 查询的起始位置，取值范围为非负整数，默认为0
      * @param {number} [limit] 每页记录数，默认值为10，取值区间为1-1000
      * @param {*} [options] Override http request option.
@@ -715,10 +928,12 @@ export class IoTEdgeClient {
      *
      * @summary 查询应用列表
      * @param {string} [edgeAppId] 应用ID搜索关键字
-     * @param {number} [offset] 查询的起始位置，取值范围为非负整数，默认为0
-     * @param {number} [limit] 每页记录数，默认值为10，取值区间为1-1000
+     * @param {number} [offset] 查询的起始位置，取值范围为非负整数，默认为0。
+     * @param {number} [limit] 每页记录数，默认值为10，取值区间为1-1000。
      * @param {'SYSTEM_REQUIRED' | 'SYSTEM_OPTIONAL' | 'USER'} [appType] 应用id搜索关键字
-     * @param {'DATA_PROCESSING' | 'PROTOCOL_PARSING' | 'ON_PREMISE_INTEGRATION' | 'GATEWAY_MANAGER' | 'COMPOSITE_APPLICATION' | 'DATA_COLLECTION'} [functionType] 功能类型
+     * @param {'DATA_PROCESSING' | 'PROTOCOL_PARSING' | 'ON_PREMISE_INTEGRATION' | 'GATEWAY_MANAGER' | 'COMPOSITE_APPLICATION' | 'DATA_COLLECTION' | 'MODEL_INFERENCE'} [functionType] 功能类型
+     * @param {Array<string>} [functionTypes] 功能类型列表
+     * @param {string} [protocol] 驱动协议类型搜索关键字
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -798,9 +1013,10 @@ export class IoTEdgeClient {
      * @param {string} [version] 应用版本搜索关键字
      * @param {number} [offset] 查询的起始位置，取值范围为非负整数，默认为0
      * @param {number} [limit] 每页记录数，默认值为10，取值区间为1-1000
-     * @param {'GPU' | 'NPU' | 'unEquipped'} [aiCardType] ai加速卡类型
+     * @param {'GPU' | 'NPU' | 'UNEQUIPPED'} [aiCardType] ai加速卡类型
      * @param {'x86_64' | 'arm32' | 'arm64'} [arch] 支持架构
      * @param {'DRAFT' | 'PUBLISHED' | 'OFF_SHELF'} [state] 应用版本状态
+     * @param {'docker' | 'process'} [deployType] 应用部署类型
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -881,7 +1097,7 @@ export class IoTEdgeClient {
      * @summary 修改应用版本
      * @param {string} edgeAppId 应用ID，应用唯一。
      * @param {string} version 应用版本,应用内版本唯一。
-     * @param {UpdateEdgeAppVersionDTO} updateEdgeApplicationVersionRequestBody 创建应用版本请求的结构体
+     * @param {UpdateEdgeAppVersionDTO} updateEdgeApplicationVersionRequestBody 修改应用版本请求的结构体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -923,6 +1139,7 @@ export class IoTEdgeClient {
      * @summary 查询数据源配置列表
      * @param {string} edgeNodeId 边缘节点ID
      * @param {string} [moduleId] 数据源所属的模块id
+     * @param {string} [name] 采集数据源名称，允许中、数字、英文大小写、下划线、中划线
      * @param {number} [offset] 查询的起始位置，取值范围为非负整数，默认为0
      * @param {number} [limit] 每页记录数，默认值为10，取值区间为1-1000
      * @param {*} [options] Override http request option.
@@ -1026,6 +1243,7 @@ export class IoTEdgeClient {
      * @param {string} edgeNodeId 边缘节点ID
      * @param {string} dsId 采集数据源id，创建数据源配置时设置，节点下唯一。
      * @param {UpdateDcDsReqDTO} updateDcDsReqDTO 修改数据源配置数据
+     * @param {boolean} [updateNameOnly] 指此配置是否只更新了名称，默认值为false。 - true: 配置中只更新了名称 - false: 配置中包含其他配置参数更新 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1073,6 +1291,7 @@ export class IoTEdgeClient {
      * @param {string} [name] 点位名称，允许中、数字、英文大小写、下划线、中划线、#%()*特殊字符.模糊查询
      * @param {string} [property] 属性，允许中、数字、英文大小写、下划线、中划线，精确查询
      * @param {string} [deviceId] 设备标识，精确查询
+     * @param {boolean} [active] 点位启停状态筛选
      * @param {number} [offset] 查询的起始位置，取值范围为非负整数，默认为0
      * @param {number} [limit] 每页记录数，默认值为10，取值区间为1-1000
      * @param {*} [options] Override http request option.
@@ -1289,7 +1508,10 @@ export class IoTEdgeClient {
      * @param {number} [offset] 查询的起始位置，取值范围为非负整数，默认为0
      * @param {number} [limit] 每页记录数，默认值为10，取值区间为1-1000
      * @param {'SYSTEM_REQUIRED' | 'SYSTEM_OPTIONAL' | 'USER'} [appType] 应用类型
-     * @param {'DATA_PROCESSING' | 'PROTOCOL_PARSING' | 'ON_PREMISE_INTEGRATION'} [functionType] 功能类型
+     * @param {'DATA_PROCESSING' | 'PROTOCOL_PARSING' | 'ON_PREMISE_INTEGRATION' | 'GATEWAY_MANAGER' | 'COMPOSITE_APPLICATION' | 'DATA_COLLECTION' | 'MODEL_INFERENCE'} [functionType] 功能类型
+     * @param {Array<string>} [functionTypes] 功能类型列表
+     * @param {Array<string>} [protocolTypes] 协议类型列表
+     * @param {string} [moduleName] 边缘模块名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1384,14 +1606,14 @@ export class IoTEdgeClient {
     }
 
     /**
-     * 用户通过Console接口查询指定边缘节点上指定边缘模块
+     * 用户通过Console接口修改指定边缘节点上指定边缘模块
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改边缘模块
      * @param {string} edgeNodeId 边缘节点ID
      * @param {string} moduleId 边缘模块ID
-     * @param {UpdateEdgeModuleReqDTO} updateModuleRequestBody 修改边缘模块请求的结构体
+     * @param {UpdateEdgeModuleReqDTO} updateModuleRequestBody 创建边缘模块请求的结构体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1644,11 +1866,11 @@ export class IoTEdgeClient {
     }
 
     /**
-     * 查询点位表模板文件
+     * 导出点位表文件
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询点位表模板文件
+     * @summary 导出点位表文件
      * @param {string} edgeNodeId 边缘节点ID
      * @param {string} dsId 采集数据源id，创建数据源配置时设置，节点下唯一。
      * @param {*} [options] Override http request option.
@@ -1725,6 +1947,138 @@ export class IoTEdgeClient {
     }
 
     /**
+     * 北向NA调用南向第三方应用的DELETE方法时使用
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary DELETE方法的代理
+     * @param {string} nodeId 边缘节点ID
+     * @param {string} iaId 第三方应用IA ID
+     * @param {string} iaUri 第三方IA服务资源地址
+     * @param {object} [body] 第三方IA服务资源请求结构体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public invokeDeleteProxy(invokeDeleteProxyRequest?: InvokeDeleteProxyRequest): Promise<InvokeDeleteProxyResponse> {
+        const options = ParamCreater().invokeDeleteProxy(invokeDeleteProxyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 北向NA调用南向第三方应用的GET方法时使用
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary GET方法的代理
+     * @param {string} nodeId 边缘节点ID
+     * @param {string} iaId 第三方应用IA ID
+     * @param {string} iaUri 第三方IA服务资源地址
+     * @param {object} [body] 第三方IA服务资源请求结构体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public invokeGetProxy(invokeGetProxyRequest?: InvokeGetProxyRequest): Promise<InvokeGetProxyResponse> {
+        const options = ParamCreater().invokeGetProxy(invokeGetProxyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 北向NA调用南向第三方应用的PATCH方法时使用
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary PATCH方法的代理
+     * @param {string} nodeId 边缘节点ID
+     * @param {string} iaId 第三方应用IA ID
+     * @param {string} iaUri 第三方IA服务资源地址
+     * @param {object} [body] 第三方IA服务资源请求结构体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public invokePatchProxy(invokePatchProxyRequest?: InvokePatchProxyRequest): Promise<InvokePatchProxyResponse> {
+        const options = ParamCreater().invokePatchProxy(invokePatchProxyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 北向NA调用南向第三方应用的POST方法时使用
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary POST方法的代理
+     * @param {string} nodeId 边缘节点ID
+     * @param {string} iaId 第三方应用IA ID
+     * @param {string} iaUri 第三方IA服务资源地址
+     * @param {object} [body] 第三方IA服务资源请求结构体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public invokePostProxy(invokePostProxyRequest?: InvokePostProxyRequest): Promise<InvokePostProxyResponse> {
+        const options = ParamCreater().invokePostProxy(invokePostProxyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 北向NA调用南向第三方应用的PUT方法时使用
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary PUT方法的代理
+     * @param {string} nodeId 边缘节点ID
+     * @param {string} iaId 第三方应用IA ID
+     * @param {string} iaUri 第三方IA服务资源地址
+     * @param {object} [body] 第三方IA服务资源请求结构体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public invokePutProxy(invokePutProxyRequest?: InvokePutProxyRequest): Promise<InvokePutProxyResponse> {
+        const options = ParamCreater().invokePutProxy(invokePutProxyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 南向3rdIA对配置项下发进行确认
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 南向3rdIA对配置项下发进行确认
+     * @param {string} nodeId 边缘节点ID
+     * @param {string} iaId 边侧第三方应用的模块ID
+     * @param {string} action confirm
+     * @param {ConfirmIaConfigsRequestBody} batchConfirmConfigsRequestBody 确认配置项的结构体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchConfirmConfigs(batchConfirmConfigsRequest?: BatchConfirmConfigsRequest): Promise<BatchConfirmConfigsResponse> {
+        const options = ParamCreater().batchConfirmConfigs(batchConfirmConfigsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 南向3rdIA对下发的配置项进行批量确认
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1732,7 +2086,7 @@ export class IoTEdgeClient {
      * @summary 批量确认南向3rdIA配置项
      * @param {string} nodeId 边缘节点ID
      * @param {string} iaId 边侧第三方应用的模块ID
-     * @param {ConfirmIaConfigsRequestBody} batchConfirmConfigsRequestBody 确认配置项列表的结构体
+     * @param {ConfirmIaConfigsRequestBody} batchConfirmConfigsRequestBody 确认配置项的结构体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1746,7 +2100,7 @@ export class IoTEdgeClient {
     }
 
     /**
-     * 批量导入南向3rdIA配置项
+     * 用户批量上传/导入南向3rdIA配置项
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1853,8 +2207,7 @@ export class IoTEdgeClient {
     }
 
     /**
-     * 批量授权北向NA信息到边缘节点。
-     * 已授权的边缘节点上的南向IA应用，可以通过部署在边缘节点上的api网关访问北向NA提供的接口。
+     * 授权北向NA信息到边缘节点
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1875,7 +2228,7 @@ export class IoTEdgeClient {
     }
 
     /**
-     * 删除北向NA信息，如果有边缘节点已分配该NA信息，会通知到该边缘节点。
+     * 删除北向NA信息，如果有边缘节点已分配该NA信息，会通知到边缘节点
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1955,7 +2308,7 @@ export class IoTEdgeClient {
     }
 
     /**
-     * 创建&amp;更新北向NA信息，当更新北向NA信息时，会通知到已分配该北向NA的所有边缘节点。
+     * 创建&amp;更新北向NA信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1967,6 +2320,64 @@ export class IoTEdgeClient {
      */
     public updateNa(updateNaRequest?: UpdateNaRequest): Promise<UpdateNaResponse> {
         const options = ParamCreater().updateNa(updateNaRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建外部推送通道
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建外部推送通道
+     * @param {CreateChannelRequestDTO} createPushChannelRequestBody 创建推送通道结构体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPushChannel(createPushChannelRequest?: CreatePushChannelRequest): Promise<CreatePushChannelResponse> {
+        const options = ParamCreater().createPushChannel(createPushChannelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除查询外部推送通道
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除外部推送通道
+     * @param {string} channelId 边缘推送通道ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePushChannel(deletePushChannelRequest?: DeletePushChannelRequest): Promise<DeletePushChannelResponse> {
+        const options = ParamCreater().deletePushChannel(deletePushChannelRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询推送通道列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询推送通道列表
+     * @param {number} [offset] 查询的起始位置，取值范围为非负整数，默认为0
+     * @param {number} [limit] 每页记录数，取值范围为非负整数，默认值为10
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPushChannels(listPushChannelsRequest?: ListPushChannelsRequest): Promise<ListPushChannelsResponse> {
+        const options = ParamCreater().listPushChannels(listPushChannelsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2038,15 +2449,19 @@ export const ParamCreater = function () {
             let edgeNodeId;
             
             let arch;
+            
+            let enableTpm;
 
             if (createInstallCmdRequest !== null && createInstallCmdRequest !== undefined) {
                 if (createInstallCmdRequest instanceof CreateInstallCmdRequest) {
                     edgeNodeId = createInstallCmdRequest.edgeNodeId;
                     arch = createInstallCmdRequest.arch;
+                    enableTpm = createInstallCmdRequest.enableTpm;
                     body = createInstallCmdRequest.body
                 } else {
                     edgeNodeId = createInstallCmdRequest['edge_node_id'];
                     arch = createInstallCmdRequest['arch'];
+                    enableTpm = createInstallCmdRequest['enable_tpm'];
                     body = createInstallCmdRequest['body'];
                 }
             }
@@ -2061,10 +2476,104 @@ export const ParamCreater = function () {
             if (arch !== null && arch !== undefined) {
                 localVarQueryParameter['arch'] = arch;
             }
+            if (enableTpm !== null && enableTpm !== undefined) {
+                localVarQueryParameter['enable_tpm'] = enableTpm;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'edge_node_id': edgeNodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 生成边缘节点重新安装命令，命令有效时间30分钟，超过后需要重新生成
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createReinstallCmd(createReinstallCmdRequest?: CreateReinstallCmdRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/edge-nodes/{edge_node_id}/reinstall",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let edgeNodeId;
+            
+            let enableTpm;
+
+            if (createReinstallCmdRequest !== null && createReinstallCmdRequest !== undefined) {
+                if (createReinstallCmdRequest instanceof CreateReinstallCmdRequest) {
+                    edgeNodeId = createReinstallCmdRequest.edgeNodeId;
+                    body = createReinstallCmdRequest.body
+                    enableTpm = createReinstallCmdRequest.enableTpm;
+                } else {
+                    edgeNodeId = createReinstallCmdRequest['edge_node_id'];
+                    body = createReinstallCmdRequest['body'];
+                    enableTpm = createReinstallCmdRequest['enable_tpm'];
+                }
+            }
+
+        
+            if (edgeNodeId === null || edgeNodeId === undefined) {
+            throw new RequiredError('edgeNodeId','Required parameter edgeNodeId was null or undefined when calling createReinstallCmd.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enableTpm !== null && enableTpm !== undefined) {
+                localVarQueryParameter['enable_tpm'] = enableTpm;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'edge_node_id': edgeNodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 生成边缘节点升级命令，命令有效时间30分钟，超过后需要重新生成
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createUpgradeCmd(createUpgradeCmdRequest?: CreateUpgradeCmdRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/edge-nodes/{edge_node_id}/upgrade",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let edgeNodeId;
+
+            if (createUpgradeCmdRequest !== null && createUpgradeCmdRequest !== undefined) {
+                if (createUpgradeCmdRequest instanceof CreateUpgradeCmdRequest) {
+                    edgeNodeId = createUpgradeCmdRequest.edgeNodeId;
+                } else {
+                    edgeNodeId = createUpgradeCmdRequest['edge_node_id'];
+                }
+            }
+
+        
+            if (edgeNodeId === null || edgeNodeId === undefined) {
+            throw new RequiredError('edgeNodeId','Required parameter edgeNodeId was null or undefined when calling createUpgradeCmd.');
+            }
+
             options.pathParams = { 'edge_node_id': edgeNodeId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -2144,6 +2653,8 @@ export const ParamCreater = function () {
             
             let nodeIds;
             
+            let appId;
+            
             let offset;
             
             let limit;
@@ -2156,6 +2667,7 @@ export const ParamCreater = function () {
                     instanceId = listEdgeNodesRequest.instanceId;
                     spaceId = listEdgeNodesRequest.spaceId;
                     nodeIds = listEdgeNodesRequest.nodeIds;
+                    appId = listEdgeNodesRequest.appId;
                     offset = listEdgeNodesRequest.offset;
                     limit = listEdgeNodesRequest.limit;
                 } else {
@@ -2165,6 +2677,7 @@ export const ParamCreater = function () {
                     instanceId = listEdgeNodesRequest['instance_id'];
                     spaceId = listEdgeNodesRequest['space_id'];
                     nodeIds = listEdgeNodesRequest['node_ids'];
+                    appId = listEdgeNodesRequest['app_id'];
                     offset = listEdgeNodesRequest['offset'];
                     limit = listEdgeNodesRequest['limit'];
                 }
@@ -2188,6 +2701,9 @@ export const ParamCreater = function () {
             }
             if (nodeIds !== null && nodeIds !== undefined) {
                 localVarQueryParameter['node_ids'] = nodeIds;
+            }
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -2317,6 +2833,188 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'edge_node_id': edgeNodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分配推送通道到客户端节点
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createClientNode(createClientNodeRequest?: CreateClientNodeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/push-channels/{channel_id}/client-nodes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let channelId;
+
+            if (createClientNodeRequest !== null && createClientNodeRequest !== undefined) {
+                if (createClientNodeRequest instanceof CreateClientNodeRequest) {
+                    channelId = createClientNodeRequest.channelId;
+                    body = createClientNodeRequest.body
+                } else {
+                    channelId = createClientNodeRequest['channel_id'];
+                    body = createClientNodeRequest['body'];
+                }
+            }
+
+        
+            if (channelId === null || channelId === undefined) {
+            throw new RequiredError('channelId','Required parameter channelId was null or undefined when calling createClientNode.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'channel_id': channelId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改已分配节点通道的详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateClientNode(updateClientNodeRequest?: UpdateClientNodeRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/push-channels/{channel_id}/client-nodes/{node_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let channelId;
+            
+            let nodeId;
+
+            if (updateClientNodeRequest !== null && updateClientNodeRequest !== undefined) {
+                if (updateClientNodeRequest instanceof UpdateClientNodeRequest) {
+                    channelId = updateClientNodeRequest.channelId;
+                    nodeId = updateClientNodeRequest.nodeId;
+                    body = updateClientNodeRequest.body
+                } else {
+                    channelId = updateClientNodeRequest['channel_id'];
+                    nodeId = updateClientNodeRequest['node_id'];
+                    body = updateClientNodeRequest['body'];
+                }
+            }
+
+        
+            if (channelId === null || channelId === undefined) {
+            throw new RequiredError('channelId','Required parameter channelId was null or undefined when calling updateClientNode.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling updateClientNode.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'channel_id': channelId,'node_id': nodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询当前边缘软件版本
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showEdgeNodeSoftwareVersion(showEdgeNodeSoftwareVersionRequest?: ShowEdgeNodeSoftwareVersionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/edge-nodes/{edge_node_id}/software-versions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let edgeNodeId;
+
+            if (showEdgeNodeSoftwareVersionRequest !== null && showEdgeNodeSoftwareVersionRequest !== undefined) {
+                if (showEdgeNodeSoftwareVersionRequest instanceof ShowEdgeNodeSoftwareVersionRequest) {
+                    edgeNodeId = showEdgeNodeSoftwareVersionRequest.edgeNodeId;
+                } else {
+                    edgeNodeId = showEdgeNodeSoftwareVersionRequest['edge_node_id'];
+                }
+            }
+
+        
+            if (edgeNodeId === null || edgeNodeId === undefined) {
+            throw new RequiredError('edgeNodeId','Required parameter edgeNodeId was null or undefined when calling showEdgeNodeSoftwareVersion.');
+            }
+
+            options.pathParams = { 'edge_node_id': edgeNodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 绑定节点-专业版
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        bindNode(bindNodeRequest?: BindNodeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/resources/{resource_id}/bind",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceId;
+
+            if (bindNodeRequest !== null && bindNodeRequest !== undefined) {
+                if (bindNodeRequest instanceof BindNodeRequest) {
+                    resourceId = bindNodeRequest.resourceId;
+                    body = bindNodeRequest.body
+                } else {
+                    resourceId = bindNodeRequest['resource_id'];
+                    body = bindNodeRequest['body'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling bindNode.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_id': resourceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2648,6 +3346,10 @@ export const ParamCreater = function () {
             
             let deviceName;
             
+            let moduleId;
+            
+            let deviceId;
+            
             let offset;
             
             let limit;
@@ -2657,12 +3359,16 @@ export const ParamCreater = function () {
                     edgeNodeId = listDevicesRequest.edgeNodeId;
                     gatewayId = listDevicesRequest.gatewayId;
                     deviceName = listDevicesRequest.deviceName;
+                    moduleId = listDevicesRequest.moduleId;
+                    deviceId = listDevicesRequest.deviceId;
                     offset = listDevicesRequest.offset;
                     limit = listDevicesRequest.limit;
                 } else {
                     edgeNodeId = listDevicesRequest['edge_node_id'];
                     gatewayId = listDevicesRequest['gateway_id'];
                     deviceName = listDevicesRequest['device_name'];
+                    moduleId = listDevicesRequest['module_id'];
+                    deviceId = listDevicesRequest['device_id'];
                     offset = listDevicesRequest['offset'];
                     limit = listDevicesRequest['limit'];
                 }
@@ -2677,6 +3383,12 @@ export const ParamCreater = function () {
             }
             if (deviceName !== null && deviceName !== undefined) {
                 localVarQueryParameter['device_name'] = deviceName;
+            }
+            if (moduleId !== null && moduleId !== undefined) {
+                localVarQueryParameter['module_id'] = moduleId;
+            }
+            if (deviceId !== null && deviceId !== undefined) {
+                localVarQueryParameter['device_id'] = deviceId;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -2987,6 +3699,10 @@ export const ParamCreater = function () {
             let appType;
             
             let functionType;
+            
+            let functionTypes;
+            
+            let protocol;
 
             if (batchListEdgeAppsRequest !== null && batchListEdgeAppsRequest !== undefined) {
                 if (batchListEdgeAppsRequest instanceof BatchListEdgeAppsRequest) {
@@ -2995,12 +3711,16 @@ export const ParamCreater = function () {
                     limit = batchListEdgeAppsRequest.limit;
                     appType = batchListEdgeAppsRequest.appType;
                     functionType = batchListEdgeAppsRequest.functionType;
+                    functionTypes = batchListEdgeAppsRequest.functionTypes;
+                    protocol = batchListEdgeAppsRequest.protocol;
                 } else {
                     edgeAppId = batchListEdgeAppsRequest['edge_app_id'];
                     offset = batchListEdgeAppsRequest['offset'];
                     limit = batchListEdgeAppsRequest['limit'];
                     appType = batchListEdgeAppsRequest['app_type'];
                     functionType = batchListEdgeAppsRequest['function_type'];
+                    functionTypes = batchListEdgeAppsRequest['function_types'];
+                    protocol = batchListEdgeAppsRequest['protocol'];
                 }
             }
 
@@ -3019,6 +3739,12 @@ export const ParamCreater = function () {
             }
             if (functionType !== null && functionType !== undefined) {
                 localVarQueryParameter['function_type'] = functionType;
+            }
+            if (functionTypes !== null && functionTypes !== undefined) {
+                localVarQueryParameter['function_types'] = functionTypes;
+            }
+            if (protocol !== null && protocol !== undefined) {
+                localVarQueryParameter['protocol'] = protocol;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3168,6 +3894,8 @@ export const ParamCreater = function () {
             let arch;
             
             let state;
+            
+            let deployType;
 
             if (batchListEdgeAppVersionsRequest !== null && batchListEdgeAppVersionsRequest !== undefined) {
                 if (batchListEdgeAppVersionsRequest instanceof BatchListEdgeAppVersionsRequest) {
@@ -3178,6 +3906,7 @@ export const ParamCreater = function () {
                     aiCardType = batchListEdgeAppVersionsRequest.aiCardType;
                     arch = batchListEdgeAppVersionsRequest.arch;
                     state = batchListEdgeAppVersionsRequest.state;
+                    deployType = batchListEdgeAppVersionsRequest.deployType;
                 } else {
                     edgeAppId = batchListEdgeAppVersionsRequest['edge_app_id'];
                     version = batchListEdgeAppVersionsRequest['version'];
@@ -3186,6 +3915,7 @@ export const ParamCreater = function () {
                     aiCardType = batchListEdgeAppVersionsRequest['ai_card_type'];
                     arch = batchListEdgeAppVersionsRequest['arch'];
                     state = batchListEdgeAppVersionsRequest['state'];
+                    deployType = batchListEdgeAppVersionsRequest['deploy_type'];
                 }
             }
 
@@ -3210,6 +3940,9 @@ export const ParamCreater = function () {
             }
             if (state !== null && state !== undefined) {
                 localVarQueryParameter['state'] = state;
+            }
+            if (deployType !== null && deployType !== undefined) {
+                localVarQueryParameter['deploy_type'] = deployType;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3479,6 +4212,8 @@ export const ParamCreater = function () {
             
             let moduleId;
             
+            let name;
+            
             let offset;
             
             let limit;
@@ -3487,11 +4222,13 @@ export const ParamCreater = function () {
                 if (batchListDcDsRequest instanceof BatchListDcDsRequest) {
                     edgeNodeId = batchListDcDsRequest.edgeNodeId;
                     moduleId = batchListDcDsRequest.moduleId;
+                    name = batchListDcDsRequest.name;
                     offset = batchListDcDsRequest.offset;
                     limit = batchListDcDsRequest.limit;
                 } else {
                     edgeNodeId = batchListDcDsRequest['edge_node_id'];
                     moduleId = batchListDcDsRequest['module_id'];
+                    name = batchListDcDsRequest['name'];
                     offset = batchListDcDsRequest['offset'];
                     limit = batchListDcDsRequest['limit'];
                 }
@@ -3503,6 +4240,9 @@ export const ParamCreater = function () {
             }
             if (moduleId !== null && moduleId !== undefined) {
                 localVarQueryParameter['module_id'] = moduleId;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -3711,22 +4451,26 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             let body: any;
             
             let edgeNodeId;
             
             let dsId;
+            
+            let updateNameOnly;
 
             if (updateDcDsRequest !== null && updateDcDsRequest !== undefined) {
                 if (updateDcDsRequest instanceof UpdateDcDsRequest) {
                     edgeNodeId = updateDcDsRequest.edgeNodeId;
                     dsId = updateDcDsRequest.dsId;
                     body = updateDcDsRequest.body
+                    updateNameOnly = updateDcDsRequest.updateNameOnly;
                 } else {
                     edgeNodeId = updateDcDsRequest['edge_node_id'];
                     dsId = updateDcDsRequest['ds_id'];
                     body = updateDcDsRequest['body'];
+                    updateNameOnly = updateDcDsRequest['update_name_only'];
                 }
             }
 
@@ -3740,9 +4484,13 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (updateNameOnly !== null && updateNameOnly !== undefined) {
+                localVarQueryParameter['update_name_only'] = updateNameOnly;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'edge_node_id': edgeNodeId,'ds_id': dsId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3843,6 +4591,8 @@ export const ParamCreater = function () {
             
             let deviceId;
             
+            let active;
+            
             let offset;
             
             let limit;
@@ -3855,6 +4605,7 @@ export const ParamCreater = function () {
                     name = batchListDcPointsRequest.name;
                     property = batchListDcPointsRequest.property;
                     deviceId = batchListDcPointsRequest.deviceId;
+                    active = batchListDcPointsRequest.active;
                     offset = batchListDcPointsRequest.offset;
                     limit = batchListDcPointsRequest.limit;
                 } else {
@@ -3864,6 +4615,7 @@ export const ParamCreater = function () {
                     name = batchListDcPointsRequest['name'];
                     property = batchListDcPointsRequest['property'];
                     deviceId = batchListDcPointsRequest['device_id'];
+                    active = batchListDcPointsRequest['active'];
                     offset = batchListDcPointsRequest['offset'];
                     limit = batchListDcPointsRequest['limit'];
                 }
@@ -3887,6 +4639,9 @@ export const ParamCreater = function () {
             }
             if (deviceId !== null && deviceId !== undefined) {
                 localVarQueryParameter['device_id'] = deviceId;
+            }
+            if (active !== null && active !== undefined) {
+                localVarQueryParameter['active'] = active;
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -4420,6 +5175,12 @@ export const ParamCreater = function () {
             let appType;
             
             let functionType;
+            
+            let functionTypes;
+            
+            let protocolTypes;
+            
+            let moduleName;
 
             if (batchListModulesRequest !== null && batchListModulesRequest !== undefined) {
                 if (batchListModulesRequest instanceof BatchListModulesRequest) {
@@ -4428,12 +5189,18 @@ export const ParamCreater = function () {
                     limit = batchListModulesRequest.limit;
                     appType = batchListModulesRequest.appType;
                     functionType = batchListModulesRequest.functionType;
+                    functionTypes = batchListModulesRequest.functionTypes;
+                    protocolTypes = batchListModulesRequest.protocolTypes;
+                    moduleName = batchListModulesRequest.moduleName;
                 } else {
                     edgeNodeId = batchListModulesRequest['edge_node_id'];
                     offset = batchListModulesRequest['offset'];
                     limit = batchListModulesRequest['limit'];
                     appType = batchListModulesRequest['app_type'];
                     functionType = batchListModulesRequest['function_type'];
+                    functionTypes = batchListModulesRequest['function_types'];
+                    protocolTypes = batchListModulesRequest['protocol_types'];
+                    moduleName = batchListModulesRequest['module_name'];
                 }
             }
 
@@ -4452,6 +5219,15 @@ export const ParamCreater = function () {
             }
             if (functionType !== null && functionType !== undefined) {
                 localVarQueryParameter['function_type'] = functionType;
+            }
+            if (functionTypes !== null && functionTypes !== undefined) {
+                localVarQueryParameter['function_types'] = functionTypes;
+            }
+            if (protocolTypes !== null && protocolTypes !== undefined) {
+                localVarQueryParameter['protocol_types'] = protocolTypes;
+            }
+            if (moduleName !== null && moduleName !== undefined) {
+                localVarQueryParameter['module_name'] = moduleName;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4648,7 +5424,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用户通过Console接口查询指定边缘节点上指定边缘模块
+         * 用户通过Console接口修改指定边缘节点上指定边缘模块
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5232,7 +6008,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询点位表模板文件
+         * 导出点位表文件
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5419,6 +6195,375 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 北向NA调用南向第三方应用的DELETE方法时使用
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        invokeDeleteProxy(invokeDeleteProxyRequest?: InvokeDeleteProxyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/edge-nodes/{node_id}/ias/{ia_id}/api",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let nodeId;
+            
+            let iaId;
+            
+            let iaUri;
+
+            if (invokeDeleteProxyRequest !== null && invokeDeleteProxyRequest !== undefined) {
+                if (invokeDeleteProxyRequest instanceof InvokeDeleteProxyRequest) {
+                    nodeId = invokeDeleteProxyRequest.nodeId;
+                    iaId = invokeDeleteProxyRequest.iaId;
+                    iaUri = invokeDeleteProxyRequest.iaUri;
+                    body = invokeDeleteProxyRequest.body
+                } else {
+                    nodeId = invokeDeleteProxyRequest['node_id'];
+                    iaId = invokeDeleteProxyRequest['ia_id'];
+                    iaUri = invokeDeleteProxyRequest['ia_uri'];
+                    body = invokeDeleteProxyRequest['body'];
+                }
+            }
+
+        
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling invokeDeleteProxy.');
+            }
+            if (iaId === null || iaId === undefined) {
+            throw new RequiredError('iaId','Required parameter iaId was null or undefined when calling invokeDeleteProxy.');
+            }
+            if (iaUri === null || iaUri === undefined) {
+                throw new RequiredError('iaUri','Required parameter iaUri was null or undefined when calling invokeDeleteProxy.');
+            }
+            if (iaUri !== null && iaUri !== undefined) {
+                localVarQueryParameter['ia_uri'] = iaUri;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'node_id': nodeId,'ia_id': iaId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 北向NA调用南向第三方应用的GET方法时使用
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        invokeGetProxy(invokeGetProxyRequest?: InvokeGetProxyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/edge-nodes/{node_id}/ias/{ia_id}/api",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let nodeId;
+            
+            let iaId;
+            
+            let iaUri;
+
+            if (invokeGetProxyRequest !== null && invokeGetProxyRequest !== undefined) {
+                if (invokeGetProxyRequest instanceof InvokeGetProxyRequest) {
+                    nodeId = invokeGetProxyRequest.nodeId;
+                    iaId = invokeGetProxyRequest.iaId;
+                    iaUri = invokeGetProxyRequest.iaUri;
+                    body = invokeGetProxyRequest.body
+                } else {
+                    nodeId = invokeGetProxyRequest['node_id'];
+                    iaId = invokeGetProxyRequest['ia_id'];
+                    iaUri = invokeGetProxyRequest['ia_uri'];
+                    body = invokeGetProxyRequest['body'];
+                }
+            }
+
+        
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling invokeGetProxy.');
+            }
+            if (iaId === null || iaId === undefined) {
+            throw new RequiredError('iaId','Required parameter iaId was null or undefined when calling invokeGetProxy.');
+            }
+            if (iaUri === null || iaUri === undefined) {
+                throw new RequiredError('iaUri','Required parameter iaUri was null or undefined when calling invokeGetProxy.');
+            }
+            if (iaUri !== null && iaUri !== undefined) {
+                localVarQueryParameter['ia_uri'] = iaUri;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'node_id': nodeId,'ia_id': iaId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 北向NA调用南向第三方应用的PATCH方法时使用
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        invokePatchProxy(invokePatchProxyRequest?: InvokePatchProxyRequest) {
+            const options = {
+                method: "PATCH",
+                url: "/v2/{project_id}/edge-nodes/{node_id}/ias/{ia_id}/api",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let nodeId;
+            
+            let iaId;
+            
+            let iaUri;
+
+            if (invokePatchProxyRequest !== null && invokePatchProxyRequest !== undefined) {
+                if (invokePatchProxyRequest instanceof InvokePatchProxyRequest) {
+                    nodeId = invokePatchProxyRequest.nodeId;
+                    iaId = invokePatchProxyRequest.iaId;
+                    iaUri = invokePatchProxyRequest.iaUri;
+                    body = invokePatchProxyRequest.body
+                } else {
+                    nodeId = invokePatchProxyRequest['node_id'];
+                    iaId = invokePatchProxyRequest['ia_id'];
+                    iaUri = invokePatchProxyRequest['ia_uri'];
+                    body = invokePatchProxyRequest['body'];
+                }
+            }
+
+        
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling invokePatchProxy.');
+            }
+            if (iaId === null || iaId === undefined) {
+            throw new RequiredError('iaId','Required parameter iaId was null or undefined when calling invokePatchProxy.');
+            }
+            if (iaUri === null || iaUri === undefined) {
+                throw new RequiredError('iaUri','Required parameter iaUri was null or undefined when calling invokePatchProxy.');
+            }
+            if (iaUri !== null && iaUri !== undefined) {
+                localVarQueryParameter['ia_uri'] = iaUri;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'node_id': nodeId,'ia_id': iaId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 北向NA调用南向第三方应用的POST方法时使用
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        invokePostProxy(invokePostProxyRequest?: InvokePostProxyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/edge-nodes/{node_id}/ias/{ia_id}/api",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let nodeId;
+            
+            let iaId;
+            
+            let iaUri;
+
+            if (invokePostProxyRequest !== null && invokePostProxyRequest !== undefined) {
+                if (invokePostProxyRequest instanceof InvokePostProxyRequest) {
+                    nodeId = invokePostProxyRequest.nodeId;
+                    iaId = invokePostProxyRequest.iaId;
+                    iaUri = invokePostProxyRequest.iaUri;
+                    body = invokePostProxyRequest.body
+                } else {
+                    nodeId = invokePostProxyRequest['node_id'];
+                    iaId = invokePostProxyRequest['ia_id'];
+                    iaUri = invokePostProxyRequest['ia_uri'];
+                    body = invokePostProxyRequest['body'];
+                }
+            }
+
+        
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling invokePostProxy.');
+            }
+            if (iaId === null || iaId === undefined) {
+            throw new RequiredError('iaId','Required parameter iaId was null or undefined when calling invokePostProxy.');
+            }
+            if (iaUri === null || iaUri === undefined) {
+                throw new RequiredError('iaUri','Required parameter iaUri was null or undefined when calling invokePostProxy.');
+            }
+            if (iaUri !== null && iaUri !== undefined) {
+                localVarQueryParameter['ia_uri'] = iaUri;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'node_id': nodeId,'ia_id': iaId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 北向NA调用南向第三方应用的PUT方法时使用
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        invokePutProxy(invokePutProxyRequest?: InvokePutProxyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/edge-nodes/{node_id}/ias/{ia_id}/api",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let nodeId;
+            
+            let iaId;
+            
+            let iaUri;
+
+            if (invokePutProxyRequest !== null && invokePutProxyRequest !== undefined) {
+                if (invokePutProxyRequest instanceof InvokePutProxyRequest) {
+                    nodeId = invokePutProxyRequest.nodeId;
+                    iaId = invokePutProxyRequest.iaId;
+                    iaUri = invokePutProxyRequest.iaUri;
+                    body = invokePutProxyRequest.body
+                } else {
+                    nodeId = invokePutProxyRequest['node_id'];
+                    iaId = invokePutProxyRequest['ia_id'];
+                    iaUri = invokePutProxyRequest['ia_uri'];
+                    body = invokePutProxyRequest['body'];
+                }
+            }
+
+        
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling invokePutProxy.');
+            }
+            if (iaId === null || iaId === undefined) {
+            throw new RequiredError('iaId','Required parameter iaId was null or undefined when calling invokePutProxy.');
+            }
+            if (iaUri === null || iaUri === undefined) {
+                throw new RequiredError('iaUri','Required parameter iaUri was null or undefined when calling invokePutProxy.');
+            }
+            if (iaUri !== null && iaUri !== undefined) {
+                localVarQueryParameter['ia_uri'] = iaUri;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'node_id': nodeId,'ia_id': iaId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 南向3rdIA对配置项下发进行确认
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchConfirmConfigs(batchConfirmConfigsRequest?: BatchConfirmConfigsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/edge-nodes/{node_id}/ias/{ia_id}/configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let nodeId;
+            
+            let iaId;
+            
+            let action;
+
+            if (batchConfirmConfigsRequest !== null && batchConfirmConfigsRequest !== undefined) {
+                if (batchConfirmConfigsRequest instanceof BatchConfirmConfigsRequest) {
+                    nodeId = batchConfirmConfigsRequest.nodeId;
+                    iaId = batchConfirmConfigsRequest.iaId;
+                    action = batchConfirmConfigsRequest.action;
+                    body = batchConfirmConfigsRequest.body
+                } else {
+                    nodeId = batchConfirmConfigsRequest['node_id'];
+                    iaId = batchConfirmConfigsRequest['ia_id'];
+                    action = batchConfirmConfigsRequest['action'];
+                    body = batchConfirmConfigsRequest['body'];
+                }
+            }
+
+        
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling batchConfirmConfigs.');
+            }
+            if (iaId === null || iaId === undefined) {
+            throw new RequiredError('iaId','Required parameter iaId was null or undefined when calling batchConfirmConfigs.');
+            }
+            if (action === null || action === undefined) {
+                throw new RequiredError('action','Required parameter action was null or undefined when calling batchConfirmConfigs.');
+            }
+            if (action !== null && action !== undefined) {
+                localVarQueryParameter['action'] = action;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'node_id': nodeId,'ia_id': iaId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 南向3rdIA对下发的配置项进行批量确认
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5472,7 +6617,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量导入南向3rdIA配置项
+         * 用户批量上传/导入南向3rdIA配置项
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5746,8 +6891,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量授权北向NA信息到边缘节点。
-         * 已授权的边缘节点上的南向IA应用，可以通过部署在边缘节点上的api网关访问北向NA提供的接口。
+         * 授权北向NA信息到边缘节点
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5804,7 +6948,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除北向NA信息，如果有边缘节点已分配该NA信息，会通知到该边缘节点。
+         * 删除北向NA信息，如果有边缘节点已分配该NA信息，会通知到边缘节点
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5981,7 +7125,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建&amp;更新北向NA信息，当更新北向NA信息时，会通知到已分配该北向NA的所有边缘节点。
+         * 创建&amp;更新北向NA信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6022,6 +7166,125 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'na_id': naId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建外部推送通道
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPushChannel(createPushChannelRequest?: CreatePushChannelRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/push-channels",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createPushChannelRequest !== null && createPushChannelRequest !== undefined) {
+                if (createPushChannelRequest instanceof CreatePushChannelRequest) {
+                    body = createPushChannelRequest.body
+                } else {
+                    body = createPushChannelRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除查询外部推送通道
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePushChannel(deletePushChannelRequest?: DeletePushChannelRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/push-channels/{channel_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let channelId;
+
+            if (deletePushChannelRequest !== null && deletePushChannelRequest !== undefined) {
+                if (deletePushChannelRequest instanceof DeletePushChannelRequest) {
+                    channelId = deletePushChannelRequest.channelId;
+                } else {
+                    channelId = deletePushChannelRequest['channel_id'];
+                }
+            }
+
+        
+            if (channelId === null || channelId === undefined) {
+            throw new RequiredError('channelId','Required parameter channelId was null or undefined when calling deletePushChannel.');
+            }
+
+            options.pathParams = { 'channel_id': channelId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询推送通道列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPushChannels(listPushChannelsRequest?: ListPushChannelsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/push-channels",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+
+            if (listPushChannelsRequest !== null && listPushChannelsRequest !== undefined) {
+                if (listPushChannelsRequest instanceof ListPushChannelsRequest) {
+                    offset = listPushChannelsRequest.offset;
+                    limit = listPushChannelsRequest.limit;
+                } else {
+                    offset = listPushChannelsRequest['offset'];
+                    limit = listPushChannelsRequest['limit'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

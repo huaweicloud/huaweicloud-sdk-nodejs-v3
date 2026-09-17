@@ -10,6 +10,7 @@ export class ClusterUpgradeAction {
     public strategy?: UpgradeStrategy;
     public targetVersion?: string;
     public isOnlyUpgrade?: boolean;
+    public agencyName?: string;
     public constructor(strategy?: UpgradeStrategy, targetVersion?: string) { 
         this['strategy'] = strategy;
         this['targetVersion'] = targetVersion;
@@ -36,6 +37,10 @@ export class ClusterUpgradeAction {
     }
     public withIsOnlyUpgrade(isOnlyUpgrade: boolean): ClusterUpgradeAction {
         this['isOnlyUpgrade'] = isOnlyUpgrade;
+        return this;
+    }
+    public withAgencyName(agencyName: string): ClusterUpgradeAction {
+        this['agencyName'] = agencyName;
         return this;
     }
 }

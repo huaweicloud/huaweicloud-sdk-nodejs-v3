@@ -1,4 +1,5 @@
 import { ListPipelinesPageLatestRun } from './ListPipelinesPageLatestRun';
+import { ListPipelinesPageTagList } from './ListPipelinesPageTagList';
 
 
 export class ListPipelinesPagePipelines {
@@ -14,6 +15,9 @@ export class ListPipelinesPagePipelines {
     private 'latest_run'?: ListPipelinesPageLatestRun;
     private 'convert_sign'?: number;
     private 'security_level'?: number;
+    public banned?: boolean;
+    public description?: string;
+    private 'tag_list'?: Array<ListPipelinesPageTagList>;
     public constructor() { 
     }
     public withPipelineId(pipelineId: string): ListPipelinesPagePipelines {
@@ -129,5 +133,23 @@ export class ListPipelinesPagePipelines {
     }
     public get securityLevel(): number | undefined {
         return this['security_level'];
+    }
+    public withBanned(banned: boolean): ListPipelinesPagePipelines {
+        this['banned'] = banned;
+        return this;
+    }
+    public withDescription(description: string): ListPipelinesPagePipelines {
+        this['description'] = description;
+        return this;
+    }
+    public withTagList(tagList: Array<ListPipelinesPageTagList>): ListPipelinesPagePipelines {
+        this['tag_list'] = tagList;
+        return this;
+    }
+    public set tagList(tagList: Array<ListPipelinesPageTagList>  | undefined) {
+        this['tag_list'] = tagList;
+    }
+    public get tagList(): Array<ListPipelinesPageTagList> | undefined {
+        return this['tag_list'];
     }
 }

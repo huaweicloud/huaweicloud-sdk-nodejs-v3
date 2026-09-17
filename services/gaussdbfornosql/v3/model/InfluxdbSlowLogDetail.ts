@@ -5,12 +5,12 @@ export class InfluxdbSlowLogDetail {
     private 'node_name'?: string;
     private 'whole_message'?: string;
     private 'operate_type'?: string;
-    private 'cost_time'?: string;
+    private 'cost_time'?: number;
     private 'log_time'?: string;
     public database?: string;
     private 'retention_policy'?: string;
     private 'line_num'?: string;
-    public constructor(nodeId?: string, nodeName?: string, wholeMessage?: string, operateType?: string, costTime?: string, logTime?: string, database?: string, retentionPolicy?: string, lineNum?: string) { 
+    public constructor(nodeId?: string, nodeName?: string, wholeMessage?: string, operateType?: string, costTime?: number, logTime?: string, database?: string, retentionPolicy?: string, lineNum?: string) { 
         this['node_id'] = nodeId;
         this['node_name'] = nodeName;
         this['whole_message'] = wholeMessage;
@@ -61,14 +61,14 @@ export class InfluxdbSlowLogDetail {
     public get operateType(): string | undefined {
         return this['operate_type'];
     }
-    public withCostTime(costTime: string): InfluxdbSlowLogDetail {
+    public withCostTime(costTime: number): InfluxdbSlowLogDetail {
         this['cost_time'] = costTime;
         return this;
     }
-    public set costTime(costTime: string  | undefined) {
+    public set costTime(costTime: number  | undefined) {
         this['cost_time'] = costTime;
     }
-    public get costTime(): string | undefined {
+    public get costTime(): number | undefined {
         return this['cost_time'];
     }
     public withLogTime(logTime: string): InfluxdbSlowLogDetail {

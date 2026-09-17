@@ -10,6 +10,7 @@ import { MasterSpec } from './MasterSpec';
 import { PackageConfiguration } from './PackageConfiguration';
 import { PublicAccess } from './PublicAccess';
 import { ResourceTag } from './ResourceTag';
+import { SecretConfig } from './SecretConfig';
 import { ServiceNetwork } from './ServiceNetwork';
 
 
@@ -45,10 +46,10 @@ export class ClusterSpec {
     public clusterOps?: ClusterOps;
     public encryptionConfig?: EncryptionConfig;
     public certificateAuthority?: CertificateAuthority;
-    public constructor(hostNetwork?: HostNetwork, containerNetwork?: ContainerNetwork, eniNetwork?: EniNetwork) { 
+    public secretConfig?: SecretConfig;
+    public constructor(hostNetwork?: HostNetwork, containerNetwork?: ContainerNetwork) { 
         this['hostNetwork'] = hostNetwork;
         this['containerNetwork'] = containerNetwork;
-        this['eniNetwork'] = eniNetwork;
     }
     public withCategory(category: ClusterSpecCategoryEnum | string): ClusterSpec {
         this['category'] = category;
@@ -172,6 +173,10 @@ export class ClusterSpec {
     }
     public withCertificateAuthority(certificateAuthority: CertificateAuthority): ClusterSpec {
         this['certificateAuthority'] = certificateAuthority;
+        return this;
+    }
+    public withSecretConfig(secretConfig: SecretConfig): ClusterSpec {
+        this['secretConfig'] = secretConfig;
         return this;
     }
 }

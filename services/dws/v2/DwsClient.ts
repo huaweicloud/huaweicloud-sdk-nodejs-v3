@@ -2,10 +2,13 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { ActionDomainInfoDetail } from './model/ActionDomainInfoDetail';
 import { ActionInfo } from './model/ActionInfo';
 import { ActionItemVo } from './model/ActionItemVo';
 import { ActionSubItemVo } from './model/ActionSubItemVo';
 import { AddExceptRuleReq } from './model/AddExceptRuleReq';
+import { AddOperationalTaskRequest } from './model/AddOperationalTaskRequest';
+import { AddOperationalTaskResponse } from './model/AddOperationalTaskResponse';
 import { AddQueueUserListRequest } from './model/AddQueueUserListRequest';
 import { AddQueueUserListResponse } from './model/AddQueueUserListResponse';
 import { AddWorkloadPlanStageRequest } from './model/AddWorkloadPlanStageRequest';
@@ -57,6 +60,11 @@ import { CheckDisasterNameRequest } from './model/CheckDisasterNameRequest';
 import { CheckDisasterNameResponse } from './model/CheckDisasterNameResponse';
 import { CheckGrowClusterRequest } from './model/CheckGrowClusterRequest';
 import { CheckGrowClusterResponse } from './model/CheckGrowClusterResponse';
+import { CheckInstanceStorageRequest } from './model/CheckInstanceStorageRequest';
+import { CheckInstanceStorageResponse } from './model/CheckInstanceStorageResponse';
+import { CheckSnapshotReq } from './model/CheckSnapshotReq';
+import { CheckSnapshotRequest } from './model/CheckSnapshotRequest';
+import { CheckSnapshotResponse } from './model/CheckSnapshotResponse';
 import { CheckTableNameResult } from './model/CheckTableNameResult';
 import { CheckTableRestoreRequest } from './model/CheckTableRestoreRequest';
 import { CheckTableRestoreRequestBody } from './model/CheckTableRestoreRequestBody';
@@ -141,6 +149,7 @@ import { DatabasePermissionReq } from './model/DatabasePermissionReq';
 import { DatabaseUser } from './model/DatabaseUser';
 import { DatabaseUserInfoReq } from './model/DatabaseUserInfoReq';
 import { Datastore } from './model/Datastore';
+import { DateInfo } from './model/DateInfo';
 import { DeleteAlarmSubRequest } from './model/DeleteAlarmSubRequest';
 import { DeleteAlarmSubResponse } from './model/DeleteAlarmSubResponse';
 import { DeleteClusterDnsRequest } from './model/DeleteClusterDnsRequest';
@@ -165,6 +174,8 @@ import { DeleteLogicalClusterPlanRequest } from './model/DeleteLogicalClusterPla
 import { DeleteLogicalClusterPlanResponse } from './model/DeleteLogicalClusterPlanResponse';
 import { DeleteLogicalClusterRequest } from './model/DeleteLogicalClusterRequest';
 import { DeleteLogicalClusterResponse } from './model/DeleteLogicalClusterResponse';
+import { DeleteOperationalTaskRequest } from './model/DeleteOperationalTaskRequest';
+import { DeleteOperationalTaskResponse } from './model/DeleteOperationalTaskResponse';
 import { DeleteQueueUserListRequest } from './model/DeleteQueueUserListRequest';
 import { DeleteQueueUserListResponse } from './model/DeleteQueueUserListResponse';
 import { DeleteSnapshotPolicyRequest } from './model/DeleteSnapshotPolicyRequest';
@@ -250,6 +261,8 @@ import { IdentitySourceSyncRecordVo } from './model/IdentitySourceSyncRecordVo';
 import { IndicatorInfo } from './model/IndicatorInfo';
 import { LinkCopyReq } from './model/LinkCopyReq';
 import { LinkResp } from './model/LinkResp';
+import { ListActionsRequest } from './model/ListActionsRequest';
+import { ListActionsResponse } from './model/ListActionsResponse';
 import { ListAlarmConfigsRequest } from './model/ListAlarmConfigsRequest';
 import { ListAlarmConfigsResponse } from './model/ListAlarmConfigsResponse';
 import { ListAlarmDetailRequest } from './model/ListAlarmDetailRequest';
@@ -280,6 +293,8 @@ import { ListClusterNodesRequest } from './model/ListClusterNodesRequest';
 import { ListClusterNodesResponse } from './model/ListClusterNodesResponse';
 import { ListClusterScaleInNumbersRequest } from './model/ListClusterScaleInNumbersRequest';
 import { ListClusterScaleInNumbersResponse } from './model/ListClusterScaleInNumbersResponse';
+import { ListClusterSecurityConfigurationsRequest } from './model/ListClusterSecurityConfigurationsRequest';
+import { ListClusterSecurityConfigurationsResponse } from './model/ListClusterSecurityConfigurationsResponse';
 import { ListClusterSnapshotsRequest } from './model/ListClusterSnapshotsRequest';
 import { ListClusterSnapshotsResponse } from './model/ListClusterSnapshotsResponse';
 import { ListClusterTagsRequest } from './model/ListClusterTagsRequest';
@@ -296,14 +311,20 @@ import { ListDatabaseObjectsRequest } from './model/ListDatabaseObjectsRequest';
 import { ListDatabaseObjectsResponse } from './model/ListDatabaseObjectsResponse';
 import { ListDatabaseUserAuthoritiesRequest } from './model/ListDatabaseUserAuthoritiesRequest';
 import { ListDatabaseUserAuthoritiesResponse } from './model/ListDatabaseUserAuthoritiesResponse';
+import { ListDatabaseUserRolesRequest } from './model/ListDatabaseUserRolesRequest';
+import { ListDatabaseUserRolesResponse } from './model/ListDatabaseUserRolesResponse';
 import { ListDatabaseUsersRequest } from './model/ListDatabaseUsersRequest';
 import { ListDatabaseUsersResponse } from './model/ListDatabaseUsersResponse';
 import { ListDisasterRecoverRequest } from './model/ListDisasterRecoverRequest';
 import { ListDisasterRecoverResponse } from './model/ListDisasterRecoverResponse';
 import { ListDssPoolsRequest } from './model/ListDssPoolsRequest';
 import { ListDssPoolsResponse } from './model/ListDssPoolsResponse';
+import { ListElbsInfoRequest } from './model/ListElbsInfoRequest';
+import { ListElbsInfoResponse } from './model/ListElbsInfoResponse';
 import { ListElbsRequest } from './model/ListElbsRequest';
 import { ListElbsResponse } from './model/ListElbsResponse';
+import { ListEpsRequest } from './model/ListEpsRequest';
+import { ListEpsResponse } from './model/ListEpsResponse';
 import { ListEventSpecsRequest } from './model/ListEventSpecsRequest';
 import { ListEventSpecsResponse } from './model/ListEventSpecsResponse';
 import { ListEventSubsRequest } from './model/ListEventSubsRequest';
@@ -340,6 +361,10 @@ import { ListMonitorIndicatorsRequest } from './model/ListMonitorIndicatorsReque
 import { ListMonitorIndicatorsResponse } from './model/ListMonitorIndicatorsResponse';
 import { ListNodeTypesRequest } from './model/ListNodeTypesRequest';
 import { ListNodeTypesResponse } from './model/ListNodeTypesResponse';
+import { ListOperationalTaskDetailRequest } from './model/ListOperationalTaskDetailRequest';
+import { ListOperationalTaskDetailResponse } from './model/ListOperationalTaskDetailResponse';
+import { ListOperationalTaskRequest } from './model/ListOperationalTaskRequest';
+import { ListOperationalTaskResponse } from './model/ListOperationalTaskResponse';
 import { ListPlanExecLogsRequest } from './model/ListPlanExecLogsRequest';
 import { ListPlanExecLogsResponse } from './model/ListPlanExecLogsResponse';
 import { ListQueriesCondition } from './model/ListQueriesCondition';
@@ -353,6 +378,8 @@ import { ListQuotasRequest } from './model/ListQuotasRequest';
 import { ListQuotasResponse } from './model/ListQuotasResponse';
 import { ListRedistributionSchemaRequest } from './model/ListRedistributionSchemaRequest';
 import { ListRedistributionSchemaResponse } from './model/ListRedistributionSchemaResponse';
+import { ListResourceByTagRequest } from './model/ListResourceByTagRequest';
+import { ListResourceByTagResponse } from './model/ListResourceByTagResponse';
 import { ListSchemasRequest } from './model/ListSchemasRequest';
 import { ListSchemasResponse } from './model/ListSchemasResponse';
 import { ListSnapshotDetailsRequest } from './model/ListSnapshotDetailsRequest';
@@ -420,9 +447,14 @@ import { NoteInfo } from './model/NoteInfo';
 import { ObjectAuthority } from './model/ObjectAuthority';
 import { OccupyResource } from './model/OccupyResource';
 import { OpenPublicIp } from './model/OpenPublicIp';
+import { OperationalTaskConfiguration } from './model/OperationalTaskConfiguration';
+import { OperationalTaskIdListRequest } from './model/OperationalTaskIdListRequest';
+import { OperationalTaskRequest } from './model/OperationalTaskRequest';
 import { ParameterGroup } from './model/ParameterGroup';
 import { PauseDisasterRecoveryRequest } from './model/PauseDisasterRecoveryRequest';
 import { PauseDisasterRecoveryResponse } from './model/PauseDisasterRecoveryResponse';
+import { PauseOperationalTaskRequest } from './model/PauseOperationalTaskRequest';
+import { PauseOperationalTaskResponse } from './model/PauseOperationalTaskResponse';
 import { PlanLog } from './model/PlanLog';
 import { PlanStage } from './model/PlanStage';
 import { PrivateEndpointResponse } from './model/PrivateEndpointResponse';
@@ -451,6 +483,8 @@ import { RedisTable } from './model/RedisTable';
 import { RedisTableDetail } from './model/RedisTableDetail';
 import { RedistributionConf } from './model/RedistributionConf';
 import { RedistributionReq } from './model/RedistributionReq';
+import { RefreshOperationalTaskRequest } from './model/RefreshOperationalTaskRequest';
+import { RefreshOperationalTaskResponse } from './model/RefreshOperationalTaskResponse';
 import { ResetPasswordRequest } from './model/ResetPasswordRequest';
 import { ResetPasswordRequestBody } from './model/ResetPasswordRequestBody';
 import { ResetPasswordResponse } from './model/ResetPasswordResponse';
@@ -481,9 +515,12 @@ import { RestoreRedistributionResponse } from './model/RestoreRedistributionResp
 import { RestoreTableRequest } from './model/RestoreTableRequest';
 import { RestoreTableRequestBody } from './model/RestoreTableRequestBody';
 import { RestoreTableResponse } from './model/RestoreTableResponse';
+import { ResumeOperationalTaskRequest } from './model/ResumeOperationalTaskRequest';
+import { ResumeOperationalTaskResponse } from './model/ResumeOperationalTaskResponse';
 import { Revoke } from './model/Revoke';
 import { RingHost } from './model/RingHost';
 import { RoleAuthority } from './model/RoleAuthority';
+import { RoleMember } from './model/RoleMember';
 import { RotateKeyRequest } from './model/RotateKeyRequest';
 import { RotateKeyRequestBody } from './model/RotateKeyRequestBody';
 import { RotateKeyResponse } from './model/RotateKeyResponse';
@@ -492,6 +529,7 @@ import { SaveClusterDescriptionInfoResponse } from './model/SaveClusterDescripti
 import { ScaleOut } from './model/ScaleOut';
 import { ScheduleConf } from './model/ScheduleConf';
 import { SchemaInfo } from './model/SchemaInfo';
+import { SecurityConfigurationParameter } from './model/SecurityConfigurationParameter';
 import { SetRedistributionPriorityRequest } from './model/SetRedistributionPriorityRequest';
 import { SetRedistributionPriorityResponse } from './model/SetRedistributionPriorityResponse';
 import { ShowClusterEncryptInfoRequest } from './model/ShowClusterEncryptInfoRequest';
@@ -518,6 +556,8 @@ import { ShowDisasterProgressRequest } from './model/ShowDisasterProgressRequest
 import { ShowDisasterProgressResponse } from './model/ShowDisasterProgressResponse';
 import { ShowInstanceRequest } from './model/ShowInstanceRequest';
 import { ShowInstanceResponse } from './model/ShowInstanceResponse';
+import { ShowOperationalTaskConfigRequest } from './model/ShowOperationalTaskConfigRequest';
+import { ShowOperationalTaskConfigResponse } from './model/ShowOperationalTaskConfigResponse';
 import { ShowQueryDetailRequest } from './model/ShowQueryDetailRequest';
 import { ShowQueryDetailResponse } from './model/ShowQueryDetailResponse';
 import { ShowResizePreparationRequest } from './model/ShowResizePreparationRequest';
@@ -566,9 +606,19 @@ import { SwitchoverDisasterRecoveryRequest } from './model/SwitchoverDisasterRec
 import { SwitchoverDisasterRecoveryResponse } from './model/SwitchoverDisasterRecoveryResponse';
 import { SyncIamUsersRequest } from './model/SyncIamUsersRequest';
 import { SyncIamUsersResponse } from './model/SyncIamUsersResponse';
+import { SysTagResp } from './model/SysTagResp';
 import { TableDetail } from './model/TableDetail';
+import { TableInfoOpen } from './model/TableInfoOpen';
+import { TableVacuumInfoOpen } from './model/TableVacuumInfoOpen';
+import { TableVacuumNumInfo } from './model/TableVacuumNumInfo';
 import { Tag } from './model/Tag';
+import { TagFilter } from './model/TagFilter';
+import { TagFilterRequestBody } from './model/TagFilterRequestBody';
+import { TagMultiValue } from './model/TagMultiValue';
 import { Tags } from './model/Tags';
+import { TaskInfo } from './model/TaskInfo';
+import { TaskInfoVo } from './model/TaskInfoVo';
+import { TaskStatusOpenResp } from './model/TaskStatusOpenResp';
 import { TopoInstanceInfo } from './model/TopoInstanceInfo';
 import { TopoRingInfo } from './model/TopoRingInfo';
 import { TrendQueryData } from './model/TrendQueryData';
@@ -601,6 +651,10 @@ import { UpdateLogicalClusterRequestBody } from './model/UpdateLogicalClusterReq
 import { UpdateLogicalClusterResponse } from './model/UpdateLogicalClusterResponse';
 import { UpdateMaintenanceWindowRequest } from './model/UpdateMaintenanceWindowRequest';
 import { UpdateMaintenanceWindowResponse } from './model/UpdateMaintenanceWindowResponse';
+import { UpdateOperationalTaskConfigRequest } from './model/UpdateOperationalTaskConfigRequest';
+import { UpdateOperationalTaskConfigResponse } from './model/UpdateOperationalTaskConfigResponse';
+import { UpdateOperationalTaskRequest } from './model/UpdateOperationalTaskRequest';
+import { UpdateOperationalTaskResponse } from './model/UpdateOperationalTaskResponse';
 import { UpdateQueueBaseInfoRequest } from './model/UpdateQueueBaseInfoRequest';
 import { UpdateQueueBaseInfoResponse } from './model/UpdateQueueBaseInfoResponse';
 import { UpdateQueueResourcesRequest } from './model/UpdateQueueResourcesRequest';
@@ -615,8 +669,12 @@ import { UpdateWorkloadQueueReq } from './model/UpdateWorkloadQueueReq';
 import { UpdateWorkloadRuleRequest } from './model/UpdateWorkloadRuleRequest';
 import { UpdateWorkloadRuleResponse } from './model/UpdateWorkloadRuleResponse';
 import { UserAuthorityReq } from './model/UserAuthorityReq';
+import { V1DiskExtExpandReq } from './model/V1DiskExtExpandReq';
 import { V2CreateCluster } from './model/V2CreateCluster';
 import { V2CreateClusterReq } from './model/V2CreateClusterReq';
+import { ValidateDbDataReq } from './model/ValidateDbDataReq';
+import { ValidateDbDataRequest } from './model/ValidateDbDataRequest';
+import { ValidateDbDataResponse } from './model/ValidateDbDataResponse';
 import { Volume } from './model/Volume';
 import { VolumeResp } from './model/VolumeResp';
 import { WorkloadPlanInfo } from './model/WorkloadPlanInfo';
@@ -654,6 +712,26 @@ export class DwsClient {
         return __dirname;
     }
 
+
+    /**
+     * 新增调度任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增调度任务
+     * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {OperationalTaskRequest} [addOperationalTaskRequestBody] **参数解释**： 创建任务请求参数。 **约束限制**： 不涉及。 **取值范围**： 非null **默认取值**： null
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addOperationalTask(addOperationalTaskRequest?: AddOperationalTaskRequest): Promise<AddOperationalTaskResponse> {
+        const options = ParamCreater().addOperationalTask(addOperationalTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 添加资源池的绑定用户。
@@ -864,9 +942,9 @@ export class DwsClient {
     }
 
     /**
-     * 当集群进入只读状态时，无法进行数据库相关操作，用户可以在管理控制台解除集群的只读状态。触发只读状态可能是由于磁盘使用率过高，因此需要对集群数据进行清理或扩容。 
-     *  **约束限制**：
-     *  解除只读支持1.7.2及以上版本。
+     * 当集群进入只读状态时，无法进行数据库相关操作，用户可以调用该API解除集群的只读状态。触发只读状态可能是由于磁盘使用率过高，因此需要先对集群数据进行清理或扩容再解除只读。 
+     * **约束限制**：
+     * 解除只读支持1.7.2及以上版本。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -951,7 +1029,7 @@ export class DwsClient {
      *
      * @summary 检查容灾名称
      * @param {string} drName **参数解释**： 容灾名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {string} [type] **参数解释**： 容灾类型。 **约束限制**： 不涉及。 **取值范围**： - az，跨az容灾。 - region，跨region容灾。 **默认取值**： 不涉及。
+     * @param {string} [type] **参数解释**： 容灾类型。 **约束限制**： 不涉及。 **取值范围**： - az，跨az容灾。 - region，跨region容灾。  **默认取值**： 不涉及。
      * @param {string} [standbyRegion] **参数解释**： 备集群所在局点。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} [standbyProjectId] **参数解释**： 备集群所在项目ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
@@ -979,6 +1057,45 @@ export class DwsClient {
      */
     public checkGrowCluster(checkGrowClusterRequest?: CheckGrowClusterRequest): Promise<CheckGrowClusterResponse> {
         const options = ParamCreater().checkGrowCluster(checkGrowClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 磁盘扩容前检查。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 磁盘扩容前检查
+     * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {V1DiskExtExpandReq} [checkInstanceStorageRequestBody] **参数解释**： 磁盘扩容前检查请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkInstanceStorage(checkInstanceStorageRequest?: CheckInstanceStorageRequest): Promise<CheckInstanceStorageResponse> {
+        const options = ParamCreater().checkInstanceStorage(checkInstanceStorageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 检验快照信息，状态码200时校验成功。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 检验快照信息
+     * @param {CheckSnapshotReq} checkSnapshotRequestBody **参数解释**： 校验快照信息请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkSnapshot(checkSnapshotRequest?: CheckSnapshotRequest): Promise<CheckSnapshotResponse> {
+        const options = ParamCreater().checkSnapshot(checkSnapshotRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1496,7 +1613,7 @@ export class DwsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除订阅事件
+     * @summary 删除订阅的事件
      * @param {string} eventSubId **参数解释**： 事件订阅ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1543,6 +1660,26 @@ export class DwsClient {
      */
     public deleteLogicalClusterPlan(deleteLogicalClusterPlanRequest?: DeleteLogicalClusterPlanRequest): Promise<DeleteLogicalClusterPlanResponse> {
         const options = ParamCreater().deleteLogicalClusterPlan(deleteLogicalClusterPlanRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除调度任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除调度任务
+     * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {OperationalTaskIdListRequest} [deleteOperationalTaskRequestBody] **参数解释**： 删除调度任务请求参数。 **约束限制**： 不涉及。 **取值范围**： 非null **默认取值**： null
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteOperationalTask(deleteOperationalTaskRequest?: DeleteOperationalTaskRequest): Promise<DeleteOperationalTaskResponse> {
+        const options = ParamCreater().deleteOperationalTask(deleteOperationalTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1943,7 +2080,7 @@ export class DwsClient {
 
     /**
      * 随着客户业务的发展，磁盘空间往往最先出现资源瓶颈，在其他资源尚且充足的情况下，通过磁盘扩容可快速缓解存储资源瓶颈现象，操作过程中无需暂停业务，并且不会造成CPU、内存等资源浪费。  
-     *  **约束限制**：
+     * **约束限制**：
      * 磁盘扩容功能仅8.1.1.203及以上版本支持，并且创建集群规格需要为云数仓SSD云盘或实时数仓类型。  
      * 按需+折扣套餐包消费模式下，存储扩容后超出折扣套餐包部分将按需收费。
      * 
@@ -2009,6 +2146,26 @@ export class DwsClient {
     }
 
     /**
+     * 查询租户白名单。仅返回当前用户支持的灰度特性，集群列表等基础功能不受白名单控制，所有用户均可以使用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询租户白名单
+     * @param {number} [limit] **参数解释**： 分页查询，每页大小。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 100
+     * @param {number} [offset] **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 大于等于0 **默认取值**： 0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listActions(listActionsRequest?: ListActionsRequest): Promise<ListActionsResponse> {
+        const options = ParamCreater().listActions(listActionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询告警配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2037,9 +2194,9 @@ export class DwsClient {
      * @param {string} [timeZone] **参数解释**： 时区信息。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： GMT+08:00
      * @param {string} [offset] **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0
      * @param {string} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 10。
-     * @param {number} [from] **参数解释**：  开始UTC时间，单位精确到毫秒。  **取值范围**：  不涉及。
-     * @param {number} [to] **参数解释**：  结束UTC时间，单位精确到毫秒。  **取值范围**：  不涉及。
-     * @param {number} [recentDay] **参数解释**：  查询前N天到当前时间范围内的告警。  **约束限制**： 不涉及。 **取值范围**： 大于0。
+     * @param {number} [from] **参数解释**： 开始UTC时间，单位精确到毫秒。 **取值范围**： 不涉及。
+     * @param {number} [to] **参数解释**： 结束UTC时间，单位精确到毫秒。 **取值范围**： 不涉及。
+     * @param {number} [recentDay] **参数解释**： 查询前N天到当前时间范围内的告警。 **约束限制**： 不涉及。 **取值范围**： 大于0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2092,11 +2249,11 @@ export class DwsClient {
     }
 
     /**
-     * 查询审计日志记录。
+     * 查询审计日志转储执行记录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询日志记录
+     * @summary 查询审计日志转储执行记录
      * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2140,8 +2297,8 @@ export class DwsClient {
      * @param {string} [primaryClusterDnNum] **参数解释**： 主集群DN数量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} [standbyRegion] **参数解释**： 备集群所在局点。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} [standbyProjectId] **参数解释**： 备集群项目ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {string} [drType] **参数解释**： 容灾类型。 **约束限制**： 不涉及。 **取值范围**： - az，跨az容灾。 - region，跨region容灾。 **默认取值**： 不涉及。
-     * @param {string} [datastoreType] **参数解释**： 数仓类型。 **约束限制**： 不涉及。 **取值范围**： - dws，dws存算一体。 - dws3.0，dws存算分离。 - hybrid，dws实时数仓。 **默认取值**： 不涉及。
+     * @param {string} [drType] **参数解释**： 容灾类型。 **约束限制**： 不涉及。 **取值范围**： - az，跨az容灾。 - region，跨region容灾。  **默认取值**： 不涉及。
+     * @param {string} [datastoreType] **参数解释**： 数仓类型。 **约束限制**： 不涉及。 **取值范围**： - dws，dws存算一体。 - dws3.0，dws存算分离。 - hybrid，dws实时数仓。  **默认取值**： 不涉及。
      * @param {string} [datastoreVersion] **参数解释**： 数仓版本。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2282,7 +2439,7 @@ export class DwsClient {
      * @param {number} [offset] **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0
      * @param {number} [limit] **参数解释**： 分页查询，每页显示的条目数量。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 100
      * @param {string} [filterBy] **参数解释**： 过滤字段。 **约束限制**： 不涉及。 **取值范围**： instCreateType：根据资源状态过滤 status：根据节点状态过滤 **默认取值**： null
-     * @param {string} [filter] **参数解释**： 过滤字段内容。 **约束限制**： 不涉及。 **取值范围**： 当根据资源状态过滤时，可选如下值： - ALL：全部 - INST：已使用 - NODE：空闲 当根据节点状态过滤时，可选如下值： - ALL：全部 - CREATING：创建中 - FREE：空闲可用 - ACTIVE：可用 - FAILED：不可用 - UNKNOWN：未知 - CREATE_FAILED：创建失败 - DELETING：删除中 - DELETE_FAILED：删除失败 **默认取值**： null
+     * @param {string} [filter] **参数解释**： 过滤字段内容。 **约束限制**： 不涉及。 **取值范围**： 当根据资源状态过滤时，可选如下值： - ALL：全部 - INST：已使用 - NODE：空闲 当根据节点状态过滤时，可选如下值： - ALL：全部 - CREATING：创建中 - FREE：空闲可用 - ACTIVE：可用 - FAILED：不可用 - UNKNOWN：未知 - CREATE_FAILED：创建失败 - DELETING：删除中 - DELETE_FAILED：删除失败  **默认取值**： null
      * @param {string} [orderBy] **参数解释**： 排序字段。默认无序返回。 **约束限制**： 不涉及。 **取值范围**： name：根据名称过滤 **默认取值**： null
      * @param {string} [order] **参数解释**： 排序：升序/降序。 **约束限制**： 不涉及。 **取值范围**： asc：升序 desc：降序 **默认取值**： null
      * @param {string} [deleted] **参数解释**： 是否被删除，字段已废弃。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： null
@@ -2311,6 +2468,28 @@ export class DwsClient {
      */
     public listClusterScaleInNumbers(listClusterScaleInNumbersRequest?: ListClusterScaleInNumbersRequest): Promise<ListClusterScaleInNumbersResponse> {
         const options = ParamCreater().listClusterScaleInNumbers(listClusterScaleInNumbersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询集群安全参数配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群安全参数配置
+     * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} configurationId **参数解释**： 参数组ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [limit] **参数解释**： 分页查询，每页大小。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 100
+     * @param {number} [offset] **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 大于等于0 **默认取值**： 0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClusterSecurityConfigurations(listClusterSecurityConfigurationsRequest?: ListClusterSecurityConfigurationsRequest): Promise<ListClusterSecurityConfigurationsResponse> {
+        const options = ParamCreater().listClusterSecurityConfigurations(listClusterSecurityConfigurationsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2493,6 +2672,29 @@ export class DwsClient {
     }
 
     /**
+     * 查询用户所属角色。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用户所属角色
+     * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} name **参数解释**： 用户名/角色名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [queryAll] **参数解释**： 是否查询所有角色，包含系统角色。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [offset] **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0
+     * @param {string} [limit] **参数解释**： 分页大小。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 1000
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDatabaseUserRoles(listDatabaseUserRolesRequest?: ListDatabaseUserRolesRequest): Promise<ListDatabaseUserRolesResponse> {
+        const options = ParamCreater().listDatabaseUserRoles(listDatabaseUserRolesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询所有数据库用户/角色。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2501,8 +2703,8 @@ export class DwsClient {
      * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {number} [offset] **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0
      * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 1000。
-     * @param {string} [type] **参数解释**： 查询角色还是用户。 **约束限制**： 不涉及。 **取值范围**： ROLE：表示查询所有角色。  USER：表示查询所有用户。 **默认取值**： 不涉及。
-     * @param {string} [userType] **参数解释**： 用户类型，COMMON、IAM或者OneAccess。 **约束限制**： 不涉及。 **取值范围**： COMMON：表示普通数据库用户。  IAM：表示IAM同步的数据库用户。 OneAccess: 表示OneAccess用户。 **默认取值**： 不涉及。
+     * @param {string} [type] **参数解释**： 查询角色还是用户。 **约束限制**： 不涉及。 **取值范围**： ROLE：表示查询所有角色。 USER：表示查询所有用户。 **默认取值**： 不涉及。
+     * @param {string} [userType] **参数解释**： 用户类型，COMMON、IAM或者OneAccess。 **约束限制**： 不涉及。 **取值范围**： COMMON：表示普通数据库用户。 IAM：表示IAM同步的数据库用户。 OneAccess: 表示OneAccess用户。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2575,15 +2777,57 @@ export class DwsClient {
     }
 
     /**
+     * 查询可用弹性负载均衡列表，该接口是对ELB提供的openapi的封装，针对DWS进行了部分筛选，且不含已经被其它dws集群绑定的弹性负载均衡器。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询可用弹性负载均衡列表
+     * @param {string} [vpcId] **参数解释**： 虚拟私有云ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [subnetId] **参数解释**： 子网ID。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 10
+     * @param {number} [offset] **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listElbsInfo(listElbsInfoRequest?: ListElbsInfoRequest): Promise<ListElbsInfoResponse> {
+        const options = ParamCreater().listElbsInfo(listElbsInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询所有集群的企业项目信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询所有集群的企业项目信息
+     * @param {number} [offset] **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 大于等于0 **默认取值**： 0
+     * @param {number} [limit] **参数解释**： 分页大小，默认10。 **约束限制**： 不涉及。 **取值范围**： 有效值大于等于1。 **默认取值**： 10
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listEps(listEpsRequest?: ListEpsRequest): Promise<ListEpsResponse> {
+        const options = ParamCreater().listEps(listEpsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询事件配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询事件配置
      * @param {string} [specName] **参数解释**： 事件配置名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {string} [category] **参数解释**： 事件类别。 **约束限制**： 不涉及。 **取值范围**： - management：管理。 - monitor：监控。 - security：安全。 **默认取值**： 不涉及。
+     * @param {string} [category] **参数解释**： 事件类别。 **约束限制**： 不涉及。 **取值范围**： - management：管理。 - monitor：监控。 - security：安全。  **默认取值**： 不涉及。
      * @param {string} [severity] **参数解释**： 事件级别。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
-     * @param {string} [sourceType] **参数解释**： 事件源类别。 **约束限制**： 不涉及。 **取值范围**： - cluster：集群。 - backup：快照。 - disaster-recovery：容灾。 - data.migration：数据迁移。 - dws.ingestion：DwsIngestion。 **默认取值**： 不涉及。
+     * @param {string} [sourceType] **参数解释**： 事件源类别。 **约束限制**： 不涉及。 **取值范围**： - cluster：集群。 - backup：快照。 - disaster-recovery：容灾。 - data.migration：数据迁移。 - dws.ingestion：DwsIngestion。  **默认取值**： 不涉及。
      * @param {string} [tag] **参数解释**： 事件标签。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} [offset] **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0
      * @param {string} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 1000
@@ -2883,7 +3127,7 @@ export class DwsClient {
      *
      * @summary 获取指定指标相关采集数据
      * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
-     * @param {string} metricName **参数解释**： 指标名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} metricName **参数解释**： 指标名称。名称可选值请参见[获取自定义指标列表](dws_02_00069.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {number} offset **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0
      * @param {number} limit **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0，最大1000。 **默认取值**： 不限制。
      * @param {number} from **参数解释**： 采集开始时间，13位时间戳。 **约束限制**： 不涉及。 **取值范围**： 13位时间戳。 **默认取值**： 不涉及。
@@ -2956,6 +3200,55 @@ export class DwsClient {
      */
     public listNodeTypes(listNodeTypesRequest?: ListNodeTypesRequest): Promise<ListNodeTypesResponse> {
         const options = ParamCreater().listNodeTypes();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询运维任务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询运维任务列表
+     * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [timeZone] **参数解释**： 时区偏移量，默认为UTC时间（0偏移），即+0000。 **约束限制**： 不涉及。 **取值范围**： -2359~+2359 **默认取值**： +0000
+     * @param {string} [type] **参数解释**： 任务类型。 **约束限制**： 仅支持两种值。 **取值范围**： Date：单次型任务； Window：周期型任务； **默认取值**： 无。
+     * @param {number} [limit] **参数解释**： 分页查询，每页大小。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 100
+     * @param {number} [offset] **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 大于等于0 **默认取值**： 0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listOperationalTask(listOperationalTaskRequest?: ListOperationalTaskRequest): Promise<ListOperationalTaskResponse> {
+        const options = ParamCreater().listOperationalTask(listOperationalTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取运维任务执行信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取运维任务执行信息
+     * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [category] **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： VacuumFull **默认取值**： VacuumFull
+     * @param {string} [taskId] **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [status] **参数解释**： 状态。 **约束限制**： 不涉及。 **取值范围**： running、waiting、finished、canceled **默认取值**： 不涉及。
+     * @param {string} [startTime] **参数解释**： 开始日期。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [endTime] **参数解释**： 结束日期。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {number} [limit] **参数解释**： 分页查询，每页大小。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 100
+     * @param {number} [offset] **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 大于等于0 **默认取值**： 0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listOperationalTaskDetail(listOperationalTaskDetailRequest?: ListOperationalTaskDetailRequest): Promise<ListOperationalTaskDetailResponse> {
+        const options = ParamCreater().listOperationalTaskDetail(listOperationalTaskDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3047,6 +3340,27 @@ export class DwsClient {
     }
 
     /**
+     * 使用标签查询集群。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 使用标签查询集群
+     * @param {TagFilterRequestBody} listResourceByTagRequestBody **参数解释**： 标签列表请求体。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 10
+     * @param {string} [offset] **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listResourceByTag(listResourceByTagRequest?: ListResourceByTagRequest): Promise<ListResourceByTagResponse> {
+        const options = ParamCreater().listResourceByTag(listResourceByTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询集群模式空间信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3055,7 +3369,7 @@ export class DwsClient {
      * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {string} databaseName **参数解释**： 数据库名称。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {string} [sortKey] **参数解释**： 排序字段。 **约束限制**： 不涉及。 **取值范围**： schemaName：模式名称排序。 **默认取值**： 不涉及。
-     * @param {string} [sortDir] **参数解释**： 排序字段。 **约束限制**： 不涉及。 **取值范围**： ASC：表示按升序排序。  DESC：表示按降序排序。 **默认取值**： 不涉及。
+     * @param {string} [sortDir] **参数解释**： 排序字段。 **约束限制**： 不涉及。 **取值范围**： ASC：表示按升序排序。 DESC：表示按降序排序。 **默认取值**： 不涉及。
      * @param {string} [keywords] **参数解释**： 查询关键词。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {number} [limit] **参数解释**： 分页单页大小。 **约束限制**： 不涉及。 **取值范围**： 大于0。 **默认取值**： 10
      * @param {number} [offset] **参数解释**： 分页偏移量，从0开始，页数减1。 **约束限制**： 不涉及。 **取值范围**： 大于等于0。 **默认取值**： 0
@@ -3132,11 +3446,11 @@ export class DwsClient {
     }
 
     /**
-     * 快照统计信息。
+     * 查询快照统计信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 快照统计信息
+     * @summary 查询快照统计信息
      * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3173,7 +3487,7 @@ export class DwsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询资源统计信息列表
+     * @summary 查询当前可用资源数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3515,6 +3829,45 @@ export class DwsClient {
     }
 
     /**
+     * 批量暂停调度任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量暂停调度任务
+     * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {OperationalTaskIdListRequest} [pauseOperationalTaskRequestBody] **参数解释**： 恢复调度任务请求参数。 **约束限制**： 不涉及。 **取值范围**： 非null **默认取值**： null
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public pauseOperationalTask(pauseOperationalTaskRequest?: PauseOperationalTaskRequest): Promise<PauseOperationalTaskResponse> {
+        const options = ParamCreater().pauseOperationalTask(pauseOperationalTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 同步当前集群运维任务状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 同步当前集群运维任务状态
+     * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public refreshOperationalTask(refreshOperationalTaskRequest?: RefreshOperationalTaskRequest): Promise<RefreshOperationalTaskResponse> {
+        const options = ParamCreater().refreshOperationalTask(refreshOperationalTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 重置集群管理员密码。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3711,6 +4064,26 @@ export class DwsClient {
      */
     public restoreTable(restoreTableRequest?: RestoreTableRequest): Promise<RestoreTableResponse> {
         const options = ParamCreater().restoreTable(restoreTableRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量恢复调度任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量恢复调度任务
+     * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {OperationalTaskIdListRequest} [resumeOperationalTaskRequestBody] **参数解释**： 恢复调度任务请求参数。 **约束限制**： 不涉及。 **取值范围**： 非null **默认取值**： null
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resumeOperationalTask(resumeOperationalTaskRequest?: ResumeOperationalTaskRequest): Promise<ResumeOperationalTaskResponse> {
+        const options = ParamCreater().resumeOperationalTask(resumeOperationalTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4026,6 +4399,25 @@ export class DwsClient {
     }
 
     /**
+     * 查询调度运维任务公共配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询调度运维任务公共配置
+     * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showOperationalTaskConfig(showOperationalTaskConfigRequest?: ShowOperationalTaskConfigRequest): Promise<ShowOperationalTaskConfigResponse> {
+        const options = ParamCreater().showOperationalTaskConfig(showOperationalTaskConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询SQL执行信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4066,11 +4458,11 @@ export class DwsClient {
     }
 
     /**
-     * 该接口用于查询资源统计。
+     * 该接口用于查询资源统计信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询资源统计
+     * @summary 查询资源统计信息
      * @param {string} [namespace] **参数解释**： 命名空间。 **约束限制**： 不涉及。 **取值范围**： 固定值dws。 **默认取值**： dws。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4153,7 +4545,7 @@ export class DwsClient {
      *
      * @summary 集群缩容
      * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
-     * @param {ClusterShrinkReq} clusterShrinkReq **参数解释**：  逻辑集群缩容请求体。  **约束限制**：  该值不能为空。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {ClusterShrinkReq} clusterShrinkReq **参数解释**： 逻辑集群缩容请求体。 **约束限制**： 该值不能为空。  **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4173,7 +4565,7 @@ export class DwsClient {
      *
      * @summary 逻辑集群缩容
      * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 必须是有效的dws集群ID。 **取值范围**： 36位UUID。 **默认取值**： 不涉及。
-     * @param {string} logicalClusterId **参数解释**： 逻辑集群id。  **约束限制**： 必须是有效的dws逻辑集群ID。  **取值范围**：  36位UUID。  **默认取值**：  不涉及。
+     * @param {string} logicalClusterId **参数解释**： 逻辑集群id。 **约束限制**： 必须是有效的dws逻辑集群ID。  **取值范围**： 36位UUID。 **默认取值**： 不涉及。
      * @param {ShrinkLogicalClusterRequestBody} shrinkLogicalClusterRequestBody **参数解释**： 缩容逻辑集群请求体。 **约束限制**： 必须是非空值。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4334,8 +4726,8 @@ export class DwsClient {
     /**
      * 当集群状态为“非均衡”时会出现某些节点主实例增多，从而负载压力较大。这种情况下集群状态是正常的，但整体性能要低于均衡状态。可进行集群主备恢复操作将集群状态切换为“可用”状态。  
      * **约束限制**：
-     *  集群主备恢复仅8.1.1.202及以上版本支持。 
-     *  集群主备恢复将会短暂中断业务，中断时间根据用户自身业务量所决定，建议用户在业务低峰期执行此操作。
+     * 集群主备恢复仅8.1.1.202及以上版本支持。
+     * 集群主备恢复将会短暂中断业务，中断时间根据用户自身业务量所决定，建议用户在业务低峰期执行此操作。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4380,8 +4772,8 @@ export class DwsClient {
      * 容灾状态为“运行中”时可以执行灾备切换操作。
      * 灾备切换需要一定时间，在此期间，原生产集群将不可用。
      * 不同场景下进行灾备切换，RPO（Recovery Point Object，灾难发生后，系统和数据必须恢复到的时间点要求。）说明如下：
-     *   生产集群在“可用”的状态下，RPO&#x3D;0。
-     *   生产集群在“不可用”的状态下，无法保证RPO&#x3D;0，但数据至少可恢复到生产集群“最近容灾成功时间”。
+     * 生产集群在“可用”的状态下，RPO&#x3D;0。
+     * 生产集群在“不可用”的状态下，无法保证RPO&#x3D;0，但数据至少可恢复到生产集群“最近容灾成功时间”。
      * 仅支持DWS 2.0集群。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4650,6 +5042,47 @@ export class DwsClient {
     }
 
     /**
+     * 修改调度任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改调度任务
+     * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} taskId **参数解释**： 任务ID，可先通过任务列表接口查询所有任务。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {TaskInfo} [updateOperationalTaskRequestBody] **参数解释**： 更新调度任务请求参数。 **约束限制**： 不涉及。 **取值范围**： 非null **默认取值**： null
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateOperationalTask(updateOperationalTaskRequest?: UpdateOperationalTaskRequest): Promise<UpdateOperationalTaskResponse> {
+        const options = ParamCreater().updateOperationalTask(updateOperationalTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改调度运维任务公共配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改调度运维任务公共配置
+     * @param {string} clusterId **参数解释**： 集群ID。获取方法请参见[获取集群ID](dws_02_00068.xml)。 **约束限制**： 不涉及。 **取值范围**： 不涉及。 **默认取值**： 不涉及。
+     * @param {OperationalTaskConfiguration} [updateOperationalTaskConfigRequestBody] **参数解释**： 更新调度任务请求参数。 **约束限制**： 不涉及。 **取值范围**： 非null **默认取值**： null
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateOperationalTaskConfig(updateOperationalTaskConfigRequest?: UpdateOperationalTaskConfigRequest): Promise<UpdateOperationalTaskConfigResponse> {
+        const options = ParamCreater().updateOperationalTaskConfig(updateOperationalTaskConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新资源池基础信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4774,10 +5207,74 @@ export class DwsClient {
 
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * 传入schema或table列表数据，返回存在的数据列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 校验schema或table列表数据
+     * @param {string} clusterId cluster_id
+     * @param {string} database database
+     * @param {ValidateDbDataReq} validateDbDataRequestBody req
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public validateDbData(validateDbDataRequest?: ValidateDbDataRequest): Promise<ValidateDbDataResponse> {
+        const options = ParamCreater().validateDbData(validateDbDataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 新增调度任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addOperationalTask(addOperationalTaskRequest?: AddOperationalTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/operational-tasks",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (addOperationalTaskRequest !== null && addOperationalTaskRequest !== undefined) {
+                if (addOperationalTaskRequest instanceof AddOperationalTaskRequest) {
+                    clusterId = addOperationalTaskRequest.clusterId;
+                    body = addOperationalTaskRequest.body
+                } else {
+                    clusterId = addOperationalTaskRequest['cluster_id'];
+                    body = addOperationalTaskRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling addOperationalTask.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 添加资源池的绑定用户。
@@ -5250,9 +5747,9 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 当集群进入只读状态时，无法进行数据库相关操作，用户可以在管理控制台解除集群的只读状态。触发只读状态可能是由于磁盘使用率过高，因此需要对集群数据进行清理或扩容。 
-         *  **约束限制**：
-         *  解除只读支持1.7.2及以上版本。
+         * 当集群进入只读状态时，无法进行数据库相关操作，用户可以调用该API解除集群的只读状态。触发只读状态可能是由于磁盘使用率过高，因此需要先对集群数据进行清理或扩容再解除只读。 
+         * **约束限制**：
+         * 解除只读支持1.7.2及以上版本。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5533,6 +6030,87 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 磁盘扩容前检查。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkInstanceStorage(checkInstanceStorageRequest?: CheckInstanceStorageRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/check-instance-storage",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (checkInstanceStorageRequest !== null && checkInstanceStorageRequest !== undefined) {
+                if (checkInstanceStorageRequest instanceof CheckInstanceStorageRequest) {
+                    clusterId = checkInstanceStorageRequest.clusterId;
+                    body = checkInstanceStorageRequest.body
+                } else {
+                    clusterId = checkInstanceStorageRequest['cluster_id'];
+                    body = checkInstanceStorageRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling checkInstanceStorage.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 检验快照信息，状态码200时校验成功。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkSnapshot(checkSnapshotRequest?: CheckSnapshotRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/snapshots/check",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (checkSnapshotRequest !== null && checkSnapshotRequest !== undefined) {
+                if (checkSnapshotRequest instanceof CheckSnapshotRequest) {
+                    body = checkSnapshotRequest.body
+                } else {
+                    body = checkSnapshotRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6769,6 +7347,49 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量删除调度任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteOperationalTask(deleteOperationalTaskRequest?: DeleteOperationalTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/operational-tasks/batch-delete",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (deleteOperationalTaskRequest !== null && deleteOperationalTaskRequest !== undefined) {
+                if (deleteOperationalTaskRequest instanceof DeleteOperationalTaskRequest) {
+                    clusterId = deleteOperationalTaskRequest.clusterId;
+                    body = deleteOperationalTaskRequest.body
+                } else {
+                    clusterId = deleteOperationalTaskRequest['cluster_id'];
+                    body = deleteOperationalTaskRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteOperationalTask.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除资源池的绑定用户。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7635,7 +8256,7 @@ export const ParamCreater = function () {
     
         /**
          * 随着客户业务的发展，磁盘空间往往最先出现资源瓶颈，在其他资源尚且充足的情况下，通过磁盘扩容可快速缓解存储资源瓶颈现象，操作过程中无需暂停业务，并且不会造成CPU、内存等资源浪费。  
-         *  **约束限制**：
+         * **约束限制**：
          * 磁盘扩容功能仅8.1.1.203及以上版本支持，并且创建集群规格需要为云数仓SSD云盘或实时数仓类型。  
          * 按需+折扣套餐包消费模式下，存储扩容后超出折扣套餐包部分将按需收费。
          * 
@@ -7796,6 +8417,50 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId,'name': name, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户白名单。仅返回当前用户支持的灰度特性，集群列表等基础功能不受白名单控制，所有用户均可以使用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listActions(listActionsRequest?: ListActionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/actions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+
+            if (listActionsRequest !== null && listActionsRequest !== undefined) {
+                if (listActionsRequest instanceof ListActionsRequest) {
+                    limit = listActionsRequest.limit;
+                    offset = listActionsRequest.offset;
+                } else {
+                    limit = listActionsRequest['limit'];
+                    offset = listActionsRequest['offset'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7998,7 +8663,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询审计日志记录。
+         * 查询审计日志转储执行记录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8530,6 +9195,65 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询集群安全参数配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClusterSecurityConfigurations(listClusterSecurityConfigurationsRequest?: ListClusterSecurityConfigurationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/security-configurations/{configuration_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let configurationId;
+            
+            let limit;
+            
+            let offset;
+
+            if (listClusterSecurityConfigurationsRequest !== null && listClusterSecurityConfigurationsRequest !== undefined) {
+                if (listClusterSecurityConfigurationsRequest instanceof ListClusterSecurityConfigurationsRequest) {
+                    clusterId = listClusterSecurityConfigurationsRequest.clusterId;
+                    configurationId = listClusterSecurityConfigurationsRequest.configurationId;
+                    limit = listClusterSecurityConfigurationsRequest.limit;
+                    offset = listClusterSecurityConfigurationsRequest.offset;
+                } else {
+                    clusterId = listClusterSecurityConfigurationsRequest['cluster_id'];
+                    configurationId = listClusterSecurityConfigurationsRequest['configuration_id'];
+                    limit = listClusterSecurityConfigurationsRequest['limit'];
+                    offset = listClusterSecurityConfigurationsRequest['offset'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listClusterSecurityConfigurations.');
+            }
+            if (configurationId === null || configurationId === undefined) {
+            throw new RequiredError('configurationId','Required parameter configurationId was null or undefined when calling listClusterSecurityConfigurations.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId,'configuration_id': configurationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于查询集群快照列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8975,6 +9699,72 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询用户所属角色。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDatabaseUserRoles(listDatabaseUserRolesRequest?: ListDatabaseUserRolesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/db-manager/users/{name}/roles",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let name;
+            
+            let queryAll;
+            
+            let offset;
+            
+            let limit;
+
+            if (listDatabaseUserRolesRequest !== null && listDatabaseUserRolesRequest !== undefined) {
+                if (listDatabaseUserRolesRequest instanceof ListDatabaseUserRolesRequest) {
+                    clusterId = listDatabaseUserRolesRequest.clusterId;
+                    name = listDatabaseUserRolesRequest.name;
+                    queryAll = listDatabaseUserRolesRequest.queryAll;
+                    offset = listDatabaseUserRolesRequest.offset;
+                    limit = listDatabaseUserRolesRequest.limit;
+                } else {
+                    clusterId = listDatabaseUserRolesRequest['cluster_id'];
+                    name = listDatabaseUserRolesRequest['name'];
+                    queryAll = listDatabaseUserRolesRequest['query_all'];
+                    offset = listDatabaseUserRolesRequest['offset'];
+                    limit = listDatabaseUserRolesRequest['limit'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listDatabaseUserRoles.');
+            }
+            if (name === null || name === undefined) {
+            throw new RequiredError('name','Required parameter name was null or undefined when calling listDatabaseUserRoles.');
+            }
+            if (queryAll !== null && queryAll !== undefined) {
+                localVarQueryParameter['query_all'] = queryAll;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId,'name': name, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询所有数据库用户/角色。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -9146,6 +9936,108 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询可用弹性负载均衡列表，该接口是对ELB提供的openapi的封装，针对DWS进行了部分筛选，且不含已经被其它dws集群绑定的弹性负载均衡器。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listElbsInfo(listElbsInfoRequest?: ListElbsInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/elbs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let vpcId;
+            
+            let subnetId;
+            
+            let limit;
+            
+            let offset;
+
+            if (listElbsInfoRequest !== null && listElbsInfoRequest !== undefined) {
+                if (listElbsInfoRequest instanceof ListElbsInfoRequest) {
+                    vpcId = listElbsInfoRequest.vpcId;
+                    subnetId = listElbsInfoRequest.subnetId;
+                    limit = listElbsInfoRequest.limit;
+                    offset = listElbsInfoRequest.offset;
+                } else {
+                    vpcId = listElbsInfoRequest['vpc_id'];
+                    subnetId = listElbsInfoRequest['subnet_id'];
+                    limit = listElbsInfoRequest['limit'];
+                    offset = listElbsInfoRequest['offset'];
+                }
+            }
+
+        
+            if (vpcId !== null && vpcId !== undefined) {
+                localVarQueryParameter['vpc_id'] = vpcId;
+            }
+            if (subnetId !== null && subnetId !== undefined) {
+                localVarQueryParameter['subnet_id'] = subnetId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询所有集群的企业项目信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listEps(listEpsRequest?: ListEpsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/enterprise-projects",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+
+            if (listEpsRequest !== null && listEpsRequest !== undefined) {
+                if (listEpsRequest instanceof ListEpsRequest) {
+                    offset = listEpsRequest.offset;
+                    limit = listEpsRequest.limit;
+                } else {
+                    offset = listEpsRequest['offset'];
+                    limit = listEpsRequest['limit'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -10171,6 +11063,159 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询运维任务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listOperationalTask(listOperationalTaskRequest?: ListOperationalTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/operational-tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let timeZone;
+            
+            let type;
+            
+            let limit;
+            
+            let offset;
+
+            if (listOperationalTaskRequest !== null && listOperationalTaskRequest !== undefined) {
+                if (listOperationalTaskRequest instanceof ListOperationalTaskRequest) {
+                    clusterId = listOperationalTaskRequest.clusterId;
+                    timeZone = listOperationalTaskRequest.timeZone;
+                    type = listOperationalTaskRequest.type;
+                    limit = listOperationalTaskRequest.limit;
+                    offset = listOperationalTaskRequest.offset;
+                } else {
+                    clusterId = listOperationalTaskRequest['cluster_id'];
+                    timeZone = listOperationalTaskRequest['time_zone'];
+                    type = listOperationalTaskRequest['type'];
+                    limit = listOperationalTaskRequest['limit'];
+                    offset = listOperationalTaskRequest['offset'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listOperationalTask.');
+            }
+            if (timeZone !== null && timeZone !== undefined) {
+                localVarQueryParameter['time_zone'] = timeZone;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取运维任务执行信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listOperationalTaskDetail(listOperationalTaskDetailRequest?: ListOperationalTaskDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/operational-tasks/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clusterId;
+            
+            let category;
+            
+            let taskId;
+            
+            let status;
+            
+            let startTime;
+            
+            let endTime;
+            
+            let limit;
+            
+            let offset;
+
+            if (listOperationalTaskDetailRequest !== null && listOperationalTaskDetailRequest !== undefined) {
+                if (listOperationalTaskDetailRequest instanceof ListOperationalTaskDetailRequest) {
+                    clusterId = listOperationalTaskDetailRequest.clusterId;
+                    category = listOperationalTaskDetailRequest.category;
+                    taskId = listOperationalTaskDetailRequest.taskId;
+                    status = listOperationalTaskDetailRequest.status;
+                    startTime = listOperationalTaskDetailRequest.startTime;
+                    endTime = listOperationalTaskDetailRequest.endTime;
+                    limit = listOperationalTaskDetailRequest.limit;
+                    offset = listOperationalTaskDetailRequest.offset;
+                } else {
+                    clusterId = listOperationalTaskDetailRequest['cluster_id'];
+                    category = listOperationalTaskDetailRequest['category'];
+                    taskId = listOperationalTaskDetailRequest['task_id'];
+                    status = listOperationalTaskDetailRequest['status'];
+                    startTime = listOperationalTaskDetailRequest['start_time'];
+                    endTime = listOperationalTaskDetailRequest['end_time'];
+                    limit = listOperationalTaskDetailRequest['limit'];
+                    offset = listOperationalTaskDetailRequest['offset'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listOperationalTaskDetail.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (taskId !== null && taskId !== undefined) {
+                localVarQueryParameter['task_id'] = taskId;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查看计划执行日志。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10361,6 +11406,59 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 使用标签查询集群。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listResourceByTag(listResourceByTagRequest?: ListResourceByTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/resource-instances/tag-filter",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let limit;
+            
+            let offset;
+
+            if (listResourceByTagRequest !== null && listResourceByTagRequest !== undefined) {
+                if (listResourceByTagRequest instanceof ListResourceByTagRequest) {
+                    body = listResourceByTagRequest.body
+                    limit = listResourceByTagRequest.limit;
+                    offset = listResourceByTagRequest.offset;
+                } else {
+                    body = listResourceByTagRequest['body'];
+                    limit = listResourceByTagRequest['limit'];
+                    offset = listResourceByTagRequest['offset'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -10579,7 +11677,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 快照统计信息。
+         * 查询快照统计信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11454,6 +12552,86 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量暂停调度任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        pauseOperationalTask(pauseOperationalTaskRequest?: PauseOperationalTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/operational-tasks/batch-pause",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (pauseOperationalTaskRequest !== null && pauseOperationalTaskRequest !== undefined) {
+                if (pauseOperationalTaskRequest instanceof PauseOperationalTaskRequest) {
+                    clusterId = pauseOperationalTaskRequest.clusterId;
+                    body = pauseOperationalTaskRequest.body
+                } else {
+                    clusterId = pauseOperationalTaskRequest['cluster_id'];
+                    body = pauseOperationalTaskRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling pauseOperationalTask.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 同步当前集群运维任务状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        refreshOperationalTask(refreshOperationalTaskRequest?: RefreshOperationalTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/operational-tasks/sync",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (refreshOperationalTaskRequest !== null && refreshOperationalTaskRequest !== undefined) {
+                if (refreshOperationalTaskRequest instanceof RefreshOperationalTaskRequest) {
+                    clusterId = refreshOperationalTaskRequest.clusterId;
+                } else {
+                    clusterId = refreshOperationalTaskRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling refreshOperationalTask.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 重置集群管理员密码。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -11892,6 +13070,49 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'snapshot_id': snapshotId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量恢复调度任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resumeOperationalTask(resumeOperationalTaskRequest?: ResumeOperationalTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/operational-tasks/batch-resume",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (resumeOperationalTaskRequest !== null && resumeOperationalTaskRequest !== undefined) {
+                if (resumeOperationalTaskRequest instanceof ResumeOperationalTaskRequest) {
+                    clusterId = resumeOperationalTaskRequest.clusterId;
+                    body = resumeOperationalTaskRequest.body
+                } else {
+                    clusterId = resumeOperationalTaskRequest['cluster_id'];
+                    body = resumeOperationalTaskRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling resumeOperationalTask.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -12571,6 +13792,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询调度运维任务公共配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showOperationalTaskConfig(showOperationalTaskConfigRequest?: ShowOperationalTaskConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/clusters/{cluster_id}/operational-tasks/configuration",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (showOperationalTaskConfigRequest !== null && showOperationalTaskConfigRequest !== undefined) {
+                if (showOperationalTaskConfigRequest instanceof ShowOperationalTaskConfigRequest) {
+                    clusterId = showOperationalTaskConfigRequest.clusterId;
+                } else {
+                    clusterId = showOperationalTaskConfigRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showOperationalTaskConfig.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询SQL执行信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12660,7 +13918,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于查询资源统计。
+         * 该接口用于查询资源统计信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -13227,8 +14485,8 @@ export const ParamCreater = function () {
         /**
          * 当集群状态为“非均衡”时会出现某些节点主实例增多，从而负载压力较大。这种情况下集群状态是正常的，但整体性能要低于均衡状态。可进行集群主备恢复操作将集群状态切换为“可用”状态。  
          * **约束限制**：
-         *  集群主备恢复仅8.1.1.202及以上版本支持。 
-         *  集群主备恢复将会短暂中断业务，中断时间根据用户自身业务量所决定，建议用户在业务低峰期执行此操作。
+         * 集群主备恢复仅8.1.1.202及以上版本支持。
+         * 集群主备恢复将会短暂中断业务，中断时间根据用户自身业务量所决定，建议用户在业务低峰期执行此操作。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -13323,8 +14581,8 @@ export const ParamCreater = function () {
          * 容灾状态为“运行中”时可以执行灾备切换操作。
          * 灾备切换需要一定时间，在此期间，原生产集群将不可用。
          * 不同场景下进行灾备切换，RPO（Recovery Point Object，灾难发生后，系统和数据必须恢复到的时间点要求。）说明如下：
-         *   生产集群在“可用”的状态下，RPO&#x3D;0。
-         *   生产集群在“不可用”的状态下，无法保证RPO&#x3D;0，但数据至少可恢复到生产集群“最近容灾成功时间”。
+         * 生产集群在“可用”的状态下，RPO&#x3D;0。
+         * 生产集群在“不可用”的状态下，无法保证RPO&#x3D;0，但数据至少可恢复到生产集群“最近容灾成功时间”。
          * 仅支持DWS 2.0集群。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -13939,6 +15197,99 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改调度任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateOperationalTask(updateOperationalTaskRequest?: UpdateOperationalTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cluster/{cluster_id}/operational-tasks/{task_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let taskId;
+
+            if (updateOperationalTaskRequest !== null && updateOperationalTaskRequest !== undefined) {
+                if (updateOperationalTaskRequest instanceof UpdateOperationalTaskRequest) {
+                    clusterId = updateOperationalTaskRequest.clusterId;
+                    taskId = updateOperationalTaskRequest.taskId;
+                    body = updateOperationalTaskRequest.body
+                } else {
+                    clusterId = updateOperationalTaskRequest['cluster_id'];
+                    taskId = updateOperationalTaskRequest['task_id'];
+                    body = updateOperationalTaskRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateOperationalTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling updateOperationalTask.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改调度运维任务公共配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateOperationalTaskConfig(updateOperationalTaskConfigRequest?: UpdateOperationalTaskConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/clusters/{cluster_id}/operational-tasks/configuration",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (updateOperationalTaskConfigRequest !== null && updateOperationalTaskConfigRequest !== undefined) {
+                if (updateOperationalTaskConfigRequest instanceof UpdateOperationalTaskConfigRequest) {
+                    clusterId = updateOperationalTaskConfigRequest.clusterId;
+                    body = updateOperationalTaskConfigRequest.body
+                } else {
+                    clusterId = updateOperationalTaskConfigRequest['cluster_id'];
+                    body = updateOperationalTaskConfigRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateOperationalTaskConfig.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新资源池基础信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -14243,6 +15594,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId,'rule_name': ruleName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 传入schema或table列表数据，返回存在的数据列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        validateDbData(validateDbDataRequest?: ValidateDbDataRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/clusters/{cluster_id}/{database}/validate",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let database;
+
+            if (validateDbDataRequest !== null && validateDbDataRequest !== undefined) {
+                if (validateDbDataRequest instanceof ValidateDbDataRequest) {
+                    clusterId = validateDbDataRequest.clusterId;
+                    database = validateDbDataRequest.database;
+                    body = validateDbDataRequest.body
+                } else {
+                    clusterId = validateDbDataRequest['cluster_id'];
+                    database = validateDbDataRequest['database'];
+                    body = validateDbDataRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling validateDbData.');
+            }
+            if (database === null || database === undefined) {
+            throw new RequiredError('database','Required parameter database was null or undefined when calling validateDbData.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'database': database, };
             options.headers = localVarHeaderParameter;
             return options;
         },

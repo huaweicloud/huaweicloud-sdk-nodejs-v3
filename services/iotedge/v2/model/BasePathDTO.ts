@@ -1,11 +1,9 @@
-import { OfflineCacheConfigsDTO } from './OfflineCacheConfigsDTO';
 
 
 export class BasePathDTO {
     private 'log_base_path'?: string;
     private 'config_base_path'?: string;
     private 'db_base_path'?: string;
-    private 'offline_cache_configs'?: OfflineCacheConfigsDTO;
     public constructor() { 
     }
     public withLogBasePath(logBasePath: string): BasePathDTO {
@@ -37,15 +35,5 @@ export class BasePathDTO {
     }
     public get dbBasePath(): string | undefined {
         return this['db_base_path'];
-    }
-    public withOfflineCacheConfigs(offlineCacheConfigs: OfflineCacheConfigsDTO): BasePathDTO {
-        this['offline_cache_configs'] = offlineCacheConfigs;
-        return this;
-    }
-    public set offlineCacheConfigs(offlineCacheConfigs: OfflineCacheConfigsDTO  | undefined) {
-        this['offline_cache_configs'] = offlineCacheConfigs;
-    }
-    public get offlineCacheConfigs(): OfflineCacheConfigsDTO | undefined {
-        return this['offline_cache_configs'];
     }
 }

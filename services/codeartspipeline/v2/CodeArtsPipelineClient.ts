@@ -3,6 +3,8 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import FormData from 'form-data';
 
+import { AcceptCheckpointRequest } from './model/AcceptCheckpointRequest';
+import { AcceptCheckpointResponse } from './model/AcceptCheckpointResponse';
 import { AcceptManualReviewRequest } from './model/AcceptManualReviewRequest';
 import { AcceptManualReviewResponse } from './model/AcceptManualReviewResponse';
 import { ActionsManualRunPipelineDTO } from './model/ActionsManualRunPipelineDTO';
@@ -10,6 +12,8 @@ import { ActionsPipelineRunsPollingQueryDTO } from './model/ActionsPipelineRunsP
 import { ActionsPipelineRunsQueryDTO } from './model/ActionsPipelineRunsQueryDTO';
 import { ActionsReRunPipelineDTO } from './model/ActionsReRunPipelineDTO';
 import { AgentPluginInfoQueryDTO } from './model/AgentPluginInfoQueryDTO';
+import { AlertPolicyDTO } from './model/AlertPolicyDTO';
+import { AlertRuleDTO } from './model/AlertRuleDTO';
 import { Artifact } from './model/Artifact';
 import { ArtifactHashCode } from './model/ArtifactHashCode';
 import { BatchMovePipelineToGroupRequest } from './model/BatchMovePipelineToGroupRequest';
@@ -21,6 +25,8 @@ import { CodeEvent } from './model/CodeEvent';
 import { CodeSource } from './model/CodeSource';
 import { CodeSourceParams } from './model/CodeSourceParams';
 import { Constraint } from './model/Constraint';
+import { CreateAlertPolicyRequest } from './model/CreateAlertPolicyRequest';
+import { CreateAlertPolicyResponse } from './model/CreateAlertPolicyResponse';
 import { CreateBasicPluginRequest } from './model/CreateBasicPluginRequest';
 import { CreateBasicPluginResponse } from './model/CreateBasicPluginResponse';
 import { CreatePipelineByTemplateIdRequest } from './model/CreatePipelineByTemplateIdRequest';
@@ -31,6 +37,8 @@ import { CreatePipelineGroupRequest } from './model/CreatePipelineGroupRequest';
 import { CreatePipelineGroupResponse } from './model/CreatePipelineGroupResponse';
 import { CreatePipelineNewRequest } from './model/CreatePipelineNewRequest';
 import { CreatePipelineNewResponse } from './model/CreatePipelineNewResponse';
+import { CreatePipelineTagRequest } from './model/CreatePipelineTagRequest';
+import { CreatePipelineTagResponse } from './model/CreatePipelineTagResponse';
 import { CreatePipelineTemplateRequest } from './model/CreatePipelineTemplateRequest';
 import { CreatePipelineTemplateResponse } from './model/CreatePipelineTemplateResponse';
 import { CreatePluginDraftRequest } from './model/CreatePluginDraftRequest';
@@ -45,15 +53,24 @@ import { CreateRuleResponse } from './model/CreateRuleResponse';
 import { CreateRuleSetReq } from './model/CreateRuleSetReq';
 import { CreateStrategyRequest } from './model/CreateStrategyRequest';
 import { CreateStrategyResponse } from './model/CreateStrategyResponse';
+import { CreateTagReq } from './model/CreateTagReq';
+import { CreateVariableGroupReq } from './model/CreateVariableGroupReq';
+import { CreateVariableGroupReqVariables } from './model/CreateVariableGroupReqVariables';
+import { CreateVariableGroupRequest } from './model/CreateVariableGroupRequest';
+import { CreateVariableGroupResponse } from './model/CreateVariableGroupResponse';
 import { CustomVariable } from './model/CustomVariable';
 import { DeleteActionsRunPipelineRequest } from './model/DeleteActionsRunPipelineRequest';
 import { DeleteActionsRunPipelineResponse } from './model/DeleteActionsRunPipelineResponse';
+import { DeleteAlertPolicyRequest } from './model/DeleteAlertPolicyRequest';
+import { DeleteAlertPolicyResponse } from './model/DeleteAlertPolicyResponse';
 import { DeleteBasicPluginRequest } from './model/DeleteBasicPluginRequest';
 import { DeleteBasicPluginResponse } from './model/DeleteBasicPluginResponse';
 import { DeletePipelineGroupRequest } from './model/DeletePipelineGroupRequest';
 import { DeletePipelineGroupResponse } from './model/DeletePipelineGroupResponse';
 import { DeletePipelineRequest } from './model/DeletePipelineRequest';
 import { DeletePipelineResponse } from './model/DeletePipelineResponse';
+import { DeletePipelineTagRequest } from './model/DeletePipelineTagRequest';
+import { DeletePipelineTagResponse } from './model/DeletePipelineTagResponse';
 import { DeletePipelineTemplateRequest } from './model/DeletePipelineTemplateRequest';
 import { DeletePipelineTemplateResponse } from './model/DeletePipelineTemplateResponse';
 import { DeletePluginDraftRequest } from './model/DeletePluginDraftRequest';
@@ -64,6 +81,8 @@ import { DeleteRuleRequest } from './model/DeleteRuleRequest';
 import { DeleteRuleResponse } from './model/DeleteRuleResponse';
 import { DeleteStrategyRequest } from './model/DeleteStrategyRequest';
 import { DeleteStrategyResponse } from './model/DeleteStrategyResponse';
+import { DeleteVariableGroupRequest } from './model/DeleteVariableGroupRequest';
+import { DeleteVariableGroupResponse } from './model/DeleteVariableGroupResponse';
 import { Endpoint } from './model/Endpoint';
 import { EndpointAuthorizationBody } from './model/EndpointAuthorizationBody';
 import { EndpointCreatorInfo } from './model/EndpointCreatorInfo';
@@ -114,13 +133,17 @@ import { ListPipelineRunsResponse } from './model/ListPipelineRunsResponse';
 import { ListPipelineSimpleInfoRequest } from './model/ListPipelineSimpleInfoRequest';
 import { ListPipelineSimpleInfoRequestBody } from './model/ListPipelineSimpleInfoRequestBody';
 import { ListPipelineSimpleInfoResponse } from './model/ListPipelineSimpleInfoResponse';
+import { ListPipelineTagRequest } from './model/ListPipelineTagRequest';
+import { ListPipelineTagResponse } from './model/ListPipelineTagResponse';
 import { ListPipelineTemplatesQuery } from './model/ListPipelineTemplatesQuery';
 import { ListPipelineTemplatesRequest } from './model/ListPipelineTemplatesRequest';
 import { ListPipelineTemplatesResponse } from './model/ListPipelineTemplatesResponse';
+import { ListPipelinesPageHighestConfidentiality } from './model/ListPipelinesPageHighestConfidentiality';
 import { ListPipelinesPageLatestRun } from './model/ListPipelinesPageLatestRun';
 import { ListPipelinesPageLatestRunBuildParams } from './model/ListPipelinesPageLatestRunBuildParams';
 import { ListPipelinesPageLatestRunStageStatusList } from './model/ListPipelinesPageLatestRunStageStatusList';
 import { ListPipelinesPagePipelines } from './model/ListPipelinesPagePipelines';
+import { ListPipelinesPageTagList } from './model/ListPipelinesPageTagList';
 import { ListPipelinesRequest } from './model/ListPipelinesRequest';
 import { ListPipelinesResponse } from './model/ListPipelinesResponse';
 import { ListPipleineBuildResultRequest } from './model/ListPipleineBuildResultRequest';
@@ -141,6 +164,11 @@ import { ListStrategyRequest } from './model/ListStrategyRequest';
 import { ListStrategyResponse } from './model/ListStrategyResponse';
 import { ListTemplatesRequest } from './model/ListTemplatesRequest';
 import { ListTemplatesResponse } from './model/ListTemplatesResponse';
+import { ListVariableGroupsReq } from './model/ListVariableGroupsReq';
+import { ListVariableGroupsRequest } from './model/ListVariableGroupsRequest';
+import { ListVariableGroupsRespPipelineVariableGroups } from './model/ListVariableGroupsRespPipelineVariableGroups';
+import { ListVariableGroupsRespRelatedPipelines } from './model/ListVariableGroupsRespRelatedPipelines';
+import { ListVariableGroupsResponse } from './model/ListVariableGroupsResponse';
 import { LogQuery } from './model/LogQuery';
 import { NewExtensionDataSourceBindings } from './model/NewExtensionDataSourceBindings';
 import { NewExtensionExecution } from './model/NewExtensionExecution';
@@ -176,6 +204,7 @@ import { PipelineSchedule } from './model/PipelineSchedule';
 import { PipelineSource } from './model/PipelineSource';
 import { PipelineSourceParam } from './model/PipelineSourceParam';
 import { PipelineStateStatus } from './model/PipelineStateStatus';
+import { PipelineTagResp } from './model/PipelineTagResp';
 import { PipelineTemplateDTO } from './model/PipelineTemplateDTO';
 import { PipelineTemplateSimpleVO } from './model/PipelineTemplateSimpleVO';
 import { PipelineTemplateSimpleVOStages } from './model/PipelineTemplateSimpleVOStages';
@@ -205,11 +234,14 @@ import { PublishPluginRequest } from './model/PublishPluginRequest';
 import { PublishPluginResponse } from './model/PublishPluginResponse';
 import { PublisherRequest } from './model/PublisherRequest';
 import { PublisherVO } from './model/PublisherVO';
+import { QueryVariableGroupDetailRespRelatedPipelines } from './model/QueryVariableGroupDetailRespRelatedPipelines';
+import { QueryVariableGroupDetailRespVariables } from './model/QueryVariableGroupDetailRespVariables';
 import { RejectManualReviewRequest } from './model/RejectManualReviewRequest';
 import { RejectManualReviewResponse } from './model/RejectManualReviewResponse';
 import { RemovePipelineRequest } from './model/RemovePipelineRequest';
 import { RemovePipelineResponse } from './model/RemovePipelineResponse';
 import { RequestRuleInstance } from './model/RequestRuleInstance';
+import { RetryPipelineRequest } from './model/RetryPipelineRequest';
 import { RetryPipelineRunRequest } from './model/RetryPipelineRunRequest';
 import { RetryPipelineRunResponse } from './model/RetryPipelineRunResponse';
 import { RetryRunActionsPipelineRequest } from './model/RetryRunActionsPipelineRequest';
@@ -235,6 +267,8 @@ import { RunPipelineSourceParams } from './model/RunPipelineSourceParams';
 import { RunPipelineSourceParamsBuildParams } from './model/RunPipelineSourceParamsBuildParams';
 import { ShowActionsRunsDetailRequest } from './model/ShowActionsRunsDetailRequest';
 import { ShowActionsRunsDetailResponse } from './model/ShowActionsRunsDetailResponse';
+import { ShowAlertPolicyRequest } from './model/ShowAlertPolicyRequest';
+import { ShowAlertPolicyResponse } from './model/ShowAlertPolicyResponse';
 import { ShowBasicPluginRequest } from './model/ShowBasicPluginRequest';
 import { ShowBasicPluginResponse } from './model/ShowBasicPluginResponse';
 import { ShowInstanceStatusRequest } from './model/ShowInstanceStatusRequest';
@@ -273,6 +307,8 @@ import { ShowStrategyRequest } from './model/ShowStrategyRequest';
 import { ShowStrategyResponse } from './model/ShowStrategyResponse';
 import { ShowTemplateDetailRequest } from './model/ShowTemplateDetailRequest';
 import { ShowTemplateDetailResponse } from './model/ShowTemplateDetailResponse';
+import { ShowVariableGroupDetailRequest } from './model/ShowVariableGroupDetailRequest';
+import { ShowVariableGroupDetailResponse } from './model/ShowVariableGroupDetailResponse';
 import { Source } from './model/Source';
 import { StagePluginsQueryDTO } from './model/StagePluginsQueryDTO';
 import { StageRun } from './model/StageRun';
@@ -340,6 +376,27 @@ export class CodeArtsPipelineClient {
 
 
     /**
+     * 手动卡点通过
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 手动卡点通过
+     * @param {string} stepRunId 流水线步骤ID
+     * @param {string} pipelineId 流水线ID
+     * @param {string} pipelineRunId 流水线运行实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public acceptCheckpoint(acceptCheckpointRequest?: AcceptCheckpointRequest): Promise<AcceptCheckpointResponse> {
+        const options = ParamCreater().acceptCheckpoint(acceptCheckpointRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 通过人工审核
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -349,6 +406,7 @@ export class CodeArtsPipelineClient {
      * @param {string} pipelineId 流水线ID
      * @param {string} pipelineRunId 流水线运行实例ID
      * @param {string} stepRunId 流水线步骤ID
+     * @param {string} [approvalDescription] 审核意见
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -392,6 +450,26 @@ export class CodeArtsPipelineClient {
      */
     public batchShowPipelinesLatestStatus(batchShowPipelinesLatestStatusRequest?: BatchShowPipelinesLatestStatusRequest): Promise<BatchShowPipelinesLatestStatusResponse> {
         const options = ParamCreater().batchShowPipelinesLatestStatus(batchShowPipelinesLatestStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建流水线告警策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建告警策略
+     * @param {string} tenantId 租户ID
+     * @param {AlertPolicyDTO} body 创建告警策略请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAlertPolicy(createAlertPolicyRequest?: CreateAlertPolicyRequest): Promise<CreateAlertPolicyResponse> {
+        const options = ParamCreater().createAlertPolicy(createAlertPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -491,6 +569,25 @@ export class CodeArtsPipelineClient {
      */
     public createPipelineNew(createPipelineNewRequest?: CreatePipelineNewRequest): Promise<CreatePipelineNewResponse> {
         const options = ParamCreater().createPipelineNew(createPipelineNewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 新建流水线标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新建流水线标签
+     * @param {CreateTagReq} createPipelineTagRequestBody 创建流水线标签请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPipelineTag(createPipelineTagRequest?: CreatePipelineTagRequest): Promise<CreatePipelineTagResponse> {
+        const options = ParamCreater().createPipelineTag(createPipelineTagRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -619,6 +716,45 @@ export class CodeArtsPipelineClient {
     }
 
     /**
+     * 创建参数组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建参数组
+     * @param {CreateVariableGroupReq} createVariableGroupRequestBody 创建参数组请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createVariableGroup(createVariableGroupRequest?: CreateVariableGroupRequest): Promise<CreateVariableGroupResponse> {
+        const options = ParamCreater().createVariableGroup(createVariableGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除流水线告警策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除告警策略
+     * @param {string} tenantId 租户ID
+     * @param {string} policyId 告警策略ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAlertPolicy(deleteAlertPolicyRequest?: DeleteAlertPolicyRequest): Promise<DeleteAlertPolicyResponse> {
+        const options = ParamCreater().deleteAlertPolicy(deleteAlertPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除基础插件
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -671,6 +807,25 @@ export class CodeArtsPipelineClient {
      */
     public deletePipelineGroup(deletePipelineGroupRequest?: DeletePipelineGroupRequest): Promise<DeletePipelineGroupResponse> {
         const options = ParamCreater().deletePipelineGroup(deletePipelineGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除流水线标签
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除流水线标签
+     * @param {string} tagId 标签ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deletePipelineTag(deletePipelineTagRequest?: DeletePipelineTagRequest): Promise<DeletePipelineTagResponse> {
+        const options = ParamCreater().deletePipelineTag(deletePipelineTagRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -772,6 +927,25 @@ export class CodeArtsPipelineClient {
      */
     public deleteStrategy(deleteStrategyRequest?: DeleteStrategyRequest): Promise<DeleteStrategyResponse> {
         const options = ParamCreater().deleteStrategy(deleteStrategyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除参数组
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除参数组
+     * @param {string} id 参数组ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteVariableGroup(deleteVariableGroupRequest?: DeleteVariableGroupRequest): Promise<DeleteVariableGroupResponse> {
+        const options = ParamCreater().deleteVariableGroup(deleteVariableGroupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -953,13 +1127,32 @@ export class CodeArtsPipelineClient {
     }
 
     /**
+     * 查询流水线标签列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询流水线标签列表
+     * @param {string} [projId] 项目ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPipelineTag(listPipelineTagRequest?: ListPipelineTagRequest): Promise<ListPipelineTagResponse> {
+        const options = ParamCreater().listPipelineTag(listPipelineTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询流水线模板列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询模板列表
      * @param {string} tenantId 租户ID
-     * @param {ListPipelineTemplatesQuery} [listPipelineTemplatesQuery] 查询模板列表请求体
+     * @param {ListPipelineTemplatesQuery} listPipelineTemplatesQuery 查询模板列表请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1199,6 +1392,25 @@ export class CodeArtsPipelineClient {
     }
 
     /**
+     * 查询参数组列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询参数组列表
+     * @param {ListVariableGroupsReq} listVariableGroupsRequestBody 查询参数组列表请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVariableGroups(listVariableGroupsRequest?: ListVariableGroupsRequest): Promise<ListVariableGroupsResponse> {
+        const options = ParamCreater().listVariableGroups(listVariableGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 发布插件
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1268,6 +1480,7 @@ export class CodeArtsPipelineClient {
      * @param {string} stepRunId 流水线步骤ID
      * @param {string} pipelineId 流水线ID
      * @param {string} pipelineRunId 流水线运行实例ID
+     * @param {string} [approvalDescription] 审核意见
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1307,6 +1520,7 @@ export class CodeArtsPipelineClient {
      * @summary 重试运行流水线
      * @param {string} pipelineId 流水线ID
      * @param {string} pipelineRunId 流水线运行实例ID
+     * @param {RetryPipelineRequest} [retryPipelineRequestBody] 重试运行流水线请求体。样例：{\&quot;repo_https_url\&quot;: \&quot;https://example.com/repo.git\&quot;,\&quot;job_run_ids\&quot;: [\&quot;8bfbd69eac154a0da341705a36294aca\&quot;]}
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1332,6 +1546,26 @@ export class CodeArtsPipelineClient {
      */
     public runPipeline(runPipelineRequest?: RunPipelineRequest): Promise<RunPipelineResponse> {
         const options = ParamCreater().runPipeline(runPipelineRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询流水线告警策略详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询告警策略详情
+     * @param {string} tenantId 租户ID
+     * @param {string} policyId 告警策略ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAlertPolicy(showAlertPolicyRequest?: ShowAlertPolicyRequest): Promise<ShowAlertPolicyResponse> {
+        const options = ParamCreater().showAlertPolicy(showAlertPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1467,6 +1701,7 @@ export class CodeArtsPipelineClient {
      * @summary 获取流水线状态/获取流水线执行详情
      * @param {string} pipelineId 流水线ID
      * @param {string} [pipelineRunId] 流水线运行实例ID
+     * @param {string} [pipelineRunNumber] 流水线运行编号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1605,6 +1840,7 @@ export class CodeArtsPipelineClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
+     * @summary 查询项目级策略详情
      * @param {string} ruleSetId 策略ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1715,6 +1951,25 @@ export class CodeArtsPipelineClient {
      */
     public showTemplateDetail(showTemplateDetailRequest?: ShowTemplateDetailRequest): Promise<ShowTemplateDetailResponse> {
         const options = ParamCreater().showTemplateDetail(showTemplateDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询参数组详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询参数组详情
+     * @param {string} id 参数组ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVariableGroupDetail(showVariableGroupDetailRequest?: ShowVariableGroupDetailRequest): Promise<ShowVariableGroupDetailResponse> {
+        const options = ParamCreater().showVariableGroupDetail(showVariableGroupDetailRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2176,6 +2431,57 @@ export const ParamCreater = function () {
     return {
     
         /**
+         * 手动卡点通过
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        acceptCheckpoint(acceptCheckpointRequest?: AcceptCheckpointRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/api/pipelines/{pipeline_id}/pipeline-runs/{pipeline_run_id}/steps/{step_run_id}/manual/pass",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let stepRunId;
+            
+            let pipelineId;
+            
+            let pipelineRunId;
+
+            if (acceptCheckpointRequest !== null && acceptCheckpointRequest !== undefined) {
+                if (acceptCheckpointRequest instanceof AcceptCheckpointRequest) {
+                    stepRunId = acceptCheckpointRequest.stepRunId;
+                    pipelineId = acceptCheckpointRequest.pipelineId;
+                    pipelineRunId = acceptCheckpointRequest.pipelineRunId;
+                } else {
+                    stepRunId = acceptCheckpointRequest['step_run_id'];
+                    pipelineId = acceptCheckpointRequest['pipeline_id'];
+                    pipelineRunId = acceptCheckpointRequest['pipeline_run_id'];
+                }
+            }
+
+        
+            if (stepRunId === null || stepRunId === undefined) {
+            throw new RequiredError('stepRunId','Required parameter stepRunId was null or undefined when calling acceptCheckpoint.');
+            }
+            if (pipelineId === null || pipelineId === undefined) {
+            throw new RequiredError('pipelineId','Required parameter pipelineId was null or undefined when calling acceptCheckpoint.');
+            }
+            if (pipelineRunId === null || pipelineRunId === undefined) {
+            throw new RequiredError('pipelineRunId','Required parameter pipelineRunId was null or undefined when calling acceptCheckpoint.');
+            }
+
+            options.pathParams = { 'step_run_id': stepRunId,'pipeline_id': pipelineId,'pipeline_run_id': pipelineRunId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 通过人工审核
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2190,7 +2496,7 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let jobRunId;
             
@@ -2199,6 +2505,8 @@ export const ParamCreater = function () {
             let pipelineRunId;
             
             let stepRunId;
+            
+            let approvalDescription;
 
             if (acceptManualReviewRequest !== null && acceptManualReviewRequest !== undefined) {
                 if (acceptManualReviewRequest instanceof AcceptManualReviewRequest) {
@@ -2206,11 +2514,13 @@ export const ParamCreater = function () {
                     pipelineId = acceptManualReviewRequest.pipelineId;
                     pipelineRunId = acceptManualReviewRequest.pipelineRunId;
                     stepRunId = acceptManualReviewRequest.stepRunId;
+                    approvalDescription = acceptManualReviewRequest.approvalDescription;
                 } else {
                     jobRunId = acceptManualReviewRequest['job_run_id'];
                     pipelineId = acceptManualReviewRequest['pipeline_id'];
                     pipelineRunId = acceptManualReviewRequest['pipeline_run_id'];
                     stepRunId = acceptManualReviewRequest['step_run_id'];
+                    approvalDescription = acceptManualReviewRequest['approval_description'];
                 }
             }
 
@@ -2227,7 +2537,11 @@ export const ParamCreater = function () {
             if (stepRunId === null || stepRunId === undefined) {
             throw new RequiredError('stepRunId','Required parameter stepRunId was null or undefined when calling acceptManualReview.');
             }
+            if (approvalDescription !== null && approvalDescription !== undefined) {
+                localVarQueryParameter['approval_description'] = approvalDescription;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'job_run_id': jobRunId,'pipeline_id': pipelineId,'pipeline_run_id': pipelineRunId,'step_run_id': stepRunId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -2305,6 +2619,52 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建流水线告警策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAlertPolicy(createAlertPolicyRequest?: CreateAlertPolicyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{tenant_id}/api/alert/policies",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let tenantId;
+
+            if (createAlertPolicyRequest !== null && createAlertPolicyRequest !== undefined) {
+                if (createAlertPolicyRequest instanceof CreateAlertPolicyRequest) {
+                    tenantId = createAlertPolicyRequest.tenantId;
+                    body = createAlertPolicyRequest.body
+                } else {
+                    tenantId = createAlertPolicyRequest['tenant_id'];
+                    body = createAlertPolicyRequest['body'];
+                }
+            }
+
+        
+            if (tenantId === null || tenantId === undefined) {
+            throw new RequiredError('tenantId','Required parameter tenantId was null or undefined when calling createAlertPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'tenant_id': tenantId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2524,6 +2884,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 新建流水线标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPipelineTag(createPipelineTagRequest?: CreatePipelineTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/api/pipeline-tag/create",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createPipelineTagRequest !== null && createPipelineTagRequest !== undefined) {
+                if (createPipelineTagRequest instanceof CreatePipelineTagRequest) {
+                    body = createPipelineTagRequest.body
+                } else {
+                    body = createPipelineTagRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2796,6 +3194,88 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建参数组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createVariableGroup(createVariableGroupRequest?: CreateVariableGroupRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/api/pipeline/variable/group/create",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createVariableGroupRequest !== null && createVariableGroupRequest !== undefined) {
+                if (createVariableGroupRequest instanceof CreateVariableGroupRequest) {
+                    body = createVariableGroupRequest.body
+                } else {
+                    body = createVariableGroupRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除流水线告警策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAlertPolicy(deleteAlertPolicyRequest?: DeleteAlertPolicyRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/{tenant_id}/api/alert/policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let tenantId;
+            
+            let policyId;
+
+            if (deleteAlertPolicyRequest !== null && deleteAlertPolicyRequest !== undefined) {
+                if (deleteAlertPolicyRequest instanceof DeleteAlertPolicyRequest) {
+                    tenantId = deleteAlertPolicyRequest.tenantId;
+                    policyId = deleteAlertPolicyRequest.policyId;
+                } else {
+                    tenantId = deleteAlertPolicyRequest['tenant_id'];
+                    policyId = deleteAlertPolicyRequest['policy_id'];
+                }
+            }
+
+        
+            if (tenantId === null || tenantId === undefined) {
+            throw new RequiredError('tenantId','Required parameter tenantId was null or undefined when calling deleteAlertPolicy.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling deleteAlertPolicy.');
+            }
+
+            options.pathParams = { 'tenant_id': tenantId,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除基础插件
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2930,6 +3410,46 @@ export const ParamCreater = function () {
             }
             if (id !== null && id !== undefined) {
                 localVarQueryParameter['id'] = id;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除流水线标签
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deletePipelineTag(deletePipelineTagRequest?: DeletePipelineTagRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/{project_id}/api/pipeline-tag/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let tagId;
+
+            if (deletePipelineTagRequest !== null && deletePipelineTagRequest !== undefined) {
+                if (deletePipelineTagRequest instanceof DeletePipelineTagRequest) {
+                    tagId = deletePipelineTagRequest.tagId;
+                } else {
+                    tagId = deletePipelineTagRequest['tagId'];
+                }
+            }
+
+        
+            if (tagId === null || tagId === undefined) {
+                throw new RequiredError('tagId','Required parameter tagId was null or undefined when calling deletePipelineTag.');
+            }
+            if (tagId !== null && tagId !== undefined) {
+                localVarQueryParameter['tagId'] = tagId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3171,6 +3691,46 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'rule_set_id': ruleSetId,'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除参数组
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteVariableGroup(deleteVariableGroupRequest?: DeleteVariableGroupRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/{project_id}/api/pipeline/variable/group/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let id;
+
+            if (deleteVariableGroupRequest !== null && deleteVariableGroupRequest !== undefined) {
+                if (deleteVariableGroupRequest instanceof DeleteVariableGroupRequest) {
+                    id = deleteVariableGroupRequest.id;
+                } else {
+                    id = deleteVariableGroupRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+                throw new RequiredError('id','Required parameter id was null or undefined when calling deleteVariableGroup.');
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3654,6 +4214,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询流水线标签列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPipelineTag(listPipelineTagRequest?: ListPipelineTagRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/api/pipeline-tag/list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projId;
+
+            if (listPipelineTagRequest !== null && listPipelineTagRequest !== undefined) {
+                if (listPipelineTagRequest instanceof ListPipelineTagRequest) {
+                    projId = listPipelineTagRequest.projId;
+                } else {
+                    projId = listPipelineTagRequest['proj_id'];
+                }
+            }
+
+        
+            if (projId !== null && projId !== undefined) {
+                localVarQueryParameter['proj_id'] = projId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询流水线模板列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3687,6 +4284,9 @@ export const ParamCreater = function () {
         
             if (tenantId === null || tenantId === undefined) {
             throw new RequiredError('tenantId','Required parameter tenantId was null or undefined when calling listPipelineTemplates.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -4383,6 +4983,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询参数组列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listVariableGroups(listVariableGroupsRequest?: ListVariableGroupsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/api/pipeline/variable/group/list",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (listVariableGroupsRequest !== null && listVariableGroupsRequest !== undefined) {
+                if (listVariableGroupsRequest instanceof ListVariableGroupsRequest) {
+                    body = listVariableGroupsRequest.body
+                } else {
+                    body = listVariableGroupsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 发布插件
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4526,7 +5164,7 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let jobRunId;
             
@@ -4535,6 +5173,8 @@ export const ParamCreater = function () {
             let pipelineId;
             
             let pipelineRunId;
+            
+            let approvalDescription;
 
             if (rejectManualReviewRequest !== null && rejectManualReviewRequest !== undefined) {
                 if (rejectManualReviewRequest instanceof RejectManualReviewRequest) {
@@ -4542,11 +5182,13 @@ export const ParamCreater = function () {
                     stepRunId = rejectManualReviewRequest.stepRunId;
                     pipelineId = rejectManualReviewRequest.pipelineId;
                     pipelineRunId = rejectManualReviewRequest.pipelineRunId;
+                    approvalDescription = rejectManualReviewRequest.approvalDescription;
                 } else {
                     jobRunId = rejectManualReviewRequest['job_run_id'];
                     stepRunId = rejectManualReviewRequest['step_run_id'];
                     pipelineId = rejectManualReviewRequest['pipeline_id'];
                     pipelineRunId = rejectManualReviewRequest['pipeline_run_id'];
+                    approvalDescription = rejectManualReviewRequest['approval_description'];
                 }
             }
 
@@ -4563,7 +5205,11 @@ export const ParamCreater = function () {
             if (pipelineRunId === null || pipelineRunId === undefined) {
             throw new RequiredError('pipelineRunId','Required parameter pipelineRunId was null or undefined when calling rejectManualReview.');
             }
+            if (approvalDescription !== null && approvalDescription !== undefined) {
+                localVarQueryParameter['approval_description'] = approvalDescription;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'job_run_id': jobRunId,'step_run_id': stepRunId,'pipeline_id': pipelineId,'pipeline_run_id': pipelineRunId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -4615,13 +5261,15 @@ export const ParamCreater = function () {
             const options = {
                 method: "PUT",
                 url: "/v5/{project_id}/api/pipelines/{pipeline_id}/pipeline-runs/{pipeline_run_id}/retry",
-                contentType: "application/json",
+                contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
-                headers: {}
+                headers: {},
+                data: {}
             };
             const localVarHeaderParameter = {} as any;
 
+            let body: any;
             
             let pipelineId;
             
@@ -4631,9 +5279,11 @@ export const ParamCreater = function () {
                 if (retryPipelineRunRequest instanceof RetryPipelineRunRequest) {
                     pipelineId = retryPipelineRunRequest.pipelineId;
                     pipelineRunId = retryPipelineRunRequest.pipelineRunId;
+                    body = retryPipelineRunRequest.body
                 } else {
                     pipelineId = retryPipelineRunRequest['pipeline_id'];
                     pipelineRunId = retryPipelineRunRequest['pipeline_run_id'];
+                    body = retryPipelineRunRequest['body'];
                 }
             }
 
@@ -4644,7 +5294,9 @@ export const ParamCreater = function () {
             if (pipelineRunId === null || pipelineRunId === undefined) {
             throw new RequiredError('pipelineRunId','Required parameter pipelineRunId was null or undefined when calling retryPipelineRun.');
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'pipeline_id': pipelineId,'pipeline_run_id': pipelineRunId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -4689,6 +5341,50 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'pipeline_id': pipelineId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询流水线告警策略详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAlertPolicy(showAlertPolicyRequest?: ShowAlertPolicyRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{tenant_id}/api/alert/policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let tenantId;
+            
+            let policyId;
+
+            if (showAlertPolicyRequest !== null && showAlertPolicyRequest !== undefined) {
+                if (showAlertPolicyRequest instanceof ShowAlertPolicyRequest) {
+                    tenantId = showAlertPolicyRequest.tenantId;
+                    policyId = showAlertPolicyRequest.policyId;
+                } else {
+                    tenantId = showAlertPolicyRequest['tenant_id'];
+                    policyId = showAlertPolicyRequest['policy_id'];
+                }
+            }
+
+        
+            if (tenantId === null || tenantId === undefined) {
+            throw new RequiredError('tenantId','Required parameter tenantId was null or undefined when calling showAlertPolicy.');
+            }
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling showAlertPolicy.');
+            }
+
+            options.pathParams = { 'tenant_id': tenantId,'policy_id': policyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4977,14 +5673,18 @@ export const ParamCreater = function () {
             let pipelineId;
             
             let pipelineRunId;
+            
+            let pipelineRunNumber;
 
             if (showPipelineRunDetailRequest !== null && showPipelineRunDetailRequest !== undefined) {
                 if (showPipelineRunDetailRequest instanceof ShowPipelineRunDetailRequest) {
                     pipelineId = showPipelineRunDetailRequest.pipelineId;
                     pipelineRunId = showPipelineRunDetailRequest.pipelineRunId;
+                    pipelineRunNumber = showPipelineRunDetailRequest.pipelineRunNumber;
                 } else {
                     pipelineId = showPipelineRunDetailRequest['pipeline_id'];
                     pipelineRunId = showPipelineRunDetailRequest['pipeline_run_id'];
+                    pipelineRunNumber = showPipelineRunDetailRequest['pipeline_run_number'];
                 }
             }
 
@@ -4994,6 +5694,9 @@ export const ParamCreater = function () {
             }
             if (pipelineRunId !== null && pipelineRunId !== undefined) {
                 localVarQueryParameter['pipeline_run_id'] = pipelineRunId;
+            }
+            if (pipelineRunNumber !== null && pipelineRunNumber !== undefined) {
+                localVarQueryParameter['pipeline_run_number'] = pipelineRunNumber;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -5567,6 +6270,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询参数组详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVariableGroupDetail(showVariableGroupDetailRequest?: ShowVariableGroupDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/api/pipeline/variable/group/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (showVariableGroupDetailRequest !== null && showVariableGroupDetailRequest !== undefined) {
+                if (showVariableGroupDetailRequest instanceof ShowVariableGroupDetailRequest) {
+                    id = showVariableGroupDetailRequest.id;
+                } else {
+                    id = showVariableGroupDetailRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling showVariableGroupDetail.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 启动流水线
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5866,7 +6606,7 @@ export const ParamCreater = function () {
                 } else {
                     pipelineId = updatePipelineInfoRequest['pipeline_id'];
                     body = updatePipelineInfoRequest['body'];
-                    componentId = updatePipelineInfoRequest['componentId'];
+                    componentId = updatePipelineInfoRequest['component_id'];
                 }
             }
 
@@ -5878,7 +6618,7 @@ export const ParamCreater = function () {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             if (componentId !== null && componentId !== undefined) {
-                localVarQueryParameter['componentId'] = componentId;
+                localVarQueryParameter['component_id'] = componentId;
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 

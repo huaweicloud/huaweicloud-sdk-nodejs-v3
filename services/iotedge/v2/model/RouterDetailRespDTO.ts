@@ -8,6 +8,7 @@ export class RouterDetailRespDTO {
     public output?: string;
     public sql?: string;
     public available?: boolean;
+    public type?: string;
     public constructor(routeId?: string) { 
         this['route_id'] = routeId;
     }
@@ -55,6 +56,10 @@ export class RouterDetailRespDTO {
     }
     public withAvailable(available: boolean): RouterDetailRespDTO {
         this['available'] = available;
+        return this;
+    }
+    public withType(type: string): RouterDetailRespDTO {
+        this['type'] = type;
         return this;
     }
 }

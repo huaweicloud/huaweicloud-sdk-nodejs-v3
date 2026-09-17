@@ -33,6 +33,7 @@ export class EdgeNodeCreation {
     private 'automatic_upgrade'?: string;
     private 'device_data_record'?: DeviceDataRecord;
     private 'metric_report'?: string;
+    private 'iotda_south_access'?: string;
     public constructor(name?: string, type?: string) { 
         this['name'] = name;
         this['type'] = type;
@@ -272,5 +273,15 @@ export class EdgeNodeCreation {
     }
     public get metricReport(): string | undefined {
         return this['metric_report'];
+    }
+    public withIotdaSouthAccess(iotdaSouthAccess: string): EdgeNodeCreation {
+        this['iotda_south_access'] = iotdaSouthAccess;
+        return this;
+    }
+    public set iotdaSouthAccess(iotdaSouthAccess: string  | undefined) {
+        this['iotda_south_access'] = iotdaSouthAccess;
+    }
+    public get iotdaSouthAccess(): string | undefined {
+        return this['iotda_south_access'];
     }
 }

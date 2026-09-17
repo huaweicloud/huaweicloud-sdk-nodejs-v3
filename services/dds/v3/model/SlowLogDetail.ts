@@ -13,7 +13,8 @@ export class SlowLogDetail {
     public collection?: string;
     private 'log_time'?: string;
     private 'line_num'?: string;
-    public constructor(nodeName?: string, nodeId?: string, wholeMessage?: string, operateType?: string, costTime?: number, lockTime?: number, docsReturned?: number, docsScanned?: number, database?: string, collection?: string, logTime?: string, lineNum?: string) { 
+    private 'index_recommendation'?: string;
+    public constructor(nodeName?: string, nodeId?: string, wholeMessage?: string, operateType?: string, costTime?: number, lockTime?: number, docsReturned?: number, docsScanned?: number, database?: string, collection?: string, logTime?: string, lineNum?: string, indexRecommendation?: string) { 
         this['node_name'] = nodeName;
         this['node_id'] = nodeId;
         this['whole_message'] = wholeMessage;
@@ -26,6 +27,7 @@ export class SlowLogDetail {
         this['collection'] = collection;
         this['log_time'] = logTime;
         this['line_num'] = lineNum;
+        this['index_recommendation'] = indexRecommendation;
     }
     public withNodeName(nodeName: string): SlowLogDetail {
         this['node_name'] = nodeName;
@@ -134,5 +136,15 @@ export class SlowLogDetail {
     }
     public get lineNum(): string | undefined {
         return this['line_num'];
+    }
+    public withIndexRecommendation(indexRecommendation: string): SlowLogDetail {
+        this['index_recommendation'] = indexRecommendation;
+        return this;
+    }
+    public set indexRecommendation(indexRecommendation: string  | undefined) {
+        this['index_recommendation'] = indexRecommendation;
+    }
+    public get indexRecommendation(): string | undefined {
+        return this['index_recommendation'];
     }
 }

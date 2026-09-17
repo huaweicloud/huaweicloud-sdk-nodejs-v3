@@ -15,9 +15,12 @@ import { CreateAppVersionRequestBody } from './model/CreateAppVersionRequestBody
 import { CreateAppVersionResponse } from './model/CreateAppVersionResponse';
 import { CreateClusterInstallCmdRequest } from './model/CreateClusterInstallCmdRequest';
 import { CreateClusterInstallCmdResponse } from './model/CreateClusterInstallCmdResponse';
+import { CreateClusterNodesInstallCmdRequest } from './model/CreateClusterNodesInstallCmdRequest';
+import { CreateClusterNodesInstallCmdResponse } from './model/CreateClusterNodesInstallCmdResponse';
 import { CreateClusterRequest } from './model/CreateClusterRequest';
 import { CreateClusterRequestDTO } from './model/CreateClusterRequestDTO';
 import { CreateClusterResponse } from './model/CreateClusterResponse';
+import { CreateNodesInstallCmdV3RequestBody } from './model/CreateNodesInstallCmdV3RequestBody';
 import { DeleteAppInstanceRequest } from './model/DeleteAppInstanceRequest';
 import { DeleteAppInstanceResponse } from './model/DeleteAppInstanceResponse';
 import { DeleteAppRequest } from './model/DeleteAppRequest';
@@ -28,6 +31,9 @@ import { DeleteClusterRequest } from './model/DeleteClusterRequest';
 import { DeleteClusterResponse } from './model/DeleteClusterResponse';
 import { DownloadAppVersionRequest } from './model/DownloadAppVersionRequest';
 import { DownloadAppVersionResponse } from './model/DownloadAppVersionResponse';
+import { InvokeKubeApiRequest } from './model/InvokeKubeApiRequest';
+import { InvokeKubeApiResponse } from './model/InvokeKubeApiResponse';
+import { LicenseInfo } from './model/LicenseInfo';
 import { ListAppImageRequest } from './model/ListAppImageRequest';
 import { ListAppImageResponse } from './model/ListAppImageResponse';
 import { ListAppInstanceHistoryRequest } from './model/ListAppInstanceHistoryRequest';
@@ -38,9 +44,15 @@ import { ListAppVersionsRequest } from './model/ListAppVersionsRequest';
 import { ListAppVersionsResponse } from './model/ListAppVersionsResponse';
 import { ListAppsRequest } from './model/ListAppsRequest';
 import { ListAppsResponse } from './model/ListAppsResponse';
+import { ListClusterNamespacesRequest } from './model/ListClusterNamespacesRequest';
+import { ListClusterNamespacesResponse } from './model/ListClusterNamespacesResponse';
+import { ListClusterNodesRequest } from './model/ListClusterNodesRequest';
+import { ListClusterNodesResponse } from './model/ListClusterNodesResponse';
 import { ListClustersRequest } from './model/ListClustersRequest';
 import { ListClustersResponse } from './model/ListClustersResponse';
+import { NodeAllocatedResourceDTO } from './model/NodeAllocatedResourceDTO';
 import { NodeConfig } from './model/NodeConfig';
+import { NodeResourceDTO } from './model/NodeResourceDTO';
 import { PageInfoDTO } from './model/PageInfoDTO';
 import { QueryAppBriefResponseDTO } from './model/QueryAppBriefResponseDTO';
 import { QueryAppImageResponseDTO } from './model/QueryAppImageResponseDTO';
@@ -48,15 +60,25 @@ import { QueryAppInstanceHistoryResponseDTO } from './model/QueryAppInstanceHist
 import { QueryAppInstanceResp } from './model/QueryAppInstanceResp';
 import { QueryAppVersionResponseDTO } from './model/QueryAppVersionResponseDTO';
 import { QueryClusterBriefResponseDTO } from './model/QueryClusterBriefResponseDTO';
+import { QueryNamespaceResp } from './model/QueryNamespaceResp';
+import { QueryNodeResp } from './model/QueryNodeResp';
+import { ResourceDetail } from './model/ResourceDetail';
 import { ShowAppRequest } from './model/ShowAppRequest';
 import { ShowAppResponse } from './model/ShowAppResponse';
 import { ShowAppVersionRequest } from './model/ShowAppVersionRequest';
 import { ShowAppVersionResponse } from './model/ShowAppVersionResponse';
+import { ShowClusterNodeRequest } from './model/ShowClusterNodeRequest';
+import { ShowClusterNodeResponse } from './model/ShowClusterNodeResponse';
 import { ShowClusterRequest } from './model/ShowClusterRequest';
+import { ShowClusterResourcesRequest } from './model/ShowClusterResourcesRequest';
+import { ShowClusterResourcesResponse } from './model/ShowClusterResourcesResponse';
 import { ShowClusterResponse } from './model/ShowClusterResponse';
 import { UpdateAppInstanceRequest } from './model/UpdateAppInstanceRequest';
 import { UpdateAppInstanceRequestDTO } from './model/UpdateAppInstanceRequestDTO';
 import { UpdateAppInstanceResponse } from './model/UpdateAppInstanceResponse';
+import { UpdateResourceBindingRequest } from './model/UpdateResourceBindingRequest';
+import { UpdateResourceBindingResponse } from './model/UpdateResourceBindingResponse';
+import { UpdateResourceBody } from './model/UpdateResourceBody';
 
 export class IoTEdgeClient {
     public static newBuilder(): ClientBuilder<IoTEdgeClient> {
@@ -449,6 +471,7 @@ export class IoTEdgeClient {
      * @summary 查询边缘集群列表
      * @param {string} [clusterName] 边缘集群名称
      * @param {string} [state] 边缘集群状态
+     * @param {Array<string>} [clusterIds] 边缘集群ID列表
      * @param {number} [limit] 每页记录数，默认值为10，取值区间为1-1000。
      * @param {number} [offset] 查询的起始位置，取值范围为非负整数，默认为0。
      * @param {*} [options] Override http request option.
@@ -475,6 +498,146 @@ export class IoTEdgeClient {
      */
     public showCluster(showClusterRequest?: ShowClusterRequest): Promise<ShowClusterResponse> {
         const options = ParamCreater().showCluster(showClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询资源列表-企业版
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源列表-企业版
+     * @param {string} [resourceGroup] 查询资源组
+     * @param {number} [offset] 查询的起始位置，取值范围为非负整数，默认为0
+     * @param {number} [limit] 每页记录数，默认值为10，取值区间为1-100
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClusterResources(showClusterResourcesRequest?: ShowClusterResourcesRequest): Promise<ShowClusterResourcesResponse> {
+        const options = ParamCreater().showClusterResources(showClusterResourcesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更改资源绑定信息-企业版
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更改资源绑定信息-企业版
+     * @param {string} resourceId 资源id
+     * @param {UpdateResourceBody} updateResourceBindingRequestBody 更改资源绑定信息请求结构体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateResourceBinding(updateResourceBindingRequest?: UpdateResourceBindingRequest): Promise<UpdateResourceBindingResponse> {
+        const options = ParamCreater().updateResourceBinding(updateResourceBindingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 转发k8s API。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 转发k8s API
+     * @param {string} clusterId 边缘集群ID
+     * @param {string} xForwardTarget 透传的k8s的API，{method} {uri}?{query_param}
+     * @param {string} xForwardHeaders 透传的API的header
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public invokeKubeApi(invokeKubeApiRequest?: InvokeKubeApiRequest): Promise<InvokeKubeApiResponse> {
+        const options = ParamCreater().invokeKubeApi(invokeKubeApiRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口查询命名空间列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询命名空间列表
+     * @param {string} clusterId 边缘集群ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClusterNamespaces(listClusterNamespacesRequest?: ListClusterNamespacesRequest): Promise<ListClusterNamespacesResponse> {
+        const options = ParamCreater().listClusterNamespaces(listClusterNamespacesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 生成安装集群节点的安装命令。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 生成安装集群节点的安装命令
+     * @param {string} clusterId 边缘集群ID
+     * @param {CreateNodesInstallCmdV3RequestBody} createNodesInstallCmdV3RequestBody request
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createClusterNodesInstallCmd(createClusterNodesInstallCmdRequest?: CreateClusterNodesInstallCmdRequest): Promise<CreateClusterNodesInstallCmdResponse> {
+        const options = ParamCreater().createClusterNodesInstallCmd(createClusterNodesInstallCmdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口查询集群的节点列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群的节点列表
+     * @param {string} clusterId 边缘集群ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listClusterNodes(listClusterNodesRequest?: ListClusterNodesRequest): Promise<ListClusterNodesResponse> {
+        const options = ParamCreater().listClusterNodes(listClusterNodesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口查询集群的节点详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询集群的节点详情
+     * @param {string} clusterId 边缘集群ID
+     * @param {string} nodeName 节点名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClusterNode(showClusterNodeRequest?: ShowClusterNodeRequest): Promise<ShowClusterNodeResponse> {
+        const options = ParamCreater().showClusterNode(showClusterNodeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1373,6 +1536,8 @@ export const ParamCreater = function () {
             
             let state;
             
+            let clusterIds;
+            
             let limit;
             
             let offset;
@@ -1381,11 +1546,13 @@ export const ParamCreater = function () {
                 if (listClustersRequest instanceof ListClustersRequest) {
                     clusterName = listClustersRequest.clusterName;
                     state = listClustersRequest.state;
+                    clusterIds = listClustersRequest.clusterIds;
                     limit = listClustersRequest.limit;
                     offset = listClustersRequest.offset;
                 } else {
                     clusterName = listClustersRequest['cluster_name'];
                     state = listClustersRequest['state'];
+                    clusterIds = listClustersRequest['cluster_ids'];
                     limit = listClustersRequest['limit'];
                     offset = listClustersRequest['offset'];
                 }
@@ -1397,6 +1564,9 @@ export const ParamCreater = function () {
             }
             if (state !== null && state !== undefined) {
                 localVarQueryParameter['state'] = state;
+            }
+            if (clusterIds !== null && clusterIds !== undefined) {
+                localVarQueryParameter['cluster_ids'] = clusterIds;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -1443,6 +1613,318 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询资源列表-企业版
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClusterResources(showClusterResourcesRequest?: ShowClusterResourcesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/resources",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let resourceGroup;
+            
+            let offset;
+            
+            let limit;
+
+            if (showClusterResourcesRequest !== null && showClusterResourcesRequest !== undefined) {
+                if (showClusterResourcesRequest instanceof ShowClusterResourcesRequest) {
+                    resourceGroup = showClusterResourcesRequest.resourceGroup;
+                    offset = showClusterResourcesRequest.offset;
+                    limit = showClusterResourcesRequest.limit;
+                } else {
+                    resourceGroup = showClusterResourcesRequest['resource_group'];
+                    offset = showClusterResourcesRequest['offset'];
+                    limit = showClusterResourcesRequest['limit'];
+                }
+            }
+
+        
+            if (resourceGroup !== null && resourceGroup !== undefined) {
+                localVarQueryParameter['resource_group'] = resourceGroup;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更改资源绑定信息-企业版
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateResourceBinding(updateResourceBindingRequest?: UpdateResourceBindingRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/resources/{resource_id}/cluster",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceId;
+
+            if (updateResourceBindingRequest !== null && updateResourceBindingRequest !== undefined) {
+                if (updateResourceBindingRequest instanceof UpdateResourceBindingRequest) {
+                    resourceId = updateResourceBindingRequest.resourceId;
+                    body = updateResourceBindingRequest.body
+                } else {
+                    resourceId = updateResourceBindingRequest['resource_id'];
+                    body = updateResourceBindingRequest['body'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling updateResourceBinding.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 转发k8s API。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        invokeKubeApi(invokeKubeApiRequest?: InvokeKubeApiRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/clusters/{cluster_id}/api-proxy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let xForwardTarget;
+            
+            let xForwardHeaders;
+
+            if (invokeKubeApiRequest !== null && invokeKubeApiRequest !== undefined) {
+                if (invokeKubeApiRequest instanceof InvokeKubeApiRequest) {
+                    clusterId = invokeKubeApiRequest.clusterId;
+                    xForwardTarget = invokeKubeApiRequest.xForwardTarget;
+                    xForwardHeaders = invokeKubeApiRequest.xForwardHeaders;
+                } else {
+                    clusterId = invokeKubeApiRequest['cluster_id'];
+                    xForwardTarget = invokeKubeApiRequest['X-Forward-Target'];
+                    xForwardHeaders = invokeKubeApiRequest['X-Forward-Headers'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling invokeKubeApi.');
+            }
+            if (xForwardTarget !== undefined && xForwardTarget !== null) {
+                localVarHeaderParameter['X-Forward-Target'] = String(xForwardTarget);
+            }
+            if (xForwardHeaders !== undefined && xForwardHeaders !== null) {
+                localVarHeaderParameter['X-Forward-Headers'] = String(xForwardHeaders);
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口查询命名空间列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClusterNamespaces(listClusterNamespacesRequest?: ListClusterNamespacesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/clusters/{cluster_id}/namespaces",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (listClusterNamespacesRequest !== null && listClusterNamespacesRequest !== undefined) {
+                if (listClusterNamespacesRequest instanceof ListClusterNamespacesRequest) {
+                    clusterId = listClusterNamespacesRequest.clusterId;
+                } else {
+                    clusterId = listClusterNamespacesRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listClusterNamespaces.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 生成安装集群节点的安装命令。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createClusterNodesInstallCmd(createClusterNodesInstallCmdRequest?: CreateClusterNodesInstallCmdRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/clusters/{cluster_id}/nodes/install-cmd",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+
+            if (createClusterNodesInstallCmdRequest !== null && createClusterNodesInstallCmdRequest !== undefined) {
+                if (createClusterNodesInstallCmdRequest instanceof CreateClusterNodesInstallCmdRequest) {
+                    clusterId = createClusterNodesInstallCmdRequest.clusterId;
+                    body = createClusterNodesInstallCmdRequest.body
+                } else {
+                    clusterId = createClusterNodesInstallCmdRequest['cluster_id'];
+                    body = createClusterNodesInstallCmdRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createClusterNodesInstallCmd.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口查询集群的节点列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listClusterNodes(listClusterNodesRequest?: ListClusterNodesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/clusters/{cluster_id}/nodes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+
+            if (listClusterNodesRequest !== null && listClusterNodesRequest !== undefined) {
+                if (listClusterNodesRequest instanceof ListClusterNodesRequest) {
+                    clusterId = listClusterNodesRequest.clusterId;
+                } else {
+                    clusterId = listClusterNodesRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listClusterNodes.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口查询集群的节点详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showClusterNode(showClusterNodeRequest?: ShowClusterNodeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/clusters/{cluster_id}/nodes/{node_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let clusterId;
+            
+            let nodeName;
+
+            if (showClusterNodeRequest !== null && showClusterNodeRequest !== undefined) {
+                if (showClusterNodeRequest instanceof ShowClusterNodeRequest) {
+                    clusterId = showClusterNodeRequest.clusterId;
+                    nodeName = showClusterNodeRequest.nodeName;
+                } else {
+                    clusterId = showClusterNodeRequest['cluster_id'];
+                    nodeName = showClusterNodeRequest['node_name'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showClusterNode.');
+            }
+            if (nodeName === null || nodeName === undefined) {
+            throw new RequiredError('nodeName','Required parameter nodeName was null or undefined when calling showClusterNode.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'node_name': nodeName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

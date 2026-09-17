@@ -1,0 +1,24 @@
+import { QueryAnalysisResultBody } from './QueryAnalysisResultBody';
+
+
+export class ListAnalysisResultRequest {
+    private 'instance_id'?: string;
+    public body?: QueryAnalysisResultBody;
+    public constructor(instanceId?: string) { 
+        this['instance_id'] = instanceId;
+    }
+    public withInstanceId(instanceId: string): ListAnalysisResultRequest {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
+    }
+    public withBody(body: QueryAnalysisResultBody): ListAnalysisResultRequest {
+        this['body'] = body;
+        return this;
+    }
+}

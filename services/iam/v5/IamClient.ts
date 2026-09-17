@@ -93,6 +93,8 @@ import { DeleteSAMLProviderV5Request } from './model/DeleteSAMLProviderV5Request
 import { DeleteSAMLProviderV5Response } from './model/DeleteSAMLProviderV5Response';
 import { DeleteServiceLinkedAgencyV5Request } from './model/DeleteServiceLinkedAgencyV5Request';
 import { DeleteServiceLinkedAgencyV5Response } from './model/DeleteServiceLinkedAgencyV5Response';
+import { DeleteServiceSpecificCredentialV5Request } from './model/DeleteServiceSpecificCredentialV5Request';
+import { DeleteServiceSpecificCredentialV5Response } from './model/DeleteServiceSpecificCredentialV5Response';
 import { DeleteUserV5Request } from './model/DeleteUserV5Request';
 import { DeleteUserV5Response } from './model/DeleteUserV5Response';
 import { DeleteVirtualMfaDeviceV5Request } from './model/DeleteVirtualMfaDeviceV5Request';
@@ -177,6 +179,10 @@ import { ListSAMLProvidersV5Request } from './model/ListSAMLProvidersV5Request';
 import { ListSAMLProvidersV5Response } from './model/ListSAMLProvidersV5Response';
 import { ListServicePrincipalsV5Request } from './model/ListServicePrincipalsV5Request';
 import { ListServicePrincipalsV5Response } from './model/ListServicePrincipalsV5Response';
+import { ListServiceSpecificCredentialSupportedServicesV5Request } from './model/ListServiceSpecificCredentialSupportedServicesV5Request';
+import { ListServiceSpecificCredentialSupportedServicesV5Response } from './model/ListServiceSpecificCredentialSupportedServicesV5Response';
+import { ListServiceSpecificCredentialsV5Request } from './model/ListServiceSpecificCredentialsV5Request';
+import { ListServiceSpecificCredentialsV5Response } from './model/ListServiceSpecificCredentialsV5Response';
 import { ListUsersV5Request } from './model/ListUsersV5Request';
 import { ListUsersV5Response } from './model/ListUsersV5Response';
 import { LoginPolicy } from './model/LoginPolicy';
@@ -214,6 +220,7 @@ import { Resource } from './model/Resource';
 import { ServiceCode } from './model/ServiceCode';
 import { ServicePrincipal } from './model/ServicePrincipal';
 import { ServicePrincipalMetadata } from './model/ServicePrincipalMetadata';
+import { ServiceSpecificCredentialMetadata } from './model/ServiceSpecificCredentialMetadata';
 import { SetAsymmetricSignatureReq } from './model/SetAsymmetricSignatureReq';
 import { SetAsymmetricSignatureSwitchV5Request } from './model/SetAsymmetricSignatureSwitchV5Request';
 import { SetAsymmetricSignatureSwitchV5Response } from './model/SetAsymmetricSignatureSwitchV5Response';
@@ -239,6 +246,7 @@ import { ShowUserLastLoginV5Request } from './model/ShowUserLastLoginV5Request';
 import { ShowUserLastLoginV5Response } from './model/ShowUserLastLoginV5Response';
 import { ShowUserV5Request } from './model/ShowUserV5Request';
 import { ShowUserV5Response } from './model/ShowUserV5Response';
+import { SupportedService } from './model/SupportedService';
 import { Tag } from './model/Tag';
 import { TagResourceV5Request } from './model/TagResourceV5Request';
 import { TagResourceV5Response } from './model/TagResourceV5Response';
@@ -276,6 +284,9 @@ import { UpdatePasswordPolicyV5Response } from './model/UpdatePasswordPolicyV5Re
 import { UpdateSAMLProviderReqBody } from './model/UpdateSAMLProviderReqBody';
 import { UpdateSAMLProviderV5Request } from './model/UpdateSAMLProviderV5Request';
 import { UpdateSAMLProviderV5Response } from './model/UpdateSAMLProviderV5Response';
+import { UpdateServiceSpecificCredentialReq } from './model/UpdateServiceSpecificCredentialReq';
+import { UpdateServiceSpecificCredentialV5Request } from './model/UpdateServiceSpecificCredentialV5Request';
+import { UpdateServiceSpecificCredentialV5Response } from './model/UpdateServiceSpecificCredentialV5Response';
 import { UpdateTrustPolicyReqBody } from './model/UpdateTrustPolicyReqBody';
 import { UpdateTrustPolicyV5Request } from './model/UpdateTrustPolicyV5Request';
 import { UpdateTrustPolicyV5Response } from './model/UpdateTrustPolicyV5Response';
@@ -1669,6 +1680,91 @@ export class IamClient {
      */
     public updatePasswordPolicyV5(updatePasswordPolicyV5Request?: UpdatePasswordPolicyV5Request): Promise<UpdatePasswordPolicyV5Response> {
         const options = ParamCreater().updatePasswordPolicyV5(updatePasswordPolicyV5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于删除服务专属凭证。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除服务专属凭证
+     * @param {string} credentialId 服务专属凭证ID。
+     * @param {string} userId IAM用户ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteServiceSpecificCredentialV5(deleteServiceSpecificCredentialV5Request?: DeleteServiceSpecificCredentialV5Request): Promise<DeleteServiceSpecificCredentialV5Response> {
+        const options = ParamCreater().deleteServiceSpecificCredentialV5(deleteServiceSpecificCredentialV5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于查询支持服务专属凭证的云服务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询支持服务专属凭证的云服务列表
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 选择接口返回的信息的语言，可以为中文（\&quot;zh-cn\&quot;）或英文（\&quot;en-us\&quot;），默认为中文。
+     * @param {string} [marker] 分页标记，长度为4到400个字符，只包含字母、数字、\&quot;+\&quot;、\&quot;/\&quot;、\&quot;&#x3D;\&quot;、\&quot;-\&quot;和\&quot;_\&quot;的字符串。
+     * @param {number} [limit] 每页显示的条目数量，范围为1到200条，默认为100条。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listServiceSpecificCredentialSupportedServicesV5(listServiceSpecificCredentialSupportedServicesV5Request?: ListServiceSpecificCredentialSupportedServicesV5Request): Promise<ListServiceSpecificCredentialSupportedServicesV5Response> {
+        const options = ParamCreater().listServiceSpecificCredentialSupportedServicesV5(listServiceSpecificCredentialSupportedServicesV5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于查询服务专属凭证列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询服务专属凭证列表
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 选择接口返回的信息的语言，可以为中文（\&quot;zh-cn\&quot;）或英文（\&quot;en-us\&quot;），默认为中文。
+     * @param {string} [userId] IAM用户ID。
+     * @param {string} [serviceName] 将结果过滤为仅包含指定服务的凭证。
+     * @param {number} [limit] 每页显示的条目数量，范围为1到200条，默认为100条。
+     * @param {string} [marker] 分页标记，长度为4到400个字符，只包含字母、数字、\&quot;+\&quot;、\&quot;/\&quot;、\&quot;&#x3D;\&quot;、\&quot;-\&quot;和\&quot;_\&quot;的字符串。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listServiceSpecificCredentialsV5(listServiceSpecificCredentialsV5Request?: ListServiceSpecificCredentialsV5Request): Promise<ListServiceSpecificCredentialsV5Response> {
+        const options = ParamCreater().listServiceSpecificCredentialsV5(listServiceSpecificCredentialsV5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以用于更新服务专属凭证的状态或描述。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新服务专属凭证
+     * @param {string} userId IAM用户ID。
+     * @param {string} credentialId 服务专属凭证ID。
+     * @param {UpdateServiceSpecificCredentialReq} updateServiceSpecificCredentialReq 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateServiceSpecificCredentialV5(updateServiceSpecificCredentialV5Request?: UpdateServiceSpecificCredentialV5Request): Promise<UpdateServiceSpecificCredentialV5Response> {
+        const options = ParamCreater().updateServiceSpecificCredentialV5(updateServiceSpecificCredentialV5Request);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4918,6 +5014,219 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于删除服务专属凭证。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteServiceSpecificCredentialV5(deleteServiceSpecificCredentialV5Request?: DeleteServiceSpecificCredentialV5Request) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/users/{user_id}/service-specific-credentials/{credential_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let credentialId;
+            
+            let userId;
+
+            if (deleteServiceSpecificCredentialV5Request !== null && deleteServiceSpecificCredentialV5Request !== undefined) {
+                if (deleteServiceSpecificCredentialV5Request instanceof DeleteServiceSpecificCredentialV5Request) {
+                    credentialId = deleteServiceSpecificCredentialV5Request.credentialId;
+                    userId = deleteServiceSpecificCredentialV5Request.userId;
+                } else {
+                    credentialId = deleteServiceSpecificCredentialV5Request['credential_id'];
+                    userId = deleteServiceSpecificCredentialV5Request['user_id'];
+                }
+            }
+
+        
+            if (credentialId === null || credentialId === undefined) {
+            throw new RequiredError('credentialId','Required parameter credentialId was null or undefined when calling deleteServiceSpecificCredentialV5.');
+            }
+            if (userId === null || userId === undefined) {
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling deleteServiceSpecificCredentialV5.');
+            }
+
+            options.pathParams = { 'credential_id': credentialId,'user_id': userId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于查询支持服务专属凭证的云服务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listServiceSpecificCredentialSupportedServicesV5(listServiceSpecificCredentialSupportedServicesV5Request?: ListServiceSpecificCredentialSupportedServicesV5Request) {
+            const options = {
+                method: "GET",
+                url: "/v5/service-specific-credentials/supported-services",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let marker;
+            
+            let limit;
+
+            if (listServiceSpecificCredentialSupportedServicesV5Request !== null && listServiceSpecificCredentialSupportedServicesV5Request !== undefined) {
+                if (listServiceSpecificCredentialSupportedServicesV5Request instanceof ListServiceSpecificCredentialSupportedServicesV5Request) {
+                    xLanguage = listServiceSpecificCredentialSupportedServicesV5Request.xLanguage;
+                    marker = listServiceSpecificCredentialSupportedServicesV5Request.marker;
+                    limit = listServiceSpecificCredentialSupportedServicesV5Request.limit;
+                } else {
+                    xLanguage = listServiceSpecificCredentialSupportedServicesV5Request['X-Language'];
+                    marker = listServiceSpecificCredentialSupportedServicesV5Request['marker'];
+                    limit = listServiceSpecificCredentialSupportedServicesV5Request['limit'];
+                }
+            }
+
+        
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于查询服务专属凭证列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listServiceSpecificCredentialsV5(listServiceSpecificCredentialsV5Request?: ListServiceSpecificCredentialsV5Request) {
+            const options = {
+                method: "GET",
+                url: "/v5/service-specific-credentials",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let userId;
+            
+            let serviceName;
+            
+            let limit;
+            
+            let marker;
+
+            if (listServiceSpecificCredentialsV5Request !== null && listServiceSpecificCredentialsV5Request !== undefined) {
+                if (listServiceSpecificCredentialsV5Request instanceof ListServiceSpecificCredentialsV5Request) {
+                    xLanguage = listServiceSpecificCredentialsV5Request.xLanguage;
+                    userId = listServiceSpecificCredentialsV5Request.userId;
+                    serviceName = listServiceSpecificCredentialsV5Request.serviceName;
+                    limit = listServiceSpecificCredentialsV5Request.limit;
+                    marker = listServiceSpecificCredentialsV5Request.marker;
+                } else {
+                    xLanguage = listServiceSpecificCredentialsV5Request['X-Language'];
+                    userId = listServiceSpecificCredentialsV5Request['user_id'];
+                    serviceName = listServiceSpecificCredentialsV5Request['service_name'];
+                    limit = listServiceSpecificCredentialsV5Request['limit'];
+                    marker = listServiceSpecificCredentialsV5Request['marker'];
+                }
+            }
+
+        
+            if (userId !== null && userId !== undefined) {
+                localVarQueryParameter['user_id'] = userId;
+            }
+            if (serviceName !== null && serviceName !== undefined) {
+                localVarQueryParameter['service_name'] = serviceName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以用于更新服务专属凭证的状态或描述。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateServiceSpecificCredentialV5(updateServiceSpecificCredentialV5Request?: UpdateServiceSpecificCredentialV5Request) {
+            const options = {
+                method: "PUT",
+                url: "/v5/users/{user_id}/service-specific-credentials/{credential_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let userId;
+            
+            let credentialId;
+
+            if (updateServiceSpecificCredentialV5Request !== null && updateServiceSpecificCredentialV5Request !== undefined) {
+                if (updateServiceSpecificCredentialV5Request instanceof UpdateServiceSpecificCredentialV5Request) {
+                    userId = updateServiceSpecificCredentialV5Request.userId;
+                    credentialId = updateServiceSpecificCredentialV5Request.credentialId;
+                    body = updateServiceSpecificCredentialV5Request.body
+                } else {
+                    userId = updateServiceSpecificCredentialV5Request['user_id'];
+                    credentialId = updateServiceSpecificCredentialV5Request['credential_id'];
+                    body = updateServiceSpecificCredentialV5Request['body'];
+                }
+            }
+
+        
+            if (userId === null || userId === undefined) {
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling updateServiceSpecificCredentialV5.');
+            }
+            if (credentialId === null || credentialId === undefined) {
+            throw new RequiredError('credentialId','Required parameter credentialId was null or undefined when calling updateServiceSpecificCredentialV5.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'user_id': userId,'credential_id': credentialId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

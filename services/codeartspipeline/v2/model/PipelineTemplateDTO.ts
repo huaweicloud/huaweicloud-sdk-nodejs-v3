@@ -10,6 +10,7 @@ export class PipelineTemplateDTO {
     private 'is_system'?: boolean;
     private 'domain_id'?: string;
     private 'is_show_source'?: boolean;
+    private 'manifest_version'?: string;
     public constructor(name?: string, language?: string, definition?: string, isSystem?: boolean, domainId?: string, isShowSource?: boolean) { 
         this['name'] = name;
         this['language'] = language;
@@ -67,5 +68,15 @@ export class PipelineTemplateDTO {
     }
     public get isShowSource(): boolean | undefined {
         return this['is_show_source'];
+    }
+    public withManifestVersion(manifestVersion: string): PipelineTemplateDTO {
+        this['manifest_version'] = manifestVersion;
+        return this;
+    }
+    public set manifestVersion(manifestVersion: string  | undefined) {
+        this['manifest_version'] = manifestVersion;
+    }
+    public get manifestVersion(): string | undefined {
+        return this['manifest_version'];
     }
 }

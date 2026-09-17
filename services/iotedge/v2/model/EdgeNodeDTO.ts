@@ -10,7 +10,9 @@ export class EdgeNodeDTO {
     private 'resource_ids'?: Array<string>;
     private 'resource_spec_types'?: Array<string>;
     public ips?: Array<string>;
+    private 'software_version'?: string;
     private 'create_time'?: string;
+    private 'node_group_id'?: string;
     public constructor() { 
     }
     public withEdgeNodeId(edgeNodeId: string): EdgeNodeDTO {
@@ -79,6 +81,16 @@ export class EdgeNodeDTO {
         this['ips'] = ips;
         return this;
     }
+    public withSoftwareVersion(softwareVersion: string): EdgeNodeDTO {
+        this['software_version'] = softwareVersion;
+        return this;
+    }
+    public set softwareVersion(softwareVersion: string  | undefined) {
+        this['software_version'] = softwareVersion;
+    }
+    public get softwareVersion(): string | undefined {
+        return this['software_version'];
+    }
     public withCreateTime(createTime: string): EdgeNodeDTO {
         this['create_time'] = createTime;
         return this;
@@ -88,5 +100,15 @@ export class EdgeNodeDTO {
     }
     public get createTime(): string | undefined {
         return this['create_time'];
+    }
+    public withNodeGroupId(nodeGroupId: string): EdgeNodeDTO {
+        this['node_group_id'] = nodeGroupId;
+        return this;
+    }
+    public set nodeGroupId(nodeGroupId: string  | undefined) {
+        this['node_group_id'] = nodeGroupId;
+    }
+    public get nodeGroupId(): string | undefined {
+        return this['node_group_id'];
     }
 }

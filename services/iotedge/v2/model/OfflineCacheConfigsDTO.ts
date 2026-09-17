@@ -4,6 +4,7 @@ export class OfflineCacheConfigsDTO {
     private 'publish_order'?: string;
     public period?: number;
     public capacity?: number;
+    private 'channel_cache_state'?: string;
     public constructor() { 
     }
     public withPublishOrder(publishOrder: string): OfflineCacheConfigsDTO {
@@ -23,5 +24,15 @@ export class OfflineCacheConfigsDTO {
     public withCapacity(capacity: number): OfflineCacheConfigsDTO {
         this['capacity'] = capacity;
         return this;
+    }
+    public withChannelCacheState(channelCacheState: string): OfflineCacheConfigsDTO {
+        this['channel_cache_state'] = channelCacheState;
+        return this;
+    }
+    public set channelCacheState(channelCacheState: string  | undefined) {
+        this['channel_cache_state'] = channelCacheState;
+    }
+    public get channelCacheState(): string | undefined {
+        return this['channel_cache_state'];
     }
 }

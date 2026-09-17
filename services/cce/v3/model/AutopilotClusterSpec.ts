@@ -31,10 +31,11 @@ export class AutopilotClusterSpec {
     public az?: string;
     public extendParam?: AutopilotClusterExtendParam;
     public configurationsOverride?: Array<AutopilotPackageConfiguration>;
-    public constructor(flavor?: string, hostNetwork?: AutopilotHostNetwork, containerNetwork?: AutopilotContainerNetwork) { 
+    public constructor(flavor?: string, hostNetwork?: AutopilotHostNetwork, containerNetwork?: AutopilotContainerNetwork, eniNetwork?: AutopilotEniNetwork) { 
         this['flavor'] = flavor;
         this['hostNetwork'] = hostNetwork;
         this['containerNetwork'] = containerNetwork;
+        this['eniNetwork'] = eniNetwork;
     }
     public withCategory(category: AutopilotClusterSpecCategoryEnum | string): AutopilotClusterSpec {
         this['category'] = category;

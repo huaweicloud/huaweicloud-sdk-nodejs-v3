@@ -8,6 +8,8 @@ export class RunPipelineDTO {
     public variables?: Array<RunPipelineDTOVariables>;
     private 'choose_jobs'?: Array<string>;
     private 'choose_stages'?: Array<string>;
+    private 'sub_hook'?: boolean;
+    private 'execution_plan_id'?: string;
     public constructor() { 
     }
     public withSources(sources: Array<RunPipelineDTOSources>): RunPipelineDTO {
@@ -41,5 +43,25 @@ export class RunPipelineDTO {
     }
     public get chooseStages(): Array<string> | undefined {
         return this['choose_stages'];
+    }
+    public withSubHook(subHook: boolean): RunPipelineDTO {
+        this['sub_hook'] = subHook;
+        return this;
+    }
+    public set subHook(subHook: boolean  | undefined) {
+        this['sub_hook'] = subHook;
+    }
+    public get subHook(): boolean | undefined {
+        return this['sub_hook'];
+    }
+    public withExecutionPlanId(executionPlanId: string): RunPipelineDTO {
+        this['execution_plan_id'] = executionPlanId;
+        return this;
+    }
+    public set executionPlanId(executionPlanId: string  | undefined) {
+        this['execution_plan_id'] = executionPlanId;
+    }
+    public get executionPlanId(): string | undefined {
+        return this['execution_plan_id'];
     }
 }

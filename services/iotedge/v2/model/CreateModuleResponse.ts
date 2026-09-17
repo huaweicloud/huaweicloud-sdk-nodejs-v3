@@ -6,6 +6,7 @@ export class CreateModuleResponse extends SdkResponse {
     private 'edge_app_id'?: string;
     private 'app_version'?: string;
     public state?: CreateModuleResponseStateEnum | string;
+    private 'liveness_state'?: string;
     private 'control_status'?: string;
     private 'node_id'?: string;
     private 'module_name'?: string;
@@ -41,6 +42,16 @@ export class CreateModuleResponse extends SdkResponse {
     public withState(state: CreateModuleResponseStateEnum | string): CreateModuleResponse {
         this['state'] = state;
         return this;
+    }
+    public withLivenessState(livenessState: string): CreateModuleResponse {
+        this['liveness_state'] = livenessState;
+        return this;
+    }
+    public set livenessState(livenessState: string  | undefined) {
+        this['liveness_state'] = livenessState;
+    }
+    public get livenessState(): string | undefined {
+        return this['liveness_state'];
     }
     public withControlStatus(controlStatus: string): CreateModuleResponse {
         this['control_status'] = controlStatus;
@@ -143,6 +154,8 @@ export enum CreateModuleResponseStateEnum {
     PENDING_DELETE = 'PENDING_DELETE',
     DELETE_FAILED = 'DELETE_FAILED',
     RUNNING = 'RUNNING',
+    UPGRADE_PRELOADING = 'UPGRADE_PRELOADING',
+    UPGRADE_PRELOADED = 'UPGRADE_PRELOADED',
     FAILED = 'FAILED',
     SUCCEEDED = 'SUCCEEDED',
     UNKNOWN = 'UNKNOWN',
@@ -168,5 +181,6 @@ export enum CreateModuleResponseFunctionTypeEnum {
     ON_PREMISE_INTEGRATION = 'ON_PREMISE_INTEGRATION',
     GATEWAY_MANAGER = 'GATEWAY_MANAGER',
     COMPOSITE_APPLICATION = 'COMPOSITE_APPLICATION',
-    DATA_COLLECTION = 'DATA_COLLECTION'
+    DATA_COLLECTION = 'DATA_COLLECTION',
+    MODEL_INFERENCE = 'MODEL_INFERENCE'
 }

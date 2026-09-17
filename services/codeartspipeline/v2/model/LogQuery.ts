@@ -5,6 +5,8 @@ export class LogQuery {
     private 'end_offset'?: number;
     public limit?: number;
     public sort?: string;
+    public offset?: number;
+    public level?: string;
     public constructor(limit?: number, sort?: string) { 
         this['limit'] = limit;
         this['sort'] = sort;
@@ -35,6 +37,14 @@ export class LogQuery {
     }
     public withSort(sort: string): LogQuery {
         this['sort'] = sort;
+        return this;
+    }
+    public withOffset(offset: number): LogQuery {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLevel(level: string): LogQuery {
+        this['level'] = level;
         return this;
     }
 }

@@ -4,6 +4,7 @@ import { UpdateDcDsReqDTO } from './UpdateDcDsReqDTO';
 export class UpdateDcDsRequest {
     private 'edge_node_id'?: string;
     private 'ds_id'?: string;
+    private 'update_name_only'?: boolean;
     public body?: UpdateDcDsReqDTO;
     public constructor(edgeNodeId?: string, dsId?: string) { 
         this['edge_node_id'] = edgeNodeId;
@@ -28,6 +29,16 @@ export class UpdateDcDsRequest {
     }
     public get dsId(): string | undefined {
         return this['ds_id'];
+    }
+    public withUpdateNameOnly(updateNameOnly: boolean): UpdateDcDsRequest {
+        this['update_name_only'] = updateNameOnly;
+        return this;
+    }
+    public set updateNameOnly(updateNameOnly: boolean  | undefined) {
+        this['update_name_only'] = updateNameOnly;
+    }
+    public get updateNameOnly(): boolean | undefined {
+        return this['update_name_only'];
     }
     public withBody(body: UpdateDcDsReqDTO): UpdateDcDsRequest {
         this['body'] = body;

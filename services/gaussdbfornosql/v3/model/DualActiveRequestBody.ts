@@ -3,6 +3,7 @@
 export class DualActiveRequestBody {
     private 'destination_region'?: string;
     private 'destination_instance_id'?: string;
+    public tables?: Array<string>;
     public constructor(destinationRegion?: string, destinationInstanceId?: string) { 
         this['destination_region'] = destinationRegion;
         this['destination_instance_id'] = destinationInstanceId;
@@ -26,5 +27,9 @@ export class DualActiveRequestBody {
     }
     public get destinationInstanceId(): string | undefined {
         return this['destination_instance_id'];
+    }
+    public withTables(tables: Array<string>): DualActiveRequestBody {
+        this['tables'] = tables;
+        return this;
     }
 }

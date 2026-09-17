@@ -4,8 +4,9 @@ import { ContainerSettingsReqDTO } from './ContainerSettingsReqDTO';
 export class UpdateEdgeModuleReqDTO {
     private 'app_version'?: string;
     private 'module_name'?: string;
-    private 'container_settings'?: ContainerSettingsReqDTO;
     private 'desired_state'?: UpdateEdgeModuleReqDTODesiredStateEnum | string;
+    private 'container_settings'?: ContainerSettingsReqDTO;
+    private 'force_upgrade'?: boolean;
     public constructor() { 
     }
     public withAppVersion(appVersion: string): UpdateEdgeModuleReqDTO {
@@ -28,6 +29,16 @@ export class UpdateEdgeModuleReqDTO {
     public get moduleName(): string | undefined {
         return this['module_name'];
     }
+    public withDesiredState(desiredState: UpdateEdgeModuleReqDTODesiredStateEnum | string): UpdateEdgeModuleReqDTO {
+        this['desired_state'] = desiredState;
+        return this;
+    }
+    public set desiredState(desiredState: UpdateEdgeModuleReqDTODesiredStateEnum | string  | undefined) {
+        this['desired_state'] = desiredState;
+    }
+    public get desiredState(): UpdateEdgeModuleReqDTODesiredStateEnum | string | undefined {
+        return this['desired_state'];
+    }
     public withContainerSettings(containerSettings: ContainerSettingsReqDTO): UpdateEdgeModuleReqDTO {
         this['container_settings'] = containerSettings;
         return this;
@@ -38,15 +49,15 @@ export class UpdateEdgeModuleReqDTO {
     public get containerSettings(): ContainerSettingsReqDTO | undefined {
         return this['container_settings'];
     }
-    public withDesiredState(desiredState: UpdateEdgeModuleReqDTODesiredStateEnum | string): UpdateEdgeModuleReqDTO {
-        this['desired_state'] = desiredState;
+    public withForceUpgrade(forceUpgrade: boolean): UpdateEdgeModuleReqDTO {
+        this['force_upgrade'] = forceUpgrade;
         return this;
     }
-    public set desiredState(desiredState: UpdateEdgeModuleReqDTODesiredStateEnum | string  | undefined) {
-        this['desired_state'] = desiredState;
+    public set forceUpgrade(forceUpgrade: boolean  | undefined) {
+        this['force_upgrade'] = forceUpgrade;
     }
-    public get desiredState(): UpdateEdgeModuleReqDTODesiredStateEnum | string | undefined {
-        return this['desired_state'];
+    public get forceUpgrade(): boolean | undefined {
+        return this['force_upgrade'];
     }
 }
 

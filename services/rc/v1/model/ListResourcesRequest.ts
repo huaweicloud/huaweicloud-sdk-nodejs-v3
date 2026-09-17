@@ -8,6 +8,7 @@ export class ListResourcesRequest {
     public tag?: { [key: string]: Array<string>; };
     public limit?: number;
     public marker?: string;
+    private 'group_id'?: string;
     public constructor(provider?: string, type?: string) { 
         this['provider'] = provider;
         this['type'] = type;
@@ -51,5 +52,15 @@ export class ListResourcesRequest {
     public withMarker(marker: string): ListResourcesRequest {
         this['marker'] = marker;
         return this;
+    }
+    public withGroupId(groupId: string): ListResourcesRequest {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
     }
 }

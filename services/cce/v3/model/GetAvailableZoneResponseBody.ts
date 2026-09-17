@@ -5,7 +5,7 @@ export class GetAvailableZoneResponseBody {
     public name?: string;
     public displayName?: string;
     public azGroupIds?: Array<string>;
-    private 'PublicBorderGroup'?: string;
+    public publicBorderGroup?: string;
     public category?: GetAvailableZoneResponseBodyCategoryEnum | string;
     public alias?: string;
     public constructor() { 
@@ -27,14 +27,8 @@ export class GetAvailableZoneResponseBody {
         return this;
     }
     public withPublicBorderGroup(publicBorderGroup: string): GetAvailableZoneResponseBody {
-        this['PublicBorderGroup'] = publicBorderGroup;
+        this['publicBorderGroup'] = publicBorderGroup;
         return this;
-    }
-    public set publicBorderGroup(publicBorderGroup: string  | undefined) {
-        this['PublicBorderGroup'] = publicBorderGroup;
-    }
-    public get publicBorderGroup(): string | undefined {
-        return this['PublicBorderGroup'];
     }
     public withCategory(category: GetAvailableZoneResponseBodyCategoryEnum | string): GetAvailableZoneResponseBody {
         this['category'] = category;

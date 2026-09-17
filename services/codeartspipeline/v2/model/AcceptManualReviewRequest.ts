@@ -5,6 +5,7 @@ export class AcceptManualReviewRequest {
     private 'pipeline_id'?: string;
     private 'pipeline_run_id'?: string;
     private 'step_run_id'?: string;
+    private 'approval_description'?: string;
     public constructor(jobRunId?: string, pipelineId?: string, pipelineRunId?: string, stepRunId?: string) { 
         this['job_run_id'] = jobRunId;
         this['pipeline_id'] = pipelineId;
@@ -50,5 +51,15 @@ export class AcceptManualReviewRequest {
     }
     public get stepRunId(): string | undefined {
         return this['step_run_id'];
+    }
+    public withApprovalDescription(approvalDescription: string): AcceptManualReviewRequest {
+        this['approval_description'] = approvalDescription;
+        return this;
+    }
+    public set approvalDescription(approvalDescription: string  | undefined) {
+        this['approval_description'] = approvalDescription;
+    }
+    public get approvalDescription(): string | undefined {
+        return this['approval_description'];
     }
 }

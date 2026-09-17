@@ -1,14 +1,14 @@
-import { EngineRiskDesc } from './EngineRiskDesc';
+import { ShowRiskInfoEngineRiskDesc } from './ShowRiskInfoEngineRiskDesc';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowRiskInfoResponse extends SdkResponse {
-    public risks?: Array<EngineRiskDesc>;
+    public risks?: Array<ShowRiskInfoEngineRiskDesc>;
     private 'X-request-id'?: string;
     public constructor() { 
         super();
     }
-    public withRisks(risks: Array<EngineRiskDesc>): ShowRiskInfoResponse {
+    public withRisks(risks: Array<ShowRiskInfoEngineRiskDesc>): ShowRiskInfoResponse {
         this['risks'] = risks;
         return this;
     }

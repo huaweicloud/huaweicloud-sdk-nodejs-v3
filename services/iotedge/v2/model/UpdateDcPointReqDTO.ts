@@ -8,6 +8,7 @@ export class UpdateDcPointReqDTO {
     public property?: string;
     private 'data_type'?: string;
     private 'processing_config'?: ProcessingConfigDTO;
+    public active?: boolean;
     public constructor(deviceId?: string, property?: string) { 
         this['device_id'] = deviceId;
         this['property'] = property;
@@ -59,5 +60,9 @@ export class UpdateDcPointReqDTO {
     }
     public get processingConfig(): ProcessingConfigDTO | undefined {
         return this['processing_config'];
+    }
+    public withActive(active: boolean): UpdateDcPointReqDTO {
+        this['active'] = active;
+        return this;
     }
 }

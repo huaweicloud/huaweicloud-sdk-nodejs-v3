@@ -12,6 +12,11 @@ export class ListPipelineQuery {
     private 'executor_ids'?: Array<string>;
     private 'start_time'?: string;
     private 'end_time'?: string;
+    private 'pipeline_run_update_time'?: string;
+    private 'exclude_pipeline_id'?: string;
+    private 'include_pipeline_id'?: string;
+    private 'tag_list'?: Array<string>;
+    private 'manifest_version_list'?: Array<string>;
     public offset?: number;
     public limit?: number;
     private 'sort_key'?: string;
@@ -21,6 +26,7 @@ export class ListPipelineQuery {
     private 'is_banned'?: boolean;
     private 'query_new'?: boolean;
     private 'security_level_list'?: Array<number>;
+    private 'dev_uc_security_level_list'?: Array<number>;
     public constructor() { 
     }
     public withProjectId(projectId: string): ListPipelineQuery {
@@ -121,6 +127,56 @@ export class ListPipelineQuery {
     public get endTime(): string | undefined {
         return this['end_time'];
     }
+    public withPipelineRunUpdateTime(pipelineRunUpdateTime: string): ListPipelineQuery {
+        this['pipeline_run_update_time'] = pipelineRunUpdateTime;
+        return this;
+    }
+    public set pipelineRunUpdateTime(pipelineRunUpdateTime: string  | undefined) {
+        this['pipeline_run_update_time'] = pipelineRunUpdateTime;
+    }
+    public get pipelineRunUpdateTime(): string | undefined {
+        return this['pipeline_run_update_time'];
+    }
+    public withExcludePipelineId(excludePipelineId: string): ListPipelineQuery {
+        this['exclude_pipeline_id'] = excludePipelineId;
+        return this;
+    }
+    public set excludePipelineId(excludePipelineId: string  | undefined) {
+        this['exclude_pipeline_id'] = excludePipelineId;
+    }
+    public get excludePipelineId(): string | undefined {
+        return this['exclude_pipeline_id'];
+    }
+    public withIncludePipelineId(includePipelineId: string): ListPipelineQuery {
+        this['include_pipeline_id'] = includePipelineId;
+        return this;
+    }
+    public set includePipelineId(includePipelineId: string  | undefined) {
+        this['include_pipeline_id'] = includePipelineId;
+    }
+    public get includePipelineId(): string | undefined {
+        return this['include_pipeline_id'];
+    }
+    public withTagList(tagList: Array<string>): ListPipelineQuery {
+        this['tag_list'] = tagList;
+        return this;
+    }
+    public set tagList(tagList: Array<string>  | undefined) {
+        this['tag_list'] = tagList;
+    }
+    public get tagList(): Array<string> | undefined {
+        return this['tag_list'];
+    }
+    public withManifestVersionList(manifestVersionList: Array<string>): ListPipelineQuery {
+        this['manifest_version_list'] = manifestVersionList;
+        return this;
+    }
+    public set manifestVersionList(manifestVersionList: Array<string>  | undefined) {
+        this['manifest_version_list'] = manifestVersionList;
+    }
+    public get manifestVersionList(): Array<string> | undefined {
+        return this['manifest_version_list'];
+    }
     public withOffset(offset: number): ListPipelineQuery {
         this['offset'] = offset;
         return this;
@@ -198,5 +254,15 @@ export class ListPipelineQuery {
     }
     public get securityLevelList(): Array<number> | undefined {
         return this['security_level_list'];
+    }
+    public withDevUcSecurityLevelList(devUcSecurityLevelList: Array<number>): ListPipelineQuery {
+        this['dev_uc_security_level_list'] = devUcSecurityLevelList;
+        return this;
+    }
+    public set devUcSecurityLevelList(devUcSecurityLevelList: Array<number>  | undefined) {
+        this['dev_uc_security_level_list'] = devUcSecurityLevelList;
+    }
+    public get devUcSecurityLevelList(): Array<number> | undefined {
+        return this['dev_uc_security_level_list'];
     }
 }

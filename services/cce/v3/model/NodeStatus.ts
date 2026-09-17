@@ -62,5 +62,7 @@ export enum NodeStatusPhaseEnum {
     ACTIVE = 'Active',
     ABNORMAL = 'Abnormal',
     DELETING = 'Deleting',
-    ERROR = 'Error'
+    ERROR = 'Error',
+    REPAIRING = 'Repairing',
+    REPAIRFAILED = 'RepairFailed'
 }

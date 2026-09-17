@@ -11,6 +11,7 @@ export class QueryApplicationBriefResponseDTO {
     private 'deploy_type'?: string;
     public protocol?: string;
     private 'edge_app_name'?: string;
+    private 'delivered_app'?: boolean;
     public constructor() { 
     }
     public withEdgeAppId(edgeAppId: string): QueryApplicationBriefResponseDTO {
@@ -100,5 +101,15 @@ export class QueryApplicationBriefResponseDTO {
     }
     public get edgeAppName(): string | undefined {
         return this['edge_app_name'];
+    }
+    public withDeliveredApp(deliveredApp: boolean): QueryApplicationBriefResponseDTO {
+        this['delivered_app'] = deliveredApp;
+        return this;
+    }
+    public set deliveredApp(deliveredApp: boolean  | undefined) {
+        this['delivered_app'] = deliveredApp;
+    }
+    public get deliveredApp(): boolean | undefined {
+        return this['delivered_app'];
     }
 }

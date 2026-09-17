@@ -14,6 +14,8 @@ export class CreatePipelineGroupResponse extends SdkResponse {
     public updater?: string;
     private 'create_time'?: number;
     private 'update_time'?: number;
+    private 'pipeline_count'?: number;
+    private 'no_group_count'?: number;
     public children?: Array<PipelineGroupVo>;
     public constructor() { 
         super();
@@ -97,6 +99,26 @@ export class CreatePipelineGroupResponse extends SdkResponse {
     }
     public get updateTime(): number | undefined {
         return this['update_time'];
+    }
+    public withPipelineCount(pipelineCount: number): CreatePipelineGroupResponse {
+        this['pipeline_count'] = pipelineCount;
+        return this;
+    }
+    public set pipelineCount(pipelineCount: number  | undefined) {
+        this['pipeline_count'] = pipelineCount;
+    }
+    public get pipelineCount(): number | undefined {
+        return this['pipeline_count'];
+    }
+    public withNoGroupCount(noGroupCount: number): CreatePipelineGroupResponse {
+        this['no_group_count'] = noGroupCount;
+        return this;
+    }
+    public set noGroupCount(noGroupCount: number  | undefined) {
+        this['no_group_count'] = noGroupCount;
+    }
+    public get noGroupCount(): number | undefined {
+        return this['no_group_count'];
     }
     public withChildren(children: Array<PipelineGroupVo>): CreatePipelineGroupResponse {
         this['children'] = children;

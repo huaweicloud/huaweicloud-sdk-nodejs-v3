@@ -1,6 +1,7 @@
 import { ExtensionScaleGroup } from './ExtensionScaleGroup';
 import { NodeManagement } from './NodeManagement';
 import { NodePoolNodeAutoscaling } from './NodePoolNodeAutoscaling';
+import { NodePoolRepairPolicy } from './NodePoolRepairPolicy';
 import { NodeTemplate } from './NodeTemplate';
 import { SecurityID } from './SecurityID';
 
@@ -10,6 +11,7 @@ export class NodePoolSpec {
     public nodeTemplate?: NodeTemplate;
     public initialNodeCount?: number;
     public autoscaling?: NodePoolNodeAutoscaling;
+    public repairPolicy?: NodePoolRepairPolicy;
     public nodeManagement?: NodeManagement;
     public podSecurityGroups?: Array<SecurityID>;
     public extensionScaleGroups?: Array<ExtensionScaleGroup>;
@@ -34,6 +36,10 @@ export class NodePoolSpec {
     }
     public withAutoscaling(autoscaling: NodePoolNodeAutoscaling): NodePoolSpec {
         this['autoscaling'] = autoscaling;
+        return this;
+    }
+    public withRepairPolicy(repairPolicy: NodePoolRepairPolicy): NodePoolSpec {
+        this['repairPolicy'] = repairPolicy;
         return this;
     }
     public withNodeManagement(nodeManagement: NodeManagement): NodePoolSpec {

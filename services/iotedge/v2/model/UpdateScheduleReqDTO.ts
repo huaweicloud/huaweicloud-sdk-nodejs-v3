@@ -5,6 +5,7 @@ import { ScheduleTask } from './ScheduleTask';
 export class UpdateScheduleReqDTO {
     public name?: string;
     public enabled?: boolean;
+    private 'reset_current_task'?: boolean;
     private 'start_time'?: number;
     private 'end_time'?: number;
     public priority?: number;
@@ -24,6 +25,16 @@ export class UpdateScheduleReqDTO {
     public withEnabled(enabled: boolean): UpdateScheduleReqDTO {
         this['enabled'] = enabled;
         return this;
+    }
+    public withResetCurrentTask(resetCurrentTask: boolean): UpdateScheduleReqDTO {
+        this['reset_current_task'] = resetCurrentTask;
+        return this;
+    }
+    public set resetCurrentTask(resetCurrentTask: boolean  | undefined) {
+        this['reset_current_task'] = resetCurrentTask;
+    }
+    public get resetCurrentTask(): boolean | undefined {
+        return this['reset_current_task'];
     }
     public withStartTime(startTime: number): UpdateScheduleReqDTO {
         this['start_time'] = startTime;

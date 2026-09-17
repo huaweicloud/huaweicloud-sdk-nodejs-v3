@@ -4,6 +4,7 @@ export class ShowNodePoolRequest {
     private 'cluster_id'?: string;
     private 'nodepool_id'?: string;
     private 'Content-Type'?: string;
+    public advanceStatus?: boolean;
     public constructor(clusterId?: string, nodepoolId?: string, contentType?: string) { 
         this['cluster_id'] = clusterId;
         this['nodepool_id'] = nodepoolId;
@@ -38,5 +39,9 @@ export class ShowNodePoolRequest {
     }
     public get contentType(): string | undefined {
         return this['Content-Type'];
+    }
+    public withAdvanceStatus(advanceStatus: boolean): ShowNodePoolRequest {
+        this['advanceStatus'] = advanceStatus;
+        return this;
     }
 }

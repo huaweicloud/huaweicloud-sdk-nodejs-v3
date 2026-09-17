@@ -6,9 +6,11 @@ export class QueryClusterBriefResponseDTO {
     public description?: string;
     public version?: string;
     public state?: string;
+    private 'is_upgradeable'?: boolean;
+    private 'cluster_type'?: string;
+    private 'cluster_addr'?: string;
     private 'create_time'?: string;
     private 'update_time'?: string;
-    private 'is_upgradeable'?: boolean;
     public constructor() { 
     }
     public withClusterId(clusterId: string): QueryClusterBriefResponseDTO {
@@ -43,6 +45,36 @@ export class QueryClusterBriefResponseDTO {
         this['state'] = state;
         return this;
     }
+    public withIsUpgradeable(isUpgradeable: boolean): QueryClusterBriefResponseDTO {
+        this['is_upgradeable'] = isUpgradeable;
+        return this;
+    }
+    public set isUpgradeable(isUpgradeable: boolean  | undefined) {
+        this['is_upgradeable'] = isUpgradeable;
+    }
+    public get isUpgradeable(): boolean | undefined {
+        return this['is_upgradeable'];
+    }
+    public withClusterType(clusterType: string): QueryClusterBriefResponseDTO {
+        this['cluster_type'] = clusterType;
+        return this;
+    }
+    public set clusterType(clusterType: string  | undefined) {
+        this['cluster_type'] = clusterType;
+    }
+    public get clusterType(): string | undefined {
+        return this['cluster_type'];
+    }
+    public withClusterAddr(clusterAddr: string): QueryClusterBriefResponseDTO {
+        this['cluster_addr'] = clusterAddr;
+        return this;
+    }
+    public set clusterAddr(clusterAddr: string  | undefined) {
+        this['cluster_addr'] = clusterAddr;
+    }
+    public get clusterAddr(): string | undefined {
+        return this['cluster_addr'];
+    }
     public withCreateTime(createTime: string): QueryClusterBriefResponseDTO {
         this['create_time'] = createTime;
         return this;
@@ -62,15 +94,5 @@ export class QueryClusterBriefResponseDTO {
     }
     public get updateTime(): string | undefined {
         return this['update_time'];
-    }
-    public withIsUpgradeable(isUpgradeable: boolean): QueryClusterBriefResponseDTO {
-        this['is_upgradeable'] = isUpgradeable;
-        return this;
-    }
-    public set isUpgradeable(isUpgradeable: boolean  | undefined) {
-        this['is_upgradeable'] = isUpgradeable;
-    }
-    public get isUpgradeable(): boolean | undefined {
-        return this['is_upgradeable'];
     }
 }

@@ -1,6 +1,7 @@
 import { ClusterInformationSpecHostNetwork } from './ClusterInformationSpecHostNetwork';
 import { ContainerNetworkUpdate } from './ContainerNetworkUpdate';
 import { EniNetworkUpdate } from './EniNetworkUpdate';
+import { SecretConfigUpdate } from './SecretConfigUpdate';
 
 
 export class ClusterInformationSpec {
@@ -11,6 +12,7 @@ export class ClusterInformationSpec {
     public eniNetwork?: EniNetworkUpdate;
     public hostNetwork?: ClusterInformationSpecHostNetwork;
     public deletionProtection?: boolean;
+    public secretConfig?: SecretConfigUpdate;
     public constructor() { 
     }
     public withAgencyName(agencyName: string): ClusterInformationSpec {
@@ -39,6 +41,10 @@ export class ClusterInformationSpec {
     }
     public withDeletionProtection(deletionProtection: boolean): ClusterInformationSpec {
         this['deletionProtection'] = deletionProtection;
+        return this;
+    }
+    public withSecretConfig(secretConfig: SecretConfigUpdate): ClusterInformationSpec {
+        this['secretConfig'] = secretConfig;
         return this;
     }
 }

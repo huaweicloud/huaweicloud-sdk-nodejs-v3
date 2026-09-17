@@ -5,6 +5,7 @@ export class CreateIpdProjectIssueParam {
     public description?: string;
     public status?: string;
     private 'src_domain'?: string;
+    private 'feature_set'?: string;
     private 'submitted_by'?: string;
     private 'domain_id'?: string;
     public recipient?: Array<string>;
@@ -20,6 +21,12 @@ export class CreateIpdProjectIssueParam {
     private 'workload_man_day'?: number;
     private 'business_domain'?: string;
     private 'need_break'?: string;
+    private 'category_layer_id'?: string;
+    private 'parent_id'?: string;
+    public ir2rr?: string;
+    public us2rr?: string;
+    public link?: string;
+    public ir2feature?: string;
     public constructor() { 
     }
     public withTitle(title: string): CreateIpdProjectIssueParam {
@@ -43,6 +50,16 @@ export class CreateIpdProjectIssueParam {
     }
     public get srcDomain(): string | undefined {
         return this['src_domain'];
+    }
+    public withFeatureSet(featureSet: string): CreateIpdProjectIssueParam {
+        this['feature_set'] = featureSet;
+        return this;
+    }
+    public set featureSet(featureSet: string  | undefined) {
+        this['feature_set'] = featureSet;
+    }
+    public get featureSet(): string | undefined {
+        return this['feature_set'];
     }
     public withSubmittedBy(submittedBy: string): CreateIpdProjectIssueParam {
         this['submitted_by'] = submittedBy;
@@ -169,5 +186,41 @@ export class CreateIpdProjectIssueParam {
     }
     public get needBreak(): string | undefined {
         return this['need_break'];
+    }
+    public withCategoryLayerId(categoryLayerId: string): CreateIpdProjectIssueParam {
+        this['category_layer_id'] = categoryLayerId;
+        return this;
+    }
+    public set categoryLayerId(categoryLayerId: string  | undefined) {
+        this['category_layer_id'] = categoryLayerId;
+    }
+    public get categoryLayerId(): string | undefined {
+        return this['category_layer_id'];
+    }
+    public withParentId(parentId: string): CreateIpdProjectIssueParam {
+        this['parent_id'] = parentId;
+        return this;
+    }
+    public set parentId(parentId: string  | undefined) {
+        this['parent_id'] = parentId;
+    }
+    public get parentId(): string | undefined {
+        return this['parent_id'];
+    }
+    public withIr2rr(ir2rr: string): CreateIpdProjectIssueParam {
+        this['ir2rr'] = ir2rr;
+        return this;
+    }
+    public withUs2rr(us2rr: string): CreateIpdProjectIssueParam {
+        this['us2rr'] = us2rr;
+        return this;
+    }
+    public withLink(link: string): CreateIpdProjectIssueParam {
+        this['link'] = link;
+        return this;
+    }
+    public withIr2feature(ir2feature: string): CreateIpdProjectIssueParam {
+        this['ir2feature'] = ir2feature;
+        return this;
     }
 }

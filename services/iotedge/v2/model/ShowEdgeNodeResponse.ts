@@ -5,6 +5,8 @@ import { HaConfigDTO } from './HaConfigDTO';
 import { LogConfigDTO } from './LogConfigDTO';
 import { Nic } from './Nic';
 import { OfflineCacheConfigsDTO } from './OfflineCacheConfigsDTO';
+import { RuntimeInfoDTO } from './RuntimeInfoDTO';
+import { TPMInfoDTO } from './TPMInfoDTO';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -44,6 +46,11 @@ export class ShowEdgeNodeResponse extends SdkResponse {
     private 'automatic_upgrade'?: string;
     private 'device_data_record'?: DeviceDataRecord;
     private 'metric_report'?: string;
+    private 'iotda_south_access'?: string;
+    private 'tpm_info'?: TPMInfoDTO;
+    private 'runtime_info'?: RuntimeInfoDTO;
+    private 'os_type'?: string;
+    private 'node_group_id'?: string;
     public constructor() { 
         super();
     }
@@ -354,5 +361,55 @@ export class ShowEdgeNodeResponse extends SdkResponse {
     }
     public get metricReport(): string | undefined {
         return this['metric_report'];
+    }
+    public withIotdaSouthAccess(iotdaSouthAccess: string): ShowEdgeNodeResponse {
+        this['iotda_south_access'] = iotdaSouthAccess;
+        return this;
+    }
+    public set iotdaSouthAccess(iotdaSouthAccess: string  | undefined) {
+        this['iotda_south_access'] = iotdaSouthAccess;
+    }
+    public get iotdaSouthAccess(): string | undefined {
+        return this['iotda_south_access'];
+    }
+    public withTpmInfo(tpmInfo: TPMInfoDTO): ShowEdgeNodeResponse {
+        this['tpm_info'] = tpmInfo;
+        return this;
+    }
+    public set tpmInfo(tpmInfo: TPMInfoDTO  | undefined) {
+        this['tpm_info'] = tpmInfo;
+    }
+    public get tpmInfo(): TPMInfoDTO | undefined {
+        return this['tpm_info'];
+    }
+    public withRuntimeInfo(runtimeInfo: RuntimeInfoDTO): ShowEdgeNodeResponse {
+        this['runtime_info'] = runtimeInfo;
+        return this;
+    }
+    public set runtimeInfo(runtimeInfo: RuntimeInfoDTO  | undefined) {
+        this['runtime_info'] = runtimeInfo;
+    }
+    public get runtimeInfo(): RuntimeInfoDTO | undefined {
+        return this['runtime_info'];
+    }
+    public withOsType(osType: string): ShowEdgeNodeResponse {
+        this['os_type'] = osType;
+        return this;
+    }
+    public set osType(osType: string  | undefined) {
+        this['os_type'] = osType;
+    }
+    public get osType(): string | undefined {
+        return this['os_type'];
+    }
+    public withNodeGroupId(nodeGroupId: string): ShowEdgeNodeResponse {
+        this['node_group_id'] = nodeGroupId;
+        return this;
+    }
+    public set nodeGroupId(nodeGroupId: string  | undefined) {
+        this['node_group_id'] = nodeGroupId;
+    }
+    public get nodeGroupId(): string | undefined {
+        return this['node_group_id'];
     }
 }

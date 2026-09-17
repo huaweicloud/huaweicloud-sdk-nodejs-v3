@@ -5,6 +5,7 @@ export class CreateClusterRequestDTO {
     private 'cluster_name'?: string;
     public description?: string;
     private 'cluster_node_config'?: ClusterNodeConfig;
+    private 'cluster_type'?: string;
     public constructor(clusterName?: string) { 
         this['cluster_name'] = clusterName;
     }
@@ -31,5 +32,15 @@ export class CreateClusterRequestDTO {
     }
     public get clusterNodeConfig(): ClusterNodeConfig | undefined {
         return this['cluster_node_config'];
+    }
+    public withClusterType(clusterType: string): CreateClusterRequestDTO {
+        this['cluster_type'] = clusterType;
+        return this;
+    }
+    public set clusterType(clusterType: string  | undefined) {
+        this['cluster_type'] = clusterType;
+    }
+    public get clusterType(): string | undefined {
+        return this['cluster_type'];
     }
 }

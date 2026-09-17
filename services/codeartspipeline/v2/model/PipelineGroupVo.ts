@@ -12,6 +12,8 @@ export class PipelineGroupVo {
     public updater?: string;
     private 'create_time'?: number;
     private 'update_time'?: number;
+    private 'pipeline_count'?: number;
+    private 'no_group_count'?: number;
     public children?: Array<PipelineGroupVo>;
     public constructor(id?: string, domainId?: string, projectId?: string, name?: string, pathId?: string, creator?: string) { 
         this['id'] = id;
@@ -100,6 +102,26 @@ export class PipelineGroupVo {
     }
     public get updateTime(): number | undefined {
         return this['update_time'];
+    }
+    public withPipelineCount(pipelineCount: number): PipelineGroupVo {
+        this['pipeline_count'] = pipelineCount;
+        return this;
+    }
+    public set pipelineCount(pipelineCount: number  | undefined) {
+        this['pipeline_count'] = pipelineCount;
+    }
+    public get pipelineCount(): number | undefined {
+        return this['pipeline_count'];
+    }
+    public withNoGroupCount(noGroupCount: number): PipelineGroupVo {
+        this['no_group_count'] = noGroupCount;
+        return this;
+    }
+    public set noGroupCount(noGroupCount: number  | undefined) {
+        this['no_group_count'] = noGroupCount;
+    }
+    public get noGroupCount(): number | undefined {
+        return this['no_group_count'];
     }
     public withChildren(children: Array<PipelineGroupVo>): PipelineGroupVo {
         this['children'] = children;

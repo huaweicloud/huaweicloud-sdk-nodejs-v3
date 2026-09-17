@@ -8,6 +8,7 @@ export class BatchListEdgeAppVersionsRequest {
     private 'ai_card_type'?: BatchListEdgeAppVersionsRequestAiCardTypeEnum | string;
     public arch?: BatchListEdgeAppVersionsRequestArchEnum | string;
     public state?: BatchListEdgeAppVersionsRequestStateEnum | string;
+    private 'deploy_type'?: BatchListEdgeAppVersionsRequestDeployTypeEnum | string;
     public constructor(edgeAppId?: string) { 
         this['edge_app_id'] = edgeAppId;
     }
@@ -51,6 +52,16 @@ export class BatchListEdgeAppVersionsRequest {
         this['state'] = state;
         return this;
     }
+    public withDeployType(deployType: BatchListEdgeAppVersionsRequestDeployTypeEnum | string): BatchListEdgeAppVersionsRequest {
+        this['deploy_type'] = deployType;
+        return this;
+    }
+    public set deployType(deployType: BatchListEdgeAppVersionsRequestDeployTypeEnum | string  | undefined) {
+        this['deploy_type'] = deployType;
+    }
+    public get deployType(): BatchListEdgeAppVersionsRequestDeployTypeEnum | string | undefined {
+        return this['deploy_type'];
+    }
 }
 
 /**
@@ -60,7 +71,7 @@ export class BatchListEdgeAppVersionsRequest {
 export enum BatchListEdgeAppVersionsRequestAiCardTypeEnum {
     GPU = 'GPU',
     NPU = 'NPU',
-    UNEQUIPPED = 'unEquipped'
+    UNEQUIPPED = 'UNEQUIPPED'
 }
 /**
     * @export
@@ -79,4 +90,12 @@ export enum BatchListEdgeAppVersionsRequestStateEnum {
     DRAFT = 'DRAFT',
     PUBLISHED = 'PUBLISHED',
     OFF_SHELF = 'OFF_SHELF'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BatchListEdgeAppVersionsRequestDeployTypeEnum {
+    DOCKER = 'docker',
+    PROCESS = 'process'
 }

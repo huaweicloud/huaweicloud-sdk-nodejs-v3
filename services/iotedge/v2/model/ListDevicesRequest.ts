@@ -4,6 +4,8 @@ export class ListDevicesRequest {
     private 'edge_node_id'?: string;
     private 'gateway_id'?: string;
     private 'device_name'?: string;
+    private 'module_id'?: string;
+    private 'device_id'?: string;
     public offset?: number;
     public limit?: number;
     public constructor(edgeNodeId?: string) { 
@@ -38,6 +40,26 @@ export class ListDevicesRequest {
     }
     public get deviceName(): string | undefined {
         return this['device_name'];
+    }
+    public withModuleId(moduleId: string): ListDevicesRequest {
+        this['module_id'] = moduleId;
+        return this;
+    }
+    public set moduleId(moduleId: string  | undefined) {
+        this['module_id'] = moduleId;
+    }
+    public get moduleId(): string | undefined {
+        return this['module_id'];
+    }
+    public withDeviceId(deviceId: string): ListDevicesRequest {
+        this['device_id'] = deviceId;
+        return this;
+    }
+    public set deviceId(deviceId: string  | undefined) {
+        this['device_id'] = deviceId;
+    }
+    public get deviceId(): string | undefined {
+        return this['device_id'];
     }
     public withOffset(offset: number): ListDevicesRequest {
         this['offset'] = offset;

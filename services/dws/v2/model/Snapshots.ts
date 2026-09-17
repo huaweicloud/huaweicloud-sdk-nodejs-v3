@@ -28,7 +28,7 @@ export class Snapshots {
     private 'base_backup_name'?: string;
     private 'support_inplace_restore'?: boolean;
     private 'fine_grained_backup'?: boolean;
-    private 'backup_level'?: SnapshotsBackupLevelEnum | string;
+    private 'backup_level'?: string;
     private 'fine_grained_backup_detail'?: ExtFineGrainedSnapshotDetail;
     private 'guest_agent_version'?: string;
     private 'cluster_status'?: string;
@@ -230,14 +230,14 @@ export class Snapshots {
     public get fineGrainedBackup(): boolean | undefined {
         return this['fine_grained_backup'];
     }
-    public withBackupLevel(backupLevel: SnapshotsBackupLevelEnum | string): Snapshots {
+    public withBackupLevel(backupLevel: string): Snapshots {
         this['backup_level'] = backupLevel;
         return this;
     }
-    public set backupLevel(backupLevel: SnapshotsBackupLevelEnum | string  | undefined) {
+    public set backupLevel(backupLevel: string  | undefined) {
         this['backup_level'] = backupLevel;
     }
-    public get backupLevel(): SnapshotsBackupLevelEnum | string | undefined {
+    public get backupLevel(): string | undefined {
         return this['backup_level'];
     }
     public withFineGrainedBackupDetail(fineGrainedBackupDetail: ExtFineGrainedSnapshotDetail): Snapshots {
@@ -300,14 +300,4 @@ export class Snapshots {
     public get supportFineGrainedAsymmetricRestore(): boolean | undefined {
         return this['support_fine_grained_asymmetric_restore'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum SnapshotsBackupLevelEnum {
-    CLUSTER = 'cluster',
-    SCHEMA = 'schema',
-    TABLE = 'table'
 }

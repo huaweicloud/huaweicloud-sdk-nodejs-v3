@@ -3,21 +3,21 @@ import { RedisDisabledCommandsDetail } from './RedisDisabledCommandsDetail';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowRedisDisabledCommandsResponse extends SdkResponse {
-    private 'total_count'?: string;
+    private 'total_count'?: number;
     private 'disabled_type'?: ShowRedisDisabledCommandsResponseDisabledTypeEnum | string;
     public commands?: Array<string>;
     public keys?: Array<RedisDisabledCommandsDetail>;
     public constructor() { 
         super();
     }
-    public withTotalCount(totalCount: string): ShowRedisDisabledCommandsResponse {
+    public withTotalCount(totalCount: number): ShowRedisDisabledCommandsResponse {
         this['total_count'] = totalCount;
         return this;
     }
-    public set totalCount(totalCount: string  | undefined) {
+    public set totalCount(totalCount: number  | undefined) {
         this['total_count'] = totalCount;
     }
-    public get totalCount(): string | undefined {
+    public get totalCount(): number | undefined {
         return this['total_count'];
     }
     public withDisabledType(disabledType: ShowRedisDisabledCommandsResponseDisabledTypeEnum | string): ShowRedisDisabledCommandsResponse {

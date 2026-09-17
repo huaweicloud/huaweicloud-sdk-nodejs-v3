@@ -172,6 +172,7 @@ import { CreateUpgradeWorkFlowRequestBody } from './model/CreateUpgradeWorkFlowR
 import { CreateUpgradeWorkFlowResponse } from './model/CreateUpgradeWorkFlowResponse';
 import { Credentials } from './model/Credentials';
 import { CustomizeResourceTag } from './model/CustomizeResourceTag';
+import { DataDiskCleanUpOption } from './model/DataDiskCleanUpOption';
 import { DelayUpgradePlanRequestBody } from './model/DelayUpgradePlanRequestBody';
 import { DeleteAccessPolicyRequest } from './model/DeleteAccessPolicyRequest';
 import { DeleteAccessPolicyResponse } from './model/DeleteAccessPolicyResponse';
@@ -249,7 +250,13 @@ import { HyperNodeMetadata } from './model/HyperNodeMetadata';
 import { HyperNodeMetadataOwnerReference } from './model/HyperNodeMetadataOwnerReference';
 import { HyperNodeSpec } from './model/HyperNodeSpec';
 import { HyperNodeStatus } from './model/HyperNodeStatus';
+import { InPlaceMigrate } from './model/InPlaceMigrate';
+import { InPlaceMigrateNodeExtendParam } from './model/InPlaceMigrateNodeExtendParam';
+import { InPlaceMigratetoNodesSpec } from './model/InPlaceMigratetoNodesSpec';
 import { InPlaceRollingUpdate } from './model/InPlaceRollingUpdate';
+import { InplaceMigrateNodeItem } from './model/InplaceMigrateNodeItem';
+import { InplaceMigrateNodeRequest } from './model/InplaceMigrateNodeRequest';
+import { InplaceMigrateNodeResponse } from './model/InplaceMigrateNodeResponse';
 import { InstanceRequest } from './model/InstanceRequest';
 import { InstanceRequestSpec } from './model/InstanceRequestSpec';
 import { InstanceSpec } from './model/InstanceSpec';
@@ -367,6 +374,7 @@ import { NodePoolCondition } from './model/NodePoolCondition';
 import { NodePoolMetadata } from './model/NodePoolMetadata';
 import { NodePoolMetadataUpdate } from './model/NodePoolMetadataUpdate';
 import { NodePoolNodeAutoscaling } from './model/NodePoolNodeAutoscaling';
+import { NodePoolRepairPolicy } from './model/NodePoolRepairPolicy';
 import { NodePoolResp } from './model/NodePoolResp';
 import { NodePoolSpec } from './model/NodePoolSpec';
 import { NodePoolSpecUpdate } from './model/NodePoolSpecUpdate';
@@ -489,6 +497,8 @@ import { ScaleNodePoolResponse } from './model/ScaleNodePoolResponse';
 import { ScaleNodePoolSpec } from './model/ScaleNodePoolSpec';
 import { ScaleUpBillingConfigOverride } from './model/ScaleUpBillingConfigOverride';
 import { ScaleUpExtendParam } from './model/ScaleUpExtendParam';
+import { SecretConfig } from './model/SecretConfig';
+import { SecretConfigUpdate } from './model/SecretConfigUpdate';
 import { SecurityID } from './model/SecurityID';
 import { ServiceNetwork } from './model/ServiceNetwork';
 import { ShowAddonInstanceRequest } from './model/ShowAddonInstanceRequest';
@@ -664,6 +674,7 @@ import { UpgradeInfoStatus } from './model/UpgradeInfoStatus';
 import { UpgradeNodePool } from './model/UpgradeNodePool';
 import { UpgradeNodePoolRequest } from './model/UpgradeNodePoolRequest';
 import { UpgradeNodePoolResponse } from './model/UpgradeNodePoolResponse';
+import { UpgradeNodePoolSpecNodeTemplate } from './model/UpgradeNodePoolSpecNodeTemplate';
 import { UpgradePath } from './model/UpgradePath';
 import { UpgradePlan } from './model/UpgradePlan';
 import { UpgradePlanSpec } from './model/UpgradePlanSpec';
@@ -699,6 +710,7 @@ import { V2JobTypeObject } from './model/V2JobTypeObject';
 import { Versions } from './model/Versions';
 import { VirtualSpace } from './model/VirtualSpace';
 import { Volume } from './model/Volume';
+import { VolumeConfig } from './model/VolumeConfig';
 import { VolumeMetadata } from './model/VolumeMetadata';
 import { WorkFlowPhase } from './model/WorkFlowPhase';
 import { WorkFlowSpec } from './model/WorkFlowSpec';
@@ -728,7 +740,7 @@ export class CceClient {
      *
      * @summary 纳管节点
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {AddNodeList} addNodeList 纳管节点的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -751,7 +763,7 @@ export class CceClient {
      * @summary 自定义节点池纳管节点
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodepoolId 节点池ID
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {AddNodesToNodePoolList} addNodesToNodePoolList 纳管节点的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -772,7 +784,7 @@ export class CceClient {
      *
      * @summary 获取pod-identity关联相关委托凭据
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {AssumeAgencyForPodIdentityRequestBody} assumeAgencyForPodIdentityRequestBody **参数解释**： 获取pod-identity关联相关委托凭据的请求体 **约束限制**： 无
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -793,7 +805,7 @@ export class CceClient {
      *
      * @summary 集群唤醒
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -817,7 +829,7 @@ export class CceClient {
      *
      * @summary 按需节点转包年/包月
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {BatchChangeNodeToPeriodReqBody} batchChangeNodeToPeriodRequestBody 按需节点转包年/包月的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -838,7 +850,7 @@ export class CceClient {
      *
      * @summary 批量创建插件检查任务
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {AddonCheckRequest} batchCreateAddonCheckRequestBody 批量创建插件检查任务的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -861,7 +873,7 @@ export class CceClient {
      *
      * @summary 批量添加指定集群的资源标签
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {BatchCreateClusterTagsRequestBody} batchCreateClusterTagsRequestBody 批量添加指定集群资源标签的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -883,7 +895,7 @@ export class CceClient {
      *
      * @summary 批量删除指定集群的资源标签
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {BatchDeleteClusterTagsRequestBody} batchDeleteClusterTagsRequestBody 批量删除指定集群资源标签的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -904,7 +916,7 @@ export class CceClient {
      *
      * @summary 批量同步节点
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -963,7 +975,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建AddonInstance
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {InstanceRequest} createAddonInstanceRequestBody 请求body体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -987,7 +999,7 @@ export class CceClient {
      *
      * @summary 创建PVC（待废弃）
      * @param {string} namespace 指定PersistentVolumeClaim所在的命名空间。  使用namespace有如下约束：  - 用户自定义的namespace，使用前必须先在集群中创建namespace  - 系统自带的namespace：default  - 不能使用kube-system与kube-public 
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {PersistentVolumeClaim} createCloudPersistentVolumeClaimsRequestBody 请求body参数说明；非单个参数名称
      * @param {string} [xClusterID] 集群ID，使用**https://Endpoint/uri**这种URL格式时必须指定此参数。获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 
      * @param {*} [options] Override http request option.
@@ -1012,7 +1024,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建集群
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {Cluster} createClusterRequestBody 集群规格信息请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1046,14 +1058,14 @@ export class CceClient {
     }
 
     /**
-     * 该API用于获取指定集群的证书信息。
+     * 该API用于获取指定集群的访问证书信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取集群证书
+     * @summary 获取集群访问证书
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
-     * @param {ClusterCertDuration} createKubernetesClusterCertRequestBody 创建集群证书的请求Body。
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
+     * @param {ClusterCertDuration} createKubernetesClusterCertRequestBody 创建集群访问证书的请求Body。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1075,7 +1087,7 @@ export class CceClient {
      *
      * @summary 创建节点
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {NodeCreateRequest} createNodeRequestBody 创建节点的请求体
      * @param {'NodepoolScaleUp'} [nodepoolScaleUp] **参数解释**： 标明是否为nodepool扩容下发的创建节点请求。若为“NodepoolScaleUp”将根据当前集群子网实际能支持的用户节点数自动更新本次创建节点的个数，比如集群子网仅能支持的用户节点个数为1，当请求创建节点的个数大于1时，将自动调整为创建1个节点。若不为“NodepoolScaleUp”将自动更新对应节点池的实例数。 **约束限制**： 不涉及 **取值范围**： - NodepoolScaleUp：表示节点池扩容创建节点  **默认取值**： 无
      * @param {*} [options] Override http request option.
@@ -1104,7 +1116,7 @@ export class CceClient {
      *
      * @summary 创建节点池
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {NodePool} createNodePoolRequestBody 创建节点池的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1145,7 +1157,7 @@ export class CceClient {
      *
      * @summary 创建pod-identity关联
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {PodIdentityAssociation} createPodIdentityAssociationRequestBody **参数解释**： 创建pod-identity关联的请求体 **约束限制**： 无
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1205,7 +1217,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建模板实例
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {CreateReleaseReqBody} createReleaseRequestBody 创建release请求体
      * @param {*} [options] Override http request option.
@@ -1228,7 +1240,7 @@ export class CceClient {
      *
      * @summary 开启集群升级流程引导任务
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {CreateUpgradeWorkFlowRequestBody} createUpgradeWorkFlowRequestBody 集群升级流程引导任务请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1267,9 +1279,9 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除AddonInstance
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
-     * @param {string} id 插件实例id
-     * @param {string} [clusterId] 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
+     * @param {string} id **参数解释**： 插件实例ID。 **约束限制**： 不涉及 **取值范围**： UUID格式，长度范围1~255位。 **默认取值**： 不涉及
+     * @param {string} [clusterId] **参数解释**： 集群ID（废弃中），获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： UUID格式 **默认取值**： 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1288,8 +1300,8 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除模板
-     * @param {string} chartId 模板的ID
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} chartId **参数解释：** 模板的ID。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1311,7 +1323,7 @@ export class CceClient {
      * @summary 删除PVC（待废弃）
      * @param {string} name 需要删除的PersistentVolumClaim的名称。 
      * @param {string} namespace 指定PersistentVolumeClaim所在的命名空间。 
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} [deleteVolume] 删除PersistentVolumeClaim后是否保留后端关联的云存储。false表示不删除，true表示删除，默认为false。 
      * @param {string} [storageType] 云存储的类型，和deleteVolume搭配使用。即deleteVolume和storageType必须同时配置。 - bs：EVS云硬盘存储 - nfs：SFS1.0弹性文件存储 - obs：OBS对象存储 - efs：SFS Turbo极速文件存储 
      * @param {string} [xClusterID] 集群ID，使用**https://Endpoint/uri**这种URL格式时必须指定此参数。获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 
@@ -1335,7 +1347,7 @@ export class CceClient {
      *
      * @summary 删除集群
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteEfs] 是否删除SFS Turbo（极速文件存储卷）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteEni] 是否删除eni ports（原生弹性网卡）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程，默认选项) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程)
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteEvs] 是否删除evs（云硬盘）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
@@ -1368,7 +1380,7 @@ export class CceClient {
      * @summary 删除节点
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodeId **参数解释**： 节点ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {'NoScaleDown'} [nodepoolScaleDown] **参数解释**： 标明是否为nodepool下发的请求。若不为“NoScaleDown”将自动更新对应节点池的实例数 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1391,7 +1403,7 @@ export class CceClient {
      * @summary 删除节点池
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodepoolId 节点池ID
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1430,9 +1442,9 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除指定模板实例
-     * @param {string} name 模板实例名称
-     * @param {string} namespace 模板实例所在的命名空间
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} name **参数解释：** 模板实例名称。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} namespace **参数解释：** 模板实例所在的命名空间。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} [showResources] **参数解释：** 是否展示模板实例的资源信息。 **约束限制：** 不涉及 **取值范围：** 指定为“true”时展示模板实例的资源信息，不指定该参数时默认不展示。 **默认取值：** 无
      * @param {*} [options] Override http request option.
@@ -1453,8 +1465,8 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 下载模板
-     * @param {string} chartId 模板的ID
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} chartId **参数解释：** 模板的ID。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1492,7 +1504,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询可用区列表
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {'zh-cn' | 'en-us'} [locale] **参数解释**： 该参数用于按所在区域显示可用区名称 **取值范围**： - zh-cn: 显示中文名称，例如：“可用区1” - en-us: 显示英文名称，例如：“AZ1”
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1513,7 +1525,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询集群可售卖规格
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {'VirtualMachine' | 'ARM64'} clusterType **参数解释**： 该参数用于按集群架构查询可售卖规格 **取值范围**： - VirtualMachine: CCE集群 - ARM64: 鲲鹏集群
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1534,7 +1546,7 @@ export class CceClient {
      *
      * @summary 获取集群LongAKSK配置
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1553,7 +1565,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取集群配额
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1572,7 +1584,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询自定义标签
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {'cce-cluster'} resourceType **参数解释**： 资源类型 **约束限制：** 不涉及 **取值范围：** - cce-cluster：集群  **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1592,7 +1604,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取节点标签
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1612,7 +1624,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目LongAKSK配置
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1631,7 +1643,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源标签
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {'cce-cluster'} resourceType **参数解释**： 资源类型 **约束限制：** 不涉及 **取值范围：** - cce-cluster：集群  **默认取值：** 不涉及
      * @param {string} resourceId **参数解释**： 资源id。例：集群id，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
@@ -1653,12 +1665,36 @@ export class CceClient {
      *
      * @summary 集群休眠
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public hibernateCluster(hibernateClusterRequest?: HibernateClusterRequest): Promise<HibernateClusterResponse> {
         const options = ParamCreater().hibernateCluster(hibernateClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于在指定集群下腾挪节点到另一集群。
+     * 
+     * &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 节点腾挪
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} targetClusterId **参数解释**： 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
+     * @param {InPlaceMigrate} inPlaceMigrate 腾挪节点的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public inplaceMigrateNode(inplaceMigrateNodeRequest?: InplaceMigrateNodeRequest): Promise<InplaceMigrateNodeResponse> {
+        const options = ParamCreater().inplaceMigrateNode(inplaceMigrateNodeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1691,8 +1727,8 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取AddonInstance列表
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
+     * @param {string} clusterId **参数解释**： 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1712,7 +1748,7 @@ export class CceClient {
      *
      * @summary 获取插件检查任务结果列表
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {'addonStatic' | 'addonUpgrade'} [type] **参数解释：** 根据插件检查类型筛选结果 **约束限制：** 不涉及 **取值范围：** - addonStatic: 运行中插件巡检 - addonUpgrade: 插件升级前检查  **默认取值：** 不涉及 
      * @param {string} [taskId] **参数解释：** 根据插件检查任务ID筛选结果，插件检查任务ID可以通过[批量创建插件检查任务](BatchCreateAddonPrecheck.xml)中的status.items[].metadata.taskID字段获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} [addonInstanceId] **参数解释：** 根据插件实例ID筛选结果，实例ID可以通过[获取AddonInstance列表](cce_02_0326.xml)中的items[].metadata.uid字段获取 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及 
@@ -1734,8 +1770,8 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询AddonTemplates列表
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
-     * @param {string} [addonTemplateName] 指定的插件名称或插件别名，不填写则查询列表。
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
+     * @param {string} [addonTemplateName] **参数解释**： 指定的插件名称或插件别名，不填写则查询列表。 **约束限制**： 不涉及 **取值范围**： 以字母或数字开头和结尾，支持字母、数字、连字符(-)、下划线(_)和点号(.)，长度范围2~30位。 **默认取值**： 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1754,7 +1790,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取模板列表
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1792,7 +1828,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取集群升级特性开关配置
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1811,7 +1847,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取集群升级路径
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1830,7 +1866,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定项目下的集群
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} [detail] 查询集群详细信息。  若设置为true，获取集群下节点总数(totalNodesNumber)、正常节点数(activeNodesNumber)、CPU总量(totalNodesCPU)、内存总量(totalNodesMemory)、已安装插件列表(installedAddonInstances)，已安装插件列表中包含名称(addonTemplateName)、版本号(version)、插件的状态信息(status)，放入到annotation中。 
      * @param {'Available' | 'Unavailable' | 'ScalingUp' | 'ScalingDown' | 'Creating' | 'Deleting' | 'Upgrading' | 'Resizing' | 'RollingBack' | 'RollbackFailed' | 'Hibernating' | 'Hibernation' | 'Awaking' | 'Empty'} [status] 集群状态，取值如下 - Available：可用，表示集群处于正常状态。 - Unavailable：不可用，表示集群异常，需手动删除。 - ScalingUp：扩容中，表示集群正处于扩容过程中。 - ScalingDown：缩容中，表示集群正处于缩容过程中。 - Creating：创建中，表示集群正处于创建过程中。 - Deleting：删除中，表示集群正处于删除过程中。 - Upgrading：升级中，表示集群正处于升级过程中。 - Resizing：规格变更中，表示集群正处于变更规格中。 - RollingBack：回滚中，表示集群正处于回滚过程中。 - RollbackFailed：回滚异常，表示集群回滚异常。 - Hibernating：休眠中，表示集群正处于休眠过程中。 - Hibernation：已休眠，表示集群正处于休眠状态。 - Awaking：唤醒中，表示集群正处于从休眠状态唤醒的过程中。 - Empty：集群无任何资源（已废弃）
      * @param {'VirtualMachine' | 'ARM64'} [type] 集群类型： - VirtualMachine：CCE集群 - ARM64：鲲鹏集群
@@ -1877,8 +1913,9 @@ export class CceClient {
      *
      * @summary 获取集群下所有节点池
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} [showDefaultNodePool] 是否展示默认节点池。默认不展示，指定为“true”时展示默认节点池。
+     * @param {boolean} [advanceStatus] **参数解释：** 节点池conditions是否反映整个节点池整体状态。 **约束限制：** 不涉及 **取值范围：** - true: 节点池的conditions反映整个节点池整体状态。 - false: 节点池的conditions仅反映默认伸缩组的状态。  **默认取值：** 不指定时默认为false
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1899,7 +1936,7 @@ export class CceClient {
      *
      * @summary 获取集群下所有节点
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {number} [limit] **参数解释**： 设置每页显示的数据条数。 **约束限制**： 不涉及 **取值范围**： 1到2000之间（含1和2000）的整数。 **默认取值**： 2000
      * @param {string} [marker] **参数解释**： 通过资源uid进行分页查询,默认为查询第一页数据。marker&#x3D;{{uid}}表示查询该uid后的资源列表的信息(查询结果不包含该uid的资源)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 无
      * @param {*} [options] Override http request option.
@@ -1977,10 +2014,10 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取模板实例列表
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} [chartId] 模板ID
-     * @param {string} [namespace] 模板对应的命名空间
+     * @param {string} [chartId] **参数解释：** 模板ID。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [namespace] **参数解释：** 模板对应的命名空间。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2019,7 +2056,7 @@ export class CceClient {
      *
      * @summary 获取UpgradeWorkFlows列表
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2039,7 +2076,7 @@ export class CceClient {
      *
      * @summary 节点开启缩容保护。
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {LockNodeScaledownRequestBody} lockNodeScaledownRequestBody 节点开启缩容保护的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2063,7 +2100,7 @@ export class CceClient {
      * @summary 节点迁移
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} targetClusterId **参数解释**： 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {MigrateNodesTask} migrateNodesTask 迁移节点的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2086,7 +2123,7 @@ export class CceClient {
      * @summary 节点迁移到自定义节点池。
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodepoolId 节点池ID
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {MigrateNodesToNodePoolList} migrateNodesToNodePoolList 迁移节点的请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2129,8 +2166,9 @@ export class CceClient {
      *
      * @summary 节点移除
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {RemoveNodesTask} removeNodesTask 移除节点的请求体
+     * @param {boolean} [removeNodeSystemSecurityGroup] **参数解释**： 移除节点时是否解绑节点默认安全组。 **约束限制**： 不涉及 **取值范围**： - false：移除节点时保留节点默认安全组 - true：移除节点时解绑节点默认安全组  **默认取值**： false
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2151,7 +2189,7 @@ export class CceClient {
      *
      * @summary 重置节点
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {ResetNodeList} resetNodeList 重置节点的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2176,7 +2214,7 @@ export class CceClient {
      *
      * @summary 变更集群规格
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {ResizeClusterRequestBody} resizeClusterRequestBody 变更集群规格的结构体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2212,16 +2250,16 @@ export class CceClient {
     }
 
     /**
-     * 该API用于吊销指定集群的用户证书
+     * 该API用于吊销指定集群的访问证书
      * 
      * &gt; 吊销操作完成后，此证书申请人之前下载的证书和 kubectl 配置文件无法再用于连接集群。此证书申请人可以重新下载证书或 kubectl 配置文件，并使用新下载的文件连接集群
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 吊销用户的集群证书
+     * @summary 吊销集群访问证书
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
-     * @param {CertRevokeConfigRequestBody} certRevokeConfigRequestBody 吊销用户证书的请求Body
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
+     * @param {CertRevokeConfigRequestBody} certRevokeConfigRequestBody 吊销集群访问证书的请求Body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2240,7 +2278,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 回滚AddonInstance
-     * @param {string} id 插件实例ID
+     * @param {string} id **参数解释**： 插件实例ID。 **约束限制**： 不涉及 **取值范围**： UUID格式，长度范围1~255位。 **默认取值**： 不涉及
      * @param {AddonInstanceRollbackRequest} addonInstanceRollbackRequestBody 请求body体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2257,15 +2295,15 @@ export class CceClient {
     /**
      * 该API用于轮转指定集群的证书
      * 
-     * &gt; 只支持1.19及以上集群版本
+     * &gt; 只支持1.15.11及以上集群版本
      * &gt; 操作完成后，用户集群组件的证书有效期会续期5年。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 轮转用户的集群证书
+     * @summary 轮转集群证书
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
-     * @param {RotateCredentialsRequestBody} rotateCredentialsRequestBody 轮转用户集群证书的请求Body
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
+     * @param {RotateCredentialsRequestBody} rotateCredentialsRequestBody 轮转集群证书的请求Body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2286,7 +2324,7 @@ export class CceClient {
      *
      * @summary 轮转节点证书
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {RotateCertNodeList} nodeList **参数解释**： 需轮转证书的节点列表。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2309,7 +2347,7 @@ export class CceClient {
      * @summary 伸缩节点池
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodepoolId 节点池ID
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {ScaleNodePoolRequestBody} scaleNodePoolRequestBody 伸缩节点池的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2329,9 +2367,9 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取AddonInstance详情
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
-     * @param {string} id 插件实例id
-     * @param {string} [clusterId] 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
+     * @param {string} id **参数解释**： 插件实例ID。 **约束限制**： 不涉及 **取值范围**： UUID格式，长度范围1~255位。 **默认取值**： 不涉及
+     * @param {string} [clusterId] **参数解释**： 集群ID（废弃中），获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2350,8 +2388,8 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取模板
-     * @param {string} chartId 模板的ID
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} chartId **参数解释：** 模板的ID。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2370,8 +2408,8 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取模板Values
-     * @param {string} chartId 模板的ID
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} chartId **参数解释：** 模板的ID。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2392,7 +2430,7 @@ export class CceClient {
      *
      * @summary 获取指定的集群
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} [detail] 查询集群详细信息。  若设置为true，获取集群下节点总数(totalNodesNumber)、正常节点数(activeNodesNumber)、CPU总量(totalNodesCPU)、内存总量(totalNodesMemory)和已安装插件列表(installedAddonInstances)，已安装插件列表中包含名称(addonTemplateName)、版本号(version)、插件的状态信息(status)，放入到annotation中。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2413,7 +2451,7 @@ export class CceClient {
      *
      * @summary 查询集群日志配置信息
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {'control' | 'audit' | 'system-addon'} [type] **参数解释**： 组件类型，不填写则查询全部类型。  **约束限制**： 合法取值为control，audit，system-addon  **取值范围**： - control: 控制面组件日志。 - audit: 控制面审计日志。 - system-addon: 系统插件日志。  **默认取值**： 无
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2434,7 +2472,7 @@ export class CceClient {
      *
      * @summary 查询指定集群支持配置的参数列表
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2455,7 +2493,7 @@ export class CceClient {
      *
      * @summary 获取集群访问的地址
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2474,7 +2512,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取集群支持的可配置参数列表
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} [clusterType] **参数解释**： 该参数用于过滤集群架构 **约束限制**： 不涉及 **取值范围**： - ARM64: 仅获取鲲鹏集群支持的配置项  **默认取值**： 不涉及
      * @param {string} [clusterVersion] **参数解释**： 该参数用于获取指定集群版本支持的配置项 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及
      * @param {string} [clusterID] **参数解释**： 该参数用于获取指定集群支持的配置项 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及
@@ -2517,7 +2555,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询特性开关状态
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2541,7 +2579,7 @@ export class CceClient {
      *
      * @summary 获取任务信息
      * @param {string} jobId **参数解释**： 任务ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2563,7 +2601,7 @@ export class CceClient {
      * @summary 获取指定的节点
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodeId **参数解释**： 节点ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2585,7 +2623,8 @@ export class CceClient {
      * @summary 获取指定的节点池
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodepoolId 节点池ID
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
+     * @param {boolean} [advanceStatus] **参数解释：** 节点池conditions是否反映整个节点池整体状态。 **约束限制：** 不涉及 **取值范围：** - true: 节点池的conditions反映整个节点池整体状态。 - false: 节点池的conditions仅反映默认伸缩组的状态。  **默认取值：** 不指定时默认为false
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2606,7 +2645,7 @@ export class CceClient {
      * @summary 查询指定节点池支持配置的参数列表
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodepoolId 节点池ID
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2627,7 +2666,7 @@ export class CceClient {
      * @summary 查询指定节点池支持配置的参数内容
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodepoolId **参数解释：** 节点池ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制：** 不涉及 **取值范围：** - 节点池ID：修改指定节点池配置管理参数 - master：修改集群配置中心的配置管理参数  **默认取值：** 不涉及
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2706,7 +2745,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询CCE服务下的资源配额
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2725,9 +2764,9 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定模板实例
-     * @param {string} name 模板实例名称
-     * @param {string} namespace 模板实例所在的命名空间
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} name **参数解释：** 模板实例名称。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} namespace **参数解释：** 模板实例所在的命名空间。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} [showResources] **参数解释：** 是否展示模板实例的资源信息。 **约束限制：** 不涉及 **取值范围：** 指定为“true”时展示模板实例的资源信息，不指定该参数时默认不展示。 **默认取值：** 无
      * @param {*} [options] Override http request option.
@@ -2748,9 +2787,9 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定模板实例历史记录
-     * @param {string} name 模板实例名称
-     * @param {string} namespace 模板实例所在的命名空间
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} name **参数解释：** 模板实例名称。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} namespace **参数解释：** 模板实例所在的命名空间。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2793,8 +2832,8 @@ export class CceClient {
      *
      * @summary 获取指定集群升级引导任务详情
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} upgradeWorkflowId 集群升级任务引导流程ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} upgradeWorkflowId **参数解释：** 集群升级任务引导流程ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2813,7 +2852,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取用户模板配额
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2834,7 +2873,7 @@ export class CceClient {
      * @summary 同步节点
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodeId **参数解释**： 节点ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2854,7 +2893,7 @@ export class CceClient {
      *
      * @summary 节点关闭缩容保护。
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {UnlockNodeScaledownRequestBody} unlockNodeScaledownRequestBody 节点关闭缩容保护的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2894,8 +2933,8 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新AddonInstance
-     * @param {string} id 插件实例id
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} id **参数解释**： 插件实例ID。 **约束限制**： 不涉及 **取值范围**： UUID格式，长度范围1~255位。 **默认取值**： 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {InstanceRequest} updateAddonInstanceRequestBody 请求body体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2915,10 +2954,10 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新模板
-     * @param {string} chartId 模板的ID
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
-     * @param {any} content 模板包文件
-     * @param {string} [parameters] 上传模板的配置参数，示例如下：\\\&quot;{\\\\\\\&quot;override\\\\\\\&quot;:true,\\\\\\\&quot;skip_lint\\\\\\\&quot;:true,\\\\\\\&quot;source\\\\\\\&quot;:\\\\\\\&quot;package\\\\\\\&quot;}\\\&quot; - skip_lint: whether lint uploaded chart - override: whether override existed chart - visible: update chart visible
+     * @param {string} chartId **参数解释：** 模板的ID。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
+     * @param {any} content **参数解释：** 模板包文件。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [parameters] **参数解释：** 上传模板的配置参数，示例如下：\\\&quot;{\\\\\\\&quot;override\\\\\\\&quot;:true,\\\\\\\&quot;skip_lint\\\\\\\&quot;:true,\\\\\\\&quot;source\\\\\\\&quot;:\\\\\\\&quot;package\\\\\\\&quot;}\\\&quot;。 **约束限制：** 不涉及 **取值范围：** - skip_lint：是否验证上传的模板 - override：是否覆盖已存在的模板 - visible：模板是否可见  **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2939,7 +2978,7 @@ export class CceClient {
      *
      * @summary 更新指定的集群
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {ClusterInformation} updateClusterRequestBody spec是集合类的元素类型，用户对需要管理的集群对象进行详细描述的主体部分都在spec中给出。系统通过spec的描述来创建或更新对象。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2961,7 +3000,7 @@ export class CceClient {
      *
      * @summary 绑定、解绑集群公网apiserver地址
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {MasterEIPRequest} masterEIPBody 绑定或解绑集群公网apiserver地址的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2982,7 +3021,7 @@ export class CceClient {
      *
      * @summary 配置集群日志
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {ClusterLogConfig} updateClusterLogConfigRequestBody 集群日志上报配的置信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3003,7 +3042,7 @@ export class CceClient {
      *
      * @summary 更新集群LongAKSK配置
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {UpdateClusterLongAKSKConfigRequestBody} updateClusterLongAKSKConfigRequestBody 更新集群Longaksk配置请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3023,7 +3062,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新项目LongAKSK配置
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {UpdateLongAKSKConfigRequestBody} updateLongAKSKConfigRequestBody LongAKSK配置请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3047,7 +3086,7 @@ export class CceClient {
      * @summary 更新指定的节点
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodeId **参数解释**： 节点ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {ClusterNodeInformation} updateNodeRequestBody **参数解释**： metadata是节点对象的元数据定义，是集合类的元素类型，包含一组由不同名称定义的属性。 **约束限制**： 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3074,7 +3113,7 @@ export class CceClient {
      * @summary 更新指定节点池
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodepoolId 节点池ID
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {NodePoolUpdate} updateNodePoolRequestBody 更新节点池的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3096,7 +3135,7 @@ export class CceClient {
      * @summary 修改指定节点池配置参数的值
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodepoolId **参数解释：** 节点池ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制：** 不涉及 **取值范围：** - 节点池ID：修改指定节点池配置管理参数 - master：修改集群配置中心的配置管理参数  **默认取值：** 不涉及
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {UpdateClusterConfigurationsBody} updateNodePoolConfigurationRequestBody 批量更新指定节点池配置参数的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3139,7 +3178,7 @@ export class CceClient {
      * @summary 更新pod-identity关联
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} associationId **参数解释**： Pod-identity关联ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {PodIdentityAssociationUpdate} updatePodIdentityAssociationRequestBody **参数解释**： 更新pod-identity关联的请求体 **约束限制**： 无
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3159,9 +3198,9 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新指定模板实例
-     * @param {string} name 模板实例名称
-     * @param {string} namespace 模板实例所在的命名空间
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} name **参数解释：** 模板实例名称。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} namespace **参数解释：** 模板实例所在的命名空间。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {UpdateReleaseReqBody} updateReleaseRequestBody 更新release的请求体
      * @param {string} [showResources] **参数解释：** 是否展示模板实例的资源信息。 **约束限制：** 不涉及 **取值范围：** 指定为“true”时展示模板实例的资源信息，不指定该参数时默认不展示。 **默认取值：** 无
@@ -3186,7 +3225,7 @@ export class CceClient {
      *
      * @summary 集群升级
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {UpgradeClusterRequestBody} upgradeClusterRequestBody 集群升级请求体
+     * @param {UpgradeClusterRequestBody} upgradeClusterRequestBody **参数解释**： 集群升级请求体。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3207,8 +3246,8 @@ export class CceClient {
      *
      * @summary 同步节点池
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} nodepoolId 节点池ID
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} nodepoolId **参数解释**： 选择需要同步/升级的节点池 **约束限制**： 不涉及 **取值范围**： - 节点池ID：同步指定节点池中的配置，节点池ID获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 - DefaultPool：升级默认节点池的配置  **默认取值**： 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {UpgradeNodePool} upgradeNodePoolRequestBody 同步节点池的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3230,8 +3269,8 @@ export class CceClient {
      *
      * @summary 更新指定集群升级引导任务状态
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} upgradeWorkflowId 集群升级任务引导流程ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} upgradeWorkflowId **参数解释：** 集群升级任务引导流程ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {UpgradeWorkFlowUpdateRequestBody} upgradeWorkFlowUpdateRequestBody 更新集群升级流程引导任务请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3251,9 +3290,9 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 上传模板
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
-     * @param {any} content 模板包文件
-     * @param {string} [parameters] 上传模板的配置参数，示例如下：\\\&quot;{\\\\\\\&quot;override\\\\\\\&quot;:true,\\\\\\\&quot;skip_lint\\\\\\\&quot;:true,\\\\\\\&quot;source\\\\\\\&quot;:\\\\\\\&quot;package\\\\\\\&quot;}\\\&quot;  - skip_lint: 是否验证上传的模板 - override: 是否覆盖已存在的模板 - visible: 模板是否可见 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
+     * @param {any} content **参数解释：** 模板包文件。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [parameters] **参数解释：** 上传模板的配置参数，示例如下：\\\&quot;{\\\\\\\&quot;override\\\\\\\&quot;:true,\\\\\\\&quot;skip_lint\\\\\\\&quot;:true,\\\\\\\&quot;source\\\\\\\&quot;:\\\\\\\&quot;package\\\\\\\&quot;}\\\&quot;。 **约束限制：** 不涉及 **取值范围：** - skip_lint：是否验证上传的模板 - override：是否覆盖已存在的模板 - visible：模板是否可见  **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3293,7 +3332,7 @@ export class CceClient {
      *
      * @summary 批量添加指定集群的资源标签
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {BatchCreateClusterTagsRequestBody} batchCreateClusterTagsRequestBody 批量添加指定集群资源标签的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3315,8 +3354,8 @@ export class CceClient {
      *
      * @summary 批量删除指定集群的资源标签
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
-     * @param {BatchDeleteClusterTagsRequestBody} batchDeleteClusterTagsRequestBody 批量删除指定集群资源标签的请求体
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
+     * @param {BatchDeleteClusterTagsRequestBody} batchDeleteClusterTagsRequestBody **参数解释：** 批量删除指定集群资源标签的请求体。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3335,7 +3374,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建AddonInstance
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {InstanceRequest} createAddonInstanceRequestBody 请求body体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3359,7 +3398,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建集群
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {AutopilotCluster} createClusterRequestBody 集群规格信息请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3399,7 +3438,7 @@ export class CceClient {
      *
      * @summary 获取集群证书
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {CertDuration} createKubernetesClusterCertRequestBody 创建集群证书的请求Body。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3420,7 +3459,7 @@ export class CceClient {
      *
      * @summary 创建集群维护窗口
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {MaintenanceWindow} createAutopilotMaintenanceWindowRequestBody 请求body体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3480,7 +3519,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建模板实例
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {CreateReleaseReqBody} createReleaseRequestBody 创建release请求体
      * @param {*} [options] Override http request option.
@@ -3503,7 +3542,7 @@ export class CceClient {
      *
      * @summary 开启集群升级流程引导任务
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {CreateUpgradeWorkFlowRequestBody} createUpgradeWorkFlowRequestBody 集群升级流程引导任务请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3523,7 +3562,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除AddonInstance
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} id 插件实例id
      * @param {string} [clusterId] 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)
      * @param {*} [options] Override http request option.
@@ -3544,8 +3583,8 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除模板
-     * @param {string} chartId 模板的ID
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} chartId **参数解释：** 模板的ID。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3566,7 +3605,7 @@ export class CceClient {
      *
      * @summary 删除集群
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteEfs] 是否删除SFS Turbo（极速文件存储卷）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteEni] 是否删除eni ports（原生弹性网卡）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程，默认选项) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程)
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteNet] 是否删除elb（弹性负载均衡）等集群Service/Ingress相关资源。 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程，默认选项) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程)
@@ -3592,7 +3631,7 @@ export class CceClient {
      *
      * @summary 删除集群维护窗口
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3611,9 +3650,9 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除指定模板实例
-     * @param {string} name 模板实例名称
-     * @param {string} namespace 模板实例所在的命名空间
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} name **参数解释：** 模板实例名称。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} namespace **参数解释：** 模板实例所在的命名空间。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} [showResources] **参数解释：** 是否展示模板实例的资源信息。 **约束限制：** 不涉及 **取值范围：** 指定为“true”时展示模板实例的资源信息，不指定该参数时默认不展示。 **默认取值：** 无
      * @param {*} [options] Override http request option.
@@ -3634,8 +3673,8 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 下载模板
-     * @param {string} chartId 模板的ID
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} chartId **参数解释：** 模板的ID。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3654,7 +3693,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取AddonInstance列表
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3674,7 +3713,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询AddonTemplates列表
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} [addonTemplateName] 指定的插件名称或插件别名，不填写则查询列表。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3694,7 +3733,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取模板列表
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3732,7 +3771,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取集群升级特性开关配置
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3751,7 +3790,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取集群升级路径
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3770,7 +3809,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定项目下的集群
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} [detail] 查询集群详细信息。  若设置为true，获取集群下节点总数(totalNodesNumber)、正常节点数(activeNodesNumber)、CPU总量(totalNodesCPU)、内存总量(totalNodesMemory)、已安装插件列表(installedAddonInstances)，已安装插件列表中包含名称(addonTemplateName)、版本号(version)、插件的状态信息(status)，放入到annotation中。 
      * @param {'Available' | 'Unavailable' | 'Creating' | 'Deleting' | 'Upgrading' | 'RollingBack' | 'RollbackFailed' | 'Error'} [status] 集群状态，取值如下 - Available：可用，表示集群处于正常状态。 - Unavailable：不可用，表示集群异常，需手动删除。 - Creating：创建中，表示集群正处于创建过程中。 - Deleting：删除中，表示集群正处于删除过程中。 - Upgrading：升级中，表示集群正处于升级过程中。 - RollingBack：回滚中，表示集群正处于回滚过程中。 - RollbackFailed：回滚异常，表示集群回滚异常。 - Error：错误，表示集群资源异常，可尝试手动删除。
      * @param {'VirtualMachine'} [type] 集群类型： - VirtualMachine：CCE集群
@@ -3812,10 +3851,10 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取模板实例列表
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} [chartId] 模板ID
-     * @param {string} [namespace] 模板对应的命名空间
+     * @param {string} [chartId] **参数解释：** 模板ID。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [namespace] **参数解释：** 模板对应的命名空间。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3854,7 +3893,7 @@ export class CceClient {
      *
      * @summary 获取自动升级计划
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3874,7 +3913,7 @@ export class CceClient {
      *
      * @summary 获取UpgradeWorkFlows列表
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3934,7 +3973,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取AddonInstance详情
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} id 插件实例id
      * @param {string} [clusterId] 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)
      * @param {*} [options] Override http request option.
@@ -3955,8 +3994,8 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取模板
-     * @param {string} chartId 模板的ID
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} chartId **参数解释：** 模板的ID。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3975,8 +4014,8 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取模板Values
-     * @param {string} chartId 模板的ID
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} chartId **参数解释：** 模板的ID。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3997,7 +4036,7 @@ export class CceClient {
      *
      * @summary 获取指定的集群
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} [detail] 查询集群详细信息。  若设置为true，获取集群下节点总数(totalNodesNumber)、正常节点数(activeNodesNumber)、CPU总量(totalNodesCPU)、内存总量(totalNodesMemory)和已安装插件列表(installedAddonInstances)，已安装插件列表中包含名称(addonTemplateName)、版本号(version)、插件的状态信息(status)，放入到annotation中。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4018,7 +4057,7 @@ export class CceClient {
      *
      * @summary 查询集群日志配置信息
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {'control' | 'audit' | 'system-addon'} [type] **参数解释**： 组件类型，不填写则查询全部类型。  **约束限制**： 合法取值为control，audit，system-addon  **取值范围**： - control: 控制面组件日志。 - audit: 控制面审计日志。 - system-addon: 系统插件日志。  **默认取值**： 无
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4040,7 +4079,7 @@ export class CceClient {
      *
      * @summary 获取集群访问的地址
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4079,7 +4118,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询特性开关状态
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4103,7 +4142,7 @@ export class CceClient {
      *
      * @summary 获取任务信息
      * @param {string} jobId **参数解释**： 任务ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4123,7 +4162,7 @@ export class CceClient {
      *
      * @summary 获取集群维护窗口
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4162,7 +4201,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询CCE服务下的资源配额
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4181,9 +4220,9 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定模板实例
-     * @param {string} name 模板实例名称
-     * @param {string} namespace 模板实例所在的命名空间
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} name **参数解释：** 模板实例名称。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} namespace **参数解释：** 模板实例所在的命名空间。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} [showResources] **参数解释：** 是否展示模板实例的资源信息。 **约束限制：** 不涉及 **取值范围：** 指定为“true”时展示模板实例的资源信息，不指定该参数时默认不展示。 **默认取值：** 无
      * @param {*} [options] Override http request option.
@@ -4204,9 +4243,9 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定模板实例历史记录
-     * @param {string} name 模板实例名称
-     * @param {string} namespace 模板实例所在的命名空间
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} name **参数解释：** 模板实例名称。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} namespace **参数解释：** 模板实例所在的命名空间。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4249,8 +4288,8 @@ export class CceClient {
      *
      * @summary 获取指定集群升级引导任务详情
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} upgradeWorkflowId 集群升级任务引导流程ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} upgradeWorkflowId **参数解释：** 集群升级任务引导流程ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4269,7 +4308,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取用户模板配额
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4289,7 +4328,7 @@ export class CceClient {
      *
      * @summary 更新AddonInstance
      * @param {string} id 插件实例id
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {InstanceRequest} updateAddonInstanceRequestBody 请求body体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4309,10 +4348,10 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新模板
-     * @param {string} chartId 模板的ID
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
-     * @param {any} content 模板包文件
-     * @param {string} [parameters] 上传模板的配置参数，示例如下：\\\&quot;{\\\\\\\&quot;override\\\\\\\&quot;:true,\\\\\\\&quot;skip_lint\\\\\\\&quot;:true,\\\\\\\&quot;source\\\\\\\&quot;:\\\\\\\&quot;package\\\\\\\&quot;}\\\&quot; - skip_lint: whether lint uploaded chart - override: whether override existed chart - visible: update chart visible
+     * @param {string} chartId **参数解释：** 模板的ID。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
+     * @param {any} content **参数解释：** 模板包文件。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [parameters] **参数解释：** 更新模板的配置参数，示例如下：\\\&quot;{\\\\\\\&quot;override\\\\\\\&quot;:true,\\\\\\\&quot;skip_lint\\\\\\\&quot;:true,\\\\\\\&quot;source\\\\\\\&quot;:\\\\\\\&quot;package\\\\\\\&quot;}\\\&quot;。 **约束限制：** 不涉及 **取值范围：** - skip_lint：是否验证上传的模板 - override：是否覆盖已存在的模板 - visible：模板是否可见  **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4333,7 +4372,7 @@ export class CceClient {
      *
      * @summary 更新指定的集群
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {AutopilotClusterInformation} updateClusterRequestBody spec是集合类的元素类型，用户对需要管理的集群对象进行详细描述的主体部分都在spec中给出。系统通过spec的描述来创建或更新对象。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4355,7 +4394,7 @@ export class CceClient {
      *
      * @summary 绑定、解绑集群公网apiserver地址
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {MasterEIPRequest} masterEIPBody 绑定或解绑集群公网apiserver地址的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4376,7 +4415,7 @@ export class CceClient {
      *
      * @summary 更新集群维护窗口
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {MaintenanceWindow} updateAutopilotMaintenanceWindowRequestBody 请求body体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4396,9 +4435,9 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新指定模板实例
-     * @param {string} name 模板实例名称
-     * @param {string} namespace 模板实例所在的命名空间
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} name **参数解释：** 模板实例名称。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} namespace **参数解释：** 模板实例所在的命名空间。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {UpdateReleaseReqBody} updateReleaseRequestBody 更新release的请求体
      * @param {string} [showResources] **参数解释：** 是否展示模板实例的资源信息。 **约束限制：** 不涉及 **取值范围：** 指定为“true”时展示模板实例的资源信息，不指定该参数时默认不展示。 **默认取值：** 无
@@ -4421,8 +4460,8 @@ export class CceClient {
      *
      * @summary 延期自动升级计划
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} upgradePlanId 集群自动升级计划ID
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} upgradePlanId **参数解释：** 集群自动升级计划ID。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {DelayUpgradePlanRequestBody} delayUpgradePlanRequestBody 延期自动升级计划请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4466,8 +4505,8 @@ export class CceClient {
      *
      * @summary 更新指定集群升级引导任务状态
      * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} upgradeWorkflowId 集群升级任务引导流程ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} upgradeWorkflowId **参数解释：** 集群升级任务引导流程ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {UpgradeWorkFlowUpdateRequestBody} upgradeWorkFlowUpdateRequestBody 更新集群升级流程引导任务请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4487,7 +4526,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 上传模板
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {any} content 模板包文件
      * @param {string} [parameters] 上传模板的配置参数，示例如下：\\\&quot;{\\\\\\\&quot;override\\\\\\\&quot;:true,\\\\\\\&quot;skip_lint\\\\\\\&quot;:true,\\\\\\\&quot;source\\\\\\\&quot;:\\\\\\\&quot;package\\\\\\\&quot;}\\\&quot;  - skip_lint: 是否验证上传的模板 - override: 是否覆盖已存在的模板 - visible: 模板是否可见 
      * @param {*} [options] Override http request option.
@@ -4509,7 +4548,7 @@ export class CceClient {
      *
      * @summary 删除Job
      * @param {string} jobId **参数解释**： 任务ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4529,7 +4568,7 @@ export class CceClient {
      *
      * @summary 获取Job详情
      * @param {string} jobId **参数解释**： 任务ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4548,7 +4587,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取Job列表
-     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **默认取值：** 不涉及 
+     * @param {string} contentType **参数解释：** 消息体的类型（格式），默认为application/json，有其他取值时会在具体接口中专门说明。 **约束限制：** GET方法不做校验 **取值范围：** 不涉及 **默认取值：** 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5309,7 +5348,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于获取指定集群的证书信息。
+         * 该API用于获取指定集群的访问证书信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6807,6 +6846,68 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于在指定集群下腾挪节点到另一集群。
+         * 
+         * &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        inplaceMigrateNode(inplaceMigrateNodeRequest?: InplaceMigrateNodeRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/nodes/operation/in-place-migrateto/{target_cluster_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clusterId;
+            
+            let targetClusterId;
+            
+            let contentType;
+
+            if (inplaceMigrateNodeRequest !== null && inplaceMigrateNodeRequest !== undefined) {
+                if (inplaceMigrateNodeRequest instanceof InplaceMigrateNodeRequest) {
+                    clusterId = inplaceMigrateNodeRequest.clusterId;
+                    targetClusterId = inplaceMigrateNodeRequest.targetClusterId;
+                    contentType = inplaceMigrateNodeRequest.contentType;
+                    body = inplaceMigrateNodeRequest.body
+                } else {
+                    clusterId = inplaceMigrateNodeRequest['cluster_id'];
+                    targetClusterId = inplaceMigrateNodeRequest['target_cluster_id'];
+                    contentType = inplaceMigrateNodeRequest['Content-Type'];
+                    body = inplaceMigrateNodeRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling inplaceMigrateNode.');
+            }
+            if (targetClusterId === null || targetClusterId === undefined) {
+            throw new RequiredError('targetClusterId','Required parameter targetClusterId was null or undefined when calling inplaceMigrateNode.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'target_cluster_id': targetClusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于获取访问策略列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7286,16 +7387,20 @@ export const ParamCreater = function () {
             let contentType;
             
             let showDefaultNodePool;
+            
+            let advanceStatus;
 
             if (listNodePoolsRequest !== null && listNodePoolsRequest !== undefined) {
                 if (listNodePoolsRequest instanceof ListNodePoolsRequest) {
                     clusterId = listNodePoolsRequest.clusterId;
                     contentType = listNodePoolsRequest.contentType;
                     showDefaultNodePool = listNodePoolsRequest.showDefaultNodePool;
+                    advanceStatus = listNodePoolsRequest.advanceStatus;
                 } else {
                     clusterId = listNodePoolsRequest['cluster_id'];
                     contentType = listNodePoolsRequest['Content-Type'];
                     showDefaultNodePool = listNodePoolsRequest['showDefaultNodePool'];
+                    advanceStatus = listNodePoolsRequest['advanceStatus'];
                 }
             }
 
@@ -7305,6 +7410,9 @@ export const ParamCreater = function () {
             }
             if (showDefaultNodePool !== null && showDefaultNodePool !== undefined) {
                 localVarQueryParameter['showDefaultNodePool'] = showDefaultNodePool;
+            }
+            if (advanceStatus !== null && advanceStatus !== undefined) {
+                localVarQueryParameter['advanceStatus'] = advanceStatus;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -7859,22 +7967,26 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             let body: any;
             
             let clusterId;
             
             let contentType;
+            
+            let removeNodeSystemSecurityGroup;
 
             if (removeNodeRequest !== null && removeNodeRequest !== undefined) {
                 if (removeNodeRequest instanceof RemoveNodeRequest) {
                     clusterId = removeNodeRequest.clusterId;
                     contentType = removeNodeRequest.contentType;
                     body = removeNodeRequest.body
+                    removeNodeSystemSecurityGroup = removeNodeRequest.removeNodeSystemSecurityGroup;
                 } else {
                     clusterId = removeNodeRequest['cluster_id'];
                     contentType = removeNodeRequest['Content-Type'];
                     body = removeNodeRequest['body'];
+                    removeNodeSystemSecurityGroup = removeNodeRequest['removeNodeSystemSecurityGroup'];
                 }
             }
 
@@ -7885,12 +7997,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (removeNodeSystemSecurityGroup !== null && removeNodeSystemSecurityGroup !== undefined) {
+                localVarQueryParameter['removeNodeSystemSecurityGroup'] = removeNodeSystemSecurityGroup;
+            }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -8047,7 +8163,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于吊销指定集群的用户证书
+         * 该API用于吊销指定集群的访问证书
          * 
          * &gt; 吊销操作完成后，此证书申请人之前下载的证书和 kubectl 配置文件无法再用于连接集群。此证书申请人可以重新下载证书或 kubectl 配置文件，并使用新下载的文件连接集群
          * 
@@ -8150,7 +8266,7 @@ export const ParamCreater = function () {
         /**
          * 该API用于轮转指定集群的证书
          * 
-         * &gt; 只支持1.19及以上集群版本
+         * &gt; 只支持1.15.11及以上集群版本
          * &gt; 操作完成后，用户集群组件的证书有效期会续期5年。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8907,23 +9023,27 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let clusterId;
             
             let nodepoolId;
             
             let contentType;
+            
+            let advanceStatus;
 
             if (showNodePoolRequest !== null && showNodePoolRequest !== undefined) {
                 if (showNodePoolRequest instanceof ShowNodePoolRequest) {
                     clusterId = showNodePoolRequest.clusterId;
                     nodepoolId = showNodePoolRequest.nodepoolId;
                     contentType = showNodePoolRequest.contentType;
+                    advanceStatus = showNodePoolRequest.advanceStatus;
                 } else {
                     clusterId = showNodePoolRequest['cluster_id'];
                     nodepoolId = showNodePoolRequest['nodepool_id'];
                     contentType = showNodePoolRequest['Content-Type'];
+                    advanceStatus = showNodePoolRequest['advanceStatus'];
                 }
             }
 
@@ -8934,10 +9054,14 @@ export const ParamCreater = function () {
             if (nodepoolId === null || nodepoolId === undefined) {
             throw new RequiredError('nodepoolId','Required parameter nodepoolId was null or undefined when calling showNodePool.');
             }
+            if (advanceStatus !== null && advanceStatus !== undefined) {
+                localVarQueryParameter['advanceStatus'] = advanceStatus;
+            }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId,'nodepool_id': nodepoolId, };
             options.headers = localVarHeaderParameter;
             return options;

@@ -1,39 +1,45 @@
 import { InstanceBackupDatastore } from './InstanceBackupDatastore';
-import { Spaces } from './Spaces';
+import { Space } from './Space';
 
 
 export class InstanceBackupSummary {
-    public id?: string;
+    private 'instance_id'?: string;
     public name?: string;
-    private 'backup_use_space'?: number;
+    private 'backup_used_space'?: number;
     public datastore?: InstanceBackupDatastore;
-    public spaces?: Spaces;
+    public space?: Space;
     public constructor() { 
     }
-    public withId(id: string): InstanceBackupSummary {
-        this['id'] = id;
+    public withInstanceId(instanceId: string): InstanceBackupSummary {
+        this['instance_id'] = instanceId;
         return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
     }
     public withName(name: string): InstanceBackupSummary {
         this['name'] = name;
         return this;
     }
-    public withBackupUseSpace(backupUseSpace: number): InstanceBackupSummary {
-        this['backup_use_space'] = backupUseSpace;
+    public withBackupUsedSpace(backupUsedSpace: number): InstanceBackupSummary {
+        this['backup_used_space'] = backupUsedSpace;
         return this;
     }
-    public set backupUseSpace(backupUseSpace: number  | undefined) {
-        this['backup_use_space'] = backupUseSpace;
+    public set backupUsedSpace(backupUsedSpace: number  | undefined) {
+        this['backup_used_space'] = backupUsedSpace;
     }
-    public get backupUseSpace(): number | undefined {
-        return this['backup_use_space'];
+    public get backupUsedSpace(): number | undefined {
+        return this['backup_used_space'];
     }
     public withDatastore(datastore: InstanceBackupDatastore): InstanceBackupSummary {
         this['datastore'] = datastore;
         return this;
     }
-    public withSpaces(spaces: Spaces): InstanceBackupSummary {
-        this['spaces'] = spaces;
+    public withSpace(space: Space): InstanceBackupSummary {
+        this['space'] = space;
         return this;
     }
 }

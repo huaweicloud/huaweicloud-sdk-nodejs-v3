@@ -15,7 +15,7 @@ export class PipelineTemplateSimpleVO {
     private 'creator_name'?: string;
     private 'updater_id'?: string;
     private 'is_collect'?: boolean;
-    private 'is_show_source'?: string;
+    private 'is_show_source'?: boolean;
     public stages?: Array<PipelineTemplateSimpleVOStages>;
     public constructor() { 
     }
@@ -113,14 +113,14 @@ export class PipelineTemplateSimpleVO {
     public get isCollect(): boolean | undefined {
         return this['is_collect'];
     }
-    public withIsShowSource(isShowSource: string): PipelineTemplateSimpleVO {
+    public withIsShowSource(isShowSource: boolean): PipelineTemplateSimpleVO {
         this['is_show_source'] = isShowSource;
         return this;
     }
-    public set isShowSource(isShowSource: string  | undefined) {
+    public set isShowSource(isShowSource: boolean  | undefined) {
         this['is_show_source'] = isShowSource;
     }
-    public get isShowSource(): string | undefined {
+    public get isShowSource(): boolean | undefined {
         return this['is_show_source'];
     }
     public withStages(stages: Array<PipelineTemplateSimpleVOStages>): PipelineTemplateSimpleVO {

@@ -7,6 +7,7 @@ export class ListEdgeNodesRequest {
     private 'instance_id'?: string;
     private 'space_id'?: string;
     private 'node_ids'?: Array<string>;
+    private 'app_id'?: string;
     public offset?: number;
     public limit?: number;
     public constructor() { 
@@ -52,6 +53,16 @@ export class ListEdgeNodesRequest {
     }
     public get nodeIds(): Array<string> | undefined {
         return this['node_ids'];
+    }
+    public withAppId(appId: string): ListEdgeNodesRequest {
+        this['app_id'] = appId;
+        return this;
+    }
+    public set appId(appId: string  | undefined) {
+        this['app_id'] = appId;
+    }
+    public get appId(): string | undefined {
+        return this['app_id'];
     }
     public withOffset(offset: number): ListEdgeNodesRequest {
         this['offset'] = offset;

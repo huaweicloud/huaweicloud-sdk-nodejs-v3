@@ -1,4 +1,5 @@
 import { ContainerSettingsDTO } from './ContainerSettingsDTO';
+import { PreUpgradeProbeDTO } from './PreUpgradeProbeDTO';
 import { ProbeDTO } from './ProbeDTO';
 
 
@@ -19,6 +20,7 @@ export class CreateEdgeApplicationVersionDTO {
     public services?: object;
     public supplier?: string;
     private 'tpl_id'?: string;
+    private 'pre_upgrade_probe'?: PreUpgradeProbeDTO;
     public constructor(version?: string, containerSettings?: ContainerSettingsDTO, arch?: object) { 
         this['version'] = version;
         this['container_settings'] = containerSettings;
@@ -129,6 +131,16 @@ export class CreateEdgeApplicationVersionDTO {
     }
     public get tplId(): string | undefined {
         return this['tpl_id'];
+    }
+    public withPreUpgradeProbe(preUpgradeProbe: PreUpgradeProbeDTO): CreateEdgeApplicationVersionDTO {
+        this['pre_upgrade_probe'] = preUpgradeProbe;
+        return this;
+    }
+    public set preUpgradeProbe(preUpgradeProbe: PreUpgradeProbeDTO  | undefined) {
+        this['pre_upgrade_probe'] = preUpgradeProbe;
+    }
+    public get preUpgradeProbe(): PreUpgradeProbeDTO | undefined {
+        return this['pre_upgrade_probe'];
     }
 }
 

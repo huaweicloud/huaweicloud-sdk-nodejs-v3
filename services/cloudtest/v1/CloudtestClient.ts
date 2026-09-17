@@ -7,10 +7,14 @@ import { AddCaseResultFourRequest } from './model/AddCaseResultFourRequest';
 import { AddCaseResultFourResponse } from './model/AddCaseResultFourResponse';
 import { AddFeatureRequest } from './model/AddFeatureRequest';
 import { AddFeatureResponse } from './model/AddFeatureResponse';
+import { AddIssuesToIteratorRequest } from './model/AddIssuesToIteratorRequest';
+import { AddIssuesToIteratorResponse } from './model/AddIssuesToIteratorResponse';
 import { AddOrUpdateTestsuiteInfoUsingRequest } from './model/AddOrUpdateTestsuiteInfoUsingRequest';
 import { AddOrUpdateTestsuiteInfoUsingResponse } from './model/AddOrUpdateTestsuiteInfoUsingResponse';
 import { AddRelationsInfo } from './model/AddRelationsInfo';
 import { AddResourceInfo } from './model/AddResourceInfo';
+import { AddResourceToIteratorRequest } from './model/AddResourceToIteratorRequest';
+import { AddResourceToIteratorResponse } from './model/AddResourceToIteratorResponse';
 import { AddTestCaseCommentRequest } from './model/AddTestCaseCommentRequest';
 import { AddTestCaseCommentResponse } from './model/AddTestCaseCommentResponse';
 import { AddTestCaseResultInfo } from './model/AddTestCaseResultInfo';
@@ -33,6 +37,7 @@ import { ArrayNode } from './model/ArrayNode';
 import { Asset } from './model/Asset';
 import { AssetExportParam } from './model/AssetExportParam';
 import { AssetTree } from './model/AssetTree';
+import { AssignCaseInfo } from './model/AssignCaseInfo';
 import { AssignedUserInfo } from './model/AssignedUserInfo';
 import { AssociateDefectInfoVo } from './model/AssociateDefectInfoVo';
 import { AssociateIssueInfoVo } from './model/AssociateIssueInfoVo';
@@ -72,6 +77,8 @@ import { BatchAddTestCaseResultInTaskInfo } from './model/BatchAddTestCaseResult
 import { BatchCreateUpdateApiTestCaseVo } from './model/BatchCreateUpdateApiTestCaseVo';
 import { BatchDeleteFacotrByIdsRequest } from './model/BatchDeleteFacotrByIdsRequest';
 import { BatchDeleteFacotrByIdsResponse } from './model/BatchDeleteFacotrByIdsResponse';
+import { BatchDeleteTasksRequest } from './model/BatchDeleteTasksRequest';
+import { BatchDeleteTasksResponse } from './model/BatchDeleteTasksResponse';
 import { BatchDeleteTestCaseRequest } from './model/BatchDeleteTestCaseRequest';
 import { BatchDeleteTestCaseRequestBody } from './model/BatchDeleteTestCaseRequestBody';
 import { BatchDeleteTestCaseResponse } from './model/BatchDeleteTestCaseResponse';
@@ -96,6 +103,7 @@ import { CaseCompletionRateVo } from './model/CaseCompletionRateVo';
 import { CaseExecuteVo } from './model/CaseExecuteVo';
 import { CaseIdAndTypeInfo } from './model/CaseIdAndTypeInfo';
 import { CaseInfo } from './model/CaseInfo';
+import { CaseOperationInfo } from './model/CaseOperationInfo';
 import { CaseOperationVo } from './model/CaseOperationVo';
 import { CasePassRateVo } from './model/CasePassRateVo';
 import { CasePassVo } from './model/CasePassVo';
@@ -140,6 +148,8 @@ import { CreateAssetTreeResponse } from './model/CreateAssetTreeResponse';
 import { CreateBackupMindmapRequest } from './model/CreateBackupMindmapRequest';
 import { CreateBackupMindmapResponse } from './model/CreateBackupMindmapResponse';
 import { CreateBasicAwReq } from './model/CreateBasicAwReq';
+import { CreateBranchRequest } from './model/CreateBranchRequest';
+import { CreateBranchResponse } from './model/CreateBranchResponse';
 import { CreateInfoVo } from './model/CreateInfoVo';
 import { CreateIteratorRequest } from './model/CreateIteratorRequest';
 import { CreateIteratorResponse } from './model/CreateIteratorResponse';
@@ -158,6 +168,8 @@ import { CreateServiceRequest } from './model/CreateServiceRequest';
 import { CreateServiceResponse } from './model/CreateServiceResponse';
 import { CreateTaskDefaultResultRequest } from './model/CreateTaskDefaultResultRequest';
 import { CreateTaskDefaultResultResponse } from './model/CreateTaskDefaultResultResponse';
+import { CreateTaskRequest } from './model/CreateTaskRequest';
+import { CreateTaskResponse } from './model/CreateTaskResponse';
 import { CreateTemplateRequest } from './model/CreateTemplateRequest';
 import { CreateTemplateResponse } from './model/CreateTemplateResponse';
 import { CreateTestCaseInPlanRequest } from './model/CreateTestCaseInPlanRequest';
@@ -167,7 +179,11 @@ import { CreateTestCaseReq } from './model/CreateTestCaseReq';
 import { CreateTestCaseRequest } from './model/CreateTestCaseRequest';
 import { CreateTestCaseRequestBody } from './model/CreateTestCaseRequestBody';
 import { CreateTestCaseResponse } from './model/CreateTestCaseResponse';
+import { CreateTestIteratorRequest } from './model/CreateTestIteratorRequest';
+import { CreateTestIteratorResponse } from './model/CreateTestIteratorResponse';
 import { CreateTestSuitByRepoFileInfo } from './model/CreateTestSuitByRepoFileInfo';
+import { CreateTestVersionCaseRequest } from './model/CreateTestVersionCaseRequest';
+import { CreateTestVersionCaseResponse } from './model/CreateTestVersionCaseResponse';
 import { CreateUserDefinedUrlKeyWordRequest } from './model/CreateUserDefinedUrlKeyWordRequest';
 import { CreateUserDefinedUrlKeyWordResponse } from './model/CreateUserDefinedUrlKeyWordResponse';
 import { CreateVersionTestCaseRequest } from './model/CreateVersionTestCaseRequest';
@@ -183,10 +199,14 @@ import { DeleteAssetTreeRequest } from './model/DeleteAssetTreeRequest';
 import { DeleteAssetTreeResponse } from './model/DeleteAssetTreeResponse';
 import { DeleteBasicAwByIdRequest } from './model/DeleteBasicAwByIdRequest';
 import { DeleteBasicAwByIdResponse } from './model/DeleteBasicAwByIdResponse';
+import { DeleteBranchRequest } from './model/DeleteBranchRequest';
+import { DeleteBranchResponse } from './model/DeleteBranchResponse';
 import { DeleteCacheFileRequest } from './model/DeleteCacheFileRequest';
 import { DeleteCacheFileResponse } from './model/DeleteCacheFileResponse';
 import { DeleteFacotrByIdRequest } from './model/DeleteFacotrByIdRequest';
 import { DeleteFacotrByIdResponse } from './model/DeleteFacotrByIdResponse';
+import { DeleteIteratorRequest } from './model/DeleteIteratorRequest';
+import { DeleteIteratorResponse } from './model/DeleteIteratorResponse';
 import { DeleteMindmapBackupByIdRequest } from './model/DeleteMindmapBackupByIdRequest';
 import { DeleteMindmapBackupByIdResponse } from './model/DeleteMindmapBackupByIdResponse';
 import { DeleteMindmapRecycleByIdRequest } from './model/DeleteMindmapRecycleByIdRequest';
@@ -196,6 +216,7 @@ import { DeleteRelationsByOneCaseRequest } from './model/DeleteRelationsByOneCas
 import { DeleteRelationsByOneCaseResponse } from './model/DeleteRelationsByOneCaseResponse';
 import { DeleteServiceRequest } from './model/DeleteServiceRequest';
 import { DeleteServiceResponse } from './model/DeleteServiceResponse';
+import { DeleteTaskInfo } from './model/DeleteTaskInfo';
 import { DeleteTaskParams } from './model/DeleteTaskParams';
 import { DeleteTemplateByIdRequest } from './model/DeleteTemplateByIdRequest';
 import { DeleteTemplateByIdResponse } from './model/DeleteTemplateByIdResponse';
@@ -262,6 +283,7 @@ import { IssueListFilterInfo } from './model/IssueListFilterInfo';
 import { IssueListPiFilterInfo } from './model/IssueListPiFilterInfo';
 import { IssuePassDetailsVo } from './model/IssuePassDetailsVo';
 import { IssueTreeInfo } from './model/IssueTreeInfo';
+import { IssuesInfo } from './model/IssuesInfo';
 import { IssuesRelationTestCaseVo } from './model/IssuesRelationTestCaseVo';
 import { ItemParam } from './model/ItemParam';
 import { IteratorDeleteCaseVo } from './model/IteratorDeleteCaseVo';
@@ -346,6 +368,8 @@ import { ListTaskTestCasesRequest } from './model/ListTaskTestCasesRequest';
 import { ListTaskTestCasesResponse } from './model/ListTaskTestCasesResponse';
 import { ListTasksRequest } from './model/ListTasksRequest';
 import { ListTasksResponse } from './model/ListTasksResponse';
+import { ListTestBranchesRequest } from './model/ListTestBranchesRequest';
+import { ListTestBranchesResponse } from './model/ListTestBranchesResponse';
 import { ListTestCaseCommentsRequest } from './model/ListTestCaseCommentsRequest';
 import { ListTestCaseCommentsResponse } from './model/ListTestCaseCommentsResponse';
 import { ListTestCaseHistoriesRequest } from './model/ListTestCaseHistoriesRequest';
@@ -353,6 +377,8 @@ import { ListTestCaseHistoriesRequestBody } from './model/ListTestCaseHistoriesR
 import { ListTestCaseHistoriesResponse } from './model/ListTestCaseHistoriesResponse';
 import { ListTestCaseScriptDetailRequest } from './model/ListTestCaseScriptDetailRequest';
 import { ListTestCaseScriptDetailResponse } from './model/ListTestCaseScriptDetailResponse';
+import { ListTestCasesByConditionRequest } from './model/ListTestCasesByConditionRequest';
+import { ListTestCasesByConditionResponse } from './model/ListTestCasesByConditionResponse';
 import { ListTestCasesByIssueRequest } from './model/ListTestCasesByIssueRequest';
 import { ListTestCasesByIssueResponse } from './model/ListTestCasesByIssueResponse';
 import { ListTestCasesRequest } from './model/ListTestCasesRequest';
@@ -378,6 +404,8 @@ import { ListUsingGetRequest } from './model/ListUsingGetRequest';
 import { ListUsingGetResponse } from './model/ListUsingGetResponse';
 import { ListVariablesRequest } from './model/ListVariablesRequest';
 import { ListVariablesResponse } from './model/ListVariablesResponse';
+import { ListVisibleServicesRequest } from './model/ListVisibleServicesRequest';
+import { ListVisibleServicesResponse } from './model/ListVisibleServicesResponse';
 import { MindmapBackup } from './model/MindmapBackup';
 import { MindmapBackupPageParam } from './model/MindmapBackupPageParam';
 import { MindmapObject } from './model/MindmapObject';
@@ -479,6 +507,7 @@ import { ResultValueString } from './model/ResultValueString';
 import { ResultValueStringForOk } from './model/ResultValueStringForOk';
 import { ResultValueTaskListVo } from './model/ResultValueTaskListVo';
 import { ResultValueTaskResultVo } from './model/ResultValueTaskResultVo';
+import { ResultValueTaskVo } from './model/ResultValueTaskVo';
 import { ResultValueTestCaseCommentVo } from './model/ResultValueTestCaseCommentVo';
 import { ResultValueTestCaseDetailVo } from './model/ResultValueTestCaseDetailVo';
 import { ResultValueTestCaseVo } from './model/ResultValueTestCaseVo';
@@ -551,6 +580,8 @@ import { ShowIteratorByDefectRequest } from './model/ShowIteratorByDefectRequest
 import { ShowIteratorByDefectResponse } from './model/ShowIteratorByDefectResponse';
 import { ShowIteratorDetailRequest } from './model/ShowIteratorDetailRequest';
 import { ShowIteratorDetailResponse } from './model/ShowIteratorDetailResponse';
+import { ShowIteratorRequest } from './model/ShowIteratorRequest';
+import { ShowIteratorResponse } from './model/ShowIteratorResponse';
 import { ShowMindMapByIdRequest } from './model/ShowMindMapByIdRequest';
 import { ShowMindMapByIdResponse } from './model/ShowMindMapByIdResponse';
 import { ShowMindmapBackupByIdRequest } from './model/ShowMindmapBackupByIdRequest';
@@ -591,10 +622,14 @@ import { ShowStatisticByIdRequest } from './model/ShowStatisticByIdRequest';
 import { ShowStatisticByIdResponse } from './model/ShowStatisticByIdResponse';
 import { ShowSystemConfigsRequest } from './model/ShowSystemConfigsRequest';
 import { ShowSystemConfigsResponse } from './model/ShowSystemConfigsResponse';
+import { ShowTaskRequest } from './model/ShowTaskRequest';
+import { ShowTaskResponse } from './model/ShowTaskResponse';
 import { ShowTemplateByIdRequest } from './model/ShowTemplateByIdRequest';
 import { ShowTemplateByIdResponse } from './model/ShowTemplateByIdResponse';
 import { ShowTemplateByPageRequest } from './model/ShowTemplateByPageRequest';
 import { ShowTemplateByPageResponse } from './model/ShowTemplateByPageResponse';
+import { ShowTestBranchRequest } from './model/ShowTestBranchRequest';
+import { ShowTestBranchResponse } from './model/ShowTestBranchResponse';
 import { ShowTestCaseAndDefectInfoRequest } from './model/ShowTestCaseAndDefectInfoRequest';
 import { ShowTestCaseAndDefectInfoRequestBody } from './model/ShowTestCaseAndDefectInfoRequestBody';
 import { ShowTestCaseAndDefectInfoResponse } from './model/ShowTestCaseAndDefectInfoResponse';
@@ -608,6 +643,8 @@ import { ShowTestCaseReviewsRequest } from './model/ShowTestCaseReviewsRequest';
 import { ShowTestCaseReviewsResponse } from './model/ShowTestCaseReviewsResponse';
 import { ShowTestCasesChangeStatisticsRequest } from './model/ShowTestCasesChangeStatisticsRequest';
 import { ShowTestCasesChangeStatisticsResponse } from './model/ShowTestCasesChangeStatisticsResponse';
+import { ShowTestVersionCaseRequest } from './model/ShowTestVersionCaseRequest';
+import { ShowTestVersionCaseResponse } from './model/ShowTestVersionCaseResponse';
 import { ShowTestcaseByIdRequest } from './model/ShowTestcaseByIdRequest';
 import { ShowTestcaseByIdResponse } from './model/ShowTestcaseByIdResponse';
 import { ShowTestcaseByPageRequest } from './model/ShowTestcaseByPageRequest';
@@ -639,6 +676,7 @@ import { TaskBasicInfoVo } from './model/TaskBasicInfoVo';
 import { TaskCaseResponseTimeDetailVo } from './model/TaskCaseResponseTimeDetailVo';
 import { TaskErrorPolicy } from './model/TaskErrorPolicy';
 import { TaskExtParam } from './model/TaskExtParam';
+import { TaskInfo } from './model/TaskInfo';
 import { TaskInfoV4VoReq } from './model/TaskInfoV4VoReq';
 import { TaskListVo } from './model/TaskListVo';
 import { TaskPolicy } from './model/TaskPolicy';
@@ -668,6 +706,7 @@ import { TestCaseStepVo } from './model/TestCaseStepVo';
 import { TestCaseTemplateVo } from './model/TestCaseTemplateVo';
 import { TestCaseTimeoutPolicy } from './model/TestCaseTimeoutPolicy';
 import { TestCaseVo } from './model/TestCaseVo';
+import { TestCasesListQueryInfo } from './model/TestCasesListQueryInfo';
 import { TestCasesQueryInfo } from './model/TestCasesQueryInfo';
 import { TestItemVo } from './model/TestItemVo';
 import { TestPlanDetail } from './model/TestPlanDetail';
@@ -700,12 +739,16 @@ import { UpdateAssetTreeResponse } from './model/UpdateAssetTreeResponse';
 import { UpdateBasicAwByIdRequest } from './model/UpdateBasicAwByIdRequest';
 import { UpdateBasicAwByIdResponse } from './model/UpdateBasicAwByIdResponse';
 import { UpdateBasicAwReq } from './model/UpdateBasicAwReq';
+import { UpdateBranchRequest } from './model/UpdateBranchRequest';
+import { UpdateBranchResponse } from './model/UpdateBranchResponse';
 import { UpdateIteratorRequest } from './model/UpdateIteratorRequest';
 import { UpdateIteratorResponse } from './model/UpdateIteratorResponse';
 import { UpdateMindmapNameRequest } from './model/UpdateMindmapNameRequest';
 import { UpdateMindmapNameResponse } from './model/UpdateMindmapNameResponse';
 import { UpdateServiceRequest } from './model/UpdateServiceRequest';
 import { UpdateServiceResponse } from './model/UpdateServiceResponse';
+import { UpdateTaskRequest } from './model/UpdateTaskRequest';
+import { UpdateTaskResponse } from './model/UpdateTaskResponse';
 import { UpdateTestCaseAndScriptRequest } from './model/UpdateTestCaseAndScriptRequest';
 import { UpdateTestCaseAndScriptResponse } from './model/UpdateTestCaseAndScriptResponse';
 import { UpdateTestCaseCommentRequest } from './model/UpdateTestCaseCommentRequest';
@@ -719,8 +762,12 @@ import { UpdateTestCaseResultBean } from './model/UpdateTestCaseResultBean';
 import { UpdateTestCaseResultRequest } from './model/UpdateTestCaseResultRequest';
 import { UpdateTestCaseResultRequestBody } from './model/UpdateTestCaseResultRequestBody';
 import { UpdateTestCaseResultResponse } from './model/UpdateTestCaseResultResponse';
+import { UpdateTestIteratorRequest } from './model/UpdateTestIteratorRequest';
+import { UpdateTestIteratorResponse } from './model/UpdateTestIteratorResponse';
 import { UpdateTestReportCustomDetailByUriRequest } from './model/UpdateTestReportCustomDetailByUriRequest';
 import { UpdateTestReportCustomDetailByUriResponse } from './model/UpdateTestReportCustomDetailByUriResponse';
+import { UpdateTestVersionCaseRequest } from './model/UpdateTestVersionCaseRequest';
+import { UpdateTestVersionCaseResponse } from './model/UpdateTestVersionCaseResponse';
 import { UpdateTestsuiteInfoUsingRequest } from './model/UpdateTestsuiteInfoUsingRequest';
 import { UpdateTestsuiteInfoUsingResponse } from './model/UpdateTestsuiteInfoUsingResponse';
 import { UpdateUserDnsMappingRequest } from './model/UpdateUserDnsMappingRequest';
@@ -4384,6 +4431,212 @@ export class CloudtestClient {
     }
 
     /**
+     * 向迭代中添加资源
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 向迭代中添加资源
+     * @param {string} iteratorUri 迭代uri
+     * @param {AddResourceInfo} addResourceInfo 添加资源信息
+     * @param {boolean} [isAsync] 是否异步返回, 默认false， 超过500时，前端传true
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addResourceToIterator(addResourceToIteratorRequest?: AddResourceToIteratorRequest): Promise<AddResourceToIteratorResponse> {
+        const options = ParamCreater().addResourceToIterator(addResourceToIteratorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询当前租户可见的第三方服务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询当前租户可见的第三方服务列表
+     * @param {string} projectUuid 项目ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVisibleServices(listVisibleServicesRequest?: ListVisibleServicesRequest): Promise<ListVisibleServicesResponse> {
+        const options = ParamCreater().listVisibleServices(listVisibleServicesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除测试套件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除测试套件
+     * @param {string} projectUuid 项目id
+     * @param {DeleteTaskInfo} deleteTaskInfo 删除测试套件参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteTasks(batchDeleteTasksRequest?: BatchDeleteTasksRequest): Promise<BatchDeleteTasksResponse> {
+        const options = ParamCreater().batchDeleteTasks(batchDeleteTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 新建测试套件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新建测试套件
+     * @param {string} projectUuid 项目id
+     * @param {TaskInfo} taskInfo 测试套件信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTask(createTaskRequest?: CreateTaskRequest): Promise<CreateTaskResponse> {
+        const options = ParamCreater().createTask(createTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询测试套件详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询测试套件详情
+     * @param {string} projectUuid 项目id
+     * @param {string} taskUri 测试套件uri
+     * @param {string} [versionUri] 分支/迭代uri
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTask(showTaskRequest?: ShowTaskRequest): Promise<ShowTaskResponse> {
+        const options = ParamCreater().showTask(showTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改测试套件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改测试套件
+     * @param {string} projectUuid 项目id
+     * @param {string} taskUri 测试套件uri
+     * @param {TaskInfo} taskInfo 测试套件修改信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTask(updateTaskRequest?: UpdateTaskRequest): Promise<UpdateTaskResponse> {
+        const options = ParamCreater().updateTask(updateTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 在分支或者迭代下创建用例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 在分支或者迭代下创建用例
+     * @param {string} versionUri 分支或者迭代uri
+     * @param {TestCaseInfo} testCaseInfo 用例创建信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTestVersionCase(createTestVersionCaseRequest?: CreateTestVersionCaseRequest): Promise<CreateTestVersionCaseResponse> {
+        const options = ParamCreater().createTestVersionCase(createTestVersionCaseRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询用例列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用例列表
+     * @param {string} projectUuid 项目ID
+     * @param {TestCasesListQueryInfo} testCasesListQueryInfo 用例列表查询Body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTestCasesByCondition(listTestCasesByConditionRequest?: ListTestCasesByConditionRequest): Promise<ListTestCasesByConditionResponse> {
+        const options = ParamCreater().listTestCasesByCondition(listTestCasesByConditionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询用例详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询用例详情
+     * @param {string} caseUri 用例id
+     * @param {string} [versionUri] 分支uri
+     * @param {string} [projectUuid] 项目id
+     * @param {string} [taskUri] 任务
+     * @param {boolean} [refresh] 是否刷新缓存
+     * @param {boolean} [isRecycle] 是否回收站资源
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTestVersionCase(showTestVersionCaseRequest?: ShowTestVersionCaseRequest): Promise<ShowTestVersionCaseResponse> {
+        const options = ParamCreater().showTestVersionCase(showTestVersionCaseRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 在分支或者迭代下修改用例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 在分支或者迭代下修改用例
+     * @param {string} caseUri 用例uri
+     * @param {TestCaseInfo} testCaseInfo 用例修改信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTestVersionCase(updateTestVersionCaseRequest?: UpdateTestVersionCaseRequest): Promise<UpdateTestVersionCaseResponse> {
+        const options = ParamCreater().updateTestVersionCase(updateTestVersionCaseRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 添加目录信息
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4395,6 +4648,209 @@ export class CloudtestClient {
      */
     public addFeature(addFeatureRequest?: AddFeatureRequest): Promise<AddFeatureResponse> {
         const options = ParamCreater().addFeature(addFeatureRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 向迭代中添加需求
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 向迭代中添加需求
+     * @param {string} projectUuid 项目id
+     * @param {string} iteratorUri 迭代uri
+     * @param {IssuesInfo} issuesInfo 新增需求信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addIssuesToIterator(addIssuesToIteratorRequest?: AddIssuesToIteratorRequest): Promise<AddIssuesToIteratorResponse> {
+        const options = ParamCreater().addIssuesToIterator(addIssuesToIteratorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 新增分支
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增分支
+     * @param {BranchVersionInfo} branchVersionInfo 分支信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createBranch(createBranchRequest?: CreateBranchRequest): Promise<CreateBranchResponse> {
+        const options = ParamCreater().createBranch(createBranchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 新增迭代
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增迭代
+     * @param {string} branchUri 分支URI
+     * @param {IteratorVersionInfo} iteratorVersionInfo 迭代信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTestIterator(createTestIteratorRequest?: CreateTestIteratorRequest): Promise<CreateTestIteratorResponse> {
+        const options = ParamCreater().createTestIterator(createTestIteratorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除分支
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除分支
+     * @param {string} branchUri 分支URI
+     * @param {string} [projectUuid] 项目id
+     * @param {boolean} [isAsync] 是否异步执行
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteBranch(deleteBranchRequest?: DeleteBranchRequest): Promise<DeleteBranchResponse> {
+        const options = ParamCreater().deleteBranch(deleteBranchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除迭代
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除迭代
+     * @param {string} iteratorUri 迭代URI
+     * @param {string} [projectUuid] 项目id
+     * @param {boolean} [isAsync] 是否异步
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteIterator(deleteIteratorRequest?: DeleteIteratorRequest): Promise<DeleteIteratorResponse> {
+        const options = ParamCreater().deleteIterator(deleteIteratorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取分支列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取分支列表
+     * @param {string} projectUuid 项目ID（云龙场景，传入微服务ID）
+     * @param {string} [sortField] 排序字段
+     * @param {string} [sortType] 排序方式
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTestBranches(listTestBranchesRequest?: ListTestBranchesRequest): Promise<ListTestBranchesResponse> {
+        const options = ParamCreater().listTestBranches(listTestBranchesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询迭代计划详情，包含统计信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询迭代计划详情，包含统计信息
+     * @param {string} iteratorUri 迭代uri
+     * @param {string} [projectUuid] 项目id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showIterator(showIteratorRequest?: ShowIteratorRequest): Promise<ShowIteratorResponse> {
+        const options = ParamCreater().showIterator(showIteratorRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取分支详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取分支详情
+     * @param {string} branchUri 分支URI
+     * @param {string} [projectUuid] 项目ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTestBranch(showTestBranchRequest?: ShowTestBranchRequest): Promise<ShowTestBranchResponse> {
+        const options = ParamCreater().showTestBranch(showTestBranchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改分支
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改分支
+     * @param {string} branchUri 分支URI
+     * @param {BranchVersionInfo} branchVersionInfo 分支信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateBranch(updateBranchRequest?: UpdateBranchRequest): Promise<UpdateBranchResponse> {
+        const options = ParamCreater().updateBranch(updateBranchRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改迭代
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改迭代
+     * @param {string} iteratorUri 迭代URI
+     * @param {IteratorVersionInfo} iteratorVersionInfo 迭代修改信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTestIterator(updateTestIteratorRequest?: UpdateTestIteratorRequest): Promise<UpdateTestIteratorResponse> {
+        const options = ParamCreater().updateTestIterator(updateTestIteratorRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -13128,6 +13584,505 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 向迭代中添加资源
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addResourceToIterator(addResourceToIteratorRequest?: AddResourceToIteratorRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/iterators/{iterator_uri}/testcases/batch-add",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let iteratorUri;
+            
+            let isAsync;
+
+            if (addResourceToIteratorRequest !== null && addResourceToIteratorRequest !== undefined) {
+                if (addResourceToIteratorRequest instanceof AddResourceToIteratorRequest) {
+                    iteratorUri = addResourceToIteratorRequest.iteratorUri;
+                    body = addResourceToIteratorRequest.body
+                    isAsync = addResourceToIteratorRequest.isAsync;
+                } else {
+                    iteratorUri = addResourceToIteratorRequest['iterator_uri'];
+                    body = addResourceToIteratorRequest['body'];
+                    isAsync = addResourceToIteratorRequest['is_async'];
+                }
+            }
+
+        
+            if (iteratorUri === null || iteratorUri === undefined) {
+            throw new RequiredError('iteratorUri','Required parameter iteratorUri was null or undefined when calling addResourceToIterator.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (isAsync !== null && isAsync !== undefined) {
+                localVarQueryParameter['is_async'] = isAsync;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'iterator_uri': iteratorUri, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询当前租户可见的第三方服务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listVisibleServices(listVisibleServicesRequest?: ListVisibleServicesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/{project_uuid}/visible-services",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let projectUuid;
+
+            if (listVisibleServicesRequest !== null && listVisibleServicesRequest !== undefined) {
+                if (listVisibleServicesRequest instanceof ListVisibleServicesRequest) {
+                    projectUuid = listVisibleServicesRequest.projectUuid;
+                } else {
+                    projectUuid = listVisibleServicesRequest['project_uuid'];
+                }
+            }
+
+        
+            if (projectUuid === null || projectUuid === undefined) {
+            throw new RequiredError('projectUuid','Required parameter projectUuid was null or undefined when calling listVisibleServices.');
+            }
+
+            options.pathParams = { 'project_uuid': projectUuid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除测试套件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteTasks(batchDeleteTasksRequest?: BatchDeleteTasksRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v4/{project_uuid}/tasks/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectUuid;
+
+            if (batchDeleteTasksRequest !== null && batchDeleteTasksRequest !== undefined) {
+                if (batchDeleteTasksRequest instanceof BatchDeleteTasksRequest) {
+                    projectUuid = batchDeleteTasksRequest.projectUuid;
+                    body = batchDeleteTasksRequest.body
+                } else {
+                    projectUuid = batchDeleteTasksRequest['project_uuid'];
+                    body = batchDeleteTasksRequest['body'];
+                }
+            }
+
+        
+            if (projectUuid === null || projectUuid === undefined) {
+            throw new RequiredError('projectUuid','Required parameter projectUuid was null or undefined when calling batchDeleteTasks.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_uuid': projectUuid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 新建测试套件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTask(createTaskRequest?: CreateTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/{project_uuid}/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectUuid;
+
+            if (createTaskRequest !== null && createTaskRequest !== undefined) {
+                if (createTaskRequest instanceof CreateTaskRequest) {
+                    projectUuid = createTaskRequest.projectUuid;
+                    body = createTaskRequest.body
+                } else {
+                    projectUuid = createTaskRequest['project_uuid'];
+                    body = createTaskRequest['body'];
+                }
+            }
+
+        
+            if (projectUuid === null || projectUuid === undefined) {
+            throw new RequiredError('projectUuid','Required parameter projectUuid was null or undefined when calling createTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_uuid': projectUuid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询测试套件详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTask(showTaskRequest?: ShowTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/{project_uuid}/tasks/{task_uri}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectUuid;
+            
+            let taskUri;
+            
+            let versionUri;
+
+            if (showTaskRequest !== null && showTaskRequest !== undefined) {
+                if (showTaskRequest instanceof ShowTaskRequest) {
+                    projectUuid = showTaskRequest.projectUuid;
+                    taskUri = showTaskRequest.taskUri;
+                    versionUri = showTaskRequest.versionUri;
+                } else {
+                    projectUuid = showTaskRequest['project_uuid'];
+                    taskUri = showTaskRequest['task_uri'];
+                    versionUri = showTaskRequest['version_uri'];
+                }
+            }
+
+        
+            if (projectUuid === null || projectUuid === undefined) {
+            throw new RequiredError('projectUuid','Required parameter projectUuid was null or undefined when calling showTask.');
+            }
+            if (taskUri === null || taskUri === undefined) {
+            throw new RequiredError('taskUri','Required parameter taskUri was null or undefined when calling showTask.');
+            }
+            if (versionUri !== null && versionUri !== undefined) {
+                localVarQueryParameter['version_uri'] = versionUri;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_uuid': projectUuid,'task_uri': taskUri, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改测试套件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateTask(updateTaskRequest?: UpdateTaskRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/{project_uuid}/tasks/{task_uri}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectUuid;
+            
+            let taskUri;
+
+            if (updateTaskRequest !== null && updateTaskRequest !== undefined) {
+                if (updateTaskRequest instanceof UpdateTaskRequest) {
+                    projectUuid = updateTaskRequest.projectUuid;
+                    taskUri = updateTaskRequest.taskUri;
+                    body = updateTaskRequest.body
+                } else {
+                    projectUuid = updateTaskRequest['project_uuid'];
+                    taskUri = updateTaskRequest['task_uri'];
+                    body = updateTaskRequest['body'];
+                }
+            }
+
+        
+            if (projectUuid === null || projectUuid === undefined) {
+            throw new RequiredError('projectUuid','Required parameter projectUuid was null or undefined when calling updateTask.');
+            }
+            if (taskUri === null || taskUri === undefined) {
+            throw new RequiredError('taskUri','Required parameter taskUri was null or undefined when calling updateTask.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_uuid': projectUuid,'task_uri': taskUri, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 在分支或者迭代下创建用例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTestVersionCase(createTestVersionCaseRequest?: CreateTestVersionCaseRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/versions/{version_uri}/testcases",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let versionUri;
+
+            if (createTestVersionCaseRequest !== null && createTestVersionCaseRequest !== undefined) {
+                if (createTestVersionCaseRequest instanceof CreateTestVersionCaseRequest) {
+                    versionUri = createTestVersionCaseRequest.versionUri;
+                    body = createTestVersionCaseRequest.body
+                } else {
+                    versionUri = createTestVersionCaseRequest['version_uri'];
+                    body = createTestVersionCaseRequest['body'];
+                }
+            }
+
+        
+            if (versionUri === null || versionUri === undefined) {
+            throw new RequiredError('versionUri','Required parameter versionUri was null or undefined when calling createTestVersionCase.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'version_uri': versionUri, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用例列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTestCasesByCondition(listTestCasesByConditionRequest?: ListTestCasesByConditionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/{project_uuid}/testcases/batch-list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectUuid;
+
+            if (listTestCasesByConditionRequest !== null && listTestCasesByConditionRequest !== undefined) {
+                if (listTestCasesByConditionRequest instanceof ListTestCasesByConditionRequest) {
+                    projectUuid = listTestCasesByConditionRequest.projectUuid;
+                    body = listTestCasesByConditionRequest.body
+                } else {
+                    projectUuid = listTestCasesByConditionRequest['project_uuid'];
+                    body = listTestCasesByConditionRequest['body'];
+                }
+            }
+
+        
+            if (projectUuid === null || projectUuid === undefined) {
+            throw new RequiredError('projectUuid','Required parameter projectUuid was null or undefined when calling listTestCasesByCondition.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_uuid': projectUuid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询用例详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTestVersionCase(showTestVersionCaseRequest?: ShowTestVersionCaseRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/testcases/{case_uri}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let caseUri;
+            
+            let versionUri;
+            
+            let projectUuid;
+            
+            let taskUri;
+            
+            let refresh;
+            
+            let isRecycle;
+
+            if (showTestVersionCaseRequest !== null && showTestVersionCaseRequest !== undefined) {
+                if (showTestVersionCaseRequest instanceof ShowTestVersionCaseRequest) {
+                    caseUri = showTestVersionCaseRequest.caseUri;
+                    versionUri = showTestVersionCaseRequest.versionUri;
+                    projectUuid = showTestVersionCaseRequest.projectUuid;
+                    taskUri = showTestVersionCaseRequest.taskUri;
+                    refresh = showTestVersionCaseRequest.refresh;
+                    isRecycle = showTestVersionCaseRequest.isRecycle;
+                } else {
+                    caseUri = showTestVersionCaseRequest['case_uri'];
+                    versionUri = showTestVersionCaseRequest['version_uri'];
+                    projectUuid = showTestVersionCaseRequest['project_uuid'];
+                    taskUri = showTestVersionCaseRequest['taskUri'];
+                    refresh = showTestVersionCaseRequest['refresh'];
+                    isRecycle = showTestVersionCaseRequest['is_recycle'];
+                }
+            }
+
+        
+            if (caseUri === null || caseUri === undefined) {
+            throw new RequiredError('caseUri','Required parameter caseUri was null or undefined when calling showTestVersionCase.');
+            }
+            if (versionUri !== null && versionUri !== undefined) {
+                localVarQueryParameter['version_uri'] = versionUri;
+            }
+            if (projectUuid !== null && projectUuid !== undefined) {
+                localVarQueryParameter['project_uuid'] = projectUuid;
+            }
+            if (taskUri !== null && taskUri !== undefined) {
+                localVarQueryParameter['taskUri'] = taskUri;
+            }
+            if (refresh !== null && refresh !== undefined) {
+                localVarQueryParameter['refresh'] = refresh;
+            }
+            if (isRecycle !== null && isRecycle !== undefined) {
+                localVarQueryParameter['is_recycle'] = isRecycle;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'case_uri': caseUri, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 在分支或者迭代下修改用例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateTestVersionCase(updateTestVersionCaseRequest?: UpdateTestVersionCaseRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/testcases/{case_uri}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let caseUri;
+
+            if (updateTestVersionCaseRequest !== null && updateTestVersionCaseRequest !== undefined) {
+                if (updateTestVersionCaseRequest instanceof UpdateTestVersionCaseRequest) {
+                    caseUri = updateTestVersionCaseRequest.caseUri;
+                    body = updateTestVersionCaseRequest.body
+                } else {
+                    caseUri = updateTestVersionCaseRequest['case_uri'];
+                    body = updateTestVersionCaseRequest['body'];
+                }
+            }
+
+        
+            if (caseUri === null || caseUri === undefined) {
+            throw new RequiredError('caseUri','Required parameter caseUri was null or undefined when calling updateTestVersionCase.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'case_uri': caseUri, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 添加目录信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -13161,6 +14116,486 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 向迭代中添加需求
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addIssuesToIterator(addIssuesToIteratorRequest?: AddIssuesToIteratorRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/{project_uuid}/iterators/{iterator_uri}/issues",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let projectUuid;
+            
+            let iteratorUri;
+
+            if (addIssuesToIteratorRequest !== null && addIssuesToIteratorRequest !== undefined) {
+                if (addIssuesToIteratorRequest instanceof AddIssuesToIteratorRequest) {
+                    projectUuid = addIssuesToIteratorRequest.projectUuid;
+                    iteratorUri = addIssuesToIteratorRequest.iteratorUri;
+                    body = addIssuesToIteratorRequest.body
+                } else {
+                    projectUuid = addIssuesToIteratorRequest['project_uuid'];
+                    iteratorUri = addIssuesToIteratorRequest['iterator_uri'];
+                    body = addIssuesToIteratorRequest['body'];
+                }
+            }
+
+        
+            if (projectUuid === null || projectUuid === undefined) {
+            throw new RequiredError('projectUuid','Required parameter projectUuid was null or undefined when calling addIssuesToIterator.');
+            }
+            if (iteratorUri === null || iteratorUri === undefined) {
+            throw new RequiredError('iteratorUri','Required parameter iteratorUri was null or undefined when calling addIssuesToIterator.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'project_uuid': projectUuid,'iterator_uri': iteratorUri, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 新增分支
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createBranch(createBranchRequest?: CreateBranchRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/branches",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createBranchRequest !== null && createBranchRequest !== undefined) {
+                if (createBranchRequest instanceof CreateBranchRequest) {
+                    body = createBranchRequest.body
+                } else {
+                    body = createBranchRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 新增迭代
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTestIterator(createTestIteratorRequest?: CreateTestIteratorRequest) {
+            const options = {
+                method: "POST",
+                url: "/v4/iterators",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let branchUri;
+
+            if (createTestIteratorRequest !== null && createTestIteratorRequest !== undefined) {
+                if (createTestIteratorRequest instanceof CreateTestIteratorRequest) {
+                    branchUri = createTestIteratorRequest.branchUri;
+                    body = createTestIteratorRequest.body
+                } else {
+                    branchUri = createTestIteratorRequest['branch_uri'];
+                    body = createTestIteratorRequest['body'];
+                }
+            }
+
+        
+            if (branchUri === null || branchUri === undefined) {
+                throw new RequiredError('branchUri','Required parameter branchUri was null or undefined when calling createTestIterator.');
+            }
+            if (branchUri !== null && branchUri !== undefined) {
+                localVarQueryParameter['branch_uri'] = branchUri;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除分支
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteBranch(deleteBranchRequest?: DeleteBranchRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v4/branches/{branch_uri}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let branchUri;
+            
+            let projectUuid;
+            
+            let isAsync;
+
+            if (deleteBranchRequest !== null && deleteBranchRequest !== undefined) {
+                if (deleteBranchRequest instanceof DeleteBranchRequest) {
+                    branchUri = deleteBranchRequest.branchUri;
+                    projectUuid = deleteBranchRequest.projectUuid;
+                    isAsync = deleteBranchRequest.isAsync;
+                } else {
+                    branchUri = deleteBranchRequest['branch_uri'];
+                    projectUuid = deleteBranchRequest['project_uuid'];
+                    isAsync = deleteBranchRequest['is_async'];
+                }
+            }
+
+        
+            if (branchUri === null || branchUri === undefined) {
+            throw new RequiredError('branchUri','Required parameter branchUri was null or undefined when calling deleteBranch.');
+            }
+            if (projectUuid !== null && projectUuid !== undefined) {
+                localVarQueryParameter['project_uuid'] = projectUuid;
+            }
+            if (isAsync !== null && isAsync !== undefined) {
+                localVarQueryParameter['is_async'] = isAsync;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'branch_uri': branchUri, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除迭代
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteIterator(deleteIteratorRequest?: DeleteIteratorRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v4/iterators/{iterator_uri}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let iteratorUri;
+            
+            let projectUuid;
+            
+            let isAsync;
+
+            if (deleteIteratorRequest !== null && deleteIteratorRequest !== undefined) {
+                if (deleteIteratorRequest instanceof DeleteIteratorRequest) {
+                    iteratorUri = deleteIteratorRequest.iteratorUri;
+                    projectUuid = deleteIteratorRequest.projectUuid;
+                    isAsync = deleteIteratorRequest.isAsync;
+                } else {
+                    iteratorUri = deleteIteratorRequest['iterator_uri'];
+                    projectUuid = deleteIteratorRequest['project_uuid'];
+                    isAsync = deleteIteratorRequest['is_async'];
+                }
+            }
+
+        
+            if (iteratorUri === null || iteratorUri === undefined) {
+            throw new RequiredError('iteratorUri','Required parameter iteratorUri was null or undefined when calling deleteIterator.');
+            }
+            if (projectUuid !== null && projectUuid !== undefined) {
+                localVarQueryParameter['project_uuid'] = projectUuid;
+            }
+            if (isAsync !== null && isAsync !== undefined) {
+                localVarQueryParameter['is_async'] = isAsync;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'iterator_uri': iteratorUri, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取分支列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTestBranches(listTestBranchesRequest?: ListTestBranchesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/branches",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let projectUuid;
+            
+            let sortField;
+            
+            let sortType;
+
+            if (listTestBranchesRequest !== null && listTestBranchesRequest !== undefined) {
+                if (listTestBranchesRequest instanceof ListTestBranchesRequest) {
+                    projectUuid = listTestBranchesRequest.projectUuid;
+                    sortField = listTestBranchesRequest.sortField;
+                    sortType = listTestBranchesRequest.sortType;
+                } else {
+                    projectUuid = listTestBranchesRequest['project_uuid'];
+                    sortField = listTestBranchesRequest['sort_field'];
+                    sortType = listTestBranchesRequest['sort_type'];
+                }
+            }
+
+        
+            if (projectUuid === null || projectUuid === undefined) {
+                throw new RequiredError('projectUuid','Required parameter projectUuid was null or undefined when calling listTestBranches.');
+            }
+            if (projectUuid !== null && projectUuid !== undefined) {
+                localVarQueryParameter['project_uuid'] = projectUuid;
+            }
+            if (sortField !== null && sortField !== undefined) {
+                localVarQueryParameter['sort_field'] = sortField;
+            }
+            if (sortType !== null && sortType !== undefined) {
+                localVarQueryParameter['sort_type'] = sortType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询迭代计划详情，包含统计信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showIterator(showIteratorRequest?: ShowIteratorRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/iterators/{iterator_uri}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let iteratorUri;
+            
+            let projectUuid;
+
+            if (showIteratorRequest !== null && showIteratorRequest !== undefined) {
+                if (showIteratorRequest instanceof ShowIteratorRequest) {
+                    iteratorUri = showIteratorRequest.iteratorUri;
+                    projectUuid = showIteratorRequest.projectUuid;
+                } else {
+                    iteratorUri = showIteratorRequest['iterator_uri'];
+                    projectUuid = showIteratorRequest['project_uuid'];
+                }
+            }
+
+        
+            if (iteratorUri === null || iteratorUri === undefined) {
+            throw new RequiredError('iteratorUri','Required parameter iteratorUri was null or undefined when calling showIterator.');
+            }
+            if (projectUuid !== null && projectUuid !== undefined) {
+                localVarQueryParameter['project_uuid'] = projectUuid;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'iterator_uri': iteratorUri, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取分支详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTestBranch(showTestBranchRequest?: ShowTestBranchRequest) {
+            const options = {
+                method: "GET",
+                url: "/v4/branches/{branch_uri}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let branchUri;
+            
+            let projectUuid;
+
+            if (showTestBranchRequest !== null && showTestBranchRequest !== undefined) {
+                if (showTestBranchRequest instanceof ShowTestBranchRequest) {
+                    branchUri = showTestBranchRequest.branchUri;
+                    projectUuid = showTestBranchRequest.projectUuid;
+                } else {
+                    branchUri = showTestBranchRequest['branch_uri'];
+                    projectUuid = showTestBranchRequest['project_uuid'];
+                }
+            }
+
+        
+            if (branchUri === null || branchUri === undefined) {
+            throw new RequiredError('branchUri','Required parameter branchUri was null or undefined when calling showTestBranch.');
+            }
+            if (projectUuid !== null && projectUuid !== undefined) {
+                localVarQueryParameter['project_uuid'] = projectUuid;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'branch_uri': branchUri, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改分支
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateBranch(updateBranchRequest?: UpdateBranchRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/branches/{branch_uri}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let branchUri;
+
+            if (updateBranchRequest !== null && updateBranchRequest !== undefined) {
+                if (updateBranchRequest instanceof UpdateBranchRequest) {
+                    branchUri = updateBranchRequest.branchUri;
+                    body = updateBranchRequest.body
+                } else {
+                    branchUri = updateBranchRequest['branch_uri'];
+                    body = updateBranchRequest['body'];
+                }
+            }
+
+        
+            if (branchUri === null || branchUri === undefined) {
+            throw new RequiredError('branchUri','Required parameter branchUri was null or undefined when calling updateBranch.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'branch_uri': branchUri, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改迭代
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateTestIterator(updateTestIteratorRequest?: UpdateTestIteratorRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v4/iterators/{iterator_uri}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let iteratorUri;
+
+            if (updateTestIteratorRequest !== null && updateTestIteratorRequest !== undefined) {
+                if (updateTestIteratorRequest instanceof UpdateTestIteratorRequest) {
+                    iteratorUri = updateTestIteratorRequest.iteratorUri;
+                    body = updateTestIteratorRequest.body
+                } else {
+                    iteratorUri = updateTestIteratorRequest['iterator_uri'];
+                    body = updateTestIteratorRequest['body'];
+                }
+            }
+
+        
+            if (iteratorUri === null || iteratorUri === undefined) {
+            throw new RequiredError('iteratorUri','Required parameter iteratorUri was null or undefined when calling updateTestIterator.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'iterator_uri': iteratorUri, };
             options.headers = localVarHeaderParameter;
             return options;
         },

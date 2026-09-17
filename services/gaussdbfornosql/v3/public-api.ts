@@ -80,6 +80,7 @@ export * from './model/CreateInstanceFlavorResult';
 export * from './model/CreateInstanceRequest';
 export * from './model/CreateInstanceRequestBody';
 export * from './model/CreateInstanceResponse';
+export * from './model/DRInfo';
 export * from './model/DataStoreList';
 export * from './model/DatabaseTable';
 export * from './model/Datastore';

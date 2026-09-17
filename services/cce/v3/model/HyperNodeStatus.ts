@@ -7,6 +7,7 @@ export class HyperNodeStatus {
     public deletingNode?: number;
     public creatingNode?: number;
     public activeNode?: number;
+    public isStatic?: boolean;
     public constructor() { 
     }
     public withPhase(phase: string): HyperNodeStatus {
@@ -31,6 +32,10 @@ export class HyperNodeStatus {
     }
     public withActiveNode(activeNode: number): HyperNodeStatus {
         this['activeNode'] = activeNode;
+        return this;
+    }
+    public withIsStatic(isStatic: boolean): HyperNodeStatus {
+        this['isStatic'] = isStatic;
         return this;
     }
 }

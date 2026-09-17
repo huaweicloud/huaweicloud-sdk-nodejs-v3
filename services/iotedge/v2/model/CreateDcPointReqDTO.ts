@@ -9,6 +9,7 @@ export class CreateDcPointReqDTO {
     private 'device_id'?: string;
     public property?: string;
     private 'processing_config'?: ProcessingConfigDTO;
+    public active?: boolean;
     public constructor(pointId?: string, name?: string, collectionConfig?: object, deviceId?: string, property?: string) { 
         this['point_id'] = pointId;
         this['name'] = name;
@@ -73,5 +74,9 @@ export class CreateDcPointReqDTO {
     }
     public get processingConfig(): ProcessingConfigDTO | undefined {
         return this['processing_config'];
+    }
+    public withActive(active: boolean): CreateDcPointReqDTO {
+        this['active'] = active;
+        return this;
     }
 }

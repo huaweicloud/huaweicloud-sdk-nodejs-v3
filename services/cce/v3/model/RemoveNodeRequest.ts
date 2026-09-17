@@ -4,6 +4,7 @@ import { RemoveNodesTask } from './RemoveNodesTask';
 export class RemoveNodeRequest {
     private 'cluster_id'?: string;
     private 'Content-Type'?: string;
+    public removeNodeSystemSecurityGroup?: boolean;
     public body?: RemoveNodesTask;
     public constructor(clusterId?: string, contentType?: string) { 
         this['cluster_id'] = clusterId;
@@ -28,6 +29,10 @@ export class RemoveNodeRequest {
     }
     public get contentType(): string | undefined {
         return this['Content-Type'];
+    }
+    public withRemoveNodeSystemSecurityGroup(removeNodeSystemSecurityGroup: boolean): RemoveNodeRequest {
+        this['removeNodeSystemSecurityGroup'] = removeNodeSystemSecurityGroup;
+        return this;
     }
     public withBody(body: RemoveNodesTask): RemoveNodeRequest {
         this['body'] = body;

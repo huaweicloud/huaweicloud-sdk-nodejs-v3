@@ -82,6 +82,7 @@ import { CreateInstanceFlavorResult } from './model/CreateInstanceFlavorResult';
 import { CreateInstanceRequest } from './model/CreateInstanceRequest';
 import { CreateInstanceRequestBody } from './model/CreateInstanceRequestBody';
 import { CreateInstanceResponse } from './model/CreateInstanceResponse';
+import { DRInfo } from './model/DRInfo';
 import { DataStoreList } from './model/DataStoreList';
 import { DatabaseTable } from './model/DatabaseTable';
 import { Datastore } from './model/Datastore';
@@ -1440,7 +1441,7 @@ export class GaussDBforNoSQLClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询指定条件下的所有实例规格信息
+     * @summary 查询所有实例规格信息
      * @param {string} [region] 实例所在区域。
      * @param {string} [engineName] 数据库类型。   - 取值为“cassandra”，表示查询GeminiDB Cassandra数据库实例支持的规格。   - 取值为“mongodb”，表示查询GeminiDB Mongo数据库实例支持的规格。   - 取值为“influxdb”，表示查询GeminiDB Influx数据库实例支持的规格。   - 取值为“redis”，表示查询GeminiDB Redis数据库实例支持的规格。   - 如果不传该参数，默认为“cassandra”。
      * @param {*} [options] Override http request option.

@@ -1,4 +1,5 @@
 import { ContainerSettingsDTO } from './ContainerSettingsDTO';
+import { PreUpgradeProbeDTO } from './PreUpgradeProbeDTO';
 import { ProbeDTO } from './ProbeDTO';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -27,6 +28,7 @@ export class CreateEdgeApplicationVersionResponse extends SdkResponse {
     private 'off_shelf_time'?: string;
     public supplier?: string;
     private 'tpl_id'?: string;
+    private 'pre_upgrade_probe'?: PreUpgradeProbeDTO;
     public constructor() { 
         super();
     }
@@ -193,6 +195,16 @@ export class CreateEdgeApplicationVersionResponse extends SdkResponse {
     }
     public get tplId(): string | undefined {
         return this['tpl_id'];
+    }
+    public withPreUpgradeProbe(preUpgradeProbe: PreUpgradeProbeDTO): CreateEdgeApplicationVersionResponse {
+        this['pre_upgrade_probe'] = preUpgradeProbe;
+        return this;
+    }
+    public set preUpgradeProbe(preUpgradeProbe: PreUpgradeProbeDTO  | undefined) {
+        this['pre_upgrade_probe'] = preUpgradeProbe;
+    }
+    public get preUpgradeProbe(): PreUpgradeProbeDTO | undefined {
+        return this['pre_upgrade_probe'];
     }
 }
 

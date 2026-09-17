@@ -5,10 +5,15 @@ export class ListPipelineRunsQuery {
     private 'start_time'?: string;
     private 'end_time'?: string;
     private 'update_time'?: string;
+    private 'trigger_type'?: Array<string>;
+    private 'executor_ids'?: Array<string>;
     public offset?: number;
     public limit?: number;
     private 'sort_key'?: string;
     private 'sort_dir'?: string;
+    private 'show_job_details'?: boolean;
+    private 'stage_id'?: string;
+    private 'job_id'?: string;
     public constructor() { 
     }
     public withStatus(status: Array<string>): ListPipelineRunsQuery {
@@ -45,6 +50,26 @@ export class ListPipelineRunsQuery {
     public get updateTime(): string | undefined {
         return this['update_time'];
     }
+    public withTriggerType(triggerType: Array<string>): ListPipelineRunsQuery {
+        this['trigger_type'] = triggerType;
+        return this;
+    }
+    public set triggerType(triggerType: Array<string>  | undefined) {
+        this['trigger_type'] = triggerType;
+    }
+    public get triggerType(): Array<string> | undefined {
+        return this['trigger_type'];
+    }
+    public withExecutorIds(executorIds: Array<string>): ListPipelineRunsQuery {
+        this['executor_ids'] = executorIds;
+        return this;
+    }
+    public set executorIds(executorIds: Array<string>  | undefined) {
+        this['executor_ids'] = executorIds;
+    }
+    public get executorIds(): Array<string> | undefined {
+        return this['executor_ids'];
+    }
     public withOffset(offset: number): ListPipelineRunsQuery {
         this['offset'] = offset;
         return this;
@@ -72,5 +97,35 @@ export class ListPipelineRunsQuery {
     }
     public get sortDir(): string | undefined {
         return this['sort_dir'];
+    }
+    public withShowJobDetails(showJobDetails: boolean): ListPipelineRunsQuery {
+        this['show_job_details'] = showJobDetails;
+        return this;
+    }
+    public set showJobDetails(showJobDetails: boolean  | undefined) {
+        this['show_job_details'] = showJobDetails;
+    }
+    public get showJobDetails(): boolean | undefined {
+        return this['show_job_details'];
+    }
+    public withStageId(stageId: string): ListPipelineRunsQuery {
+        this['stage_id'] = stageId;
+        return this;
+    }
+    public set stageId(stageId: string  | undefined) {
+        this['stage_id'] = stageId;
+    }
+    public get stageId(): string | undefined {
+        return this['stage_id'];
+    }
+    public withJobId(jobId: string): ListPipelineRunsQuery {
+        this['job_id'] = jobId;
+        return this;
+    }
+    public set jobId(jobId: string  | undefined) {
+        this['job_id'] = jobId;
+    }
+    public get jobId(): string | undefined {
+        return this['job_id'];
     }
 }
