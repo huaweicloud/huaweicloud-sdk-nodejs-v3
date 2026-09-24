@@ -1821,11 +1821,11 @@ export class GaussDBforNoSQLClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询Redis可恢复时间点
-     * @param {string} instanceId 实例ID。
-     * @param {string} startTime 查询可恢复时间点的开始时间，为yyyy-mm-ddThh:mm:ssZ字符串格式，T指某个时间的开始，Z指时区偏移量。
-     * @param {string} endTime 查询可恢复时间点的结束时间，为yyyy-mm-ddThh:mm:ssZ字符串格式，T指某个时间的开始，Z指时区偏移量。
-     * @param {number} [offset] 偏移量，表示查询该偏移量后面的记录，默认值为0。
-     * @param {number} [limit] 查询返回记录的数量上限值，取值范围为1~100，默认值为100。
+     * @param {string} instanceId **参数解释：** 实例ID，可以调用“查询实例列表和详情”接口获取。如果未申请实例，可以调用“创建实例”接口创建。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} startTime **参数解释：** 查询可恢复时间点的开始时间，为yyyy-mm-ddThh:mm:ssZ字符串格式，T指某个时间的开始，Z指时区偏移量。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} endTime **参数解释：** 查询可恢复时间点的结束时间，为yyyy-mm-ddThh:mm:ssZ字符串格式，T指某个时间的开始，Z指时区偏移量。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {number} [offset] **参数解释：** 偏移量，表示查询该偏移量后面的记录量。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 0。
+     * @param {number} [limit] **参数解释：** 查询返回记录的数量上限值。 **约束限制：** 不涉及。 **取值范围：** 1~300。 **默认取值：** 300。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2336,7 +2336,7 @@ export class GaussDBforNoSQLClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 恢复当前Redis实例到指定时间点
-     * @param {string} instanceId 实例ID。
+     * @param {string} instanceId **参数解释：** 实例ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {RestoreRedisPitrRequestBody} restoreRedisPitrRequestBody 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2496,7 +2496,7 @@ export class GaussDBforNoSQLClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 设置Redis恢复到指定时间点策略
-     * @param {string} instanceId 实例ID。
+     * @param {string} instanceId **参数解释：** 实例ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {SetRedisPitrPolicyRequestBody} setRedisPitrPolicyRequestBody 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3036,7 +3036,7 @@ export class GaussDBforNoSQLClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询Redis实例指定时间点恢复所占用的存储空间
-     * @param {string} instanceId 实例ID。
+     * @param {string} instanceId **参数解释：** 实例ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3055,7 +3055,7 @@ export class GaussDBforNoSQLClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询Redis恢复到指定时间点策略
-     * @param {string} instanceId 实例ID。
+     * @param {string} instanceId **参数解释：** 实例ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

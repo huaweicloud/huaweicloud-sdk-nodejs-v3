@@ -1,15 +1,15 @@
+import { BulkCreateAndDeleteTags } from './BulkCreateAndDeleteTags';
 import { SysTag } from './SysTag';
-import { Tag } from './Tag';
 
 
 export class BulkCreateAndDeleteVaultTagsReq {
-    public tags?: Array<Tag>;
+    public tags?: Array<BulkCreateAndDeleteTags>;
     private 'sys_tags'?: Array<SysTag>;
     public action?: BulkCreateAndDeleteVaultTagsReqActionEnum | string;
     public constructor(action?: string) { 
         this['action'] = action;
     }
-    public withTags(tags: Array<Tag>): BulkCreateAndDeleteVaultTagsReq {
+    public withTags(tags: Array<BulkCreateAndDeleteTags>): BulkCreateAndDeleteVaultTagsReq {
         this['tags'] = tags;
         return this;
     }

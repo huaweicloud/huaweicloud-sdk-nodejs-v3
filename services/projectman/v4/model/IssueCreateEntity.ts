@@ -28,12 +28,11 @@ export class IssueCreateEntity {
     public ir2rr?: string;
     private 'feature_set'?: string;
     private 'security_level'?: string;
-    public constructor(title?: string, description?: string, category?: string, categoryLayerId?: string, parentId?: string, status?: string, assignee?: UserEntity) { 
+    public constructor(title?: string, description?: string, category?: string, categoryLayerId?: string, status?: string, assignee?: UserEntity) { 
         this['title'] = title;
         this['description'] = description;
         this['category'] = category;
         this['category_layer_id'] = categoryLayerId;
-        this['parent_id'] = parentId;
         this['status'] = status;
         this['assignee'] = assignee;
     }

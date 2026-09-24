@@ -1,0 +1,33 @@
+
+
+export class ListInternalEndpointPermissionsRequest {
+    private 'instance_id'?: string;
+    public limit?: number;
+    public offset?: number;
+    public permission?: string;
+    public constructor(instanceId?: string) { 
+        this['instance_id'] = instanceId;
+    }
+    public withInstanceId(instanceId: string): ListInternalEndpointPermissionsRequest {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
+    }
+    public withLimit(limit: number): ListInternalEndpointPermissionsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListInternalEndpointPermissionsRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withPermission(permission: string): ListInternalEndpointPermissionsRequest {
+        this['permission'] = permission;
+        return this;
+    }
+}

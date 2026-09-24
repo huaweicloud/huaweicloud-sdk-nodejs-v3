@@ -3,6 +3,7 @@
 export class ShowReviewSettingRequest {
     private 'repository_id'?: number;
     private 'with_default_review_categories'?: boolean;
+    private 'take_effect'?: boolean;
     public constructor(repositoryId?: number) { 
         this['repository_id'] = repositoryId;
     }
@@ -25,5 +26,15 @@ export class ShowReviewSettingRequest {
     }
     public get withDefaultReviewCategories(): boolean | undefined {
         return this['with_default_review_categories'];
+    }
+    public withTakeEffect(takeEffect: boolean): ShowReviewSettingRequest {
+        this['take_effect'] = takeEffect;
+        return this;
+    }
+    public set takeEffect(takeEffect: boolean  | undefined) {
+        this['take_effect'] = takeEffect;
+    }
+    public get takeEffect(): boolean | undefined {
+        return this['take_effect'];
     }
 }

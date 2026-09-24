@@ -19,6 +19,7 @@ export class BackupResp {
     private 'resource_name'?: string;
     private 'resource_size'?: number;
     private 'resource_type'?: string;
+    private 'scheduled_operation_id'?: string;
     public status?: BackupRespStatusEnum | string;
     private 'updated_at'?: Date;
     private 'vault_id'?: string;
@@ -191,6 +192,16 @@ export class BackupResp {
     }
     public get resourceType(): string | undefined {
         return this['resource_type'];
+    }
+    public withScheduledOperationId(scheduledOperationId: string): BackupResp {
+        this['scheduled_operation_id'] = scheduledOperationId;
+        return this;
+    }
+    public set scheduledOperationId(scheduledOperationId: string  | undefined) {
+        this['scheduled_operation_id'] = scheduledOperationId;
+    }
+    public get scheduledOperationId(): string | undefined {
+        return this['scheduled_operation_id'];
     }
     public withStatus(status: BackupRespStatusEnum | string): BackupResp {
         this['status'] = status;

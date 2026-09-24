@@ -8,9 +8,12 @@ export class ChangeToPeriod {
     private 'is_auto_pay'?: boolean;
     private 'console_url'?: string;
     private 'vault_ids'?: Array<string>;
-    public constructor(periodType?: string, periodNum?: number, vaultIds?: Array<string>) { 
+    public constructor(chargingMode?: string, periodType?: string, periodNum?: number, isAutoRenew?: boolean, isAutoPay?: boolean, vaultIds?: Array<string>) { 
+        this['charging_mode'] = chargingMode;
         this['period_type'] = periodType;
         this['period_num'] = periodNum;
+        this['is_auto_renew'] = isAutoRenew;
+        this['is_auto_pay'] = isAutoPay;
         this['vault_ids'] = vaultIds;
     }
     public withChargingMode(chargingMode: string): ChangeToPeriod {

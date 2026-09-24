@@ -123,6 +123,7 @@ import { ListVersionsRequest } from './model/ListVersionsRequest';
 import { ListVersionsResponse } from './model/ListVersionsResponse';
 import { OsVersionInfo } from './model/OsVersionInfo';
 import { OsVersionResponse } from './model/OsVersionResponse';
+import { PageInfo } from './model/PageInfo';
 import { QueryImageByTagsResourceDetail } from './model/QueryImageByTagsResourceDetail';
 import { QuickImportImageByFileRequestBody } from './model/QuickImportImageByFileRequestBody';
 import { Quota } from './model/Quota';

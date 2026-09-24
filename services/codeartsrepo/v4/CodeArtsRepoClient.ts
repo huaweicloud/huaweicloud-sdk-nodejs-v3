@@ -1493,6 +1493,7 @@ export class CodeArtsRepoClient {
      * @summary 获取检视意见设置
      * @param {number} repositoryId **参数解释：** 仓库的ID，通过[[查询用户所有仓库](https://support.huaweicloud.com/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws)[[查询用户所有仓库](https://support.huaweicloud.com/intl/en-us/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk)[[查询用户所有仓库](https://support.huaweicloud.com/intl/zh-cn/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_hk_ch)[[查询用户所有仓库](https://support.huaweicloud.com/eu/api-codeartsrepo/ListUserAllRepositories.html)](tag:hws_eu)[查询项目列表](tag:hcs,hcs_sm)接口查询项目列表获取。 **约束限制：** 不涉及。 **默认取值：** 不涉及。
      * @param {boolean} [withDefaultReviewCategories] **参数解释：** 额外返回可勾选检视意见分类和系统预置检视意见分类。 **取值范围：** - true, 返回可勾选检视意见分类和系统预置检视意见分类。 - false, 不返回可勾选检视意见分类和系统预置检视意见分类。
+     * @param {boolean} [takeEffect] **参数解释：** 设置是否继承上层配置。 **取值范围：** - true, 返回从上层继承配置。 - false, 只返回自身配置。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -9243,14 +9244,18 @@ export const ParamCreater = function () {
             let repositoryId;
             
             let withDefaultReviewCategories;
+            
+            let takeEffect;
 
             if (showReviewSettingRequest !== null && showReviewSettingRequest !== undefined) {
                 if (showReviewSettingRequest instanceof ShowReviewSettingRequest) {
                     repositoryId = showReviewSettingRequest.repositoryId;
                     withDefaultReviewCategories = showReviewSettingRequest.withDefaultReviewCategories;
+                    takeEffect = showReviewSettingRequest.takeEffect;
                 } else {
                     repositoryId = showReviewSettingRequest['repository_id'];
                     withDefaultReviewCategories = showReviewSettingRequest['with_default_review_categories'];
+                    takeEffect = showReviewSettingRequest['take_effect'];
                 }
             }
 
@@ -9260,6 +9265,9 @@ export const ParamCreater = function () {
             }
             if (withDefaultReviewCategories !== null && withDefaultReviewCategories !== undefined) {
                 localVarQueryParameter['with_default_review_categories'] = withDefaultReviewCategories;
+            }
+            if (takeEffect !== null && takeEffect !== undefined) {
+                localVarQueryParameter['take_effect'] = takeEffect;
             }
 
             options.queryParams = localVarQueryParameter;

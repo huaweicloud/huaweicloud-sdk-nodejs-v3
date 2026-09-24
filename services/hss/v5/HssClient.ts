@@ -3010,6 +3010,27 @@ export class HssClient {
     }
 
     /**
+     * 查询告警白名单生详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询告警白名单生详情
+     * @param {string} ruleId **参数解释**： 规则ID **约束限制**： 必填 **取值范围**： 字符长度1-36位 **默认取值**： 不涉及 
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAlarmWhiteListHostDetail(listAlarmWhiteListHostDetailRequest?: ListAlarmWhiteListHostDetailRequest): Promise<ListAlarmWhiteListHostDetailResponse> {
+        const options = ParamCreater().listAlarmWhiteListHostDetail(listAlarmWhiteListHostDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取软件信息的历史变动记录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3662,8 +3683,8 @@ export class HssClient {
      * @param {string} [agentStatus] **参数解释**: Agent状态 **约束限制**: 不涉及 **取值范围**: 包含如下6种。 - installed ：已安装。 - not_installed ：未安装。 - online ：在线。 - offline ：离线。 - install_failed ：安装失败。 - installing ：安装中。 **默认取值**: 不涉及 
      * @param {string} [protectStatus] **参数解释**: 防护状态 **约束限制**: 不涉及 **取值范围**: 包含如下2种。   - closed：关闭   - opened：开启  **默认取值**: 不涉及 
      * @param {string} [containerTags] **参数解释**: 用来识别cce节点或者自建节点的标签 **约束限制**: 不涉及 **取值范围**: 包含如下3种。   - cce：cce节点   - self：自建节点   - other：其他节点  **默认取值**: 不涉及 
+     * @param {string} [version] **参数解释**: 查询是否是容器节点 **约束限制**: 不涉及 **取值范围**: - hss.version.null：无。 - hss.version.basic：基础版。 - hss.version.advanced：专业版。 - hss.version.enterprise：企业版。 - hss.version.premium：旗舰版。 - hss.version.wtp：网页防篡改版。 - hss.version.container.enterprise：容器版。  **默认取值**: 不涉及 
      * @param {boolean} [containerNode] **参数解释**: 查询是否是容器节点 **约束限制**: 不涉及 **取值范围**: - true：是容器节点 - false：非容器节点  **默认取值**: false 
-     * @param {string} [version] **参数解释**: 节点开启的防护版本 **约束限制**: 不涉及 **取值范围**: - hss.version.null ：无。 - hss.version.basic ：基础版。 - hss.version.advanced ：专业版。 - hss.version.enterprise ：企业版。 - hss.version.premium ：旗舰版。 - hss.version.wtp ：网页防篡改版。 - hss.version.container.enterprise：容器版。              **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5031,7 +5052,7 @@ export class HssClient {
      *
      * @summary 查询Web服务、Web应用、数据库的统计信息
      * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} catalogue **参数解释**: 资产类型 **约束限制**: 不涉及 **取值范围**: - web-app：web应用 - web-service：web服务 - database：数据库  **默认取值**: 不涉及 
+     * @param {string} catalogue **参数解释**: 资产类型 **约束限制**: 不涉及 **取值范围**: - web_cms：web应用 - web_service：web服务 - database：数据库  **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
@@ -5055,7 +5076,7 @@ export class HssClient {
      *
      * @summary 查询指定Web服务、Web应用、数据库的服务器列表
      * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} catalogue **参数解释**: 资产类型 **约束限制**: 不涉及 **取值范围**: - web-app：web应用 - web-service：web服务 - database：数据库  **默认取值**: 不涉及 
+     * @param {string} catalogue **参数解释**: 资产类型 **约束限制**: 不涉及 **取值范围**: - web_cms：web应用 - web_service：web服务 - database：数据库  **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
@@ -6411,6 +6432,27 @@ export class HssClient {
      */
     public syncSecurityGroupPolicies(syncSecurityGroupPoliciesRequest?: SyncSecurityGroupPoliciesRequest): Promise<SyncSecurityGroupPoliciesResponse> {
         const options = ParamCreater().syncSecurityGroupPolicies(syncSecurityGroupPoliciesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 编辑告警白名单主机相关信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 编辑告警白名单生效主机
+     * @param {UpdateAlarmWhiteListRequestInfo} updateAlarmWhiteListHostRequestBody 修改告警白名单生效主机 
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAlarmWhiteListHost(updateAlarmWhiteListHostRequest?: UpdateAlarmWhiteListHostRequest): Promise<UpdateAlarmWhiteListHostResponse> {
+        const options = ParamCreater().updateAlarmWhiteListHost(updateAlarmWhiteListHostRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9334,48 +9376,6 @@ export class HssClient {
      */
     public updateCustomRuleConfig(updateCustomRuleConfigRequest?: UpdateCustomRuleConfigRequest): Promise<UpdateCustomRuleConfigResponse> {
         const options = ParamCreater().updateCustomRuleConfig(updateCustomRuleConfigRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询告警白名单生详情
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询告警白名单生详情
-     * @param {string} ruleId **参数解释**： 规则ID **约束限制**： 必填 **取值范围**： 字符长度1-36位 **默认取值**： 不涉及 
-     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAlarmWhiteListHostDetail(listAlarmWhiteListHostDetailRequest?: ListAlarmWhiteListHostDetailRequest): Promise<ListAlarmWhiteListHostDetailResponse> {
-        const options = ParamCreater().listAlarmWhiteListHostDetail(listAlarmWhiteListHostDetailRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 编辑告警白名单主机相关信息
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 编辑告警白名单生效主机
-     * @param {UpdateAlarmWhiteListRequestInfo} updateAlarmWhiteListHostRequestBody 修改告警白名单生效主机 
-     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateAlarmWhiteListHost(updateAlarmWhiteListHostRequest?: UpdateAlarmWhiteListHostRequest): Promise<UpdateAlarmWhiteListHostResponse> {
-        const options = ParamCreater().updateAlarmWhiteListHost(updateAlarmWhiteListHostRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -17994,6 +17994,60 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询告警白名单生详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAlarmWhiteListHostDetail(listAlarmWhiteListHostDetailRequest?: ListAlarmWhiteListHostDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/event/white-list/rule/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let ruleId;
+            
+            let region;
+            
+            let enterpriseProjectId;
+
+            if (listAlarmWhiteListHostDetailRequest !== null && listAlarmWhiteListHostDetailRequest !== undefined) {
+                if (listAlarmWhiteListHostDetailRequest instanceof ListAlarmWhiteListHostDetailRequest) {
+                    ruleId = listAlarmWhiteListHostDetailRequest.ruleId;
+                    region = listAlarmWhiteListHostDetailRequest.region;
+                    enterpriseProjectId = listAlarmWhiteListHostDetailRequest.enterpriseProjectId;
+                } else {
+                    ruleId = listAlarmWhiteListHostDetailRequest['rule_id'];
+                    region = listAlarmWhiteListHostDetailRequest['region'];
+                    enterpriseProjectId = listAlarmWhiteListHostDetailRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (ruleId === null || ruleId === undefined) {
+                throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling listAlarmWhiteListHostDetail.');
+            }
+            if (ruleId !== null && ruleId !== undefined) {
+                localVarQueryParameter['rule_id'] = ruleId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取软件信息的历史变动记录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -20100,9 +20154,9 @@ export const ParamCreater = function () {
             
             let containerTags;
             
-            let containerNode;
-            
             let version;
+            
+            let containerNode;
 
             if (listContainerNodesRequest !== null && listContainerNodesRequest !== undefined) {
                 if (listContainerNodesRequest instanceof ListContainerNodesRequest) {
@@ -20114,8 +20168,8 @@ export const ParamCreater = function () {
                     agentStatus = listContainerNodesRequest.agentStatus;
                     protectStatus = listContainerNodesRequest.protectStatus;
                     containerTags = listContainerNodesRequest.containerTags;
-                    containerNode = listContainerNodesRequest.containerNode;
                     version = listContainerNodesRequest.version;
+                    containerNode = listContainerNodesRequest.containerNode;
                 } else {
                     region = listContainerNodesRequest['region'];
                     enterpriseProjectId = listContainerNodesRequest['enterprise_project_id'];
@@ -20125,8 +20179,8 @@ export const ParamCreater = function () {
                     agentStatus = listContainerNodesRequest['agent_status'];
                     protectStatus = listContainerNodesRequest['protect_status'];
                     containerTags = listContainerNodesRequest['container_tags'];
-                    containerNode = listContainerNodesRequest['container_node'];
                     version = listContainerNodesRequest['version'];
+                    containerNode = listContainerNodesRequest['container_node'];
                 }
             }
 
@@ -20152,11 +20206,11 @@ export const ParamCreater = function () {
             if (containerTags !== null && containerTags !== undefined) {
                 localVarQueryParameter['container_tags'] = containerTags;
             }
-            if (containerNode !== null && containerNode !== undefined) {
-                localVarQueryParameter['container_node'] = containerNode;
-            }
             if (version !== null && version !== undefined) {
                 localVarQueryParameter['version'] = version;
+            }
+            if (containerNode !== null && containerNode !== undefined) {
+                localVarQueryParameter['container_node'] = containerNode;
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);
@@ -28110,6 +28164,59 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 编辑告警白名单主机相关信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAlarmWhiteListHost(updateAlarmWhiteListHostRequest?: UpdateAlarmWhiteListHostRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/{project_id}/event/white-list/alarm",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let region;
+            
+            let enterpriseProjectId;
+
+            if (updateAlarmWhiteListHostRequest !== null && updateAlarmWhiteListHostRequest !== undefined) {
+                if (updateAlarmWhiteListHostRequest instanceof UpdateAlarmWhiteListHostRequest) {
+                    body = updateAlarmWhiteListHostRequest.body
+                    region = updateAlarmWhiteListHostRequest.region;
+                    enterpriseProjectId = updateAlarmWhiteListHostRequest.enterpriseProjectId;
+                } else {
+                    body = updateAlarmWhiteListHostRequest['body'];
+                    region = updateAlarmWhiteListHostRequest['region'];
+                    enterpriseProjectId = updateAlarmWhiteListHostRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -36285,113 +36392,6 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询告警白名单生详情
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listAlarmWhiteListHostDetail(listAlarmWhiteListHostDetailRequest?: ListAlarmWhiteListHostDetailRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/event/white-list/rule/detail",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let ruleId;
-            
-            let region;
-            
-            let enterpriseProjectId;
-
-            if (listAlarmWhiteListHostDetailRequest !== null && listAlarmWhiteListHostDetailRequest !== undefined) {
-                if (listAlarmWhiteListHostDetailRequest instanceof ListAlarmWhiteListHostDetailRequest) {
-                    ruleId = listAlarmWhiteListHostDetailRequest.ruleId;
-                    region = listAlarmWhiteListHostDetailRequest.region;
-                    enterpriseProjectId = listAlarmWhiteListHostDetailRequest.enterpriseProjectId;
-                } else {
-                    ruleId = listAlarmWhiteListHostDetailRequest['rule_id'];
-                    region = listAlarmWhiteListHostDetailRequest['region'];
-                    enterpriseProjectId = listAlarmWhiteListHostDetailRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (ruleId === null || ruleId === undefined) {
-                throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling listAlarmWhiteListHostDetail.');
-            }
-            if (ruleId !== null && ruleId !== undefined) {
-                localVarQueryParameter['rule_id'] = ruleId;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (region !== undefined && region !== null) {
-                localVarHeaderParameter['region'] = String(region);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 编辑告警白名单主机相关信息
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateAlarmWhiteListHost(updateAlarmWhiteListHostRequest?: UpdateAlarmWhiteListHostRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v5/{project_id}/event/white-list/alarm",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let body: any;
-            
-            let region;
-            
-            let enterpriseProjectId;
-
-            if (updateAlarmWhiteListHostRequest !== null && updateAlarmWhiteListHostRequest !== undefined) {
-                if (updateAlarmWhiteListHostRequest instanceof UpdateAlarmWhiteListHostRequest) {
-                    body = updateAlarmWhiteListHostRequest.body
-                    region = updateAlarmWhiteListHostRequest.region;
-                    enterpriseProjectId = updateAlarmWhiteListHostRequest.enterpriseProjectId;
-                } else {
-                    body = updateAlarmWhiteListHostRequest['body'];
-                    region = updateAlarmWhiteListHostRequest['region'];
-                    enterpriseProjectId = updateAlarmWhiteListHostRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (region !== undefined && region !== null) {
-                localVarHeaderParameter['region'] = String(region);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -298,6 +298,9 @@ import { EventInstance } from './model/EventInstance';
 import { EventJobResult } from './model/EventJobResult';
 import { EventScheduleWindow } from './model/EventScheduleWindow';
 import { ExceededInstanceInfo } from './model/ExceededInstanceInfo';
+import { ExecuteOptimizeTableSpaceRequest } from './model/ExecuteOptimizeTableSpaceRequest';
+import { ExecuteOptimizeTableSpaceRequestBody } from './model/ExecuteOptimizeTableSpaceRequestBody';
+import { ExecuteOptimizeTableSpaceResponse } from './model/ExecuteOptimizeTableSpaceResponse';
 import { ExecutePrivilegeDatabaseUserRoleRequest } from './model/ExecutePrivilegeDatabaseUserRoleRequest';
 import { ExecutePrivilegeDatabaseUserRoleResponse } from './model/ExecutePrivilegeDatabaseUserRoleResponse';
 import { ExecuteRevokeDatabaseUserRoleRequest } from './model/ExecuteRevokeDatabaseUserRoleRequest';
@@ -370,6 +373,8 @@ import { ListAuthorizedDbUsersRequest } from './model/ListAuthorizedDbUsersReque
 import { ListAuthorizedDbUsersResponse } from './model/ListAuthorizedDbUsersResponse';
 import { ListAuthorizedSqlserverDbUsersRequest } from './model/ListAuthorizedSqlserverDbUsersRequest';
 import { ListAuthorizedSqlserverDbUsersResponse } from './model/ListAuthorizedSqlserverDbUsersResponse';
+import { ListAutoScalingHistoryRequest } from './model/ListAutoScalingHistoryRequest';
+import { ListAutoScalingHistoryResponse } from './model/ListAutoScalingHistoryResponse';
 import { ListAutoScalingPolicyRequest } from './model/ListAutoScalingPolicyRequest';
 import { ListAutoScalingPolicyResponse } from './model/ListAutoScalingPolicyResponse';
 import { ListBackupTransfersRequest } from './model/ListBackupTransfersRequest';
@@ -611,6 +616,7 @@ import { ModifySubscriptionsRequestBody } from './model/ModifySubscriptionsReque
 import { MsdtcHostOption } from './model/MsdtcHostOption';
 import { MsdtcHostResult } from './model/MsdtcHostResult';
 import { MultipleDeleteInsReq } from './model/MultipleDeleteInsReq';
+import { MysqlAutoScalingRecord } from './model/MysqlAutoScalingRecord';
 import { MysqlAvailableZoneInfo } from './model/MysqlAvailableZoneInfo';
 import { MysqlProxyFlavorsResponseComputeFlavorGroups } from './model/MysqlProxyFlavorsResponseComputeFlavorGroups';
 import { MysqlProxyFlavorsResponseComputeFlavors } from './model/MysqlProxyFlavorsResponseComputeFlavors';
@@ -683,7 +689,9 @@ import { QueryProxyResponseV3 } from './model/QueryProxyResponseV3';
 import { QueryPublicationInfo } from './model/QueryPublicationInfo';
 import { QueryTopSqlsResult } from './model/QueryTopSqlsResult';
 import { Quotas } from './model/Quotas';
+import { RdsDBFaultPolicyReq } from './model/RdsDBFaultPolicyReq';
 import { RdsUpgradePrecheckV3Req } from './model/RdsUpgradePrecheckV3Req';
+import { ReadOnlyScalingStrategy } from './model/ReadOnlyScalingStrategy';
 import { ReadonlyInstances } from './model/ReadonlyInstances';
 import { RecycleInstsanceV3 } from './model/RecycleInstsanceV3';
 import { RecyclePolicy } from './model/RecyclePolicy';
@@ -774,6 +782,9 @@ import { SetAuditlogPolicyRequestBody } from './model/SetAuditlogPolicyRequestBo
 import { SetAuditlogPolicyResponse } from './model/SetAuditlogPolicyResponse';
 import { SetAutoEnlargePolicyRequest } from './model/SetAutoEnlargePolicyRequest';
 import { SetAutoEnlargePolicyResponse } from './model/SetAutoEnlargePolicyResponse';
+import { SetAutoScalingPolicyRequest } from './model/SetAutoScalingPolicyRequest';
+import { SetAutoScalingPolicyRequestBody } from './model/SetAutoScalingPolicyRequestBody';
+import { SetAutoScalingPolicyResponse } from './model/SetAutoScalingPolicyResponse';
 import { SetAutoUpgradePolicyRequest } from './model/SetAutoUpgradePolicyRequest';
 import { SetAutoUpgradePolicyResponse } from './model/SetAutoUpgradePolicyResponse';
 import { SetBackupPolicyRequest } from './model/SetBackupPolicyRequest';
@@ -805,6 +816,8 @@ import { SetOffSiteBackupPolicyRequestBody } from './model/SetOffSiteBackupPolic
 import { SetOffSiteBackupPolicyResponse } from './model/SetOffSiteBackupPolicyResponse';
 import { SetPostgresqlDbUserPwdRequest } from './model/SetPostgresqlDbUserPwdRequest';
 import { SetPostgresqlDbUserPwdResponse } from './model/SetPostgresqlDbUserPwdResponse';
+import { SetRdsDBFaultPolicyRequest } from './model/SetRdsDBFaultPolicyRequest';
+import { SetRdsDBFaultPolicyResponse } from './model/SetRdsDBFaultPolicyResponse';
 import { SetReadOnlySwitchRequest } from './model/SetReadOnlySwitchRequest';
 import { SetReadOnlySwitchResponse } from './model/SetReadOnlySwitchResponse';
 import { SetSecondLevelMonitorRequest } from './model/SetSecondLevelMonitorRequest';
@@ -834,6 +847,8 @@ import { ShowAutoUpgradePolicyRequest } from './model/ShowAutoUpgradePolicyReque
 import { ShowAutoUpgradePolicyResponse } from './model/ShowAutoUpgradePolicyResponse';
 import { ShowAvailableBuildDrInstanceRequest } from './model/ShowAvailableBuildDrInstanceRequest';
 import { ShowAvailableBuildDrInstanceResponse } from './model/ShowAvailableBuildDrInstanceResponse';
+import { ShowAvailableCorsVpcsRequest } from './model/ShowAvailableCorsVpcsRequest';
+import { ShowAvailableCorsVpcsResponse } from './model/ShowAvailableCorsVpcsResponse';
 import { ShowAvailableVersionRequest } from './model/ShowAvailableVersionRequest';
 import { ShowAvailableVersionResponse } from './model/ShowAvailableVersionResponse';
 import { ShowBackupConfigRequest } from './model/ShowBackupConfigRequest';
@@ -991,6 +1006,9 @@ import { SwitchDbAgentJobResponse } from './model/SwitchDbAgentJobResponse';
 import { SwitchLogReplayRequest } from './model/SwitchLogReplayRequest';
 import { SwitchLogReplayRequestBody } from './model/SwitchLogReplayRequestBody';
 import { SwitchLogReplayResponse } from './model/SwitchLogReplayResponse';
+import { SwitchMySqlProxyEipRequest } from './model/SwitchMySqlProxyEipRequest';
+import { SwitchMySqlProxyEipRequestBody } from './model/SwitchMySqlProxyEipRequestBody';
+import { SwitchMySqlProxyEipResponse } from './model/SwitchMySqlProxyEipResponse';
 import { SwitchMySqlProxySlowLogRequest } from './model/SwitchMySqlProxySlowLogRequest';
 import { SwitchMySqlProxySlowLogRequestBody } from './model/SwitchMySqlProxySlowLogRequestBody';
 import { SwitchMySqlProxySlowLogResponse } from './model/SwitchMySqlProxySlowLogResponse';
@@ -1067,6 +1085,9 @@ import { UpdateInstanceConfigurationRequestBody } from './model/UpdateInstanceCo
 import { UpdateInstanceConfigurationResponse } from './model/UpdateInstanceConfigurationResponse';
 import { UpdateInstanceNameRequest } from './model/UpdateInstanceNameRequest';
 import { UpdateInstanceNameResponse } from './model/UpdateInstanceNameResponse';
+import { UpdateInstancesProxyPortRequest } from './model/UpdateInstancesProxyPortRequest';
+import { UpdateInstancesProxyPortRequestBody } from './model/UpdateInstancesProxyPortRequestBody';
+import { UpdateInstancesProxyPortResponse } from './model/UpdateInstancesProxyPortResponse';
 import { UpdatePortRequest } from './model/UpdatePortRequest';
 import { UpdatePortResponse } from './model/UpdatePortResponse';
 import { UpdatePostgresqlDatabaseRequest } from './model/UpdatePostgresqlDatabaseRequest';
@@ -2121,6 +2142,27 @@ export class RdsClient {
     }
 
     /**
+     * 清理表碎片空间
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 清理表碎片空间
+     * @param {string} instanceId **参数解释**：  实例ID。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {ExecuteOptimizeTableSpaceRequestBody} executeOptimizeTableSpaceRequestBody 请求体
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeOptimizeTableSpace(executeOptimizeTableSpaceRequest?: ExecuteOptimizeTableSpaceRequest): Promise<ExecuteOptimizeTableSpaceResponse> {
+        const options = ParamCreater().executeOptimizeTableSpace(executeOptimizeTableSpaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询实例CES监控指标名称列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2158,6 +2200,29 @@ export class RdsClient {
      */
     public listAuditlogs(listAuditlogsRequest?: ListAuditlogsRequest): Promise<ListAuditlogsResponse> {
         const options = ParamCreater().listAuditlogs(listAuditlogsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询自动变配历史。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询自动变配历史
+     * @param {string} instanceId **参数解释**：  实例ID。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn  **默认取值**：  en-us。
+     * @param {string} [strategyType] **参数解释**：  查询的变配策略类型。  **约束限制**：  不涉及。  **取值范围**：  - FLAVOR_SCALING：规格变配 - READ_ONLY_SCALING：只读变配  **默认取值**：  FLAVOR_SCALING。
+     * @param {number} [offset] **参数解释**：  索引位置，偏移量。  **约束限制**：  不涉及。  **取值范围**：  不涉及  **默认取值**：  0
+     * @param {number} [limit] **参数解释**：  查询记录数。  **约束限制**：  不涉及。  **取值范围**：  1-100  **默认取值**：  10
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAutoScalingHistory(listAutoScalingHistoryRequest?: ListAutoScalingHistoryRequest): Promise<ListAutoScalingHistoryResponse> {
+        const options = ParamCreater().listAutoScalingHistory(listAutoScalingHistoryRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4056,6 +4121,27 @@ export class RdsClient {
     }
 
     /**
+     * 修改自动变配的策略，包括自动升配和降配。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改自动变配策略
+     * @param {string} instanceId **参数解释**：  实例ID。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {SetAutoScalingPolicyRequestBody} setAutoScalingPolicyRequestBody **参数解释**：  设置自动变配策略请求体。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn  **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setAutoScalingPolicy(setAutoScalingPolicyRequest?: SetAutoScalingPolicyRequest): Promise<SetAutoScalingPolicyResponse> {
+        const options = ParamCreater().setAutoScalingPolicy(setAutoScalingPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设置实例内核小版本自动升级策略
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4196,6 +4282,27 @@ export class RdsClient {
      */
     public setOffSiteBackupPolicy(setOffSiteBackupPolicyRequest?: SetOffSiteBackupPolicyRequest): Promise<SetOffSiteBackupPolicyResponse> {
         const options = ParamCreater().setOffSiteBackupPolicy(setOffSiteBackupPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 设置内核故障的处理策略：优先切换或优先修复。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置内核故障的处理策略
+     * @param {string} instanceId **参数解释**：  实例ID。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {RdsDBFaultPolicyReq} setRdsDBFaultPolicyRequestBody 设置内核故障的处理策略请求体
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setRdsDBFaultPolicy(setRdsDBFaultPolicyRequest?: SetRdsDBFaultPolicyRequest): Promise<SetRdsDBFaultPolicyResponse> {
+        const options = ParamCreater().setRdsDBFaultPolicy(setRdsDBFaultPolicyRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4382,6 +4489,25 @@ export class RdsClient {
      */
     public showAvailableBuildDrInstance(showAvailableBuildDrInstanceRequest?: ShowAvailableBuildDrInstanceRequest): Promise<ShowAvailableBuildDrInstanceResponse> {
         const options = ParamCreater().showAvailableBuildDrInstance(showAvailableBuildDrInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询云耀实例的VPC服务信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询云耀实例的VPC服务信息
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAvailableCorsVpcs(showAvailableCorsVpcsRequest?: ShowAvailableCorsVpcsRequest): Promise<ShowAvailableCorsVpcsResponse> {
+        const options = ParamCreater().showAvailableCorsVpcs(showAvailableCorsVpcsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6237,6 +6363,28 @@ export class RdsClient {
     }
 
     /**
+     * 数据库代理绑定解绑弹性公网IP。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 数据库代理绑定解绑弹性公网IP
+     * @param {string} instanceId **参数解释**：  实例ID。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {string} proxyId **参数解释**：  数据库代理ID。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {SwitchMySqlProxyEipRequestBody} switchMySqlProxyEipRequestBody 绑定解绑弹性公网IP请求体
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchMySqlProxyEip(switchMySqlProxyEipRequest?: SwitchMySqlProxyEipRequest): Promise<SwitchMySqlProxyEipResponse> {
+        const options = ParamCreater().switchMySqlProxyEip(switchMySqlProxyEipRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更改数据库代理慢日志上报开关。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6313,6 +6461,28 @@ export class RdsClient {
      */
     public updateHostPrivilege(updateHostPrivilegeRequest?: UpdateHostPrivilegeRequest): Promise<UpdateHostPrivilegeResponse> {
         const options = ParamCreater().updateHostPrivilege(updateHostPrivilegeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改数据库代理端口号。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改数据库代理端口号
+     * @param {string} instanceId **参数解释**：  实例ID。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {string} proxyId **参数解释**：  数据库代理ID。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn **默认取值**：  en-us。
+     * @param {UpdateInstancesProxyPortRequestBody} [updateInstancesProxyPortRequestBody] 修改数据库代理端口号请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstancesProxyPort(updateInstancesProxyPortRequest?: UpdateInstancesProxyPortRequest): Promise<UpdateInstancesProxyPortResponse> {
+        const options = ParamCreater().updateInstancesProxyPort(updateInstancesProxyPortRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -10841,6 +11011,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 清理表碎片空间
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeOptimizeTableSpace(executeOptimizeTableSpaceRequest?: ExecuteOptimizeTableSpaceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/optimize/table",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (executeOptimizeTableSpaceRequest !== null && executeOptimizeTableSpaceRequest !== undefined) {
+                if (executeOptimizeTableSpaceRequest instanceof ExecuteOptimizeTableSpaceRequest) {
+                    instanceId = executeOptimizeTableSpaceRequest.instanceId;
+                    body = executeOptimizeTableSpaceRequest.body
+                    xLanguage = executeOptimizeTableSpaceRequest.xLanguage;
+                } else {
+                    instanceId = executeOptimizeTableSpaceRequest['instance_id'];
+                    body = executeOptimizeTableSpaceRequest['body'];
+                    xLanguage = executeOptimizeTableSpaceRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling executeOptimizeTableSpace.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询实例CES监控指标名称列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10966,6 +11189,72 @@ export const ParamCreater = function () {
             }
             if (limit === null || limit === undefined) {
                 throw new RequiredError('limit','Required parameter limit was null or undefined when calling listAuditlogs.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询自动变配历史。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAutoScalingHistory(listAutoScalingHistoryRequest?: ListAutoScalingHistoryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/auto-scaling/history",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let xLanguage;
+            
+            let strategyType;
+            
+            let offset;
+            
+            let limit;
+
+            if (listAutoScalingHistoryRequest !== null && listAutoScalingHistoryRequest !== undefined) {
+                if (listAutoScalingHistoryRequest instanceof ListAutoScalingHistoryRequest) {
+                    instanceId = listAutoScalingHistoryRequest.instanceId;
+                    xLanguage = listAutoScalingHistoryRequest.xLanguage;
+                    strategyType = listAutoScalingHistoryRequest.strategyType;
+                    offset = listAutoScalingHistoryRequest.offset;
+                    limit = listAutoScalingHistoryRequest.limit;
+                } else {
+                    instanceId = listAutoScalingHistoryRequest['instance_id'];
+                    xLanguage = listAutoScalingHistoryRequest['X-Language'];
+                    strategyType = listAutoScalingHistoryRequest['strategy_type'];
+                    offset = listAutoScalingHistoryRequest['offset'];
+                    limit = listAutoScalingHistoryRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listAutoScalingHistory.');
+            }
+            if (strategyType !== null && strategyType !== undefined) {
+                localVarQueryParameter['strategy_type'] = strategyType;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -16167,6 +16456,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改自动变配的策略，包括自动升配和降配。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setAutoScalingPolicy(setAutoScalingPolicyRequest?: SetAutoScalingPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/auto-scaling/policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (setAutoScalingPolicyRequest !== null && setAutoScalingPolicyRequest !== undefined) {
+                if (setAutoScalingPolicyRequest instanceof SetAutoScalingPolicyRequest) {
+                    instanceId = setAutoScalingPolicyRequest.instanceId;
+                    body = setAutoScalingPolicyRequest.body
+                    xLanguage = setAutoScalingPolicyRequest.xLanguage;
+                } else {
+                    instanceId = setAutoScalingPolicyRequest['instance_id'];
+                    body = setAutoScalingPolicyRequest['body'];
+                    xLanguage = setAutoScalingPolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setAutoScalingPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设置实例内核小版本自动升级策略
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -16526,6 +16868,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setOffSiteBackupPolicy.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 设置内核故障的处理策略：优先切换或优先修复。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setRdsDBFaultPolicy(setRdsDBFaultPolicyRequest?: SetRdsDBFaultPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/failover/db-policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (setRdsDBFaultPolicyRequest !== null && setRdsDBFaultPolicyRequest !== undefined) {
+                if (setRdsDBFaultPolicyRequest instanceof SetRdsDBFaultPolicyRequest) {
+                    instanceId = setRdsDBFaultPolicyRequest.instanceId;
+                    body = setRdsDBFaultPolicyRequest.body
+                    xLanguage = setRdsDBFaultPolicyRequest.xLanguage;
+                } else {
+                    instanceId = setRdsDBFaultPolicyRequest['instance_id'];
+                    body = setRdsDBFaultPolicyRequest['body'];
+                    xLanguage = setRdsDBFaultPolicyRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setRdsDBFaultPolicy.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -16971,6 +17366,42 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询云耀实例的VPC服务信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAvailableCorsVpcs(showAvailableCorsVpcsRequest?: ShowAvailableCorsVpcsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/available-cors-vpcs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let xLanguage;
+
+            if (showAvailableCorsVpcsRequest !== null && showAvailableCorsVpcsRequest !== undefined) {
+                if (showAvailableCorsVpcsRequest instanceof ShowAvailableCorsVpcsRequest) {
+                    xLanguage = showAvailableCorsVpcsRequest.xLanguage;
+                } else {
+                    xLanguage = showAvailableCorsVpcsRequest['X-Language'];
+                }
+            }
+
+        
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -21377,6 +21808,66 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 数据库代理绑定解绑弹性公网IP。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchMySqlProxyEip(switchMySqlProxyEipRequest?: SwitchMySqlProxyEipRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/{proxy_id}/bind",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let proxyId;
+            
+            let xLanguage;
+
+            if (switchMySqlProxyEipRequest !== null && switchMySqlProxyEipRequest !== undefined) {
+                if (switchMySqlProxyEipRequest instanceof SwitchMySqlProxyEipRequest) {
+                    instanceId = switchMySqlProxyEipRequest.instanceId;
+                    proxyId = switchMySqlProxyEipRequest.proxyId;
+                    body = switchMySqlProxyEipRequest.body
+                    xLanguage = switchMySqlProxyEipRequest.xLanguage;
+                } else {
+                    instanceId = switchMySqlProxyEipRequest['instance_id'];
+                    proxyId = switchMySqlProxyEipRequest['proxy_id'];
+                    body = switchMySqlProxyEipRequest['body'];
+                    xLanguage = switchMySqlProxyEipRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling switchMySqlProxyEip.');
+            }
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling switchMySqlProxyEip.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更改数据库代理慢日志上报开关。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -21584,6 +22075,63 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改数据库代理端口号。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstancesProxyPort(updateInstancesProxyPortRequest?: UpdateInstancesProxyPortRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/proxy/{proxy_id}/port",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let proxyId;
+            
+            let xLanguage;
+
+            if (updateInstancesProxyPortRequest !== null && updateInstancesProxyPortRequest !== undefined) {
+                if (updateInstancesProxyPortRequest instanceof UpdateInstancesProxyPortRequest) {
+                    instanceId = updateInstancesProxyPortRequest.instanceId;
+                    proxyId = updateInstancesProxyPortRequest.proxyId;
+                    xLanguage = updateInstancesProxyPortRequest.xLanguage;
+                    body = updateInstancesProxyPortRequest.body
+                } else {
+                    instanceId = updateInstancesProxyPortRequest['instance_id'];
+                    proxyId = updateInstancesProxyPortRequest['proxy_id'];
+                    xLanguage = updateInstancesProxyPortRequest['X-Language'];
+                    body = updateInstancesProxyPortRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstancesProxyPort.');
+            }
+            if (proxyId === null || proxyId === undefined) {
+            throw new RequiredError('proxyId','Required parameter proxyId was null or undefined when calling updateInstancesProxyPort.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId,'proxy_id': proxyId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

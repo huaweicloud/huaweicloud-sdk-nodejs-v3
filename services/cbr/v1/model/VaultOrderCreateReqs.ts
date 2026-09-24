@@ -1,12 +1,12 @@
-import { VaultOrder } from './VaultOrder';
+import { PrePaidVaultOrder } from './PrePaidVaultOrder';
 
 
 export class VaultOrderCreateReqs {
-    public vault?: VaultOrder;
-    public constructor(vault?: VaultOrder) { 
+    public vault?: PrePaidVaultOrder;
+    public constructor(vault?: PrePaidVaultOrder) { 
         this['vault'] = vault;
     }
-    public withVault(vault: VaultOrder): VaultOrderCreateReqs {
+    public withVault(vault: PrePaidVaultOrder): VaultOrderCreateReqs {
         this['vault'] = vault;
         return this;
     }

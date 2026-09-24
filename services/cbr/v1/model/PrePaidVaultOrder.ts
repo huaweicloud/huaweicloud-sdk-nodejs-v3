@@ -1,13 +1,14 @@
-import { BillingCreate } from './BillingCreate';
+import { DataEncryption } from './DataEncryption';
+import { PrePaidBillingCreate } from './PrePaidBillingCreate';
 import { ResourceCreate } from './ResourceCreate';
 import { Tag } from './Tag';
 import { VaultBindRules } from './VaultBindRules';
 import { VaultCreateParameters } from './VaultCreateParameters';
 
 
-export class VaultOrder {
+export class PrePaidVaultOrder {
     public name?: string;
-    public billing?: BillingCreate;
+    public billing?: PrePaidBillingCreate;
     public resources?: Array<ResourceCreate>;
     public description?: string;
     private 'backup_policy_id'?: string;
@@ -20,27 +21,29 @@ export class VaultOrder {
     public parameters?: VaultCreateParameters;
     private 'auto_expand'?: boolean;
     public locked?: boolean;
-    public constructor(billing?: BillingCreate, resources?: Array<ResourceCreate>) { 
+    private 'cross_account'?: boolean;
+    private 'data_encryption'?: DataEncryption;
+    public constructor(billing?: PrePaidBillingCreate, resources?: Array<ResourceCreate>) { 
         this['billing'] = billing;
         this['resources'] = resources;
     }
-    public withName(name: string): VaultOrder {
+    public withName(name: string): PrePaidVaultOrder {
         this['name'] = name;
         return this;
     }
-    public withBilling(billing: BillingCreate): VaultOrder {
+    public withBilling(billing: PrePaidBillingCreate): PrePaidVaultOrder {
         this['billing'] = billing;
         return this;
     }
-    public withResources(resources: Array<ResourceCreate>): VaultOrder {
+    public withResources(resources: Array<ResourceCreate>): PrePaidVaultOrder {
         this['resources'] = resources;
         return this;
     }
-    public withDescription(description: string): VaultOrder {
+    public withDescription(description: string): PrePaidVaultOrder {
         this['description'] = description;
         return this;
     }
-    public withBackupPolicyId(backupPolicyId: string): VaultOrder {
+    public withBackupPolicyId(backupPolicyId: string): PrePaidVaultOrder {
         this['backup_policy_id'] = backupPolicyId;
         return this;
     }
@@ -50,11 +53,11 @@ export class VaultOrder {
     public get backupPolicyId(): string | undefined {
         return this['backup_policy_id'];
     }
-    public withTags(tags: Array<Tag>): VaultOrder {
+    public withTags(tags: Array<Tag>): PrePaidVaultOrder {
         this['tags'] = tags;
         return this;
     }
-    public withEnterpriseProjectId(enterpriseProjectId: string): VaultOrder {
+    public withEnterpriseProjectId(enterpriseProjectId: string): PrePaidVaultOrder {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
@@ -64,7 +67,7 @@ export class VaultOrder {
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withAutoBind(autoBind: boolean): VaultOrder {
+    public withAutoBind(autoBind: boolean): PrePaidVaultOrder {
         this['auto_bind'] = autoBind;
         return this;
     }
@@ -74,7 +77,7 @@ export class VaultOrder {
     public get autoBind(): boolean | undefined {
         return this['auto_bind'];
     }
-    public withBindRules(bindRules: VaultBindRules): VaultOrder {
+    public withBindRules(bindRules: VaultBindRules): PrePaidVaultOrder {
         this['bind_rules'] = bindRules;
         return this;
     }
@@ -84,11 +87,11 @@ export class VaultOrder {
     public get bindRules(): VaultBindRules | undefined {
         return this['bind_rules'];
     }
-    public withThreshold(threshold: number): VaultOrder {
+    public withThreshold(threshold: number): PrePaidVaultOrder {
         this['threshold'] = threshold;
         return this;
     }
-    public withSmnNotify(smnNotify: boolean): VaultOrder {
+    public withSmnNotify(smnNotify: boolean): PrePaidVaultOrder {
         this['smn_notify'] = smnNotify;
         return this;
     }
@@ -98,11 +101,11 @@ export class VaultOrder {
     public get smnNotify(): boolean | undefined {
         return this['smn_notify'];
     }
-    public withParameters(parameters: VaultCreateParameters): VaultOrder {
+    public withParameters(parameters: VaultCreateParameters): PrePaidVaultOrder {
         this['parameters'] = parameters;
         return this;
     }
-    public withAutoExpand(autoExpand: boolean): VaultOrder {
+    public withAutoExpand(autoExpand: boolean): PrePaidVaultOrder {
         this['auto_expand'] = autoExpand;
         return this;
     }
@@ -112,8 +115,28 @@ export class VaultOrder {
     public get autoExpand(): boolean | undefined {
         return this['auto_expand'];
     }
-    public withLocked(locked: boolean): VaultOrder {
+    public withLocked(locked: boolean): PrePaidVaultOrder {
         this['locked'] = locked;
         return this;
+    }
+    public withCrossAccount(crossAccount: boolean): PrePaidVaultOrder {
+        this['cross_account'] = crossAccount;
+        return this;
+    }
+    public set crossAccount(crossAccount: boolean  | undefined) {
+        this['cross_account'] = crossAccount;
+    }
+    public get crossAccount(): boolean | undefined {
+        return this['cross_account'];
+    }
+    public withDataEncryption(dataEncryption: DataEncryption): PrePaidVaultOrder {
+        this['data_encryption'] = dataEncryption;
+        return this;
+    }
+    public set dataEncryption(dataEncryption: DataEncryption  | undefined) {
+        this['data_encryption'] = dataEncryption;
+    }
+    public get dataEncryption(): DataEncryption | undefined {
+        return this['data_encryption'];
     }
 }

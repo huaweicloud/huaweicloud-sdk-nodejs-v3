@@ -1,4 +1,4 @@
-import { PolicyTriggerReq } from './PolicyTriggerReq';
+import { PolicyTriggerUpdateReq } from './PolicyTriggerUpdateReq';
 import { PolicyoODCreate } from './PolicyoODCreate';
 
 
@@ -8,7 +8,7 @@ export class OrganizationPolicyUpdate {
     private 'policy_name'?: string;
     private 'policy_enabled'?: boolean;
     private 'policy_operation_definition'?: PolicyoODCreate;
-    private 'policy_trigger'?: PolicyTriggerReq;
+    private 'policy_trigger'?: PolicyTriggerUpdateReq;
     private 'effective_scope'?: string;
     public constructor() { 
     }
@@ -50,14 +50,14 @@ export class OrganizationPolicyUpdate {
     public get policyOperationDefinition(): PolicyoODCreate | undefined {
         return this['policy_operation_definition'];
     }
-    public withPolicyTrigger(policyTrigger: PolicyTriggerReq): OrganizationPolicyUpdate {
+    public withPolicyTrigger(policyTrigger: PolicyTriggerUpdateReq): OrganizationPolicyUpdate {
         this['policy_trigger'] = policyTrigger;
         return this;
     }
-    public set policyTrigger(policyTrigger: PolicyTriggerReq  | undefined) {
+    public set policyTrigger(policyTrigger: PolicyTriggerUpdateReq  | undefined) {
         this['policy_trigger'] = policyTrigger;
     }
-    public get policyTrigger(): PolicyTriggerReq | undefined {
+    public get policyTrigger(): PolicyTriggerUpdateReq | undefined {
         return this['policy_trigger'];
     }
     public withEffectiveScope(effectiveScope: string): OrganizationPolicyUpdate {

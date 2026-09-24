@@ -1111,7 +1111,7 @@ export class IoTEdgeClient {
     }
 
     /**
-     * 更新应用版本状态。
+     * 更新应用版本状态
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1261,7 +1261,7 @@ export class IoTEdgeClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查数采连接子设备列表
+     * @summary 查询数采连接子设备列表
      * @param {string} edgeNodeId 边缘节点ID
      * @param {string} dsId 采集数据源id，创建数据源配置时设置，节点下唯一。
      * @param {string} [deviceId] 设备标识码。
@@ -1307,7 +1307,7 @@ export class IoTEdgeClient {
     }
 
     /**
-     * 用户通过Console接口在指定边缘节点上点位表配置
+     * 用户通过Console接口在指定边缘节点上创建点位表配置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1545,7 +1545,7 @@ export class IoTEdgeClient {
     }
 
     /**
-     * 用户通过过Console接口在指定边缘节点上删除边缘模块
+     * 用户通过Console接口在指定边缘节点上删除边缘模块
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1565,7 +1565,7 @@ export class IoTEdgeClient {
     }
 
     /**
-     * iotedge通过该接口透明代理用户到模块的请求
+     * IoTEdge通过该接口透明代理用户到模块的请求
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1627,7 +1627,7 @@ export class IoTEdgeClient {
     }
 
     /**
-     * 用户通过Console接口启停数采连接
+     * 用户通过Console接口修改边缘模块状态
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1824,7 +1824,7 @@ export class IoTEdgeClient {
     }
 
     /**
-     * 用户通过Console接口在指定边缘节点上点位表配置
+     * 用户通过Console接口在指定边缘节点上创建点位表配置
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2347,7 +2347,7 @@ export class IoTEdgeClient {
     }
 
     /**
-     * 删除查询外部推送通道
+     * 删除外部推送通道
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -4139,7 +4139,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新应用版本状态。
+         * 更新应用版本状态
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4657,7 +4657,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用户通过Console接口在指定边缘节点上点位表配置
+         * 用户通过Console接口在指定边缘节点上创建点位表配置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5283,7 +5283,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用户通过过Console接口在指定边缘节点上删除边缘模块
+         * 用户通过Console接口在指定边缘节点上删除边缘模块
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5327,7 +5327,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * iotedge通过该接口透明代理用户到模块的请求
+         * IoTEdge通过该接口透明代理用户到模块的请求
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5477,7 +5477,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用户通过Console接口启停数采连接
+         * 用户通过Console接口修改边缘模块状态
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5895,7 +5895,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用户通过Console接口在指定边缘节点上点位表配置
+         * 用户通过Console接口在指定边缘节点上创建点位表配置
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7209,7 +7209,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除查询外部推送通道
+         * 删除外部推送通道
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

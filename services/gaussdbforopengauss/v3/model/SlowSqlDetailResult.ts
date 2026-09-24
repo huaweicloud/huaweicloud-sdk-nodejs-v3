@@ -12,18 +12,18 @@ export class SlowSqlDetailResult {
     private 'node_name'?: string;
     private 'sql_text'?: string;
     private 'query_plan'?: string;
-    private 'start_time'?: number;
-    private 'finish_time'?: number;
+    private 'start_time'?: string;
+    private 'finish_time'?: string;
     private 'returned_rows'?: number;
     private 'fetched_rows'?: number;
     private 'fetched_pages'?: number;
     private 'hit_pages'?: number;
-    private 'total_time'?: number;
-    private 'cpu_time'?: number;
-    private 'plan_time'?: number;
-    private 'io_time'?: number;
+    private 'total_time'?: string;
+    private 'cpu_time'?: string;
+    private 'plan_time'?: string;
+    private 'io_time'?: string;
     private 'lock_count'?: number;
-    private 'lock_time'?: number;
+    private 'lock_time'?: string;
     public constructor() { 
     }
     public withDbName(dbName: string): SlowSqlDetailResult {
@@ -130,24 +130,24 @@ export class SlowSqlDetailResult {
     public get queryPlan(): string | undefined {
         return this['query_plan'];
     }
-    public withStartTime(startTime: number): SlowSqlDetailResult {
+    public withStartTime(startTime: string): SlowSqlDetailResult {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: number  | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime(): number | undefined {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
-    public withFinishTime(finishTime: number): SlowSqlDetailResult {
+    public withFinishTime(finishTime: string): SlowSqlDetailResult {
         this['finish_time'] = finishTime;
         return this;
     }
-    public set finishTime(finishTime: number  | undefined) {
+    public set finishTime(finishTime: string  | undefined) {
         this['finish_time'] = finishTime;
     }
-    public get finishTime(): number | undefined {
+    public get finishTime(): string | undefined {
         return this['finish_time'];
     }
     public withReturnedRows(returnedRows: number): SlowSqlDetailResult {
@@ -190,44 +190,44 @@ export class SlowSqlDetailResult {
     public get hitPages(): number | undefined {
         return this['hit_pages'];
     }
-    public withTotalTime(totalTime: number): SlowSqlDetailResult {
+    public withTotalTime(totalTime: string): SlowSqlDetailResult {
         this['total_time'] = totalTime;
         return this;
     }
-    public set totalTime(totalTime: number  | undefined) {
+    public set totalTime(totalTime: string  | undefined) {
         this['total_time'] = totalTime;
     }
-    public get totalTime(): number | undefined {
+    public get totalTime(): string | undefined {
         return this['total_time'];
     }
-    public withCpuTime(cpuTime: number): SlowSqlDetailResult {
+    public withCpuTime(cpuTime: string): SlowSqlDetailResult {
         this['cpu_time'] = cpuTime;
         return this;
     }
-    public set cpuTime(cpuTime: number  | undefined) {
+    public set cpuTime(cpuTime: string  | undefined) {
         this['cpu_time'] = cpuTime;
     }
-    public get cpuTime(): number | undefined {
+    public get cpuTime(): string | undefined {
         return this['cpu_time'];
     }
-    public withPlanTime(planTime: number): SlowSqlDetailResult {
+    public withPlanTime(planTime: string): SlowSqlDetailResult {
         this['plan_time'] = planTime;
         return this;
     }
-    public set planTime(planTime: number  | undefined) {
+    public set planTime(planTime: string  | undefined) {
         this['plan_time'] = planTime;
     }
-    public get planTime(): number | undefined {
+    public get planTime(): string | undefined {
         return this['plan_time'];
     }
-    public withIoTime(ioTime: number): SlowSqlDetailResult {
+    public withIoTime(ioTime: string): SlowSqlDetailResult {
         this['io_time'] = ioTime;
         return this;
     }
-    public set ioTime(ioTime: number  | undefined) {
+    public set ioTime(ioTime: string  | undefined) {
         this['io_time'] = ioTime;
     }
-    public get ioTime(): number | undefined {
+    public get ioTime(): string | undefined {
         return this['io_time'];
     }
     public withLockCount(lockCount: number): SlowSqlDetailResult {
@@ -240,14 +240,14 @@ export class SlowSqlDetailResult {
     public get lockCount(): number | undefined {
         return this['lock_count'];
     }
-    public withLockTime(lockTime: number): SlowSqlDetailResult {
+    public withLockTime(lockTime: string): SlowSqlDetailResult {
         this['lock_time'] = lockTime;
         return this;
     }
-    public set lockTime(lockTime: number  | undefined) {
+    public set lockTime(lockTime: string  | undefined) {
         this['lock_time'] = lockTime;
     }
-    public get lockTime(): number | undefined {
+    public get lockTime(): string | undefined {
         return this['lock_time'];
     }
 }

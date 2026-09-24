@@ -482,6 +482,10 @@ import { ListSqlLimitTaskResponse } from './model/ListSqlLimitTaskResponse';
 import { ListSqlLimitTaskResponseResult } from './model/ListSqlLimitTaskResponseResult';
 import { ListSqlPlanActionRequest } from './model/ListSqlPlanActionRequest';
 import { ListSqlPlanActionResponse } from './model/ListSqlPlanActionResponse';
+import { ListSqlRecommendRulesRequest } from './model/ListSqlRecommendRulesRequest';
+import { ListSqlRecommendRulesRequestBody } from './model/ListSqlRecommendRulesRequestBody';
+import { ListSqlRecommendRulesResponse } from './model/ListSqlRecommendRulesResponse';
+import { ListSqlRecommendRulesResponseResult } from './model/ListSqlRecommendRulesResponseResult';
 import { ListSqlTraceRequest } from './model/ListSqlTraceRequest';
 import { ListSqlTraceResponse } from './model/ListSqlTraceResponse';
 import { ListStorageTypesRequest } from './model/ListStorageTypesRequest';
@@ -6212,6 +6216,27 @@ export class GaussDBforopenGaussClient {
      */
     public listSqlPlanAction(listSqlPlanActionRequest?: ListSqlPlanActionRequest): Promise<ListSqlPlanActionResponse> {
         const options = ParamCreater().listSqlPlanAction(listSqlPlanActionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取SQL限流推荐规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取SQL限流推荐规则
+     * @param {string} instanceId **参数解释**: 实例ID，此参数是用户创建实例的唯一标识。 **约束限制**: 不涉及。 **取值范围**: 只能由英文字母、数字组成，且长度为36个字符。 **默认取值**: 不涉及。
+     * @param {ListSqlRecommendRulesRequestBody} sqlRecommendRulesRequestBody **参数解释**: 获取SQL限流推荐规则的请求体。 **约束限制**: 不涉及。 **取值范围**: 不涉及。 **默认取值**: 不涉及。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] **参数解释**: 语言。 **约束限制**: 不涉及。 **取值范围**:   - zh-cn   - en-us  **默认取值**: en-us
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSqlRecommendRules(listSqlRecommendRulesRequest?: ListSqlRecommendRulesRequest): Promise<ListSqlRecommendRulesResponse> {
+        const options = ParamCreater().listSqlRecommendRules(listSqlRecommendRulesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -20204,6 +20229,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'node_id': nodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取SQL限流推荐规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSqlRecommendRules(listSqlRecommendRulesRequest?: ListSqlRecommendRulesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/limit-task/recommend-rule",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (listSqlRecommendRulesRequest !== null && listSqlRecommendRulesRequest !== undefined) {
+                if (listSqlRecommendRulesRequest instanceof ListSqlRecommendRulesRequest) {
+                    instanceId = listSqlRecommendRulesRequest.instanceId;
+                    body = listSqlRecommendRulesRequest.body
+                    xLanguage = listSqlRecommendRulesRequest.xLanguage;
+                } else {
+                    instanceId = listSqlRecommendRulesRequest['instance_id'];
+                    body = listSqlRecommendRulesRequest['body'];
+                    xLanguage = listSqlRecommendRulesRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listSqlRecommendRules.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -715,7 +715,7 @@ export class EcsClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 批量卸载卷
+     * @summary 批量卸载指定共享盘
      * @param {string} volumeId 卷ID。
      * @param {VolumeBatchDetachRequest} volumeBatchDetachRequest 
      * @param {*} [options] Override http request option.

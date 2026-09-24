@@ -1,3 +1,4 @@
+import { PolicyAdvancedRetentionRules } from './PolicyAdvancedRetentionRules';
 
 
 export class PolicyoODCreate {
@@ -13,6 +14,7 @@ export class PolicyoODCreate {
     private 'year_backups'?: number;
     private 'full_backup_interval'?: number;
     private 'cross_account_urn'?: string;
+    private 'advanced_retention_rules'?: PolicyAdvancedRetentionRules;
     public constructor() { 
     }
     public withDayBackups(dayBackups: number): PolicyoODCreate {
@@ -128,5 +130,15 @@ export class PolicyoODCreate {
     }
     public get crossAccountUrn(): string | undefined {
         return this['cross_account_urn'];
+    }
+    public withAdvancedRetentionRules(advancedRetentionRules: PolicyAdvancedRetentionRules): PolicyoODCreate {
+        this['advanced_retention_rules'] = advancedRetentionRules;
+        return this;
+    }
+    public set advancedRetentionRules(advancedRetentionRules: PolicyAdvancedRetentionRules  | undefined) {
+        this['advanced_retention_rules'] = advancedRetentionRules;
+    }
+    public get advancedRetentionRules(): PolicyAdvancedRetentionRules | undefined {
+        return this['advanced_retention_rules'];
     }
 }

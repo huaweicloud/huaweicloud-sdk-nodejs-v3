@@ -457,6 +457,7 @@ import { PauseOperationalTaskRequest } from './model/PauseOperationalTaskRequest
 import { PauseOperationalTaskResponse } from './model/PauseOperationalTaskResponse';
 import { PlanLog } from './model/PlanLog';
 import { PlanStage } from './model/PlanStage';
+import { PlanStageQueue } from './model/PlanStageQueue';
 import { PrivateEndpointResponse } from './model/PrivateEndpointResponse';
 import { ProductExtendResp } from './model/ProductExtendResp';
 import { ProductUnitResp } from './model/ProductUnitResp';

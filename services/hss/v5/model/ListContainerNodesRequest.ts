@@ -9,8 +9,8 @@ export class ListContainerNodesRequest {
     private 'agent_status'?: string;
     private 'protect_status'?: string;
     private 'container_tags'?: string;
-    private 'container_node'?: boolean;
     public version?: string;
+    private 'container_node'?: boolean;
     public constructor() { 
     }
     public withRegion(region: string): ListContainerNodesRequest {
@@ -75,6 +75,10 @@ export class ListContainerNodesRequest {
     public get containerTags(): string | undefined {
         return this['container_tags'];
     }
+    public withVersion(version: string): ListContainerNodesRequest {
+        this['version'] = version;
+        return this;
+    }
     public withContainerNode(containerNode: boolean): ListContainerNodesRequest {
         this['container_node'] = containerNode;
         return this;
@@ -84,9 +88,5 @@ export class ListContainerNodesRequest {
     }
     public get containerNode(): boolean | undefined {
         return this['container_node'];
-    }
-    public withVersion(version: string): ListContainerNodesRequest {
-        this['version'] = version;
-        return this;
     }
 }

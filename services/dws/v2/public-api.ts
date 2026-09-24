@@ -455,6 +455,7 @@ export * from './model/PauseOperationalTaskRequest';
 export * from './model/PauseOperationalTaskResponse';
 export * from './model/PlanLog';
 export * from './model/PlanStage';
+export * from './model/PlanStageQueue';
 export * from './model/PrivateEndpointResponse';
 export * from './model/ProductExtendResp';
 export * from './model/ProductUnitResp';

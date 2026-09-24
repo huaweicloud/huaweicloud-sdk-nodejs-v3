@@ -40,6 +40,7 @@ import { Billing } from './model/Billing';
 import { BillingCreate } from './model/BillingCreate';
 import { BillingUpdate } from './model/BillingUpdate';
 import { BindRulesTags } from './model/BindRulesTags';
+import { BulkCreateAndDeleteTags } from './model/BulkCreateAndDeleteTags';
 import { BulkCreateAndDeleteVaultTagsReq } from './model/BulkCreateAndDeleteVaultTagsReq';
 import { CbcOrderChange } from './model/CbcOrderChange';
 import { CbcOrderResult } from './model/CbcOrderResult';
@@ -80,6 +81,7 @@ import { CreateVaultRequest } from './model/CreateVaultRequest';
 import { CreateVaultResponse } from './model/CreateVaultResponse';
 import { CreateVaultTagsRequest } from './model/CreateVaultTagsRequest';
 import { CreateVaultTagsResponse } from './model/CreateVaultTagsResponse';
+import { DataEncryption } from './model/DataEncryption';
 import { DeleteBackupRequest } from './model/DeleteBackupRequest';
 import { DeleteBackupResponse } from './model/DeleteBackupResponse';
 import { DeleteMemberRequest } from './model/DeleteMemberRequest';
@@ -142,6 +144,7 @@ import { OpExtendInfoRemoveResources } from './model/OpExtendInfoRemoveResources
 import { OpExtendInfoReplication } from './model/OpExtendInfoReplication';
 import { OpExtendInfoRestore } from './model/OpExtendInfoRestore';
 import { OpExtendInfoSync } from './model/OpExtendInfoSync';
+import { OpExtendInfoUpdateExpirationTime } from './model/OpExtendInfoUpdateExpirationTime';
 import { OpExtendInfoVaultDelete } from './model/OpExtendInfoVaultDelete';
 import { OpExtraInfo } from './model/OpExtraInfo';
 import { OperationLog } from './model/OperationLog';
@@ -153,16 +156,24 @@ import { OrganizationPolicyUpdate } from './model/OrganizationPolicyUpdate';
 import { OrganizationPolicyUpdateReq } from './model/OrganizationPolicyUpdateReq';
 import { Path } from './model/Path';
 import { Policy } from './model/Policy';
+import { PolicyAdvancedRetentionRules } from './model/PolicyAdvancedRetentionRules';
 import { PolicyAssociateVault } from './model/PolicyAssociateVault';
 import { PolicyCreate } from './model/PolicyCreate';
 import { PolicyCreateReq } from './model/PolicyCreateReq';
+import { PolicyMonthlyRetentionRules } from './model/PolicyMonthlyRetentionRules';
 import { PolicyTriggerPropertiesReq } from './model/PolicyTriggerPropertiesReq';
 import { PolicyTriggerPropertiesResp } from './model/PolicyTriggerPropertiesResp';
+import { PolicyTriggerPropertiesUpdateReq } from './model/PolicyTriggerPropertiesUpdateReq';
 import { PolicyTriggerReq } from './model/PolicyTriggerReq';
 import { PolicyTriggerResp } from './model/PolicyTriggerResp';
+import { PolicyTriggerUpdateReq } from './model/PolicyTriggerUpdateReq';
 import { PolicyUpdate } from './model/PolicyUpdate';
 import { PolicyUpdateReq } from './model/PolicyUpdateReq';
+import { PolicyWeeklyRetentionRules } from './model/PolicyWeeklyRetentionRules';
+import { PolicyYearlyRetentionRules } from './model/PolicyYearlyRetentionRules';
 import { PolicyoODCreate } from './model/PolicyoODCreate';
+import { PrePaidBillingCreate } from './model/PrePaidBillingCreate';
+import { PrePaidVaultOrder } from './model/PrePaidVaultOrder';
 import { ProjectsListInfo } from './model/ProjectsListInfo';
 import { ProtectableAgentReq } from './model/ProtectableAgentReq';
 import { ProtectableAgentStatus } from './model/ProtectableAgentStatus';
@@ -236,6 +247,7 @@ import { SyncRespBody } from './model/SyncRespBody';
 import { SysTag } from './model/SysTag';
 import { SysTags } from './model/SysTags';
 import { Tag } from './model/Tag';
+import { TagCreate } from './model/TagCreate';
 import { TagResource } from './model/TagResource';
 import { TagsReq } from './model/TagsReq';
 import { TagsResp } from './model/TagsResp';
@@ -245,6 +257,9 @@ import { UpdateAgentRequest } from './model/UpdateAgentRequest';
 import { UpdateAgentResponse } from './model/UpdateAgentResponse';
 import { UpdateBackupRequest } from './model/UpdateBackupRequest';
 import { UpdateBackupResponse } from './model/UpdateBackupResponse';
+import { UpdateExpirationTimeReq } from './model/UpdateExpirationTimeReq';
+import { UpdateExpirationTimeRequest } from './model/UpdateExpirationTimeRequest';
+import { UpdateExpirationTimeResponse } from './model/UpdateExpirationTimeResponse';
 import { UpdateMember } from './model/UpdateMember';
 import { UpdateMemberStatusRequest } from './model/UpdateMemberStatusRequest';
 import { UpdateMemberStatusResponse } from './model/UpdateMemberStatusResponse';
@@ -270,7 +285,6 @@ import { VaultCreateResource } from './model/VaultCreateResource';
 import { VaultDissociate } from './model/VaultDissociate';
 import { VaultGet } from './model/VaultGet';
 import { VaultMigrateResourceReq } from './model/VaultMigrateResourceReq';
-import { VaultOrder } from './model/VaultOrder';
 import { VaultOrderCreateReqs } from './model/VaultOrderCreateReqs';
 import { VaultPolicyResp } from './model/VaultPolicyResp';
 import { VaultRemoveResourceReq } from './model/VaultRemoveResourceReq';
@@ -337,7 +351,7 @@ export class CbrClient {
     }
 
     /**
-     * 存储库添加资源
+     * 向存储库添加资源
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -357,7 +371,7 @@ export class CbrClient {
     }
 
     /**
-     * 存储库设置策略
+     * 为存储库设置策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -378,17 +392,11 @@ export class CbrClient {
 
     /**
      * 为指定实例批量添加或删除标签
-     * 标签管理服务需要使用该接口批量管理实例的标签。
      * 一个资源上最多有10个标签。
-     * 此接口为幂等接口：
-     *     创建时如果请求体中存在重复key则报错。
-     *     创建时，不允许重复key，如果数据库存在就覆盖。
-     *     删除时，允许重复key。
-     *     删除时，如果删除的标签不存在，默认处理成功,删除时不对标签字符集范围做校验。key长度127个字符，value为255个字符。删除时tags结构体不能缺失，key不能为空，或者空字符串。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 批量添加删除存储库资源标签
+     * @summary 批量添加或删除存储库资源标签
      * @param {string} vaultId 资源id
      * @param {BulkCreateAndDeleteVaultTagsReq} [batchCreateAndDeleteVaultTagsRequestBody] 批量添加删除存储库资源标签请求body
      * @param {*} [options] Override http request option.
@@ -423,7 +431,7 @@ export class CbrClient {
     }
 
     /**
-     * 订单更新，调用该接口更新包周期产品订单信息,返回待支付订单信息。
+     * 订单更新，调用该接口更新包周期产品订单信息，返回待支付订单信息。
      * &gt; 该接口目前属于公测阶段，部分region暂时无法使用
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -467,7 +475,7 @@ export class CbrClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询agent状态
+     * @summary 查询Agent状态
      * @param {ProtectableAgentReq} checkAgentRequestBody Agent状态检查参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -502,7 +510,7 @@ export class CbrClient {
     }
 
     /**
-     * 执行复制
+     * 将备份还原点复制到其他存储库。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -616,8 +624,7 @@ export class CbrClient {
     }
 
     /**
-     * 一个资源上最多有10个标签。
-     * 此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
+     * 为指定存储库资源添加标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -714,7 +721,7 @@ export class CbrClient {
     }
 
     /**
-     * 删除存储库。若删除储存库，将一并删除存储库中的所有备份。
+     * 删除存储库。若删除存储库，将一并删除存储库中的所有备份。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -733,7 +740,7 @@ export class CbrClient {
     }
 
     /**
-     * 幂等接口：删除时，如果删除的标签不存在，返回404。Key不能为空或者空字符串。
+     * 删除存储库资源标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -753,7 +760,7 @@ export class CbrClient {
     }
 
     /**
-     * 存储库解除策略
+     * 解除存储库绑定的策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -792,7 +799,7 @@ export class CbrClient {
     }
 
     /**
-     * 针对vault同步备份副本
+     * 针对存储库同步备份副本
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -833,7 +840,7 @@ export class CbrClient {
     }
 
     /**
-     * 查询所有副本
+     * 查询所有备份
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -991,7 +998,7 @@ export class CbrClient {
     }
 
     /**
-     * 查询组织策略每个账号下策略部署状态列表
+     * 查询组织策略在每个账号下的策略部署状态列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1122,7 +1129,7 @@ export class CbrClient {
     }
 
     /**
-     * 支持资源迁移到另一个存储库，不删除备份。
+     * 将资源迁移到另一个存储库，迁移过程中不删除备份。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1181,7 +1188,7 @@ export class CbrClient {
     }
 
     /**
-     * 移除存储库中的资源，若移除资源，将一并删除该资源在保管库中的备份
+     * 移除存储库中的资源，若移除资源，将一并删除该资源在存储库中的备份。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1260,7 +1267,7 @@ export class CbrClient {
     }
 
     /**
-     * 根据指定id查询单个副本。
+     * 根据指定ID查询单个副本。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1298,7 +1305,7 @@ export class CbrClient {
     }
 
     /**
-     * 由控制台调用的内部接口，用于仅在查询共享备份时获取源project_id的域名信息。
+     * 由控制台调用的内部接口，用于仅在查询共享备份时获取源项目ID的域名信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1317,7 +1324,7 @@ export class CbrClient {
     }
 
     /**
-     * 查询服务指定特性
+     * 查询服务的指定特性
      * &gt; 该接口目前属于公测阶段，部分region暂时无法使用。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1487,7 +1494,7 @@ export class CbrClient {
      *
      * @summary 查询指定可保护资源
      * @param {string} instanceId 资源ID
-     * @param {'server' | 'disk'} protectableType 可保护性类型
+     * @param {'server' | 'disk' | 'turbo' | 'workspace' | 'workspace_v2'} protectableType **参数解释：** 可保护性类型 **约束限制：** 不涉及 **取值范围：** 可选参数为server,disk,turbo,workspace和workspace_v2 server： 云服务器类型 disk：云硬盘类型 turbo：turbo类型 workspace：workspace类型 workspace_v2：workspace_v2类型 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1578,8 +1585,7 @@ export class CbrClient {
     }
 
     /**
-     * 查询租户在指定Region和实例类型的所有标签集合
-     * 标签管理服务需要能够列出当前租户全部已使用的标签集合，为各服务Console打标签和过滤实例时提供标签联想功能
+     * 查询租户在指定区域和实例类型的所有标签集合
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1598,7 +1604,6 @@ export class CbrClient {
 
     /**
      * 使用标签过滤实例
-     * 标签管理服务需要提供按标签过滤各服务实例并汇总显示在列表中，需要各服务提供查询能力
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1618,7 +1623,6 @@ export class CbrClient {
 
     /**
      * 查询指定实例的标签信息
-     * 标签管理服务需要使用该接口查询指定实例的全部标签数据
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1676,7 +1680,7 @@ export class CbrClient {
     }
 
     /**
-     * 根据备份id更改备份
+     * 根据备份ID更改备份。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1688,6 +1692,26 @@ export class CbrClient {
      */
     public updateBackup(updateBackupRequest?: UpdateBackupRequest): Promise<UpdateBackupResponse> {
         const options = ParamCreater().updateBackup(updateBackupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 变更指定存储库备份过期时间
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 变更指定存储库备份过期时间
+     * @param {string} vaultId 存储库ID，默认取值不涉及。 [获取方法请参见\&quot;[获取存储库ID](https://support.huaweicloud.com/api-cbr/ListVault.html)\&quot;。](tag:hws) [获取方法请参见\&quot;[获取存储库ID](https://support.huaweicloud.com/intl/zh-cn/api-cbr/ListVault.html)\&quot;。](tag:hws_hk)
+     * @param {UpdateExpirationTimeReq} updateExpirationTimeRequestBody 变更备份过期时间请求body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateExpirationTime(updateExpirationTimeRequest?: UpdateExpirationTimeRequest): Promise<UpdateExpirationTimeResponse> {
+        const options = ParamCreater().updateExpirationTime(updateExpirationTimeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1893,7 +1917,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 存储库添加资源
+         * 向存储库添加资源
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1939,7 +1963,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 存储库设置策略
+         * 为存储库设置策略。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1986,13 +2010,7 @@ export const ParamCreater = function () {
     
         /**
          * 为指定实例批量添加或删除标签
-         * 标签管理服务需要使用该接口批量管理实例的标签。
          * 一个资源上最多有10个标签。
-         * 此接口为幂等接口：
-         *     创建时如果请求体中存在重复key则报错。
-         *     创建时，不允许重复key，如果数据库存在就覆盖。
-         *     删除时，允许重复key。
-         *     删除时，如果删除的标签不存在，默认处理成功,删除时不对标签字符集范围做校验。key长度127个字符，value为255个字符。删除时tags结构体不能缺失，key不能为空，或者空字符串。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2073,7 +2091,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 订单更新，调用该接口更新包周期产品订单信息,返回待支付订单信息。
+         * 订单更新，调用该接口更新包周期产品订单信息，返回待支付订单信息。
          * &gt; 该接口目前属于公测阶段，部分region暂时无法使用
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2235,7 +2253,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 执行复制
+         * 将备份还原点复制到其他存储库。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2463,8 +2481,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 一个资源上最多有10个标签。
-         * 此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
+         * 为指定存储库资源添加标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2662,7 +2679,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除存储库。若删除储存库，将一并删除存储库中的所有备份。
+         * 删除存储库。若删除存储库，将一并删除存储库中的所有备份。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2699,7 +2716,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 幂等接口：删除时，如果删除的标签不存在，返回404。Key不能为空或者空字符串。
+         * 删除存储库资源标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2743,7 +2760,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 存储库解除策略
+         * 解除存储库绑定的策略。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2827,7 +2844,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 针对vault同步备份副本
+         * 针对存储库同步备份副本
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2923,7 +2940,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询所有副本
+         * 查询所有备份
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3456,7 +3473,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询组织策略每个账号下策略部署状态列表
+         * 查询组织策略在每个账号下的策略部署状态列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3790,7 +3807,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 支持资源迁移到另一个存储库，不删除备份。
+         * 将资源迁移到另一个存储库，迁移过程中不删除备份。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3920,7 +3937,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 移除存储库中的资源，若移除资源，将一并删除该资源在保管库中的备份
+         * 移除存储库中的资源，若移除资源，将一并删除该资源在存储库中的备份。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4095,7 +4112,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 根据指定id查询单个副本。
+         * 根据指定ID查询单个副本。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4169,7 +4186,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 由控制台调用的内部接口，用于仅在查询共享备份时获取源project_id的域名信息。
+         * 由控制台调用的内部接口，用于仅在查询共享备份时获取源项目ID的域名信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4206,7 +4223,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询服务指定特性
+         * 查询服务的指定特性
          * &gt; 该接口目前属于公测阶段，部分region暂时无法使用。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4763,8 +4780,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询租户在指定Region和实例类型的所有标签集合
-         * 标签管理服务需要能够列出当前租户全部已使用的标签集合，为各服务Console打标签和过滤实例时提供标签联想功能
+         * 查询租户在指定区域和实例类型的所有标签集合
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4786,7 +4802,6 @@ export const ParamCreater = function () {
     
         /**
          * 使用标签过滤实例
-         * 标签管理服务需要提供按标签过滤各服务实例并汇总显示在列表中，需要各服务提供查询能力
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4825,7 +4840,6 @@ export const ParamCreater = function () {
     
         /**
          * 查询指定实例的标签信息
-         * 标签管理服务需要使用该接口查询指定实例的全部标签数据
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4945,7 +4959,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 根据备份id更改备份
+         * 根据备份ID更改备份。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4983,6 +4997,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'backup_id': backupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 变更指定存储库备份过期时间
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateExpirationTime(updateExpirationTimeRequest?: UpdateExpirationTimeRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/vaults/{vault_id}/update-backup-expiration-time",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let vaultId;
+
+            if (updateExpirationTimeRequest !== null && updateExpirationTimeRequest !== undefined) {
+                if (updateExpirationTimeRequest instanceof UpdateExpirationTimeRequest) {
+                    vaultId = updateExpirationTimeRequest.vaultId;
+                    body = updateExpirationTimeRequest.body
+                } else {
+                    vaultId = updateExpirationTimeRequest['vault_id'];
+                    body = updateExpirationTimeRequest['body'];
+                }
+            }
+
+        
+            if (vaultId === null || vaultId === undefined) {
+            throw new RequiredError('vaultId','Required parameter vaultId was null or undefined when calling updateExpirationTime.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'vault_id': vaultId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -36,6 +36,10 @@ export class DcsRegion {
     public static CN_EAST_4 = new Region("cn-east-4", ["https://dcs.cn-east-4.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_5 = new Region("ap-southeast-5", ["https://dcs.ap-southeast-5.myhuaweicloud.com"]);
     public static CN_NORTH_12 = new Region("cn-north-12", ["https://dcs.cn-north-12.myhuaweicloud.com"]);
+    public static CN_SOUTH_4 = new Region("cn-south-4", ["https://dcs.cn-south-4.myhuaweicloud.com"]);
+    public static CN_SOUTHWEST_3 = new Region("cn-southwest-3", ["https://dcs.cn-southwest-3.myhuaweicloud.com"]);
+    public static CN_NORTH_11 = new Region("cn-north-11", ["https://dcs.cn-north-11.myhuaweicloud.com"]);
+    public static AF_NORTH_1 = new Region("af-north-1", ["https://dcs.af-north-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -68,7 +72,11 @@ export class DcsRegion {
         "ru-moscow-1":DcsRegion.RU_MOSCOW_1,
         "cn-east-4":DcsRegion.CN_EAST_4,
         "ap-southeast-5":DcsRegion.AP_SOUTHEAST_5,
-        "cn-north-12":DcsRegion.CN_NORTH_12
+        "cn-north-12":DcsRegion.CN_NORTH_12,
+        "cn-south-4":DcsRegion.CN_SOUTH_4,
+        "cn-southwest-3":DcsRegion.CN_SOUTHWEST_3,
+        "cn-north-11":DcsRegion.CN_NORTH_11,
+        "af-north-1":DcsRegion.AF_NORTH_1
     };
   
     public static valueOf(regionId: string) {

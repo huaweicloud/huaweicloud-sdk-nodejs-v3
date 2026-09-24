@@ -5,6 +5,7 @@ import { OpExtendInfoRemoveResources } from './OpExtendInfoRemoveResources';
 import { OpExtendInfoReplication } from './OpExtendInfoReplication';
 import { OpExtendInfoRestore } from './OpExtendInfoRestore';
 import { OpExtendInfoSync } from './OpExtendInfoSync';
+import { OpExtendInfoUpdateExpirationTime } from './OpExtendInfoUpdateExpirationTime';
 import { OpExtendInfoVaultDelete } from './OpExtendInfoVaultDelete';
 import { Resource } from './Resource';
 
@@ -19,6 +20,7 @@ export class OpExtraInfo {
     public resource?: Resource;
     public restore?: OpExtendInfoRestore;
     private 'vault_delete'?: OpExtendInfoVaultDelete;
+    private 'update_expiration_time'?: OpExtendInfoUpdateExpirationTime;
     public constructor(common?: OpExtendInfoCommon, resource?: Resource) { 
         this['common'] = common;
         this['resource'] = resource;
@@ -76,5 +78,15 @@ export class OpExtraInfo {
     }
     public get vaultDelete(): OpExtendInfoVaultDelete | undefined {
         return this['vault_delete'];
+    }
+    public withUpdateExpirationTime(updateExpirationTime: OpExtendInfoUpdateExpirationTime): OpExtraInfo {
+        this['update_expiration_time'] = updateExpirationTime;
+        return this;
+    }
+    public set updateExpirationTime(updateExpirationTime: OpExtendInfoUpdateExpirationTime  | undefined) {
+        this['update_expiration_time'] = updateExpirationTime;
+    }
+    public get updateExpirationTime(): OpExtendInfoUpdateExpirationTime | undefined {
+        return this['update_expiration_time'];
     }
 }

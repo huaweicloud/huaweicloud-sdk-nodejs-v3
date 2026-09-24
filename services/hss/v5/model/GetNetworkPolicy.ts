@@ -6,7 +6,7 @@ export class GetNetworkPolicy {
     public name?: string;
     public namespace?: string;
     private 'policy_content'?: NetworkPolicyBody;
-    private 'create_time'?: Date;
+    private 'create_time'?: string;
     private 'deploy_status'?: boolean;
     public constructor() { 
     }
@@ -38,14 +38,14 @@ export class GetNetworkPolicy {
     public get policyContent(): NetworkPolicyBody | undefined {
         return this['policy_content'];
     }
-    public withCreateTime(createTime: Date): GetNetworkPolicy {
+    public withCreateTime(createTime: string): GetNetworkPolicy {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: Date  | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime(): Date | undefined {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withDeployStatus(deployStatus: boolean): GetNetworkPolicy {

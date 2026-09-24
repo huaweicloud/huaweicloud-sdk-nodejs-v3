@@ -17,6 +17,7 @@ import { CVEAllowlist } from './model/CVEAllowlist';
 import { CVEAllowlistItem } from './model/CVEAllowlistItem';
 import { CheckAgencyRequest } from './model/CheckAgencyRequest';
 import { CheckAgencyResponse } from './model/CheckAgencyResponse';
+import { ConnectionItem } from './model/ConnectionItem';
 import { CreateAgencyRequest } from './model/CreateAgencyRequest';
 import { CreateAgencyResponse } from './model/CreateAgencyResponse';
 import { CreateAuthorizationTokenRequest } from './model/CreateAuthorizationTokenRequest';
@@ -255,6 +256,10 @@ import { ListInstanceWebhookJobsRequest } from './model/ListInstanceWebhookJobsR
 import { ListInstanceWebhookJobsResponse } from './model/ListInstanceWebhookJobsResponse';
 import { ListInstanceWebhooksRequest } from './model/ListInstanceWebhooksRequest';
 import { ListInstanceWebhooksResponse } from './model/ListInstanceWebhooksResponse';
+import { ListInternalEndpointConnectionsRequest } from './model/ListInternalEndpointConnectionsRequest';
+import { ListInternalEndpointConnectionsResponse } from './model/ListInternalEndpointConnectionsResponse';
+import { ListInternalEndpointPermissionsRequest } from './model/ListInternalEndpointPermissionsRequest';
+import { ListInternalEndpointPermissionsResponse } from './model/ListInternalEndpointPermissionsResponse';
 import { ListNamespaceRepositoriesRequest } from './model/ListNamespaceRepositoriesRequest';
 import { ListNamespaceRepositoriesResponse } from './model/ListNamespaceRepositoriesResponse';
 import { ListNamespaceTagsRequest } from './model/ListNamespaceTagsRequest';
@@ -298,6 +303,7 @@ import { Namespace } from './model/Namespace';
 import { NamespaceMetadata } from './model/NamespaceMetadata';
 import { NativeReportSummary } from './model/NativeReportSummary';
 import { PageInfo } from './model/PageInfo';
+import { PermissionItem } from './model/PermissionItem';
 import { ProjectTag } from './model/ProjectTag';
 import { RegionInfo } from './model/RegionInfo';
 import { Registry } from './model/Registry';
@@ -443,6 +449,12 @@ import { UpdateInstanceSignPolicyRequest } from './model/UpdateInstanceSignPolic
 import { UpdateInstanceSignPolicyResponse } from './model/UpdateInstanceSignPolicyResponse';
 import { UpdateInstanceWebhookRequest } from './model/UpdateInstanceWebhookRequest';
 import { UpdateInstanceWebhookResponse } from './model/UpdateInstanceWebhookResponse';
+import { UpdateInternalEndpointConnectionsRequest } from './model/UpdateInternalEndpointConnectionsRequest';
+import { UpdateInternalEndpointConnectionsRequestBody } from './model/UpdateInternalEndpointConnectionsRequestBody';
+import { UpdateInternalEndpointConnectionsResponse } from './model/UpdateInternalEndpointConnectionsResponse';
+import { UpdateInternalEndpointPermissionsRequest } from './model/UpdateInternalEndpointPermissionsRequest';
+import { UpdateInternalEndpointPermissionsRequestBody } from './model/UpdateInternalEndpointPermissionsRequestBody';
+import { UpdateInternalEndpointPermissionsResponse } from './model/UpdateInternalEndpointPermissionsResponse';
 import { UpdateLongTermCredentialRequestBody } from './model/UpdateLongTermCredentialRequestBody';
 import { UpdateNamespaceAuthRequest } from './model/UpdateNamespaceAuthRequest';
 import { UpdateNamespaceAuthResponse } from './model/UpdateNamespaceAuthResponse';
@@ -3350,6 +3362,51 @@ export class SwrClient {
     }
 
     /**
+     * 查询内网访问连接列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询内网访问连接列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} [limit] 返回条数，默认为10，最大值为1000。**注意：offset和limit参数需要配套使用。**
+     * @param {number} [offset] 起始索引，默认为0。**注意：offset和limit参数需要配套使用。**
+     * @param {string} [status] 终端节点的连接状态。 - pendingAcceptance:待接受 - accepted:已接受 - rejected:已拒绝 - failed:失败
+     * @param {string} [id] VPC终端节点ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInternalEndpointConnections(listInternalEndpointConnectionsRequest?: ListInternalEndpointConnectionsRequest): Promise<ListInternalEndpointConnectionsResponse> {
+        const options = ParamCreater().listInternalEndpointConnections(listInternalEndpointConnectionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询内网访问白名单列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询内网访问白名单列表
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {number} [limit] 返回条数，默认为10，最大值为500。**注意：offset和limit参数需要配套使用。**
+     * @param {number} [offset] 起始索引，默认为0。**注意：offset和limit参数需要配套使用。**
+     * @param {string} [permission] 权限ID，用于过滤白名单权限，格式为“iam:domain::domain_id”。 其中\&quot;domain_id\&quot;为授权用户的账号ID， 例如“iam:domain::6e9dfd51d1124e8d8498dce894923a0d”，支持模糊搜索。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInternalEndpointPermissions(listInternalEndpointPermissionsRequest?: ListInternalEndpointPermissionsRequest): Promise<ListInternalEndpointPermissionsResponse> {
+        const options = ParamCreater().listInternalEndpointPermissions(listInternalEndpointPermissionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取命名空间下所有制品仓库列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4135,6 +4192,46 @@ export class SwrClient {
      */
     public updateInstanceWebhook(updateInstanceWebhookRequest?: UpdateInstanceWebhookRequest): Promise<UpdateInstanceWebhookResponse> {
         const options = ParamCreater().updateInstanceWebhook(updateInstanceWebhookRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 允许或拒绝内网访问连接
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 允许或拒绝内网访问连接
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {UpdateInternalEndpointConnectionsRequestBody} updateInternalEndpointConnectionsRequestBody 请求body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInternalEndpointConnections(updateInternalEndpointConnectionsRequest?: UpdateInternalEndpointConnectionsRequest): Promise<UpdateInternalEndpointConnectionsResponse> {
+        const options = ParamCreater().updateInternalEndpointConnections(updateInternalEndpointConnectionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 添加或移除内网访问白名单
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加或移除内网访问白名单
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {UpdateInternalEndpointPermissionsRequestBody} updateInternalEndpointPermissionsRequestBody 内网访问白名单请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInternalEndpointPermissions(updateInternalEndpointPermissionsRequest?: UpdateInternalEndpointPermissionsRequest): Promise<UpdateInternalEndpointPermissionsResponse> {
+        const options = ParamCreater().updateInternalEndpointPermissions(updateInternalEndpointPermissionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -11538,6 +11635,131 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询内网访问连接列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInternalEndpointConnections(listInternalEndpointConnectionsRequest?: ListInternalEndpointConnectionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/internal-endpoint/connections",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let limit;
+            
+            let offset;
+            
+            let status;
+            
+            let id;
+
+            if (listInternalEndpointConnectionsRequest !== null && listInternalEndpointConnectionsRequest !== undefined) {
+                if (listInternalEndpointConnectionsRequest instanceof ListInternalEndpointConnectionsRequest) {
+                    instanceId = listInternalEndpointConnectionsRequest.instanceId;
+                    limit = listInternalEndpointConnectionsRequest.limit;
+                    offset = listInternalEndpointConnectionsRequest.offset;
+                    status = listInternalEndpointConnectionsRequest.status;
+                    id = listInternalEndpointConnectionsRequest.id;
+                } else {
+                    instanceId = listInternalEndpointConnectionsRequest['instance_id'];
+                    limit = listInternalEndpointConnectionsRequest['limit'];
+                    offset = listInternalEndpointConnectionsRequest['offset'];
+                    status = listInternalEndpointConnectionsRequest['status'];
+                    id = listInternalEndpointConnectionsRequest['id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInternalEndpointConnections.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询内网访问白名单列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInternalEndpointPermissions(listInternalEndpointPermissionsRequest?: ListInternalEndpointPermissionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/internal-endpoint/permissions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let limit;
+            
+            let offset;
+            
+            let permission;
+
+            if (listInternalEndpointPermissionsRequest !== null && listInternalEndpointPermissionsRequest !== undefined) {
+                if (listInternalEndpointPermissionsRequest instanceof ListInternalEndpointPermissionsRequest) {
+                    instanceId = listInternalEndpointPermissionsRequest.instanceId;
+                    limit = listInternalEndpointPermissionsRequest.limit;
+                    offset = listInternalEndpointPermissionsRequest.offset;
+                    permission = listInternalEndpointPermissionsRequest.permission;
+                } else {
+                    instanceId = listInternalEndpointPermissionsRequest['instance_id'];
+                    limit = listInternalEndpointPermissionsRequest['limit'];
+                    offset = listInternalEndpointPermissionsRequest['offset'];
+                    permission = listInternalEndpointPermissionsRequest['permission'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInternalEndpointPermissions.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (permission !== null && permission !== undefined) {
+                localVarQueryParameter['permission'] = permission;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取命名空间下所有制品仓库列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -13471,6 +13693,98 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 允许或拒绝内网访问连接
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInternalEndpointConnections(updateInternalEndpointConnectionsRequest?: UpdateInternalEndpointConnectionsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/internal-endpoint/connections/action",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateInternalEndpointConnectionsRequest !== null && updateInternalEndpointConnectionsRequest !== undefined) {
+                if (updateInternalEndpointConnectionsRequest instanceof UpdateInternalEndpointConnectionsRequest) {
+                    instanceId = updateInternalEndpointConnectionsRequest.instanceId;
+                    body = updateInternalEndpointConnectionsRequest.body
+                } else {
+                    instanceId = updateInternalEndpointConnectionsRequest['instance_id'];
+                    body = updateInternalEndpointConnectionsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInternalEndpointConnections.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 添加或移除内网访问白名单
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInternalEndpointPermissions(updateInternalEndpointPermissionsRequest?: UpdateInternalEndpointPermissionsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/internal-endpoint/permissions/action",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+
+            if (updateInternalEndpointPermissionsRequest !== null && updateInternalEndpointPermissionsRequest !== undefined) {
+                if (updateInternalEndpointPermissionsRequest instanceof UpdateInternalEndpointPermissionsRequest) {
+                    instanceId = updateInternalEndpointPermissionsRequest.instanceId;
+                    body = updateInternalEndpointPermissionsRequest.body
+                } else {
+                    instanceId = updateInternalEndpointPermissionsRequest['instance_id'];
+                    body = updateInternalEndpointPermissionsRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInternalEndpointPermissions.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

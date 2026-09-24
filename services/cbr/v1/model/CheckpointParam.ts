@@ -9,6 +9,7 @@ export class CheckpointParam {
     public resources?: Array<string>;
     private 'resource_details'?: Array<Resource>;
     private 'policy_id'?: string;
+    private 'retention_duration_days'?: number;
     public constructor() { 
     }
     public withAutoTrigger(autoTrigger: boolean): CheckpointParam {
@@ -56,5 +57,15 @@ export class CheckpointParam {
     }
     public get policyId(): string | undefined {
         return this['policy_id'];
+    }
+    public withRetentionDurationDays(retentionDurationDays: number): CheckpointParam {
+        this['retention_duration_days'] = retentionDurationDays;
+        return this;
+    }
+    public set retentionDurationDays(retentionDurationDays: number  | undefined) {
+        this['retention_duration_days'] = retentionDurationDays;
+    }
+    public get retentionDurationDays(): number | undefined {
+        return this['retention_duration_days'];
     }
 }

@@ -1,4 +1,4 @@
-import { PolicyTriggerReq } from './PolicyTriggerReq';
+import { PolicyTriggerUpdateReq } from './PolicyTriggerUpdateReq';
 import { PolicyoODCreate } from './PolicyoODCreate';
 
 
@@ -6,7 +6,7 @@ export class PolicyUpdate {
     public enabled?: boolean;
     public name?: string;
     private 'operation_definition'?: PolicyoODCreate;
-    public trigger?: PolicyTriggerReq;
+    public trigger?: PolicyTriggerUpdateReq;
     public constructor() { 
     }
     public withEnabled(enabled: boolean): PolicyUpdate {
@@ -27,7 +27,7 @@ export class PolicyUpdate {
     public get operationDefinition(): PolicyoODCreate | undefined {
         return this['operation_definition'];
     }
-    public withTrigger(trigger: PolicyTriggerReq): PolicyUpdate {
+    public withTrigger(trigger: PolicyTriggerUpdateReq): PolicyUpdate {
         this['trigger'] = trigger;
         return this;
     }

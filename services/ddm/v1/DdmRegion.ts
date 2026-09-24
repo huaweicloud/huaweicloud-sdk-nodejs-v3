@@ -22,6 +22,7 @@ export class DdmRegion {
     public static MY_KUALALUMPUR_1 = new Region("my-kualalumpur-1", ["https://ddm.my-kualalumpur-1.myhuaweicloud.com"]);
     public static RU_MOSCOW_1 = new Region("ru-moscow-1", ["https://ddm.ru-moscow-1.myhuaweicloud.com"]);
     public static AE_AD_1 = new Region("ae-ad-1", ["https://ddm.ae-ad-1.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_3 = new Region("ap-southeast-3", ["https://ddm.ap-southeast-3.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -40,7 +41,8 @@ export class DdmRegion {
         "la-south-2":DdmRegion.LA_SOUTH_2,
         "my-kualalumpur-1":DdmRegion.MY_KUALALUMPUR_1,
         "ru-moscow-1":DdmRegion.RU_MOSCOW_1,
-        "ae-ad-1":DdmRegion.AE_AD_1
+        "ae-ad-1":DdmRegion.AE_AD_1,
+        "ap-southeast-3":DdmRegion.AP_SOUTHEAST_3
     };
   
     public static valueOf(regionId: string) {

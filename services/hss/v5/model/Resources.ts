@@ -3,7 +3,7 @@
 export class Resources {
     private 'cluster_id'?: string;
     private 'cluster_name'?: string;
-    public images?: string;
+    public images?: Array<string>;
     public labels?: Array<string>;
     public namespace?: string;
     public constructor() { 
@@ -28,7 +28,7 @@ export class Resources {
     public get clusterName(): string | undefined {
         return this['cluster_name'];
     }
-    public withImages(images: string): Resources {
+    public withImages(images: Array<string>): Resources {
         this['images'] = images;
         return this;
     }

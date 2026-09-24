@@ -1,12 +1,23 @@
+import { PlanStageQueue } from './PlanStageQueue';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListWorkloadQueueResponse extends SdkResponse {
+    private 'queue_list'?: Array<PlanStageQueue>;
     private 'workload_queue_name_list'?: Array<string>;
     private 'workload_res_code'?: number;
-    private 'workload_res_str'?: string;
     public constructor() { 
         super();
+    }
+    public withQueueList(queueList: Array<PlanStageQueue>): ListWorkloadQueueResponse {
+        this['queue_list'] = queueList;
+        return this;
+    }
+    public set queueList(queueList: Array<PlanStageQueue>  | undefined) {
+        this['queue_list'] = queueList;
+    }
+    public get queueList(): Array<PlanStageQueue> | undefined {
+        return this['queue_list'];
     }
     public withWorkloadQueueNameList(workloadQueueNameList: Array<string>): ListWorkloadQueueResponse {
         this['workload_queue_name_list'] = workloadQueueNameList;
@@ -27,15 +38,5 @@ export class ListWorkloadQueueResponse extends SdkResponse {
     }
     public get workloadResCode(): number | undefined {
         return this['workload_res_code'];
-    }
-    public withWorkloadResStr(workloadResStr: string): ListWorkloadQueueResponse {
-        this['workload_res_str'] = workloadResStr;
-        return this;
-    }
-    public set workloadResStr(workloadResStr: string  | undefined) {
-        this['workload_res_str'] = workloadResStr;
-    }
-    public get workloadResStr(): string | undefined {
-        return this['workload_res_str'];
     }
 }

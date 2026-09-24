@@ -121,6 +121,7 @@ export * from './model/ListVersionsRequest';
 export * from './model/ListVersionsResponse';
 export * from './model/OsVersionInfo';
 export * from './model/OsVersionResponse';
+export * from './model/PageInfo';
 export * from './model/QueryImageByTagsResourceDetail';
 export * from './model/QuickImportImageByFileRequestBody';
 export * from './model/Quota';

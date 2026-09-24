@@ -1,11 +1,12 @@
-import { Tag } from './Tag';
+import { TagCreate } from './TagCreate';
 
 
 export class VaultTagsCreateReq {
-    public tag?: Tag;
-    public constructor() { 
+    public tag?: TagCreate;
+    public constructor(tag?: TagCreate) { 
+        this['tag'] = tag;
     }
-    public withTag(tag: Tag): VaultTagsCreateReq {
+    public withTag(tag: TagCreate): VaultTagsCreateReq {
         this['tag'] = tag;
         return this;
     }

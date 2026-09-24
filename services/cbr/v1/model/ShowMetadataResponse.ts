@@ -10,6 +10,7 @@ export class ShowMetadataResponse extends SdkResponse {
     public ports?: Array<string>;
     public server?: string;
     public volumes?: Array<string>;
+    public workspace?: string;
     public constructor() { 
         super();
     }
@@ -55,6 +56,10 @@ export class ShowMetadataResponse extends SdkResponse {
     }
     public withVolumes(volumes: Array<string>): ShowMetadataResponse {
         this['volumes'] = volumes;
+        return this;
+    }
+    public withWorkspace(workspace: string): ShowMetadataResponse {
+        this['workspace'] = workspace;
         return this;
     }
 }
