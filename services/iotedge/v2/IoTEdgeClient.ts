@@ -1930,7 +1930,7 @@ export class IoTEdgeClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 更新调度计划，机机接口，全量更新字段
+     * @summary 更新调度计划
      * @param {string} edgeNodeId 边缘节点ID
      * @param {string} scheduleId 调度计划id
      * @param {UpdateScheduleReqDTO} updateScheduleReqDTO 更新调度计划请求结构体

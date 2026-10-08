@@ -3,6 +3,7 @@
 export class BasicInfo {
     public owner?: string;
     public priority?: number;
+    private 'task_priority'?: number;
     private 'execute_user'?: string;
     private 'instance_timeout'?: number;
     private 'custom_fields'?: object;
@@ -15,6 +16,16 @@ export class BasicInfo {
     public withPriority(priority: number): BasicInfo {
         this['priority'] = priority;
         return this;
+    }
+    public withTaskPriority(taskPriority: number): BasicInfo {
+        this['task_priority'] = taskPriority;
+        return this;
+    }
+    public set taskPriority(taskPriority: number  | undefined) {
+        this['task_priority'] = taskPriority;
+    }
+    public get taskPriority(): number | undefined {
+        return this['task_priority'];
     }
     public withExecuteUser(executeUser: string): BasicInfo {
         this['execute_user'] = executeUser;

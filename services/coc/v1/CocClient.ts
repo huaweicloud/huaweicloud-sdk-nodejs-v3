@@ -513,7 +513,7 @@ export class CocClient {
 
 
     /**
-     * 创建改密计划
+     * 创建改密计划。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -532,7 +532,7 @@ export class CocClient {
     }
 
     /**
-     * 主机密码重置
+     * 主机密码重置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -551,7 +551,7 @@ export class CocClient {
     }
 
     /**
-     * 回写改密结果
+     * 回写改密结果。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -570,7 +570,7 @@ export class CocClient {
     }
 
     /**
-     * 清除告警
+     * 批量清除告警。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -589,7 +589,7 @@ export class CocClient {
     }
 
     /**
-     * 自动处理告警
+     * 自动处理告警。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -609,7 +609,7 @@ export class CocClient {
     }
 
     /**
-     * 查询告警工单历史
+     * 查询告警工单历史。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -630,7 +630,7 @@ export class CocClient {
     }
 
     /**
-     * Get alarm info by id
+     * 查询Alarm。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -649,7 +649,7 @@ export class CocClient {
     }
 
     /**
-     * 批量告警转事件
+     * 批量告警转事件。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -726,7 +726,7 @@ export class CocClient {
     }
 
     /**
-     * 批量创建应用，分组，组件。
+     * 批量创建应用、分组、组件。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -769,7 +769,7 @@ export class CocClient {
     }
 
     /**
-     * 创建应用评估任务
+     * 创建应用评估任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -788,7 +788,7 @@ export class CocClient {
     }
 
     /**
-     * 分页查询评估任务列表
+     * 分页查询评估任务列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -869,7 +869,7 @@ export class CocClient {
     }
 
     /**
-     * ListIncidentsHistories  获取事件单历史
+     * ListIncidentsHistories 获取事件单历史。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -908,7 +908,7 @@ export class CocClient {
     }
 
     /**
-     * 分页获取节点合规性报告
+     * 分页获取节点合规性报告。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -942,7 +942,7 @@ export class CocClient {
     }
 
     /**
-     * 分页获取节点补丁详情
+     * 分页获取节点补丁详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1119,7 +1119,7 @@ export class CocClient {
     }
 
     /**
-     * 取消诊断任务
+     * 取消诊断任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1138,7 +1138,7 @@ export class CocClient {
     }
 
     /**
-     * 提交诊断任务
+     * 提交诊断任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1157,7 +1157,7 @@ export class CocClient {
     }
 
     /**
-     * 查询诊断记录
+     * 查询诊断记录。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1186,7 +1186,7 @@ export class CocClient {
     }
 
     /**
-     * 重试诊断任务
+     * 重试诊断任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1206,7 +1206,7 @@ export class CocClient {
     }
 
     /**
-     * 查询指定诊断记录下的指定诊断步骤的详情
+     * 查询指定诊断记录下的指定诊断步骤的详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1227,7 +1227,7 @@ export class CocClient {
     }
 
     /**
-     * 查询诊断任务的结果概要
+     * 查询批量诊断任务的结果概要。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1246,7 +1246,7 @@ export class CocClient {
     }
 
     /**
-     * 查询单个诊断任务详情
+     * 查询单个诊断任务详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1266,7 +1266,7 @@ export class CocClient {
     }
 
     /**
-     * 创建自定义作业
+     * 创建自定义作业。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1285,7 +1285,7 @@ export class CocClient {
     }
 
     /**
-     * 删除自定义作业
+     * 删除自定义作业。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1304,7 +1304,7 @@ export class CocClient {
     }
 
     /**
-     * 执行自定义作业
+     * 执行自定义作业。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1324,7 +1324,7 @@ export class CocClient {
     }
 
     /**
-     * 查询自定义作业详情
+     * 查询自定义作业详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1345,11 +1345,11 @@ export class CocClient {
     }
 
     /**
-     * 获取原子能力详细
+     * 获取原子能力详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取原子能力详细
+     * @summary 获取原子能力详情
      * @param {string} atomicUniqueKey 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1364,7 +1364,7 @@ export class CocClient {
     }
 
     /**
-     * 获取原子能力列表
+     * 获取原子能力列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1384,7 +1384,7 @@ export class CocClient {
     }
 
     /**
-     * 查询自定义作业列表
+     * 查询自定义作业列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1408,7 +1408,7 @@ export class CocClient {
     }
 
     /**
-     * 修改自定义作业
+     * 修改自定义作业。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1488,7 +1488,7 @@ export class CocClient {
     }
 
     /**
-     * 查询作业工单详情
+     * 查询作业工单详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1507,7 +1507,7 @@ export class CocClient {
     }
 
     /**
-     * 查询工单步骤批次实例，如脚本分批操作里的ECS实例
+     * 查询工单步骤批次实例，如脚本分批操作里的ECS实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1528,7 +1528,7 @@ export class CocClient {
     }
 
     /**
-     * 查询工单步骤详情
+     * 查询工单步骤详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1550,7 +1550,7 @@ export class CocClient {
     }
 
     /**
-     * 查询作业工单列表
+     * 查询作业工单列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1577,7 +1577,7 @@ export class CocClient {
     }
 
     /**
-     * 操作工单
+     * 操作工单。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1588,29 +1588,6 @@ export class CocClient {
      */
     public operateExecution(operateExecutionRequest?: OperateExecutionRequest): Promise<OperateExecutionResponse> {
         const options = ParamCreater().operateExecution(operateExecutionRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 搜索变更工单子单。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 搜索变更工单子单
-     * @param {string} ticketType 工单类型，此处传固定值change。
-     * @param {string} ticketId 变更单工单id
-     * @param {string} type 资源类型
-     * @param {number} [limit] 每页显示的条数
-     * @param {string} [marker] 上一页数据的最后一条记录的id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listSubTickets(listSubTicketsRequest?: ListSubTicketsRequest): Promise<ListSubTicketsResponse> {
-        const options = ParamCreater().listSubTickets(listSubTicketsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1679,7 +1656,7 @@ export class CocClient {
     }
 
     /**
-     * Get Ticket info by id
+     * 查询Ticket。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1711,6 +1688,29 @@ export class CocClient {
      */
     public deleteTicketInfo(deleteTicketInfoRequest?: DeleteTicketInfoRequest): Promise<DeleteTicketInfoResponse> {
         const options = ParamCreater().deleteTicketInfo(deleteTicketInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 搜索变更工单子单。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 搜索变更工单子单
+     * @param {string} ticketType 工单类型，此处传固定值change。
+     * @param {string} ticketId 变更单工单id
+     * @param {string} type 资源类型
+     * @param {number} [limit] 每页显示的条数
+     * @param {string} [marker] 上一页数据的最后一条记录的id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSubTickets(listSubTicketsRequest?: ListSubTicketsRequest): Promise<ListSubTicketsResponse> {
+        const options = ParamCreater().listSubTickets(listSubTicketsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1797,7 +1797,7 @@ export class CocClient {
     }
 
     /**
-     * ListCocTicketOperationHistories  获取事件单历史
+     * ListCocTicketOperationHistories 获取事件单历史。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1837,11 +1837,11 @@ export class CocClient {
     }
 
     /**
-     * ShowCocIncidentDetail  获取事件单详细
+     * ShowCocIncidentDetail 获取事件单详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary GetCocIncidentDetail 获取事件单详细
+     * @summary GetCocIncidentDetail 获取事件单详情
      * @param {string} incidentNum 事件单号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1875,11 +1875,11 @@ export class CocClient {
     }
 
     /**
-     * ShowCocIssuesDetail  获取事件单详细
+     * ShowCocIssuesDetail 获取问题单详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary GetCocIssuesDetail 获取事件单详细
+     * @summary GetCocIssuesDetail 获取问题单详情
      * @param {string} ticketId 问题单号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1993,7 +1993,7 @@ export class CocClient {
     }
 
     /**
-     * 查询应用。
+     * 查询分组。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2373,7 +2373,7 @@ export class CocClient {
     }
 
     /**
-     * 查询用户各种资源总数
+     * 查询用户各种资源总数。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2436,7 +2436,7 @@ export class CocClient {
     }
 
     /**
-     * 查询租户所有资源：
+     * 查询租户所有资源。
      *  - 查询租户所有资源等相关信息，便于租户详细了解资源总体情况。
      *  - 请求参数provider（云服务名称），type（云资源类型），limit（查询条数）必填，单次最大查询条数：500。
      *  - 返回信息包括：资源ID，资源名称，云服务名称，资源类型，项目ID，租户ID，区域ID，企业项目ID，资源标签，资源详细属性，资源ingest属性，uniagentID，uniagent状态，是否托管，是否可运维。
@@ -2492,7 +2492,7 @@ export class CocClient {
     }
 
     /**
-     * 从RMS同步用户所有资源
+     * 从RMS同步用户所有资源。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2530,7 +2530,7 @@ export class CocClient {
     }
 
     /**
-     * 查询资源标签列表
+     * 查询资源标签列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2551,7 +2551,7 @@ export class CocClient {
     }
 
     /**
-     * 更新资源标签
+     * 更新资源标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2752,7 +2752,7 @@ export class CocClient {
     }
 
     /**
-     * Create Scheduled Task
+     * 创建定时运维任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2771,7 +2771,7 @@ export class CocClient {
     }
 
     /**
-     * Delete scheduled task by id
+     * 根据ID删除定时运维任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2790,7 +2790,7 @@ export class CocClient {
     }
 
     /**
-     * Disable scheduled task by id
+     * 根据ID禁用定时运维任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2809,7 +2809,7 @@ export class CocClient {
     }
 
     /**
-     * Enable scheduled task by id
+     * 根据ID启用定时运维任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2829,7 +2829,7 @@ export class CocClient {
     }
 
     /**
-     * Get ScheduledTask infos
+     * 查询定时运维任务列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2866,7 +2866,7 @@ export class CocClient {
     }
 
     /**
-     * get scheduled task history list
+     * 查询定时运维历史记录列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2897,7 +2897,7 @@ export class CocClient {
     }
 
     /**
-     * Get ScheduledTask info by id
+     * 根据ID查询定时运维任务详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -2916,7 +2916,7 @@ export class CocClient {
     }
 
     /**
-     * Update ScheduledTask
+     * 修改定时运维任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3132,7 +3132,7 @@ export class CocClient {
     }
 
     /**
-     * 创建作业脚本：自定义脚本
+     * 创建作业脚本：自定义脚本。
      * - 脚本有标签属性，表示是高危脚本。创建时候不需要对脚本进行是否是高危的二次校验。
      * - 进行租户隔离；北向接口创建的脚本，审批人字段不填写，默认不需要审批
      * - 约束条件：
@@ -3187,7 +3187,7 @@ export class CocClient {
     }
 
     /**
-     * 执行脚本
+     * 执行脚本。
      * 
      * 脚本入参、超时时间、执行用户、资源受限
      * 脚本入参支持20个。
@@ -3217,7 +3217,7 @@ export class CocClient {
     }
 
     /**
-     * 获取脚本详情
+     * 获取脚本详情。
      * 约束条件：
      * 只能查询自定义脚本详情
      * 
@@ -3272,7 +3272,7 @@ export class CocClient {
     }
 
     /**
-     * 作业脚本列表：自定义脚本
+     * 作业脚本列表：自定义脚本。
      * 
      * limit最大为100
      * 
@@ -3302,7 +3302,7 @@ export class CocClient {
     }
 
     /**
-     * 修改作业脚本：自定义脚本
+     * 修改作业脚本：自定义脚本。
      * 约束条件：
      * 脚本名称：同一租户下，脚本名称不能重复，最大字符64个字符，支持中文+字母+数字+下划线。
      * 脚本内容最大4096个字符。
@@ -3333,7 +3333,7 @@ export class CocClient {
     }
 
     /**
-     * 执行公共脚本
+     * 执行公共脚本。
      * 脚本入参、超时时间、执行用户、资源受限
      * 脚本入参支持20个。
      * 单次下发的机器支持200个。
@@ -3361,7 +3361,7 @@ export class CocClient {
     }
 
     /**
-     * 展示公共脚本详情
+     * 展示公共脚本详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3383,7 +3383,7 @@ export class CocClient {
     }
 
     /**
-     * 获取公共脚本列表，分页逻辑：采用limit+marker方式，提高分页效率。用自增id作为marker参数
+     * 获取公共脚本列表，分页逻辑：采用limit+marker方式，提高分页效率。用自增id作为marker参数。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3429,7 +3429,7 @@ export class CocClient {
     }
 
     /**
-     * 增加云广商账号，不需要后，可删除云厂商账号。
+     * 增加云厂商账号，不需要后，可删除云厂商账号。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3456,7 +3456,7 @@ export class CocClient {
      * @param {number} limit **参数解释：** 分页查询每页显示的条目数量。 **约束限制：** 不涉及。 **取值范围：** 自定义，在1-500范围。 **默认取值：** 不涉及。
      * @param {string} [offset] **参数解释：** 分页查询偏移量，表示从此偏移量开始查询。 **约束限制：** 不涉及。 **取值范围：** 0-2147483647。 **默认取值：** 0。
      * @param {string} [marker] **参数解释：** 分页参数，上一页请求最后一个id。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
-     * @param {string} [vendor] **参数解释：** 供应商。 **约束限制：** 不涉及。 **取值范围：** - RMS： 华为云。 - AWS：亚马逊。 - AZURE：微软。 - ALI：阿里云。 - VMWARE：VMware。 - OPENSTACK：openstack云平台。 - HCS：Huawei Cloud Stack。 - OTHER：其他云广商。 **默认取值：** 不涉及。
+     * @param {string} [vendor] **参数解释：** 供应商。 **约束限制：** 不涉及。 **取值范围：** - RMS： 华为云。 - AWS：亚马逊。 - AZURE：微软。 - ALI：阿里云。 - VMWARE：VMware。 - OPENSTACK：openstack云平台。 - HCS：Huawei Cloud Stack。 - OTHER：其他云厂商。 **默认取值：** 不涉及。
      * @param {string} [accountId] **参数解释：** 供应商的账户ID。 **约束限制：** 不涉及。 **取值范围：** 字符串，长度0到64个字符。 **默认取值：** 不涉及。
      * @param {string} [accountName] **参数解释：** 账户名。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
@@ -3492,7 +3492,7 @@ export class CocClient {
     }
 
     /**
-     * 创建租户区WarRoom
+     * 创建租户区WarRoom。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3511,7 +3511,7 @@ export class CocClient {
     }
 
     /**
-     * 查询租户区WarRoom信息列表
+     * 查询租户区WarRoom信息列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3534,7 +3534,7 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 创建改密计划
+         * 创建改密计划。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3572,7 +3572,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 主机密码重置
+         * 主机密码重置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3610,7 +3610,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 回写改密结果
+         * 回写改密结果。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3648,7 +3648,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 清除告警
+         * 批量清除告警。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3683,7 +3683,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 自动处理告警
+         * 自动处理告警。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3729,7 +3729,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询告警工单历史
+         * 查询告警工单历史。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3787,7 +3787,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * Get alarm info by id
+         * 查询Alarm。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3824,7 +3824,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量告警转事件
+         * 批量告警转事件。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3974,7 +3974,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量创建应用，分组，组件。
+         * 批量创建应用、分组、组件。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4084,7 +4084,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建应用评估任务
+         * 创建应用评估任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4122,7 +4122,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 分页查询评估任务列表
+         * 分页查询评估任务列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4313,7 +4313,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * ListIncidentsHistories  获取事件单历史
+         * ListIncidentsHistories 获取事件单历史。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4393,7 +4393,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 分页获取节点合规性报告
+         * 分页获取节点合规性报告。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4535,7 +4535,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 分页获取节点补丁详情
+         * 分页获取节点补丁详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5021,7 +5021,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 取消诊断任务
+         * 取消诊断任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5058,7 +5058,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 提交诊断任务
+         * 提交诊断任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5093,7 +5093,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询诊断记录
+         * 查询诊断记录。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5200,7 +5200,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 重试诊断任务
+         * 重试诊断任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5246,7 +5246,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询指定诊断记录下的指定诊断步骤的详情
+         * 查询指定诊断记录下的指定诊断步骤的详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5301,7 +5301,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询诊断任务的结果概要
+         * 查询批量诊断任务的结果概要。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5338,7 +5338,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询单个诊断任务详情
+         * 查询单个诊断任务详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5386,7 +5386,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建自定义作业
+         * 创建自定义作业。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5424,7 +5424,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除自定义作业
+         * 删除自定义作业。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5461,7 +5461,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 执行自定义作业
+         * 执行自定义作业。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5507,7 +5507,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询自定义作业详情
+         * 查询自定义作业详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5559,7 +5559,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取原子能力详细
+         * 获取原子能力详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5596,7 +5596,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取原子能力列表
+         * 获取原子能力列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5640,7 +5640,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询自定义作业列表
+         * 查询自定义作业列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5712,7 +5712,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改自定义作业
+         * 修改自定义作业。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5893,7 +5893,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询作业工单详情
+         * 查询作业工单详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5930,7 +5930,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询工单步骤批次实例，如脚本分批操作里的ECS实例
+         * 查询工单步骤批次实例，如脚本分批操作里的ECS实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5981,7 +5981,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询工单步骤详情
+         * 查询工单步骤详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6040,7 +6040,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询作业工单列表
+         * 查询作业工单列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6133,7 +6133,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 操作工单
+         * 操作工单。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6163,75 +6163,6 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 搜索变更工单子单。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listSubTickets(listSubTicketsRequest?: ListSubTicketsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{ticket_type}/tickets/{ticket_id}/list-sub-tickets",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let ticketType;
-            
-            let ticketId;
-            
-            let type;
-            
-            let limit;
-            
-            let marker;
-
-            if (listSubTicketsRequest !== null && listSubTicketsRequest !== undefined) {
-                if (listSubTicketsRequest instanceof ListSubTicketsRequest) {
-                    ticketType = listSubTicketsRequest.ticketType;
-                    ticketId = listSubTicketsRequest.ticketId;
-                    type = listSubTicketsRequest.type;
-                    limit = listSubTicketsRequest.limit;
-                    marker = listSubTicketsRequest.marker;
-                } else {
-                    ticketType = listSubTicketsRequest['ticket_type'];
-                    ticketId = listSubTicketsRequest['ticket_id'];
-                    type = listSubTicketsRequest['type'];
-                    limit = listSubTicketsRequest['limit'];
-                    marker = listSubTicketsRequest['marker'];
-                }
-            }
-
-        
-            if (ticketType === null || ticketType === undefined) {
-            throw new RequiredError('ticketType','Required parameter ticketType was null or undefined when calling listSubTickets.');
-            }
-            if (ticketId === null || ticketId === undefined) {
-            throw new RequiredError('ticketId','Required parameter ticketId was null or undefined when calling listSubTickets.');
-            }
-            if (type === null || type === undefined) {
-                throw new RequiredError('type','Required parameter type was null or undefined when calling listSubTickets.');
-            }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (marker !== null && marker !== undefined) {
-                localVarQueryParameter['marker'] = marker;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'ticket_type': ticketType,'ticket_id': ticketId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6375,7 +6306,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * Get Ticket info by id
+         * 查询Ticket。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6457,6 +6388,75 @@ export const ParamCreater = function () {
             throw new RequiredError('ticketId','Required parameter ticketId was null or undefined when calling deleteTicketInfo.');
             }
 
+            options.pathParams = { 'ticket_type': ticketType,'ticket_id': ticketId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 搜索变更工单子单。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSubTickets(listSubTicketsRequest?: ListSubTicketsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{ticket_type}/tickets/{ticket_id}/list-sub-tickets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let ticketType;
+            
+            let ticketId;
+            
+            let type;
+            
+            let limit;
+            
+            let marker;
+
+            if (listSubTicketsRequest !== null && listSubTicketsRequest !== undefined) {
+                if (listSubTicketsRequest instanceof ListSubTicketsRequest) {
+                    ticketType = listSubTicketsRequest.ticketType;
+                    ticketId = listSubTicketsRequest.ticketId;
+                    type = listSubTicketsRequest.type;
+                    limit = listSubTicketsRequest.limit;
+                    marker = listSubTicketsRequest.marker;
+                } else {
+                    ticketType = listSubTicketsRequest['ticket_type'];
+                    ticketId = listSubTicketsRequest['ticket_id'];
+                    type = listSubTicketsRequest['type'];
+                    limit = listSubTicketsRequest['limit'];
+                    marker = listSubTicketsRequest['marker'];
+                }
+            }
+
+        
+            if (ticketType === null || ticketType === undefined) {
+            throw new RequiredError('ticketType','Required parameter ticketType was null or undefined when calling listSubTickets.');
+            }
+            if (ticketId === null || ticketId === undefined) {
+            throw new RequiredError('ticketId','Required parameter ticketId was null or undefined when calling listSubTickets.');
+            }
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling listSubTickets.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'ticket_type': ticketType,'ticket_id': ticketId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -6635,7 +6635,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * ListCocTicketOperationHistories  获取事件单历史
+         * ListCocTicketOperationHistories 获取事件单历史。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6725,7 +6725,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * ShowCocIncidentDetail  获取事件单详细
+         * ShowCocIncidentDetail 获取事件单详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6800,7 +6800,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * ShowCocIssuesDetail  获取事件单详细
+         * ShowCocIssuesDetail 获取问题单详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -7058,7 +7058,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询应用。
+         * 查询分组。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8326,7 +8326,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询用户各种资源总数
+         * 查询用户各种资源总数。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8584,7 +8584,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询租户所有资源：
+         * 查询租户所有资源。
          *  - 查询租户所有资源等相关信息，便于租户详细了解资源总体情况。
          *  - 请求参数provider（云服务名称），type（云资源类型），limit（查询条数）必填，单次最大查询条数：500。
          *  - 返回信息包括：资源ID，资源名称，云服务名称，资源类型，项目ID，租户ID，区域ID，企业项目ID，资源标签，资源详细属性，资源ingest属性，uniagentID，uniagent状态，是否托管，是否可运维。
@@ -8871,7 +8871,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 从RMS同步用户所有资源
+         * 从RMS同步用户所有资源。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8947,7 +8947,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询资源标签列表
+         * 查询资源标签列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -8999,7 +8999,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新资源标签
+         * 更新资源标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9462,7 +9462,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * Create Scheduled Task
+         * 创建定时运维任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9500,7 +9500,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * Delete scheduled task by id
+         * 根据ID删除定时运维任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9537,7 +9537,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * Disable scheduled task by id
+         * 根据ID禁用定时运维任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9574,7 +9574,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * Enable scheduled task by id
+         * 根据ID启用定时运维任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9617,7 +9617,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * Get ScheduledTask infos
+         * 查询定时运维任务列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9780,7 +9780,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * get scheduled task history list
+         * 查询定时运维历史记录列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9907,7 +9907,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * Get ScheduledTask info by id
+         * 根据ID查询定时运维任务详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9944,7 +9944,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * Update ScheduledTask
+         * 修改定时运维任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10546,7 +10546,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建作业脚本：自定义脚本
+         * 创建作业脚本：自定义脚本。
          * - 脚本有标签属性，表示是高危脚本。创建时候不需要对脚本进行是否是高危的二次校验。
          * - 进行租户隔离；北向接口创建的脚本，审批人字段不填写，默认不需要审批
          * - 约束条件：
@@ -10674,7 +10674,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 执行脚本
+         * 执行脚本。
          * 
          * 脚本入参、超时时间、执行用户、资源受限
          * 脚本入参支持20个。
@@ -10748,7 +10748,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取脚本详情
+         * 获取脚本详情。
          * 约束条件：
          * 只能查询自定义脚本详情
          * 
@@ -10876,7 +10876,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 作业脚本列表：自定义脚本
+         * 作业脚本列表：自定义脚本。
          * 
          * limit最大为100
          * 
@@ -10981,7 +10981,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改作业脚本：自定义脚本
+         * 修改作业脚本：自定义脚本。
          * 约束条件：
          * 脚本名称：同一租户下，脚本名称不能重复，最大字符64个字符，支持中文+字母+数字+下划线。
          * 脚本内容最大4096个字符。
@@ -11056,7 +11056,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 执行公共脚本
+         * 执行公共脚本。
          * 脚本入参、超时时间、执行用户、资源受限
          * 脚本入参支持20个。
          * 单次下发的机器支持200个。
@@ -11128,7 +11128,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 展示公共脚本详情
+         * 展示公共脚本详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11186,7 +11186,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取公共脚本列表，分页逻辑：采用limit+marker方式，提高分页效率。用自增id作为marker参数
+         * 获取公共脚本列表，分页逻辑：采用limit+marker方式，提高分页效率。用自增id作为marker参数。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11320,7 +11320,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 增加云广商账号，不需要后，可删除云厂商账号。
+         * 增加云厂商账号，不需要后，可删除云厂商账号。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11478,7 +11478,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建租户区WarRoom
+         * 创建租户区WarRoom。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -11516,7 +11516,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询租户区WarRoom信息列表
+         * 查询租户区WarRoom信息列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

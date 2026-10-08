@@ -1,3 +1,43 @@
+# 3.1.217 2026-10-08
+
+### HuaweiCloud SDK DAS
+
+- _API Version_
+  - V3
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListTemplateDatabaseComparisons**
+    - changes of request param
+      - `* start_at2: required -> optional`
+      - `* end_at2: required -> optional`
+
+### HuaweiCloud SDK DataArtsStudio
+
+- _API Version_
+  - V1
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **CreateFactoryJob**
+    - changes of request param
+      - `+ basic_config.task_priority`
+
+### HuaweiCloud SDK ECS
+
+- _API Version_
+  - V2
+- _Features_
+  - Support the API `ShowServerConsoleOutput`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
 # 3.1.216 2026-09-24
 
 ### HuaweiCloud SDK CBR

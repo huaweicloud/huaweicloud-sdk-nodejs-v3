@@ -13,12 +13,10 @@ export class ListTemplateDatabaseComparisonsRequest {
     public sort?: string;
     public asc?: boolean;
     public size?: number;
-    public constructor(instanceId?: string, startAt1?: number, endAt1?: number, startAt2?: number, endAt2?: number) { 
+    public constructor(instanceId?: string, startAt1?: number, endAt1?: number) { 
         this['instance_id'] = instanceId;
         this['start_at1'] = startAt1;
         this['end_at1'] = endAt1;
-        this['start_at2'] = startAt2;
-        this['end_at2'] = endAt2;
     }
     public withInstanceId(instanceId: string): ListTemplateDatabaseComparisonsRequest {
         this['instance_id'] = instanceId;

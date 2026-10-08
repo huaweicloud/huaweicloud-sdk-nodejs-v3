@@ -913,7 +913,6 @@ import { ServiceSecurityConfig } from './model/ServiceSecurityConfig';
 import { ServiceUpdateRequest } from './model/ServiceUpdateRequest';
 import { ServiceVersionResponse } from './model/ServiceVersionResponse';
 import { SfsTurboConnectionStatus } from './model/SfsTurboConnectionStatus';
-import { Shards } from './model/Shards';
 import { ShowAlgorithmByUuidRequest } from './model/ShowAlgorithmByUuidRequest';
 import { ShowAlgorithmByUuidResponse } from './model/ShowAlgorithmByUuidResponse';
 import { ShowAuthmodeDetailRequest } from './model/ShowAuthmodeDetailRequest';
@@ -972,8 +971,6 @@ import { ShowNotebookRequest } from './model/ShowNotebookRequest';
 import { ShowNotebookResponse } from './model/ShowNotebookResponse';
 import { ShowNotebookTagsRequest } from './model/ShowNotebookTagsRequest';
 import { ShowNotebookTagsResponse } from './model/ShowNotebookTagsResponse';
-import { ShowObsUrlOfTrainingJobLogsRequest } from './model/ShowObsUrlOfTrainingJobLogsRequest';
-import { ShowObsUrlOfTrainingJobLogsResponse } from './model/ShowObsUrlOfTrainingJobLogsResponse';
 import { ShowOrderRequest } from './model/ShowOrderRequest';
 import { ShowOrderResponse } from './model/ShowOrderResponse';
 import { ShowOsConfigRequest } from './model/ShowOsConfigRequest';
@@ -5060,26 +5057,6 @@ export class ModelArtsClient {
      */
     public showNodePool(showNodePoolRequest?: ShowNodePoolRequest): Promise<ShowNodePoolResponse> {
         const options = ParamCreater().showNodePool(showNodePoolRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询训练作业指定任务的日志（OBS临时链接，有效期5分钟），可全量查看或直接下载。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询训练作业指定任务的日志（OBS链接）
-     * @param {string} trainingJobId 训练作业ID。获取方法请参见[查询训练作业列表](ListTrainingJobs.xml)。
-     * @param {string} taskId 训练作业的任务名称。可从训练作业详情中的status.tasks字段中获取。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showObsUrlOfTrainingJobLogs(showObsUrlOfTrainingJobLogsRequest?: ShowObsUrlOfTrainingJobLogsRequest): Promise<ShowObsUrlOfTrainingJobLogsResponse> {
-        const options = ParamCreater().showObsUrlOfTrainingJobLogs(showObsUrlOfTrainingJobLogsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -16275,50 +16252,6 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'pool_name': poolName,'nodepool_name': nodepoolName, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询训练作业指定任务的日志（OBS临时链接，有效期5分钟），可全量查看或直接下载。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showObsUrlOfTrainingJobLogs(showObsUrlOfTrainingJobLogsRequest?: ShowObsUrlOfTrainingJobLogsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/training-jobs/{training_job_id}/tasks/{task_id}/logs/url",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let trainingJobId;
-            
-            let taskId;
-
-            if (showObsUrlOfTrainingJobLogsRequest !== null && showObsUrlOfTrainingJobLogsRequest !== undefined) {
-                if (showObsUrlOfTrainingJobLogsRequest instanceof ShowObsUrlOfTrainingJobLogsRequest) {
-                    trainingJobId = showObsUrlOfTrainingJobLogsRequest.trainingJobId;
-                    taskId = showObsUrlOfTrainingJobLogsRequest.taskId;
-                } else {
-                    trainingJobId = showObsUrlOfTrainingJobLogsRequest['training_job_id'];
-                    taskId = showObsUrlOfTrainingJobLogsRequest['task_id'];
-                }
-            }
-
-        
-            if (trainingJobId === null || trainingJobId === undefined) {
-            throw new RequiredError('trainingJobId','Required parameter trainingJobId was null or undefined when calling showObsUrlOfTrainingJobLogs.');
-            }
-            if (taskId === null || taskId === undefined) {
-            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showObsUrlOfTrainingJobLogs.');
-            }
-
-            options.pathParams = { 'training_job_id': trainingJobId,'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

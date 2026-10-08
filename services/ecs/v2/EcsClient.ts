@@ -396,6 +396,8 @@ import { ShowServerAttachableNicNumRequest } from './model/ShowServerAttachableN
 import { ShowServerAttachableNicNumResponse } from './model/ShowServerAttachableNicNumResponse';
 import { ShowServerBlockDeviceRequest } from './model/ShowServerBlockDeviceRequest';
 import { ShowServerBlockDeviceResponse } from './model/ShowServerBlockDeviceResponse';
+import { ShowServerConsoleOutputRequest } from './model/ShowServerConsoleOutputRequest';
+import { ShowServerConsoleOutputResponse } from './model/ShowServerConsoleOutputResponse';
 import { ShowServerGroupRequest } from './model/ShowServerGroupRequest';
 import { ShowServerGroupResponse } from './model/ShowServerGroupResponse';
 import { ShowServerGroupResult } from './model/ShowServerGroupResult';
@@ -2359,6 +2361,26 @@ export class EcsClient {
      */
     public showServerBlockDevice(showServerBlockDeviceRequest?: ShowServerBlockDeviceRequest): Promise<ShowServerBlockDeviceResponse> {
         const options = ParamCreater().showServerBlockDevice(showServerBlockDeviceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取弹性云服务器云主机的控制台日志。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取弹性云服务器的控制台日志
+     * @param {string} serverId 云服务器ID。
+     * @param {number} [length] - 参数解释： 请求log行数。 - 约束限制： 不涉及。 - 取值范围： 大于等于-1。其中-1代表不限长度输出。 - 默认取值： 不填时默认50。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showServerConsoleOutput(showServerConsoleOutputRequest?: ShowServerConsoleOutputRequest): Promise<ShowServerConsoleOutputResponse> {
+        const options = ParamCreater().showServerConsoleOutput(showServerConsoleOutputRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7066,6 +7088,51 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'server_id': serverId,'volume_id': volumeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取弹性云服务器云主机的控制台日志。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showServerConsoleOutput(showServerConsoleOutputRequest?: ShowServerConsoleOutputRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cloudservers/{server_id}/console-output",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let serverId;
+            
+            let length;
+
+            if (showServerConsoleOutputRequest !== null && showServerConsoleOutputRequest !== undefined) {
+                if (showServerConsoleOutputRequest instanceof ShowServerConsoleOutputRequest) {
+                    serverId = showServerConsoleOutputRequest.serverId;
+                    length = showServerConsoleOutputRequest.length;
+                } else {
+                    serverId = showServerConsoleOutputRequest['server_id'];
+                    length = showServerConsoleOutputRequest['length'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServerConsoleOutput.');
+            }
+            if (length !== null && length !== undefined) {
+                localVarQueryParameter['length'] = length;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'server_id': serverId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

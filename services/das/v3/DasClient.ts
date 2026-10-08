@@ -3195,9 +3195,9 @@ export class DasClient {
      * @param {string} instanceId 实例ID，实例的唯一标识
      * @param {number} startAt1 比较时间段1的开始时间，Unix timestamp，单位：毫秒
      * @param {number} endAt1 比较时间段1的结束时间，Unix timestamp，单位：毫秒
-     * @param {number} startAt2 比较时间段2的开始时间，Unix timestamp，单位：毫秒
-     * @param {number} endAt2 比较时间段2的结束时间，Unix timestamp，单位：毫秒
      * @param {string} [nodeId] 节点ID，实例节点的唯一标识
+     * @param {number} [startAt2] 比较时间段2的开始时间，Unix timestamp，单位：毫秒
+     * @param {number} [endAt2] 比较时间段2的结束时间，Unix timestamp，单位：毫秒
      * @param {string} [operation] 操作类型，可组合，用逗号分隔
      * @param {Array<string>} [dbNameList] 数据库列表
      * @param {string} [keyword] 关键字
@@ -13573,11 +13573,11 @@ export const ParamCreater = function () {
             
             let endAt1;
             
+            let nodeId;
+            
             let startAt2;
             
             let endAt2;
-            
-            let nodeId;
             
             let operation;
             
@@ -13596,9 +13596,9 @@ export const ParamCreater = function () {
                     instanceId = listTemplateDatabaseComparisonsRequest.instanceId;
                     startAt1 = listTemplateDatabaseComparisonsRequest.startAt1;
                     endAt1 = listTemplateDatabaseComparisonsRequest.endAt1;
+                    nodeId = listTemplateDatabaseComparisonsRequest.nodeId;
                     startAt2 = listTemplateDatabaseComparisonsRequest.startAt2;
                     endAt2 = listTemplateDatabaseComparisonsRequest.endAt2;
-                    nodeId = listTemplateDatabaseComparisonsRequest.nodeId;
                     operation = listTemplateDatabaseComparisonsRequest.operation;
                     dbNameList = listTemplateDatabaseComparisonsRequest.dbNameList;
                     keyword = listTemplateDatabaseComparisonsRequest.keyword;
@@ -13609,9 +13609,9 @@ export const ParamCreater = function () {
                     instanceId = listTemplateDatabaseComparisonsRequest['instance_id'];
                     startAt1 = listTemplateDatabaseComparisonsRequest['start_at1'];
                     endAt1 = listTemplateDatabaseComparisonsRequest['end_at1'];
+                    nodeId = listTemplateDatabaseComparisonsRequest['node_id'];
                     startAt2 = listTemplateDatabaseComparisonsRequest['start_at2'];
                     endAt2 = listTemplateDatabaseComparisonsRequest['end_at2'];
-                    nodeId = listTemplateDatabaseComparisonsRequest['node_id'];
                     operation = listTemplateDatabaseComparisonsRequest['operation'];
                     dbNameList = listTemplateDatabaseComparisonsRequest['db_name_list'];
                     keyword = listTemplateDatabaseComparisonsRequest['keyword'];
@@ -13640,20 +13640,14 @@ export const ParamCreater = function () {
             if (endAt1 !== null && endAt1 !== undefined) {
                 localVarQueryParameter['end_at1'] = endAt1;
             }
-            if (startAt2 === null || startAt2 === undefined) {
-                throw new RequiredError('startAt2','Required parameter startAt2 was null or undefined when calling listTemplateDatabaseComparisons.');
+            if (nodeId !== null && nodeId !== undefined) {
+                localVarQueryParameter['node_id'] = nodeId;
             }
             if (startAt2 !== null && startAt2 !== undefined) {
                 localVarQueryParameter['start_at2'] = startAt2;
             }
-            if (endAt2 === null || endAt2 === undefined) {
-                throw new RequiredError('endAt2','Required parameter endAt2 was null or undefined when calling listTemplateDatabaseComparisons.');
-            }
             if (endAt2 !== null && endAt2 !== undefined) {
                 localVarQueryParameter['end_at2'] = endAt2;
-            }
-            if (nodeId !== null && nodeId !== undefined) {
-                localVarQueryParameter['node_id'] = nodeId;
             }
             if (operation !== null && operation !== undefined) {
                 localVarQueryParameter['operation'] = operation;

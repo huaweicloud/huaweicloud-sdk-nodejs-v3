@@ -394,6 +394,8 @@ export * from './model/ShowServerAttachableNicNumRequest';
 export * from './model/ShowServerAttachableNicNumResponse';
 export * from './model/ShowServerBlockDeviceRequest';
 export * from './model/ShowServerBlockDeviceResponse';
+export * from './model/ShowServerConsoleOutputRequest';
+export * from './model/ShowServerConsoleOutputResponse';
 export * from './model/ShowServerGroupRequest';
 export * from './model/ShowServerGroupResponse';
 export * from './model/ShowServerGroupResult';
