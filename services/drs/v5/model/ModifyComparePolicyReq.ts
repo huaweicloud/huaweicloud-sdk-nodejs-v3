@@ -8,6 +8,7 @@ export class ModifyComparePolicyReq {
     private 'compare_type'?: Array<string>;
     private 'compare_policy'?: ModifyComparePolicyReqComparePolicyEnum | string;
     private 'interval_hour'?: number;
+    private 'conflict_strategy'?: ModifyComparePolicyReqConflictStrategyEnum | string;
     public constructor(action?: string) { 
         this['action'] = action;
     }
@@ -69,6 +70,16 @@ export class ModifyComparePolicyReq {
     public get intervalHour(): number | undefined {
         return this['interval_hour'];
     }
+    public withConflictStrategy(conflictStrategy: ModifyComparePolicyReqConflictStrategyEnum | string): ModifyComparePolicyReq {
+        this['conflict_strategy'] = conflictStrategy;
+        return this;
+    }
+    public set conflictStrategy(conflictStrategy: ModifyComparePolicyReqConflictStrategyEnum | string  | undefined) {
+        this['conflict_strategy'] = conflictStrategy;
+    }
+    public get conflictStrategy(): ModifyComparePolicyReqConflictStrategyEnum | string | undefined {
+        return this['conflict_strategy'];
+    }
 }
 
 /**
@@ -78,4 +89,12 @@ export class ModifyComparePolicyReq {
 export enum ModifyComparePolicyReqComparePolicyEnum {
     NORMAL = 'normal',
     MANYTOONE = 'manyToOne'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ModifyComparePolicyReqConflictStrategyEnum {
+    COVER = 'cover',
+    IGNORE = 'ignore'
 }

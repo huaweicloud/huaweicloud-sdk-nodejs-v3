@@ -7,6 +7,7 @@ export class ColumnInfo {
     private 'column_mapped_name'?: string;
     public status?: boolean;
     public partition?: boolean;
+    private 'desensitization_algorithm'?: ColumnInfoDesensitizationAlgorithmEnum | string;
     public constructor() { 
     }
     public withColumnName(columnName: string): ColumnInfo {
@@ -57,4 +58,30 @@ export class ColumnInfo {
         this['partition'] = partition;
         return this;
     }
+    public withDesensitizationAlgorithm(desensitizationAlgorithm: ColumnInfoDesensitizationAlgorithmEnum | string): ColumnInfo {
+        this['desensitization_algorithm'] = desensitizationAlgorithm;
+        return this;
+    }
+    public set desensitizationAlgorithm(desensitizationAlgorithm: ColumnInfoDesensitizationAlgorithmEnum | string  | undefined) {
+        this['desensitization_algorithm'] = desensitizationAlgorithm;
+    }
+    public get desensitizationAlgorithm(): ColumnInfoDesensitizationAlgorithmEnum | string | undefined {
+        return this['desensitization_algorithm'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ColumnInfoDesensitizationAlgorithmEnum {
+    NAME = 'name',
+    PHONE = 'phone',
+    IDENTITY_CARD = 'identity_card',
+    BANK_CARD = 'bank_card',
+    EMAIL = 'email',
+    ADDRESS = 'address',
+    DATE = 'date',
+    NUMERIC = 'numeric',
+    SECRET_CONTENT = 'secret_content'
 }

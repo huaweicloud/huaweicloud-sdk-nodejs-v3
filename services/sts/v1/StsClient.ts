@@ -19,6 +19,7 @@ import { DecodeAuthorizationMessageRequest } from './model/DecodeAuthorizationMe
 import { DecodeAuthorizationMessageResponse } from './model/DecodeAuthorizationMessageResponse';
 import { GetCallerIdentityRequest } from './model/GetCallerIdentityRequest';
 import { GetCallerIdentityResponse } from './model/GetCallerIdentityResponse';
+import { ProvidedContextDto } from './model/ProvidedContextDto';
 import { TagDto } from './model/TagDto';
 import { TagKeyDto } from './model/TagKeyDto';
 

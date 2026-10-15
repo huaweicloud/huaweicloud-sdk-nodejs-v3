@@ -3,6 +3,7 @@ import { DiskResult } from './DiskResult';
 import { PersonalityResult } from './PersonalityResult';
 import { PublicipResult } from './PublicipResult';
 import { SecurityGroups } from './SecurityGroups';
+import { TagsSingleValue } from './TagsSingleValue';
 import { VmMetaData } from './VmMetaData';
 
 
@@ -26,6 +27,8 @@ export class InstanceConfigResult {
     private 'market_type'?: string;
     private 'multi_flavor_priority_policy'?: string;
     private 'cpu_options'?: CpuOptions;
+    public tags?: Array<TagsSingleValue>;
+    private 'tag_transmission_policy'?: string;
     public constructor() { 
     }
     public withFlavorRef(flavorRef: string): InstanceConfigResult {
@@ -175,5 +178,19 @@ export class InstanceConfigResult {
     }
     public get cpuOptions(): CpuOptions | undefined {
         return this['cpu_options'];
+    }
+    public withTags(tags: Array<TagsSingleValue>): InstanceConfigResult {
+        this['tags'] = tags;
+        return this;
+    }
+    public withTagTransmissionPolicy(tagTransmissionPolicy: string): InstanceConfigResult {
+        this['tag_transmission_policy'] = tagTransmissionPolicy;
+        return this;
+    }
+    public set tagTransmissionPolicy(tagTransmissionPolicy: string  | undefined) {
+        this['tag_transmission_policy'] = tagTransmissionPolicy;
+    }
+    public get tagTransmissionPolicy(): string | undefined {
+        return this['tag_transmission_policy'];
     }
 }

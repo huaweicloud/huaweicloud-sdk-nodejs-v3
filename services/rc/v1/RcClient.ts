@@ -383,7 +383,7 @@ export class RcClient {
     }
 
     /**
-     * 查询当前帐号的资源概览，需要当前用户有rc::listResourceSummary权限。
+     * 查询当前帐号的资源概览，需要当前用户有resourcecenter::listResourceSummary权限。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -419,6 +419,7 @@ export class RcClient {
      * @param {Array<string>} [epId] 企业项目ID列表
      * @param {Array<string>} [projectId] 项目ID
      * @param {Array<string>} [tags] 标签列表
+     * @param {string} [groupId] 资源组ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1221,7 +1222,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询当前帐号的资源概览，需要当前用户有rc::listResourceSummary权限。
+         * 查询当前帐号的资源概览，需要当前用户有resourcecenter::listResourceSummary权限。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1322,6 +1323,8 @@ export const ParamCreater = function () {
             let projectId;
             
             let tags;
+            
+            let groupId;
 
             if (countAllResourcesRequest !== null && countAllResourcesRequest !== undefined) {
                 if (countAllResourcesRequest instanceof CountAllResourcesRequest) {
@@ -1332,6 +1335,7 @@ export const ParamCreater = function () {
                     epId = countAllResourcesRequest.epId;
                     projectId = countAllResourcesRequest.projectId;
                     tags = countAllResourcesRequest.tags;
+                    groupId = countAllResourcesRequest.groupId;
                 } else {
                     id = countAllResourcesRequest['id'];
                     name = countAllResourcesRequest['name'];
@@ -1340,6 +1344,7 @@ export const ParamCreater = function () {
                     epId = countAllResourcesRequest['ep_id'];
                     projectId = countAllResourcesRequest['project_id'];
                     tags = countAllResourcesRequest['tags'];
+                    groupId = countAllResourcesRequest['group_id'];
                 }
             }
 
@@ -1364,6 +1369,9 @@ export const ParamCreater = function () {
             }
             if (tags !== null && tags !== undefined) {
                 localVarQueryParameter['tags'] = tags;
+            }
+            if (groupId !== null && groupId !== undefined) {
+                localVarQueryParameter['group_id'] = groupId;
             }
 
             options.queryParams = localVarQueryParameter;

@@ -13,9 +13,7 @@ export class QueryJobsReq {
     public tags?: { [key: string]: string; };
     private 'instance_ids'?: Array<string>;
     private 'instance_ip'?: string;
-    public constructor(curPage?: number, perPage?: number, dbUseType?: string) { 
-        this['cur_page'] = curPage;
-        this['per_page'] = perPage;
+    public constructor(dbUseType?: string) { 
         this['db_use_type'] = dbUseType;
     }
     public withCurPage(curPage: number): QueryJobsReq {

@@ -61,6 +61,7 @@ export class JobDetailResp {
     private 'repair_detail_info'?: QueryRepairDetailResp;
     private 'repair_export_status'?: string;
     private 'job_kernel_direction'?: JobDetailRespJobKernelDirectionEnum | string;
+    private 'sync_mode'?: JobDetailRespSyncModeEnum | string;
     public constructor() { 
     }
     public withId(id: string): JobDetailResp {
@@ -387,6 +388,16 @@ export class JobDetailResp {
     public get jobKernelDirection(): JobDetailRespJobKernelDirectionEnum | string | undefined {
         return this['job_kernel_direction'];
     }
+    public withSyncMode(syncMode: JobDetailRespSyncModeEnum | string): JobDetailResp {
+        this['sync_mode'] = syncMode;
+        return this;
+    }
+    public set syncMode(syncMode: JobDetailRespSyncModeEnum | string  | undefined) {
+        this['sync_mode'] = syncMode;
+    }
+    public get syncMode(): JobDetailRespSyncModeEnum | string | undefined {
+        return this['sync_mode'];
+    }
 }
 
 /**
@@ -439,4 +450,15 @@ export enum JobDetailRespIsWritableEnum {
 export enum JobDetailRespJobKernelDirectionEnum {
     UP = 'up',
     DOWN = 'down'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum JobDetailRespSyncModeEnum {
+    DB_LEVEL = 'DB_LEVEL',
+    SCHEMA_LEVEL = 'SCHEMA_LEVEL',
+    TABLE_LEVEL = 'TABLE_LEVEL',
+    FILE_IMPORT = 'FILE_IMPORT',
+    INSTANCE_LEVEL = 'INSTANCE_LEVEL'
 }

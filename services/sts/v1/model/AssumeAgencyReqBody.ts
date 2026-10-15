@@ -1,3 +1,4 @@
+import { ProvidedContextDto } from './ProvidedContextDto';
 import { TagDto } from './TagDto';
 
 
@@ -13,6 +14,7 @@ export class AssumeAgencyReqBody {
     private 'source_identity'?: string;
     public tags?: Array<TagDto>;
     private 'transitive_tag_keys'?: Array<string>;
+    private 'provided_contexts'?: Array<ProvidedContextDto>;
     public constructor(agencyUrn?: string, agencySessionName?: string) { 
         this['agency_urn'] = agencyUrn;
         this['agency_session_name'] = agencySessionName;
@@ -114,5 +116,15 @@ export class AssumeAgencyReqBody {
     }
     public get transitiveTagKeys(): Array<string> | undefined {
         return this['transitive_tag_keys'];
+    }
+    public withProvidedContexts(providedContexts: Array<ProvidedContextDto>): AssumeAgencyReqBody {
+        this['provided_contexts'] = providedContexts;
+        return this;
+    }
+    public set providedContexts(providedContexts: Array<ProvidedContextDto>  | undefined) {
+        this['provided_contexts'] = providedContexts;
+    }
+    public get providedContexts(): Array<ProvidedContextDto> | undefined {
+        return this['provided_contexts'];
     }
 }

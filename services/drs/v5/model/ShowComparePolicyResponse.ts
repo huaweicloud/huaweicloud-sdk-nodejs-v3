@@ -10,6 +10,7 @@ export class ShowComparePolicyResponse extends SdkResponse {
     private 'next_compare_time'?: string;
     private 'compare_policy'?: string;
     private 'interval_hour'?: number;
+    private 'conflict_strategy'?: string;
     public constructor() { 
         super();
     }
@@ -80,6 +81,16 @@ export class ShowComparePolicyResponse extends SdkResponse {
     }
     public get intervalHour(): number | undefined {
         return this['interval_hour'];
+    }
+    public withConflictStrategy(conflictStrategy: string): ShowComparePolicyResponse {
+        this['conflict_strategy'] = conflictStrategy;
+        return this;
+    }
+    public set conflictStrategy(conflictStrategy: string  | undefined) {
+        this['conflict_strategy'] = conflictStrategy;
+    }
+    public get conflictStrategy(): string | undefined {
+        return this['conflict_strategy'];
     }
 }
 

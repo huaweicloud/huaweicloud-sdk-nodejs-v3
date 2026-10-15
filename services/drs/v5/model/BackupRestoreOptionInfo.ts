@@ -9,6 +9,7 @@ export class BackupRestoreOptionInfo {
     private 'db_names'?: Array<string>;
     private 'reset_db_name_map'?: { [key: string]: string; };
     private 'is_delete_backup_file'?: boolean;
+    private 'consistency_check_mode'?: BackupRestoreOptionInfoConsistencyCheckModeEnum | string;
     public constructor(isLastBackup?: boolean, isPrecheck?: boolean, recoveryMode?: string) { 
         this['is_last_backup'] = isLastBackup;
         this['is_precheck'] = isPrecheck;
@@ -94,6 +95,16 @@ export class BackupRestoreOptionInfo {
     public get isDeleteBackupFile(): boolean | undefined {
         return this['is_delete_backup_file'];
     }
+    public withConsistencyCheckMode(consistencyCheckMode: BackupRestoreOptionInfoConsistencyCheckModeEnum | string): BackupRestoreOptionInfo {
+        this['consistency_check_mode'] = consistencyCheckMode;
+        return this;
+    }
+    public set consistencyCheckMode(consistencyCheckMode: BackupRestoreOptionInfoConsistencyCheckModeEnum | string  | undefined) {
+        this['consistency_check_mode'] = consistencyCheckMode;
+    }
+    public get consistencyCheckMode(): BackupRestoreOptionInfoConsistencyCheckModeEnum | string | undefined {
+        return this['consistency_check_mode'];
+    }
 }
 
 /**
@@ -103,4 +114,12 @@ export class BackupRestoreOptionInfo {
 export enum BackupRestoreOptionInfoRecoveryModeEnum {
     FULL = 'full',
     INCRE = 'incre'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BackupRestoreOptionInfoConsistencyCheckModeEnum {
+    SYNC = 'sync',
+    ASYNC = 'async'
 }

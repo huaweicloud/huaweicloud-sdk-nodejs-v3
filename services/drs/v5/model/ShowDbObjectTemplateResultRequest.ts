@@ -60,5 +60,7 @@ export enum ShowDbObjectTemplateResultRequestXLanguageEnum {
 export enum ShowDbObjectTemplateResultRequestTypeEnum {
     DETAIL = 'detail',
     SYNCHRONIZED = 'synchronized',
-    CHANGE = 'change'
+    CHANGE = 'change',
+    COMPARE = 'compare',
+    COMPARE_KEY_DETAIL = 'compare_key_detail'
 }

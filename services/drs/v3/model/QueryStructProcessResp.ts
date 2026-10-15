@@ -6,6 +6,7 @@ export class QueryStructProcessResp {
     private 'error_code'?: string;
     private 'error_message'?: string;
     private 'struct_process'?: StructProcessResp;
+    private 'database_info'?: object;
     public constructor(jobId?: string) { 
         this['job_id'] = jobId;
     }
@@ -48,5 +49,15 @@ export class QueryStructProcessResp {
     }
     public get structProcess(): StructProcessResp | undefined {
         return this['struct_process'];
+    }
+    public withDatabaseInfo(databaseInfo: object): QueryStructProcessResp {
+        this['database_info'] = databaseInfo;
+        return this;
+    }
+    public set databaseInfo(databaseInfo: object  | undefined) {
+        this['database_info'] = databaseInfo;
+    }
+    public get databaseInfo(): object | undefined {
+        return this['database_info'];
     }
 }

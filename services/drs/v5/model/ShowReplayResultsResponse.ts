@@ -1,3 +1,4 @@
+import { ReplayCompareResultResp } from './ReplayCompareResultResp';
 import { ReplayErrorClassification } from './ReplayErrorClassification';
 import { ReplayErrorSqlResp } from './ReplayErrorSqlResp';
 import { ReplayErrorSqlTemplateResp } from './ReplayErrorSqlTemplateResp';
@@ -17,6 +18,7 @@ export class ShowReplayResultsResponse extends SdkResponse {
     private 'error_sql_templates'?: Array<ReplayErrorSqlTemplateResp>;
     private 'replaying_sqls'?: Array<ReplayingSqlResp>;
     private 'error_classifications'?: Array<ReplayErrorClassification>;
+    private 'compare_results'?: Array<ReplayCompareResultResp>;
     public constructor() { 
         super();
     }
@@ -99,5 +101,15 @@ export class ShowReplayResultsResponse extends SdkResponse {
     }
     public get errorClassifications(): Array<ReplayErrorClassification> | undefined {
         return this['error_classifications'];
+    }
+    public withCompareResults(compareResults: Array<ReplayCompareResultResp>): ShowReplayResultsResponse {
+        this['compare_results'] = compareResults;
+        return this;
+    }
+    public set compareResults(compareResults: Array<ReplayCompareResultResp>  | undefined) {
+        this['compare_results'] = compareResults;
+    }
+    public get compareResults(): Array<ReplayCompareResultResp> | undefined {
+        return this['compare_results'];
     }
 }

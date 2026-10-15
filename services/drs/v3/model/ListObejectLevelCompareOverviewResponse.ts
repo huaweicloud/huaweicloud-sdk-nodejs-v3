@@ -11,6 +11,7 @@ export class ListObejectLevelCompareOverviewResponse extends SdkResponse {
     private 'compare_job_id'?: string;
     private 'error_msg'?: string;
     private 'compare_result'?: Array<ObjectsCompareOverviewInfo>;
+    private 'database_info'?: object;
     public constructor() { 
         super();
     }
@@ -87,5 +88,15 @@ export class ListObejectLevelCompareOverviewResponse extends SdkResponse {
     }
     public get compareResult(): Array<ObjectsCompareOverviewInfo> | undefined {
         return this['compare_result'];
+    }
+    public withDatabaseInfo(databaseInfo: object): ListObejectLevelCompareOverviewResponse {
+        this['database_info'] = databaseInfo;
+        return this;
+    }
+    public set databaseInfo(databaseInfo: object  | undefined) {
+        this['database_info'] = databaseInfo;
+    }
+    public get databaseInfo(): object | undefined {
+        return this['database_info'];
     }
 }

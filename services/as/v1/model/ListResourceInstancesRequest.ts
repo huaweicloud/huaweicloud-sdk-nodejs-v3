@@ -28,5 +28,6 @@ export class ListResourceInstancesRequest {
     * @enum {string}
     */
 export enum ListResourceInstancesRequestResourceTypeEnum {
-    SCALING_GROUP_TAG = 'scaling_group_tag'
+    SCALING_GROUP_TAG = 'scaling_group_tag',
+    SCALING_CONFIGURATION_TAG = 'scaling_configuration_tag'
 }

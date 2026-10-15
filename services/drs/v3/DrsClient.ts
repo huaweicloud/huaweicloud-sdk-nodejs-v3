@@ -310,7 +310,7 @@ export class DrsClient {
      *
      * @summary 批量预检查
      * @param {BatchPrecheckReq} requestBody 批量预检查请求体
-     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型
+     * @param {'en-us' | 'zh-cn'} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us：英文 - zh-cn：中文  **默认取值**：  en-us
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -330,7 +330,7 @@ export class DrsClient {
      *
      * @summary 批量查询预检查结果
      * @param {BatchQueryPrecheckResultReq} requestBody 批量查询预检查结果请求列表。 约束： - 不能包含空对象。 - 集合中的元素取值严格匹配UUID规则。 - 任务id不能重复。
-     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型
+     * @param {'en-us' | 'zh-cn'} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us：英文 - zh-cn：中文  **默认取值**：  en-us
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -350,7 +350,7 @@ export class DrsClient {
      *
      * @summary 批量创建任务
      * @param {BatchCreateJobReq} requestBody 批量创建任务请求体
-     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型
+     * @param {'en-us' | 'zh-cn'} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us：英文 - zh-cn：中文  **默认取值**：  en-us
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -369,8 +369,8 @@ export class DrsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量结束任务或删除任务
-     * @param {BatchDeleteJobReq} requestBody 批量结束与删除在线迁移任务请求体
-     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型
+     * @param {BatchDeleteJobReq} requestBody 批量结束与删除任务请求体。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us：英文 - zh-cn：中文  **默认取值**：  en-us
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -389,8 +389,8 @@ export class DrsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量查询任务详情
-     * @param {BatchQueryJobReqPage} batchQueryJobReq 批量查询任务状态请求体 约束：当前页参数cur_page，有效值为0-整数上限，但不可超过jobs最大分页。默认cur_page &#x3D;1。如果为0，则获取全部任务信息。每页任务数per_page，有效值为0-100。默认值为per_page&#x3D;5. 如果为0，则获取全部任务信息。
-     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型
+     * @param {BatchQueryJobReqPage} batchQueryJobReq 批量查询任务详情请求体 约束：当前页参数cur_page，有效值为0-整数上限，但不可超过jobs最大分页。默认cur_page &#x3D;1。如果为0，则获取全部任务信息。每页任务数per_page，有效值为0-100。默认值为per_page&#x3D;5. 如果为0，则获取全部任务信息。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us：英文 - zh-cn：中文  **默认取值**：  en-us
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -410,7 +410,7 @@ export class DrsClient {
      *
      * @summary 批量查询任务状态
      * @param {BatchQueryJobReqPage} batchQueryJobReq 批量查询任务状态请求体. 当前页参数cur_page，有效值为0-整数上限，但不可超过jobs最大分页。默认cur_page &#x3D;1。如果为0，则获取全部任务信息。每页任务数per_page，有效值为0-100。默认值为per_page&#x3D;5. 如果为0，则获取全部任务信息。
-     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型
+     * @param {'en-us' | 'zh-cn'} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us：英文 - zh-cn：中文  **默认取值**：  en-us
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -430,7 +430,7 @@ export class DrsClient {
      *
      * @summary 批量查询任务进度
      * @param {BatchQueryProgressReq} requestBody 批量查询任务进度的请求体
-     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型
+     * @param {'en-us' | 'zh-cn'} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us：英文 - zh-cn：中文  **默认取值**：  en-us
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -450,7 +450,7 @@ export class DrsClient {
      *
      * @summary 批量查询RPO和RTO
      * @param {BatchQueryRpoAndRtoReq} requestBody 批量查询RPO和RTO的请求体
-     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型
+     * @param {'en-us' | 'zh-cn'} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us：英文 - zh-cn：中文  **默认取值**：  en-us
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -573,7 +573,7 @@ export class DrsClient {
      *
      * @summary 批量数据库对象选择
      * @param {BatchUpdateDatabaseObjectReq} requestBody 批量更新数据库对象选择消息体
-     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型
+     * @param {'en-us' | 'zh-cn'} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us：英文 - zh-cn：中文  **默认取值**：  en-us
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -594,7 +594,7 @@ export class DrsClient {
      *
      * @summary 批量设置同步策略
      * @param {BatchSetupSyncPolicyReq} requestBody 批量设置同步策略请求体。
-     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us：英文 - zh-cn：中文  **默认取值**：  en-us
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -677,7 +677,7 @@ export class DrsClient {
      *
      * @summary 批量启动任务
      * @param {BatchStartJobReq} requestBody 批量启动任务请求体。
-     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型
+     * @param {'en-us' | 'zh-cn'} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us：英文 - zh-cn：中文  **默认取值**：  en-us
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -736,8 +736,8 @@ export class DrsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量修改任务
-     * @param {BatchModifyJobReq} requestBody 批量修改任务名称请求体
-     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型
+     * @param {BatchModifyJobReq} requestBody **参数解释**：  批量修改任务请求体，包含需要修改的一个或多个任务信息，详情请参见BatchModifyJobReq对象定义。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及
+     * @param {'en-us' | 'zh-cn'} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us：英文 - zh-cn：中文  **默认取值**：  en-us
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -798,7 +798,7 @@ export class DrsClient {
      *
      * @summary 批量测试连接
      * @param {BatchTestConnectionReq} requestBody 批量测试连接任务请求体。
-     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型
+     * @param {'en-us' | 'zh-cn'} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us：英文 - zh-cn：中文  **默认取值**：  en-us
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1284,7 +1284,7 @@ export class DrsClient {
      *
      * @summary 查询租户任务列表
      * @param {QueryJobsReq} queryJobsReqV3 查询任务列表请求体
-     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型
+     * @param {'en-us' | 'zh-cn'} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us：英文 - zh-cn：中文  **默认取值**：  en-us
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1323,7 +1323,7 @@ export class DrsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询配额
-     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us：英文 - zh-cn：中文  **默认取值**：  en-us
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

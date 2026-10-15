@@ -39,6 +39,10 @@ import { BatchInspectionReport } from './model/BatchInspectionReport';
 import { BatchSendEmailRequest } from './model/BatchSendEmailRequest';
 import { BatchSendEmailRequestBody } from './model/BatchSendEmailRequestBody';
 import { BatchSendEmailResponse } from './model/BatchSendEmailResponse';
+import { BatchSetHealthReportConfigReq } from './model/BatchSetHealthReportConfigReq';
+import { BatchSetHealthReportConfigRequest } from './model/BatchSetHealthReportConfigRequest';
+import { BatchSetHealthReportConfigResponse } from './model/BatchSetHealthReportConfigResponse';
+import { BatchSetResultDto } from './model/BatchSetResultDto';
 import { BatchSetSqlLimitingSwitchRequest } from './model/BatchSetSqlLimitingSwitchRequest';
 import { BatchSetSqlLimitingSwitchRequestBody } from './model/BatchSetSqlLimitingSwitchRequestBody';
 import { BatchSetSqlLimitingSwitchResponse } from './model/BatchSetSqlLimitingSwitchResponse';
@@ -48,6 +52,10 @@ import { BatchSetSqlSwitchNewResponse } from './model/BatchSetSqlSwitchNewRespon
 import { BatchSubscribeReportRequest } from './model/BatchSubscribeReportRequest';
 import { BatchSubscribeReportRequestBody } from './model/BatchSubscribeReportRequestBody';
 import { BatchSubscribeReportResponse } from './model/BatchSubscribeReportResponse';
+import { BigKeyHotKeySwitchReq } from './model/BigKeyHotKeySwitchReq';
+import { BigKeyHotKeySwitchStatus } from './model/BigKeyHotKeySwitchStatus';
+import { BigKeyInfo } from './model/BigKeyInfo';
+import { BigKeyListData } from './model/BigKeyListData';
 import { BinlogExportTaskDetailResp } from './model/BinlogExportTaskDetailResp';
 import { BinlogFileInfo } from './model/BinlogFileInfo';
 import { BinlogParseTaskInfo } from './model/BinlogParseTaskInfo';
@@ -65,6 +73,8 @@ import { CancelShareNewRequest } from './model/CancelShareNewRequest';
 import { CancelShareNewRequestBody } from './model/CancelShareNewRequestBody';
 import { CancelShareNewRequestBodyUsers } from './model/CancelShareNewRequestBodyUsers';
 import { CancelShareNewResponse } from './model/CancelShareNewResponse';
+import { ChangeBigKeyHotKeySwitchRequest } from './model/ChangeBigKeyHotKeySwitchRequest';
+import { ChangeBigKeyHotKeySwitchResponse } from './model/ChangeBigKeyHotKeySwitchResponse';
 import { ChangeChargeModeBody } from './model/ChangeChargeModeBody';
 import { ChangeChargeModeRequest } from './model/ChangeChargeModeRequest';
 import { ChangeChargeModeResponse } from './model/ChangeChargeModeResponse';
@@ -91,6 +101,8 @@ import { ChangeSqlSwitchRequest } from './model/ChangeSqlSwitchRequest';
 import { ChangeSqlSwitchResponse } from './model/ChangeSqlSwitchResponse';
 import { ChangeTransactionSwitchStatusRequest } from './model/ChangeTransactionSwitchStatusRequest';
 import { ChangeTransactionSwitchStatusResponse } from './model/ChangeTransactionSwitchStatusResponse';
+import { ChapterConfig } from './model/ChapterConfig';
+import { ChapterConfigReq } from './model/ChapterConfigReq';
 import { CheckCredentialForBatchInspectionRequest } from './model/CheckCredentialForBatchInspectionRequest';
 import { CheckCredentialForBatchInspectionResponse } from './model/CheckCredentialForBatchInspectionResponse';
 import { CheckCredentialRequest } from './model/CheckCredentialRequest';
@@ -125,6 +137,9 @@ import { CreateFullSqlBucketResponse } from './model/CreateFullSqlBucketResponse
 import { CreateHealthReportReq } from './model/CreateHealthReportReq';
 import { CreateHealthReportTaskRequest } from './model/CreateHealthReportTaskRequest';
 import { CreateHealthReportTaskResponse } from './model/CreateHealthReportTaskResponse';
+import { CreateHealthReportTemplateReq } from './model/CreateHealthReportTemplateReq';
+import { CreateHealthReportTemplateRequest } from './model/CreateHealthReportTemplateRequest';
+import { CreateHealthReportTemplateResponse } from './model/CreateHealthReportTemplateResponse';
 import { CreateHistoryTransactionExportTaskRequest } from './model/CreateHistoryTransactionExportTaskRequest';
 import { CreateHistoryTransactionExportTaskResponse } from './model/CreateHistoryTransactionExportTaskResponse';
 import { CreateIndexUsageExportTaskNewRequest } from './model/CreateIndexUsageExportTaskNewRequest';
@@ -206,6 +221,8 @@ import { DeleteExportTaskObsFileNewResponse } from './model/DeleteExportTaskObsF
 import { DeleteFullSqlExportTaskObsFileRequest } from './model/DeleteFullSqlExportTaskObsFileRequest';
 import { DeleteFullSqlExportTaskObsFileRequestBody } from './model/DeleteFullSqlExportTaskObsFileRequestBody';
 import { DeleteFullSqlExportTaskObsFileResponse } from './model/DeleteFullSqlExportTaskObsFileResponse';
+import { DeleteHealthReportTemplateRequest } from './model/DeleteHealthReportTemplateRequest';
+import { DeleteHealthReportTemplateResponse } from './model/DeleteHealthReportTemplateResponse';
 import { DeleteHistoryTransactionExportTaskRequest } from './model/DeleteHistoryTransactionExportTaskRequest';
 import { DeleteHistoryTransactionExportTaskResponse } from './model/DeleteHistoryTransactionExportTaskResponse';
 import { DeleteInstanceGroupRequest } from './model/DeleteInstanceGroupRequest';
@@ -329,6 +346,9 @@ import { HealthReportTableSpaceTablesDto } from './model/HealthReportTableSpaceT
 import { HealthReportTableSpaceTopDataDto } from './model/HealthReportTableSpaceTopDataDto';
 import { HealthReportTask } from './model/HealthReportTask';
 import { HealthReportTaskInfo } from './model/HealthReportTaskInfo';
+import { HealthReportTemplateDto } from './model/HealthReportTemplateDto';
+import { HotKeyInfo } from './model/HotKeyInfo';
+import { HotKeyListData } from './model/HotKeyListData';
 import { ImportExportObsObjectsRequest } from './model/ImportExportObsObjectsRequest';
 import { ImportExportObsObjectsResponse } from './model/ImportExportObsObjectsResponse';
 import { IndexAdviceInfo } from './model/IndexAdviceInfo';
@@ -347,6 +367,7 @@ import { InstanceEngineDistributionListEngineDistribution } from './model/Instan
 import { InstanceEngineDistributionListInstanceInfos } from './model/InstanceEngineDistributionListInstanceInfos';
 import { InstanceGroup } from './model/InstanceGroup';
 import { InstanceHealthReport } from './model/InstanceHealthReport';
+import { InstanceHealthReportConfigDto } from './model/InstanceHealthReportConfigDto';
 import { InstanceInfoDtoForMetric } from './model/InstanceInfoDtoForMetric';
 import { InstanceInfoForMetric } from './model/InstanceInfoForMetric';
 import { InstanceInfoForRisk } from './model/InstanceInfoForRisk';
@@ -358,6 +379,7 @@ import { InvokeSlowLogArchiveResponse } from './model/InvokeSlowLogArchiveRespon
 import { InvokeWdrReportRequest } from './model/InvokeWdrReportRequest';
 import { InvokeWdrReportRequestBody } from './model/InvokeWdrReportRequestBody';
 import { InvokeWdrReportResponse } from './model/InvokeWdrReportResponse';
+import { KeyTrendData } from './model/KeyTrendData';
 import { KillProcessHistoryInfo } from './model/KillProcessHistoryInfo';
 import { ListAllTypeInstancesRequest } from './model/ListAllTypeInstancesRequest';
 import { ListAllTypeInstancesResponse } from './model/ListAllTypeInstancesResponse';
@@ -368,6 +390,8 @@ import { ListApiVersionsResponse } from './model/ListApiVersionsResponse';
 import { ListAutoIncrementUsageRequest } from './model/ListAutoIncrementUsageRequest';
 import { ListAutoIncrementUsageRequestBody } from './model/ListAutoIncrementUsageRequestBody';
 import { ListAutoIncrementUsageResponse } from './model/ListAutoIncrementUsageResponse';
+import { ListBigKeysRequest } from './model/ListBigKeysRequest';
+import { ListBigKeysResponse } from './model/ListBigKeysResponse';
 import { ListBinlogExportsRequest } from './model/ListBinlogExportsRequest';
 import { ListBinlogExportsResponse } from './model/ListBinlogExportsResponse';
 import { ListBinlogFilesRequest } from './model/ListBinlogFilesRequest';
@@ -417,12 +441,19 @@ import { ListFullSqlTasksRequestBody } from './model/ListFullSqlTasksRequestBody
 import { ListFullSqlTasksResponse } from './model/ListFullSqlTasksResponse';
 import { ListGaussDbInstanceConfigurationsRequest } from './model/ListGaussDbInstanceConfigurationsRequest';
 import { ListGaussDbInstanceConfigurationsResponse } from './model/ListGaussDbInstanceConfigurationsResponse';
+import { ListHealthReportConfigsReq } from './model/ListHealthReportConfigsReq';
+import { ListHealthReportConfigsRequest } from './model/ListHealthReportConfigsRequest';
+import { ListHealthReportConfigsResponse } from './model/ListHealthReportConfigsResponse';
 import { ListHealthReportTaskRequest } from './model/ListHealthReportTaskRequest';
 import { ListHealthReportTaskResponse } from './model/ListHealthReportTaskResponse';
+import { ListHealthReportTemplateRequest } from './model/ListHealthReportTemplateRequest';
+import { ListHealthReportTemplateResponse } from './model/ListHealthReportTemplateResponse';
 import { ListHistoryTransactionExportTaskRequest } from './model/ListHistoryTransactionExportTaskRequest';
 import { ListHistoryTransactionExportTaskResponse } from './model/ListHistoryTransactionExportTaskResponse';
 import { ListHistoryTransactionsRequest } from './model/ListHistoryTransactionsRequest';
 import { ListHistoryTransactionsResponse } from './model/ListHistoryTransactionsResponse';
+import { ListHotKeysRequest } from './model/ListHotKeysRequest';
+import { ListHotKeysResponse } from './model/ListHotKeysResponse';
 import { ListIndexUsageDetailsRequest } from './model/ListIndexUsageDetailsRequest';
 import { ListIndexUsageDetailsRequestBody } from './model/ListIndexUsageDetailsRequestBody';
 import { ListIndexUsageDetailsResponse } from './model/ListIndexUsageDetailsResponse';
@@ -656,6 +687,9 @@ import { SetHistoryTransactionSwitchNewResponse } from './model/SetHistoryTransa
 import { SetIndexUsageSwitchNewRequest } from './model/SetIndexUsageSwitchNewRequest';
 import { SetIndexUsageSwitchNewRequestBody } from './model/SetIndexUsageSwitchNewRequestBody';
 import { SetIndexUsageSwitchNewResponse } from './model/SetIndexUsageSwitchNewResponse';
+import { SetInstanceHealthReportConfigReq } from './model/SetInstanceHealthReportConfigReq';
+import { SetInstanceHealthReportConfigRequest } from './model/SetInstanceHealthReportConfigRequest';
+import { SetInstanceHealthReportConfigResponse } from './model/SetInstanceHealthReportConfigResponse';
 import { SetLockBlockingSwitchReq } from './model/SetLockBlockingSwitchReq';
 import { SetLockBlockingSwitchRequest } from './model/SetLockBlockingSwitchRequest';
 import { SetLockBlockingSwitchResponse } from './model/SetLockBlockingSwitchResponse';
@@ -693,6 +727,8 @@ import { ShowAnalysisSessionStatusRequest } from './model/ShowAnalysisSessionSta
 import { ShowAnalysisSessionStatusResponse } from './model/ShowAnalysisSessionStatusResponse';
 import { ShowApiVersionRequest } from './model/ShowApiVersionRequest';
 import { ShowApiVersionResponse } from './model/ShowApiVersionResponse';
+import { ShowBigKeyHotKeySwitchRequest } from './model/ShowBigKeyHotKeySwitchRequest';
+import { ShowBigKeyHotKeySwitchResponse } from './model/ShowBigKeyHotKeySwitchResponse';
 import { ShowBinlogExportTaskInfoRequest } from './model/ShowBinlogExportTaskInfoRequest';
 import { ShowBinlogExportTaskInfoResponse } from './model/ShowBinlogExportTaskInfoResponse';
 import { ShowBinlogParseRequest } from './model/ShowBinlogParseRequest';
@@ -764,6 +800,8 @@ import { ShowGlobalPrivacyNewRequest } from './model/ShowGlobalPrivacyNewRequest
 import { ShowGlobalPrivacyNewResponse } from './model/ShowGlobalPrivacyNewResponse';
 import { ShowHealthReportSettingsRequest } from './model/ShowHealthReportSettingsRequest';
 import { ShowHealthReportSettingsResponse } from './model/ShowHealthReportSettingsResponse';
+import { ShowHealthReportTemplateRequest } from './model/ShowHealthReportTemplateRequest';
+import { ShowHealthReportTemplateResponse } from './model/ShowHealthReportTemplateResponse';
 import { ShowHistoryTransactionExportTaskInfoRequest } from './model/ShowHistoryTransactionExportTaskInfoRequest';
 import { ShowHistoryTransactionExportTaskInfoResponse } from './model/ShowHistoryTransactionExportTaskInfoResponse';
 import { ShowHistoryTransactionSwitchNewRequest } from './model/ShowHistoryTransactionSwitchNewRequest';
@@ -781,6 +819,8 @@ import { ShowInstanceDistributionRequest } from './model/ShowInstanceDistributio
 import { ShowInstanceDistributionResponse } from './model/ShowInstanceDistributionResponse';
 import { ShowInstanceHealthReport4ApiRequest } from './model/ShowInstanceHealthReport4ApiRequest';
 import { ShowInstanceHealthReport4ApiResponse } from './model/ShowInstanceHealthReport4ApiResponse';
+import { ShowInstanceHealthReportConfigRequest } from './model/ShowInstanceHealthReportConfigRequest';
+import { ShowInstanceHealthReportConfigResponse } from './model/ShowInstanceHealthReportConfigResponse';
 import { ShowInstanceHealthReportRequest } from './model/ShowInstanceHealthReportRequest';
 import { ShowInstanceHealthReportResponse } from './model/ShowInstanceHealthReportResponse';
 import { ShowInstanceInfoRequest } from './model/ShowInstanceInfoRequest';
@@ -798,6 +838,8 @@ import { ShowIsAdminUserNewRequest } from './model/ShowIsAdminUserNewRequest';
 import { ShowIsAdminUserNewResponse } from './model/ShowIsAdminUserNewResponse';
 import { ShowIsSignedProtocolRequest } from './model/ShowIsSignedProtocolRequest';
 import { ShowIsSignedProtocolResponse } from './model/ShowIsSignedProtocolResponse';
+import { ShowKeyTrendRequest } from './model/ShowKeyTrendRequest';
+import { ShowKeyTrendResponse } from './model/ShowKeyTrendResponse';
 import { ShowKillProcessTaskRequest } from './model/ShowKillProcessTaskRequest';
 import { ShowKillProcessTaskResponse } from './model/ShowKillProcessTaskResponse';
 import { ShowKillProcessTaskSwitchRequest } from './model/ShowKillProcessTaskSwitchRequest';
@@ -984,6 +1026,7 @@ import { Tpl } from './model/Tpl';
 import { TplCmp } from './model/TplCmp';
 import { TransactionInfo } from './model/TransactionInfo';
 import { TransactionSwitchReq } from './model/TransactionSwitchReq';
+import { TrendPoint } from './model/TrendPoint';
 import { UnsubscribeInstanceReportNewRequest } from './model/UnsubscribeInstanceReportNewRequest';
 import { UnsubscribeInstanceReportNewRequestBody } from './model/UnsubscribeInstanceReportNewRequestBody';
 import { UnsubscribeInstanceReportNewResponse } from './model/UnsubscribeInstanceReportNewResponse';
@@ -999,6 +1042,9 @@ import { UpdateFullSqlSwitchResponse } from './model/UpdateFullSqlSwitchResponse
 import { UpdateHealthReportSettingsRequest } from './model/UpdateHealthReportSettingsRequest';
 import { UpdateHealthReportSettingsRequestBody } from './model/UpdateHealthReportSettingsRequestBody';
 import { UpdateHealthReportSettingsResponse } from './model/UpdateHealthReportSettingsResponse';
+import { UpdateHealthReportTemplateReq } from './model/UpdateHealthReportTemplateReq';
+import { UpdateHealthReportTemplateRequest } from './model/UpdateHealthReportTemplateRequest';
+import { UpdateHealthReportTemplateResponse } from './model/UpdateHealthReportTemplateResponse';
 import { UpdateInstanceConfigRequest } from './model/UpdateInstanceConfigRequest';
 import { UpdateInstanceConfigRequestBody } from './model/UpdateInstanceConfigRequestBody';
 import { UpdateInstanceConfigResponse } from './model/UpdateInstanceConfigResponse';
@@ -5425,6 +5471,26 @@ export class DasClient {
     }
 
     /**
+     * 批量设置实例的健康报告模板配置，用于批量巡检实例组场景。此为实例级配置，修改后将同时影响实例的日报订阅报告内容。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量设置实例健康报告模板配置
+     * @param {BatchSetHealthReportConfigReq} batchSetHealthReportConfigRequestBody 请求体参数。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchSetHealthReportConfig(batchSetHealthReportConfigRequest?: BatchSetHealthReportConfigRequest): Promise<BatchSetHealthReportConfigResponse> {
+        const options = ParamCreater().batchSetHealthReportConfig(batchSetHealthReportConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量订阅/取消订阅
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5455,6 +5521,27 @@ export class DasClient {
      */
     public cancelShareNew(cancelShareNewRequest?: CancelShareNewRequest): Promise<CancelShareNewResponse> {
         const options = ParamCreater().cancelShareNew(cancelShareNewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启或关闭GeminiDB Redis实例的大key、热key历史数据采集开关。仅支持GeminiDB Redis引擎，内核版本需≥5.0.7.20。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启/关闭Redis大key热key历史数据采集
+     * @param {string} instanceId 实例ID
+     * @param {BigKeyHotKeySwitchReq} changeBigKeyHotKeySwitchRequestBody 开关操作请求体
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 请求语言类型。en-us：英文。zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeBigKeyHotKeySwitch(changeBigKeyHotKeySwitchRequest?: ChangeBigKeyHotKeySwitchRequest): Promise<ChangeBigKeyHotKeySwitchResponse> {
+        const options = ParamCreater().changeBigKeyHotKeySwitch(changeBigKeyHotKeySwitchRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5666,6 +5753,26 @@ export class DasClient {
     }
 
     /**
+     * 创建健康报告模板，模板为租户级资源。系统预设模板不可创建，每个租户最多创建20个自定义模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建健康报告模板
+     * @param {CreateHealthReportTemplateReq} createHealthReportTemplateRequestBody 请求体参数。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createHealthReportTemplate(createHealthReportTemplateRequest?: CreateHealthReportTemplateRequest): Promise<CreateHealthReportTemplateResponse> {
+        const options = ParamCreater().createHealthReportTemplate(createHealthReportTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * DAS收集历史事务开关打开后，支持创建一次性导出指定时间范围内的历史事务数据任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5815,6 +5922,26 @@ export class DasClient {
      */
     public deleteEmailTemplate(deleteEmailTemplateRequest?: DeleteEmailTemplateRequest): Promise<DeleteEmailTemplateResponse> {
         const options = ParamCreater().deleteEmailTemplate(deleteEmailTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除健康报告模板。系统预设模板不可删除，有实例引用时不可删除。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除健康报告模板
+     * @param {string} templateId 健康报告模板ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteHealthReportTemplate(deleteHealthReportTemplateRequest?: DeleteHealthReportTemplateRequest): Promise<DeleteHealthReportTemplateResponse> {
+        const options = ParamCreater().deleteHealthReportTemplate(deleteHealthReportTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6193,6 +6320,36 @@ export class DasClient {
     }
 
     /**
+     * 查询GeminiDB Redis实例的历史大key排行列表，支持按长度（size）和存储占用（storage）两个统计维度筛选，返回Top 1000排行。同一key出现多次时进行MAX聚合。仅支持GeminiDB Redis引擎。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询大key列表
+     * @param {string} instanceId 实例ID
+     * @param {'size' | 'storage'} statType 统计维度。size-按长度，storage-按存储占用
+     * @param {number} startAt 开始时间（毫秒时间戳）
+     * @param {number} endAt 结束时间（毫秒时间戳）
+     * @param {Array<'string' | 'hash' | 'list' | 'zset' | 'set' | 'stream' | 'exhash'>} [keyTypes] key类型过滤（多选）。取值：string、hash、list、zset、set、stream、exhash
+     * @param {string} [keyName] key名称过滤（模糊匹配）
+     * @param {string} [dbId] 数据库ID过滤
+     * @param {number} [offset] 偏移量，默认0
+     * @param {number} [limit] 每页条数，默认20，最大1000
+     * @param {'size'} [sortField] 排序字段，默认size
+     * @param {boolean} [asc] 是否升序，默认false（降序）
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 请求语言类型。en-us：英文。zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBigKeys(listBigKeysRequest?: ListBigKeysRequest): Promise<ListBigKeysResponse> {
+        const options = ParamCreater().listBigKeys(listBigKeysRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取DAS云DBA实例列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6362,6 +6519,26 @@ export class DasClient {
     }
 
     /**
+     * 批量查询实例的健康报告模板配置，用于批量巡检实例组场景下查看组内实例的模板配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量查询实例健康报告模板配置
+     * @param {ListHealthReportConfigsReq} listHealthReportConfigsRequestBody 请求体参数。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHealthReportConfigs(listHealthReportConfigsRequest?: ListHealthReportConfigsRequest): Promise<ListHealthReportConfigsResponse> {
+        const options = ParamCreater().listHealthReportConfigs(listHealthReportConfigsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询实例健康诊断报告列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6386,6 +6563,25 @@ export class DasClient {
     }
 
     /**
+     * 查询租户可用的健康报告模板列表，包含系统预设模板和自定义模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询健康报告模板列表
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHealthReportTemplate(listHealthReportTemplateRequest?: ListHealthReportTemplateRequest): Promise<ListHealthReportTemplateResponse> {
+        const options = ParamCreater().listHealthReportTemplate(listHealthReportTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * DAS收集历史事务开关打开后，查询历史事务导出任务列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6400,6 +6596,36 @@ export class DasClient {
      */
     public listHistoryTransactionExportTask(listHistoryTransactionExportTaskRequest?: ListHistoryTransactionExportTaskRequest): Promise<ListHistoryTransactionExportTaskResponse> {
         const options = ParamCreater().listHistoryTransactionExportTask(listHistoryTransactionExportTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询GeminiDB Redis实例的历史热key排行列表，支持按QPS（qps）和流量（traffic）两个统计维度筛选，返回Top 1000排行。同一key出现多次时进行MAX聚合。仅支持GeminiDB Redis引擎。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询热key列表
+     * @param {string} instanceId 实例ID
+     * @param {'qps' | 'traffic'} statType 统计维度。qps-按QPS，traffic-按流量
+     * @param {number} startAt 开始时间（毫秒时间戳）
+     * @param {number} endAt 结束时间（毫秒时间戳）
+     * @param {Array<'string' | 'hash' | 'list' | 'zset' | 'set' | 'stream' | 'exhash'>} [keyTypes] key类型过滤（多选）。取值：string、hash、list、zset、set、stream、exhash
+     * @param {string} [keyName] key名称过滤（模糊匹配）
+     * @param {string} [dbId] 数据库ID过滤
+     * @param {number} [offset] 偏移量，默认0
+     * @param {number} [limit] 每页条数，默认20，最大1000
+     * @param {'qps' | 'traffic_in' | 'traffic_out'} [sortField] 排序字段。qps/traffic_in/traffic_out，默认qps
+     * @param {boolean} [asc] 是否升序，默认false（降序）
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 请求语言类型。en-us：英文。zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHotKeys(listHotKeysRequest?: ListHotKeysRequest): Promise<ListHotKeysResponse> {
+        const options = ParamCreater().listHotKeys(listHotKeysRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7003,6 +7229,27 @@ export class DasClient {
     }
 
     /**
+     * 设置实例的健康报告模板配置，此为实例级配置，修改后将同时影响该实例的批量巡检报告内容。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置实例健康报告模板配置
+     * @param {string} instanceId 实例ID。
+     * @param {SetInstanceHealthReportConfigReq} setInstanceHealthReportConfigRequestBody 请求体参数。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setInstanceHealthReportConfig(setInstanceHealthReportConfigRequest?: SetInstanceHealthReportConfigRequest): Promise<SetInstanceHealthReportConfigResponse> {
+        const options = ParamCreater().setInstanceHealthReportConfig(setInstanceHealthReportConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设置锁阻塞开关和保存时长，仅支持SQLServer引擎
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -7077,6 +7324,26 @@ export class DasClient {
      */
     public showAnalysisSessionStatus(showAnalysisSessionStatusRequest?: ShowAnalysisSessionStatusRequest): Promise<ShowAnalysisSessionStatusResponse> {
         const options = ParamCreater().showAnalysisSessionStatus(showAnalysisSessionStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询GeminiDB Redis实例的大key、热key历史数据采集开关状态、数据保留时长及是否可开启等信息。仅支持GeminiDB Redis引擎，内核版本需≥5.0.7.20。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Redis大key热key历史数据采集开关状态
+     * @param {string} instanceId 实例ID
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 请求语言类型。en-us：英文。zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBigKeyHotKeySwitch(showBigKeyHotKeySwitchRequest?: ShowBigKeyHotKeySwitchRequest): Promise<ShowBigKeyHotKeySwitchResponse> {
+        const options = ParamCreater().showBigKeyHotKeySwitch(showBigKeyHotKeySwitchRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7346,6 +7613,26 @@ export class DasClient {
     }
 
     /**
+     * 查询指定健康报告模板的详细信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询健康报告模板详情
+     * @param {string} templateId 健康报告模板ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showHealthReportTemplate(showHealthReportTemplateRequest?: ShowHealthReportTemplateRequest): Promise<ShowHealthReportTemplateResponse> {
+        const options = ParamCreater().showHealthReportTemplate(showHealthReportTemplateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * DAS收集历史事务开关打开后，查询历史事务导出任务详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -7418,6 +7705,50 @@ export class DasClient {
      */
     public showInstanceHealthReport(showInstanceHealthReportRequest?: ShowInstanceHealthReportRequest): Promise<ShowInstanceHealthReportResponse> {
         const options = ParamCreater().showInstanceHealthReport(showInstanceHealthReportRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例的健康报告模板配置，未配置时template_id等字段为null，表示使用完整版模板。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例健康报告模板配置
+     * @param {string} instanceId 实例ID。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceHealthReportConfig(showInstanceHealthReportConfigRequest?: ShowInstanceHealthReportConfigRequest): Promise<ShowInstanceHealthReportConfigResponse> {
+        const options = ParamCreater().showInstanceHealthReportConfig(showInstanceHealthReportConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询GeminiDB Redis实例中指定key在所选时间段内的变化曲线，支持自适应时间粒度聚合。traffic维度同时返回入口流量和出口流量双指标趋势。仅支持GeminiDB Redis引擎。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询单key趋势
+     * @param {string} instanceId 实例ID
+     * @param {string} key key名称（需URL编码）
+     * @param {number} startAt 开始时间（毫秒时间戳）
+     * @param {number} endAt 结束时间（毫秒时间戳）
+     * @param {'size' | 'storage' | 'qps' | 'traffic'} [statType] 统计维度。size/storage/qps/traffic，默认size
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 请求语言类型。en-us：英文。zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showKeyTrend(showKeyTrendRequest?: ShowKeyTrendRequest): Promise<ShowKeyTrendResponse> {
+        const options = ParamCreater().showKeyTrend(showKeyTrendRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7976,6 +8307,27 @@ export class DasClient {
      */
     public updateHealthReportSettings(updateHealthReportSettingsRequest?: UpdateHealthReportSettingsRequest): Promise<UpdateHealthReportSettingsResponse> {
         const options = ParamCreater().updateHealthReportSettings(updateHealthReportSettingsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新健康报告模板，采用全量更新语义。系统预设模板不可更新。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新健康报告模板
+     * @param {string} templateId 健康报告模板ID。
+     * @param {UpdateHealthReportTemplateReq} updateHealthReportTemplateRequestBody 请求体参数。
+     * @param {'en-us' | 'zh-cn'} [xLanguage] 请求语言类型。en-us：英文。 zh-cn：中文。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateHealthReportTemplate(updateHealthReportTemplateRequest?: UpdateHealthReportTemplateRequest): Promise<UpdateHealthReportTemplateResponse> {
+        const options = ParamCreater().updateHealthReportTemplate(updateHealthReportTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -19168,6 +19520,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量设置实例的健康报告模板配置，用于批量巡检实例组场景。此为实例级配置，修改后将同时影响实例的日报订阅报告内容。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchSetHealthReportConfig(batchSetHealthReportConfigRequest?: BatchSetHealthReportConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/health-report-configs/batch-set",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (batchSetHealthReportConfigRequest !== null && batchSetHealthReportConfigRequest !== undefined) {
+                if (batchSetHealthReportConfigRequest instanceof BatchSetHealthReportConfigRequest) {
+                    body = batchSetHealthReportConfigRequest.body
+                    xLanguage = batchSetHealthReportConfigRequest.xLanguage;
+                } else {
+                    body = batchSetHealthReportConfigRequest['body'];
+                    xLanguage = batchSetHealthReportConfigRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量订阅/取消订阅
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -19239,6 +19636,59 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启或关闭GeminiDB Redis实例的大key、热key历史数据采集开关。仅支持GeminiDB Redis引擎，内核版本需≥5.0.7.20。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeBigKeyHotKeySwitch(changeBigKeyHotKeySwitchRequest?: ChangeBigKeyHotKeySwitchRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/big-key-hot-key/switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (changeBigKeyHotKeySwitchRequest !== null && changeBigKeyHotKeySwitchRequest !== undefined) {
+                if (changeBigKeyHotKeySwitchRequest instanceof ChangeBigKeyHotKeySwitchRequest) {
+                    instanceId = changeBigKeyHotKeySwitchRequest.instanceId;
+                    body = changeBigKeyHotKeySwitchRequest.body
+                    xLanguage = changeBigKeyHotKeySwitchRequest.xLanguage;
+                } else {
+                    instanceId = changeBigKeyHotKeySwitchRequest['instance_id'];
+                    body = changeBigKeyHotKeySwitchRequest['body'];
+                    xLanguage = changeBigKeyHotKeySwitchRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling changeBigKeyHotKeySwitch.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -19715,6 +20165,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建健康报告模板，模板为租户级资源。系统预设模板不可创建，每个租户最多创建20个自定义模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createHealthReportTemplate(createHealthReportTemplateRequest?: CreateHealthReportTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/health-report-templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (createHealthReportTemplateRequest !== null && createHealthReportTemplateRequest !== undefined) {
+                if (createHealthReportTemplateRequest instanceof CreateHealthReportTemplateRequest) {
+                    body = createHealthReportTemplateRequest.body
+                    xLanguage = createHealthReportTemplateRequest.xLanguage;
+                } else {
+                    body = createHealthReportTemplateRequest['body'];
+                    xLanguage = createHealthReportTemplateRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * DAS收集历史事务开关打开后，支持创建一次性导出指定时间范围内的历史事务数据任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -20073,6 +20568,50 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除健康报告模板。系统预设模板不可删除，有实例引用时不可删除。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteHealthReportTemplate(deleteHealthReportTemplateRequest?: DeleteHealthReportTemplateRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/health-report-templates/{template_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let templateId;
+            
+            let xLanguage;
+
+            if (deleteHealthReportTemplateRequest !== null && deleteHealthReportTemplateRequest !== undefined) {
+                if (deleteHealthReportTemplateRequest instanceof DeleteHealthReportTemplateRequest) {
+                    templateId = deleteHealthReportTemplateRequest.templateId;
+                    xLanguage = deleteHealthReportTemplateRequest.xLanguage;
+                } else {
+                    templateId = deleteHealthReportTemplateRequest['template_id'];
+                    xLanguage = deleteHealthReportTemplateRequest['X-Language'];
+                }
+            }
+
+        
+            if (templateId === null || templateId === undefined) {
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling deleteHealthReportTemplate.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'template_id': templateId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -21317,6 +21856,130 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询GeminiDB Redis实例的历史大key排行列表，支持按长度（size）和存储占用（storage）两个统计维度筛选，返回Top 1000排行。同一key出现多次时进行MAX聚合。仅支持GeminiDB Redis引擎。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBigKeys(listBigKeysRequest?: ListBigKeysRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/big-key-hot-key/big-keys",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let statType;
+            
+            let startAt;
+            
+            let endAt;
+            
+            let keyTypes;
+            
+            let keyName;
+            
+            let dbId;
+            
+            let offset;
+            
+            let limit;
+            
+            let sortField;
+            
+            let asc;
+            
+            let xLanguage;
+
+            if (listBigKeysRequest !== null && listBigKeysRequest !== undefined) {
+                if (listBigKeysRequest instanceof ListBigKeysRequest) {
+                    instanceId = listBigKeysRequest.instanceId;
+                    statType = listBigKeysRequest.statType;
+                    startAt = listBigKeysRequest.startAt;
+                    endAt = listBigKeysRequest.endAt;
+                    keyTypes = listBigKeysRequest.keyTypes;
+                    keyName = listBigKeysRequest.keyName;
+                    dbId = listBigKeysRequest.dbId;
+                    offset = listBigKeysRequest.offset;
+                    limit = listBigKeysRequest.limit;
+                    sortField = listBigKeysRequest.sortField;
+                    asc = listBigKeysRequest.asc;
+                    xLanguage = listBigKeysRequest.xLanguage;
+                } else {
+                    instanceId = listBigKeysRequest['instance_id'];
+                    statType = listBigKeysRequest['stat_type'];
+                    startAt = listBigKeysRequest['start_at'];
+                    endAt = listBigKeysRequest['end_at'];
+                    keyTypes = listBigKeysRequest['key_types'];
+                    keyName = listBigKeysRequest['key_name'];
+                    dbId = listBigKeysRequest['db_id'];
+                    offset = listBigKeysRequest['offset'];
+                    limit = listBigKeysRequest['limit'];
+                    sortField = listBigKeysRequest['sort_field'];
+                    asc = listBigKeysRequest['asc'];
+                    xLanguage = listBigKeysRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listBigKeys.');
+            }
+            if (statType === null || statType === undefined) {
+                throw new RequiredError('statType','Required parameter statType was null or undefined when calling listBigKeys.');
+            }
+            if (statType !== null && statType !== undefined) {
+                localVarQueryParameter['stat_type'] = statType;
+            }
+            if (startAt === null || startAt === undefined) {
+                throw new RequiredError('startAt','Required parameter startAt was null or undefined when calling listBigKeys.');
+            }
+            if (startAt !== null && startAt !== undefined) {
+                localVarQueryParameter['start_at'] = startAt;
+            }
+            if (endAt === null || endAt === undefined) {
+                throw new RequiredError('endAt','Required parameter endAt was null or undefined when calling listBigKeys.');
+            }
+            if (endAt !== null && endAt !== undefined) {
+                localVarQueryParameter['end_at'] = endAt;
+            }
+            if (keyTypes !== null && keyTypes !== undefined) {
+                localVarQueryParameter['key_types'] = keyTypes;
+            }
+            if (keyName !== null && keyName !== undefined) {
+                localVarQueryParameter['key_name'] = keyName;
+            }
+            if (dbId !== null && dbId !== undefined) {
+                localVarQueryParameter['db_id'] = dbId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (sortField !== null && sortField !== undefined) {
+                localVarQueryParameter['sort_field'] = sortField;
+            }
+            if (asc !== null && asc !== undefined) {
+                localVarQueryParameter['asc'] = asc;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取DAS云DBA实例列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -21835,6 +22498,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量查询实例的健康报告模板配置，用于批量巡检实例组场景下查看组内实例的模板配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listHealthReportConfigs(listHealthReportConfigsRequest?: ListHealthReportConfigsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/health-report-configs/batch-query",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+
+            if (listHealthReportConfigsRequest !== null && listHealthReportConfigsRequest !== undefined) {
+                if (listHealthReportConfigsRequest instanceof ListHealthReportConfigsRequest) {
+                    body = listHealthReportConfigsRequest.body
+                    xLanguage = listHealthReportConfigsRequest.xLanguage;
+                } else {
+                    body = listHealthReportConfigsRequest['body'];
+                    xLanguage = listHealthReportConfigsRequest['X-Language'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询实例健康诊断报告列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -21914,6 +22622,42 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询租户可用的健康报告模板列表，包含系统预设模板和自定义模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listHealthReportTemplate(listHealthReportTemplateRequest?: ListHealthReportTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/health-report-templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let xLanguage;
+
+            if (listHealthReportTemplateRequest !== null && listHealthReportTemplateRequest !== undefined) {
+                if (listHealthReportTemplateRequest instanceof ListHealthReportTemplateRequest) {
+                    xLanguage = listHealthReportTemplateRequest.xLanguage;
+                } else {
+                    xLanguage = listHealthReportTemplateRequest['X-Language'];
+                }
+            }
+
+        
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * DAS收集历史事务开关打开后，查询历史事务导出任务列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -21961,6 +22705,130 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询GeminiDB Redis实例的历史热key排行列表，支持按QPS（qps）和流量（traffic）两个统计维度筛选，返回Top 1000排行。同一key出现多次时进行MAX聚合。仅支持GeminiDB Redis引擎。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listHotKeys(listHotKeysRequest?: ListHotKeysRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/big-key-hot-key/hot-keys",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let statType;
+            
+            let startAt;
+            
+            let endAt;
+            
+            let keyTypes;
+            
+            let keyName;
+            
+            let dbId;
+            
+            let offset;
+            
+            let limit;
+            
+            let sortField;
+            
+            let asc;
+            
+            let xLanguage;
+
+            if (listHotKeysRequest !== null && listHotKeysRequest !== undefined) {
+                if (listHotKeysRequest instanceof ListHotKeysRequest) {
+                    instanceId = listHotKeysRequest.instanceId;
+                    statType = listHotKeysRequest.statType;
+                    startAt = listHotKeysRequest.startAt;
+                    endAt = listHotKeysRequest.endAt;
+                    keyTypes = listHotKeysRequest.keyTypes;
+                    keyName = listHotKeysRequest.keyName;
+                    dbId = listHotKeysRequest.dbId;
+                    offset = listHotKeysRequest.offset;
+                    limit = listHotKeysRequest.limit;
+                    sortField = listHotKeysRequest.sortField;
+                    asc = listHotKeysRequest.asc;
+                    xLanguage = listHotKeysRequest.xLanguage;
+                } else {
+                    instanceId = listHotKeysRequest['instance_id'];
+                    statType = listHotKeysRequest['stat_type'];
+                    startAt = listHotKeysRequest['start_at'];
+                    endAt = listHotKeysRequest['end_at'];
+                    keyTypes = listHotKeysRequest['key_types'];
+                    keyName = listHotKeysRequest['key_name'];
+                    dbId = listHotKeysRequest['db_id'];
+                    offset = listHotKeysRequest['offset'];
+                    limit = listHotKeysRequest['limit'];
+                    sortField = listHotKeysRequest['sort_field'];
+                    asc = listHotKeysRequest['asc'];
+                    xLanguage = listHotKeysRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listHotKeys.');
+            }
+            if (statType === null || statType === undefined) {
+                throw new RequiredError('statType','Required parameter statType was null or undefined when calling listHotKeys.');
+            }
+            if (statType !== null && statType !== undefined) {
+                localVarQueryParameter['stat_type'] = statType;
+            }
+            if (startAt === null || startAt === undefined) {
+                throw new RequiredError('startAt','Required parameter startAt was null or undefined when calling listHotKeys.');
+            }
+            if (startAt !== null && startAt !== undefined) {
+                localVarQueryParameter['start_at'] = startAt;
+            }
+            if (endAt === null || endAt === undefined) {
+                throw new RequiredError('endAt','Required parameter endAt was null or undefined when calling listHotKeys.');
+            }
+            if (endAt !== null && endAt !== undefined) {
+                localVarQueryParameter['end_at'] = endAt;
+            }
+            if (keyTypes !== null && keyTypes !== undefined) {
+                localVarQueryParameter['key_types'] = keyTypes;
+            }
+            if (keyName !== null && keyName !== undefined) {
+                localVarQueryParameter['key_name'] = keyName;
+            }
+            if (dbId !== null && dbId !== undefined) {
+                localVarQueryParameter['db_id'] = dbId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (sortField !== null && sortField !== undefined) {
+                localVarQueryParameter['sort_field'] = sortField;
+            }
+            if (asc !== null && asc !== undefined) {
+                localVarQueryParameter['asc'] = asc;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -23721,6 +24589,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 设置实例的健康报告模板配置，此为实例级配置，修改后将同时影响该实例的批量巡检报告内容。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setInstanceHealthReportConfig(setInstanceHealthReportConfigRequest?: SetInstanceHealthReportConfigRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/health-report-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (setInstanceHealthReportConfigRequest !== null && setInstanceHealthReportConfigRequest !== undefined) {
+                if (setInstanceHealthReportConfigRequest instanceof SetInstanceHealthReportConfigRequest) {
+                    instanceId = setInstanceHealthReportConfigRequest.instanceId;
+                    body = setInstanceHealthReportConfigRequest.body
+                    xLanguage = setInstanceHealthReportConfigRequest.xLanguage;
+                } else {
+                    instanceId = setInstanceHealthReportConfigRequest['instance_id'];
+                    body = setInstanceHealthReportConfigRequest['body'];
+                    xLanguage = setInstanceHealthReportConfigRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling setInstanceHealthReportConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设置锁阻塞开关和保存时长，仅支持SQLServer引擎
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -23916,6 +24837,50 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId,'node_id': nodeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询GeminiDB Redis实例的大key、热key历史数据采集开关状态、数据保留时长及是否可开启等信息。仅支持GeminiDB Redis引擎，内核版本需≥5.0.7.20。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBigKeyHotKeySwitch(showBigKeyHotKeySwitchRequest?: ShowBigKeyHotKeySwitchRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/big-key-hot-key/switch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showBigKeyHotKeySwitchRequest !== null && showBigKeyHotKeySwitchRequest !== undefined) {
+                if (showBigKeyHotKeySwitchRequest instanceof ShowBigKeyHotKeySwitchRequest) {
+                    instanceId = showBigKeyHotKeySwitchRequest.instanceId;
+                    xLanguage = showBigKeyHotKeySwitchRequest.xLanguage;
+                } else {
+                    instanceId = showBigKeyHotKeySwitchRequest['instance_id'];
+                    xLanguage = showBigKeyHotKeySwitchRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showBigKeyHotKeySwitch.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -24487,6 +25452,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询指定健康报告模板的详细信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showHealthReportTemplate(showHealthReportTemplateRequest?: ShowHealthReportTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/health-report-templates/{template_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let templateId;
+            
+            let xLanguage;
+
+            if (showHealthReportTemplateRequest !== null && showHealthReportTemplateRequest !== undefined) {
+                if (showHealthReportTemplateRequest instanceof ShowHealthReportTemplateRequest) {
+                    templateId = showHealthReportTemplateRequest.templateId;
+                    xLanguage = showHealthReportTemplateRequest.xLanguage;
+                } else {
+                    templateId = showHealthReportTemplateRequest['template_id'];
+                    xLanguage = showHealthReportTemplateRequest['X-Language'];
+                }
+            }
+
+        
+            if (templateId === null || templateId === undefined) {
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling showHealthReportTemplate.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'template_id': templateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * DAS收集历史事务开关打开后，查询历史事务导出任务详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -24659,6 +25668,132 @@ export const ParamCreater = function () {
             }
             if (taskId !== null && taskId !== undefined) {
                 localVarQueryParameter['task_id'] = taskId;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例的健康报告模板配置，未配置时template_id等字段为null，表示使用完整版模板。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceHealthReportConfig(showInstanceHealthReportConfigRequest?: ShowInstanceHealthReportConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/health-report-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showInstanceHealthReportConfigRequest !== null && showInstanceHealthReportConfigRequest !== undefined) {
+                if (showInstanceHealthReportConfigRequest instanceof ShowInstanceHealthReportConfigRequest) {
+                    instanceId = showInstanceHealthReportConfigRequest.instanceId;
+                    xLanguage = showInstanceHealthReportConfigRequest.xLanguage;
+                } else {
+                    instanceId = showInstanceHealthReportConfigRequest['instance_id'];
+                    xLanguage = showInstanceHealthReportConfigRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceHealthReportConfig.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询GeminiDB Redis实例中指定key在所选时间段内的变化曲线，支持自适应时间粒度聚合。traffic维度同时返回入口流量和出口流量双指标趋势。仅支持GeminiDB Redis引擎。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showKeyTrend(showKeyTrendRequest?: ShowKeyTrendRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/big-key-hot-key/key-trend",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let key;
+            
+            let startAt;
+            
+            let endAt;
+            
+            let statType;
+            
+            let xLanguage;
+
+            if (showKeyTrendRequest !== null && showKeyTrendRequest !== undefined) {
+                if (showKeyTrendRequest instanceof ShowKeyTrendRequest) {
+                    instanceId = showKeyTrendRequest.instanceId;
+                    key = showKeyTrendRequest.key;
+                    startAt = showKeyTrendRequest.startAt;
+                    endAt = showKeyTrendRequest.endAt;
+                    statType = showKeyTrendRequest.statType;
+                    xLanguage = showKeyTrendRequest.xLanguage;
+                } else {
+                    instanceId = showKeyTrendRequest['instance_id'];
+                    key = showKeyTrendRequest['key'];
+                    startAt = showKeyTrendRequest['start_at'];
+                    endAt = showKeyTrendRequest['end_at'];
+                    statType = showKeyTrendRequest['stat_type'];
+                    xLanguage = showKeyTrendRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showKeyTrend.');
+            }
+            if (key === null || key === undefined) {
+                throw new RequiredError('key','Required parameter key was null or undefined when calling showKeyTrend.');
+            }
+            if (key !== null && key !== undefined) {
+                localVarQueryParameter['key'] = key;
+            }
+            if (startAt === null || startAt === undefined) {
+                throw new RequiredError('startAt','Required parameter startAt was null or undefined when calling showKeyTrend.');
+            }
+            if (startAt !== null && startAt !== undefined) {
+                localVarQueryParameter['start_at'] = startAt;
+            }
+            if (endAt === null || endAt === undefined) {
+                throw new RequiredError('endAt','Required parameter endAt was null or undefined when calling showKeyTrend.');
+            }
+            if (endAt !== null && endAt !== undefined) {
+                localVarQueryParameter['end_at'] = endAt;
+            }
+            if (statType !== null && statType !== undefined) {
+                localVarQueryParameter['stat_type'] = statType;
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -25985,6 +27120,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新健康报告模板，采用全量更新语义。系统预设模板不可更新。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateHealthReportTemplate(updateHealthReportTemplateRequest?: UpdateHealthReportTemplateRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/health-report-templates/{template_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let templateId;
+            
+            let xLanguage;
+
+            if (updateHealthReportTemplateRequest !== null && updateHealthReportTemplateRequest !== undefined) {
+                if (updateHealthReportTemplateRequest instanceof UpdateHealthReportTemplateRequest) {
+                    templateId = updateHealthReportTemplateRequest.templateId;
+                    body = updateHealthReportTemplateRequest.body
+                    xLanguage = updateHealthReportTemplateRequest.xLanguage;
+                } else {
+                    templateId = updateHealthReportTemplateRequest['template_id'];
+                    body = updateHealthReportTemplateRequest['body'];
+                    xLanguage = updateHealthReportTemplateRequest['X-Language'];
+                }
+            }
+
+        
+            if (templateId === null || templateId === undefined) {
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling updateHealthReportTemplate.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'template_id': templateId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

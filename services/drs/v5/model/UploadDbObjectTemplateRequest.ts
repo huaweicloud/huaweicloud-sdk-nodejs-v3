@@ -72,5 +72,6 @@ export enum UploadDbObjectTemplateRequestFileImportDbLevelEnum {
     DATABASE = 'database',
     TABLE = 'table',
     COLUMN = 'column',
-    PARTITION = 'partition'
+    PARTITION = 'partition',
+    COMPARE_KEY = 'compare_key'
 }

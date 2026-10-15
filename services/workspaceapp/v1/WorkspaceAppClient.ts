@@ -2360,7 +2360,7 @@ export class WorkspaceAppClient {
      * @param {number} [limit] 单次查询的大小[1-100]，默认值10。
      * @param {number} [offset] 查询的偏移量，默认值0。
      * @param {string} [account] 用户(组)名称。
-     * @param {string} [mailSendType] 授权类型： - ADD_GROUP_AUTHORIZATION 添加组授权 - DEL_GROUP_AUTHORIZATION 删除组授权。
+     * @param {string} [mailSendType] 授权类型： - ADD_GROUP_AUTHORIZATION 添加组授权 - DEL_GROUP_AUTHORIZATION 删除组授权 - ADD_GROUP_AUTHORIZATION_SMS 添加组授权短信 - DEL_GROUP_AUTHORIZATION_SMS 删除组授权短信。
      * @param {string} [mailSendResult] 邮件发送结果(SUCCESS|FAIL)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

@@ -3,8 +3,7 @@
 export class ShowColumnInfoReq {
     public refresh?: boolean;
     private 'object_ids'?: Array<string>;
-    public constructor(refresh?: boolean) { 
-        this['refresh'] = refresh;
+    public constructor() { 
     }
     public withRefresh(refresh: boolean): ShowColumnInfoReq {
         this['refresh'] = refresh;

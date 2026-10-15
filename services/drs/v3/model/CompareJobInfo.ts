@@ -11,6 +11,7 @@ export class CompareJobInfo {
     private 'report_remain_seconds'?: number;
     private 'compare_job_tag'?: { [key: string]: string; };
     private 'proportion_value'?: string;
+    private 'database_info'?: object;
     public constructor() { 
     }
     public withId(id: string): CompareJobInfo {
@@ -88,5 +89,15 @@ export class CompareJobInfo {
     }
     public get proportionValue(): string | undefined {
         return this['proportion_value'];
+    }
+    public withDatabaseInfo(databaseInfo: object): CompareJobInfo {
+        this['database_info'] = databaseInfo;
+        return this;
+    }
+    public set databaseInfo(databaseInfo: object  | undefined) {
+        this['database_info'] = databaseInfo;
+    }
+    public get databaseInfo(): object | undefined {
+        return this['database_info'];
     }
 }

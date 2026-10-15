@@ -16,6 +16,8 @@ export class PublishApp {
     private 'source_image_ids'?: Array<string>;
     private 'sandbox_enable'?: boolean;
     private 'app_extended_info'?: AppExtendedInfo;
+    private 'is_pre_boot'?: boolean;
+    private 'pre_launch_policy'?: number;
     public constructor(name?: string, executePath?: string, sourceType?: number) { 
         this['name'] = name;
         this['execute_path'] = executePath;
@@ -136,5 +138,25 @@ export class PublishApp {
     }
     public get appExtendedInfo(): AppExtendedInfo | undefined {
         return this['app_extended_info'];
+    }
+    public withIsPreBoot(isPreBoot: boolean): PublishApp {
+        this['is_pre_boot'] = isPreBoot;
+        return this;
+    }
+    public set isPreBoot(isPreBoot: boolean  | undefined) {
+        this['is_pre_boot'] = isPreBoot;
+    }
+    public get isPreBoot(): boolean | undefined {
+        return this['is_pre_boot'];
+    }
+    public withPreLaunchPolicy(preLaunchPolicy: number): PublishApp {
+        this['pre_launch_policy'] = preLaunchPolicy;
+        return this;
+    }
+    public set preLaunchPolicy(preLaunchPolicy: number  | undefined) {
+        this['pre_launch_policy'] = preLaunchPolicy;
+    }
+    public get preLaunchPolicy(): number | undefined {
+        return this['pre_launch_policy'];
     }
 }

@@ -6,6 +6,7 @@ export class ListExtraColumnsRequest {
     private 'is_only_show_sent'?: boolean;
     public offset?: number;
     public limit?: number;
+    private 'fetch_all'?: boolean;
     public constructor(jobId?: string) { 
         this['job_id'] = jobId;
     }
@@ -46,6 +47,16 @@ export class ListExtraColumnsRequest {
     public withLimit(limit: number): ListExtraColumnsRequest {
         this['limit'] = limit;
         return this;
+    }
+    public withFetchAll(fetchAll: boolean): ListExtraColumnsRequest {
+        this['fetch_all'] = fetchAll;
+        return this;
+    }
+    public set fetchAll(fetchAll: boolean  | undefined) {
+        this['fetch_all'] = fetchAll;
+    }
+    public get fetchAll(): boolean | undefined {
+        return this['fetch_all'];
     }
 }
 

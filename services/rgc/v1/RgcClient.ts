@@ -52,6 +52,7 @@ import { EnrollAccountResponse } from './model/EnrollAccountResponse';
 import { ExternalConfigRuleCompliance } from './model/ExternalConfigRuleCompliance';
 import { IdentityCenterGroup } from './model/IdentityCenterGroup';
 import { LandingZoneErrorMessage } from './model/LandingZoneErrorMessage';
+import { LandingZoneVersionDetail } from './model/LandingZoneVersionDetail';
 import { ListConfigRuleCompliancesRequest } from './model/ListConfigRuleCompliancesRequest';
 import { ListConfigRuleCompliancesResponse } from './model/ListConfigRuleCompliancesResponse';
 import { ListControlViolationsRequest } from './model/ListControlViolationsRequest';
@@ -68,6 +69,8 @@ import { ListEnabledControlsRequest } from './model/ListEnabledControlsRequest';
 import { ListEnabledControlsResponse } from './model/ListEnabledControlsResponse';
 import { ListExternalConfigRuleCompliancesRequest } from './model/ListExternalConfigRuleCompliancesRequest';
 import { ListExternalConfigRuleCompliancesResponse } from './model/ListExternalConfigRuleCompliancesResponse';
+import { ListLandingZoneVersionRequest } from './model/ListLandingZoneVersionRequest';
+import { ListLandingZoneVersionResponse } from './model/ListLandingZoneVersionResponse';
 import { ListManagedAccountsForParentRequest } from './model/ListManagedAccountsForParentRequest';
 import { ListManagedAccountsForParentResponse } from './model/ListManagedAccountsForParentResponse';
 import { ListManagedAccountsRequest } from './model/ListManagedAccountsRequest';
@@ -600,6 +603,24 @@ export class RgcClient {
      */
     public deleteLandingZone(deleteLandingZoneRequest?: DeleteLandingZoneRequest): Promise<DeleteLandingZoneResponse> {
         const options = ParamCreater().deleteLandingZone();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列出Landing Zone版本列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列出Landing Zone版本列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLandingZoneVersion(listLandingZoneVersionRequest?: ListLandingZoneVersionRequest): Promise<ListLandingZoneVersionResponse> {
+        const options = ParamCreater().listLandingZoneVersion();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1942,6 +1963,27 @@ export const ParamCreater = function () {
             const options = {
                 method: "POST",
                 url: "/v1/landing-zone/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列出Landing Zone版本列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLandingZoneVersion() {
+            const options = {
+                method: "GET",
+                url: "/v1/landing-zone/version",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},

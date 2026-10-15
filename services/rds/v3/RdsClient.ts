@@ -943,6 +943,8 @@ import { ShowTransferPolicyRequest } from './model/ShowTransferPolicyRequest';
 import { ShowTransferPolicyResponse } from './model/ShowTransferPolicyResponse';
 import { ShowUpgradeDbMajorVersionStatusRequest } from './model/ShowUpgradeDbMajorVersionStatusRequest';
 import { ShowUpgradeDbMajorVersionStatusResponse } from './model/ShowUpgradeDbMajorVersionStatusResponse';
+import { ShowVectorStorageConfigRequest } from './model/ShowVectorStorageConfigRequest';
+import { ShowVectorStorageConfigResponse } from './model/ShowVectorStorageConfigResponse';
 import { ShutdownInstanceRecord } from './model/ShutdownInstanceRecord';
 import { SimplifiedInstanceEntry } from './model/SimplifiedInstanceEntry';
 import { SimplifiedInstancesRequest } from './model/SimplifiedInstancesRequest';
@@ -1118,6 +1120,9 @@ import { UpdateTimeZoneRequestBody } from './model/UpdateTimeZoneRequestBody';
 import { UpdateTimeZoneResponse } from './model/UpdateTimeZoneResponse';
 import { UpdateToPeriodRequest } from './model/UpdateToPeriodRequest';
 import { UpdateToPeriodResponse } from './model/UpdateToPeriodResponse';
+import { UpdateVectorStorageConfigReq } from './model/UpdateVectorStorageConfigReq';
+import { UpdateVectorStorageConfigRequest } from './model/UpdateVectorStorageConfigRequest';
+import { UpdateVectorStorageConfigResponse } from './model/UpdateVectorStorageConfigResponse';
 import { UpgradeDbMajorVersionPreCheckRequest } from './model/UpgradeDbMajorVersionPreCheckRequest';
 import { UpgradeDbMajorVersionPreCheckResponse } from './model/UpgradeDbMajorVersionPreCheckResponse';
 import { UpgradeDbMajorVersionRequest } from './model/UpgradeDbMajorVersionRequest';
@@ -5219,6 +5224,26 @@ export class RdsClient {
     }
 
     /**
+     * 查询实例的向量存储配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例的向量存储配置
+     * @param {string} instanceId **参数解释**：  实例ID。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVectorStorageConfig(showVectorStorageConfigRequest?: ShowVectorStorageConfigRequest): Promise<ShowVectorStorageConfigResponse> {
+        const options = ParamCreater().showVectorStorageConfig(showVectorStorageConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 手动倒换主备.
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5832,6 +5857,27 @@ export class RdsClient {
      */
     public updateToPeriod(updateToPeriodRequest?: UpdateToPeriodRequest): Promise<UpdateToPeriodResponse> {
         const options = ParamCreater().updateToPeriod(updateToPeriodRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改实例的向量存储配置，开启或关闭向量存储功能。该接口为异步接口，返回工作流ID。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改实例的向量存储配置
+     * @param {string} instanceId **参数解释**：  实例ID。  **约束限制**：  不涉及。  **取值范围**：  不涉及。  **默认取值**：  不涉及。
+     * @param {UpdateVectorStorageConfigReq} updateVectorStorageConfigRequestBody 修改实例的向量存储配置请求体
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateVectorStorageConfig(updateVectorStorageConfigRequest?: UpdateVectorStorageConfigRequest): Promise<UpdateVectorStorageConfigResponse> {
+        const options = ParamCreater().updateVectorStorageConfig(updateVectorStorageConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -18994,6 +19040,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询实例的向量存储配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVectorStorageConfig(showVectorStorageConfigRequest?: ShowVectorStorageConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/vector-storage",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (showVectorStorageConfigRequest !== null && showVectorStorageConfigRequest !== undefined) {
+                if (showVectorStorageConfigRequest instanceof ShowVectorStorageConfigRequest) {
+                    instanceId = showVectorStorageConfigRequest.instanceId;
+                    xLanguage = showVectorStorageConfigRequest.xLanguage;
+                } else {
+                    instanceId = showVectorStorageConfigRequest['instance_id'];
+                    xLanguage = showVectorStorageConfigRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showVectorStorageConfig.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 手动倒换主备.
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -20488,6 +20578,59 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateToPeriod.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改实例的向量存储配置，开启或关闭向量存储功能。该接口为异步接口，返回工作流ID。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateVectorStorageConfig(updateVectorStorageConfigRequest?: UpdateVectorStorageConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/instances/{instance_id}/vector-storage",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (updateVectorStorageConfigRequest !== null && updateVectorStorageConfigRequest !== undefined) {
+                if (updateVectorStorageConfigRequest instanceof UpdateVectorStorageConfigRequest) {
+                    instanceId = updateVectorStorageConfigRequest.instanceId;
+                    body = updateVectorStorageConfigRequest.body
+                    xLanguage = updateVectorStorageConfigRequest.xLanguage;
+                } else {
+                    instanceId = updateVectorStorageConfigRequest['instance_id'];
+                    body = updateVectorStorageConfigRequest['body'];
+                    xLanguage = updateVectorStorageConfigRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateVectorStorageConfig.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

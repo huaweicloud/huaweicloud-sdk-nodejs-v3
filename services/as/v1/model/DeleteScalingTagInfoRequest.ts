@@ -40,5 +40,6 @@ export class DeleteScalingTagInfoRequest {
     * @enum {string}
     */
 export enum DeleteScalingTagInfoRequestResourceTypeEnum {
-    SCALING_GROUP_TAG = 'scaling_group_tag'
+    SCALING_GROUP_TAG = 'scaling_group_tag',
+    SCALING_CONFIGURATION_TAG = 'scaling_configuration_tag'
 }

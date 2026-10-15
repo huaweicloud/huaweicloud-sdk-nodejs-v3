@@ -8,6 +8,7 @@ export class CountAllResourcesRequest {
     private 'ep_id'?: Array<string>;
     private 'project_id'?: Array<string>;
     public tags?: Array<string>;
+    private 'group_id'?: string;
     public constructor() { 
     }
     public withId(id: string): CountAllResourcesRequest {
@@ -55,5 +56,15 @@ export class CountAllResourcesRequest {
     public withTags(tags: Array<string>): CountAllResourcesRequest {
         this['tags'] = tags;
         return this;
+    }
+    public withGroupId(groupId: string): CountAllResourcesRequest {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
     }
 }

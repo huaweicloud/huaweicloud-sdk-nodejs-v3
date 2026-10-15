@@ -74,6 +74,7 @@ export class QueryJobResp {
     public children?: Array<FailedToBindEipChildInfo>;
     private 'is_open_fast_clean'?: boolean;
     private 'job_kernel_direction'?: QueryJobRespJobKernelDirectionEnum | string;
+    private 'sync_mode'?: QueryJobRespSyncModeEnum | string;
     public constructor() { 
     }
     public withId(id: string): QueryJobResp {
@@ -654,6 +655,16 @@ export class QueryJobResp {
     public get jobKernelDirection(): QueryJobRespJobKernelDirectionEnum | string | undefined {
         return this['job_kernel_direction'];
     }
+    public withSyncMode(syncMode: QueryJobRespSyncModeEnum | string): QueryJobResp {
+        this['sync_mode'] = syncMode;
+        return this;
+    }
+    public set syncMode(syncMode: QueryJobRespSyncModeEnum | string  | undefined) {
+        this['sync_mode'] = syncMode;
+    }
+    public get syncMode(): QueryJobRespSyncModeEnum | string | undefined {
+        return this['sync_mode'];
+    }
 }
 
 /**
@@ -761,4 +772,15 @@ export enum QueryJobRespOriginalJobDirectionEnum {
 export enum QueryJobRespJobKernelDirectionEnum {
     UP = 'up',
     DOWN = 'down'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum QueryJobRespSyncModeEnum {
+    DB_LEVEL = 'DB_LEVEL',
+    SCHEMA_LEVEL = 'SCHEMA_LEVEL',
+    TABLE_LEVEL = 'TABLE_LEVEL',
+    FILE_IMPORT = 'FILE_IMPORT',
+    INSTANCE_LEVEL = 'INSTANCE_LEVEL'
 }

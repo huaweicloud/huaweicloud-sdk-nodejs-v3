@@ -631,12 +631,12 @@ export class AsClient {
     }
 
     /**
-     * 创建或删除指定资源的标签。每个伸缩组最多添加10个标签。
+     * 创建或删除指定资源的标签。每个伸缩组或伸缩配置最多添加10个标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建标签
-     * @param {'scaling_group_tag'} resourceType 资源类型，枚举类：scaling_group_tag。scaling_group_tag表示资源类型为伸缩组。
+     * @param {'scaling_group_tag' | 'scaling_configuration_tag'} resourceType 资源类型，枚举类：scaling_group_tag、scaling_configuration_tag。scaling_group_tag表示资源类型为伸缩组，scaling_configuration_tag表示资源类型为伸缩配置。
      * @param {string} resourceId 资源ID。
      * @param {CreateTagsOption} bodyparam BodyParameters
      * @param {*} [options] Override http request option.
@@ -790,12 +790,12 @@ export class AsClient {
     }
 
     /**
-     * 创建或删除指定资源的标签。每个伸缩组最多添加10个标签。
+     * 创建或删除指定资源的标签。每个伸缩组或伸缩配置最多添加10个标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除标签
-     * @param {'scaling_group_tag'} resourceType 资源类型，枚举类：scaling_group_tag。scaling_group_tag表示资源类型为伸缩组。
+     * @param {'scaling_group_tag' | 'scaling_configuration_tag'} resourceType 资源类型，枚举类：scaling_group_tag、scaling_configuration_tag。scaling_group_tag表示资源类型为伸缩组，scaling_configuration_tag表示资源类型为伸缩配置。
      * @param {string} resourceId 资源ID。
      * @param {DeleteTagsOption} bodyparam BodyParameters
      * @param {*} [options] Override http request option.
@@ -896,7 +896,7 @@ export class AsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源实例
-     * @param {'scaling_group_tag'} resourceType 资源类型，枚举类：SCALING_GROUP_TAG。
+     * @param {'scaling_group_tag' | 'scaling_configuration_tag'} resourceType 资源类型，枚举类：SCALING_GROUP_TAG、SCALING_CONFIGURATION_TAG。
      * @param {QueryTagsOption} bodyparam BodyParameters
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1105,7 +1105,7 @@ export class AsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源标签
-     * @param {'scaling_group_tag'} resourceType 资源类型，枚举类：scaling_group_tag。scaling_group_tag表示资源类型为伸缩组。
+     * @param {'scaling_group_tag' | 'scaling_configuration_tag'} resourceType 资源类型，枚举类：scaling_group_tag、scaling_configuration_tag。scaling_group_tag表示资源类型为伸缩组，scaling_configuration_tag表示资源类型为伸缩配置。
      * @param {string} resourceId 资源ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1125,7 +1125,7 @@ export class AsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询标签
-     * @param {'scaling_group_tag'} resourceType 资源类型，枚举类：scaling_group_tag。scaling_group_tag表示资源类型为伸缩组。
+     * @param {'scaling_group_tag' | 'scaling_configuration_tag'} resourceType 资源类型，枚举类：scaling_group_tag、scaling_configuration_tag。scaling_group_tag表示资源类型为伸缩组，scaling_configuration_tag表示资源类型为伸缩配置。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2507,7 +2507,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建或删除指定资源的标签。每个伸缩组最多添加10个标签。
+         * 创建或删除指定资源的标签。每个伸缩组或伸缩配置最多添加10个标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2856,7 +2856,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建或删除指定资源的标签。每个伸缩组最多添加10个标签。
+         * 创建或删除指定资源的标签。每个伸缩组或伸缩配置最多添加10个标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

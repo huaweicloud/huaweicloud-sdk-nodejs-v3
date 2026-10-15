@@ -23,6 +23,7 @@ export class PublishableApp {
     public publishable?: boolean;
     private 'sandbox_enable'?: boolean;
     private 'is_pre_boot'?: boolean;
+    private 'pre_launch_policy'?: number;
     private 'app_extended_info'?: AppExtendedInfo;
     private 'source_image_ids'?: Array<string>;
     public constructor() { 
@@ -174,6 +175,16 @@ export class PublishableApp {
     }
     public get isPreBoot(): boolean | undefined {
         return this['is_pre_boot'];
+    }
+    public withPreLaunchPolicy(preLaunchPolicy: number): PublishableApp {
+        this['pre_launch_policy'] = preLaunchPolicy;
+        return this;
+    }
+    public set preLaunchPolicy(preLaunchPolicy: number  | undefined) {
+        this['pre_launch_policy'] = preLaunchPolicy;
+    }
+    public get preLaunchPolicy(): number | undefined {
+        return this['pre_launch_policy'];
     }
     public withAppExtendedInfo(appExtendedInfo: AppExtendedInfo): PublishableApp {
         this['app_extended_info'] = appExtendedInfo;

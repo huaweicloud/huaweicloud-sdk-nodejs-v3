@@ -151,7 +151,12 @@ export enum ShowReplayResultsRequestTypeEnum {
     SLOW_SQL_TEMPLATE = 'slow_sql_template',
     ERROR_SQL_TEMPLATE = 'error_sql_template',
     REPLAYING_SQL = 'replaying_sql',
-    ERROR_CLASSIFICATION = 'error_classification'
+    ERROR_CLASSIFICATION = 'error_classification',
+    SQL_RESULT_INCONSISTENT = 'sql_result_inconsistent',
+    REPLAYED_SQL = 'replayed_sql',
+    UGO_ERROR_SQL = 'ugo_error_sql',
+    SQL_OBJECT_STATISTIC = 'sql_object_statistic',
+    ARCHIVE_CAPTURE_DATA = 'archive_capture_data'
 }
 /**
     * @export

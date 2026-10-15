@@ -140,7 +140,8 @@ export enum ListJobsRequestXLanguageEnum {
 export enum ListJobsRequestJobTypeEnum {
     MIGRATION = 'migration',
     SYNC = 'sync',
-    CLOUDDATAGUARD = 'cloudDataGuard'
+    CLOUDDATAGUARD = 'cloudDataGuard',
+    REPLAY = 'replay'
 }
 /**
     * @export

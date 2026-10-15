@@ -3,6 +3,7 @@
 export class UpdatePreBootPolicyReq {
     public ids?: Array<string>;
     private 'is_pre_boot'?: boolean;
+    private 'pre_launch_policy'?: number;
     public constructor(ids?: Array<string>, isPreBoot?: boolean) { 
         this['ids'] = ids;
         this['is_pre_boot'] = isPreBoot;
@@ -20,5 +21,15 @@ export class UpdatePreBootPolicyReq {
     }
     public get isPreBoot(): boolean | undefined {
         return this['is_pre_boot'];
+    }
+    public withPreLaunchPolicy(preLaunchPolicy: number): UpdatePreBootPolicyReq {
+        this['pre_launch_policy'] = preLaunchPolicy;
+        return this;
+    }
+    public set preLaunchPolicy(preLaunchPolicy: number  | undefined) {
+        this['pre_launch_policy'] = preLaunchPolicy;
+    }
+    public get preLaunchPolicy(): number | undefined {
+        return this['pre_launch_policy'];
     }
 }

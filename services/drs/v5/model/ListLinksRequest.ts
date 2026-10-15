@@ -53,5 +53,6 @@ export enum ListLinksRequestXLanguageEnum {
 export enum ListLinksRequestJobTypeEnum {
     MIGRATION = 'migration',
     SYNC = 'sync',
-    CLOUDDATAGUARD = 'cloudDataGuard'
+    CLOUDDATAGUARD = 'cloudDataGuard',
+    REPLAY = 'replay'
 }

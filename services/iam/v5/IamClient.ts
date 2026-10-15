@@ -281,6 +281,9 @@ import { UpdateOIDCProviderV5Response } from './model/UpdateOIDCProviderV5Respon
 import { UpdatePasswordPolicyReqBody } from './model/UpdatePasswordPolicyReqBody';
 import { UpdatePasswordPolicyV5Request } from './model/UpdatePasswordPolicyV5Request';
 import { UpdatePasswordPolicyV5Response } from './model/UpdatePasswordPolicyV5Response';
+import { UpdatePolicyReqBody } from './model/UpdatePolicyReqBody';
+import { UpdatePolicyV5Request } from './model/UpdatePolicyV5Request';
+import { UpdatePolicyV5Response } from './model/UpdatePolicyV5Response';
 import { UpdateSAMLProviderReqBody } from './model/UpdateSAMLProviderReqBody';
 import { UpdateSAMLProviderV5Request } from './model/UpdateSAMLProviderV5Request';
 import { UpdateSAMLProviderV5Response } from './model/UpdateSAMLProviderV5Response';
@@ -1246,6 +1249,26 @@ export class IamClient {
     }
 
     /**
+     * 该接口可以用于修改自定义身份策略的描述字段。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改自定义身份策略描述
+     * @param {string} policyId 身份策略ID，长度为1到64个字符，只包含字母、数字和\&quot;-\&quot;的字符串。
+     * @param {UpdatePolicyReqBody} updatePolicyReqBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updatePolicyV5(updatePolicyV5Request?: UpdatePolicyV5Request): Promise<UpdatePolicyV5Response> {
+        const options = ParamCreater().updatePolicyV5(updatePolicyV5Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口可以用于为指定委托或信任委托附加指定身份策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1819,6 +1842,7 @@ export class IamClient {
      * @param {number} [limit] 每页显示的条目数量，范围为1到200条，默认为100条。
      * @param {string} [marker] 分页标记，长度为4到400个字符，只包含字母、数字、\&quot;+\&quot;、\&quot;/\&quot;、\&quot;&#x3D;\&quot;、\&quot;-\&quot;和\&quot;_\&quot;的字符串。
      * @param {string} [groupId] 用户组ID，长度为1到64个字符，只包含字母、数字和\&quot;-\&quot;的字符串。
+     * @param {string} [accessKeyId] 永久访问密钥ID，即AK。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4054,6 +4078,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口可以用于修改自定义身份策略的描述字段。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updatePolicyV5(updatePolicyV5Request?: UpdatePolicyV5Request) {
+            const options = {
+                method: "PUT",
+                url: "/v5/policies/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let policyId;
+
+            if (updatePolicyV5Request !== null && updatePolicyV5Request !== undefined) {
+                if (updatePolicyV5Request instanceof UpdatePolicyV5Request) {
+                    policyId = updatePolicyV5Request.policyId;
+                    body = updatePolicyV5Request.body
+                } else {
+                    policyId = updatePolicyV5Request['policy_id'];
+                    body = updatePolicyV5Request['body'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling updatePolicyV5.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口可以用于为指定委托或信任委托附加指定身份策略。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5328,16 +5398,20 @@ export const ParamCreater = function () {
             let marker;
             
             let groupId;
+            
+            let accessKeyId;
 
             if (listUsersV5Request !== null && listUsersV5Request !== undefined) {
                 if (listUsersV5Request instanceof ListUsersV5Request) {
                     limit = listUsersV5Request.limit;
                     marker = listUsersV5Request.marker;
                     groupId = listUsersV5Request.groupId;
+                    accessKeyId = listUsersV5Request.accessKeyId;
                 } else {
                     limit = listUsersV5Request['limit'];
                     marker = listUsersV5Request['marker'];
                     groupId = listUsersV5Request['group_id'];
+                    accessKeyId = listUsersV5Request['access_key_id'];
                 }
             }
 
@@ -5350,6 +5424,9 @@ export const ParamCreater = function () {
             }
             if (groupId !== null && groupId !== undefined) {
                 localVarQueryParameter['group_id'] = groupId;
+            }
+            if (accessKeyId !== null && accessKeyId !== undefined) {
+                localVarQueryParameter['access_key_id'] = accessKeyId;
             }
 
             options.queryParams = localVarQueryParameter;

@@ -13,6 +13,8 @@ export class QueryProgressResp {
     private 'progress_map'?: { [key: string]: ProgressInfo; };
     private 'error_code'?: string;
     private 'error_msg'?: string;
+    private 'apply_rows_rate'?: number;
+    private 'apply_bytes_rate'?: number;
     public constructor() { 
     }
     public withJobId(jobId: string): QueryProgressResp {
@@ -118,6 +120,26 @@ export class QueryProgressResp {
     }
     public get errorMsg(): string | undefined {
         return this['error_msg'];
+    }
+    public withApplyRowsRate(applyRowsRate: number): QueryProgressResp {
+        this['apply_rows_rate'] = applyRowsRate;
+        return this;
+    }
+    public set applyRowsRate(applyRowsRate: number  | undefined) {
+        this['apply_rows_rate'] = applyRowsRate;
+    }
+    public get applyRowsRate(): number | undefined {
+        return this['apply_rows_rate'];
+    }
+    public withApplyBytesRate(applyBytesRate: number): QueryProgressResp {
+        this['apply_bytes_rate'] = applyBytesRate;
+        return this;
+    }
+    public set applyBytesRate(applyBytesRate: number  | undefined) {
+        this['apply_bytes_rate'] = applyBytesRate;
+    }
+    public get applyBytesRate(): number | undefined {
+        return this['apply_bytes_rate'];
     }
 }
 

@@ -7,6 +7,7 @@ export class HealthCompareJob {
     private 'start_time'?: string;
     private 'end_time'?: string;
     private 'compute_type'?: string;
+    private 'database_info'?: object;
     public constructor() { 
     }
     public withId(id: string): HealthCompareJob {
@@ -50,5 +51,15 @@ export class HealthCompareJob {
     }
     public get computeType(): string | undefined {
         return this['compute_type'];
+    }
+    public withDatabaseInfo(databaseInfo: object): HealthCompareJob {
+        this['database_info'] = databaseInfo;
+        return this;
+    }
+    public set databaseInfo(databaseInfo: object  | undefined) {
+        this['database_info'] = databaseInfo;
+    }
+    public get databaseInfo(): object | undefined {
+        return this['database_info'];
     }
 }

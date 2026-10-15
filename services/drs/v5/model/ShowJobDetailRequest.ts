@@ -170,7 +170,8 @@ export enum ShowJobDetailRequestTypeEnum {
     DIAGNOSIS_HISTORY = 'diagnosis_history',
     REPAIR_PROGRESS = 'repair_progress',
     REPAIR_DETAIL = 'repair_detail',
-    REPAIR_EXPORT_STATUS = 'repair_export_status'
+    REPAIR_EXPORT_STATUS = 'repair_export_status',
+    DB_TABLE_DETAILS = 'db_table_details'
 }
 /**
     * @export
@@ -190,7 +191,8 @@ export enum ShowJobDetailRequestQueryTypeEnum {
     OVERVIEW = 'overview',
     LIST = 'list',
     DETAIL = 'detail',
-    DIFF = 'diff'
+    DIFF = 'diff',
+    UPGRADEJOB = 'upgradeJob'
 }
 /**
     * @export
@@ -207,5 +209,5 @@ export enum ShowJobDetailRequestObjectTypeEnum {
     */
 export enum ShowJobDetailRequestCompareDetailTypeEnum {
     COMPARE = 'compare',
-    UNCOMPARE = 'uncompare'
+    UNCOMPARE = 'unCompare'
 }
