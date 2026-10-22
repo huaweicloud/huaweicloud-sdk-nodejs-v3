@@ -1,4 +1,5 @@
 import { AllowedAddressPairs } from './AllowedAddressPairs';
+import { HyperGroup } from './HyperGroup';
 import { ServerNetworkHyperCluster } from './ServerNetworkHyperCluster';
 
 
@@ -10,6 +11,7 @@ export class ServerNetwork {
     private 'vpc_id'?: string;
     private 'hyper_cluster'?: ServerNetworkHyperCluster;
     private 'allowed_address_pairs'?: Array<AllowedAddressPairs>;
+    private 'hyper_group'?: HyperGroup;
     public constructor(securityGroupId?: string, subnetId?: string, vpcId?: string) { 
         this['security_group_id'] = securityGroupId;
         this['subnet_id'] = subnetId;
@@ -84,5 +86,15 @@ export class ServerNetwork {
     }
     public get allowedAddressPairs(): Array<AllowedAddressPairs> | undefined {
         return this['allowed_address_pairs'];
+    }
+    public withHyperGroup(hyperGroup: HyperGroup): ServerNetwork {
+        this['hyper_group'] = hyperGroup;
+        return this;
+    }
+    public set hyperGroup(hyperGroup: HyperGroup  | undefined) {
+        this['hyper_group'] = hyperGroup;
+    }
+    public get hyperGroup(): HyperGroup | undefined {
+        return this['hyper_group'];
     }
 }

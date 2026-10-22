@@ -1,18 +1,18 @@
 import { SecurityReportContentResponseReportContentInfoAttackTypeDistributionInfoList } from './SecurityReportContentResponseReportContentInfoAttackTypeDistributionInfoList';
 import { SecurityReportContentResponseReportContentInfoBandwidthStatisticsInfo } from './SecurityReportContentResponseReportContentInfoBandwidthStatisticsInfo';
-import { SecurityReportContentResponseReportContentInfoOverviewStatisticsListInfo } from './SecurityReportContentResponseReportContentInfoOverviewStatisticsListInfo';
+import { SecurityReportContentResponseReportContentInfoOverviewStatisticsInfoList } from './SecurityReportContentResponseReportContentInfoOverviewStatisticsInfoList';
 import { SecurityReportContentResponseReportContentInfoQpsStatisticsInfo } from './SecurityReportContentResponseReportContentInfoQpsStatisticsInfo';
 import { SecurityReportContentResponseReportContentInfoRequestStatisticsInfoList } from './SecurityReportContentResponseReportContentInfoRequestStatisticsInfoList';
 import { SecurityReportContentResponseReportContentInfoResponseCodeStatisticsInfo } from './SecurityReportContentResponseReportContentInfoResponseCodeStatisticsInfo';
-import { SecurityReportContentResponseReportContentInfoTopAbnormalUrlsInfo } from './SecurityReportContentResponseReportContentInfoTopAbnormalUrlsInfo';
 import { SecurityReportContentResponseReportContentInfoTopAttackSourceIpsInfoList } from './SecurityReportContentResponseReportContentInfoTopAttackSourceIpsInfoList';
 import { SecurityReportContentResponseReportContentInfoTopAttackSourceLocationsInfoList } from './SecurityReportContentResponseReportContentInfoTopAttackSourceLocationsInfoList';
 import { SecurityReportContentResponseReportContentInfoTopAttackedDomainsInfoList } from './SecurityReportContentResponseReportContentInfoTopAttackedDomainsInfoList';
 import { SecurityReportContentResponseReportContentInfoTopAttackedUrlsInfoList } from './SecurityReportContentResponseReportContentInfoTopAttackedUrlsInfoList';
+import { SecurityReportContentResponseReportContentInfoTopErrorPagesInfo } from './SecurityReportContentResponseReportContentInfoTopErrorPagesInfo';
 
 
 export class SecurityReportContentResponseReportContentInfo {
-    private 'overview_statistics_list_info'?: Array<SecurityReportContentResponseReportContentInfoOverviewStatisticsListInfo>;
+    private 'overview_statistics_info_list'?: Array<SecurityReportContentResponseReportContentInfoOverviewStatisticsInfoList>;
     private 'request_statistics_info_list'?: Array<SecurityReportContentResponseReportContentInfoRequestStatisticsInfoList>;
     private 'qps_statistics_info'?: SecurityReportContentResponseReportContentInfoQpsStatisticsInfo;
     private 'bandwidth_statistics_info'?: SecurityReportContentResponseReportContentInfoBandwidthStatisticsInfo;
@@ -22,18 +22,18 @@ export class SecurityReportContentResponseReportContentInfo {
     private 'top_attack_source_ips_info_list'?: Array<SecurityReportContentResponseReportContentInfoTopAttackSourceIpsInfoList>;
     private 'top_attacked_urls_info_list'?: Array<SecurityReportContentResponseReportContentInfoTopAttackedUrlsInfoList>;
     private 'top_attack_source_locations_info_list'?: Array<SecurityReportContentResponseReportContentInfoTopAttackSourceLocationsInfoList>;
-    private 'top_abnormal_urls_info'?: SecurityReportContentResponseReportContentInfoTopAbnormalUrlsInfo;
+    private 'top_error_pages_info'?: SecurityReportContentResponseReportContentInfoTopErrorPagesInfo;
     public constructor() { 
     }
-    public withOverviewStatisticsListInfo(overviewStatisticsListInfo: Array<SecurityReportContentResponseReportContentInfoOverviewStatisticsListInfo>): SecurityReportContentResponseReportContentInfo {
-        this['overview_statistics_list_info'] = overviewStatisticsListInfo;
+    public withOverviewStatisticsInfoList(overviewStatisticsInfoList: Array<SecurityReportContentResponseReportContentInfoOverviewStatisticsInfoList>): SecurityReportContentResponseReportContentInfo {
+        this['overview_statistics_info_list'] = overviewStatisticsInfoList;
         return this;
     }
-    public set overviewStatisticsListInfo(overviewStatisticsListInfo: Array<SecurityReportContentResponseReportContentInfoOverviewStatisticsListInfo>  | undefined) {
-        this['overview_statistics_list_info'] = overviewStatisticsListInfo;
+    public set overviewStatisticsInfoList(overviewStatisticsInfoList: Array<SecurityReportContentResponseReportContentInfoOverviewStatisticsInfoList>  | undefined) {
+        this['overview_statistics_info_list'] = overviewStatisticsInfoList;
     }
-    public get overviewStatisticsListInfo(): Array<SecurityReportContentResponseReportContentInfoOverviewStatisticsListInfo> | undefined {
-        return this['overview_statistics_list_info'];
+    public get overviewStatisticsInfoList(): Array<SecurityReportContentResponseReportContentInfoOverviewStatisticsInfoList> | undefined {
+        return this['overview_statistics_info_list'];
     }
     public withRequestStatisticsInfoList(requestStatisticsInfoList: Array<SecurityReportContentResponseReportContentInfoRequestStatisticsInfoList>): SecurityReportContentResponseReportContentInfo {
         this['request_statistics_info_list'] = requestStatisticsInfoList;
@@ -125,14 +125,14 @@ export class SecurityReportContentResponseReportContentInfo {
     public get topAttackSourceLocationsInfoList(): Array<SecurityReportContentResponseReportContentInfoTopAttackSourceLocationsInfoList> | undefined {
         return this['top_attack_source_locations_info_list'];
     }
-    public withTopAbnormalUrlsInfo(topAbnormalUrlsInfo: SecurityReportContentResponseReportContentInfoTopAbnormalUrlsInfo): SecurityReportContentResponseReportContentInfo {
-        this['top_abnormal_urls_info'] = topAbnormalUrlsInfo;
+    public withTopErrorPagesInfo(topErrorPagesInfo: SecurityReportContentResponseReportContentInfoTopErrorPagesInfo): SecurityReportContentResponseReportContentInfo {
+        this['top_error_pages_info'] = topErrorPagesInfo;
         return this;
     }
-    public set topAbnormalUrlsInfo(topAbnormalUrlsInfo: SecurityReportContentResponseReportContentInfoTopAbnormalUrlsInfo  | undefined) {
-        this['top_abnormal_urls_info'] = topAbnormalUrlsInfo;
+    public set topErrorPagesInfo(topErrorPagesInfo: SecurityReportContentResponseReportContentInfoTopErrorPagesInfo  | undefined) {
+        this['top_error_pages_info'] = topErrorPagesInfo;
     }
-    public get topAbnormalUrlsInfo(): SecurityReportContentResponseReportContentInfoTopAbnormalUrlsInfo | undefined {
-        return this['top_abnormal_urls_info'];
+    public get topErrorPagesInfo(): SecurityReportContentResponseReportContentInfoTopErrorPagesInfo | undefined {
+        return this['top_error_pages_info'];
     }
 }

@@ -9,9 +9,13 @@ export class UpdateAppInfoRequestBody {
     public description?: string;
     private 'is_draft'?: boolean;
     private 'create_type'?: UpdateAppInfoRequestBodyCreateTypeEnum | string;
+    private 'group_id'?: string;
     private 'slave_cluster_id'?: string;
     public trigger?: TaskTriggerVO;
     private 'arrange_infos'?: Array<UpdateTaskV2RequestBody>;
+    private 'agency_urn'?: string;
+    private 'slave_resource_type'?: string;
+    public timeout?: number;
     public constructor(id?: string, projectId?: string, name?: string, isDraft?: boolean, createType?: string) { 
         this['id'] = id;
         this['project_id'] = projectId;
@@ -61,6 +65,16 @@ export class UpdateAppInfoRequestBody {
     public get createType(): UpdateAppInfoRequestBodyCreateTypeEnum | string | undefined {
         return this['create_type'];
     }
+    public withGroupId(groupId: string): UpdateAppInfoRequestBody {
+        this['group_id'] = groupId;
+        return this;
+    }
+    public set groupId(groupId: string  | undefined) {
+        this['group_id'] = groupId;
+    }
+    public get groupId(): string | undefined {
+        return this['group_id'];
+    }
     public withSlaveClusterId(slaveClusterId: string): UpdateAppInfoRequestBody {
         this['slave_cluster_id'] = slaveClusterId;
         return this;
@@ -84,6 +98,30 @@ export class UpdateAppInfoRequestBody {
     }
     public get arrangeInfos(): Array<UpdateTaskV2RequestBody> | undefined {
         return this['arrange_infos'];
+    }
+    public withAgencyUrn(agencyUrn: string): UpdateAppInfoRequestBody {
+        this['agency_urn'] = agencyUrn;
+        return this;
+    }
+    public set agencyUrn(agencyUrn: string  | undefined) {
+        this['agency_urn'] = agencyUrn;
+    }
+    public get agencyUrn(): string | undefined {
+        return this['agency_urn'];
+    }
+    public withSlaveResourceType(slaveResourceType: string): UpdateAppInfoRequestBody {
+        this['slave_resource_type'] = slaveResourceType;
+        return this;
+    }
+    public set slaveResourceType(slaveResourceType: string  | undefined) {
+        this['slave_resource_type'] = slaveResourceType;
+    }
+    public get slaveResourceType(): string | undefined {
+        return this['slave_resource_type'];
+    }
+    public withTimeout(timeout: number): UpdateAppInfoRequestBody {
+        this['timeout'] = timeout;
+        return this;
     }
 }
 

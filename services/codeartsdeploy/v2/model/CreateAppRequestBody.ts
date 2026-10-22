@@ -12,6 +12,9 @@ export class CreateAppRequestBody {
     private 'slave_cluster_id'?: string;
     public trigger?: TaskTriggerVO;
     private 'arrange_infos'?: Array<TaskV2RequestBody>;
+    private 'agency_urn'?: string;
+    private 'slave_resource_type'?: string;
+    public timeout?: number;
     public constructor(projectId?: string, name?: string, isDraft?: boolean, createType?: string) { 
         this['project_id'] = projectId;
         this['name'] = name;
@@ -89,6 +92,30 @@ export class CreateAppRequestBody {
     }
     public get arrangeInfos(): Array<TaskV2RequestBody> | undefined {
         return this['arrange_infos'];
+    }
+    public withAgencyUrn(agencyUrn: string): CreateAppRequestBody {
+        this['agency_urn'] = agencyUrn;
+        return this;
+    }
+    public set agencyUrn(agencyUrn: string  | undefined) {
+        this['agency_urn'] = agencyUrn;
+    }
+    public get agencyUrn(): string | undefined {
+        return this['agency_urn'];
+    }
+    public withSlaveResourceType(slaveResourceType: string): CreateAppRequestBody {
+        this['slave_resource_type'] = slaveResourceType;
+        return this;
+    }
+    public set slaveResourceType(slaveResourceType: string  | undefined) {
+        this['slave_resource_type'] = slaveResourceType;
+    }
+    public get slaveResourceType(): string | undefined {
+        return this['slave_resource_type'];
+    }
+    public withTimeout(timeout: number): CreateAppRequestBody {
+        this['timeout'] = timeout;
+        return this;
     }
 }
 

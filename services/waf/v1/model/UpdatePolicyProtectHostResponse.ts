@@ -2,6 +2,7 @@ import { Action } from './Action';
 import { BindHost } from './BindHost';
 import { PolicyAction } from './PolicyAction';
 import { PolicyOption } from './PolicyOption';
+import { ScanProtectionOption } from './ScanProtectionOption';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -14,6 +15,7 @@ export class UpdatePolicyProtectHostResponse extends SdkResponse {
     public action?: PolicyAction;
     public options?: PolicyOption;
     private 'modulex_options'?: { [key: string]: object; };
+    private 'scan_protection_options'?: ScanProtectionOption;
     public hosts?: Array<string>;
     private 'bind_host'?: Array<BindHost>;
     public extend?: { [key: string]: string; };
@@ -70,6 +72,16 @@ export class UpdatePolicyProtectHostResponse extends SdkResponse {
     }
     public get modulexOptions(): { [key: string]: object; } | undefined {
         return this['modulex_options'];
+    }
+    public withScanProtectionOptions(scanProtectionOptions: ScanProtectionOption): UpdatePolicyProtectHostResponse {
+        this['scan_protection_options'] = scanProtectionOptions;
+        return this;
+    }
+    public set scanProtectionOptions(scanProtectionOptions: ScanProtectionOption  | undefined) {
+        this['scan_protection_options'] = scanProtectionOptions;
+    }
+    public get scanProtectionOptions(): ScanProtectionOption | undefined {
+        return this['scan_protection_options'];
     }
     public withHosts(hosts: Array<string>): UpdatePolicyProtectHostResponse {
         this['hosts'] = hosts;

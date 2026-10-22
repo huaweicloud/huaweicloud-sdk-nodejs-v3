@@ -5,6 +5,8 @@ export class CreateHostClusterRequestBody {
     private 'project_id'?: string;
     public os?: CreateHostClusterRequestBodyOsEnum | string;
     private 'slave_cluster_id'?: string;
+    private 'slave_resource_type'?: CreateHostClusterRequestBodySlaveResourceTypeEnum | string;
+    private 'ansible_type'?: number;
     public description?: string;
     private 'is_proxy_mode'?: number;
     public constructor(name?: string, projectId?: string, os?: string, isProxyMode?: number) { 
@@ -41,6 +43,26 @@ export class CreateHostClusterRequestBody {
     public get slaveClusterId(): string | undefined {
         return this['slave_cluster_id'];
     }
+    public withSlaveResourceType(slaveResourceType: CreateHostClusterRequestBodySlaveResourceTypeEnum | string): CreateHostClusterRequestBody {
+        this['slave_resource_type'] = slaveResourceType;
+        return this;
+    }
+    public set slaveResourceType(slaveResourceType: CreateHostClusterRequestBodySlaveResourceTypeEnum | string  | undefined) {
+        this['slave_resource_type'] = slaveResourceType;
+    }
+    public get slaveResourceType(): CreateHostClusterRequestBodySlaveResourceTypeEnum | string | undefined {
+        return this['slave_resource_type'];
+    }
+    public withAnsibleType(ansibleType: number): CreateHostClusterRequestBody {
+        this['ansible_type'] = ansibleType;
+        return this;
+    }
+    public set ansibleType(ansibleType: number  | undefined) {
+        this['ansible_type'] = ansibleType;
+    }
+    public get ansibleType(): number | undefined {
+        return this['ansible_type'];
+    }
     public withDescription(description: string): CreateHostClusterRequestBody {
         this['description'] = description;
         return this;
@@ -64,4 +86,12 @@ export class CreateHostClusterRequestBody {
 export enum CreateHostClusterRequestBodyOsEnum {
     WINDOWS = 'windows',
     LINUX = 'linux'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateHostClusterRequestBodySlaveResourceTypeEnum {
+    SELF_HOSTED = 'self-hosted',
+    EXCLUSIVE = 'exclusive'
 }

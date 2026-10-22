@@ -1,40 +1,45 @@
 import { AdvancedConfig } from './AdvancedConfig';
-import { InferModelResponse } from './InferModelResponse';
-import { UnitConfigResponse } from './UnitConfigResponse';
+import { DeploymentTaskLimit } from './DeploymentTaskLimit';
+import { FrozenInfo } from './FrozenInfo';
+import { GroupModel } from './GroupModel';
+import { UnitConfig } from './UnitConfig';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowInferDeploymentResponse extends SdkResponse {
     public id?: string;
     public name?: string;
+    private 'deployment_name'?: string;
+    private 'infer_name'?: string;
+    public description?: string;
     private 'pool_id'?: string;
-    public count?: number;
-    private 'system_log_dump_enable'?: boolean;
-    private 'unit_configs'?: Array<UnitConfigResponse>;
-    public weight?: number;
-    private 'traffic_ratio'?: string;
-    private 'secret_type'?: string;
-    private 'secret_name'?: string;
-    public priority?: number;
-    private 'high_avail_switch'?: boolean;
     public framework?: string;
     public version?: string;
     private 'version_id'?: string;
-    public status?: string;
-    private 'running_count'?: number;
-    private 'deploy_type'?: string;
-    private 'mirror_traffic_enable'?: boolean;
-    private 'mirror_traffic_weight'?: string;
     private 'version_count'?: number;
+    public count?: number;
+    public weight?: number;
+    public priority?: number;
+    private 'secret_type'?: string;
+    private 'secret_name'?: string;
+    public status?: string;
+    private 'deploy_type'?: string;
     private 'workload_type'?: string;
-    private 'update_at'?: number;
-    private 'lts_state'?: string;
-    private 'infer_name'?: string;
-    public model?: InferModelResponse;
-    private 'advanced_config'?: AdvancedConfig;
-    public description?: string;
-    private 'create_at'?: string;
+    private 'high_avail_switch'?: boolean;
+    private 'system_log_dump_enable'?: boolean;
     private 'schedule_strategy'?: string;
+    private 'unit_configs'?: Array<UnitConfig>;
+    public model?: GroupModel;
+    private 'advanced_config'?: AdvancedConfig;
+    private 'mirror_traffic_enable'?: boolean;
+    private 'mirror_traffic_weight'?: number;
+    private 'user_name'?: string;
+    private 'agency_name'?: string;
+    private 'last_used_time'?: Date;
+    private 'deployment_task_limit'?: DeploymentTaskLimit;
+    private 'frozen_infos'?: Array<FrozenInfo>;
+    private 'create_at'?: Date;
+    private 'update_at'?: Date;
     public constructor() { 
         super();
     }
@@ -44,6 +49,30 @@ export class ShowInferDeploymentResponse extends SdkResponse {
     }
     public withName(name: string): ShowInferDeploymentResponse {
         this['name'] = name;
+        return this;
+    }
+    public withDeploymentName(deploymentName: string): ShowInferDeploymentResponse {
+        this['deployment_name'] = deploymentName;
+        return this;
+    }
+    public set deploymentName(deploymentName: string  | undefined) {
+        this['deployment_name'] = deploymentName;
+    }
+    public get deploymentName(): string | undefined {
+        return this['deployment_name'];
+    }
+    public withInferName(inferName: string): ShowInferDeploymentResponse {
+        this['infer_name'] = inferName;
+        return this;
+    }
+    public set inferName(inferName: string  | undefined) {
+        this['infer_name'] = inferName;
+    }
+    public get inferName(): string | undefined {
+        return this['infer_name'];
+    }
+    public withDescription(description: string): ShowInferDeploymentResponse {
+        this['description'] = description;
         return this;
     }
     public withPoolId(poolId: string): ShowInferDeploymentResponse {
@@ -56,43 +85,45 @@ export class ShowInferDeploymentResponse extends SdkResponse {
     public get poolId(): string | undefined {
         return this['pool_id'];
     }
+    public withFramework(framework: string): ShowInferDeploymentResponse {
+        this['framework'] = framework;
+        return this;
+    }
+    public withVersion(version: string): ShowInferDeploymentResponse {
+        this['version'] = version;
+        return this;
+    }
+    public withVersionId(versionId: string): ShowInferDeploymentResponse {
+        this['version_id'] = versionId;
+        return this;
+    }
+    public set versionId(versionId: string  | undefined) {
+        this['version_id'] = versionId;
+    }
+    public get versionId(): string | undefined {
+        return this['version_id'];
+    }
+    public withVersionCount(versionCount: number): ShowInferDeploymentResponse {
+        this['version_count'] = versionCount;
+        return this;
+    }
+    public set versionCount(versionCount: number  | undefined) {
+        this['version_count'] = versionCount;
+    }
+    public get versionCount(): number | undefined {
+        return this['version_count'];
+    }
     public withCount(count: number): ShowInferDeploymentResponse {
         this['count'] = count;
         return this;
-    }
-    public withSystemLogDumpEnable(systemLogDumpEnable: boolean): ShowInferDeploymentResponse {
-        this['system_log_dump_enable'] = systemLogDumpEnable;
-        return this;
-    }
-    public set systemLogDumpEnable(systemLogDumpEnable: boolean  | undefined) {
-        this['system_log_dump_enable'] = systemLogDumpEnable;
-    }
-    public get systemLogDumpEnable(): boolean | undefined {
-        return this['system_log_dump_enable'];
-    }
-    public withUnitConfigs(unitConfigs: Array<UnitConfigResponse>): ShowInferDeploymentResponse {
-        this['unit_configs'] = unitConfigs;
-        return this;
-    }
-    public set unitConfigs(unitConfigs: Array<UnitConfigResponse>  | undefined) {
-        this['unit_configs'] = unitConfigs;
-    }
-    public get unitConfigs(): Array<UnitConfigResponse> | undefined {
-        return this['unit_configs'];
     }
     public withWeight(weight: number): ShowInferDeploymentResponse {
         this['weight'] = weight;
         return this;
     }
-    public withTrafficRatio(trafficRatio: string): ShowInferDeploymentResponse {
-        this['traffic_ratio'] = trafficRatio;
+    public withPriority(priority: number): ShowInferDeploymentResponse {
+        this['priority'] = priority;
         return this;
-    }
-    public set trafficRatio(trafficRatio: string  | undefined) {
-        this['traffic_ratio'] = trafficRatio;
-    }
-    public get trafficRatio(): string | undefined {
-        return this['traffic_ratio'];
     }
     public withSecretType(secretType: string): ShowInferDeploymentResponse {
         this['secret_type'] = secretType;
@@ -114,51 +145,9 @@ export class ShowInferDeploymentResponse extends SdkResponse {
     public get secretName(): string | undefined {
         return this['secret_name'];
     }
-    public withPriority(priority: number): ShowInferDeploymentResponse {
-        this['priority'] = priority;
-        return this;
-    }
-    public withHighAvailSwitch(highAvailSwitch: boolean): ShowInferDeploymentResponse {
-        this['high_avail_switch'] = highAvailSwitch;
-        return this;
-    }
-    public set highAvailSwitch(highAvailSwitch: boolean  | undefined) {
-        this['high_avail_switch'] = highAvailSwitch;
-    }
-    public get highAvailSwitch(): boolean | undefined {
-        return this['high_avail_switch'];
-    }
-    public withFramework(framework: string): ShowInferDeploymentResponse {
-        this['framework'] = framework;
-        return this;
-    }
-    public withVersion(version: string): ShowInferDeploymentResponse {
-        this['version'] = version;
-        return this;
-    }
-    public withVersionId(versionId: string): ShowInferDeploymentResponse {
-        this['version_id'] = versionId;
-        return this;
-    }
-    public set versionId(versionId: string  | undefined) {
-        this['version_id'] = versionId;
-    }
-    public get versionId(): string | undefined {
-        return this['version_id'];
-    }
     public withStatus(status: string): ShowInferDeploymentResponse {
         this['status'] = status;
         return this;
-    }
-    public withRunningCount(runningCount: number): ShowInferDeploymentResponse {
-        this['running_count'] = runningCount;
-        return this;
-    }
-    public set runningCount(runningCount: number  | undefined) {
-        this['running_count'] = runningCount;
-    }
-    public get runningCount(): number | undefined {
-        return this['running_count'];
     }
     public withDeployType(deployType: string): ShowInferDeploymentResponse {
         this['deploy_type'] = deployType;
@@ -170,36 +159,6 @@ export class ShowInferDeploymentResponse extends SdkResponse {
     public get deployType(): string | undefined {
         return this['deploy_type'];
     }
-    public withMirrorTrafficEnable(mirrorTrafficEnable: boolean): ShowInferDeploymentResponse {
-        this['mirror_traffic_enable'] = mirrorTrafficEnable;
-        return this;
-    }
-    public set mirrorTrafficEnable(mirrorTrafficEnable: boolean  | undefined) {
-        this['mirror_traffic_enable'] = mirrorTrafficEnable;
-    }
-    public get mirrorTrafficEnable(): boolean | undefined {
-        return this['mirror_traffic_enable'];
-    }
-    public withMirrorTrafficWeight(mirrorTrafficWeight: string): ShowInferDeploymentResponse {
-        this['mirror_traffic_weight'] = mirrorTrafficWeight;
-        return this;
-    }
-    public set mirrorTrafficWeight(mirrorTrafficWeight: string  | undefined) {
-        this['mirror_traffic_weight'] = mirrorTrafficWeight;
-    }
-    public get mirrorTrafficWeight(): string | undefined {
-        return this['mirror_traffic_weight'];
-    }
-    public withVersionCount(versionCount: number): ShowInferDeploymentResponse {
-        this['version_count'] = versionCount;
-        return this;
-    }
-    public set versionCount(versionCount: number  | undefined) {
-        this['version_count'] = versionCount;
-    }
-    public get versionCount(): number | undefined {
-        return this['version_count'];
-    }
     public withWorkloadType(workloadType: string): ShowInferDeploymentResponse {
         this['workload_type'] = workloadType;
         return this;
@@ -210,37 +169,47 @@ export class ShowInferDeploymentResponse extends SdkResponse {
     public get workloadType(): string | undefined {
         return this['workload_type'];
     }
-    public withUpdateAt(updateAt: number): ShowInferDeploymentResponse {
-        this['update_at'] = updateAt;
+    public withHighAvailSwitch(highAvailSwitch: boolean): ShowInferDeploymentResponse {
+        this['high_avail_switch'] = highAvailSwitch;
         return this;
     }
-    public set updateAt(updateAt: number  | undefined) {
-        this['update_at'] = updateAt;
+    public set highAvailSwitch(highAvailSwitch: boolean  | undefined) {
+        this['high_avail_switch'] = highAvailSwitch;
     }
-    public get updateAt(): number | undefined {
-        return this['update_at'];
+    public get highAvailSwitch(): boolean | undefined {
+        return this['high_avail_switch'];
     }
-    public withLtsState(ltsState: string): ShowInferDeploymentResponse {
-        this['lts_state'] = ltsState;
+    public withSystemLogDumpEnable(systemLogDumpEnable: boolean): ShowInferDeploymentResponse {
+        this['system_log_dump_enable'] = systemLogDumpEnable;
         return this;
     }
-    public set ltsState(ltsState: string  | undefined) {
-        this['lts_state'] = ltsState;
+    public set systemLogDumpEnable(systemLogDumpEnable: boolean  | undefined) {
+        this['system_log_dump_enable'] = systemLogDumpEnable;
     }
-    public get ltsState(): string | undefined {
-        return this['lts_state'];
+    public get systemLogDumpEnable(): boolean | undefined {
+        return this['system_log_dump_enable'];
     }
-    public withInferName(inferName: string): ShowInferDeploymentResponse {
-        this['infer_name'] = inferName;
+    public withScheduleStrategy(scheduleStrategy: string): ShowInferDeploymentResponse {
+        this['schedule_strategy'] = scheduleStrategy;
         return this;
     }
-    public set inferName(inferName: string  | undefined) {
-        this['infer_name'] = inferName;
+    public set scheduleStrategy(scheduleStrategy: string  | undefined) {
+        this['schedule_strategy'] = scheduleStrategy;
     }
-    public get inferName(): string | undefined {
-        return this['infer_name'];
+    public get scheduleStrategy(): string | undefined {
+        return this['schedule_strategy'];
     }
-    public withModel(model: InferModelResponse): ShowInferDeploymentResponse {
+    public withUnitConfigs(unitConfigs: Array<UnitConfig>): ShowInferDeploymentResponse {
+        this['unit_configs'] = unitConfigs;
+        return this;
+    }
+    public set unitConfigs(unitConfigs: Array<UnitConfig>  | undefined) {
+        this['unit_configs'] = unitConfigs;
+    }
+    public get unitConfigs(): Array<UnitConfig> | undefined {
+        return this['unit_configs'];
+    }
+    public withModel(model: GroupModel): ShowInferDeploymentResponse {
         this['model'] = model;
         return this;
     }
@@ -254,28 +223,94 @@ export class ShowInferDeploymentResponse extends SdkResponse {
     public get advancedConfig(): AdvancedConfig | undefined {
         return this['advanced_config'];
     }
-    public withDescription(description: string): ShowInferDeploymentResponse {
-        this['description'] = description;
+    public withMirrorTrafficEnable(mirrorTrafficEnable: boolean): ShowInferDeploymentResponse {
+        this['mirror_traffic_enable'] = mirrorTrafficEnable;
         return this;
     }
-    public withCreateAt(createAt: string): ShowInferDeploymentResponse {
+    public set mirrorTrafficEnable(mirrorTrafficEnable: boolean  | undefined) {
+        this['mirror_traffic_enable'] = mirrorTrafficEnable;
+    }
+    public get mirrorTrafficEnable(): boolean | undefined {
+        return this['mirror_traffic_enable'];
+    }
+    public withMirrorTrafficWeight(mirrorTrafficWeight: number): ShowInferDeploymentResponse {
+        this['mirror_traffic_weight'] = mirrorTrafficWeight;
+        return this;
+    }
+    public set mirrorTrafficWeight(mirrorTrafficWeight: number  | undefined) {
+        this['mirror_traffic_weight'] = mirrorTrafficWeight;
+    }
+    public get mirrorTrafficWeight(): number | undefined {
+        return this['mirror_traffic_weight'];
+    }
+    public withUserName(userName: string): ShowInferDeploymentResponse {
+        this['user_name'] = userName;
+        return this;
+    }
+    public set userName(userName: string  | undefined) {
+        this['user_name'] = userName;
+    }
+    public get userName(): string | undefined {
+        return this['user_name'];
+    }
+    public withAgencyName(agencyName: string): ShowInferDeploymentResponse {
+        this['agency_name'] = agencyName;
+        return this;
+    }
+    public set agencyName(agencyName: string  | undefined) {
+        this['agency_name'] = agencyName;
+    }
+    public get agencyName(): string | undefined {
+        return this['agency_name'];
+    }
+    public withLastUsedTime(lastUsedTime: Date): ShowInferDeploymentResponse {
+        this['last_used_time'] = lastUsedTime;
+        return this;
+    }
+    public set lastUsedTime(lastUsedTime: Date  | undefined) {
+        this['last_used_time'] = lastUsedTime;
+    }
+    public get lastUsedTime(): Date | undefined {
+        return this['last_used_time'];
+    }
+    public withDeploymentTaskLimit(deploymentTaskLimit: DeploymentTaskLimit): ShowInferDeploymentResponse {
+        this['deployment_task_limit'] = deploymentTaskLimit;
+        return this;
+    }
+    public set deploymentTaskLimit(deploymentTaskLimit: DeploymentTaskLimit  | undefined) {
+        this['deployment_task_limit'] = deploymentTaskLimit;
+    }
+    public get deploymentTaskLimit(): DeploymentTaskLimit | undefined {
+        return this['deployment_task_limit'];
+    }
+    public withFrozenInfos(frozenInfos: Array<FrozenInfo>): ShowInferDeploymentResponse {
+        this['frozen_infos'] = frozenInfos;
+        return this;
+    }
+    public set frozenInfos(frozenInfos: Array<FrozenInfo>  | undefined) {
+        this['frozen_infos'] = frozenInfos;
+    }
+    public get frozenInfos(): Array<FrozenInfo> | undefined {
+        return this['frozen_infos'];
+    }
+    public withCreateAt(createAt: Date): ShowInferDeploymentResponse {
         this['create_at'] = createAt;
         return this;
     }
-    public set createAt(createAt: string  | undefined) {
+    public set createAt(createAt: Date  | undefined) {
         this['create_at'] = createAt;
     }
-    public get createAt(): string | undefined {
+    public get createAt(): Date | undefined {
         return this['create_at'];
     }
-    public withScheduleStrategy(scheduleStrategy: string): ShowInferDeploymentResponse {
-        this['schedule_strategy'] = scheduleStrategy;
+    public withUpdateAt(updateAt: Date): ShowInferDeploymentResponse {
+        this['update_at'] = updateAt;
         return this;
     }
-    public set scheduleStrategy(scheduleStrategy: string  | undefined) {
-        this['schedule_strategy'] = scheduleStrategy;
+    public set updateAt(updateAt: Date  | undefined) {
+        this['update_at'] = updateAt;
     }
-    public get scheduleStrategy(): string | undefined {
-        return this['schedule_strategy'];
+    public get updateAt(): Date | undefined {
+        return this['update_at'];
     }
 }

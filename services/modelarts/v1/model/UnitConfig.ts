@@ -8,6 +8,7 @@ import { ImageInfo } from './ImageInfo';
 import { ModelResource } from './ModelResource';
 import { ServiceSecurityConfig } from './ServiceSecurityConfig';
 import { TerminationGrace } from './TerminationGrace';
+import { UnitGroupPolicy } from './UnitGroupPolicy';
 
 
 export class UnitConfig {
@@ -23,6 +24,7 @@ export class UnitConfig {
     public files?: Array<FileInfo>;
     public dumps?: Array<Dump>;
     public count?: number;
+    private 'cpu_affinity'?: boolean;
     public cmd?: string;
     private 'termination_grace'?: TerminationGrace;
     public envs?: { [key: string]: string; };
@@ -36,6 +38,7 @@ export class UnitConfig {
     public affinity?: Affinity;
     private 'security_config'?: ServiceSecurityConfig;
     private 'pool_resource_flavor'?: string;
+    private 'group_policy'?: UnitGroupPolicy;
     public constructor(image?: ImageInfo) { 
         this['image'] = image;
     }
@@ -98,6 +101,16 @@ export class UnitConfig {
     public withCount(count: number): UnitConfig {
         this['count'] = count;
         return this;
+    }
+    public withCpuAffinity(cpuAffinity: boolean): UnitConfig {
+        this['cpu_affinity'] = cpuAffinity;
+        return this;
+    }
+    public set cpuAffinity(cpuAffinity: boolean  | undefined) {
+        this['cpu_affinity'] = cpuAffinity;
+    }
+    public get cpuAffinity(): boolean | undefined {
+        return this['cpu_affinity'];
     }
     public withCmd(cmd: string): UnitConfig {
         this['cmd'] = cmd;
@@ -198,5 +211,15 @@ export class UnitConfig {
     }
     public get poolResourceFlavor(): string | undefined {
         return this['pool_resource_flavor'];
+    }
+    public withGroupPolicy(groupPolicy: UnitGroupPolicy): UnitConfig {
+        this['group_policy'] = groupPolicy;
+        return this;
+    }
+    public set groupPolicy(groupPolicy: UnitGroupPolicy  | undefined) {
+        this['group_policy'] = groupPolicy;
+    }
+    public get groupPolicy(): UnitGroupPolicy | undefined {
+        return this['group_policy'];
     }
 }

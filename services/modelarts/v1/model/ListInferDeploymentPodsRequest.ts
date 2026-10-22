@@ -11,6 +11,7 @@ export class ListInferDeploymentPodsRequest {
     private 'pod_id'?: string;
     private 'pod_node_ip'?: string;
     private 'pod_node_name'?: string;
+    private 'pod_role_name'?: string;
     public constructor(id?: string, deploymentName?: string, name?: string) { 
         this['id'] = id;
         this['deployment_name'] = deploymentName;
@@ -85,5 +86,15 @@ export class ListInferDeploymentPodsRequest {
     }
     public get podNodeName(): string | undefined {
         return this['pod_node_name'];
+    }
+    public withPodRoleName(podRoleName: string): ListInferDeploymentPodsRequest {
+        this['pod_role_name'] = podRoleName;
+        return this;
+    }
+    public set podRoleName(podRoleName: string  | undefined) {
+        this['pod_role_name'] = podRoleName;
+    }
+    public get podRoleName(): string | undefined {
+        return this['pod_role_name'];
     }
 }

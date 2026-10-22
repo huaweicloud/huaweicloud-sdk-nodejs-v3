@@ -8,8 +8,8 @@ export class DevServerJobListResponse {
     public type?: string;
     public status?: string;
     private 'abnormal_count'?: number;
-    private 'create_at'?: string;
-    private 'update_at'?: string;
+    private 'create_at'?: number;
+    private 'update_at'?: number;
     public constructor() { 
     }
     public withId(id: string): DevServerJobListResponse {
@@ -52,24 +52,24 @@ export class DevServerJobListResponse {
     public get abnormalCount(): number | undefined {
         return this['abnormal_count'];
     }
-    public withCreateAt(createAt: string): DevServerJobListResponse {
+    public withCreateAt(createAt: number): DevServerJobListResponse {
         this['create_at'] = createAt;
         return this;
     }
-    public set createAt(createAt: string  | undefined) {
+    public set createAt(createAt: number  | undefined) {
         this['create_at'] = createAt;
     }
-    public get createAt(): string | undefined {
+    public get createAt(): number | undefined {
         return this['create_at'];
     }
-    public withUpdateAt(updateAt: string): DevServerJobListResponse {
+    public withUpdateAt(updateAt: number): DevServerJobListResponse {
         this['update_at'] = updateAt;
         return this;
     }
-    public set updateAt(updateAt: string  | undefined) {
+    public set updateAt(updateAt: number  | undefined) {
         this['update_at'] = updateAt;
     }
-    public get updateAt(): string | undefined {
+    public get updateAt(): number | undefined {
         return this['update_at'];
     }
 }

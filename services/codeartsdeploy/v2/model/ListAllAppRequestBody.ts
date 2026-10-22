@@ -2,6 +2,7 @@
 
 export class ListAllAppRequestBody {
     private 'project_id'?: string;
+    public search?: string;
     public page?: number;
     public size?: number;
     private 'sort_name'?: ListAllAppRequestBodySortNameEnum | string;
@@ -22,6 +23,10 @@ export class ListAllAppRequestBody {
     }
     public get projectId(): string | undefined {
         return this['project_id'];
+    }
+    public withSearch(search: string): ListAllAppRequestBody {
+        this['search'] = search;
+        return this;
     }
     public withPage(page: number): ListAllAppRequestBody {
         this['page'] = page;

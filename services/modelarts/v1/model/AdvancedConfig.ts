@@ -3,7 +3,7 @@ import { UpgradeConfig } from './UpgradeConfig';
 
 
 export class AdvancedConfig {
-    private 'deploy_timeout_minutes'?: string;
+    private 'deploy_timeout_minutes'?: number;
     private 'upgrade_config'?: UpgradeConfig;
     private 'service_secret'?: ServiceSecret;
     private 'dynamic_routing_enable'?: boolean;
@@ -13,6 +13,7 @@ export class AdvancedConfig {
     private 'metric_api_port'?: string;
     private 'metric_api_path'?: string;
     private 'custom_metrics_path'?: string;
+    private 'mooncake_enable'?: boolean;
     public port?: number;
     public protocol?: string;
     public constructor(upgradeConfig?: UpgradeConfig, port?: number, protocol?: string) { 
@@ -20,14 +21,14 @@ export class AdvancedConfig {
         this['port'] = port;
         this['protocol'] = protocol;
     }
-    public withDeployTimeoutMinutes(deployTimeoutMinutes: string): AdvancedConfig {
+    public withDeployTimeoutMinutes(deployTimeoutMinutes: number): AdvancedConfig {
         this['deploy_timeout_minutes'] = deployTimeoutMinutes;
         return this;
     }
-    public set deployTimeoutMinutes(deployTimeoutMinutes: string  | undefined) {
+    public set deployTimeoutMinutes(deployTimeoutMinutes: number  | undefined) {
         this['deploy_timeout_minutes'] = deployTimeoutMinutes;
     }
-    public get deployTimeoutMinutes(): string | undefined {
+    public get deployTimeoutMinutes(): number | undefined {
         return this['deploy_timeout_minutes'];
     }
     public withUpgradeConfig(upgradeConfig: UpgradeConfig): AdvancedConfig {
@@ -113,6 +114,16 @@ export class AdvancedConfig {
     }
     public get customMetricsPath(): string | undefined {
         return this['custom_metrics_path'];
+    }
+    public withMooncakeEnable(mooncakeEnable: boolean): AdvancedConfig {
+        this['mooncake_enable'] = mooncakeEnable;
+        return this;
+    }
+    public set mooncakeEnable(mooncakeEnable: boolean  | undefined) {
+        this['mooncake_enable'] = mooncakeEnable;
+    }
+    public get mooncakeEnable(): boolean | undefined {
+        return this['mooncake_enable'];
     }
     public withPort(port: number): AdvancedConfig {
         this['port'] = port;

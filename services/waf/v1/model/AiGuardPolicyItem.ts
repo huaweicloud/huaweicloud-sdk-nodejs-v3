@@ -1,0 +1,39 @@
+import { AiAppBasicInfo } from './AiAppBasicInfo';
+
+
+export class AiGuardPolicyItem {
+    public id?: string;
+    public name?: string;
+    private 'bind_ai_apps'?: Array<AiAppBasicInfo>;
+    private 'create_time'?: number;
+    public constructor() { 
+    }
+    public withId(id: string): AiGuardPolicyItem {
+        this['id'] = id;
+        return this;
+    }
+    public withName(name: string): AiGuardPolicyItem {
+        this['name'] = name;
+        return this;
+    }
+    public withBindAiApps(bindAiApps: Array<AiAppBasicInfo>): AiGuardPolicyItem {
+        this['bind_ai_apps'] = bindAiApps;
+        return this;
+    }
+    public set bindAiApps(bindAiApps: Array<AiAppBasicInfo>  | undefined) {
+        this['bind_ai_apps'] = bindAiApps;
+    }
+    public get bindAiApps(): Array<AiAppBasicInfo> | undefined {
+        return this['bind_ai_apps'];
+    }
+    public withCreateTime(createTime: number): AiGuardPolicyItem {
+        this['create_time'] = createTime;
+        return this;
+    }
+    public set createTime(createTime: number  | undefined) {
+        this['create_time'] = createTime;
+    }
+    public get createTime(): number | undefined {
+        return this['create_time'];
+    }
+}

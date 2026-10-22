@@ -8,6 +8,7 @@ import { ImageInfoResponse } from './ImageInfoResponse';
 import { InferModelResponse } from './InferModelResponse';
 import { ServiceSecurityConfig } from './ServiceSecurityConfig';
 import { TerminationGrace } from './TerminationGrace';
+import { UnitGroupPolicyResponse } from './UnitGroupPolicyResponse';
 
 
 export class UnitConfigResponse {
@@ -22,6 +23,7 @@ export class UnitConfigResponse {
     public codes?: Array<CodeResponse>;
     public dumps?: Array<DumpResponse>;
     public count?: number;
+    private 'cpu_affinity'?: boolean;
     private 'group_count'?: number;
     public cmd?: string;
     public envs?: { [key: string]: string; };
@@ -36,6 +38,7 @@ export class UnitConfigResponse {
     private 'termination_grace'?: TerminationGrace;
     private 'security_config'?: ServiceSecurityConfig;
     private 'pool_resource_flavor'?: string;
+    private 'group_policy'?: UnitGroupPolicyResponse;
     public constructor(image?: ImageInfoResponse) { 
         this['image'] = image;
     }
@@ -88,6 +91,16 @@ export class UnitConfigResponse {
     public withCount(count: number): UnitConfigResponse {
         this['count'] = count;
         return this;
+    }
+    public withCpuAffinity(cpuAffinity: boolean): UnitConfigResponse {
+        this['cpu_affinity'] = cpuAffinity;
+        return this;
+    }
+    public set cpuAffinity(cpuAffinity: boolean  | undefined) {
+        this['cpu_affinity'] = cpuAffinity;
+    }
+    public get cpuAffinity(): boolean | undefined {
+        return this['cpu_affinity'];
     }
     public withGroupCount(groupCount: number): UnitConfigResponse {
         this['group_count'] = groupCount;
@@ -198,5 +211,15 @@ export class UnitConfigResponse {
     }
     public get poolResourceFlavor(): string | undefined {
         return this['pool_resource_flavor'];
+    }
+    public withGroupPolicy(groupPolicy: UnitGroupPolicyResponse): UnitConfigResponse {
+        this['group_policy'] = groupPolicy;
+        return this;
+    }
+    public set groupPolicy(groupPolicy: UnitGroupPolicyResponse  | undefined) {
+        this['group_policy'] = groupPolicy;
+    }
+    public get groupPolicy(): UnitGroupPolicyResponse | undefined {
+        return this['group_policy'];
     }
 }

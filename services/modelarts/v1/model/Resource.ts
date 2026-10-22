@@ -9,6 +9,7 @@ export class Resource {
     private 'flavor_name'?: string;
     private 'node_count'?: number;
     private 'pool_id'?: string;
+    private 'pool_name'?: string;
     private 'pool_group_id'?: string;
     private 'flavor_detail'?: FlavorDetail;
     private 'main_container_allocated_resources'?: MainContainerAllocatedResources;
@@ -60,6 +61,16 @@ export class Resource {
     }
     public get poolId(): string | undefined {
         return this['pool_id'];
+    }
+    public withPoolName(poolName: string): Resource {
+        this['pool_name'] = poolName;
+        return this;
+    }
+    public set poolName(poolName: string  | undefined) {
+        this['pool_name'] = poolName;
+    }
+    public get poolName(): string | undefined {
+        return this['pool_name'];
     }
     public withPoolGroupId(poolGroupId: string): Resource {
         this['pool_group_id'] = poolGroupId;

@@ -6,7 +6,7 @@ export class ListInferDeploymentInstancesRequest {
     public status?: Array<string>;
     public limit?: number;
     public offset?: string;
-    private 'pod_name'?: string;
+    private 'instance_name'?: string;
     public constructor(id?: string, name?: string) { 
         this['id'] = id;
         this['name'] = name;
@@ -31,14 +31,14 @@ export class ListInferDeploymentInstancesRequest {
         this['offset'] = offset;
         return this;
     }
-    public withPodName(podName: string): ListInferDeploymentInstancesRequest {
-        this['pod_name'] = podName;
+    public withInstanceName(instanceName: string): ListInferDeploymentInstancesRequest {
+        this['instance_name'] = instanceName;
         return this;
     }
-    public set podName(podName: string  | undefined) {
-        this['pod_name'] = podName;
+    public set instanceName(instanceName: string  | undefined) {
+        this['instance_name'] = instanceName;
     }
-    public get podName(): string | undefined {
-        return this['pod_name'];
+    public get instanceName(): string | undefined {
+        return this['instance_name'];
     }
 }

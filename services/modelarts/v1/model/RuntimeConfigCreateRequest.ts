@@ -9,6 +9,7 @@ export class RuntimeConfigCreateRequest {
     private 'service_limit'?: ServiceLimit;
     private 'service_secret'?: ServiceSecret;
     private 'server_task_limit'?: ServerTaskLimit;
+    private 'smart_routing_enable'?: boolean;
     public constructor(serviceInvoke?: ServiceInvokeCreateRequest, serviceLimit?: ServiceLimit) { 
         this['service_invoke'] = serviceInvoke;
         this['service_limit'] = serviceLimit;
@@ -52,5 +53,15 @@ export class RuntimeConfigCreateRequest {
     }
     public get serverTaskLimit(): ServerTaskLimit | undefined {
         return this['server_task_limit'];
+    }
+    public withSmartRoutingEnable(smartRoutingEnable: boolean): RuntimeConfigCreateRequest {
+        this['smart_routing_enable'] = smartRoutingEnable;
+        return this;
+    }
+    public set smartRoutingEnable(smartRoutingEnable: boolean  | undefined) {
+        this['smart_routing_enable'] = smartRoutingEnable;
+    }
+    public get smartRoutingEnable(): boolean | undefined {
+        return this['smart_routing_enable'];
     }
 }

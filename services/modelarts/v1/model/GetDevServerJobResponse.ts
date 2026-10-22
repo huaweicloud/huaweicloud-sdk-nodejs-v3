@@ -4,8 +4,8 @@ import { DevServerTaskResponse } from './DevServerTaskResponse';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class GetDevServerJobResponse extends SdkResponse {
-    private 'create_at'?: string;
-    private 'update_at'?: string;
+    private 'create_at'?: number;
+    private 'update_at'?: number;
     public id?: string;
     public name?: string;
     public type?: string;
@@ -19,24 +19,24 @@ export class GetDevServerJobResponse extends SdkResponse {
     public constructor() { 
         super();
     }
-    public withCreateAt(createAt: string): GetDevServerJobResponse {
+    public withCreateAt(createAt: number): GetDevServerJobResponse {
         this['create_at'] = createAt;
         return this;
     }
-    public set createAt(createAt: string  | undefined) {
+    public set createAt(createAt: number  | undefined) {
         this['create_at'] = createAt;
     }
-    public get createAt(): string | undefined {
+    public get createAt(): number | undefined {
         return this['create_at'];
     }
-    public withUpdateAt(updateAt: string): GetDevServerJobResponse {
+    public withUpdateAt(updateAt: number): GetDevServerJobResponse {
         this['update_at'] = updateAt;
         return this;
     }
-    public set updateAt(updateAt: string  | undefined) {
+    public set updateAt(updateAt: number  | undefined) {
         this['update_at'] = updateAt;
     }
-    public get updateAt(): string | undefined {
+    public get updateAt(): number | undefined {
         return this['update_at'];
     }
     public withId(id: string): GetDevServerJobResponse {

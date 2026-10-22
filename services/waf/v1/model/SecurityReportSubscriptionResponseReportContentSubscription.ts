@@ -12,7 +12,7 @@ export class SecurityReportSubscriptionResponseReportContentSubscription {
     private 'top_attack_source_ips_enable'?: boolean;
     private 'top_attacked_urls_enable'?: boolean;
     private 'top_attack_source_locations_enable'?: boolean;
-    private 'top_abnormal_urls_enable'?: boolean;
+    private 'top_error_pages_enable'?: boolean;
     public constructor() { 
     }
     public withOverviewStatisticsEnable(overviewStatisticsEnable: boolean): SecurityReportSubscriptionResponseReportContentSubscription {
@@ -125,14 +125,14 @@ export class SecurityReportSubscriptionResponseReportContentSubscription {
     public get topAttackSourceLocationsEnable(): boolean | undefined {
         return this['top_attack_source_locations_enable'];
     }
-    public withTopAbnormalUrlsEnable(topAbnormalUrlsEnable: boolean): SecurityReportSubscriptionResponseReportContentSubscription {
-        this['top_abnormal_urls_enable'] = topAbnormalUrlsEnable;
+    public withTopErrorPagesEnable(topErrorPagesEnable: boolean): SecurityReportSubscriptionResponseReportContentSubscription {
+        this['top_error_pages_enable'] = topErrorPagesEnable;
         return this;
     }
-    public set topAbnormalUrlsEnable(topAbnormalUrlsEnable: boolean  | undefined) {
-        this['top_abnormal_urls_enable'] = topAbnormalUrlsEnable;
+    public set topErrorPagesEnable(topErrorPagesEnable: boolean  | undefined) {
+        this['top_error_pages_enable'] = topErrorPagesEnable;
     }
-    public get topAbnormalUrlsEnable(): boolean | undefined {
-        return this['top_abnormal_urls_enable'];
+    public get topErrorPagesEnable(): boolean | undefined {
+        return this['top_error_pages_enable'];
     }
 }

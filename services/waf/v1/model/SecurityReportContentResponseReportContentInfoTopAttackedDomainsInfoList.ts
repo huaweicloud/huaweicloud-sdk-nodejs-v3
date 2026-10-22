@@ -4,6 +4,7 @@ export class SecurityReportContentResponseReportContentInfoTopAttackedDomainsInf
     public key?: string;
     public num?: number;
     private 'web_tag'?: string;
+    public host?: string;
     public constructor() { 
     }
     public withKey(key: string): SecurityReportContentResponseReportContentInfoTopAttackedDomainsInfoList {
@@ -23,5 +24,9 @@ export class SecurityReportContentResponseReportContentInfoTopAttackedDomainsInf
     }
     public get webTag(): string | undefined {
         return this['web_tag'];
+    }
+    public withHost(host: string): SecurityReportContentResponseReportContentInfoTopAttackedDomainsInfoList {
+        this['host'] = host;
+        return this;
     }
 }

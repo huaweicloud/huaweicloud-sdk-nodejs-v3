@@ -1,9 +1,9 @@
-import { JobDescription } from './JobDescription';
+import { JobUpdateRequestBody } from './JobUpdateRequestBody';
 
 
 export class ChangeTrainingJobDescriptionRequest {
     private 'training_job_id'?: string;
-    public body?: JobDescription;
+    public body?: JobUpdateRequestBody;
     public constructor(trainingJobId?: string) { 
         this['training_job_id'] = trainingJobId;
     }
@@ -17,7 +17,7 @@ export class ChangeTrainingJobDescriptionRequest {
     public get trainingJobId(): string | undefined {
         return this['training_job_id'];
     }
-    public withBody(body: JobDescription): ChangeTrainingJobDescriptionRequest {
+    public withBody(body: JobUpdateRequestBody): ChangeTrainingJobDescriptionRequest {
         this['body'] = body;
         return this;
     }

@@ -8,6 +8,7 @@ export class ServicePodResponse {
     private 'pod_role'?: string;
     public status?: string;
     private 'update_time'?: number;
+    private 'pod_role_name'?: string;
     public constructor() { 
     }
     public withPodId(podId: string): ServicePodResponse {
@@ -73,5 +74,15 @@ export class ServicePodResponse {
     }
     public get updateTime(): number | undefined {
         return this['update_time'];
+    }
+    public withPodRoleName(podRoleName: string): ServicePodResponse {
+        this['pod_role_name'] = podRoleName;
+        return this;
+    }
+    public set podRoleName(podRoleName: string  | undefined) {
+        this['pod_role_name'] = podRoleName;
+    }
+    public get podRoleName(): string | undefined {
+        return this['pod_role_name'];
     }
 }

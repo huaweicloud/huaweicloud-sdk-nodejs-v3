@@ -176,6 +176,8 @@ import { CreateHpaRequestBody } from './model/CreateHpaRequestBody';
 import { CreateHraRequestBody } from './model/CreateHraRequestBody';
 import { CreateHyperClusterRequest } from './model/CreateHyperClusterRequest';
 import { CreateHyperClusterResponse } from './model/CreateHyperClusterResponse';
+import { CreateHyperinstanceGroupRequest } from './model/CreateHyperinstanceGroupRequest';
+import { CreateHyperinstanceGroupResponse } from './model/CreateHyperinstanceGroupResponse';
 import { CreateHyperinstanceTagsRequest } from './model/CreateHyperinstanceTagsRequest';
 import { CreateHyperinstanceTagsResponse } from './model/CreateHyperinstanceTagsResponse';
 import { CreateImageRequest } from './model/CreateImageRequest';
@@ -276,6 +278,8 @@ import { DeleteDevServerRequest } from './model/DeleteDevServerRequest';
 import { DeleteDevServerResponse } from './model/DeleteDevServerResponse';
 import { DeleteHyperClusterRequest } from './model/DeleteHyperClusterRequest';
 import { DeleteHyperClusterResponse } from './model/DeleteHyperClusterResponse';
+import { DeleteHyperinstanceGroupRequest } from './model/DeleteHyperinstanceGroupRequest';
+import { DeleteHyperinstanceGroupResponse } from './model/DeleteHyperinstanceGroupResponse';
 import { DeleteHyperinstanceRequest } from './model/DeleteHyperinstanceRequest';
 import { DeleteHyperinstanceResponse } from './model/DeleteHyperinstanceResponse';
 import { DeleteHyperinstanceTagsRequest } from './model/DeleteHyperinstanceTagsRequest';
@@ -398,6 +402,8 @@ import { GetDevServerOperationRequest } from './model/GetDevServerOperationReque
 import { GetDevServerOperationResponse } from './model/GetDevServerOperationResponse';
 import { GetHyperClusterRequest } from './model/GetHyperClusterRequest';
 import { GetHyperClusterResponse } from './model/GetHyperClusterResponse';
+import { GetHyperinstanceGroupRequest } from './model/GetHyperinstanceGroupRequest';
+import { GetHyperinstanceGroupResponse } from './model/GetHyperinstanceGroupResponse';
 import { GetHyperinstanceOperationRequest } from './model/GetHyperinstanceOperationRequest';
 import { GetHyperinstanceOperationResponse } from './model/GetHyperinstanceOperationResponse';
 import { GetHyperinstanceRequest } from './model/GetHyperinstanceRequest';
@@ -423,7 +429,11 @@ import { HttpGet } from './model/HttpGet';
 import { HyperCluster } from './model/HyperCluster';
 import { HyperClusterCreateRequest } from './model/HyperClusterCreateRequest';
 import { HyperClusterNetworkInfo } from './model/HyperClusterNetworkInfo';
+import { HyperGroup } from './model/HyperGroup';
 import { HyperinstanceClustersCapacityRequest } from './model/HyperinstanceClustersCapacityRequest';
+import { HyperinstanceGroupCreateRequest } from './model/HyperinstanceGroupCreateRequest';
+import { HyperinstanceGroupResponse } from './model/HyperinstanceGroupResponse';
+import { HyperinstanceGroupsCapacityRequest } from './model/HyperinstanceGroupsCapacityRequest';
 import { I18nDescription } from './model/I18nDescription';
 import { Image } from './model/Image';
 import { ImageCreateReq } from './model/ImageCreateReq';
@@ -461,7 +471,6 @@ import { JobAlgorithmResponsePoliciesAutoSearch } from './model/JobAlgorithmResp
 import { JobAlgorithmResponsePoliciesAutoSearchAlgoConfigs } from './model/JobAlgorithmResponsePoliciesAutoSearchAlgoConfigs';
 import { JobAlgorithmResponsePoliciesAutoSearchRewardAttrs } from './model/JobAlgorithmResponsePoliciesAutoSearchRewardAttrs';
 import { JobAlgorithmResponsePoliciesAutoSearchSearchParams } from './model/JobAlgorithmResponsePoliciesAutoSearchSearchParams';
-import { JobDescription } from './model/JobDescription';
 import { JobEndpointsReq } from './model/JobEndpointsReq';
 import { JobEndpointsResp } from './model/JobEndpointsResp';
 import { JobEngine } from './model/JobEngine';
@@ -478,6 +487,10 @@ import { JobResponse } from './model/JobResponse';
 import { JobSearches } from './model/JobSearches';
 import { JobSummary } from './model/JobSummary';
 import { JobSummaryResp } from './model/JobSummaryResp';
+import { JobUpdateRequestBody } from './model/JobUpdateRequestBody';
+import { JobUpdateRequestBodyMetadata } from './model/JobUpdateRequestBodyMetadata';
+import { JobUpdateRequestBodySpec } from './model/JobUpdateRequestBodySpec';
+import { JobUpdateRequestBodySpecSchedulePolicy } from './model/JobUpdateRequestBodySpecSchedulePolicy';
 import { JobVolumeResp } from './model/JobVolumeResp';
 import { JupyterLab } from './model/JupyterLab';
 import { Lease } from './model/Lease';
@@ -525,6 +538,12 @@ import { ListHyperClusterRequest } from './model/ListHyperClusterRequest';
 import { ListHyperClusterResponse } from './model/ListHyperClusterResponse';
 import { ListHyperinstanceClustersCapacityRequest } from './model/ListHyperinstanceClustersCapacityRequest';
 import { ListHyperinstanceClustersCapacityResponse } from './model/ListHyperinstanceClustersCapacityResponse';
+import { ListHyperinstanceGroupRequest } from './model/ListHyperinstanceGroupRequest';
+import { ListHyperinstanceGroupResponse } from './model/ListHyperinstanceGroupResponse';
+import { ListHyperinstanceGroupsCapacityRequest } from './model/ListHyperinstanceGroupsCapacityRequest';
+import { ListHyperinstanceGroupsCapacityResponse } from './model/ListHyperinstanceGroupsCapacityResponse';
+import { ListHyperinstanceServersRequest } from './model/ListHyperinstanceServersRequest';
+import { ListHyperinstanceServersResponse } from './model/ListHyperinstanceServersResponse';
 import { ListHyperinstancesRequest } from './model/ListHyperinstancesRequest';
 import { ListHyperinstancesResponse } from './model/ListHyperinstancesResponse';
 import { ListImageGroupRequest } from './model/ListImageGroupRequest';
@@ -618,7 +637,7 @@ import { LogDirResp } from './model/LogDirResp';
 import { LogExportConfig } from './model/LogExportConfig';
 import { LogExportPath } from './model/LogExportPath';
 import { LogExportPathResp } from './model/LogExportPathResp';
-import { LtsConfiguration } from './model/LtsConfiguration';
+import { LtsConfigurationV2 } from './model/LtsConfigurationV2';
 import { LtsFiles } from './model/LtsFiles';
 import { LvmConfig } from './model/LvmConfig';
 import { MainContainerAllocatedResources } from './model/MainContainerAllocatedResources';
@@ -874,6 +893,7 @@ import { ServerCreateRequest } from './model/ServerCreateRequest';
 import { ServerDataVolume } from './model/ServerDataVolume';
 import { ServerFlavorinstanceResponse } from './model/ServerFlavorinstanceResponse';
 import { ServerHpsClusterCapacity } from './model/ServerHpsClusterCapacity';
+import { ServerHpsGroupCapacity } from './model/ServerHpsGroupCapacity';
 import { ServerHpsInfo } from './model/ServerHpsInfo';
 import { ServerHyperScaleUpRequest } from './model/ServerHyperScaleUpRequest';
 import { ServerHyperinstanceResponse } from './model/ServerHyperinstanceResponse';
@@ -1050,6 +1070,7 @@ import { ShowWorkspaceResponse } from './model/ShowWorkspaceResponse';
 import { SkuInfo } from './model/SkuInfo';
 import { SloInfo } from './model/SloInfo';
 import { SloObjectives } from './model/SloObjectives';
+import { SmartRoutingEnable } from './model/SmartRoutingEnable';
 import { Spec } from './model/Spec';
 import { SpecResource } from './model/SpecResource';
 import { SpecResponse } from './model/SpecResponse';
@@ -1137,10 +1158,14 @@ import { TrainingExperimentResponse } from './model/TrainingExperimentResponse';
 import { TrainingExperimentResponseMetadata } from './model/TrainingExperimentResponseMetadata';
 import { TrainingExperimentStatistic } from './model/TrainingExperimentStatistic';
 import { TrainingQuotaResponse } from './model/TrainingQuotaResponse';
+import { UnbindDevServerPublicIPRequest } from './model/UnbindDevServerPublicIPRequest';
+import { UnbindDevServerPublicIPResponse } from './model/UnbindDevServerPublicIPResponse';
 import { UnbindInferApiKeyRequest } from './model/UnbindInferApiKeyRequest';
 import { UnbindInferApiKeyResponse } from './model/UnbindInferApiKeyResponse';
 import { UnitConfig } from './model/UnitConfig';
 import { UnitConfigResponse } from './model/UnitConfigResponse';
+import { UnitGroupPolicy } from './model/UnitGroupPolicy';
+import { UnitGroupPolicyResponse } from './model/UnitGroupPolicyResponse';
 import { UpdateAuthModeRequest } from './model/UpdateAuthModeRequest';
 import { UpdateAuthModeRequestBody } from './model/UpdateAuthModeRequestBody';
 import { UpdateAuthModeResponse } from './model/UpdateAuthModeResponse';
@@ -1856,13 +1881,14 @@ export class ModelArtsClient {
     }
 
     /**
-     * 更新训练作业描述。
+     * 更新训练作业接口用于修改已存在的训练作业的描述、事件通知、作业优先级、允许被抢占等信息。
+     * 该接口适用于以下场景：当用户需要更新训练作业的描述、事件通知、作业优先级、允许被抢占等信息时，可以通过此接口进行修改。使用该接口的前提条件是训练作业已存在且用户具有相应的权限。更新操作完成后，训练作业的描述、事件通知、作业优先级、允许被抢占等信息将被更新。若训练作业不存在或用户无权限操作，接口将返回相应的错误信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新训练作业描述
      * @param {string} trainingJobId 训练作业ID。获取方法请参见[查询训练作业列表](ListTrainingJobs.xml)。
-     * @param {JobDescription} body 更新训练作业描述的请求体
+     * @param {JobUpdateRequestBody} body 更新训练作业描述的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2046,6 +2072,25 @@ export class ModelArtsClient {
      */
     public createHyperCluster(createHyperClusterRequest?: CreateHyperClusterRequest): Promise<CreateHyperClusterResponse> {
         const options = ParamCreater().createHyperCluster(createHyperClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建Hyper Group接口用于在系统中创建一个新的Hyper Group。该接口适用于以下场景：当用户需要使用超平面网络时，可以通过此接口创建Hyper Group。使用该接口的前提条件是用户已登录并具有创建Hyper Group的权限，且系统中已配置了必要的资源。创建操作完成后，将生成一个新的超平面网络，并返回超平面网络的详细信息，包括ID、名称、参数面网络ID。若用户无权限操作、系统中缺少必要的资源或配置参数无效，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建hyperinstance-group
+     * @param {HyperinstanceGroupCreateRequest} createHyperinstanceGroupRequestBody **参数解释**：创建hyperinstance-group请求体。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createHyperinstanceGroup(createHyperinstanceGroupRequest?: CreateHyperinstanceGroupRequest): Promise<CreateHyperinstanceGroupResponse> {
+        const options = ParamCreater().createHyperinstanceGroup(createHyperinstanceGroupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2548,6 +2593,25 @@ export class ModelArtsClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-Request-Id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除hyperinstance-group
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除hyperinstance-group
+     * @param {string} id **参数解释**：要删除的hyperinstance-group ID。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteHyperinstanceGroup(deleteHyperinstanceGroupRequest?: DeleteHyperinstanceGroupRequest): Promise<DeleteHyperinstanceGroupResponse> {
+        const options = ParamCreater().deleteHyperinstanceGroup(deleteHyperinstanceGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -3099,6 +3163,25 @@ export class ModelArtsClient {
     }
 
     /**
+     * 查询HyperGroup详情接口用于在系统中查询Hyper Group详情。该接口适用于以下场景：当用户需要查询Hyper Group详情，可以通过此接口完成。使用该接口的前提条件是用户已登录并具有查询Hyper Group的权限，且系统中已配置了必要的资源。查询会返回超平面网络的详细信息，包括ID、名称、参数面网络ID等。若用户无权限操作、系统中缺少必要的资源或配置参数无效，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询hyperinstance-group详情
+     * @param {string} id **参数解释**：需查询的hyperinstance-group ID。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getHyperinstanceGroup(getHyperinstanceGroupRequest?: GetHyperinstanceGroupRequest): Promise<GetHyperinstanceGroupResponse> {
+        const options = ParamCreater().getHyperinstanceGroup(getHyperinstanceGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询Operation详情接口用于获取指定Operation的详细信息。该接口适用于以下场景：当用户需要了解某个Operation的具体执行情况和状态，以便进行故障排查或操作审计时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询Operation详情的权限，且指定的Operation已存在。查询操作完成后，接口将返回指定Operation的详细信息，包括Operation ID、操作类型、执行状态、开始时间、结束时间、操作结果等。若用户无权限操作、指定的Operation不存在或Operation ID无效，接口将返回相应的错误信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3475,6 +3558,62 @@ export class ModelArtsClient {
     }
 
     /**
+     * 查询hyperinstance-group详情列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询hyperinstance-group详情列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHyperinstanceGroup(listHyperinstanceGroupRequest?: ListHyperinstanceGroupRequest): Promise<ListHyperinstanceGroupResponse> {
+        const options = ParamCreater().listHyperinstanceGroup();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询超节点hyperinstance-groups容量测算结果
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询超节点hyperinstance-groups容量测算结果
+     * @param {HyperinstanceGroupsCapacityRequest} listHyperinstanceGroupsCapacityRequestBody **参数解释**：超节点组容量预测请求体。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHyperinstanceGroupsCapacity(listHyperinstanceGroupsCapacityRequest?: ListHyperinstanceGroupsCapacityRequest): Promise<ListHyperinstanceGroupsCapacityResponse> {
+        const options = ParamCreater().listHyperinstanceGroupsCapacity(listHyperinstanceGroupsCapacityRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定超节点下的所有节点实例列表接口用于获取用户名下指定超节点所有Lite Server实例的详细信息。该接口适用于以下场景：用户需要查看其指定超节点下的所有Lite Server实例的状态、配置等信息，以便进行资源管理。使用该接口的前提条件是用户已登录且具有查询指定超节点下的所有节点实例列表接口的权限。调用此接口后，系统将返回指定超节点下所有Lite Server实例的列表，包括实例ID、名称、状态、创建时间等信息。若用户无权限或未登录，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询超节点的所有子节点
+     * @param {string} id **参数解释**：Lite Server超节点实例ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHyperinstanceServers(listHyperinstanceServersRequest?: ListHyperinstanceServersRequest): Promise<ListHyperinstanceServersResponse> {
+        const options = ParamCreater().listHyperinstanceServers(listHyperinstanceServersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询用户所有超节点实例详情接口用于获取用户所有Lite Server超节点实例的详细信息。该接口适用于以下场景：当用户需要查看其所有超节点实例的配置、状态和使用情况时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询超节点实例的权限。查询操作完成后，接口将返回所有超节点实例的详细信息，包括实例ID、操作系统、运行状态、资源使用情况等。若用户无权限操作或没有超节点实例，接口将返回相应的错误信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3611,7 +3750,7 @@ export class ModelArtsClient {
      * @param {Array<string>} [status] **参数解释：** 服务实例状态，一次支持多种状态筛选，多种状态以\&quot;,\&quot;连接，不能存在空格。默认不过滤。取值范围有4种RUNNING（运行中）、ERROR（错误）、INIT（初始化）、DELETED（已删除)。 **约束限制：** 不涉及。
      * @param {number} [limit] **参数解释：** 指定每一页返回的最大条目数。 **约束限制：** 不涉及。 **取值范围：** [1,500] **默认取值：** 10。
      * @param {string} [offset] **参数解释：** 分页列表的起始页。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 0。
-     * @param {string} [podName] **参数解释：** pod名字。 **取值范围：** 不涉及。
+     * @param {string} [instanceName] **参数解释：** 服务实例名字。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3664,6 +3803,7 @@ export class ModelArtsClient {
      * @param {string} [podId] **参数解释：** pod ID。 **取值范围：** 不涉及。
      * @param {string} [podNodeIp] **参数解释：** pod节点IP地址。 **取值范围：** 不涉及。
      * @param {string} [podNodeName] **参数解释：** pod节点名称。 **取值范围：** 不涉及。
+     * @param {string} [podRoleName] **参数解释：** pod所属单元名称。 **取值范围：** 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5842,6 +5982,26 @@ export class ModelArtsClient {
      */
     public syncImage(syncImageRequest?: SyncImageRequest): Promise<SyncImageResponse> {
         const options = ParamCreater().syncImage(syncImageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Lite Server解绑EIP
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary Lite Server解绑EIP
+     * @param {string} id **参数解释**：Lite Server实例ID。 **默认取值**：不涉及。
+     * @param {string} publicipId **参数解释**：EIP ID。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public unbindDevServerPublicIP(unbindDevServerPublicIPRequest?: UnbindDevServerPublicIPRequest): Promise<UnbindDevServerPublicIPResponse> {
+        const options = ParamCreater().unbindDevServerPublicIP(unbindDevServerPublicIPRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8607,7 +8767,8 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新训练作业描述。
+         * 更新训练作业接口用于修改已存在的训练作业的描述、事件通知、作业优先级、允许被抢占等信息。
+         * 该接口适用于以下场景：当用户需要更新训练作业的描述、事件通知、作业优先级、允许被抢占等信息时，可以通过此接口进行修改。使用该接口的前提条件是训练作业已存在且用户具有相应的权限。更新操作完成后，训练作业的描述、事件通知、作业优先级、允许被抢占等信息将被更新。若训练作业不存在或用户无权限操作，接口将返回相应的错误信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -9015,6 +9176,44 @@ export const ParamCreater = function () {
                     body = createHyperClusterRequest.body
                 } else {
                     body = createHyperClusterRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建Hyper Group接口用于在系统中创建一个新的Hyper Group。该接口适用于以下场景：当用户需要使用超平面网络时，可以通过此接口创建Hyper Group。使用该接口的前提条件是用户已登录并具有创建Hyper Group的权限，且系统中已配置了必要的资源。创建操作完成后，将生成一个新的超平面网络，并返回超平面网络的详细信息，包括ID、名称、参数面网络ID。若用户无权限操作、系统中缺少必要的资源或配置参数无效，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createHyperinstanceGroup(createHyperinstanceGroupRequest?: CreateHyperinstanceGroupRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dev-servers/hyperinstance/groups",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createHyperinstanceGroupRequest !== null && createHyperinstanceGroupRequest !== undefined) {
+                if (createHyperinstanceGroupRequest instanceof CreateHyperinstanceGroupRequest) {
+                    body = createHyperinstanceGroupRequest.body
+                } else {
+                    body = createHyperinstanceGroupRequest['body'];
                 }
             }
 
@@ -10078,6 +10277,43 @@ export const ParamCreater = function () {
         
             if (id === null || id === undefined) {
             throw new RequiredError('id','Required parameter id was null or undefined when calling deleteHyperinstance.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除hyperinstance-group
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteHyperinstanceGroup(deleteHyperinstanceGroupRequest?: DeleteHyperinstanceGroupRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/dev-servers/hyperinstance/groups/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (deleteHyperinstanceGroupRequest !== null && deleteHyperinstanceGroupRequest !== undefined) {
+                if (deleteHyperinstanceGroupRequest instanceof DeleteHyperinstanceGroupRequest) {
+                    id = deleteHyperinstanceGroupRequest.id;
+                } else {
+                    id = deleteHyperinstanceGroupRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteHyperinstanceGroup.');
             }
 
             options.pathParams = { 'id': id, };
@@ -11288,6 +11524,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询HyperGroup详情接口用于在系统中查询Hyper Group详情。该接口适用于以下场景：当用户需要查询Hyper Group详情，可以通过此接口完成。使用该接口的前提条件是用户已登录并具有查询Hyper Group的权限，且系统中已配置了必要的资源。查询会返回超平面网络的详细信息，包括ID、名称、参数面网络ID等。若用户无权限操作、系统中缺少必要的资源或配置参数无效，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getHyperinstanceGroup(getHyperinstanceGroupRequest?: GetHyperinstanceGroupRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/hyperinstance/groups/{id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (getHyperinstanceGroupRequest !== null && getHyperinstanceGroupRequest !== undefined) {
+                if (getHyperinstanceGroupRequest instanceof GetHyperinstanceGroupRequest) {
+                    id = getHyperinstanceGroupRequest.id;
+                } else {
+                    id = getHyperinstanceGroupRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling getHyperinstanceGroup.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询Operation详情接口用于获取指定Operation的详细信息。该接口适用于以下场景：当用户需要了解某个Operation的具体执行情况和状态，以便进行故障排查或操作审计时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询Operation详情的权限，且指定的Operation已存在。查询操作完成后，接口将返回指定Operation的详细信息，包括Operation ID、操作类型、执行状态、开始时间、结束时间、操作结果等。若用户无权限操作、指定的Operation不存在或Operation ID无效，接口将返回相应的错误信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12170,6 +12443,102 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询hyperinstance-group详情列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listHyperinstanceGroup() {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/hyperinstance/groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询超节点hyperinstance-groups容量测算结果
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listHyperinstanceGroupsCapacity(listHyperinstanceGroupsCapacityRequest?: ListHyperinstanceGroupsCapacityRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/dev-servers/hyperinstance/group-capacity-evaluations",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (listHyperinstanceGroupsCapacityRequest !== null && listHyperinstanceGroupsCapacityRequest !== undefined) {
+                if (listHyperinstanceGroupsCapacityRequest instanceof ListHyperinstanceGroupsCapacityRequest) {
+                    body = listHyperinstanceGroupsCapacityRequest.body
+                } else {
+                    body = listHyperinstanceGroupsCapacityRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定超节点下的所有节点实例列表接口用于获取用户名下指定超节点所有Lite Server实例的详细信息。该接口适用于以下场景：用户需要查看其指定超节点下的所有Lite Server实例的状态、配置等信息，以便进行资源管理。使用该接口的前提条件是用户已登录且具有查询指定超节点下的所有节点实例列表接口的权限。调用此接口后，系统将返回指定超节点下所有Lite Server实例的列表，包括实例ID、名称、状态、创建时间等信息。若用户无权限或未登录，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listHyperinstanceServers(listHyperinstanceServersRequest?: ListHyperinstanceServersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/dev-servers/hyperinstance/{id}/servers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+
+            if (listHyperinstanceServersRequest !== null && listHyperinstanceServersRequest !== undefined) {
+                if (listHyperinstanceServersRequest instanceof ListHyperinstanceServersRequest) {
+                    id = listHyperinstanceServersRequest.id;
+                } else {
+                    id = listHyperinstanceServersRequest['id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling listHyperinstanceServers.');
+            }
+
+            options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询用户所有超节点实例详情接口用于获取用户所有Lite Server超节点实例的详细信息。该接口适用于以下场景：当用户需要查看其所有超节点实例的配置、状态和使用情况时，可以通过此接口获取相关信息。使用该接口的前提条件是用户已登录并具有查询超节点实例的权限。查询操作完成后，接口将返回所有超节点实例的详细信息，包括实例ID、操作系统、运行状态、资源使用情况等。若用户无权限操作或没有超节点实例，接口将返回相应的错误信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12598,7 +12967,7 @@ export const ParamCreater = function () {
             
             let offset;
             
-            let podName;
+            let instanceName;
 
             if (listInferDeploymentInstancesRequest !== null && listInferDeploymentInstancesRequest !== undefined) {
                 if (listInferDeploymentInstancesRequest instanceof ListInferDeploymentInstancesRequest) {
@@ -12607,14 +12976,14 @@ export const ParamCreater = function () {
                     status = listInferDeploymentInstancesRequest.status;
                     limit = listInferDeploymentInstancesRequest.limit;
                     offset = listInferDeploymentInstancesRequest.offset;
-                    podName = listInferDeploymentInstancesRequest.podName;
+                    instanceName = listInferDeploymentInstancesRequest.instanceName;
                 } else {
                     id = listInferDeploymentInstancesRequest['id'];
                     name = listInferDeploymentInstancesRequest['name'];
                     status = listInferDeploymentInstancesRequest['status'];
                     limit = listInferDeploymentInstancesRequest['limit'];
                     offset = listInferDeploymentInstancesRequest['offset'];
-                    podName = listInferDeploymentInstancesRequest['pod_name'];
+                    instanceName = listInferDeploymentInstancesRequest['instance_name'];
                 }
             }
 
@@ -12634,8 +13003,8 @@ export const ParamCreater = function () {
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
-            if (podName !== null && podName !== undefined) {
-                localVarQueryParameter['pod_name'] = podName;
+            if (instanceName !== null && instanceName !== undefined) {
+                localVarQueryParameter['instance_name'] = instanceName;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -12753,6 +13122,8 @@ export const ParamCreater = function () {
             let podNodeIp;
             
             let podNodeName;
+            
+            let podRoleName;
 
             if (listInferDeploymentPodsRequest !== null && listInferDeploymentPodsRequest !== undefined) {
                 if (listInferDeploymentPodsRequest instanceof ListInferDeploymentPodsRequest) {
@@ -12766,6 +13137,7 @@ export const ParamCreater = function () {
                     podId = listInferDeploymentPodsRequest.podId;
                     podNodeIp = listInferDeploymentPodsRequest.podNodeIp;
                     podNodeName = listInferDeploymentPodsRequest.podNodeName;
+                    podRoleName = listInferDeploymentPodsRequest.podRoleName;
                 } else {
                     id = listInferDeploymentPodsRequest['id'];
                     deploymentName = listInferDeploymentPodsRequest['deployment_name'];
@@ -12777,6 +13149,7 @@ export const ParamCreater = function () {
                     podId = listInferDeploymentPodsRequest['pod_id'];
                     podNodeIp = listInferDeploymentPodsRequest['pod_node_ip'];
                     podNodeName = listInferDeploymentPodsRequest['pod_node_name'];
+                    podRoleName = listInferDeploymentPodsRequest['pod_role_name'];
                 }
             }
 
@@ -12810,6 +13183,9 @@ export const ParamCreater = function () {
             }
             if (podNodeName !== null && podNodeName !== undefined) {
                 localVarQueryParameter['pod_node_name'] = podNodeName;
+            }
+            if (podRoleName !== null && podRoleName !== undefined) {
+                localVarQueryParameter['pod_role_name'] = podRoleName;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -17843,6 +18219,50 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'image_id': imageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Lite Server解绑EIP
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        unbindDevServerPublicIP(unbindDevServerPublicIPRequest?: UnbindDevServerPublicIPRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/dev-servers/{id}/publicips/{publicip_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let id;
+            
+            let publicipId;
+
+            if (unbindDevServerPublicIPRequest !== null && unbindDevServerPublicIPRequest !== undefined) {
+                if (unbindDevServerPublicIPRequest instanceof UnbindDevServerPublicIPRequest) {
+                    id = unbindDevServerPublicIPRequest.id;
+                    publicipId = unbindDevServerPublicIPRequest.publicipId;
+                } else {
+                    id = unbindDevServerPublicIPRequest['id'];
+                    publicipId = unbindDevServerPublicIPRequest['publicip_id'];
+                }
+            }
+
+        
+            if (id === null || id === undefined) {
+            throw new RequiredError('id','Required parameter id was null or undefined when calling unbindDevServerPublicIP.');
+            }
+            if (publicipId === null || publicipId === undefined) {
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling unbindDevServerPublicIP.');
+            }
+
+            options.pathParams = { 'id': id,'publicip_id': publicipId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

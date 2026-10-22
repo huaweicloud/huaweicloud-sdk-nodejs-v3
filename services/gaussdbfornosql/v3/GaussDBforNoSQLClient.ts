@@ -28,6 +28,7 @@ import { BatchTagActionTagOption } from './model/BatchTagActionTagOption';
 import { BatchUpgradeDatabaseVersionRequest } from './model/BatchUpgradeDatabaseVersionRequest';
 import { BatchUpgradeDatabaseVersionRequestBody } from './model/BatchUpgradeDatabaseVersionRequestBody';
 import { BatchUpgradeDatabaseVersionResponse } from './model/BatchUpgradeDatabaseVersionResponse';
+import { BiactiveInstanceV3 } from './model/BiactiveInstanceV3';
 import { BigKeysInfoResponseBody } from './model/BigKeysInfoResponseBody';
 import { CancelInstanceScheduleWindowRequest } from './model/CancelInstanceScheduleWindowRequest';
 import { CancelInstanceScheduleWindowResponse } from './model/CancelInstanceScheduleWindowResponse';
@@ -146,6 +147,8 @@ import { ListAvailableFlavorInfosRequest } from './model/ListAvailableFlavorInfo
 import { ListAvailableFlavorInfosResponse } from './model/ListAvailableFlavorInfosResponse';
 import { ListBackupsRequest } from './model/ListBackupsRequest';
 import { ListBackupsResponse } from './model/ListBackupsResponse';
+import { ListBiactiveInstanceCandidatesRequest } from './model/ListBiactiveInstanceCandidatesRequest';
+import { ListBiactiveInstanceCandidatesResponse } from './model/ListBiactiveInstanceCandidatesResponse';
 import { ListCassandraSlowLogsRequest } from './model/ListCassandraSlowLogsRequest';
 import { ListCassandraSlowLogsRequestBody } from './model/ListCassandraSlowLogsRequestBody';
 import { ListCassandraSlowLogsResponse } from './model/ListCassandraSlowLogsResponse';
@@ -1193,6 +1196,30 @@ export class GaussDBforNoSQLClient {
      */
     public listBackups(listBackupsRequest?: ListBackupsRequest): Promise<ListBackupsResponse> {
         const options = ParamCreater().listBackups(listBackupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例在目标Region可搭建双活关系的候选实例列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例可搭建双活关系的候选实例
+     * @param {string} instanceId **参数解释：** 实例ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} targetRegionCode **参数解释：** 目标Region的编码。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [targetInstanceName] **参数解释：** 按目标实例名称过滤。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [dataSyncMode] **参数解释：** 数据同步模式。 **约束限制：** 不涉及。 **取值范围：** - TABLE：表级数据同步模式。 **默认取值：** 不传该参数时表示实例级数据同步模式。
+     * @param {number} [offset] **参数解释：** 索引位置偏移量，表示从最新一条记录开始偏移offset条数据后查询。 **约束限制：** 取值大于或等于0。 **取值范围：** 不涉及。 **默认取值：** 不传该参数时，查询偏移量默认为0。
+     * @param {number} [limit] **参数解释：** 查询实例个数上限值。 **约束限制：** 不涉及。 **取值范围：** 1~100。 **默认取值：** 不传该参数时，默认查询前100条实例信息。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBiactiveInstanceCandidates(listBiactiveInstanceCandidatesRequest?: ListBiactiveInstanceCandidatesRequest): Promise<ListBiactiveInstanceCandidatesResponse> {
+        const options = ParamCreater().listBiactiveInstanceCandidates(listBiactiveInstanceCandidatesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5125,6 +5152,82 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例在目标Region可搭建双活关系的候选实例列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBiactiveInstanceCandidates(listBiactiveInstanceCandidatesRequest?: ListBiactiveInstanceCandidatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/instances/{instance_id}/disaster-recovery/biactive-instance-candidates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let targetRegionCode;
+            
+            let targetInstanceName;
+            
+            let dataSyncMode;
+            
+            let offset;
+            
+            let limit;
+
+            if (listBiactiveInstanceCandidatesRequest !== null && listBiactiveInstanceCandidatesRequest !== undefined) {
+                if (listBiactiveInstanceCandidatesRequest instanceof ListBiactiveInstanceCandidatesRequest) {
+                    instanceId = listBiactiveInstanceCandidatesRequest.instanceId;
+                    targetRegionCode = listBiactiveInstanceCandidatesRequest.targetRegionCode;
+                    targetInstanceName = listBiactiveInstanceCandidatesRequest.targetInstanceName;
+                    dataSyncMode = listBiactiveInstanceCandidatesRequest.dataSyncMode;
+                    offset = listBiactiveInstanceCandidatesRequest.offset;
+                    limit = listBiactiveInstanceCandidatesRequest.limit;
+                } else {
+                    instanceId = listBiactiveInstanceCandidatesRequest['instance_id'];
+                    targetRegionCode = listBiactiveInstanceCandidatesRequest['target_region_code'];
+                    targetInstanceName = listBiactiveInstanceCandidatesRequest['target_instance_name'];
+                    dataSyncMode = listBiactiveInstanceCandidatesRequest['data_sync_mode'];
+                    offset = listBiactiveInstanceCandidatesRequest['offset'];
+                    limit = listBiactiveInstanceCandidatesRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listBiactiveInstanceCandidates.');
+            }
+            if (targetRegionCode === null || targetRegionCode === undefined) {
+                throw new RequiredError('targetRegionCode','Required parameter targetRegionCode was null or undefined when calling listBiactiveInstanceCandidates.');
+            }
+            if (targetRegionCode !== null && targetRegionCode !== undefined) {
+                localVarQueryParameter['target_region_code'] = targetRegionCode;
+            }
+            if (targetInstanceName !== null && targetInstanceName !== undefined) {
+                localVarQueryParameter['target_instance_name'] = targetInstanceName;
+            }
+            if (dataSyncMode !== null && dataSyncMode !== undefined) {
+                localVarQueryParameter['data_sync_mode'] = dataSyncMode;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

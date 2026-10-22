@@ -8,6 +8,7 @@ export class CreateSecurityReportSubscriptionRequestBody {
     private 'report_category'?: string;
     private 'topic_urn'?: string;
     private 'subscription_type'?: string;
+    private 'report_status'?: string;
     private 'report_content_subscription'?: CreateSecurityReportSubscriptionRequestBodyReportContentSubscription;
     private 'stat_period'?: CreateSecurityReportSubscriptionRequestBodyStatPeriod;
     private 'console_url_prefix'?: string;
@@ -62,6 +63,16 @@ export class CreateSecurityReportSubscriptionRequestBody {
     }
     public get subscriptionType(): string | undefined {
         return this['subscription_type'];
+    }
+    public withReportStatus(reportStatus: string): CreateSecurityReportSubscriptionRequestBody {
+        this['report_status'] = reportStatus;
+        return this;
+    }
+    public set reportStatus(reportStatus: string  | undefined) {
+        this['report_status'] = reportStatus;
+    }
+    public get reportStatus(): string | undefined {
+        return this['report_status'];
     }
     public withReportContentSubscription(reportContentSubscription: CreateSecurityReportSubscriptionRequestBodyReportContentSubscription): CreateSecurityReportSubscriptionRequestBody {
         this['report_content_subscription'] = reportContentSubscription;

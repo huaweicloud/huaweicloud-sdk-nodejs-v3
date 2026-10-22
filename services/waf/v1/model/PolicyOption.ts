@@ -19,9 +19,13 @@ export class PolicyOption {
     public antitamper?: boolean;
     public antileakage?: boolean;
     private 'bot_enable'?: boolean;
+    private 'bot_manager_enable'?: boolean;
     private 'modulex_enabled'?: boolean;
     private 'followed_action'?: boolean;
     public anticrawler?: boolean;
+    private 'scan_protection'?: boolean;
+    private 'high_frequency_scan_blocking'?: boolean;
+    private 'directory_traversal_protection'?: boolean;
     public constructor() { 
     }
     public withWebattack(webattack: boolean): PolicyOption {
@@ -126,6 +130,16 @@ export class PolicyOption {
     public get botEnable(): boolean | undefined {
         return this['bot_enable'];
     }
+    public withBotManagerEnable(botManagerEnable: boolean): PolicyOption {
+        this['bot_manager_enable'] = botManagerEnable;
+        return this;
+    }
+    public set botManagerEnable(botManagerEnable: boolean  | undefined) {
+        this['bot_manager_enable'] = botManagerEnable;
+    }
+    public get botManagerEnable(): boolean | undefined {
+        return this['bot_manager_enable'];
+    }
     public withModulexEnabled(modulexEnabled: boolean): PolicyOption {
         this['modulex_enabled'] = modulexEnabled;
         return this;
@@ -149,5 +163,35 @@ export class PolicyOption {
     public withAnticrawler(anticrawler: boolean): PolicyOption {
         this['anticrawler'] = anticrawler;
         return this;
+    }
+    public withScanProtection(scanProtection: boolean): PolicyOption {
+        this['scan_protection'] = scanProtection;
+        return this;
+    }
+    public set scanProtection(scanProtection: boolean  | undefined) {
+        this['scan_protection'] = scanProtection;
+    }
+    public get scanProtection(): boolean | undefined {
+        return this['scan_protection'];
+    }
+    public withHighFrequencyScanBlocking(highFrequencyScanBlocking: boolean): PolicyOption {
+        this['high_frequency_scan_blocking'] = highFrequencyScanBlocking;
+        return this;
+    }
+    public set highFrequencyScanBlocking(highFrequencyScanBlocking: boolean  | undefined) {
+        this['high_frequency_scan_blocking'] = highFrequencyScanBlocking;
+    }
+    public get highFrequencyScanBlocking(): boolean | undefined {
+        return this['high_frequency_scan_blocking'];
+    }
+    public withDirectoryTraversalProtection(directoryTraversalProtection: boolean): PolicyOption {
+        this['directory_traversal_protection'] = directoryTraversalProtection;
+        return this;
+    }
+    public set directoryTraversalProtection(directoryTraversalProtection: boolean  | undefined) {
+        this['directory_traversal_protection'] = directoryTraversalProtection;
+    }
+    public get directoryTraversalProtection(): boolean | undefined {
+        return this['directory_traversal_protection'];
     }
 }

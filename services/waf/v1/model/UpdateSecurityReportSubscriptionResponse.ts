@@ -5,15 +5,20 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateSecurityReportSubscriptionResponse extends SdkResponse {
     private 'subscription_id'?: string;
+    private 'report_id'?: string;
     private 'sending_period'?: string;
     private 'report_name'?: string;
     private 'report_category'?: string;
+    private 'report_status'?: string;
     private 'topic_urn'?: string;
     private 'subscription_type'?: string;
     private 'report_content_subscription'?: SecurityReportSubscriptionResponseReportContentSubscription;
     private 'stat_period'?: SecurityReportSubscriptionResponseStatPeriod;
     private 'is_all_enterprise_project'?: boolean;
     private 'enterprise_project_id'?: string;
+    private 'template_eps_id'?: string;
+    private 'is_report_created'?: boolean;
+    private 'latest_create_time'?: number;
     public constructor() { 
         super();
     }
@@ -26,6 +31,16 @@ export class UpdateSecurityReportSubscriptionResponse extends SdkResponse {
     }
     public get subscriptionId(): string | undefined {
         return this['subscription_id'];
+    }
+    public withReportId(reportId: string): UpdateSecurityReportSubscriptionResponse {
+        this['report_id'] = reportId;
+        return this;
+    }
+    public set reportId(reportId: string  | undefined) {
+        this['report_id'] = reportId;
+    }
+    public get reportId(): string | undefined {
+        return this['report_id'];
     }
     public withSendingPeriod(sendingPeriod: string): UpdateSecurityReportSubscriptionResponse {
         this['sending_period'] = sendingPeriod;
@@ -56,6 +71,16 @@ export class UpdateSecurityReportSubscriptionResponse extends SdkResponse {
     }
     public get reportCategory(): string | undefined {
         return this['report_category'];
+    }
+    public withReportStatus(reportStatus: string): UpdateSecurityReportSubscriptionResponse {
+        this['report_status'] = reportStatus;
+        return this;
+    }
+    public set reportStatus(reportStatus: string  | undefined) {
+        this['report_status'] = reportStatus;
+    }
+    public get reportStatus(): string | undefined {
+        return this['report_status'];
     }
     public withTopicUrn(topicUrn: string): UpdateSecurityReportSubscriptionResponse {
         this['topic_urn'] = topicUrn;
@@ -116,5 +141,35 @@ export class UpdateSecurityReportSubscriptionResponse extends SdkResponse {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withTemplateEpsId(templateEpsId: string): UpdateSecurityReportSubscriptionResponse {
+        this['template_eps_id'] = templateEpsId;
+        return this;
+    }
+    public set templateEpsId(templateEpsId: string  | undefined) {
+        this['template_eps_id'] = templateEpsId;
+    }
+    public get templateEpsId(): string | undefined {
+        return this['template_eps_id'];
+    }
+    public withIsReportCreated(isReportCreated: boolean): UpdateSecurityReportSubscriptionResponse {
+        this['is_report_created'] = isReportCreated;
+        return this;
+    }
+    public set isReportCreated(isReportCreated: boolean  | undefined) {
+        this['is_report_created'] = isReportCreated;
+    }
+    public get isReportCreated(): boolean | undefined {
+        return this['is_report_created'];
+    }
+    public withLatestCreateTime(latestCreateTime: number): UpdateSecurityReportSubscriptionResponse {
+        this['latest_create_time'] = latestCreateTime;
+        return this;
+    }
+    public set latestCreateTime(latestCreateTime: number  | undefined) {
+        this['latest_create_time'] = latestCreateTime;
+    }
+    public get latestCreateTime(): number | undefined {
+        return this['latest_create_time'];
     }
 }

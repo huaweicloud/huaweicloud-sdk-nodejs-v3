@@ -1,5 +1,5 @@
 import { GroupConfig } from './GroupConfig';
-import { LtsConfiguration } from './LtsConfiguration';
+import { LtsConfigurationV2 } from './LtsConfigurationV2';
 import { RuntimeConfigUpdateRequest } from './RuntimeConfigUpdateRequest';
 import { ScheduleConfig } from './ScheduleConfig';
 import { UpgradeConfig } from './UpgradeConfig';
@@ -15,7 +15,7 @@ export class ServiceUpdateRequest {
     private 'runtime_config'?: RuntimeConfigUpdateRequest;
     private 'upgrade_config'?: UpgradeConfig;
     private 'lts_strategy'?: string;
-    private 'log_configs'?: Array<LtsConfiguration>;
+    private 'log_configs'?: Array<LtsConfigurationV2>;
     public tags?: string;
     private 'workspace_id'?: string;
     public schedule?: Array<ScheduleConfig>;
@@ -89,14 +89,14 @@ export class ServiceUpdateRequest {
     public get ltsStrategy(): string | undefined {
         return this['lts_strategy'];
     }
-    public withLogConfigs(logConfigs: Array<LtsConfiguration>): ServiceUpdateRequest {
+    public withLogConfigs(logConfigs: Array<LtsConfigurationV2>): ServiceUpdateRequest {
         this['log_configs'] = logConfigs;
         return this;
     }
-    public set logConfigs(logConfigs: Array<LtsConfiguration>  | undefined) {
+    public set logConfigs(logConfigs: Array<LtsConfigurationV2>  | undefined) {
         this['log_configs'] = logConfigs;
     }
-    public get logConfigs(): Array<LtsConfiguration> | undefined {
+    public get logConfigs(): Array<LtsConfigurationV2> | undefined {
         return this['log_configs'];
     }
     public withTags(tags: string): ServiceUpdateRequest {
