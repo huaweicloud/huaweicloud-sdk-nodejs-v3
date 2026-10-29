@@ -7,6 +7,9 @@ import { Agency } from './model/Agency';
 import { BatchCreateOrDeleteTagsRequest } from './model/BatchCreateOrDeleteTagsRequest';
 import { BatchCreateOrDeleteTagsRequestBody } from './model/BatchCreateOrDeleteTagsRequestBody';
 import { BatchCreateOrDeleteTagsResponse } from './model/BatchCreateOrDeleteTagsResponse';
+import { BatchGetSecretValueRequest } from './model/BatchGetSecretValueRequest';
+import { BatchGetSecretValueRequestBody } from './model/BatchGetSecretValueRequestBody';
+import { BatchGetSecretValueResponse } from './model/BatchGetSecretValueResponse';
 import { BatchImportSecretsRequest } from './model/BatchImportSecretsRequest';
 import { BatchImportSecretsResponse } from './model/BatchImportSecretsResponse';
 import { ChangeUsersPassword } from './model/ChangeUsersPassword';
@@ -163,6 +166,25 @@ export class CsmsClient {
      */
     public batchCreateOrDeleteTags(batchCreateOrDeleteTagsRequest?: BatchCreateOrDeleteTagsRequest): Promise<BatchCreateOrDeleteTagsResponse> {
         const options = ParamCreater().batchCreateOrDeleteTags(batchCreateOrDeleteTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量查询明文凭据值，仅获取latest凭据值，即仅获取凭据版本状态为\&quot;SYSCURRENT\&quot;的凭据版本值。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量查询明文凭据值
+     * @param {BatchGetSecretValueRequestBody} [batchGetSecretValueRequestBody] **参数解释：**  批量查询明文凭据值 **约束限制：**  不涉及  **取值范围：** 不涉及  **默认取值：**  不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchGetSecretValue(batchGetSecretValueRequest?: BatchGetSecretValueRequest): Promise<BatchGetSecretValueResponse> {
+        const options = ParamCreater().batchGetSecretValue(batchGetSecretValueRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1083,6 +1105,41 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'secret_id': secretId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量查询明文凭据值，仅获取latest凭据值，即仅获取凭据版本状态为\&quot;SYSCURRENT\&quot;的凭据版本值。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchGetSecretValue(batchGetSecretValueRequest?: BatchGetSecretValueRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/secrets/batch-get-secret-value",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchGetSecretValueRequest !== null && batchGetSecretValueRequest !== undefined) {
+                if (batchGetSecretValueRequest instanceof BatchGetSecretValueRequest) {
+                    body = batchGetSecretValueRequest.body
+                } else {
+                    body = batchGetSecretValueRequest['body'];
+                }
+            }
+
+        
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

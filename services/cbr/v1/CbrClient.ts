@@ -147,6 +147,8 @@ import { OpExtendInfoSync } from './model/OpExtendInfoSync';
 import { OpExtendInfoUpdateExpirationTime } from './model/OpExtendInfoUpdateExpirationTime';
 import { OpExtendInfoVaultDelete } from './model/OpExtendInfoVaultDelete';
 import { OpExtraInfo } from './model/OpExtraInfo';
+import { OpResourceExtraInfoResp } from './model/OpResourceExtraInfoResp';
+import { OpResourceResp } from './model/OpResourceResp';
 import { OperationLog } from './model/OperationLog';
 import { OrganizationPolicy } from './model/OrganizationPolicy';
 import { OrganizationPolicyCreate } from './model/OrganizationPolicyCreate';
@@ -193,6 +195,7 @@ import { Resource } from './model/Resource';
 import { ResourceCreate } from './model/ResourceCreate';
 import { ResourceExtraInfo } from './model/ResourceExtraInfo';
 import { ResourceExtraInfoIncludeVolumes } from './model/ResourceExtraInfoIncludeVolumes';
+import { ResourceExtraInfoIncludeVolumesResp } from './model/ResourceExtraInfoIncludeVolumesResp';
 import { ResourceResp } from './model/ResourceResp';
 import { RestoreBackupRequest } from './model/RestoreBackupRequest';
 import { RestoreBackupResponse } from './model/RestoreBackupResponse';
@@ -868,6 +871,7 @@ export class CbrClient {
      * @param {string} [usedPercent] 根据存储库使用率过滤备份，取值范围 [1, 100]，含1和100。例如，used_percent&#x3D;80，表示筛选所属存储库使用率大于等于80%的所有备份。
      * @param {boolean} [showReplication] 是否返回复制记录
      * @param {boolean} [incremental] 是否是增备
+     * @param {boolean} [existedQuantityBasedRetentionBackups] **参数解释：** 是否查询按数量保留或永久保留自动备份 **约束限制：** 不涉及 **取值范围：** - true：返回按数量保留或永久保留自动备份  - false：返回按时间保留自动备份 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -910,7 +914,7 @@ export class CbrClient {
      * @param {number} [limit] 每页显示条目数
      * @param {number} [offset] 偏移值
      * @param {string} [protectType] [保护类型。取值为backup，replication和hybrid。](tag:hws,hws_hk) [保护类型。取值为backup和replication。](tag:ocb) [保护类型。取值为backup。](tag:g42,hk-g42,sbc,dt,fcs_vm,ctc,tm,tlf,cmcc,hcso_dt)
-     * @param {string} [objcetType] 资源类型
+     * @param {string} [objectType] 资源类型
      * @param {string} [cloudType] [云类型。取值为public和hybrid。](tag:hws,hws_hk) [云类型。取值为public。](tag:g42,hk-g42,sbc,dt,fcs_vm,ctc,ocb,tm,tlf,cmcc,hcso_dt)
      * @param {string} [vaultId] 存储库ID，指定存储ID时其他过滤条件不生效。
      * @param {*} [options] Override http request option.
@@ -964,6 +968,8 @@ export class CbrClient {
      * @param {string} [vaultId] 存储库ID,该任务操作的资源所属绑定的存储库。
      * @param {string} [vaultName] 存储库名称，该任务操作资源所绑定的存储库名称。
      * @param {string} [enterpriseProjectId] 企业项目id或all_granted_eps，all_granted_eps表示查询用户有权限的所有企业项目id
+     * @param {string} [destinationRegion] **参数解释：** 复制的目标区域 [获取方法请参见\&quot;[地区和终端节点查询](https://console.huaweicloud.com/apiexplorer/#/endpoint/CBR)\&quot;。 ](tag:hws) [获取方法请参见\&quot;[地区和终端节点查询](https://console-intl.huaweicloud.com/apiexplorer/#/endpoint/CBR)\&quot;。](tag:hws_hk) **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [destinationProjectId] **参数解释：** 复制的目标区域项目ID，获取方法请参见[获取项目ID](cbr_04_0022.xml) **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1068,6 +1074,7 @@ export class CbrClient {
      * @param {string} [status] 资源的状态，如available，error 等
      * @param {string} [id] 根据资源id过滤
      * @param {string} [serverId] 根据该id过滤属于该服务器的所有磁盘，支持企业多项目的用户才能传入此参数
+     * @param {string} [enterpriseProjectId] **参数解释：** 企业项目ID，获取企业项目ID请参考[查询企业项目列表](https://support.huaweicloud.com/api-em/zh-cn_topic_0121230880.html)(tag:hws)[查询企业项目列表](https://support.huaweicloud.com/intl/zh-cn/api-em/zh-cn_topic_0121230880.html)(tag:hws_hk)[《企业管理API参考》“查询企业项目列表”章节](tag:ctc,dt,tm,sbc,hws_eu,fcs_vm,hcso_dt,srg) **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1097,6 +1104,7 @@ export class CbrClient {
      * @param {string} [policyId] 策略ID
      * @param {string} [status] 状态
      * @param {string} [resourceIds] 资源id，支持多资源，以英文逗号分隔
+     * @param {string} [availabilityZone] **参数解释：** 存储库可用区信息 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1609,6 +1617,7 @@ export class CbrClient {
      *
      * @summary 查询存储库资源实例
      * @param {VaultResourceInstancesReq} showVaultResourceInstancesRequestBody 查询存储库资源实例参数
+     * @param {string} [enterpriseProjectId] **参数解释：** 云备份企业项目ID，获取企业项目ID请参考[查询企业项目列表](https://support.huaweicloud.com/api-em/zh-cn_topic_0121230880.html)(tag:hws)[查询企业项目列表](https://support.huaweicloud.com/intl/zh-cn/api-em/zh-cn_topic_0121230880.html)(tag:hws_hk)[《企业管理API参考》“查询企业项目列表”章节](tag:ctc,dt,tm,sbc,hws_eu,fcs_vm,hcso_dt,srg) **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3001,6 +3010,8 @@ export const ParamCreater = function () {
             let showReplication;
             
             let incremental;
+            
+            let existedQuantityBasedRetentionBackups;
 
             if (listBackupsRequest !== null && listBackupsRequest !== undefined) {
                 if (listBackupsRequest instanceof ListBackupsRequest) {
@@ -3027,6 +3038,7 @@ export const ParamCreater = function () {
                     usedPercent = listBackupsRequest.usedPercent;
                     showReplication = listBackupsRequest.showReplication;
                     incremental = listBackupsRequest.incremental;
+                    existedQuantityBasedRetentionBackups = listBackupsRequest.existedQuantityBasedRetentionBackups;
                 } else {
                     checkpointId = listBackupsRequest['checkpoint_id'];
                     dec = listBackupsRequest['dec'];
@@ -3051,6 +3063,7 @@ export const ParamCreater = function () {
                     usedPercent = listBackupsRequest['used_percent'];
                     showReplication = listBackupsRequest['show_replication'];
                     incremental = listBackupsRequest['incremental'];
+                    existedQuantityBasedRetentionBackups = listBackupsRequest['existed_quantity_based_retention_backups'];
                 }
             }
 
@@ -3124,6 +3137,9 @@ export const ParamCreater = function () {
             if (incremental !== null && incremental !== undefined) {
                 localVarQueryParameter['incremental'] = incremental;
             }
+            if (existedQuantityBasedRetentionBackups !== null && existedQuantityBasedRetentionBackups !== undefined) {
+                localVarQueryParameter['existed_quantity_based_retention_backups'] = existedQuantityBasedRetentionBackups;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -3194,7 +3210,7 @@ export const ParamCreater = function () {
             
             let protectType;
             
-            let objcetType;
+            let objectType;
             
             let cloudType;
             
@@ -3207,7 +3223,7 @@ export const ParamCreater = function () {
                     limit = listExternalVaultRequest.limit;
                     offset = listExternalVaultRequest.offset;
                     protectType = listExternalVaultRequest.protectType;
-                    objcetType = listExternalVaultRequest.objcetType;
+                    objectType = listExternalVaultRequest.objectType;
                     cloudType = listExternalVaultRequest.cloudType;
                     vaultId = listExternalVaultRequest.vaultId;
                 } else {
@@ -3216,7 +3232,7 @@ export const ParamCreater = function () {
                     limit = listExternalVaultRequest['limit'];
                     offset = listExternalVaultRequest['offset'];
                     protectType = listExternalVaultRequest['protect_type'];
-                    objcetType = listExternalVaultRequest['objcet_type'];
+                    objectType = listExternalVaultRequest['object_type'];
                     cloudType = listExternalVaultRequest['cloud_type'];
                     vaultId = listExternalVaultRequest['vault_id'];
                 }
@@ -3244,8 +3260,8 @@ export const ParamCreater = function () {
             if (protectType !== null && protectType !== undefined) {
                 localVarQueryParameter['protect_type'] = protectType;
             }
-            if (objcetType !== null && objcetType !== undefined) {
-                localVarQueryParameter['objcet_type'] = objcetType;
+            if (objectType !== null && objectType !== undefined) {
+                localVarQueryParameter['object_type'] = objectType;
             }
             if (cloudType !== null && cloudType !== undefined) {
                 localVarQueryParameter['cloud_type'] = cloudType;
@@ -3344,6 +3360,10 @@ export const ParamCreater = function () {
             let vaultName;
             
             let enterpriseProjectId;
+            
+            let destinationRegion;
+            
+            let destinationProjectId;
 
             if (listOpLogsRequest !== null && listOpLogsRequest !== undefined) {
                 if (listOpLogsRequest instanceof ListOpLogsRequest) {
@@ -3359,6 +3379,8 @@ export const ParamCreater = function () {
                     vaultId = listOpLogsRequest.vaultId;
                     vaultName = listOpLogsRequest.vaultName;
                     enterpriseProjectId = listOpLogsRequest.enterpriseProjectId;
+                    destinationRegion = listOpLogsRequest.destinationRegion;
+                    destinationProjectId = listOpLogsRequest.destinationProjectId;
                 } else {
                     endTime = listOpLogsRequest['end_time'];
                     limit = listOpLogsRequest['limit'];
@@ -3372,6 +3394,8 @@ export const ParamCreater = function () {
                     vaultId = listOpLogsRequest['vault_id'];
                     vaultName = listOpLogsRequest['vault_name'];
                     enterpriseProjectId = listOpLogsRequest['enterprise_project_id'];
+                    destinationRegion = listOpLogsRequest['destination_region'];
+                    destinationProjectId = listOpLogsRequest['destination_project_id'];
                 }
             }
 
@@ -3411,6 +3435,12 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (destinationRegion !== null && destinationRegion !== undefined) {
+                localVarQueryParameter['destination_region'] = destinationRegion;
+            }
+            if (destinationProjectId !== null && destinationProjectId !== undefined) {
+                localVarQueryParameter['destination_project_id'] = destinationProjectId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3606,6 +3636,8 @@ export const ParamCreater = function () {
             let id;
             
             let serverId;
+            
+            let enterpriseProjectId;
 
             if (listProtectableRequest !== null && listProtectableRequest !== undefined) {
                 if (listProtectableRequest instanceof ListProtectableRequest) {
@@ -3617,6 +3649,7 @@ export const ParamCreater = function () {
                     status = listProtectableRequest.status;
                     id = listProtectableRequest.id;
                     serverId = listProtectableRequest.serverId;
+                    enterpriseProjectId = listProtectableRequest.enterpriseProjectId;
                 } else {
                     protectableType = listProtectableRequest['protectable_type'];
                     limit = listProtectableRequest['limit'];
@@ -3626,6 +3659,7 @@ export const ParamCreater = function () {
                     status = listProtectableRequest['status'];
                     id = listProtectableRequest['id'];
                     serverId = listProtectableRequest['server_id'];
+                    enterpriseProjectId = listProtectableRequest['enterprise_project_id'];
                 }
             }
 
@@ -3653,6 +3687,9 @@ export const ParamCreater = function () {
             }
             if (serverId !== null && serverId !== undefined) {
                 localVarQueryParameter['server_id'] = serverId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3699,6 +3736,8 @@ export const ParamCreater = function () {
             let status;
             
             let resourceIds;
+            
+            let availabilityZone;
 
             if (listVaultRequest !== null && listVaultRequest !== undefined) {
                 if (listVaultRequest instanceof ListVaultRequest) {
@@ -3713,6 +3752,7 @@ export const ParamCreater = function () {
                     policyId = listVaultRequest.policyId;
                     status = listVaultRequest.status;
                     resourceIds = listVaultRequest.resourceIds;
+                    availabilityZone = listVaultRequest.availabilityZone;
                 } else {
                     limit = listVaultRequest['limit'];
                     name = listVaultRequest['name'];
@@ -3725,6 +3765,7 @@ export const ParamCreater = function () {
                     policyId = listVaultRequest['policy_id'];
                     status = listVaultRequest['status'];
                     resourceIds = listVaultRequest['resource_ids'];
+                    availabilityZone = listVaultRequest['availability_zone'];
                 }
             }
 
@@ -3761,6 +3802,9 @@ export const ParamCreater = function () {
             }
             if (resourceIds !== null && resourceIds !== undefined) {
                 localVarQueryParameter['resource_ids'] = resourceIds;
+            }
+            if (availabilityZone !== null && availabilityZone !== undefined) {
+                localVarQueryParameter['availability_zone'] = availabilityZone;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4816,14 +4860,18 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             let body: any;
+            
+            let enterpriseProjectId;
 
             if (showVaultResourceInstancesRequest !== null && showVaultResourceInstancesRequest !== undefined) {
                 if (showVaultResourceInstancesRequest instanceof ShowVaultResourceInstancesRequest) {
                     body = showVaultResourceInstancesRequest.body
+                    enterpriseProjectId = showVaultResourceInstancesRequest.enterpriseProjectId;
                 } else {
                     body = showVaultResourceInstancesRequest['body'];
+                    enterpriseProjectId = showVaultResourceInstancesRequest['enterprise_project_id'];
                 }
             }
 
@@ -4831,9 +4879,13 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

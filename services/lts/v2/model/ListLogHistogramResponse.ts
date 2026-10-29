@@ -1,14 +1,15 @@
+import { LogCounts } from './LogCounts';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListLogHistogramResponse extends SdkResponse {
-    public histogram?: string;
+    public histogram?: Array<LogCounts>;
     public count?: number;
     public isQueryComplete?: boolean;
     public constructor() { 
         super();
     }
-    public withHistogram(histogram: string): ListLogHistogramResponse {
+    public withHistogram(histogram: Array<LogCounts>): ListLogHistogramResponse {
         this['histogram'] = histogram;
         return this;
     }

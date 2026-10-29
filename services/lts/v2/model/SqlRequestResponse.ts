@@ -12,6 +12,8 @@ export class SqlRequestResponse {
     private 'search_time_range_unit'?: string;
     private 'custom_date'?: CustomDate;
     private 'is_time_range_relative'?: boolean;
+    private 'log_group_name_alias'?: string;
+    private 'log_stream_name_alias'?: string;
     public constructor(logStreamId?: string, logGroupId?: string, sql?: string, sqlRequestTitle?: string, searchTimeRange?: number, searchTimeRangeUnit?: string) { 
         this['log_stream_id'] = logStreamId;
         this['log_group_id'] = logGroupId;
@@ -113,5 +115,25 @@ export class SqlRequestResponse {
     }
     public get isTimeRangeRelative(): boolean | undefined {
         return this['is_time_range_relative'];
+    }
+    public withLogGroupNameAlias(logGroupNameAlias: string): SqlRequestResponse {
+        this['log_group_name_alias'] = logGroupNameAlias;
+        return this;
+    }
+    public set logGroupNameAlias(logGroupNameAlias: string  | undefined) {
+        this['log_group_name_alias'] = logGroupNameAlias;
+    }
+    public get logGroupNameAlias(): string | undefined {
+        return this['log_group_name_alias'];
+    }
+    public withLogStreamNameAlias(logStreamNameAlias: string): SqlRequestResponse {
+        this['log_stream_name_alias'] = logStreamNameAlias;
+        return this;
+    }
+    public set logStreamNameAlias(logStreamNameAlias: string  | undefined) {
+        this['log_stream_name_alias'] = logStreamNameAlias;
+    }
+    public get logStreamNameAlias(): string | undefined {
+        return this['log_stream_name_alias'];
     }
 }

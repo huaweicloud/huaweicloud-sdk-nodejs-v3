@@ -10,12 +10,11 @@ export class Ruleset {
     private 'uncheck_ids'?: string;
     private 'template_id'?: string;
     private 'custom_attributes'?: Array<CustomAttributes>;
-    public constructor(projectId?: string, templateName?: string, language?: string, isDefault?: string, ruleIds?: string) { 
+    public constructor(projectId?: string, templateName?: string, language?: string, isDefault?: string) { 
         this['project_id'] = projectId;
         this['template_name'] = templateName;
         this['language'] = language;
         this['is_default'] = isDefault;
-        this['rule_ids'] = ruleIds;
     }
     public withProjectId(projectId: string): Ruleset {
         this['project_id'] = projectId;

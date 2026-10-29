@@ -16,6 +16,7 @@ export class QueryLtsLogParams {
     private 'is_iterative'?: boolean;
     public query?: string;
     private 'is_analysis_query'?: boolean;
+    private 'sql_timezone'?: string;
     public constructor(startTime?: string, endTime?: string) { 
         this['start_time'] = startTime;
         this['end_time'] = endTime;
@@ -139,6 +140,16 @@ export class QueryLtsLogParams {
     }
     public get isAnalysisQuery(): boolean | undefined {
         return this['is_analysis_query'];
+    }
+    public withSqlTimezone(sqlTimezone: string): QueryLtsLogParams {
+        this['sql_timezone'] = sqlTimezone;
+        return this;
+    }
+    public set sqlTimezone(sqlTimezone: string  | undefined) {
+        this['sql_timezone'] = sqlTimezone;
+    }
+    public get sqlTimezone(): string | undefined {
+        return this['sql_timezone'];
     }
 }
 

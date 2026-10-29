@@ -1,4 +1,4 @@
-import { RuleConfig } from './RuleConfig';
+import { RuleConfigParam } from './RuleConfigParam';
 
 
 export class RuleItem {
@@ -8,7 +8,7 @@ export class RuleItem {
     private 'rule_severity'?: string;
     private 'rule_tages'?: string;
     public checked?: string;
-    private 'rule_config_list'?: Array<RuleConfig>;
+    private 'rule_config_list'?: Array<RuleConfigParam>;
     public constructor() { 
     }
     public withRuleId(ruleId: string): RuleItem {
@@ -65,14 +65,14 @@ export class RuleItem {
         this['checked'] = checked;
         return this;
     }
-    public withRuleConfigList(ruleConfigList: Array<RuleConfig>): RuleItem {
+    public withRuleConfigList(ruleConfigList: Array<RuleConfigParam>): RuleItem {
         this['rule_config_list'] = ruleConfigList;
         return this;
     }
-    public set ruleConfigList(ruleConfigList: Array<RuleConfig>  | undefined) {
+    public set ruleConfigList(ruleConfigList: Array<RuleConfigParam>  | undefined) {
         this['rule_config_list'] = ruleConfigList;
     }
-    public get ruleConfigList(): Array<RuleConfig> | undefined {
+    public get ruleConfigList(): Array<RuleConfigParam> | undefined {
         return this['rule_config_list'];
     }
 }

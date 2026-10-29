@@ -6,7 +6,7 @@ export class ListExternalVaultRequest {
     public offset?: number;
     private 'protect_type'?: string;
     private 'region_id'?: string;
-    private 'objcet_type'?: string;
+    private 'object_type'?: string;
     private 'cloud_type'?: string;
     private 'vault_id'?: string;
     public constructor(externalProjectId?: string, regionId?: string) { 
@@ -51,15 +51,15 @@ export class ListExternalVaultRequest {
     public get regionId(): string | undefined {
         return this['region_id'];
     }
-    public withObjcetType(objcetType: string): ListExternalVaultRequest {
-        this['objcet_type'] = objcetType;
+    public withObjectType(objectType: string): ListExternalVaultRequest {
+        this['object_type'] = objectType;
         return this;
     }
-    public set objcetType(objcetType: string  | undefined) {
-        this['objcet_type'] = objcetType;
+    public set objectType(objectType: string  | undefined) {
+        this['object_type'] = objectType;
     }
-    public get objcetType(): string | undefined {
-        return this['objcet_type'];
+    public get objectType(): string | undefined {
+        return this['object_type'];
     }
     public withCloudType(cloudType: string): ListExternalVaultRequest {
         this['cloud_type'] = cloudType;

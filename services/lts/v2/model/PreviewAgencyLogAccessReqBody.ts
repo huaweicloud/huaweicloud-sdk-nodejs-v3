@@ -2,6 +2,7 @@
 
 export class PreviewAgencyLogAccessReqBody {
     private 'agency_access_type'?: PreviewAgencyLogAccessReqBodyAgencyAccessTypeEnum | string;
+    private 'agency_accessConfig_id'?: string;
     private 'agency_log_access'?: string;
     private 'log_agencyStream_name'?: string;
     private 'log_agencyStream_id'?: string;
@@ -40,6 +41,16 @@ export class PreviewAgencyLogAccessReqBody {
     }
     public get agencyAccessType(): PreviewAgencyLogAccessReqBodyAgencyAccessTypeEnum | string | undefined {
         return this['agency_access_type'];
+    }
+    public withAgencyAccessConfigId(agencyAccessConfigId: string): PreviewAgencyLogAccessReqBody {
+        this['agency_accessConfig_id'] = agencyAccessConfigId;
+        return this;
+    }
+    public set agencyAccessConfigId(agencyAccessConfigId: string  | undefined) {
+        this['agency_accessConfig_id'] = agencyAccessConfigId;
+    }
+    public get agencyAccessConfigId(): string | undefined {
+        return this['agency_accessConfig_id'];
     }
     public withAgencyLogAccess(agencyLogAccess: string): PreviewAgencyLogAccessReqBody {
         this['agency_log_access'] = agencyLogAccess;

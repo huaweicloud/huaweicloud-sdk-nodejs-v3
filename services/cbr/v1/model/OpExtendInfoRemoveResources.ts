@@ -1,10 +1,10 @@
-import { Resource } from './Resource';
+import { OpResourceResp } from './OpResourceResp';
 
 
 export class OpExtendInfoRemoveResources {
     private 'fail_count'?: number;
     private 'total_count'?: number;
-    public resources?: Array<Resource>;
+    public resources?: Array<OpResourceResp>;
     public constructor() { 
     }
     public withFailCount(failCount: number): OpExtendInfoRemoveResources {
@@ -27,7 +27,7 @@ export class OpExtendInfoRemoveResources {
     public get totalCount(): number | undefined {
         return this['total_count'];
     }
-    public withResources(resources: Array<Resource>): OpExtendInfoRemoveResources {
+    public withResources(resources: Array<OpResourceResp>): OpExtendInfoRemoveResources {
         this['resources'] = resources;
         return this;
     }

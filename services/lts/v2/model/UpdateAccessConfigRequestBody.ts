@@ -23,6 +23,7 @@ export class UpdateAccessConfigRequestBody {
     private 'application_id'?: string;
     private 'environment_id'?: string;
     private 'component_id'?: Array<string>;
+    private 'disable_labels_prefix'?: boolean;
     public constructor(accessConfigId?: string) { 
         this['access_config_id'] = accessConfigId;
     }
@@ -189,5 +190,15 @@ export class UpdateAccessConfigRequestBody {
     }
     public get componentId(): Array<string> | undefined {
         return this['component_id'];
+    }
+    public withDisableLabelsPrefix(disableLabelsPrefix: boolean): UpdateAccessConfigRequestBody {
+        this['disable_labels_prefix'] = disableLabelsPrefix;
+        return this;
+    }
+    public set disableLabelsPrefix(disableLabelsPrefix: boolean  | undefined) {
+        this['disable_labels_prefix'] = disableLabelsPrefix;
+    }
+    public get disableLabelsPrefix(): boolean | undefined {
+        return this['disable_labels_prefix'];
     }
 }

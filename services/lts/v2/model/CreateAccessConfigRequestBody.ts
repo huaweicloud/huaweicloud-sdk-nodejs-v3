@@ -27,6 +27,7 @@ export class CreateAccessConfigRequestBody {
     private 'component_id'?: Array<string>;
     private 'access_config_type_source'?: string;
     private 'recursive_depth'?: number;
+    private 'disable_labels_prefix'?: boolean;
     public constructor(accessConfigName?: string, accessConfigType?: string, accessConfigDetail?: AccessConfigDeatilCreate, logInfo?: AccessConfigBaseLogInfoCreate) { 
         this['access_config_name'] = accessConfigName;
         this['access_config_type'] = accessConfigType;
@@ -226,6 +227,16 @@ export class CreateAccessConfigRequestBody {
     }
     public get recursiveDepth(): number | undefined {
         return this['recursive_depth'];
+    }
+    public withDisableLabelsPrefix(disableLabelsPrefix: boolean): CreateAccessConfigRequestBody {
+        this['disable_labels_prefix'] = disableLabelsPrefix;
+        return this;
+    }
+    public set disableLabelsPrefix(disableLabelsPrefix: boolean  | undefined) {
+        this['disable_labels_prefix'] = disableLabelsPrefix;
+    }
+    public get disableLabelsPrefix(): boolean | undefined {
+        return this['disable_labels_prefix'];
     }
 }
 

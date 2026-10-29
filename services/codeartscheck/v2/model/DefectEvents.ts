@@ -6,12 +6,12 @@ export class DefectEvents {
     private 'fix_suggestions'?: Array<string>;
     public line?: number;
     private 'end_line'?: number;
-    private 'code_context_start_line'?: number;
     public main?: boolean;
     public path?: string;
     public tag?: string;
     private 'main_buggy_code'?: string;
     private 'code_context'?: string;
+    private 'code_context_start_line'?: number;
     public constructor() { 
     }
     public withEvents(events: Array<DefectEvents>): DefectEvents {
@@ -46,16 +46,6 @@ export class DefectEvents {
     public get endLine(): number | undefined {
         return this['end_line'];
     }
-    public withCodeContextStartLine(codeContextStartLine: number): DefectEvents {
-        this['code_context_start_line'] = codeContextStartLine;
-        return this;
-    }
-    public set codeContextStartLine(codeContextStartLine: number  | undefined) {
-        this['code_context_start_line'] = codeContextStartLine;
-    }
-    public get codeContextStartLine(): number | undefined {
-        return this['code_context_start_line'];
-    }
     public withMain(main: boolean): DefectEvents {
         this['main'] = main;
         return this;
@@ -87,5 +77,15 @@ export class DefectEvents {
     }
     public get codeContext(): string | undefined {
         return this['code_context'];
+    }
+    public withCodeContextStartLine(codeContextStartLine: number): DefectEvents {
+        this['code_context_start_line'] = codeContextStartLine;
+        return this;
+    }
+    public set codeContextStartLine(codeContextStartLine: number  | undefined) {
+        this['code_context_start_line'] = codeContextStartLine;
+    }
+    public get codeContextStartLine(): number | undefined {
+        return this['code_context_start_line'];
     }
 }

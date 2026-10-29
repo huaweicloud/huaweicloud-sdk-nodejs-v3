@@ -12,7 +12,6 @@ export class ShowLogConvergeConfigResponse extends SdkResponse {
     private 'organization_id'?: string;
     private 'management_account_id'?: string;
     private 'management_project_id'?: string;
-    public version?: string;
     private 'log_mapping_config'?: Array<LogMappingConfig>;
     public constructor() { 
         super();
@@ -94,10 +93,6 @@ export class ShowLogConvergeConfigResponse extends SdkResponse {
     }
     public get managementProjectId(): string | undefined {
         return this['management_project_id'];
-    }
-    public withVersion(version: string): ShowLogConvergeConfigResponse {
-        this['version'] = version;
-        return this;
     }
     public withLogMappingConfig(logMappingConfig: Array<LogMappingConfig>): ShowLogConvergeConfigResponse {
         this['log_mapping_config'] = logMappingConfig;

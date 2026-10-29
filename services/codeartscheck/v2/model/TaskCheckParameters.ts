@@ -1,13 +1,13 @@
 import { CheckConfigInfo } from './CheckConfigInfo';
 
 
-export class TaskCheckParamters {
+export class TaskCheckParameters {
     private 'check_id'?: number;
     public name?: string;
     private 'checker_configs'?: Array<CheckConfigInfo>;
     public constructor() { 
     }
-    public withCheckId(checkId: number): TaskCheckParamters {
+    public withCheckId(checkId: number): TaskCheckParameters {
         this['check_id'] = checkId;
         return this;
     }
@@ -17,11 +17,11 @@ export class TaskCheckParamters {
     public get checkId(): number | undefined {
         return this['check_id'];
     }
-    public withName(name: string): TaskCheckParamters {
+    public withName(name: string): TaskCheckParameters {
         this['name'] = name;
         return this;
     }
-    public withCheckerConfigs(checkerConfigs: Array<CheckConfigInfo>): TaskCheckParamters {
+    public withCheckerConfigs(checkerConfigs: Array<CheckConfigInfo>): TaskCheckParameters {
         this['checker_configs'] = checkerConfigs;
         return this;
     }

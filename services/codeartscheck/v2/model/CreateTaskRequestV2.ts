@@ -3,7 +3,6 @@ import { RuleSetV2 } from './RuleSetV2';
 
 
 export class CreateTaskRequestV2 {
-    private 'check_type'?: Array<string>;
     private 'git_url'?: string;
     private 'git_branch'?: string;
     public language?: Array<string>;
@@ -13,22 +12,13 @@ export class CreateTaskRequestV2 {
     private 'access_token'?: string;
     private 'endpoint_id'?: string;
     private 'inc_config'?: IncConfigV2;
-    private 'enable_fossbot'?: boolean;
     private 'resource_pool_id'?: string;
-    public constructor(gitUrl?: string, gitBranch?: string, language?: Array<string>) { 
+    private 'sm_level'?: string;
+    private 'check_type'?: Array<string>;
+    private 'enable_fossbot'?: boolean;
+    public constructor(gitUrl?: string, gitBranch?: string) { 
         this['git_url'] = gitUrl;
         this['git_branch'] = gitBranch;
-        this['language'] = language;
-    }
-    public withCheckType(checkType: Array<string>): CreateTaskRequestV2 {
-        this['check_type'] = checkType;
-        return this;
-    }
-    public set checkType(checkType: Array<string>  | undefined) {
-        this['check_type'] = checkType;
-    }
-    public get checkType(): Array<string> | undefined {
-        return this['check_type'];
     }
     public withGitUrl(gitUrl: string): CreateTaskRequestV2 {
         this['git_url'] = gitUrl;
@@ -108,16 +98,6 @@ export class CreateTaskRequestV2 {
     public get incConfig(): IncConfigV2 | undefined {
         return this['inc_config'];
     }
-    public withEnableFossbot(enableFossbot: boolean): CreateTaskRequestV2 {
-        this['enable_fossbot'] = enableFossbot;
-        return this;
-    }
-    public set enableFossbot(enableFossbot: boolean  | undefined) {
-        this['enable_fossbot'] = enableFossbot;
-    }
-    public get enableFossbot(): boolean | undefined {
-        return this['enable_fossbot'];
-    }
     public withResourcePoolId(resourcePoolId: string): CreateTaskRequestV2 {
         this['resource_pool_id'] = resourcePoolId;
         return this;
@@ -127,5 +107,35 @@ export class CreateTaskRequestV2 {
     }
     public get resourcePoolId(): string | undefined {
         return this['resource_pool_id'];
+    }
+    public withSmLevel(smLevel: string): CreateTaskRequestV2 {
+        this['sm_level'] = smLevel;
+        return this;
+    }
+    public set smLevel(smLevel: string  | undefined) {
+        this['sm_level'] = smLevel;
+    }
+    public get smLevel(): string | undefined {
+        return this['sm_level'];
+    }
+    public withCheckType(checkType: Array<string>): CreateTaskRequestV2 {
+        this['check_type'] = checkType;
+        return this;
+    }
+    public set checkType(checkType: Array<string>  | undefined) {
+        this['check_type'] = checkType;
+    }
+    public get checkType(): Array<string> | undefined {
+        return this['check_type'];
+    }
+    public withEnableFossbot(enableFossbot: boolean): CreateTaskRequestV2 {
+        this['enable_fossbot'] = enableFossbot;
+        return this;
+    }
+    public set enableFossbot(enableFossbot: boolean  | undefined) {
+        this['enable_fossbot'] = enableFossbot;
+    }
+    public get enableFossbot(): boolean | undefined {
+        return this['enable_fossbot'];
     }
 }

@@ -5,7 +5,7 @@ export class LTSAccessConfigInfoRespon200 {
     private 'access_config_id'?: string;
     private 'project_id'?: string;
     private 'access_config_name'?: string;
-    private 'access_config_type'?: object;
+    private 'access_config_type'?: LTSAccessConfigInfoRespon200AccessConfigTypeEnum | string;
     private 'group_id'?: string;
     private 'log_group_name'?: string;
     private 'log_stream_id'?: string;
@@ -44,14 +44,14 @@ export class LTSAccessConfigInfoRespon200 {
     public get accessConfigName(): string | undefined {
         return this['access_config_name'];
     }
-    public withAccessConfigType(accessConfigType: object): LTSAccessConfigInfoRespon200 {
+    public withAccessConfigType(accessConfigType: LTSAccessConfigInfoRespon200AccessConfigTypeEnum | string): LTSAccessConfigInfoRespon200 {
         this['access_config_type'] = accessConfigType;
         return this;
     }
-    public set accessConfigType(accessConfigType: object  | undefined) {
+    public set accessConfigType(accessConfigType: LTSAccessConfigInfoRespon200AccessConfigTypeEnum | string  | undefined) {
         this['access_config_type'] = accessConfigType;
     }
-    public get accessConfigType(): object | undefined {
+    public get accessConfigType(): LTSAccessConfigInfoRespon200AccessConfigTypeEnum | string | undefined {
         return this['access_config_type'];
     }
     public withGroupId(groupId: string): LTSAccessConfigInfoRespon200 {
@@ -114,4 +114,17 @@ export class LTSAccessConfigInfoRespon200 {
     public get agencyLogAccess(): PreviewAgencyLogAccessReqBody | undefined {
         return this['agency_log_access'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum LTSAccessConfigInfoRespon200AccessConfigTypeEnum {
+    AGENT = 'Agent',
+    CRD = 'CRD',
+    AGENCYACCESS = 'AGENCYACCESS',
+    K8S_CCE = 'K8S_CCE',
+    K8S_CUSTOM = 'K8S_CUSTOM',
+    CLOUD_STREAM_AGENCY = 'CLOUD_STREAM_AGENCY'
 }

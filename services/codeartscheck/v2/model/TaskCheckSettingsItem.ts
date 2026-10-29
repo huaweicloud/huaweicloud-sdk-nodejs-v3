@@ -4,9 +4,7 @@ export class TaskCheckSettingsItem {
     private 'cfg_key'?: string;
     public status?: string;
     private 'cfg_value'?: string;
-    public constructor(cfgKey?: string, status?: string) { 
-        this['cfg_key'] = cfgKey;
-        this['status'] = status;
+    public constructor() { 
     }
     public withCfgKey(cfgKey: string): TaskCheckSettingsItem {
         this['cfg_key'] = cfgKey;

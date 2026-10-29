@@ -2,7 +2,7 @@
 
 export class RuleConfig {
     public id?: number;
-    private 'rule_id'?: number;
+    private 'rule_id'?: string;
     private 'default_value'?: string;
     private 'option_value'?: string;
     private 'option_key'?: string;
@@ -15,14 +15,14 @@ export class RuleConfig {
         this['id'] = id;
         return this;
     }
-    public withRuleId(ruleId: number): RuleConfig {
+    public withRuleId(ruleId: string): RuleConfig {
         this['rule_id'] = ruleId;
         return this;
     }
-    public set ruleId(ruleId: number  | undefined) {
+    public set ruleId(ruleId: string  | undefined) {
         this['rule_id'] = ruleId;
     }
-    public get ruleId(): number | undefined {
+    public get ruleId(): string | undefined {
         return this['rule_id'];
     }
     public withDefaultValue(defaultValue: string): RuleConfig {

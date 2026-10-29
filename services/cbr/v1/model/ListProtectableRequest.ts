@@ -9,6 +9,7 @@ export class ListProtectableRequest {
     public status?: string;
     public id?: string;
     private 'server_id'?: string;
+    private 'enterprise_project_id'?: string;
     public constructor(protectableType?: string) { 
         this['protectable_type'] = protectableType;
     }
@@ -55,6 +56,16 @@ export class ListProtectableRequest {
     }
     public get serverId(): string | undefined {
         return this['server_id'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListProtectableRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId(): string | undefined {
+        return this['enterprise_project_id'];
     }
 }
 

@@ -37,5 +37,6 @@ export class PortList {
     * @enum {string}
     */
 export enum PortListProtocolEnum {
-    TCP = 'TCP'
+    TCP = 'TCP',
+    UDP = 'UDP'
 }

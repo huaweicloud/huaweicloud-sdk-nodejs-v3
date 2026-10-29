@@ -12,22 +12,35 @@ import { CheckRecordResponse } from './model/CheckRecordResponse';
 import { CheckRulesetParametersRequest } from './model/CheckRulesetParametersRequest';
 import { CheckRulesetParametersResponse } from './model/CheckRulesetParametersResponse';
 import { ConfigTaskParameterBody } from './model/ConfigTaskParameterBody';
+import { ConfigTemplateBasicInfo } from './model/ConfigTemplateBasicInfo';
+import { ConfigTemplateRuleSetInfo } from './model/ConfigTemplateRuleSetInfo';
 import { CreateRulesetRequest } from './model/CreateRulesetRequest';
 import { CreateRulesetResponse } from './model/CreateRulesetResponse';
 import { CreateTaskRequest } from './model/CreateTaskRequest';
 import { CreateTaskRequestV2 } from './model/CreateTaskRequestV2';
 import { CreateTaskResponse } from './model/CreateTaskResponse';
+import { CriterionSetListV2Body } from './model/CriterionSetListV2Body';
+import { CriterionSetsInfo } from './model/CriterionSetsInfo';
 import { CustomAttributes } from './model/CustomAttributes';
 import { CustomAttributesRule } from './model/CustomAttributesRule';
+import { CustomParameter } from './model/CustomParameter';
 import { DefectEvents } from './model/DefectEvents';
 import { DefectFragmentV2 } from './model/DefectFragmentV2';
 import { DefectInfoV2 } from './model/DefectInfoV2';
+import { DefectLevelInResponse } from './model/DefectLevelInResponse';
 import { DeleteRulesetRequest } from './model/DeleteRulesetRequest';
 import { DeleteRulesetResponse } from './model/DeleteRulesetResponse';
 import { DeleteTaskRequest } from './model/DeleteTaskRequest';
 import { DeleteTaskResponse } from './model/DeleteTaskResponse';
+import { HttpStatus } from './model/HttpStatus';
 import { IgnorePathSettingItem } from './model/IgnorePathSettingItem';
+import { IgnoreType } from './model/IgnoreType';
 import { IncConfigV2 } from './model/IncConfigV2';
+import { JobBasicInfo } from './model/JobBasicInfo';
+import { JobBasicInfoV3 } from './model/JobBasicInfoV3';
+import { JobResultInfo } from './model/JobResultInfo';
+import { ListCriterionSetsByLanguageRequest } from './model/ListCriterionSetsByLanguageRequest';
+import { ListCriterionSetsByLanguageResponse } from './model/ListCriterionSetsByLanguageResponse';
 import { ListRulesRequest } from './model/ListRulesRequest';
 import { ListRulesResponse } from './model/ListRulesResponse';
 import { ListRulesetsRequest } from './model/ListRulesetsRequest';
@@ -40,9 +53,15 @@ import { ListTemplateRulesRequest } from './model/ListTemplateRulesRequest';
 import { ListTemplateRulesResponse } from './model/ListTemplateRulesResponse';
 import { LogInfo } from './model/LogInfo';
 import { MetricInfo } from './model/MetricInfo';
+import { OldTaskIdInResponse } from './model/OldTaskIdInResponse';
 import { ParamInfo } from './model/ParamInfo';
+import { ProcessInfo } from './model/ProcessInfo';
 import { ProgressDetailV2 } from './model/ProgressDetailV2';
+import { ResultStatus } from './model/ResultStatus';
+import { ReviewDataInfoRequestParam } from './model/ReviewDataInfoRequestParam';
+import { ReviewDataInfoResponse } from './model/ReviewDataInfoResponse';
 import { RuleConfig } from './model/RuleConfig';
+import { RuleConfigParam } from './model/RuleConfigParam';
 import { RuleItem } from './model/RuleItem';
 import { RuleListItem } from './model/RuleListItem';
 import { RuleSetV2 } from './model/RuleSetV2';
@@ -63,6 +82,8 @@ import { ShowTaskDefectsStatisticRequest } from './model/ShowTaskDefectsStatisti
 import { ShowTaskDefectsStatisticResponse } from './model/ShowTaskDefectsStatisticResponse';
 import { ShowTaskDetailRequest } from './model/ShowTaskDetailRequest';
 import { ShowTaskDetailResponse } from './model/ShowTaskDetailResponse';
+import { ShowTaskInfoByIdRequest } from './model/ShowTaskInfoByIdRequest';
+import { ShowTaskInfoByIdResponse } from './model/ShowTaskInfoByIdResponse';
 import { ShowTaskListByProjectIdRequest } from './model/ShowTaskListByProjectIdRequest';
 import { ShowTaskListByProjectIdResponse } from './model/ShowTaskListByProjectIdResponse';
 import { ShowTaskPathTreeRequest } from './model/ShowTaskPathTreeRequest';
@@ -71,6 +92,9 @@ import { ShowTaskSettingsRequest } from './model/ShowTaskSettingsRequest';
 import { ShowTaskSettingsResponse } from './model/ShowTaskSettingsResponse';
 import { ShowTasklogRequest } from './model/ShowTasklogRequest';
 import { ShowTasklogResponse } from './model/ShowTasklogResponse';
+import { ShowTasksListRequest } from './model/ShowTasksListRequest';
+import { ShowTasksListResponse } from './model/ShowTasksListResponse';
+import { ShowTasksListResult } from './model/ShowTasksListResult';
 import { ShowTasksRulesetsRequest } from './model/ShowTasksRulesetsRequest';
 import { ShowTasksRulesetsResponse } from './model/ShowTasksRulesetsResponse';
 import { SimpleTaskInfoV2 } from './model/SimpleTaskInfoV2';
@@ -80,10 +104,17 @@ import { StopTaskByIdRequest } from './model/StopTaskByIdRequest';
 import { StopTaskByIdResponse } from './model/StopTaskByIdResponse';
 import { TaskAdvancedSettings } from './model/TaskAdvancedSettings';
 import { TaskAdvancedSettingsItem } from './model/TaskAdvancedSettingsItem';
-import { TaskCheckParamters } from './model/TaskCheckParamters';
+import { TaskBasicInfo } from './model/TaskBasicInfo';
+import { TaskBasicInfoV3 } from './model/TaskBasicInfoV3';
+import { TaskBasicInfoV3CheckParamMap } from './model/TaskBasicInfoV3CheckParamMap';
+import { TaskCheckParameters } from './model/TaskCheckParameters';
 import { TaskCheckSettingsItem } from './model/TaskCheckSettingsItem';
+import { TaskId } from './model/TaskId';
 import { TaskRulesetInfo } from './model/TaskRulesetInfo';
 import { TreeNode } from './model/TreeNode';
+import { UpdateCodeGateRequest } from './model/UpdateCodeGateRequest';
+import { UpdateCodeGateRequestBody } from './model/UpdateCodeGateRequestBody';
+import { UpdateCodeGateResponse } from './model/UpdateCodeGateResponse';
 import { UpdateDefectRequestBody } from './model/UpdateDefectRequestBody';
 import { UpdateDefectStatusRequest } from './model/UpdateDefectStatusRequest';
 import { UpdateDefectStatusResponse } from './model/UpdateDefectStatusResponse';
@@ -254,6 +285,30 @@ export class CodeArtsCheckClient {
      */
     public deleteTask(deleteTaskRequest?: DeleteTaskRequest): Promise<DeleteTaskResponse> {
         const options = ParamCreater().deleteTask(deleteTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于查询项目下某一语言的规则集列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据语言查询规则集
+     * @param {string} language **参数解释:** 规则集语言。 **约束限制:** 不涉及。 **取值范围:** 当前支持的语言有： - ARKTS - C# - CANGJIE - C++ - CSS - GO - HTML - JAVA - JAVASCRIPT - KOTLIN - LUA - PHP - PYTHON - RUST - SCALA - SHELL - SQL - TERRAFORM - TYPESCRIPT - AZURERESOURCEMANAGER - DOCKER - KUBERNETES **默认取值：** 不涉及。
+     * @param {string} projectId **参数解释:** 项目的32位UUID，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm,hcs_site,hcs_sitesm,fcs)接口获取。 **约束限制:** 不涉及。 **取值范围:** 32位UUID。 **默认取值:** 不涉及。
+     * @param {string} [search] **参数解释:** 搜索关键字。 **约束限制:** 不涉及。 **取值范围:** 不涉及。 **默认取值：** 不涉及。
+     * @param {number} [pageSize] **参数解释:** 每页规则集数量。 **约束限制:** 不涉及。 **取值范围:** 1~1000 **默认取值:** 1000
+     * @param {number} [page] **参数解释:** 规则集页数。 **约束限制:** 不涉及。 **取值范围:** 0-999 **默认取值:** 1
+     * @param {string} [isReliable] 是否可信
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCriterionSetsByLanguage(listCriterionSetsByLanguageRequest?: ListCriterionSetsByLanguageRequest): Promise<ListCriterionSetsByLanguageResponse> {
+        const options = ParamCreater().listCriterionSetsByLanguage(listCriterionSetsByLanguageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -513,6 +568,28 @@ export class CodeArtsCheckClient {
     }
 
     /**
+     * 根据任务ID查询代码检查任务的基本信息，返回任务ID、任务名、项目ID、项目名、代码仓地址、分支和配置模板ID等信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 根据任务ID查询检查任务
+     * @param {string} taskId **参数解释：** 任务ID，即新建检查任务接口的返回值，每个代码检查任务及其下的分支任务、通过API创建的增量任务都有唯一的任务ID。即[[查询任务列表](https://support.huaweicloud.com/api-codecheck/ShowTasksList.html)](tag:hws)[[查询任务列表](https://support.huaweicloud.com/intl/zh-cn/api-codecheck/ShowTasksList.html)](tag:hws_hk)[查询任务列表](tag:hcs,hcs_sm)接口响应中的id字段。 **约束限制：** 不涉及。 **取值范围：** 长度为[1~32]个字符。 **默认取值：** 不涉及。
+     * @param {string} [mergeId] **参数解释：** 合并请求ID。 **约束限制：** 不涉及。 **取值范围：** 长度为[1~128]个字符。 **默认取值：** 不涉及。
+     * @param {string} [jobId] **参数解释：** 执行记录ID，即每一次执行版本级或门禁级扫描的唯一ID。通过[[执行检查任务](https://support.huaweicloud.com/api-codecheck/RunTaskV2.html)](tag:hws)[[执行检查任务](https://support.huaweicloud.com/intl/zh-cn/api-codecheck/RunTaskV2.html)](tag:hws_hk)[执行检查任务](tag:hcs,hcs_sm,hcs_site,hcs_sitesm,fcs)接口的返回值可获取执行记录ID。 **约束限制：** 不涉及。 **取值范围：** 长度为[1~64]个字符。 **默认取值：** 不涉及。
+     * @param {string} [operator] **参数解释：** 操作者。 **约束限制：** 不涉及。 **取值范围：** 长度为[1~128]个字符。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTaskInfoById(showTaskInfoByIdRequest?: ShowTaskInfoByIdRequest): Promise<ShowTaskInfoByIdResponse> {
+        const options = ParamCreater().showTaskInfoById(showTaskInfoByIdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据DEVCLOUD_PROJECT_UUID查询该项目下的任务列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -600,6 +677,40 @@ export class CodeArtsCheckClient {
     }
 
     /**
+     * 根据项目ID、需要搜索的任务名、任务分组ID和任务执行状态分页查询项目下的代码检查任务，返回任务名称、代码仓地址、分支、配置模板ID和规则集等信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询任务列表
+     * @param {number} [page] **参数解释：** 分页页码。 **约束限制：** 分页页码≥1。 **取值范围:** 1-2147483647 **默认取值：**  不涉及。
+     * @param {number} [pageSize] **参数解释：** 分页大小。 **约束限制：** 数字1-200之间。 **取值范围:** 1-200 **默认取值：** 不涉及。
+     * @param {string} [search] **参数解释：** 需要搜索的任务名。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [projectId] **参数解释：** 项目的32位UUID，项目唯一标识，通过[[查询项目列表](https://support.huaweicloud.com/api-projectman/ListProjectsV4.html)](tag:hws)[[查询项目列表](https://support.huaweicloud.com/intl/zh-cn/api-projectman/ListProjectsV4.html)](tag:hws_hk)[查询项目列表](tag:hcs,hcs_sm,hcs_site,hcs_sitesm,fcs)接口获取。 **约束条件：** 不涉及。 **取值范围：** 长度为[1~32]个字符。 **默认取值：** 不涉及。
+     * @param {string} [reviewResultTypes] **参数解释：** 门禁结果。 **约束限制：** 不涉及。 **取值范围：** - success：门禁通过。 - error：门禁不通过。 **默认取值：** 不涉及。
+     * @param {string} [jobStatusTypes] **参数解释：** 检查状态。 **约束限制：** 不涉及。 **取值范围：** - success：检查成功。 - failed：检查失败。 - aborted：检查终止。 - executing：检查中。 - never_execute：未检查。 **默认取值：** 不涉及。
+     * @param {string} [orderByExecuteTime] **参数解释：** 是否按照执行时间排序。 **约束限制：** 不涉及。 **取值范围：** - up：按照执行时间升序排序。 - down：按照执行时间降序排序。 **默认取值：** 不涉及。
+     * @param {string} [taskClassificationId] **参数解释：** 任务的分组ID，可通过列出项目下的分组信息接口获取任务的分组ID。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {number} [offset] 列表类接口参数
+     * @param {number} [limit] 列表类接口参数
+     * @param {string} [sortField] **参数解释：** 排序字段,任务列表每次只能根据一个字段进行排序。 **约束限制：** 不涉及。
+     * @param {string} [sortOrder] **参数解释：** 排序顺序，取值范围：\&quot;up\&quot;（升序）、\&quot;down\&quot;（降序） **约束限制：** 不涉及。
+     * @param {string} [operator] **参数解释：** 操作人，填写账号用户名。 **约束限制：** 不涉及。 **取值范围：** 长度为[1~128]个字符。 **默认取值：** 不涉及。
+     * @param {string} [repoUrl] **参数解释：** 代码仓地址。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [branch] **参数解释：** 分支。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {string} [repoUrlFullMatch] **参数解释：** 和repo_url配合使用，查询任务时是否完全匹配repo_url。 **约束限制：** 不涉及。 **取值范围：** - true：只查询代码仓地址为repo_url的任务。 - false：查询ssh协议的代码仓地址或http协议的代码仓地址和repo_url匹配的任务。 **默认取值：** false。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTasksList(showTasksListRequest?: ShowTasksListRequest): Promise<ShowTasksListResponse> {
+        const options = ParamCreater().showTasksList(showTasksListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询任务的已选规则集列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -633,6 +744,26 @@ export class CodeArtsCheckClient {
      */
     public stopTaskById(stopTaskByIdRequest?: StopTaskByIdRequest): Promise<StopTaskByIdResponse> {
         const options = ParamCreater().stopTaskById(stopTaskByIdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据任务ID设置任务的致命问题数、严重问题数、一般问题数和提示问题数的质量门禁，在检查完成后，超过门禁阈值将提示门禁结果为Failed。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新门禁配置
+     * @param {UpdateCodeGateRequestBody} updateCodeGateRequestBody 任务门禁配置
+     * @param {string} [operator] **参数解释：** 操作者。 **约束限制：** 不涉及。 **取值范围：** 不涉及。 **默认取值：** 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateCodeGate(updateCodeGateRequest?: UpdateCodeGateRequest): Promise<UpdateCodeGateResponse> {
+        const options = ParamCreater().updateCodeGate(updateCodeGateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1098,6 +1229,84 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于查询项目下某一语言的规则集列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCriterionSetsByLanguage(listCriterionSetsByLanguageRequest?: ListCriterionSetsByLanguageRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/criterionsets/language",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let language;
+            
+            let projectId;
+            
+            let search;
+            
+            let pageSize;
+            
+            let page;
+            
+            let isReliable;
+
+            if (listCriterionSetsByLanguageRequest !== null && listCriterionSetsByLanguageRequest !== undefined) {
+                if (listCriterionSetsByLanguageRequest instanceof ListCriterionSetsByLanguageRequest) {
+                    language = listCriterionSetsByLanguageRequest.language;
+                    projectId = listCriterionSetsByLanguageRequest.projectId;
+                    search = listCriterionSetsByLanguageRequest.search;
+                    pageSize = listCriterionSetsByLanguageRequest.pageSize;
+                    page = listCriterionSetsByLanguageRequest.page;
+                    isReliable = listCriterionSetsByLanguageRequest.isReliable;
+                } else {
+                    language = listCriterionSetsByLanguageRequest['language'];
+                    projectId = listCriterionSetsByLanguageRequest['project_id'];
+                    search = listCriterionSetsByLanguageRequest['search'];
+                    pageSize = listCriterionSetsByLanguageRequest['page_size'];
+                    page = listCriterionSetsByLanguageRequest['page'];
+                    isReliable = listCriterionSetsByLanguageRequest['is_reliable'];
+                }
+            }
+
+        
+            if (language === null || language === undefined) {
+                throw new RequiredError('language','Required parameter language was null or undefined when calling listCriterionSetsByLanguage.');
+            }
+            if (language !== null && language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
+            if (projectId === null || projectId === undefined) {
+                throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listCriterionSetsByLanguage.');
+            }
+            if (projectId !== null && projectId !== undefined) {
+                localVarQueryParameter['project_id'] = projectId;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (isReliable !== null && isReliable !== undefined) {
+                localVarQueryParameter['is_reliable'] = isReliable;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1715,6 +1924,65 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据任务ID查询代码检查任务的基本信息，返回任务ID、任务名、项目ID、项目名、代码仓地址、分支和配置模板ID等信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTaskInfoById(showTaskInfoByIdRequest?: ShowTaskInfoByIdRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/task/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let taskId;
+            
+            let mergeId;
+            
+            let jobId;
+            
+            let operator;
+
+            if (showTaskInfoByIdRequest !== null && showTaskInfoByIdRequest !== undefined) {
+                if (showTaskInfoByIdRequest instanceof ShowTaskInfoByIdRequest) {
+                    taskId = showTaskInfoByIdRequest.taskId;
+                    mergeId = showTaskInfoByIdRequest.mergeId;
+                    jobId = showTaskInfoByIdRequest.jobId;
+                    operator = showTaskInfoByIdRequest.operator;
+                } else {
+                    taskId = showTaskInfoByIdRequest['task_id'];
+                    mergeId = showTaskInfoByIdRequest['merge_id'];
+                    jobId = showTaskInfoByIdRequest['job_id'];
+                    operator = showTaskInfoByIdRequest['operator'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showTaskInfoById.');
+            }
+            if (mergeId !== null && mergeId !== undefined) {
+                localVarQueryParameter['merge_id'] = mergeId;
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+            if (operator !== undefined && operator !== null) {
+                localVarHeaderParameter['operator'] = String(operator);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据DEVCLOUD_PROJECT_UUID查询该项目下的任务列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1944,6 +2212,148 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据项目ID、需要搜索的任务名、任务分组ID和任务执行状态分页查询项目下的代码检查任务，返回任务名称、代码仓地址、分支、配置模板ID和规则集等信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTasksList(showTasksListRequest?: ShowTasksListRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let page;
+            
+            let pageSize;
+            
+            let search;
+            
+            let projectId;
+            
+            let reviewResultTypes;
+            
+            let jobStatusTypes;
+            
+            let orderByExecuteTime;
+            
+            let taskClassificationId;
+            
+            let offset;
+            
+            let limit;
+            
+            let sortField;
+            
+            let sortOrder;
+            
+            let operator;
+            
+            let repoUrl;
+            
+            let branch;
+            
+            let repoUrlFullMatch;
+
+            if (showTasksListRequest !== null && showTasksListRequest !== undefined) {
+                if (showTasksListRequest instanceof ShowTasksListRequest) {
+                    page = showTasksListRequest.page;
+                    pageSize = showTasksListRequest.pageSize;
+                    search = showTasksListRequest.search;
+                    projectId = showTasksListRequest.projectId;
+                    reviewResultTypes = showTasksListRequest.reviewResultTypes;
+                    jobStatusTypes = showTasksListRequest.jobStatusTypes;
+                    orderByExecuteTime = showTasksListRequest.orderByExecuteTime;
+                    taskClassificationId = showTasksListRequest.taskClassificationId;
+                    offset = showTasksListRequest.offset;
+                    limit = showTasksListRequest.limit;
+                    sortField = showTasksListRequest.sortField;
+                    sortOrder = showTasksListRequest.sortOrder;
+                    operator = showTasksListRequest.operator;
+                    repoUrl = showTasksListRequest.repoUrl;
+                    branch = showTasksListRequest.branch;
+                    repoUrlFullMatch = showTasksListRequest.repoUrlFullMatch;
+                } else {
+                    page = showTasksListRequest['page'];
+                    pageSize = showTasksListRequest['page_size'];
+                    search = showTasksListRequest['search'];
+                    projectId = showTasksListRequest['project_id'];
+                    reviewResultTypes = showTasksListRequest['review_result_types'];
+                    jobStatusTypes = showTasksListRequest['job_status_types'];
+                    orderByExecuteTime = showTasksListRequest['order_by_execute_time'];
+                    taskClassificationId = showTasksListRequest['task_classification_id'];
+                    offset = showTasksListRequest['offset'];
+                    limit = showTasksListRequest['limit'];
+                    sortField = showTasksListRequest['sort_field'];
+                    sortOrder = showTasksListRequest['sort_order'];
+                    operator = showTasksListRequest['operator'];
+                    repoUrl = showTasksListRequest['repo_url'];
+                    branch = showTasksListRequest['branch'];
+                    repoUrlFullMatch = showTasksListRequest['repo_url_full_match'];
+                }
+            }
+
+        
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (search !== null && search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+            if (projectId !== null && projectId !== undefined) {
+                localVarQueryParameter['project_id'] = projectId;
+            }
+            if (reviewResultTypes !== null && reviewResultTypes !== undefined) {
+                localVarQueryParameter['review_result_types'] = reviewResultTypes;
+            }
+            if (jobStatusTypes !== null && jobStatusTypes !== undefined) {
+                localVarQueryParameter['job_status_types'] = jobStatusTypes;
+            }
+            if (orderByExecuteTime !== null && orderByExecuteTime !== undefined) {
+                localVarQueryParameter['order_by_execute_time'] = orderByExecuteTime;
+            }
+            if (taskClassificationId !== null && taskClassificationId !== undefined) {
+                localVarQueryParameter['task_classification_id'] = taskClassificationId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (sortField !== null && sortField !== undefined) {
+                localVarQueryParameter['sort_field'] = sortField;
+            }
+            if (sortOrder !== null && sortOrder !== undefined) {
+                localVarQueryParameter['sort_order'] = sortOrder;
+            }
+            if (repoUrl !== null && repoUrl !== undefined) {
+                localVarQueryParameter['repo_url'] = repoUrl;
+            }
+            if (branch !== null && branch !== undefined) {
+                localVarQueryParameter['branch'] = branch;
+            }
+            if (repoUrlFullMatch !== null && repoUrlFullMatch !== undefined) {
+                localVarQueryParameter['repo_url_full_match'] = repoUrlFullMatch;
+            }
+            if (operator !== undefined && operator !== null) {
+                localVarHeaderParameter['operator'] = String(operator);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询任务的已选规则集列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2035,6 +2445,51 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 根据任务ID设置任务的致命问题数、严重问题数、一般问题数和提示问题数的质量门禁，在检查完成后，超过门禁阈值将提示门禁结果为Failed。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateCodeGate(updateCodeGateRequest?: UpdateCodeGateRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/task/code-gate",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let operator;
+
+            if (updateCodeGateRequest !== null && updateCodeGateRequest !== undefined) {
+                if (updateCodeGateRequest instanceof UpdateCodeGateRequest) {
+                    body = updateCodeGateRequest.body
+                    operator = updateCodeGateRequest.operator;
+                } else {
+                    body = updateCodeGateRequest['body'];
+                    operator = updateCodeGateRequest['operator'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (operator !== undefined && operator !== null) {
+                localVarHeaderParameter['operator'] = String(operator);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

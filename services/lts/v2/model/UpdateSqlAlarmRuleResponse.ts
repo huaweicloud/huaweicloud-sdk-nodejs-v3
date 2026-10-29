@@ -1,3 +1,4 @@
+import { AlarmCondition } from './AlarmCondition';
 import { FrequencyRespBody } from './FrequencyRespBody';
 import { SqlRequestResponse } from './SqlRequestResponse';
 import { TagsResBody } from './TagsResBody';
@@ -24,6 +25,9 @@ export class UpdateSqlAlarmRuleResponse extends SdkResponse {
     private 'whether_recovery_policy'?: boolean;
     private 'recovery_policy'?: number;
     public tags?: Array<TagsResBody>;
+    private 'create_time'?: number;
+    private 'update_time'?: number;
+    private 'condition_expressions'?: Array<AlarmCondition>;
     public constructor() { 
         super();
     }
@@ -198,6 +202,36 @@ export class UpdateSqlAlarmRuleResponse extends SdkResponse {
     public withTags(tags: Array<TagsResBody>): UpdateSqlAlarmRuleResponse {
         this['tags'] = tags;
         return this;
+    }
+    public withCreateTime(createTime: number): UpdateSqlAlarmRuleResponse {
+        this['create_time'] = createTime;
+        return this;
+    }
+    public set createTime(createTime: number  | undefined) {
+        this['create_time'] = createTime;
+    }
+    public get createTime(): number | undefined {
+        return this['create_time'];
+    }
+    public withUpdateTime(updateTime: number): UpdateSqlAlarmRuleResponse {
+        this['update_time'] = updateTime;
+        return this;
+    }
+    public set updateTime(updateTime: number  | undefined) {
+        this['update_time'] = updateTime;
+    }
+    public get updateTime(): number | undefined {
+        return this['update_time'];
+    }
+    public withConditionExpressions(conditionExpressions: Array<AlarmCondition>): UpdateSqlAlarmRuleResponse {
+        this['condition_expressions'] = conditionExpressions;
+        return this;
+    }
+    public set conditionExpressions(conditionExpressions: Array<AlarmCondition>  | undefined) {
+        this['condition_expressions'] = conditionExpressions;
+    }
+    public get conditionExpressions(): Array<AlarmCondition> | undefined {
+        return this['condition_expressions'];
     }
 }
 

@@ -1,4 +1,6 @@
 import { CustomDate } from './CustomDate';
+import { KeywordsAlarmConditions } from './KeywordsAlarmConditions';
+import { TimeRange } from './TimeRange';
 
 
 export class KeywordsResBody {
@@ -13,6 +15,11 @@ export class KeywordsResBody {
     private 'search_time_range_unit'?: string;
     private 'custom_date'?: CustomDate;
     private 'is_time_range_relative'?: boolean;
+    public conditions?: Array<KeywordsAlarmConditions>;
+    private 'log_group_name_alias'?: string;
+    private 'log_stream_name_alias'?: string;
+    private 'eps_id'?: string;
+    private 'time_range'?: TimeRange;
     public constructor() { 
     }
     public withLogStreamId(logStreamId: string): KeywordsResBody {
@@ -112,6 +119,50 @@ export class KeywordsResBody {
     }
     public get isTimeRangeRelative(): boolean | undefined {
         return this['is_time_range_relative'];
+    }
+    public withConditions(conditions: Array<KeywordsAlarmConditions>): KeywordsResBody {
+        this['conditions'] = conditions;
+        return this;
+    }
+    public withLogGroupNameAlias(logGroupNameAlias: string): KeywordsResBody {
+        this['log_group_name_alias'] = logGroupNameAlias;
+        return this;
+    }
+    public set logGroupNameAlias(logGroupNameAlias: string  | undefined) {
+        this['log_group_name_alias'] = logGroupNameAlias;
+    }
+    public get logGroupNameAlias(): string | undefined {
+        return this['log_group_name_alias'];
+    }
+    public withLogStreamNameAlias(logStreamNameAlias: string): KeywordsResBody {
+        this['log_stream_name_alias'] = logStreamNameAlias;
+        return this;
+    }
+    public set logStreamNameAlias(logStreamNameAlias: string  | undefined) {
+        this['log_stream_name_alias'] = logStreamNameAlias;
+    }
+    public get logStreamNameAlias(): string | undefined {
+        return this['log_stream_name_alias'];
+    }
+    public withEpsId(epsId: string): KeywordsResBody {
+        this['eps_id'] = epsId;
+        return this;
+    }
+    public set epsId(epsId: string  | undefined) {
+        this['eps_id'] = epsId;
+    }
+    public get epsId(): string | undefined {
+        return this['eps_id'];
+    }
+    public withTimeRange(timeRange: TimeRange): KeywordsResBody {
+        this['time_range'] = timeRange;
+        return this;
+    }
+    public set timeRange(timeRange: TimeRange  | undefined) {
+        this['time_range'] = timeRange;
+    }
+    public get timeRange(): TimeRange | undefined {
+        return this['time_range'];
     }
 }
 

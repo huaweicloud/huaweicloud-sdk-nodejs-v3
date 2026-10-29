@@ -13,6 +13,8 @@ export class ListOpLogsRequest {
     private 'vault_id'?: string;
     private 'vault_name'?: string;
     private 'enterprise_project_id'?: string;
+    private 'destination_region'?: string;
+    private 'destination_project_id'?: string;
     public constructor() { 
     }
     public withEndTime(endTime: string): ListOpLogsRequest {
@@ -116,6 +118,26 @@ export class ListOpLogsRequest {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withDestinationRegion(destinationRegion: string): ListOpLogsRequest {
+        this['destination_region'] = destinationRegion;
+        return this;
+    }
+    public set destinationRegion(destinationRegion: string  | undefined) {
+        this['destination_region'] = destinationRegion;
+    }
+    public get destinationRegion(): string | undefined {
+        return this['destination_region'];
+    }
+    public withDestinationProjectId(destinationProjectId: string): ListOpLogsRequest {
+        this['destination_project_id'] = destinationProjectId;
+        return this;
+    }
+    public set destinationProjectId(destinationProjectId: string  | undefined) {
+        this['destination_project_id'] = destinationProjectId;
+    }
+    public get destinationProjectId(): string | undefined {
+        return this['destination_project_id'];
     }
 }
 

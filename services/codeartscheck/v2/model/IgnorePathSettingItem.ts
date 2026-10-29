@@ -3,9 +3,7 @@
 export class IgnorePathSettingItem {
     private 'file_path'?: string;
     private 'checkbox_status'?: string;
-    public constructor(filePath?: string, checkboxStatus?: string) { 
-        this['file_path'] = filePath;
-        this['checkbox_status'] = checkboxStatus;
+    public constructor() { 
     }
     public withFilePath(filePath: string): IgnorePathSettingItem {
         this['file_path'] = filePath;

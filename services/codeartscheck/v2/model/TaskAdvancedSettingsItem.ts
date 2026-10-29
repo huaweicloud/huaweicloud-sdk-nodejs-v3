@@ -3,9 +3,7 @@
 export class TaskAdvancedSettingsItem {
     public key?: string;
     public value?: string;
-    public constructor(key?: string, value?: string) { 
-        this['key'] = key;
-        this['value'] = value;
+    public constructor() { 
     }
     public withKey(key: string): TaskAdvancedSettingsItem {
         this['key'] = key;

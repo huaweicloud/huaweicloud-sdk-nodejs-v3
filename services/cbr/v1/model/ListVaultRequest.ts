@@ -12,6 +12,7 @@ export class ListVaultRequest {
     private 'policy_id'?: string;
     public status?: string;
     private 'resource_ids'?: string;
+    private 'availability_zone'?: string;
     public constructor() { 
     }
     public withLimit(limit: number): ListVaultRequest {
@@ -93,6 +94,16 @@ export class ListVaultRequest {
     }
     public get resourceIds(): string | undefined {
         return this['resource_ids'];
+    }
+    public withAvailabilityZone(availabilityZone: string): ListVaultRequest {
+        this['availability_zone'] = availabilityZone;
+        return this;
+    }
+    public set availabilityZone(availabilityZone: string  | undefined) {
+        this['availability_zone'] = availabilityZone;
+    }
+    public get availabilityZone(): string | undefined {
+        return this['availability_zone'];
     }
 }
 

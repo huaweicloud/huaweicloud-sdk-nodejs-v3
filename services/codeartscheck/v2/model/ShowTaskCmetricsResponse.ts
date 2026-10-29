@@ -10,6 +10,7 @@ export class ShowTaskCmetricsResponse extends SdkResponse {
     private 'git_branch'?: string;
     private 'last_check_time'?: string;
     private 'last_exec_time'?: string;
+    private 'last_check_finish_time'?: string;
     private 'check_type'?: string;
     private 'created_at'?: string;
     private 'metric_info'?: MetricInfo;
@@ -85,6 +86,16 @@ export class ShowTaskCmetricsResponse extends SdkResponse {
     }
     public get lastExecTime(): string | undefined {
         return this['last_exec_time'];
+    }
+    public withLastCheckFinishTime(lastCheckFinishTime: string): ShowTaskCmetricsResponse {
+        this['last_check_finish_time'] = lastCheckFinishTime;
+        return this;
+    }
+    public set lastCheckFinishTime(lastCheckFinishTime: string  | undefined) {
+        this['last_check_finish_time'] = lastCheckFinishTime;
+    }
+    public get lastCheckFinishTime(): string | undefined {
+        return this['last_check_finish_time'];
     }
     public withCheckType(checkType: string): ShowTaskCmetricsResponse {
         this['check_type'] = checkType;

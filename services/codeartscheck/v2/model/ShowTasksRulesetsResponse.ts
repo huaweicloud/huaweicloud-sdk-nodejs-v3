@@ -3,13 +3,13 @@ import { TaskRulesetInfo } from './TaskRulesetInfo';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowTasksRulesetsResponse extends SdkResponse {
-    public info?: Array<TaskRulesetInfo>;
+    public data?: Array<TaskRulesetInfo>;
     public total?: number;
     public constructor() { 
         super();
     }
-    public withInfo(info: Array<TaskRulesetInfo>): ShowTasksRulesetsResponse {
-        this['info'] = info;
+    public withData(data: Array<TaskRulesetInfo>): ShowTasksRulesetsResponse {
+        this['data'] = data;
         return this;
     }
     public withTotal(total: number): ShowTasksRulesetsResponse {

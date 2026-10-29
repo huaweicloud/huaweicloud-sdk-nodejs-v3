@@ -1,3 +1,4 @@
+import { AlarmCondition } from './AlarmCondition';
 import { FrequencyRespBody } from './FrequencyRespBody';
 import { SqlRequestResponse } from './SqlRequestResponse';
 import { TagsResBody } from './TagsResBody';
@@ -26,6 +27,7 @@ export class SqlAlarmRuleRespList {
     private 'notification_frequency'?: SqlAlarmRuleRespListNotificationFrequencyEnum | number;
     private 'alarm_action_rule_name'?: string;
     public tags?: Array<TagsResBody>;
+    private 'condition_expressions'?: Array<AlarmCondition>;
     public constructor(sqlAlarmRuleName?: string, sqlAlarmRuleId?: string, sqlAlarmRuleDescription?: string, sqlRequests?: Array<SqlRequestResponse>, frequency?: FrequencyRespBody, conditionExpression?: string, topics?: Array<Topics>, sqlAlarmLevel?: string, domainId?: string, createTime?: number, updateTime?: number, notificationFrequency?: number) { 
         this['sql_alarm_rule_name'] = sqlAlarmRuleName;
         this['sql_alarm_rule_id'] = sqlAlarmRuleId;
@@ -225,6 +227,16 @@ export class SqlAlarmRuleRespList {
     public withTags(tags: Array<TagsResBody>): SqlAlarmRuleRespList {
         this['tags'] = tags;
         return this;
+    }
+    public withConditionExpressions(conditionExpressions: Array<AlarmCondition>): SqlAlarmRuleRespList {
+        this['condition_expressions'] = conditionExpressions;
+        return this;
+    }
+    public set conditionExpressions(conditionExpressions: Array<AlarmCondition>  | undefined) {
+        this['condition_expressions'] = conditionExpressions;
+    }
+    public get conditionExpressions(): Array<AlarmCondition> | undefined {
+        return this['condition_expressions'];
     }
 }
 

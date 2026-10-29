@@ -1,3 +1,4 @@
+import { AlarmCondition } from './AlarmCondition';
 import { CreateSqlAlarmRuleFrequency } from './CreateSqlAlarmRuleFrequency';
 import { SqlRequest } from './SqlRequest';
 import { TagsRequestBody } from './TagsRequestBody';
@@ -22,13 +23,12 @@ export class UpdateSqlAlarmRuleRequestBody {
     private 'alarm_action_rule_name'?: string;
     public tags?: Array<TagsRequestBody>;
     private 'enterprise_project_id'?: string;
-    public constructor(sqlAlarmRuleId?: string, sqlAlarmRuleName?: string, sqlRequests?: Array<SqlRequest>, frequency?: CreateSqlAlarmRuleFrequency, conditionExpression?: string, sqlAlarmLevel?: string, domainId?: string, notificationFrequency?: number) { 
+    private 'condition_expressions'?: Array<AlarmCondition>;
+    public constructor(sqlAlarmRuleId?: string, sqlAlarmRuleName?: string, sqlRequests?: Array<SqlRequest>, frequency?: CreateSqlAlarmRuleFrequency, domainId?: string, notificationFrequency?: number) { 
         this['sql_alarm_rule_id'] = sqlAlarmRuleId;
         this['sql_alarm_rule_name'] = sqlAlarmRuleName;
         this['sql_requests'] = sqlRequests;
         this['frequency'] = frequency;
-        this['condition_expression'] = conditionExpression;
-        this['sql_alarm_level'] = sqlAlarmLevel;
         this['domain_id'] = domainId;
         this['notification_frequency'] = notificationFrequency;
     }
@@ -199,6 +199,16 @@ export class UpdateSqlAlarmRuleRequestBody {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withConditionExpressions(conditionExpressions: Array<AlarmCondition>): UpdateSqlAlarmRuleRequestBody {
+        this['condition_expressions'] = conditionExpressions;
+        return this;
+    }
+    public set conditionExpressions(conditionExpressions: Array<AlarmCondition>  | undefined) {
+        this['condition_expressions'] = conditionExpressions;
+    }
+    public get conditionExpressions(): Array<AlarmCondition> | undefined {
+        return this['condition_expressions'];
     }
 }
 

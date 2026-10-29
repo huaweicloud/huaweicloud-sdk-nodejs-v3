@@ -7,12 +7,11 @@ export class ConfigTaskParameterBody {
     public language?: string;
     public status?: string;
     private 'task_check_settings'?: Array<TaskCheckSettingsItem>;
-    public constructor(checkId?: number, rulesetId?: string, language?: string, status?: string, taskCheckSettings?: Array<TaskCheckSettingsItem>) { 
+    public constructor(checkId?: number, rulesetId?: string, language?: string, status?: string) { 
         this['check_id'] = checkId;
         this['ruleset_id'] = rulesetId;
         this['language'] = language;
         this['status'] = status;
-        this['task_check_settings'] = taskCheckSettings;
     }
     public withCheckId(checkId: number): ConfigTaskParameterBody {
         this['check_id'] = checkId;

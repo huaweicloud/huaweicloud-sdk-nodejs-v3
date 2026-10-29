@@ -5,6 +5,7 @@ export class ListUsersV5Request {
     public marker?: string;
     private 'group_id'?: string;
     private 'access_key_id'?: string;
+    private 'service_specific_credential_id'?: string;
     public constructor() { 
     }
     public withLimit(limit: number): ListUsersV5Request {
@@ -34,5 +35,15 @@ export class ListUsersV5Request {
     }
     public get accessKeyId(): string | undefined {
         return this['access_key_id'];
+    }
+    public withServiceSpecificCredentialId(serviceSpecificCredentialId: string): ListUsersV5Request {
+        this['service_specific_credential_id'] = serviceSpecificCredentialId;
+        return this;
+    }
+    public set serviceSpecificCredentialId(serviceSpecificCredentialId: string  | undefined) {
+        this['service_specific_credential_id'] = serviceSpecificCredentialId;
+    }
+    public get serviceSpecificCredentialId(): string | undefined {
+        return this['service_specific_credential_id'];
     }
 }

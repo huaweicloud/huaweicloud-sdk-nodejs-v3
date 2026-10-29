@@ -7,6 +7,8 @@ export class CreateLogStreamParams {
     public tags?: Array<TagsBody>;
     private 'log_stream_name_alias'?: string;
     private 'enterprise_project_name'?: string;
+    private 'hot_cold_separation'?: boolean;
+    private 'hot_storage_days'?: number;
     public constructor(logStreamName?: string) { 
         this['log_stream_name'] = logStreamName;
     }
@@ -53,5 +55,25 @@ export class CreateLogStreamParams {
     }
     public get enterpriseProjectName(): string | undefined {
         return this['enterprise_project_name'];
+    }
+    public withHotColdSeparation(hotColdSeparation: boolean): CreateLogStreamParams {
+        this['hot_cold_separation'] = hotColdSeparation;
+        return this;
+    }
+    public set hotColdSeparation(hotColdSeparation: boolean  | undefined) {
+        this['hot_cold_separation'] = hotColdSeparation;
+    }
+    public get hotColdSeparation(): boolean | undefined {
+        return this['hot_cold_separation'];
+    }
+    public withHotStorageDays(hotStorageDays: number): CreateLogStreamParams {
+        this['hot_storage_days'] = hotStorageDays;
+        return this;
+    }
+    public set hotStorageDays(hotStorageDays: number  | undefined) {
+        this['hot_storage_days'] = hotStorageDays;
+    }
+    public get hotStorageDays(): number | undefined {
+        return this['hot_storage_days'];
     }
 }

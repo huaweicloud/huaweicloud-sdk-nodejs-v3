@@ -1843,6 +1843,7 @@ export class IamClient {
      * @param {string} [marker] 分页标记，长度为4到400个字符，只包含字母、数字、\&quot;+\&quot;、\&quot;/\&quot;、\&quot;&#x3D;\&quot;、\&quot;-\&quot;和\&quot;_\&quot;的字符串。
      * @param {string} [groupId] 用户组ID，长度为1到64个字符，只包含字母、数字和\&quot;-\&quot;的字符串。
      * @param {string} [accessKeyId] 永久访问密钥ID，即AK。
+     * @param {string} [serviceSpecificCredentialId] **参数解释**： 服务专属凭证的标识符 ID。  **约束限制**： 不涉及。  **取值范围**： 长度固定为20，格式为HSSC + 16位随机字符，只能包含大小写字母和数字。  **默认取值**： 不涉及。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5400,6 +5401,8 @@ export const ParamCreater = function () {
             let groupId;
             
             let accessKeyId;
+            
+            let serviceSpecificCredentialId;
 
             if (listUsersV5Request !== null && listUsersV5Request !== undefined) {
                 if (listUsersV5Request instanceof ListUsersV5Request) {
@@ -5407,11 +5410,13 @@ export const ParamCreater = function () {
                     marker = listUsersV5Request.marker;
                     groupId = listUsersV5Request.groupId;
                     accessKeyId = listUsersV5Request.accessKeyId;
+                    serviceSpecificCredentialId = listUsersV5Request.serviceSpecificCredentialId;
                 } else {
                     limit = listUsersV5Request['limit'];
                     marker = listUsersV5Request['marker'];
                     groupId = listUsersV5Request['group_id'];
                     accessKeyId = listUsersV5Request['access_key_id'];
+                    serviceSpecificCredentialId = listUsersV5Request['service_specific_credential_id'];
                 }
             }
 
@@ -5427,6 +5432,9 @@ export const ParamCreater = function () {
             }
             if (accessKeyId !== null && accessKeyId !== undefined) {
                 localVarQueryParameter['access_key_id'] = accessKeyId;
+            }
+            if (serviceSpecificCredentialId !== null && serviceSpecificCredentialId !== undefined) {
+                localVarQueryParameter['service_specific_credential_id'] = serviceSpecificCredentialId;
             }
 
             options.queryParams = localVarQueryParameter;

@@ -8,6 +8,9 @@ export class SimpleTaskInfoV2 {
     private 'git_branch'?: string;
     private 'created_at'?: string;
     private 'last_check_time'?: string;
+    private 'sm_level'?: string;
+    private 'sm_level_name_en'?: string;
+    private 'sm_level_name'?: string;
     public constructor() { 
     }
     public withTaskId(taskId: string): SimpleTaskInfoV2 {
@@ -79,5 +82,35 @@ export class SimpleTaskInfoV2 {
     }
     public get lastCheckTime(): string | undefined {
         return this['last_check_time'];
+    }
+    public withSmLevel(smLevel: string): SimpleTaskInfoV2 {
+        this['sm_level'] = smLevel;
+        return this;
+    }
+    public set smLevel(smLevel: string  | undefined) {
+        this['sm_level'] = smLevel;
+    }
+    public get smLevel(): string | undefined {
+        return this['sm_level'];
+    }
+    public withSmLevelNameEn(smLevelNameEn: string): SimpleTaskInfoV2 {
+        this['sm_level_name_en'] = smLevelNameEn;
+        return this;
+    }
+    public set smLevelNameEn(smLevelNameEn: string  | undefined) {
+        this['sm_level_name_en'] = smLevelNameEn;
+    }
+    public get smLevelNameEn(): string | undefined {
+        return this['sm_level_name_en'];
+    }
+    public withSmLevelName(smLevelName: string): SimpleTaskInfoV2 {
+        this['sm_level_name'] = smLevelName;
+        return this;
+    }
+    public set smLevelName(smLevelName: string  | undefined) {
+        this['sm_level_name'] = smLevelName;
+    }
+    public get smLevelName(): string | undefined {
+        return this['sm_level_name'];
     }
 }

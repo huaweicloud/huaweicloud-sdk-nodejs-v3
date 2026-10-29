@@ -5,6 +5,7 @@ export class RunRequestV2 {
     private 'access_token'?: string;
     private 'git_url'?: string;
     private 'git_branch'?: string;
+    public ref?: string;
     public constructor() { 
     }
     public withUsername(username: string): RunRequestV2 {
@@ -40,5 +41,9 @@ export class RunRequestV2 {
     }
     public get gitBranch(): string | undefined {
         return this['git_branch'];
+    }
+    public withRef(ref: string): RunRequestV2 {
+        this['ref'] = ref;
+        return this;
     }
 }

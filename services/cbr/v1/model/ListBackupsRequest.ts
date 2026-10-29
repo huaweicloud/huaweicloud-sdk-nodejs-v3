@@ -24,6 +24,7 @@ export class ListBackupsRequest {
     private 'used_percent'?: string;
     private 'show_replication'?: boolean;
     public incremental?: boolean;
+    private 'existed_quantity_based_retention_backups'?: boolean;
     public constructor() { 
     }
     public withCheckpointId(checkpointId: string): ListBackupsRequest {
@@ -207,6 +208,16 @@ export class ListBackupsRequest {
     public withIncremental(incremental: boolean): ListBackupsRequest {
         this['incremental'] = incremental;
         return this;
+    }
+    public withExistedQuantityBasedRetentionBackups(existedQuantityBasedRetentionBackups: boolean): ListBackupsRequest {
+        this['existed_quantity_based_retention_backups'] = existedQuantityBasedRetentionBackups;
+        return this;
+    }
+    public set existedQuantityBasedRetentionBackups(existedQuantityBasedRetentionBackups: boolean  | undefined) {
+        this['existed_quantity_based_retention_backups'] = existedQuantityBasedRetentionBackups;
+    }
+    public get existedQuantityBasedRetentionBackups(): boolean | undefined {
+        return this['existed_quantity_based_retention_backups'];
     }
 }
 

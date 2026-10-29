@@ -2,6 +2,7 @@ import { Action } from './Action';
 import { BindHost } from './BindHost';
 import { PolicyAction } from './PolicyAction';
 import { PolicyOption } from './PolicyOption';
+import { ScanProtectionOption } from './ScanProtectionOption';
 
 
 export class UpdatePolicyRequestBody {
@@ -15,6 +16,7 @@ export class UpdatePolicyRequestBody {
     public hosts?: Array<string>;
     private 'bind_host'?: Array<BindHost>;
     public extend?: { [key: string]: string; };
+    private 'scan_protection_options'?: ScanProtectionOption;
     public constructor() { 
     }
     public withName(name: string): UpdatePolicyRequestBody {
@@ -80,5 +82,15 @@ export class UpdatePolicyRequestBody {
     public withExtend(extend: { [key: string]: string; }): UpdatePolicyRequestBody {
         this['extend'] = extend;
         return this;
+    }
+    public withScanProtectionOptions(scanProtectionOptions: ScanProtectionOption): UpdatePolicyRequestBody {
+        this['scan_protection_options'] = scanProtectionOptions;
+        return this;
+    }
+    public set scanProtectionOptions(scanProtectionOptions: ScanProtectionOption  | undefined) {
+        this['scan_protection_options'] = scanProtectionOptions;
+    }
+    public get scanProtectionOptions(): ScanProtectionOption | undefined {
+        return this['scan_protection_options'];
     }
 }

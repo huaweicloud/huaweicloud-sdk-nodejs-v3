@@ -3,8 +3,7 @@ import { IgnorePathSettingItem } from './IgnorePathSettingItem';
 
 export class UpdateIgnorePathRequestBody {
     private 'ignore_path_settings'?: Array<IgnorePathSettingItem>;
-    public constructor(ignorePathSettings?: Array<IgnorePathSettingItem>) { 
-        this['ignore_path_settings'] = ignorePathSettings;
+    public constructor() { 
     }
     public withIgnorePathSettings(ignorePathSettings: Array<IgnorePathSettingItem>): UpdateIgnorePathRequestBody {
         this['ignore_path_settings'] = ignorePathSettings;

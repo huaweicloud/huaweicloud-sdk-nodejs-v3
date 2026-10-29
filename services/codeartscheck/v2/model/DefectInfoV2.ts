@@ -6,7 +6,9 @@ export class DefectInfoV2 {
     private 'defect_id'?: string;
     private 'defect_checker_name'?: string;
     private 'defect_status'?: string;
+    private 'defect_owner'?: string;
     private 'rule_system_tags'?: string;
+    private 'rule_id'?: string;
     private 'rule_name'?: string;
     private 'line_number'?: string;
     private 'defect_content'?: string;
@@ -48,6 +50,16 @@ export class DefectInfoV2 {
     public get defectStatus(): string | undefined {
         return this['defect_status'];
     }
+    public withDefectOwner(defectOwner: string): DefectInfoV2 {
+        this['defect_owner'] = defectOwner;
+        return this;
+    }
+    public set defectOwner(defectOwner: string  | undefined) {
+        this['defect_owner'] = defectOwner;
+    }
+    public get defectOwner(): string | undefined {
+        return this['defect_owner'];
+    }
     public withRuleSystemTags(ruleSystemTags: string): DefectInfoV2 {
         this['rule_system_tags'] = ruleSystemTags;
         return this;
@@ -57,6 +69,16 @@ export class DefectInfoV2 {
     }
     public get ruleSystemTags(): string | undefined {
         return this['rule_system_tags'];
+    }
+    public withRuleId(ruleId: string): DefectInfoV2 {
+        this['rule_id'] = ruleId;
+        return this;
+    }
+    public set ruleId(ruleId: string  | undefined) {
+        this['rule_id'] = ruleId;
+    }
+    public get ruleId(): string | undefined {
+        return this['rule_id'];
     }
     public withRuleName(ruleName: string): DefectInfoV2 {
         this['rule_name'] = ruleName;

@@ -159,9 +159,8 @@ export enum NodeTypeEnum {
     SMN = 'SMN',
     MRSSPARK = 'MRSSpark',
     MAPREDUCE = 'MapReduce',
-    MRSFLINK = 'MRSFlink',
     MRSFLINKJOB = 'MRSFlinkJob',
-    MRSHETUENGINE = 'MRSHetuEngine',
+    HETUENGINESQL = 'HetuEngineSQL',
     DATAMIGRATION = 'DataMigration'
 }
 /**

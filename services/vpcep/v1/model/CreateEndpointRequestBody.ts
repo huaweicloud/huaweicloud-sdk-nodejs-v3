@@ -17,6 +17,7 @@ export class CreateEndpointRequestBody {
     private 'policy_document'?: object;
     private 'ip_version'?: CreateEndpointRequestBodyIpVersionEnum | string;
     private 'ipv6_address'?: string;
+    public edition?: CreateEndpointRequestBodyEditionEnum | string;
     public constructor(endpointServiceId?: string, vpcId?: string) { 
         this['endpoint_service_id'] = endpointServiceId;
         this['vpc_id'] = vpcId;
@@ -137,6 +138,10 @@ export class CreateEndpointRequestBody {
     public get ipv6Address(): string | undefined {
         return this['ipv6_address'];
     }
+    public withEdition(edition: CreateEndpointRequestBodyEditionEnum | string): CreateEndpointRequestBody {
+        this['edition'] = edition;
+        return this;
+    }
 }
 
 /**
@@ -146,4 +151,12 @@ export class CreateEndpointRequestBody {
 export enum CreateEndpointRequestBodyIpVersionEnum {
     IPV4 = 'ipv4',
     DUALSTACK = 'dualstack'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateEndpointRequestBodyEditionEnum {
+    PROFESSION = 'profession',
+    BASIC = 'basic'
 }

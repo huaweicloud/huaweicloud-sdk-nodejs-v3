@@ -29,8 +29,17 @@ export class ShowTaskDetailResponse extends SdkResponse {
     private 'minor_count'?: string;
     private 'suggestion_count'?: string;
     private 'is_access'?: string;
+    private 'review_result'?: string;
     private 'trigger_type'?: string;
     private 'file_duplication_ratio'?: string;
+    private 'new_count'?: number;
+    private 'solve_count'?: number;
+    private 'dismissed_count'?: number;
+    private 'duplicated_files'?: number;
+    private 'new_critical_count'?: string;
+    private 'new_major_count'?: string;
+    private 'new_minor_count'?: string;
+    private 'new_suggestion_count'?: string;
     public constructor() { 
         super();
     }
@@ -304,6 +313,16 @@ export class ShowTaskDetailResponse extends SdkResponse {
     public get isAccess(): string | undefined {
         return this['is_access'];
     }
+    public withReviewResult(reviewResult: string): ShowTaskDetailResponse {
+        this['review_result'] = reviewResult;
+        return this;
+    }
+    public set reviewResult(reviewResult: string  | undefined) {
+        this['review_result'] = reviewResult;
+    }
+    public get reviewResult(): string | undefined {
+        return this['review_result'];
+    }
     public withTriggerType(triggerType: string): ShowTaskDetailResponse {
         this['trigger_type'] = triggerType;
         return this;
@@ -323,5 +342,85 @@ export class ShowTaskDetailResponse extends SdkResponse {
     }
     public get fileDuplicationRatio(): string | undefined {
         return this['file_duplication_ratio'];
+    }
+    public withNewCount(newCount: number): ShowTaskDetailResponse {
+        this['new_count'] = newCount;
+        return this;
+    }
+    public set newCount(newCount: number  | undefined) {
+        this['new_count'] = newCount;
+    }
+    public get newCount(): number | undefined {
+        return this['new_count'];
+    }
+    public withSolveCount(solveCount: number): ShowTaskDetailResponse {
+        this['solve_count'] = solveCount;
+        return this;
+    }
+    public set solveCount(solveCount: number  | undefined) {
+        this['solve_count'] = solveCount;
+    }
+    public get solveCount(): number | undefined {
+        return this['solve_count'];
+    }
+    public withDismissedCount(dismissedCount: number): ShowTaskDetailResponse {
+        this['dismissed_count'] = dismissedCount;
+        return this;
+    }
+    public set dismissedCount(dismissedCount: number  | undefined) {
+        this['dismissed_count'] = dismissedCount;
+    }
+    public get dismissedCount(): number | undefined {
+        return this['dismissed_count'];
+    }
+    public withDuplicatedFiles(duplicatedFiles: number): ShowTaskDetailResponse {
+        this['duplicated_files'] = duplicatedFiles;
+        return this;
+    }
+    public set duplicatedFiles(duplicatedFiles: number  | undefined) {
+        this['duplicated_files'] = duplicatedFiles;
+    }
+    public get duplicatedFiles(): number | undefined {
+        return this['duplicated_files'];
+    }
+    public withNewCriticalCount(newCriticalCount: string): ShowTaskDetailResponse {
+        this['new_critical_count'] = newCriticalCount;
+        return this;
+    }
+    public set newCriticalCount(newCriticalCount: string  | undefined) {
+        this['new_critical_count'] = newCriticalCount;
+    }
+    public get newCriticalCount(): string | undefined {
+        return this['new_critical_count'];
+    }
+    public withNewMajorCount(newMajorCount: string): ShowTaskDetailResponse {
+        this['new_major_count'] = newMajorCount;
+        return this;
+    }
+    public set newMajorCount(newMajorCount: string  | undefined) {
+        this['new_major_count'] = newMajorCount;
+    }
+    public get newMajorCount(): string | undefined {
+        return this['new_major_count'];
+    }
+    public withNewMinorCount(newMinorCount: string): ShowTaskDetailResponse {
+        this['new_minor_count'] = newMinorCount;
+        return this;
+    }
+    public set newMinorCount(newMinorCount: string  | undefined) {
+        this['new_minor_count'] = newMinorCount;
+    }
+    public get newMinorCount(): string | undefined {
+        return this['new_minor_count'];
+    }
+    public withNewSuggestionCount(newSuggestionCount: string): ShowTaskDetailResponse {
+        this['new_suggestion_count'] = newSuggestionCount;
+        return this;
+    }
+    public set newSuggestionCount(newSuggestionCount: string  | undefined) {
+        this['new_suggestion_count'] = newSuggestionCount;
+    }
+    public get newSuggestionCount(): string | undefined {
+        return this['new_suggestion_count'];
     }
 }
